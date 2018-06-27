@@ -24,12 +24,16 @@ namespace DevTools
 
 		private static void PopulateReferences(List<CharacterDetailLine> lines)
 		{
-		    ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
-			Dictionary<string, List<BCVRef>> dictionary = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+			Dictionary<string, List<BCVRef>> dictionaryWithHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
+			Dictionary<string, List<BCVRef>> dictionaryWithoutHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			Dictionary<string, List<BCVRef>> dictionaryOfDefaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.DefaultCharacter).ToDictionary(dc => dc.Key, cv => cv.Select(c => c.BcvRef).ToList());
+
 			foreach (var line in lines)
 			{
-				List<BCVRef> bcvRefs;
-				if (dictionary.TryGetValue(line.CharacterId, out bcvRefs))
+				if (dictionaryWithHypotheticals.TryGetValue(line.CharacterId, out var bcvRefs))
+				{
 					switch (bcvRefs.Count)
 					{
 						case 0:
@@ -44,6 +48,13 @@ namespace DevTools
 							line.ReferenceComment = bcvRefs.Min() + " <-(" + (bcvRefs.Count - 2) + " more)-> " + bcvRefs.Max();
 							break;
 					}
+
+					if (!dictionaryWithoutHypotheticals.TryGetValue(line.CharacterId, out bcvRefs) &&
+					    !dictionaryOfDefaultCharacters.TryGetValue(line.CharacterId, out bcvRefs))
+					{
+						line.HypotheticalOnly = true;
+					}
+				}
 			}
 		}
 
@@ -57,16 +68,19 @@ namespace DevTools
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			if (s_findTabsRegex.Matches(line.CurrentLine).Count == 5)
-				return line.CurrentLine + kTab + line.ReferenceComment;
+			// Just making sure...
+			if (s_findTabsRegex.Matches(line.CurrentLine).Count != 7)
+				throw new ArgumentException();
 
-			int finalTabIndex = line.CurrentLine.LastIndexOf("\t", StringComparison.Ordinal);
-			return line.CurrentLine.Substring(0, finalTabIndex + 1) + line.ReferenceComment;
+			var match = Regex.Match(line.CurrentLine, @"\t[^\t]*\t", RegexOptions.RightToLeft);
+			var lineWithReferenceComment = line.CurrentLine.Substring(0, match.Index + 1) + line.ReferenceComment;
+
+			return $"{lineWithReferenceComment}\t{line.HypotheticalOnly}";
 		}
 
 		private static void WriteFile(string fileText)
 		{
-			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference Comment" + Environment.NewLine + fileText;
+			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference Comment\tHypothetical Only" + Environment.NewLine + fileText;
 			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
 		}
 
@@ -93,6 +107,7 @@ namespace DevTools
 			public string CharacterId { get; set; }
 			public string CurrentLine { get; set; }
 			public string ReferenceComment { get; set; }
+			public bool HypotheticalOnly { get; set; }
 		}
 
 		public static void GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit()
