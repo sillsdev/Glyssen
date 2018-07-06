@@ -24,7 +24,7 @@ namespace Glyssen.Dialogs
 		private int m_blockSplitIdCounter = 1;  // zero is reserved for assigning a character id to the first segment
 		private readonly IEnumerable<AssignCharacterViewModel.Character> m_characters;
 		private readonly string m_css = Resources.BlockSplitCss;
-		private readonly Regex m_verseNumberRegex = new Regex(@"<sup>.*</sup>");
+		private readonly Regex m_verseNumberRegex = new Regex(@"(<span.*?>.+?<\/span>)+<sup>.*?<\/sup>");
 
 		public SplitBlockDlg(FontProxy fontProxy, IEnumerable<Block> originalBlocks,
 			IEnumerable<AssignCharacterViewModel.Character> charactersForCurrentReference,
@@ -218,14 +218,14 @@ namespace Glyssen.Dialogs
 					newOffset = segmentText.Length;
 				}
 			}
-			
+
 			if (newOffset == 0)
 			{
 				var newTargetElement = targetElement.PreviousSibling as GeckoDivElement;
 
 				// Can't split at start of first block.
 				if (newTargetElement == null)
-					return false; 
+					return false;
 
 				// if the previous sibling is a split, this is a duplicate
 				if (newTargetElement.ClassName == "split-line")
