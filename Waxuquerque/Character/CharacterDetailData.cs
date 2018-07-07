@@ -121,6 +121,17 @@ namespace Waxuquerque.Character
 			if (lineNumber == 0)
 				return null;
 
+			// In an ideal world, we would probably like to keep "hypothetical-only" characters
+			// around so we can show them in the add character lists.
+			// But
+			// 1) They already don't show up there before this change.
+			// 2) I'm currently just trying to fix a crash which occurs when the user adds a
+			//    "hypothetical-only" character (PG-1104). And it doesn't feel worth it to go
+			//    for the ideal world quite yet.
+			var hypotheticalOnly = items.Length >= 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase);
+			if (ControlCharacterVerseData.ReadHypotheticalAsNarrator && hypotheticalOnly)
+				return null;
+
 			CharacterGender gender;
 			if (!Enum.TryParse(items[2], false, out gender))
 				gender = CharacterGender.Either;

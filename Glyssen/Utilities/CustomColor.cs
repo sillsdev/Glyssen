@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using Glyssen.Character;
-using Glyssen.Dialogs;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
 
 namespace Glyssen.Utilities
 {

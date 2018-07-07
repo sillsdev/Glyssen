@@ -31,7 +31,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
 			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t(" + typeof(CharacterGender).GetRegexEnumValuesString() + ")?\t(" +
-				typeof(CharacterAge).GetRegexEnumValuesString() + ")?\tY?\t[^\t]*\t[^\t]*$", RegexOptions.Compiled);
+				typeof(CharacterAge).GetRegexEnumValuesString() + ")?\tY?\t[^\t]*\t[^\t]*\t[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 

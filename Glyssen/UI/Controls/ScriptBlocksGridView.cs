@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Character;
 using SIL.Scripture;
 using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;

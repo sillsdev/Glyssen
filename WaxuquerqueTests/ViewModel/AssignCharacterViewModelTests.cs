@@ -1517,6 +1517,18 @@ namespace WaxuquerqueTests.ViewModel
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
+		// PG-1104
+		[Test]
+		public void StoreCharacterDetail_CharacterDetailOnlyUsedForHypotheticalSpeech_DoesNotThrow()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.StoreCharacterDetail("sluggard", CharacterGender.Male, CharacterAge.Adult);
+			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("sluggard"),
+				AssignCharacterViewModel.Delivery.Normal);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, GiveUserChanceToFindOriginalBundle);
+			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("sluggard"));
+		}
+
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_TwoAddedCharacters_AddsBothToProject()
 		{
