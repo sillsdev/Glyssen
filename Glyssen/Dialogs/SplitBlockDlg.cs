@@ -24,7 +24,13 @@ namespace Glyssen.Dialogs
 		private int m_blockSplitIdCounter = 1;  // zero is reserved for assigning a character id to the first segment
 		private readonly IEnumerable<AssignCharacterViewModel.Character> m_characters;
 		private readonly string m_css = Resources.BlockSplitCss;
-		private readonly Regex m_verseNumberRegex = new Regex(@"(<span.*?>.+?<\/span>)+<sup>.*?<\/sup>");
+
+		// For purposes of splitting, anyway, we treat leading punctuation as if is permanently attached to the
+		// beginning of the verse just as much as the verse number is. So the user may not split within
+		// (or just after) the leading punctuation. This means the split index is always without regard to
+		// the presence or absence of leading punctuation.
+		// This was perhaps more of an ease-of-implementation decision rather than a decision made on its merits.
+		private readonly Regex m_verseNumberRegex = new Regex(@"(" + Regex.Escape(Block.kLeadingPunctuationHtmlStart) + ".*?" + Regex.Escape(Block.kLeadingPunctuationHtmlEnd) + ")?<sup>.*?</sup>");
 
 		public SplitBlockDlg(FontProxy fontProxy, IEnumerable<Block> originalBlocks,
 			IEnumerable<AssignCharacterViewModel.Character> charactersForCurrentReference,

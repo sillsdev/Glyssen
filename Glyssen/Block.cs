@@ -30,6 +30,9 @@ namespace Glyssen
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		public const string kLeadingPunctuationHtmlStart = "<span class=\"leading-punctuation\">";
+		public const string kLeadingPunctuationHtmlEnd = "</span>";
+
 		private static readonly Regex s_regexFollowOnParagraphStyles;
 		internal static Regex s_regexInterruption;
 
@@ -545,18 +548,16 @@ namespace Glyssen
 			return bldr.ToString();
 		}
 
-		public bool TryGetLeadingPunctuation(out ScriptText scriptTextWithLeadingPunctuation)
+		private string GetLeadingPunctuation()
 		{
 			if (BlockElements.FirstOrDefault() is ScriptText initialScriptText &&
 			    BlockElements.Skip(1).FirstOrDefault() is Verse initialVerse &&
 			    initialVerse.Number == InitialVerseNumberOrBridge)
 			{
-				scriptTextWithLeadingPunctuation = initialScriptText;
-				return true;
+				return initialScriptText.Content;
 			}
 
-			scriptTextWithLeadingPunctuation = null;
-			return false;
+			return null;
 		}
 
 		public string GetSplitTextAsHtml(int blockId, bool rightToLeftScript, IEnumerable<BlockSplitData> blockSplits, bool showCharacters)
@@ -564,19 +565,20 @@ namespace Glyssen
 			var bldr = new StringBuilder();
 			var currVerse = InitialVerseNumberOrBridge;
 			var verseNumberHtml = Empty;
-			var leadingPunctuationHtml = Empty;
+			string leadingPunctuationHtml = null;
 			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{4}{0}{1}</div>";
-			const string leadingPunctuationTemplate = "<span class=\"leading-punctuation\">{0}</span>";
+			const string leadingPunctuationTemplate = kLeadingPunctuationHtmlStart + "{0}" + kLeadingPunctuationHtmlEnd;
 
 			// Look for special case where verse has leading punctuation before the verse number such as
 			// ({1} This verse is surrounded by parentheses)
 			// This can only happen at the beginning of a block.
 			// If we have it, we basically want to do the split as if it wasn't there at all. i.e. Split the main part of the verse only, and
 			// do not include the leading punctuation as part of the offset.
-			if (TryGetLeadingPunctuation(out ScriptText initialScriptText))
-				leadingPunctuationHtml = Format(leadingPunctuationTemplate, initialScriptText.Content);
+			var leadingPunctuation = GetLeadingPunctuation();
+			if (leadingPunctuation != null)
+				leadingPunctuationHtml = Format(leadingPunctuationTemplate, leadingPunctuation);
 
-			foreach (var blockElement in BlockElements.Skip(leadingPunctuationHtml != Empty ? 1 : 0))
+			foreach (var blockElement in BlockElements.Skip(leadingPunctuationHtml != null ? 1 : 0))
 			{
 				// add verse marker
 				if (blockElement is Verse verse)
@@ -632,7 +634,7 @@ namespace Glyssen
 						{
 							newSegments.Add(Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse, leadingPunctuationHtml));
 							verseNumberHtml = Empty;
-							leadingPunctuationHtml = Empty;
+							leadingPunctuationHtml = null;
 						}
 
 						encodedContent = Join(kAwooga, newSegments);
@@ -647,7 +649,7 @@ namespace Glyssen
 				// reset verse number element
 				verseNumberHtml = Empty;
 
-				leadingPunctuationHtml = Empty;
+				leadingPunctuationHtml = null;
 			}
 
 			return bldr.ToString();
