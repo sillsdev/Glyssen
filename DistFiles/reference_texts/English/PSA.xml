@@ -2668,7 +2668,7 @@
   <block style="c" paragraphStart="true" chapter="45" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>45</text>
   </block>
-  <block style="p" chapter="44" initialStartVerse="0" characterId="narrator-PSA">
+  <block style="p" chapter="45" initialStartVerse="0" characterId="narrator-PSA">
     <text>For the Chief Musician. Set to «The Lilies.» A contemplation by the sons of Korah. A wedding song.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="1" characterId="narrator-PSA">

@@ -65,7 +65,7 @@ angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18	False
 angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11	False
 angel who talked with Zechariah	1		Adult			ZEC 1:9 <-(23 more)-> ZEC 6:8	False
 angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29	False
-angel, another (vision)	1		Adult			ZEC 2:4	False
+angel, another (vision)	1		Adult			ZEC 2:4 & ZEC 2:5	False
 angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3	False
 angel, coming out of temple	1		Adult			REV 14:15	False
 angel, coming out of temple, another	1		Adult			REV 14:18	False
@@ -227,7 +227,7 @@ crowd, some in	-1		Adult			LUK 11:15	False
 cured man, blind from birth	1	Male	Adult			JHN 9:9 <-(11 more)-> JHN 9:38	False
 Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(2 more)-> EZR 1:4	False
 Dan	1	Male	Adult				False
-Daniel	1	Male	Adult			DAN 1:12 <-(94 more)-> DAN 10:19	False
+Daniel	1	Male	Adult			DAN 1:12 <-(95 more)-> DAN 12:8	False
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25	False
 Darius, king	1	Male	Adult			EZR 6:2 <-(9 more)-> EZR 6:12	False
 Darius, king of Medes and Persians	1	Male	Adult			DAN 6:12 <-(4 more)-> DAN 6:27	False
@@ -329,7 +329,7 @@ explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33	False
 eye	1	Neuter				1CO 12:21	True
 Ezekiel	1	Male				EZK 4:14 <-(14 more)-> EZK 37:10	False
 Ezra, priest and teacher	1	Male				EZR 5:4 <-(55 more)-> EZR 10:11	False
-false prophets	-1	Male				JER 14:13 <-(1 more)-> MIC 2:7	False
+false prophets	-1	Male				JER 14:13 <-(2 more)-> MIC 3:5	False
 false teachers	-1					1TI 4:3	True
 false witnesses	-1					ACT 6:13 & ACT 6:14	False
 family heads of Gilead	-1	Male				NUM 36:2 <-(1 more)-> NUM 36:4	False
@@ -429,7 +429,7 @@ hymn, early creedal	1	PreferMale				1TI 3:16	False
 idolaters from Judah (men)	-1	Male				JER 44:16 <-(1 more)-> JER 44:18	False
 idolaters from Judah (women)	-1	Female				JER 44:19	False
 immoral woman	1	Female				PRO 7:14 <-(5 more)-> PRO 7:20	False
-informer	-1	PreferMale				JDG 15:6 <-(9 more)-> ACT 21:31	False
+informer	-1	PreferMale				JDG 15:6 <-(10 more)-> ACT 21:31	False
 inscription on forehead of Babylon	1	PreferFemale				REV 17:5	False
 invaders	-1	Male				JER 6:4 & JER 6:5	True
 invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15	False
@@ -487,7 +487,7 @@ Jehudi	1	Male				JER 36:14	False
 Jephthah	1	Male				JDG 11:7 <-(6 more)-> JDG 12:3	False
 Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37	False
 Jephthah's half-brothers	-1	Male				JDG 11:2	False
-Jeremiah	1	Male				JER 1:6 <-(278 more)-> LAM 3:56	False
+Jeremiah	1	Male				JER 1:6 <-(279 more)-> LAM 3:56	False
 Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10	False
 Jeroboam	1	Male				1KI 12:26 <-(6 more)-> 1KI 14:3	False
 Jeshua	1	Male					False
@@ -799,7 +799,7 @@ people in temple courts, all the	-1					ACT 3:10	False
 people in the temple	-1					LUK 20:16	False
 people near Jordan River	-1					LUK 3:15 & JHN 10:41	False
 people of Decapolis	-1					MRK 7:32 <-(1 more)-> MRK 7:37	False
-people of Jerusalem	-1					JER 4:13 <-(3 more)-> MAT 21:10	False
+people of Jerusalem	-1					JER 4:13 <-(4 more)-> MAT 21:10	False
 people of Jerusalem, some	-1					JHN 7:25 <-(1 more)-> JHN 7:27	False
 people of Samaria, all the	-1					ACT 8:10	False
 people of Tyre and Sidon	-1					ACT 12:22	False
@@ -953,7 +953,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13	False
 scoffers	-1	PreferMale				2PE 3:4	True
 scoundrels	-1	Male				1KI 21:13	False
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17	False
-scripture	-1					2CH 25:4 <-(224 more)-> REV 19:15	False
+scripture	-1					JOS 8:31 <-(225 more)-> REV 19:15	False
 sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False
@@ -1008,7 +1008,7 @@ sinners	-1					PRO 1:11 <-(3 more)-> ISA 33:14	False
 Sisera	1	Male				JDG 4:19 & JDG 4:20	False
 slave drivers, Egyptian	-1	Male	Adult			EXO 5:10 <-(2 more)-> EXO 5:14	False
 slave girls	-1	Female				NAM 2:8	False
-sluggard	1	Male	Adult			PRO 22:13 & PRO 26:13	True
+sluggard	1	Male	Adult			PRO 6:10 <-(2 more)-> PRO 26:13	True
 soldier at the cross	1	Male	Adult			LUK 23:37	False
 soldiers	-1	Male	Adult			ACT 12:18 & ACT 27:42	False
 soldiers, Assyrian	-1	Male	Adult			ISA 10:29	True
