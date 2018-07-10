@@ -28,6 +28,9 @@ namespace Waxuquerque
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		public const string kLeadingPunctuationHtmlStart = "<span class=\"leading-punctuation\">";
+		public const string kLeadingPunctuationHtmlEnd = "</span>";
+
 		private static readonly Regex s_regexFollowOnParagraphStyles;
 		internal static Regex s_regexInterruption;
 
@@ -543,18 +546,40 @@ namespace Waxuquerque
 			return bldr.ToString();
 		}
 
+		private string GetLeadingPunctuation()
+		{
+			if (BlockElements.FirstOrDefault() is ScriptText initialScriptText &&
+				BlockElements.Skip(1).FirstOrDefault() is Verse initialVerse &&
+				initialVerse.Number == InitialVerseNumberOrBridge)
+			{
+				return initialScriptText.Content;
+			}
+
+			return null;
+		}
+
 		public string GetSplitTextAsHtml(int blockId, bool rightToLeftScript, IEnumerable<BlockSplitData> blockSplits, bool showCharacters)
 		{
 			var bldr = new StringBuilder();
 			var currVerse = InitialVerseNumberOrBridge;
 			var verseNumberHtml = String.Empty;
-			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{0}{1}</div>";
+			string leadingPunctuationHtml = null;
+			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{4}{0}{1}</div>";
+			const string leadingPunctuationTemplate = kLeadingPunctuationHtmlStart + "{0}" + kLeadingPunctuationHtmlEnd;
 
-			foreach (var blockElement in BlockElements)
+			// Look for special case where verse has leading punctuation before the verse number such as
+			// ({1} This verse is surrounded by parentheses)
+			// This can only happen at the beginning of a block.
+			// If we have it, we basically want to do the split as if it wasn't there at all. i.e. Split the main part of the verse only, and
+			// do not include the leading punctuation as part of the offset.
+			var leadingPunctuation = GetLeadingPunctuation();
+			if (leadingPunctuation != null)
+				leadingPunctuationHtml = String.Format(leadingPunctuationTemplate, leadingPunctuation);
+
+			foreach (var blockElement in BlockElements.Skip(leadingPunctuationHtml != null ? 1 : 0))
 			{
 				// add verse marker
-				var verse = blockElement as Verse;
-				if (verse != null)
+				if (blockElement is Verse verse)
 				{
 					verseNumberHtml = BuildVerseNumber(verse.Number, rightToLeftScript);
 					currVerse = verse.Number;
@@ -565,7 +590,7 @@ namespace Waxuquerque
 				var text = blockElement as ScriptText;
 				if (text == null) continue;
 
-				var encodedContent = String.Format(splitTextTemplate, verseNumberHtml, WebUtility.HtmlEncode(text.Content), blockId, currVerse);
+				var encodedContent = String.Format(splitTextTemplate, verseNumberHtml, WebUtility.HtmlEncode(text.Content), blockId, currVerse, leadingPunctuationHtml);
 
 				if ((blockSplits != null) && blockSplits.Any())
 				{
@@ -583,16 +608,19 @@ namespace Waxuquerque
 							{
 								if (offsetToInsertExtra == PortionScript.kSplitAtEndOfVerse)
 									offsetToInsertExtra = preEncodedContent.Length;
+
 								if (offsetToInsertExtra < 0 || offsetToInsertExtra > preEncodedContent.Length)
 								{
-									throw new IndexOutOfRangeException(@"Value of offsetToInsertExtra must be greater than or equal to 0 and less than or equal to the length (" + preEncodedContent.Length +
-										@") of the encoded content of verse " + currVerse);
+									throw new IndexOutOfRangeException("Value of offsetToInsertExtra must be greater than or equal to 0 and less " +
+																	   $"than or equal to the length ({preEncodedContent.Length}) of the content of verse {currVerse}");
 								}
+
 								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + (showCharacters ? CharacterSelect(blockSplit.Id) : ""));
 								preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
 							}
 						}
 					}
+
 					if (preEncodedContent != text.Content)
 					{
 						encodedContent = WebUtility.HtmlEncode(preEncodedContent);
@@ -602,8 +630,9 @@ namespace Waxuquerque
 						var newSegments = new List<string>();
 						foreach (var segment in segments)
 						{
-							newSegments.Add(String.Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse));
+							newSegments.Add(String.Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse, leadingPunctuationHtml));
 							verseNumberHtml = String.Empty;
+							leadingPunctuationHtml = null;
 						}
 
 						encodedContent = String.Join(kAwooga, newSegments);
@@ -617,6 +646,8 @@ namespace Waxuquerque
 
 				// reset verse number element
 				verseNumberHtml = String.Empty;
+
+				leadingPunctuationHtml = null;
 			}
 
 			return bldr.ToString();
@@ -930,8 +961,7 @@ namespace Waxuquerque
 					continue;
 				}
 
-				Verse verse = blockElement as Verse;
-				if (verse != null)
+				if (blockElement is Verse verse)
 					currVerse = verse.Number;
 				else if (verseToSplit == currVerse)
 				{
@@ -953,13 +983,13 @@ namespace Waxuquerque
 					{
 						content = text.Content;
 
-						if (content.All(c => !char.IsLetter(c)))
+						if (content.All(c => !Char.IsLetter(c)))
 							continue; // Probably a leading square bracket.
 
 						if (BlockElements.Count > i + 1)
 						{
 							if (!(BlockElements[i + 1] is Verse) &&
-								(characterOffsetToSplit == BookScript.kSplitAtEndOfVerse || characterOffsetToSplit > content.Length))
+								(characterOffsetToSplit == PortionScript.kSplitAtEndOfVerse || characterOffsetToSplit > content.Length))
 							{
 								// Some kind of annotation. We can skip this. If we're splitting at
 								continue;
@@ -967,14 +997,13 @@ namespace Waxuquerque
 							indexOfFirstElementToRemove = i + 1;
 						}
 
-						if (characterOffsetToSplit == BookScript.kSplitAtEndOfVerse)
+						if (characterOffsetToSplit == PortionScript.kSplitAtEndOfVerse)
 							characterOffsetToSplit = content.Length;
 
 						if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
 						{
-							throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
-								@"Value must be greater than 0 and less than or equal to the length (" + content.Length +
-								@") of the text of verse " + currVerse + @".");
+							throw new ArgumentOutOfRangeException(nameof(characterOffsetToSplit), characterOffsetToSplit,
+								$@"Value must be greater than 0 and less than or equal to the length ({content.Length}) of the text of verse {currVerse}.");
 						}
 						if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
 							return null;
@@ -1007,7 +1036,7 @@ namespace Waxuquerque
 			}
 
 			if (newBlock == null)
-				throw new ArgumentException(String.Format("Verse {0} not found in given block: {1}", verseToSplit, GetText(true)), "verseToSplit");
+				throw new ArgumentException($@"Verse {verseToSplit} not found in given block: {GetText(true)}", nameof(verseToSplit));
 
 			if (indexOfFirstElementToRemove >= 0)
 			{

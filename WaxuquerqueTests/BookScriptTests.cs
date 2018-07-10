@@ -2201,6 +2201,31 @@ namespace WaxuquerqueTests
 		}
 
 		[Test]
+		public void SplitBlock_InitialPunctuationBeforeVerseNumber_SplitsCorrectlyIgnoringLeadingPunctuation()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", 1, 2)
+			{
+				BlockElements =
+				{
+					new ScriptText("("),
+					new Verse("2"),
+					new ScriptText("This verse has initial punctuation).")
+				}
+			};
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			// SUT
+			bookScript.SplitBlock(blockToSplit, "2", 5);
+
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual("({2}\u00A0This ", blocks[1].GetText(true));
+			Assert.AreEqual("verse has initial punctuation).", blocks[2].GetText(true));
+		}
+
+		[Test]
 		public void TrySplitBlockAtEndOfVerse_NoVerseElementsInBlock_ReturnsFalse()
 		{
 			var mrkBlocks = new List<Block>();

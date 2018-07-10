@@ -689,6 +689,73 @@ namespace WaxuquerqueTests
 		}
 
 		[Test]
+		public void GetSplitTextAsHtml_HasLeadingPunctuation_MultipleSplitsAndMultipleVerses_SplitsInCorrectLocations()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("("));
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("main text.) "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Verse 4."));
+
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"><span class=\"leading-punctuation\">(</span><sup>3&#160;</sup>main</div>" + Block.BuildSplitLineHtml(1) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"> text.) </div>" +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Ver</div>" + Block.BuildSplitLineHtml(2) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">se 4.</div>";
+			var actual = block.GetSplitTextAsHtml(0, false, new[]
+			{
+				new BlockSplitData(1, block, "3", 4),
+				new BlockSplitData(2, block, "4", 3)
+			}, false);
+			Assert.AreEqual(expected, actual);
+		}
+
+		[Test]
+		public void GetSplitTextAsHtml_HasLeadingPunctuation_SplitAtEndOfVerse_SplitsInCorrectLocations()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("("));
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("main text.) "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Verse 4."));
+
+			var expected =
+				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"><span class=\"leading-punctuation\">(</span><sup>3&#160;</sup>main text.) </div>" +
+				Block.BuildSplitLineHtml(1) +
+				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"></div>" +
+				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Ver</div>" +
+				Block.BuildSplitLineHtml(2) +
+				"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">se 4.</div>";
+			var actual = block.GetSplitTextAsHtml(0, false, new[]
+			{
+				new BlockSplitData(1, block, "3", PortionScript.kSplitAtEndOfVerse),
+				new BlockSplitData(2, block, "4", 3)
+			}, false);
+			Assert.AreEqual(expected, actual);
+		}
+
+		[TestCase(0, "", "main text.) ")]
+		[TestCase(1, "m", "ain text.) ")]
+		[TestCase(3, "mai", "n text.) ")]
+		public void GetSplitTextAsHtml_HasLeadingPunctuation_SplitsInCorrectLocation(int offset, string text1, string text2)
+		{
+
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("("));
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("main text.) "));
+
+			var expected = $"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"><span class=\"leading-punctuation\">(</span><sup>3&#160;</sup>{text1}</div>" +
+						   Block.BuildSplitLineHtml(1) +
+						   $"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">{text2}</div>";
+
+			var actual = block.GetSplitTextAsHtml(0, false, new[]
+			{
+				new BlockSplitData(1, block, "3", offset)
+			}, false);
+			Assert.AreEqual(expected, actual);
+		}
+
+		[Test]
 		public void SetCharacterAndDelivery_SingleCharacter_SetsCharacterAndDelivery()
 		{
 			var block = new Block("p", 4, 4);
@@ -1535,6 +1602,68 @@ namespace WaxuquerqueTests
 
 			Assert.AreEqual("{1}\u00A0abcdef ghi {2-3}\u00A0jk l", block.GetText(true));
 			Assert.AreEqual("mno p", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_HasLeadingPunctuation_SplitsCorrectly()
+		{
+			var block = new Block("p", 1, 1)
+			{
+				BlockElements =
+				{
+					new ScriptText("("),
+					new Verse("1"),
+					new ScriptText("abcdef ghi) "),
+					new Verse("2"),
+					new ScriptText("jk lmno p")
+				}
+			};
+			var newBlock = block.SplitBlock("1", 3);
+
+			Assert.AreEqual("({1}\u00A0abc", block.GetText(true));
+			Assert.AreEqual("def ghi) {2}\u00A0jk lmno p", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_HasLeadingPunctuation_SplitOneCharacterAwayFromVerseNumber_SplitsCorrectly()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				BlockElements =
+				{
+					new ScriptText("("),
+					new Verse("2"),
+					new ScriptText("abcdef ghi) "),
+					new Verse("3"),
+					new ScriptText("jk lmno p")
+				}
+			};
+
+			var newBlock = block.SplitBlock("2", 1);
+
+			Assert.AreEqual("({2}\u00A0a", block.GetText(true));
+			Assert.AreEqual("bcdef ghi) {3}\u00A0jk lmno p", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_HasLeadingPunctuation_SplitAtVerseEnd_SplitsCorrectly()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				BlockElements =
+				{
+					new ScriptText("("),
+					new Verse("2"),
+					new ScriptText("abcdef ghi) "),
+					new Verse("3"),
+					new ScriptText("jk lmno p")
+				}
+			};
+
+			var newBlock = block.SplitBlock("2", PortionScript.kSplitAtEndOfVerse);
+
+			Assert.AreEqual("({2}\u00A0abcdef ghi) ", block.GetText(true));
+			Assert.AreEqual("{3}\u00A0jk lmno p", newBlock.GetText(true));
 		}
 
 		private CharacterVerse JesusQuestioning => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
