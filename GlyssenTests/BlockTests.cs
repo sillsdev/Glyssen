@@ -1563,6 +1563,8 @@ namespace GlyssenTests
 		[TestCase("a - b - c", "- b - ")]
 		[TestCase("a -- b -- c", "-- b -- ")]
 		[TestCase("a —b— c", "—b— ")]
+		[TestCase("a - b-c - d", "- b-c - ")]
+		[TestCase("a -- b-c -- d", "-- b-c -- ")]
 		public void GetNextInterruption_InterruptionFoundCorrectly(string text, string interruption)
 		{
 			var block = GetBlockWithText(text);

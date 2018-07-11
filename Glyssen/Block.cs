@@ -65,16 +65,20 @@ namespace Glyssen
 
 		internal static void InitializeInterruptionRegEx(bool excludeLongDashes)
 		{
-			StringBuilder pattern = new StringBuilder(@"((\(\w+[^)(\[\]]*\))|(\[\w+[^)(\[\]]*\])");
-			// plain dash is not considered as interruption if it occurs word-medial.
-			pattern.AppendFormat(@"|((^|\B){0}{1}[^{0}]*\w+[^{0}]*{0}{1}(\Z|\B))", "-", "{1,2}");
+			//                                   interruption in parentheses
+			//                                                  |||        OR interruption in square brackets
+			//                                                  |||                |||
+			//                                                  |||                |||         OR interruption set off by single or double
+			//                                                  vvv                vvv            (non word-medial) dashes
+			StringBuilder pattern = new StringBuilder(@"((\(\w+[^)(\[\]]*\))|(\[\w+[^)(\[\]]*\])|((^|\B)-{1,2}[^-]*[-\w]+[^-]*-{1,2}(\Z|\B))");
 			if (!excludeLongDashes)
 			{
-				const String longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
 				// Long dashes should never be word-forming, so even if there is no surrounding whitespace,
 				// they can safely be treated as punctuation dashes that could indicate an interruption.
-				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2014", Empty);
-				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2015", Empty);
+				// Hence, the simpler regex (compared to the above regex for normal dashes).
+				const String longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
+				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2014");
+				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2015");
 			}
 			pattern.Append(@")[^\w]*");
 			s_regexInterruption = new Regex(pattern.ToString(), RegexOptions.Compiled);
