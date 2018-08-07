@@ -9552,9 +9552,8 @@ ISA	49	9	God		God (the LORD)	Normal
 ISA	49	10	God		God (the LORD)	Normal		
 ISA	49	11	God		God (the LORD)	Normal		
 ISA	49	12	God		God (the LORD)	Normal		
-ISA	49	14	Zion			Hypothetical		
+ISA	49	14	Zion			Normal		
 ISA	49	15	God		God (the LORD)	Normal		
-ISA	49	15	Zion			Normal		
 ISA	49	16	God		God (the LORD)	Normal		
 ISA	49	17	God		God (the LORD)	Normal		
 ISA	49	18	God		God (the LORD)	Normal		
@@ -9889,10 +9888,10 @@ JER	5	31	God		God (the LORD)	Normal
 JER	6	1	God		God (the LORD)	Normal		
 JER	6	2	God		God (the LORD)	Normal		
 JER	6	3	God		God (the LORD)	Normal		
-JER	6	4	God		God saying what invaders will say	Hypothetical		
-JER	6	4	invaders			Hypothetical		
-JER	6	5	God		God saying what invaders will say	Hypothetical		
-JER	6	5	invaders			Hypothetical		
+JER	6	4	God		God saying what invaders will say	Normal		
+JER	6	4	invaders			Normal		
+JER	6	5	God		God saying what invaders will say	Normal		
+JER	6	5	invaders			Normal		
 JER	6	6	God		God (the LORD Almighty)	Normal		
 JER	6	7	God		God (the LORD Almighty)	Normal		
 JER	6	8	God		God (the LORD Almighty)	Normal		
@@ -10166,9 +10165,9 @@ JER	16	15	God		God (the LORD)	Normal
 JER	16	16	God		God (the LORD)	Normal		
 JER	16	17	God		God (the LORD)	Normal		
 JER	16	18	God		God (the LORD)	Normal		
-JER	16	19	nations			Hypothetical		
+JER	16	19	nations			Normal		
 JER	16	19	Jeremiah			Potential		
-JER	16	20	nations			Hypothetical		
+JER	16	20	nations			Potential		
 JER	16	20	Jeremiah			Potential		
 JER	16	21	God		God (the LORD)	Normal		
 JER	17	1	God		God (the LORD)	Normal		
@@ -10362,13 +10361,21 @@ JER	25	3	Jeremiah			Potential
 JER	25	4	Jeremiah			Potential		
 JER	25	5	Jeremiah		Jeremiah quoting the prophets	Normal		
 JER	25	6	Jeremiah		Jeremiah quoting the prophets	Normal		
+JER	25	7	Jeremiah			Normal		
 JER	25	7	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	8	Jeremiah			Normal		
 JER	25	8	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	9	Jeremiah			Normal		
 JER	25	9	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	10	Jeremiah			Normal		
 JER	25	10	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	11	Jeremiah			Normal		
 JER	25	11	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	12	Jeremiah			Normal		
 JER	25	12	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	13	Jeremiah			Normal		
 JER	25	13	God		God (the LORD)(word of the LORD came)	Normal		
+JER	25	14	Jeremiah			Normal		
 JER	25	14	God		God (the LORD)(word of the LORD came)	Normal		
 JER	25	15	God		God (word of the LORD came to Jeremiah)	Normal		
 JER	25	16	God		God (word of the LORD came to Jeremiah)	Normal		
@@ -10823,6 +10830,12 @@ JER	49	16	God		God (the LORD)	Normal
 JER	49	17	God		God (the LORD)	Normal		
 JER	49	18	God		God (the LORD)	Normal		
 JER	49	19	God		God (the LORD)	Normal		
+JER	49	20	God		God (the LORD)	Potential		
+JER	49	20	Jeremiah			Potential		
+JER	49	21	God		God (the LORD)	Potential		
+JER	49	21	Jeremiah			Potential		
+JER	49	22	God		God (the LORD)	Potential		
+JER	49	22	Jeremiah			Potential		
 JER	49	23	God		God (the LORD)(word of the LORD came)	Normal		
 JER	49	24	God		God (the LORD Almighty)	Normal		
 JER	49	25	God		God (the LORD Almighty)	Normal		
@@ -10914,9 +10927,9 @@ JER	51	29	God		God (the LORD)	Normal
 JER	51	30	God		God (the LORD)	Normal		
 JER	51	31	God		God (the LORD)	Normal		
 JER	51	32	God		God (the LORD)	Normal		
-JER	51	33	God		God (the LORD Almighty, the God of Israel)	Normal		
-JER	51	34	God		God (the LORD Almighty, the God of Israel)	Normal		
-JER	51	35	God		God (the LORD Almighty, the God of Israel)	Normal		
+JER	51	33	inhabitants of Zion			Normal		
+JER	51	34	inhabitants of Zion			Normal		
+JER	51	35	Jerusalem			Normal		
 JER	51	36	God		God (the LORD)	Normal		
 JER	51	37	God		God (the LORD)	Normal		
 JER	51	38	God		God (the LORD)	Normal		
