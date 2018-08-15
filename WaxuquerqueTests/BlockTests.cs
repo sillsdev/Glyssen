@@ -1666,6 +1666,59 @@ namespace WaxuquerqueTests
 			Assert.AreEqual("{3}\u00A0jk lmno p", newBlock.GetText(true));
 		}
 
+		[TestCase("-a-")]
+		[TestCase("—a—")]
+		[TestCase("(a)")]
+		[TestCase("[a]")]
+		[TestCase("[a] b c")]
+		public void ProbablyDoesNotContainInterruption_ApparentInterruptions_ReturnsFalse(string text)
+		{
+			var block = GetBlockWithText(text);
+			Assert.False(block.ProbablyDoesNotContainInterruption);
+		}
+
+		[TestCase("a b-c d-e")]
+		[TestCase("a -c d e")]
+		[TestCase("a c- d e")]
+		[TestCase("a c - d e")]
+		public void ProbablyDoesNotContainInterruption_WordMedialOrUnmatchedDashes_ReturnsTrue(string text)
+		{
+			var block = GetBlockWithText(text);
+			Assert.True(block.ProbablyDoesNotContainInterruption);
+		}
+
+		[TestCase("a (bcd) e", "(bcd) ")]
+		[TestCase("a -b- c", "-b- ")]
+		[TestCase("a - b - c", "- b - ")]
+		[TestCase("a -- b -- c", "-- b -- ")]
+		[TestCase("a —b— c", "—b— ")]
+		[TestCase("a - b-c - d", "- b-c - ")]
+		[TestCase("a -- b-c -- d", "-- b-c -- ")]
+		public void GetNextInterruption_InterruptionFoundCorrectly(string text, string interruption)
+		{
+			var block = GetBlockWithText(text);
+			Assert.AreEqual(interruption, block.GetNextInterruption().Item1.Value);
+		}
+
+		[TestCase("a b-c-d e")]
+		[TestCase("a b-c d-e")]
+		public void GetNextInterruption_WordMedialDashes_NoInterruptionFound(string text)
+		{
+			var block = GetBlockWithText(text);
+			Assert.Null(block.GetNextInterruption());
+		}
+
+		private Block GetBlockWithText(string text)
+		{
+			return new Block("p", 1, 1)
+			{
+				BlockElements =
+				{
+					new ScriptText(text),
+				}
+			};
+		}
+
 		private CharacterVerse JesusQuestioning => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
 
 		private CharacterVerse JesusCommanding => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Commanding", null, false);

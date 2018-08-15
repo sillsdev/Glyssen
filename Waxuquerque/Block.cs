@@ -66,13 +66,20 @@ namespace Waxuquerque
 
 		internal static void InitializeInterruptionRegEx(bool excludeLongDashes)
 		{
-			var dashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
-			StringBuilder pattern = new StringBuilder(@"((\([^)\]]\w+[^)\]]+\))|(\[[^)\]]\w+[^)\]]+\])");
-			pattern.AppendFormat(dashStyleInterruptionFmt, "-");
+			//                                   interruption in parentheses
+			//                                                  |||        OR interruption in square brackets
+			//                                                  |||                |||
+			//                                                  |||                |||         OR interruption set off by single or double
+			//                                                  vvv                vvv            (non word-medial) dashes
+			StringBuilder pattern = new StringBuilder(@"((\(\w+[^)(\[\]]*\))|(\[\w+[^)(\[\]]*\])|((^|\B)-{1,2}[^-]*[-\w]+[^-]*-{1,2}(\Z|\B))");
 			if (!excludeLongDashes)
 			{
-				pattern.AppendFormat(dashStyleInterruptionFmt, "\u2014");
-				pattern.AppendFormat(dashStyleInterruptionFmt, "\u2015");
+				// Long dashes should never be word-forming, so even if there is no surrounding whitespace,
+				// they can safely be treated as punctuation dashes that could indicate an interruption.
+				// Hence, the simpler regex (compared to the above regex for normal dashes).
+				const String longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
+				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2014");
+				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2015");
 			}
 			pattern.Append(@")[^\w]*");
 			s_regexInterruption = new Regex(pattern.ToString(), RegexOptions.Compiled);
@@ -762,7 +769,7 @@ namespace Waxuquerque
 				{
 					if (characterList.Count(cd => cd.QuoteType == QuoteType.Interruption) == 1 &&
 						characterList.Count(cd => cd.QuoteType != QuoteType.Interruption) == 1 &&
-						!IsInterruption)
+						ProbablyDoesNotContainInterruption)
 					{
 						// Since this block does not appear to be an interruption, we can safely assign the character from
 						// the one and only cv record that is not an "Interruption" type.
@@ -781,18 +788,18 @@ namespace Waxuquerque
 			}
 		}
 
-		public bool IsInterruption
+		public bool ProbablyDoesNotContainInterruption
 		{
 			get
 			{
 				if (BlockElements.Count != 1)
-					return false;
+					return true;
 				var textElement = BlockElements[0] as ScriptText;
 				if (textElement == null)
-					return false;
+					return true;
 				var text = textElement.Content;//.Trim();
 				var match = s_regexInterruption.Match(text);
-				return match.Success && match.Index == 0 && match.Length == text.Length;
+				return !match.Success;
 			}
 		}
 
@@ -1240,7 +1247,7 @@ namespace Waxuquerque
 				var text = element as ScriptText;
 				if (text != null)
 				{
-					var match = Block.s_regexInterruption.Match(text.Content, startCharIndex);
+					var match = s_regexInterruption.Match(text.Content, startCharIndex);
 					if (match.Success)
 						return new Tuple<Match, string>(match, verse);
 					startCharIndex = 1;
