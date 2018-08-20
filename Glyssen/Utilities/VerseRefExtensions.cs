@@ -12,7 +12,7 @@ namespace Glyssen.Utilities
 		/// <param name="currRef"></param>
 		public static void SendScrReference(this VerseRef currRef)
 		{
-			if (currRef != null && currRef.Valid)
+			if (currRef.Valid)
 			{
 				currRef.ChangeVersification(ScrVers.English);
 				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());

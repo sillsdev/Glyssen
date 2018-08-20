@@ -26,7 +26,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
 using NetSparkle;
-using Paratext.Data;
+using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
 
@@ -415,7 +415,6 @@ namespace Glyssen
 				}
 			}
 
-			Versification.Table.HandleVersificationLineError = null;
 			try
 			{
 				SetProject(new Project(bundle, recordingProjectName));
