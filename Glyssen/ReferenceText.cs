@@ -618,7 +618,7 @@ namespace Glyssen
 
 		private static bool BlockContainsVerseEndInMiddleOfVerseBridge(Block block, int verse)
 		{
-			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse > verse);
+			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse >= verse);
 		}
 
 		protected override string ProjectFolder { get { return m_projectFolder; } }
