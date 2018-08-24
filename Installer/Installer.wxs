@@ -238,7 +238,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           <Component Id="PtxUtils.dll" Guid="{a93e8f57-72aa-46a0-9993-32e47b27c24d}">
             <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" />
           </Component>
-		  
+
           <Component Id="DotNetZip.dll" Guid="{C2D40B5E-3B57-4B70-AA3F-28876E44DCAB}">
             <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" />
           </Component>
@@ -246,7 +246,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
           </Component-->
           <!--End Needed for ParatextData-->
-		  
+
 		  <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="{4F176733-6461-40FE-BCF6-7C9ED31D1E2F}">
             <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" />
           </Component>
