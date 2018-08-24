@@ -239,9 +239,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" />
           </Component>
 
-          <Component Id="DotNetZip.dll" Guid="{C2D40B5E-3B57-4B70-AA3F-28876E44DCAB}">
-            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" />
-          </Component>
           <!--Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
             <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
           </Component-->
@@ -255,8 +252,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Microsoft.Extensions.DependencyModel.dll" Name="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="..\output\release\Microsoft.Extensions.DependencyModel.dll" />
           </Component>
 
-          <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
-            <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
+          <Component Id="DotNetZip.dll" Guid="{C2D40B5E-3B57-4B70-AA3F-28876E44DCAB}">
+            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" />
           </Component>
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
@@ -317,7 +314,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 	  <ComponentRef Id="DotNetZip.dll"/>
       <ComponentRef Id="Microsoft.DotNet.PlatformAbstractions.dll"/>
       <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
-      <ComponentRef Id="Ionic.Zip.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
       <ComponentRef Id="Glyssen.exe.config" />

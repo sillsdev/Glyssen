@@ -621,10 +621,6 @@
       <Link>icuuc56.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\lib\dotnet\Ionic.zip.dll">
-      <Link>Ionic.zip.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
     <Content Include="Resources\Annotations.txt" />
