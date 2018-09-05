@@ -106,7 +106,13 @@ namespace Glyssen
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				ConvertContinuersToParatextAssumptions();
 			}
-			bundle.CopyFontFiles(LanguageFolder);
+
+
+			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
+				ErrorReport.ReportNonFatalMessageWithStackTrace(
+					LocalizationManager.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
+					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
+
 			InstallFontsIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
@@ -368,7 +374,7 @@ namespace Glyssen
 			}
 		}
 
-		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks => m_metadata.AvailableBibleBooks;
+		public IReadOnlyList<Book> AvailableBooks => m_metadata.AvailableBibleBooks;
 
 		public string OriginalBundlePath
 		{

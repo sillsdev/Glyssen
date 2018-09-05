@@ -114,6 +114,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.Core.pdb" Name="SIL.Core.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.pdb" />
           </Component>
 
+          <Component Id="SIL.Core.Desktop.dll" Guid="{41c29210-a1ce-476b-bf04-c2b2fdb8862e}">
+            <File Id="SIL.Core.Desktop.dll" Name="SIL.Core.Desktop.dll" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.dll" />
+          </Component>
+
+          <Component Id="SIL.Core.Desktop.pdb" Guid="{edae9768-e53a-4d8d-b41e-68c835ceba1f}">
+            <File Id="SIL.Core.Desktop.pdb" Name="SIL.Core.Desktop.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
             <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" />
           </Component>
@@ -292,6 +300,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
       <ComponentRef Id ="removeShortcutDir"/>
       <ComponentRef Id="SIL.Core.dll"/>
+      <ComponentRef Id="SIL.Core.Desktop.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
@@ -324,6 +333,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="EPPlus.dll"/>
 
       <ComponentRef Id="SIL.Core.pdb"/>
+      <ComponentRef Id="SIL.Core.Desktop.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
