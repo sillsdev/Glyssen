@@ -587,7 +587,7 @@ namespace Glyssen
 				if (initEndVerse.CompareTo(lastVerse) != 0 && lastVerse >= verseSplitLocations[iSplit].Before)
 				{
 					bool invalidSplitLocation = false;
-					versification.ChangeVersification(verseToSplitAfter);
+					verseToSplitAfter.ChangeVersification(versification);
 					if (preventSplittingBlocksAlreadyMatchedToRefText && block.MatchesReferenceText)
 						invalidSplitLocation = blocksToSplit.GetVerseStringToUseForSplittingBlock(block, verseToSplitAfter.VerseNum) == null;
 					else if (blocksToSplit.TrySplitBlockAtEndOfVerse(block, verseToSplitAfter.VerseNum))

@@ -114,6 +114,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.Core.pdb" Name="SIL.Core.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.pdb" />
           </Component>
 
+          <Component Id="SIL.Core.Desktop.dll" Guid="{41c29210-a1ce-476b-bf04-c2b2fdb8862e}">
+            <File Id="SIL.Core.Desktop.dll" Name="SIL.Core.Desktop.dll" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.dll" />
+          </Component>
+
+          <Component Id="SIL.Core.Desktop.pdb" Guid="{edae9768-e53a-4d8d-b41e-68c835ceba1f}">
+            <File Id="SIL.Core.Desktop.pdb" Name="SIL.Core.Desktop.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
             <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" />
           </Component>
@@ -238,13 +246,23 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           <Component Id="PtxUtils.dll" Guid="{a93e8f57-72aa-46a0-9993-32e47b27c24d}">
             <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" />
           </Component>
-          <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
-            <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
-          </Component>
+
           <!--Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
             <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
           </Component-->
           <!--End Needed for ParatextData-->
+
+		  <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="{4F176733-6461-40FE-BCF6-7C9ED31D1E2F}">
+            <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" />
+          </Component>
+
+          <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="{FF456908-3726-45C2-BA15-F7ED76630988}">
+            <File Id="Microsoft.Extensions.DependencyModel.dll" Name="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="..\output\release\Microsoft.Extensions.DependencyModel.dll" />
+          </Component>
+
+          <Component Id="DotNetZip.dll" Guid="{C2D40B5E-3B57-4B70-AA3F-28876E44DCAB}">
+            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" />
+          </Component>
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" />
@@ -282,6 +300,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
       <ComponentRef Id ="removeShortcutDir"/>
       <ComponentRef Id="SIL.Core.dll"/>
+      <ComponentRef Id="SIL.Core.Desktop.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
@@ -301,7 +320,9 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="icuuc56.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
-      <ComponentRef Id="Ionic.Zip.dll"/>
+	  <ComponentRef Id="DotNetZip.dll"/>
+      <ComponentRef Id="Microsoft.DotNet.PlatformAbstractions.dll"/>
+      <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
       <ComponentRef Id="Glyssen.exe.config" />
@@ -312,6 +333,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="EPPlus.dll"/>
 
       <ComponentRef Id="SIL.Core.pdb"/>
+      <ComponentRef Id="SIL.Core.Desktop.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>

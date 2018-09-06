@@ -9,8 +9,8 @@ using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
-using Paratext.Data;
 using SIL.DblBundle;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -112,27 +112,29 @@ namespace Glyssen
 									{
 										var bundle = new GlyssenBundle(origBundlePath);
 										var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
-										Versification.Table.HandleVersificationLineError = ex =>
+										bundle.CopyVersificationFile(versificationPath);
+										try
+										{
+											Project.LoadVersification(versificationPath);
+										}
+										catch (InvalidVersificationLineException ex)
 										{
 											var msg = string.Format(LocalizationManager.GetString("DataMigration.InvalidVersificationFile",
-												"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
-												"attempts to open this project will fail.\r\n" +
-												"Project: {0}\r\n" +
-												"Text release Bundle: {1}\r\n" +
-												"Versification file: {2}\r\n" +
-												"Error: {3}"),
+													"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
+													"attempts to open this project will fail.\r\n" +
+													"Project: {0}\r\n" +
+													"Text release Bundle: {1}\r\n" +
+													"Versification file: {2}\r\n" +
+													"Error: {3}"),
 												projectFilePath, origBundlePath, versificationPath, ex.Message);
 											MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 											File.WriteAllText(errorlogPath, msg);
-										};
-										bundle.CopyVersificationFile(versificationPath);
-										Project.LoadVersification(versificationPath);
+										}
 									}
 								}
 							}
 						}
 					}
-					Versification.Table.HandleVersificationLineError = null;
 					goto case 2;
 				case 2:
 					foreach (var pgProjFile in Project.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
