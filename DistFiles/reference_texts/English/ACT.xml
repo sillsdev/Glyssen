@@ -1378,20 +1378,11 @@
     <text>The Lord said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus">
-    <text>“I am Jesus, whom you are persecuting: it is hard for you to kick against the goads.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
-    <verse num="6" />
-    <text>And he trembling and astonished said,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled">
-    <text>“Lord, what should I do?”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
-    <text>And the Lord said to him,</text>
+    <text>“I am Jesus, whom you are persecuting.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
-    <text>“Rise up, and enter into the city, and you will be told what you must do.”</text>
+    <verse num="6" />
+    <text>Rise up, and enter into the city, and you will be told what you must do.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />

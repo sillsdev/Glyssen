@@ -2756,35 +2756,17 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus">
-      <text>“I am Jesus, whom you are persecuting: it is hard for you to kick against the goads.”</text>
+      <text>“I am Jesus, whom you are persecuting.</text>
     </ReferenceBlocks>
-    <text>“Я Иисус, Которого ты гонишь. Трудно тебе идти против рожна.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
-      <verse num="6" />
-      <text>And he trembling and astonished said,</text>
-    </ReferenceBlocks>
-    <verse num="6" />
-    <text>Он в трепете и ужасе сказал:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled">
-      <text>“Lord, what should I do?”</text>
-    </ReferenceBlocks>
-    <text>“Господи! что повелишь мне делать?”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
-      <text>And the Lord said to him,</text>
-    </ReferenceBlocks>
-    <text>и Господь сказал ему:</text>
+    <text>“Я Иисус, Которого ты гонишь.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
-      <text>“Rise up, and enter into the city, and you will be told what you must do.”</text>
+      <verse num="6" />
+      <text>Rise up, and enter into the city, and you will be told what you must do.”</text>
     </ReferenceBlocks>
-    <text>“встань и иди в город; и сказано будет тебе, что тебе надобно делать.”</text>
+    <verse num="6" />
+    <text>встань и иди в город; и сказано будет тебе, что тебе надобно делать.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ACT">

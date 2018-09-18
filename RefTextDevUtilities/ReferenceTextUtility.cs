@@ -19,7 +19,7 @@ namespace Glyssen.RefTextDevUtilities
 	public static class ReferenceTextUtility
 	{
 		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
-		public const string kDirectorGuideInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDES.xlsx";
+		private const string kDevToolsResourcesDirectory = @"..\..\DevTools\Resources";
 		public const string kDirectorGuideOTInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDE_OT.xlsx";
 		public const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
 
@@ -180,7 +180,11 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static void ProcessReferenceTextDataFromFile(Mode mode, ReferenceTextProxy refTextId = null)
 		{
-			var hasNtData = ProcessExcelFile(kDirectorGuideInput, out var ntData);
+			var ntFile = FindNTDirectorGuideFile();
+			if (ntFile == null)
+				return;
+
+			var hasNtData = ProcessExcelFile(ntFile, out var ntData);
 			var hasOtData = ProcessExcelFile(kDirectorGuideOTInput, out var otData);
 			if (!hasNtData || !hasOtData)
 				return;
@@ -192,6 +196,21 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			ProcessReferenceTextData(mode, ntData, otData, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null);
+		}
+
+		private static string FindNTDirectorGuideFile()
+		{
+			const string searchPattern = "DIRECTOR_GUIDES_NT_*.xlsx";
+			var dgFiles = Directory.GetFiles(kDevToolsResourcesDirectory, searchPattern);
+			if (dgFiles.Length == 1)
+				return dgFiles[0];
+			if (dgFiles.Length > 1)
+			{
+				WriteOutput($"More than one possible New Testament Director Guide Excel file in the form {searchPattern}. Unable to determine which file to use.", true);
+				return null;
+			}
+
+			return "MaybeWereJustProcessingTheOT.ok";
 		}
 
 		private static bool ProcessExcelFile(string excelPath, out ReferenceTextData data)
