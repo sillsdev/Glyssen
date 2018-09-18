@@ -4685,6 +4685,49 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("«T»", ((ScriptText)results[4].BlockElements[1]).Content);
 		}
 
+		[Test]
+		public void Parse_()
+		{
+			// PG-1121
+
+			var block1 = new Block("p", 23, 23) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("23"));
+			block1.BlockElements.Add(new ScriptText("Soldadokunapa kamachiqninmi:"));
+			var block2 = new Block("p", 23, 23) { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("Iskay pachak. "));
+			block2.BlockElements.Add(new Verse("24"));
+			block2.BlockElements.Add(new ScriptText("Alistaychiktaqyá caballotapas."));
+			var block3 = new Block("p", 23, 25) { IsParagraphStart = true };
+			block3.BlockElements.Add(new Verse("25"));
+			block3.BlockElements.Add(new ScriptText("Paykunawanmi kayna niq cartata apachirqa:"));
+			var block4 = new Block("p", 23, 26) { IsParagraphStart = true };
+			block4.BlockElements.Add(new Verse("26"));
+			block4.BlockElements.Add(new ScriptText("“Ancha reqsisqa prefecto Félix, ñoqa Claudio Lisiasmi saludamuyki. "));
+			block4.BlockElements.Add(new Verse("27"));
+			block4.BlockElements.Add(new ScriptText("acusanankupaq”, nispa.")); // this is the end of verse 30 in the real data
+
+			var input = new List<Block> { block1, block2, block3, block4 };
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark("“", "”", "", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark(":", "", "", 1, QuotationMarkingSystemType.Narrative)
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			Assert.AreEqual("Soldadokunapa kamachiqninmi:", ((ScriptText)results[0].BlockElements[1]).Content);
+			Assert.AreEqual("Iskay pachak. ", ((ScriptText)results[1].BlockElements[0]).Content);
+			Assert.AreEqual("Alistaychiktaqyá caballotapas.", ((ScriptText)results[1].BlockElements[2]).Content);
+			Assert.AreEqual("Paykunawanmi kayna niq cartata apachirqa:", ((ScriptText)results[2].BlockElements[1]).Content);
+			Assert.AreEqual("“Ancha reqsisqa prefecto Félix, ñoqa Claudio Lisiasmi saludamuyki. ", ((ScriptText)results[3].BlockElements[1]).Content);
+			Assert.AreEqual("acusanankupaq”, ", ((ScriptText)results[3].BlockElements[3]).Content);
+			Assert.AreEqual("nispa.", ((ScriptText)results[4].BlockElements[0]).Content);
+		}
+
 		#region Interruption tests
 
 		// These tests all relate to PG-781

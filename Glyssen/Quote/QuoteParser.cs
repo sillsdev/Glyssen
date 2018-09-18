@@ -221,6 +221,7 @@ namespace Glyssen.Quote
 					DecrementQuoteLevel();
 					inPairedFirstLevelQuote = false;
 					blockInWhichDialogueQuoteStarted = null;
+					//pendingColon = false;
 					m_nextBlockContinuesQuote = potentialDialogueContinuer = !string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker) ||
 						(s_quoteSystem.NormalLevels.Count > 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open);
 				}
@@ -260,6 +261,7 @@ namespace Glyssen.Quote
 									SetBlockInitialVerseFromVerseElement(verseElement);
 									m_quoteLevel = 0;
 									m_nextBlockContinuesQuote = false;
+									//blockInWhichDialogueQuoteStarted = null;
 								}
 							}
 						}

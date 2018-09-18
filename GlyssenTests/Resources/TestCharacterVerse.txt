@@ -10147,6 +10147,7 @@ ACT	23	20	son of Paul's sister (young man)			Dialogue
 ACT	23	21	son of Paul's sister (young man)			Normal
 ACT	23	22	commander	ordering		Dialogue
 ACT	23	23	commander	ordering		Dialogue
+#ACT	23	24	commander	ordering		Indirect
 ACT	23	25	commander's letter			Normal
 ACT	23	26	commander's letter			Normal
 ACT	23	29	commander's letter			Normal
