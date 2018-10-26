@@ -96,9 +96,10 @@ namespace Glyssen
 								{
 									Exception exception;
 									var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
-									var origBundlePath = metadata.OriginalPathBundlePath;
+									var origBundlePath = metadata.OriginalReleaseBundlePath;
 									if (string.IsNullOrEmpty(origBundlePath))
 									{
+										// Note: In settings version 1, we didn't support Paratext-based projects, so this is bogus.
 										try
 										{
 											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using SIL.Unicode;
@@ -56,6 +57,11 @@ namespace Glyssen.Utilities
 				i--;
 			}
 			return false;
+		}
+
+		public static string GetContainingFolderName(this string text)
+		{
+			return Path.GetFileName(Path.GetDirectoryName(text));
 		}
 	}
 }

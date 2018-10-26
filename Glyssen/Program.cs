@@ -10,6 +10,8 @@ using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
+using Paratext.Data;
+using Paratext.Data.Users;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
@@ -27,6 +29,9 @@ namespace Glyssen
 		/// <para>Basically, this is an alternative to Control.DesignMode that works better.</para>
  		/// </summary>
 		public static bool IsRunning { get; set; }
+
+		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
+		private static List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -57,18 +62,85 @@ namespace Glyssen
 
 			SetUpErrorHandling();
 
+			UserInfo userInfo = new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage };
+			bool sldrIsInitialized = false;
+
+			if (ParatextInfo.IsParatextInstalled)
+			{
+				string userName = null;
+
+				try
+				{
+					ParatextData.Initialize();
+					sldrIsInitialized = true;
+					userName = RegistrationInfo.UserName;
+					userInfo.Email = RegistrationInfo.EmailAddress;
+					foreach (var errMsgInfo in CompatibleParatextProjectLoadErrors.Where(e => e.Reason == UnsupportedReason.Unspecified))
+					{
+						_pendingExceptionsToReportToAnalytics.Add(errMsgInfo.Exception);
+					}
+				}
+				catch (Exception fatalEx) when (fatalEx is FileLoadException || fatalEx is TypeInitializationException)
+				{
+					ErrorReport.ReportFatalException(fatalEx);
+				}
+				catch (Exception ex)
+				{
+					_pendingExceptionsToReportToAnalytics.Add(ex);
+				}
+
+				if (userName != null)
+				{
+					var split = userName.LastIndexOf(" ", StringComparison.Ordinal);
+					if (split > 0)
+					{
+						userInfo.FirstName = userName.Substring(0, split);
+						userInfo.LastName = userName.Substring(split + 1);
+					}
+					else
+					{
+						userInfo.LastName = userName;
+
+					}
+				}
+			}
+			// ENHANCE (PG-63): Implement something like this if we decide to give the user the option of manually
+			// specifying the location of Paratext data files if the program isn’t actually installed.
+			//else
+			//{
+			//	RegistrationInfo.Implementation = new GlyssenAnonymousRegistrationInfo();
+
+			//	if (!String.IsNullOrWhiteSpace(Settings.Default.UserSpecifiedParatext8ProjectsDir) &&
+			//		Directory.Exists(Settings.Default.UserSpecifiedParatext8ProjectsDir))
+			//	{
+			//		try
+			//		{
+			//			ParatextData.Initialize(Settings.Default.UserSpecifiedParatext8ProjectsDir);
+			//			sldrIsInitialized = true;
+			//		}
+			//		catch (Exception ex)
+			//		{
+			//			_pendingExceptionsToReportToAnalytics.Add(ex);
+			//			Settings.Default.UserSpecifiedParatext8ProjectsDir = null;
+			//		}
+			//	}
+			//}
+
 #if DEBUG
-			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }))
+			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", userInfo))
 #else
-			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
+			//default is to allow tracking if this isn't set
+			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK")?.ToLower();
+			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting == "yes" || feedbackSetting == "true";
 
-			//default is to allow tracking
-			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
-
-			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
+			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", userInfo, allowTracking))
 #endif
 			{
 				Logger.Init();
+
+				foreach (var exception in _pendingExceptionsToReportToAnalytics)
+					Analytics.ReportException(exception);
+				_pendingExceptionsToReportToAnalytics.Clear();
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 					GlyssenInfo.kCompany, kOldProductName);
@@ -98,7 +170,9 @@ namespace Glyssen
 				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
 
-				Sldr.Initialize();
+				// This might also be needed if HearThis and ParatextData use different versions of SIL.WritingSystems.dll
+				if (!sldrIsInitialized)
+					Sldr.Initialize();
 
 				try
 				{

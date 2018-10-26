@@ -6230,12 +6230,12 @@
         <seg>Inactivo</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.OriginalBundleFilename">
+    <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.Source">
       <tuv xml:lang="en">
-        <seg>Original Bundle Filename</seg>
+        <seg>Source</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Nombre del Paquete Original</seg>
+        <seg>Fuente de datos</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.OpenProjectDlg.SelectProject">

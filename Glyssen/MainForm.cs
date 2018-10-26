@@ -12,6 +12,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Shared;
@@ -26,6 +27,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
 using NetSparkle;
+using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
@@ -286,6 +288,10 @@ namespace Glyssen
 							InitializeProgress();
 							LoadBundle(dlg.SelectedProject);
 							break;
+						case OpenProjectDlg.ProjectType.ParatextProject:
+							InitializeProgress();
+							LoadParatextProject(dlg.SelectedProject);
+							break;
 						default:
 							MessageBox.Show(@"Sorry - not implemented yet");
 							break;
@@ -390,7 +396,7 @@ namespace Glyssen
 			else
 				projFilePath = Project.GetDefaultProjectFilePath(bundle);
 
-			var recordingProjectName = Path.GetFileName(Path.GetDirectoryName(projFilePath));
+			var recordingProjectName = projFilePath.GetContainingFolderName();
 			if (File.Exists(projFilePath))
 			{
 				if (GlyssenDblTextMetadata.GetRevisionOrChangesetId(projFilePath) == bundle.Metadata.RevisionOrChangesetId)
@@ -437,6 +443,50 @@ namespace Glyssen
 			}
 
 			bundle.Dispose();
+		}
+
+		private void LoadParatextProject(string paratextProjId)
+		{
+			Logger.WriteEvent($"Loading Paratext project {paratextProjId}");
+
+			ParatextScrTextWrapper paratextProject = null;
+			DialogResult result = DialogResult.Ignore;
+			do
+			{
+
+				if (!LoadAndHandleApplicationExceptions(() => { paratextProject = new ParatextScrTextWrapper(ScrTextCollection.Find(paratextProjId)); }))
+				{
+					SetProject(null);
+					return;
+				}
+
+				var projFilePath = Project.GetDefaultProjectFilePath(paratextProject);
+				if (File.Exists(projFilePath))
+					throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
+
+				var excludedBookInfo = paratextProject.ExcludedBookInfo;
+				if (!String.IsNullOrEmpty(excludedBookInfo))
+				{
+					var msg = String.Format(LocalizationManager.GetString("ExcludedBookExplanation.ConfirmProjectCreation",
+						"{0} cannot include one or more books in {1} project {2}.\r\n" +
+						"If you did not intend to prepare the recording script " +
+						"for those books at this time, you can ignore this and proceed to have {0} create a new project.\r\n" +
+						"Otherwise, in Paratext you can run the failing checks and fix or \"Deny\" all the reported errors. Then retry opening the project here.",
+						"Param 0: \"Glyssen\" (product name); Param 1: \"Paratext\" (product name); Param 2: Project short name (unique project identifier)"),
+						GlyssenInfo.kProduct, ParatextScrTextWrapper.kParatextProgramName, paratextProjId) +
+						Environment.NewLine +
+						excludedBookInfo; // ENHANCE: Might need to add logic to truncate this so it doesn't result in an unusable MessageBox
+					result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information,
+						MessageBoxDefaultButton.Button3);
+					if (result == DialogResult.Abort)
+					{
+						SetProject(null);
+						return;
+					}
+				}
+			} while (result == DialogResult.Retry);
+
+			SetProject(new Project(paratextProject));
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)

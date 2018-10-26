@@ -363,6 +363,7 @@ namespace Glyssen.Dialogs
 			{
 				if (!m_model.Project.IsReparseOkay())
 				{
+					// TODO: Handle things differently for Paratext projects
 					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
 						"The original text bundle for the project is no longer in its original location ({0}). " +
 						"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalBundlePath) +
