@@ -857,12 +857,24 @@ namespace Glyssen
 					Analytics.Track("UpdateProjectFromBundleData", new Dictionary<string, string>
 					{
 						{"language", m_project.LanguageIsoCode},
-						{"ID", m_project.Id},
+						{"projectID", m_project.Id},
 						{"recordingProjectName", m_project.Name},
 						{"bundlePathChanged", (m_project.OriginalBundlePath != model.BundlePath).ToString()}
 					});
 					var project = m_project.UpdateProjectFromBundleData(dlg.UpdatedBundle);
 					project.OriginalBundlePath = model.BundlePath;
+					SetProject(project);
+				}
+				else if (dlg.UpdatedParatextProject != null)
+				{
+					Analytics.Track("UpdateProjectFromParatextData", new Dictionary<string, string>
+					{
+						{"language", m_project.LanguageIsoCode},
+						{"paratextPojectName", m_project.ParatextProjectName},
+						{"projectID", m_project.Id},
+						{"recordingProjectName", m_project.Name},
+					});
+					var project = Project.UpdateFromParatextData(m_project, dlg.UpdatedParatextProject);
 					SetProject(project);
 				}
 			}

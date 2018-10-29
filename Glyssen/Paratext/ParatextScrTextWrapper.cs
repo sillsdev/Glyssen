@@ -20,7 +20,10 @@ namespace Glyssen.Paratext
 	{
 		internal const string kLiveParatextProjectType = "live Paratext project";
 		public const string kParatextProgramName = "Paratext";
-		private static readonly string[] s_requiredChecks = { "Marker", "Quotation", "ChapterVerse" };
+		public const string kMarkersCheckId = "Marker";
+		public const string kQuotationCheckId = "Quotation";
+		public const string kChapterVerseCheckId = "ChapterVerse";
+		private static readonly string[] s_requiredChecks = { kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId };
 
 		private ScrStylesheetAdapter m_stylesheet;
 		private WritingSystemDefinition m_writingSystem;
@@ -37,7 +40,7 @@ namespace Glyssen.Paratext
 		public string ExcludedBookInfo => m_disallowedBooks.ToString();
 		public IEnumerable<int> UsableBookIds => m_usableBookIds; 
 		public static string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
-			DisallowedBookInfo.LocalizedCheckNames(s_requiredChecks));
+			s_requiredChecks.Select(DisallowedBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
 
 		public ParatextScrTextWrapper(ScrText underlyingText)
@@ -46,11 +49,7 @@ namespace Glyssen.Paratext
 
 			m_usableBookIds = GetUsableBookIds().ToList();
 			if (!m_usableBookIds.Any())
-				throw new ApplicationException(String.Format(LocalizationManager.GetString("Project.NoUsableBooksInParatextProject",
-					"No usable books were found in {0} project: {1}",
-					"Param 0: \"Paratext\" (product name); Param 1: Project short name (unique project identifier)"),
-					kParatextProgramName, ProjectId) +
-					Environment.NewLine + ExcludedBookInfo);
+				throw new NoUsableBooksException(ProjectId, m_disallowedBooks);
 		}
 
 		private IEnumerable<int> GetUsableBookIds()
@@ -72,7 +71,7 @@ namespace Glyssen.Paratext
 					continue;
 				}
 
-				if (UnderlyingScrText.Permissions.HaveRoleNotObserver || BookPassesRequiredChecks(code))
+				if (!UnderlyingScrText.Permissions.HaveRoleNotObserver || BookPassesRequiredChecks(code))
 					yield return bookNum;
 			}
 		}

@@ -70,6 +70,7 @@ namespace Glyssen.Dialogs
 
 		// Note: This method is very similar to the method by the same name in HearThis' ChooseProject dialog. If improvements
 		// are made here, they should also be made there if applicable.
+		// TODO: Move this into libpalaso
 		private IEnumerable<ScrText> GetParatextProjects()
 		{
 			ScrText[] paratextProjects = null;

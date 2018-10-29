@@ -6434,12 +6434,12 @@
         <seg>Nombre del idioma:</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.ProjectSettingsDlg.GeneralTab.OriginalBundlePath">
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.GeneralTab.OriginalDataSource">
       <tuv xml:lang="en">
-        <seg>Original Bundle Path:</seg>
+        <seg>Original Data Source:</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Ruta del paquete original:</seg>
+        <seg>Fuente de datos original:</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.GeneralTab.PublicationId">

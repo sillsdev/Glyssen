@@ -334,6 +334,7 @@
     </Compile>
     <Compile Include="IBlockAccessor.cs" />
     <Compile Include="Paratext\DisallowedBookInfo.cs" />
+    <Compile Include="Paratext\NoUsableBooksException.cs" />
     <Compile Include="Paratext\ParatextProjectProxy.cs" />
     <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
     <Compile Include="PortionScript.cs" />

@@ -8,6 +8,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared;
@@ -26,13 +27,14 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
+		private readonly ProjectSettingsDlg m_parentDlg;
 		private string m_xOfYFmt;
 		private object m_versesWithMissingExpectedQuotesFilterItem;
 		private object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
 		private bool m_formLoading;
 
-		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
+		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly, ProjectSettingsDlg parentDlg)
 		{
 			InitializeComponent();
 
@@ -40,6 +42,7 @@ namespace Glyssen.Dialogs
 			m_project.AnalysisCompleted -= HandleAnalysisCompleted;
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
+			m_parentDlg = parentDlg;
 
 			if (Settings.Default.QuoteMarksDialogShowGridView)
 				m_toolStripButtonGridView.Checked = true;
@@ -112,7 +115,38 @@ namespace Glyssen.Dialogs
 			switch (m_project.QuoteSystemStatus)
 			{
 				case QuoteSystemStatus.Obtained:
-					promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
+					if (m_project.IsSampleProject)
+						promptText = LocalizationManager.GetString("Project.CannotChangeSampleMsg", "The Quote Mark Settings cannot be modified for the Sample project.");
+					else if (m_project.IsLiveParatextProject)
+					{
+						promptText = String.Format(LocalizationManager.GetString("Project.CannotChangeParextProjectQuoteSystem",
+								"The Quote Mark Settings cannot be modified directly for a project based on a live {0} project. " +
+								"If you need to make changes, do the following:\r\n" +
+								"1) Open the {1} project in {0}, and on the Checking menu, click Quotation Rules.\r\n" +
+								"2) After saving the changes there, re-run the {2} check for all books included in this {3} project.\r\n" +
+								"   (Note: The {4} and {5} checks are also required to pass in order for a book to be included in a {3} project.)\r\n" +
+								"3) Return to {3} and on the {6} tab of the {7} dialog box, click {8}.",
+								"Param 0: \"Paratext\" (product name); " +
+								"Param 1: Project short name (unique project identifier);" +
+								"Param 2: Name of the Paratext \"Quotations\" check; " +
+								"Param 3: \"Glyssen\" (product name); " +
+								"Param 4: Name of the Paratext \"Chapter/Verse Numbers\" check; " +
+								"Param 5: Name of the Paratext \"Markers\" check; " +
+								"Param 6: Name of the \"General\" tab in the Project Settings dialog box; " +
+								"Param 7: Title of the \"Project Settings\" dialog box; " +
+								"Param 8: Name of the \"Update\" button"),
+							/* 0 */ ParatextScrTextWrapper.kParatextProgramName,
+							/* 1 */ m_project.ParatextProjectName,
+							/* 2 */ DisallowedBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
+							/* 3 */ GlyssenInfo.kProduct,
+							/* 4 */ DisallowedBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kChapterVerseCheckId),
+							/* 5 */ DisallowedBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kMarkersCheckId),
+							/* 6 */ m_parentDlg.LocalizedGeneralTabName,
+							/* 7 */ m_parentDlg.Text,
+							/* 8 */ m_parentDlg.LocalizedUpdateButtonName);
+					}
+					else
+						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
 					break;
 				case QuoteSystemStatus.Guessed:
 					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.kProduct);

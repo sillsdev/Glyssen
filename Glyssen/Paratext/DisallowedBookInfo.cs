@@ -44,7 +44,7 @@ namespace Glyssen.Paratext
 				return String.Format(sFmt, BookCode, GlyssenInfo.kProduct);
 			}
 
-			public IEnumerable<string> FailedChecks => LocalizedCheckNames((IEnumerable<string>)((object[])Details)[0]);
+			public IEnumerable<string> FailedChecks => ((IEnumerable<string>)((object[])Details)[0]).Select(LocalizedCheckName);
 
 		}
 
@@ -62,29 +62,22 @@ namespace Glyssen.Paratext
 				String.Join(Environment.NewLine, Exclusions);
 		}
 
-		public static IEnumerable<string> LocalizedCheckNames(IEnumerable<string> paratextCheckIds)
+		public static string LocalizedCheckName(string paratextCheckId)
 		{
-			foreach (var check in paratextCheckIds)
+			switch (paratextCheckId)
 			{
-				switch (check)
-				{
-					case "Marker":
-						yield return LocalizationManager.GetString("ParatextCheck.Marker", "Markers",
-							"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
-						break;
-					case "Quotation":
-						yield return LocalizationManager.GetString("ParatextCheck.Quotation", "Quoted Text",
-							"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
-						break;
-					case "ChapterVerse":
-						yield return LocalizationManager.GetString("ParatextCheck.ChapterVerse", "Chapter/Verse Numbers",
-							"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
-						break;
-					default:
-						yield return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "ParatextCheck." + check, check,
-							"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
-						break;
-				}
+				case "Marker":
+					return LocalizationManager.GetString("ParatextCheck.Marker", "Markers",
+						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
+				case "Quotation":
+					return LocalizationManager.GetString("ParatextCheck.Quotation", "Quotations",
+						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
+				case "ChapterVerse":
+					return LocalizationManager.GetString("ParatextCheck.ChapterVerse", "Chapter/Verse Numbers",
+						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
+				default:
+					return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "ParatextCheck." + paratextCheckId, paratextCheckId,
+						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 			}
 		}
 	}

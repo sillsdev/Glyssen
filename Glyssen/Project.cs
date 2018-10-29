@@ -97,7 +97,7 @@ namespace Glyssen
 			{
 				if (RobustFile.Exists(VersificationFilePath))
 					m_vers = LoadVersification(VersificationFilePath);
-				else if (m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType)
+				else if (IsLiveParatextProject)
 				{
 					// REVIEW: This can throw a ProjectNotFoundException - make sure any callers that are passing
 					// metadata associated with a live Paratext project handle this or avoid calling it in a
@@ -155,7 +155,6 @@ namespace Glyssen
 			AddAndParseBooks(paratextProject.GetUsxDocumentsForParatextBooks(), paratextProject.Stylesheet);
 		}
 
-
 		/// <summary>
 		/// Used only for sample project and in tests.
 		/// </summary>
@@ -183,6 +182,12 @@ namespace Glyssen
 		public string PublicationName => m_metadata.Identification?.Name;
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
+
+		internal bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
+
+		internal bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
+
+		internal string ParatextProjectName => m_projectMetadata.ParatextProjectId;
 
 		/// <summary>
 		/// Gets the live Paratext project associated with this Glyssen project
@@ -421,6 +426,12 @@ namespace Glyssen
 			get => m_projectMetadata.OriginalReleaseBundlePath;
 			set => m_projectMetadata.OriginalReleaseBundlePath = value;
 		}
+
+		//public string OriginalDataSource
+		//{
+		//	get => m_projectMetadata.OriginalReleaseBundlePath ?? m_projectMetadata.ParatextProjectId;
+		//	//set => IsBundleBasedProject ? m_projectMetadata.OriginalReleaseBundlePath = value;
+		//}
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
 
@@ -738,7 +749,7 @@ namespace Glyssen
 
 			if (!existingProject.IsSampleProject && existingProject.m_projectMetadata.ParserVersion != Settings.Default.ParserVersion)
 			{
-				Project upgradedProject = !IsNullOrEmpty(existingProject.OriginalBundlePath) ?
+				Project upgradedProject = existingProject.IsBundleBasedProject ?
 					AttemptToUpgradeByReparsingBundleData(existingProject) :
 					AttemptToUpgradeByReparsingParatextData(existingProject);
 
@@ -750,6 +761,9 @@ namespace Glyssen
 			return existingProject;
 		}
 
+		private static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded",
+			"The splitting engine has been upgraded.") + " ";
+
 		private static Project AttemptToUpgradeByReparsingBundleData(Project existingProject)
 		{
 			if (!RobustFile.Exists(existingProject.OriginalBundlePath))
@@ -757,10 +771,9 @@ namespace Glyssen
 				bool upgradeProject = false;
 				if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
 				{
-					string msg =
-						Format(
+					string msg = ParserUpgradeMessage + " " + Format(
 							LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
-								"The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
+								"To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
 							existingProject.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
 						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
@@ -778,27 +791,62 @@ namespace Glyssen
 				var upgradedProject = new Project(existingProject.m_projectMetadata, existingProject.m_recordingProjectName,
 					ws: existingProject.WritingSystem);
 
+				Analytics.Track("UpgradeBundleProject", new Dictionary<string, string>
+				{
+					{"language", existingProject.LanguageIsoCode},
+					{"ID", existingProject.Id},
+					{"recordingProjectName", existingProject.Name},
+					{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
+					{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
+				});
+
 				return UpgradeProject(existingProject, upgradedProject, () => upgradedProject.PopulateAndParseBooks(bundle));
 			}
 		}
 
-		private static Project AttemptToUpgradeByReparsingParatextData(Project existingProject)
+		public static Project AttemptToUpgradeByReparsingParatextData(Project existingProject)
 		{
+			var scrTextWrapper = existingProject.GetLiveParatextDataIfCompatible(
+				Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion, ParserUpgradeMessage);
+			if (scrTextWrapper == null)
+			{
+				existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
+				return null;
+			}
+			Analytics.Track("UpgradeParatextProject", new Dictionary<string, string>
+			{
+				{"language", existingProject.LanguageIsoCode},
+				{"ID", existingProject.Id},
+				{"ParatextProjectName", existingProject.ParatextProjectName},
+				{"recordingProjectName", existingProject.Name},
+				{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
+				{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
+			});
+			return UpdateFromParatextData(existingProject, scrTextWrapper);
+		}
+
+		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
+			string contextMessage = "")
+		{
+			ParatextScrTextWrapper scrTextWrapper = null;
 			ScrText sourceScrText = null;
 			do
 			{
 				try
 				{
-					sourceScrText = existingProject.GetSourceParatextProject();
+					sourceScrText = GetSourceParatextProject();
 				}
 				catch (ProjectNotFoundException e)
 				{
-					if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
+					if (canInteractWithUser)
 					{
-						string msg = Format(LocalizationManager.GetString("Project.ParserUpgradeParatestProjectMissingMsg",
-									"The splitting engine has been upgraded. To make use of the new engine, the {0} project {1} must be available, but it is not.",
-									"Param 0: \"Paratext\" (product name); Param 1: Project short name (unique project identifier)"),
-								ParatextScrTextWrapper.kParatextProgramName, e.ProjectName) +
+						string msg = contextMessage + Format(
+								LocalizationManager.GetString("Project.ParserUpgradeParatestProjectMissingMsg",
+									"To update the {0} project, the {1} project {2} must be available, but it is not.",
+									"Param 0: Glyssen recording project name; " +
+									"Param 1: \"Paratext\" (product name); " +
+									"Param 2: Project short name (unique project identifier)"),
+								Name, ParatextScrTextWrapper.kParatextProgramName, e.ProjectName) +
 							Environment.NewLine + Environment.NewLine +
 							Format(LocalizationManager.GetString("Project.RestoreParatextProject",
 									"If possible, you can restore the {0} project and retry; otherwise, you can cancel and {1} will continue to work with the existing project data.",
@@ -808,14 +856,14 @@ namespace Glyssen
 						string caption = LocalizationManager.GetString("Project.ParatextProjectUnavailable", "Paratext Project Unavailable");
 						if (DialogResult.Retry == MessageBox.Show(msg, caption, MessageBoxButtons.RetryCancel))
 							continue;
-
-						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 					}
 					return null;
 				}
 			} while (sourceScrText == null); // retry
 
-			ParatextScrTextWrapper scrTextWrapper = null;
+			// TODO: Perform a sanity check on metadata. If something major (e.g., the language or metadata ID) has changed, we
+			// can't safely go forward.
+
 			HashSet<int> nowAvailableBookIds;
 			do
 			{
@@ -838,64 +886,72 @@ namespace Glyssen
 					//    => We probably want to go ahead and add the new books as available but not included.
 					//if (existingProject.book)
 					nowAvailableBookIds = new HashSet<int>(scrTextWrapper.UsableBookIds);
-					var includedBooksNoLongerAvailable = existingProject.IncludedBooks.Select(b => b.BookNumber)
+					var includedBooksNoLongerAvailable = IncludedBooks.Select(b => b.BookNumber)
 						.Where(n => !nowAvailableBookIds.Contains(n)).Select(BCVRef.NumberToBookCode).ToList();
 					if (includedBooksNoLongerAvailable.Any())
 					{
 						throw new ApplicationException(Format(LocalizationManager.GetString("Project.",
 							"The following books are currently included in the {0} project but no longer pass the required checks:\r\n{1}",
 							"Param 0: Glyssen project name; Param 1: List of 3-letter book IDs"),
-							existingProject.Name,
+							Name,
 							Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), includedBooksNoLongerAvailable)));
 					}
 				}
 				catch
 					(ApplicationException e)
 				{
-					if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
+					if (canInteractWithUser)
 					{
-						string msg = Format(LocalizationManager.GetString("Project.ParserUpgradeParatestProjectMissingMsg",
-									"The splitting engine has been upgraded. To make use of the new engine, {0} attempted to get the current text of the books from the {0} project {1}, but there was a problem:",
-									"Param 0: \"Glyssen\" (product name); Param 1: \"Paratext\" (product name); Param 2: Project short name (unique project identifier)"),
-								GlyssenInfo.kProduct, ParatextScrTextWrapper.kParatextProgramName, sourceScrText.Name) +
+						string msg = contextMessage + Format(LocalizationManager.GetString("Project.ParserUpgradeParatestProjectMissingMsg",
+								"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
+								"Param 0: Glyssen recording project name; " +
+								"Param 1: \"Glyssen\" (product name); " +
+								"Param 2: \"Paratext\" (product name); " +
+								"Param 3: Project short name (unique project identifier)"),
+								Name, GlyssenInfo.kProduct, ParatextScrTextWrapper.kParatextProgramName, sourceScrText.Name) +
 							Environment.NewLine + e.Message + Environment.NewLine + Environment.NewLine +
 							Format(LocalizationManager.GetString("Project.RestoreParatextProject",
-									"If possible, you should use {0} to run the following checks against at least the books included in this {1} project and then retry; " +
-									"otherwise, you can cancel and {1} will continue to work with the existing project data.\r\nRequired checks: {2}",
-									"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name); Param 2: List of required check names"),
+								"If possible, you should use {0} to run the following checks against at least the books included in this {1} project and then retry; " +
+								"otherwise, you can cancel and {1} will continue to work with the existing project data.\r\nRequired checks: {2}",
+								"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name); Param 2: List of required check names"),
 								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct, ParatextScrTextWrapper.RequiredCheckNames);
 
-						if (DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel))
+						if (DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation))
 							continue;
-
-						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 					}
 					return null;
 				}
 			} while (scrTextWrapper == null);
+			return scrTextWrapper;
+		}
 
+		internal static Project UpdateFromParatextData(Project existingProject, ParatextScrTextWrapper scrTextWrapper)
+		{
 			var upgradedProject = new Project(existingProject.m_projectMetadata);
 
-
 			// Add metadata for any books that are available in scrTextWrapper but not in the
-			// existing project.
+			// existing project. Remove metadata for any books formerly avaialble that are not now.
 			var nowAvailable = scrTextWrapper.GlyssenDblTextMetadata.AvailableBooks;
 			var existingAvailable = existingProject.m_projectMetadata.AvailableBooks;
 			var x = 0;
 			for (int n = 0; n < nowAvailable.Count; n++)
 			{
-				if (existingAvailable[x].Code == nowAvailable[n].Code)
+				if (x < existingAvailable.Count)
 				{
-					x++;
-					continue;
-				}
-				var existingBookNum = BCVRef.BookToNumber(existingAvailable[x].Code);
-				var nowAvailableBookNum = BCVRef.BookToNumber(nowAvailable[n].Code);
-				if (existingBookNum < nowAvailableBookNum)
-				{
-					// No longer available. Remove it.
-					existingAvailable.RemoveAt(x);
-					continue;
+					if (existingAvailable[x].Code == nowAvailable[n].Code)
+					{
+						x++;
+						continue;
+					}
+					var existingBookNum = BCVRef.BookToNumber(existingAvailable[x].Code);
+					var nowAvailableBookNum = BCVRef.BookToNumber(nowAvailable[n].Code);
+					if (existingBookNum < nowAvailableBookNum)
+					{
+						// No longer available. Remove it.
+						RobustFile.Delete(existingProject.GetBookDataFilePath(existingAvailable[x].Code));
+						existingAvailable.RemoveAt(x);
+						continue;
+					}
 				}
 				// New available book. Add but don't include in project
 				existingAvailable.Insert(x, new Book
@@ -919,15 +975,6 @@ namespace Glyssen
 
 		private static Project UpgradeProject(Project existingProject, Project upgradedProject, Action populateAndParseBooks)
 		{
-			Analytics.Track("UpgradeProject", new Dictionary<string, string>
-			{
-				{"language", existingProject.LanguageIsoCode},
-				{"ID", existingProject.Id},
-				{"recordingProjectName", existingProject.Name},
-				{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
-				{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
-			});
-
 			upgradedProject.UserDecisionsProject = existingProject;
 			populateAndParseBooks();
 			upgradedProject.m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
@@ -1297,6 +1344,11 @@ namespace Glyssen
 
 		private string LanguageFolder => GetLanguageFolderPath(m_metadata.Language.Iso);
 
+		private string GetBookDataFilePath(string bookId)
+		{
+			return Path.ChangeExtension(Path.Combine(ProjectFolder, bookId), "xml");
+		}
+
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
@@ -1348,7 +1400,7 @@ namespace Glyssen
 		public void SaveBook(BookScript book)
 		{
 			Exception error;
-			XmlSerializationHelper.SerializeToFile(Path.ChangeExtension(Path.Combine(ProjectFolder, book.BookId), "xml"), book, out error);
+			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out error);
 			if (error != null)
 				MessageBox.Show(error.Message);
 		}
@@ -1655,12 +1707,13 @@ namespace Glyssen
 
 		private void HandleQuoteSystemChanged()
 		{
+			Debug.Assert(IsBundleBasedProject);
+
 			Project copyOfExistingProject = new Project(m_projectMetadata, Name, ws: WritingSystem);
 			copyOfExistingProject.m_books.AddRange(m_books);
 
 			m_books.Clear();
 
-			// TODO: Figure out what to do for Paratext project - probably should require change to be made there???
 			if (RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
 			{
 				UserDecisionsProject = copyOfExistingProject;
@@ -1697,12 +1750,9 @@ namespace Glyssen
 			}
 		}
 
-		public bool IsReparseOkay()
-		{
-			if (QuoteSystem == null)
-				return false;
-			return !IsNullOrEmpty(OriginalBundlePath) && RobustFile.Exists(OriginalBundlePath);
-		}
+		// Note: For live Paratext projects, the only proper way to change the quote system is via Paratext.
+		public bool IsOkayToChangeQuoteSystem => QuoteSystem != null && IsBundleBasedProject &&
+			RobustFile.Exists(OriginalBundlePath);
 
 		private void OnReport(ProgressChangedEventArgs e)
 		{

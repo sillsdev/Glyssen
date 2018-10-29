@@ -33,7 +33,7 @@ namespace Glyssen.Controls
 
 		private void HandleStringsLocalized()
 		{
-			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.NoRecordingProject",
+			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
 				"Paratext project: {0}");
 		}
 
