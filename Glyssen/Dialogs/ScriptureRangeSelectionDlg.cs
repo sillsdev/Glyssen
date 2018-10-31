@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,20 @@ using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Controls;
+using Glyssen.Paratext;
+using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Dialogs
 {
 	public partial class ScriptureRangeSelectionDlg : Form
 	{
 		private readonly Project m_project;
+		private ParatextScrTextWrapper m_paratextScrTextWrapper;
 		private readonly List<Book> m_availableOtBooks;
 		private readonly List<Book> m_availableNtBooks;
 		private readonly int m_bookCodeColumnIndex = 0;
@@ -29,11 +34,12 @@ namespace Glyssen.Dialogs
 		private List<string> m_storedOtSelections;
 		private List<string> m_storedNtSelections;
 
-		public ScriptureRangeSelectionDlg(Project project)
+		internal ScriptureRangeSelectionDlg(Project project, ParatextScrTextWrapper paratextScrTextWrapper)
 		{
 			InitializeComponent();
 
 			m_project = project;
+			m_paratextScrTextWrapper = paratextScrTextWrapper;
 
 			m_availableOtBooks = m_project.AvailableBooks.Where(b => BCVRef.BookToNumber(b.Code) <= 39).ToList();
 			m_availableNtBooks = m_project.AvailableBooks.Where(b => BCVRef.BookToNumber(b.Code) > 39).ToList();
@@ -46,7 +52,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
-			Text = string.Format(Text, m_project.Name);
+			Text = Format(Text, m_project.Name);
 		}
 
 		private void ScriptureRangeSelectionDlg_Load(object sender, EventArgs e)
@@ -81,6 +87,37 @@ namespace Glyssen.Dialogs
 				m_checkBoxNewTestament.Checked = false;
 
 			SetupDropdownHeaderCells();
+		}
+
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
+
+			if (m_paratextScrTextWrapper != null && m_project.AvailableBooks.Any(b => !b.IncludeInScript))
+			{
+				// Since the wrapper is already set, we know this is a newly-created project.
+				Debug.Assert(m_project.IsLiveParatextProject);
+				var failedChecksBookCount = m_paratextScrTextWrapper.FailedChecksBookCount;
+				if (failedChecksBookCount > 0)
+				{
+					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
+						"{0} did not automatically {1} of the books in project {2} because {3} is not reporting a " +
+						"current successful status for the basic checks that Glyssen normally requires to pass." +
+						"If you intend to prepare the recording script for any of the excluded books at this time, " +
+						"we strongly recommend that you get the following checks to pass in {2} before including them:",
+						"Param 0: \"Glyssen\" (product name); " +
+						"Param 1: (integer) number of Scripture books that did not pass basic checks; " +
+						"Param 2: Project short name (unique project identifier); " +
+						"Param 3: \"Paratext\" (product name)"),
+						GlyssenInfo.kProduct,
+						failedChecksBookCount,
+						m_project.ParatextProjectName,
+						ParatextScrTextWrapper.kParatextProgramName) +
+						Environment.NewLine +
+						ParatextScrTextWrapper.RequiredCheckNames;
+					MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+			}
 		}
 
 		private void SetupDropdownHeaderCells()
@@ -239,12 +276,40 @@ namespace Glyssen.Dialogs
 				e.Value = m_multiVoice[book.Code];
 		}
 
+		private void BooksGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+		{
+			if (e.ColumnIndex == m_includeInScriptColumnIndex && m_project.IsLiveParatextProject)
+			{
+				var books = sender.Equals(m_otBooksGrid) ? m_availableOtBooks : m_availableNtBooks;
+				var book = books[e.RowIndex];
+				if (m_project.BookDataFileExists(book.Code))
+				{
+					// TODO: We need to check the check status, warn the user if not passing, and get the data from Paratext.
+					// Even if the data is there, we might still want to ask them if they want to get updated data from Paratext.
+				}
+				else
+				{
+					if (m_paratextScrTextWrapper == null)
+					{
+						m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+					}
+					else
+					{
+						// TODO: Refresh checking status
+					}
+					// TODO: See if checks pass for this book. If not, as user whether to override
+				}
+			}
+		}
+
 		private void BooksGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
 		{
 			var books = sender.Equals(m_otBooksGrid) ? m_availableOtBooks : m_availableNtBooks;
 			var book = books[e.RowIndex];
 			if (e.ColumnIndex == m_includeInScriptColumnIndex)
+			{
 				m_includeInScript[book.Code] = (bool)e.Value;
+			}
 			else if (e.ColumnIndex == m_multiVoiceColumnIndex)
 				m_multiVoice[book.Code] = (bool)e.Value;
 		}

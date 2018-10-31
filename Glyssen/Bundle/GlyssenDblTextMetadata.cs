@@ -8,8 +8,6 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using Paratext.Data;
-using SIL.DblBundle.Text;
 using SIL.Xml;
 
 namespace Glyssen.Bundle
@@ -39,6 +37,8 @@ namespace Glyssen.Bundle
 		[XmlAttribute("parserupgradeoptoutversion")]
 		[DefaultValue(0)]
 		public int ParserUpgradeOptOutVersion { get; set; }
+
+		public HashSet<string> BooksIncludedWithCheckStatusOverride { get; set; }
 
 		/// <summary>
 		/// We add this when we parse the USX to create a script.

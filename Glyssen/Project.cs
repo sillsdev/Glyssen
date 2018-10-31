@@ -152,7 +152,7 @@ namespace Glyssen
 				ConvertContinuersToParatextAssumptions();
 			}
 
-			AddAndParseBooks(paratextProject.GetUsxDocumentsForParatextBooks(), paratextProject.Stylesheet);
+			AddAndParseBooks(paratextProject.GetUsxDocumentsForIncludedParatextBooks(), paratextProject.Stylesheet);
 		}
 
 		/// <summary>
@@ -199,7 +199,7 @@ namespace Glyssen
 		{
 			if (m_projectMetadata.Type != ParatextScrTextWrapper.kLiveParatextProjectType)
 				throw new InvalidOperationException("GetSourceParatextProject should only be used for projects based on live Paratext projects.");
-			return ScrTextCollection.Get(m_projectMetadata.ParatextProjectId);
+			return ScrTextCollection.Get(ParatextProjectName);
 		}
 
 		public ChapterAnnouncement ChapterAnnouncementStyle
@@ -826,7 +826,7 @@ namespace Glyssen
 		}
 
 		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
-			string contextMessage = "")
+			string contextMessage = "", bool checkForChangesInAvailableBooks = true)
 		{
 			ParatextScrTextWrapper scrTextWrapper = null;
 			ScrText sourceScrText = null;
@@ -864,38 +864,11 @@ namespace Glyssen
 			// TODO: Perform a sanity check on metadata. If something major (e.g., the language or metadata ID) has changed, we
 			// can't safely go forward.
 
-			HashSet<int> nowAvailableBookIds;
 			do
 			{
 				try
 				{
 					scrTextWrapper = new ParatextScrTextWrapper(sourceScrText);
-					// The project was accessible and loaded successfully with at least one book available and satisfying Glyssen's
-					// requirements for the minimum checks. Now any of the following scenarios is possible:
-					// 1) Some of the "Available", but not "Included" books in the existing project are no longer available
-					//    (because they failed to pass the checks).
-					//    => We can just remove them from the list of available books and delete the corresponding file stored in
-					//       the project. If/when they later pass muster and the user wants to include them, they can be imported
-					//       and parsed at that time.
-					// 2) Some of the "Included" books in the  existing project are no longer available
-					//    => We need to offer the user the opportunity to get the checks to pass. Since we don't allow
-					//       them to opt out of a new parser version on a book-by-book basis, if they can't get the checks to
-					//       pass for all included books, will opt out of this version of the parser for now.
-					// 3) Exactly the same books are available (this is the happy path)
-					// 4) Some additional books are now available that were not previously.
-					//    => We probably want to go ahead and add the new books as available but not included.
-					//if (existingProject.book)
-					nowAvailableBookIds = new HashSet<int>(scrTextWrapper.UsableBookIds);
-					var includedBooksNoLongerAvailable = IncludedBooks.Select(b => b.BookNumber)
-						.Where(n => !nowAvailableBookIds.Contains(n)).Select(BCVRef.NumberToBookCode).ToList();
-					if (includedBooksNoLongerAvailable.Any())
-					{
-						throw new ApplicationException(Format(LocalizationManager.GetString("Project.",
-							"The following books are currently included in the {0} project but no longer pass the required checks:\r\n{1}",
-							"Param 0: Glyssen project name; Param 1: List of 3-letter book IDs"),
-							Name,
-							Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), includedBooksNoLongerAvailable)));
-					}
 				}
 				catch
 					(ApplicationException e)
@@ -922,6 +895,40 @@ namespace Glyssen
 					return null;
 				}
 			} while (scrTextWrapper == null);
+
+			if (checkForChangesInAvailableBooks)
+			{
+				// The project was accessible and loaded successfully with at least one supported book available. Now any
+				// of the following scenarios is possible:
+				// 1) Some of the "Available", but not "Included" books in the existing project are no longer available.
+				//    => We can just remove them from the list of available books and delete the corresponding file (if any)
+				//       stored in the project.
+				// 2) Some of the "Included" books in the existing project are no longer available.
+				//    => If we're interacting with the user, we can ask them whether to proceed and remove the deleted books.
+				//       If not, return null (i.e., continue to opt out of this version of the parser for now)
+				// 3) Some of the "Included" books in the existing project that previously passed the recommended checks no
+				//       longer do.
+				//    => If we're interacting with the user, we can ask them whether to proceed and keep these books (we'll
+				//       have to add them to BooksIncludedWithCheckStatusOverride) or exclude them for now (they can re-add
+				//       them later in the Selected Books dialog).
+				//       If not, return null (i.e., continue to opt out of this version of the parser for now)
+				// 4) Exactly the same books are available and passing checks (this is the happy path)
+				// 5) Some additional books are now available that were not previously.
+				//    => If we're interacting with the user, we can ask them whether to include the new additions.
+				//       If not, we go ahead and add the new books as available but not included.
+				//if (existingProject.book)
+				HashSet<int> nowAvailableBookIds = new HashSet<int>(scrTextWrapper.UsableBookIds);
+				var includedBooksNoLongerAvailable = IncludedBooks.Select(b => b.BookNumber)
+					.Where(n => !nowAvailableBookIds.Contains(n)).Select(BCVRef.NumberToBookCode).ToList();
+				if (includedBooksNoLongerAvailable.Any())
+				{
+					throw new ApplicationException(Format(LocalizationManager.GetString("Project.",
+							"The following books are currently included in the {0} project but no longer pass the required checks:\r\n{1}",
+							"Param 0: Glyssen project name; Param 1: List of 3-letter book IDs"),
+						Name,
+						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), includedBooksNoLongerAvailable)));
+				}
+			}
 			return scrTextWrapper;
 		}
 
@@ -967,9 +974,8 @@ namespace Glyssen
 
 			UpgradeProject(existingProject, upgradedProject, () =>
 			{
-				upgradedProject.AddAndParseBooks(scrTextWrapper.GetUsxDocumentsForParatextBooks(), scrTextWrapper.Stylesheet);
+				upgradedProject.AddAndParseBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
 			});
-			//upgradedProject.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 			return upgradedProject;
 		}
 
@@ -1071,7 +1077,29 @@ namespace Glyssen
 			for (int i = 0; i < m_metadata.AvailableBooks.Count; i++)
 			{
 				if (!m_books.Any(b => b.BookId == m_metadata.AvailableBooks[i].Code))
-					m_metadata.AvailableBooks.RemoveAt(i--);
+				{
+					if (IsLiveParatextProject)
+					{
+						// For Paratext-based projects, there are three possible situations here:
+						// 1) The book is missing because (as of the last time we updated from Paratext), it
+						//    did not pass the required checks, so it was not included in the script. In this
+						//    case, we just assume it's still in the project and is available if the user
+						//    decides to include it (we'll check at that time to see if it passes the checks).
+						// 2) We need to remove the book because it is no longer available from the Paratext project.
+						// 3) The book is still available from the Paratext project, but Glyssen's copy of it was
+						//    (manually?) deleted. We can continue to keep it in the available list and just mark it
+						//    as no longer included.
+						if (m_metadata.AvailableBooks[i].IncludeInScript)
+						{
+							if (GetSourceParatextProject().BookPresent(Canon.BookIdToNumber(m_metadata.AvailableBooks[i].Code)))
+								m_metadata.AvailableBooks[i].IncludeInScript = false;
+							else
+								m_metadata.AvailableBooks.RemoveAt(i--);
+						}
+					}
+					else
+						m_metadata.AvailableBooks.RemoveAt(i--);
+				}
 			}
 		}
 

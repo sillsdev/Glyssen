@@ -38,6 +38,7 @@ namespace Glyssen
 	{
 		public static Sparkle UpdateChecker { get; private set; }
 		private Project m_project;
+		private ParatextScrTextWrapper m_paratextScrTextWrapperForRecentlyCreatedProject;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
@@ -447,46 +448,50 @@ namespace Glyssen
 
 		private void LoadParatextProject(string paratextProjId)
 		{
-			Logger.WriteEvent($"Loading Paratext project {paratextProjId}");
+			Logger.WriteEvent($"Loading {ParatextScrTextWrapper.kParatextProgramName} project {paratextProjId}");
 
 			ParatextScrTextWrapper paratextProject = null;
-			DialogResult result = DialogResult.Ignore;
-			do
-			{
 
-				if (!LoadAndHandleApplicationExceptions(() => { paratextProject = new ParatextScrTextWrapper(ScrTextCollection.Find(paratextProjId)); }))
+			if (!LoadAndHandleApplicationExceptions(() => { paratextProject = new ParatextScrTextWrapper(ScrTextCollection.Find(paratextProjId)); }))
+			{
+				SetProject(null);
+				return;
+			}
+
+			// If the Paratext project contained no supported books at all, we already threw an appropriate exception above.
+			// Now we check for the case where the project has supported books but, because of failing checks, none of them
+			// was included by default.
+			if (!paratextProject.HasBooksWithoutProblems)
+			{
+				var msg = Format(LocalizationManager.GetString("Project.NoBooksPassedChecks",
+					"{0} is not reporting a current successful status for any book in the {1} project for the basic checks " +
+					"that {2} strongly recommends:" +
+					"\r\n\r\n{3}\r\n\r\n" +
+					"Do you want to proceed with creating a new {2} project for it anyway?",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Project short name (unique project identifier); " +
+					"Param 2: \"Glyssen\" (product name); " +
+					"Param 3: List of Paratext check names"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					paratextProjId,
+					GlyssenInfo.kProduct,
+					ParatextScrTextWrapper.RequiredCheckNames);
+				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+				if (result == DialogResult.No)
 				{
+					Logger.WriteEvent("User cancelled project creation because no books passed recommended checks.");
 					SetProject(null);
 					return;
 				}
+				Logger.WriteEvent("User proceeding with project creation although no books passed recommended checks.");
+			}
 
-				var projFilePath = Project.GetDefaultProjectFilePath(paratextProject);
-				if (File.Exists(projFilePath))
-					throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
-
-				var excludedBookInfo = paratextProject.ExcludedBookInfo;
-				if (!String.IsNullOrEmpty(excludedBookInfo))
-				{
-					var msg = String.Format(LocalizationManager.GetString("ExcludedBookExplanation.ConfirmProjectCreation",
-						"{0} cannot include one or more books in {1} project {2}.\r\n" +
-						"If you did not intend to prepare the recording script " +
-						"for those books at this time, you can ignore this and proceed to have {0} create a new project.\r\n" +
-						"Otherwise, in Paratext you can run the failing checks and fix or \"Deny\" all the reported errors. Then retry opening the project here.",
-						"Param 0: \"Glyssen\" (product name); Param 1: \"Paratext\" (product name); Param 2: Project short name (unique project identifier)"),
-						GlyssenInfo.kProduct, ParatextScrTextWrapper.kParatextProgramName, paratextProjId) +
-						Environment.NewLine +
-						excludedBookInfo; // ENHANCE: Might need to add logic to truncate this so it doesn't result in an unusable MessageBox
-					result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information,
-						MessageBoxDefaultButton.Button3);
-					if (result == DialogResult.Abort)
-					{
-						SetProject(null);
-						return;
-					}
-				}
-			} while (result == DialogResult.Retry);
+			var projFilePath = Project.GetDefaultProjectFilePath(paratextProject);
+			if (File.Exists(projFilePath))
+				throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
 
 			SetProject(new Project(paratextProject));
+			m_paratextScrTextWrapperForRecentlyCreatedProject = paratextProject;
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)
@@ -823,7 +828,7 @@ namespace Glyssen
 
 		private void SelectBooks_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new ScriptureRangeSelectionDlg(m_project))
+			using (var dlg = new ScriptureRangeSelectionDlg(m_project, m_paratextScrTextWrapperForRecentlyCreatedProject))
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();

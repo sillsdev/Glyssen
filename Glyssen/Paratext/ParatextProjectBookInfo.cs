@@ -6,61 +6,69 @@ using L10NSharp;
 
 namespace Glyssen.Paratext
 {
-	internal class DisallowedBookInfo
+	internal class ParatextProjectBookInfo
 	{
-		public enum Reason
+		public enum BookState
 		{
-			NonCanonical,
-			FailedCheck
+			NoProblem,
+			FailedCheck,
+			/// <summary>
+			/// "Canonical" here refers to Glyssen's notion of "canonical", not Paratext's (i.e., deuterocanonical books
+			/// are excluded and are NOT considered canonical.
+			/// </summary>
+			ExcludedNonCanonical,
 		}
 
-		private readonly Dictionary<string, BookProblem> m_exclusions = new Dictionary<string, BookProblem>();
+		private readonly Dictionary<int, BookStatus> m_books = new Dictionary<int, BookStatus>();
 
-		public IEnumerable<BookProblem> Exclusions => m_exclusions.Values;
+		public int FailedChecksBookCount => m_books.Values.Count(b => b.State == BookState.FailedCheck);
+		public int SupportedBookCount => m_books.Values.Count(b => b.State != BookState.ExcludedNonCanonical);
+		public bool HasBooksWithoutProblems => m_books.Values.Any(b => b.State == BookState.NoProblem);
 
-		public class BookProblem
+		public class BookStatus
 		{
 			public string BookCode { get; set; }
-			public Reason ProblemType { get; set; }
+			public BookState State { get; set; }
 			public object Details { get; set; }
 
 			public override string ToString()
 			{
 				string sFmt;
-				switch (ProblemType)
+				switch (State)
 				{
-					case Reason.NonCanonical:
+					case BookState.NoProblem:
+						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.NoProblem", "{0} has no problems.");
+						break;
+					case BookState.FailedCheck:
+						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.FailedChecks",
+								"{0} did not pass the following checks required by {1}: ") +
+							String.Join(", ", ((IEnumerable<string>)((object[])Details)[0]).Select(LocalizedCheckName));
+						break;
+					case BookState.ExcludedNonCanonical:
 						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.NonCanonical",
 							"Excluded {0} because {1} supports only books in the universally accepted canon of Scripture.");
-						break;
-					case Reason.FailedCheck:
-						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.FailedChecks",
-								"Excluded {0} because it did not pass one or more checks required by {1}:") +
-							String.Join(", ", FailedChecks);
 						break;
 					default:
 						throw new ArgumentOutOfRangeException();
 				}
 				return String.Format(sFmt, BookCode, GlyssenInfo.kProduct);
 			}
-
-			public IEnumerable<string> FailedChecks => ((IEnumerable<string>)((object[])Details)[0]).Select(LocalizedCheckName);
-
 		}
 
-		public void Add(string bookCode, Reason reason, params object[] details)
+		public void Add(int bookNum, string bookCode, BookState state, params object[] details)
 		{
-			m_exclusions[bookCode] = new BookProblem {BookCode = bookCode, ProblemType = reason, Details = details};
+			m_books[bookNum] = new BookStatus {BookCode = bookCode, State = state, Details = details};
 		}
 
-		public override string ToString()
-		{
-			if (!Exclusions.Any())
-				return String.Empty;
-			return LocalizationManager.GetString("ExcludedBookExplanation.IntroductoryExplanation",
-				"The following books were not included in this project:") + Environment.NewLine +
-				String.Join(Environment.NewLine, Exclusions);
-		}
+		//public override string ToString()
+		//{
+		//	return String.Join(Environment.NewLine, Exclusions);
+		//}
+
+		//public string ToString(bool omitExplanations)
+		//{
+		//	return omitExplanations ? String.Join(Environment.NewLine, Exclusions.Select(e => e.BookCode)) : ToString();
+		//}
 
 		public static string LocalizedCheckName(string paratextCheckId)
 		{
@@ -79,6 +87,11 @@ namespace Glyssen.Paratext
 					return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "ParatextCheck." + paratextCheckId, paratextCheckId,
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 			}
+		}
+
+		public BookState GetState(int bookNum)
+		{
+			return m_books[bookNum].State;
 		}
 	}
 }

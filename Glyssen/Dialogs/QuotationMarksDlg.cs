@@ -137,10 +137,10 @@ namespace Glyssen.Dialogs
 								"Param 8: Name of the \"Update\" button"),
 							/* 0 */ ParatextScrTextWrapper.kParatextProgramName,
 							/* 1 */ m_project.ParatextProjectName,
-							/* 2 */ DisallowedBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
+							/* 2 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
 							/* 3 */ GlyssenInfo.kProduct,
-							/* 4 */ DisallowedBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kChapterVerseCheckId),
-							/* 5 */ DisallowedBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kMarkersCheckId),
+							/* 4 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kChapterVerseCheckId),
+							/* 5 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kMarkersCheckId),
 							/* 6 */ m_parentDlg.LocalizedGeneralTabName,
 							/* 7 */ m_parentDlg.Text,
 							/* 8 */ m_parentDlg.LocalizedUpdateButtonName);

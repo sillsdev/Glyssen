@@ -6,7 +6,6 @@ using Glyssen.Shared.Bundle;
 using L10NSharp;
 using Paratext.Data;
 using Paratext.Data.Checking;
-using Paratext.Data.Users;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -29,30 +28,32 @@ namespace Glyssen.Paratext
 		private WritingSystemDefinition m_writingSystem;
 		private GlyssenDblTextMetadata m_metadata;
 		private CheckingStatuses m_checkingStatusData;
-		private readonly List<int> m_usableBookIds;
-		private readonly DisallowedBookInfo m_disallowedBooks = new DisallowedBookInfo();
+		private readonly ParatextProjectBookInfo m_bookInfo = new ParatextProjectBookInfo();
 
 		private ScrText UnderlyingScrText { get; }
 
 		private ScrVers Versification => UnderlyingScrText.Settings.Versification;
+		public IEnumerable<int> CanonicalBookNumbersInProject =>
+			UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
 		public string LanguageIso3Code => UnderlyingScrText.Language.LanguageId.Iso6393Code;
 		public string ProjectFullName => UnderlyingScrText.JoinedFullName;
-		public string ExcludedBookInfo => m_disallowedBooks.ToString();
-		public IEnumerable<int> UsableBookIds => m_usableBookIds; 
+		public int FailedChecksBookCount => m_bookInfo.FailedChecksBookCount;
 		public static string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
-			s_requiredChecks.Select(DisallowedBookInfo.LocalizedCheckName));
+			s_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
+		public bool UserCanEditProject => !UnderlyingScrText.Permissions.HaveRoleNotObserver;
+		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
 
 		public ParatextScrTextWrapper(ScrText underlyingText)
 		{
 			UnderlyingScrText = underlyingText;
 
-			m_usableBookIds = GetUsableBookIds().ToList();
-			if (!m_usableBookIds.Any())
-				throw new NoUsableBooksException(ProjectId, m_disallowedBooks);
+			GetBookInfo();
+			if (m_bookInfo.SupportedBookCount == 0)
+				throw new NoSupportedBooksException(ProjectId, m_bookInfo);
 		}
 
-		private IEnumerable<int> GetUsableBookIds()
+		private void GetBookInfo()
 		{
 			try
 			{
@@ -62,43 +63,35 @@ namespace Glyssen.Paratext
 			{
 				throw new ApplicationException($"Unexpected error retrieving the checking status data for {kParatextProgramName} project: {ProjectId}", e);
 			}
-			foreach (var bookNum in UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical))
+			foreach (var bookNum in CanonicalBookNumbersInProject)
 			{
 				var code = Canon.BookNumberToId(bookNum);
 				if (!Canon.IsBookOTNT(bookNum))
 				{
-					m_disallowedBooks.Add(code, DisallowedBookInfo.Reason.NonCanonical);
+					m_bookInfo.Add(bookNum, code, ParatextProjectBookInfo.BookState.ExcludedNonCanonical);
 					continue;
 				}
 
-				if (!UnderlyingScrText.Permissions.HaveRoleNotObserver || BookPassesRequiredChecks(code))
-					yield return bookNum;
-			}
-		}
-
-		private bool BookPassesRequiredChecks(string code)
-		{
-			var failedChecks = new List<String>(s_requiredChecks.Length);
-			foreach (var check in s_requiredChecks)
-			{
-				CheckingStatus status;
-				try
+				var failedChecks = new List<String>(s_requiredChecks.Length);
+				foreach (var check in s_requiredChecks)
 				{
-					status = m_checkingStatusData.GetCheckingStatus(code, check);
+					CheckingStatus status;
+					try
+					{
+						status = m_checkingStatusData.GetCheckingStatus(code, check);
+					}
+					catch (Exception e)
+					{
+						throw new ApplicationException($"Unexpected error retrieving the {check} check status for {code} in {kParatextProgramName} project: {ProjectId}", e);
+					}
+					if (status == null || !status.Successful)
+						failedChecks.Add(check);
 				}
-				catch (Exception e)
-				{
-					throw new ApplicationException($"Unexpected error retrieving the {check} check status for {code} in {kParatextProgramName} project: {ProjectId}", e);
-				}
-				if (status == null || !status.Successful)
-					failedChecks.Add(check);
+				if (failedChecks.Any())
+					m_bookInfo.Add(bookNum, code, ParatextProjectBookInfo.BookState.FailedCheck, failedChecks);
+				else
+					m_bookInfo.Add(bookNum, code, ParatextProjectBookInfo.BookState.NoProblem);
 			}
-			if (failedChecks.Any())
-			{
-				m_disallowedBooks.Add(code, Paratext.DisallowedBookInfo.Reason.FailedCheck, failedChecks);
-				return false;
-			}
-			return true;
 		}
 
 		public IStylesheet Stylesheet => m_stylesheet ??
@@ -166,13 +159,13 @@ namespace Glyssen.Paratext
 						m_metadata.Identification.SystemIds.Add(new DblMetadataSystemId {Type = "tms", Id = UnderlyingScrText.Settings.TMSId});
 
 					var nameInfo = UnderlyingScrText.BookNames;
-					foreach (var bookNum in m_usableBookIds)
+					foreach (var bookNum in CanonicalBookNumbersInProject)
 					{
 						m_metadata.AvailableBooks.Add(new Book
 						{
 							Abbreviation = nameInfo.GetAbbreviation(bookNum),
 							Code = BCVRef.NumberToBookCode(bookNum),
-							IncludeInScript = true,
+							IncludeInScript = !UserCanEditProject || m_bookInfo.GetState(bookNum) == ParatextProjectBookInfo.BookState.NoProblem,
 							LongName = nameInfo.GetLongName(bookNum),
 							ShortName = nameInfo.GetShortName(bookNum)
 						});
@@ -183,9 +176,10 @@ namespace Glyssen.Paratext
 		}
 
 
-		public IEnumerable<UsxDocument> GetUsxDocumentsForParatextBooks()
+		public IEnumerable<UsxDocument> GetUsxDocumentsForIncludedParatextBooks()
 		{
-			return m_usableBookIds.Select(bookNum => new UsxDocument(UsfmToUsx.ConvertToXmlDocument(
+			return m_metadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code))
+				.Select(bookNum => new UsxDocument(UsfmToUsx.ConvertToXmlDocument(
 				UnderlyingScrText, bookNum, UnderlyingScrText.GetText(bookNum))));
 		}
 	}
