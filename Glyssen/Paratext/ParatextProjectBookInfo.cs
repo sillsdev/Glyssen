@@ -21,7 +21,7 @@ namespace Glyssen.Paratext
 
 		private readonly Dictionary<int, BookStatus> m_books = new Dictionary<int, BookStatus>();
 
-		public int FailedChecksBookCount => m_books.Values.Count(b => b.State == BookState.FailedCheck);
+		public IEnumerable<string> FailedChecksBooks => m_books.Values.Where(b => b.State == BookState.FailedCheck).Select(b => b.BookCode);
 		public int SupportedBookCount => m_books.Values.Count(b => b.State != BookState.ExcludedNonCanonical);
 		public bool HasBooksWithoutProblems => m_books.Values.Any(b => b.State == BookState.NoProblem);
 

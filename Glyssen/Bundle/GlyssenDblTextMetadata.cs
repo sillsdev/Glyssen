@@ -38,8 +38,6 @@ namespace Glyssen.Bundle
 		[DefaultValue(0)]
 		public int ParserUpgradeOptOutVersion { get; set; }
 
-		public HashSet<string> BooksIncludedWithCheckStatusOverride { get; set; }
-
 		/// <summary>
 		/// We add this when we parse the USX to create a script.
 		/// This tells us the original (local) path of the Text Release Bundle file used to create this project.
@@ -124,7 +122,8 @@ namespace Glyssen.Bundle
 		/// <summary>
 		/// Gets the revision number from a standard DBL bundle. If this bundle is an ad-hoc bundle created by Paratext,
 		/// this will instead be the (Mercurial) changeset id (which is a GUID). If this is metadata created from a live
-		/// Paratext project, then it's not going to be anything useful.
+		/// Paratext project, then it's just a sequence number telling how many times we've pulled in new data from Paratext
+		/// (probably not terribly useful).
 		/// </summary>
 		public string RevisionOrChangesetId
 		{

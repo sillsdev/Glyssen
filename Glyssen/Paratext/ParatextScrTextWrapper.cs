@@ -37,7 +37,7 @@ namespace Glyssen.Paratext
 			UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
 		public string LanguageIso3Code => UnderlyingScrText.Language.LanguageId.Iso6393Code;
 		public string ProjectFullName => UnderlyingScrText.JoinedFullName;
-		public int FailedChecksBookCount => m_bookInfo.FailedChecksBookCount;
+		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
 		public static string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
 			s_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
@@ -181,6 +181,16 @@ namespace Glyssen.Paratext
 			return m_metadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code))
 				.Select(bookNum => new UsxDocument(UsfmToUsx.ConvertToXmlDocument(
 				UnderlyingScrText, bookNum, UnderlyingScrText.GetText(bookNum))));
+		}
+
+		public bool IsMetadataCompatible(IReadOnlyGlyssenDblTextMetadata metadata)
+		{
+			return GlyssenDblTextMetadata.Id == metadata.Id && GlyssenDblTextMetadata.Language.Iso == metadata.Language.Iso;
+		}
+
+		public string GetBookChecksum(int bookNum)
+		{
+			return UnderlyingScrText.GetBookCheckSum(bookNum);
 		}
 	}
 }

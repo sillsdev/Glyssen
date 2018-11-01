@@ -97,7 +97,7 @@ namespace Glyssen.Dialogs
 			{
 				// Since the wrapper is already set, we know this is a newly-created project.
 				Debug.Assert(m_project.IsLiveParatextProject);
-				var failedChecksBookCount = m_paratextScrTextWrapper.FailedChecksBookCount;
+				var failedChecksBookCount = m_paratextScrTextWrapper.FailedChecksBooks.Count();
 				if (failedChecksBookCount > 0)
 				{
 					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",

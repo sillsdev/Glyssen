@@ -3,11 +3,13 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -225,32 +227,16 @@ namespace Glyssen
 					Block.FormatChapterAnnouncement = null;
 					return;
 				case ChapterAnnouncement.PageHeader:
-					GetBookName = (bookId) =>
-					{
-						var book = Books.FirstOrDefault(b => b.BookId == bookId);
-						return (book == null) ? null : book.PageHeader;
-					};
+					GetBookName = bookId => GetBook(bookId)?.PageHeader;
 					break;
 				case ChapterAnnouncement.MainTitle1:
-					GetBookName = (bookId) =>
-					{
-						var book = Books.FirstOrDefault(b => b.BookId == bookId);
-						return (book == null) ? null : book.MainTitle;
-					};
+					GetBookName = bookId => GetBook(bookId)?.MainTitle;
 					break;
 				case ChapterAnnouncement.ShortNameFromMetadata:
-					GetBookName = (bookId) =>
-					{
-						var book = m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId);
-						return (book == null) ? null : book.ShortName;
-					};
+					GetBookName = bookId => m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId)?.ShortName;
 					break;
 				case ChapterAnnouncement.LongNameFromMetadata:
-					GetBookName = (bookId) =>
-					{
-						var book = m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId);
-						return (book == null) ? null : book.LongName;
-					};
+					GetBookName = bookId => m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId)?.LongName;
 					break;
 			}
 			Block.FormatChapterAnnouncement = GetFormattedChapterAnnouncement;
@@ -841,7 +827,7 @@ namespace Glyssen
 					if (canInteractWithUser)
 					{
 						string msg = contextMessage + Format(
-								LocalizationManager.GetString("Project.ParserUpgradeParatestProjectMissingMsg",
+								LocalizationManager.GetString("Project.ParatextProjectMissingMsg",
 									"To update the {0} project, the {1} project {2} must be available, but it is not.",
 									"Param 0: Glyssen recording project name; " +
 									"Param 1: \"Paratext\" (product name); " +
@@ -861,63 +847,89 @@ namespace Glyssen
 				}
 			} while (sourceScrText == null); // retry
 
-			// TODO: Perform a sanity check on metadata. If something major (e.g., the language or metadata ID) has changed, we
-			// can't safely go forward.
-
-			do
+			try
 			{
-				try
+				scrTextWrapper = new ParatextScrTextWrapper(sourceScrText);
+				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
 				{
-					scrTextWrapper = new ParatextScrTextWrapper(sourceScrText);
+					throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectMetadataChangedMsg",
+						"The settings of the {0} project no longer appear to correspond to the {1} project. " +
+						"This is an unusual situation. If you do not understand how this happened, please contact support.",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: \"Glyssen\" (product name); "),
+						ParatextScrTextWrapper.kParatextProgramName,
+						GlyssenInfo.kProduct));
 				}
-				catch
-					(ApplicationException e)
-				{
-					if (canInteractWithUser)
-					{
-						string msg = contextMessage + Format(LocalizationManager.GetString("Project.ParserUpgradeParatestProjectMissingMsg",
-								"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
-								"Param 0: Glyssen recording project name; " +
-								"Param 1: \"Glyssen\" (product name); " +
-								"Param 2: \"Paratext\" (product name); " +
-								"Param 3: Project short name (unique project identifier)"),
-								Name, GlyssenInfo.kProduct, ParatextScrTextWrapper.kParatextProgramName, sourceScrText.Name) +
-							Environment.NewLine + e.Message + Environment.NewLine + Environment.NewLine +
-							Format(LocalizationManager.GetString("Project.RestoreParatextProject",
-								"If possible, you should use {0} to run the following checks against at least the books included in this {1} project and then retry; " +
-								"otherwise, you can cancel and {1} will continue to work with the existing project data.\r\nRequired checks: {2}",
-								"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name); Param 2: List of required check names"),
-								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct, ParatextScrTextWrapper.RequiredCheckNames);
-
-						if (DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation))
-							continue;
-					}
-					return null;
-				}
-			} while (scrTextWrapper == null);
-
-			if (checkForChangesInAvailableBooks)
+			}
+			catch (ApplicationException e)
 			{
-				// The project was accessible and loaded successfully with at least one supported book available. Now any
-				// of the following scenarios is possible:
-				// 1) Some of the "Available", but not "Included" books in the existing project are no longer available.
-				//    => We can just remove them from the list of available books and delete the corresponding file (if any)
-				//       stored in the project.
-				// 2) Some of the "Included" books in the existing project are no longer available.
-				//    => If we're interacting with the user, we can ask them whether to proceed and remove the deleted books.
-				//       If not, return null (i.e., continue to opt out of this version of the parser for now)
-				// 3) Some of the "Included" books in the existing project that previously passed the recommended checks no
-				//       longer do.
-				//    => If we're interacting with the user, we can ask them whether to proceed and keep these books (we'll
-				//       have to add them to BooksIncludedWithCheckStatusOverride) or exclude them for now (they can re-add
-				//       them later in the Selected Books dialog).
-				//       If not, return null (i.e., continue to opt out of this version of the parser for now)
-				// 4) Exactly the same books are available and passing checks (this is the happy path)
-				// 5) Some additional books are now available that were not previously.
-				//    => If we're interacting with the user, we can ask them whether to include the new additions.
-				//       If not, we go ahead and add the new books as available but not included.
-				//if (existingProject.book)
-				HashSet<int> nowAvailableBookIds = new HashSet<int>(scrTextWrapper.UsableBookIds);
+				if (canInteractWithUser)
+				{
+					string msg = contextMessage + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateErrorMsg",
+						"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
+						"Param 0: Glyssen recording project name; " +
+						"Param 1: \"Glyssen\" (product name); " +
+						"Param 2: \"Paratext\" (product name); " +
+						"Param 3: Project short name (unique project identifier)"),
+						Name,
+						GlyssenInfo.kProduct,
+						ParatextScrTextWrapper.kParatextProgramName,
+						sourceScrText.Name) +
+						Environment.NewLine + e.Message;
+
+					MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+				return null;
+			}
+
+			return checkForChangesInAvailableBooks &&
+				FoundUnacceptableChangesInAvailableBooks(scrTextWrapper, canInteractWithUser) ?
+				null : scrTextWrapper;
+		}
+
+		private class AbortAndReturnException : Exception
+		{
+			public string Message { get; }
+
+			public AbortAndReturnException(string message)
+			{
+				Message = message;
+			}
+		}
+
+		private bool FoundUnacceptableChangesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper, bool canInteractWithUser)
+		{
+			// Any of the following scenarios is possible:
+			// 1) Exactly the same books are available and passing checks (this is the happy path)
+			// 2) Some of the "Available", but not "Included" books in the existing project are no longer available.
+			//    => We can just remove them from the list of available books and delete the corresponding file (if any)
+			//       stored in the project.
+			// 3) Some of the "Included" books in the existing project are no longer available.
+			//    => If we're interacting with the user, we can ask them whether to proceed and remove the deleted books.
+			//       If not, return null (i.e., continue to opt out of this version of the parser for now)
+			// 4) Some of the "Included" books in the existing project that previously passed the recommended checks no
+			//       longer do.
+			//    => If we're interacting with the user, we can ask them whether to proceed and keep these books (we'll
+			//       have to add them to BooksIncludedWithCheckStatusOverride) or exclude them for now (they can re-add
+			//       them later in the Selected Books dialog).
+			//       If not, return null (i.e., continue to opt out of this version of the parser for now)
+			// 5) Some additional books are now available that were not previously.
+			//    => If we're interacting with the user, we can ask them whether to include the new additions.
+			//       If not, we go ahead and add the new books as available. We will only automatically include them in
+			//       the project if we were previously including all avaialble books.
+			if (canInteractWithUser)
+			{
+				var case3BookIds = new List<string>();
+				var case4BookIds = new List<string>();
+				var case5BookIds = new List<string>();
+
+				HandleDifferencesInAvailableBooks(scrTextWrapper, null,
+					bookCode => case3BookIds.Add(bookCode),
+					bookCode => case4BookIds.Add(bookCode),
+					bookCode => case5BookIds.Add(bookCode));
+
+				// TODO: If anything is in any of the above lists, we need to talk to the user.
+				//HashSet<int> nowAvailableBookIds = new HashSet<int>(scrTextWrapper.UsableBookIds);
 				var includedBooksNoLongerAvailable = IncludedBooks.Select(b => b.BookNumber)
 					.Where(n => !nowAvailableBookIds.Contains(n)).Select(BCVRef.NumberToBookCode).ToList();
 				if (includedBooksNoLongerAvailable.Any())
@@ -929,7 +941,66 @@ namespace Glyssen
 						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), includedBooksNoLongerAvailable)));
 				}
 			}
-			return scrTextWrapper;
+			else
+			{
+				try
+				{
+				HandleDifferencesInAvailableBooks(scrTextWrapper, null,
+					bookCode => throw new AbortAndReturnException($"Book {bookCode} is " +
+						$"included in the project but is no longer available from Paratext project {ParatextProjectName}."),
+					bookCode => throw new AbortAndReturnException($"Book {bookCode} is included in the project but" +
+						" Paratext reports that it does not currently pass basic checks."));
+				}
+				catch (AbortAndReturnException e)
+				{
+					Logger.WriteError(e);
+					return true;
+				}
+			}
+			return false;
+		}
+
+		private void HandleDifferencesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper,
+			Action<string> nowMissingPreviouslyExcluded,
+			Action<string> nowMissingPreviouslyIncluded,
+			Action<string> noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride,
+			Action<string> newlyAvailable = null, Action<string> foundInBoth = null)
+		{
+			var existingAvailable = (IReadOnlyList<Book>)m_projectMetadata.AvailableBooks;
+			var nowAvailable = (IReadOnlyList<Book>)scrTextWrapper.GlyssenDblTextMetadata.AvailableBooks;
+			var x = 0;
+			foreach (Book nowAvailableBook in nowAvailable)
+			{
+				if (x < existingAvailable.Count)
+				{
+					if (existingAvailable[x].Code == nowAvailableBook.Code)
+					{
+						if (existingAvailable[x].IncludeInScript &&
+							!GetBook(existingAvailable[x].Code).CheckStatusOverridden &&
+							scrTextWrapper.FailedChecksBooks.Contains(existingAvailable[x].Code))
+						{
+							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(existingAvailable[x].Code);
+						}
+						else
+							foundInBoth?.Invoke(existingAvailable[x].Code);
+						x++;
+						continue;
+					}
+					var existingBookNum = BCVRef.BookToNumber(existingAvailable[x].Code);
+					var nowAvailableBookNum = BCVRef.BookToNumber(nowAvailableBook.Code);
+					if (existingBookNum < nowAvailableBookNum)
+					{
+						if (existingAvailable[x].IncludeInScript)
+							nowMissingPreviouslyIncluded?.Invoke(existingAvailable[x].Code);
+						else
+							nowMissingPreviouslyExcluded.Invoke(existingAvailable[x].Code);
+						continue;
+					}
+				}
+
+				// New available book.
+				newlyAvailable?.Invoke(nowAvailableBook.Code);
+			}
 		}
 
 		internal static Project UpdateFromParatextData(Project existingProject, ParatextScrTextWrapper scrTextWrapper)
@@ -937,45 +1008,63 @@ namespace Glyssen
 			var upgradedProject = new Project(existingProject.m_projectMetadata);
 
 			// Add metadata for any books that are available in scrTextWrapper but not in the
-			// existing project. Remove metadata for any books formerly avaialble that are not now.
-			var nowAvailable = scrTextWrapper.GlyssenDblTextMetadata.AvailableBooks;
+			// existing project. Remove metadata for any books formerly available that are not now.
 			var existingAvailable = existingProject.m_projectMetadata.AvailableBooks;
-			var x = 0;
-			for (int n = 0; n < nowAvailable.Count; n++)
+			bool foundDataChange = false;
+			Action<string> nowMissing = bookCode =>
 			{
-				if (x < existingAvailable.Count)
+				RobustFile.Delete(existingProject.GetBookDataFilePath(bookCode));
+				foundDataChange = true;
+			};
+
+			var booksNeedingCheckStatusOverride = new List<string>();
+			Action<string> setCheckStatusOverride = bookCode => booksNeedingCheckStatusOverride.Add(bookCode);
+
+			List<String> booksToExcludeFromProject = null;
+			Action<string> insertNew;
+			if (existingAvailable.Any(b => b.IncludeInScript == false))
+			{
+				booksToExcludeFromProject = new List<string>();
+				// New available book. Allow it to be parsed, but don't include it in the project.
+				insertNew = (bookCode) =>
 				{
-					if (existingAvailable[x].Code == nowAvailable[n].Code)
-					{
-						x++;
-						continue;
-					}
-					var existingBookNum = BCVRef.BookToNumber(existingAvailable[x].Code);
-					var nowAvailableBookNum = BCVRef.BookToNumber(nowAvailable[n].Code);
-					if (existingBookNum < nowAvailableBookNum)
-					{
-						// No longer available. Remove it.
-						RobustFile.Delete(existingProject.GetBookDataFilePath(existingAvailable[x].Code));
-						existingAvailable.RemoveAt(x);
-						continue;
-					}
-				}
-				// New available book. Add but don't include in project
-				existingAvailable.Insert(x, new Book
-				{
-					Abbreviation = nowAvailable[n].Abbreviation,
-					Code = nowAvailable[n].Code,
-					IncludeInScript = false,
-					LongName = nowAvailable[n].LongName,
-					ShortName = nowAvailable[n].ShortName
-				});
-				x++;
+					booksToExcludeFromProject.Add(bookCode);
+					foundDataChange = true;
+				};
 			}
+			else
+			{
+				// New available book. Since all other books are included, we assume we want to include anything new as well.
+				insertNew = (book) => foundDataChange = true;
+			}
+
+			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
+				setCheckStatusOverride, insertNew);
 
 			UpgradeProject(existingProject, upgradedProject, () =>
 			{
 				upgradedProject.AddAndParseBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
 			});
+			foreach (var book in upgradedProject.IncludedBooks)
+			{
+				book.ParatextChecksum = scrTextWrapper.GetBookChecksum(book.BookNumber);
+				if (booksNeedingCheckStatusOverride.Contains(book.BookId))
+					book.CheckStatusOverridden = true;
+				if (!foundDataChange)
+				{
+					var existingBook = existingProject.GetBook(book.BookNumber);
+					if (existingBook == null || book.ParatextChecksum != existingBook.ParatextChecksum)
+						foundDataChange = true;
+				}
+			}
+			if (booksToExcludeFromProject != null && booksToExcludeFromProject.Any())
+			{
+				foreach (var book in upgradedProject.AvailableBooks.Where(b => booksToExcludeFromProject.Contains(b.Code)))
+					book.IncludeInScript = false;
+			}
+			if (foundDataChange)
+				upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
+
 			return upgradedProject;
 		}
 
@@ -2220,3 +2309,4 @@ namespace Glyssen
 		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized
 	}
 }
+
