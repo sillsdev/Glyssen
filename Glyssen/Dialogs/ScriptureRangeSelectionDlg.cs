@@ -52,6 +52,9 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			Debug.Assert(LocalizationManager.UILanguageId != "en" || Text == "Select Books - {0}",
+				"Dev alert: the localized string and ID of this dialog's window title MUST be kept in sync with the version in Project.FoundUnacceptableChangesInAvailableBooks!");
+
 			Text = Format(Text, m_project.Name);
 		}
 
