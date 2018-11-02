@@ -287,6 +287,29 @@ namespace GlyssenTests
 			Assert.True(blocks[1].IsParagraphStart);
 		}
 
+		/// <summary>
+		///  PG-1140: Since the Paratext Markers check unfortunately allows the \cl marker to occur later in the chapter,
+		/// </summary>
+		[Test]
+		public void Parse_SpecificChapterLabelLaterInChapter()
+		{
+			Assert.Fail("TODO: We need to figure out if there is anything reasonable to do and do it.");
+			//var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"cl\">Specific-Chapter One</para><para style=\"s1\">Lok ma Jon Labatija otito</para>");
+			//var parser = GetUsxParser(doc);
+			//var blocks = parser.Parse().ToList();
+			//Assert.AreEqual(2, blocks.Count);
+			//Assert.AreEqual(1, blocks[0].ChapterNumber);
+			//Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
+			//Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
+			//Assert.AreEqual("BC-MRK", blocks[0].CharacterId);
+			//Assert.True(blocks[0].IsParagraphStart);
+			//Assert.AreEqual(1, blocks[1].ChapterNumber);
+			//Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
+			//Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+			//Assert.IsNull(blocks[1].CharacterId);
+			//Assert.True(blocks[1].IsParagraphStart);
+		}
+
 		[Test]
 		public void Parse_ProcessChaptersAndVerses_BlocksGetCorrectChapterAndVerseNumbers()
 		{
