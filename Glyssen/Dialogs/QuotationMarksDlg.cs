@@ -127,7 +127,7 @@ namespace Glyssen.Dialogs
 								"   (Note: The {4} and {5} checks are also required to pass in order for a book to be included in a {3} project.)\r\n" +
 								"3) Return to {3} and on the {6} tab of the {7} dialog box, click {8}.",
 								"Param 0: \"Paratext\" (product name); " +
-								"Param 1: Project short name (unique project identifier);" +
+								"Param 1: Project short name (unique project identifier); " +
 								"Param 2: Name of the Paratext \"Quotations\" check; " +
 								"Param 3: \"Glyssen\" (product name); " +
 								"Param 4: Name of the Paratext \"Chapter/Verse Numbers\" check; " +

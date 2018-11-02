@@ -78,7 +78,7 @@ namespace Glyssen.Dialogs
 			this.m_btnOk.Text = "OK";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+			this.m_btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
 			// m_btnCancel
 			// 

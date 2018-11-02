@@ -831,7 +831,7 @@ namespace Glyssen
 									"To update the {0} project, the {1} project {2} must be available, but it is not.",
 									"Param 0: Glyssen recording project name; " +
 									"Param 1: \"Paratext\" (product name); " +
-									"Param 2: Project short name (unique project identifier)"),
+									"Param 2: Paratext project short name (unique project identifier)"),
 								Name, ParatextScrTextWrapper.kParatextProgramName, e.ProjectName) +
 							Environment.NewLine + Environment.NewLine +
 							Format(LocalizationManager.GetString("Project.RestoreParatextProject",
@@ -839,7 +839,7 @@ namespace Glyssen
 									"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name)"),
 								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
 
-						string caption = LocalizationManager.GetString("Project.ParatextProjectUnavailable", "Paratext Project Unavailable");
+						string caption = LocalizationManager.GetString("Project.ParatextProjectUnavailable", "Paratext project Unavailable");
 						if (DialogResult.Retry == MessageBox.Show(msg, caption, MessageBoxButtons.RetryCancel))
 							continue;
 					}
@@ -870,7 +870,7 @@ namespace Glyssen
 						"Param 0: Glyssen recording project name; " +
 						"Param 1: \"Glyssen\" (product name); " +
 						"Param 2: \"Paratext\" (product name); " +
-						"Param 3: Project short name (unique project identifier)"),
+						"Param 3: Paratext project short name (unique project identifier)"),
 						Name,
 						GlyssenInfo.kProduct,
 						ParatextScrTextWrapper.kParatextProgramName,
@@ -926,8 +926,8 @@ namespace Glyssen
 						"of books from the {0} project that were previously included:",
 						"Param 0: \"Glyssen\" (product name); " +
 						"Param 1: \"Paratext\" (product name); " +
-						"Param 2: Project short name (unique project identifier)" +
-						"Param 3: Glyssen recording project name; "),
+						"Param 2: Paratext project short name (unique project identifier); " +
+						"Param 3: Glyssen recording project name"),
 					GlyssenInfo.kProduct,
 					ParatextScrTextWrapper.kParatextProgramName,
 					ParatextProjectName,
@@ -951,7 +951,7 @@ namespace Glyssen
 					msg += Environment.NewLine + Format(LocalizationManager.GetString("Project.ParatextBooksNoLongerPassChecks",
 							"The following books no longer appear to pass the basic checks:\r\n   {0}\r\n" +
 							"(If needed, you can include these books again later in the {1} dialog box.)",
-							"Param 0: list of 3-letter book IDs" +
+							"Param 0: list of 3-letter book IDs; " +
 							"Param 1: Name of the \"Select Books\" dialog box."),
 						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), noLongerPassingListBookIds),
 						scriptureRangeSelectionDlgName);
@@ -969,8 +969,8 @@ namespace Glyssen
 				HandleDifferencesInAvailableBooks(scrTextWrapper, null,
 					bookCode => throw new ApplicationException($"Book {bookCode} is " +
 						$"included in the project but is no longer available from Paratext project {ParatextProjectName}."),
-					bookCode => throw new ApplicationException($"Book {bookCode} is included in the project but" +
-						" Paratext reports that it does not currently pass basic checks."));
+					bookCode => throw new ApplicationException($"Book {bookCode} is included in the project but " +
+						"Paratext reports that it does not currently pass basic checks."));
 				return false;
 			}
 			catch (ApplicationException e)
@@ -1479,6 +1479,25 @@ namespace Glyssen
 			return Path.ChangeExtension(Path.Combine(ProjectFolder, bookId), "xml");
 		}
 
+		public bool DoesBookScriptFileExist(string bookId)
+		{
+			return RobustFile.Exists(GetBookDataFilePath(bookId));
+		}
+
+		//public BookScript FluffUpBookFromFileIfPossible(string bookId)
+		//{
+		//	var path = GetBookDataFilePath(bookId);
+		//	if (RobustFile.Exists(path))
+		//	{
+		//		Exception error;
+		//		var bookScript = XmlSerializationHelper.DeserializeFromFile<BookScript>(GetBookDataFilePath(bookId), out error);
+		//		if (error != null)
+		//			ErrorReport.ReportNonFatalException(error);
+		//		return bookScript;
+		//	}
+		//	return null;
+		//}
+
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
@@ -1944,7 +1963,7 @@ namespace Glyssen
 					}
 					catch (Exception ex)
 					{
-						Logger.WriteError("There was a problem launching the font preview.Please install the font manually:" + ttfFile, ex);
+						Logger.WriteError("There was a problem launching the font preview. Please install the font manually:" + ttfFile, ex);
 						MessageBox.Show(
 							Format(
 								LocalizationManager.GetString("Font.UnableToLaunchFontPreview",

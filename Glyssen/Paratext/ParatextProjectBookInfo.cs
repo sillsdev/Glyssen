@@ -93,5 +93,10 @@ namespace Glyssen.Paratext
 		{
 			return m_books[bookNum].State;
 		}
+
+		public string GetStatusInfo(int bookNum)
+		{
+			return m_books[bookNum].ToString();
+		}
 	}
 }

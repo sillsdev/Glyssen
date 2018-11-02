@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.DblBundle;
@@ -24,11 +23,11 @@ namespace Glyssen
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
-			Parallel.ForEach(books, bookScript =>
+			Parallel.ForEach(books, usxDoc =>
 			{
-				var nodeList = bookScript.GetChaptersAndParas();
-				blocksInBook.AddOrUpdate(bookScript.BookId, nodeList, (s, list) => nodeList);
-				numBlocksPerBook.AddOrUpdate(bookScript.BookId, nodeList.Count, (s, i) => nodeList.Count);
+				var nodeList = usxDoc.GetChaptersAndParas();
+				blocksInBook.AddOrUpdate(usxDoc.BookId, nodeList, (s, list) => nodeList);
+				numBlocksPerBook.AddOrUpdate(usxDoc.BookId, nodeList.Count, (s, i) => nodeList.Count);
 			});
 			int allProjectBlocks = numBlocksPerBook.Values.Sum();
 
@@ -37,14 +36,7 @@ namespace Glyssen
 			Parallel.ForEach(blocksInBook, book =>
 			{
 				var bookId = book.Key;
-				Logger.WriteEvent("Creating bookScript ({0})", bookId);
-				var parser = new UsxParser(bookId, stylesheet, book.Value);
-				var bookScript = new BookScript(bookId, parser.Parse());
-				SingleVoiceReason singleVoiceReason;
-				bookScript.SingleVoice = BookMetadata.DefaultToSingleVoice(bookId, out singleVoiceReason);
-				bookScript.PageHeader = parser.PageHeader;
-				bookScript.MainTitle = parser.MainTitle;
-				Logger.WriteEvent("Created bookScript ({0}, {1})", bookId, bookScript.BookId);
+				var bookScript = new UsxParser(bookId, stylesheet, book.Value).CreateBookScript();
 				lock(bookScripts)
 					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
@@ -78,6 +70,24 @@ namespace Glyssen
 
 			reportProgressAsPercent?.Invoke(100);
 			return bookScripts;
+		}
+
+		public static BookScript ParseSingleBook(UsxDocument usxDoc, IStylesheet stylesheet)
+		{
+			return new UsxParser(usxDoc.BookId, stylesheet, usxDoc.GetChaptersAndParas()).CreateBookScript();
+		}
+
+		private BookScript CreateBookScript()
+		{
+			Logger.WriteEvent("Creating bookScript ({0})", m_bookId);
+			var bookScript = new BookScript(m_bookId, Parse())
+			{
+				SingleVoice = BookMetadata.DefaultToSingleVoice(m_bookId, out SingleVoiceReason reason),
+				PageHeader = PageHeader,
+				MainTitle = MainTitle
+			};
+			Logger.WriteEvent("Created bookScript ({0}, {1})", m_bookId, bookScript.BookId);
+			return bookScript;
 		}
 
 		private readonly string m_bookId;

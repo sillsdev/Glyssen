@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
 
@@ -7,7 +6,7 @@ namespace Glyssen.Paratext
 {
 	internal class NoSupportedBooksException : ApplicationException
 	{
-		public object Details { get; }
+		public ParatextProjectBookInfo Details { get; }
 
 		public NoSupportedBooksException(string projectName, ParatextProjectBookInfo details) : base(
 			String.Format(LocalizationManager.GetString("Project.NoSupportedBooksInParatextProject",
@@ -17,7 +16,7 @@ namespace Glyssen.Paratext
 				"Param 2: \"Glyssen\" (product name)"),
 			ParatextScrTextWrapper.kParatextProgramName, projectName, GlyssenInfo.kProduct))
 		{
-			Details = details.Exclusions.Any() ? (object) details : $"No books in project {projectName}";
+			Details = details;
 		}
 	}
 }

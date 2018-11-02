@@ -27,7 +27,6 @@ namespace Glyssen.Paratext
 		private ScrStylesheetAdapter m_stylesheet;
 		private WritingSystemDefinition m_writingSystem;
 		private GlyssenDblTextMetadata m_metadata;
-		private CheckingStatuses m_checkingStatusData;
 		private readonly ParatextProjectBookInfo m_bookInfo = new ParatextProjectBookInfo();
 
 		private ScrText UnderlyingScrText { get; }
@@ -37,6 +36,8 @@ namespace Glyssen.Paratext
 			UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
 		public string LanguageIso3Code => UnderlyingScrText.Language.LanguageId.Iso6393Code;
 		public string ProjectFullName => UnderlyingScrText.JoinedFullName;
+		// REVIEW (PG-63): In all cases where FailedChecksBooks is accessed, analyze whether UserCanEditProject should be
+		// taken into account. Maybe FailedChecksBooks should always return an empty list when !UserCanEditProject.
 		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
 		public static string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
 			s_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
@@ -55,9 +56,11 @@ namespace Glyssen.Paratext
 
 		private void GetBookInfo()
 		{
+			CheckingStatuses checkingStatusData;
+
 			try
 			{
-				m_checkingStatusData = CheckingStatuses.Get(UnderlyingScrText);
+				checkingStatusData = CheckingStatuses.Get(UnderlyingScrText);
 			}
 			catch (Exception e)
 			{
@@ -78,7 +81,7 @@ namespace Glyssen.Paratext
 					CheckingStatus status;
 					try
 					{
-						status = m_checkingStatusData.GetCheckingStatus(code, check);
+						status = checkingStatusData.GetCheckingStatus(code, check);
 					}
 					catch (Exception e)
 					{
@@ -175,12 +178,15 @@ namespace Glyssen.Paratext
 			}
 		}
 
+		public UsxDocument GetUsxDocumentForBook(int bookNum)
+		{
+			return new UsxDocument(UsfmToUsx.ConvertToXmlDocument(UnderlyingScrText, bookNum, UnderlyingScrText.GetText(bookNum)));
+		}
 
 		public IEnumerable<UsxDocument> GetUsxDocumentsForIncludedParatextBooks()
 		{
 			return m_metadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code))
-				.Select(bookNum => new UsxDocument(UsfmToUsx.ConvertToXmlDocument(
-				UnderlyingScrText, bookNum, UnderlyingScrText.GetText(bookNum))));
+				.Select(GetUsxDocumentForBook);
 		}
 
 		public bool IsMetadataCompatible(IReadOnlyGlyssenDblTextMetadata metadata)
@@ -191,6 +197,19 @@ namespace Glyssen.Paratext
 		public string GetBookChecksum(int bookNum)
 		{
 			return UnderlyingScrText.GetBookCheckSum(bookNum);
+		}
+
+		public bool DoesBookPassChecksNow(string bookCode)
+		{
+			if (!UserCanEditProject || !FailedChecksBooks.Contains(bookCode))
+				return true; // We will assume this is stil up-to-date
+			GetBookInfo();
+			return !FailedChecksBooks.Contains(bookCode);
+		}
+
+		public string GetCheckFailureInfoForBook(string bookId)
+		{
+			return m_bookInfo.GetStatusInfo(Canon.BookIdToNumber(bookId));
 		}
 	}
 }

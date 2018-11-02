@@ -14,6 +14,7 @@ using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;
+using SIL.Reporting;
 using SIL.Scripture;
 using static System.String;
 
@@ -69,6 +70,7 @@ namespace Glyssen.Dialogs
 			m_multiVoice = new Dictionary<string, bool>(m_project.AvailableBooks.Count);
 
 			// First time in. Default to all included.
+			// REVIEW (PG-63): For Paratext projects, we probably don't want to do this at all.
 			if (m_project.IncludedBooks.Count == 0)
 				foreach (var availableBook in m_project.AvailableBooks)
 					availableBook.IncludeInScript = true;
@@ -104,8 +106,8 @@ namespace Glyssen.Dialogs
 				if (failedChecksBookCount > 0)
 				{
 					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
-						"{0} did not automatically {1} of the books in project {2} because {3} is not reporting a " +
-						"current successful status for the basic checks that Glyssen normally requires to pass." +
+						"{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a " +
+						"current successful status for the basic checks that Glyssen normally requires to pass. " +
 						"If you intend to prepare the recording script for any of the excluded books at this time, " +
 						"we strongly recommend that you get the following checks to pass in {2} before including them:",
 						"Param 0: \"Glyssen\" (product name); " +
@@ -190,12 +192,18 @@ namespace Glyssen.Dialogs
 			Width = (int)(Width * .6d);
 		}
 
-		private void BtnOk_Click(object sender, EventArgs e)
+		private void btnOk_Click(object sender, EventArgs e)
 		{
-			List<BookScript> booksToAskUserAbout = new List<BookScript>();
+			List<BookScript> multiVoiceBooksRequiringConfirmation = new List<BookScript>();
 			foreach (var book in m_project.AvailableBooks)
 			{
 				book.IncludeInScript = m_includeInScript[book.Code];
+				// TODO (PG-63): If we're including a new Paratext book, we need to:
+				// * Make sure the book script file exists and/or ask user about updating it.
+				// * Parse it and add it to the list. Otherwise, m_project.IncludedBooks.Single(b => b.BookId == book.Code)
+				// will fail.
+				// * Set its checksum
+				// * If checks don't pass, set the override flag
 
 				if (!book.IncludeInScript)
 					continue;
@@ -207,7 +215,7 @@ namespace Glyssen.Dialogs
 				SingleVoiceReason singleVoiceReason;
 				if (m_multiVoice[book.Code] && BookMetadata.DefaultToSingleVoice(book.Code, out singleVoiceReason) && singleVoiceReason == SingleVoiceReason.TooComplexToAssignAccurately)
 				{
-					booksToAskUserAbout.Add(bookScript);
+					multiVoiceBooksRequiringConfirmation.Add(bookScript);
 					continue;
 				}
 
@@ -220,11 +228,29 @@ namespace Glyssen.Dialogs
 				});
 			}
 
-			if (booksToAskUserAbout.Any() && !ConfirmSetToMultiVoice(booksToAskUserAbout))
+			if (multiVoiceBooksRequiringConfirmation.Any() && !ConfirmSetToMultiVoice(multiVoiceBooksRequiringConfirmation))
 			{
 				DialogResult = DialogResult.None;
 				return;
 			}
+
+			// TODO (PG-63): For any books now being included, if this is a Paratext-based project, ask about getting latest data
+			//if (!scrTextWrapper.FailedChecksBooks.Contains(bookCode))
+			//{
+			//	var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.UpdateBook",
+			//			"There is an updated version of {0} in {1}. Would you like {3} to retrieve the latest data?",
+			//			"Param 0: 3-letter ID of a Scripture book; " +
+			//			"Param 1: \"Paratext\" (product name); " +
+			//			"Param 2: \"Glyssen\" (product name)"),
+			//		bookCode,
+			//		ParatextScrTextWrapper.kParatextProgramName,
+			//		GlyssenInfo.kProduct);
+			//	if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo))
+			//	{
+			//		m_project.Create
+			//		UsxParser.ParseSingleBook(scrTextWrapper.GetUsxDocumentForBook(bookNum), scrTextWrapper.Stylesheet);
+			//	}
+			//}
 
 			m_project.BookSelectionStatus = BookSelectionStatus.Reviewed;
 
@@ -285,24 +311,63 @@ namespace Glyssen.Dialogs
 			{
 				var books = sender.Equals(m_otBooksGrid) ? m_availableOtBooks : m_availableNtBooks;
 				var book = books[e.RowIndex];
-				if (m_project.BookDataFileExists(book.Code))
+				if (book.IncludeInScript)
+					return; // Always valid to exclude
+				var bookCode = book.Code;
+				if (m_project.DoesBookScriptFileExist(bookCode))
+					return; // Might try to get an updated version later but this one is valid.
+
+				if (m_paratextScrTextWrapper == null)
+					m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+
+				if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(Canon.BookIdToNumber(bookCode)))
 				{
-					// TODO: We need to check the check status, warn the user if not passing, and get the data from Paratext.
-					// Even if the data is there, we might still want to ask them if they want to get updated data from Paratext.
+					ReportParatextBookNoLongerAvailable(bookCode);
+					((DataGridView)sender).Rows[e.RowIndex].Visible = false; // REVIEW (PG-63): Will this work? Will it be weird?
+					e.Cancel = true;
 				}
-				else
-				{
-					if (m_paratextScrTextWrapper == null)
-					{
-						m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
-					}
-					else
-					{
-						// TODO: Refresh checking status
-					}
-					// TODO: See if checks pass for this book. If not, as user whether to override
-				}
+
+				if (m_paratextScrTextWrapper.DoesBookPassChecksNow(bookCode))
+					return;
+
+				var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks",
+						"{0} is not reporting a current successful status for {1} in the {2} project for the basic checks " +
+						"that {3} strongly recommends:" +
+						"\r\n\r\n   {4}\r\n\r\n" +
+						"Depending on the specific errors, {3} might fail to process the data for this book properly, which could " +
+						"give the appearance of data loss or corruption and could even cause {3} to stop responding. " +
+						"Do you want to include this book in the {5} project anyway?",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: 3-letter ID of Scripture book; " +
+						"Param 2: Project short name (unique project identifier); " +
+						"Param 3: \"Glyssen\" (product name); " +
+						"Param 4: List of Paratext check names; " +
+						"Param 5: Glyssen recording project name"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					bookCode,
+					m_project.ParatextProjectName,
+					GlyssenInfo.kProduct,
+					ParatextScrTextWrapper.RequiredCheckNames,
+					m_project.Name);
+
+				if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+					e.Cancel = true;
+				Logger.WriteEvent($"Including book {bookCode} even though " +
+					m_paratextScrTextWrapper.GetCheckFailureInfoForBook(bookCode));
 			}
+		}
+
+		private void ReportParatextBookNoLongerAvailable(string bookCode)
+		{
+			var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableMsg",
+					"Sorry. {0} is no longer available from {1} project {2}",
+					"Param 0: 3-letter ID of Scripture book; " +
+					"Param 1: \"Paratext\" (product name); " +
+					"Param 2: Paratext project short name (unique project identifier); "),
+				bookCode);
+			var caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableCaption",
+				"Unable to Include Book");
+			MessageBox.Show(this, msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}
 
 		private void BooksGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
