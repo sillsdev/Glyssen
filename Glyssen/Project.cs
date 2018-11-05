@@ -413,12 +413,6 @@ namespace Glyssen
 			set => m_projectMetadata.OriginalReleaseBundlePath = value;
 		}
 
-		//public string OriginalDataSource
-		//{
-		//	get => m_projectMetadata.OriginalReleaseBundlePath ?? m_projectMetadata.ParatextProjectId;
-		//	//set => IsBundleBasedProject ? m_projectMetadata.OriginalReleaseBundlePath = value;
-		//}
-
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
 
 		public IReadOnlyDictionary<string, CharacterDetail> AllCharacterDetailDictionary

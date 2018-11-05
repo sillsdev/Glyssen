@@ -69,9 +69,10 @@ namespace Glyssen.Dialogs
 			m_includeInScript = new Dictionary<string, bool>(m_project.AvailableBooks.Count);
 			m_multiVoice = new Dictionary<string, bool>(m_project.AvailableBooks.Count);
 
-			// First time in. Default to all included.
-			// REVIEW (PG-63): For Paratext projects, we probably don't want to do this at all.
-			if (m_project.IncludedBooks.Count == 0)
+			// First time in. For bundle-based projects, default to all included.
+			// For Paratext projects, we don't do this because we've predetermined which books
+			// are included based on checking status.
+			if (!m_project.IsBundleBasedProject && m_project.IncludedBooks.Count == 0)
 				foreach (var availableBook in m_project.AvailableBooks)
 					availableBook.IncludeInScript = true;
 
@@ -107,7 +108,7 @@ namespace Glyssen.Dialogs
 				{
 					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
 						"{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a " +
-						"current successful status for the basic checks that Glyssen normally requires to pass. " +
+						"current successful status for all the basic checks that Glyssen usually requires to pass. " +
 						"If you intend to prepare the recording script for any of the excluded books at this time, " +
 						"we strongly recommend that you get the following checks to pass in {2} before including them:",
 						"Param 0: \"Glyssen\" (product name); " +
@@ -152,10 +153,42 @@ namespace Glyssen.Dialogs
 		{
 			// e.EventKey: 0 = Select All, 1 = Clear All
 			var shouldCheck = e.EventKey == 0;
-			foreach (var row in e.Column.DataGridView.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow))
+			var rowsToChange = e.Column.DataGridView.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow && row.Visible &&
+				(bool)row.Cells[e.Column.Index].Value != shouldCheck).ToList();
+			if (shouldCheck && m_project.IsLiveParatextProject)
+			{
+				if (m_paratextScrTextWrapper == null)
+					m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+				else
+					m_paratextScrTextWrapper.GetUpdatedBookInfo();
+
+				var failedChecksBookCount = m_paratextScrTextWrapper.FailedChecksBooks.Count(b => rowsToChange.Select(bookcode).Contains(b));
+				if (failedChecksBookCount > 0)
+				{
+					// TODO (PG-63): Adjust this message for this context.
+					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
+								"{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a " +
+								"current successful status for all the basic checks that Glyssen usually requires to pass. " +
+								"If you intend to prepare the recording script for any of the excluded books at this time, " +
+								"we strongly recommend that you get the following checks to pass in {2} before including them:",
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: (integer) number of Scripture books that did not pass basic checks; " +
+								"Param 2: Project short name (unique project identifier); " +
+								"Param 3: \"Paratext\" (product name)"),
+							GlyssenInfo.kProduct,
+							failedChecksBookCount,
+							m_project.ParatextProjectName,
+							ParatextScrTextWrapper.kParatextProgramName) +
+						Environment.NewLine +
+						ParatextScrTextWrapper.RequiredCheckNames;
+					MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+			}
+			foreach (var row in e.Column.DataGridView.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow && row.Visible))
 			{
 				row.Cells[e.Column.Index].Value = shouldCheck;
-				CheckCorrespondingCell(row.Index, e.Column.Index, e.Column.DataGridView);
+				if (e.Column.Index == m_includeInScriptColumnIndex)
+					SetCorrespondingMultivoiceCell(row.Index, e.Column.Index, e.Column.DataGridView);
 			}
 		}
 
@@ -167,8 +200,9 @@ namespace Glyssen.Dialogs
 				if (!availableBook.IncludeInScript)
 					grid[m_multiVoiceColumnIndex, books.IndexOf(availableBook)].ReadOnly = true;
 
-				var bookScript = m_project.Books.Single(b => b.BookId == availableBook.Code);
-				m_multiVoice[availableBook.Code] = !bookScript.SingleVoice;
+				var bookScript = m_project.Books.SingleOrDefault(b => b.BookId == availableBook.Code);
+				m_multiVoice[availableBook.Code] = !bookScript?.SingleVoice ??
+					!BookMetadata.DefaultToSingleVoice(availableBook.Code, out SingleVoiceReason reason);
 			}
 		}
 
@@ -307,54 +341,72 @@ namespace Glyssen.Dialogs
 
 		private void BooksGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
 		{
-			if (e.ColumnIndex == m_includeInScriptColumnIndex && m_project.IsLiveParatextProject)
+			if (!e.Cancel && e.ColumnIndex == m_includeInScriptColumnIndex && (bool)e.FormattedValue)
 			{
-				var books = sender.Equals(m_otBooksGrid) ? m_availableOtBooks : m_availableNtBooks;
-				var book = books[e.RowIndex];
-				if (book.IncludeInScript)
-					return; // Always valid to exclude
-				var bookCode = book.Code;
-				if (m_project.DoesBookScriptFileExist(bookCode))
-					return; // Might try to get an updated version later but this one is valid.
+				var grid = (DataGridView)sender;
 
-				if (m_paratextScrTextWrapper == null)
-					m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
-
-				if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(Canon.BookIdToNumber(bookCode)))
+				if (grid.IsCurrentCellDirty && !IsValidToIncludeBook(grid, e.RowIndex))
 				{
-					ReportParatextBookNoLongerAvailable(bookCode);
-					((DataGridView)sender).Rows[e.RowIndex].Visible = false; // REVIEW (PG-63): Will this work? Will it be weird?
 					e.Cancel = true;
+					grid.RefreshEdit();
+					grid.CancelEdit();
 				}
-
-				if (m_paratextScrTextWrapper.DoesBookPassChecksNow(bookCode))
-					return;
-
-				var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks",
-						"{0} is not reporting a current successful status for {1} in the {2} project for the basic checks " +
-						"that {3} strongly recommends:" +
-						"\r\n\r\n   {4}\r\n\r\n" +
-						"Depending on the specific errors, {3} might fail to process the data for this book properly, which could " +
-						"give the appearance of data loss or corruption and could even cause {3} to stop responding. " +
-						"Do you want to include this book in the {5} project anyway?",
-						"Param 0: \"Paratext\" (product name); " +
-						"Param 1: 3-letter ID of Scripture book; " +
-						"Param 2: Project short name (unique project identifier); " +
-						"Param 3: \"Glyssen\" (product name); " +
-						"Param 4: List of Paratext check names; " +
-						"Param 5: Glyssen recording project name"),
-					ParatextScrTextWrapper.kParatextProgramName,
-					bookCode,
-					m_project.ParatextProjectName,
-					GlyssenInfo.kProduct,
-					ParatextScrTextWrapper.RequiredCheckNames,
-					m_project.Name);
-
-				if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
-					e.Cancel = true;
-				Logger.WriteEvent($"Including book {bookCode} even though " +
-					m_paratextScrTextWrapper.GetCheckFailureInfoForBook(bookCode));
 			}
+		}
+
+		private bool IsValidToIncludeBook(DataGridView grid, int rowIndex)
+		{
+			if (!m_project.IsLiveParatextProject)
+				return true;
+			var books = grid.Equals(m_otBooksGrid) ? m_availableOtBooks : m_availableNtBooks;
+			var book = books[rowIndex];
+			if (book.IncludeInScript)
+				return true; // Always valid to exclude
+			var bookCode = book.Code;
+			if (m_project.DoesBookScriptFileExist(bookCode))
+				return true; // Might try to get an updated version later but this one is valid.
+
+			if (m_paratextScrTextWrapper == null)
+				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+
+			if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(Canon.BookIdToNumber(bookCode)))
+			{
+				ReportParatextBookNoLongerAvailable(bookCode);
+				grid.Rows[rowIndex].Visible = false; // REVIEW (PG-63): Will this work? Will it be weird?
+				return false;
+			}
+
+			if (m_paratextScrTextWrapper.DoesBookPassChecksNow(bookCode))
+				return true;
+
+			var failureMessage = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook",
+				"{0} is not reporting a current successful status for {1} in project {2} for the following basic checks " +
+				"that {3} usually requires to pass:\r\n{4}",
+				"Param 0: \")Paratext\" (product name); " +
+				"Param 1: 3-letter Scripture book code; " +
+				"Param 2: Paratext project short name (unique project identifier); " +
+				"Param 3: \"Glyssen\" (product name); " +
+				"Param 4: List of faling Paratext check names"),
+				ParatextScrTextWrapper.kParatextProgramName,
+				bookCode,
+				m_project.ParatextProjectName,
+				GlyssenInfo.kProduct,
+				Join(", ", m_paratextScrTextWrapper.GetCheckFailuresForBook(bookCode)));
+
+			var msg = failureMessage + Environment.NewLine + Environment.NewLine +
+				Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks",
+				"Depending on the specific errors, {0} might fail to process the data for this book properly, which could " +
+				"give the appearance of data loss or corruption and could even cause {0} to stop responding. " +
+				"Do you want to include this book in the {1} project anyway?",
+				"Param 0: \"Glyssen\" (product name); " +
+				"Param 1: Glyssen recording project name"),
+				GlyssenInfo.kProduct,
+				m_project.Name);
+
+			if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+				return false;
+			Logger.WriteEvent($"Including book {bookCode} even though " + failureMessage);
+			return true;
 		}
 
 		private void ReportParatextBookNoLongerAvailable(string bookCode)
@@ -384,16 +436,35 @@ namespace Glyssen.Dialogs
 
 		private void BooksGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (e.RowIndex == -1)
+			if (e.RowIndex == -1 || e.ColumnIndex != m_includeInScriptColumnIndex)
 				return;
 
-			CheckCorrespondingCell(e.RowIndex, e.ColumnIndex, (DataGridView)sender);
+			var grid = (DataGridView)sender;
+			if (!(bool)grid[e.ColumnIndex, e.RowIndex].EditedFormattedValue || IsValidToIncludeBook(grid, e.RowIndex))
+			{
+				grid.CommitEdit(DataGridViewDataErrorContexts.CurrentCellChange);
+				SetCorrespondingMultivoiceCell(e.RowIndex, e.ColumnIndex, grid);
+			}
+			else
+			{
+				Debug.Assert(grid.CurrentCell != null && grid.CurrentCell.ColumnIndex == e.ColumnIndex &&
+					grid.CurrentCell.RowIndex == e.RowIndex);
+
+				if (grid.IsCurrentCellInEditMode)
+				{
+					grid.RefreshEdit();
+					grid.CancelEdit();
+					Debug.Assert((bool)grid.CurrentCell.Value == false);
+				}
+				else
+				{
+					grid.CurrentCell.Value = false;
+				}
+			}
 		}
 
-		private void CheckCorrespondingCell(int rowIndex, int columnIndex, DataGridView grid)
+		private void SetCorrespondingMultivoiceCell(int rowIndex, int columnIndex, DataGridView grid)
 		{
-			if (columnIndex != m_includeInScriptColumnIndex) return;
-
 			var correspondingMultiVoiceCell = grid[m_multiVoiceColumnIndex, rowIndex];
 			if ((bool)grid[columnIndex, rowIndex].EditedFormattedValue)
 			{

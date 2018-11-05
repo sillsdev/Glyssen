@@ -29,46 +29,13 @@ namespace Glyssen.Paratext
 		{
 			public string BookCode { get; set; }
 			public BookState State { get; set; }
-			public object Details { get; set; }
-
-			public override string ToString()
-			{
-				string sFmt;
-				switch (State)
-				{
-					case BookState.NoProblem:
-						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.NoProblem", "{0} has no problems.");
-						break;
-					case BookState.FailedCheck:
-						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.FailedChecks",
-								"{0} did not pass the following checks required by {1}: ") +
-							String.Join(", ", ((IEnumerable<string>)((object[])Details)[0]).Select(LocalizedCheckName));
-						break;
-					case BookState.ExcludedNonCanonical:
-						sFmt = LocalizationManager.GetString("ExcludedBookExplanation.NonCanonical",
-							"Excluded {0} because {1} supports only books in the universally accepted canon of Scripture.");
-						break;
-					default:
-						throw new ArgumentOutOfRangeException();
-				}
-				return String.Format(sFmt, BookCode, GlyssenInfo.kProduct);
-			}
+			public List<String> FailedChecks { get; set; }
 		}
 
-		public void Add(int bookNum, string bookCode, BookState state, params object[] details)
+		public void Add(int bookNum, string bookCode, BookState state, IEnumerable<string> failedChecks = null)
 		{
-			m_books[bookNum] = new BookStatus {BookCode = bookCode, State = state, Details = details};
+			m_books[bookNum] = new BookStatus {BookCode = bookCode, State = state, FailedChecks = failedChecks?.ToList()};
 		}
-
-		//public override string ToString()
-		//{
-		//	return String.Join(Environment.NewLine, Exclusions);
-		//}
-
-		//public string ToString(bool omitExplanations)
-		//{
-		//	return omitExplanations ? String.Join(Environment.NewLine, Exclusions.Select(e => e.BookCode)) : ToString();
-		//}
 
 		public static string LocalizedCheckName(string paratextCheckId)
 		{
@@ -94,9 +61,9 @@ namespace Glyssen.Paratext
 			return m_books[bookNum].State;
 		}
 
-		public string GetStatusInfo(int bookNum)
+		public IEnumerable<string> GetFailedChecks(int bookNum)
 		{
-			return m_books[bookNum].ToString();
+			return m_books[bookNum].FailedChecks;
 		}
 	}
 }

@@ -42,25 +42,26 @@ namespace Glyssen.Paratext
 		public static string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
 			s_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
-		public bool UserCanEditProject => !UnderlyingScrText.Permissions.HaveRoleNotObserver;
+		public bool UserCanEditProject => UnderlyingScrText.Permissions.HaveRoleNotObserver;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
 
 		public ParatextScrTextWrapper(ScrText underlyingText)
 		{
 			UnderlyingScrText = underlyingText;
 
-			GetBookInfo();
+			GetUpdatedBookInfo();
 			if (m_bookInfo.SupportedBookCount == 0)
 				throw new NoSupportedBooksException(ProjectId, m_bookInfo);
 		}
 
-		private void GetBookInfo()
+		public void GetUpdatedBookInfo()
 		{
 			CheckingStatuses checkingStatusData;
 
 			try
 			{
 				checkingStatusData = CheckingStatuses.Get(UnderlyingScrText);
+				checkingStatusData.CancelChanges(); // This forces it to reload from disk.
 			}
 			catch (Exception e)
 			{
@@ -203,13 +204,13 @@ namespace Glyssen.Paratext
 		{
 			if (!UserCanEditProject || !FailedChecksBooks.Contains(bookCode))
 				return true; // We will assume this is stil up-to-date
-			GetBookInfo();
+			GetUpdatedBookInfo();
 			return !FailedChecksBooks.Contains(bookCode);
 		}
 
-		public string GetCheckFailureInfoForBook(string bookId)
+		public IEnumerable<string> GetCheckFailuresForBook(string bookId)
 		{
-			return m_bookInfo.GetStatusInfo(Canon.BookIdToNumber(bookId));
+			return m_bookInfo.GetFailedChecks(Canon.BookIdToNumber(bookId));
 		}
 	}
 }

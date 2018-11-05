@@ -36,19 +36,19 @@ namespace Glyssen.Dialogs
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_ntBooksGrid = new System.Windows.Forms.DataGridView();
-			this.m_checkBoxNewTestament = new System.Windows.Forms.CheckBox();
-			this.m_checkBoxOldTestament = new System.Windows.Forms.CheckBox();
-			this.m_otBooksGrid = new System.Windows.Forms.DataGridView();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_colNTBookCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_colVernacularNTBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_colIncludeNTBookInScript = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.m_colNTMultiVoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.m_checkBoxNewTestament = new System.Windows.Forms.CheckBox();
+			this.m_checkBoxOldTestament = new System.Windows.Forms.CheckBox();
+			this.m_otBooksGrid = new System.Windows.Forms.DataGridView();
 			this.m_colOTBookCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_colVernacularOTBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_colIncludeOTBookInScript = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.m_colOTMultiVoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_ntBooksGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_otBooksGrid)).BeginInit();
@@ -84,6 +84,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnCancel.CausesValidation = false;
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -134,6 +135,36 @@ namespace Glyssen.Dialogs
 			this.m_ntBooksGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValueNeeded);
 			this.m_ntBooksGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValuePushed);
 			this.m_ntBooksGrid.SelectionChanged += new System.EventHandler(this.BooksGrid_SelectionChanged);
+			// 
+			// m_colNTBookCode
+			// 
+			this.m_colNTBookCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.m_colNTBookCode.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.Book!Book";
+			this.m_colNTBookCode.Name = "m_colNTBookCode";
+			this.m_colNTBookCode.ReadOnly = true;
+			this.m_colNTBookCode.Width = 325;
+			// 
+			// m_colVernacularNTBookName
+			// 
+			this.m_colVernacularNTBookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.m_colVernacularNTBookName.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.VernacularName!Vernacular Name";
+			this.m_colVernacularNTBookName.Name = "m_colVernacularNTBookName";
+			this.m_colVernacularNTBookName.ReadOnly = true;
+			// 
+			// m_colIncludeNTBookInScript
+			// 
+			this.m_colIncludeNTBookInScript.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.m_colIncludeNTBookInScript.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript!Include in Script";
+			this.m_colIncludeNTBookInScript.Name = "m_colIncludeNTBookInScript";
+			this.m_colIncludeNTBookInScript.Width = 75;
+			// 
+			// m_colNTMultiVoice
+			// 
+			this.m_colNTMultiVoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.m_colNTMultiVoice.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors!Multiple Voice " +
+    "Actors";
+			this.m_colNTMultiVoice.Name = "m_colNTMultiVoice";
+			this.m_colNTMultiVoice.Width = 75;
 			// 
 			// m_checkBoxNewTestament
 			// 
@@ -213,63 +244,10 @@ namespace Glyssen.Dialogs
 			this.m_otBooksGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksGrid_CellContentClick);
 			this.m_otBooksGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.BooksGrid_CellFormatting);
 			this.m_otBooksGrid.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.BooksGrid_CellPainting);
-			this.m_ntBooksGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BooksGrid_CellValidating);
+			this.m_otBooksGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BooksGrid_CellValidating);
 			this.m_otBooksGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValueNeeded);
 			this.m_otBooksGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValuePushed);
 			this.m_otBooksGrid.SelectionChanged += new System.EventHandler(this.BooksGrid_SelectionChanged);
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Controls.Add(this.m_otBooksGrid, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.m_checkBoxOldTestament, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_ntBooksGrid, 1, 1);
-			this.tableLayoutPanel1.Controls.Add(this.m_checkBoxNewTestament, 1, 0);
-			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 440);
-			this.tableLayoutPanel1.TabIndex = 4;
-			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel1, false);
-			// 
-			// m_colNTBookCode
-			// 
-			this.m_colNTBookCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.m_colNTBookCode.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.Book!Book";
-			this.m_colNTBookCode.Name = "m_colNTBookCode";
-			this.m_colNTBookCode.ReadOnly = true;
-			this.m_colNTBookCode.Width = 325;
-			// 
-			// m_colVernacularNTBookName
-			// 
-			this.m_colVernacularNTBookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.m_colVernacularNTBookName.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.VernacularName!Vernacular Name";
-			this.m_colVernacularNTBookName.Name = "m_colVernacularNTBookName";
-			this.m_colVernacularNTBookName.ReadOnly = true;
-			// 
-			// m_colIncludeNTBookInScript
-			// 
-			this.m_colIncludeNTBookInScript.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.m_colIncludeNTBookInScript.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript!Include in Script";
-			this.m_colIncludeNTBookInScript.Name = "m_colIncludeNTBookInScript";
-			this.m_colIncludeNTBookInScript.Width = 75;
-			// 
-			// m_colNTMultiVoice
-			// 
-			this.m_colNTMultiVoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.m_colNTMultiVoice.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors!Multiple Voice " +
-    "Actors";
-			this.m_colNTMultiVoice.Name = "m_colNTMultiVoice";
-			this.m_colNTMultiVoice.Width = 75;
 			// 
 			// m_colOTBookCode
 			// 
@@ -300,6 +278,29 @@ namespace Glyssen.Dialogs
     "Actors";
 			this.m_colOTMultiVoice.Name = "m_colOTMultiVoice";
 			this.m_colOTMultiVoice.Width = 75;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.m_otBooksGrid, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.m_checkBoxOldTestament, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_ntBooksGrid, 1, 1);
+			this.tableLayoutPanel1.Controls.Add(this.m_checkBoxNewTestament, 1, 0);
+			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 440);
+			this.tableLayoutPanel1.TabIndex = 4;
+			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel1, false);
 			// 
 			// ScriptureRangeSelectionDlg
 			// 

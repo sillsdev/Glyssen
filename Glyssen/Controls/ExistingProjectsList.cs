@@ -62,7 +62,7 @@ namespace Glyssen.Controls
 				{
 					foreach (var scrText in GetParatextProjects())
 					{
-						if (!existingProjects.Contains(scrText.Name))
+						if (!existingProjects.Contains(scrText.Settings.DBLId))
 							yield return new Tuple<string, IProjectInfo>(scrText.Name, new ParatextProjectProxy(scrText));
 					}
 				}

@@ -465,7 +465,7 @@ namespace Glyssen
 			{
 				var msg = Format(LocalizationManager.GetString("Project.NoBooksPassedChecks",
 					"{0} is not reporting a current successful status for any book in the {1} project for the basic checks " +
-					"that {2} strongly recommends:" +
+					"that {2} usually requires to pass:" +
 					"\r\n\r\n{3}\r\n\r\n" +
 					"Do you want to proceed with creating a new {2} project for it anyway?",
 					"Param 0: \"Paratext\" (product name); " +
