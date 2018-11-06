@@ -151,10 +151,12 @@ namespace Glyssen.Dialogs
 
 		private void cell_MenuItemClicked(object sender, CustomMenuItemClickedEventArgs e)
 		{
+			var grid = e.Column.DataGridView;
 			// e.EventKey: 0 = Select All, 1 = Clear All
 			var shouldCheck = e.EventKey == 0;
-			var rowsToChange = e.Column.DataGridView.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow && row.Visible &&
+			var rowsToChange = grid.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow && row.Visible &&
 				(bool)row.Cells[e.Column.Index].Value != shouldCheck).ToList();
+
 			if (shouldCheck && m_project.IsLiveParatextProject)
 			{
 				if (m_paratextScrTextWrapper == null)
@@ -162,33 +164,44 @@ namespace Glyssen.Dialogs
 				else
 					m_paratextScrTextWrapper.GetUpdatedBookInfo();
 
-				var failedChecksBookCount = m_paratextScrTextWrapper.FailedChecksBooks.Count(b => rowsToChange.Select(bookcode).Contains(b));
-				if (failedChecksBookCount > 0)
+				var booksToChange = new HashSet<string>(rowsToChange.Select(r => (string)r.Cells[m_colNTBookCode.Index].Value));
+				var booksWithFailingChecks = m_paratextScrTextWrapper.FailedChecksBooks.Where(b => booksToChange.Contains(b)).ToList();
+				if (booksWithFailingChecks.Any())
 				{
-					// TODO (PG-63): Adjust this message for this context.
 					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
-								"{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a " +
-								"current successful status for all the basic checks that Glyssen usually requires to pass. " +
-								"If you intend to prepare the recording script for any of the excluded books at this time, " +
-								"we strongly recommend that you get the following checks to pass in {2} before including them:",
-								"Param 0: \"Glyssen\" (product name); " +
-								"Param 1: (integer) number of Scripture books that did not pass basic checks; " +
-								"Param 2: Project short name (unique project identifier); " +
-								"Param 3: \"Paratext\" (product name)"),
-							GlyssenInfo.kProduct,
-							failedChecksBookCount,
-							m_project.ParatextProjectName,
-							ParatextScrTextWrapper.kParatextProgramName) +
-						Environment.NewLine +
-						ParatextScrTextWrapper.RequiredCheckNames;
-					MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Information);
+						"{0} is not reporting a current successful status for the following books for all the basic checks that {1} usually requires to pass:" +
+						 "\r\n{2}\r\n\r\n" +
+						"Although you can ignore this warning and proceed to include these books, {1} might fail to process the data " +
+						"properly, which could give the appearance of data loss or corruption and could even cause {1} to stop responding. " +
+						"Therefore, you should get these checks to pass in {0} project {3} before including them:\r\n" +
+						"   {4}\r\n\r\n" +
+						"Do you want {1} to select all the {5} books to include them in the {6} project script anyway?",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: \"Glyssen\" (product name); " +
+						"Param 2: list of 3-letter codes of Scripture books that did not pass basic checks; " +
+						"Param 3: Paratext project short name (unique project identifier); " +
+						"Param 4: List of names of Paratext checks; " +
+						"Param 5: \"Old Testament\" or \"New Testament\" (as localized); " +
+						"Param 6: Glyssen recording project name"),
+						ParatextScrTextWrapper.kParatextProgramName,
+						GlyssenInfo.kProduct,
+						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), booksWithFailingChecks),
+						m_project.ParatextProjectName,
+						ParatextScrTextWrapper.RequiredCheckNames,
+						grid == m_otBooksGrid ? BookSetUtils.OldTestamentLocalizedString : BookSetUtils.NewTestamentLocalizedString,
+						m_project.Name);
+					if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
+						MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+					{
+						return;
+					}
 				}
 			}
-			foreach (var row in e.Column.DataGridView.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow && row.Visible))
+			foreach (var row in rowsToChange)
 			{
 				row.Cells[e.Column.Index].Value = shouldCheck;
 				if (e.Column.Index == m_includeInScriptColumnIndex)
-					SetCorrespondingMultivoiceCell(row.Index, e.Column.Index, e.Column.DataGridView);
+					SetCorrespondingMultivoiceCell(row.Index, e.Column.Index, grid);
 			}
 		}
 
@@ -228,35 +241,45 @@ namespace Glyssen.Dialogs
 
 		private void btnOk_Click(object sender, EventArgs e)
 		{
-			List<BookScript> multiVoiceBooksRequiringConfirmation = new List<BookScript>();
 			foreach (var book in m_project.AvailableBooks)
 			{
 				book.IncludeInScript = m_includeInScript[book.Code];
-				// TODO (PG-63): If we're including a new Paratext book, we need to:
-				// * Make sure the book script file exists and/or ask user about updating it.
-				// * Parse it and add it to the list. Otherwise, m_project.IncludedBooks.Single(b => b.BookId == book.Code)
-				// will fail.
-				// * Set its checksum
-				// * If checks don't pass, set the override flag
 
 				if (!book.IncludeInScript)
 					continue;
 
-				var bookScript = m_project.IncludedBooks.Single(b => b.BookId == book.Code);
-				if (bookScript.SingleVoice != m_multiVoice[book.Code])
+				// TODO (PG-63): If we're including a new Paratext book, we need to:
+				// * Make sure the book script file exists and/or ask user about updating it.
+				// * Parse it and add it to the list. Otherwise, m_project.IncludedBooks won't include it.
+				// * Set its checksum
+				// * If checks don't pass, set the override flag
+				if (m_project.DoesBookScriptFileExist(book.Code))
+				{
+					// If there is a newer version ask user if they want to get the updated version.
+				}
+				else
+				{
+
+				}
+			}
+
+			var multiVoiceBooksRequiringConfirmation = new List<BookScript>();
+			foreach (var bookScript in m_project.IncludedBooks)
+			{
+				if (bookScript.SingleVoice != m_multiVoice[bookScript.BookId])
 					continue;
 
-				SingleVoiceReason singleVoiceReason;
-				if (m_multiVoice[book.Code] && BookMetadata.DefaultToSingleVoice(book.Code, out singleVoiceReason) && singleVoiceReason == SingleVoiceReason.TooComplexToAssignAccurately)
+				if (m_multiVoice[bookScript.BookId] && BookMetadata.DefaultToSingleVoice(bookScript.BookId, out SingleVoiceReason singleVoiceReason) &&
+					singleVoiceReason == SingleVoiceReason.TooComplexToAssignAccurately)
 				{
 					multiVoiceBooksRequiringConfirmation.Add(bookScript);
 					continue;
 				}
 
-				bookScript.SingleVoice = !m_multiVoice[book.Code];
+				bookScript.SingleVoice = !m_multiVoice[bookScript.BookId];
 				Analytics.Track("SetSingleVoice", new Dictionary<string, string>
 				{
-					{ "book", book.Code },
+					{ "book", bookScript.BookId },
 					{ "singleVoice", bookScript.SingleVoice.ToString() },
 					{ "method", "ScriptureRangeSelectionDlg.m_btnOk_Click" }
 				});
@@ -386,7 +409,7 @@ namespace Glyssen.Dialogs
 				"Param 1: 3-letter Scripture book code; " +
 				"Param 2: Paratext project short name (unique project identifier); " +
 				"Param 3: \"Glyssen\" (product name); " +
-				"Param 4: List of faling Paratext check names"),
+				"Param 4: List of failing Paratext check names"),
 				ParatextScrTextWrapper.kParatextProgramName,
 				bookCode,
 				m_project.ParatextProjectName,

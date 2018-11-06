@@ -469,7 +469,7 @@ namespace Glyssen
 					"\r\n\r\n{3}\r\n\r\n" +
 					"Do you want to proceed with creating a new {2} project for it anyway?",
 					"Param 0: \"Paratext\" (product name); " +
-					"Param 1: Project short name (unique project identifier); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
 					"Param 2: \"Glyssen\" (product name); " +
 					"Param 3: List of Paratext check names"),
 					ParatextScrTextWrapper.kParatextProgramName,
