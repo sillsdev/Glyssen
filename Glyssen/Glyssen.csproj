@@ -332,11 +332,18 @@
     <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\YesNoApplyToAllDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\YesNoApplyToAllDlg.Designer.cs">
+      <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBlockAccessor.cs" />
     <Compile Include="Paratext\ParatextProjectBookInfo.cs" />
     <Compile Include="Paratext\NoSupportedBooksException.cs" />
     <Compile Include="Paratext\ParatextProjectProxy.cs" />
     <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
+    <Compile Include="Paratext\ParatextUsxBookList.cs" />
     <Compile Include="PortionScript.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
@@ -549,6 +556,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\YesNoApplyToAllDlg.resx">
+      <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

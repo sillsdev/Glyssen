@@ -19,7 +19,7 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
-		public static List<BookScript> ParseProject(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
+		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
@@ -29,9 +29,9 @@ namespace Glyssen
 				blocksInBook.AddOrUpdate(usxDoc.BookId, nodeList, (s, list) => nodeList);
 				numBlocksPerBook.AddOrUpdate(usxDoc.BookId, nodeList.Count, (s, i) => nodeList.Count);
 			});
-			int allProjectBlocks = numBlocksPerBook.Values.Sum();
+			int allBlocks = numBlocksPerBook.Values.Sum();
 
-			int completedProjectBlocks = 0;
+			int completedBlocks = 0;
 			var bookScripts = new List<BookScript>(blocksInBook.Count);
 			Parallel.ForEach(blocksInBook, book =>
 			{
@@ -40,8 +40,8 @@ namespace Glyssen
 				lock(bookScripts)
 					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
-				completedProjectBlocks += numBlocksPerBook[bookId];
-				reportProgressAsPercent?.Invoke(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
+				completedBlocks += numBlocksPerBook[bookId];
+				reportProgressAsPercent?.Invoke(MathUtilities.Percent(completedBlocks, allBlocks, 99));
 			});
 
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
@@ -70,11 +70,6 @@ namespace Glyssen
 
 			reportProgressAsPercent?.Invoke(100);
 			return bookScripts;
-		}
-
-		public static BookScript ParseSingleBook(UsxDocument usxDoc, IStylesheet stylesheet)
-		{
-			return new UsxParser(usxDoc.BookId, stylesheet, usxDoc.GetChaptersAndParas()).CreateBookScript();
 		}
 
 		private BookScript CreateBookScript()

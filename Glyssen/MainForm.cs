@@ -836,6 +836,7 @@ namespace Glyssen
 					UpdateDisplayOfProjectInfo();
 					SaveCurrentProject(true);
 				}
+				m_paratextScrTextWrapperForRecentlyCreatedProject = null;
 		}
 
 		private void Settings_Click(object sender, EventArgs e)

@@ -154,7 +154,7 @@ namespace Glyssen
 				ConvertContinuersToParatextAssumptions();
 			}
 
-			AddAndParseBooks(paratextProject.GetUsxDocumentsForIncludedParatextBooks(), paratextProject.Stylesheet);
+			ParseAndSetBooks(paratextProject.GetUsxDocumentsForIncludedParatextBooks(), paratextProject.Stylesheet);
 		}
 
 		/// <summary>
@@ -164,7 +164,7 @@ namespace Glyssen
 			WritingSystemDefinition ws)
 			: this(metadata, ws: ws)
 		{
-			AddAndParseBooks(books, stylesheet);
+			ParseAndSetBooks(books, stylesheet);
 
 			Directory.CreateDirectory(ProjectFolder);
 			RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
@@ -1057,7 +1057,7 @@ namespace Glyssen
 			
 			UpgradeProject(existingProject, upgradedProject, () =>
 			{
-				upgradedProject.AddAndParseBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
+				upgradedProject.ParseAndSetBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
 			});
 			foreach (var book in upgradedProject.IncludedBooks)
 			{
@@ -1260,10 +1260,62 @@ namespace Glyssen
 
 		private void PopulateAndParseBooks(ITextBundle bundle)
 		{
-			AddAndParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
+			ParseAndSetBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
 		}
 
-		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
+		/// <summary>
+		/// Inserts the specified book into its proper location in the list of existing included books
+		/// </summary>
+		/// <param name="book">The bookscript, either from a prior call to FluffUpBookFromFileIfPossible or as newly created by
+		/// the USX parser</param>
+		/// <exception cref="InvalidOperationException">The project is not in a valid state for the book to be included.</exception>
+		public void IncludeExistingBook(BookScript book)
+		{
+			Debug.Assert(IsLiveParatextProject, "Heads up! This might not be a problem, but we really only anticipated this method being used for Paratext-based projects.");
+			var bookMetadata = AvailableBooks.SingleOrDefault(b => b.Code == book.BookId);
+			if (bookMetadata == null)
+				throw new InvalidOperationException($"Attempt to include the bookscript for {book.BookId}, but the project contains no metadata for the book.");
+			if (!bookMetadata.IncludeInScript)
+				throw new InvalidOperationException($"Attempt to include the bookscript for {book.BookId}, but the metadata for the book indicates that it should not be included.");
+
+			int i;
+			for (i = 0; i < m_books.Count; i++)
+			{
+				if (m_books[i].BookNumber > book.BookNumber)
+					break;
+				if (m_books[i].BookNumber == book.BookNumber)
+				{
+					m_books[i] = book;
+					return;
+				}
+			}
+			m_books.Insert(i, book);
+		}
+
+		internal void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers,
+			Action<BookScript> postParseAction)
+		{
+			var usxBookInfoList = wrapper.GetUsxDocumentsForIncludedParatextBooks(bookNumbers);
+
+			void EnhancedPostParseAction(BookScript book)
+			{
+				book.ParatextChecksum = usxBookInfoList.GetCheckum(book.BookNumber);
+				if (!usxBookInfoList.GetPassesChecks(book.BookNumber))
+					book.CheckStatusOverridden = true;
+				postParseAction?.Invoke(book);
+			}
+
+			ParseAndIncludeBooks(usxBookInfoList, wrapper.Stylesheet, EnhancedPostParseAction);
+		}
+
+		private void ParseAndSetBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
+		{
+			if (m_books.Any())
+				throw new InvalidOperationException("Project already contains books. If the intention is to replace the existing ones, let's clear the list first. Otherwise, call ParseAndIncludeBooks.");
+			ParseAndIncludeBooks(books, stylesheet);
+		}
+
+		private void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 			var usxWorker = new BackgroundWorker {WorkerReportsProgress = true};
@@ -1271,7 +1323,7 @@ namespace Glyssen
 			usxWorker.RunWorkerCompleted += UsxWorker_RunWorkerCompleted;
 			usxWorker.ProgressChanged += UsxWorker_ProgressChanged;
 
-			object[] parameters = {books, stylesheet};
+			object[] parameters = {books, stylesheet, postParseAction};
 			usxWorker.RunWorkerAsync(parameters);
 		}
 
@@ -1280,10 +1332,18 @@ namespace Glyssen
 			var parameters = (object[]) e.Argument;
 			var books = (IEnumerable<UsxDocument>) parameters[0];
 			var stylesheet = (IStylesheet) parameters[1];
+			var postParseAction = parameters.Length > 2 ? (Action <BookScript> )parameters[2] : null;
 
 			var backgroundWorker = (BackgroundWorker)sender;
 
-			e.Result = UsxParser.ParseProject(books, stylesheet, i => backgroundWorker.ReportProgress(i));
+			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => backgroundWorker.ReportProgress(i));
+
+			if (postParseAction != null)
+			{
+				foreach (var book in parsedBooks)
+					postParseAction(book);
+			}
+			e.Result = parsedBooks;
 		}
 
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1304,12 +1364,20 @@ namespace Glyssen
 						bookScripts.Count, nonNullBookScriptsStr));
 				}
 
-			m_books.AddRange(bookScripts);
-			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
-			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
-				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
-			UpdateControlFileVersion();
-			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+			if (m_books.Any())
+			{
+				foreach (var book in bookScripts)
+					IncludeExistingBook(book);
+			}
+			else
+			{
+				m_books.AddRange(bookScripts);
+				m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
+				if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
+					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
+				UpdateControlFileVersion();
+				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+			}
 
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
@@ -1478,19 +1546,19 @@ namespace Glyssen
 			return RobustFile.Exists(GetBookDataFilePath(bookId));
 		}
 
-		//public BookScript FluffUpBookFromFileIfPossible(string bookId)
-		//{
-		//	var path = GetBookDataFilePath(bookId);
-		//	if (RobustFile.Exists(path))
-		//	{
-		//		Exception error;
-		//		var bookScript = XmlSerializationHelper.DeserializeFromFile<BookScript>(GetBookDataFilePath(bookId), out error);
-		//		if (error != null)
-		//			ErrorReport.ReportNonFatalException(error);
-		//		return bookScript;
-		//	}
-		//	return null;
-		//}
+		public BookScript FluffUpBookFromFileIfPossible(string bookId)
+		{
+			var path = GetBookDataFilePath(bookId);
+			if (RobustFile.Exists(path))
+			{
+				Exception error;
+				var bookScript = XmlSerializationHelper.DeserializeFromFile<BookScript>(GetBookDataFilePath(bookId), out error);
+				if (error != null)
+					ErrorReport.ReportNonFatalException(error);
+				return bookScript;
+			}
+			return null;
+		}
 
 		public void Analyze()
 		{
@@ -2200,7 +2268,7 @@ namespace Glyssen
 			var cvInfo = new CombinedCharacterVerseData(this);
 
 			var bundle = new GlyssenBundle(OriginalBundlePath);
-			var books = UsxParser.ParseProject(bundle.UsxBooksToInclude, bundle.Stylesheet, null);
+			var books = UsxParser.ParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet, null);
 
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
 

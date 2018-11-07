@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
@@ -34,6 +33,8 @@ namespace Glyssen.Dialogs
 		private Dictionary<string, bool> m_multiVoice;
 		private List<string> m_storedOtSelections;
 		private List<string> m_storedNtSelections;
+
+		private DialogResult m_userDecisionAboutUpdatedBookContent = DialogResult.None;
 
 		internal ScriptureRangeSelectionDlg(Project project, ParatextScrTextWrapper paratextScrTextWrapper)
 		{
@@ -93,6 +94,15 @@ namespace Glyssen.Dialogs
 				m_checkBoxNewTestament.Checked = false;
 
 			SetupDropdownHeaderCells();
+		}
+
+		private void GetParatextScrTextWrapperIfNeeded(bool refreshBooksIfExisting = false)
+		{
+			Debug.Assert(m_project.IsLiveParatextProject);
+			if (m_paratextScrTextWrapper == null)
+				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+			else if (refreshBooksIfExisting)
+				m_paratextScrTextWrapper.GetUpdatedBookInfo();
 		}
 
 		protected override void OnHandleCreated(EventArgs e)
@@ -159,10 +169,7 @@ namespace Glyssen.Dialogs
 
 			if (shouldCheck && m_project.IsLiveParatextProject)
 			{
-				if (m_paratextScrTextWrapper == null)
-					m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
-				else
-					m_paratextScrTextWrapper.GetUpdatedBookInfo();
+				GetParatextScrTextWrapperIfNeeded(true);
 
 				var booksToChange = new HashSet<string>(rowsToChange.Select(r => (string)r.Cells[m_colNTBookCode.Index].Value));
 				var booksWithFailingChecks = m_paratextScrTextWrapper.FailedChecksBooks.Where(b => booksToChange.Contains(b)).ToList();
@@ -241,48 +248,18 @@ namespace Glyssen.Dialogs
 
 		private void btnOk_Click(object sender, EventArgs e)
 		{
-			foreach (var book in m_project.AvailableBooks)
+			var multiVoiceBooksRequiringConfirmation = new List<string>();
+			foreach (var bookId in m_multiVoice.Keys)
 			{
-				book.IncludeInScript = m_includeInScript[book.Code];
-
-				if (!book.IncludeInScript)
+				var bookScript = m_project.IncludedBooks.SingleOrDefault(b => b.BookId == bookId);
+				if (bookScript != null && bookScript.SingleVoice != m_multiVoice[bookScript.BookId])
 					continue;
 
-				// TODO (PG-63): If we're including a new Paratext book, we need to:
-				// * Make sure the book script file exists and/or ask user about updating it.
-				// * Parse it and add it to the list. Otherwise, m_project.IncludedBooks won't include it.
-				// * Set its checksum
-				// * If checks don't pass, set the override flag
-				if (m_project.DoesBookScriptFileExist(book.Code))
-				{
-					// If there is a newer version ask user if they want to get the updated version.
-				}
-				else
-				{
-
-				}
-			}
-
-			var multiVoiceBooksRequiringConfirmation = new List<BookScript>();
-			foreach (var bookScript in m_project.IncludedBooks)
-			{
-				if (bookScript.SingleVoice != m_multiVoice[bookScript.BookId])
-					continue;
-
-				if (m_multiVoice[bookScript.BookId] && BookMetadata.DefaultToSingleVoice(bookScript.BookId, out SingleVoiceReason singleVoiceReason) &&
+				if (m_multiVoice[bookId] && BookMetadata.DefaultToSingleVoice(bookId, out SingleVoiceReason singleVoiceReason) &&
 					singleVoiceReason == SingleVoiceReason.TooComplexToAssignAccurately)
 				{
-					multiVoiceBooksRequiringConfirmation.Add(bookScript);
-					continue;
+					multiVoiceBooksRequiringConfirmation.Add(bookId);
 				}
-
-				bookScript.SingleVoice = !m_multiVoice[bookScript.BookId];
-				Analytics.Track("SetSingleVoice", new Dictionary<string, string>
-				{
-					{ "book", bookScript.BookId },
-					{ "singleVoice", bookScript.SingleVoice.ToString() },
-					{ "method", "ScriptureRangeSelectionDlg.m_btnOk_Click" }
-				});
 			}
 
 			if (multiVoiceBooksRequiringConfirmation.Any() && !ConfirmSetToMultiVoice(multiVoiceBooksRequiringConfirmation))
@@ -291,60 +268,128 @@ namespace Glyssen.Dialogs
 				return;
 			}
 
-			// TODO (PG-63): For any books now being included, if this is a Paratext-based project, ask about getting latest data
-			//if (!scrTextWrapper.FailedChecksBooks.Contains(bookCode))
-			//{
-			//	var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.UpdateBook",
-			//			"There is an updated version of {0} in {1}. Would you like {3} to retrieve the latest data?",
-			//			"Param 0: 3-letter ID of a Scripture book; " +
-			//			"Param 1: \"Paratext\" (product name); " +
-			//			"Param 2: \"Glyssen\" (product name)"),
-			//		bookCode,
-			//		ParatextScrTextWrapper.kParatextProgramName,
-			//		GlyssenInfo.kProduct);
-			//	if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo))
-			//	{
-			//		m_project.Create
-			//		UsxParser.ParseSingleBook(scrTextWrapper.GetUsxDocumentForBook(bookNum), scrTextWrapper.Stylesheet);
-			//	}
-			//}
+			var bookNumsToAddFromParatext = new HashSet<int>(); 
+			foreach (var book in m_project.AvailableBooks)
+			{
+				bool includingThisBook = m_includeInScript[book.Code];
+
+				var existingBookScript = includingThisBook ? m_project.IncludedBooks.SingleOrDefault(b => b.BookId == book.Code) : null;
+
+				book.IncludeInScript = includingThisBook;
+
+				if (!book.IncludeInScript)
+					continue;
+
+				if (existingBookScript != null)
+				{
+					existingBookScript.SingleVoice = !m_multiVoice[existingBookScript.BookId];
+					Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+					{
+						{ "book", existingBookScript.BookId },
+						{ "singleVoice", existingBookScript.SingleVoice.ToString() },
+						{ "method", "ScriptureRangeSelectionDlg.m_btnOk_Click" }
+					});
+					continue;
+				}
+
+				Debug.Assert(m_project.IsLiveParatextProject);
+
+				BookScript bookScriptFromExistingFile = m_project.FluffUpBookFromFileIfPossible(book.Code);
+				if (bookScriptFromExistingFile == null || UserWantsUpdatedContent(bookScriptFromExistingFile))
+					bookNumsToAddFromParatext.Add(Canon.BookIdToNumber(book.Code));
+				else
+				{
+					bookScriptFromExistingFile.SingleVoice = !m_multiVoice[book.Code];
+					m_project.IncludeExistingBook(bookScriptFromExistingFile);
+					Analytics.Track("IncludeExistingBook", new Dictionary<string, string>
+					{
+						{ "book", bookScriptFromExistingFile.BookId },
+						{ "singleVoice", bookScriptFromExistingFile.SingleVoice.ToString() }
+					});
+				}
+			}
+
+			if (bookNumsToAddFromParatext.Any())
+			{
+				GetParatextScrTextWrapperIfNeeded();
+				m_project.IncludeBooksFromParatext(m_paratextScrTextWrapper, bookNumsToAddFromParatext,
+					bookScript =>
+					{
+						bookScript.SingleVoice = !m_multiVoice[bookScript.BookId];
+						Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+						{
+							{ "book", bookScript.BookId },
+							{ "singleVoice", bookScript.SingleVoice.ToString() },
+							{ "method", "postParseAction anonymous delegate from ScriptureRangeSelectionDlg.m_btnOk_Click" }
+						});
+					});
+			}
 
 			m_project.BookSelectionStatus = BookSelectionStatus.Reviewed;
 
 			Analytics.Track("SelectBooks", new Dictionary<string, string> { { "bookSummary", m_project.BookSelectionSummary } });
 		}
 
-		private bool ConfirmSetToMultiVoice(List<BookScript> booksToAskUserAbout)
+		private bool UserWantsUpdatedContent(BookScript bookScriptFromExistingFile)
+		{
+			// If there is a newer version ask user if they want to get the updated version.
+			GetParatextScrTextWrapperIfNeeded(true);
+			if (m_paratextScrTextWrapper.GetBookChecksum(bookScriptFromExistingFile.BookNumber) == bookScriptFromExistingFile.ParatextChecksum)
+				return false;
+			// If the updated version does NOT pass tests but the existing version does (i.e., user didn't override the checking status),
+			// we'll just stick with the version we have. If they want to update it manually later, they can.
+			if (m_paratextScrTextWrapper.FailedChecksBooks.Contains(bookScriptFromExistingFile.BookId) && !bookScriptFromExistingFile.CheckStatusOverridden)
+				return false;
+
+			var result = m_userDecisionAboutUpdatedBookContent;
+
+			if (result == DialogResult.None)
+			{
+				var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.Msg",
+					"{0} has existing data for {1}. However, {2} reports that there is updated content in project {3}. " +
+					"Do you want {0} to use the latest content?",
+					"Param 0: \"Glyssen\" (product name); " +
+					"Param 1: 3-letter Scripture book code; " +
+					"Param 2: \"Paratext\" (product name); " +
+					"Param 3: Paratext project short name (unique project identifier)"),
+					GlyssenInfo.kProduct,
+					bookScriptFromExistingFile.BookId,
+					ParatextScrTextWrapper.kParatextProgramName,
+					m_project.ParatextProjectName);
+				var applyToAllText = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.ApplyToAll",
+					"Apply to all newly included books");
+				using (var dlg = new YesNoApplyToAllDlg(msg, applyToAllText))
+				{
+					result = dlg.ShowDialog(this);
+					if (dlg.ApplyToAll)
+						m_userDecisionAboutUpdatedBookContent = result;
+				}
+			}
+			return result == DialogResult.Yes;
+		}
+
+		private bool ConfirmSetToMultiVoice(List<string> booksToAskUserAbout)
 		{
 			if (booksToAskUserAbout.Any())
 			{
-				StringBuilder sb = new StringBuilder();
-				foreach (var book in booksToAskUserAbout)
-					sb.Append(book.BookId + Environment.NewLine);
-
-				string msg = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1", "You have selected to record the following books with multiple voice actors. Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books.") +
-					Environment.NewLine + Environment.NewLine +
-					sb + Environment.NewLine +
-					LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2", "Are you sure? If you select no, the books above will each be recorded by a single voice actor.");
-				string caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption", "Are you sure?");
+				string msg = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1",
+					"You have selected to record the following books with multiple voice actors. " +
+					"Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books:") +
+					Environment.NewLine +
+					Join(Environment.NewLine, booksToAskUserAbout) + Environment.NewLine +
+					LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2",
+					"Are you sure? If you select no, the books above will each be recorded by a single voice actor.");
+				string caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption",
+					"Are you sure?");
 				DialogResult result = MessageBox.Show(msg, caption, MessageBoxButtons.YesNoCancel);
 				if (result == DialogResult.Cancel)
 					return false;
-				if (result == DialogResult.Yes)
+				if (result == DialogResult.No)
 				{
 					foreach (var book in booksToAskUserAbout)
-					{
-						book.SingleVoice = false;
-						Analytics.Track("SetSingleVoice", new Dictionary<string, string>
-						{
-							{ "book", book.BookId },
-							{ "singleVoice", "false" },
-							{ "method", "ScriptureRangeSelectionDlg.ConfirmSetToMultiVoice" }
-						});
-					}
+						m_multiVoice[book] = false;
 				}
 			}
-
 			return true;
 		}
 
@@ -389,9 +434,9 @@ namespace Glyssen.Dialogs
 			if (m_project.DoesBookScriptFileExist(bookCode))
 				return true; // Might try to get an updated version later but this one is valid.
 
-			if (m_paratextScrTextWrapper == null)
-				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+			GetParatextScrTextWrapperIfNeeded();
 
+			// TODO (PG-63) : After deleting COL, why is it still in this set??????
 			if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(Canon.BookIdToNumber(bookCode)))
 			{
 				ReportParatextBookNoLongerAvailable(bookCode);
@@ -438,7 +483,7 @@ namespace Glyssen.Dialogs
 					"Sorry. {0} is no longer available from {1} project {2}",
 					"Param 0: 3-letter ID of Scripture book; " +
 					"Param 1: \"Paratext\" (product name); " +
-					"Param 2: Paratext project short name (unique project identifier); "),
+					"Param 2: Paratext project short name (unique project identifier)"),
 				bookCode);
 			var caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableCaption",
 				"Unable to Include Book");

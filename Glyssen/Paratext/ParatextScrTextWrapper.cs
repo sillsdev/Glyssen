@@ -179,15 +179,24 @@ namespace Glyssen.Paratext
 			}
 		}
 
-		public UsxDocument GetUsxDocumentForBook(int bookNum)
+		private UsxDocument GetUsxDocumentForBook(int bookNum)
 		{
 			return new UsxDocument(UsfmToUsx.ConvertToXmlDocument(UnderlyingScrText, bookNum, UnderlyingScrText.GetText(bookNum)));
 		}
 
-		public IEnumerable<UsxDocument> GetUsxDocumentsForIncludedParatextBooks()
+		public ParatextUsxBookList GetUsxDocumentsForIncludedParatextBooks(ISet<int> subset = null)
 		{
-			return m_metadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code))
-				.Select(GetUsxDocumentForBook);
+			// Getting the checksum and the checking status at the same time and returning them together ensures that they are really
+			// in sync, rather than relying on the caller to get them at the same time. 
+			var list = new ParatextUsxBookList();
+			foreach (var bookNum in m_metadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code)))
+			{
+				if (subset != null && !subset.Contains(bookNum))
+					continue;
+				list.Add(bookNum, GetUsxDocumentForBook(bookNum), UnderlyingScrText.GetBookCheckSum(bookNum),
+					!FailedChecksBooks.Contains(Canon.BookNumberToId(bookNum)));
+			}
+			return list;
 		}
 
 		public bool IsMetadataCompatible(IReadOnlyGlyssenDblTextMetadata metadata)
