@@ -22,7 +22,7 @@ namespace Glyssen.Paratext
 		public const string kMarkersCheckId = "Marker";
 		public const string kQuotationCheckId = "Quotation";
 		public const string kChapterVerseCheckId = "ChapterVerse";
-		private static readonly string[] s_requiredChecks = { kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId };
+		private static readonly string[] s_requiredChecks = {kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId};
 
 		private ScrStylesheetAdapter m_stylesheet;
 		private WritingSystemDefinition m_writingSystem;
@@ -32,8 +32,14 @@ namespace Glyssen.Paratext
 		private ScrText UnderlyingScrText { get; }
 
 		private ScrVers Versification => UnderlyingScrText.Settings.Versification;
-		public IEnumerable<int> CanonicalBookNumbersInProject =>
-			UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
+		public IEnumerable<int> CanonicalBookNumbersInProject {
+			get
+			{
+				UnderlyingScrText.SetBooksPresent(); // This ensures list is up-to-date wrt the file system.
+				return UnderlyingScrText.JoinedBooksPresentSet.SelectedBookNumbers.Where(Canon.IsCanonical);
+			}
+		}
+
 		public string LanguageIso3Code => UnderlyingScrText.Language.LanguageId.Iso6393Code;
 		public string ProjectFullName => UnderlyingScrText.JoinedFullName;
 		// REVIEW (PG-63): In all cases where FailedChecksBooks is accessed, analyze whether UserCanEditProject should be

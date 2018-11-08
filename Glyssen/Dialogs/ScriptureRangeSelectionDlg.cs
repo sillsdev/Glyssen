@@ -10,6 +10,7 @@ using Glyssen.Bundle;
 using Glyssen.Controls;
 using Glyssen.Paratext;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;
@@ -436,13 +437,14 @@ namespace Glyssen.Dialogs
 
 			GetParatextScrTextWrapperIfNeeded();
 
-			// TODO (PG-63) : After deleting COL, why is it still in this set??????
 			if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(Canon.BookIdToNumber(bookCode)))
 			{
 				ReportParatextBookNoLongerAvailable(bookCode);
-				grid.Rows[rowIndex].Visible = false; // REVIEW (PG-63): Will this work? Will it be weird?
+				grid.CurrentRow.DefaultCellStyle.ForeColor = GlyssenColorPalette.ColorScheme.Warning;
 				return false;
 			}
+			else if (grid.CurrentRow.DefaultCellStyle.ForeColor == GlyssenColorPalette.ColorScheme.Warning)
+				grid.CurrentRow.DefaultCellStyle.ForeColor = grid.DefaultCellStyle.ForeColor;
 
 			if (m_paratextScrTextWrapper.DoesBookPassChecksNow(bookCode))
 				return true;
@@ -480,11 +482,13 @@ namespace Glyssen.Dialogs
 		private void ReportParatextBookNoLongerAvailable(string bookCode)
 		{
 			var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableMsg",
-					"Sorry. {0} is no longer available from {1} project {2}",
-					"Param 0: 3-letter ID of Scripture book; " +
-					"Param 1: \"Paratext\" (product name); " +
-					"Param 2: Paratext project short name (unique project identifier)"),
-				bookCode);
+				"Sorry. {0} is no longer available from {1} project {2}.",
+				"Param 0: 3-letter ID of Scripture book; " +
+				"Param 1: \"Paratext\" (product name); " +
+				"Param 2: Paratext project short name (unique project identifier)"),
+				bookCode,
+				ParatextScrTextWrapper.kParatextProgramName,
+				m_project.ParatextProjectName);
 			var caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableCaption",
 				"Unable to Include Book");
 			MessageBox.Show(this, msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
