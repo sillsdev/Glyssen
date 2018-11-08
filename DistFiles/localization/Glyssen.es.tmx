@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tmx version="1.4">
-  <header srclang="es" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.43.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
-    <prop type="x-appversion">0.1.0.0</prop>
+  <header srclang="es" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="3.0.43.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
+    <prop type="x-appversion">1.0.0.0</prop>
     <prop type="x-hardlinebreakreplacement">\n</prop>
   </header>
   <body>
@@ -236,6 +236,15 @@
         <seg>Agag, rey de los amalecitas</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Agur">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Agur</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Agur</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Ahab, king of Israel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -396,6 +405,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Ananías de Damasco</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ananias of Jerusalem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ananias of Jerusalem</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ananías de Jerusalén</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ananias, the high priest">
@@ -857,6 +875,15 @@
         <seg>Cananeos</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Claudius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Claudius</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Claudio</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Cleopas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1226,6 +1253,15 @@
         <seg>Elnatán</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Elymas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elymas</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elimas</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Enoch">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1368,6 +1404,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Gabriel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gabriel (angel)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gabriel (angel)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gabriel (ángel)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gad the prophet, David's seer">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gad the prophet, David's seer</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gad el profeta, vidente de David</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Gadarene (or Gerasenes) people">
@@ -1622,6 +1676,15 @@
         <seg>Hazael of Aram</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Heman, Jeduthun and the rest of those chosen to give thanks</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hemam, Jedutún y los demás que fueron escogidos para dar gracias</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Herod Antipas (the tetrarch)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1773,6 +1836,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Isaías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Isaiah the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaiah the prophet</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Isaías el profeta</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ish-Bosheth, son of Saul">
@@ -2954,6 +3026,15 @@
         <seg>Natán</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Nathan the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathan the prophet</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Natán el profeta</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Nathanael">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3071,6 +3152,15 @@
         <seg>Pablo</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Paul (Saul)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Paul (Saul)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pablo (Saulo)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Paul and Silas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3078,6 +3168,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Pablo y Silas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Peter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pedro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Peter (Cephas)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter (Cephas)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pedro (Cefas)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon)">
@@ -3114,6 +3222,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>los de Pedro y Juan(la iglesia en Jerusalén)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Pharisee">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Pharisee</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>fariseo</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Pharisee (Simon)">
@@ -4383,6 +4500,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>sumo sacerdote</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>king</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>rey</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.king of Bela">
@@ -5901,14 +6027,6 @@
         <seg>Aceptar</seg>
       </tuv>
     </tu>
-    <tu tuid="Common.Ok">
-      <tuv xml:lang="en">
-        <seg>OK</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Aceptar</seg>
-      </tuv>
-    </tu>
     <tu tuid="Common.Previous">
       <tuv xml:lang="en">
         <seg>Previous</seg>
@@ -5941,7 +6059,7 @@
         <seg>Grabando... (disculpe la tardanza)</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.AddCharacterToGroup">
+    <tu tuid="DialogBoxes.AddCharacterToGroupDlg.AddCharacterToGroup">
       <tuv xml:lang="en">
         <seg>Add Character to Group</seg>
       </tuv>
@@ -5983,10 +6101,10 @@
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BlockProgressFmt">
       <tuv xml:lang="en">
-        <seg>{0} Complete; {1} Blocks Remaining</seg>
+        <seg>{0} Complete; {1} {2} Remaining</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>{0} completo; {1} bloques restantes</seg>
+        <seg>{0} completo; {1} {2} restantes</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BookChapterCharacter">
@@ -6007,10 +6125,10 @@
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.CloseDialogMessage">
       <tuv xml:lang="en">
-        <seg>All assignments have been made. Would you like to return to the main window?</seg>
+        <seg>Would you like to return to the main window?</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Se ha completado la tarea de hacer las asignaciones. Desea regresar a la ventana principal?</seg>
+        <seg>Desea regresar a la ventana principal?</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.Delivery">
@@ -6150,12 +6268,12 @@
         <seg>Aumentar tamaño de texto</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.ExportDlg.ConfirmOverwrite.Text">
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.MoreInfo">
       <tuv xml:lang="en">
-        <seg>Are you sure you want to overwrite the existing files?</seg>
+        <seg>more info</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>¿Desea sobrescribir los archivos existentes?</seg>
+        <seg>más información</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportDlg.FileExists">
@@ -6637,8 +6755,9 @@
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle">
+      <note>{0} is the project name</note>
       <tuv xml:lang="en">
-        <seg>Select Books</seg>
+        <seg>Select Books - {0}</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Seleccionar libros - {0}</seg>
@@ -6748,14 +6867,6 @@
         <seg>A - Adulto</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.VoiceActorInformation.MoreInfo">
-      <tuv xml:lang="en">
-        <seg>more info</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>más información</seg>
-      </tuv>
-    </tu>
     <tu tuid="File.WrongBundle">
       <tuv xml:lang="en">
         <seg>Wrong Bundle</seg>
@@ -6772,12 +6883,12 @@
         <seg>Acerca de...</seg>
       </tuv>
     </tu>
-    <tu tuid="MainForm.AssignCharacters">
+    <tu tuid="MainForm.IdentifySpeakingParts">
       <tuv xml:lang="en">
-        <seg>(4) Assign Characters...</seg>
+        <seg>({0}) Identify Speaking Parts...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(4) Asignar personajes...</seg>
+        <seg>({0}) Identificar diálogos y citas...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.AssignCharacters_ToolTip_">
@@ -6804,14 +6915,6 @@
         <seg>Exportar</seg>
       </tuv>
     </tu>
-    <tu tuid="MainForm.Export_ToolTip_">
-      <tuv xml:lang="en">
-        <seg>Export to a spreadsheet file</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Exportar a un archivo de valores separados por tabulaciones</seg>
-      </tuv>
-    </tu>
     <tu tuid="MainForm.Import">
       <tuv xml:lang="en">
         <seg>Import</seg>
@@ -6831,10 +6934,10 @@
     </tu>
     <tu tuid="MainForm.OpenProject">
       <tuv xml:lang="en">
-        <seg>(1) Open Project...</seg>
+        <seg>({0}) Open Project...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(1) Abrir proyecto...</seg>
+        <seg>({0}) Abrir proyecto...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.OpenProject_ToolTip_">
@@ -6856,10 +6959,10 @@
     </tu>
     <tu tuid="MainForm.ProjectSettings">
       <tuv xml:lang="en">
-        <seg>(2) Project Settings...</seg>
+        <seg>({0}) Project Settings...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(2) Configuración...</seg>
+        <seg>({0}) Configuración...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.ProjectSettings_ToolTip_">
@@ -6872,10 +6975,10 @@
     </tu>
     <tu tuid="MainForm.SelectBooks">
       <tuv xml:lang="en">
-        <seg>(3) Select Books...</seg>
+        <seg>({0}) Select Books...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(3) Seleccionar libros...</seg>
+        <seg>({0}) Seleccionar libros...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.SelectBooks_ToolTip_">
@@ -6902,8 +7005,17 @@
         <seg>Idioma de la interfaz de usuario</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.AdvancedUserLdmlRepairInstructions">
+      <note>Appears between "Project.LdmlFileLoadError" and "Project.IgnoreToRepairLdmlFile" when an automatically created backup file does not exist.</note>
+      <tuv xml:lang="en">
+        <seg>If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Si usted puede reemplazarlo con una copia de seguridad válida o sabe cómo repararlo usted mismo, hágalo y luego haga clic en Reintentar.</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.DefaultCustomVersificationName">
-      <note>Used as the versification name when a the versification file does not contain a name.</note>
+      <note>Used as the versification name when the versification file does not contain a name.</note>
       <tuv xml:lang="en">
         <seg>custom</seg>
       </tuv>
@@ -7008,132 +7120,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>De derecha a izquierda</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Agur">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Agur</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Agur</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Ananias of Jerusalem">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Ananias of Jerusalem</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Ananías de Jerusalén</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Claudius">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Claudius</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Claudio</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Elymas">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Elymas</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Elimas</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Gabriel (angel)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Gabriel (angel)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Gabriel (ángel)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Gad the prophet, David's seer">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Gad the prophet, David's seer</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Gad el profeta, vidente de David</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Heman, Jeduthun and the rest of those chosen to give thanks</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Hemam, Jedutún y los demás que fueron escogidos para dar gracias</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Isaiah the prophet">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Isaiah the prophet</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Isaías el profeta</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.king">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>king</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>rey</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Nathan the prophet">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Nathan the prophet</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Natán el profeta</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Peter">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Peter</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Pedro</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Pharisee">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Pharisee</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>fariseo</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Paul (Saul)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Paul (Saul)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Pablo (Saulo)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Peter (Cephas)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Peter (Cephas)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Pedro (Cefas)</seg>
       </tuv>
     </tu>
   </body>
