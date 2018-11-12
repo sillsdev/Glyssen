@@ -458,6 +458,43 @@ namespace Glyssen
 				return;
 			}
 
+			var optionalObserverInfo = paratextProject.UserCanEditProject ? Empty :
+				Format(LocalizationManager.GetString("Project.ObserverOnly", "(You seem to be merely an observer on this {0} project.)",
+					"Param: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName) +
+				Environment.NewLine;
+
+			if (paratextProject.WritingSystemDefinition == null || !paratextProject.WritingSystemDefinition.QuotationMarks.Any())
+			{
+				var msg = Format(LocalizationManager.GetString("Project.ParatextQuotationRulesNotDefined",
+						"You are attempting to create a {0} project for {1} project {2}, which does not have its Quotation " +
+						"Rules defined." +
+						"\r\n{3}" +
+						"The Quotation Rules are not only needed to run the {4} check, {0} also uses them to look for " +
+						"speaking parts in the Scripture data. If you are not able to get those rules defined in {1}, you will " +
+						"need to set the Quote Mark Settings manually in this {0} project.",
+						"Param 0: \"Glyssen\" (product name); " +
+						"Param 1: \"Paratext\" (product name); " +
+						"Param 2: Paratext project short name (unique project identifier); " +
+						"Param 3: Optional line indicating that user is an observer on the Paratext project; " +
+						"Param 4: Name of the Paratext \"Quotations\" check"),
+					GlyssenInfo.kProduct,
+					ParatextScrTextWrapper.kParatextProgramName,
+					paratextProjId,
+					optionalObserverInfo,
+					ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId));
+				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+				if (result == DialogResult.Cancel)
+				{
+					Logger.WriteEvent($"User cancelled project creation because {ParatextScrTextWrapper.kParatextProgramName} " +
+						"Quotation Rules were not defined.");
+					SetProject(null);
+					return;
+				}
+				Logger.WriteEvent($"User proceeding with project creation although {ParatextScrTextWrapper.kParatextProgramName} " +
+					"Quotation Rules were not defined.");
+				paratextProject.IgnoreQuotationsProblems();
+			}
+
 			// If the Paratext project contained no supported books at all, we already threw an appropriate exception above.
 			// Now we check for the case where the project has supported books but, because of failing checks, none of them
 			// was included by default.
@@ -466,16 +503,18 @@ namespace Glyssen
 				var msg = Format(LocalizationManager.GetString("Project.NoBooksPassedChecks",
 					"{0} is not reporting a current successful status for any book in the {1} project for the basic checks " +
 					"that {2} usually requires to pass:" +
-					"\r\n\r\n{3}\r\n\r\n" +
+					"\r\n   {3}\r\n{4}\r\n" +
 					"Do you want to proceed with creating a new {2} project for it anyway?",
 					"Param 0: \"Paratext\" (product name); " +
 					"Param 1: Paratext project short name (unique project identifier); " +
 					"Param 2: \"Glyssen\" (product name); " +
-					"Param 3: List of Paratext check names"),
+					"Param 3: List of Paratext check names; " +
+					"Param 4: Optional line indicating that user is an observer on the Paratext project"),
 					ParatextScrTextWrapper.kParatextProgramName,
 					paratextProjId,
 					GlyssenInfo.kProduct,
-					ParatextScrTextWrapper.RequiredCheckNames);
+					paratextProject.RequiredCheckNames,
+					optionalObserverInfo);
 				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 				if (result == DialogResult.No)
 				{

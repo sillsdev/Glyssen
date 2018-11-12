@@ -47,30 +47,40 @@ namespace Glyssen.Dialogs
 			if (Settings.Default.QuoteMarksDialogShowGridView)
 				m_toolStripButtonGridView.Checked = true;
 
-			var books = new BookSet();
-			foreach (var bookId in m_navigatorViewModel.IncludedBooks)
-				books.Add(bookId);
-			m_scriptureReference.VerseControl.BooksPresentSet = books;
-			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
+			if (m_navigatorViewModel == null)
+			{
+				m_blocksViewer.Hide();
+				m_toolStrip.Hide();
+				m_tableLayoutPanelDataBrowser.Hide();
+				m_btnTest.Hide();
+				m_splitContainer.Panel1Collapsed = true;
+			}
+			else
+			{
+				var books = new BookSet();
+				foreach (var bookId in m_navigatorViewModel.IncludedBooks)
+					books.Add(bookId);
+				m_scriptureReference.VerseControl.BooksPresentSet = books;
+				m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
-			m_scriptureReference.VerseControl.AllowVerseSegments = false;
-			m_scriptureReference.VerseControl.Versification = m_navigatorViewModel.Versification;
-			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
+				m_scriptureReference.VerseControl.AllowVerseSegments = false;
+				m_scriptureReference.VerseControl.Versification = m_navigatorViewModel.Versification;
+				m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
-			m_blocksViewer.Initialize(m_navigatorViewModel);
-			m_navigatorViewModel.CurrentBlockChanged += HandleCurrentBlockChanged;
+				m_blocksViewer.Initialize(m_navigatorViewModel);
+				m_navigatorViewModel.CurrentBlockChanged += HandleCurrentBlockChanged;
+				m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
+
+				m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
+				{
+					if (m_blocksViewer.Visible)
+						LoadBlock();
+				}, GetType().FullName + " - anonymous delegate m_blocksViewer.VisibleChanged", ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
+			}
 
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
-
-			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
-
-			m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
-			{
-				if (m_blocksViewer.Visible)
-					LoadBlock();
-			}, GetType().FullName + " - anonymous delegate m_blocksViewer.VisibleChanged", ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
 
 			SetFilterControlsFromMode();
 
@@ -95,7 +105,7 @@ namespace Glyssen.Dialogs
 			m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1];
 			m_allQuotesFilterItem = m_toolStripComboBoxFilter.Items[2];
 
-			if (m_navigatorViewModel.Mode != BlocksToDisplay.MissingExpectedQuote &&
+			if (m_navigatorViewModel?.Mode != BlocksToDisplay.MissingExpectedQuote &&
 				((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0 || m_project.QuoteSystemStatus == QuoteSystemStatus.Guessed))
 			{
 				m_toolStripComboBoxFilter.Items.RemoveAt(2);
@@ -666,6 +676,8 @@ namespace Glyssen.Dialogs
 
 		private void SetFilterControlsFromMode()
 		{
+			if (m_navigatorViewModel == null)
+				return;
 			var mode = m_navigatorViewModel.Mode;
 			if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
@@ -689,6 +701,8 @@ namespace Glyssen.Dialogs
 
 		private void UpdateDisplay()
 		{
+			if (m_navigatorViewModel == null)
+				return;
 			var blockRef = m_navigatorViewModel.GetBlockVerseRef();
 			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerseNum - blockRef.VerseNum;
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;

@@ -9,6 +9,7 @@ using Paratext.Data.Checking;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
+using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
@@ -22,8 +23,8 @@ namespace Glyssen.Paratext
 		public const string kMarkersCheckId = "Marker";
 		public const string kQuotationCheckId = "Quotation";
 		public const string kChapterVerseCheckId = "ChapterVerse";
-		private static readonly string[] s_requiredChecks = {kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId};
 
+		private List<string> m_requiredChecks = new List<string>(new [] {kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId});
 		private ScrStylesheetAdapter m_stylesheet;
 		private WritingSystemDefinition m_writingSystem;
 		private GlyssenDblTextMetadata m_metadata;
@@ -45,8 +46,8 @@ namespace Glyssen.Paratext
 		// REVIEW (PG-63): In all cases where FailedChecksBooks is accessed, analyze whether UserCanEditProject should be
 		// taken into account. Maybe FailedChecksBooks should always return an empty list when !UserCanEditProject.
 		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
-		public static string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
-			s_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
+		public string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
+			m_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.HaveRoleNotObserver;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
@@ -82,8 +83,8 @@ namespace Glyssen.Paratext
 					continue;
 				}
 
-				var failedChecks = new List<String>(s_requiredChecks.Length);
-				foreach (var check in s_requiredChecks)
+				var failedChecks = new List<String>(m_requiredChecks.Count);
+				foreach (var check in m_requiredChecks)
 				{
 					CheckingStatus status;
 					try
@@ -175,7 +176,7 @@ namespace Glyssen.Paratext
 						{
 							Abbreviation = nameInfo.GetAbbreviation(bookNum),
 							Code = BCVRef.NumberToBookCode(bookNum),
-							IncludeInScript = !UserCanEditProject || m_bookInfo.GetState(bookNum) == ParatextProjectBookInfo.BookState.NoProblem,
+							IncludeInScript = m_bookInfo.GetState(bookNum) == ParatextProjectBookInfo.BookState.NoProblem,
 							LongName = nameInfo.GetLongName(bookNum),
 							ShortName = nameInfo.GetShortName(bookNum)
 						});
@@ -195,12 +196,12 @@ namespace Glyssen.Paratext
 			// Getting the checksum and the checking status at the same time and returning them together ensures that they are really
 			// in sync, rather than relying on the caller to get them at the same time. 
 			var list = new ParatextUsxBookList();
-			foreach (var bookNum in m_metadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code)))
+			foreach (var bookNum in GlyssenDblTextMetadata.AvailableBooks.Where(ab => ab.IncludeInScript).Select(ib => Canon.BookIdToNumber(ib.Code)))
 			{
 				if (subset != null && !subset.Contains(bookNum))
 					continue;
 				list.Add(bookNum, GetUsxDocumentForBook(bookNum), UnderlyingScrText.GetBookCheckSum(bookNum),
-					!FailedChecksBooks.Contains(Canon.BookNumberToId(bookNum)));
+					m_bookInfo.GetState(bookNum) == ParatextProjectBookInfo.BookState.NoProblem);
 			}
 			return list;
 		}
@@ -215,17 +216,26 @@ namespace Glyssen.Paratext
 			return UnderlyingScrText.GetBookCheckSum(bookNum);
 		}
 
-		public bool DoesBookPassChecksNow(string bookCode)
+		public bool DoesBookPassChecks(int bookNumber, bool refreshInfoIfNeeded = false)
 		{
-			if (!UserCanEditProject || !FailedChecksBooks.Contains(bookCode))
-				return true; // We will assume this is stil up-to-date
+			if (m_bookInfo.GetState(bookNumber) == ParatextProjectBookInfo.BookState.NoProblem)
+				return true; // We assume this is still up-to-date
+			if (!refreshInfoIfNeeded)
+				return false;
 			GetUpdatedBookInfo();
-			return !FailedChecksBooks.Contains(bookCode);
+			return DoesBookPassChecks(bookNumber, false);
 		}
 
 		public IEnumerable<string> GetCheckFailuresForBook(string bookId)
 		{
 			return m_bookInfo.GetFailedChecks(Canon.BookIdToNumber(bookId));
+		}
+
+		public void IgnoreQuotationsProblems()
+		{
+			m_requiredChecks.Remove(kQuotationCheckId);
+			GetUpdatedBookInfo();
+			m_metadata = null;
 		}
 	}
 }

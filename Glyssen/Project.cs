@@ -248,14 +248,7 @@ namespace Glyssen
 
 		public QuoteSystem QuoteSystem
 		{
-			get
-			{
-				if (m_quoteSystem != null)
-					return m_quoteSystem;
-				if (WritingSystem != null && WritingSystem.QuotationMarks != null && WritingSystem.QuotationMarks.Any())
-					return m_quoteSystem = new QuoteSystem(WritingSystem.QuotationMarks);
-				return null;
-			}
+			get => m_quoteSystem != null ? m_quoteSystem : (m_quoteSystem = QuoteSystem.TryCreateFromWritingSystem(WritingSystem));
 			set
 			{
 				bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
@@ -987,13 +980,15 @@ namespace Glyssen
 			var x = 0;
 			foreach (Book nowAvailableBook in nowAvailable)
 			{
+				var nowAvailableBookNum = Canon.BookIdToNumber(nowAvailableBook.Code);
 				if (x < existingAvailable.Count)
 				{
+					var existingBookNum = Canon.BookIdToNumber(existingAvailable[x].Code);
 					if (existingAvailable[x].Code == nowAvailableBook.Code)
 					{
 						if (existingAvailable[x].IncludeInScript &&
 							!GetBook(existingAvailable[x].Code).CheckStatusOverridden &&
-							scrTextWrapper.FailedChecksBooks.Contains(existingAvailable[x].Code))
+							scrTextWrapper.DoesBookPassChecks(existingBookNum))
 						{
 							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(existingAvailable[x].Code);
 						}
@@ -1002,8 +997,6 @@ namespace Glyssen
 						x++;
 						continue;
 					}
-					var existingBookNum = BCVRef.BookToNumber(existingAvailable[x].Code);
-					var nowAvailableBookNum = BCVRef.BookToNumber(nowAvailableBook.Code);
 					if (existingBookNum < nowAvailableBookNum)
 					{
 						if (existingAvailable[x].IncludeInScript)
@@ -1015,7 +1008,7 @@ namespace Glyssen
 				}
 
 				// New available book.
-				if (scrTextWrapper.FailedChecksBooks.Contains(nowAvailableBook.Code))
+				if (scrTextWrapper.DoesBookPassChecks(nowAvailableBookNum))
 					newlyAvailableChecksFail?.Invoke(nowAvailableBook.Code);
 				else
 					newlyAvailableChecksPass?.Invoke(nowAvailableBook.Code);
@@ -2267,8 +2260,22 @@ namespace Glyssen
 		{
 			var cvInfo = new CombinedCharacterVerseData(this);
 
-			var bundle = new GlyssenBundle(OriginalBundlePath);
-			var books = UsxParser.ParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet, null);
+			IEnumerable<UsxDocument> usxDocsForBooksToInclude;
+			IStylesheet stylesheet;
+			if (IsBundleBasedProject)
+			{
+				var bundle = new GlyssenBundle(OriginalBundlePath);
+				usxDocsForBooksToInclude = bundle.UsxBooksToInclude;
+				stylesheet = bundle.Stylesheet;
+			}
+			else
+			{
+				var scrTextWrapper = GetLiveParatextDataIfCompatible(false);
+				scrTextWrapper.IgnoreQuotationsProblems();
+				usxDocsForBooksToInclude = scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks();
+				stylesheet = scrTextWrapper.Stylesheet;
+			}
+			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, null);
 
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
 

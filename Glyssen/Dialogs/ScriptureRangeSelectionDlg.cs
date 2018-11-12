@@ -74,7 +74,7 @@ namespace Glyssen.Dialogs
 			// First time in. For bundle-based projects, default to all included.
 			// For Paratext projects, we don't do this because we've predetermined which books
 			// are included based on checking status.
-			if (!m_project.IsBundleBasedProject && m_project.IncludedBooks.Count == 0)
+			if (m_project.IsBundleBasedProject && m_project.IncludedBooks.Count == 0)
 				foreach (var availableBook in m_project.AvailableBooks)
 					availableBook.IncludeInScript = true;
 
@@ -89,9 +89,9 @@ namespace Glyssen.Dialogs
 			InitializeGridData(m_otBooksGrid, m_availableOtBooks);
 			InitializeGridData(m_ntBooksGrid, m_availableNtBooks);
 
-			if (!m_includeInScript.Any(p => p.Value && BCVRef.BookToNumber(p.Key) <= 39))
+			if (m_checkBoxOldTestament.Visible && !m_includeInScript.Any(p => p.Value && BCVRef.BookToNumber(p.Key) <= 39))
 				m_checkBoxOldTestament.Checked = false;
-			if (!m_includeInScript.Any(p => p.Value && BCVRef.BookToNumber(p.Key) > 39))
+			if (m_checkBoxNewTestament.Visible && !m_includeInScript.Any(p => p.Value && BCVRef.BookToNumber(p.Key) > 39))
 				m_checkBoxNewTestament.Checked = false;
 
 			SetupDropdownHeaderCells();
@@ -131,7 +131,7 @@ namespace Glyssen.Dialogs
 						m_project.ParatextProjectName,
 						ParatextScrTextWrapper.kParatextProgramName) +
 						Environment.NewLine +
-						ParatextScrTextWrapper.RequiredCheckNames;
+						m_paratextScrTextWrapper.RequiredCheckNames;
 					MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
@@ -195,7 +195,7 @@ namespace Glyssen.Dialogs
 						GlyssenInfo.kProduct,
 						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), booksWithFailingChecks),
 						m_project.ParatextProjectName,
-						ParatextScrTextWrapper.RequiredCheckNames,
+						m_paratextScrTextWrapper.RequiredCheckNames,
 						grid == m_otBooksGrid ? BookSetUtils.OldTestamentLocalizedString : BookSetUtils.NewTestamentLocalizedString,
 						m_project.Name);
 					if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
@@ -339,7 +339,7 @@ namespace Glyssen.Dialogs
 				return false;
 			// If the updated version does NOT pass tests but the existing version does (i.e., user didn't override the checking status),
 			// we'll just stick with the version we have. If they want to update it manually later, they can.
-			if (m_paratextScrTextWrapper.FailedChecksBooks.Contains(bookScriptFromExistingFile.BookId) && !bookScriptFromExistingFile.CheckStatusOverridden)
+			if (m_paratextScrTextWrapper.DoesBookPassChecks(bookScriptFromExistingFile.BookNumber) && !bookScriptFromExistingFile.CheckStatusOverridden)
 				return false;
 
 			var result = m_userDecisionAboutUpdatedBookContent;
@@ -436,8 +436,8 @@ namespace Glyssen.Dialogs
 				return true; // Might try to get an updated version later but this one is valid.
 
 			GetParatextScrTextWrapperIfNeeded();
-
-			if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(Canon.BookIdToNumber(bookCode)))
+			var bookNum = Canon.BookIdToNumber(bookCode);
+			if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(bookNum))
 			{
 				ReportParatextBookNoLongerAvailable(bookCode);
 				grid.CurrentRow.DefaultCellStyle.ForeColor = GlyssenColorPalette.ColorScheme.Warning;
@@ -446,7 +446,7 @@ namespace Glyssen.Dialogs
 			else if (grid.CurrentRow.DefaultCellStyle.ForeColor == GlyssenColorPalette.ColorScheme.Warning)
 				grid.CurrentRow.DefaultCellStyle.ForeColor = grid.DefaultCellStyle.ForeColor;
 
-			if (m_paratextScrTextWrapper.DoesBookPassChecksNow(bookCode))
+			if (m_paratextScrTextWrapper.DoesBookPassChecks(bookNum, true))
 				return true;
 
 			var failureMessage = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook",
