@@ -6093,10 +6093,10 @@
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.AssignmentsComplete">
       <tuv xml:lang="en">
-        <seg>Assignments Complete</seg>
+        <seg>All character assignments have been made. </seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Asignaciones completas</seg>
+        <seg>Se ha completado la tarea de hacer las asignaciones de los personajes en cada pasaje. </seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BlockProgressFmt">
