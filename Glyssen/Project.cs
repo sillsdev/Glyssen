@@ -1924,23 +1924,34 @@ namespace Glyssen
 
 		private void HandleQuoteSystemChanged()
 		{
-			Debug.Assert(IsBundleBasedProject);
-
 			Project copyOfExistingProject = new Project(m_projectMetadata, Name, ws: WritingSystem);
 			copyOfExistingProject.m_books.AddRange(m_books);
 
 			m_books.Clear();
 
-			if (RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
+			if (IsBundleBasedProject)
 			{
-				UserDecisionsProject = copyOfExistingProject;
-				using (var bundle = new GlyssenBundle(OriginalBundlePath))
-					PopulateAndParseBooks(bundle);
+				if (RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
+				{
+					UserDecisionsProject = copyOfExistingProject;
+					using (var bundle = new GlyssenBundle(OriginalBundlePath))
+						PopulateAndParseBooks(bundle);
+				}
+				else
+				{
+					// This is prevented by logic elsewhere
+					throw new ApplicationException();
+				}
 			}
 			else
 			{
-				// This is prevented by logic elsewhere
-				throw new ApplicationException();
+				var scrTextWrapper = GetLiveParatextDataIfCompatible(false, "", false);
+				if (scrTextWrapper != null && QuoteSystem != null)
+				{
+					scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);
+					UserDecisionsProject = copyOfExistingProject;
+					ParseAndSetBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
+				}
 			}
 		}
 

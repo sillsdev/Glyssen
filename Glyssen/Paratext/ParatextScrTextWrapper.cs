@@ -245,6 +245,13 @@ namespace Glyssen.Paratext
 			GetUpdatedBookInfo();
 			m_metadata = null;
 		}
+
+		public void IncludeOverriddenBooksFromProject(Project project)
+		{
+			var included = new HashSet<string>(project.IncludedBooks.Select(b => b.BookId));
+			foreach (var bookMetadata in GlyssenDblTextMetadata.AvailableBooks.Where(b => !b.IncludeInScript && included.Contains(b.Code)))
+				bookMetadata.IncludeInScript = true;
+		}
 	}
 }
 

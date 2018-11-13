@@ -334,17 +334,39 @@ namespace Glyssen.Dialogs
 			string validationMessage;
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
-				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid", "Quote System Invalid"));
+				MessageBox.Show(validationMessage,
+					LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid",
+					"Quote System Invalid"));
 				DisableForm(false);
 				return;
 			}
+			List<string> msgParts = new List<string>();
+			if (m_project.IsLiveParatextProject)
+			{
+				msgParts.Add(String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.GetDataFromParatext",
+					"This requires {0} to retrieve the current text from {1} project {2}, so any textual changes made there " +
+					"will now be incorporated into this {0} project.",
+					"Param 0: \"Glyssen\" (product name); " +
+					"Param 1: \"Paratext\" (product name); " +
+					"Param 2: Paratext project short name (unique project identifier)"),
+					GlyssenInfo.kProduct,
+					ParatextScrTextWrapper.kParatextProgramName,
+					m_project.ParatextProjectName));
+			}
 			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
 			{
-				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart1", "Changing the quote system will require the text to be broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
-				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
-				string msg = part1 + Environment.NewLine + Environment.NewLine + part2;
-				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ConfirmQuoteSystemChange", "Confirm Quote System Change");
-				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
+				msgParts.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.WorkWillBePreserved",
+					"An attempt will be made to preserve the work you have already completed, but some character assignments might be lost."));
+			}
+			if (msgParts.Any())
+			{
+				msgParts.Insert(0, LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.Part1",
+					"Changing the quote system will require the text to be broken up into speaking parts again."));
+				msgParts.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.BackupWillBeCreated",
+					"A backup of your project will be created before this occurs."));
+				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ConfirmQuoteSystemChange",
+					"Confirm Quote System Change");
+				if (MessageBox.Show(String.Join(Environment.NewLine, msgParts), title, MessageBoxButtons.OKCancel) == DialogResult.Cancel)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 					DisableForm(false);
