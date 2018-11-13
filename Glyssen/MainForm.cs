@@ -463,7 +463,7 @@ namespace Glyssen
 					"Param: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName) +
 				Environment.NewLine;
 
-			if (paratextProject.WritingSystemDefinition == null || !paratextProject.WritingSystemDefinition.QuotationMarks.Any())
+			if (!paratextProject.HasQuotationRulesSet)
 			{
 				var msg = Format(LocalizationManager.GetString("Project.ParatextQuotationRulesNotDefined",
 						"You are attempting to create a {0} project for {1} project {2}, which does not have its Quotation " +

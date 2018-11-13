@@ -14,6 +14,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
+using SIL.WritingSystems;
 
 namespace Glyssen.Dialogs
 {
@@ -81,27 +82,23 @@ namespace Glyssen.Dialogs
 		protected override void OnVisibleChanged(EventArgs e)
 		{
 			base.OnVisibleChanged(e);
-
-			if (IsHandleCreated && Visible && m_model.Project.IsLiveParatextProject)
+			var project = m_model.Project;
+			if (IsHandleCreated && Visible && project.IsLiveParatextProject &&
+				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0 &&
+				project.WritingSystem.QuotationMarks.SequenceEqual(project.GetLiveParatextDataIfCompatible(false, "", false)?.QuotationMarks ?? new QuotationMark[] { }))
 			{
-				var scrTextWrapper = m_model.GetUpdatedParatextData();
-				if (scrTextWrapper?.WritingSystemDefinition?.QuotationMarks != null &&
-					scrTextWrapper.WritingSystemDefinition.QuotationMarks.Any() &&
-					m_model.Project.WritingSystem.QuotationMarks.SequenceEqual(scrTextWrapper.WritingSystemDefinition.QuotationMarks))
-				{
-					string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
+				string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
 						"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +
 						"this project to match the {0} project settings (and get the latest versions of the text), click {3}.",
 						"Param 0: \"Paratext\" (product name); " +
 						"Param 1: Paratext project short name (unique project identifier) ; " +
 						"Param 2: \"Glyssen\" (product name); " +
 						"Param 3: localized name of the \"Update\" button"),
-						ParatextScrTextWrapper.kParatextProgramName,
-						m_model.Project.ParatextProjectName,
-						GlyssenInfo.kProduct,
-						LocalizedUpdateButtonName);
-					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
-				}
+					ParatextScrTextWrapper.kParatextProgramName,
+					m_model.Project.ParatextProjectName,
+					GlyssenInfo.kProduct,
+					LocalizedUpdateButtonName);
+				MessageBox.Show(msg, Text, MessageBoxButtons.OK);
 			}
 		}
 
@@ -410,32 +407,6 @@ namespace Glyssen.Dialogs
 						reparseOkay = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
 				}
 			}
-
-			//if (m_model.Project.IsLiveParatextProject && !m_model.Project.Books.Any())
-			//{
-			//	string msg = string.Format(LocalizationManager.GetString("Project.NoIncludedParatextBooksMsg",
-			//		"This {0} project currently has no included books. Since it is based on {1} project {2}, " +
-			//		"the Quote Mark Settings can only be modified by changing the Checking Quotation Rules in {1}. " +
-			//		"If changes are made there, you can click {3} in this dialog box to apply the changes to this {0} project.",
-			//		"Param 0: \"Glyssen\" (product name); " +
-			//		"Param 1: \"Paratext\" (product name); " +
-			//		"Param 2: Paratext project short name (unique project identifier) ; " +
-			//		"Param 3: localized name of the \"Update\" button"),
-			//		GlyssenInfo.kProduct,
-			//		ParatextScrTextWrapper.kParatextProgramName,
-			//		m_model.Project.ParatextProjectName,
-			//		LocalizedUpdateButtonName);
-			//	MessageBox.Show(msg, Text, MessageBoxButtons.OK);
-			//	// Setting this to "Obtained" is a little misleading for three reasons:
-			//	// * The user wasn't actually able to review the data because there were no included books.
-			//	// * This is just a default guess and the user had no option to change it.
-			//	// * For Paratext projects, the quote system info should always be obtained from the project settings, never set by the user in Glyssen.
-			//	// But in this edge case where the Paratext proj has no quote system defined, we need to (temporarily) mark the
-			//	// default guess as reviewed so they user isn't completely stuck forever (if they can't change the settings in Paratext).
-			//	m_model.Project.QuoteSystemStatus = QuoteSystemStatus.Obtained;
-			//	UpdateQuotePageDisplay();
-			//	return;
-			//}
 
 			BlockNavigatorViewModel viewModel = null;
 			try

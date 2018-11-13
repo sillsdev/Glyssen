@@ -51,12 +51,17 @@ namespace Glyssen.Paratext
 		private string ProjectId => UnderlyingScrText.Name;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.HaveRoleNotObserver;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
+		public IEnumerable<QuotationMark> QuotationMarks => WritingSystem?.QuotationMarks;
+		public bool HasQuotationRulesSet => QuotationMarks?.Any() ?? false;
 
-		public ParatextScrTextWrapper(ScrText underlyingText)
+		public ParatextScrTextWrapper(ScrText underlyingText, bool ignoreQuotationProblemsIfRulesAreNotSet = false)
 		{
 			UnderlyingScrText = underlyingText;
 
-			GetUpdatedBookInfo();
+			if (ignoreQuotationProblemsIfRulesAreNotSet && !HasQuotationRulesSet)
+				IgnoreQuotationsProblems();
+			else
+				GetUpdatedBookInfo();
 			if (m_bookInfo.SupportedBookCount == 0)
 				throw new NoSupportedBooksException(ProjectId, m_bookInfo);
 		}
@@ -108,7 +113,7 @@ namespace Glyssen.Paratext
 		public IStylesheet Stylesheet => m_stylesheet ??
 			(m_stylesheet = new ScrStylesheetAdapter(UnderlyingScrText.DefaultStylesheet));
 
-		public WritingSystemDefinition WritingSystemDefinition
+		public WritingSystemDefinition WritingSystem
 		{
 			get
 			{
@@ -124,7 +129,10 @@ namespace Glyssen.Paratext
 					{
 						ErrorReport.NotifyUserOfProblem(e, LocalizationManager.GetString("Project.FailedToCreateWritingSystemFromParatextLdml",
 							"Failed to create Writing System based on LDML file for {0} project {1}",
-							"Param 0: \"Paratext\"; Param 1: Project short name (unique project identifier)"), ProjectId);
+							"Param 0: \"Paratext\"; " +
+							"Param 1: Project short name (unique project identifier)"),
+							kParatextProgramName,
+							ProjectId);
 					}
 				}
 				return m_writingSystem;

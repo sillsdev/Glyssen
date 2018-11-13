@@ -48,13 +48,7 @@ namespace Glyssen.Dialogs
 				m_toolStripButtonGridView.Checked = true;
 
 			if (m_navigatorViewModel == null)
-			{
-				m_blocksViewer.Hide();
-				m_toolStrip.Hide();
-				m_tableLayoutPanelDataBrowser.Hide();
-				m_btnTest.Hide();
-				m_splitContainer.Panel1Collapsed = true;
-			}
+				PreventNavigation();
 			else
 			{
 				var books = new BookSet();
@@ -789,13 +783,27 @@ namespace Glyssen.Dialogs
 			{
 				DisableForm(true);
 				var parsedBooks = m_project.TestQuoteSystem(CurrentQuoteSystem);
-				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks.Where(b => m_project.IncludedBooks.Any(ib => ib.BookId == b.BookId)).ToList());
-				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), changeFilterToShowMissingExpectedQuotes);
+				if (parsedBooks.Any())
+				{
+					m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks.Where(b => m_project.IncludedBooks.Any(ib => ib.BookId == b.BookId)).ToList());
+					ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), changeFilterToShowMissingExpectedQuotes);
+				}
+				else
+					PreventNavigation();
 			}
 			finally
 			{
 				DisableForm(false);
 			}
+		}
+
+		private void PreventNavigation()
+		{
+			m_blocksViewer.Hide();
+			m_toolStrip.Hide();
+			m_tableLayoutPanelDataBrowser.Hide();
+			m_btnTest.Hide();
+			m_splitContainer.Panel1Collapsed = true;
 		}
 
 		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)

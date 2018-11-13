@@ -86,6 +86,8 @@ namespace Glyssen
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
+		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
+		/// Glyssen projects that are associated with a live Paratext project)</exception>
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
 			WritingSystemDefinition ws = null, bool loadVersification = true)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
@@ -100,12 +102,7 @@ namespace Glyssen
 				if (RobustFile.Exists(VersificationFilePath))
 					m_vers = LoadVersification(VersificationFilePath);
 				else if (IsLiveParatextProject)
-				{
-					// REVIEW: This can throw a ProjectNotFoundException - make sure any callers that are passing
-					// metadata associated with a live Paratext project handle this or avoid calling it in a
-					// situation where the project might not be accessible.
 					m_vers = GetSourceParatextProject().Settings.Versification;
-				}
 			}
 			if (installFonts)
 				InstallFontsIfNecessary();
@@ -121,7 +118,6 @@ namespace Glyssen
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				ConvertContinuersToParatextAssumptions();
 			}
-
 
 			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
 				ErrorReport.ReportNonFatalMessageWithStackTrace(
@@ -145,7 +141,7 @@ namespace Glyssen
 		}
 
 		internal Project(ParatextScrTextWrapper paratextProject) :
-			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystemDefinition)
+			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			if (WritingSystem.QuotationMarks != null && WritingSystem.QuotationMarks.Any())
@@ -836,14 +832,14 @@ namespace Glyssen
 
 			try
 			{
-				scrTextWrapper = new ParatextScrTextWrapper(sourceScrText);
+				scrTextWrapper = new ParatextScrTextWrapper(sourceScrText, QuoteSystemStatus != QuoteSystemStatus.Obtained);
 				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
 				{
 					throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectMetadataChangedMsg",
 						"The settings of the {0} project no longer appear to correspond to the {1} project. " +
 						"This is an unusual situation. If you do not understand how this happened, please contact support.",
 						"Param 0: \"Paratext\" (product name); " +
-						"Param 1: \"Glyssen\" (product name); "),
+						"Param 1: \"Glyssen\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName,
 						GlyssenInfo.kProduct));
 				}
@@ -988,7 +984,7 @@ namespace Glyssen
 					{
 						if (existingAvailable[x].IncludeInScript &&
 							!GetBook(existingAvailable[x].Code).CheckStatusOverridden &&
-							scrTextWrapper.DoesBookPassChecks(existingBookNum))
+							!scrTextWrapper.DoesBookPassChecks(existingBookNum))
 						{
 							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(existingAvailable[x].Code);
 						}
@@ -1041,6 +1037,8 @@ namespace Glyssen
 						booksToExcludeFromProject.Add(bookCode);
 					foundDataChange = true;
 				};
+
+			existingProject.CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
 			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
 				exclude, handleNewPassingBook, exclude);
@@ -1142,10 +1140,25 @@ namespace Glyssen
 				return null;
 			}
 
-			var project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true)
+			Project project;
+			try
 			{
-				ProjectFileIsWritable = isWritable
-			};
+				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+			}
+			catch(ProjectNotFoundException e)
+			{
+				throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectNotFound",
+					"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: \"Glyssen\" (product name); " +
+					"Param 3: Glyssen recording project name"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					metadata.ParatextProjectId,
+					GlyssenInfo.kProduct,
+					metadata.Name), e);
+			}
+			project.ProjectFileIsWritable = isWritable;
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
@@ -2271,7 +2284,11 @@ namespace Glyssen
 			else
 			{
 				var scrTextWrapper = GetLiveParatextDataIfCompatible(false);
-				scrTextWrapper.IgnoreQuotationsProblems();
+				if (scrTextWrapper == null)
+				{
+					Logger.WriteEvent("Paratext project is unavailable or is no longer compatible! Cannot text quote system.");
+					return new BookScript[] { };
+				}
 				usxDocsForBooksToInclude = scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks();
 				stylesheet = scrTextWrapper.Stylesheet;
 			}
