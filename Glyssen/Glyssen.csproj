@@ -136,7 +136,8 @@
     <Reference Include="SIL.Windows.Forms.WritingSystems">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems">
+    <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />

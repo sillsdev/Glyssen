@@ -9,7 +9,6 @@ using Paratext.Data.Checking;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
-using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
