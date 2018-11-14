@@ -170,7 +170,7 @@ namespace Glyssen
 				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
 
-				// This might also be needed if HearThis and ParatextData use different versions of SIL.WritingSystems.dll
+				// This might also be needed if Glyssen and ParatextData use different versions of SIL.WritingSystems.dll
 				if (!sldrIsInitialized)
 					Sldr.Initialize();
 

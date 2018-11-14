@@ -97,7 +97,7 @@ namespace Glyssen.Dialogs
 									break;
 
 								case UnsupportedReason.CannotUpgrade:
-									// HearThis is newer than project version
+									// Glyssen is newer than project version
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
 									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated",
 											"The project administrator needs to update it by opening it with Paratext {0} or later. " +
@@ -107,9 +107,9 @@ namespace Glyssen.Dialogs
 									break;
 
 								case UnsupportedReason.FutureVersion:
-									// Project version is newer than HearThis
+									// Project version is newer than Glyssen
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
-									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.HearThisVersionOutdated",
+									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated",
 											"To read this project, a version of {0} compatible with Paratext {1} is required.",
 											"Param 0: \"Glyssen\"; Param 1: Paratext version number"),
 										GlyssenInfo.kProduct,
