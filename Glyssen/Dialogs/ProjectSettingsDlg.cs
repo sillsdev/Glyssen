@@ -91,7 +91,7 @@ namespace Glyssen.Dialogs
 						"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +
 						"this project to match the {0} project settings (and get the latest versions of the text), click {3}.",
 						"Param 0: \"Paratext\" (product name); " +
-						"Param 1: Paratext project short name (unique project identifier) ; " +
+						"Param 1: Paratext project short name (unique project identifier); " +
 						"Param 2: \"Glyssen\" (product name); " +
 						"Param 3: localized name of the \"Update\" button"),
 					ParatextScrTextWrapper.kParatextProgramName,

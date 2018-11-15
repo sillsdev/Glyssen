@@ -9,7 +9,6 @@ using Paratext.Data.Checking;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
-using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
@@ -24,7 +23,7 @@ namespace Glyssen.Paratext
 		public const string kQuotationCheckId = "Quotation";
 		public const string kChapterVerseCheckId = "ChapterVerse";
 
-		private List<string> m_requiredChecks = new List<string>(new [] {kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId});
+		private readonly List<string> m_requiredChecks = new List<string>(new [] {kMarkersCheckId, kQuotationCheckId, kChapterVerseCheckId});
 		private ScrStylesheetAdapter m_stylesheet;
 		private WritingSystemDefinition m_writingSystem;
 		private GlyssenDblTextMetadata m_metadata;

@@ -836,10 +836,11 @@ namespace Glyssen
 				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
 				{
 					throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectMetadataChangedMsg",
-						"The settings of the {0} project no longer appear to correspond to the {1} project. " +
+						"The settings of the {0} project {1} no longer appear to correspond to the {2} project. " +
 						"This is an unusual situation. If you do not understand how this happened, please contact support.",
 						"Param 0: \"Paratext\" (product name); " +
-						"Param 1: \"Glyssen\" (product name)"),
+						"Param 1: Paratext project short name (unique project identifier); " +
+						"Param 2: \"Glyssen\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName,
 						GlyssenInfo.kProduct));
 				}
@@ -2297,7 +2298,7 @@ namespace Glyssen
 				var scrTextWrapper = GetLiveParatextDataIfCompatible(false);
 				if (scrTextWrapper == null)
 				{
-					Logger.WriteEvent("Paratext project is unavailable or is no longer compatible! Cannot text quote system.");
+					Logger.WriteEvent("Paratext project is unavailable or is no longer compatible! Cannot test quote system.");
 					return new BookScript[] { };
 				}
 				usxDocsForBooksToInclude = scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks();

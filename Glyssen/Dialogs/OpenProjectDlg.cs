@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
@@ -80,8 +81,8 @@ namespace Glyssen.Dialogs
 				var loadErrors = Program.CompatibleParatextProjectLoadErrors.ToList();
 				if (loadErrors.Any())
 				{
-					StringBuilder sb = new StringBuilder(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors",
-						"The following Paratext project load errors occurred:"));
+					StringBuilder sb = new StringBuilder(String.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors",
+						"The following {0} project load errors occurred:", "Param 0: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName));
 					foreach (var errMsgInfo in loadErrors)
 					{
 						sb.Append("\n\n");

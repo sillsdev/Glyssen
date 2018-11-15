@@ -868,6 +868,7 @@ namespace Glyssen
 		private void SelectBooks_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new ScriptureRangeSelectionDlg(m_project, m_paratextScrTextWrapperForRecentlyCreatedProject))
+			{
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
@@ -875,7 +876,8 @@ namespace Glyssen
 					UpdateDisplayOfProjectInfo();
 					SaveCurrentProject(true);
 				}
-				m_paratextScrTextWrapperForRecentlyCreatedProject = null;
+			}
+			m_paratextScrTextWrapperForRecentlyCreatedProject = null;
 		}
 
 		private void Settings_Click(object sender, EventArgs e)
