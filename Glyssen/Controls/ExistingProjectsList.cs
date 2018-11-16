@@ -85,7 +85,7 @@ namespace Glyssen.Controls
 			var metadata = project as GlyssenDblTextMetadata;
 			if (metadata == null)
 			{
-				yield return String.Format(m_fmtParatextProjectSource, project.Name);
+				yield return String.Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName, project.Name);
 				yield return null;
 				yield return false; // REVIEW: Should we regard not-yet-started Paratext projects as "inactive"?
 			}
@@ -94,7 +94,7 @@ namespace Glyssen.Controls
 				if (!String.IsNullOrEmpty(metadata.OriginalReleaseBundlePath))
 					yield return Path.GetFileName(metadata.OriginalReleaseBundlePath);
 				else if (metadata.Id != SampleProject.kSample)
-					yield return String.Format(m_fmtParatextProjectSource, metadata.ParatextProjectId);
+					yield return String.Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName, metadata.ParatextProjectId);
 				else
 					yield return null;
 				if (metadata.LastModified.Year < 1900)
