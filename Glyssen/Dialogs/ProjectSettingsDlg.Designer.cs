@@ -1302,7 +1302,7 @@
 			this.m_linkLblChangeOmittedChapterAnnouncements.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLblChangeOmittedChapterAnnouncements, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLblChangeOmittedChapterAnnouncements, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLblChangeOmittedChapterAnnouncements, "DialogBoxes.ProjectSettingsDlg.linkLabel1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLblChangeOmittedChapterAnnouncements, "DialogBoxes.ProjectSettingsDlg.m_linkLblChangeOmittedChapterAnnouncements");
 			this.m_linkLblChangeOmittedChapterAnnouncements.Location = new System.Drawing.Point(0, 3);
 			this.m_linkLblChangeOmittedChapterAnnouncements.Margin = new System.Windows.Forms.Padding(0, 3, 0, 10);
 			this.m_linkLblChangeOmittedChapterAnnouncements.Name = "m_linkLblChangeOmittedChapterAnnouncements";

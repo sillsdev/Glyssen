@@ -124,25 +124,25 @@ namespace Glyssen.Dialogs
 					else if (m_project.IsLiveParatextProject)
 					{
 						promptText = String.Format(LocalizationManager.GetString("Project.CannotChangeParextProjectQuoteSystem",
-								"The Quote Mark Settings cannot be modified directly for a project based on a live {0} project. " +
+								"The Quote Mark Settings cannot be modified directly for a {0} project based on a live {1} project. " +
 								"If you need to make changes, do the following:\r\n" +
-								"1) Open the {1} project in {0}, and on the Checking menu, click Quotation Rules.\r\n" +
-								"2) After saving the changes there, re-run the {2} check for all books included in this {3} project.\r\n" +
-								"   (Note: The {4} and {5} checks are also required to pass in order for a book to be included in a {3} project.)\r\n" +
-								"3) Return to {3} and on the {6} tab of the {7} dialog box, click {8}.",
-								"Param 0: \"Paratext\" (product name); " +
-								"Param 1: Paratext project short name (unique project identifier); " +
-								"Param 2: Name of the Paratext \"Quotations\" check; " +
-								"Param 3: \"Glyssen\" (product name); " +
+								"1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\r\n" +
+								"2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\r\n" +
+								"   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\r\n" +
+								"3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.",
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"Paratext\" (product name); " +
+								"Param 2: Paratext project short name (unique project identifier); " +
+								"Param 3: Name of the Paratext \"Quotations\" check; " +
 								"Param 4: Name of the Paratext \"Chapter/Verse Numbers\" check; " +
 								"Param 5: Name of the Paratext \"Markers\" check; " +
 								"Param 6: Name of the \"General\" tab in the Project Settings dialog box; " +
 								"Param 7: Title of the \"Project Settings\" dialog box; " +
 								"Param 8: Name of the \"Update\" button"),
-							/* 0 */ ParatextScrTextWrapper.kParatextProgramName,
-							/* 1 */ m_project.ParatextProjectName,
-							/* 2 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
-							/* 3 */ GlyssenInfo.kProduct,
+							/* 0 */ GlyssenInfo.kProduct,
+							/* 1 */ ParatextScrTextWrapper.kParatextProgramName,
+							/* 2 */ m_project.ParatextProjectName,
+							/* 3 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
 							/* 4 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kChapterVerseCheckId),
 							/* 5 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kMarkersCheckId),
 							/* 6 */ m_parentDlg.LocalizedGeneralTabName,

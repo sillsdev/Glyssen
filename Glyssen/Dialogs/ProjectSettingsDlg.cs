@@ -402,7 +402,7 @@ namespace Glyssen.Dialogs
 							"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
 						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
-					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle", "Message caption");
 					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
 						reparseOkay = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
 				}
