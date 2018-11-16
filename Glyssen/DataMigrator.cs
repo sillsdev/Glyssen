@@ -99,7 +99,11 @@ namespace Glyssen
 									var origBundlePath = metadata.OriginalReleaseBundlePath;
 									if (string.IsNullOrEmpty(origBundlePath))
 									{
-										// Note: In settings version 1, we didn't support Paratext-based projects, so this is bogus.
+										// Note: We didn't support Paratext-based projects until settings version 3 (Glyssen 1.1),
+										// so for this step in the migration process (going from 0 to 1), any project without
+										// OriginalReleaseBundlePath set is invalid (possibly from a really early version of Glyssen
+										// or some g;itch arising from development activity or external mangling of the file). So
+										// we should be able to safely blow this away.
 										try
 										{
 											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);

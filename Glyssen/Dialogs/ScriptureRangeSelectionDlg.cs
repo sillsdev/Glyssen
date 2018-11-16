@@ -423,6 +423,19 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		/// <summary>
+		/// This method should be used any time the user takes an action that would result in marking a book
+		/// for inclusion in the project. (It does not need to be called when a book is being removed.)
+		/// Currently, this can be either when they click a check-box for an individual book or when they use one of
+		/// the "select all" menu items. There are several quick-return paths, but in the "interesting" case,
+		/// the purpose of this method is to check whether the book in question is currently in a state (as reported
+		/// by Paratext) where the required basic checks all pass. If not, the user needs to confirm that they indeed
+		/// wish to include the book and thus override this requirement.
+		/// </summary>
+		/// <param name="grid">Either the OT grid or the NT grid</param>
+		/// <param name="rowIndex">The row index in the grid also corresponds to an entry in the available OT or
+		/// NT books list.</param>
+		/// <returns></returns>
 		private bool IsValidToIncludeBook(DataGridView grid, int rowIndex)
 		{
 			if (!m_project.IsLiveParatextProject)
