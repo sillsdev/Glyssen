@@ -1137,7 +1137,7 @@ namespace Glyssen
 		{
 			if (!MatchesReferenceText)
 				throw new InvalidOperationException("ChangeReferenceText should not be called for a block that is not aligned to a reference text block.");
-			var refBook = referenceText.Books.FirstOrDefault(b => b.BookId == bookId);
+			var refBook = referenceText.GetBook(bookId);
 
 			if (refBook == null)
 				return true;

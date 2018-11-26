@@ -135,7 +135,7 @@ namespace GlyssenTests
 			int previousPercentageValue = 0;
 			var reportProgress = new Action<int>(i => Assert.IsTrue(previousPercentageValue <= i));
 
-			return UsxParser.ParseProject(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
+			return UsxParser.ParseBooks(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
 		}
 
 		private static QuoteSystem GetTestQuoteSystem(bool includeDialogueDash)

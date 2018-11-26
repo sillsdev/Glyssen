@@ -13,7 +13,7 @@ namespace Glyssen.Bundle
 
 		public GlyssenBundle(string pathToZippedBundle) : base(pathToZippedBundle)
 		{
-			Metadata.OriginalPathBundlePath = BundlePath;
+			Metadata.OriginalReleaseBundlePath = BundlePath;
 			Metadata.FontFamily = Stylesheet.FontFamily;
 			Metadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;
 			if (string.IsNullOrEmpty(Metadata.Language.Iso))
