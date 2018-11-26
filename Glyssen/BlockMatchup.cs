@@ -42,14 +42,18 @@ namespace Glyssen
 				m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
 				while (m_iStartBlock > 0)
 				{
-					if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-						!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+					var firstIncludedBlock = blocksForVersesCoveredByBlock.First();
+					if (firstIncludedBlock.InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+						!firstIncludedBlock.StartsAtVerseStart && !firstIncludedBlock.IsChapterAnnouncement)
 					{
 						var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-							blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
-						prepend.RemoveAt(prepend.Count - 1);
-						m_iStartBlock -= prepend.Count;
-						blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+							firstIncludedBlock.InitialStartVerseNumber).ToList();
+						if (prepend.Count > 1)
+						{
+							prepend.RemoveAt(prepend.Count - 1);
+							m_iStartBlock -= prepend.Count;
+							blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+						}
 					}
 					if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
 						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))

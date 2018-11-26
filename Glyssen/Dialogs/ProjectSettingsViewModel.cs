@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Glyssen.Bundle;
+using Glyssen.Paratext;
 using Glyssen.Shared;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
@@ -33,6 +34,8 @@ namespace Glyssen.Dialogs
 			RecordingProjectName = project.Name;
 		    AudioStockNumber = project.AudioStockNumber;
 			BundlePath = project.OriginalBundlePath;
+			ParatextProjectName = project.ParatextProjectName;
+			IsLiveParatextProject = project.IsLiveParatextProject;
 			LanguageName = project.LanguageName;
 			IsoCode = project.LanguageIsoCode;
 			PublicationId = project.Id;
@@ -87,6 +90,8 @@ namespace Glyssen.Dialogs
         public string RecordingProjectName { get; set; }
         public string AudioStockNumber { get; set; }
 		public string BundlePath { get; set; }
+		public string ParatextProjectName { get; set; }
+		public bool IsLiveParatextProject { get; set; }
 		public string PublicationId { get; private set; }
 		public string SampleText { get; private set; }
 		public ScrVers Versification { get; private set; }
@@ -170,6 +175,11 @@ namespace Glyssen.Dialogs
 		{
 			if (m_chapterAnnouncementStyle != Project.ChapterAnnouncementStyle)
 				ChapterAnnouncementStyle = Project.ChapterAnnouncementStyle;
+		}
+
+		internal ParatextScrTextWrapper GetUpdatedParatextData()
+		{
+			return Project.GetLiveParatextDataIfCompatible();
 		}
 	}
 }

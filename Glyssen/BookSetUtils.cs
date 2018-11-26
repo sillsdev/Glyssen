@@ -35,6 +35,9 @@ namespace Glyssen
 			return bookSet.CustomSummary();
 		}
 
+		public static string OldTestamentLocalizedString => LocalizationManager.GetString("BookSelection.OldTestament", "Old Testament");
+		public static string NewTestamentLocalizedString => LocalizationManager.GetString("BookSelection.NewTestament", "New Testament");
+
 		public static string CustomSummary(this BookSet bookSet)
 		{
 			var components = new List<string>();
@@ -43,13 +46,13 @@ namespace Glyssen
 				return LocalizationManager.GetString("BookSelection.AllBooks", "All Books");
 			BookSet includedOtBooks = bookSet.Intersect(OldTestament);
 			if (includedOtBooks.Count == OldTestament.Count)
-				components.Add(LocalizationManager.GetString("BookSelection.OldTestament", "Old Testament"));
+				components.Add(OldTestamentLocalizedString);
 			else
 				components.AddRange(PartialTestamentBookSummary(includedOtBooks, OldTestament));
 
 			BookSet includedNtBooks = bookSet.Intersect(NewTestament);
 			if (includedNtBooks.Count == NewTestament.Count)
-				components.Add(LocalizationManager.GetString("BookSelection.NewTestament", "New Testament"));
+				components.Add(NewTestamentLocalizedString);
 			else
 				components.AddRange(PartialTestamentBookSummary(includedNtBooks, NewTestament));
 			return string.Join(", ", components);

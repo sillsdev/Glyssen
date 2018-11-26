@@ -180,8 +180,8 @@ namespace Glyssen.Dialogs
 			this.m_chkDialogueQuotations.BackColor = System.Drawing.SystemColors.Control;
 			this.m_chkDialogueQuotations.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkDialogueQuotations, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_chkDialogueQuotations.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_chkDialogueQuotations, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_chkDialogueQuotations.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkDialogueQuotations, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkDialogueQuotations, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkDialogueQuotations, "DialogBoxes.QuotationMarksDlg.ProjectMarksDialogue");
@@ -244,11 +244,11 @@ namespace Glyssen.Dialogs
 			// m_lblEndDialogueQuote
 			// 
 			this.m_lblEndDialogueQuote.AutoSize = true;
-			this.m_lblEndDialogueQuote.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblEndDialogueQuote, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblEndDialogueQuote.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblEndDialogueQuote.Enabled = false;
-			this.glyssenColorPalette.SetForeColor(this.m_lblEndDialogueQuote, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblEndDialogueQuote.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_lblEndDialogueQuote, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblEndDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblEndDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblEndDialogueQuote, "DialogBoxes.QuotationMarksDlg.EndDialogueQuote");
@@ -267,8 +267,8 @@ namespace Glyssen.Dialogs
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Enabled = false;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkAlternateSpeakersInFirstLevelQuotes, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_chkAlternateSpeakersInFirstLevelQuotes.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_chkAlternateSpeakersInFirstLevelQuotes, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_chkAlternateSpeakersInFirstLevelQuotes.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkAlternateSpeakersInFirstLevelQuotes, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkAlternateSpeakersInFirstLevelQuotes, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkAlternateSpeakersInFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.m_chkAlternateSpeakersInFirstLevelQuotes");
@@ -443,8 +443,8 @@ namespace Glyssen.Dialogs
 			// 
 			// m_scriptureReference
 			// 
-			this.glyssenColorPalette.SetBackColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_scriptureReference.BackColor = System.Drawing.Color.Transparent;
+			this.glyssenColorPalette.SetBackColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_scriptureReference, "");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_scriptureReference, null);
@@ -516,10 +516,10 @@ namespace Glyssen.Dialogs
 			// 
 			// label1
 			// 
-			this.label1.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.label1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.label1, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.label1.BackColor = System.Drawing.SystemColors.Control;
 			this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.label1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.QuotationMarksDlg.SwitchFirstLevel");
@@ -537,11 +537,11 @@ namespace Glyssen.Dialogs
 			// m_lblStartDialogueQuote
 			// 
 			this.m_lblStartDialogueQuote.AutoSize = true;
-			this.m_lblStartDialogueQuote.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblStartDialogueQuote, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblStartDialogueQuote.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblStartDialogueQuote.Enabled = false;
-			this.glyssenColorPalette.SetForeColor(this.m_lblStartDialogueQuote, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblStartDialogueQuote.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_lblStartDialogueQuote, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblStartDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblStartDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStartDialogueQuote, "DialogBoxes.QuotationMarksDlg.DialogueQuotationDash");
@@ -592,12 +592,13 @@ namespace Glyssen.Dialogs
 			// 
 			// m_blocksViewer
 			// 
-			this.m_blocksViewer.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_blocksViewer.BackColor = System.Drawing.SystemColors.Control;
 			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
+			this.m_blocksViewer.ContentBorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.glyssenColorPalette.SetForeColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_blocksViewer.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer");
@@ -618,8 +619,8 @@ namespace Glyssen.Dialogs
 			this.m_chkPairedQuotations.BackColor = System.Drawing.SystemColors.Control;
 			this.m_chkPairedQuotations.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkPairedQuotations, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetForeColor(this.m_chkPairedQuotations, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_chkPairedQuotations.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_chkPairedQuotations, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkPairedQuotations, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkPairedQuotations, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkPairedQuotations, "DialogBoxes.QuotationMarksDlg.PairedQuotationMarks");
@@ -905,8 +906,8 @@ namespace Glyssen.Dialogs
 			// m_testResults
 			// 
 			this.m_testResults.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_testResults, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_testResults.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_testResults, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_testResults, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_testResults.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_testResults, null);
@@ -999,6 +1000,9 @@ namespace Glyssen.Dialogs
 			// 
 			// tableLayoutPanel1
 			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));

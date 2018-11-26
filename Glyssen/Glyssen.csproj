@@ -108,35 +108,44 @@
     <Reference Include="PtxUtils, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ParatextData.8.1.4\lib\net461\PtxUtils.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core">
+    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core.Desktop">
+    <Reference Include="SIL.Core.Desktop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Core.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.DblBundle, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Scripture">
+    <Reference Include="SIL.Scripture, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms">
+    <Reference Include="SIL.Windows.Forms, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.DblBundle">
+    <Reference Include="SIL.Windows.Forms.DblBundle, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
+    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.Scripture">
+    <Reference Include="SIL.Windows.Forms.Scripture, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.WritingSystems">
+    <Reference Include="SIL.Windows.Forms.WritingSystems, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems">
+    <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -332,7 +341,18 @@
     <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\YesNoApplyToAllDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\YesNoApplyToAllDlg.Designer.cs">
+      <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBlockAccessor.cs" />
+    <Compile Include="Paratext\ParatextProjectBookInfo.cs" />
+    <Compile Include="Paratext\NoSupportedBooksException.cs" />
+    <Compile Include="Paratext\ParatextProjectProxy.cs" />
+    <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
+    <Compile Include="Paratext\ParatextUsxBookList.cs" />
     <Compile Include="PortionScript.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
@@ -545,6 +565,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\YesNoApplyToAllDlg.resx">
+      <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

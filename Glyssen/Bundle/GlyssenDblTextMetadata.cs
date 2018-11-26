@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -42,7 +43,32 @@ namespace Glyssen.Bundle
 		/// This tells us the original (local) path of the Text Release Bundle file used to create this project.
 		/// </summary>
 		[XmlAttribute("origdblpath")]
-		public string OriginalPathBundlePath { get; set; }
+		public string OriginalReleaseBundlePath
+		{
+			get => m_originalReleaseBundlePath;
+			set
+			{
+				if (!String.IsNullOrEmpty(ParatextProjectId))
+					throw new InvalidOperationException("A Glyssen project cannot have both a Text Release Bundle and a Paratext project as its source.");
+				m_originalReleaseBundlePath = value;
+			}
+		}
+
+		/// <summary>
+		/// We add this when we parse the USX to create a script.
+		/// This tells us the Paratext Project (short name) used to create this project.
+		/// </summary>
+		[XmlAttribute("sourceparatextproj")]
+		public string ParatextProjectId
+		{
+			get => m_paratextProjectId;
+			set
+			{
+				if (!String.IsNullOrEmpty(OriginalReleaseBundlePath))
+					throw new InvalidOperationException("A Glyssen project cannot have both a Text Release Bundle and a Paratext project as its source.");
+				m_paratextProjectId = value;
+			}
+		}
 
 		/// <summary>
 		/// We use this to know if character assignments should be reprocessed.
@@ -66,6 +92,14 @@ namespace Glyssen.Bundle
 		[XmlElement("projectDramatizationPreferences")]
 		public ProjectDramatizationPreferences DramatizationPreferences = new ProjectDramatizationPreferences();
 
+		private string m_originalReleaseBundlePath;
+		private string m_paratextProjectId;
+
+		// Needed for deserialization
+		public GlyssenDblTextMetadata()
+		{
+		}
+
 		/// <summary>
 		/// If a project does not come with a versification file, this is the name of the standard versification to be used.
 		/// </summary>
@@ -87,7 +121,9 @@ namespace Glyssen.Bundle
 
 		/// <summary>
 		/// Gets the revision number from a standard DBL bundle. If this bundle is an ad-hoc bundle created by Paratext,
-		/// this will instead be the (Mercurial) changeset id (which is a GUID)
+		/// this will instead be the (Mercurial) changeset id (which is a GUID). If this is metadata created from a live
+		/// Paratext project, then it's just a sequence number telling how many times we've pulled in new data from Paratext
+		/// (probably not terribly useful).
 		/// </summary>
 		public string RevisionOrChangesetId
 		{
