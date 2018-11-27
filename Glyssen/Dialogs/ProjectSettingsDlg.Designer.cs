@@ -34,6 +34,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.Label lblSeparatorLine;
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_lblLanguageName = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
 			this.m_txtPublicationId = new System.Windows.Forms.Label();
 			this.m_lblOriginalSource = new System.Windows.Forms.Label();
 			this.m_txtOriginalSource = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
 			this.m_lblQuoteMarks = new System.Windows.Forms.Label();
 			this.m_lblQuoteMarkReview = new System.Windows.Forms.Label();
 			this.m_lblQuoteMarkSummary = new System.Windows.Forms.Label();
@@ -105,6 +105,7 @@
 			this.m_titleChapters = new System.Windows.Forms.ComboBox();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tabControl = new System.Windows.Forms.TabControl();
+			lblSeparatorLine = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_tabPageGeneral.SuspendLayout();
 			this.m_tableLayoutMain.SuspendLayout();
@@ -121,10 +122,31 @@
 			this.m_tabControl.SuspendLayout();
 			this.SuspendLayout();
 			// 
+			// lblSeparatorLine
+			// 
+			lblSeparatorLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(lblSeparatorLine, Glyssen.Utilities.GlyssenColors.BackColor);
+			lblSeparatorLine.BackColor = System.Drawing.SystemColors.Control;
+			lblSeparatorLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			lblSeparatorLine.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(lblSeparatorLine, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(lblSeparatorLine, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(lblSeparatorLine, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(lblSeparatorLine, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(lblSeparatorLine, "DialogBoxes.ProjectSettingsDlg.lblSeparatorLine");
+			lblSeparatorLine.Location = new System.Drawing.Point(8, 32);
+			lblSeparatorLine.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+			lblSeparatorLine.Name = "lblSeparatorLine";
+			lblSeparatorLine.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+			lblSeparatorLine.Size = new System.Drawing.Size(561, 2);
+			lblSeparatorLine.TabIndex = 16;
+			this.glyssenColorPalette.SetUsePaletteColors(lblSeparatorLine, true);
+			// 
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ProjectSettingsDlg";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes";
 			// 
 			// m_btnCancel
 			// 
@@ -420,26 +442,6 @@
 			this.m_txtOriginalSource.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtOriginalSource, true);
 			// 
-			// label2
-			// 
-			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.glyssenColorPalette.SetBackColor(this.label2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.label2.BackColor = System.Drawing.SystemColors.Control;
-			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.ProjectSettingsDlg.label1");
-			this.label2.Location = new System.Drawing.Point(8, 32);
-			this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-			this.label2.Name = "label2";
-			this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.label2.Size = new System.Drawing.Size(561, 2);
-			this.label2.TabIndex = 16;
-			this.glyssenColorPalette.SetUsePaletteColors(this.label2, true);
-			// 
 			// m_lblQuoteMarks
 			// 
 			this.m_lblQuoteMarks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -684,7 +686,7 @@
 			this.glyssenColorPalette.SetBackColor(this.panel1, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.panel1, 4);
 			this.panel1.Controls.Add(this.m_lblQuoteMarks);
-			this.panel1.Controls.Add(this.label2);
+			this.panel1.Controls.Add(lblSeparatorLine);
 			this.glyssenColorPalette.SetForeColor(this.panel1, Glyssen.Utilities.GlyssenColors.Default);
 			this.panel1.Location = new System.Drawing.Point(6, 209);
 			this.panel1.Name = "panel1";
@@ -720,7 +722,8 @@
 			this.glyssenColorPalette.SetForeColor(this.m_txtAudioStockNumber, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtAudioStockNumber, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtAudioStockNumber, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtAudioStockNumber, "DialogBoxes.ProjectSettingsDlg.textBox1");
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtAudioStockNumber, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtAudioStockNumber, "DialogBoxes.ProjectSettingsDlg.m_txtAudioStockNumber");
 			this.m_txtAudioStockNumber.Location = new System.Drawing.Point(161, 29);
 			this.m_txtAudioStockNumber.Name = "m_txtAudioStockNumber";
 			this.m_txtAudioStockNumber.Size = new System.Drawing.Size(422, 20);
@@ -1326,7 +1329,7 @@
 			this.glyssenColorPalette.SetForeColor(this.m_tabPageReferenceTexts, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_tabPageReferenceTexts, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_tabPageReferenceTexts, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_tabPageReferenceTexts, "DialogBoxes.ProjectSettingsDlg.ReferenceTextsTab.TabName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_tabPageReferenceTexts, "DialogBoxes.ProjectSettingsDlg.ReferenceTextTab.TabName");
 			this.m_tabPageReferenceTexts.Location = new System.Drawing.Point(4, 22);
 			this.m_tabPageReferenceTexts.Name = "m_tabPageReferenceTexts";
 			this.m_tabPageReferenceTexts.Padding = new System.Windows.Forms.Padding(7, 12, 7, 12);
@@ -1691,7 +1694,6 @@
 		private System.Windows.Forms.Label m_txtOriginalSource;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label m_lblQuoteMarks;
-		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label m_lblVersification;
 		private System.Windows.Forms.Label m_txtVersification;
 		private System.Windows.Forms.Button m_btnQuoteMarkSettings;

@@ -150,7 +150,7 @@ namespace Glyssen.Dialogs
 							/* 8 */ m_parentDlg.LocalizedUpdateButtonName);
 					}
 					else
-						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
+						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text release bundle and should not normally be changed.");
 					break;
 				case QuoteSystemStatus.Guessed:
 					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.kProduct);

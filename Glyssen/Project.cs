@@ -742,10 +742,10 @@ namespace Glyssen
 				{
 					string msg = ParserUpgradeMessage + " " + Format(
 							LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
-								"To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
+								"To make use of the new engine, the original release text bundle must be available, but it is not in the original location ({0})."),
 							existingProject.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
-						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
+						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
 						upgradeProject = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
@@ -1768,7 +1768,7 @@ namespace Glyssen
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
 								"created backup file does not exist.");
 						var msg3 = String.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
-							"Otherwise, click Ignore and {0} will repair the file for you. Some information might not be recoverable, " +
+							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
 							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
@@ -2026,13 +2026,13 @@ namespace Glyssen
 					MessageBox.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
-								"The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."),
+								"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
 					MessageBox.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructions",
-								"The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
+								"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 
 				foreach (var ttfFile in ttfFilesToInstall)
@@ -2055,7 +2055,7 @@ namespace Glyssen
 				MessageBox.Show(
 					Format(
 						LocalizationManager.GetString("Font.FontFilesNotFound",
-							"The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
+							"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
 						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 		}
 

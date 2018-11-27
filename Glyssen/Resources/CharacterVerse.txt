@@ -17226,7 +17226,7 @@ REV	13	10	voice in heaven			Potential
 REV	13	10	saying about captivity and death by the sword			Potential	God	
 REV	13	10	scripture		scripture (God)	Potential	God	
 REV	13	10	God			Potential		
-REV	13	14	beast, the			Indirect		
+REV	13	14	beast from out of the earth			Indirect		
 REV	14	7	angel flying directly overhead			Normal		
 REV	14	8	angel flying directly overhead, second			Normal		
 REV	14	9	angel flying directly overhead, third			Normal		

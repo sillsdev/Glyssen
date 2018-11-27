@@ -194,7 +194,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFileName, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileName, "DialogBoxes.ExportDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileName, "DialogBoxes.ExportDlg.m_lblFileName");
 			this.m_lblFileName.Location = new System.Drawing.Point(28, 63);
 			this.m_lblFileName.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblFileName.Name = "m_lblFileName";

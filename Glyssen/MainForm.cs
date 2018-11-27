@@ -1048,8 +1048,9 @@ namespace Glyssen
 			{
 				if (m_temporaryRefTextOverrideForExporting != null)
 					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
-				else if (!ResolveNullReferenceText(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
-					"To continue and temporarily use the English reference text, click Ignore.")))
+				else if (!ResolveNullReferenceText(Format(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
+					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label  (in the current Windows locale)"),
+					MessageBoxStrings.IgnoreButton)))
 				{
 					return;
 				}
@@ -1100,10 +1101,16 @@ namespace Glyssen
 					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
 					"to the required reference text files, please put them in" +
 					"\n    {1}\n" +
-					"and then click Retry to use the {0} reference text.\n\n" +
-					"Otherwise, to permanently change the reference text used by this project, open the {2}\n" +
-					"dialog box and select the desired reference text on the {3} tab page.");
-				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, projectSettingsDlgTitle, referenceTextTabName);
+					"and then click {2} to use the {0} reference text.\n\n" +
+					"Otherwise, to permanently change the reference text used by this project, open the {3}\n" +
+					"dialog box and select the desired reference text on the {4} tab page.",
+					"Param 0: Name of reference text (typically a language name); " +
+					"Param 1: Folder path where custom reference text; " +
+					"Param 2: The name of the \"Retry\" button label (in the current Windows locale); " +
+					"Param 3: Name of the Project Settings dialog box; " +
+					"Param 4: Label of the Reference Text tab");
+				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
+					projectSettingsDlgTitle, referenceTextTabName);
 				if (ignoreOptionText != null)
 					msg += "\n\n" + ignoreOptionText;
 				Logger.WriteEvent(msg);

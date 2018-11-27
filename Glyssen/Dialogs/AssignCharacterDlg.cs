@@ -218,7 +218,8 @@ namespace Glyssen.Dialogs
 				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 				m_progressBar.Value = m_viewModel.CompletedBlockCount;
 				m_progressBar.UnitName = m_viewModel.DoingAlignmentTask ?
-					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages") : null;
+					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages",
+						"Parameter #2 in DialogBoxes.AssignCharacterDlg.AssignmentProgressFmt") : null;
 				m_progressBar.Invalidate();
 				if (m_viewModel.IsCurrentTaskComplete)
 				{

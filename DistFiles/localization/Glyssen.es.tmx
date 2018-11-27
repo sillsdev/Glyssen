@@ -5,6 +5,38 @@
     <prop type="x-hardlinebreakreplacement">\n</prop>
   </header>
   <body>
+    <tu tuid="AddCharacter.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Add Character or Delivery</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Añadir personaje o estilo de elocución</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AddCharacter.m_lblCharacter">
+      <tuv xml:lang="en">
+        <seg>Character</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Personaje</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AddCharacter.m_lblDelivery">
+      <tuv xml:lang="en">
+        <seg>Delivery</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Estilos de elocución</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AddCharacter.m_llMoreDel">
+      <tuv xml:lang="en">
+        <seg>More Deliveries</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Más estilos de elocución</seg>
+      </tuv>
+    </tu>
     <tu tuid="BookSelection.AllBooks">
       <tuv xml:lang="en">
         <seg>All Books</seg>
@@ -27,6 +59,46 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Antiguo Testamento</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterGroup.ChildGroupId">
+      <tuv xml:lang="en">
+        <seg>Child {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Niño {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterGroup.FemaleGroupId">
+      <tuv xml:lang="en">
+        <seg>Woman {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mujer {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterGroup.InvalidActorId">
+      <tuv xml:lang="en">
+        <seg>Character group {0} is assigned to a voice actor who is no longer part of this project. This might have been caused by a previous failure. {1} will clear this assignment for you now.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Grupo de personajes #{0} está asignado a un doblador que ya no es parte de este proyecto. Esta condición puede haber sido causado por un error previo. {1} borrará esta asignación ahora.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterGroup.MaleGroupId">
+      <tuv xml:lang="en">
+        <seg>Man {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hombre {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterGroup.NarratorGroupId">
+      <tuv xml:lang="en">
+        <seg>Narrator {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Narrador {0}</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Aaron">
@@ -1433,6 +1505,15 @@
         <seg>gadarenos</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Gadites">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gadites</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>gaditas</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Gallio, proconsul of Achaia">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1514,6 +1595,15 @@
         <seg>Guemarías</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Gentiles">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gentiles</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>gentiles</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Gideon (Jerubbaal)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1550,6 +1640,15 @@
         <seg>hombres de Galaad</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.God">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>God</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dios</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.God (vineyard owner)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1566,6 +1665,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Goliat, paladín de los filisteos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Greeks">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Greeks</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>griegos</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Habakkuk">
@@ -1592,7 +1700,7 @@
         <seg>Hagar, Sarai's maid</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Agar, ***Sarai's*** ***maid***</seg>
+        <seg>Agar, esclava de Sarai</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Haman, highest noble to Xerxes, king">
@@ -1775,6 +1883,33 @@
         <seg>Hoglá</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Holy Spirit">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Holy Spirit</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Espíritu Santo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Holy Spirit and the bride">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Holy Spirit and the bride</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Espíritu Santo y la esposa</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Holy Spirit, the">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Holy Spirit, the</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Espíritu Santo</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Hosea">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1943,7 +2078,7 @@
         <seg>Israelite assembly</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Israelita asamblea</seg>
+        <seg>asamblea israelita</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite assembly, elders of">
@@ -2024,7 +2159,7 @@
         <seg>Israelite spies Joshua sent to Ai</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Israelita ***spies*** Josué ***sent*** ***to*** Ai</seg>
+        <seg>Israelitas enviados a Hai por Josué</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite spies from Joshua, two men">
@@ -4097,6 +4232,15 @@
         <seg>Sofar naamatita</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.a Jew">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>a Jew</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>un judío</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.altar">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4214,6 +4358,60 @@
         <seg>ángel, powerful</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.angels appeared like men, two">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angels appeared like men, two</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>angeles con apariencia de hombres, dos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angels at Sodom, two">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angels at Sodom, two</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>angeles en Sodoma, dos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angels in white, two">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angels in white, two</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>angeles en vestidura blanca, dos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angels, all the">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angels, all the</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>angeles, todos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.another man">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>another man</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>otro hombre</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.answer from Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>answer from Israel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>respuesta de Israel</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.apostles">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4223,13 +4421,40 @@
         <seg>apóstoles</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.army cry">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>army cry</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>grito del ejército</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.army officers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>army officers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>oficiales del ejército</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.arrogant men">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>arrogant men</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombres arrogantes</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.assembly, whole">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>assembly, whole</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>asamblea, whole</seg>
+        <seg>asamblea, entera</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.astrologers">
@@ -4241,13 +4466,31 @@
         <seg>caldeo</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.beast, the">
+    <tu tuid="CharacterName.beast from out of the earth">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>beast, the</seg>
+        <seg>beast from out of the earth</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>bestia, fiera, the</seg>
+        <seg>bestia que subía de la tierra</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.believers who were Pharisees">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>believers who were Pharisees</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>creyentes de entre los fariseos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.believers, one hundred twenty">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>believers, one hundred twenty</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>creyentes, ciento veinte</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.beloved">
@@ -4286,6 +4529,15 @@
         <seg>hermano que descubrió su plata en su saco</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.brothers at Ephesus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>brothers at Ephesus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hermanos en Éfeso</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.captain">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4295,13 +4547,49 @@
         <seg>capitán</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.captain, first">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>captain, first</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>capitán, primero</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.captain, second">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>captain, second</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>capitán, segundo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.captain, third">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>captain, third</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>capitán, tercero</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.centurion at crucifixion">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>centurion at crucifixion</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>centurión en la crucifixión</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.chariot commanders of Aram">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>chariot commanders of Aram</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>carruaje, carro commanders of Aram</seg>
+        <seg>capitanes de los carros de Siria</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.chief priests">
@@ -4331,6 +4619,24 @@
         <seg>niños</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.children of excellent wife">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>children of excellent wife</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hijos de la mujer virtuosa</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.citizens of Shechem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>citizens of Shechem</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ciudadanos de Siquem</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.council of elders">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4347,6 +4653,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>artífice, artesano</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.criminal on cross, repentant">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>criminal on cross, repentant</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>criminal en la cruz, arrepentido</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.crippled man">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>crippled man</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombre cojo</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.crowd">
@@ -4367,6 +4691,42 @@
         <seg>multitud en Jericó</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.crowd in Jerusalem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>crowd in Jerusalem</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>multiud en Jerusalén</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.crowd near sea of Galilee">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>crowd near sea of Galilee</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>multitud cerca del Mar Galileo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.daughter of Zion">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>daughter of Zion</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hija de Sion</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.daughter of Zion (Jerusalem)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>daughter of Zion (Jerusalem)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hija de Sion (Jerusalén)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.demons">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4374,6 +4734,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>demonios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.demons (Legion)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>demons (Legion)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>demonios (Legión)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.disciple who wanted to bury his father">
@@ -4412,6 +4781,15 @@
         <seg>discípulos</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.disciples (but not Thomas)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>disciples (but not Thomas)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>discípulos (excluyendo a Tomás)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.disciples (those in the boat)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4421,6 +4799,15 @@
         <seg>discípulos (en la barca)</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.disciples, Jesus'">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>disciples, Jesus'</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>discípulos de Jesús</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.donkey (female)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4428,6 +4815,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>asna</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.drunkard">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>drunkard</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>borracho</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.ear">
@@ -4457,6 +4853,24 @@
         <seg>ancianos</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.enemies of God">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>enemies of God</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>enemigos de Dios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.enemies of Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>enemies of Israel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>enemigos de Israel</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.enemy">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4464,6 +4878,96 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>enemigo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.every created thing">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>every created thing</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>todo ser viviente</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.eye">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>eye</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ojo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.false prophets">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>false prophets</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>falsos profetas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.false teachers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>false teachers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>falsos maestros</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.false witnesses">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>false witnesses</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>falsos testigos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.follower of Apollos">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>follower of Apollos</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>seguidor de Apolo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.follower of Cephas (Peter)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>follower of Cephas (Peter)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>seguidor de Céfas (Pedro)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.follower of Christ">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>follower of Christ</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>seguidor de Cristo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.follower of Paul">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>follower of Paul</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>seguidor de Pablo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.followers of Jesus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>followers of Jesus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>seguidor de Jesús</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.fool">
@@ -4475,6 +4979,42 @@
         <seg>tonto, necio</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.foot">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>foot</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>pie</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.fortune telling slave girl">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>fortune telling slave girl</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>esclava poseída por un espíritu de adivinación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.four living creatures">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>four living creatures</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>cuatro seres vivientes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.great crowd">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>great crowd</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>gran multitud</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.head">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4484,6 +5024,24 @@
         <seg>cabeza</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.heads of all the families">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>heads of all the families</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>cabezas de todas las familias</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.hearers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>hearers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>oyentes</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.herald">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4491,6 +5049,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>heraldo, mensajero</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.herdsmen of pigs">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>herdsmen of pigs</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>los que apacentaban los cerdos</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.high priest">
@@ -5995,6 +6562,14 @@
         <seg>Cancelar</seg>
       </tuv>
     </tu>
+    <tu tuid="Common.Close">
+      <tuv xml:lang="en">
+        <seg>Close</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cerrar</seg>
+      </tuv>
+    </tu>
     <tu tuid="Common.Help">
       <tuv xml:lang="en">
         <seg>Help</seg>
@@ -6035,6 +6610,22 @@
         <seg>Anterior</seg>
       </tuv>
     </tu>
+    <tu tuid="Common.Quit">
+      <tuv xml:lang="en">
+        <seg>Quit</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Salir</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.SaveStatus.JustSaved">
+      <tuv xml:lang="en">
+        <seg>Saved on {0:d} at {0:t}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guardado {0:d} a las {0:t}</seg>
+      </tuv>
+    </tu>
     <tu tuid="Common.SaveStatus.Saved">
       <tuv xml:lang="en">
         <seg>All Changes Saved</seg>
@@ -6059,12 +6650,36 @@
         <seg>Grabando... (disculpe la tardanza)</seg>
       </tuv>
     </tu>
+    <tu tuid="DataMigration.InvalidVersificationFile">
+      <tuv xml:lang="en">
+        <seg>Invalid versification file encountered during data migration. Errors must be fixed or subsequent attempts to open this project will fail.\nProject: {0}\nText release Bundle: {1}\nVersification file: {2}\nError: {3}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Se encontró un archivo de versificación no válido durante la migración de datos. Si no se corregen los errores, intentos posteriores de abrir este proyecto fracasarán.\nproyecto: {0}\npaquete de descarga de texto: {1}\narchivo de versificación: {2}\nerror: {3}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DblBundle.FontFileCopyFailed">
+      <tuv xml:lang="en">
+        <seg>An attempt to copy font file {0} from the bundle to {1} failed.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Falló un intento de copiar el archivo de fuente {0} del paquete de descarga de texto a {1}.</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AddCharacterToGroupDlg.AddCharacterToGroup">
       <tuv xml:lang="en">
         <seg>Add Character to Group</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Añadir personaje al grupo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AddCharacterOrDeliveryContextMenuItem">
+      <tuv xml:lang="en">
+        <seg>Add Character or Delivery...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Añadir nuevo personaje o estilo de elocución...</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.AddCharacter_ToolTip_">
@@ -6080,7 +6695,39 @@
         <seg>Add New Delivery</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Añadir nuevo modo de expresión</seg>
+        <seg>Añadir nuevo estilo de elocución</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AlignmentsComplete">
+      <tuv xml:lang="en">
+        <seg>Alignment of blocks to the Reference Text is complete. </seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Alineamiento de los bloques del vernáculo con el texto de referencia es completo.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AllowReferenceTextsEndingWithVerse">
+      <tuv xml:lang="en">
+        <seg>Would you like to correct this before applying your changes?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Desea corregir esto antes de aplicar los cambios?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.ApplyReferenceTextMatchesButton">
+      <tuv xml:lang="en">
+        <seg>Apply</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aplicar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.ApplyReferenceTextMatchesButton_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Save the alignment of the reference text to the vernacular script.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guarda el alineamiento del texto de referencia con los bloques del vernáculo.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.AssignCharacter">
@@ -6091,15 +6738,7 @@
         <seg>Asignar personaje - {0}</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.AssignCharacterDlg.AssignmentsComplete">
-      <tuv xml:lang="en">
-        <seg>All character assignments have been made. </seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Se ha completado la tarea de hacer las asignaciones. </seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.AssignCharacterDlg.BlockProgressFmt">
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AssignmentProgressFmt">
       <note>Param 0: percentage; Param 1: integer (number of blocks or passages remaining); Param 2: name of unit of work, either "blocks" or "passages"</note>
       <tuv xml:lang="en">
         <seg>{0} Complete; {1} {2} Remaining</seg>
@@ -6108,12 +6747,45 @@
         <seg>{0} completo; {1} {2} restantes</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AssignmentsComplete">
+      <tuv xml:lang="en">
+        <seg>All character assignments have been made. </seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Se ha completado la tarea de hacer las asignaciones. </seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.BlockProgressUnitName">
+      <note>Parameter #2 in DialogBoxes.AssignCharacterDlg.AssignmentProgressFmt</note>
+      <tuv xml:lang="en">
+        <seg>Blocks</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>bloques</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText">
+      <tuv xml:lang="en">
+        <seg>Match reference text for each colored row.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Alinea el texto de referencia con cada fila de color.</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BookChapterCharacter">
       <tuv xml:lang="en">
         <seg>book title or chapter ({0})</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>título de libro o número de capítulo ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock">
+      <tuv xml:lang="en">
+        <seg>The character cannot be changed for this block because it is in the middle of a quote. To change this, select the block that begins this quote (in verse {0}). If this quote block needs to be split up so that different characters can be assigned, use the Split command.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El personaje de este bloque no se puede cambiar porque está en medio de una cita. Para cambiarlo, selecciona el bloque que comienza esta cita (en el versículo {0}). Para dividir este bloque con el fin de identificar distintos dialogos o citas y así asignar diferentes personajes, utilice el comando Dividir texto del bloque.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.Character">
@@ -6137,7 +6809,7 @@
         <seg>Delivery</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Modo de expresión</seg>
+        <seg>Estilo de elocución</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.ExtraCharacter">
@@ -6169,7 +6841,7 @@
         <seg>More Deliveries</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Más modos de expresión</seg>
+        <seg>Más estilos de elocución</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.Narrator">
@@ -6188,12 +6860,29 @@
         <seg>normal</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.PassageProgressUnitName">
+      <note>Parameter #2 in DialogBoxes.AssignCharacterDlg.AssignmentProgressFmt</note>
+      <tuv xml:lang="en">
+        <seg>Passages</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>pasajes</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer">
       <tuv xml:lang="en">
         <seg>Who speaks this part?</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>¿Quién habla esta parte?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.SplitTextContextMenuItem">
+      <tuv xml:lang="en">
+        <seg>Split Text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dividir texto del bloque</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedChanges">
@@ -6299,6 +6988,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>También crear un archivo del guión para cada libro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.WindowTitle">
+      <note>{0} is the project name</note>
+      <tuv xml:lang="en">
+        <seg>Export Recording Script - {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exportar guión de grabación  - {0}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportIncompleteScript.MessageNote">
@@ -6902,12 +7600,76 @@
         <seg>A - Adulto</seg>
       </tuv>
     </tu>
+    <tu tuid="File.InvalidBundleMsg">
+      <tuv xml:lang="en">
+        <seg>The selected file is not a valid text release bundle. Would you like to try again?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El archivo seleccionado no es un válido paquete de descarga de texto. ¿Desea intentar de nuevo?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="File.ProjectCouldNotBeModified">
+      <tuv xml:lang="en">
+        <seg>Project could not be modified: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo modificar el proyecto: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="File.ProjectMetadataInvalid">
+      <tuv xml:lang="en">
+        <seg>Project could not be loaded: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Proyecto no se pudo cargar: {0}</seg>
+      </tuv>
+    </tu>
     <tu tuid="File.WrongBundle">
       <tuv xml:lang="en">
         <seg>Wrong Bundle</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Paquete incorrecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="File.WrongBundleMsg">
+      <tuv xml:lang="en">
+        <seg>The ID of the selected text release bundle does not match this project. Would you like to try again?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La ID del paquete de descarga de texto seleccionado no coincide con este proyecto. ¿Desea intentar de nuevo?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Font.FontFilesNotFound">
+      <tuv xml:lang="en">
+        <seg>The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La fuente ({0}) utilizada en este proyecto no se ha instalado en esta computadora y {1} no pudo encontrar los archivos de fuentes relevantes. O no fueron copiados del paquete correctamente, o han sido movidos. Debe instalar {0} usted mismo. Después de instalar la fuente, tendrá que reiniciar {1} para hacer uso de ella.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Font.InstallInstructions">
+      <tuv xml:lang="en">
+        <seg>The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La fuente utilizada en este proyecto ({0}) no ha sido instalada en esta computadora. Al cerrar este cuadro de mensaje, se lanzará una ventana de vista previa para esta fuente. En la parte superior izquierda, haga clic en Instalar. Después de instalar la fuente, tendrá que reiniciar {1} para hacer uso de ella.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Font.InstallInstructionsMultipleStyles">
+      <tuv xml:lang="en">
+        <seg>The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La fuente ({0}) utilizada en este proyecto no ha sido instalada en esta computadora. Al cerrar este cuadro de mensaje, se lanzarán algunas ventanas de vista previa de fuente, una para cada estilo de fuente. En la parte superior izquierda de cada ventana, haga clic en Instalar. Después de instalarlas todas, tendrá que reiniciar {1} para hacer uso de la fuente.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Font.UnableToLaunchFontPreview">
+      <tuv xml:lang="en">
+        <seg>There was a problem launching the font preview. Please install the font manually. {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hubo un problema al intentar lanzar la vista previa de la fuente. Favor de instalar a la fuente de este archivo: {0}</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.About">
@@ -6918,12 +7680,79 @@
         <seg>Acerca de...</seg>
       </tuv>
     </tu>
+    <tu tuid="MainForm.ActorsAssignedPlural">
+      <note>{0}  is the number of active actors and {1} is an expression indicating the number of assigned actors</note>
+      <tuv xml:lang="en">
+        <seg>{0} voice actors identified, {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} dobladores identificados, {1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ActorsAssignedSingle">
+      <note>{0} is an expression indicating the number of assigned actors</note>
+      <tuv xml:lang="en">
+        <seg>1 voice actor identified, {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 doblador identificado, {0}</seg>
+      </tuv>
+    </tu>
     <tu tuid="MainForm.AssignCharacters_ToolTip_">
       <tuv xml:lang="en">
         <seg>Select a Character ID for each block in the recording script</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Seleccionar el personaje que habla en cada bloque en el guión de grabación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.AssignVoiceActors">
+      <tuv xml:lang="en">
+        <seg>({0}) Assign Voice Actors...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>({0}) Asignar los dobladores...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.AssignVoiceActors_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Enter Voice Actor information and assign Voice Actors to Character Groups</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Introducir información de los dobladores y asignarles a los grupos de personajes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.CastSizePlanPlural">
+      <tuv xml:lang="en">
+        <seg>Cast size is {0}, including {1} narrators</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tamaño del elenco es {0}, incluyendo {1} narradores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.CastSizePlanSingleNarrator">
+      <note>{0} is an expression indicating the total cast size</note>
+      <tuv xml:lang="en">
+        <seg>Cast size is {0}, including 1 narrator</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tamaño del elenco es {0}, incluyendo 1 narrador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.CastSizePlanning">
+      <tuv xml:lang="en">
+        <seg>({0}) Cast Size Planning...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>({0}) Planificación del tamaño del elenco...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.CastSizePlanning_ToolTip_">
+      <tuv xml:lang="en">
+        <seg> I would like Glyssen to help me know how many actors to recruit</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Quisiera Glyssen que me ayude a saber cuántos agentes para reclutar</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.Exit">
@@ -6942,6 +7771,30 @@
         <seg>Exportar</seg>
       </tuv>
     </tu>
+    <tu tuid="MainForm.ExportedProjectUsesCustomReferenceText">
+      <tuv xml:lang="en">
+        <seg>This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text should be installed on the other computer before importing.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto utiliza un texto de referencia que no fue instalado como parte de Glyssen ({0}). Para mejores resultados, si se comparte este proyecto, el texto de referencia debe instalarse en la otra computadora antes de importar el proyecto.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.FewerAssignedActorsAfterGeneration">
+      <tuv xml:lang="en">
+        <seg>An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La asignación de un doblador tuvo que ser removido. Favor de revisar las asignaciones de los dobladores para ajustarlas como sea necesario.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.FilesAreHere">
+      <tuv xml:lang="en">
+        <seg>Files are here:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Los archivos se encuentran aquí:</seg>
+      </tuv>
+    </tu>
     <tu tuid="MainForm.IdentifySpeakingParts">
       <tuv xml:lang="en">
         <seg>({0}) Identify Speaking Parts...</seg>
@@ -6958,6 +7811,23 @@
         <seg>Importar</seg>
       </tuv>
     </tu>
+    <tu tuid="MainForm.ImportWarning">
+      <tuv xml:lang="en">
+        <seg>Warning: You are about to import a project that already exists. If you continue, the existing project files will be replaced by the files being imported, which might result in loss of data. Do you want to continue and overwrite the existing files?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ADVERTENCIA: Usted está a punto de importar un proyecto que ya existe. Si continúa, los archivos actuales del proyecto se sustituirán por los archivos importados, que podría resultar en la pérdida de datos. ¿Desea continuar y sobrescribir los archivos existentes?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ImportedProjectUsesMissingReferenceText">
+      <note>Param 0: name of missing reference text; Param 1: "Glyssen"; Param 2: Path to Local Reference Texts folder</note>
+      <tuv xml:lang="en">
+        <seg>The imported project uses a custom reference text ({0}) that is not available on this computer.\nFor best results, close {1} and install the reference text here:\n    {2}\n\nThen restart {1} to continue working with this project.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El proyecto importado utiliza un texto de referencia que no fue instalado como parte de {1} y que no está disponible en esta computadora. \nPara mejores resultados, cierre {1} e instalar el texto de referencia {0} aquí:\n    {2}\n\nLuego reiniciar {1} para seguir trabajando con este proyecto.</seg>
+      </tuv>
+    </tu>
     <tu tuid="MainForm.MoreMenuItem">
       <note>Last item in menu of UI languages</note>
       <tuv xml:lang="en">
@@ -6965,6 +7835,33 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Más...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.MoreThanOneAssigned">
+      <note>{0} is the number of actors assigned. The resulting string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle</note>
+      <tuv xml:lang="en">
+        <seg>{0} assigned</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} asignados</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.NoneAssigned">
+      <note>This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle</note>
+      <tuv xml:lang="en">
+        <seg>0 assigned</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ninguno asignado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.OneAssigned">
+      <note>This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle</note>
+      <tuv xml:lang="en">
+        <seg>1 assigned</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 asignado</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.OpenProject">
@@ -7008,6 +7905,22 @@
         <seg>Cambiar la configuración para generar la el guión de grabación</seg>
       </tuv>
     </tu>
+    <tu tuid="MainForm.QuoteMarksNeedReview">
+      <tuv xml:lang="en">
+        <seg>Quote marks need to be reviewed</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Reglas de comillas deban ser revisadas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ReferenceTextUnavailable">
+      <tuv xml:lang="en">
+        <seg>Reference text unavailable</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Texto de referencia no disponible</seg>
+      </tuv>
+    </tu>
     <tu tuid="MainForm.SelectBooks">
       <tuv xml:lang="en">
         <seg>({0}) Select Books...</seg>
@@ -7032,12 +7945,79 @@
         <seg>Seleccione la siguiente tarea que hacer:</seg>
       </tuv>
     </tu>
+    <tu tuid="MainForm.Share">
+      <tuv xml:lang="en">
+        <seg>Share</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Compartir</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.SufficientlyCompleted_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Sufficiently completed to move on to following tasks</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Suficientemente completa para pasar a los siguientes pasos</seg>
+      </tuv>
+    </tu>
     <tu tuid="MainForm.UILanguage">
       <tuv xml:lang="en">
         <seg>User-interface Language</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Idioma de la interfaz de usuario</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ViewScript">
+      <tuv xml:lang="en">
+        <seg>({0}) View Recording Script...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>({0}) Ver guión de grabación...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ViewScript_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>View the script as a spreadsheet (Ctrl-E to bypass this view and open Export dialog)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ver el guión presentado como hoja de cálculo (Ctrl-E para eludir este vista previa y abrir el dialogo para exportar el guión)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ParatextCheck.ChapterVerse">
+      <note>This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).</note>
+      <tuv xml:lang="en">
+        <seg>Chapter/Verse Numbers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Números de capítulo/versículo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ParatextCheck.Marker">
+      <note>This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).</note>
+      <tuv xml:lang="en">
+        <seg>Markers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Marcadores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ParatextCheck.Quotation">
+      <note>This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).</note>
+      <tuv xml:lang="en">
+        <seg>Quotations</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Comillas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Program.ConfirmDeleteUserSettingsFile">
+      <tuv xml:lang="en">
+        <seg>Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Desea eliminar todas la configuraciones de usuario? (Esto borrará el historial del proyecto más reciente, información de ubicaciones de carpetas, configuración de idioma de interfaz de usuario, etc.  No afecta los datos de proyecto.)</seg>
       </tuv>
     </tu>
     <tu tuid="Project.AdvancedUserLdmlRepairInstructions">
@@ -7075,6 +8055,41 @@
         <seg>personalizado</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.FailedToCreateWritingSystemFromParatextLdml">
+      <note>Param 0: "Paratext"; Param 1: Project short name (unique project identifier)</note>
+      <tuv xml:lang="en">
+        <seg>Failed to create Writing System based on LDML file for {0} project {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo crear el sistema de escritura basado en archivo LDML para el proyecto {0} {1}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.IgnoreToRepairLdmlFile">
+      <note>Param 0: "Glyssen"</note>
+      <tuv xml:lang="en">
+        <seg>Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, so check the quote system and font settings carefully.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>De lo contrario, haga clic en {0} y {1} reparará el archivo. A continuación, favor de comprobar las reglas de comillas y la configuración de fuentes cuidadosamente, ya que esta información posiblemente no se podrá recuperarse.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.InvalidVersificationFile">
+      <tuv xml:lang="en">
+        <seg>Invalid versification file in text release bundle. Unable to create project.\nText release Bundle: {0}\nVersification file: {1}\nError: {2}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El archivo de versificación en el paquete de descarga de texto no es válido. No se puede crear el proyecto. \nPaquete de descarga de texto: {0}\nArchivo de versificación: {1}\nError: {2}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.LdmlFileLoadError">
+      <note>Param 0: project name; Param 1: LDML filename; Param 2: XML Error message</note>
+      <tuv xml:lang="en">
+        <seg>The writing system definition file for project {0} could not be read:\n{1}\nError: {2}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El archivo que contiene la definición del sistema de escritura para el proyecto {0} no se pudo leer:\n{1}\nError: {2}</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.ParatextBooksNoLongerAvailable">
       <tuv xml:lang="en">
         <seg>The following books are no longer available:</seg>
@@ -7099,6 +8114,14 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>{1} detectó cambios en el proyecto de {2} {3} que resultarían en la exclusión de libros del proyecto {0} que se incluyeron anteriormente:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParserVersionUpgraded">
+      <tuv xml:lang="en">
+        <seg>The splitting engine has been upgraded.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hay una nueva versión del motor de análisis.</seg>
       </tuv>
     </tu>
     <tu tuid="Project.RecordingProjectDefaultSuffix">
