@@ -583,6 +583,55 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void MigrateInvalidCharacterIdForScriptDataToVersion135_ValidData_Unchanged()
+		{
+			Assert.Fail("Write this test");
+			var block1 = CreateTestBlock("Andrew");
+			var block2 = CreateTestBlock("Peter");
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
+
+			Assert.AreEqual("Andrew", block1.CharacterId);
+			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
+			Assert.AreEqual("Peter", block2.CharacterId);
+			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+		}
+
+		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
+		[TestCase(CharacterVerseData.kUnknownCharacter)]
+		public void MigrateInvalidCharacterIdForScriptDataToVersion135_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
+		{
+			Assert.Fail("Write this test");
+			var block1 = CreateTestBlock("Andrew");
+			block1.UserConfirmed = true;
+			block1.CharacterId = unclearCharacterId;
+			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
+			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
+
+			var block2 = CreateTestBlock("Peter");
+			block2.UserConfirmed = true;
+			block2.CharacterId = unclearCharacterId;
+			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
+			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+
+			Assert.True(block1.UserConfirmed);
+			Assert.True(block2.UserConfirmed);
+
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
+
+			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
+			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);
+			Assert.False(block1.UserConfirmed);
+			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
+			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
+			Assert.False(block2.UserConfirmed);
+		}
+
+		[Test]
 		public void MigrateDeprecatedCharacterIds_OneOfTwoCharacterIdsInVerseReplacedWithDifferentId_CharacterIdInScriptSetToAmbiguous()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);

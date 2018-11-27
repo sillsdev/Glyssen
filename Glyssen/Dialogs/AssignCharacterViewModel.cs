@@ -558,7 +558,11 @@ namespace Glyssen.Dialogs
 				if (string.IsNullOrEmpty(firstCharacterId))
 					currentBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 				else
+				{
+					Debug.Assert(currentBlock.CharacterIdOverrideForScript == null && firstCharacterId.SplitCharacterId().Length == 1,
+						"This is a case that needs to be fixed for PG-1143");
 					currentBlock.CharacterId = firstCharacterId;
+				}
 				currentBlock.Delivery = null;
 			}
 

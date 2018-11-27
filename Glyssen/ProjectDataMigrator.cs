@@ -50,6 +50,8 @@ namespace Glyssen
 					MigrateInvalidCharacterIdForScriptData(project.Books);
 				if (fromControlFileVersion == 104)
 					MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(project);
+				if (fromControlFileVersion < 135)
+					SetCharacterIdForScriptToNullForNarratorBlocks(project.Books);
 
 				MigrateDeprecatedCharacterIds(project);
 			}
