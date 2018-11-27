@@ -46,12 +46,10 @@ namespace Glyssen
 					// as it was before (though, technically, we aren't sure we care).
 					CleanUpOrphanedMultiBlockQuoteStati(project.Books);
 				}
-				if (fromControlFileVersion < 102)
+				if (fromControlFileVersion < 135)
 					MigrateInvalidCharacterIdForScriptData(project.Books);
 				if (fromControlFileVersion == 104)
 					MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(project);
-				if (fromControlFileVersion < 135)
-					SetCharacterIdForScriptToNullForNarratorBlocks(project.Books);
 
 				MigrateDeprecatedCharacterIds(project);
 			}
@@ -168,11 +166,13 @@ namespace Glyssen
 		public static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
-				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter) &&
+				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter ||
+				block.CharacterIsStandard) &&
 				block.CharacterIdOverrideForScript != null)))
 			{
 				block.CharacterIdInScript = null;
-				block.UserConfirmed = false;
+				if (!block.CharacterIsStandard)
+					block.UserConfirmed = false;
 			}
 		}
 
