@@ -529,6 +529,18 @@ namespace Glyssen
 			if (File.Exists(projFilePath))
 				throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
 
+			var glyssenMetadata = ApplicationMetadata.Load(out Exception error);
+			if (glyssenMetadata?.InactiveUnstartedParatextProjects != null)
+			{
+				var list = new List<string>(glyssenMetadata.InactiveUnstartedParatextProjects);
+				if (list.Contains(paratextProjId))
+				{
+					list.Remove(paratextProjId);
+					glyssenMetadata.InactiveUnstartedParatextProjects = list.Any() ? list.ToArray() : null;
+					glyssenMetadata.Save();
+				}
+			}
+
 			SetProject(new Project(paratextProject));
 			m_paratextScrTextWrapperForRecentlyCreatedProject = paratextProject;
 		}
