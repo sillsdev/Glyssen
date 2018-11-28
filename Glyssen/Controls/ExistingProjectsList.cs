@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Paratext;
@@ -11,6 +12,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using Paratext.Data;
 using SIL.DblBundle;
+using SIL.Extensions;
 using SIL.Windows.Forms.DblBundle;
 
 namespace Glyssen.Controls
@@ -18,6 +20,22 @@ namespace Glyssen.Controls
 	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
 	{
 		private string m_fmtParatextProjectSource;
+		private readonly Dictionary<string, bool> m_unstartedParatextProjectStates = new Dictionary<string, bool>();
+		private ApplicationMetadata m_glyssenMetadata = null;
+
+		private ApplicationMetadata GlyssenMetadata
+		{
+			get
+			{
+				if (m_glyssenMetadata == null)
+				{
+					m_glyssenMetadata = ApplicationMetadata.Load(out Exception error);
+					if (error != null)
+						throw error;
+				}
+				return m_glyssenMetadata;
+			}
+		}
 
 		public ExistingProjectsList()
 		{
@@ -66,8 +84,6 @@ namespace Glyssen.Controls
 							yield return new Tuple<string, IProjectInfo>(scrText.Name, new ParatextProjectProxy(scrText));
 					}
 				}
-
-
 			}
 		}
 
@@ -76,6 +92,8 @@ namespace Glyssen.Controls
 			var recordingProjName = project.Item1.GetContainingFolderName();
 			if (!String.IsNullOrEmpty(recordingProjName))
 				return recordingProjName;
+			if (!m_unstartedParatextProjectStates.ContainsKey(project.Item1))
+				m_unstartedParatextProjectStates[project.Item1] = IsInactiveParatextProject(project.Item1); 
 			return LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.NoRecordingProject",
 				"(recording project not started)");
 		}
@@ -87,7 +105,7 @@ namespace Glyssen.Controls
 			{
 				yield return String.Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName, project.Name);
 				yield return null;
-				yield return false; // REVIEW: Should we regard not-yet-started Paratext projects as "inactive"?
+				yield return m_unstartedParatextProjectStates[project.Name];
 			}
 			else
 			{
@@ -107,12 +125,25 @@ namespace Glyssen.Controls
 
 		protected override bool IsInactive(IProjectInfo project)
 		{
-			return (project as GlyssenDblTextMetadata)?.Inactive ?? false;
+			return (project as GlyssenDblTextMetadata)?.Inactive ?? IsInactiveParatextProject(project.Name);
+		}
+
+		private bool IsInactiveParatextProject(string paratextProjectName)
+		{
+			return GlyssenMetadata.InactiveUnstartedParatextProjects != null &&
+				GlyssenMetadata.InactiveUnstartedParatextProjects.Contains(paratextProjectName, StringComparison.Ordinal);
 		}
 
 		protected override void SetHiddenFlag(bool inactive)
 		{
-			Project.SetHiddenFlag(SelectedProject, inactive);
+			if (m_unstartedParatextProjectStates.ContainsKey(SelectedProject))
+			{
+				m_unstartedParatextProjectStates[SelectedProject] = inactive;
+				GlyssenMetadata.InactiveUnstartedParatextProjects = m_unstartedParatextProjectStates.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+				GlyssenMetadata.Save();
+			}
+			else
+				Project.SetHiddenFlag(SelectedProject, inactive);
 		}
 
 		public void ScrollToSelected()
