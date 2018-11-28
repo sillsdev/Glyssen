@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 using Glyssen.Properties;
 using Glyssen.Shared;
@@ -14,6 +15,9 @@ namespace Glyssen
 
 		[XmlAttribute("dataVersion")]
 		public int DataVersion { get; set; }
+
+		[XmlElement("InactiveParatextProject", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+		public string[] InactiveUnstartedParatextProjects { get; set; }
 
 		public static ApplicationMetadata Load(out Exception exception)
 		{
@@ -45,9 +49,6 @@ namespace Glyssen
 			XmlSerializationHelper.SerializeToFile(FilePath, this);
 		}
 
-		private static string FilePath
-		{
-			get { return Path.Combine(GlyssenInfo.BaseDataFolder, kFilename); }
-		}
+		private static string FilePath => Path.Combine(GlyssenInfo.BaseDataFolder, kFilename);
 	}
 }
