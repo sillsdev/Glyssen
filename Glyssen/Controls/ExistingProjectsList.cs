@@ -93,7 +93,7 @@ namespace Glyssen.Controls
 			if (!String.IsNullOrEmpty(recordingProjName))
 				return recordingProjName;
 			if (!m_unstartedParatextProjectStates.ContainsKey(project.Item1))
-				m_unstartedParatextProjectStates[project.Item1] = IsInactive(project.Item1); 
+				m_unstartedParatextProjectStates[project.Item1] = IsInactiveParatextProject(project.Item1); 
 			return LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.NoRecordingProject",
 				"(recording project not started)");
 		}
@@ -125,10 +125,10 @@ namespace Glyssen.Controls
 
 		protected override bool IsInactive(IProjectInfo project)
 		{
-			return (project as GlyssenDblTextMetadata)?.Inactive ?? IsInactive(project.Name);
+			return (project as GlyssenDblTextMetadata)?.Inactive ?? IsInactiveParatextProject(project.Name);
 		}
 
-		private bool IsInactive(string paratextProjectName)
+		private bool IsInactiveParatextProject(string paratextProjectName)
 		{
 			return GlyssenMetadata.InactiveUnstartedParatextProjects != null &&
 				GlyssenMetadata.InactiveUnstartedParatextProjects.Contains(paratextProjectName, StringComparison.Ordinal);
