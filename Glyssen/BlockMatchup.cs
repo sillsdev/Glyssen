@@ -340,7 +340,7 @@ namespace Glyssen
 				if (existintgEmptyVerseRefText != null)
 				{
 					if (CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
-						CorrelatedBlocks[i].CharacterId = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
+						CorrelatedBlocks[i].SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator));
 					var text = existintgEmptyVerseRefText + referenceLanguageInfo.HeSaidText;
 					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
 						text += referenceLanguageInfo.WordSeparator;

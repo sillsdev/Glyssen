@@ -536,7 +536,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void MigrateInvalidCharacterIdForScriptDataToVersion88_ValidData_Unchanged()
+		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithNoMultipleCharacterIds_Unchanged()
 		{
 			var block1 = CreateTestBlock("Andrew");
 			var block2 = CreateTestBlock("Peter");
@@ -580,6 +580,57 @@ namespace GlyssenTests
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
 			Assert.False(block2.UserConfirmed);
+		}
+
+		[Test]
+		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithMultipleCharacterIds_Unchanged()
+		{
+			var block1 = CreateTestBlock("Andrew/James");
+			block1.CharacterIdOverrideForScript = "James";
+			var block2 = CreateTestBlock("Peter");
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
+
+			Assert.AreEqual("Andrew/James", block1.CharacterId);
+			Assert.AreEqual("James", block1.CharacterIdInScript);
+			Assert.AreEqual("Peter", block2.CharacterId);
+			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateInvalidCharacterIdForScriptData_NarratorBlocksWithNonNullCharacterIdInScript_CharacterIdInScriptSetToNull()
+		{
+			var bcMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var narratorMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var block1 = CreateTestBlock("Andrew");
+			block1.UserConfirmed = false;
+			block1.CharacterId = bcMat;
+			Assert.AreEqual(bcMat, block1.CharacterId);
+			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
+
+			var block2 = CreateTestBlock("Peter");
+			block2.UserConfirmed = true;
+			block2.CharacterId = narratorMat;
+			Assert.AreEqual(narratorMat, block2.CharacterId);
+			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+
+			Assert.False(block1.UserConfirmed);
+			Assert.True(block2.UserConfirmed);
+
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
+
+			Assert.AreEqual(bcMat, block1.CharacterId);
+			Assert.AreEqual(bcMat, block1.CharacterIdInScript);
+			Assert.IsNull(block1.CharacterIdOverrideForScript);
+			Assert.False(block1.UserConfirmed);
+			Assert.AreEqual(narratorMat, block2.CharacterId);
+			Assert.AreEqual(narratorMat, block2.CharacterIdInScript);
+			Assert.IsNull(block2.CharacterIdOverrideForScript);
+			Assert.True(block2.UserConfirmed);
 		}
 
 		[Test]
