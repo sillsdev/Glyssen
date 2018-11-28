@@ -59,15 +59,14 @@ namespace Glyssen
 
 			if (userSplit)
 			{
-				newBlock.Delivery = null;
 				if (string.IsNullOrEmpty(characterId))
 				{
-					newBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
-					newBlock.CharacterIdOverrideForScript = null;
+					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
 					newBlock.UserConfirmed = false;
 				}
 				else
 				{
+					newBlock.Delivery = null;
 					if (versification == null)
 						throw new ArgumentNullException("versification");
 					var bookNum = BCVRef.BookToNumber(Id);
