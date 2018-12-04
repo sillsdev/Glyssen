@@ -735,6 +735,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_toolStripComboBoxFilter, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_toolStripComboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.m_toolStripComboBoxFilter.DropDownWidth = 250;
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripComboBoxFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_toolStripComboBoxFilter.Items.AddRange(new object[] {
             "Unassigned quotes",
@@ -750,7 +751,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripComboBoxFilter, L10NSharp.LocalizationPriority.MediumHigh);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripComboBoxFilter, "DialogBoxes.BlockNavigationControls.Filter");
 			this.m_toolStripComboBoxFilter.Name = "m_toolStripComboBoxFilter";
-			this.m_toolStripComboBoxFilter.Size = new System.Drawing.Size(225, 26);
+			this.m_toolStripComboBoxFilter.Size = new System.Drawing.Size(235, 26);
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripComboBoxFilter, false);
 			this.m_toolStripComboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.HandleFilterChanged);
 			// 

@@ -6820,12 +6820,117 @@
         <seg>encabezado de sección ({0})</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[0]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Unassigned quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Citas no asignadas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[1]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>All quotes not assigned automatically</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Citas sin asignaciones automáticas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[2]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Verses with missing expected quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Versículos sin citas esperadas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[3]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>More quotes than expected in verse</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Más citas que lo esperado en el versículo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[4]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Verses with expected quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Versículos en las que se esperan citas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[5]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>All quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Todas las citas encontradas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[6]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>All Scripture</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Toda la escritura</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[7]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Verses not aligned with reference text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pasajes desalineados con el texto de referencia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.IdentifySpeakingParts">
+      <note>{0} is the project name</note>
+      <tuv xml:lang="en">
+        <seg>Identify Speaking Parts - {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Identificar diálogos y citas - {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.IncompleteCharacterAssignments">
+      <tuv xml:lang="en">
+        <seg>You have not finished specifying the character information for every block. Would you like to discard the changes you have made?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se ha terminado de especificar el carácter que hable cada bloque. ¿Desea descartar los cambios que ha hecho?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.InsertHeSaidContextMenuItem">
+      <tuv xml:lang="en">
+        <seg>Insert "He Said"</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Insertar “el Dijo”</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.IntroCharacter">
       <tuv xml:lang="en">
         <seg>introduction ({0})</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>introducción ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.InvalidSplitTextAction">
+      <tuv xml:lang="en">
+        <seg>To split the reference text, click the location where it is to be split. Do not attempt to make a text selection or click at the very start or end of the text. You will need to select the {0} command again to enable splitting now.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para dividir el texto de referencia, haga clic en el texto donde se debe dividir. No trate de seleccionar el texto o hacer clic al principio o al final del texto. Se debe seleccionar el comando {0} para activar de nuevo la cpacidad de dividir el texto.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.MoreCharacters">
@@ -7744,7 +7849,7 @@
         <seg>({0}) Cast Size Planning...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>({0}) Planificación del tamaño del elenco...</seg>
+        <seg>({0}) Planificación del elenco...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.CastSizePlanning_ToolTip_">
@@ -7800,7 +7905,7 @@
         <seg>({0}) Identify Speaking Parts...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>({0}) Identificar diálogos y citas...</seg>
+        <seg>({0}) Identificar diálogos...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.Import">
