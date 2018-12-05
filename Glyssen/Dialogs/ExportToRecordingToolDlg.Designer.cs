@@ -115,7 +115,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_btnBrowse, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnBrowse, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnBrowse, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnBrowse, "DialogBoxes.ExportToRecordingDlg.Browse");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnBrowse, "DialogBoxes.ExportToRecordingToolDlg.Browse");
 			this.m_btnBrowse.Location = new System.Drawing.Point(413, 99);
 			this.m_btnBrowse.MaximumSize = new System.Drawing.Size(75, 23);
 			this.m_btnBrowse.MinimumSize = new System.Drawing.Size(75, 23);

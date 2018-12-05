@@ -317,7 +317,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, "Refers to a number (0 or more) of Male voice actors");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.CastSizePlanningDlg.Male");
 			this.label2.Location = new System.Drawing.Point(3, 6);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
@@ -337,7 +337,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label3, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label3, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, "Refers to a number (0 or more) of Female voice actors");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.CastSizePlanningDlg.Female");
 			this.label3.Location = new System.Drawing.Point(83, 6);
 			this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
@@ -415,7 +415,7 @@ namespace Glyssen.Dialogs
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(250, 13);
 			this.label4.TabIndex = 23;
-			this.label4.Text = "What size of voice actor cast should be planed for?";
+			this.label4.Text = "What size of voice actor cast should be planned for?";
 			this.glyssenColorPalette.SetUsePaletteColors(this.label4, true);
 			// 
 			// label5
@@ -517,14 +517,15 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_lblWhenYouClick, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblWhenYouClick.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWhenYouClick, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWhenYouClick, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWhenYouClick, "Param 0: Label on the \"G" +
+	"enerate Groups\" button; Param 1: \"Glyssen\" (product name)");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWhenYouClick, "DialogBoxes.CastSizePlanningDlg.WhenYouClick");
 			this.m_lblWhenYouClick.Location = new System.Drawing.Point(3, 6);
 			this.m_lblWhenYouClick.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_lblWhenYouClick.Name = "m_lblWhenYouClick";
 			this.m_lblWhenYouClick.Size = new System.Drawing.Size(519, 26);
 			this.m_lblWhenYouClick.TabIndex = 25;
-			this.m_lblWhenYouClick.Text = "When you click \'Generate Groups\', Glyssen will form groups of character roles for" +
+			this.m_lblWhenYouClick.Text = "When you click \"{0}\", {1} will form groups of character roles for" +
     " the number of voice actors selected above.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblWhenYouClick, true);
 			// 

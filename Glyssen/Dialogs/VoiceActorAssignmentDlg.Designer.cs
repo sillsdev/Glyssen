@@ -183,10 +183,11 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_cameoActorToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cameoActorToolStripMenuItem, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cameoActorToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_cameoActorToolStripMenuItem, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_cameoActorToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.cameoActorToolStripMenuItem");
 			this.m_cameoActorToolStripMenuItem.Name = "m_cameoActorToolStripMenuItem";
-			this.m_cameoActorToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-			this.m_cameoActorToolStripMenuItem.Text = "CameoActor";
+			this.m_cameoActorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.m_cameoActorToolStripMenuItem.Text = "#CameoActor#";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_cameoActorToolStripMenuItem, false);
 			this.m_cameoActorToolStripMenuItem.Click += new System.EventHandler(this.HandleAssignToCameoActorClick);
 			// 

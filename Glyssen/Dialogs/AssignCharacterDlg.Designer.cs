@@ -806,7 +806,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkSingleVoice, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_chkSingleVoice, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_chkSingleVoice.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkSingleVoice, null);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkSingleVoice, "Select this option if you want the script for this book to be prepared for single" +
+        "-voice recording.");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkSingleVoice, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkSingleVoice, "DialogBoxes.AssignCharacterDlg.m_chkSingleVoice");
 			this.m_chkSingleVoice.Location = new System.Drawing.Point(8, 437);

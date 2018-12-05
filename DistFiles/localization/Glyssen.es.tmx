@@ -6949,12 +6949,92 @@
         <seg>Más estilos de elocución</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoveLineDownContextMenuItem">
+      <tuv xml:lang="en">
+        <seg>Move Line Down</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Bajar el texto de la fila</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoveLineUpContextMenuItem">
+      <tuv xml:lang="en">
+        <seg>Move Line Up</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Subir el texto de la fila</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoveReferenceTextDown">
+      <tuv xml:lang="en">
+        <seg>Move Down</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Bajar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoveReferenceTextDown_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Align the selected block in the reference text with the following block in the vernacular script.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Alinear el bloque seleccionado en el texto de referencia con el siguiente bloque del guión vernáculo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoveReferenceTextUp">
+      <tuv xml:lang="en">
+        <seg>Move Up</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Subir</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoveReferenceTextUp_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Align the selected block in the reference text with the previous block in the vernacular script.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Alinear el bloque seleccionado en el texto de referencia con el bloque anterior del guión vernáculo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MultipleCellsOfDifferentReferenceTextsEndWithVerse">
+      <tuv xml:lang="en">
+        <seg>Some of the reference texts entered end with a verse number.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Algunos de los textos de referencia terminan con un número de versículo.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MultipleCellsOfSameReferenceTextsEndWithVerse">
+      <tuv xml:lang="en">
+        <seg>Some of the {0} reference texts entered end with a verse number.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Algunos de los textos de referencia en {0} terminan con un número de versículo.</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.Narrator">
       <tuv xml:lang="en">
         <seg>narrator ({0})</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>narrador ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.NoDeliveryMessage">
+      <tuv xml:lang="en">
+        <seg>You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Usted ha seleccionado un personaje pero no un estilo de elocución. ¿Desea descartar la selección de personaje y salir sin grabarla?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.NoSelectionMessage">
+      <tuv xml:lang="en">
+        <seg>You have not selected a Character and Delivery. Would you like to leave without changing the assignment?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se ha seleccionado un personaje y un estilo de elocución. ¿Desea salir sin hacer ningún cambio?</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.NormalDelivery">
@@ -6982,6 +7062,14 @@
         <seg>¿Quién habla esta parte?</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.SingleReferenceTextEndsWithVerse">
+      <tuv xml:lang="en">
+        <seg>One of the {0} reference texts entered ends with a verse number.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Uno de los textos de referencia {0} termina con un número de versículo.</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.SplitTextContextMenuItem">
       <tuv xml:lang="en">
         <seg>Split Text</seg>
@@ -6990,12 +7078,60 @@
         <seg>Dividir texto del bloque</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.SplitTextContextMenuItem_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>After selecting this command, click in the text where you want to split the text.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Después de seleccionar este comando, haga clic en el texto donde desee dividir el texto.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.TaskCompleteTitle">
+      <tuv xml:lang="en">
+        <seg>Task Complete</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tarea completa</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedChanges">
       <tuv xml:lang="en">
         <seg>Unsaved Changes</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Cambios no guardados</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage">
+      <tuv xml:lang="en">
+        <seg>The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Las selecciones de personaje y estilo de elocución no han sido grabadas. ¿Desea guardar los cambios antes de navegar?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting">
+      <tuv xml:lang="en">
+        <seg>The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se ha aplicado la alineación del texto de referencia al guión vernáculo. ¿Desea guardar la alineación antes de dividir este bloque?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage">
+      <tuv xml:lang="en">
+        <seg>The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se ha aplicado la alineación del texto de referencia al guión vernáculo. ¿Desea guardar la alineación antes de navegar?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.UseDoubleClickAsShortcut">
+      <tuv xml:lang="en">
+        <seg>You just double-clicked. By default, Glyssen slows you down so you will take time to carefully review each selection. Do you want Glyssen to let you go faster by interpreting a double click as your confirmation of the selection, so you won't have to click the {0} button?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Usted acaba de hacer doble clic. De manera predeterminada, Glyssen lo ralentiza, con el propósito de que tome el tiempo para revisar cuidadosamente cada selección. ¿Desea que Glyssen le permita ir más rápido interpretando un doble clic como su confirmación de la selección, para que no tenga que hacer clic en el botón {0}?</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.WhoSpeaks">
@@ -7013,6 +7149,62 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>{0} de {1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_btnReset">
+      <tuv xml:lang="en">
+        <seg>Reset</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Reinicializar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_btnReset_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Revert all unsaved edits</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Revertir los cambios no guardados</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_chkSingleVoice">
+      <tuv xml:lang="en">
+        <seg>This book ({0}) will be narrated, not dramatized.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este libro ({0}) será narrado, no dramatizado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_chkSingleVoice_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Select this option if you want the script for this book to be prepared for single-voice recording.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccione esta opción si desea preparar el guión de este libro para que sea grabada con una sola voz.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_lblReferenceText">
+      <tuv xml:lang="en">
+        <seg>Reference Text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Texto de referencia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_menuInsertIntoAllEmptyCells">
+      <tuv xml:lang="en">
+        <seg>All Empty Cells</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Todas las celdas vacías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.m_menuInsertIntoSelectedRowOnly">
+      <tuv xml:lang="en">
+        <seg>Selected Row Only</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Fila seleccionada solamente</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.BlockNavigationControls.DecreaseTextSize">
@@ -7063,12 +7255,215 @@
         <seg>Aumentar tamaño de texto</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.AuthorNarrator">
+      <tuv xml:lang="en">
+        <seg>Narration by Author</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Narrado por el autor</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.CastTooSmallWarning">
+      <tuv xml:lang="en">
+        <seg>Using a cast size smaller than {0} will probably introduce proximity issues. Do you want to continue and generate groups using just {1} voice actors?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Uso de un elenco más pequeño que {0} personas probablemente resultará en problemas de proximidad. ¿Desea continuar y generar grupos utilizando sólo {1} dobladores?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.CustomNarrators">
+      <tuv xml:lang="en">
+        <seg>Custom</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Configurado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.Female">
+      <note>Refers to a number (0 or more) of Female voice actors</note>
+      <tuv xml:lang="en">
+        <seg>Female</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mujeres</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.GenerateGroups">
+      <tuv xml:lang="en">
+        <seg>Generate Groups</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Generar grupos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.Male">
+      <note>Refers to a number (0 or more) of Male voice actors</note>
+      <tuv xml:lang="en">
+        <seg>Male</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hombres</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.CastSizePlanningDlg.MoreInfo">
       <tuv xml:lang="en">
         <seg>more info</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>más información</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.NarratorWarning">
+      <tuv xml:lang="en">
+        <seg>Cast size numbers must be larger than narrator numbers.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El elenco debe ser más grande que el número de narradores.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.ProjectSummary.Plural">
+      <tuv xml:lang="en">
+        <seg>This project has {0} books with {1} distinct character roles.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto cuenta con {0} libros y {1} personajes distintos.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.ProjectSummary.Singular">
+      <tuv xml:lang="en">
+        <seg>This project has 1 book with {0} distinct character roles.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto cuenta con 1 libro y {0} personajes distintos.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.RecordingTime">
+      <tuv xml:lang="en">
+        <seg>Estimated recording time: {0:N2} hours</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tiempo aproximado requerido para grabar: {0:N2} horas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.SingleNarrator">
+      <tuv xml:lang="en">
+        <seg>Single Narrator</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Un solo narrador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.StartingOver">
+      <tuv xml:lang="en">
+        <seg>Changes to these numbers will adjust the current size of the cast.\nThe existing list of "Roles for Voice Actors" will be replaced by a newly generated list.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cambiar estos números resultará en el ajuste del tamaño del elenco. \nLa lista de "Papeles de los dobladores" se sustituirá por una nueva lista generada.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.VoiceActorList">
+      <tuv xml:lang="en">
+        <seg>Voice Actor List</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lista de dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.WhenYouClick">
+      <tuv xml:lang="en">
+        <seg>When you click "{0}", {1} will form groups of character roles for the number of voice actors selected above.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Al hacer clic en "{0}", {1} formará grupos de personajes de acuerdo al número de dobladores seleccionados.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningDlg.WindowTitle">
+      <note>{0} is the project name</note>
+      <tuv xml:lang="en">
+        <seg>Cast Size Planning - {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Planificación del tamaño del elenco - {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.CastSize">
+      <tuv xml:lang="en">
+        <seg>Cast Size</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tamaño del elenco</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Children">
+      <tuv xml:lang="en">
+        <seg>Children</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Niños</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Custom">
+      <tuv xml:lang="en">
+        <seg>Custom</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Configurado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Large">
+      <tuv xml:lang="en">
+        <seg>Large</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Grande</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.MatchList">
+      <tuv xml:lang="en">
+        <seg>Match Voice Actor List</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>De acuerdo de los dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Men">
+      <tuv xml:lang="en">
+        <seg>Men</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hombres</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Recommended">
+      <tuv xml:lang="en">
+        <seg>Recommended</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Recomendado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Small">
+      <tuv xml:lang="en">
+        <seg>Small</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pequeño</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Total">
+      <tuv xml:lang="en">
+        <seg>Total</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Total</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.CastSizePlanningOptions.Women">
+      <tuv xml:lang="en">
+        <seg>Women</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mujeres</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportDlg.FileExists">
@@ -7592,6 +7987,39 @@
         <seg>Reglas de comillas</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.RolesForVoiceActorsSaveAsDlg.CouldNotExport">
+      <note>{0} is a file name.</note>
+      <tuv xml:lang="en">
+        <seg>Could not save Roles for Voice Actors data to {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo grabar los papeles de los dobladores en el archivo {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel">
+      <tuv xml:lang="en">
+        <seg>Excel files</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>archivos Excel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.RolesForVoiceActorsSaveAsDlg.RolesForVoiceActorsFileNameDefaultSuffix">
+      <tuv xml:lang="en">
+        <seg>Roles for Voice Actors</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Papeles de los dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.RolesForVoiceActorsSaveAsDlg.SaveFileDialog.Title">
+      <tuv xml:lang="en">
+        <seg>Choose File Location</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elegir carpeta para el archivo</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle">
       <note>{0} is the project name</note>
       <tuv xml:lang="en">
@@ -7633,12 +8061,36 @@
         <seg>Añadir nuevo personaje</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female">
+      <tuv xml:lang="en">
+        <seg>Female</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hombre</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Male">
+      <tuv xml:lang="en">
+        <seg>Male</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mujer</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.AddCharacterToGroupToolStripMenuItem">
       <tuv xml:lang="en">
         <seg>Add character to this group...</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Añadir personaje a este grupo...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Cameo">
+      <tuv xml:lang="en">
+        <seg>Cameo</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cameo</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult">
@@ -7673,12 +8125,158 @@
         <seg>¿Desea remover la asignación del actor de voz para este grupo de personajes?</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.SplitSelectedGroup">
+      <tuv xml:lang="en">
+        <seg>Split Group...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dividir grupo...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.FindCharacter">
+      <tuv xml:lang="en">
+        <seg>Find Character:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Buscar personaje:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.FindNextMatch">
+      <tuv xml:lang="en">
+        <seg>Find next match</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Buscar siguiente</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Hours">
+      <tuv xml:lang="en">
+        <seg>Hours</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Horas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line1.LinkText">
+      <tuv xml:lang="en">
+        <seg>Print</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Imprimir</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line1.NonLink">
+      <note>{0} is the clickable text.  Its localizingId is DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line1.LinkText</note>
+      <tuv xml:lang="en">
+        <seg>{0} this list for use as you recruit voice actors.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} esta lista para usarla para buscar dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Menu.Help">
+      <tuv xml:lang="en">
+        <seg>Help</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ayuda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Menu.Print">
+      <tuv xml:lang="en">
+        <seg>Print...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Imprimir...</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveButton">
       <tuv xml:lang="en">
         <seg>&amp;Move</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>&amp;Mover</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2">
+      <tuv xml:lang="en">
+        <seg>Do you want to continue with this move?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Desea continuar mover este personaje?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title">
+      <tuv xml:lang="en">
+        <seg>Confirm</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Confirmación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveSelectedCharactersToAnotherGroup">
+      <tuv xml:lang="en">
+        <seg>Move selected characters to another group...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mover personajes seleccionados a otro grupo...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.NoMatchingCharacters">
+      <tuv xml:lang="en">
+        <seg>no matches</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se encontraron resultados.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.RedoFailed">
+      <tuv xml:lang="en">
+        <seg>Redo Failed!</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo rehacer!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment">
+      <tuv xml:lang="en">
+        <seg>Remove Voice Actor Assignment</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Remover papel del doblador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignments">
+      <tuv xml:lang="en">
+        <seg>Remove Voice Actor Assignments</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Remover papeles de dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.SelectCameoRoleLink">
+      <note>Displayed as link in the "Characters In Group" column when the group assigned to a cameo	actor has no characters in it.</note>
+      <tuv xml:lang="en">
+        <seg>Select a cameo role</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elegir un papel cameo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink">
+      <tuv xml:lang="en">
+        <seg>Show details for {0} group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mostrar detalles del grupo {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Status">
+      <tuv xml:lang="en">
+        <seg>Status</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Estado</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.RedoButton">
@@ -7689,12 +8287,173 @@
         <seg>Rehacer</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.SplitSelectedGroup">
+      <tuv xml:lang="en">
+        <seg>Split Selected Group...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dividir grupo seleccionado...</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UndoButton">
       <tuv xml:lang="en">
         <seg>Undo</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Deshacer</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.VoiceActorList">
+      <tuv xml:lang="en">
+        <seg>Voice Actor List...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lista de dobladores...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.AddVoiceActor">
+      <tuv xml:lang="en">
+        <seg>Add voice actor {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Añadir doblador {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.DeleteVoiceActor">
+      <tuv xml:lang="en">
+        <seg>Delete voice actor {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Borrar doblador {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.EditMultipleVoiceActors">
+      <tuv xml:lang="en">
+        <seg>Edit voice actors</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Editar dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.EditSingleVoiceActor">
+      <tuv xml:lang="en">
+        <seg>Edit voice actor {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Editar doblador {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToGroup">
+      <tuv xml:lang="en">
+        <seg>Move characters to {0} group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mover personajes al grupo {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToNewGroup">
+      <tuv xml:lang="en">
+        <seg>Create new group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>crear nuevo grupo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForCharacter">
+      <tuv xml:lang="en">
+        <seg>Remove voice actor assignment for {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Remover asignación de doblador a {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroup">
+      <tuv xml:lang="en">
+        <seg>Remove voice actor assignment for {0} group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Remover asignación de doblador al grupo {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroupWithNoCharacters">
+      <tuv xml:lang="en">
+        <seg>Remove voice actor assignment</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Remover asignación de doblador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignments">
+      <tuv xml:lang="en">
+        <seg>Remove voice actor assignment for multiple groups</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Remover asignación de dobladores para varios grupos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.SplitGroup">
+      <tuv xml:lang="en">
+        <seg>Split group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dividir grupo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorAssignment">
+      <tuv xml:lang="en">
+        <seg>Assign voice actor {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Asignar doblador {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorNameChange">
+      <tuv xml:lang="en">
+        <seg>Change name of voice actor from {0} to {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cambiar el nombre del doblador de {0} a {1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.UndoFailed">
+      <tuv xml:lang="en">
+        <seg>Undo Failed!</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo deshacer!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural">
+      <tuv xml:lang="en">
+        <seg>The Voice Actor List for this project has 1 actor not assigned to any group.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hay un dobador en este proyecto que no está asignado a ningún grupo.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.VoiceActorAssigned">
+      <tuv xml:lang="en">
+        <seg>Voice Actor Assigned</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Doblador asignado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.VoiceActorList">
+      <tuv xml:lang="en">
+        <seg>Voice Actor List</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lista de dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.WindowTitle">
+      <note>{0} is the project name</note>
+      <tuv xml:lang="en">
+        <seg>Roles for Voice Actors - {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Papeles de los dobladores - {0}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorInformation.Age.Adult">
@@ -8157,7 +8916,7 @@
         <seg>custom</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>personalizado</seg>
+        <seg>configurado</seg>
       </tuv>
     </tu>
     <tu tuid="Project.FailedToCreateWritingSystemFromParatextLdml">
