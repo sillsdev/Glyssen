@@ -399,7 +399,7 @@ namespace Glyssen.Dialogs
 				{
 					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
 							"The original text release bundle for the project is no longer in its original location ({0}). " +
-							"The Quote Mark Settings cannot be modified without access to the original release text bundle."), m_model.Project.OriginalBundlePath) +
+							"The Quote Mark Settings cannot be modified without access to it."), m_model.Project.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
 						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle", "Message caption");

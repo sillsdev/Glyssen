@@ -391,7 +391,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_lblDescription2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblDescription2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDescription2, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription2, "\"them\" refers to recording scripts saved as spreadsheet files.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDescription2, "DialogBoxes.ExportDlg.Description2");
 			this.m_lblDescription2.Location = new System.Drawing.Point(3, 13);
 			this.m_lblDescription2.Name = "m_lblDescription2";

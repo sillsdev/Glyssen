@@ -949,8 +949,9 @@ namespace Glyssen
 					"This project has been changed to use the {0} reference text, but some blocks were already matched to " +
 					"the previous reference text. Some of those matches cannot be migrated, which means that the reference " +
 					"text data for those blocks is not in the correct language. " +
-					"To avoid confusion, it is probably best to allow Glyssen to clear the matches that cannot be migrated properly. " +
-					"Would you like Glyssen to do that?"), m_project.UiReferenceTextName),
+					"To avoid probable confusion, would you like to allow {1} to clear the matches that cannot be migrated properly?",
+					"Param 0: name of language of new reference text; " +
+					"Param 1: \"Glyssen\" (product name)"), m_project.UiReferenceTextName, GlyssenInfo.kProduct),
 					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
 			}
 			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
@@ -964,7 +965,7 @@ namespace Glyssen
 
 		private void About_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
+			using (var dlg = new SILAboutBox(FileLocationUtilities.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
 				dlg.CheckForUpdatesClicked += HandleAboutDialogCheckForUpdatesClick;
 				dlg.ReleaseNotesClicked += HandleAboutDialogReleaseNotesClicked;
@@ -981,7 +982,7 @@ namespace Glyssen
 
 		private void HandleAboutDialogReleaseNotesClicked(object sender, EventArgs e)
 		{
-			var path = FileLocator.GetFileDistributedWithApplication("ReleaseNotes.md");
+			var path = FileLocationUtilities.GetFileDistributedWithApplication("ReleaseNotes.md");
 			using (var dlg = new ShowReleaseNotesDialog(((Form)sender).Icon, path))
 				dlg.ShowDialog();
 		}

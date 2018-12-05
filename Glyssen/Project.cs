@@ -822,7 +822,9 @@ namespace Glyssen
 									"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name)"),
 								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
 
-						string caption = LocalizationManager.GetString("Project.ParatextProjectUnavailable", "Paratext project Unavailable");
+						string caption = Format(LocalizationManager.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
+							"Param is \"Paratext\" (product name)"),
+							ParatextScrTextWrapper.kParatextProgramName);
 						if (DialogResult.Retry == MessageBox.Show(msg, caption, MessageBoxButtons.RetryCancel))
 							continue;
 					}
@@ -1754,20 +1756,20 @@ namespace Glyssen
 					}
 					catch (XmlException e)
 					{
-						var msg1 = String.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+						var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
 								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
 								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
 							Name, LdmlFilePath, e.Message);
-						var msg2 = attemptToUseBackup
+						var msg2 = Format(attemptToUseBackup
 							? LocalizationManager.GetString("Project.UseBackupLdmlFile",
-								"To use the automatically created backup (which might be out-of-date), click Retry.",
+								"To use the automatically created backup (which might be out-of-date), click {0}.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file exists.")
+								"created backup file exists. Param is \"Retry\" button label.")
 							: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
-								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.",
+								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click {0}.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file does not exist.");
-						var msg3 = String.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
+								"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
+						var msg3 = Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
 							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
 							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 
@@ -253,8 +254,9 @@ namespace Glyssen.Dialogs
 					Cursor.Current = Cursors.Default;
 				}
 
-				var bldr = new StringBuilder(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
-					"Export failed to write one or more files. Try closing any applications that have these files open, and then click Retry. Details:"));
+				var bldr = new StringBuilder(String.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
+					"Export failed to write one or more files. Try closing any applications that have these files open, and then click {0}. Details:"),
+					MessageBoxStrings.RetryButton));
 				foreach (var key in lockedFiles.Keys)
 				{
 					bldr.Append("\r\n\r\n");

@@ -6978,7 +6978,7 @@
         <seg>Align the selected block in the reference text with the following block in the vernacular script.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Alinear el bloque seleccionado en el texto de referencia con el siguiente bloque del guión vernáculo</seg>
+        <seg>Alinear el bloque seleccionado en el texto de referencia con el siguiente bloque del guion vernáculo</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.MoveReferenceTextUp">
@@ -6994,7 +6994,7 @@
         <seg>Align the selected block in the reference text with the previous block in the vernacular script.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Alinear el bloque seleccionado en el texto de referencia con el bloque anterior del guión vernáculo</seg>
+        <seg>Alinear el bloque seleccionado en el texto de referencia con el bloque anterior del guion vernáculo</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.MultipleCellsOfDifferentReferenceTextsEndWithVerse">
@@ -7115,7 +7115,7 @@
         <seg>The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>No se ha aplicado la alineación del texto de referencia al guión vernáculo. ¿Desea guardar la alineación antes de dividir este bloque?</seg>
+        <seg>No se ha aplicado la alineación del texto de referencia al guion vernáculo. ¿Desea guardar la alineación antes de dividir este bloque?</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage">
@@ -7123,7 +7123,7 @@
         <seg>The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>No se ha aplicado la alineación del texto de referencia al guión vernáculo. ¿Desea guardar la alineación antes de navegar?</seg>
+        <seg>No se ha aplicado la alineación del texto de referencia al guion vernáculo. ¿Desea guardar la alineación antes de navegar?</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.UseDoubleClickAsShortcut">
@@ -7180,7 +7180,7 @@
         <seg>Select this option if you want the script for this book to be prepared for single-voice recording.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Seleccione esta opción si desea preparar el guión de este libro para que sea grabada con una sola voz.</seg>
+        <seg>Seleccione esta opción si desea preparar el guion de este libro para que sea grabada con una sola voz.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.m_lblReferenceText">
@@ -7370,6 +7370,7 @@
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.CastSizePlanningDlg.WhenYouClick">
+      <note>Param 0: Label on the "Generate Groups" button; Param 1: "Glyssen" (product name)</note>
       <tuv xml:lang="en">
         <seg>When you click "{0}", {1} will form groups of character roles for the number of voice actors selected above.</seg>
       </tuv>
@@ -7466,6 +7467,140 @@
         <seg>Mujeres</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.ExportDlg.ActorDirectoryExists">
+      <tuv xml:lang="en">
+        <seg>This folder exists. Voice actor files will be overwritten.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Esta carpeta existe. Se sobrescribirán los archivos de los dobladores.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.ActorDirectoryNameSuffix">
+      <tuv xml:lang="en">
+        <seg>Voice Actors</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dobladores</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.BookDirectoryNameSuffix">
+      <tuv xml:lang="en">
+        <seg>Books</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Libros</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.ClipListFileNameSuffix">
+      <tuv xml:lang="en">
+        <seg>Clip List</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lista de clips</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.ClipListFilename">
+      <tuv xml:lang="en">
+        <seg>File name: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nombre de archivo: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotCreateClipFile">
+      <note>{0} is a WAV file path.</note>
+      <tuv xml:lang="en">
+        <seg>Error writing file: {0}. Creation of clip files aborted.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Error al escribir archivo: {0}. Se abortó la creación de archivos de clip.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotExport">
+      <tuv xml:lang="en">
+        <seg>Export failed to write one or more files. Try closing any applications that have these files open, and then click {0}. Details:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La exportación no pudo escribir uno o más archivos. Intente cerrar cualquier aplicación que tenga estos archivos abiertos y luego haga clic en {0}. Detalles:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotExportActors">
+      <note>{0} is a directory name.</note>
+      <tuv xml:lang="en">
+        <seg>Could not create destination folder for voice actor script files: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo crear la carpeta de destino para los archivos de guiones para los dobladores: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotExportBooks">
+      <note>{0} is a directory name.</note>
+      <tuv xml:lang="en">
+        <seg>Could not create destination folder for book script files: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo crear la carpeta de destino para los archivos de guiones para los libros: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotExportClips">
+      <note>{0} is a directory name.</note>
+      <tuv xml:lang="en">
+        <seg>Could not create destination folder for clip files: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo crear la carpeta de destino para los archivos de clip: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotExportProblemExplanationLabel">
+      <tuv xml:lang="en">
+        <seg>Error: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Error: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CouldNotExportProblemFilesLabel">
+      <tuv xml:lang="en">
+        <seg>Files affected:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Archivos afectados:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.CreateClipFiles">
+      <tuv xml:lang="en">
+        <seg>Also create blank clip files</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>También crear archivos de clip en blanco</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.Description">
+      <note>Param 0: "Glyssen" (product name); Param 1: ".glyssenscript" file extension; Param 2: "HearThis" (product name); Param 3: HearThis version number</note>
+      <tuv xml:lang="en">
+        <seg>{0} will create a {1} file which can be used by {2} {3} or later.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} creará un archivo {1} que puede ser utilizado por {2} versión {3} o posterior.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.Description2">
+      <note>"them" refers to recording scripts saved as spreadsheet files.</note>
+      <tuv xml:lang="en">
+        <seg>Use Excel, LibreOffice, or a similar application to view or print them.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Utilizar Excel, LibreOffice o una aplicación similar para ver o imprimirlos.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.ExcelFileTypeLabel">
+      <tuv xml:lang="en">
+        <seg>Excel files</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Archivos Excel</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ExportDlg.FileExists">
       <tuv xml:lang="en">
         <seg>This file exists and will be overwritten.</seg>
@@ -7474,12 +7609,69 @@
         <seg>Este archivo existe y se sobrescribirá.</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.ExportDlg.FileName">
+      <tuv xml:lang="en">
+        <seg>The master recording script will be saved as:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El guion maestro se guardará como:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.FilesWillBeCreated">
+      <note>{0} is a directory</note>
+      <tuv xml:lang="en">
+        <seg>Files will be created in {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Los archivos se crearán en {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.IncludeClipListFile">
+      <tuv xml:lang="en">
+        <seg>Also create a clip list file</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>También crear un archivo de lista de clip</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.OpenFolderForMe">
+      <tuv xml:lang="en">
+        <seg>Open the folder for me</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abra la carpeta automaticamente después de exportar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.OpenForMe">
+      <tuv xml:lang="en">
+        <seg>Open the exported file for me</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abra el archivo automaticamente después de exportar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix">
+      <tuv xml:lang="en">
+        <seg>Recording Script</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guion de grabación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.SaveFileDialog.Title">
+      <tuv xml:lang="en">
+        <seg>Choose File Location</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elejir la carpeta</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ExportDlg.ScriptPerActor">
       <tuv xml:lang="en">
         <seg>Also create one script file for each voice actor</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>También crear un archivo del guión para cada actor de voz</seg>
+        <seg>También crear un archivo del guion para cada actor de voz</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportDlg.ScriptPerBook">
@@ -7487,7 +7679,15 @@
         <seg>Also create one script file for each book</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>También crear un archivo del guión para cada libro</seg>
+        <seg>También crear un archivo del guion para cada libro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel">
+      <tuv xml:lang="en">
+        <seg>Tab-delimited files</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Archivos delimitados por tabuladores</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportDlg.WindowTitle">
@@ -7496,7 +7696,24 @@
         <seg>Export Recording Script - {0}</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Exportar guión de grabación  - {0}</seg>
+        <seg>Exportar guion de grabación  - {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage">
+      <note>Parameter is a percentage.</note>
+      <tuv xml:lang="en">
+        <seg>Character assignment is {0} complete. Are you sure you want to export a script?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Asignación de personajes es {0} completa.  ¿Está seguro que desea exportar el guion?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportIncompleteScript.EmptyGroupMessage">
+      <tuv xml:lang="en">
+        <seg>One or more character groups have no characters in them. Are you sure you want to export a script?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Uno o más grupos de personajes está vacío. ¿Está seguro que desea exportar el guion?</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportIncompleteScript.MessageNote">
@@ -7504,7 +7721,73 @@
         <seg>(Note: You can export the script again as many times as you want.)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(Nota: Se puede volver a exportar el guión tantas veces como quiere.)</seg>
+        <seg>(Nota: Se puede volver a exportar el guion tantas veces como quiere.)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportIncompleteScript.NotAssignedMessage">
+      <tuv xml:lang="en">
+        <seg>One or more character groups have no voice actor assigned. Are you sure you want to export an incomplete script?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Uno o más grupos de personajes no tiene ningún doblador asignado. ¿Está seguro que desea exportar un guion incompleto?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportIncompleteScript.Title">
+      <tuv xml:lang="en">
+        <seg>Export Script?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Exportar guion?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportIncompleteScript.TitleIncomplete">
+      <tuv xml:lang="en">
+        <seg>Export Incomplete Script?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Exportar guion incompleta?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportToRecordingToolDlg.Browse">
+      <tuv xml:lang="en">
+        <seg>Browse...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Navegar...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportToRecordingToolDlg.Important">
+      <tuv xml:lang="en">
+        <seg>Important:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Importante:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportToRecordingToolDlg.ReadyToExportNotice">
+      <note>{0} is "HearThis"</note>
+      <tuv xml:lang="en">
+        <seg>{0} is not currently able to handle changes to the recording script once recording has begun. For this reason, it is important that you do not export to {0} until you are ready to begin recording.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} no tiene la capacidad de manejar cambios en el guion una vez que la grabación haya comenzado. Por lo cual, se debe exportar el guion a {0} hasta que esté listo para comenzar a grabar.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportToRecordingToolDlg.SelectFileLocation">
+      <tuv xml:lang="en">
+        <seg>Select the location to save the file:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elejir la carpeta donde desea guardar el archivo:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ExportToRecordingToolDlg.WindowTitle">
+      <note>Param 0: "HearThis" (product name); Param 1: project name</note>
+      <tuv xml:lang="en">
+        <seg>Export Recording Script to {0} - {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exportar guion de grabación a {0} - {1}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.FileDlg.AllFilesLabel">
@@ -7513,6 +7796,87 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Todos los archivos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.Complete">
+      <tuv xml:lang="en">
+        <seg>Group generation is complete.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Generación de grupos está completa.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.Continue">
+      <tuv xml:lang="en">
+        <seg>Continue</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Continuar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.GenerationFailed">
+      <note>Parameter is a statement about the number of voice actors or planned cast size.</note>
+      <tuv xml:lang="en">
+        <seg>New character groups could not be generated to satisfy the project settings for the current cast size. ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudieran generar nuevos grupos de roles para satisfacer a la configuración del proyecto con el tamaño actual del guion. ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.Overview.Text1">
+      <tuv xml:lang="en">
+        <seg>The recording project has {0} distinct Biblical character roles.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El proyecto tiene {0} roles de personajes bíblicos distintos.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.CastSize">
+      <tuv xml:lang="en">
+        <seg>The planned cast size is {0} voice actors.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El elenco planeado es para {0} dobladores.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.MatchActors">
+      <tuv xml:lang="en">
+        <seg>The voice actor list has {0} voice actors.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hay {0} dobladores en la lista.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.CastSize">
+      <tuv xml:lang="en">
+        <seg>{0} is creating optimized groups of character roles to match the cast size.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} está creando grupos optimizados con roles que corresponden al tamaño del elenco.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.MatchActors">
+      <tuv xml:lang="en">
+        <seg>{0} is creating optimized groups of character roles to match the voice actor list.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} está creando grupos optimizados con roles que corresponden a los dobladores del elenco.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text2.SubsequentRun">
+      <tuv xml:lang="en">
+        <seg>{0} will attempt to maintain any existing voice actor assignments.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} intentará mantener la asignaciones existentes de los dobladores.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.GenerateGroupsProgressDialog.Title">
+      <tuv xml:lang="en">
+        <seg>Generating Groups</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Generación de grupos</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.NewCharacterDlg.Age">
@@ -7531,12 +7895,134 @@
         <seg>Adulto</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterAge.Child">
+      <tuv xml:lang="en">
+        <seg>Child</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Niño</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterAge.Elder">
+      <tuv xml:lang="en">
+        <seg>Elder</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Anciano</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.NewCharacterDlg.CharacterAge.YoungAdult">
       <tuv xml:lang="en">
         <seg>Young Adult</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Adulto joven</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterGender.Either">
+      <tuv xml:lang="en">
+        <seg>Either</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cualquier género</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterGender.Female">
+      <tuv xml:lang="en">
+        <seg>Female</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mujer</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterGender.Male">
+      <tuv xml:lang="en">
+        <seg>Male</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hombre</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterGender.Neuter">
+      <tuv xml:lang="en">
+        <seg>Neuter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Neutral</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterGender.PreferFemale">
+      <tuv xml:lang="en">
+        <seg>Either (Female Preferred)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cualquier género (preferible una mujer)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.CharacterGender.PreferMale">
+      <tuv xml:lang="en">
+        <seg>Either (Male Preferred)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cualquier género (preferible un hombre)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.Gender">
+      <tuv xml:lang="en">
+        <seg>Gender</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Género</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.NewCharacterDlg.Instructions">
+      <tuv xml:lang="en">
+        <seg>You are creating a new character named {0}. Please provide attributes for this character.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Está creando un nuevo personaje llamado {0}. Favor de elejir los atributos para describir este personaje.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.CantAccessParatext">
+      <note>Param: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>There was a problem accessing {0} data files.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Había un problema al acceder a los archivos de datos de {0}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.CreateNewProject">
+      <tuv xml:lang="en">
+        <seg>Create new project from text release bundle</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Crear nuevo proyecto basado en un paquete de descarga de texto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.NoRecordingProject">
+      <tuv xml:lang="en">
+        <seg>(recording project not started)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(proyecto de grabación no iniciado)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextError">
+      <tuv xml:lang="en">
+        <seg>The error was: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El error fue: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLabel">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier)</note>
+      <tuv xml:lang="en">
+        <seg>{0} project: {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Proyecto {0}: {1}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.Generic">
@@ -7548,12 +8034,65 @@
         <seg>Proyecto: {0}\nMensaje de error: {1}</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated">
+      <note>Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext version number</note>
+      <tuv xml:lang="en">
+        <seg>To read this project, a version of {0} compatible with {1} {2} is required.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para leer este proyecto, se requiere una versión de {0} compatible con {1} {2}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext version number; Param 2: "Glyssen" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>The project administrator needs to update it by opening it with {0} {1} or later. Alternatively, you might be able to revert to an older version of {2}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El administrador del proyecto debe actualizarlo abriéndolo con {0} {1} o posterior. Como alternativa, puede volver a una versión anterior de {2}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.UnknownProjectType">
+      <note>Param 0: Paratext project type</note>
+      <tuv xml:lang="en">
+        <seg>This project has a project type ({0}) that is not supported.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto tiene un tipo de proyecto ({0}) que no es compatible.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.VersionIncompatibility">
+      <note>Param 0: Paratext project name; Param 1: "Glyssen"</note>
+      <tuv xml:lang="en">
+        <seg>Project {0} is not compatible with this version of {1}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Proyecto {0} no es compatible con esta versión de {1}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors">
+      <note>Param 0: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>The following {0} project load errors occurred:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ocurrieron los siguientes errores de carga del proyecto {0}:</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.Inactive">
       <tuv xml:lang="en">
         <seg>Inactive</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Inactivo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.ModifiedDate">
+      <tuv xml:lang="en">
+        <seg>Date Modified</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Fecha de modificación</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.Source">
@@ -7585,7 +8124,15 @@
         <seg>Open Project</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Abrir Proyecto</seg>
+        <seg>Abrir proyecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProgressDialogWithAcknowledgement.Canceling">
+      <tuv xml:lang="en">
+        <seg>Canceling...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cancelando...</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.CarefullyReviewQuoteMarks">
@@ -7742,6 +8289,46 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Opciones</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.EitherGender">
+      <tuv xml:lang="en">
+        <seg>Either Gender</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cualquier género</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.FemaleActor">
+      <tuv xml:lang="en">
+        <seg>Female Actor</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dobladora</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.MaleActor">
+      <tuv xml:lang="en">
+        <seg>Male Actor</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Doblador masculino</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.Narrator">
+      <tuv xml:lang="en">
+        <seg>Narrator</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Narrador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.Omitted">
+      <tuv xml:lang="en">
+        <seg>Omitted</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Omitir</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.GeneralTab.EthnologueCode">
@@ -7943,7 +8530,7 @@
         <seg>Quotation dash ({0})</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Guión de diálogo ({0})</seg>
+        <seg>Guion de diálogo ({0})</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer">
@@ -8059,6 +8646,87 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Añadir nuevo personaje</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.UnappliedSplitsDlg.CopyToClipboard">
+      <tuv xml:lang="en">
+        <seg>Copy To Clipboard</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Copiar al portapapeles</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.UnappliedSplitsDlg.Instructions">
+      <tuv xml:lang="en">
+        <seg>This project ({0}) was updated.  Before the update, some blocks were manually split by the user.  Some of those blocks splits were not reapplied during the update because the script has changed.  Please copy and save the information below so you can use it to reapply any necessary splits manually in the Identify Speaking Parts dialog.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto ({0}) se ha actualizado. Antes de la actualización, algunos bloques estuvieron divididos manualmente por el usuario. Algunas de las divisiones de bloques no se reaplicaron durante la actualización debido a cambios en el texto. Favor de copiar y guardar la siguiente información para poder volver a aplicar cualquieras divisiones necesarias manualmente en el cuadro de diálogo Identificar diálogos y citas.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.UnappliedSplitsDlg.SavedAcknowlegement">
+      <tuv xml:lang="en">
+        <seg>I have saved this information and am ready to close this dialog.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>He guardado esta información y estoy listo para cerrar este cuadro de diálogo.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.UnappliedSplitsDlg.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Unapplied Block Splits</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Divisiones de bloques no aplicadas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ViewScriptDlg.Export">
+      <tuv xml:lang="en">
+        <seg>Export</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exportar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ViewScriptDlg.ExportToHearThis">
+      <tuv xml:lang="en">
+        <seg>Export to {0}...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exportar a {0}...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ViewScriptDlg.ExportToHearThis.SaveFileDialog.Title">
+      <tuv xml:lang="en">
+        <seg>Choose File Location</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elijir carpeta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ViewScriptDlg.ExportToSpreadsheet">
+      <tuv xml:lang="en">
+        <seg>Export to spreadsheet...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exportar a hoja de cálculo...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ViewScriptDlg.Loading">
+      <tuv xml:lang="en">
+        <seg>Loading...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cargando...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ViewScriptDlg.WindowTitle">
+      <note>{0} is the project name</note>
+      <tuv xml:lang="en">
+        <seg>View Recording Script - {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ver guion de grabación - {0}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female">
@@ -8223,6 +8891,7 @@
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.NoMatchingCharacters">
+      <prop type="x-nolongerused">true</prop>
       <tuv xml:lang="en">
         <seg>no matches</seg>
       </tuv>
@@ -8567,7 +9236,7 @@
         <seg>Select a Character ID for each block in the recording script</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Seleccionar el personaje que habla en cada bloque en el guión de grabación</seg>
+        <seg>Seleccionar el personaje que habla en cada bloque en el guion de grabación</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.AssignVoiceActors">
@@ -8665,6 +9334,14 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>({0}) Identificar diálogos...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.IdentifySpeakingParts_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Select a Character ID for each block in the recording script</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccionar el personaje correcto para los bloques de diálogo o cita en el guion</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.Import">
@@ -8766,7 +9443,7 @@
         <seg>Change the settings used to generate the recording script</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Cambiar la configuración para generar la el guión de grabación</seg>
+        <seg>Cambiar la configuración para generar la el guion de grabación</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.QuoteMarksNeedReview">
@@ -8798,7 +9475,7 @@
         <seg>Choose which books to include in the recording script</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Elegir culaes libros incluir en el guión de grabación</seg>
+        <seg>Elegir culaes libros incluir en el guion de grabación</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.SelectTask">
@@ -8838,7 +9515,7 @@
         <seg>({0}) View Recording Script...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>({0}) Ver guión de grabación...</seg>
+        <seg>({0}) Ver guion de grabación...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.ViewScript_ToolTip_">
@@ -8846,7 +9523,7 @@
         <seg>View the script as a spreadsheet (Ctrl-E to bypass this view and open Export dialog)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Ver el guión presentado como hoja de cálculo (Ctrl-E para eludir este vista previa y abrir el dialogo para exportar el guión)</seg>
+        <seg>Ver el guion presentado como hoja de cálculo (Ctrl-E para eludir este vista previa y abrir el dialogo para exportar el guion)</seg>
       </tuv>
     </tu>
     <tu tuid="ParatextCheck.ChapterVerse">
@@ -8885,12 +9562,12 @@
       </tuv>
     </tu>
     <tu tuid="Project.AdvancedUserLdmlRepairInstructions">
-      <note>Appears between "Project.LdmlFileLoadError" and "Project.IgnoreToRepairLdmlFile" when an automatically created backup file does not exist.</note>
+      <note>Appears between "Project.LdmlFileLoadError" and "Project.IgnoreToRepairLdmlFile" when an automatically created backup file does not exist. Param is "Retry" button label.</note>
       <tuv xml:lang="en">
-        <seg>If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.</seg>
+        <seg>If you can replace it with a valid backup or know how to repair it yourself, do so and then click {0}.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Si usted puede reemplazarlo con una copia de seguridad válida o sabe cómo repararlo usted mismo, hágalo y luego haga clic en Reintentar.</seg>
+        <seg>Si usted puede reemplazarlo con una copia de seguridad válida o sabe cómo repararlo usted mismo, hágalo y luego haga clic en {0}.</seg>
       </tuv>
     </tu>
     <tu tuid="Project.CannotChangeParextProjectQuoteSystem">
@@ -8954,6 +9631,58 @@
         <seg>El archivo que contiene la definición del sistema de escritura para el proyecto {0} no se pudo leer:\n{1}\nError: {2}</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.LocateBundleYourself">
+      <tuv xml:lang="en">
+        <seg>Would you like to locate the text release bundle yourself?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Desea localizar el paquete de descarga de texto usted mismo?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.NoBooksPassedChecks">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name); Param 3: List of Paratext check names; Param 4: Optional line indicating that user is an observer on the Paratext project</note>
+      <tuv xml:lang="en">
+        <seg>{0} is not reporting a current successful status for any book in the {1} project for the basic checks that {2} usually requires to pass:\n   {3}\n{4}\nDo you want to proceed with creating a new {2} project for it anyway?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} no reporta un estado actual de éxito para ningún libro en el proyecto {1} para los controles básicos que {2} normalmente exige:\n   {3}\n{4}\nSin embargo, {2} puede crear el nuevo proyecto y usted puede decidir cómo tratar los problemas más adelante. ¿Desea continuar?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.NoSupportedBooksInParatextProject">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>{0} project {1} has no books which are supported by {2}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El proyecto {0} {1} no incluye ningún libro compatible con {2}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.NotWritableMsg">
+      <tuv xml:lang="en">
+        <seg>The project file is not writable. No changes will be saved.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El archivo del proyecto no se puede escribir. Así que no se podrá guardar ningún cambio.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ObserverOnly">
+      <note>Param: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>(You seem to be merely an observer on this {0} project.)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(Parece que usted es sólo un observador en este proyecto {0}.)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.OkayToClearExistingRefBlocksThatCannotBeMigrated">
+      <note>Param 0: name of language of new reference text; Param 1: "Glyssen" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>This project has been changed to use the {0} reference text, but some blocks were already matched to the previous reference text. Some of those matches cannot be migrated, which means that the reference text data for those blocks is not in the correct language. To avoid probable confusion, would you like to allow {1} to clear the matches that cannot be migrated properly?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto se ha modificado para utilizar el texto de referencia de {0}, pero algunos bloques ya fueron alineados con el texto de referencia anterior. Algunos de esas correspondencias no se pueden migrar, lo que significa que el texto de referencia para esos bloques no está en el idioma correcto. Para evitar confusiones probables, ¿desea permitir que Glyssen borre las correspondencias que no se pueden migrar correctamente?</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.ParatextBooksNoLongerAvailable">
       <tuv xml:lang="en">
         <seg>The following books are no longer available:</seg>
@@ -8971,6 +9700,59 @@
         <seg>Los siguientes libros aparentemente ya no pasan los chequeos básicos:\n   {0}\n(Si es necesario, se pueden volver a incluir después en el cuadro de diálogo {1}.)</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.ParatextProjectMetadataChangedMsg">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aparece que la configuración del proyecto {0} {1} ya no corresponde al proyecto {2}. Esta es una situación inusual. Si usted no entiende cómo esto sucedió, por favor póngase en contacto con el soporte.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectMissingMsg">
+      <note>Param 0: Glyssen recording project name; Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier)</note>
+      <tuv xml:lang="en">
+        <seg>To update the {0} project, the {1} project {2} must be available, but it is not.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para actualizar el proyecto {0}, el proyecto {2} debe estar disponible en {1}, pero no lo está.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectNotFound">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name); Param 3: Glyssen recording project name</note>
+      <tuv xml:lang="en">
+        <seg>Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\n\nTechnical details:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se puede acceder al proyecto {0} {1}, que es necesario para que {2} cargue el proyecto {3}.\n\nDetalles técnicos:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectUnavailable">
+      <note>Param is "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>{0} Project Unavailable</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Proyecto {0} no disponible</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectUpdateConfirmExcludeBooks">
+      <tuv xml:lang="en">
+        <seg>Would you like to proceed with the update?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Desea continuar con la actualización?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectUpdateErrorMsg">
+      <note>Param 0: Glyssen recording project name; Param 1: "Glyssen" (product name); Param 2: "Paratext" (product name); Param 3: Paratext project short name (unique project identifier)</note>
+      <tuv xml:lang="en">
+        <seg>To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para actualizar el proyecto {0}, {1} trató de obtener de {2} el texto actual de los libros del proyecto {3}, pero había un problema:</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.ParatextProjectUpdateExcludedBooksWarning">
       <note>Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier); Param 3: Glyssen recording project name</note>
       <tuv xml:lang="en">
@@ -8978,6 +9760,32 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>{1} detectó cambios en el proyecto de {2} {3} que resultarían en la exclusión de libros del proyecto {0} que se incluyeron anteriormente:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextQuotationRulesNotDefined">
+      <note>Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier); Param 3: Optional line indicating that user is an observer on the Paratext project; Param 4: Name of the Paratext "Quotations" check</note>
+      <tuv xml:lang="en">
+        <seg>You are attempting to create a {0} project for {1} project {2}, which does not have its Quotation Rules defined.\n{3}The Quotation Rules are not only needed to run the {4} check, {0} also uses them to look for speaking parts in the Scripture data. If you are not able to get those rules defined in {1}, you will need to set the Quote Mark Settings manually in this {0} project.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Usted está ntentando crear un proyecto {0} basado en proyecto {1} {2}, el cual no tiene las "Reglas de comillas" definidas. \n{3}Las reglas de comillas no sólo son necesarias para ejecutar el control {4}, ya que {0} también los utiliza para buscar los diálogos y citas en el texto de las escrituras. Si no se puede definir las reglas de comillas en {1}, será necesario configurarlas manualmente en {0} para este proyecto.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextQuoteSystemChanged">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name); Param 3: localized name of the "Update" button</note>
+      <tuv xml:lang="en">
+        <seg>The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update this project to match the {0} project settings (and get the latest versions of the text), click {3}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Las reglas de comillas en el proyecto {0} {1} ya no corresponden con la configuración en este proyecto {2}. Para actualizar este proyecto para coincidir con la configuración del proyecto {0} (y al mismo tiempo obtener las últimas versiones del texto), haga clic en {3}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParserUpgradeBundleMissingMsg">
+      <tuv xml:lang="en">
+        <seg>To make use of the new engine, the original release text bundle must be available, but it is not in the original location ({0}).</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para hacer uso del nuevo motor de análisis, el paquete de descarga de texto original debe estar disponible, pero no está en la carpeta original ({0}).</seg>
       </tuv>
     </tu>
     <tu tuid="Project.ParserVersionUpgraded">
@@ -8996,12 +9804,55 @@
         <seg>Audio</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.RestoreParatextProject">
+      <note>Param 0: "Paratext" (product name); Param 1: "Glyssen" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>If possible, you can restore the {0} project and retry; otherwise, you can cancel and {1} will continue to work with the existing project data.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Si es posible, puede restaurar el proyecto {0} y volver a intentarlo; de lo contrario, se puede cancelar y {1} continuará utilizando los datos existentes del proyecto.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.RevertedToOutdatedBackupWs">
+      <tuv xml:lang="en">
+        <seg>The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but since the old settings were different, some things might not work correctly next time you open this project.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>La configuración del sistema de escritura actual no se pudo guardar. Afortunadamente, {0} pudo recuperar la configuración de la copia de seguridad, pero puesto que la configuración anterior era diferente, es posible que algunas cosas no funcionarán correctamente la próxima vez que se abra este proyecto.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.TemporarilyUseEnglishReferenceText">
+      <note>Param is "Ignore" button label  (in the current Windows locale)</note>
+      <tuv xml:lang="en">
+        <seg>To continue and temporarily use the English reference text, click {0}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para continuar y utilizar temporalmente el texto de referencia en inglés, haga clic en {0}.</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.UnableToLocateTextBundle">
       <tuv xml:lang="en">
         <seg>Unable to Locate Text Bundle</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>No se puede encontrar el paquete de descarga de texto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UnableToLocateTextBundleMsg">
+      <tuv xml:lang="en">
+        <seg>The original text release bundle for the project is no longer in its original location ({0}). The Quote Mark Settings cannot be modified without access to it.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El paquete de descarga de texto original para este proyecto ya no está en su carpeta original ({0}). Las reglas de comillas no se pueden modificar sin acceso a él.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UnavailableReferenceText">
+      <note>Param 0: Name of reference text (typically a language name); Param 1: Folder path where custom reference text; Param 2: The name of the "Retry" button label (in the current Windows locale); Param 3: Name of the Project Settings dialog box; Param 4: Label of the Reference Text tab</note>
+      <tuv xml:lang="en">
+        <seg>This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access to the required reference text files, please put them in\n    {1}\nand then click {2} to use the {0} reference text.\n\nOtherwise, to permanently change the reference text used by this project, open the {3}\ndialog box and select the desired reference text on the {4} tab page.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este proyecto utiliza el texto de referencia de {0}, el cual no está disponible en este equipo. \nSi usted tiene acceso a los archivos de texto de referencia requeridos, favor de copiarlos in\n   {1}\nLuego haga clic en {2} para utilizar este texto de referencia. \n\nDe lo contrario, para cambiar permanentemente el texto de referencia utilizado en este proyecto, abra el cuadro de diálogo {3}\ny, en la ficha {4}, seleccione el texto de referencia deseada.</seg>
       </tuv>
     </tu>
     <tu tuid="Project.UpdateFromBundle.AllowUpdate">
@@ -9066,6 +9917,39 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Los metadatos del paquete de descarga de texto seleccionado no coinciden con el proyecto actual. Si se continúa con esta actualización, se cambiarán los siguientes metadatos:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UseBackupLdmlFile">
+      <note>Appears between "Project.LdmlFileLoadError" and "Project.IgnoreToRepairLdmlFile" when an automatically created backup file exists. Param is "Retry" button label.</note>
+      <tuv xml:lang="en">
+        <seg>To use the automatically created backup (which might be out-of-date), click {0}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para utilizar la copia de seguridad creado automáticamente (que puede estar desactualizada), haga clic en {0}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ReferenceText.CouldNotLoad">
+      <tuv xml:lang="en">
+        <seg>The {0} reference text could not be loaded from: {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo cargar el texto de referencia {0} de: {1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ReferenceText.MultipleLoadErrors">
+      <tuv xml:lang="en">
+        <seg>The following reference texts could not be loaded: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudieran cargar los siguientes textos de referencia: {0}, {1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ReferenceText.NoReferenceTextsLoaded">
+      <tuv xml:lang="en">
+        <seg>No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException for more details.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se pudo cargar ningún texto de referencia. Puede haber un problema con la instalación de {0}. Consulte la "InnerException" para obtener más detalles.</seg>
       </tuv>
     </tu>
     <tu tuid="WritingSystem.LeftToRight">
