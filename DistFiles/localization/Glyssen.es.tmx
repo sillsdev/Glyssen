@@ -8461,6 +8461,31 @@
         <seg>Si desea, puede revisar la configuración.</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ScriptOptionsTab.BookIntroduction">
+      <tuv xml:lang="en">
+        <seg>Book Introduction</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Introducción al libro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.ScriptOptionsTab.BookTitleChapter">
+      <tuv xml:lang="en">
+        <seg>Book Title/Chapters</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Título y capítulos del libro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.SourceLabelForParatextProject">
+      <note>"Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>{0} project:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Proyecto {0}:</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.WindowTitle">
       <tuv xml:lang="en">
         <seg>Project Settings</seg>
@@ -8485,6 +8510,14 @@
         <seg>Inicio</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Colon">
+      <tuv xml:lang="en">
+        <seg>Colon ( {0} )</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dos puntos ( {0} )</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.Continue">
       <tuv xml:lang="en">
         <seg>Continue</seg>
@@ -8493,12 +8526,80 @@
         <seg>Continuador</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.EmDash">
+      <tuv xml:lang="en">
+        <seg>Em-dash ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guion largo ({0})</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.End">
       <tuv xml:lang="en">
         <seg>End</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Final</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.EndDialogueQuote">
+      <tuv xml:lang="en">
+        <seg>Dialogue ending:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Fin del diálogo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.EndQuotationDashWithParagraphOnly">
+      <tuv xml:lang="en">
+        <seg>End of paragraph (only)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Fin del párrafo (solamente)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash">
+      <tuv xml:lang="en">
+        <seg>Same as start quotation dash ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Igual que el guion inicial ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.FilterOptions[0]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Verses with expected quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Versículos en las que se esperan citas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.FilterOptions[1]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Verses with missing expected quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Versículos sin citas esperadas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.FilterOptions[2]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>All quotes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Todas las citas encontradas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.FilterOptions[3]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>All Scripture</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Toda la escritura</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.Level1">
@@ -8533,6 +8634,38 @@
         <seg>Guion de diálogo ({0})</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.QuotationDashRequired">
+      <tuv xml:lang="en">
+        <seg>Quotation dash is required.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Se requiere el guion de diálogo.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.QuoteSystemChange.BackupWillBeCreated">
+      <tuv xml:lang="en">
+        <seg>A backup of your project will be created before this occurs.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Se creará una copia de seguridad de su proyecto antes de que esto ocurra.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.QuoteSystemChange.Part1">
+      <tuv xml:lang="en">
+        <seg>Changing the quote system will require the text to be broken up into speaking parts again.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hacerle cambios a las reglas de comillas será necesario el texto se divide en partes de habla otra vez.\n\nCambiar el sistema de cotización requerirá un nuevo análisis del texto para encontrar los diálogos y las citas.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid">
+      <tuv xml:lang="en">
+        <seg>Quote System Invalid</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Reglas de comillas no validas</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer">
       <tuv xml:lang="en">
         <seg>Project Data:</seg>
@@ -8546,7 +8679,7 @@
         <seg>Test</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Prueba</seg>
+        <seg>Probar</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.TestResults">
@@ -8607,6 +8740,198 @@
         <seg>Elegir carpeta para el archivo</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.ScriptBlocksViewer.Character">
+      <tuv xml:lang="en">
+        <seg>Character</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Personaje</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptBlocksViewer.Delivery">
+      <tuv xml:lang="en">
+        <seg>Delivery</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Estilo de elocución</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptBlocksViewer.NoMatches">
+      <tuv xml:lang="en">
+        <seg>Nothing matches the current filter.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nada coincide con el filtro actual.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptBlocksViewer.Reference">
+      <tuv xml:lang="en">
+        <seg>Reference</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Referencia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptBlocksViewer.Text">
+      <tuv xml:lang="en">
+        <seg>Vernacular Text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Texto vernáculo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.Book">
+      <tuv xml:lang="en">
+        <seg>Book</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Libro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ClearAll">
+      <note>"All" refers to Scripture books</note>
+      <tuv xml:lang="en">
+        <seg>Clear All</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Anular todos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption">
+      <tuv xml:lang="en">
+        <seg>Are you sure?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Está seguro?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1">
+      <tuv xml:lang="en">
+        <seg>You have selected to record the following books with multiple voice actors. Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Usted ha seleccionado los siguientes libros para grabarlos con dobladores múltiples. Glyssen puede ayudarle a hacer esto, pero posiblemente no obtendrá los resultados deseados sin intervención manual debido a la complejidad de estos libros:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2">
+      <note>Param is the "No" button label (in a message box)</note>
+      <tuv xml:lang="en">
+        <seg>Are you sure? If you select {0}, the script for the above books will be prepared for recording by a single narrator, rather than for multiple voice actors.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Está seguro? Si selecciona {0}, el guion para estos libros tendrá un sólo narrador en vez de dobladores múltiples.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks">
+      <note>Param 0: "Glyssen" (product name); Param 1: Glyssen recording project name</note>
+      <tuv xml:lang="en">
+        <seg>Depending on the specific errors, {0} might fail to process the data for this book properly, which could give the appearance of data loss or corruption and could even cause {0} to stop responding. Do you want to include this book in the {1} project anyway?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dependiendo de los errores específicos, {0} puede fallar al procesar los datos para este libro, lo cual podría dar la apariencia de pérdida de datos o corrupción y hasta podría hacer que {0} deje de responder. ¿Desea incluir este libro en el proyecto {1} de todos modos?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation">
+      <note>Param 0: "Glyssen" (product name); Param 1: (integer) number of Scripture books that did not pass basic checks; Param 2: Project short name (unique project identifier); Param 3: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a current successful status for all the basic checks that {0} usually requires to pass. If you intend to prepare the recording script for any of the excluded books at this time, we strongly recommend that you get the following checks to pass in {2} before including them:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} excluyó {1} de los libros en proyecto {2} automáticamente porque {3} no reporta un estado actual de éxito para todos los controles básicos que {0} normalmente exige. Si tiene intenciones de preparar el guión para cualquiera de los libros excluidos, se recomienda encarecidamente que cada libro pase los siguientes controles en {2} antes de ser incluido:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook">
+      <note>Param 0: ")Paratext" (product name); Param 1: 3-letter Scripture book code; Param 2: Paratext project short name (unique project identifier); Param 3: "Glyssen" (product name); Param 4: List of failing Paratext check names</note>
+      <tuv xml:lang="en">
+        <seg>{0} is not reporting a current successful status for {1} in project {2} for the following basic checks that {3} usually requires to pass:\n{4}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} no reporta un estado actual de éxito para {1} en el proyecto {2} para los siguientes controles básicos que {3} normalmente exige:\n{4}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.ApplyToAll">
+      <tuv xml:lang="en">
+        <seg>Apply to all newly included books</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aplicar a todos los libros recién incluidos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.Msg">
+      <note>Param 0: "Glyssen" (product name); Param 1: 3-letter Scripture book code; Param 2: "Paratext" (product name); Param 3: Paratext project short name (unique project identifier)</note>
+      <tuv xml:lang="en">
+        <seg>{0} has existing data for {1}. However, {2} reports that there is updated content in project {3}. Do you want {0} to use the latest content?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} tiene datos existentes para {1}. Sin embargo, {2} reporta que hay nuevo contenido en el proyecto {3}. ¿Desea que {0} actualice sus datos con el contenido más reciente?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript">
+      <tuv xml:lang="en">
+        <seg>Include in Script</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Incluir en guion</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors">
+      <tuv xml:lang="en">
+        <seg>Multiple Voice Actors</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dobladores múltiples</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.NewTestament">
+      <tuv xml:lang="en">
+        <seg>New Testament</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nuevo Testamento</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.OldTestament">
+      <tuv xml:lang="en">
+        <seg>Old Testament</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Antiguo Testamento</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableCaption">
+      <tuv xml:lang="en">
+        <seg>Unable to Include Book</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No se puede incluir el libro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableMsg">
+      <note>Param 0: 3-letter ID of Scripture book; Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier)</note>
+      <tuv xml:lang="en">
+        <seg>Sorry. {0} is no longer available from {1} project {2}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Perdón, pero {0} ya no está disponible en el proyecto {1} {2}.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.SelectAll">
+      <note>"All" refers to Scripture books</note>
+      <tuv xml:lang="en">
+        <seg>Select All</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccionar todos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.VernacularName">
+      <tuv xml:lang="en">
+        <seg>Vernacular Name</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nombre vernáculo</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle">
       <note>{0} is the project name</note>
       <tuv xml:lang="en">
@@ -8614,6 +8939,38 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Seleccionar libros - {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SelectCameoRoleDlg.Title">
+      <tuv xml:lang="en">
+        <seg>Select a Cameo Role for {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccionar un rol cameo para {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SelectExistingProjectDlg.CreateNew">
+      <tuv xml:lang="en">
+        <seg>Create a new recording project for this bundle</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Crear un nuevo proyecto de grabación para este paquete</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SelectExistingProjectDlg.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Select Existing Project</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccionar proyecto existente</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SelectExistingProjectDlg.lblExistingProject">
+      <tuv xml:lang="en">
+        <seg>The selected bundle is already associated with the following projects. To open an existing project, select it and click OK.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El paquete seleccionado ya está asociado con los siguientes proyectos. Para abrir un proyecto existente, selecciónelo y haga clic en Aceptar.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.SelectProjectDlg.Title">
@@ -8624,12 +8981,60 @@
         <seg>Abrir proyecto</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.SplitBlockDlg.ClickSplitLocation">
+      <tuv xml:lang="en">
+        <seg>Click the location where you want to split the block.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Haga clic en la posición donde desea dividir el bloque.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SplitBlockDlg.InvalidSplitLocation">
+      <tuv xml:lang="en">
+        <seg>This is not a valid location to split.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Esta no es una posición válida para dividir el bloque.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SplitBlockDlg.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Split Block</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dividir bloque</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.SplitCharacterGroupDlg.Add">
       <tuv xml:lang="en">
         <seg>Add &gt;&gt;</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Añadir &gt;&gt;</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SplitCharacterGroupDlg.AddOneOrMore">
+      <tuv xml:lang="en">
+        <seg>Add one or more characters to a new group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Añadir uno o más personajes a un nuevo grupo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SplitCharacterGroupDlg.ExistingGroup">
+      <tuv xml:lang="en">
+        <seg>Existing Group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Grupo existente</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SplitCharacterGroupDlg.NewGroup">
+      <tuv xml:lang="en">
+        <seg>New Group</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nuevo grupo</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.SplitCharacterGroupDlg.Remove">
@@ -8753,12 +9158,28 @@
         <seg>Añadir personaje a este grupo...</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Attributes">
+      <tuv xml:lang="en">
+        <seg>Attributes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Atributos</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Cameo">
       <tuv xml:lang="en">
         <seg>Cameo</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Cameo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors">
+      <tuv xml:lang="en">
+        <seg>Available:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Disponibles:</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult">
@@ -8783,6 +9204,14 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Edad</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Female">
+      <tuv xml:lang="en">
+        <seg>Female</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mujer</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessageSingular">
@@ -8891,7 +9320,6 @@
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.NoMatchingCharacters">
-      <prop type="x-nolongerused">true</prop>
       <tuv xml:lang="en">
         <seg>no matches</seg>
       </tuv>
@@ -9125,12 +9553,76 @@
         <seg>Papeles de los dobladores - {0}</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.adjustCastSizePlanToolStripMenuItem">
+      <tuv xml:lang="en">
+        <seg>Adjust Cast Size Plan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ajustar el plan de tamaño del elenco</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem">
+      <tuv xml:lang="en">
+        <seg>Adjust Groups to Match my Voice Actors</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ajustar los grupos para que coincidan con los dobladores actuales</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.adjustVoiceActorListToolStripMenuItem">
+      <tuv xml:lang="en">
+        <seg>Adjust Voice Actor List</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ajustar la lista de dobladores</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.VoiceActorInformation.Age.Adult">
       <tuv xml:lang="en">
         <seg>A - Adult</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>A - Adulto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorInformation.Age.Child">
+      <tuv xml:lang="en">
+        <seg>C - Child</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>N - Niño</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorInformation.Age.Elder">
+      <tuv xml:lang="en">
+        <seg>E - Elder</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>M - Maduro (anciano)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorInformation.DuplicateName">
+      <tuv xml:lang="en">
+        <seg>Actor Name must be unique.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El nombre del doblador debe ser único.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorInformation.Gender.Female">
+      <tuv xml:lang="en">
+        <seg>F - Female</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>M - Mujer</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorInformation.InvalidName">
+      <tuv xml:lang="en">
+        <seg>Actor Name must be provided.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Debe proporcionarse el nombre del doblador.</seg>
       </tuv>
     </tu>
     <tu tuid="File.InvalidBundleMsg">

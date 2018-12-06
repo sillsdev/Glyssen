@@ -63,7 +63,7 @@
 			this.m_lblAddOneOrMore.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblAddOneOrMore, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblAddOneOrMore, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblAddOneOrMore, "DialogBoxes.SelectExistingProjectDlg.AddOneOrMore");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblAddOneOrMore, "DialogBoxes.SplitCharacterGroupDlg.AddOneOrMore");
 			this.m_lblAddOneOrMore.Location = new System.Drawing.Point(0, 0);
 			this.m_lblAddOneOrMore.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_lblAddOneOrMore.Name = "m_lblAddOneOrMore";
@@ -159,7 +159,7 @@
 			this.m_lblExistingGroup.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExistingGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExistingGroup, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExistingGroup, "DialogBoxes.SelectExistingProjectDlg.ExistingGroup");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExistingGroup, "DialogBoxes.SplitCharacterGroupDlg.ExistingGroup");
 			this.m_lblExistingGroup.Location = new System.Drawing.Point(0, 37);
 			this.m_lblExistingGroup.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_lblExistingGroup.Name = "m_lblExistingGroup";
@@ -177,7 +177,7 @@
 			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.SelectExistingProjectDlg.NewGroup");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.SplitCharacterGroupDlg.NewGroup");
 			this.label2.Location = new System.Drawing.Point(278, 37);
 			this.label2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.label2.Name = "label2";

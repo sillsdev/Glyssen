@@ -29,6 +29,7 @@ namespace Glyssen.Utilities
 
 		public static string RetryButton => GetMsgBoxString(RETRY_CAPTION);
 		public static string IgnoreButton => GetMsgBoxString(IGNORE_CAPTION);
+		public static string NoButton => GetMsgBoxString(NO_CAPTION);
 
 		private static string GetMsgBoxString(uint button)
 		{
@@ -46,6 +47,7 @@ namespace Glyssen.Utilities
 			{
 				case RETRY_CAPTION: return "Retry";
 				case IGNORE_CAPTION: return "Ignore";
+				case NO_CAPTION: return "No";
 				default: throw new NotImplementedException("Unhandled case");
 			}
 		}

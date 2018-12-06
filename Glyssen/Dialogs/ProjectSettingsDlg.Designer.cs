@@ -1208,7 +1208,7 @@
 			this.m_rdoCustom.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_rdoCustom, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rdoCustom, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoCustom, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoCustom, "This is for a possible future feature and is not currently visible anywhere in the UI.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_rdoCustom, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.CustomOption");
 			this.m_rdoCustom.Location = new System.Drawing.Point(3, 105);
 			this.m_rdoCustom.Name = "m_rdoCustom";

@@ -165,7 +165,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.label1, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.CastSizePlanningDlg.label1");
 			this.label1.Location = new System.Drawing.Point(1, 0);
 			this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 0, 3);
 			this.label1.Name = "label1";
@@ -355,7 +355,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_maleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_maleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_maleNarrators, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_maleNarrators, "DialogBoxes.numericUpDown1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_maleNarrators, "DialogBoxes.CastSizePlanningDlg.maleNarrators");
 			this.m_maleNarrators.Location = new System.Drawing.Point(12, 25);
 			this.m_maleNarrators.Margin = new System.Windows.Forms.Padding(12, 3, 12, 3);
 			this.m_maleNarrators.Name = "m_maleNarrators";
@@ -372,7 +372,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_femaleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_femaleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_femaleNarrators, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_femaleNarrators, "DialogBoxes.numericUpDown1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_femaleNarrators, "DialogBoxes.CastSizePlanningDlg.femaleNarrators");
 			this.m_femaleNarrators.Location = new System.Drawing.Point(92, 25);
 			this.m_femaleNarrators.Margin = new System.Windows.Forms.Padding(12, 3, 12, 3);
 			this.m_femaleNarrators.Name = "m_femaleNarrators";
@@ -497,7 +497,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_castSizePlanningOptions, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_castSizePlanningOptions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_castSizePlanningOptions, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_castSizePlanningOptions, "DialogBoxes.CastSizePlanningOptions");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_castSizePlanningOptions, "DialogBoxes.CastSizePlanningDlg.CastSizePlanningOptions");
 			this.m_castSizePlanningOptions.Location = new System.Drawing.Point(0, 0);
 			this.m_castSizePlanningOptions.Margin = new System.Windows.Forms.Padding(0);
 			this.m_castSizePlanningOptions.Name = "m_castSizePlanningOptions";
@@ -598,7 +598,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_imgNarratorWarning, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_imgNarratorWarning, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_imgNarratorWarning, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_imgNarratorWarning, "DialogBoxes.pictureBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_imgNarratorWarning, "DialogBoxes.CastSizePlanningDlg.imgNarratorWarning");
 			this.m_imgNarratorWarning.Location = new System.Drawing.Point(0, 0);
 			this.m_imgNarratorWarning.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.m_imgNarratorWarning.Name = "m_imgNarratorWarning";
@@ -619,7 +619,7 @@ namespace Glyssen.Dialogs
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.ForeColor = System.Drawing.Color.Red;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, "DialogBoxes.label7");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, "DialogBoxes.CastSizePlanningDlg.WarningSuboptimalNarratorsForNarrationByAuthor");
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Location = new System.Drawing.Point(314, 0);
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Name = "m_lblWarningSuboptimalNarratorsForNarrationByAuthor";
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Size = new System.Drawing.Size(218, 66);
