@@ -407,7 +407,6 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripLabelFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFilter, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFilter, "DialogBoxes.BlockNavigationControls.m_toolStripLabelFilter");
 			this.m_toolStripLabelFilter.Name = "m_toolStripLabelFilter";
 			this.m_toolStripLabelFilter.Size = new System.Drawing.Size(36, 24);
@@ -562,13 +561,13 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPrompt, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPrompt, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblPrompt, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPrompt, "DialogBoxes.QuotationMarksDlg.label2");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPrompt, "DialogBoxes.QuotationMarksDlg.PromptPlaceholder");
 			this.m_lblPrompt.Location = new System.Drawing.Point(3, 0);
 			this.m_lblPrompt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
 			this.m_lblPrompt.Name = "m_lblPrompt";
-			this.m_lblPrompt.Size = new System.Drawing.Size(40, 13);
+			this.m_lblPrompt.Size = new System.Drawing.Size(54, 13);
 			this.m_lblPrompt.TabIndex = 19;
-			this.m_lblPrompt.Text = "Prompt";
+			this.m_lblPrompt.Text = "#Prompt#";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblPrompt, true);
 			// 
 			// m_lblHorizontalSeparator1
@@ -912,7 +911,7 @@ namespace Glyssen.Dialogs
 			this.m_testResults.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_testResults, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_testResults, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_testResults, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_testResults, L10NSharp.LocalizationPriority.Medium);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_testResults, "DialogBoxes.QuotationMarksDlg.TestResults");
 			this.m_testResults.Location = new System.Drawing.Point(98, 8);
 			this.m_testResults.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);

@@ -963,7 +963,7 @@ namespace Glyssen.Dialogs
 			this.m_lblFewerOrMore.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFewerOrMore, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFewerOrMore, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFewerOrMore, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFewerOrMore, L10NSharp.LocalizationPriority.Medium);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFewerOrMore, "DialogBoxes.VoiceActorAssignmentDlg.FewerOrMore");
 			this.m_lblFewerOrMore.Location = new System.Drawing.Point(3, 0);
 			this.m_lblFewerOrMore.Name = "m_lblFewerOrMore";

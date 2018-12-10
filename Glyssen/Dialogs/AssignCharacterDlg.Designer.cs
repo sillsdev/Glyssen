@@ -724,7 +724,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripLabelFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFilter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFilter, L10NSharp.LocalizationPriority.Medium);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFilter, "DialogBoxes.BlockNavigationControls.m_toolStripLabelFilter");
 			this.m_toolStripLabelFilter.Name = "m_toolStripLabelFilter";
 			this.m_toolStripLabelFilter.Size = new System.Drawing.Size(36, 23);
