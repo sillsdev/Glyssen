@@ -975,10 +975,10 @@
         <seg>another (person in the courtyard)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.another disciple of John Baptist">
+    <tu tuid="CharacterName.another disciple of John the Baptist">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>another disciple of John Baptist</seg>
+        <seg>another disciple of John the Baptist</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.another holy one (in vision)">
@@ -2151,10 +2151,10 @@
         <seg>disciples in Ephesus, some</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.disciples of John Baptist, two (Andrew and another)">
+    <tu tuid="CharacterName.disciples of John the Baptist, two (Andrew and another)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>disciples of John Baptist, two (Andrew and another)</seg>
+        <seg>disciples of John the Baptist, two (Andrew and another)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.disciples of John the Baptist">
@@ -6141,10 +6141,10 @@
         <seg>officials (Shephatiah, Gedaliah, Jehucal, and Pashur)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.officials from chief priests">
+    <tu tuid="CharacterName.officials from chief priests and Pharisees">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>officials from chief priests</seg>
+        <seg>officials from chief priests and Pharisees</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.officials of Ben-Hadad, king of Aram">
@@ -6543,10 +6543,10 @@
         <seg>people, righteous</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.people, sick">
+    <tu tuid="CharacterName.people at Gennesaret (sick)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>people, sick</seg>
+        <seg>people at Gennesaret (sick)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people, some">
@@ -7359,6 +7359,12 @@
         <seg>Saul's uncle</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.saying (lie about disciples stealing Jesus' body)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>saying (lie about disciples stealing Jesus' body)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.saying (proverb)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -8019,10 +8025,10 @@
         <seg>sons of prophet in Bethel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.sons of Zebedee (James">
+    <tu tuid="CharacterName.sons of Zebedee (James and John)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>sons of Zebedee (James</seg>
+        <seg>sons of Zebedee (James and John)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.souls of those killed for word of God">
@@ -8427,10 +8433,16 @@
         <seg>voice (God?)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.voice (in trance)">
+    <tu tuid="CharacterName.voice (of God)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>voice (in trance)</seg>
+        <seg>voice (of God)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.voice (of Jesus)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>voice (of Jesus)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.voice behind you">
