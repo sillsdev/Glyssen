@@ -742,7 +742,7 @@ namespace Glyssen
 				{
 					string msg = ParserUpgradeMessage + " " + Format(
 							LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
-								"To make use of the new engine, the original release text bundle must be available, but it is not in the original location ({0})."),
+								"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
 							existingProject.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
 						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
@@ -1771,7 +1771,10 @@ namespace Glyssen
 								"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
 						var msg3 = Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
 							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
-							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
+							"so check the quote system and font settings carefully.",
+							"Param 0: \"Ignore\" button label; " +
+							"Param 1: \"Glyssen\" (product name)"),
+							MessageBoxStrings.IgnoreButton, GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
 						switch (
