@@ -255,7 +255,8 @@ namespace Glyssen.Dialogs
 				}
 
 				var bldr = new StringBuilder(String.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
-					"Export failed to write one or more files. Try closing any applications that have these files open, and then click {0}. Details:"),
+					"Export failed to write one or more files. Try closing any applications that have these files open, and then click {0}. Details:",
+					"Param is \"Retry\" button label."),
 					MessageBoxStrings.RetryButton));
 				foreach (var key in lockedFiles.Keys)
 				{
