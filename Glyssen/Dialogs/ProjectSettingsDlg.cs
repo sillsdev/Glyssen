@@ -85,7 +85,7 @@ namespace Glyssen.Dialogs
 			var project = m_model.Project;
 			if (IsHandleCreated && Visible && project.IsLiveParatextProject &&
 				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0 &&
-				project.WritingSystem.QuotationMarks.SequenceEqual(project.GetLiveParatextDataIfCompatible(false, "", false)?.QuotationMarks ?? new QuotationMark[] { }))
+				!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetLiveParatextDataIfCompatible(false, "", false)?.QuotationMarks ?? new QuotationMark[] { }))
 			{
 				string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
 						"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +

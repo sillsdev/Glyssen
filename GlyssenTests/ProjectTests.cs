@@ -365,7 +365,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_Level1Only_NoChange()
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers_Level1Only_NoChange()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -376,13 +376,13 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(project.WritingSystem.QuotationMarks);
 
 			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_2Levels_NoContinuer_NoChange()
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers_2Levels_NoContinuer_NoChange()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -394,13 +394,13 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(project.WritingSystem.QuotationMarks);
 
 			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_2Levels_Continuer_ModifiesLevel2Continuer()
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers_2Levels_Continuer_ModifiesLevel2Continuer()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -412,7 +412,7 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(project.WritingSystem.QuotationMarks);
 
 			var expected = new List<QuotationMark>
 			{
@@ -424,7 +424,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_3Levels_Continuer_ModifiesLevel2AndLevel3Continuers()
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers_3Levels_Continuer_ModifiesLevel2AndLevel3Continuers()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -437,7 +437,7 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(project.WritingSystem.QuotationMarks);
 
 			var expected = new List<QuotationMark>
 			{
@@ -450,7 +450,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_Level1NormalAndNarrative_NoChange()
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers_Level1NormalAndNarrative_NoChange()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -462,13 +462,14 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(project.WritingSystem.QuotationMarks);
 
 			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 
-		[Test]
-		public void ConvertContinuersToParatextAssumptions_3LevelsPlusNarrative_Continuer_ModifiesLevel2AndLevel3Continuers()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers_3LevelsPlusNarrative_Continuer_ModifiesLevel2AndLevel3Continuers(bool fromExternalList)
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -480,9 +481,16 @@ namespace GlyssenTests
 			};
 
 			project.WritingSystem.QuotationMarks.Clear();
-			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+			if (fromExternalList)
+			{
+				project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(quotationMarks);
+			}
+			else
+			{
+				project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+				project.SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(project.WritingSystem.QuotationMarks);
+			}
 
 			var expected = new List<QuotationMark>
 			{
