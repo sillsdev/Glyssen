@@ -117,7 +117,7 @@ Baruch	1	Male	Adult			JER 36:18	False
 Barzillai	1	Male	Adult		Gileadite		False
 Barzillai (old)	1	Male	Elder		Gileadite	2SA 19:34 <-(2 more)-> 2SA 19:37	False
 Bathsheba	1	Female	Adult			2SA 11:5 <-(11 more)-> 1KI 2:21	False
-beast, the	1		Adult			REV 13:14	False
+beast from out of the earth	1		Adult			REV 13:14	False
 believers who came with Peter	-1	Male	Adult			ACT 10:45	False
 believers who were Pharisees	-1	Male	Adult			ACT 15:5	False
 believers, circumcised (in Jerusalem)	-1	Male	Adult			ACT 11:3 & ACT 11:18	False

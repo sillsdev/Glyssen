@@ -51,7 +51,7 @@ namespace Glyssen.Controls
 			// colBundleName
 			// 
 			colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			colBundleName.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.OriginalBundleFilename!Original Bundle Filename";
+			colBundleName.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.Source!Source";
 			colBundleName.MinimumWidth = 50;
 			colBundleName.Name = "colBundleName";
 			colBundleName.ReadOnly = true;

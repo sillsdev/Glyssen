@@ -207,8 +207,9 @@ namespace Glyssen
 		/// Do not use this in Phase 2 (actor assignment); Instead, use CharacterIdInScript.
 		/// This setter does not update the CharacterIdInScript value. Therefore, it can be used for
 		/// deserialization, cloning (e.g., when applying user decisions), and setting character IDs that
-		/// are guaranteed not to represent multiple characters (e.g., Standard characters). In other contexts,
-		/// use the SetCharacterIdAndCharacterIdInScript method.
+		/// are guaranteed not to represent multiple characters (e.g., Standard characters) - but if setting
+		/// the id BACK to one of these, care must be taken to ensure that m_characterIdInScript is set back to
+		/// null. In other contexts, use the SetCharacterIdAndCharacterIdInScript method.
 		/// </summary>
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }
@@ -734,7 +735,15 @@ namespace Glyssen
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
-			CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
+			SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType));
+		}
+
+		// Convenience method for setting the character ID to a standard character or non-character. This ensures that
+		// fields are cleared that would be inappropriate for this kind of character.
+		public void SetNonDramaticCharacterId(string characterID)
+		{
+			CharacterId = characterID;
+			m_characterIdInScript = null;
 			Delivery = null;
 		}
 
@@ -753,9 +762,7 @@ namespace Glyssen
 			}
 			else if (characterList.Count == 0)
 			{
-				CharacterId = CharacterVerseData.kUnknownCharacter;
-				CharacterIdOverrideForScript = null;
-				Delivery = null;
+				SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
 				UserConfirmed = false;
 			}
 			else
@@ -781,9 +788,7 @@ namespace Glyssen
 					}
 					else
 					{
-						CharacterId = CharacterVerseData.kAmbiguousCharacter;
-						CharacterIdOverrideForScript = null;
-						Delivery = null;
+						SetNonDramaticCharacterId(CharacterVerseData.kAmbiguousCharacter);
 						UserConfirmed = false;
 					}
 				}
@@ -814,12 +819,15 @@ namespace Glyssen
 		{
 			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
 			{
-				CharacterId = characterId;
-				CharacterIdInScript = null;
+				SetNonDramaticCharacterId(characterId);
 				return;
 			}
 			if (CharacterId == characterId && CharacterIdOverrideForScript != null)
+			{
+				if (CharacterIsStandard)
+					m_characterIdInScript = null;
 				return;
+			}
 			CharacterId = characterId;
 			UseDefaultForMultipleChoiceCharacter(getMatchingCharacterForVerse);
 		}
@@ -837,6 +845,8 @@ namespace Glyssen
 				var cv = getMatchingCharacterForVerse();
 				CharacterIdInScript = (cv != null && !IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
 			}
+			else if (CharacterIsStandard)
+				m_characterIdInScript = null;
 		}
 
 		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
@@ -1137,7 +1147,7 @@ namespace Glyssen
 		{
 			if (!MatchesReferenceText)
 				throw new InvalidOperationException("ChangeReferenceText should not be called for a block that is not aligned to a reference text block.");
-			var refBook = referenceText.Books.FirstOrDefault(b => b.BookId == bookId);
+			var refBook = referenceText.GetBook(bookId);
 
 			if (refBook == null)
 				return true;
