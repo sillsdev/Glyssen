@@ -1,6 +1,6 @@
 Glyssen
 ====================
-Glyssen makes it easy to produce a high-quality dramatized audio recording of Scripture. It takes the drudgery out of the process by helping to identify all the direct speech in the text and quickly identifying the biblical character who speaks each part. The it walks you through the process of selecting a cast and assigning roles to the voice actors. Finally, it prepares a complete set of scripts to use in the recording process and helps to ensure that each part is recorded and prepared for post-production.
+Glyssen makes it easy to produce a high-quality dramatized audio recording of Scripture. It takes the drudgery out of the process by helping to identify all the direct speech in the text and quickly identifying the biblical character who speaks each part. Then it walks you through the process of selecting a cast and assigning roles to the voice actors. Finally, it prepares a complete set of scripts to use in the recording process and helps to ensure that each part is recorded and prepared for post-production.
 
 This is a joint project between [Faith Comes by Hearing](http://www.faithcomesbyhearing.com) and [SIL International](http://www.sil.org).
 
