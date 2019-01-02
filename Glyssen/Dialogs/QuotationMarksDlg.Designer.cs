@@ -919,7 +919,7 @@ namespace Glyssen.Dialogs
 			this.m_testResults.Name = "m_testResults";
 			this.m_testResults.Size = new System.Drawing.Size(171, 13);
 			this.m_testResults.TabIndex = 33;
-			this.m_testResults.Text = "0% of expected quotes were found";
+			this.m_testResults.Text = "{0:F1}% of expected quotes were found.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_testResults, true);
 			this.m_testResults.Visible = false;
 			// 

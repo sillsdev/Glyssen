@@ -510,7 +510,7 @@ Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22	False
 Jews, many	-1					JHN 10:20	False
 Jews, more than forty in conspiracy	-1	Male				ACT 23:14 & ACT 23:15	False
 Jews, other	-1					JHN 10:21	False
-Jews, the	-1	Male				EZR 5:4 <-(39 more)-> ROM 3:5	False
+Jews, the	-1	Male				EZR 5:4 <-(40 more)-> ROM 3:5	False
 Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31	False
 Joab	1	Male				2SA 2:14 <-(34 more)-> 1CH 21:3	False
 Joab's men, one of	1	Male				2SA 20:11	False
@@ -954,7 +954,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13	False
 scoffers	-1	PreferMale				2PE 3:4	True
 scoundrels	-1	Male				1KI 21:13	False
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17	False
-scripture	-1					2CH 25:4 <-(224 more)-> REV 19:15	False
+scripture	-1					2CH 25:4 <-(226 more)-> REV 19:15	False
 sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False

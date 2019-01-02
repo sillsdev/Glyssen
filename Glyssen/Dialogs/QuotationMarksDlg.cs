@@ -29,6 +29,7 @@ namespace Glyssen.Dialogs
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
 		private readonly ProjectSettingsDlg m_parentDlg;
 		private string m_xOfYFmt;
+		private string m_testResultsFmt;
 		private object m_versesWithMissingExpectedQuotesFilterItem;
 		private object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
@@ -80,8 +81,6 @@ namespace Glyssen.Dialogs
 
 			if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 				UpdateTestParse(false);
-			else
-				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
 
 			if (readOnly)
 				MakeReadOnly();
@@ -109,6 +108,11 @@ namespace Glyssen.Dialogs
 			SetPromptText();
 			SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
 			m_xOfYFmt = m_labelXofY.Text;
+			if (m_labelXofY.Visible)
+				UpdateRelativeNavigationPositionDisplay();
+			m_testResultsFmt = m_testResults.Text;
+			if (m_project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
+				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
 
 			Text = string.Format(Text, m_project.Name);
 		}
@@ -563,9 +567,7 @@ namespace Glyssen.Dialogs
 
 		private void ShowTestResults(double percentageOfExpected, bool changeFilter)
 		{
-			m_testResults.Text = string.Format(
-				LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.TestResults", "{0:F1}% of expected quotes were found."),
-				percentageOfExpected);
+			m_testResults.Text = string.Format(m_testResultsFmt, percentageOfExpected);
 
 			var showWarning = (100 - percentageOfExpected) > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
 			m_testResults.ForeColor = glyssenColorPalette.GetColor(showWarning ? GlyssenColors.Warning : GlyssenColors.ForeColor);
@@ -726,9 +728,14 @@ namespace Glyssen.Dialogs
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentBlockDisplayIndex);
-			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
+			UpdateRelativeNavigationPositionDisplay();
 
 			m_navigatorViewModel.GetBlockVerseRef().SendScrReference();
+		}
+
+		private void UpdateRelativeNavigationPositionDisplay()
+		{
+			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
 		}
 
 		private void UpdateNavigationButtonState()
