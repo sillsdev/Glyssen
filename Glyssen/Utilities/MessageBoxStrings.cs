@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 #if !MONO
 using System.Runtime.InteropServices;
 using System.Text;
@@ -35,9 +36,18 @@ namespace Glyssen.Utilities
 		{
 #if !MONO // TODO: If we ever come up with a Mono version of Glyssen, need to figure out the right way to get the MessageBox button labels.
 			StringBuilder sb = new StringBuilder(256);
-			IntPtr user32 = LoadLibrary(Environment.SystemDirectory + "\\User32.dll");
 
-			LoadString(user32, button, sb, sb.Capacity);
+			try
+			{
+				IntPtr user32 = LoadLibrary(Environment.SystemDirectory + "\\User32.dll");
+				LoadString(user32, button, sb, sb.Capacity);
+			}
+			catch (Exception e)
+			{
+				Debug.Fail(e.Message);
+				// In production, if the call to load the DLL or get the button's label fail,
+				// we'll just take the hard-coded (English) versions from the switch below.
+			}
 			if (sb.Length > 0 && sb[0] == '&')
 				sb.Remove(0, 1);
 			if (sb.Length > 0)
