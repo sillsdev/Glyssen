@@ -2261,24 +2261,6 @@
         <seg>Itai</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jabesh, elders of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, elders of</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>los ancianos de Jabés</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jabesh, men of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, men of</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>los hombres de Jabés</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jabez">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3854,15 +3836,6 @@
         <seg>tío de Saúl</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Sennacherib, king of Assyria">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Sennacherib, king of Assyria</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Senaquerib, rey de Asiria</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Shaphan, secretary">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5141,6 +5114,15 @@
         <seg>ancianos de Israel</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.elders of Jabesh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>elders of Jabesh</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>los ancianos de Jabés</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.elders of people">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5463,6 +5445,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>rey</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.king of Assyria">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>king of Assyria</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>rey de Asiria</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.king of Babylon">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>king of Babylon</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>rey de Babilonia</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.king of Bela">
@@ -5814,15 +5814,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>pueblo arrogante y malvado</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, many (at Gennesaret)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, many (at Gennesaret)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo, many (at Gennesaret)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people, other">
@@ -6372,15 +6363,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>otro hombre</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.sons of Zebedee (James and John)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>sons of Zebedee (James and John)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>hijos de Zebedeo (Santiago y de Juan)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.spies (from the teachers of the law and chief priests)">
@@ -11919,6 +11901,33 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>De derecha a izquierda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (Lord God Almighty)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús ***(Lord*** ***God*** todopoderoso)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>sacerdote</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rabshakeh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rabshakeh</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Laquis</seg>
       </tuv>
     </tu>
   </body>
