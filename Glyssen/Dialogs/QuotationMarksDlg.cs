@@ -78,13 +78,18 @@ namespace Glyssen.Dialogs
 
 			SetFilterControlsFromMode();
 
+			if (m_project.IsLiveParatextProject && readOnly)
+			{
+				var wrapper = m_project.GetLiveParatextDataIfCompatible(false, checkForChangesInAvailableBooks: false);
+				m_linkOverride.Visible = wrapper == null || !wrapper.UserCanEditProject;
+			}
+
 			if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 				UpdateTestParse(false);
 			else
 				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
 
-			if (readOnly)
-				MakeReadOnly();
+			ReadOnly = readOnly;
 		}
 
 		private void HandleCurrentBlockChanged(object sender, EventArgs eventArgs)
@@ -124,7 +129,7 @@ namespace Glyssen.Dialogs
 					else if (m_project.IsLiveParatextProject)
 					{
 						promptText = String.Format(LocalizationManager.GetString("Project.CannotChangeParextProjectQuoteSystem",
-								"The Quote Mark Settings cannot be modified directly for a {0} project based on a live {1} project. " +
+								"The Quote Mark Settings should not be modified directly for a {0} project based on a live {1} project. " +
 								"If you need to make changes, do the following:\r\n" +
 								"1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\r\n" +
 								"2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\r\n" +
@@ -253,14 +258,17 @@ namespace Glyssen.Dialogs
 			return text == QuoteUtils.None ? null : text;
 		}
 
-		private void MakeReadOnly()
+		private bool ReadOnly
 		{
-			m_pnlLevels.Enabled = false;
-			m_pnlDialogueQuotes.Enabled = false;
-			m_chkPairedQuotations.Enabled = false;
-			m_btnOk.Enabled = false;
-			m_btnTest.Visible = false;
-			m_testResults.Visible = false;
+			set
+			{
+				m_pnlLevels.Enabled = !value;
+				m_pnlDialogueQuotes.Enabled = !value;
+				m_chkPairedQuotations.Enabled = !value;
+				m_btnOk.Enabled = !value;
+				m_btnTest.Visible = !value;
+				m_testResults.Visible = !value;
+			}
 		}
 
 		private string SameAsStartDashText
@@ -838,6 +846,11 @@ namespace Glyssen.Dialogs
 		private void HandleSettingChange(object sender, EventArgs e)
 		{
 			m_testResults.Visible = false;
+		}
+
+		private void m_linkOverride_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			ReadOnly = false;
 		}
 	}
 }

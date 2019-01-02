@@ -459,7 +459,7 @@ namespace Glyssen
 			}
 
 			var optionalObserverInfo = paratextProject.UserCanEditProject ? Empty :
-				Format(LocalizationManager.GetString("Project.ObserverOnly", "(You seem to be merely an observer on this {0} project.)",
+				Format(LocalizationManager.GetString("Project.NonEditingRole", "(You do not seem to have editing privileges for this {0} project.)",
 					"Param: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName) +
 				Environment.NewLine;
 

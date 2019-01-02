@@ -49,7 +49,7 @@ namespace Glyssen.Paratext
 		public string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
 			m_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
-		public bool UserCanEditProject => UnderlyingScrText.Permissions.HaveRoleNotObserver;
+		public bool UserCanEditProject => UnderlyingScrText.Permissions.AmAdministratorOrTeamMember;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
 		public IEnumerable<QuotationMark> QuotationMarks
 		{
