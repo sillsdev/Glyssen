@@ -447,7 +447,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_scriptureReference, "");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_scriptureReference, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_scriptureReference, L10NSharp.LocalizationPriority.Low);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_scriptureReference, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_scriptureReference, "DialogBoxes.BlockNavigationControls.VerseControl");
 			this.m_scriptureReference.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
 			this.m_scriptureReference.Name = "m_scriptureReference";
@@ -911,7 +911,6 @@ namespace Glyssen.Dialogs
 			this.m_testResults.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_testResults, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_testResults, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_testResults, L10NSharp.LocalizationPriority.Medium);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_testResults, "DialogBoxes.QuotationMarksDlg.TestResults");
 			this.m_testResults.Location = new System.Drawing.Point(98, 8);
 			this.m_testResults.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
