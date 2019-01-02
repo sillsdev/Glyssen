@@ -6,6 +6,7 @@ using Glyssen.Shared.Bundle;
 using L10NSharp;
 using Paratext.Data;
 using Paratext.Data.Checking;
+using Paratext.Data.ProjectSettingsAccess;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -50,7 +51,27 @@ namespace Glyssen.Paratext
 		private string ProjectId => UnderlyingScrText.Name;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.HaveRoleNotObserver;
 		public bool HasBooksWithoutProblems => m_bookInfo.HasBooksWithoutProblems;
-		public IEnumerable<QuotationMark> QuotationMarks => WritingSystem?.QuotationMarks;
+		public IEnumerable<QuotationMark> QuotationMarks
+		{
+			get
+			{
+				var qmInfo = new QuotationMarkInfo(UnderlyingScrText.Settings, false);
+				if (qmInfo.Quotes.IsSet)
+				{
+					yield return new QuotationMark(qmInfo.Quotes.Begin, qmInfo.Quotes.End, qmInfo.Continuer.Continuer, 1, QuotationMarkingSystemType.Normal);
+					if (qmInfo.InnerQuotes.IsSet)
+					{
+						yield return new QuotationMark(qmInfo.InnerQuotes.Begin, qmInfo.InnerQuotes.End, qmInfo.InnerContinuer.Continuer, 2, QuotationMarkingSystemType.Normal);
+						if (qmInfo.InnerInnerQuotes.IsSet)
+							yield return new QuotationMark(qmInfo.InnerInnerQuotes.Begin, qmInfo.InnerInnerQuotes.End, qmInfo.InnerInnerContinuer.Continuer, 3, QuotationMarkingSystemType.Normal);
+					}
+				}
+				if (qmInfo.LevelHasAlternate(1))
+				{
+					yield return new QuotationMark(qmInfo.Quotes.AltBegin, qmInfo.Quotes.AltEnd, qmInfo.Continuer.AltContinuer, 1, QuotationMarkingSystemType.Narrative);
+				}
+			}
+		}
 		public bool HasQuotationRulesSet => QuotationMarks?.Any() ?? false;
 
 		public ParatextScrTextWrapper(ScrText underlyingText, bool ignoreQuotationProblemsIfRulesAreNotSet = false)

@@ -116,7 +116,7 @@ namespace Glyssen
 				bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				ConvertContinuersToParatextAssumptions();
+				SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(bundle.WritingSystemDefinition.QuotationMarks);
 			}
 
 			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
@@ -144,10 +144,10 @@ namespace Glyssen
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
-			if (WritingSystem.QuotationMarks != null && WritingSystem.QuotationMarks.Any())
+			if (paratextProject.HasQuotationRulesSet)
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				ConvertContinuersToParatextAssumptions();
+				SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(paratextProject.QuotationMarks);
 			}
 
 			ParseAndSetBooks(paratextProject.GetUsxDocumentsForIncludedParatextBooks(), paratextProject.Stylesheet);
@@ -2233,13 +2233,13 @@ namespace Glyssen
 			return grp ?? CharacterGroupList.GroupContainingCharacterId(id);
 		}
 
-		public void ConvertContinuersToParatextAssumptions()
+		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(IEnumerable<QuotationMark> quotationMarks)
 		{
-			if (m_wsDefinition == null || m_wsDefinition.QuotationMarks == null)
+			if (quotationMarks == null)
 				return;
 
 			List<QuotationMark> replacementQuotationMarks = new List<QuotationMark>();
-			foreach (var level in m_wsDefinition.QuotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
+			foreach (var level in quotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
 			{
 				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
 				{
