@@ -56,6 +56,7 @@
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -74,6 +75,7 @@
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -89,11 +91,11 @@
 			// 
 			// m_lblInstructions
 			// 
-			this.m_lblInstructions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblInstructions.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.SetColumnSpan(this.m_lblInstructions, 2);
 			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblInstructions.ForeColor = System.Drawing.Color.White;
+			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.NewCharacterDlg.Instructions");
@@ -104,6 +106,7 @@
 			this.m_lblInstructions.TabIndex = 17;
 			this.m_lblInstructions.Text = "You are creating a new character named {0}. Please provide attributes for this ch" +
     "aracter.";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions, true);
 			// 
 			// m_cmbGender
 			// 
@@ -114,7 +117,8 @@
 			this.m_cmbGender.FormattingEnabled = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cmbGender, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cmbGender, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_cmbGender, "DialogBoxes.NewCharacterDlg.comboBox1");
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_cmbGender, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_cmbGender, "DialogBoxes.NewCharacterDlg.NewCharacterDlg.m_cmbGender");
 			this.m_cmbGender.Location = new System.Drawing.Point(51, 38);
 			this.m_cmbGender.Name = "m_cmbGender";
 			this.m_cmbGender.Size = new System.Drawing.Size(171, 21);
@@ -130,7 +134,8 @@
 			this.m_cmbAge.FormattingEnabled = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cmbAge, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cmbAge, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_cmbAge, "DialogBoxes.NewCharacterDlg.comboBox1");
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_cmbAge, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_cmbAge, "DialogBoxes.NewCharacterDlg.NewCharacterDlg.m_cmbAge");
 			this.m_cmbAge.Location = new System.Drawing.Point(51, 65);
 			this.m_cmbAge.Name = "m_cmbAge";
 			this.m_cmbAge.Size = new System.Drawing.Size(171, 21);
@@ -141,10 +146,10 @@
 			// 
 			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.label1.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.label1, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.label1, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.NewCharacterDlg.Gender");
@@ -153,15 +158,16 @@
 			this.label1.Size = new System.Drawing.Size(42, 13);
 			this.label1.TabIndex = 20;
 			this.label1.Text = "Gender";
+			this.glyssenColorPalette.SetUsePaletteColors(this.label1, true);
 			// 
 			// label2
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label2.AutoSize = true;
-			this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.label2.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.label2, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.NewCharacterDlg.Age");
@@ -170,6 +176,7 @@
 			this.label2.Size = new System.Drawing.Size(26, 13);
 			this.label2.TabIndex = 21;
 			this.label2.Text = "Age";
+			this.glyssenColorPalette.SetUsePaletteColors(this.label2, true);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -233,6 +240,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Add New Character";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

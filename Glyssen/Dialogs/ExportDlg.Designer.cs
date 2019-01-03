@@ -194,7 +194,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFileName, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileName, "DialogBoxes.ExportDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileName, "DialogBoxes.ExportDlg.m_lblFileName");
 			this.m_lblFileName.Location = new System.Drawing.Point(28, 63);
 			this.m_lblFileName.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblFileName.Name = "m_lblFileName";
@@ -391,7 +391,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_lblDescription2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblDescription2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDescription2, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription2, "\"them\" refers to recording scripts saved as spreadsheet files.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDescription2, "DialogBoxes.ExportDlg.Description2");
 			this.m_lblDescription2.Location = new System.Drawing.Point(3, 13);
 			this.m_lblDescription2.Name = "m_lblDescription2";

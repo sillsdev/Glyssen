@@ -165,7 +165,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.label1, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.CastSizePlanningDlg.label1");
 			this.label1.Location = new System.Drawing.Point(1, 0);
 			this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 0, 3);
 			this.label1.Name = "label1";
@@ -317,7 +317,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, "Refers to a number (0 or more) of Male voice actors");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.CastSizePlanningDlg.Male");
 			this.label2.Location = new System.Drawing.Point(3, 6);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
@@ -337,7 +337,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label3, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label3, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, "Refers to a number (0 or more) of Female voice actors");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.CastSizePlanningDlg.Female");
 			this.label3.Location = new System.Drawing.Point(83, 6);
 			this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
@@ -355,7 +355,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_maleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_maleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_maleNarrators, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_maleNarrators, "DialogBoxes.numericUpDown1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_maleNarrators, "DialogBoxes.CastSizePlanningDlg.maleNarrators");
 			this.m_maleNarrators.Location = new System.Drawing.Point(12, 25);
 			this.m_maleNarrators.Margin = new System.Windows.Forms.Padding(12, 3, 12, 3);
 			this.m_maleNarrators.Name = "m_maleNarrators";
@@ -372,7 +372,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_femaleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_femaleNarrators, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_femaleNarrators, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_femaleNarrators, "DialogBoxes.numericUpDown1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_femaleNarrators, "DialogBoxes.CastSizePlanningDlg.femaleNarrators");
 			this.m_femaleNarrators.Location = new System.Drawing.Point(92, 25);
 			this.m_femaleNarrators.Margin = new System.Windows.Forms.Padding(12, 3, 12, 3);
 			this.m_femaleNarrators.Name = "m_femaleNarrators";
@@ -415,7 +415,7 @@ namespace Glyssen.Dialogs
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(250, 13);
 			this.label4.TabIndex = 23;
-			this.label4.Text = "What size of voice actor cast should be planed for?";
+			this.label4.Text = "What size of voice actor cast should be planned for?";
 			this.glyssenColorPalette.SetUsePaletteColors(this.label4, true);
 			// 
 			// label5
@@ -497,7 +497,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_castSizePlanningOptions, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_castSizePlanningOptions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_castSizePlanningOptions, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_castSizePlanningOptions, "DialogBoxes.CastSizePlanningOptions");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_castSizePlanningOptions, "DialogBoxes.CastSizePlanningDlg.CastSizePlanningOptions");
 			this.m_castSizePlanningOptions.Location = new System.Drawing.Point(0, 0);
 			this.m_castSizePlanningOptions.Margin = new System.Windows.Forms.Padding(0);
 			this.m_castSizePlanningOptions.Name = "m_castSizePlanningOptions";
@@ -517,14 +517,15 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_lblWhenYouClick, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblWhenYouClick.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWhenYouClick, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWhenYouClick, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWhenYouClick, "Param 0: Label on the \"G" +
+	"enerate Groups\" button; Param 1: \"Glyssen\" (product name)");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWhenYouClick, "DialogBoxes.CastSizePlanningDlg.WhenYouClick");
 			this.m_lblWhenYouClick.Location = new System.Drawing.Point(3, 6);
 			this.m_lblWhenYouClick.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_lblWhenYouClick.Name = "m_lblWhenYouClick";
 			this.m_lblWhenYouClick.Size = new System.Drawing.Size(519, 26);
 			this.m_lblWhenYouClick.TabIndex = 25;
-			this.m_lblWhenYouClick.Text = "When you click \'Generate Groups\', Glyssen will form groups of character roles for" +
+			this.m_lblWhenYouClick.Text = "When you click \"{0}\", {1} will form groups of character roles for" +
     " the number of voice actors selected above.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblWhenYouClick, true);
 			// 
@@ -597,7 +598,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_imgNarratorWarning, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_imgNarratorWarning, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_imgNarratorWarning, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_imgNarratorWarning, "DialogBoxes.pictureBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_imgNarratorWarning, "DialogBoxes.CastSizePlanningDlg.imgNarratorWarning");
 			this.m_imgNarratorWarning.Location = new System.Drawing.Point(0, 0);
 			this.m_imgNarratorWarning.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.m_imgNarratorWarning.Name = "m_imgNarratorWarning";
@@ -618,7 +619,7 @@ namespace Glyssen.Dialogs
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.ForeColor = System.Drawing.Color.Red;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, "DialogBoxes.label7");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, "DialogBoxes.CastSizePlanningDlg.WarningSuboptimalNarratorsForNarrationByAuthor");
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Location = new System.Drawing.Point(314, 0);
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Name = "m_lblWarningSuboptimalNarratorsForNarrationByAuthor";
 			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Size = new System.Drawing.Size(218, 66);

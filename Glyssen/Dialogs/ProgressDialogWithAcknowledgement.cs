@@ -37,6 +37,7 @@ namespace Glyssen.Dialogs
 		private LinkLabel m_cancelLink;
 		private bool m_appUsingWaitCursor;
 		private Utilities.GlyssenColorPalette m_glyssenColorPalette;
+		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private bool m_replaceCancelButtonWithLink;
 
 		/// <summary>
@@ -285,6 +286,12 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		public string CancelLinkText
+		{
+			get => m_cancelLink.Text;
+			set => m_cancelLink.Text = value;
+		}
+
 		public string ProgressLabelTextWhenComplete { get; set; }
 
 		public string OkButtonText { get; set; }
@@ -408,9 +415,11 @@ namespace Glyssen.Dialogs
 			this.m_cancelButton = new System.Windows.Forms.Button();
 			this.m_cancelLink = new System.Windows.Forms.LinkLabel();
 			this.m_glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_tableLayout.SuspendLayout();
 			this.m_buttonPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_glyssenColorPalette)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_statusLabel
@@ -422,8 +431,12 @@ namespace Glyssen.Dialogs
 			this.m_glyssenColorPalette.SetBackColor(this.m_statusLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_statusLabel, 2);
 			this.m_statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_statusLabel.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_glyssenColorPalette.SetForeColor(this.m_statusLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_statusLabel.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_statusLabel, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_statusLabel, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_statusLabel, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_statusLabel, "ProgressDialogWithAcknowledgement.m_statusLabel");
 			this.m_statusLabel.Location = new System.Drawing.Point(0, 35);
 			this.m_statusLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
 			this.m_statusLabel.Name = "m_statusLabel";
@@ -455,9 +468,14 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_progressLabel.AutoEllipsis = true;
 			this.m_progressLabel.AutoSize = true;
+			this.m_progressLabel.BackColor = System.Drawing.SystemColors.Control;
 			this.m_glyssenColorPalette.SetBackColor(this.m_progressLabel, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_progressLabel.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_glyssenColorPalette.SetForeColor(this.m_progressLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_progressLabel.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_progressLabel, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_progressLabel, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_progressLabel, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_progressLabel, "ProgressDialogWithAcknowledgement.m_progressLabel");
 			this.m_progressLabel.Location = new System.Drawing.Point(0, 90);
 			this.m_progressLabel.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.m_progressLabel.Name = "m_progressLabel";
@@ -483,11 +501,16 @@ namespace Glyssen.Dialogs
 			this.m_overviewLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_overviewLabel.AutoSize = true;
+			this.m_overviewLabel.BackColor = System.Drawing.SystemColors.Control;
 			this.m_glyssenColorPalette.SetBackColor(this.m_overviewLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_overviewLabel, 2);
 			this.m_overviewLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_overviewLabel.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_glyssenColorPalette.SetForeColor(this.m_overviewLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_overviewLabel.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_overviewLabel, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_overviewLabel, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_overviewLabel, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_overviewLabel, "ProgressDialogWithAcknowledgement.m_overviewLabel");
 			this.m_overviewLabel.Location = new System.Drawing.Point(0, 0);
 			this.m_overviewLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
 			this.m_overviewLabel.Name = "m_overviewLabel";
@@ -556,6 +579,9 @@ namespace Glyssen.Dialogs
 			this.m_okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_glyssenColorPalette.SetForeColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_okButton, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_okButton, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_okButton, "Common.OK");
 			this.m_okButton.Location = new System.Drawing.Point(8, 0);
 			this.m_okButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
 			this.m_okButton.Name = "m_okButton";
@@ -573,12 +599,15 @@ namespace Glyssen.Dialogs
 			this.m_cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_glyssenColorPalette.SetForeColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_cancelButton, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_cancelButton, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_cancelButton, "Common.Cancel");
 			this.m_cancelButton.Location = new System.Drawing.Point(66, 0);
 			this.m_cancelButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
 			this.m_cancelButton.Name = "m_cancelButton";
 			this.m_cancelButton.Size = new System.Drawing.Size(58, 23);
 			this.m_cancelButton.TabIndex = 10;
-			this.m_cancelButton.Text = "&Cancel";
+			this.m_cancelButton.Text = "Cancel";
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_cancelButton, false);
 			this.m_cancelButton.Click += new System.EventHandler(this.OnCancelButton_Click);
 			// 
@@ -602,12 +631,17 @@ namespace Glyssen.Dialogs
 			this.m_cancelLink.Size = new System.Drawing.Size(209, 18);
 			this.m_cancelLink.TabIndex = 15;
 			this.m_cancelLink.TabStop = true;
-			this.m_cancelLink.Text = "No! Let me group character roles manually.";
+			this.m_cancelLink.Text = "#";
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_cancelLink, true);
 			this.m_cancelLink.Visible = false;
 			this.m_cancelLink.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_glyssenColorPalette.SetVisitedLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_cancelLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnCancelLink_LinkClicked);
+			// 
+			// l10NSharpExtender1
+			//
+			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
+			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes";
 			// 
 			// ProgressDialogWithAcknowledgement
 			// 
@@ -621,6 +655,10 @@ namespace Glyssen.Dialogs
 			this.m_glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this, "ProgressDialogWithAcknowledgement.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "ProgressDialogWithAcknowledgement";
@@ -635,6 +673,7 @@ namespace Glyssen.Dialogs
 			this.m_buttonPanel.ResumeLayout(false);
 			this.m_buttonPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_glyssenColorPalette)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

@@ -75,7 +75,7 @@ angels in white, two	2	Male	Adult			MAT 28:5 <-(7 more)-> JHN 20:13	False
 angels, all the	-1		Adult			REV 7:12	False
 angels, many	-1		Adult			REV 5:12	False
 Anna, prophetess	1	Female	Elder			LUK 2:38	False
-another disciple of John Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)		False
+another disciple of John the Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)		False
 another holy one (in vision)	1		Adult			DAN 8:13	False
 answer from Israel	1		Adult			ISA 14:32	True
 anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11	True
@@ -510,7 +510,7 @@ Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22	False
 Jews, many	-1					JHN 10:20	False
 Jews, more than forty in conspiracy	-1	Male				ACT 23:14 & ACT 23:15	False
 Jews, other	-1					JHN 10:21	False
-Jews, the	-1	Male				EZR 5:4 <-(39 more)-> ROM 3:5	False
+Jews, the	-1	Male				EZR 5:4 <-(40 more)-> ROM 3:5	False
 Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31	False
 Joab	1	Male				2SA 2:14 <-(34 more)-> 1CH 21:3	False
 Joab's men, one of	1	Male				2SA 20:11	False
@@ -751,7 +751,7 @@ officers of magistrates	-1	Male				ACT 16:35	False
 officers of temple guard	-1	Male					False
 official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52	False
 officials	-1	Male					False
-officials from chief priests	-1	Male					False
+officials from chief priests and Pharisees	-1	Male					False
 officials of Ben-Hadad, king of Aram	-1	Male				1KI 20:23 <-(4 more)-> 1KI 20:33	False
 officials of David	-1	Male				2SA 15:15	False
 officials of high priest, one of the	1	Male				JHN 18:22	False
@@ -935,6 +935,7 @@ Saul's attendants	-1	Male				1SA 16:15 <-(1 more)-> 1SA 28:7	False
 Saul's messengers to Jesse	-1	Male				1SA 16:19 & 1SA 16:22	False
 Saul's servant	1	Male				1SA 16:18 & 1SA 18:24	False
 Saul's uncle	1	Male				1SA 10:14 & 1SA 10:15	False
+saying (lie about disciples stealing Jesus' body)	1	Male				MAT 28:15	False
 saying (proverb)	1					GEN 22:14	False
 saying about Anakites	1					DEU 9:2	False
 saying about blind and lame	1					2SA 5:8	False
@@ -953,7 +954,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13	False
 scoffers	-1	PreferMale				2PE 3:4	True
 scoundrels	-1	Male				1KI 21:13	False
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17	False
-scripture	-1					2CH 25:4 <-(224 more)-> REV 19:15	False
+scripture	-1					2CH 25:4 <-(226 more)-> REV 19:15	False
 sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False

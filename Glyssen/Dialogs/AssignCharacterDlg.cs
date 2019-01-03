@@ -63,7 +63,7 @@ namespace Glyssen.Dialogs
 				Debug.Assert(m_filterItemsForRainbowModeOnly != null);
 				m_toolStripComboBoxFilter.Items.AddRange(m_filterItemsForRainbowModeOnly);
 			}
-			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
+			LocalizeFilterItems();
 			UpdateFilterItems();
 
 			m_defaultBlocksViewerText = m_blocksViewer.Text;
@@ -78,12 +78,18 @@ namespace Glyssen.Dialogs
 			m_CharacterOrDeliveryContextMenuItemMoveDown.ToolTipText = m_RefTextContextMenuItemMoveDown.ToolTipText;
 		}
 
+		private void LocalizeFilterItems()
+		{
+			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
+		}
+
 		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
 		{
 			InitializeComponent();
 
 			const int numberOfFilterItemsForRainbowModeOnly = 1;
 			m_indexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
+			LocalizeFilterItems();
 			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
 			for (int i = 0; i < numberOfFilterItemsForRainbowModeOnly; i++)
 				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_indexOfFirstFilterItemRemoved];
@@ -218,7 +224,8 @@ namespace Glyssen.Dialogs
 				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 				m_progressBar.Value = m_viewModel.CompletedBlockCount;
 				m_progressBar.UnitName = m_viewModel.DoingAlignmentTask ?
-					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages") : null;
+					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages",
+						"Parameter #2 in DialogBoxes.AssignCharacterDlg.AssignmentProgressFmt") : null;
 				m_progressBar.Invalidate();
 				if (m_viewModel.IsCurrentTaskComplete)
 				{

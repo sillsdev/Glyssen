@@ -49,13 +49,12 @@
 			// lblExistingProject
 			// 
 			this.lblExistingProject.AutoSize = true;
-			this.lblExistingProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.lblExistingProject.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.lblExistingProject, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.lblExistingProject, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
+			this.lblExistingProject.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.lblExistingProject, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.SelectExistingProjectDlg.lblExistingProject");
 			this.lblExistingProject.Location = new System.Drawing.Point(0, 0);
 			this.lblExistingProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -64,6 +63,7 @@
 			this.lblExistingProject.TabIndex = 0;
 			this.lblExistingProject.Text = "The selected bundle is already associated with the following projects. To open an" +
     " existing project, select it and click OK.";
+			this.glyssenColorPalette.SetUsePaletteColors(this.lblExistingProject, true);
 			// 
 			// m_btnOk
 			// 
@@ -71,6 +71,7 @@
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_btnOk.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -89,35 +90,35 @@
 			this.m_listExistingProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_listExistingProjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_listExistingProjects.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_listExistingProjects, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_listExistingProjects.ForeColor = System.Drawing.Color.White;
+			this.m_listExistingProjects.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_listExistingProjects, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_listExistingProjects.IncludeHiddenProjects = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_listExistingProjects, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_listExistingProjects, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.SelectExistingProjectDlg.ExistingProjectsList");
 			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 33);
 			this.m_listExistingProjects.Name = "m_listExistingProjects";
 			this.m_listExistingProjects.Size = new System.Drawing.Size(466, 132);
 			this.m_listExistingProjects.TabIndex = 5;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_listExistingProjects, true);
 			this.m_listExistingProjects.SelectedProjectChanged += new System.EventHandler(this.HandleSelectedProjectChanged);
 			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.m_listExistingProjects_DoubleClick);
 			// 
 			// m_linkCreateNewProject
 			// 
-			this.m_linkCreateNewProject.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_linkCreateNewProject.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkCreateNewProject, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_linkCreateNewProject.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkCreateNewProject, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_linkCreateNewProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_linkCreateNewProject.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkCreateNewProject, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkCreateNewProject.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_linkCreateNewProject.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkCreateNewProject, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_linkCreateNewProject.ForeColor = System.Drawing.Color.White;
-			this.m_linkCreateNewProject.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.glyssenColorPalette.SetLinkColor(this.m_linkCreateNewProject, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkCreateNewProject.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkCreateNewProject, "DialogBoxes.SelectExistingProjectDlg.CreateNew");
@@ -127,8 +128,9 @@
 			this.m_linkCreateNewProject.TabIndex = 6;
 			this.m_linkCreateNewProject.TabStop = true;
 			this.m_linkCreateNewProject.Text = "Create a new recording project for this bundle";
-			this.m_linkCreateNewProject.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkCreateNewProject, true);
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkCreateNewProject, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_linkCreateNewProject.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkCreateNewProject.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkCreateNewProject_LinkClicked);
 			// 
 			// m_tableLayoutPanelMain
@@ -169,8 +171,7 @@
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "SelectExistingProjectDlg.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.SelectExistingProjectDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(518, 296);
@@ -180,6 +181,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Select Existing Project";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutPanelMain.ResumeLayout(false);
 			this.m_tableLayoutPanelMain.PerformLayout();
