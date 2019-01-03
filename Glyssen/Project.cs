@@ -742,10 +742,10 @@ namespace Glyssen
 				{
 					string msg = ParserUpgradeMessage + " " + Format(
 							LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
-								"To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
+								"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
 							existingProject.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
-						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
+						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
 						upgradeProject = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
@@ -822,7 +822,9 @@ namespace Glyssen
 									"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name)"),
 								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
 
-						string caption = LocalizationManager.GetString("Project.ParatextProjectUnavailable", "Paratext project Unavailable");
+						string caption = Format(LocalizationManager.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
+							"Param is \"Paratext\" (product name)"),
+							ParatextScrTextWrapper.kParatextProgramName);
 						if (DialogResult.Retry == MessageBox.Show(msg, caption, MessageBoxButtons.RetryCancel))
 							continue;
 					}
@@ -1754,22 +1756,25 @@ namespace Glyssen
 					}
 					catch (XmlException e)
 					{
-						var msg1 = String.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+						var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
 								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
 								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
 							Name, LdmlFilePath, e.Message);
-						var msg2 = attemptToUseBackup
+						var msg2 = Format(attemptToUseBackup
 							? LocalizationManager.GetString("Project.UseBackupLdmlFile",
-								"To use the automatically created backup (which might be out-of-date), click Retry.",
+								"To use the automatically created backup (which might be out-of-date), click {0}.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file exists.")
+								"created backup file exists. Param is \"Retry\" button label.")
 							: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
-								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.",
+								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click {0}.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file does not exist.");
-						var msg3 = String.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
-							"Otherwise, click Ignore and {0} will repair the file for you. Some information might not be recoverable, " +
-							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
+								"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
+						var msg3 = Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
+							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
+							"so check the quote system and font settings carefully.",
+							"Param 0: \"Ignore\" button label; " +
+							"Param 1: \"Glyssen\" (product name)"),
+							MessageBoxStrings.IgnoreButton, GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
 						switch (
@@ -2026,13 +2031,13 @@ namespace Glyssen
 					MessageBox.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
-								"The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."),
+								"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
 					MessageBox.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructions",
-								"The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
+								"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 
 				foreach (var ttfFile in ttfFilesToInstall)
@@ -2055,7 +2060,7 @@ namespace Glyssen
 				MessageBox.Show(
 					Format(
 						LocalizationManager.GetString("Font.FontFilesNotFound",
-							"The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
+							"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
 						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 		}
 

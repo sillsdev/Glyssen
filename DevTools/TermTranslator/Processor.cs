@@ -30,6 +30,7 @@ namespace DevTools.TermTranslator
 
 		public static void Process()
 		{
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
 			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 			{
 				var s = cv.LocalizedAlias;

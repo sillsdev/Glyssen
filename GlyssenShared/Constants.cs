@@ -13,5 +13,7 @@
 		public const string kBookScriptFileExtension = ".xml";
 
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
+		public const string kHearThisProductName = "HearThis";
+		public const string kHearThisMinimumSupportedVersion = "2.0";
 	}
 }

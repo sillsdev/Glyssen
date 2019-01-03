@@ -10,6 +10,7 @@ using L10NSharp;
 using SIL.IO;
 using SIL.Reporting;
 using Glyssen.Shared.Bundle;
+using static System.String;
 
 namespace Glyssen
 {
@@ -213,17 +214,18 @@ namespace Glyssen
 				if (!s_allAvailable.Any())
 				{
 					throw new Exception(
-						String.Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
+						Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
 							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
 							"for more details."), GlyssenInfo.kProduct),
 						firstLoadError.Item1);
 				}
 				if (additionalErrors.Any())
 				{
+					var comma = LocalizationManager.GetString("Common.SimpleListSeparator", ", ");
 					ErrorReport.ReportNonFatalExceptionWithMessage(firstLoadError.Item1,
-						String.Format(LocalizationManager.GetString("ReferenceText.MultipleLoadErrors",
-							"The following reference texts could not be loaded: {0}, {1}"), firstLoadError.Item2,
-							String.Join(", ", additionalErrors)));
+						Format(LocalizationManager.GetString("ReferenceText.MultipleLoadErrors",
+							"The following reference texts could not be loaded: {0}"),
+							Format($"{firstLoadError.Item2}{comma}{Join(comma, additionalErrors)}")));
 				}
 				else
 				{
@@ -304,7 +306,7 @@ namespace Glyssen
 		{
 			Debug.Assert(IsStandardReferenceText(referenceTextType));
 			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + Constants.kProjectFileExtension;
-			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
+			return FileLocationUtilities.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
 
 		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
@@ -333,7 +335,7 @@ namespace Glyssen
 
 		private static string GetLoadErrorMessage(string token, string path)
 		{
-			return String.Format(LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
+			return Format(LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
 				token, path);
 		}
 

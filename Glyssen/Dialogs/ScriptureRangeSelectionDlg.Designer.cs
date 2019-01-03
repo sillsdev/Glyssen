@@ -119,7 +119,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ntBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ntBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_ntBooksGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_ntBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.dataGridView1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ntBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.m_ntBooksGrid");
 			this.m_ntBooksGrid.Location = new System.Drawing.Point(365, 26);
 			this.m_ntBooksGrid.MultiSelect = false;
 			this.m_ntBooksGrid.Name = "m_ntBooksGrid";
@@ -232,7 +232,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_otBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_otBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_otBooksGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_otBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.dataGridView1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_otBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.m_otBooksGrid");
 			this.m_otBooksGrid.Location = new System.Drawing.Point(3, 26);
 			this.m_otBooksGrid.MultiSelect = false;
 			this.m_otBooksGrid.Name = "m_otBooksGrid";

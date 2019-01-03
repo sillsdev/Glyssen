@@ -949,8 +949,9 @@ namespace Glyssen
 					"This project has been changed to use the {0} reference text, but some blocks were already matched to " +
 					"the previous reference text. Some of those matches cannot be migrated, which means that the reference " +
 					"text data for those blocks is not in the correct language. " +
-					"To avoid confusion, it is probably best to allow Glyssen to clear the matches that cannot be migrated properly. " +
-					"Would you like Glyssen to do that?"), m_project.UiReferenceTextName),
+					"To avoid probable confusion, would you like to allow {1} to clear the matches that cannot be migrated properly?",
+					"Param 0: name of language of new reference text; " +
+					"Param 1: \"Glyssen\" (product name)"), m_project.UiReferenceTextName, GlyssenInfo.kProduct),
 					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
 			}
 			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
@@ -964,7 +965,7 @@ namespace Glyssen
 
 		private void About_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
+			using (var dlg = new SILAboutBox(FileLocationUtilities.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
 				dlg.CheckForUpdatesClicked += HandleAboutDialogCheckForUpdatesClick;
 				dlg.ReleaseNotesClicked += HandleAboutDialogReleaseNotesClicked;
@@ -981,7 +982,7 @@ namespace Glyssen
 
 		private void HandleAboutDialogReleaseNotesClicked(object sender, EventArgs e)
 		{
-			var path = FileLocator.GetFileDistributedWithApplication("ReleaseNotes.md");
+			var path = FileLocationUtilities.GetFileDistributedWithApplication("ReleaseNotes.md");
 			using (var dlg = new ShowReleaseNotesDialog(((Form)sender).Icon, path))
 				dlg.ShowDialog();
 		}
@@ -1060,8 +1061,9 @@ namespace Glyssen
 			{
 				if (m_temporaryRefTextOverrideForExporting != null)
 					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
-				else if (!ResolveNullReferenceText(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
-					"To continue and temporarily use the English reference text, click Ignore.")))
+				else if (!ResolveNullReferenceText(Format(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
+					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label  (in the current Windows locale)"),
+					MessageBoxStrings.IgnoreButton)))
 				{
 					return;
 				}
@@ -1112,10 +1114,16 @@ namespace Glyssen
 					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
 					"to the required reference text files, please put them in" +
 					"\n    {1}\n" +
-					"and then click Retry to use the {0} reference text.\n\n" +
-					"Otherwise, to permanently change the reference text used by this project, open the {2}\n" +
-					"dialog box and select the desired reference text on the {3} tab page.");
-				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, projectSettingsDlgTitle, referenceTextTabName);
+					"and then click {2} to use the {0} reference text.\n\n" +
+					"Otherwise, to permanently change the reference text used by this project, open the {3}\n" +
+					"dialog box and select the desired reference text on the {4} tab page.",
+					"Param 0: Name of reference text (typically a language name); " +
+					"Param 1: Folder path where custom reference text; " +
+					"Param 2: The name of the \"Retry\" button label (in the current Windows locale); " +
+					"Param 3: Name of the Project Settings dialog box; " +
+					"Param 4: Label of the Reference Text tab");
+				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
+					projectSettingsDlgTitle, referenceTextTabName);
 				if (ignoreOptionText != null)
 					msg += "\n\n" + ignoreOptionText;
 				Logger.WriteEvent(msg);

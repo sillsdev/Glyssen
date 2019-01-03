@@ -124,6 +124,6 @@
     <value>189, 17</value>
   </metadata>
   <data name="m_lblInstructions.Text" xml:space="preserve">
-    <value>This project ({0}) was updated.  Before the update, some blocks were manually split by the user.  Some of those blocks splits were not reapplied during the update because the script has changed.  Please copy and save the information below so you can use it to reapply any necessary splits manually in the Assign Characters dialog.</value>
+    <value>This project ({0}) was updated.  Before the update, some blocks were manually split by the user.  Some of those blocks splits were not reapplied during the update because the script has changed.  Please copy and save the information below so you can use it to reapply any necessary splits manually in the Identify Speaking Parts dialog.</value>
   </data>
 </root>
