@@ -18,6 +18,7 @@ using L10NSharp.UI;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
+using SIL.Windows.Forms.Miscellaneous;
 using SIL.WritingSystems;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 
@@ -84,11 +85,18 @@ namespace Glyssen.Dialogs
 				m_linkOverride.Visible = wrapper == null || !wrapper.UserCanEditProject;
 			}
 
-			if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
-				UpdateTestParse(false);
-			else
-				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
-
+			try
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+					UpdateTestParse(false);
+				else
+					ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
 			ReadOnly = readOnly;
 		}
 
