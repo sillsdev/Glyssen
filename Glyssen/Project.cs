@@ -116,7 +116,7 @@ namespace Glyssen
 				bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(bundle.WritingSystemDefinition.QuotationMarks);
+				SetWsQuotationMarksUsingFullySpecifiedContinuers(bundle.WritingSystemDefinition.QuotationMarks);
 			}
 
 			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
@@ -147,7 +147,7 @@ namespace Glyssen
 			if (paratextProject.HasQuotationRulesSet)
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(paratextProject.QuotationMarks);
+				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 			}
 
 			ParseAndSetBooks(paratextProject.GetUsxDocumentsForIncludedParatextBooks(), paratextProject.Stylesheet);
@@ -2228,30 +2228,47 @@ namespace Glyssen
 			return grp ?? CharacterGroupList.GroupContainingCharacterId(id);
 		}
 
-		public void SetWsQuotationMarksUsingParatextAssumptionsAboutContinuers(IEnumerable<QuotationMark> quotationMarks)
+		public IEnumerable<QuotationMark> GetQuotationMarksWithFullySpecifiedContinuers(IEnumerable<QuotationMark> quotationMarks)
 		{
-			if (quotationMarks == null)
+			if (quotationMarks != null)
+			{
+				QuotationMark oneLevelUp = null;
+				foreach (var level in quotationMarks.Where(q => !IsNullOrWhiteSpace(q.Open))
+					.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
+				{
+					if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
+					{
+						// I'm adding the final part of this check for sanity's sake. I've never seen data come in like this, but if
+						// we ever were to process an LDML file that had already been "hacked" by Glyssen, we wouldn't want to add the
+						// preceding level's continuer again.
+						if (!IsNullOrWhiteSpace(oneLevelUp?.Continue) &&
+							(level.Continue == oneLevelUp.Continue || !level.Continue.StartsWith(oneLevelUp.Continue)))
+						{
+							string newContinuer = oneLevelUp.Continue + " " + level.Continue;
+							var replacementLevel = new QuotationMark(level.Open, level.Close, newContinuer, level.Level, level.Type);
+							yield return replacementLevel;
+							oneLevelUp = replacementLevel;
+							continue;
+						}
+					}
+					yield return level;
+					oneLevelUp = level;
+				}
+			}
+		}
+
+		internal void SetWsQuotationMarksUsingFullySpecifiedContinuers(IEnumerable<QuotationMark> quotationMarks)
+		{
+			// The Paratext UI and check only support QuotationParagraphContinueType All or None (implicitly, if all levels are
+			// set to *none*). But the LDML specification allows all 4 options. Depending on the origin of the LDML file, this
+			// attribute may or may not be set. If not, the default is None, but if any levels have continuers specified, we
+			// interpret this as All (since None doesn't make sense in this case).
+			if (quotationMarks == null ||
+				m_wsDefinition.QuotationParagraphContinueType == QuotationParagraphContinueType.Innermost ||
+				m_wsDefinition.QuotationParagraphContinueType == QuotationParagraphContinueType.Outermost)
 				return;
 
-			List<QuotationMark> replacementQuotationMarks = new List<QuotationMark>();
-			foreach (var level in quotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
-			{
-				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
-				{
-					var oneLevelUp =
-						replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
-					if (oneLevelUp == null)
-						continue;
-					string oneLevelUpContinuer = oneLevelUp.Continue;
-					if (IsNullOrWhiteSpace(oneLevelUpContinuer))
-						continue;
-					string newContinuer = oneLevelUpContinuer + " " + level.Continue;
-					replacementQuotationMarks.Add(new QuotationMark(level.Open, level.Close, newContinuer, level.Level, level.Type));
-					continue;
-				}
-				replacementQuotationMarks.Add(level);
-			}
-
+			var replacementQuotationMarks = GetQuotationMarksWithFullySpecifiedContinuers(quotationMarks).ToList();
 			m_wsDefinition.QuotationMarks.Clear();
 			m_wsDefinition.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
