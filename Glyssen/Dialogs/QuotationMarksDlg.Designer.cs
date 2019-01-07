@@ -153,7 +153,7 @@ namespace Glyssen.Dialogs
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.QuotationMarksDlg";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes";
 			// 
 			// m_lblHorizontalSeparator2
 			// 
@@ -917,7 +917,7 @@ namespace Glyssen.Dialogs
 			this.m_testResults.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.m_testResults.MaximumSize = new System.Drawing.Size(0, 15);
 			this.m_testResults.Name = "m_testResults";
-			this.m_testResults.Size = new System.Drawing.Size(171, 13);
+			this.m_testResults.Size = new System.Drawing.Size(197, 13);
 			this.m_testResults.TabIndex = 33;
 			this.m_testResults.Text = "{0:F1}% of expected quotes were found.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_testResults, true);
@@ -939,7 +939,7 @@ namespace Glyssen.Dialogs
 			this.m_linkOverride.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkOverride, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkOverride, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkOverride, "DialogBoxes.QuotationMarksDlg.QuotationMarksDlg.m_linkOverride");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkOverride, "DialogBoxes.QuotationMarksDlg.Override");
 			this.m_linkOverride.Location = new System.Drawing.Point(431, 28);
 			this.m_linkOverride.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_linkOverride.Name = "m_linkOverride";

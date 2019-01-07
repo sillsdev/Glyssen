@@ -2504,6 +2504,15 @@
         <seg>Jesús</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (Lord God Almighty)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús ***(Lord*** ***God*** todopoderoso)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jesus (child)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3600,6 +3609,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Fúa (partera)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rabshakeh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rabshakeh</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Laquis</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Rachel">
@@ -5859,6 +5877,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>poetas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>sacerdote</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.priests">
@@ -8297,6 +8324,7 @@
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ExportDlg.CouldNotExport">
+      <note>Param is "Retry" button label.</note>
       <tuv xml:lang="en">
         <seg>Export failed to write one or more files. Try closing any applications that have these files open, and then click {0}. Details:</seg>
       </tuv>
@@ -9402,6 +9430,23 @@
         <seg>Las reglas de comillas fueron proporcionadas por el paquete de descarga de texto, por lo que normalmente no se deben cambiar.</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.CannotChangeParextProjectQuoteSystem">
+      <note>This version is displayed when the user has editing privileges for the Paratext project. Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>The Quote Mark Settings cannot be modified directly for this {0} project, which is based on a live {1} project. If you need to make changes, do the following:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Las reglas de comillas no se pueden modificar directamente dentro de {0} porque este proyecto está basado en un proyecto de {1}. Si necesita realizar cambios, haga lo siguiente:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.CannotChangeSampleMsg">
+      <tuv xml:lang="en">
+        <seg>The Quote Mark Settings cannot be modified for the Sample project.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>En este proyecto de muestra, las reglas de comillas no pueden modificarse.</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks">
       <note>{0} is the product name</note>
       <tuv xml:lang="en">
@@ -9528,6 +9573,15 @@
         <seg>Toda la escritura</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem">
+      <note>These steps will be introduced by either "Project.CannotChangeParextProjectQuoteSystem" or "Project.ShouldNotChangeParextProjectQuoteSystem". Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier); Param 3: Name of the Paratext "Quotations" check; Param 4: Name of the Paratext "Chapter/Verse Numbers" check; Param 5: Name of the Paratext "Markers" check; Param 6: Name of the "General" tab in the Project Settings dialog box; Param 7: Title of the "Project Settings" dialog box; Param 8: Name of the "Update" button</note>
+      <tuv xml:lang="en">
+        <seg>1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\n2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\n   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\n3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1) Abra el proyecto {2} en {1}, y en el menú Verificación haga clic en Reglas de comillas. \n2) Después de guardar los cambios, vuelva a ejecutar la verificación {3} en {1} para todos los libros incluidos en este proyecto de {0}. \n   (Nota: las verificaciones {4} y {5} también deben ejecutarse sin errores para cada libro que desea incluir en un proyecto de {0}.) \n3) Vuelva a {0} y en la pestaña {6} del cuadro de diálogo {7}, haga clic en {8}.</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.Level1">
       <tuv xml:lang="en">
         <seg>Level 1:</seg>
@@ -9558,6 +9612,14 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>3r nivel:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Override">
+      <tuv xml:lang="en">
+        <seg>override</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>reemplazar</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.PairedQuotationMarks">
@@ -9695,6 +9757,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Debe seleccionar comillas, guiones de diálogo o ambos.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.ShouldNotChangeParextProjectQuoteSystem">
+      <note>This version is displayed when the user does not have editing privileges for the Paratext project. Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier); Param 3: Name of the Paratext "Quotations" check</note>
+      <tuv xml:lang="en">
+        <seg>If changes are needed, the settings in this {0} project can override the Quotation Rules in the live {1} project {2}. However, if they are overridden, the results of any {3} check in {1} will not be meaningful. Therefore, if possible, have someone with editing privileges to do the first two steps of the following procedure and then use Send/Receive in {1} to update the local copy of the project before proceeding with the final step:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Si se necesitan cambios, los ajustes en este proyecto de {0} pueden reemplazar las reglas de comillas en el proyecto de {1} {2}. Sin embargo, si se hace esto, los resultados de cualquiera verificación {3} en {1} no tendrá significancia. Por eso, si es posible, que alguien con el derecho de editar el proyecto {3} haga los primeros dos pasos del siguiente procedimiento. Luego, use Enviar/Recibir en {1} para poner actualizar la copia del proyecto local antes de proceder con el último paso:</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.SwitchFirstLevel">
@@ -11494,23 +11565,6 @@
         <seg>Si usted puede reemplazarlo con una copia de seguridad válida o sabe cómo repararlo usted mismo, hágalo y luego haga clic en {0}.</seg>
       </tuv>
     </tu>
-    <tu tuid="Project.CannotChangeParextProjectQuoteSystem">
-      <note>Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier); Param 3: Name of the Paratext "Quotations" check; Param 4: Name of the Paratext "Chapter/Verse Numbers" check; Param 5: Name of the Paratext "Markers" check; Param 6: Name of the "General" tab in the Project Settings dialog box; Param 7: Title of the "Project Settings" dialog box; Param 8: Name of the "Update" button</note>
-      <tuv xml:lang="en">
-        <seg>The Quote Mark Settings cannot be modified directly for a {0} project based on a live {1} project. If you need to make changes, do the following:\n1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\n2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\n   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\n3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>En un proyecto de {0} basado directamente en un proyecto de {1}, las reglas de comillas no pueden modificarse dentro de {0}. Si necesita realizar cambios, hacer el following:\n1) Abra el proyecto {2} en {1}, y en el menú Verificación haga clic en Reglas de comillas. \n2) Después de guardar los cambios, vuelva a ejecutar la verificación {3} en {1} para todos los libros incluidos en este proyecto de {0}. \n   (Nota: las verificaciones {4} y {5} también deben ejecutarse sin errores para cada libro que desea incluir en un proyecto de {0}.) \n3) Vuelva a {0} y en la pestaña {6} del cuadro de diálogo {7}, haga clic en {8}.</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Project.CannotChangeSampleMsg">
-      <tuv xml:lang="en">
-        <seg>The Quote Mark Settings cannot be modified for the Sample project.</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>En este proyecto de muestra, las reglas de comillas no pueden modificarse.</seg>
-      </tuv>
-    </tu>
     <tu tuid="Project.DefaultCustomVersificationName">
       <note>Used as the versification name when the versification file does not contain a name.</note>
       <tuv xml:lang="en">
@@ -11530,7 +11584,7 @@
       </tuv>
     </tu>
     <tu tuid="Project.IgnoreToRepairLdmlFile">
-      <note>Param 0: "Glyssen"</note>
+      <note>Param 0: "Ignore" button label; Param 1: "Glyssen" (product name)</note>
       <tuv xml:lang="en">
         <seg>Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, so check the quote system and font settings carefully.</seg>
       </tuv>
@@ -11587,15 +11641,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>El archivo del proyecto no se puede escribir. Así que no se podrá guardar ningún cambio.</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Project.ObserverOnly">
-      <note>Param: "Paratext" (product name)</note>
-      <tuv xml:lang="en">
-        <seg>(You seem to be merely an observer on this {0} project.)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>(Parece que usted es sólo un observador en este proyecto {0}.)</seg>
       </tuv>
     </tu>
     <tu tuid="Project.OkayToClearExistingRefBlocksThatCannotBeMigrated">
@@ -11706,7 +11751,7 @@
     </tu>
     <tu tuid="Project.ParserUpgradeBundleMissingMsg">
       <tuv xml:lang="en">
-        <seg>To make use of the new engine, the original release text bundle must be available, but it is not in the original location ({0}).</seg>
+        <seg>To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0}).</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Para hacer uso del nuevo motor de análisis, el paquete de descarga de texto original debe estar disponible, pero no está en la carpeta original ({0}).</seg>
@@ -11901,33 +11946,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>De derecha a izquierda</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus (Lord God Almighty)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jesús ***(Lord*** ***God*** todopoderoso)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>priest</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>sacerdote</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Rabshakeh">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Rabshakeh</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Laquis</seg>
       </tuv>
     </tu>
   </body>
