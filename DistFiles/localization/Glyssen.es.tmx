@@ -9762,10 +9762,10 @@
     <tu tuid="DialogBoxes.QuotationMarksDlg.ShouldNotChangeParextProjectQuoteSystem">
       <note>This version is displayed when the user does not have editing privileges for the Paratext project. Param 0: "Glyssen" (product name); Param 1: "Paratext" (product name); Param 2: Paratext project short name (unique project identifier); Param 3: Name of the Paratext "Quotations" check</note>
       <tuv xml:lang="en">
-        <seg>If changes are needed, the settings in this {0} project can override the Quotation Rules in the live {1} project {2}. However, if they are overridden, the results of any {3} check in {1} will not be meaningful. Therefore, if possible, have someone with editing privileges to do the first two steps of the following procedure and then use Send/Receive in {1} to update the local copy of the project before proceeding with the final step:</seg>
+        <seg>If changes are needed, the settings in this {0} project can override the Quotation Rules in the live {1} project {2}. However, if they are overridden, the results of any {3} check in {1} will not be meaningful. Therefore, if possible, have someone with editing privileges in the {2} project do the first two steps of the following procedure and then use Send/Receive in {1} to update the local copy of the project before proceeding with the final step:</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Si se necesitan cambios, los ajustes en este proyecto de {0} pueden reemplazar las reglas de comillas en el proyecto de {1} {2}. Sin embargo, si se hace esto, los resultados de cualquiera verificación {3} en {1} no tendrá significancia. Por eso, si es posible, que alguien con el derecho de editar el proyecto {3} haga los primeros dos pasos del siguiente procedimiento. Luego, use Enviar/Recibir en {1} para poner actualizar la copia del proyecto local antes de proceder con el último paso:</seg>
+        <seg>Si se necesitan cambios, los ajustes en este proyecto de {0} pueden reemplazar las reglas de comillas en el proyecto de {1} {2}. Sin embargo, si se hace esto, los resultados de cualquiera verificación de {3} en {1} no tendrá significancia. Por eso, si es posible, que alguien con el derecho de editar el proyecto {2} haga los primeros dos pasos del siguiente procedimiento. Luego, use Enviar/Recibir en {1} para poner actualizar la copia del proyecto local antes de proceder con el último paso:</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.SwitchFirstLevel">

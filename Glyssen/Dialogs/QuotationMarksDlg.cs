@@ -145,7 +145,7 @@ namespace Glyssen.Dialogs
 							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ShouldNotChangeParextProjectQuoteSystem",
 								"If changes are needed, the settings in this {0} project can override the Quotation Rules in the live {1} project {2}. " +
 								"However, if they are overridden, the results of any {3} check in {1} will not be meaningful. Therefore, if possible, " +
-								"have someone with editing privileges to do the first two steps of the following procedure and then use " +
+								"have someone with editing privileges in the {2} project do the first two steps of the following procedure and then use " +
 								"Send/Receive in {1} to update the local copy of the project before proceeding with the final step:",
 								"This version is displayed when the user does not have editing privileges for the Paratext project. " +
 								"Param 0: \"Glyssen\" (product name); " +
