@@ -34,11 +34,12 @@ namespace Glyssen.Dialogs
 		private object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
 		private bool m_formLoading;
+		private bool m_allowOverride;
 
 		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly, ProjectSettingsDlg parentDlg)
 		{
 			InitializeComponent();
-
+			Cursor.Current = Cursors.WaitCursor;
 			m_project = project;
 			m_project.AnalysisCompleted -= HandleAnalysisCompleted;
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
@@ -74,16 +75,29 @@ namespace Glyssen.Dialogs
 			}
 
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
-			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			SetFilterControlsFromMode();
+			if (m_project.IsLiveParatextProject && readOnly)
+			{
+				var wrapper = m_project.GetLiveParatextDataIfCompatible(false, checkForChangesInAvailableBooks: false);
+				m_linkOverride.Visible = m_allowOverride = wrapper == null || !wrapper.UserCanEditProject;
+			}
 
-			if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
-				UpdateTestParse(false);
+			try
+			{
+				HandleStringsLocalized();
+				LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			if (readOnly)
-				MakeReadOnly();
+				SetFilterControlsFromMode();
+
+				if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+					UpdateTestParse(false);
+
+				ReadOnly = readOnly;
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
 		}
 
 		private void HandleCurrentBlockChanged(object sender, EventArgs eventArgs)
@@ -124,16 +138,34 @@ namespace Glyssen.Dialogs
 			{
 				case QuoteSystemStatus.Obtained:
 					if (m_project.IsSampleProject)
-						promptText = LocalizationManager.GetString("Project.CannotChangeSampleMsg", "The Quote Mark Settings cannot be modified for the Sample project.");
+						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CannotChangeSampleMsg", "The Quote Mark Settings cannot be modified for the Sample project.");
 					else if (m_project.IsLiveParatextProject)
 					{
-						promptText = String.Format(LocalizationManager.GetString("Project.CannotChangeParextProjectQuoteSystem",
-								"The Quote Mark Settings cannot be modified directly for a {0} project based on a live {1} project. " +
-								"If you need to make changes, do the following:\r\n" +
+						var doNotModifyDirectlyFmt = m_allowOverride ?
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ShouldNotChangeParextProjectQuoteSystem",
+								"If changes are needed, the settings in this {0} project can override the Quotation Rules in the live {1} project {2}. " +
+								"However, if they are overridden, the results of any {3} check in {1} will not be meaningful. Therefore, if possible, " +
+								"have someone with editing privileges in the {2} project do the first two steps of the following procedure and then use " +
+								"Send/Receive in {1} to update the local copy of the project before proceeding with the final step:",
+								"This version is displayed when the user does not have editing privileges for the Paratext project. " +
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"Paratext\" (product name); " +
+								"Param 2: Paratext project short name (unique project identifier); " +
+								"Param 3: Name of the Paratext \"Quotations\" check") :
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CannotChangeParextProjectQuoteSystem",
+								"The Quote Mark Settings cannot be modified directly for this {0} project, which is based on a live {1} project. " +
+								"If you need to make changes, do the following:",
+								"This version is displayed when the user has editing privileges for the Paratext project. " +
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"Paratext\" (product name)");
+
+						promptText = String.Format(doNotModifyDirectlyFmt + Environment.NewLine +
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem",
 								"1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\r\n" +
 								"2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\r\n" +
 								"   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\r\n" +
 								"3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.",
+								"These steps will be introduced by either \"Project.CannotChangeParextProjectQuoteSystem\" or \"Project.ShouldNotChangeParextProjectQuoteSystem\". " +
 								"Param 0: \"Glyssen\" (product name); " +
 								"Param 1: \"Paratext\" (product name); " +
 								"Param 2: Paratext project short name (unique project identifier); " +
@@ -257,14 +289,17 @@ namespace Glyssen.Dialogs
 			return text == QuoteUtils.None ? null : text;
 		}
 
-		private void MakeReadOnly()
+		private bool ReadOnly
 		{
-			m_pnlLevels.Enabled = false;
-			m_pnlDialogueQuotes.Enabled = false;
-			m_chkPairedQuotations.Enabled = false;
-			m_btnOk.Enabled = false;
-			m_btnTest.Visible = false;
-			m_testResults.Visible = false;
+			set
+			{
+				m_pnlLevels.Enabled = !value;
+				m_pnlDialogueQuotes.Enabled = !value;
+				m_chkPairedQuotations.Enabled = !value;
+				m_btnOk.Enabled = !value;
+				m_btnTest.Visible = !value;
+				m_testResults.Visible = !value;
+			}
 		}
 
 		private string SameAsStartDashText
@@ -845,6 +880,11 @@ namespace Glyssen.Dialogs
 		private void HandleSettingChange(object sender, EventArgs e)
 		{
 			m_testResults.Visible = false;
+		}
+
+		private void m_linkOverride_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			ReadOnly = false;
 		}
 	}
 }
