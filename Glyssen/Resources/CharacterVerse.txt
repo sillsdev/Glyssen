@@ -1,4 +1,4 @@
-Control File Version	135
+Control File Version	136
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -263,8 +263,8 @@ GEN	21	10	Sarah (Sarai) (old)			Normal
 GEN	21	12	God		God (the LORD)	Normal		
 GEN	21	13	God		God (the LORD)	Normal		
 GEN	21	16	Hagar, Sarai's maid			Normal		
-GEN	21	17	angel of the LORD, the		angel of God, the	Normal	Jesus	
-GEN	21	18	angel of the LORD, the		angel of God, the	Normal	Jesus	
+GEN	21	17	angel of the LORD, the		angel of God	Normal	Jesus	
+GEN	21	18	angel of the LORD, the		angel of God	Normal	Jesus	
 GEN	21	22	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
 GEN	21	23	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
 GEN	21	24	Abraham (Abram)			Normal		
@@ -4512,7 +4512,7 @@ JDG	6	16	God		God (the LORD)	Normal
 JDG	6	17	Gideon (Jerubbaal)			Normal		
 JDG	6	18	God		God (the LORD)	Normal		
 JDG	6	18	Gideon (Jerubbaal)			Normal		
-JDG	6	20	angel of the LORD, the		angel of God, the	Normal	Jesus	
+JDG	6	20	angel of the LORD, the		angel of God	Normal	Jesus	
 JDG	6	22	Gideon (Jerubbaal)			Normal		
 JDG	6	23	God		God (the LORD)	Normal		
 JDG	6	24	narrator-JDG			Quotation		
@@ -13589,7 +13589,7 @@ MAT	21	27	Jesus			Dialogue		MAT 21.27;MRK 11.33;LUK 20.8
 MAT	21	28	Jesus			Dialogue		
 MAT	21	29	Jesus			Normal		
 MAT	21	30	Jesus			Normal		
-MAT	21	31	chief priests/elders		chief priests/elders of people	Dialogue	Good Priest	
+MAT	21	31	chief priests/elders		chief priests and the elders of the people	Dialogue	Good Priest	
 MAT	21	31	Jesus			Dialogue		
 MAT	21	32	Jesus			Normal		
 MAT	21	33	Jesus			Normal		
@@ -13887,6 +13887,9 @@ MAT	28	9	Jesus			Normal
 MAT	28	10	Jesus			Dialogue		
 MAT	28	13	chief priests/elders	bribing		Normal		
 MAT	28	14	chief priests/elders	bribing		Normal		
+MAT	28	15	saying (lie about disciples stealing Jesus' body)			Potential		
+MAT	28	15	chief priests/elders			Quotation		
+MAT	28	15	Jews, the			Quotation		
 MAT	28	18	Jesus			Dialogue		
 MAT	28	19	Jesus			Normal		
 MAT	28	20	Jesus			Normal		
@@ -15351,7 +15354,7 @@ JHN	1	32	John the Baptist			Normal
 JHN	1	33	John the Baptist			Normal		
 JHN	1	34	John the Baptist			Normal		
 JHN	1	36	John the Baptist			Dialogue		
-JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
+JHN	1	38	Andrew/another disciple of John the Baptist	curious	disciples of John the Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
 JHN	1	38	narrator-JHN			Interruption		
@@ -15943,10 +15946,10 @@ JHN	17	25	Jesus	praying		Normal
 JHN	17	26	Jesus	praying		Normal		
 JHN	18	4	Jesus	questioning		Dialogue		
 JHN	18	5	Jesus			Dialogue		
-JHN	18	5	soldiers/officials from chief priests/Pharisees	rowdy		Dialogue		
+JHN	18	5	soldiers/officials from chief priests and Pharisees	rowdy		Dialogue		
 JHN	18	6	Jesus			Quotation		
 JHN	18	7	Jesus	questioning		Dialogue		
-JHN	18	7	soldiers/officials from chief priests/Pharisees	afraid		Dialogue		
+JHN	18	7	soldiers/officials from chief priests and Pharisees	afraid		Dialogue		
 JHN	18	8	Jesus			Dialogue		
 JHN	18	9	Jesus			Quotation		
 JHN	18	11	Jesus			Dialogue		
@@ -16297,11 +16300,11 @@ ACT	10	4	angel		angel of God	Normal
 ACT	10	4	Cornelius	afraid		Normal		
 ACT	10	5	angel		angel of God	Normal		
 ACT	10	6	angel		angel of God	Normal		
-ACT	10	13	God		God (voice)	Normal		
-ACT	10	13	Jesus		Jesus (voice)	Normal		
+ACT	10	13	God		voice (of God)	Normal		
+ACT	10	13	Jesus		voice (of Jesus)	Normal		
 ACT	10	14	Peter (Simon)			Normal		
-ACT	10	15	God		God (voice)	Normal		
-ACT	10	15	Jesus		Jesus (voice)	Normal		
+ACT	10	15	God		voice (of God)	Normal		
+ACT	10	15	Jesus		voice (of Jesus)	Normal		
 ACT	10	17	Peter (Simon)			Indirect		
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		

@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
-using L10NSharp;
 using SIL.Reporting;
 using SIL.Scripture;
 
@@ -238,7 +235,15 @@ namespace Glyssen.Controls
 			}
 
 			if (changingRowCount)
-				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+				try
+				{
+					Cursor.Current = Cursors.WaitCursor;
+					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+				}
+				finally
+				{
+					Cursor.Current = Cursors.Default;
+				}
 
 			ResumeLayout();
 
@@ -263,7 +268,15 @@ namespace Glyssen.Controls
 		protected override void OnResize(EventArgs e)
 		{
 			m_userIsResizingColumns = false;
-			base.OnResize(e);
+			try
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				base.OnResize(e);
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
 		}
 
 		protected override void OnCellMouseEnter(DataGridViewCellEventArgs e)

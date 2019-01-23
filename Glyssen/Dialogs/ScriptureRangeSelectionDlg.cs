@@ -119,7 +119,7 @@ namespace Glyssen.Dialogs
 				{
 					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
 						"{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a " +
-						"current successful status for all the basic checks that Glyssen usually requires to pass. " +
+						"current successful status for all the basic checks that {0} usually requires to pass. " +
 						"If you intend to prepare the recording script for any of the excluded books at this time, " +
 						"we strongly recommend that you get the following checks to pass in {2} before including them:",
 						"Param 0: \"Glyssen\" (product name); " +
@@ -142,8 +142,8 @@ namespace Glyssen.Dialogs
 			// set up dropdown column headers
 			var columnOptions = new SortedList<int, string>
 			{
-				{0, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Select All")},
-				{1, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Clear All")}
+				{0, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Select All", "\"All\" refers to Scripture books")},
+				{1, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ClearAll", "Clear All", "\"All\" refers to Scripture books")}
 			};
 
 			m_ntBooksGrid.Columns[2].HeaderCell = CreateDropdownHeaderCell(m_ntBooksGrid.Columns[2].HeaderCell, columnOptions);
@@ -378,8 +378,10 @@ namespace Glyssen.Dialogs
 					"Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books:") +
 					Environment.NewLine +
 					Join(Environment.NewLine, booksToAskUserAbout) + Environment.NewLine +
-					LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2",
-					"Are you sure? If you select no, the books above will each be recorded by a single voice actor.");
+					Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2",
+					"Are you sure? If you select {0}, the script for the above books will be prepared for recording by a single narrator, rather than for multiple voice actors.",
+					"Param is the \"No\" button label (in a message box)"),
+					MessageBoxStrings.NoButton);
 				string caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption",
 					"Are you sure?");
 				DialogResult result = MessageBox.Show(msg, caption, MessageBoxButtons.YesNoCancel);

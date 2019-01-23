@@ -1,4 +1,5 @@
-﻿using L10NSharp.UI;
+﻿using L10NSharp;
+using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
@@ -104,6 +105,7 @@ namespace Glyssen.Dialogs
             this.m_toolStripButtonHelp});
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.toolStrip1, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.toolStrip1, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.toolStrip1, LocalizationPriority.NotLocalizable);
 			this.l10NSharpExtender1.SetLocalizingId(this.toolStrip1, "DialogBoxes.VoiceActorInformation.toolStrip1");
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";

@@ -101,19 +101,26 @@ namespace Glyssen.Dialogs
 									// Glyssen is newer than project version
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
 									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated",
-											"The project administrator needs to update it by opening it with Paratext {0} or later. " +
-											"Alternatively, you might be able to revert to an older version of {1}.",
-											"Param 0: Paratext version number; Param 1: \"Glyssen\""),
-										ParatextInfo.MinSupportedParatextDataVersion, GlyssenInfo.kProduct);
+											"The project administrator needs to update it by opening it with {0} {1} or later. " +
+											"Alternatively, you might be able to revert to an older version of {2}.",
+											"Param 0: \"Paratext\" (product name); " +
+											"Param 1: Paratext version number; " +
+											"Param 2: \"Glyssen\" (product name)"),
+										ParatextScrTextWrapper.kParatextProgramName,
+										ParatextInfo.MinSupportedParatextDataVersion,
+										GlyssenInfo.kProduct);
 									break;
 
 								case UnsupportedReason.FutureVersion:
 									// Project version is newer than Glyssen
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
 									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated",
-											"To read this project, a version of {0} compatible with Paratext {1} is required.",
-											"Param 0: \"Glyssen\"; Param 1: Paratext version number"),
+											"To read this project, a version of {0} compatible with {1} {2} is required.",
+											"Param 0: \"Glyssen\" (product name); " +
+											"Param 1: \"Paratext\" (product name); " +
+											"Param 2: Paratext version number"),
 										GlyssenInfo.kProduct,
+										ParatextScrTextWrapper.kParatextProgramName,
 										ScrTextCollection.ScrTexts(IncludeProjects.Everything).First(
 											p => p.Name == errMsgInfo.ProjectName).Settings.MinParatextDataVersion);
 									break;
@@ -139,8 +146,10 @@ namespace Glyssen.Dialogs
 			}
 			catch (Exception err)
 			{
-				NotifyUserOfParatextProblem(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.CantAccessParatext",
-						"There was a problem accessing Paratext data files."),
+				NotifyUserOfParatextProblem(String.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.CantAccessParatext",
+						"There was a problem accessing {0} data files.",
+						"Param: \"Paratext\" (product name)"),
+						ParatextScrTextWrapper.kParatextProgramName),
 					string.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextError", "The error was: {0}"), err.Message));
 				paratextProjects = new ScrText[0];
 			}

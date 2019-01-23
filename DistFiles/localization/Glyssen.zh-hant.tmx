@@ -2042,24 +2042,6 @@
         <seg>以太</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jabesh, elders of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, elders of</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hant">
-        <seg>雅比, ***elders*** ***of***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jabesh, men of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, men of</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hant">
-        <seg>雅比, ***men*** ***of***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jabez">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2310,6 +2292,15 @@
       </tuv>
       <tuv xml:lang="zh-Hant">
         <seg>耶穌 ***(child)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (Lord God Almighty)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hant">
+        <seg>耶穌 ***(Lord*** ***God*** ＜陽＞全能者)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jesus' brothers">
@@ -3329,6 +3320,15 @@
         <seg>彼拉多</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hant">
+        <seg>祭司</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.proclamation">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3561,15 +3561,6 @@
       </tuv>
       <tuv xml:lang="zh-Hant">
         <seg>掃羅 (保羅)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Sennacherib, king of Assyria">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Sennacherib, king of Assyria</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hant">
-        <seg>西拿基立, 王 ***of*** ***Assyria***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Shaphan, secretary">
