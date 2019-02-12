@@ -1459,26 +1459,35 @@ namespace Glyssen.Dialogs
 					if (selectedCharacter == null)
 					{
 						var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-						selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>()
-							.First(c => c.LocalizedDisplay == newValue);
+						if (newValue != null)
+							selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>()
+								.First(c => c.LocalizedDisplay == newValue);
 					}
 
-					var characterIdForLog = selectedCharacter.IsNarrator ? selectedCharacter.ToString() : selectedCharacter.CharacterId;
-					Logger.WriteMinorEvent($"Setting character to {characterIdForLog} for " +
-						$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
-
-					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
+					if (selectedCharacter == null)
 					{
-						// Narrators are never allowed to have a delivery other than normal.
-						// Unfortunately, by the time we call IsBlockAssignedToUnknownCharacterDeliveryPair below,
-						// the line that sets the character in the reference text matchup will have already reset
-						// the delivery. This leaves the UI out of synch with the data in the block, so we need
-						// to fix that first.
-						var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
-						if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
+						Logger.WriteMinorEvent($"No character selected; setting to Ambiguous for " +
+							$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
+					}
+					else
+					{
+						var characterIdForLog = selectedCharacter.IsNarrator ? selectedCharacter.ToString() : selectedCharacter.CharacterId;
+						Logger.WriteMinorEvent($"Setting character to {characterIdForLog} for " +
+							$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
+
+						if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
 						{
-							Logger.WriteMinorEvent("Character is Narrator. Forcing delivery to normal.");
-							deliveryCell.Value = AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
+							// Narrators are never allowed to have a delivery other than normal.
+							// Unfortunately, by the time we call IsBlockAssignedToUnknownCharacterDeliveryPair below,
+							// the line that sets the character in the reference text matchup will have already reset
+							// the delivery. This leaves the UI out of synch with the data in the block, so we need
+							// to fix that first.
+							var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
+							if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
+							{
+								Logger.WriteMinorEvent("Character is Narrator. Forcing delivery to normal.");
+								deliveryCell.Value = AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
+							}
 						}
 					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);

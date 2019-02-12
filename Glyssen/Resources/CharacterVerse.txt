@@ -1,4 +1,4 @@
-Control File Version	136
+Control File Version	137
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15669,6 +15669,8 @@ JHN	9	17	Pharisees			Dialogue
 JHN	9	19	Jews, the	challenging		Dialogue		
 JHN	9	20	parents of cured man, blind from birth	cautious		Dialogue	father of cured man, blind from birth	
 JHN	9	21	parents of cured man, blind from birth			Normal	mother of cured man, blind from birth	
+JHN	9	22	parents of cured man, blind from birth			Indirect	father of cured man, blind from birth	
+JHN	9	22	Jews, the			Indirect		
 JHN	9	23	parents of cured man, blind from birth			Quotation	mother of cured man, blind from birth	
 JHN	9	24	Jews, the	challenging		Dialogue		
 JHN	9	25	cured man, blind from birth			Dialogue		
