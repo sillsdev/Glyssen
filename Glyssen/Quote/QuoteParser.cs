@@ -748,6 +748,8 @@ namespace Glyssen.Quote
 
 			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
 			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
+			if (originalQuoteBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
+				ProcessMultiBlock();
 			m_currentMultiBlockQuote.Add(originalQuoteBlock);
 
 			while (true)
