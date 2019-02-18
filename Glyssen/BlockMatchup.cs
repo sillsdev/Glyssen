@@ -35,7 +35,7 @@ namespace Glyssen
 				{
 					Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
 						$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
-					// REVIEW: This logic assumes that the repeated verse is wholly contained in this onwe block.
+					// REVIEW: This logic assumes that the repeated verse is wholly contained in this one block.
 					blocksForVersesCoveredByBlock = new List<Block>() {originalAnchorBlock};
 					indexOfAnchorBlockInVerse = 0;
 				}

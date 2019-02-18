@@ -4779,6 +4779,78 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", results[i].CharacterId);
 		}
 
+		// PG-1160
+		[Test]
+		public void Parse_VerseWithInterruptionInBlockByItselfWithQuoteStartedInPrecedingSectionAndContinuedAfterwardAndInFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
+		{
+			var block1 = new Block("p", 13, 5).AddVerse(5, "Kun anan Hesus an chicha, “Ammanju ... cha'aju. ")
+				.AddVerse(6, "Tan angsan ... manggwana, ‘Sa'on nan Kristu’ ad angsan nan allilagwoncha. ")
+				.AddVerse(7, "Ad sa'ad ... luhung. ")
+				.AddVerse(8, "Tan ... mangkumut.");
+			var block2 = new Block("p", 13, 9).AddVerse(9, "“Manannad aju ... an sa'on. ")
+				.AddVerse(10, "Gwon sa'ad ... ayutayuta. ")
+				.AddVerse(11, "Ad sa'ad nu ... Ispilitun Apudyus.");
+			var block3 = new Block("p", 13, 12).AddVerse(12, "“Ad san ... impa'toycha chicha. ")
+				.AddVerse(13, "Ad as cha'aju ... pammatina mataku.");
+			var sectionHeadBlock = new Block("s");
+			sectionHeadBlock.BlockElements.Add(new ScriptText("Nan Humu'nakan Nan Amod A'oogjat"));
+			sectionHeadBlock.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var block4 = new Block("p", 13, 14).AddVerse(14, "“Sa'ad nu ilanju ... sumi'achan, (maserpu maagwatan nan mangwhasa,) sa'ad chachay ingkaw ad Judea ... san whibilig. ")
+				.AddVerse(15, "Ad sa'ad nan ... as ijagwidna. ")
+				.AddVerse(16, "Ad sa'ad nan ... nan silupna.");
+			var block5 = new Block("p", 13, 17).AddVerse(17, "“Ad achagchaku chanan mahuki ja chanan mantatakiwhi san sachi gway chimpu. ")
+				.AddVerse(18, "Sija nan ... amod nan tagling. ")
+				.AddVerse(19, "Tan sa'ad ... achi kun puyus ma'gwa nan amasna asin. ")
+				.AddVerse(20, "Sa'ad nu achin Apudyus ... nan whilang nan erkaw san sachiyay chimpu.");
+			var block6 = new Block("p", 13, 21).AddVerse(21, "“Ad sa'ad ..., ‘Ilanju ad, annaja nan Kristu!’ gwinnu ‘Anchiya nan Kristu!’ achiju tuttugwaon. ")
+				.AddVerse(22, "Tan lumosgwa chanan ... gway pinilina allilagwoncha chicha. ")
+				.AddVerse(23, "Gwon ammanju ... nan annachaja ma'gwa.”");
+			var input = new List<Block> { block1, block2, block3, sectionHeadBlock, block4, block5, block6 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(10, results.Count);
+			// Blocks before section break:
+			int i = 0;
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
+			Assert.IsTrue(results[i].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+
+			// Section break:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+
+			// Text preceeding interruption in original block following section break:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+			Assert.AreEqual("{14}\u00A0“Sa'ad nu ilanju ... sumi'achan, ", results[i].GetText(true));
+
+			// Interruption:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("(maserpu maagwatan nan mangwhasa,) ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+
+			// Text following interruption in original first block:
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Following blocks:
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{17}\u00A0“"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{21}\u00A0“"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+		}
+
 		[Test]
 		public void Parse_VerseWithInterruptionInBlockByItselfWithQuoteContinuedInFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
 		{
