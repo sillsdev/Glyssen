@@ -26,10 +26,13 @@ namespace Glyssen.RefTextDevUtilities
 		public static string ProprietaryRefTextTempBaseFolder => Path.Combine(GlyssenInfo.BaseDataFolder, "Newly Generated Reference Texts");
 
 		private const string kBookHeader = "Book";
+		private const string kBookHeaderAlt = "Bk";
 		private const string kChapterHeader = "Cp";
 		private const string kVerseHeader = "Vs";
 		private const string kCharacterHeader = "CHARACTER";
+		private const string kCharacterHeaderAlt = "Char";
 		private const string kEnglishHeader = "ENGLISH";
+		private const string kEnglishHeaderAltEnglishOnly = "Text";
 		public const string kTempFolderPrefix = "New";
 
 		private static readonly ReferenceText s_existingEnglish;
@@ -153,6 +156,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public enum Mode
 		{
+			// This will also generate the annotations.txt file.
 			Generate,
 			FindDifferencesBetweenCurrentVersionAndNewText,
 			CreateCharacterMapping,
@@ -176,13 +180,21 @@ namespace Glyssen.RefTextDevUtilities
 			AllDifferencesExceptAlphaNumericText,
 		}
 
+		public enum Testament
+		{
+			WholeBible,
+			OT,
+			NT,
+		}
+
 		public static Ignore ComparisonSensitivity { get; set; }
 
-		public static void ProcessReferenceTextDataFromFile(Mode mode, ReferenceTextProxy refTextId = null)
+		public static void ProcessReferenceTextDataFromFile(Mode mode, ReferenceTextProxy refTextId = null, Testament testament = Testament.WholeBible)
 		{
-			var hasNtData = ProcessExcelFile(kDirectorGuideInput, out var ntData);
-			var hasOtData = ProcessExcelFile(kDirectorGuideOTInput, out var otData);
-			if (!hasNtData || !hasOtData)
+			ReferenceTextData ntData = null, otData = null;
+			var hasNtData = testament != Testament.OT && ProcessExcelFile(kDirectorGuideInput, out ntData);
+			var hasOtData = testament != Testament.NT && ProcessExcelFile(kDirectorGuideOTInput, out otData);
+			if (!hasNtData && !hasOtData)
 				return;
 
 			if (refTextId != null)
@@ -252,19 +264,15 @@ namespace Glyssen.RefTextDevUtilities
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
 			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
 
-			ErrorsOccurred = !ntData.IsValid || (otData != null && !otData.IsValid);
-			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
+			ErrorsOccurred = (ntData != null && !ntData.IsValid) || (otData != null && !otData.IsValid);
+			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66);
 
 			var annotationsToOutput = new List<string>();
 
 			ReferenceText existingReferenceTextForLanguage = null;
-			List<ReferenceTextLanguageInfo> languagesToProcess;
-			if (otData != null)
-				languagesToProcess = ntData.LanguagesToProcess.Union(otData.LanguagesToProcess).ToList();
-			else
-				languagesToProcess = ntData.LanguagesToProcess.ToList();
+			List<ReferenceTextLanguageInfo> languagesToProcess = null;
 
-			for (int iData = 0 + (otData == null ? 1 : 0); iData < 2; iData++)
+			for (int iData = 0 + (otData == null ? 1 : 0); iData < (ntData == null ? 1 : 2); iData++)
 			{
 				languagesToProcess = iData == 0 ? otData.LanguagesToProcess.ToList() : ntData.LanguagesToProcess.ToList();
 
@@ -441,7 +449,7 @@ namespace Glyssen.RefTextDevUtilities
 							if (chapter == 2)
 							{
 								currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls = referenceTextRow.GetText(language);
-								var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2');
+								var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2').TrimStart();
 								if (justTheWordForChapter == null && chapterLabelForPrevBook != null && iBook == 2)
 								{
 									// We're going to try to find just the word for chapter in case we later hit a single-chapter book that doesn't have it.
@@ -773,6 +781,7 @@ namespace Glyssen.RefTextDevUtilities
 			if (mode == Mode.GenerateEnglish)
 			{
 				var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
+				Directory.CreateDirectory(temporaryPathRoot);
 
 				var sortedUnmatchedStr = s_unmatchedCharacterIds.OrderByDescending(t => t.Item1).ThenBy(t => t.Item2).Select(t => $"{t.Item1}\t{t.Item2}\t{t.Item3}");
 				File.WriteAllLines(Path.Combine(temporaryPathRoot, "unmatched.txt"), sortedUnmatchedStr);
@@ -839,15 +848,21 @@ namespace Glyssen.RefTextDevUtilities
 			return silBookCode;
 		}
 
+		static Regex s_stripNumericSuffixes = new Regex(@"(.*?)((( #)|(-FX)|(_))\d+)+", RegexOptions.Compiled);
+		static Regex s_stripFemaleSuffix = new Regex(@"(.*) \(female\)", RegexOptions.Compiled);
+		static Regex s_matchWithoutParentheses = new Regex("[^(]*", RegexOptions.Compiled);
+		static Regex s_matchGlyssenKing = new Regex(@"(?<name>(\w|-)+),? king of .+", RegexOptions.Compiled);
+		static Regex s_matchFcbhKing = new Regex(@"(King )?(?<name>(\w|-)+)( I{1,3})?", RegexOptions.Compiled);
+		static Regex s_matchGlyssenPossessive = new Regex(@"(?<possessor>.+)? of (?<possessee>.+)", RegexOptions.Compiled);
+		static Regex s_matchFcbhPossessive = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
+
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 
-			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*)-FX\\d+", "$1");
-			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*) \\(female\\)", "$1");
-			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*) #\\d+", "$1");
-			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*)_\\d+", "$1");
+			fcbhCharacterLabel = s_stripNumericSuffixes.Replace(fcbhCharacterLabel, "$1");
+			fcbhCharacterLabel = s_stripFemaleSuffix.Replace(fcbhCharacterLabel, "$1");
 
 			//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
 			//	return characterId;
@@ -855,44 +870,78 @@ namespace Glyssen.RefTextDevUtilities
 			//	return knownMatch;
 
 			var bookNum = BCVRef.BookToNumber(bookId);
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum);
-			var charactersCount = characters.Count();
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum).ToList();
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
-			if (charactersCount == 1)
+			switch (characters.Count)
 			{
-				// These three lines ensure we are handling characterIds with slashes correctly.
-				block.CharacterId = characters.Single().Character;
-				block.UseDefaultForMultipleChoiceCharacter(bookNum);
-				var characterIdToUse = block.CharacterIdInScript;
+				case 1:
+					// These three (numbered) lines ensure we are handling characterIds with slashes correctly.
+					block.CharacterId = characters.Single().Character; //1
+					if (block.CharacterIsStandard)
+						goto case 0; // The only "character" in our control file is the narrator. Can't auto-map any other character to that.
+					block.UseDefaultForMultipleChoiceCharacter(bookNum); // 2
+					var characterIdToUse = block.CharacterIdInScript; // 3
 
-				if (characterIdToUse.ToLowerInvariant().StartsWith(fcbhCharacterLabel.ToLowerInvariant()))
-				{
-					// Don't bother reporting; these are not interesting
-				}
-				else
-				{
-					s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, characterIdToUse, bcvRef, block.CharacterId));
-					s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabel} => {characterIdToUse} -- {bcvRef}");
-				}
+					if (!characterIdToUse.Contains('/') && characterIdToUse == fcbhCharacterLabel)
+						return characterIdToUse; // Exact match.
 
-				return characterIdToUse;
-			}
-			else if (charactersCount == 0)
-			{
-				//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
-				//	return characterId;
-				//if (TryGetKnownNameMatch(characterId, out var knownMatch))
-				//	return knownMatch;
-				if (TryGetDocumentedUnknownCharacter(fcbhCharacterLabel, bookId, block.ChapterNumber, block.InitialStartVerseNumber, out var documentedCharacterId))
-					return documentedCharacterId;
-				s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnknownCharacter, bcvRef, fcbhCharacterLabel));
-				//return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
-				return CharacterVerseData.kUnknownCharacter;
-			}
-			else
-			{
-				s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
-				return CharacterVerseData.kAmbiguousCharacter;
+					if (CharacterDetailData.Singleton.GetDictionary().ContainsKey(fcbhCharacterLabel))
+					{
+						if (!characters.Single().Character.SplitCharacterId().Any(c => c.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)))
+						{
+							// Never match to some other exising character ID (unless it's one of the options in a multi-character ID)
+							goto case 0;
+						}
+					}
+					var characterIdToUseToLower = characterIdToUse.ToLowerInvariant();
+					var fcbhCharacterToLower = fcbhCharacterLabel.ToLowerInvariant();
+					if (characterIdToUseToLower.StartsWith(fcbhCharacterToLower) ||
+						fcbhCharacterToLower.StartsWith(characterIdToUseToLower) ||
+						s_matchWithoutParentheses.Match(characterIdToUseToLower).Value == s_matchWithoutParentheses.Match(fcbhCharacterToLower).Value ||
+						characterIdToUseToLower.Replace("the ", string.Empty) == fcbhCharacterToLower)
+					{
+						// Don't bother reporting; these are not interesting
+					}
+					else
+					{
+						if ((block.CharacterId == "God" && !fcbhCharacterLabel.Contains("God")) ||
+							(!block.CharacterId.Contains("God") && fcbhCharacterLabel == "God"))
+							goto case 0; // "God" can't map to some other character
+						var glyssenKing = s_matchGlyssenKing.Match(characterIdToUse);
+						var fcbhKing = s_matchFcbhKing.Match(fcbhCharacterLabel);
+						if (!glyssenKing.Success || !fcbhKing.Success || glyssenKing.Result("${name}") != fcbhKing.Result("${name}"))
+						{
+							var glyssenPossessive = s_matchGlyssenPossessive.Match(characterIdToUseToLower);
+							var fcbhPossessive = s_matchFcbhPossessive.Match(fcbhCharacterToLower);
+							if (!glyssenPossessive.Success || !fcbhPossessive.Success ||
+								glyssenPossessive.Result("${possessor}") != fcbhPossessive.Result("${possessor}") ||
+								glyssenPossessive.Result("${possessee}") != fcbhPossessive.Result("${possessee}"))
+							{
+								s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, characterIdToUse, bcvRef, block.CharacterId));
+								s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabel} => {characterIdToUse} -- {bcvRef}");
+							}
+						}
+					}
+
+					return characterIdToUse;
+				case 0:
+					//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
+					//	return characterId;
+					//if (TryGetKnownNameMatch(characterId, out var knownMatch))
+					//	return knownMatch;
+					s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnknownCharacter, bcvRef, fcbhCharacterLabel));
+					//return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+					return CharacterVerseData.kUnknownCharacter;
+				default:
+					try
+					{
+						return characters.Single(c => c.Character.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)).Character;
+					}
+					catch
+					{
+						s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
+						return CharacterVerseData.kAmbiguousCharacter;
+					}
 			}
 		}
 
@@ -912,19 +961,6 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			knownMatch = null;
-			return false;
-		}
-
-		private static bool TryGetDocumentedUnknownCharacter(string characterId, string bookId, int chapter, int verse, out string documentedCharacterId)
-		{
-			if (characterId == "Ambassador" && bookId == "ISA" && chapter == 18 && verse == 2)
-			{
-				// It really doesn't make sense for this to be a quote. Just make it narrator.
-				documentedCharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
-				return true;
-			}
-
-			documentedCharacterId = null;
 			return false;
 		}
 
@@ -966,10 +1002,12 @@ namespace Glyssen.RefTextDevUtilities
 				for (int iRow = 0; iRow <= rowData.Count; iRow++)
 				{
 					var nonNullCellAddresses = rowData[iRow].Where(er => !String.IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
-					var bookAddress = nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader))?.Address;
+					var bookAddress = (nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader)) ??
+						nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeaderAlt)))?.Address;
 					if (bookAddress != null)
 					{
 						bookCol = GetColumnFromCellAddress(bookAddress);
+						bool doneProcessingColumns = false;
 						foreach (var excelRange in nonNullCellAddresses.Skip(1))
 						{
 							var value = cells[excelRange.Address].Value.ToString();
@@ -983,9 +1021,15 @@ namespace Glyssen.RefTextDevUtilities
 									verseCol = col;
 									break;
 								case kCharacterHeader:
+								case kCharacterHeaderAlt:
 									characterCol = col;
 									break;
+								case kEnglishHeaderAltEnglishOnly: // If re-generating English, the English column can be labeled "Text"
+									doneProcessingColumns = true;
+									value = "English";
+									goto case kEnglishHeader;
 								case kEnglishHeader: // English is required and must come first!
+									allLanguages.Clear();
 									allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
 									break;
 								default:
@@ -993,6 +1037,8 @@ namespace Glyssen.RefTextDevUtilities
 										allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
 									break;
 							}
+							if (doneProcessingColumns)
+								break;
 						}
 						rowsToSkip = iRow + 1;
 						break;
@@ -1015,15 +1061,22 @@ namespace Glyssen.RefTextDevUtilities
 				foreach (var textRow in rowData.Skip(rowsToSkip))
 				{
 					var row = textRow.Key;
+
+					var bookValue = cells[bookCol + row].Value;
+					if ("End".Equals(bookValue?.ToString().Trim(), StringComparison.OrdinalIgnoreCase))
+					{
+						WriteOutput($"Stopping at \"End\" row: {row}");
+						break;
+					}
 					var verseValue = cells[verseCol + row].Value;
 					if (verseValue == null)
 					{
-						WriteOutput("Stopping at row " + row + " because verse column contained a null value.");
+						WriteOutput($"Stopping at row {row} because verse column contained a null value.");
 						break;
 					}
 					var verseStr = verseValue as string ?? ((double)verseValue).ToString(CultureInfo.InvariantCulture);
 					data.ReferenceTextRows.Add(new ReferenceTextRow(
-						ConvertFcbhBookCodeToSilBookCode((string)cells[bookCol + row].Value),
+						ConvertFcbhBookCodeToSilBookCode((string)bookValue),
 						((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
 						verseStr,
 						(string)cells[characterCol + row].Value,
