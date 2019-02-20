@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Character
 {
@@ -18,7 +19,7 @@ namespace Glyssen.Character
 		Normal,
 
 		/// <summary>
-		/// Used for speech in passages that are know to be spoken by a particular character
+		/// Used for speech in passages that are known to be spoken by a particular character
 		/// and can be assigned as such even if no punctuation is present to indicate the spoken
 		/// discourse. (In some translations, quotation marks may be omitted in text marked as
 		/// poetry or in long speeches, especially where the speeches contain other nested quotations
@@ -124,6 +125,17 @@ namespace Glyssen.Character
 				return m_localizedAlias;
 			}
 		}
+		// This property returns the Default character to use if this object's Character property represents
+		// multiple character IDs. Otherwise, it just returns the Character (the DefaultCharacter is ignored
+		// in this case).
+		public string ResolvedDefaultCharacter
+		{
+			get
+			{
+				var ids = Character.SplitCharacterId(2);
+				return ids.Length == 1 ? Character : (!IsNullOrEmpty(DefaultCharacter) ? DefaultCharacter : ids[0]);
+			}
+		}
 		public string ParallelPassageReferences { get; }
 		public bool ProjectSpecific { get; }
 
@@ -147,7 +159,7 @@ namespace Glyssen.Character
 
 		public string ToStringWithDelivery()
 		{
-			if (string.IsNullOrEmpty(Delivery))
+			if (IsNullOrEmpty(Delivery))
 				return Character;
 			return $"{Character} [{Delivery}]";
 		}
@@ -160,7 +172,7 @@ namespace Glyssen.Character
 		private void Localize()
 		{
 			m_localizedCharacter = GetLocalizedCharacterString(Character);
-			m_localizedAlias = string.IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias);
+			m_localizedAlias = IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias);
 			m_localized = true;
 		}
 
@@ -168,7 +180,7 @@ namespace Glyssen.Character
 		// each individual is localized separately.
 		private string GetLocalizedCharacterString(string character)
 		{
-			return String.Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
+			return Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
 		}
 
 		private string GetLocalizedIndividualCharacterString(string character)
@@ -180,9 +192,9 @@ namespace Glyssen.Character
 		protected bool Equals(CharacterVerse other)
 		{
 			return Equals(BcvRef, other.BcvRef) &&
-				string.Equals(Character, other.Character) &&
-				string.Equals(Delivery, other.Delivery) &&
-				string.Equals(Alias, other.Alias) &&
+				String.Equals(Character, other.Character) &&
+				String.Equals(Delivery, other.Delivery) &&
+				String.Equals(Alias, other.Alias) &&
 				QuoteType == other.QuoteType;
 		}
 
@@ -290,10 +302,10 @@ namespace Glyssen.Character
 	{
 		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
 		{
-			int result = String.Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
+			int result = Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
 			if (result != 0)
 				return result;
-			result = String.Compare(x.Delivery, y.Delivery, StringComparison.InvariantCultureIgnoreCase);
+			result = Compare(x.Delivery, y.Delivery, StringComparison.InvariantCultureIgnoreCase);
 			if (result != 0)
 				return result;
 			return 0;

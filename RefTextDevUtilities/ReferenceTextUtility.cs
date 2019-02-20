@@ -187,6 +187,13 @@ namespace Glyssen.RefTextDevUtilities
 			NT,
 		}
 
+		public enum MatchLikelihood
+		{
+			Reliable,
+			Possible,
+			Mismatch,
+		}
+
 		public static Ignore ComparisonSensitivity { get; set; }
 
 		public static void ProcessReferenceTextDataFromFile(Mode mode, ReferenceTextProxy refTextId = null, Testament testament = Testament.WholeBible)
@@ -848,19 +855,23 @@ namespace Glyssen.RefTextDevUtilities
 			return silBookCode;
 		}
 
-		static Regex s_stripNumericSuffixes = new Regex(@"(.*?)((( #)|(-FX)|(_))\d+)+", RegexOptions.Compiled);
-		static Regex s_stripFemaleSuffix = new Regex(@"(.*) \(female\)", RegexOptions.Compiled);
-		static Regex s_matchWithoutParentheses = new Regex("[^(]*", RegexOptions.Compiled);
-		static Regex s_matchGlyssenKing = new Regex(@"(?<name>(\w|-)+),? king of .+", RegexOptions.Compiled);
-		static Regex s_matchFcbhKing = new Regex(@"(King )?(?<name>(\w|-)+)( I{1,3})?", RegexOptions.Compiled);
-		static Regex s_matchGlyssenPossessive = new Regex(@"(?<possessor>.+)? of (?<possessee>.+)", RegexOptions.Compiled);
-		static Regex s_matchFcbhPossessive = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
+		static readonly Regex s_stripNumericSuffixes = new Regex(@"(.*?)((( #)|(-FX)|(_))\d+)+", RegexOptions.Compiled);
+		static readonly Regex s_stripFemaleSuffix = new Regex(@"(.*) \(female\)", RegexOptions.Compiled);
+		static readonly Regex s_matchWithoutParentheses = new Regex("[^(]*", RegexOptions.Compiled);
+		static readonly Regex s_matchGlyssenKing = new Regex(@"(?<name>(\w|-)+),? king of .+", RegexOptions.Compiled);
+		static readonly Regex s_matchFcbhKing = new Regex(@"(King )?(?<name>(\w|-)+)( I{1,3})?", RegexOptions.Compiled);
+		static readonly Regex s_matchPossessiveWithApostropheS = new Regex(@"(?<possessor>.+)? of (?<possessee>.+)", RegexOptions.Compiled);
+		static readonly Regex s_matchPossessiveWithOf = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
+		static readonly Regex s_matchGlyssenProperNameWithQualifiers = new Regex(@"(?<name>([A-Z](\w|-)+))((, )|( \()).+", RegexOptions.Compiled);
+		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
+		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
 
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 
+			var fcbhCharacterLabelOrig = fcbhCharacterLabel;
 			fcbhCharacterLabel = s_stripNumericSuffixes.Replace(fcbhCharacterLabel, "$1");
 			fcbhCharacterLabel = s_stripFemaleSuffix.Replace(fcbhCharacterLabel, "$1");
 
@@ -875,93 +886,184 @@ namespace Glyssen.RefTextDevUtilities
 			switch (characters.Count)
 			{
 				case 1:
-					// These three (numbered) lines ensure we are handling characterIds with slashes correctly.
-					block.CharacterId = characters.Single().Character; //1
-					if (block.CharacterIsStandard)
-						goto case 0; // The only "character" in our control file is the narrator. Can't auto-map any other character to that.
-					block.UseDefaultForMultipleChoiceCharacter(bookNum); // 2
-					var characterIdToUse = block.CharacterIdInScript; // 3
+					// If the character Id has slashes, the following line gets the default one.
+					var character = characters.Single();
+					var characterIdToUse = character.ResolvedDefaultCharacter;
 
-					if (!characterIdToUse.Contains('/') && characterIdToUse == fcbhCharacterLabel)
-						return characterIdToUse; // Exact match.
-
-					if (CharacterDetailData.Singleton.GetDictionary().ContainsKey(fcbhCharacterLabel))
+					switch (IsReliableMatch(fcbhCharacterLabel, characterIdToUse))
 					{
-						if (!characters.Single().Character.SplitCharacterId().Any(c => c.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)))
-						{
-							// Never match to some other exising character ID (unless it's one of the options in a multi-character ID)
+						case MatchLikelihood.Reliable:
+							// Don't bother reporting; these are not interesting
+							break;
+						case MatchLikelihood.Mismatch:
 							goto case 0;
-						}
-					}
-					var characterIdToUseToLower = characterIdToUse.ToLowerInvariant();
-					var fcbhCharacterToLower = fcbhCharacterLabel.ToLowerInvariant();
-					if (characterIdToUseToLower.StartsWith(fcbhCharacterToLower) ||
-						fcbhCharacterToLower.StartsWith(characterIdToUseToLower) ||
-						s_matchWithoutParentheses.Match(characterIdToUseToLower).Value == s_matchWithoutParentheses.Match(fcbhCharacterToLower).Value ||
-						characterIdToUseToLower.Replace("the ", string.Empty) == fcbhCharacterToLower)
-					{
-						// Don't bother reporting; these are not interesting
-					}
-					else
-					{
-						if ((block.CharacterId == "God" && !fcbhCharacterLabel.Contains("God")) ||
-							(!block.CharacterId.Contains("God") && fcbhCharacterLabel == "God"))
-							goto case 0; // "God" can't map to some other character
-						var glyssenKing = s_matchGlyssenKing.Match(characterIdToUse);
-						var fcbhKing = s_matchFcbhKing.Match(fcbhCharacterLabel);
-						if (!glyssenKing.Success || !fcbhKing.Success || glyssenKing.Result("${name}") != fcbhKing.Result("${name}"))
-						{
-							var glyssenPossessive = s_matchGlyssenPossessive.Match(characterIdToUseToLower);
-							var fcbhPossessive = s_matchFcbhPossessive.Match(fcbhCharacterToLower);
-							if (!glyssenPossessive.Success || !fcbhPossessive.Success ||
-								glyssenPossessive.Result("${possessor}") != fcbhPossessive.Result("${possessor}") ||
-								glyssenPossessive.Result("${possessee}") != fcbhPossessive.Result("${possessee}"))
+						default:
+							if (characterIdToUse != character.Character)
 							{
-								s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, characterIdToUse, bcvRef, block.CharacterId));
-								s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabel} => {characterIdToUse} -- {bcvRef}");
+								// This is a multi-character ID. If FCBH's guide happens to prefer a different default one and it's
+								// an exact (case-insensitive) match, we will map it to their desired default, but we will report it for
+								// further research and evaluation.
+								characterIdToUse = character.Character.SplitCharacterId().Skip(1)
+									.SingleOrDefault(alt => alt.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)) ?? characterIdToUse;
 							}
-						}
+							s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabelOrig, characterIdToUse, bcvRef, character.Character));
+							s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabelOrig} => {characterIdToUse} -- {bcvRef}");
+							break;
 					}
-
 					return characterIdToUse;
 				case 0:
 					//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
 					//	return characterId;
-					//if (TryGetKnownNameMatch(characterId, out var knownMatch))
-					//	return knownMatch;
 					s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnknownCharacter, bcvRef, fcbhCharacterLabel));
 					//return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 					return CharacterVerseData.kUnknownCharacter;
 				default:
+					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, string>(c.ResolvedDefaultCharacter, c.Character)).ToList();
 					try
 					{
-						return characters.Single(c => c.Character.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)).Character;
+						return defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Single(glyssenCharId => IsReliableMatch(glyssenCharId, fcbhCharacterLabel) == MatchLikelihood.Reliable);
 					}
 					catch
 					{
-						s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
-						return CharacterVerseData.kAmbiguousCharacter;
+						var altMatch = defaultCharactersAndFullCharacterIds.Where(t => t.Item1 != t.Item2).Select(c =>
+							new Tuple<string, string>(c.Item2.SplitCharacterId().Skip(1).FirstOrDefault(alt =>
+							alt.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)), c.Item2)).FirstOrDefault();
+						if (altMatch?.Item1 != null)
+						{
+							s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, altMatch.Item1, bcvRef, altMatch.Item2));
+							s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabel} => {altMatch.Item1} -- {bcvRef}");
+							return altMatch.Item1;
+						}
+						else
+						{
+							s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
+							return CharacterVerseData.kAmbiguousCharacter;
+						}
 					}
 			}
 		}
 
-		private static bool TryGetKnownNameMatch(string characterId, out string knownMatch)
+		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string glyssenCharacterId)
 		{
-			switch (characterId)
+			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId))
+				return MatchLikelihood.Mismatch; // Before we call this, we've already checked to see if the FCBH character is the narrator. Can't auto-map any other character to that.
+
+			if (glyssenCharacterId == fcbhCharacterLabel)
+				return MatchLikelihood.Reliable; // Exact match
+
+			if (CharacterDetailData.Singleton.GetDictionary().ContainsKey(fcbhCharacterLabel))
 			{
-				case "Solomon":
-					knownMatch = "Solomon, king";
-					return true;
-				case "Ezra":
-					knownMatch = "Ezra, priest and teacher";
-					return true;
-				case "Zechariah (son of Berekiah)":
-					knownMatch = "Zechariah";
-					return true;
+				// Never match to some other exising character ID
+				return MatchLikelihood.Mismatch;
 			}
 
-			knownMatch = null;
-			return false;
+			var characterIdToUseToLower = glyssenCharacterId.ToLowerInvariant();
+			var fcbhCharacterToLower = fcbhCharacterLabel.ToLowerInvariant();
+			if (characterIdToUseToLower.StartsWith(fcbhCharacterToLower) ||
+				fcbhCharacterToLower.StartsWith(characterIdToUseToLower) ||
+				s_matchWithoutParentheses.Match(characterIdToUseToLower).Value == s_matchWithoutParentheses.Match(fcbhCharacterToLower).Value ||
+				characterIdToUseToLower.Replace("the ", string.Empty) == fcbhCharacterToLower)
+			{
+				return MatchLikelihood.Reliable;
+			}
+
+			if ((glyssenCharacterId == "God" && !fcbhCharacterLabel.Contains("God")) ||
+				(!glyssenCharacterId.Contains("God") && fcbhCharacterLabel == "God"))
+				return MatchLikelihood.Mismatch; // "God" can't map to some other character
+
+			if (fcbhCharacterLabel == "David" && (glyssenCharacterId.StartsWith("David's") || glyssenCharacterId == "fool"))
+				return MatchLikelihood.Mismatch; // "David" can't map to an enemy, servant, etc. of David or to "fool"
+
+			var glyssenKing = s_matchGlyssenKing.Match(glyssenCharacterId);
+			if (glyssenKing.Success)
+			{
+				var fcbhKing = s_matchFcbhKing.Match(fcbhCharacterLabel);
+				if (fcbhKing.Success && glyssenKing.Result("${name}") == fcbhKing.Result("${name}"))
+					return MatchLikelihood.Reliable;
+			}
+
+			var glyssenPossessive = s_matchPossessiveWithApostropheS.Match(characterIdToUseToLower);
+			if (glyssenPossessive.Success)
+			{
+				var fcbhPossessive = s_matchPossessiveWithOf.Match(fcbhCharacterToLower);
+				if (fcbhPossessive.Success &&
+					glyssenPossessive.Result("${possessor}").StartsWith(fcbhPossessive.Result("${possessor}")) &&
+					glyssenPossessive.Result("${possessee}").StartsWith(fcbhPossessive.Result("${possessee}")))
+					return MatchLikelihood.Reliable;
+			}
+			else
+			{
+				var fcbhPossessive = s_matchPossessiveWithApostropheS.Match(fcbhCharacterToLower);
+				if (fcbhPossessive.Success)
+				{
+					glyssenPossessive = s_matchPossessiveWithOf.Match(characterIdToUseToLower);
+					if (glyssenPossessive.Success &&
+						glyssenPossessive.Result("${possessor}").StartsWith(fcbhPossessive.Result("${possessor}")) &&
+						glyssenPossessive.Result("${possessee}").StartsWith(fcbhPossessive.Result("${possessee}")))
+						return MatchLikelihood.Reliable;
+				}
+			}
+
+			var matchGProperName = s_matchGlyssenProperNameWithQualifiers.Match(glyssenCharacterId);
+			if (matchGProperName.Success)
+			{
+				if (matchGProperName.Result("${name}") == fcbhCharacterLabel)
+					return MatchLikelihood.Reliable;
+			}
+
+			var matchFcbhProperName = s_matchFcbhProperNameWithLabel.Match(fcbhCharacterLabel);
+			if (matchFcbhProperName.Success)
+			{
+				matchGProperName = s_matchGlyssenFirstWordCapitalized.Match(glyssenCharacterId);
+				if (matchGProperName.Success &&
+					matchGProperName.Result("${name}") == matchFcbhProperName.Result("${name}"))
+					return MatchLikelihood.Reliable;
+			}
+
+			return IsKnownNameMatch(fcbhCharacterLabel, glyssenCharacterId) ? MatchLikelihood.Reliable : MatchLikelihood.Possible;
+		}
+
+		private static bool IsKnownNameMatch(string fcbhCharacterLabel, string glyssenCharacterId)
+		{
+			switch (fcbhCharacterLabel)
+			{
+				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase);
+				case "Shepherd": return glyssenCharacterId == "shepherds at well";
+				case "Jereboam": return glyssenCharacterId == "Jeroboam";
+				case "Rehab": return glyssenCharacterId == "Rahab";
+				case "Servant of Abraham": return glyssenCharacterId == "Abraham's chief servant";
+				case "King of Sodom": return glyssenCharacterId == "Bera, king of Sodom";
+				case "Daughter of Lot": return glyssenCharacterId == "older daughter of Lot";
+				case "Sodomite": return glyssenCharacterId == "men of Sodom (wicked)";
+				case "Pashhur": return glyssenCharacterId == "Pashur";
+				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
+				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
+				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
+				case "Cupbearer": return glyssenCharacterId == "chief cupbearer of Egypt";
+				case "Watchman": return glyssenCharacterId == "lookout";
+				case "Daughter of Zelophehad": return glyssenCharacterId == "daughters of Zelophehad";
+				case "Elder of Congregation": return glyssenCharacterId == "Israelite assembly, elders of";
+				case "Recabite Man": return glyssenCharacterId == "Recabite family, men of";
+				case "Elder in Samaria": return glyssenCharacterId == "officials of Samaria";
+				case "Maiden (girl)": return glyssenCharacterId == "young women (maidens)";
+				case "Woman of Tekoa": return glyssenCharacterId == "woman from Tekoa";
+				case "Jonathan the Priest": return glyssenCharacterId == "Jonathan, son of Abiathar";
+				case "Mother of Samson": return glyssenCharacterId == "Manoah's wife, mother of Samson";
+				case "Chaldean": return glyssenCharacterId == "astrologers";
+				case "Prophet (young)": return glyssenCharacterId == "company of the prophets, one of (the LORD says) (young man)";
+				case "Jehu the Seer": return glyssenCharacterId == "Jehu, son of Hanani";
+				case "Israelite": return glyssenCharacterId.StartsWith("Israel");
+				case "Soldier":
+					return glyssenCharacterId.IndexOf("soldier", StringComparison.OrdinalIgnoreCase) >= 0 ||
+						glyssenCharacterId.IndexOf("men", StringComparison.OrdinalIgnoreCase) >= 0 ||
+						glyssenCharacterId.IndexOf("messenger", StringComparison.OrdinalIgnoreCase) >= 0;
+				case "Heavenly Man":
+					return glyssenCharacterId == "man like bronze with measuring rod (vision of God)" ||
+						glyssenCharacterId == "man's voice from the Ulai (in vision)" ||
+						glyssenCharacterId == "one who looked like a man" ||
+						glyssenCharacterId == "man in linen above river";
+				default: return false;
+			}
 		}
 
 		private static void WriteTitleAndChapterSummaryResults(List<BookTitleAndChapterLabelInfo> resultSummary)

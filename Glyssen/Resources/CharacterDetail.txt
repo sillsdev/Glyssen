@@ -1032,6 +1032,7 @@ son of widow	1	Male				2KI 4:6	False
 song of the prostitute	1	Female				ISA 23:16	False
 sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14	True
 sons of Korah	-1	Male					False
+sons of Korah's enemies	-1	Male					False
 sons of prophet in Bethel	-1	Male				1KI 13:30	False
 souls of those killed for word of God	-1					REV 6:10	False
 spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(7 more)-> LUK 20:24	False
