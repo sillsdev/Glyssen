@@ -670,6 +670,7 @@ messenger	-1					2CH 18:12 <-(3 more)-> JER 20:15	False
 messenger from battle to David	1	Male				2SA 11:23 & 2SA 11:24	False
 messenger from guardians of Ahab's children	1	Male				2KI 10:8	False
 messenger of Ahab, king of Israel	1	Male				1KI 22:13	False
+messenger to Abimelech	1	Male				JDG 9:47	False
 messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22	False
 messenger to David	1	Male				2SA 15:13	False
 messenger to king of Jericho	1	Male				JOS 2:2	False

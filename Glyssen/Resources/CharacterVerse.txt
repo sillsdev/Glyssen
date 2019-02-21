@@ -4585,6 +4585,7 @@ JDG	9	36	Gaal, son of Ebed			Normal
 JDG	9	36	Zebul, governor of Shechem			Normal		
 JDG	9	37	Gaal, son of Ebed			Normal		
 JDG	9	38	Zebul, governor of Shechem			Normal		
+JDG	9	47	messenger to Abimelech			Indirect		
 JDG	9	48	Abimelech, son of Gideon (Jerubbaal)			Normal		
 JDG	9	54	Abimelech, son of Gideon (Jerubbaal)			Normal		
 JDG	10	10	Israelites			Normal		
