@@ -4601,7 +4601,7 @@ JDG	11	8	Gilead, elders of			Normal
 JDG	11	9	Jephthah			Normal		
 JDG	11	10	Gilead, elders of			Normal		
 JDG	11	12	messengers from Jephthah			Normal		
-JDG	11	13	king of Ammonites			Normal		
+JDG	11	13	king of the Ammonites			Normal		
 JDG	11	15	messengers from Jephthah			Normal		
 JDG	11	16	messengers from Jephthah			Normal		
 JDG	11	17	messengers from Jephthah			Normal		
@@ -7002,17 +7002,21 @@ EZR	5	14	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter	
 EZR	5	15	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	16	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	17	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
-EZR	6	2	Darius, king	decree		Potential		
-EZR	6	3	Darius, king	decree		Implicit		
-EZR	6	4	Darius, king	decree		Implicit		
-EZR	6	5	Darius, king	decree		Implicit		
-EZR	6	6	Darius, king	decree		Implicit		
-EZR	6	7	Darius, king	decree		Implicit		
-EZR	6	8	Darius, king	decree		Implicit		
-EZR	6	9	Darius, king	decree		Implicit		
-EZR	6	10	Darius, king	decree		Implicit		
-EZR	6	11	Darius, king	decree		Implicit		
-EZR	6	12	Darius, king	decree		Implicit		
+EZR	6	1	Darius, king of Medes and Persians	decree		Potential		
+EZR	6	2	Darius, king of Medes and Persians	decree		Potential		
+EZR	6	3	royal record		written record on scroll	Implicit		
+EZR	6	3	Darius, king of Medes and Persians	decree		Potential		
+EZR	6	4	royal record		written record on scroll	Implicit		
+EZR	6	4	Darius, king of Medes and Persians	decree		Potential		
+EZR	6	5	royal record		written record on scroll	Implicit		
+EZR	6	5	Darius, king of Medes and Persians	decree		Potential		
+EZR	6	6	Darius, king of Medes and Persians	decree		Implicit		
+EZR	6	7	Darius, king of Medes and Persians	decree		Implicit		
+EZR	6	8	Darius, king of Medes and Persians	decree		Implicit		
+EZR	6	9	Darius, king of Medes and Persians	decree		Implicit		
+EZR	6	10	Darius, king of Medes and Persians	decree		Implicit		
+EZR	6	11	Darius, king of Medes and Persians	decree		Implicit		
+EZR	6	12	Darius, king of Medes and Persians	decree		Implicit		
 EZR	7	12	Artaxerxes, king of Persia	letter		Implicit		
 EZR	7	13	Artaxerxes, king of Persia	letter		Implicit		
 EZR	7	14	Artaxerxes, king of Persia	letter		Implicit		
@@ -10369,7 +10373,9 @@ JER	24	10	God		God (the LORD)(word of the LORD came)	Normal
 JER	25	3	Jeremiah			Potential		
 JER	25	4	Jeremiah			Potential		
 JER	25	5	Jeremiah		Jeremiah quoting the prophets	Normal		
+JER	25	5	prophets			Quotation		
 JER	25	6	Jeremiah		Jeremiah quoting the prophets	Normal		
+JER	25	6	prophets			Quotation		
 JER	25	7	God		God (the LORD)(word of the LORD came)	Normal		
 JER	25	8	God		God (the LORD)(word of the LORD came)	Normal		
 JER	25	9	God		God (the LORD)(word of the LORD came)	Normal		
@@ -10424,6 +10430,7 @@ JER	27	11	God		God (the LORD)(word of the LORD came)	Normal
 JER	27	12	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	13	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	14	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	14	false prophets			Quotation		
 JER	27	15	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	16	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	17	Jeremiah		Jeremiah (the LORD says)	Normal		
@@ -10661,7 +10668,7 @@ JER	38	23	Jeremiah			Normal
 JER	38	24	Zedekiah, king of Judah			Normal		
 JER	38	25	Zedekiah, king of Judah			Normal		
 JER	38	26	Zedekiah, king of Judah			Normal		
-JER	39	12	Nebuchadnezzar			Normal		
+JER	39	12	Nebuchadnezzar, king of Babylon			Normal		
 JER	39	12	Nebuzaradan			Normal		
 JER	39	16	God		God (the LORD)(word of the LORD came)	Normal		
 JER	39	17	God		God (the LORD)(word of the LORD came)	Normal		

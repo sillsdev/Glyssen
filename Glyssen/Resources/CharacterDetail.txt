@@ -229,7 +229,6 @@ Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(2 more)-> EZR 1:4	False
 Dan	1	Male	Adult				False
 Daniel	1	Male	Adult			DAN 1:12 <-(94 more)-> DAN 10:19	False
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25	False
-Darius, king	1	Male	Adult			EZR 6:2 <-(9 more)-> EZR 6:12	False
 Darius, king of Medes and Persians	1	Male	Adult			DAN 6:12 <-(4 more)-> DAN 6:27	False
 Dathan	1	Male			son of Eliab (Reubenite)		False
 daughter of Zion	1	Female				JER 4:31 <-(14 more)-> LAM 2:22	False
@@ -550,7 +549,7 @@ King Herod Agrippa II	1	Male				ACT 12:19 <-(3 more)-> ACT 26:32	False
 King Lemuel	1	Male					False
 King Lemuel's mother	1	Female					False
 king	1	Male				PRO 25:7	True
-king of Ammonites	1	Male				JDG 11:13	False
+king of the Ammonites	1	Male				JDG 11:13	False
 king of Aram	1	Male				1KI 22:31 & 2CH 18:30	False
 king of Assyria	1	Male				2KI 17:27 <-(1 more)-> ISA 10:14	False
 king of Babylon	1	Male				ISA 14:13 & ISA 14:14	False
@@ -907,6 +906,7 @@ Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37	False
 Reubenites	-1	Male					False
 Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15	False
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21	False
+royal record	1	Male					False
 rule given by Paul	1	Male				2TH 3:10	False
 rulers of people in Jerusalem	-1	Male				ISA 28:15	True
 rules of the world	1					COL 2:21	True
@@ -959,6 +959,7 @@ sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False
 Sennacherib's officers	-1	Male				2CH 32:10 <-(8 more)-> 2CH 32:19	False
+Seraiah	1	Male					False
 seraph, one of the	1	Male				ISA 6:7	False
 seraphs	-1	Male				ISA 6:3	False
 serpent	1	Male			Gen 3 - text uses masculine pronouns	GEN 3:1 <-(1 more)-> GEN 3:5	False

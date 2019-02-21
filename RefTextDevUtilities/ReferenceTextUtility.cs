@@ -864,6 +864,7 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchPossessiveWithOf = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenProperNameWithQualifiers = new Regex(@"(?<name>([A-Z](\w|-)+))((, )|( \()).+", RegexOptions.Compiled);
 		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
+		static readonly Regex s_matchFcbhProperNameOfKing = new Regex(@"King (?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
 
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
@@ -971,8 +972,27 @@ namespace Glyssen.RefTextDevUtilities
 				(!glyssenCharacterId.Contains("God") && fcbhCharacterLabel == "God"))
 				return MatchLikelihood.Mismatch; // "God" can't map to some other character
 
-			if (fcbhCharacterLabel == "David" && (glyssenCharacterId.StartsWith("David's") || glyssenCharacterId == "fool"))
-				return MatchLikelihood.Mismatch; // "David" can't map to an enemy, servant, etc. of David or to "fool"
+			switch (fcbhCharacterLabel)
+			{
+				case "David":
+					if (glyssenCharacterId.StartsWith("David's") || glyssenCharacterId == "fool")
+						return MatchLikelihood.Mismatch; // "David" can't map to an enemy, servant, etc. of David or to "fool"
+					break;
+				case "Psalmist":
+					return MatchLikelihood.Mismatch; // Glyssen doesn't currently have a "Psalmist" (narrator) character
+				case "Ezra":
+					if (glyssenCharacterId == "Nehemiah")
+						return MatchLikelihood.Mismatch; // See Neh 8:10 (this can be removed if/when FCBH fixes this error)
+					break;
+				case "King Hezekiah":
+					if (glyssenCharacterId == "men, large force of")
+						return MatchLikelihood.Mismatch; // See 2CH 32:4 (this can be removed if/when FCBH fixes this error)
+					break;
+				case "Solomon":
+					if (glyssenCharacterId == "Wisdom" || glyssenCharacterId == "Folly")
+						return MatchLikelihood.Mismatch;
+					break;
+			}
 
 			var glyssenKing = s_matchGlyssenKing.Match(glyssenCharacterId);
 			if (glyssenKing.Success)
@@ -1012,13 +1032,18 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			var matchFcbhProperName = s_matchFcbhProperNameWithLabel.Match(fcbhCharacterLabel);
+			if (!matchFcbhProperName.Success)
+				matchFcbhProperName = s_matchFcbhProperNameOfKing.Match(fcbhCharacterLabel);
 			if (matchFcbhProperName.Success)
-			{
+				{
 				matchGProperName = s_matchGlyssenFirstWordCapitalized.Match(glyssenCharacterId);
 				if (matchGProperName.Success &&
 					matchGProperName.Result("${name}") == matchFcbhProperName.Result("${name}"))
 					return MatchLikelihood.Reliable;
 			}
+
+			if (fcbhCharacterToLower.Replace("man", "men") == characterIdToUseToLower)
+				return MatchLikelihood.Reliable;
 
 			return IsKnownNameMatch(fcbhCharacterLabel, glyssenCharacterId) ? MatchLikelihood.Reliable : MatchLikelihood.Possible;
 		}
@@ -1034,12 +1059,17 @@ namespace Glyssen.RefTextDevUtilities
 				case "Servant of Abraham": return glyssenCharacterId == "Abraham's chief servant";
 				case "King of Sodom": return glyssenCharacterId == "Bera, king of Sodom";
 				case "Daughter of Lot": return glyssenCharacterId == "older daughter of Lot";
+				case "Daughter of Jerusalem": return glyssenCharacterId == "maidens";
 				case "Sodomite": return glyssenCharacterId == "men of Sodom (wicked)";
 				case "Pashhur": return glyssenCharacterId == "Pashur";
+				case "Official": return glyssenCharacterId == "chief official";
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
 				case "Cupbearer": return glyssenCharacterId == "chief cupbearer of Egypt";
+				case "Wife of Haman": return glyssenCharacterId == "Zeresh, wife of Haman";
+				case "King Joash": return glyssenCharacterId == "Jehoash, king of Israel";
+				case "Syrians": return glyssenCharacterId == "Aramean soldiers";
 				case "Watchman": return glyssenCharacterId == "lookout";
 				case "Daughter of Zelophehad": return glyssenCharacterId == "daughters of Zelophehad";
 				case "Elder of Congregation": return glyssenCharacterId == "Israelite assembly, elders of";
