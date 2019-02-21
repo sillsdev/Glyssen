@@ -53,7 +53,7 @@ Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder			JHN 
 Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17	False
 Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5	False
 Andrew	1	Male	Adult			MAT 14:17 <-(3 more)-> JHN 6:9	False
-angel	-1	Male	Adult			1KI 19:5 <-(16 more)-> ACT 12:8	False
+angel	-1	Male	Adult			1KI 19:5 <-(23 more)-> ACT 12:8	False
 angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11	False
 angel flying directly overhead	1		Adult			REV 14:7	False
 angel flying directly overhead, second	1		Adult			REV 14:8	False
@@ -93,7 +93,7 @@ arrogant men	-1	Male	Adult				False
 Artaxerxes, king of Persia	1	Male	Adult			EZR 4:17 <-(22 more)-> NEH 2:6	False
 Asa, king of Judah	1	Male	Adult			1KI 15:19 <-(2 more)-> 2CH 16:3	False
 Asahel, brother of Joab	1	Male	Adult			2SA 2:20	False
-Asaph	1	Male	Adult			PSA 77:7 <-(2 more)-> PSA 77:10	False
+Asaph	1	Male	Adult			PSA 74:8 <-(3 more)-> PSA 77:10	False
 assembly, whole	-1		Adult			EZR 10:12 <-(2 more)-> NEH 5:13	False
 astrologers	-1	Male	Adult			DAN 2:4 <-(6 more)-> DAN 3:12	False
 Athaliah, mother of Ahaziah (Queen)	1	Female	Adult			2KI 11:14 & 2CH 23:13	False
@@ -162,7 +162,7 @@ Caleb	1	Male	Adult			NUM 13:30 <-(10 more)-> JDG 1:14	False
 Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28	False
 Canaanites	-1		Adult			GEN 50:11	False
 captain of ship to Italy (Rome)	1	Male	Adult				False
-captain of ship to Tarshish	1	Male	Adult			JON 1:6	False
+captain of ship to Tarshish	1	Male	Adult			JON 1:6 <-(4 more)-> JON 1:14	False
 captain of the temple guard	1	Male	Adult				False
 captain, first	1	Male	Adult			2KI 1:9	False
 captain, second	1	Male	Adult			2KI 1:11	False
@@ -229,13 +229,13 @@ Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(2 more)-> EZR 1:4	False
 Dan	1	Male	Adult				False
 Daniel	1	Male	Adult			DAN 1:12 <-(94 more)-> DAN 10:19	False
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25	False
-Darius, king of Medes and Persians	1	Male	Adult			DAN 6:12 <-(4 more)-> DAN 6:27	False
+Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(16 more)-> DAN 6:27	False
 Dathan	1	Male			son of Eliab (Reubenite)		False
 daughter of Zion	1	Female				JER 4:31 <-(14 more)-> LAM 2:22	False
 daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	False
 David	1	Male	Adult			1SA 17:26 <-(427 more)-> PRO 4:9	False
 David (old)	1	Male	Elder			1KI 1:16 <-(14 more)-> 1KI 2:9	False
-David's enemies	-1	Male				PSA 3:2 <-(13 more)-> PSA 71:11	False
+David's enemies	-1	Male				PSA 3:2 <-(12 more)-> PSA 71:11	False
 David's men	-1	Male				1SA 23:3 <-(2 more)-> 2SA 21:17	False
 David's supporters	-1					PSA 35:27	False
 Deborah	1	Female			prophetess	JDG 4:6 <-(2 more)-> JDG 4:14	False
@@ -328,7 +328,7 @@ explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33	False
 eye	1	Neuter				1CO 12:21	True
 Ezekiel	1	Male				EZK 4:14 <-(14 more)-> EZK 37:10	False
 Ezra, priest and teacher	1	Male				EZR 5:4 <-(55 more)-> EZR 10:11	False
-false prophets	-1	Male				JER 14:13 <-(1 more)-> MIC 2:7	False
+false prophets	-1	Male				JER 14:13 <-(2 more)-> MIC 2:7	False
 false teachers	-1					1TI 4:3	True
 false witnesses	-1					ACT 6:13 & ACT 6:14	False
 family heads of Gilead	-1	Male				NUM 36:2 <-(1 more)-> NUM 36:4	False
@@ -371,7 +371,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24	False
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	False
 Gilead, leaders of	-1	Male				JDG 10:18	False
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	False
-God	1	Male		Y		GEN 1:3 <-(5382 more)-> REV 21:8	False
+God	1	Male		Y		GEN 1:3 <-(5383 more)-> REV 21:8	False
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44	False
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default		False
 great company of heavenly host	-1		Adult			LUK 2:14	False
@@ -464,8 +464,8 @@ Jabez	1	Male				1CH 4:10	False
 Jabez's mother	1	Female				1CH 4:9	False
 Jacob (Israel)	1	Male				GEN 25:31 <-(142 more)-> GEN 49:32	False
 Jacob's son (one who discovered his silver in his sack)	1	Male			Not Simeon, Joseph, or Benjamin	GEN 42:28	False
-Jacob's sons	10	Male			Not Joseph or Banjamin	GEN 37:19 <-(11 more)-> GEN 44:9	False
-Jacob's sons (not Simeon, Joseph, or Benjamin)	9	Male				GEN 42:28 <-(9 more)-> GEN 43:22	False
+Jacob's sons	10	Male			Not Joseph or Banjamin	GEN 37:19 <-(9 more)-> GEN 44:9	False
+Jacob's sons (not Simeon, Joseph, or Benjamin)	9	Male				GEN 42:28 <-(11 more)-> GEN 44:8	False
 Jael	1	Female				JDG 4:18 & JDG 4:22	False
 Jahaziel (Spirit of the Lord on)	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17	False
 jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36	False
@@ -509,7 +509,7 @@ Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22	False
 Jews, many	-1					JHN 10:20	False
 Jews, more than forty in conspiracy	-1	Male				ACT 23:14 & ACT 23:15	False
 Jews, other	-1					JHN 10:21	False
-Jews, the	-1	Male				EZR 5:4 <-(40 more)-> ROM 3:5	False
+Jews, the	-1	Male				EZR 5:4 <-(41 more)-> ROM 3:5	False
 Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31	False
 Joab	1	Male				2SA 2:14 <-(34 more)-> 1CH 21:3	False
 Joab's men, one of	1	Male				2SA 20:11	False
@@ -713,7 +713,7 @@ mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21
 multitude from all nations, tribes, peoples, languages	-1					REV 7:10	False
 musicians	-1					PSA 87:7	False
 Naaman	1	Male				2KI 5:4 <-(6 more)-> 2KI 5:23	False
-Naaman's servants	-1	Male				2KI 5:13	False
+Naaman's servants	-1	Male				2KI 5:4 & 2KI 5:13	False
 Nabal	1	Male				1SA 25:10 & 1SA 25:11	False
 Naboth	1	Male				1KI 21:3 & 1KI 21:4	False
 Nahash the Ammonite	1	Male				1SA 11:2	False
@@ -721,7 +721,7 @@ Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18	False
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2	False
 Nathanael	1	Male				JHN 1:46 <-(1 more)-> JHN 1:49	False
 nations	-1					DEU 4:6 <-(7 more)-> MIC 4:11	False
-Nebuchadnezzar, king of Babylon	1	Male				DAN 2:3 <-(36 more)-> DAN 4:37	False
+Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37	False
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5	False
 Neco, king of Egypt	1	Male				2CH 35:21	False
 Nehemiah	1	Male				NEH 1:5 <-(34 more)-> NEH 13:27	False
@@ -779,7 +779,7 @@ others (testing Jesus)	-1					LUK 11:16	False
 others who would not believe	-1	Male				ACT 28:24 & ACT 28:25	False
 owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33	False
 owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21	False
-parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(1 more)-> JHN 9:23	False
+parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(2 more)-> JHN 9:23	False
 parents of rebellious son	2	Either				DEU 21:20	True
 Pashur	1	Male			son of Malkijah		False
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30	False
@@ -872,7 +872,7 @@ prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10	False
 prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	False
 prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16	False
 prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42	False
-prophets	-1						False
+prophets	-1					JER 25:5 & JER 25:6	False
 prophets (speaking the word of the LORD)	-1					2KI 21:11 <-(3 more)-> 2KI 21:15	False
 prophets and teachers at Antioch	-1	Male				ACT 13:3	False
 prophets of Baal	-1					1KI 18:26	False
@@ -906,14 +906,14 @@ Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37	False
 Reubenites	-1	Male					False
 Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15	False
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21	False
-royal record	1	Male					False
+royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5	False
 rule given by Paul	1	Male				2TH 3:10	False
 rulers of people in Jerusalem	-1	Male				ISA 28:15	True
 rules of the world	1					COL 2:21	True
 Ruth	1	Female				RUT 1:16 <-(8 more)-> RUT 3:17	False
 Sadducees	-1	Male				MAT 22:24 <-(17 more)-> ACT 23:8	False
 sailors on ship to Italy (Rome)	-1	Male				ACT 27:27	False
-sailors on ship to Tarshish	-1	Male				JON 1:7 <-(3 more)-> JON 1:14	False
+sailors on ship to Tarshish	-1	Male				JON 1:5 <-(5 more)-> JON 1:16	False
 Salome	1	Female					False
 Samson	1	Male				JDG 14:2 <-(20 more)-> JDG 16:30	False
 Samson's 30 Philistine companions	30	Male				JDG 14:13 <-(1 more)-> JDG 14:18	False
@@ -959,7 +959,7 @@ sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False
 Sennacherib's officers	-1	Male				2CH 32:10 <-(8 more)-> 2CH 32:19	False
-Seraiah	1	Male					False
+Seraiah	1	Male				JER 51:62 & JER 51:64	True
 seraph, one of the	1	Male				ISA 6:7	False
 seraphs	-1	Male				ISA 6:3	False
 serpent	1	Male			Gen 3 - text uses masculine pronouns	GEN 3:1 <-(1 more)-> GEN 3:5	False
@@ -967,7 +967,7 @@ servant girl at high priest's courtyard	1	Female				MAT 26:69 <-(3 more)-> JHN 1
 servant girl, another	1	Female				MAT 26:71	False
 servant of concubine's husband	1	Male				JDG 19:11	False
 servant of Elijah	1	Male				1KI 18:43 & 1KI 18:44	False
-servant of Naaman's wife (young girl)	1	Female	Child			2KI 5:3	False
+servant of Naaman's wife (young girl)	1	Female	Child			2KI 5:3 & 2KI 5:4	False
 servant of Nabal	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 25:14 <-(2 more)-> 1SA 25:17	False
 servant of priest	1	Male				1SA 2:15 & 1SA 2:16	False
 servant of Saul	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 9:6 & 1SA 9:8	False
@@ -1032,8 +1032,8 @@ son of Shunammite	1	Male	Child			2KI 4:19	False
 son of widow	1	Male				2KI 4:6	False
 song of the prostitute	1	Female				ISA 23:16	False
 sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14	True
-sons of Korah	-1	Male					False
-sons of Korah's enemies	-1	Male					False
+sons of Korah	-1	Male				PSA 42:3 & PSA 42:9	False
+sons of Korah's enemies	-1	Male				PSA 42:3	False
 sons of prophet in Bethel	-1	Male				1KI 13:30	False
 souls of those killed for word of God	-1					REV 6:10	False
 spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(7 more)-> LUK 20:24	False
