@@ -148,7 +148,8 @@ namespace Glyssen.Dialogs
 				delivery == null ? Delivery.Normal.Text : delivery.Text,
 				null,
 				true));
-			GetCharactersForCurrentReferenceTextMatchup(); // This forces the model's internal list to refresh to just the relevant ones
+			if (CurrentReferenceTextMatchup != null)
+				PopulateCurrentCharactersForCurrentReferenceTextMatchup(); // This forces the model's internal list to refresh to just the relevant ones
 		}
 
 		private void OnSaveCurrentBook()
@@ -218,12 +219,16 @@ namespace Glyssen.Dialogs
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
 		{
+			PopulateCurrentCharactersForCurrentReferenceTextMatchup();
+			return GetUniqueCharacters(false);
+		}
+
+		public void PopulateCurrentCharactersForCurrentReferenceTextMatchup()
+		{
 			m_currentCharacters = new HashSet<CharacterVerse>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
 			m_currentCharacters.UnionWith(m_pendingCharacterVerseAdditions);
-
-			return GetUniqueCharacters(false);
 		}
 
 		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
