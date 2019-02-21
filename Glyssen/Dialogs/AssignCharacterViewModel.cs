@@ -46,8 +46,14 @@ namespace Glyssen.Dialogs
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 
-			CurrentBlockMatchupChanged += (sender, args) => { m_pendingCharacterVerseAdditions.Clear(); };
+			CurrentBlockMatchupChanged += OnCurrentBlockMatchupChanged;
 		}
+
+		private void OnCurrentBlockMatchupChanged(object sender, EventArgs args)
+		{
+			m_pendingCharacterVerseAdditions.Clear();
+		}
+
 		#endregion
 
 		#region Public properties
@@ -126,11 +132,22 @@ namespace Glyssen.Dialogs
 
 		public void AddPendingProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
+			AddPendingProjectCharacterVerseData(block, character.CharacterId, delivery);
+		}
+
+		private void AddPendingProjectCharacterVerseDataIfNeeded(Block block, string characterId)
+		{
+			if (!GetUniqueCharacterVerseObjectsForBlock(block).Any(c => c.Character == characterId && c.Delivery == null))
+				AddPendingProjectCharacterVerseData(block, characterId);
+		}
+
+		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
+		{
 			m_pendingCharacterVerseAdditions.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
-					character.CharacterId,
-					delivery == null ? Delivery.Normal.Text : delivery.Text,
-					null,
-					true));
+				characterId,
+				delivery == null ? Delivery.Normal.Text : delivery.Text,
+				null,
+				true));
 			GetCharactersForCurrentReferenceTextMatchup(); // This forces the model's internal list to refresh to just the relevant ones
 		}
 
@@ -460,6 +477,8 @@ namespace Glyssen.Dialogs
 			// so, add an appropriate entry to the project CV data.
 			foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(IsBlockAssignedToUnknownCharacterDeliveryPair))
 			{
+				Debug.Assert(block.CharacterId != null);
+				Debug.Assert(block.CharacterId != "");
 				AddRecordToProjectCharacterVerseData(block,
 					GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
 					string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
@@ -550,61 +569,73 @@ namespace Glyssen.Dialogs
 		#region Block editing methods
 		public void SplitBlock(IEnumerable<BlockSplitData> blockSplits, List<KeyValuePair<int, string>> characters)
 		{
-			// set the character for the first block
-			Block currentBlock = CurrentBlock;
-			var firstCharacterId = characters.First(c => c.Key == 0).Value;
-			if (currentBlock.CharacterId != firstCharacterId)
+			try
 			{
-				if (string.IsNullOrEmpty(firstCharacterId))
-					currentBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
-				else
+				CurrentBlockMatchupChanged -= OnCurrentBlockMatchupChanged;
+
+				// set the character for the first block
+				Block currentBlock = CurrentBlock;
+				var firstCharacterId = characters.First(c => c.Key == 0).Value;
+				if (currentBlock.CharacterId != firstCharacterId)
 				{
-					Debug.Assert(currentBlock.CharacterIdOverrideForScript == null && firstCharacterId.SplitCharacterId().Length == 1,
-						"This is a case that needs to be fixed for PG-1143");
-					currentBlock.CharacterId = firstCharacterId;
-				}
-				currentBlock.Delivery = null;
-			}
-
-			foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit }))
-			{
-				foreach (var blockSplitData in groupOfSplits.OrderByDescending(s => s,
-					BlockSplitData.BlockSplitDataVerseAndOffsetComparer))
-				{
-					// get the character selected for this split
-					var characterId = characters.First(c => c.Key == blockSplitData.Id).Value;
-
-					var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
-					var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
-						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
-
-					var isNewBlock = originalNextBlock != chipOffTheOldBlock;
-					if (isNewBlock)
-					{
-						var newBlockIndices = GetBlockIndices(chipOffTheOldBlock);
-						var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
-							r => r.BookIndex == newBlockIndices.BookIndex &&
-								r.BlockIndex >= newBlockIndices.BlockIndex);
-						foreach (var bookBlockIndices in blocksIndicesNeedingUpdate)
-							bookBlockIndices.BlockIndex++;
-					}
+					if (string.IsNullOrEmpty(firstCharacterId))
+						currentBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 					else
 					{
-						// We "split" between existing blocks in a multiblock quote,
-						// so we don't need to do the same kind of cleanup above.
+						Debug.Assert(currentBlock.CharacterIdOverrideForScript == null && firstCharacterId.SplitCharacterId().Length == 1,
+							"This is a case that needs to be fixed for PG-1143");
+						currentBlock.CharacterId = firstCharacterId;
+						AddPendingProjectCharacterVerseDataIfNeeded(currentBlock, firstCharacterId);
 					}
-					AddToRelevantBlocksIfNeeded(chipOffTheOldBlock, isNewBlock);
+					currentBlock.Delivery = null;
 				}
-			}
-			if (AttemptRefBlockMatchup)
-			{
-				// A split will always require the current matchup to be re-constructed.
-				SetBlockMatchupForCurrentVerse();
-			}
 
-			// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
-			// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
-			SetModeInternal(Mode, true);
+				foreach (var groupOfSplits in blockSplits.GroupBy(s => new {s.BlockToSplit}))
+				{
+					foreach (var blockSplitData in groupOfSplits.OrderByDescending(s => s,
+						BlockSplitData.BlockSplitDataVerseAndOffsetComparer))
+					{
+						// get the character selected for this split
+						var characterId = characters.First(c => c.Key == blockSplitData.Id).Value;
+
+						var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
+						var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
+							blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
+						AddPendingProjectCharacterVerseDataIfNeeded(chipOffTheOldBlock, characterId);
+
+						var isNewBlock = originalNextBlock != chipOffTheOldBlock;
+						if (isNewBlock)
+						{
+							var newBlockIndices = GetBlockIndices(chipOffTheOldBlock);
+							var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
+								r => r.BookIndex == newBlockIndices.BookIndex &&
+									r.BlockIndex >= newBlockIndices.BlockIndex);
+							foreach (var bookBlockIndices in blocksIndicesNeedingUpdate)
+								bookBlockIndices.BlockIndex++;
+						}
+						else
+						{
+							// We "split" between existing blocks in a multiblock quote,
+							// so we don't need to do the same kind of cleanup above.
+						}
+						AddToRelevantBlocksIfNeeded(chipOffTheOldBlock, isNewBlock);
+					}
+				}
+
+				if (AttemptRefBlockMatchup)
+				{
+					// A split will always require the current matchup to be re-constructed.
+					SetBlockMatchupForCurrentVerse();
+				}
+
+				// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
+				// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
+				SetModeInternal(Mode, true);
+			}
+			finally
+			{
+				CurrentBlockMatchupChanged += OnCurrentBlockMatchupChanged;
+			}
 		}
 		#endregion
 

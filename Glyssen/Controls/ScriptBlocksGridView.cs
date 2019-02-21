@@ -196,56 +196,57 @@ namespace Glyssen.Controls
 
 		public void UpdateContext()
 		{
+			int firstRow, lastRow;
 			m_updatingContext = true;
-			SuspendLayout();
-
-			ResetSelectionBackColors();
-
-			ClearSelection();
-			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
-			var firstRow = m_viewModel.IndexOfFirstBlockInCurrentGroup;
-			var lastRow = m_viewModel.IndexOfLastBlockInCurrentGroup;
-			bool multiSelect = firstRow != lastRow;
-			if (changingRowCount || MultiSelect != multiSelect)
+			Cursor restoreCursor = Cursor.Current;
+			try
 			{
-				MultiSelect = multiSelect;
-				if (changingRowCount)
-				{
-					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-					RowCount = m_viewModel.BlockCountForCurrentBook;
-				}
-				// Need to clear the selection here again because some of the property setters on
-				// DataGridView have the side-effect of creating a selection. We want to avoid having
-				// HandleDataGridViewBlocksCellValueNeeded get called with an index that is out of
-				// range for the new book.
+				Cursor.Current = Cursors.WaitCursor;
+				SuspendLayout();
+
+				ResetSelectionBackColors();
+
 				ClearSelection();
-			}
-
-			for (var i = firstRow; i <= lastRow; i++)
-			{
-				Rows[i].Selected = true;
-				if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
+				bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
+				firstRow = m_viewModel.IndexOfFirstBlockInCurrentGroup;
+				lastRow = m_viewModel.IndexOfLastBlockInCurrentGroup;
+				bool multiSelect = firstRow != lastRow;
+				if (changingRowCount || MultiSelect != multiSelect)
 				{
-					Rows[i].DefaultCellStyle.SelectionBackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i - firstRow);
-					Rows[i].DefaultCellStyle.SelectionForeColor = Color.Black;
-
-					var characterId = (string)Rows[i].Cells["colCharacter"].Value;
-					Rows[i].Cells["colText"].Style.SelectionForeColor = GlyssenColorPalette.ColorScheme.GetForeColorByCharacterId(characterId);
+					MultiSelect = multiSelect;
+					if (changingRowCount)
+					{
+						AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+						RowCount = m_viewModel.BlockCountForCurrentBook;
+					}
+					// Need to clear the selection here again because some of the property setters on
+					// DataGridView have the side-effect of creating a selection. We want to avoid having
+					// HandleDataGridViewBlocksCellValueNeeded get called with an index that is out of
+					// range for the new book.
+					ClearSelection();
 				}
-			}
 
-			if (changingRowCount)
-				try
+				for (var i = firstRow; i <= lastRow; i++)
 				{
-					Cursor.Current = Cursors.WaitCursor;
+					Rows[i].Selected = true;
+					if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
+					{
+						Rows[i].DefaultCellStyle.SelectionBackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i - firstRow);
+						Rows[i].DefaultCellStyle.SelectionForeColor = Color.Black;
+
+						var characterId = (string)Rows[i].Cells["colCharacter"].Value;
+						Rows[i].Cells["colText"].Style.SelectionForeColor = GlyssenColorPalette.ColorScheme.GetForeColorByCharacterId(characterId);
+					}
+				}
+
+				if (changingRowCount)
 					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-				}
-				finally
-				{
-					Cursor.Current = Cursors.Default;
-				}
-
-			ResumeLayout();
+			}
+			finally
+			{
+				ResumeLayout();
+				Cursor.Current = restoreCursor;
+			}
 
 			m_updatingContext = false;
 

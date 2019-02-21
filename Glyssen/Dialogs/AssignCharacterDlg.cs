@@ -1180,7 +1180,15 @@ namespace Glyssen.Dialogs
 				{
 					Logger.WriteMinorEvent("Split block in {0} into {1} parts.", m_scriptureReference.VerseControl.VerseRef.ToString(),
 						dlg.SplitLocations.Count + 1);
-					m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters);
+					try
+					{
+						Cursor.Current = Cursors.WaitCursor;
+						m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters);
+					}
+					finally
+					{
+						Cursor.Current = Cursors.Default;
+					}
 				}
 			}
 		}
@@ -1453,7 +1461,6 @@ namespace Glyssen.Dialogs
 				else
 				{
 					Debug.Assert(e.ColumnIndex == colCharacter.Index);
-					Debug.Assert(!colCharacter.ReadOnly);
 					var selectedCharacter = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex]
 						.Value as AssignCharacterViewModel.Character;
 					if (selectedCharacter == null)
@@ -1734,6 +1741,7 @@ namespace Glyssen.Dialogs
 			if (!m_dataGridReferenceText.IsCurrentCellInEditMode)
 				m_dataGridReferenceText.BeginEdit(false);
 			var editingCtrl = (DataGridViewTextBoxEditingControl)m_dataGridReferenceText.EditingControl;
+			editingCtrl.Click -= HandleClickToSplitText; // ensure we don't double-subscribe
 			editingCtrl.Click += HandleClickToSplitText;
 			editingCtrl.HandleDestroyed -= HandleClickToSplitText;
 		}
