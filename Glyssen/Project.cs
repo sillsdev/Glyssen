@@ -1489,7 +1489,7 @@ namespace Glyssen
 
 		public static string GetDefaultProjectFilePath(IBundle bundle)
 		{
-			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle));
+			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle.Name));
 		}
 
 		internal static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
@@ -1998,12 +1998,16 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			return Format("{0} {1}", publicationName, LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
-		}
-
-		internal static string GetDefaultRecordingProjectName(IBundle bundle)
-		{
-			return GetDefaultRecordingProjectName(bundle.Name);
+			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName);
+			const int kMaxPubNameLength = 150; // Anything over 200 is likely to cause a total path of more that 255 characters.
+			if (publicationName.Length > kMaxPubNameLength)
+			{
+				var i = publicationName.LastIndexOf(" ", kMaxPubNameLength, StringComparison.Ordinal);
+				if (i < 15)
+					i = kMaxPubNameLength;
+				publicationName = publicationName.Substring(0, i);
+			}
+			return $"{publicationName} {LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio")}";
 		}
 
 		private void InstallFontsIfNecessary()
