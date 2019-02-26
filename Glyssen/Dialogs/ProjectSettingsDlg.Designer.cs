@@ -304,17 +304,18 @@
 			this.glyssenColorPalette.SetBackColor(this.m_txtRecordingProjectName, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtRecordingProjectName, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_txtRecordingProjectName, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtRecordingProjectName, null);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtRecordingProjectName, "This name cannot contain any characters that are not legal in file names.");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtRecordingProjectName, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtRecordingProjectName, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtProjectName");
 			this.m_txtRecordingProjectName.Location = new System.Drawing.Point(161, 3);
 			this.m_txtRecordingProjectName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+			this.m_txtRecordingProjectName.MaxLength = 200;
 			this.m_txtRecordingProjectName.Name = "m_txtRecordingProjectName";
 			this.m_txtRecordingProjectName.Size = new System.Drawing.Size(422, 20);
 			this.m_txtRecordingProjectName.TabIndex = 0;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtRecordingProjectName, false);
 			this.m_txtRecordingProjectName.TextChanged += new System.EventHandler(this.m_txtRecordingProjectName_TextChanged);
+			this.m_txtRecordingProjectName.Validating += new System.ComponentModel.CancelEventHandler(this.m_txtRecordingProjectName_Validating);
 			// 
 			// m_txtLanguageName
 			// 
@@ -1208,7 +1209,8 @@
 			this.m_rdoCustom.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_rdoCustom, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rdoCustom, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoCustom, "This is for a possible future feature and is not currently visible anywhere in the UI.");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoCustom, "This is for a possible future feature and is not currently visible anywhere in th" +
+        "e UI.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_rdoCustom, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.CustomOption");
 			this.m_rdoCustom.Location = new System.Drawing.Point(3, 105);
 			this.m_rdoCustom.Name = "m_rdoCustom";

@@ -3,13 +3,11 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,6 +47,11 @@ namespace Glyssen
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
 		private const string kCharacterGroupFileName = "CharacterGroups.xml";
+		// Total path limit is 260 characters. Need to allow for:
+		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
+		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
+		private const int kMaxDefaultProjectNameLength = 150;
+		private const int kMaxPath = 260;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -178,6 +181,12 @@ namespace Glyssen
 		public string Name => m_recordingProjectName;
 
 		public string PublicationName => m_metadata.Identification?.Name;
+
+		private static string DefaultRecordingProjectNameSuffix => " " +
+			LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
+				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
+
+		private static int MaxBaseRecordingNameLength => kMaxDefaultProjectNameLength - DefaultRecordingProjectNameSuffix.Length;
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
@@ -1487,6 +1496,8 @@ namespace Glyssen
 			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + Constants.kProjectFileExtension);
 		}
 
+		public string ProjectFileName => LanguageIsoCode + Constants.kProjectFileExtension;
+
 		public static string GetDefaultProjectFilePath(IBundle bundle)
 		{
 			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle.Name));
@@ -1496,6 +1507,12 @@ namespace Glyssen
 		{
 			return GetProjectFilePath(textWrapper.LanguageIso3Code, textWrapper.GlyssenDblTextMetadata.Id, GetDefaultRecordingProjectName(textWrapper.ProjectFullName));
 		}
+
+		// Total path limit is 260 (MAX_PATH) characters. Need to allow for:
+		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
+		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
+		public int MaxProjectNameLength => kMaxPath - Path.Combine(ProjectsBaseFolder, LanguageIsoCode, m_metadata.Id).Length -
+			Math.Max(ProjectFileName.Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 2 allows for three Path.DirectorySeparatorChar's
 
 		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectId)
 		{
@@ -1522,7 +1539,7 @@ namespace Glyssen
 			return Path.Combine(ProjectsBaseFolder, langId);
 		}
 
-		public string ProjectFilePath => GetProjectFilePath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName);
+		public string ProjectFilePath => GetProjectFilePath(LanguageIsoCode, m_metadata.Id, m_recordingProjectName);
 
 		private string ProjectCharacterVerseDataPath => Path.Combine(ProjectFolder, kProjectCharacterVerseFileName);
 
@@ -1990,24 +2007,15 @@ namespace Glyssen
 
 		private void OnReport(ProgressChangedEventArgs e)
 		{
-			if (ProgressChanged != null)
-				ProgressChanged(this, e);
+			ProgressChanged?.Invoke(this, e);
 		}
 
 		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName);
-			const int kMaxPubNameLength = 150; // Anything over 200 is likely to cause a total path of more that 255 characters.
-			if (publicationName.Length > kMaxPubNameLength)
-			{
-				var i = publicationName.LastIndexOf(" ", kMaxPubNameLength, StringComparison.Ordinal);
-				if (i < 15)
-					i = kMaxPubNameLength;
-				publicationName = publicationName.Substring(0, i);
-			}
-			return $"{publicationName} {LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio")}";
+			publicationName = FileSystemUtils.RemoveDangerousCharacters($"{publicationName}{DefaultRecordingProjectNameSuffix}", MaxBaseRecordingNameLength);
+			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
 		}
 
 		private void InstallFontsIfNecessary()
