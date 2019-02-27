@@ -1512,7 +1512,7 @@ namespace Glyssen
 		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
 		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
 		public int MaxProjectNameLength => kMaxPath - Path.Combine(ProjectsBaseFolder, LanguageIsoCode, m_metadata.Id).Length -
-			Math.Max(ProjectFileName.Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 2 allows for three Path.DirectorySeparatorChar's
+			Math.Max(ProjectFileName.Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
 
 		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectId)
 		{
