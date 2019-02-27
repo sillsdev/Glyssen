@@ -9283,6 +9283,32 @@
         <seg>Versificación:</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtProjectName_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>This name cannot contain any characters that are not legal in file names.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Este nombre no puede contener ningún carácter que no sea legal en los nombres de archivo.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.InvalidRecordingProjectName">
+      <note>Parameter is the "Recording Project Name" label used in the Project Settings dialog box</note>
+      <tuv xml:lang="en">
+        <seg>The {0} will be used as part of the file path to store the project. To make it a legal name, do the following:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El {0} se usará como parte de la ruta del archivo para guardar el proyecto. Para convertirlo en un nombre legal, haga lo siguiente:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.InvalidRecordingProjectNameCaption">
+      <note>Parameter is the "Recording Project Name" label used in the Project Settings dialog box</note>
+      <tuv xml:lang="en">
+        <seg>Invalid {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} inválido</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.MissingReferenceText">
       <tuv xml:lang="en">
         <seg>Missing: {0}</seg>
@@ -9317,6 +9343,24 @@
         <seg>Configuración cambiado: {0}</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.RecordingProjectNameRequired">
+      <note>Parameter is the "Recording Project Name" label used in the Project Settings dialog box</note>
+      <tuv xml:lang="en">
+        <seg>The {0} is required because it will be used as part of the file path to store the project.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El {0} es obligatorio porque se usará como parte de la ruta del archivo para guardar el proyecto.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.RecordingProjectNameRequiredCaption">
+      <note>Parameter is the "Recording Project Name" label used in the Project Settings dialog box</note>
+      <tuv xml:lang="en">
+        <seg>{0} Required</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>"{0}" obligatorio</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.ReferenceTextTab.ReferenceText">
       <tuv xml:lang="en">
         <seg>Main Reference Text:</seg>
@@ -9339,6 +9383,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Texto de referencia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.RemoveIllegalCharacters">
+      <note>The "name" here refers to the Recording Project Name entered in the Project Settings dialog box. This will be followed by a list of one or more illegal characters that were encountered.</note>
+      <tuv xml:lang="en">
+        <seg>Remove illegal characters from the name:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Eliminar los caracteres ilegales del nombre:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.RemoveIllegalStartOrEndCharacters">
+      <note>The "name" here refers to the Recording Project Name entered in the Project Settings dialog box.</note>
+      <tuv xml:lang="en">
+        <seg>Do not start or end the name with a period.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No usar un punto al principio ni al final del nombre.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ProjectSettingsDlg.ReviewQuoteMarks">
@@ -11766,6 +11828,7 @@
       </tuv>
     </tu>
     <tu tuid="Project.RecordingProjectDefaultSuffix">
+      <note>This must not contain any illegal file path characters!</note>
       <tuv xml:lang="en">
         <seg>Audio</seg>
       </tuv>
