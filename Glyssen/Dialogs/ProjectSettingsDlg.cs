@@ -14,7 +14,6 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
-using SIL.WritingSystems;
 
 namespace Glyssen.Dialogs
 {
@@ -42,6 +41,8 @@ namespace Glyssen.Dialogs
 		public ProjectSettingsDlg(ProjectSettingsViewModel model)
 		{
 			InitializeComponent();
+
+			m_txtRecordingProjectName.MaxLength = model.Project.MaxProjectNameLength;
 
 			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
 			{
@@ -641,6 +642,89 @@ namespace Glyssen.Dialogs
 		private void m_titleChapters_SelectedValueChanged(object sender, EventArgs e)
 		{
 			UpdateAnnouncementsPageDisplay();
+		}
+
+		private void m_txtRecordingProjectName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			var proposedName = RecordingProjectName;
+
+			if (proposedName.Length == 0)
+			{
+				var captionFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RecordingProjectNameRequiredCaption",
+					"{0} Required",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				var msgFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RecordingProjectNameRequired",
+					"The {0} is required because it will be used as part of the file path to store the project.",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				DisplayRecordingProjectNameValidationError(msgFmt, captionFmt, e);
+				e.Cancel = true;
+				return;
+			}
+
+			var details = new StringBuilder();
+			if (FileSystemUtils.StartsOrEndsWithDisallowedCharacters(proposedName))
+			{
+				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RemoveIllegalStartOrEndCharacters",
+					"Do not start or end the name with a period.",
+					"The \"name\" here refers to the Recording Project Name entered in the Project Settings dialog box."));
+			}
+			var illegalCharacters = FileSystemUtils.GetIllegalFilenameCharacters(proposedName);
+			if (illegalCharacters.Any())
+			{
+				if (details.Length > 0)
+					details.Insert(0, "\u2022 ").Append(Environment.NewLine).Append("\u2022 "); // Make it into a bulleted list
+				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RemoveIllegalCharacters",
+					"Remove illegal characters from the name:",
+					"The \"name\" here refers to the Recording Project Name entered in the Project Settings dialog box. " +
+					"This will be followed by a list of one or more illegal characters that were encountered."));
+				if (illegalCharacters.Count == 1)
+					details.Append(" ").Append(illegalCharacters[0]);
+				else
+				{
+					foreach (var illegalCharacter in illegalCharacters)
+						details.Append(Environment.NewLine).Append("    ").Append(illegalCharacter);
+				}
+			}
+
+			if (details.Length == 0 && FileSystemUtils.IsReservedFilename(proposedName))
+			{
+				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.DoNotUseReservedFilename",
+					"Use a different name. The name {0} is a reserved filename in the Windows operating system.",
+					"The parameter is the Recording Project Name entered in the Project Settings dialog box."));
+			}
+
+			if (details.Length > 0)
+			{
+				details.Insert(0, Environment.NewLine);
+				var captionFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.InvalidRecordingProjectNameCaption",
+					"Invalid {0}",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				var msgFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.InvalidRecordingProjectName",
+					"The {0} will be used as part of the file path to store the project. To make it a legal name, do the following:",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				DisplayRecordingProjectNameValidationError(msgFmt + details, captionFmt, e);
+			}
+		}
+
+		private void DisplayRecordingProjectNameValidationError(string msgFmt, string captionFmt, System.ComponentModel.CancelEventArgs e)
+		{
+			var recordingProjectNameLabel = m_lblRecordingProjectName.Text;
+			for (int i = recordingProjectNameLabel.Length - 1; i > 0; i--)
+			{
+				if (char.IsPunctuation(recordingProjectNameLabel[i]))
+					recordingProjectNameLabel = recordingProjectNameLabel.Remove(i, 1);
+				else
+					break;
+			}
+			MessageBox.Show(this, String.Format(msgFmt, recordingProjectNameLabel),
+				String.Format(captionFmt, recordingProjectNameLabel),
+				MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			e.Cancel = true;
 		}
 	}
 }
