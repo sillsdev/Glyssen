@@ -206,12 +206,16 @@ namespace Glyssen
 					vernBlock.UserConfirmed = true;
 				}
 			}
+			// No need to do the following here if m_numberOfBlocksAddedBySplitting > 0 because the call to ReplaceBlocks does it.
 			if (m_numberOfBlocksAddedBySplitting == 0)
 			{
 				var lastBlockInMatchup = CorrelatedBlocks.Last();
 				foreach (var block in origBlocks.Skip(m_iStartBlock + OriginalBlockCount).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote))
 				{
 					block.CharacterId = lastBlockInMatchup.CharacterId;
+					// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
+					// outside the matchup (probably not).
+					// block.Delivery = lastBlockInMatchup.Delivery;
 					block.CharacterIdOverrideForScript = lastBlockInMatchup.CharacterIdOverrideForScript;
 				}
 			}

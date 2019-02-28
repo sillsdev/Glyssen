@@ -477,17 +477,30 @@ namespace Glyssen.Dialogs
 			}
 			base.ApplyCurrentReferenceTextMatchup();
 
+			//PG-1106: If the last block in the current matchup is part of a quote that might be continued in following blocks (outside
+			// the current matchup), we'll need to check the following block(s) and add records to ProjectCharacterVerse for as many
+			// following verses as needed.
+
 			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond and
 			// also allows addition of new character/delivery pairs, so we need to check to see whether this has happened and, if
 			// so, add an appropriate entry to the project CV data.
-			foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(IsBlockAssignedToUnknownCharacterDeliveryPair))
+
+			//foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(IsBlockAssignedToUnknownCharacterDeliveryPair))
+
+			int iLastBlockInMatchup = CurrentReferenceTextMatchup.IndexOfStartBlockInBook + CurrentReferenceTextMatchup.OriginalBlockCount;
+			var blocks = CurrentBook.GetScriptBlocks();
+			for (int i = CurrentReferenceTextMatchup.IndexOfStartBlockInBook; i <= iLastBlockInMatchup || (i < blocks.Count && blocks[i].IsContinuationOfPreviousBlockQuote); i++)
 			{
+				var block = blocks[i];
+				if (IsBlockAssignedToUnknownCharacterDeliveryPair(block))
+				{
 				Debug.Assert(block.CharacterId != null);
 				Debug.Assert(block.CharacterId != "");
-				AddRecordToProjectCharacterVerseData(block,
-					GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
-					string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
-					GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
+					AddRecordToProjectCharacterVerseData(block,
+						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
+						string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
+							GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
+				}
 			}
 
 			m_pendingCharacterVerseAdditions.Clear();
@@ -529,6 +542,9 @@ namespace Glyssen.Dialogs
 		public void SetReferenceTextMatchupDelivery(int blockIndex, Delivery selectedDelivery)
 		{
 			CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex].Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
+			// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
+			// withing the matchup, particularly if they are blocks which were previously all part of the same block and were
+			// merely split off by the reference text.
 		}
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
@@ -541,15 +557,21 @@ namespace Glyssen.Dialogs
 				m_pendingCharacterDetails.Remove(detail.CharacterId);
 			}
 
-			var cv = new CharacterVerse(
-				new BCVRef(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV),
-				character.IsNarrator
+			var reference = new BCVRef(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV);
+			var lastVerse = block.LastVerseNum;
+			do
+			{
+				var cv = new CharacterVerse(
+					reference,
+					character.IsNarrator
 						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)
 						: character.CharacterId,
-				delivery.IsNormal ? null : delivery.Text,
-				character.Alias,
-				character.ProjectSpecific || delivery.ProjectSpecific);
-			m_projectCharacterVerseData.Add(cv);
+					delivery.IsNormal ? null : delivery.Text,
+					character.Alias,
+					character.ProjectSpecific || delivery.ProjectSpecific);
+				m_projectCharacterVerseData.Add(cv);
+				reference.Verse++;
+			} while (reference.Verse <= lastVerse);
 
 			m_project.SaveProjectCharacterVerseData();
 		}
