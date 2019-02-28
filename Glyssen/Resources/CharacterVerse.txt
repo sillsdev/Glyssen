@@ -16609,6 +16609,7 @@ ACT	23	8	Sadducees			Hypothetical
 ACT	23	9	Pharisees	arguing	teachers of the law, some who were Pharisees	Dialogue		
 ACT	23	10	commander of Roman troops in Jerusalem	ordering		Indirect		
 ACT	23	11	Jesus	in a vision		Normal		
+ACT	23	12	Jews, more than forty in conspiracy	plotting		Indirect		
 ACT	23	14	Jews, more than forty in conspiracy	plotting		Dialogue		
 ACT	23	15	Jews, more than forty in conspiracy	plotting		Dialogue		
 ACT	23	17	Paul			Dialogue		

@@ -258,7 +258,8 @@ namespace Glyssen.Quote
 									m_currentMultiBlockQuote.Clear();
 									FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0, true);
 									SetBlockInitialVerseFromVerseElement(verseElement);
-									m_quoteLevel = 0;
+									if (!pendingColon)
+										m_quoteLevel = 0;
 									m_nextBlockContinuesQuote = false;
 								}
 							}
@@ -282,10 +283,11 @@ namespace Glyssen.Quote
 						{
 							if (s_quoteSystem.NormalLevels.Count > 0)
 							{
-								var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
-								if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos &&
-								    (pos > 0 || !m_regexHasFirstLevelClose.Match(content, pos + matchFirstLevelOpen.Length).Success))
+								if (AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(content, pos))
+								{
 									DecrementQuoteLevel();
+									Debug.Assert(m_quoteLevel > 0 || blockInWhichDialogueQuoteStarted == null);
+								}
 								else
 									blockInWhichDialogueQuoteStarted = block;
 							}
@@ -405,7 +407,10 @@ namespace Glyssen.Quote
 								blockEndedWithSentenceEndingPunctuation = false;
 								pendingColon = token.StartsWith(":");
 								if (pendingColon)
+								{
+									blockInWhichDialogueQuoteStarted = null;
 									sb.Append(token);
+								}
 								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
 								if (!pendingColon)
 								{
@@ -472,6 +477,38 @@ namespace Glyssen.Quote
 				ProcessMultiBlock();
 			}
 			return m_outputBlocks;
+		}
+
+		private bool AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(string content, int pos)
+		{
+			// Note: this method is used to try to guess whether an opening quote (that immediately follows
+			// a "dialogue" colon) is just a word or short phrase or a whole quote that happens to have a
+			// preceding colon. This is needed because languages that use a colon (without quotes) to introduce
+			// a bit of dialogue often also use a colon to introduce quoted speech. But we don't want to confuse
+			// a bit of dialogue that happens to begin with an exclamation or some other word or phrase that
+			// merits quotation marks with a full quote.
+			// See PG-487 for an idea that might ultimately do a better job of helping us figure this out.
+			var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
+			if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos)
+			{
+				if (pos > 0)
+					return true;
+				int quotationStartPos = pos + matchFirstLevelOpen.Length;
+				var match = m_regexHasFirstLevelClose.Match(content, quotationStartPos);
+				if (!match.Success)
+					return true;
+				// The remaining logic here is pretty fuzzy. Basically, it feels like a quote that covers more than
+				// half of the remaining text or which consists of 3 or more words is likely to be a full quote.
+				// In any case, it gets some existing (somewhat contrived) tests to pass and also allows a test based
+				// on more realistic data to pass.
+				int lengthOfQuotation = match.Index - quotationStartPos;
+				if (lengthOfQuotation > (content.Length - pos) / 2)
+					return true;
+				if (content.Skip(quotationStartPos).Take(lengthOfQuotation).Count(IsWhiteSpace) > 2)
+					return true;
+				return false;
+			}
+			return false;
 		}
 
 		private string GetOpeningPunctuationAsSingleString()
