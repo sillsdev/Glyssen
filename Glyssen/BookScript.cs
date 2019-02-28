@@ -603,6 +603,9 @@ namespace Glyssen
 					do
 					{
 						m_blocks[blockIndexFollowingReplacement].CharacterId = lastReplacementBlock.CharacterId;
+						// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
+						// outside the matchup (probably not).
+						// m_blocks[blockIndexFollowingReplacement].Delivery = lastReplacementBlock.Delivery;
 						m_blocks[blockIndexFollowingReplacement].CharacterIdOverrideForScript = lastReplacementBlock.CharacterIdOverrideForScript;
 					} while (++blockIndexFollowingReplacement < m_blocks.Count && m_blocks[blockIndexFollowingReplacement].IsContinuationOfPreviousBlockQuote);
 				}
