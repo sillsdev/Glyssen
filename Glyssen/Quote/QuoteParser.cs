@@ -92,7 +92,7 @@ namespace Glyssen.Quote
 
 			if (s_quoteSystem.NormalLevels.Count > 0)
 			{
-				m_regexStartsWithFirstLevelOpener = new Regex("^" + Regex.Escape(s_quoteSystem.NormalLevels[0].Open), RegexOptions.Compiled);
+				m_regexStartsWithFirstLevelOpener = new Regex(Regex.Escape(s_quoteSystem.NormalLevels[0].Open), RegexOptions.Compiled);
 				m_regexHasFirstLevelClose = new Regex(Regex.Escape(s_quoteSystem.NormalLevels[0].Close), RegexOptions.Compiled);
 
 				// At level x, we need continuer x, closer x, opener x+1.  Continuer must be first.
@@ -489,7 +489,7 @@ namespace Glyssen.Quote
 			// merits quotation marks with a full quote.
 			// See PG-487 for an idea that might ultimately do a better job of helping us figure this out.
 			var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
-			if (matchFirstLevelOpen.Success)
+			if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos)
 			{
 				if (pos > 0)
 					return true;
