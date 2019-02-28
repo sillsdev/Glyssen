@@ -142,7 +142,7 @@ namespace Glyssen.Character
 		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
 			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null)
 		{
-			BcvRef = bcvRef;
+			BcvRef = new BCVRef(bcvRef);
 			Character = character;
 			Delivery = delivery;
 			Alias = alias;

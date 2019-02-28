@@ -42,8 +42,7 @@ namespace Glyssen.Dialogs
 				SelectedProject = defaultRecordingProjectName;
 			else
 			{
-				string fmt = Project.GetProjectFilePath(m_bundle.LanguageIso, m_bundle.Id, Project.GetDefaultRecordingProjectName(m_bundle) +
-					" ({0})");
+				string fmt = defaultRecordingProjectName + " ({0})";
 				int n = 1;
 				do
 				{
