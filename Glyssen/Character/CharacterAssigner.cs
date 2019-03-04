@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Character
 {
@@ -27,7 +26,7 @@ namespace Glyssen.Character
 			{
 				if (!block.UserConfirmed || overwriteUserConfirmed)
 				{
-					block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerse, versification));
+					block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, versification));
 				}
 				else if (setDefaultForMultipleChoiceCharacters)
 				{

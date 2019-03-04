@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Glyssen.Bundle;
-using OfficeOpenXml.FormulaParsing.Utilities;
+using Glyssen.Paratext;
+using Glyssen.Shared;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
@@ -34,6 +34,8 @@ namespace Glyssen.Dialogs
 			RecordingProjectName = project.Name;
 		    AudioStockNumber = project.AudioStockNumber;
 			BundlePath = project.OriginalBundlePath;
+			ParatextProjectName = project.ParatextProjectName;
+			IsLiveParatextProject = project.IsLiveParatextProject;
 			LanguageName = project.LanguageName;
 			IsoCode = project.LanguageIsoCode;
 			PublicationId = project.Id;
@@ -43,12 +45,11 @@ namespace Glyssen.Dialogs
 			SkipChapterAnnouncementForFirstChapter = project.SkipChapterAnnouncementForFirstChapter;
 			SkipChapterAnnouncementForSingleChapterBooks = SkipChapterAnnouncementForFirstChapter || project.SkipChapterAnnouncementForSingleChapterBooks;
 
-			var block = project.IncludedBooks.SelectMany(book => book.GetScriptBlocks().Where(b => b.BlockElements.OfType<Verse>().Any()))
-				.FirstOrDefault();
+			var block = project.IncludedBooks.SelectMany(book => book.GetScriptBlocks().Where(b => b.ContainsVerseNumber)).FirstOrDefault();
 			if (block != null)
 				SampleText = block.GetText(false);
 
-			var multiChapterBooks = project.IncludedBooks.Where(book => Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) > 1);
+			var multiChapterBooks = project.IncludedBooks.Where(book => Versification.GetLastChapter(BCVRef.BookToNumber(book.BookId)) > 1);
 			foreach (var book in multiChapterBooks)
 			{
 				var chapterBlocks = book.GetScriptBlocks().Where(b => b.IsChapterAnnouncement).Take(2).ToList();
@@ -68,7 +69,7 @@ namespace Glyssen.Dialogs
 					break;
 				}
 			}
-			var singleChapterBook = project.IncludedBooks.FirstOrDefault(book => Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1);
+			var singleChapterBook = project.IncludedBooks.FirstOrDefault(book => Versification.GetLastChapter(BCVRef.BookToNumber(book.BookId)) == 1);
 			if (singleChapterBook != null)
 			{
 				var chapterBlock = singleChapterBook.GetScriptBlocks().FirstOrDefault(b => b.IsChapterAnnouncement);
@@ -89,6 +90,8 @@ namespace Glyssen.Dialogs
         public string RecordingProjectName { get; set; }
         public string AudioStockNumber { get; set; }
 		public string BundlePath { get; set; }
+		public string ParatextProjectName { get; set; }
+		public bool IsLiveParatextProject { get; set; }
 		public string PublicationId { get; private set; }
 		public string SampleText { get; private set; }
 		public ScrVers Versification { get; private set; }
@@ -172,6 +175,11 @@ namespace Glyssen.Dialogs
 		{
 			if (m_chapterAnnouncementStyle != Project.ChapterAnnouncementStyle)
 				ChapterAnnouncementStyle = Project.ChapterAnnouncementStyle;
+		}
+
+		internal ParatextScrTextWrapper GetUpdatedParatextData()
+		{
+			return Project.GetLiveParatextDataIfCompatible();
 		}
 	}
 }

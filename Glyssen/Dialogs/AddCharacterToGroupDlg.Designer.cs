@@ -74,7 +74,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStrip");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.AddCharacterToGroupDlg.m_toolStrip");
 			this.m_toolStrip.Location = new System.Drawing.Point(0, 0);
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(0);
@@ -88,7 +88,7 @@
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripLabelFindCharacter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripLabelFindCharacter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.FindCharacter");
 			this.m_toolStripLabelFindCharacter.Name = "m_toolStripLabelFindCharacter";
 			this.m_toolStripLabelFindCharacter.Size = new System.Drawing.Size(87, 22);
 			this.m_toolStripLabelFindCharacter.Text = "Find Character:";
@@ -101,7 +101,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripTextBoxFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripTextBoxFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripTextBoxFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripTextBoxFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripTextBoxFindCharacter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripTextBoxFindCharacter, "DialogBoxes.AddCharacterToGroupDlg.m_toolStripTextBoxFindCharacter");
 			this.m_toolStripTextBoxFindCharacter.Name = "m_toolStripTextBoxFindCharacter";
 			this.m_toolStripTextBoxFindCharacter.Size = new System.Drawing.Size(120, 25);
 			this.m_toolStripTextBoxFindCharacter.ToolTipText = "Begin typing a character ID to find the group that contains it";
@@ -310,9 +310,11 @@
 			// 
 			// AddCharacterToGroupDlg
 			// 
+			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(655, 404);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_toolStrip);
@@ -320,13 +322,14 @@
 			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AddCharacterToGroup");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AddCharacterToGroupDlg.AddCharacterToGroup");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AddCharacterToGroupDlg";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Add Character to Group";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();

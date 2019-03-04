@@ -2,12 +2,28 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared;
 using NUnit.Framework;
+using SIL.Reflection;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {
 	class ProjectDataMigratorTests
 	{
+		[TestFixtureSetUp]
+		public void FixtureSetUp()
+		{
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+			CharacterDetailData.TabDelimitedCharacterDetailData = null;
+		}
+
+		[TestFixtureTearDown]
+		public void FixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
 		[TestCase(MultiBlockQuote.Continuation)]
 		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
 		public void MigrateInvalidMultiBlockQuoteDataToVersion88_NoSplits_DataUnchanged(MultiBlockQuote lastBlockMultiBlockQuote)
@@ -34,9 +50,9 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(2, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -83,9 +99,9 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 });
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(3, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -123,9 +139,9 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(2, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -172,9 +188,9 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3 } };
+			var book = new BookScript("MAT", new List<Block> {block1, block2, block3});
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(3, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -234,9 +250,10 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4 } };
-			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			var book = new BookScript("MAT", new List<Block> {block1, block2, block3, block4});
+
+		var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(4, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -306,9 +323,9 @@ namespace GlyssenTests
 			var block4Original = block4.Clone();
 			var block5Original = block5.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4, block5 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4, block5 });
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(5, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -337,7 +354,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -362,7 +379,7 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -384,7 +401,7 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -411,7 +428,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -439,7 +456,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -454,17 +471,16 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, block4.MultiBlockQuote);
 		}
 
-		[TestCase(MultiBlockQuote.Continuation)]
-		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
-		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByNonStart_NonStartChangedToNone(MultiBlockQuote continuingStatus)
+		[Test]
+		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByNonStart_NonStartChangedToNone()
 		{
 			var block1 = CreateTestBlock(1, MultiBlockQuote.None);
-			var block2 = CreateTestBlock(2, continuingStatus);
+			var block2 = CreateTestBlock(2, MultiBlockQuote.Continuation);
 
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -475,21 +491,38 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
 		}
 
-		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.Continuation)]
-		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.Continuation)]
-		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.ChangeOfDelivery)]
-		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.ChangeOfDelivery)]
-		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByMultipleNonStarts_NonStartsChangedToNone(MultiBlockQuote continuingStatus1, MultiBlockQuote continuingStatus2)
+		[Test]
+		public void CleanUpOrphanedMultiBlockQuoteStati_LastBlockIsStart_StartChangedToNone()
 		{
 			var block1 = CreateTestBlock(1, MultiBlockQuote.None);
-			var block2 = CreateTestBlock(2, continuingStatus1);
-			var block3 = CreateTestBlock(3, continuingStatus2);
+			var block2 = CreateTestBlock(2, MultiBlockQuote.Start);
+
+			var block1Original = block1.Clone();
+			var block2Original = block2.Clone();
+
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
+
+			Assert.AreEqual(2, book.Blocks.Count);
+			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
+			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
+			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+		}
+
+		[Test]
+		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByMultipleNonStarts_NonStartsChangedToNone()
+		{
+			var block1 = CreateTestBlock(1, MultiBlockQuote.None);
+			var block2 = CreateTestBlock(2, MultiBlockQuote.Continuation);
+			var block3 = CreateTestBlock(3, MultiBlockQuote.Continuation);
 
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 });
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -503,13 +536,13 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void MigrateInvalidCharacterIdForScriptDataToVersion88_ValidData_Unchanged()
+		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithNoMultipleCharacterIds_Unchanged()
 		{
 			var block1 = CreateTestBlock("Andrew");
 			var block2 = CreateTestBlock("Peter");
-			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
 			Assert.AreEqual("Andrew", block1.CharacterId);
 			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
@@ -517,38 +550,336 @@ namespace GlyssenTests
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 		}
 
-		[TestCase(CharacterVerseData.AmbiguousCharacter)]
-		[TestCase(CharacterVerseData.UnknownCharacter)]
+		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
+		[TestCase(CharacterVerseData.kUnknownCharacter)]
 		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
+			block1.UserConfirmed = true;
 			block1.CharacterId = unclearCharacterId;
 			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
 			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
 
 			var block2 = CreateTestBlock("Peter");
+			block2.UserConfirmed = true;
 			block2.CharacterId = unclearCharacterId;
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 
-			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptDataToVersion88(books);
+
+			Assert.True(block1.UserConfirmed);
+			Assert.True(block2.UserConfirmed);
+
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
 			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);
+			Assert.False(block1.UserConfirmed);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
+			Assert.False(block2.UserConfirmed);
 		}
+
+		[Test]
+		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithMultipleCharacterIds_Unchanged()
+		{
+			var block1 = CreateTestBlock("Andrew/James");
+			block1.CharacterIdOverrideForScript = "James";
+			var block2 = CreateTestBlock("Peter");
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
+
+			Assert.AreEqual("Andrew/James", block1.CharacterId);
+			Assert.AreEqual("James", block1.CharacterIdInScript);
+			Assert.AreEqual("Peter", block2.CharacterId);
+			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateInvalidCharacterIdForScriptData_NarratorBlocksWithNonNullCharacterIdInScript_CharacterIdInScriptSetToNull()
+		{
+			var bcMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var narratorMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var block1 = CreateTestBlock("Andrew");
+			block1.UserConfirmed = false;
+			block1.CharacterId = bcMat;
+			Assert.AreEqual(bcMat, block1.CharacterId);
+			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
+
+			var block2 = CreateTestBlock("Peter");
+			block2.UserConfirmed = true;
+			block2.CharacterId = narratorMat;
+			Assert.AreEqual(narratorMat, block2.CharacterId);
+			Assert.AreEqual("Peter", block2.CharacterIdInScript);
+
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+
+			Assert.False(block1.UserConfirmed);
+			Assert.True(block2.UserConfirmed);
+
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
+
+			Assert.AreEqual(bcMat, block1.CharacterId);
+			Assert.AreEqual(bcMat, block1.CharacterIdInScript);
+			Assert.IsNull(block1.CharacterIdOverrideForScript);
+			Assert.False(block1.UserConfirmed);
+			Assert.AreEqual(narratorMat, block2.CharacterId);
+			Assert.AreEqual(narratorMat, block2.CharacterIdInScript);
+			Assert.IsNull(block2.CharacterIdOverrideForScript);
+			Assert.True(block2.UserConfirmed);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_OneOfTwoCharacterIdsInVerseReplacedWithDifferentId_CharacterIdInScriptSetToAmbiguous()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var johnSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(1);
+			johnSpeakingInRev714.SetCharacterIdAndCharacterIdInScript("John", 66);
+			johnSpeakingInRev714.UserConfirmed = true;
+			var elderSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(3);
+			elderSpeakingInRev714.SetCharacterIdAndCharacterIdInScript("elders, one of the", 66);
+			Assert.True(johnSpeakingInRev714.UserConfirmed);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, johnSpeakingInRev714.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, johnSpeakingInRev714.CharacterIdInScript);
+			Assert.False(johnSpeakingInRev714.UserConfirmed);
+			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterId);
+			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_CharacterIdReplacedWithSingleId_CharacterIdInScriptSetToReplacementId()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var angelsSpeakingInRev712 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 12).ElementAt(1);
+			angelsSpeakingInRev712.SetCharacterIdAndCharacterIdInScript("tons of angelic beings", 66);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterId);
+			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterIdInScript);
+		}
+
+		[TestCase("humming")]
+		[TestCase("")]
+		[TestCase(null)]
+		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(string initialDelivery)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
+			foreach (var block in singersInRev59)
+				block.Delivery = initialDelivery;
+
+			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.True(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
+				b.Delivery == "singing"));
+		}
+
+		[TestCase("Bartimaeus (a blind man)", "humming", "shouting")]
+		[TestCase("Bartimaeus (a blind man)", "", "shouting")]
+		[TestCase("crowd, many in the", null, "rebuking")]
+		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(string character, string initialDelivery, string expectedDelivery)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = character;
+			block.Delivery = initialDelivery;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(expectedDelivery, block.Delivery);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserConfirmed_ClearsUserConfirmed()
+		{
+			// Note: this scenario was caused by a bug in a previous version of this method.
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.UserConfirmed = true;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(false, block.UserConfirmed);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserNotConfirmed_NoChanges()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.UserConfirmed = false;
+
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(false, block.UserConfirmed);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_OneMemberOfMultiCharacterIdChanged_CharacterIdInScriptSetToReplacementId()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
+			foreach (var block in singersInRev59)
+				block.SetCharacterIdAndCharacterIdInScript("cuatro living creatures/twenty-four elders", 66);
+
+			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.True(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
+				b.CharacterIdInScript == "living creature, first"));
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_CharacterIdRemoved_NoOtherCharactersInVerse_CharacterIdInScriptSetToUnknown()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var blockInRev43 = testProject.IncludedBooks.Single().GetBlocksForVerse(4, 3).First();
+			blockInRev43.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
+			blockInRev43.CharacterIdOverrideForScript = "angels, all, the";
+			Assert.AreEqual("angels, all, the", blockInRev43.CharacterIdInScript);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_CharacterIdRemoved_MultipleCharactersStillInVerse_CharacterIdInScriptSetToAmbiguous()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var blockInRev13V10 = testProject.IncludedBooks.Single().GetBlocksForVerse(13, 10).First();
+			blockInRev13V10.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
+			blockInRev13V10.CharacterIdOverrideForScript = "angels, all, the";
+			Assert.AreEqual("angels, all, the", blockInRev13V10.CharacterIdInScript);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
+		}
+
+		/// <summary>
+		/// PG-471
+		/// </summary>
+		[Test]
+		public void MigrateDeprecatedCharacterIds_StandardCharacterIdUsedInUnexpectedPlaceIsLaterRenamed_CharacterIdInScriptSetToUnknown()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var unexpectedPeterInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
+			testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(66, 7, 11), "peter", "", "", true));
+			unexpectedPeterInRev711.SetCharacterIdAndCharacterIdInScript("peter", 66);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, unexpectedPeterInRev711.CharacterId);
+			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_FirstVerseInQuoteIsUnexpectedForCharacter_CharacterIdNotSetToUnknown()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var bookScript = testProject.IncludedBooks.Single();
+			var verses13and14Block = bookScript.GetBlocksForVerse(1, 13).Single();
+			var originalVerse14Blocks = bookScript.GetBlocksForVerse(1, 14);
+
+			// Use reflection to get around a check to ensure we don't do this in production code
+			List<Block> blocks = (List<Block>)ReflectionHelper.GetField(bookScript, "m_blocks");
+			int blockCount = (int)ReflectionHelper.GetField(bookScript, "m_blockCount");
+
+			//Combine verse 13 and 14 blocks
+			foreach (var block in originalVerse14Blocks)
+			{
+				verses13and14Block.BlockElements.AddRange(block.BlockElements);
+
+				blocks.Remove(block);
+				blockCount--;
+			}
+			ReflectionHelper.SetField(bookScript, "m_blockCount", blockCount);
+
+			verses13and14Block.CharacterId = "Enoch";
+
+			//Setup check
+			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+
+			//SUT
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+		}
+
+		[Test]
+		public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasNoExplicitDefault_FirstCharacterIsUsed()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var jesusSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(1);
+			jesusSpeakingInMrk59.SetCharacterIdAndCharacterIdInScript("Jesus", 66);
+			jesusSpeakingInMrk59.UserConfirmed = true;
+			var demonSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(3);
+			demonSpeakingInMrk59.CharacterId = "demons (Legion)/man delivered from Legion of demons";
+			demonSpeakingInMrk59.CharacterIdOverrideForScript = null;
+			demonSpeakingInMrk59.UserConfirmed = true;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+
+			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterId);
+			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterIdInScript);
+			Assert.IsTrue(jesusSpeakingInMrk59.UserConfirmed);
+			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", demonSpeakingInMrk59.CharacterId);
+			Assert.AreEqual("demons (Legion)", demonSpeakingInMrk59.CharacterIdInScript);
+			Assert.IsTrue(demonSpeakingInMrk59.UserConfirmed);
+		}
+
+		// The only place in the NT where this is likely to have occurred wwas John 11:34, but we don't have John test data, and it didn't seem worth it.
+		//[Test]
+		//public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasExplicitDefault_ExplicitDefaultCharacterIsUsed()
+		//{
+		//	var testProject = TestProject.CreateTestProject(TestProject.TestBook.JHN);
+		//	TestProject.SimulateDisambiguationForAllBooks(testProject);
+		//	var jesusSpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(1);
+		//	jesusSpeakingInJhn1134.SetCharacterAndCharacterIdInScript("Jesus", 66);
+		//	jesusSpeakingInJhn1134.UserConfirmed = true;
+		//	var marySpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(3);
+		//	marySpeakingInJhn1134.CharacterId = "Jews, the/Mary, sister of Martha/Martha";
+		//	marySpeakingInJhn1134.CharacterIdOverrideForScript = null;
+		//	marySpeakingInJhn1134.UserConfirmed = true;
+
+		//	Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+
+		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterId);
+		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterIdInScript);
+		//	Assert.IsTrue(jesusSpeakingInJhn1134.UserConfirmed);
+		//	Assert.AreEqual("Jews, the/Mary, sister of Martha/Martha", marySpeakingInJhn1134.CharacterId);
+		//	Assert.AreEqual("Mary, sister of Martha", marySpeakingInJhn1134.CharacterIdInScript);
+		//	Assert.IsTrue(marySpeakingInJhn1134.UserConfirmed);
+		//}
 
 		[TestCase("c")]
 		[TestCase("cl")]
 		public void SetBookIdForChapterBlocks_Normal_AllChapterBlocksGetBookIdSet(string chapterStyleTag)
 		{
-			var genesis = new BookScript
-			{
-				BookId = "GEN",
-				Blocks = new List<Block>
+			var genesis = new BookScript("GEN",
+				new List<Block>
 				{
 					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.BookOrChapter)),
 					CreateChapterBlock("GEN", 1, chapterStyleTag),
@@ -566,11 +897,9 @@ namespace GlyssenTests
 					CreateChapterBlock("GEN", 5, chapterStyleTag),
 					CreateTestBlock(1, MultiBlockQuote.None),
 				}
-			};
-			var matthew = new BookScript
-			{
-				BookId = "MAT",
-				Blocks = new List<Block>
+			);
+			var matthew = new BookScript("MAT",
+				new List<Block>
 				{
 					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter)),
 					CreateChapterBlock("MAT", 1, chapterStyleTag),
@@ -596,7 +925,7 @@ namespace GlyssenTests
 					CreateTestBlock(2, MultiBlockQuote.None),
 					CreateTestBlock(3, MultiBlockQuote.None),
 				}
-			};
+			);
 
 			var books = new List<BookScript> { genesis, matthew };
 			ProjectDataMigrator.SetBookIdForChapterBlocks(books);
@@ -622,8 +951,8 @@ namespace GlyssenTests
 		{
 			return new Block
 			{
+				CharacterIdInScript = characterId,
 				CharacterId = characterId,
-				CharacterIdInScript = characterId
 			};
 		}
 

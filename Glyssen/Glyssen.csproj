@@ -10,11 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Glyssen</RootNamespace>
     <AssemblyName>Glyssen</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,6 +28,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -61,11 +61,12 @@
   <ItemGroup>
     <Reference Include="Analytics.NET, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Analytics.2.0.2\lib\Analytics.NET.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="DesktopAnalytics, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DesktopAnalytics.1.2.1\lib\net40\DesktopAnalytics.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DesktopAnalytics, Version=1.2.4.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DesktopAnalytics.1.2.4.5\lib\net40\DesktopAnalytics.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
@@ -77,52 +78,79 @@
     <Reference Include="Geckofx-Winforms">
       <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
-    <Reference Include="icu.net, Version=1.2.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\icu.net.dll</HintPath>
+    <Reference Include="icu.net, Version=2.3.2.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.8.1.7\lib\net461\icu.net.dll</HintPath>
     </Reference>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
-    <Reference Include="NetLoc, Version=7.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.0.4\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core">
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.2.0.4\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="NetSparkle.Net40">
+      <HintPath>..\lib\dotnet\NetSparkle.Net40.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Paratext.LexicalContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9a5af29a0e638a7b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.8.1.7\lib\net461\Paratext.LexicalContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="ParatextData, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.8.1.7\lib\net461\ParatextData.dll</HintPath>
+    </Reference>
+    <Reference Include="PtxUtils, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.8.1.7\lib\net461\PtxUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.Core.Desktop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DblBundle, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Scripture">
+    <Reference Include="SIL.Scripture, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms">
+    <Reference Include="SIL.Windows.Forms, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.DblBundle">
+    <Reference Include="SIL.Windows.Forms.DblBundle, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
+    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.Scripture">
+    <Reference Include="SIL.Windows.Forms.Scripture, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.WritingSystems">
+    <Reference Include="SIL.Windows.Forms.WritingSystems, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems">
+    <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParatextData.8.1.7\lib\net461\Spart.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -136,23 +164,20 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilities">
-      <HintPath>..\lib\dotnet\Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\ProjectAnalysis.cs" />
     <Compile Include="BiblicalAuthors.cs" />
-    <Compile Include="BlockElement.cs" />
+    <Compile Include="BlockMatchup.cs" />
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BlockSplitData.cs" />
+    <Compile Include="BookBlockIndices.cs" />
     <Compile Include="BookMetadata.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />
-    <Compile Include="Bundle\GlyssenDblMetadataLanguage.cs" />
-    <Compile Include="Bundle\GlyssenDblTextMetadata.cs" />
     <Compile Include="Bundle\GlyssenBundle.cs" />
+    <Compile Include="Bundle\GlyssenDblTextMetadata.cs" />
     <Compile Include="Character\CharacterAssigner.cs" />
     <Compile Include="Character\CharacterDetail.cs" />
     <Compile Include="Character\CharacterDetailData.cs" />
@@ -168,6 +193,7 @@
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Character\RelatedCharacters.cs" />
+    <Compile Include="ControlAnnotations.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -183,11 +209,15 @@
     <Compile Include="Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CastSizePlanningOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CastSizePlanningOptions.Designer.cs">
+      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
     <Compile Include="Controls\DataGridViewDropdownColumnHeader.cs" />
-    <Compile Include="Controls\DataGridViewListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\DataGridViewListBox.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
@@ -198,6 +228,9 @@
     </Compile>
     <Compile Include="Controls\ExistingProjectsList.Designer.cs">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MenuButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
@@ -219,6 +252,12 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\AddCharacterDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddCharacterDlg.Designer.cs">
+      <DependentUpon>AddCharacterDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AddCharactersToGroupViewModel.cs" />
     <Compile Include="Dialogs\AddCharacterToGroupDlg.cs">
       <SubType>Form</SubType>
@@ -226,11 +265,19 @@
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.cs">
+    <Compile Include="Dialogs\BlocksToDisplay.cs" />
+    <Compile Include="Dialogs\CastSizePlanningDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.Designer.cs">
-      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
+    <Compile Include="Dialogs\CastSizePlanningDlg.Designer.cs">
+      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CastSizePlanningViewModel.cs" />
+    <Compile Include="Dialogs\ExportToRecordingToolDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ExportToRecordingToolDlg.Designer.cs">
+      <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
@@ -241,14 +288,28 @@
     <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\HtmlMessageDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HtmlMessageDlg.Designer.cs">
+      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
+    <Compile Include="Dialogs\SelectBundleForProjectDlg.cs" />
     <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\UnappliedSplitsDlg.Designer.cs">
       <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ViewScriptDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ViewScriptDlg.Designer.cs">
+      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
@@ -285,11 +346,29 @@
     <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\YesNoApplyToAllDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\YesNoApplyToAllDlg.Designer.cs">
+      <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IBlockAccessor.cs" />
+    <Compile Include="Paratext\ParatextProjectBookInfo.cs" />
+    <Compile Include="Paratext\NoSupportedBooksException.cs" />
+    <Compile Include="Paratext\ParatextProjectProxy.cs" />
+    <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
+    <Compile Include="Paratext\ParatextUsxBookList.cs" />
+    <Compile Include="PortionScript.cs" />
+    <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
+    <Compile Include="ReferenceText.cs" />
+    <Compile Include="ReferenceTextProxy.cs" />
     <Compile Include="Rules\AuthorStats.cs" />
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
+    <Compile Include="ScriptExporter.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
+    <Compile Include="Utilities\FontProxy.cs" />
     <Compile Include="Utilities\FormWithPersistedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +376,8 @@
     <Compile Include="Utilities\GlyssenColorPalette.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilities\L10N.cs" />
+    <Compile Include="Utilities\MessageBoxStrings.cs" />
     <Compile Include="Utilities\UndoActionSequence.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
@@ -307,7 +388,6 @@
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="DataMigrator.cs" />
-    <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
     <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
     <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
       <SubType>Form</SubType>
@@ -407,6 +487,9 @@
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CastSizePlanningOptions.resx">
+      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,20 +502,29 @@
     <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddCharacterDlg.resx">
+      <DependentUpon>AddCharacterDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddCharacterToGroupDlg.resx">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExportRolesForVoiceActorsDlg.resx">
-      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\CastSizePlanningDlg.resx">
+      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ExportToRecordingToolDlg.resx">
+      <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\GenerateGroupsProgressDialog.resx">
       <DependentUpon>GenerateGroupsProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\HtmlMessageDlg.resx">
+      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProgressDialogWithAcknowledgement.resx">
       <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>
@@ -470,12 +562,18 @@
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ViewScriptDlg.resx">
+      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorAssignmentDlg.resx">
       <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\YesNoApplyToAllDlg.resx">
+      <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -520,13 +618,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CharacterGroups.xlsx" />
-    <None Include="Resources\CharacterGroups_FCBH.xlsx" />
     <None Include="Resources\quoteSystems.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Alert.png" />
+    <Content Include="icu32\icudt54.dll" />
+    <Content Include="icu32\icuin54.dll" />
+    <Content Include="icu32\icuuc54.dll" />
+    <Content Include="icu64\icudt54.dll" />
+    <Content Include="icu64\icuin54.dll" />
+    <Content Include="icu64\icuuc54.dll" />
+    <Content Include="Resources\yellow-check.png" />
+    <None Include="Resources\WhoSpeaks.png" />
+    <None Include="Resources\Silent.wav" />
     <None Include="Resources\UpdateGroups.png" />
     <None Include="Resources\splitGroup.png" />
     <None Include="Resources\undo.png" />
@@ -535,21 +641,23 @@
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
     <None Include="Resources\bluelock.png" />
-    <Content Include="..\lib\dotnet\icudt54.dll">
-      <Link>icudt54.dll</Link>
+    <Content Include="..\lib\dotnet\icudt56.dll">
+      <Link>icudt56.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\lib\dotnet\icuin54.dll">
-      <Link>icuin54.dll</Link>
+    <Content Include="..\lib\dotnet\icuin56.dll">
+      <Link>icuin56.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\lib\dotnet\icuuc54.dll">
-      <Link>icuuc54.dll</Link>
+    <Content Include="..\lib\dotnet\icuuc56.dll">
+      <Link>icuuc56.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
+    <Content Include="Resources\Annotations.txt" />
     <Content Include="Resources\BiblicalAuthors.txt" />
+    <Content Include="Resources\BlockSplit.css" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
@@ -567,8 +675,17 @@
     <None Include="Resources\RemoveGridRowNormal.png" />
     <None Include="Resources\MoveArrow.png" />
     <None Include="Resources\printer.bmp" />
+    <Content Include="Resources\DeleteCursor.png" />
+    <Content Include="Resources\HtmlMsg.html" />
+    <None Include="Resources\rainbow.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
+      <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
+      <Name>GlyssenShared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -578,12 +695,12 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\ParatextData.8.1.7\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ParatextData.8.1.7\build\ParatextData.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <Import Project="..\packages\ParatextData.8.1.7\build\ParatextData.targets" Condition="Exists('..\packages\ParatextData.8.1.7\build\ParatextData.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
   </Target>
   -->
 </Project>

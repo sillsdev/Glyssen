@@ -2,7 +2,6 @@
 using System.Linq;
 using Glyssen;
 using NUnit.Framework;
-using Paratext;
 using SIL.Scripture;
 
 namespace GlyssenTests
@@ -178,7 +177,7 @@ namespace GlyssenTests
 			var firstBlock = firstBook[0];
 			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = firstBlock;
-			Assert.AreEqual(secondBlock, m_navigator.NextBlock());
+			Assert.AreEqual(secondBlock, m_navigator.GoToNextBlock());
 		}
 
 		[Test]
@@ -189,7 +188,7 @@ namespace GlyssenTests
 			var secondBook = m_books[1];
 			var firstBlock = secondBook[0];
 			m_navigator.CurrentBlock = lastBlock;
-			Assert.AreEqual(firstBlock, m_navigator.NextBlock());
+			Assert.AreEqual(firstBlock, m_navigator.GoToNextBlock());
 		}
 
 		[Test]
@@ -201,7 +200,7 @@ namespace GlyssenTests
 			m_navigator.CurrentBlock = firstBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
-			Assert.AreEqual(secondBlock, m_navigator.PeekNextBlock());
+			Assert.AreEqual(secondBlock, m_navigator.GetNextBlock());
 			Assert.AreEqual(currentBlock, m_navigator.CurrentBlock);
 			Assert.AreEqual(currentBook, m_navigator.CurrentBook);
 		}
@@ -216,7 +215,7 @@ namespace GlyssenTests
 			m_navigator.CurrentBlock = lastBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
-			Assert.AreEqual(firstBlock, m_navigator.PeekNextBlock());
+			Assert.AreEqual(firstBlock, m_navigator.GetNextBlock());
 			Assert.AreEqual(currentBlock, m_navigator.CurrentBlock);
 			Assert.AreEqual(currentBook, m_navigator.CurrentBook);
 		}
@@ -227,7 +226,7 @@ namespace GlyssenTests
 			var lastBook = m_books.Last();
 			var lastBlock = lastBook.GetScriptBlocks().Last();
 			m_navigator.CurrentBlock = lastBlock;
-			Assert.IsNull(m_navigator.NextBlock());
+			Assert.IsNull(m_navigator.GoToNextBlock());
 		}
 
 		[Test]
@@ -237,7 +236,7 @@ namespace GlyssenTests
 			var firstBlock = firstBook[0];
 			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = secondBlock;
-			Assert.AreEqual(firstBlock, m_navigator.PreviousBlock());
+			Assert.AreEqual(firstBlock, m_navigator.GoToPreviousBlock());
 		}
 
 		[Test]
@@ -248,7 +247,7 @@ namespace GlyssenTests
 			var firstBook = m_books.First();
 			var lastBlock = firstBook.GetScriptBlocks().Last();
 			m_navigator.CurrentBlock = firstBlock;
-			Assert.AreEqual(lastBlock, m_navigator.PreviousBlock());
+			Assert.AreEqual(lastBlock, m_navigator.GoToPreviousBlock());
 		}
 
 		[Test]
@@ -260,7 +259,7 @@ namespace GlyssenTests
 			m_navigator.CurrentBlock = secondBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
-			Assert.AreEqual(firstBlock, m_navigator.PeekPreviousBlock());
+			Assert.AreEqual(firstBlock, m_navigator.GetPreviousBlock());
 			Assert.AreEqual(currentBlock, m_navigator.CurrentBlock);
 			Assert.AreEqual(currentBook, m_navigator.CurrentBook);
 		}
@@ -275,7 +274,7 @@ namespace GlyssenTests
 			m_navigator.CurrentBlock = firstBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
-			Assert.AreEqual(lastBlock, m_navigator.PeekPreviousBlock());
+			Assert.AreEqual(lastBlock, m_navigator.GetPreviousBlock());
 			Assert.AreEqual(currentBlock, m_navigator.CurrentBlock);
 			Assert.AreEqual(currentBook, m_navigator.CurrentBook);
 		}
@@ -283,45 +282,45 @@ namespace GlyssenTests
 		[Test]
 		public void PeekNthNextBlockWithinBook_NEquals1()
 		{
-			m_navigator.NavigateToFirstBlock();
-			Block result = m_navigator.PeekNthNextBlockWithinBook(1);
+			m_navigator.GoToFirstBlock();
+			Block result = m_navigator.GetNthNextBlockWithinBook(1);
 			Assert.AreEqual(m_books.First()[1], result);
 		}
 
 		[Test]
 		public void PeekNthNextBlockWithinBook_NGreaterThan1()
 		{
-			m_navigator.NavigateToFirstBlock();
-			Block result = m_navigator.PeekNthNextBlockWithinBook(2);
+			m_navigator.GoToFirstBlock();
+			Block result = m_navigator.GetNthNextBlockWithinBook(2);
 			Assert.AreEqual(m_books.First()[2], result);
 		}
 
 		[Test]
 		public void PeekNthNextBlockWithinBook_BeyondBook_ReturnsNull()
 		{
-			m_navigator.NavigateToFirstBlock();
-			Block result = m_navigator.PeekNthNextBlockWithinBook(3);
+			m_navigator.GoToFirstBlock();
+			Block result = m_navigator.GetNthNextBlockWithinBook(3);
 			Assert.IsNull(result);
 		}
 
 		[Test]
 		public void PeekNthNextBlockWithinBook_FromSpecificBook_NEquals1()
 		{
-			Block result = m_navigator.PeekNthNextBlockWithinBook(1, m_books[0].Blocks[0]);
+			Block result = m_navigator.GetNthNextBlockWithinBook(1, m_books[0].Blocks[0]);
 			Assert.AreEqual(m_books.First()[1], result);
 		}
 
 		[Test]
 		public void PeekNthNextBlockWithinBook_FromSpecificBook_NGreaterThan1()
 		{
-			Block result = m_navigator.PeekNthNextBlockWithinBook(1, m_books[0].Blocks[1]);
+			Block result = m_navigator.GetNthNextBlockWithinBook(1, m_books[0].Blocks[1]);
 			Assert.AreEqual(m_books.First()[2], result);
 		}
 
 		[Test]
 		public void PeekNthNextBlockWithinBook_FromSpecificBook_BeyondBook_ReturnsNull()
 		{
-			Block result = m_navigator.PeekNthNextBlockWithinBook(2, m_books[0].Blocks[1]);
+			Block result = m_navigator.GetNthNextBlockWithinBook(2, m_books[0].Blocks[1]);
 			Assert.IsNull(result);
 		}
 
@@ -329,7 +328,7 @@ namespace GlyssenTests
 		public void PeekNthPreviousBlockWithinBook_NEquals1()
 		{
 			m_navigator.CurrentBlock = m_books[1].Blocks[2];
-			Block result = m_navigator.PeekNthPreviousBlockWithinBook(1);
+			Block result = m_navigator.GetNthPreviousBlockWithinBook(1);
 			Assert.AreEqual(m_books[1].Blocks[1], result);
 		}
 
@@ -337,7 +336,7 @@ namespace GlyssenTests
 		public void PeekNthPreviousBlockWithinBook_NGreaterThan1()
 		{
 			m_navigator.CurrentBlock = m_books[1].Blocks[2];
-			Block result = m_navigator.PeekNthPreviousBlockWithinBook(2);
+			Block result = m_navigator.GetNthPreviousBlockWithinBook(2);
 			Assert.AreEqual(m_books[1].Blocks[0], result);
 		}
 
@@ -345,28 +344,28 @@ namespace GlyssenTests
 		public void PeekNthPreviousBlockWithinBook_BeyondBook_ReturnsNull()
 		{
 			m_navigator.CurrentBlock = m_books[1].Blocks[2];
-			Block result = m_navigator.PeekNthPreviousBlockWithinBook(3);
+			Block result = m_navigator.GetNthPreviousBlockWithinBook(3);
 			Assert.IsNull(result);
 		}
 
 		[Test]
 		public void PeekNthPreviousBlockWithinBook_FromSpecificBook_NEquals1()
 		{
-			Block result = m_navigator.PeekNthPreviousBlockWithinBook(1, m_books[1].Blocks[2]);
+			Block result = m_navigator.GetNthPreviousBlockWithinBook(1, m_books[1].Blocks[2]);
 			Assert.AreEqual(m_books[1].Blocks[1], result);
 		}
 
 		[Test]
 		public void PeekNthPreviousBlockWithinBook_FromSpecificBook_NGreaterThan1()
 		{
-			Block result = m_navigator.PeekNthPreviousBlockWithinBook(2, m_books[1].Blocks[2]);
+			Block result = m_navigator.GetNthPreviousBlockWithinBook(2, m_books[1].Blocks[2]);
 			Assert.AreEqual(m_books[1].Blocks[0], result);
 		}
 
 		[Test]
 		public void PeekNthPreviousBlockWithinBook_FromSpecificBook_BeyondBook_ReturnsNull()
 		{
-			Block result = m_navigator.PeekNthPreviousBlockWithinBook(3, m_books[1].Blocks[2]);
+			Block result = m_navigator.GetNthPreviousBlockWithinBook(3, m_books[1].Blocks[2]);
 			Assert.IsNull(result);
 		}
 
@@ -374,7 +373,7 @@ namespace GlyssenTests
 		public void PeekForwardWithinBook_OneBlock_WithinBook()
 		{
 			var secondBlock = m_books.First()[1];
-			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(1);
+			IEnumerable<Block> result = m_navigator.GetNextNBlocksWithinBook(1);
 			Assert.AreEqual(1, result.Count());
 			Assert.AreEqual(secondBlock, result.First());
 		}
@@ -383,7 +382,7 @@ namespace GlyssenTests
 		public void PeekForwardWithinBook_OneBlock_StartAtBookEnd_ReturnsEmpty()
 		{
 			m_navigator.CurrentBlock = m_books.First().Blocks.Last();
-			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(1);
+			IEnumerable<Block> result = m_navigator.GetNextNBlocksWithinBook(1);
 			Assert.AreEqual(0, result.Count());
 		}
 
@@ -392,7 +391,7 @@ namespace GlyssenTests
 		{
 			var secondBlock = m_books.First()[1];
 			var thirdBlock = m_books.First()[2];
-			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(2);
+			IEnumerable<Block> result = m_navigator.GetNextNBlocksWithinBook(2);
 			Assert.AreEqual(2, result.Count());
 			Assert.AreEqual(secondBlock, result.First());
 			Assert.AreEqual(thirdBlock, result.Last());
@@ -403,7 +402,7 @@ namespace GlyssenTests
 		{
 			var secondBlock = m_books.First()[1];
 			var thirdBlock = m_books.First()[2];
-			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(3);
+			IEnumerable<Block> result = m_navigator.GetNextNBlocksWithinBook(3);
 			Assert.AreEqual(2, result.Count());
 			Assert.AreEqual(secondBlock, result.First());
 			Assert.AreEqual(thirdBlock, result.Last());
@@ -415,7 +414,7 @@ namespace GlyssenTests
 			var firstBlock = m_books.First()[0];
 			var secondBlock = m_books.First()[1];
 			m_navigator.CurrentBlock = secondBlock;
-			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(1);
+			IEnumerable<Block> result = m_navigator.GetPreviousNBlocksWithinBook(1);
 			Assert.AreEqual(1, result.Count());
 			Assert.AreEqual(firstBlock, result.First());
 		}
@@ -423,7 +422,7 @@ namespace GlyssenTests
 		[Test]
 		public void PeekBackwardWithinBook_OneBlock_StartAtBookBegin_ReturnsEmpty()
 		{
-			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(1);
+			IEnumerable<Block> result = m_navigator.GetPreviousNBlocksWithinBook(1);
 			Assert.AreEqual(0, result.Count());
 		}
 
@@ -434,7 +433,7 @@ namespace GlyssenTests
 			var secondBlock = m_books.First()[1];
 			var thirdBlock = m_books.First()[2];
 			m_navigator.CurrentBlock = thirdBlock;
-			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(2);
+			IEnumerable<Block> result = m_navigator.GetPreviousNBlocksWithinBook(2);
 			Assert.AreEqual(2, result.Count());
 			Assert.AreEqual(firstBlock, result.First());
 			Assert.AreEqual(secondBlock, result.Last());
@@ -447,7 +446,7 @@ namespace GlyssenTests
 			var secondBlock = m_books.First()[1];
 			var thirdBlock = m_books.First()[2];
 			m_navigator.CurrentBlock = thirdBlock;
-			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(3);
+			IEnumerable<Block> result = m_navigator.GetPreviousNBlocksWithinBook(3);
 			Assert.AreEqual(2, result.Count());
 			Assert.AreEqual(firstBlock, result.First());
 			Assert.AreEqual(secondBlock, result.Last());
@@ -459,7 +458,7 @@ namespace GlyssenTests
 			var firstBook = m_books.First();
 			var firstBlock = firstBook[0];
 			m_navigator.CurrentBlock = firstBlock;
-			Assert.IsNull(m_navigator.PreviousBlock());
+			Assert.IsNull(m_navigator.GoToPreviousBlock());
 		}
 
 		[Test]
@@ -477,16 +476,16 @@ namespace GlyssenTests
 		[Test]
 		public void GetNextBlock_GetPreviousBlock_BackToFirst()
 		{
-			m_navigator.NextBlock();
-			Assert.AreEqual(m_books.First()[0], m_navigator.PreviousBlock());
+			m_navigator.GoToNextBlock();
+			Assert.AreEqual(m_books.First()[0], m_navigator.GoToPreviousBlock());
 		}
 
 		[Test]
 		public void GetPreviousBlock_GetNextBlock_BackToLast()
 		{
 			m_navigator.CurrentBlock = m_books.Last().GetScriptBlocks().Last();
-			m_navigator.PreviousBlock();
-			Assert.AreEqual(m_books.Last().GetScriptBlocks().Last(), m_navigator.NextBlock());
+			m_navigator.GoToPreviousBlock();
+			Assert.AreEqual(m_books.Last().GetScriptBlocks().Last(), m_navigator.GoToNextBlock());
 		}
 
 		[Test]
@@ -604,5 +603,12 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result.BlockIndex);
 		}
 
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_MultiBlockAtDifferentReference_AllowMidQuoteBlock_ReturnsIndicesForMidQuoteBlock()
+		{
+			var result = m_navigatorForMultiBlockTests.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("JUD"), 1, 2), true);
+			Assert.AreEqual(0, result.BookIndex);
+			Assert.AreEqual(3, result.BlockIndex);
+		}
 	}
 }

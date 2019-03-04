@@ -1,4 +1,4 @@
-﻿using Paratext;
+﻿using Paratext.Data;
 using SIL.IO;
 
 namespace Glyssen
@@ -11,7 +11,7 @@ namespace Glyssen
 		{
 			if (s_usfmStyleSheet != null)
 				return s_usfmStyleSheet;
-			string usfmStylesheetPath = FileLocator.GetFileDistributedWithApplication("sfm", "usfm.sty");
+			string usfmStylesheetPath = FileLocationUtilities.GetFileDistributedWithApplication("sfm", "usfm.sty");
 			return s_usfmStyleSheet = new ScrStylesheet(usfmStylesheetPath);
 		}
 

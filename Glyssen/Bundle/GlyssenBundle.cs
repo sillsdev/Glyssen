@@ -1,4 +1,5 @@
-﻿using SIL.DblBundle.Text;
+﻿using Glyssen.Shared.Bundle;
+using SIL.DblBundle.Text;
 using SIL.WritingSystems;
 
 namespace Glyssen.Bundle
@@ -12,7 +13,7 @@ namespace Glyssen.Bundle
 
 		public GlyssenBundle(string pathToZippedBundle) : base(pathToZippedBundle)
 		{
-			Metadata.OriginalPathBundlePath = BundlePath;
+			Metadata.OriginalReleaseBundlePath = BundlePath;
 			Metadata.FontFamily = Stylesheet.FontFamily;
 			Metadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;
 			if (string.IsNullOrEmpty(Metadata.Language.Iso))

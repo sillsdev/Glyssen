@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -14,6 +15,9 @@ namespace Glyssen
 
 		public BlockSplitData(int id, Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
 		{
+			if (id < 1)
+				throw new ArgumentException(@"The value for id must be greater than zero", "id");
+
 			Id = id;
 			BlockToSplit = blockToSplit;
 			VerseToSplit = verseToSplit;
@@ -40,7 +44,36 @@ namespace Glyssen
 					return -1;
 				return x.CharacterOffsetToSplit < y.CharacterOffsetToSplit ? -1 : 1;
 			}
-			return Int32.Parse(x.VerseToSplit) < Int32.Parse(y.VerseToSplit) ? -1 : 1;
+
+			// PG-671: VerseToSplit can be null
+			if (x.VerseToSplit == null)
+				return -1;
+			if (y.VerseToSplit == null)
+				return 1;
+
+			BCVRef xStart = BCVRef.Empty;
+			BCVRef xEnd = BCVRef.Empty;
+			BCVRef yStart = BCVRef.Empty;
+			BCVRef yEnd = BCVRef.Empty;
+			BCVRef.VerseToScrRef(x.VerseToSplit, out var xLiteralVerse, out var xRemainingText, ref xStart, ref xEnd);
+			BCVRef.VerseToScrRef(y.VerseToSplit, out var yLiteralVerse, out var yRemainingText, ref yStart, ref yEnd);
+
+			if (xStart == yStart)
+			{
+				if (xEnd == yEnd)
+				{
+					// Sort verse segments correctly
+					if (string.IsNullOrEmpty(xRemainingText))
+						return -1;
+					if (string.IsNullOrEmpty(yRemainingText))
+						return 1;
+					return String.Compare(xRemainingText, yRemainingText, StringComparison.InvariantCulture);
+				}
+
+				return xEnd < yEnd ? -1 : 1;
+			}
+
+			return xStart < yStart ? -1 : 1;
 		}
 	}
 

@@ -11,7 +11,7 @@ namespace Glyssen.Dialogs
 	public class MoveCharactersToGroupUndoAction : CharacterGroupsUndoAction
 	{
 		private readonly Project m_project;
-		private readonly string m_destGroupName;
+		private readonly string m_destGroupId;
 		private readonly IList<string> m_characterIdsMoved;
 		private readonly IList<string> m_remainingCharacterIdsInSource;
 		private readonly int m_destGroupActor;
@@ -24,7 +24,7 @@ namespace Glyssen.Dialogs
 			m_sourceGroupActor = sourceGroup.VoiceActorId;
 
 			if (destGroup != null)
-				m_destGroupName = destGroup.Name;
+				m_destGroupId = destGroup.GroupId;
 
 			if (Do(sourceGroup, ref destGroup))
 				m_remainingCharacterIdsInSource = new List<string>(sourceGroup.CharacterIds);
@@ -48,10 +48,14 @@ namespace Glyssen.Dialogs
 			else
 			{
 				AddGroupAffected(sourceGroup);
+				sourceGroup.ClearCacheOfEstimatedHours();
 				sourceSurvived = true;
 			}
 
 			destGroup.CharacterIds.AddRange(m_characterIdsMoved);
+			destGroup.ClearCacheOfEstimatedHours();
+			destGroup.SetGroupIdLabel();
+			m_project.CharacterGroupList.UpdateGroupIdNumbers();
 			return sourceSurvived;
 		}
 
@@ -61,12 +65,15 @@ namespace Glyssen.Dialogs
 			{
 				if (IsSplit)
 					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.SplitGroup", "Split group");
-				if (string.IsNullOrEmpty(m_destGroupName))
+				if (string.IsNullOrEmpty(m_destGroupId))
 					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToNewGroup", "Create new group");
 
+				var destGroup = m_project.CharacterGroupList.GetGroupById(m_destGroupId);
+				// This can probably never be null, but just in case, use this as a really lame fall-back.
+				var groupIdForDisplay = destGroup == null ? m_destGroupId : destGroup.GroupIdForUiDisplay;
 				return string.Format(
 					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToGroup", "Move characters to {0} group"),
-					m_destGroupName); }
+					groupIdForDisplay); }
 		}
 
 		public bool IsSplit { get; set; }
@@ -111,6 +118,8 @@ namespace Glyssen.Dialogs
 				return false;
 
 			sourceGroup.CharacterIds.AddRange(m_characterIdsMoved);
+			sourceGroup.SetGroupIdLabel();
+			m_project.CharacterGroupList.UpdateGroupIdNumbers();
 			AddGroupAffected(sourceGroup);
 
 			if (destGroup.CharacterIds.SetEquals(m_characterIdsMoved) && !destGroup.AssignedToCameoActor)
@@ -136,7 +145,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				destGroup = m_project.CharacterGroupList.CharacterGroups.SingleOrDefault(g =>
-					g.VoiceActorId == m_destGroupActor && g.Name == m_destGroupName);
+					g.VoiceActorId == m_destGroupActor && g.GroupId == m_destGroupId);
 			}
 			catch (InvalidOperationException)
 			{

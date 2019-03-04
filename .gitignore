@@ -7,7 +7,7 @@ Downloads/
 *.user
 *.pdb
 lib/dotnet/Palaso*.dll
-lib/dotnet/icu*.dll
+icu*.dll
 lib/dotnet/icu*.config
 lib/dotnet/L10NSharp.dll
 lib/dotnet/SIL.*.dll
@@ -15,6 +15,13 @@ lib/dotnet/Geckofx*.dll
 lib/dotnet/Geckofx*.dll.config
 lib/xulrunner/
 build/Palaso.BuildTasks.dll
+build/SIL.BuildTasks.dll
 .nuget/NuGet.exe
 DevTools/Resources/temporary/*
-/lib/dotnet/ICSharpCode.SharpZipLib.dll
+*.iml
+.idea/
+/Glyssen/Resources/Thumbs.db
+lib/dotnet/NetSparkle.Net40.dll
+lib/dotnet/MarkdownDeep.dll
+/.vs
+/DistFiles/reference_texts/NewEnglish/

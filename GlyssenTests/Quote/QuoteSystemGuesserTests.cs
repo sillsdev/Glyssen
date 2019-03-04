@@ -11,7 +11,6 @@ using Glyssen.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests.Quote
 {
@@ -52,7 +51,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllFirstLevelQuoteSystemsWithMultipleSecondLevelPossibilitiesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length > 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -69,7 +68,7 @@ namespace GlyssenTests.Quote
 		public void Guess_MostSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1 &&
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length == 1 &&
 				qs.Name != "מֵירְכָאוֹת (Curly) with levels 2 (’/‘) and 3."))
 			{
 				RunTest(quoteSystem, true, false, true);
@@ -84,7 +83,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithoutCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length == 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -98,7 +97,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllFirstLevelQuoteSystemsWithMultipleSecondLevelPossibilitiesAndDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length > 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -112,7 +111,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentDataNoSecondLevelQuotesInData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length == 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -126,7 +125,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllMultiplePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentDataAndSecondLevelQuotesInData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length > 1))
 			{
 				RunTest(quoteSystem, true, true, false);
 			}
@@ -212,9 +211,12 @@ namespace GlyssenTests.Quote
 			m_highlyConsistentData = highlyConsistentData;
 			m_includeSecondLevelQuotes = includeSecondLevelQuotes && m_desiredQuoteSystem.NormalLevels.Count > 1;
 			BookId = BCVRef.NumberToBookCode(bookNum);
+			BookNumber = bookNum;
 		}
 
-		public string BookId { get; private set; }
+		public string BookId { get; }
+
+		private int BookNumber { get; }
 
 		private enum QuotePosition
 		{
@@ -232,9 +234,9 @@ namespace GlyssenTests.Quote
 
 			var verseText = new StringBuilder();
 
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse).ToList();
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse).ToList();
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			bool quoteStartExpected = (verse == 1 || characters.Count > 1 || !ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
+			bool quoteStartExpected = (verse == 1 || characters.Count > 1 || !ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse - 1)
 				.SequenceEqual(characters) || verse % 5 == 0);
 
 			// The following attempts to more-or-less simulate real data.
@@ -338,7 +340,7 @@ namespace GlyssenTests.Quote
 					{
 						verseText.Insert(pos, m_desiredQuoteSystem.NormalLevels[1].Open);
 
-						if (characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse + 1)
+						if (characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse + 1)
 							.SequenceEqual(characters) && (verse + 1) % 5 == 0)
 							likelihoodFactor = 1;
 

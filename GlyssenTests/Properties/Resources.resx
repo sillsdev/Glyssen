@@ -178,4 +178,55 @@
   <data name="TestJOS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestJOS.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="TestRUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRUT.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TestReferenceTextJUD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestReferenceTextJUD.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AzeriJUDRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AzeriJUDRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="azeri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\azeri.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="english" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\english.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EnglishVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnglishVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AzeriREVRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AzeriREVRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FrenchMRKRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrenchMRKRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="french" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\french.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FrenchMATRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrenchMATRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="spanish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spanish.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpanishMATRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpanishMATRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Test1CO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test1CO.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TestJHN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestJHN.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TestMATcuk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestMATcuk.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TestEmptyBook" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestEmptyBook.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TestOBAwithInterestingVerseNums" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestOBAwithInterestingVerseNums.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

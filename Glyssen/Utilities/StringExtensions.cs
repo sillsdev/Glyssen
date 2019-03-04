@@ -1,4 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using SIL.Unicode;
 
 namespace Glyssen.Utilities
 {
@@ -17,6 +21,47 @@ namespace Glyssen.Utilities
 				return text;
 			}
 			return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
+		}
+
+		public static void AppendParagraph(this StringBuilder sb, string paragraphText)
+		{
+			sb.AppendLine(string.Format("<p>{0}</p>", paragraphText));
+		}
+
+		public static bool IsWhitespace(this string value)
+		{
+			if (string.IsNullOrEmpty(value))
+				return false;
+
+			// ReSharper disable once SimplifyConditionalTernaryExpression
+			return value.Any(t => !char.IsWhiteSpace(t)) ? false : true;
+		}
+
+		public static bool EndsWithSentenceEndingPunctuation(this string text)
+		{
+			int i = text.Length - 1;
+			while (i >= 0)
+			{
+				char c = text[i];
+				if (char.IsPunctuation(c))
+				{
+					if (CharacterUtils.IsSentenceFinalPunctuation(c))
+					{
+						return true;
+					}
+				}
+				else if (!char.IsWhiteSpace(c) && !char.IsSymbol(c))
+				{
+					return false;
+				}
+				i--;
+			}
+			return false;
+		}
+
+		public static string GetContainingFolderName(this string text)
+		{
+			return Path.GetFileName(Path.GetDirectoryName(text));
 		}
 	}
 }

@@ -212,6 +212,15 @@
         <seg>亚甲, 王 ***of*** ***the*** ***Amalekites***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Agur">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Agur</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>亚古珥</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Ahab, king of Israel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -381,6 +390,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>亚拿尼亚 ***of*** 大马士革</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ananias of Jerusalem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ananias of Jerusalem</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>亚拿尼亚 ***of*** 耶路撒冷</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ananias, the high priest">
@@ -842,6 +860,15 @@
         <seg>迦南人 ***(Syrophoenician)*** ***mother*** ***of*** ***possessed*** ***girl***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Claudius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Claudius</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>克劳第</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Cleopas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1211,6 +1238,15 @@
         <seg>以利拿单</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Elymas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elymas</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>以吕马</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.enemy">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1374,6 +1410,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>加百列</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gabriel (angel)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gabriel (angel)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>加百列 (＜阳＞天使；使者)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Gadarene (or Gerasenes) people">
@@ -1619,6 +1664,15 @@
         <seg>哈薛 ***of*** 亚兰</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Heman, Jeduthun and the rest of those chosen to give thanks</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>希幔, 耶杜顿 ***and*** ***the*** ***rest*** ***of*** ***those*** ***chosen*** ***to*** ***give*** ***thanks***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Herod Antipas (the tetrarch)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1772,13 +1826,13 @@
         <seg>以赛亚</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Isaiah, the prophet">
+    <tu tuid="CharacterName.Isaiah the prophet">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Isaiah, the prophet</seg>
+        <seg>Isaiah the prophet</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>以赛亚, ***the*** 先知</seg>
+        <seg>以赛亚 ***the*** 先知</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ish-Bosheth, son of Saul">
@@ -1988,24 +2042,6 @@
         <seg>以太</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jabesh, elders of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, elders of</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>雅比, ***elders*** ***of***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jabesh, men of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, men of</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>雅比, ***men*** ***of***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jabez">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2058,6 +2094,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>雅各</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.James, the disciple">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>James, the disciple</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>雅各, ***the*** ＜阳＞门徒，学生，追随者</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jehizkiah">
@@ -2249,6 +2294,15 @@
         <seg>耶稣 ***(child)***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (Lord God Almighty)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>耶稣 ***(Lord*** ***God*** ＜阳＞全能者)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jesus' brothers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2283,15 +2337,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>耶稣 ***in*** ***2*** 约翰</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jesus in Hebrews">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus in Hebrews</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>耶稣 ***in*** ***Hebrews***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jesus' mother and brothers">
@@ -2616,6 +2661,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>犹大, ***apostle*** ***(not*** 犹大 加略人)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>king</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>王</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Kish, father of Saul">
@@ -2951,13 +3005,13 @@
         <seg>拿单</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Nathan, the prophet">
+    <tu tuid="CharacterName.Nathan the prophet">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Nathan, the prophet</seg>
+        <seg>Nathan the prophet</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>拿单, ***the*** 先知</seg>
+        <seg>拿单 ***the*** 先知</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Nathanael">
@@ -3077,6 +3131,15 @@
         <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Pharisee">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Pharisee</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>法利赛人</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Pharisee (expert in religious law)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3093,15 +3156,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>法利赛人 ***(Simon)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Pharisee, a">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Pharisee, a</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>法利赛人, ***a***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Phicol">
@@ -3165,6 +3219,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>非利士 ***rulers***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>祭司</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.proclamation">
@@ -3327,15 +3390,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>《现》莎拉 (《现》莎莱) ***(old)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Sennacherib, king of Assyria">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Sennacherib, king of Assyria</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>西拿基立, 王 ***of*** ***Assyria***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Shaphan, secretary">

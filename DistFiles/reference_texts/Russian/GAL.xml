@@ -1,0 +1,1288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="GAL" singlevoice="false" pageheader="К Галатам">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-GAL">
+      <text>GALATIANS</text>
+    </ReferenceBlocks>
+    <text>К Галатам</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="GAL" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>GALATIANS CHP 1</text>
+    </ReferenceBlocks>
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-GAL">
+      <verse num="1" />
+      <text>Paul, an apostle (not from men, neither through man, but through Jesus Christ, and God the Father, who raised him from the dead),</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Павел Апостол, избранный не человеками и не через человека, но Иисусом Христом и Богом Отцем, воскресившим Его из мертвых,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-GAL">
+      <verse num="2" />
+      <text>and all the brothers who are with me, to the assemblies of Galatia:</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>и все находящиеся со мною братия—церквам Галатийским:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-GAL">
+      <verse num="3" />
+      <text>Grace to you and peace from God the Father, and our Lord Jesus Christ,</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>благодать вам и мир от Бога Отца и Господа нашего Иисуса Христа,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-GAL">
+      <verse num="4" />
+      <text>who gave himself for our sins, that he might deliver us out of this present evil age, according to the will of our God and Father--</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>Который отдал Себя Самого за грехи наши, чтобы избавить нас от настоящего лукавого века, по воле Бога и Отца нашего;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-GAL">
+      <verse num="5" />
+      <text>to whom be the glory forever and ever. Amen.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>Ему слава во веки веков. Аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-GAL">
+      <verse num="6" />
+      <text>I marvel that you are so quickly deserting him who called you in the grace of Christ to a different “good news”.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>Удивляюсь, что вы от призвавшего вас благодатью Христовою так скоро переходите к иному благовествованию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-GAL">
+      <verse num="7" />
+      <text>There isn’t another “good news.” Only there are some who trouble you, and want to pervert the Good News of Christ.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Существует не другой "хорошей новостью", а только есть люди, смущающие вас и желающие превратить благовествование Христово.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-GAL">
+      <verse num="8" />
+      <text>But even though we, or an angel from heaven, should preach to you any “good news” other than that which we preached to you, let him be cursed.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Но если бы даже мы или Ангел с неба стал благовествовать вам не то, что мы благовествовали вам, да будет анафема.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-GAL">
+      <verse num="9" />
+      <text>As we have said before, so I now say again: if any man preaches to you any “good news” other than that which you received, let him be cursed.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Как прежде мы сказали, так и теперь еще говорю: кто благовествует вам не то, что вы приняли, да будет анафема.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-GAL">
+      <verse num="10" />
+      <text>For am I now seeking the favor of men, or of God? Or am I striving to please men? For if I were still pleasing men, I wouldn’t be a servant of Christ.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>У людей ли я ныне ищу благоволения, или у Бога? людям ли угождать стараюсь? Если бы я и поныне угождал людям, то не был бы рабом Христовым.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-GAL">
+      <verse num="11" />
+      <text>But I make known to you, brothers, concerning the Good News which was preached by me, that it is not according to man.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>Возвещаю вам, братия, что Евангелие, которое я благовествовал, не есть человеческое,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-GAL">
+      <verse num="12" />
+      <text>For neither did I receive it from man, nor was I taught it, but it came to me through revelation of Jesus Christ.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>ибо и я принял его и научился не от человека, но через откровение Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-GAL">
+      <verse num="13" />
+      <text>For you have heard of my way of living in time past in the Jews’ religion. How that beyond measure I persecuted the assembly of God, and ravaged it.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Вы слышали о моем прежнем образе жизни в Иудействе, что я жестоко гнал Церковь Божию, и опустошал ее,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-GAL">
+      <verse num="14" />
+      <text>I advanced in the Jews’ religion beyond many of my own age among my countrymen, being more exceedingly zealous for the traditions of my fathers.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>и преуспевал в Иудействе более многих сверстников в роде моем, будучи неумеренным ревнителем отеческих моих преданий.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-GAL">
+      <verse num="15" />
+      <text>But when it was the good pleasure of God, who separated me from my mother’s womb, and called me through his grace,</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Когда же Бог, избравший меня от утробы матери моей и призвавший благодатью Своею, благоволил</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-GAL">
+      <verse num="16" />
+      <text>to reveal his Son in me, that I might preach him among the Gentiles, I didn’t immediately confer with flesh and blood,</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>открыть во мне Сына Своего, чтобы я благовествовал Его язычникам, —я не стал тогда же советоваться с плотью и кровью,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-GAL">
+      <verse num="17" />
+      <text>nor did I go up to Jerusalem to those who were apostles before me, but I went away into Arabia. Then I returned to Damascus.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>и не пошел в Иерусалим к предшествовавшим мне Апостолам, а пошел в Аравию, и опять возвратился в Дамаск.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-GAL">
+      <verse num="18" />
+      <text>Then after three years I went up to Jerusalem to visit Peter, and stayed with him fifteen days.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Потом, спустя три года, ходил я в Иерусалим видеться с Петром и пробыл у него дней пятнадцать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-GAL">
+      <verse num="19" />
+      <text>But of the other apostles I saw no one, except James, the Lord’s brother.</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Другого же из Апостолов я не видел никого, кроме Иакова, брата Господня.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-GAL">
+      <verse num="20" />
+      <text>I assure you before God that what I am writing to you is no lie.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>А в том, что пишу вам, пред Богом, не лгу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-GAL">
+      <verse num="21" />
+      <text>Then I came to the regions of Syria and Cilicia.</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>После сего отошел я в страны Сирии и Киликии.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-GAL">
+      <verse num="22" />
+      <text>I was still unknown by face to the assemblies of Judea which were in Christ.</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>Церквам Христовым в Иудее лично я не был известен,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-GAL">
+      <verse num="23" />
+      <text>They only heard: “He who once persecuted us now preaches the faith that he once tried to destroy.”</text>
+    </ReferenceBlocks>
+    <verse num="23" />
+    <text>а только слышали они, что гнавший их некогда ныне благовествует веру, которую прежде истреблял, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-GAL">
+      <verse num="24" />
+      <text>And they glorified God in me.</text>
+    </ReferenceBlocks>
+    <verse num="24" />
+    <text>и прославляли за меня Бога.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="GAL" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>GALATIANS CHP 2</text>
+    </ReferenceBlocks>
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-GAL">
+      <verse num="1" />
+      <text>Then after a period of fourteen years I went up again to Jerusalem with Barnabas, taking Titus also with me.</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Потом, через четырнадцать лет, опять ходил я в Иерусалим с Варнавою, взяв с собою и Тита.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-GAL">
+      <verse num="2" />
+      <text>I went up by revelation, and I laid before them the Good News which I preach among the Gentiles. And privately before those who were respected, for fear that I might be running, or had run, in vain.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>Ходил же по откровению, и предложил там, и особо знаменитейшим, благовествование, проповедуемое мною язычникам, не напрасно ли я подвизаюсь или подвизался.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-GAL">
+      <verse num="3" />
+      <text>But not even Titus, who was with me, being a Greek, was compelled to be circumcised.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Но они и Тита, бывшего со мною, хотя и Еллина, не принуждали обрезаться,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-GAL">
+      <verse num="4" />
+      <text>This was because of the false brothers secretly brought in. They stole in to spy out our liberty which we have in Christ Jesus, that they might bring us into bondage.</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>а вкравшимся лжебратиям, скрытно приходившим подсмотреть за нашею свободою, которую мы имеем во Христе Иисусе, чтобы поработить нас,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-GAL">
+      <verse num="5" />
+      <text>We gave no place in the way of subjection, not for an hour, that the truth of the Good News might continue with you.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>мы ни на час не уступили и не покорились, дабы истина благовествования сохранилась у вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-GAL">
+      <verse num="6" />
+      <text>But from those who were reputed to be important (whatever they were, it makes no difference to me; God doesn’t show partiality to man)-- they, I say, who were respected imparted nothing to me,</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>И в знаменитых чем-либо, какими бы ни были они когда-либо, для меня нет ничего особенного: Бог не взирает на лице человека. И знаменитые не возложили на меня ничего более.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-GAL">
+      <verse num="7" />
+      <text>but to the contrary, when they saw that I had been entrusted with the Good News for the uncircumcision, even as Peter with the Good News for the circumcision</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Напротив того, увидев, что мне вверено благовестие для необрезанных, как Петру для обрезанных—</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-GAL">
+      <verse num="8" />
+      <text>(for he who appointed Peter to the apostleship of the circumcision appointed me also to the Gentiles);</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>ибо Содействовавший Петру в апостольстве у обрезанных содействовал и мне у язычников, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-GAL">
+      <verse num="9" />
+      <text>and when they perceived the grace that was given to me, James and Cephas and John, they who were reputed to be pillars, gave to me and Barnabas the right hand of fellowship, that we should go to the Gentiles, and they to the circumcision.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>и, узнав о благодати, данной мне, Иаков и Кифа и Иоанн, почитаемые столпами, подали мне и Варнаве руку общения, чтобы нам идти к язычникам, а им к обрезанным,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-GAL">
+      <verse num="10" />
+      <text>They only asked us to remember the poor--which very thing I was also zealous to do.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>только чтобы мы помнили нищих, что и старался я исполнять в точности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-GAL">
+      <verse num="11" />
+      <text>But when Peter came to Antioch, I resisted him to his face, because he stood condemned.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>Когда же Петр пришел в Антиохию, то я лично противостал ему, потому что он подвергался нареканию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-GAL">
+      <verse num="12" />
+      <text>For before some people came from James, he ate with the Gentiles. But when they came, he drew back and separated himself, fearing those who were of the circumcision.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>Ибо, до прибытия некоторых от Иакова, ел вместе с язычниками; а когда те пришли, стал таиться и устраняться, опасаясь обрезанных.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-GAL">
+      <verse num="13" />
+      <text>And the rest of the Jews joined him in his hypocrisy; so that even Barnabas was carried away with their hypocrisy.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Вместе с ним лицемерили и прочие Иудеи, так что даже Варнава был увлечен их лицемерием.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-GAL">
+      <verse num="14" />
+      <text>But when I saw that they didn’t walk uprightly according to the truth of the Good News, I said to Peter before them all, “If you, being a Jew, live as the Gentiles do, and not as the Jews do, why do you compel the Gentiles to live as the Jews do?</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>Но когда я увидел, что они не прямо поступают по истине Евангельской, то сказал Петру при всех: если ты, будучи Иудеем, живешь по-язычески, а не по-иудейски, то для чего язычников принуждаешь жить по-иудейски?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-GAL">
+      <verse num="15" />
+      <text>“We were born Jews by nature, and not Gentile sinners.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Мы по природе Иудеи, а не из язычников грешники;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-GAL">
+      <verse num="16" />
+      <text>Even so, we know that a man is not justified by the works of the law but through faith in Jesus Christ. Even we believed in Christ Jesus, that we might be justified by faith in Christ, and not by the works of the law. No flesh will be justified by the works of the law.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>однако же, узнав, что человек оправдывается не делами закона, а только верою в Иисуса Христа, и мы уверовали во Христа Иисуса, чтобы оправдаться верою во Христа, а не делами закона; ибо делами закона не оправдается никакая плоть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-GAL">
+      <verse num="17" />
+      <text>But if, while we sought to be justified in Christ, we ourselves also were found sinners, is Christ a servant of sin? Certainly not!</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>Если же, ища оправдания во Христе, мы и сами оказались грешниками, то неужели Христос есть служитель греха? Никак.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-GAL">
+      <verse num="18" />
+      <text>For if I build up again those things which I destroyed, I prove myself a law-breaker.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Ибо если я снова созидаю, что разрушил, то сам себя делаю преступником.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-GAL">
+      <verse num="19" />
+      <text>For I, through the law, died to the law, that I might live to God.</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Законом я умер для закона, чтобы жить для Бога. Я сораспялся Христу,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-GAL">
+      <verse num="20" />
+      <text>I have been crucified with Christ, and it is no longer I that live, but Christ living in me. That life which I now live in the flesh, I live by faith in the Son of God, who loved me, and gave himself up for me.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>и уже не я живу, но живет во мне Христос. А что ныне живу во плоти, то живу верою в Сына Божия, возлюбившего меня и предавшего Себя за меня.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-GAL">
+      <verse num="21" />
+      <text>I don’t make void the grace of God. For if righteousness is through the law, then Christ died for nothing!”</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>Не отвергаю благодати Божией; а если законом оправдание, то Христос напрасно умер.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="GAL" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>GALATIANS CHP 3</text>
+    </ReferenceBlocks>
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-GAL">
+      <verse num="1" />
+      <text>Foolish Galatians, who has bewitched you not to obey the truth, before whose eyes Jesus Christ was openly set forth among you as crucified?</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>О, несмысленные Галаты! кто прельстил вас не покоряться истине, вас, у которых перед глазами предначертан был Иисус Христос, как бы у вас распятый?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-GAL">
+      <verse num="2" />
+      <text>I just want to learn this from you. Did you receive the Spirit by the works of the law, or by hearing of faith?</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>Сие только хочу знать от вас: через дела ли закона вы получили Духа, или через наставление в вере?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-GAL">
+      <verse num="3" />
+      <text>Are you so foolish? Having begun in the Spirit, are you now completed in the flesh?</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Так ли вы несмысленны, что, начав духом, теперь оканчиваете плотью?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-GAL">
+      <verse num="4" />
+      <text>Did you suffer so many things in vain, if it is indeed in vain?</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>Столь многое потерпели вы неужели без пользы? О, если бы только без пользы!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-GAL">
+      <verse num="5" />
+      <text>He therefore who supplies the Spirit to you, and works miracles among you, does he do it by the works of the law, or by hearing of faith?</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>Подающий вам Духа и совершающий между вами чудеса через дела ли закона сие производит, или через наставление в вере?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-GAL">
+      <verse num="6" />
+      <text>Even as Abraham</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>Так Авраам</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture">
+      <text>“believed God, and it was counted to him for righteousness.”</text>
+    </ReferenceBlocks>
+    <text>“поверил Богу, и это вменилось ему в праведность.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-GAL">
+      <verse num="7" />
+      <text>Know therefore that those who are of faith, the same are children of Abraham.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Познайте же, что верующие суть сыны Авраама.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-GAL">
+      <verse num="8" />
+      <text>The Scripture, foreseeing that God would justify the Gentiles by faith, preached the Good News beforehand to Abraham, saying,</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>И Писание, провидя, что Бог верою оправдает язычников, предвозвестило Аврааму:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture">
+      <text>“In you all the nations will be blessed.”</text>
+    </ReferenceBlocks>
+    <text>“в тебе благословятся все народы.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-GAL">
+      <verse num="9" />
+      <text>So then, those who are of faith are blessed with the faithful Abraham.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Итак верующие благословляются с верным Авраамом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-GAL">
+      <verse num="10" />
+      <text>For as many as are of the works of the law are under a curse. For it is written,</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>а все, утверждающиеся на делах закона, находятся под клятвою. Ибо написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
+      <text>“Cursed is everyone who doesn’t continue in all things that are written in the book of the law, to do them.”</text>
+    </ReferenceBlocks>
+    <text>“проклят всяк, кто не исполняет постоянно всего, что написано в книге закона.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL">
+      <verse num="11" />
+      <text>Now that no man is justified by the law before God is evident, for,</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>А что законом никто не оправдывается пред Богом, это ясно,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
+      <text>“The righteous will live by faith.”</text>
+    </ReferenceBlocks>
+    <text>“потому что праведный верою жив будет.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL">
+      <verse num="12" />
+      <text>The law is not of faith, but,</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>А закон не по вере;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
+      <text>“The man who does them will live by them.”</text>
+    </ReferenceBlocks>
+    <text>“но кто исполняет его, тот жив будет им.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-GAL">
+      <verse num="13" />
+      <text>Christ redeemed us from the curse of the law, having become a curse for us. For it is written,</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Христос искупил нас от клятвы закона, сделавшись за нас клятвою—ибо написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
+      <text>“Cursed is everyone who hangs on a tree,”</text>
+    </ReferenceBlocks>
+    <text>проклят всяк, висящий на древе, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-GAL">
+      <verse num="14" />
+      <text>that the blessing of Abraham might come on the Gentiles through Christ Jesus; that we might receive the promise of the Spirit through faith.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>дабы благословение Авраамово через Христа Иисуса распространилось на язычников, чтобы нам получить обещанного Духа верою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-GAL">
+      <verse num="15" />
+      <text>Brothers, speaking of human terms, though it is only a man’s covenant, yet when it has been confirmed, no one makes it void, or adds to it.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Братия! говорю по рассуждению человеческому: даже человеком утвержденного завещания никто не отменяет и не прибавляет к нему.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-GAL">
+      <verse num="16" />
+      <text>Now the promises were spoken to Abraham and to his seed. He doesn’t say, “To seeds,” as of many, but as of one, “To your seed,” which is Christ.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>Но Аврааму даны были обетования и семени его. Не сказано: и потомкам, как бы о многих, но как об одном: и семени твоему, которое есть Христос.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-GAL">
+      <verse num="17" />
+      <text>Now I say this. A covenant confirmed beforehand by God in Christ. The law, which came four hundred thirty years after, does not annul, so as to make the promise of no effect.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>Я говорю то, что завета о Христе, прежде Богом утвержденного, закон, явившийся спустя четыреста тридцать лет, не отменяет так, чтобы обетование потеряло силу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-GAL">
+      <verse num="18" />
+      <text>For if the inheritance is of the law, it is no more of promise; but God has granted it to Abraham by promise.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Ибо если по закону наследство, то уже не по обетованию; но Аврааму Бог даровал оное по обетованию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-GAL">
+      <verse num="19" />
+      <text>What then is the law? It was added because of transgressions. Until the seed should come to whom the promise has been made. It was ordained through angels by the hand of a mediator.</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Для чего же закон? Он дан после по причине преступлений, до времени пришествия семени, к которому относится обетование, и преподан через Ангелов, рукою посредника.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-GAL">
+      <verse num="20" />
+      <text>Now a mediator is not between one, but God is one.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>Но посредник при одном не бывает, а Бог один.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-GAL">
+      <verse num="21" />
+      <text>Is the law then against the promises of God? Certainly not! For if there had been a law given which could make alive, most certainly righteousness would have been of the law.</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>Итак закон противен обетованиям Божиим? Никак! Ибо если бы дан был закон, могущий животворить, то подлинно праведность была бы от закона;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-GAL">
+      <verse num="22" />
+      <text>But the Scriptures imprisoned all things under sin, that the promise by faith in Jesus Christ might be given to those who believe.</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>но Писание всех заключило под грехом, дабы обетование верующим дано было по вере в Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-GAL">
+      <verse num="23" />
+      <text>But before faith came, we were kept in custody under the law, confined for the faith which should afterwards be revealed.</text>
+    </ReferenceBlocks>
+    <verse num="23" />
+    <text>А до пришествия веры мы заключены были под стражею закона, до того времени, как надлежало открыться вере.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-GAL">
+      <verse num="24" />
+      <text>So that the law has become our tutor to bring us to Christ, that we might be justified by faith.</text>
+    </ReferenceBlocks>
+    <verse num="24" />
+    <text>Итак закон был для нас детоводителем ко Христу, дабы нам оправдаться верою;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-GAL">
+      <verse num="25" />
+      <text>But now that faith has come, we are no longer under a tutor.</text>
+    </ReferenceBlocks>
+    <verse num="25" />
+    <text>по пришествии же веры, мы уже не под руководством детоводителя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="narrator-GAL">
+      <verse num="26" />
+      <text>For you are all children of God, through faith in Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="26" />
+    <text>Ибо все вы сыны Божии по вере во Христа Иисуса;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="narrator-GAL">
+      <verse num="27" />
+      <text>For as many of you as were baptized into Christ have put on Christ.</text>
+    </ReferenceBlocks>
+    <verse num="27" />
+    <text>все вы, во Христа крестившиеся, во Христа облеклись.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="narrator-GAL">
+      <verse num="28" />
+      <text>There is neither Jew nor Greek, there is neither slave nor free man, there is neither male nor female; for you are all one in Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="28" />
+    <text>Нет уже Иудея, ни язычника; нет раба, ни свободного; нет мужеского пола, ни женского: ибо все вы одно во Христе Иисусе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-GAL">
+      <verse num="29" />
+      <text>If you are Christ’s, then you are Abraham’s seed and heirs according to promise.</text>
+    </ReferenceBlocks>
+    <verse num="29" />
+    <text>Если же вы Христовы, то вы семя Авраамово и по обетованию наследники.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="GAL" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>GALATIANS CHP 4</text>
+    </ReferenceBlocks>
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-GAL">
+      <verse num="1" />
+      <text>But I say that so long as the heir is a child, he is no different from a bondservant, though he is lord of all;</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Еще скажу: наследник, доколе в детстве, ничем не отличается от раба, хотя и господин всего:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-GAL">
+      <verse num="2" />
+      <text>but is under guardians and stewards until the day appointed by the father.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>он подчинен попечителям и домоправителям до срока, отцом назначенного.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-GAL">
+      <verse num="3" />
+      <text>So we also, when we were children, were held in bondage under the elemental principles of the world.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Так и мы, доколе были в детстве, были порабощены вещественным началам мира;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-GAL">
+      <verse num="4" />
+      <text>But when the fullness of the time came, God sent out his Son, born to a woman, born under the law,</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>но когда пришла полнота времени, Бог послал Сына Своего (Единородного), Который родился от жены, подчинился закону,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-GAL">
+      <verse num="5" />
+      <text>that he might redeem those who were under the law, that we might receive the adoption of children.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>чтобы искупить подзаконных, дабы нам получить усыновление.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-GAL">
+      <verse num="6" />
+      <text>And because you are children, God sent out the Spirit of his Son into your hearts, crying, “Abba, Father!”</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>А как вы—сыны, то Бог послал в сердца ваши Духа Сына Своего, вопиющего: 'Авва, Отче!'</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-GAL">
+      <verse num="7" />
+      <text>So you are no longer a bondservant, but a son; and if a son, then an heir of God through Christ.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Посему ты уже не раб, но сын; а если сын, то и наследник Божий через Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-GAL">
+      <verse num="8" />
+      <text>However at that time, not knowing God, you were in bondage to those who by nature are not gods.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Но тогда, не знав Бога, вы служили богам, которые в существе не боги.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-GAL">
+      <verse num="9" />
+      <text>You have come to know God, or rather to be known by God. Why do you turn back again to the weak and miserable elemental principles, to which you desire to be in bondage all over again?</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Ныне же, познав Бога, или, лучше, получив познание от Бога, для чего возвращаетесь опять к немощным и бедным вещественным началам и хотите еще снова поработить себя им?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-GAL">
+      <verse num="10" />
+      <text>You observe days, months, seasons, and years.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>Наблюдаете дни, месяцы, времена и годы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-GAL">
+      <verse num="11" />
+      <text>I am afraid for you, that I might have wasted my labor for you.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>Боюсь за вас, не напрасно ли я трудился у вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-GAL">
+      <verse num="12" />
+      <text>I beg you, brothers, become as I am, for I also have become as you are. You did me no wrong.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>Прошу вас, братия, будьте, как я, потому что и я, как вы. Вы ничем не обидели меня:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-GAL">
+      <verse num="13" />
+      <text>You know that because of weakness of the flesh I preached the Good News to you the first time.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>знаете, что, хотя я в немощи плоти благовествовал вам в первый раз,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-GAL">
+      <verse num="14" />
+      <text>That which was a temptation to you in my flesh, you didn’t despise nor reject; but you received me as an angel of God, even as Christ Jesus.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>но вы не презрели искушения моего во плоти моей и не возгнушались им, а приняли меня, как Ангела Божия, как Христа Иисуса.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-GAL">
+      <verse num="15" />
+      <text>What was the blessing you enjoyed? For I testify to you that, if possible, you would have plucked out your eyes and given them to me.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Как вы были блаженны! Свидетельствую о вас, что, если бы возможно было, вы исторгли бы очи свои и отдали мне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-GAL">
+      <verse num="16" />
+      <text>So then, have I become your enemy by telling you the truth?</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>Итак, неужели я сделался врагом вашим, говоря вам истину?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-GAL">
+      <verse num="17" />
+      <text>They zealously seek you in no good way. No, they desire to alienate you, that you may seek them.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>Ревнуют по вас нечисто, а хотят вас отлучить, чтобы вы ревновали по них.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-GAL">
+      <verse num="18" />
+      <text>But it is always good to be zealous in a good cause, and not only when I am present with you.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Хорошо ревновать в добром всегда, а не в моем только присутствии у вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-GAL">
+      <verse num="19" />
+      <text>My little children, I am again in travail until Christ is formed in you.</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Дети мои, для которых я снова в муках рождения, доколе не изобразится в вас Христос!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-GAL">
+      <verse num="20" />
+      <text>I could wish to be present with you now, and to change my tone, for I am perplexed about you.</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>Хотел бы я теперь быть у вас и изменить голос мой, потому что я в недоумении о вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-GAL">
+      <verse num="21" />
+      <text>Tell me, you that desire to be under the law, don’t you listen to the law?</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>Скажите мне вы, желающие быть под законом: разве вы не слушаете закона?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-GAL">
+      <verse num="22" />
+      <text>For it is written that Abraham had two sons, one by the handmaid, and one by the free woman.</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>Ибо написано: Авраам имел двух сынов, одного от рабы, а другого от свободной.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-GAL">
+      <verse num="23" />
+      <text>However, the son by the handmaid was born according to the flesh, but the son by the free woman was born through promise.</text>
+    </ReferenceBlocks>
+    <verse num="23" />
+    <text>Но который от рабы, тот рожден по плоти; а который от свободной, тот по обетованию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-GAL">
+      <verse num="24" />
+      <text>These things contain an allegory, for these are two covenants. One is from Mount Sinai, bearing children to bondage, which is Hagar.</text>
+    </ReferenceBlocks>
+    <verse num="24" />
+    <text>В этом есть иносказание. Это два завета: один от горы Синайской, рождающий в рабство, который есть Агарь,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-GAL">
+      <verse num="25" />
+      <text>For this Hagar is Mount Sinai in Arabia, and answers to the Jerusalem that exists now, for she is in bondage with her children.</text>
+    </ReferenceBlocks>
+    <verse num="25" />
+    <text>ибо Агарь означает гору Синай в Аравии и соответствует нынешнему Иерусалиму, потому что он с детьми своими в рабстве;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-GAL">
+      <verse num="26" />
+      <text>But the Jerusalem that is above is free, which is the mother of us all. </text>
+      <verse num="27" />
+      <text>For it is written,</text>
+    </ReferenceBlocks>
+    <verse num="26" />
+    <text>а вышний Иерусалим свободен: он—матерь всем нам. </text>
+    <verse num="27" />
+    <text>Ибо написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="scripture">
+      <text>“Rejoice, you barren who don’t bear. Break forth and shout, you that don’t travail. For more are the children of the desolate than of her who has a husband.”</text>
+    </ReferenceBlocks>
+    <text>“возвеселись, неплодная, нерождающая; воскликни и возгласи, не мучившаяся родами; потому что у оставленной гораздо более детей, нежели у имеющей мужа.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-GAL">
+      <verse num="28" />
+      <text>Now we, brothers, as Isaac was, are children of promise.</text>
+    </ReferenceBlocks>
+    <verse num="28" />
+    <text>Мы, братия, дети обетования по Исааку.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-GAL">
+      <verse num="29" />
+      <text>But as then, he who was born according to the flesh persecuted him who was born according to the Spirit, so also it is now.</text>
+    </ReferenceBlocks>
+    <verse num="29" />
+    <text>Но, как тогда рожденный по плоти гнал рожденного по духу, так и ныне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-GAL">
+      <verse num="30" />
+      <text>However what does the Scripture say?</text>
+    </ReferenceBlocks>
+    <verse num="30" />
+    <text>Что же говорит Писание?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="scripture">
+      <text>“Throw out the handmaid and her son, for the son of the handmaid will not inherit with the son of the free woman.”</text>
+    </ReferenceBlocks>
+    <text>“Изгони рабу и сына ее, ибо сын рабы не будет наследником вместе с сыном свободной.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL">
+      <verse num="31" />
+      <text>So then, brothers, we are not children of a handmaid, but of the free woman.</text>
+    </ReferenceBlocks>
+    <verse num="31" />
+    <text>Итак, братия, мы дети не рабы, но свободной.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="GAL" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>GALATIANS CHP 5</text>
+    </ReferenceBlocks>
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-GAL">
+      <verse num="1" />
+      <text>Stand firm therefore in the liberty by which Christ has made us free, and don’t be entangled again with a yoke of bondage.</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Итак стойте в свободе, которую даровал нам Христос, и не подвергайтесь опять игу рабства.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-GAL">
+      <verse num="2" />
+      <text>Behold, I, Paul, tell you that if you receive circumcision, Christ will profit you nothing.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>Вот, я, Павел, говорю вам: если вы обрезываетесь, не будет вам никакой пользы от Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-GAL">
+      <verse num="3" />
+      <text>Yes, I testify again to every man who receives circumcision, that he is a debtor to do the whole law.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Еще свидетельствую всякому человеку обрезывающемуся, что он должен исполнить весь закон.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-GAL">
+      <verse num="4" />
+      <text>Christ has become of no effect to you, you who desire to be justified by the law. You have fallen away from grace.</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>Вы, оправдывающие себя законом, остались без Христа, отпали от благодати,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-GAL">
+      <verse num="5" />
+      <text>For we, through the Spirit, by faith wait for the hope of righteousness.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>а мы духом ожидаем и надеемся праведности от веры.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-GAL">
+      <verse num="6" />
+      <text>For in Christ Jesus neither circumcision amounts to anything, nor uncircumcision, but faith working through love.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>Ибо во Христе Иисусе не имеет силы ни обрезание, ни необрезание, но вера, действующая любовью.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-GAL">
+      <verse num="7" />
+      <text>You were running well! Who interfered with you that you should not obey the truth?</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Вы шли хорошо: кто остановил вас, чтобы вы не покорялись истине?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-GAL">
+      <verse num="8" />
+      <text>This persuasion is not from him who calls you.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>Такое убеждение не от Призывающего вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-GAL">
+      <verse num="9" />
+      <text>A little yeast grows through the whole lump.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Малая закваска заквашивает все тесто.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-GAL">
+      <verse num="10" />
+      <text>I have confidence toward you in the Lord that you will think no other way. But he who troubles you will bear his judgment, whoever he is.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>Я уверен о вас в Господе, что вы не будете мыслить иначе; а смущающий вас, кто бы он ни был, понесет на себе осуждение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-GAL">
+      <verse num="11" />
+      <text>But I, brothers, if I still preach circumcision, why am I still persecuted? Then the stumbling block of the cross has been removed.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>За что же гонят меня, братия, если я и теперь проповедую обрезание? Тогда соблазн креста прекратился бы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-GAL">
+      <verse num="12" />
+      <text>I wish that those who disturb you would cut themselves off.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>О, если бы удалены были возмущающие вас!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-GAL">
+      <verse num="13" />
+      <text>For you, brothers, were called for freedom. Only don’t use your freedom for gain to the flesh, but through love be servants to one another.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>К свободе призваны вы, братия, только бы свобода ваша не была поводом к угождению плоти, но любовью служите друг другу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-GAL">
+      <verse num="14" />
+      <text>For the whole law is fulfilled in one word, in this:</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>Ибо весь закон в одном слове заключается:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+      <text>“You shall love your neighbor as yourself.”</text>
+    </ReferenceBlocks>
+    <text>“люби ближнего твоего, как самого себя.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-GAL">
+      <verse num="15" />
+      <text>But if you bite and devour one another, be careful that you don’t consume one another.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Если же друг друга угрызаете и съедаете, берегитесь, чтобы вы не были истреблены друг другом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-GAL">
+      <verse num="16" />
+      <text>But I say, walk by the Spirit, and you won’t fulfill the lust of the flesh.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>Я говорю: поступайте по духу, и вы не будете исполнять вожделений плоти,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-GAL">
+      <verse num="17" />
+      <text>For the flesh lusts against the Spirit, and the Spirit against the flesh. These are contrary to one another, that you may not do the things that you desire.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>ибо плоть желает противного духу, а дух—противного плоти: они друг другу противятся, так что вы не то делаете, что хотели бы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-GAL">
+      <verse num="18" />
+      <text>But if you are led by the Spirit, you are not under the law.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Если же вы духом водитесь, то вы не под законом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-GAL">
+      <verse num="19" />
+      <text>Now the works of the flesh are obvious, which are: adultery, sexual immorality, uncleanness, lustfulness,</text>
+    </ReferenceBlocks>
+    <verse num="19" />
+    <text>Дела плоти известны; они суть: прелюбодеяние, блуд, нечистота, непотребство,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-GAL">
+      <verse num="20" />
+      <text>idolatry, sorcery, hatred, strife, jealousies, outbursts of anger, rivalries, divisions, heresies,</text>
+    </ReferenceBlocks>
+    <verse num="20" />
+    <text>идолослужение, волшебство, вражда, ссоры, зависть, гнев, распри, разногласия, (соблазны), ереси,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-GAL">
+      <verse num="21" />
+      <text>envyings, murders, drunkenness, orgies, and things like these; of which I forewarn you, even as I also forewarned you, that those who practice such things will not inherit the Kingdom of God.</text>
+    </ReferenceBlocks>
+    <verse num="21" />
+    <text>ненависть, убийства, пьянство, бесчинство и тому подобное. Предваряю вас, как и прежде предварял, что поступающие так Царствия Божия не наследуют.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-GAL">
+      <verse num="22" />
+      <text>But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faith,</text>
+    </ReferenceBlocks>
+    <verse num="22" />
+    <text>Плод же духа: любовь, радость, мир, долготерпение, благость, милосердие, вера,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-GAL">
+      <verse num="23" />
+      <text>gentleness, and self-control. Against such things there is no law.</text>
+    </ReferenceBlocks>
+    <verse num="23" />
+    <text>кротость, воздержание. На таковых нет закона.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-GAL">
+      <verse num="24" />
+      <text>Those who belong to Christ have crucified the flesh with its passions and lusts.</text>
+    </ReferenceBlocks>
+    <verse num="24" />
+    <text>Но те, которые Христовы, распяли плоть со страстями и похотями.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-GAL">
+      <verse num="25" />
+      <text>If we live by the Spirit, let’s also walk by the Spirit.</text>
+    </ReferenceBlocks>
+    <verse num="25" />
+    <text>Если мы живем духом, то по духу и поступать должны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-GAL">
+      <verse num="26" />
+      <text>Let’s not become conceited, provoking one another, and envying one another.</text>
+    </ReferenceBlocks>
+    <verse num="26" />
+    <text>Не будем тщеславиться, друг друга раздражать, друг другу завидовать.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="GAL" initialStartVerse="0" characterId="BC-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
+      <text>GALATIANS CHP 6</text>
+    </ReferenceBlocks>
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-GAL">
+      <verse num="1" />
+      <text>Brothers, even if a man is caught in some fault, you who are spiritual must restore such a one in a spirit of gentleness; looking to yourself so that you also aren’t tempted.</text>
+    </ReferenceBlocks>
+    <verse num="1" />
+    <text>Братия! если и впадет человек в какое согрешение, вы, духовные, исправляйте такового в духе кротости, наблюдая каждый за собою, чтобы не быть искушенным.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-GAL">
+      <verse num="2" />
+      <text>Bear one another’s burdens, and so fulfill the law of Christ.</text>
+    </ReferenceBlocks>
+    <verse num="2" />
+    <text>Носите бремена друг друга, и таким образом исполните закон Христов.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-GAL">
+      <verse num="3" />
+      <text>For if a man thinks himself to be something when he is nothing, he deceives himself.</text>
+    </ReferenceBlocks>
+    <verse num="3" />
+    <text>Ибо кто почитает себя чем-нибудь, будучи ничто, тот обольщает сам себя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-GAL">
+      <verse num="4" />
+      <text>But let each man test his own work, and then he will take pride in himself and not in his neighbor.</text>
+    </ReferenceBlocks>
+    <verse num="4" />
+    <text>Каждый да испытывает свое дело, и тогда будет иметь похвалу только в себе, а не в другом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-GAL">
+      <verse num="5" />
+      <text>For each man will bear his own burden.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>ибо каждый понесет свое бремя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-GAL">
+      <verse num="6" />
+      <text>But let him who is taught in the word share all good things with him who teaches.</text>
+    </ReferenceBlocks>
+    <verse num="6" />
+    <text>Наставляемый словом, делись всяким добром с наставляющим.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-GAL">
+      <verse num="7" />
+      <text>Don’t be deceived. God is not mocked, for whatever a man sows, that he will also reap.</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Не обманывайтесь: Бог поругаем не бывает. Что посеет человек, то и пожнет:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-GAL">
+      <verse num="8" />
+      <text>For he who sows to his own flesh will from the flesh reap corruption. But he who sows to the Spirit will from the Spirit reap eternal life.</text>
+    </ReferenceBlocks>
+    <verse num="8" />
+    <text>сеющий в плоть свою от плоти пожнет тление, а сеющий в дух от духа пожнет жизнь вечную.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-GAL">
+      <verse num="9" />
+      <text>Let us not be weary in doing good, for we will reap in due season, if we don’t give up.</text>
+    </ReferenceBlocks>
+    <verse num="9" />
+    <text>Делая добро, да не унываем, ибо в свое время пожнем, если не ослабеем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-GAL">
+      <verse num="10" />
+      <text>So then, as we have opportunity, let’s do what is good toward all men, and especially toward those who are of the household of the faith.</text>
+    </ReferenceBlocks>
+    <verse num="10" />
+    <text>Итак, доколе есть время, будем делать добро всем, а наипаче своим по вере.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-GAL">
+      <verse num="11" />
+      <text>See with what large letters I write to you with my own hand.</text>
+    </ReferenceBlocks>
+    <verse num="11" />
+    <text>Видите, как много написал я вам своею рукою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-GAL">
+      <verse num="12" />
+      <text>As many as desire to look good in the flesh, they compel you to be circumcised; only that they may not be persecuted for the cross of Christ.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>Желающие хвалиться по плоти принуждают вас обрезываться только для того, чтобы не быть гонимыми за крест Христов,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-GAL">
+      <verse num="13" />
+      <text>For even they who receive circumcision don’t keep the law themselves, but they desire to have you circumcised, that they may boast in your flesh.</text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>ибо и сами обрезывающиеся не соблюдают закона, но хотят, чтобы вы обрезывались, дабы похвалиться в вашей плоти.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-GAL">
+      <verse num="14" />
+      <text>But far be it from me to boast, except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>А я не желаю хвалиться, разве только крестом Господа нашего Иисуса Христа, которым для меня мир распят, и я для мира.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-GAL">
+      <verse num="15" />
+      <text>For in Christ Jesus neither is circumcision anything, nor uncircumcision, but a new creation.</text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>Ибо во Христе Иисусе ничего не значит ни обрезание, ни необрезание, а новая тварь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-GAL">
+      <verse num="16" />
+      <text>As many as walk by this rule, peace and mercy be on them, and on God’s Israel.</text>
+    </ReferenceBlocks>
+    <verse num="16" />
+    <text>Тем, которые поступают по сему правилу, мир им и милость, и Израилю Божию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-GAL">
+      <verse num="17" />
+      <text>From now on, let no one cause me any trouble, for I bear the marks of the Lord Jesus branded on my body.</text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>Впрочем никто не отягощай меня, ибо я ношу язвы Господа Иисуса на теле моем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-GAL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-GAL">
+      <verse num="18" />
+      <text>The grace of our Lord Jesus Christ be with your spirit, brothers. Amen.</text>
+    </ReferenceBlocks>
+    <verse num="18" />
+    <text>Благодать Господа нашего Иисуса Христа со духом вашим, братия. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

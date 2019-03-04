@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Glyssen.Character;
+using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
-using SIL.IO;
-using SIL.Scripture;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -34,28 +34,32 @@ namespace Glyssen.Dialogs
 		private const int kDescending = -1;
 
 		private readonly Project m_project;
-		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
-		private CharacterByKeyStrokeComparer m_characterByKeyStrokeComparer;
-		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected);
+
+		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected, bool requiresActorListRefresh);
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
-		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>(); 
+		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>();
 
-		public VoiceActorAssignmentViewModel(Project project, Dictionary<string, int> keyStrokesByCharacterId = null)
+		private Proximity ProjectProximity { get; }
+
+		public VoiceActorAssignmentViewModel(Project project)
 		{
 			m_project = project;
-
-			m_keyStrokesByCharacterId = keyStrokesByCharacterId ?? m_project.GetKeyStrokesByCharacterId();
+			ProjectProximity = new Proximity(m_project, false);
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 
-#if DEBUG
-			var p = new Proximity(m_project);
-			foreach (var group in CharacterGroups.OrderBy(g => g.GroupNumber))
-				Debug.WriteLine(group.GroupNumber + ": " + p.CalculateMinimumProximity(group.CharacterIds));
-#endif
+			LogAndOutputToDebugConsole("Group".PadRight(7) + ": " + MinimumProximity.ReportHeader + Environment.NewLine +
+				"-".PadRight(100, '-'));
+			foreach (var group in CharacterGroups.OrderBy(g => g.GroupIdForUiDisplay))
+				LogAndOutputToDebugConsole(group.GroupIdForUiDisplay.PadRight(7) + ": " + ProjectProximity.CalculateMinimumProximity(group.CharacterIds));
+		}
+
+		private static void LogAndOutputToDebugConsole(string message)
+		{
+			Debug.WriteLine(message);
+			Logger.WriteEvent(message);
 		}
 
 		private static string GetUiStringForCharacterGender(CharacterGender characterGender)
@@ -66,7 +70,7 @@ namespace Glyssen.Dialogs
 				case CharacterGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Female", "Female");
 				case CharacterGender.PreferMale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferMale", "Pref: Male");
 				case CharacterGender.PreferFemale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferFemale", "Pref: Female");
-				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
+// Probably don't want to show this anyway, and definitely not for narrators				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
 				default: return string.Empty;
 			}
 		}
@@ -125,7 +129,7 @@ namespace Glyssen.Dialogs
 		public double GetEstimatedHoursForCharacter(string localizedCharacterId)
 		{
 			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
-			return m_keyStrokesByCharacterId[characterId] / Program.kKeyStrokesPerHour;
+			return m_project.KeyStrokesByCharacterId[characterId] / Project.kKeyStrokesPerHour;
 		}
 
 		public IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
@@ -133,14 +137,9 @@ namespace Glyssen.Dialogs
 		public List<String> UndoActions { get { return m_undoStack.UndoDescriptions; } }
 		public List<String> RedoActions { get { return m_undoStack.RedoDescriptions; } }
 
-		private CharacterByKeyStrokeComparer ByKeyStrokeComparer
+		public Project Project
 		{
-			get
-			{
-				if (m_characterByKeyStrokeComparer == null)
-					m_characterByKeyStrokeComparer = new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId);
-				return m_characterByKeyStrokeComparer;
-			}
+			get { return m_project; }
 		}
 
 		public void RegenerateGroups(Action generate)
@@ -148,48 +147,7 @@ namespace Glyssen.Dialogs
 			// TODO (PG-437): Create Undo action to store state before calling generate.
 			generate();
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
-
 			Save();
-		}
-
-		// Keep this method around for now in case we decide to support templates in some scenarios
-		// ReSharper disable once UnusedMember.Local
-		private void CreateInitialGroupsFromTemplate()
-		{
-			CharacterGroupTemplate charGroupTemplate;
-			using (var tempFile = new TempFile())
-			{
-				File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
-				ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(m_project, tempFile.Path);
-				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.ActiveActors.Count());
-			}
-
-			HashSet<string> includedCharacterIds = new HashSet<string>();
-			foreach (var book in m_project.IncludedBooks)
-				foreach (var block in book.GetScriptBlocks(true))
-					if (!block.CharacterIsUnclear())
-						includedCharacterIds.Add(block.CharacterId);
-			ISet<string> matchedCharacterIds = new HashSet<string>();
-
-			foreach (var group in charGroupTemplate.CharacterGroups.Values)
-			{
-				group.CharacterIds.IntersectWith(includedCharacterIds);
-
-				if (!group.CharacterIds.Any())
-					continue;
-
-				CharacterGroups.Add(group);
-
-				matchedCharacterIds.AddRange(group.CharacterIds);
-			}
-
-			// Add an extra group for any characters which weren't in the template
-			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup(m_project, ByKeyStrokeComparer);
-			unmatchedCharacterGroup.GroupNumber = 999;
-			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
-			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
 
 		private void Save(ICharacterGroupsUndoAction actionToSave = null)
@@ -200,7 +158,7 @@ namespace Glyssen.Dialogs
 			{
 				if (actionToSave == null)
 					actionToSave = m_undoStack.Peek();
-				Saved(this, actionToSave == null ? null : actionToSave.GroupsAffectedByLastOperation);
+				Saved(this, actionToSave == null ? null : actionToSave.GroupsAffectedByLastOperation, actionToSave is VoiceActorEditingUndoAction);
 			}
 		}
 
@@ -248,7 +206,7 @@ namespace Glyssen.Dialogs
 		private CharacterGroup GetSourceGroupForMove(IList<string> characterIds, CharacterGroup destGroup)
 		{
 			if (characterIds.Count == 0)
-				throw new ArgumentException("At least one characterId must be provided", "characterIds");
+				throw new ArgumentException(@"At least one characterId must be provided", "characterIds");
 
 			// Currently, we assume all characterIds are coming from the same source group
 			CharacterGroup sourceGroup = CharacterGroups.FirstOrDefault(t => t.CharacterIds.Contains(characterIds[0]));
@@ -279,50 +237,53 @@ namespace Glyssen.Dialogs
 
 			if (destGroup != null && warnUserAboutProximity && destGroup.CharacterIds.Count > 0)
 			{
-				var proximity = new Proximity(m_project);
-
 				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
-				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);
-				int proximityBefore = resultsBefore.NumberOfBlocks;
+				var resultsBefore = ProjectProximity.CalculateMinimumProximity(testGroup);
 
 				testGroup.AddRange(characterIds);
-				var resultsAfter = proximity.CalculateMinimumProximity(testGroup);
-				int proximityAfter = resultsAfter.NumberOfBlocks;
+				var resultsAfter = ProjectProximity.CalculateMinimumProximity(testGroup);
 
-				if (proximityBefore > proximityAfter && proximityAfter <= Proximity.kDefaultMinimumProximity)
+				if (resultsBefore.IsBetterThan(resultsAfter) && !resultsAfter.IsAcceptable())
 				{
-					var firstReference = new BCVRef(BCVRef.BookToNumber(resultsAfter.FirstBook.BookId), resultsAfter.FirstBlock.ChapterNumber,
-						resultsAfter.FirstBlock.InitialStartVerseNumber).ToString();
-
-					var secondReference = new BCVRef(BCVRef.BookToNumber(resultsAfter.SecondBook.BookId), resultsAfter.SecondBlock.ChapterNumber,
-						resultsAfter.SecondBlock.InitialStartVerseNumber).ToString();
+					var firstReference = resultsAfter.FirstReference;
+					var secondReference = resultsAfter.SecondReference;
 
 					var dlgMessageFormat1 = (firstReference == secondReference) ?
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] and [{2}] in {3}.") :
+							"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] in {3} and [{2}] in {4}.");
-					dlgMessageFormat1 = string.Format(dlgMessageFormat1,
+							"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
+					var dlgMessagePart1 = string.Format(dlgMessageFormat1,
 						resultsAfter.NumberOfBlocks,
-						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterIdInScript),
-						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterIdInScript),
+						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
+						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondCharacterId),
 						firstReference, secondReference);
-					var dlgMessageFormat2 =
+
+					Logger.WriteEvent($"{dlgMessagePart1}\r\n>>>Moving {characterIds.Count} characters to group {destGroup.GroupId}:\r\n   {String.Join("\r\n   ", characterIds)}");
+
+					var dlgMessagePart2 =
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
 							"Do you want to continue with this move?");
 
-					var dlgMessage = string.Format(dlgMessageFormat1 + Environment.NewLine + Environment.NewLine + dlgMessageFormat2);
+					var dlgMessage = dlgMessagePart1 + Environment.NewLine + Environment.NewLine + dlgMessagePart2;
 					var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
 						"Confirm");
 
 					if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
+					{
+						Logger.WriteEvent("User cancelled move of characters.");
 						return false;
+					}
+				}
+				else
+				{
+					LogAndOutputToDebugConsole($"Moving {characterIds.Count} character(s) to group {destGroup.GroupId} changed the " +
+						$"proximity from {resultsBefore.NumberOfBlocks} to {resultsAfter.NumberOfBlocks}.");
 				}
 			}
 
 			m_undoStack.Push(new MoveCharactersToGroupUndoAction(m_project, sourceGroup, destGroup, characterIds));
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 			Save();
 
 			return true;
@@ -349,25 +310,32 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("Gender");
 			table.Columns.Add("Age");
 			table.Columns.Add("Cameo");
+			table.Columns.Add("SpecialUse");
 
 			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
+			{
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
+			}
 
 			table.Rows.Add(
 				-1,
 				null,
 				Resources.RemoveActor,
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+				"",
+				//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 				"",
 				"",
-				"");
+				"",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
+			{
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));
+			}
 
 			return table;
 		}
@@ -382,7 +350,8 @@ namespace Glyssen.Dialogs
 				actor.Name,
 				GetUiStringForActorGender(actor.Gender),
 				GetUiStringForActorAge(actor.Age),
-				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : ""
+				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : "",
+				null
 			};
 		}
 
@@ -393,7 +362,7 @@ namespace Glyssen.Dialogs
 			switch (by)
 			{
 				case SortedBy.Name:
-					how = (a, b) => String.Compare(a.Name, b.Name, StringComparison.CurrentCulture) * direction;
+					how = (a, b) => CompareGroupNames(a, b) * direction;
 					break;
 				case SortedBy.Attributes:
 					how = (a, b) => String.Compare(a.AttributesDisplay, b.AttributesDisplay, StringComparison.CurrentCulture) * direction;
@@ -412,7 +381,7 @@ namespace Glyssen.Dialogs
 					how = (a, b) => a.EstimatedHours.CompareTo(b.EstimatedHours) * direction;
 					break;
 				default:
-					throw new ArgumentException("Unexpected sorting method", "by");
+					throw new ArgumentException(@"Unexpected sorting method", "by");
 			}
 			CharacterGroups.Sort(how);
 		}
@@ -453,7 +422,7 @@ namespace Glyssen.Dialogs
 				throw new ArgumentNullException("textToFind");
 			textToFind = textToFind.Trim();
 			if (textToFind.Length < 2)
-				throw new ArgumentException("Value must contain at least two non-whitespace characters.", "textToFind");
+				throw new ArgumentException(@"Value must contain at least two non-whitespace characters.", "textToFind");
 			if (startingGroupIndex < 0 || startingGroupIndex >= CharacterGroups.Count)
 				startingGroupIndex = 0;
 			if (startingCharacterIndex < 0 || startingCharacterIndex >= CharacterGroups[startingGroupIndex].CharacterIds.Count)
@@ -506,6 +475,91 @@ namespace Glyssen.Dialogs
 				}
 			}
 			return matchingCharacterIds;
+		}
+
+		public void CreateNewActorAndAssignToGroup(string voiceActorName, CharacterGroup group)
+		{
+			var actor = new VoiceActor.VoiceActor { Id = 99, Name = voiceActorName };
+			m_project.VoiceActorList.AllActors.Add(actor);
+			AssignActorToGroup(actor.Id, group);
+		}
+
+		public VoiceActor.VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
+		{
+			Debug.Assert(!group.AssignedToCameoActor);
+
+			var actorViewModel = new VoiceActorInformationViewModel(m_project);
+
+			if (actorViewModel.IsDuplicateActorName(null, actorName) || actorName == "Remove Voice Actor Assignment")
+				throw new InvalidOperationException("Attempting to add existing actor!");
+
+			var newActor = actorViewModel.AddNewActor();
+			newActor.Name = actorName;
+			switch (group.GroupIdLabel)
+			{
+				case CharacterGroup.Label.Female:
+					newActor.Gender = ActorGender.Female;
+					break;
+				case CharacterGroup.Label.Child:
+					newActor.Age = ActorAge.Child;
+					break;
+			}
+			AssignActorToGroup(newActor.Id, group);
+			actorViewModel.SaveVoiceActorInformation();
+			return newActor;
+		}
+
+		private static int CompareGroupNames(CharacterGroup x, CharacterGroup y)
+		{
+			var s1 = x.GroupIdForUiDisplay ?? string.Empty;
+			var s2 = y.GroupIdForUiDisplay ?? string.Empty;
+
+			// check for identical strings
+			if (s1 == s2)
+				return 0;
+
+			// check for an empty string
+			if (string.IsNullOrEmpty(s1))
+				return -1;
+
+			if (string.IsNullOrEmpty(s2))
+				return 1;
+
+			var len1 = s1.Length;
+			var len2 = s2.Length;
+			var currentIdx = 0;
+			var d1 = '.';
+			var d2 = '.';
+
+			while ((currentIdx < len1) && (currentIdx < len2))
+			{
+				// compare once character from each string
+				var result = string.Compare(s1, currentIdx, s2, currentIdx, 1);
+
+				// if both characters are not the same, check for digits
+				if (result != 0)
+				{
+					d1 = s1[currentIdx];
+					d2 = s2[currentIdx];
+					if (!char.IsDigit(d1) || !char.IsDigit(d2)) return result;
+
+					// both characters are digits, compare the full numbers
+					var val1 = int.Parse(Regex.Match(s1, @"\d+").Value);
+					var val2 = int.Parse(Regex.Match(s2, @"\d+").Value);
+					return (val1 < val2) ? -1 : 1;
+				}
+
+				currentIdx++;
+			}
+
+			// if you are here, one string starts with the other
+			// the shorter string comes before the longer one
+			if (!char.IsDigit(d1) || !char.IsDigit(d2)) return (len1 < len2) ? -1 : 1;
+
+			// both ended with digits, so compare the full numbers
+			var num1 = int.Parse(Regex.Match(s1, @"\d+").Value);
+			var num2 = int.Parse(Regex.Match(s2, @"\d+").Value);
+			return (num1 < num2) ? -1 : 1;
 		}
 	}
 }

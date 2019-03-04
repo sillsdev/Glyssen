@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -11,7 +12,6 @@ namespace GlyssenTests.Dialogs
 	internal class VoiceActorAssignmentUndoActionTests
 	{
 		private Project m_testProject;
-		private IComparer<string> m_priorityComparer;
 
 		[SetUp]
 		public void Setup()
@@ -24,8 +24,7 @@ namespace GlyssenTests.Dialogs
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Oneyda Figueroa" };
+			var actor1 = new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
 			var actor2 = new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
 			var actor3 = new Glyssen.VoiceActor.VoiceActor {Id = 3, Name = "Threesa Hawkins"};
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> {actor1, actor2, actor3};
@@ -35,7 +34,7 @@ namespace GlyssenTests.Dialogs
 
 		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			var group = new CharacterGroup(m_testProject);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
@@ -53,12 +52,34 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void Description()
+		public void Description_Normal()
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 1);
 			Assert.AreEqual("Assign voice actor Oneyda Figueroa", action.Description);
+		}
+
+		[Test]
+		public void Description_AfterDeletingActor_RemembersDeletedName()
+		{
+			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+			VoiceActorAssignmentUndoAction action;
+			string descriptionBeforeDelete;
+
+			try
+			{
+				m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor() {Id = 400, Name = "Bruce Bliss"});
+				action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 400);
+				descriptionBeforeDelete = action.Description;
+				Assert.AreEqual("Assign voice actor Bruce Bliss", descriptionBeforeDelete);
+			}
+			finally
+			{
+				m_testProject.VoiceActorList.AllActors.RemoveAt(3);
+			}
+
+			Assert.AreEqual(descriptionBeforeDelete, action.Description);
 		}
 
 		[Test]
@@ -81,7 +102,8 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			action.Undo(); // This will reassign it back to 2.
-			groupWithJesus.Name = "Son of God";
+			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithJesus.GroupIdOtherText = "Son of God";
 			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by actor");
 			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
 			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
@@ -95,7 +117,8 @@ namespace GlyssenTests.Dialogs
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			action.Undo(); // This will reassign it back to 2.
 			groupWithJesus.AssignVoiceActor(4);
-			groupWithJesus.Name = "Son of God";
+			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithJesus.GroupIdOtherText = "Son of God";
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual(4, groupWithJesus.VoiceActorId);
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
@@ -158,7 +181,8 @@ namespace GlyssenTests.Dialogs
 				otherGroup.AssignVoiceActor(3); // No longer possible via UI, but it used to be.
 				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 				action.Undo();
-				groupWithJesus.Name = "Divine Son of God";
+				groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+				groupWithJesus.GroupIdOtherText = "Divine Son of God";
 				Assert.IsFalse(action.Redo());
 				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
 				Assert.AreEqual(3, otherGroup.VoiceActorId);
@@ -177,7 +201,8 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			groupWithJesus.AssignVoiceActor(2);
-			groupWithJesus.Name = "Friend of Sinners";
+			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithJesus.GroupIdOtherText = "Friend of Sinners";
 			Assert.IsFalse(action.Undo());
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 		}

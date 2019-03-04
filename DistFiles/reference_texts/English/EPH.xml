@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="EPH" singlevoice="false" pageheader="EPHESIANS CHP">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+    <text>EPHESIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Paul, an apostle of Christ Jesus through the will of God, to the saints who are at Ephesus, and the faithful in Christ Jesus:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Blessed be the God and Father of our Lord Jesus Christ, who has blessed us with every spiritual blessing in the heavenly places in Christ;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>even as he chose us in him before the foundation of the world, that we would be holy and without blemish before him in love;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>He predestined us for adoption as children through Jesus Christ to himself, according to the good pleasure of his desire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>We give thanks to God for his grace, by which he has accepted us in the Beloved.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>In him we have our redemption through his blood, the forgiveness of our trespasses, according to the riches of his grace,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>which he made to abound toward us in all wisdom and prudence,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>He makes known to us the mystery of his will, according to his good pleasure which he purposed in Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>This plan is to be put into effect when the times have reached their fulfillment, to bring all things in heaven and on earth together under one head, even Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>In him also we were assigned an inheritance, having been foreordained. And this according to the purpose of him who works all things after the counsel of his will.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>We who were the first to trust in Christ should thank him for his greatness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>You also, having heard the word of the truth, the Good News of your salvation in whom, having also believed, you were sealed with the Holy Spirit of promise,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>who is a pledge of our inheritance, to the redemption of God’s own possession, to the praise of his glory.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>For this cause I also, having heard of the faith in the Lord Jesus which is among you, and the love which you have toward all the saints,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>don’t cease to give thanks for you, making mention of you in my prayers.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>I keep asking that the God of our Lord Jesus Christ, the Father of glory, may give to you a spirit of wisdom and revelation in the knowledge of him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>I pray also that the eyes of your hearts are enlightened, that you may know what is the hope of his calling. and what are the riches of the glory of his inheritance in the saints,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>and what is the exceeding greatness of his power toward us who believe, according to that working of the strength of his might</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>which he worked in Christ, when he raised him from the dead, and made him to sit at his right hand in the heavenly places,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>far above all rule, and authority, and power, and dominion. Far above every name that is named, not only in this age, but also in that which is to come.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>He put all things in subjection under his feet, and gave him to be head over all things for the assembly,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>which is his body, the fullness of him who fills all in all.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>You were made alive when you were dead in transgressions and sins.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>You walked in the sinful ways of the world, according to the prince of the power of the air. The spirit who now works in the children of disobedience.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>We also once lived among them in the lust of our flesh, doing the desires of the flesh and of the mind. We were by nature children of wrath, even as the rest.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>But God, being rich in mercy, for his great love with which he loved us,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>even when we were dead through our trespasses, made us alive together with Christ (by grace you have been saved).</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>He raised us up with him, and made us to sit with him in the heavenly places in Christ Jesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>That way, in the ages to come he might show the exceeding riches of his grace in kindness toward us in Christ Jesus;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>For by grace you have been saved through faith, and that not of yourselves; it is the gift of God,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>not of works, that no one would boast.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>For we are his workmanship, created in Christ Jesus for good works, which God prepared before that we would walk in them.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Therefore remember that once you, the Gentiles in the flesh, who are called “uncircumcision” by that which is called “circumcision,” (in the flesh, made by hands);</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>that you were at that time separate from Christ, alienated from the commonwealth of Israel, and strangers from the covenants of the promise, having no hope and without God in the world.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>But now in Christ Jesus you who once were far off are made near in the blood of Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>For he is our peace, who made both one, and broke down the middle wall of partition,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>having abolished in the flesh the hostility, the law of commandments contained in ordinances, that he might create in himself one new man of the two, making peace;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>and might reconcile them both in one body to God through the cross, having killed the hostility thereby.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>He came and preached peace to you who were far off and to those who were near.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>For through him we both have our access in one Spirit to the Father.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>So then you are no longer strangers and foreigners, but you are fellow citizens with the saints, and of the household of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>This family is being built on the foundation of the apostles and prophets, Christ Jesus himself being the chief cornerstone.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>The whole building is in him, fitted together, grows into a holy temple in the Lord;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>In him you also are built together for a habitation of God in the Spirit.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>For this cause I, Paul, am the prisoner of Christ Jesus on behalf of you Gentiles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>I am sure that you have heard of the administration of that grace of God which was given me toward you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>I wrote before in a few words that by revelation, the mystery was made known to me.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>When you read this you can perceive my understanding in the mystery of Christ;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>In other generations, this was not made known to the children of men. It has now been revealed to his holy apostles and prophets in the Spirit;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>that the Gentiles are fellow heirs, and fellow members of the body, and fellow partakers of his promise in Christ Jesus through the Good News.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>I was made a servant of this gospel, according to the gift of that grace of God which was given me according to the working of his power.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>To me, the very least of all saints, was this grace given, to preach to the Gentiles the unsearchable riches of Christ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>and to make all men see what is the administration of the mystery which for ages has been hidden in God, who created all things through Jesus Christ;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>This was done so that now through the assembly the manifold wisdom of God might be made known to the principalities and the powers in the heavenly places,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>according to the eternal purpose which he purposed in Christ Jesus our Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>We can come to God in boldness and access him in confidence through our faith in him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Therefore I ask that you may not lose heart at my troubles for you, which are your glory.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>For this cause, I bow my knees to the Father of our Lord Jesus Christ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>from whom every family in heaven and on earth is named.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>I pray that he would grant you, according to the riches of his glory, that you may be strengthened with power through his Spirit in the inward man.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>I pray that Christ may dwell in your hearts through faith; to the end that you, being rooted and grounded in love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>I pray that you may be strengthened to comprehend with all the saints what is the breadth and length and height and depth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>I pray that you will know Christ’s love which surpasses knowledge, that you may be filled with all the fullness of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Now to him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>to him be the glory in the assembly and in Christ Jesus to all generations forever and ever. Amen.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>I therefore, the prisoner in the Lord, beg you to walk worthily of the calling with which you were called.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Walk with all lowliness and humility, with patience, bearing with one another in love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Be eager to keep the unity of the Spirit in the bond of peace.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>There is one body, and one Spirit, even as you also were called in one hope of your calling;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>one Lord, one faith, one baptism,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>one God and Father of all, who is over all, and through all, and in us all.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>But to each one of us was the grace given according to the measure of the gift of Christ. </text>
+    <verse num="8" />
+    <text>Therefore he says,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
+    <text>“When he ascended on high, he led captivity captive, and gave gifts to men.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Now this, “He ascended,” what is it but that he also first descended into the lower parts of the earth?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>He who descended is the one who also ascended far above all the heavens, that he might fill all things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>He gave some to be apostles; and some, prophets; and some, evangelists; and some, shepherds and teachers;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>for the perfecting of the saints, to the work of serving, to the building up of the body of Christ;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>until we all attain to the unity of the faith, and of the knowledge of the Son of God, to a full grown man, to the measure of the stature of the fullness of Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Then we will no longer be like children, tossed back and forth, carried about with every wind of doctrine, by the trickery of men, in craftiness, after the wiles of error.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Speaking truth in love, we may grow up in all things into him, who is the head, Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>It is from Christ that all the body, being fitted and knit together through that which every joint supplies, according to the working in measure of each individual part, makes the body increase to the building up of itself in love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>This I say therefore, and testify in the Lord, that you no longer walk as the rest of the Gentiles also walk, in the futility of their mind,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>being darkened in their understanding, alienated from the life of God, because of the ignorance that is in them, because of the hardening of their hearts.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Having become callous, they gave themselves up to lust, to work all uncleanness with greediness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>But you did not learn Christ that way;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>If indeed you heard him, and were taught in him, even as truth is in Jesus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>put away your former way of life, the old man that grows corrupt after the lusts of deceit;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Be renewed in the spirit of your mind,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>and put on the new man, who in the likeness of God has been created in righteousness and holiness of truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Therefore putting away falsehood, speak truth each one with his neighbor. For we are members of one another.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, </text>
+    <verse num="27" />
+    <text>neither give place to the devil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Let him who stole steal no more; but rather let him labor, working with his hands the thing that is good, that he may have something to give to him who has need.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Let no corrupt speech proceed out of your mouth, but such as is good for building up as the need may be, that it may give grace to those who hear.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>Don’t grieve the Holy Spirit of God, in whom you were sealed for the day of redemption.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
+    <verse num="31" />
+    <text>Let all bitterness, wrath, anger, outcry, and slander, be put away from you, with all malice.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>And be kind to one another, tenderhearted, forgiving each other, just as God also in Christ forgave you.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Be therefore imitators of God, as beloved children.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Walk in love, even as Christ also loved you, and gave himself up for us, an offering and a sacrifice to God for a sweet-smelling fragrance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>But sexual immorality, and all uncleanness, or covetousness, let it not even be mentioned among you, as becomes saints.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Do not be guilty of filthiness, nor foolish talking, nor jesting, which are not appropriate; but rather give thanks to God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Know this for sure, that no sexually immoral person, nor unclean person, nor covetous man, who is an idolater, has any inheritance in the Kingdom of Christ and God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Let no one deceive you with empty words. For because of these things, the wrath of God comes on the children of disobedience.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Therefore don’t be partakers with them.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>For you were once darkness, but are now light in the Lord. Walk as children of light.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>The fruit of the Spirit is in all goodness and righteousness and truth,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>proving what is well pleasing to the Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Have no fellowship with the unfruitful works of darkness, but rather even reprove them.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>For the things which are done by them in secret, it is a shame even to speak of.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>But all things, when they are reproved, are revealed by the light, for everything that reveals is light. </text>
+    <verse num="14" />
+    <text>Therefore he says,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+    <text>“Awake, you who sleep, and arise from the dead, and Christ will shine on you.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Therefore watch carefully how you walk, not as unwise, but as wise;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>redeeming the time, because the days are evil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Therefore don’t be foolish, but understand what the will of the Lord is.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Don’t be drunken with wine, in which is dissipation, but be filled with the Spirit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Speak to one another in psalms, hymns, and spiritual songs; singing, and making melody in your heart to the Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Give thanks always concerning all things in the name of our Lord Jesus Christ, to God, even the Father.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Subject yourselves one to another in the fear of Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Wives, be subject to your own husbands, as to the Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>For the husband is the head of the wife, and Christ also is the head of the assembly, being himself the savior of the body.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>But as the assembly is subject to Christ, so let the wives also be to their own husbands in everything.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Husbands, love your wives, even as Christ also loved the assembly, and gave himself up for it.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>He did this to sanctify it, having cleansed it by the washing of water with the word,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH">
+    <verse num="27" />
+    <text>that he might present the assembly to himself gloriously, not having spot or wrinkle or any such thing; but that it should be holy and without blemish.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Even so husbands also ought to love their own wives as their own bodies. He who loves his own wife loves himself.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>For no man ever hated his own flesh; but nourishes and cherishes it, even as the Lord also does the assembly;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>because we are members of his body, of his flesh and bones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
+    <verse num="31" />
+    <text>“For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>This mystery is great, but I speak concerning Christ and of the assembly.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
+    <verse num="33" />
+    <text>Nevertheless each of you must also love his own wife even as himself; and let the wife see that she respects her husband.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Children, obey your parents in the Lord, for this is right.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+    <verse num="2" />
+    <text>“Honor your father and mother,”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
+    <text>which is the first commandment with a promise:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
+    <verse num="3" />
+    <text>“that it may be well with you, and you may live long on the earth.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>You fathers, don’t provoke your children to wrath, but nurture them in the discipline and instruction of the Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Servants, be obedient to those who according to the flesh are your masters, with fear and trembling, in singleness of your heart, as to Christ;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Do not work hard only when eyes are on you, as men pleasers; but as servants of Christ, doing the will of God from the heart.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Do everything with good will doing service, as to the Lord, and not to men.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Know that whatever good thing each one does, he will receive the same again from the Lord, whether he is bound or free.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>You masters, do the same things to them, and give up threatening, knowing that he who is both their Master and yours is in heaven, and there is no partiality with him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Finally, be strong in the Lord, and in the strength of his might.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Put on the whole armor of God, that you may be able to stand against the wiles of the devil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>For our wrestling is not against flesh and blood, but against the principalities, against the powers, against the world’s rulers of the darkness of this age, and against the spiritual forces of wickedness in the heavenly places.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Therefore put on the whole armor of God, that you may be able to withstand in the evil day, and, having done all, to stand.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Stand therefore, having the utility belt of truth buckled around your waist, and having put on the breastplate of righteousness,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>and having fitted your feet with the preparation of the Good News of peace;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>above all, taking up the shield of faith, with which you will be able to quench all the fiery darts of the evil one.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>And take the helmet of salvation, and the sword of the Spirit, which is the word of God;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>With all prayer and requests, pray at all times in the Spirit, and be watchful to this end in all perseverance and requests for all the saints:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Pray for me also, that I might speak without fear. Pray that I will use the right words to explain these difficult concepts in the Gospel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>I was sent to be an ambassador. Currently I am in chains for preaching the Gospel. I want to keep on speaking for Christ without fear, the way I should.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>That you also may know my affairs, how I am doing. Tychicus, the beloved brother and faithful servant in the Lord, will make known to you all things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>I have sent to you for this very purpose, that you may know our state, and that he may comfort your hearts.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Peace be to the brothers, and love with faith, from God the Father and the Lord Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Grace be with all those who love our Lord Jesus Christ with incorruptible love. Amen.</text>
+  </block>
+  <UnappliedSplits />
+</book>

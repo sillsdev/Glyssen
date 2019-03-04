@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -8,6 +9,7 @@ using Gecko.Events;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using L10NSharp;
+using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Controls
@@ -16,6 +18,12 @@ namespace Glyssen.Controls
 	{
 		Html,
 		Grid,
+	}
+
+	public enum BlockGroupingType
+	{
+		Quote,
+		BlockCorrelation,
 	}
 
 	public partial class ScriptBlocksViewer : UserControl
@@ -29,10 +37,29 @@ namespace Glyssen.Controls
 		private ToolTip m_toolTip;
 		private ScriptBlocksViewType m_viewType;
 
+		public event EventHandler SelectionChanged;
+		public event EventHandler MinimumWidthChanged;
+
 		#region Construction and Initialization
 		public ScriptBlocksViewer()
 		{
 			InitializeComponent();
+
+			DataGridViewBlocksOnMinimumWidthChanged(m_dataGridViewBlocks, new EventArgs());
+			m_dataGridViewBlocks.MinimumWidthChanged += DataGridViewBlocksOnMinimumWidthChanged;
+		}
+
+		private void DataGridViewBlocksOnMinimumWidthChanged(object sender, EventArgs eventArgs)
+		{
+			var minWidth = Math.Max(m_blocksDisplayBrowser.MinimumSize.Width, m_dataGridViewBlocks.MinimumSize.Width) + Padding.Horizontal;
+
+			if (minWidth != MinimumSize.Width)
+			{
+				MinimumSize = new Size(minWidth,
+					Math.Max(m_blocksDisplayBrowser.MinimumSize.Height, m_dataGridViewBlocks.MinimumSize.Height) + Padding.Vertical);
+				if (MinimumWidthChanged != null)
+					MinimumWidthChanged(this, new EventArgs());
+			}
 		}
 
 		public void Initialize(BlockNavigatorViewModel viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
@@ -54,8 +81,17 @@ namespace Glyssen.Controls
 			m_dataGridViewBlocks.Dock = DockStyle.Fill;
 
 			Disposed += ScriptBlocksViewer_Disposed;
+		}
 
-			m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
+
+			if (m_viewModel != null)
+			{
+				m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+				m_viewModel.CurrentBlockMatchupChanged += UpdateContextBlocksDisplay;
+			}
 			m_blocksDisplayBrowser.VisibleChanged += UpdateContextBlocksDisplay;
 			m_dataGridViewBlocks.VisibleChanged += UpdateContextBlocksDisplay;
 		}
@@ -102,7 +138,15 @@ namespace Glyssen.Controls
 		public override string Text
 		{
 			get { return m_title.Text; }
-			set { m_title.Text = value;  }
+			set { m_title.Text = value; }
+		}
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Browsable(true)]
+		public BorderStyle ContentBorderStyle
+		{
+			get { return m_dataGridViewBlocks.BorderStyle; }
+			set { m_dataGridViewBlocks.BorderStyle = m_blocksDisplayBrowser.BorderStyle = value; }
 		}
 		#endregion
 
@@ -119,12 +163,6 @@ namespace Glyssen.Controls
 			UpdateContextBlocksDisplay(null, null);
 		}
 
-		public void Clear()
-		{
-			m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-			m_dataGridViewBlocks.Clear();
-		}
-
 		public void ShowNothingMatchesFilterMessage()
 		{
 			string msg = LocalizationManager.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
@@ -139,15 +177,22 @@ namespace Glyssen.Controls
 			viewBeingShown.Visible = true;
 		}
 
+		private void HandleSelectionChanged(object sender, EventArgs args)
+		{
+			UpdateContextBlocksDisplay(sender, args);
+			if (SelectionChanged != null)
+				SelectionChanged(this, new EventArgs());
+		}
+
 		private void UpdateContextBlocksDisplay(object sender, EventArgs args)
 		{
 			this.SafeInvoke(() =>
 			{
-				if (m_blocksDisplayBrowser.Visible)
+				if (m_blocksDisplayBrowser.Visible && m_viewModel != null)
 					m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 				else if (m_dataGridViewBlocks.Visible)
 					m_dataGridViewBlocks.UpdateContext();
-			}, true);
+			}, GetType().FullName + ".UpdateContextBlocksDisplay", SIL.Windows.Forms.Extensions.ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
 		}
 
 		private void HandleDataGridViewBlocksCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)

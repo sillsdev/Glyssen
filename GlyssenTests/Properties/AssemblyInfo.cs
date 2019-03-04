@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("GlyssenTests")]
-[assembly: AssemblyCopyright("Copyright ï¿½ 2014-2016 Faith Comes By Hearing and SIL International")]
+[assembly: AssemblyCopyright("Copyright © 2014-2016 Faith Comes By Hearing and SIL International")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,8 +28,6 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyFileVersion("0.2.0.0")]
+// Only specify Major and Minor Build Numbers here. The others come from Team City
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]

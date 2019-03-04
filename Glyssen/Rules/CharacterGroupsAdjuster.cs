@@ -16,7 +16,7 @@ namespace Glyssen.Rules
 		{
 			m_project = project;
 			var characterGroups = m_project.CharacterGroupList.CharacterGroups;
-			var charactersInProject = new HashSet<string>(m_project.GetKeyStrokesByCharacterId().Where(kvp => kvp.Value > 0).Select(kvp => kvp.Key));
+			var charactersInProject = m_project.AllCharacterIds;
 			m_charactersNotCoveredByAnyGroup = new HashSet<string>(charactersInProject.Where(c => characterGroups.All(g => !g.CharacterIds.Contains(c))));
 			m_charactersNoLongerInUse = new HashSet<string>(characterGroups.SelectMany(g => g.CharacterIds).Where(c => !charactersInProject.Contains(c)));
 		}
@@ -80,6 +80,8 @@ namespace Glyssen.Rules
 				var newGroup = new CharacterGroup(m_project);
 				characterGroups.Add(newGroup);
 				newGroup.CharacterIds.AddRange(m_charactersNotCoveredByAnyGroup);
+				newGroup.SetGroupIdLabel();
+				m_project.CharacterGroupList.UpdateGroupIdNumbers();
 				m_charactersNotCoveredByAnyGroup.Clear();
 			}
 			foreach (var character in m_charactersNoLongerInUse)

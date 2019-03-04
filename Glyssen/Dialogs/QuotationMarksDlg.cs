@@ -8,16 +8,18 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
-using Paratext;
 using SIL.ObjectModel;
 using SIL.Scripture;
+using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
-using ScrVers = Paratext.ScrVers;
+using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 
 namespace Glyssen.Dialogs
 {
@@ -25,52 +27,77 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
+		private readonly ProjectSettingsDlg m_parentDlg;
 		private string m_xOfYFmt;
+		private string m_testResultsFmt;
 		private object m_versesWithMissingExpectedQuotesFilterItem;
 		private object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
 		private bool m_formLoading;
+		private bool m_allowOverride;
 
-		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
+		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly, ProjectSettingsDlg parentDlg)
 		{
 			InitializeComponent();
-
+			Cursor.Current = Cursors.WaitCursor;
 			m_project = project;
 			m_project.AnalysisCompleted -= HandleAnalysisCompleted;
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
+			m_parentDlg = parentDlg;
 
 			if (Settings.Default.QuoteMarksDialogShowGridView)
 				m_toolStripButtonGridView.Checked = true;
 
-			var books = new BookSet();
-			foreach (var bookId in m_navigatorViewModel.IncludedBooks)
-				books.Add(bookId);
-			m_scriptureReference.VerseControl.BooksPresentSet = books;
-			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
+			if (m_navigatorViewModel == null)
+				PreventNavigation();
+			else
+			{
+				var books = new BookSet();
+				foreach (var bookId in m_navigatorViewModel.IncludedBooks)
+					books.Add(bookId);
+				m_scriptureReference.VerseControl.BooksPresentSet = books;
+				m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
-			m_scriptureReference.VerseControl.AllowVerseSegments = false;
-			m_scriptureReference.VerseControl.Versification = m_navigatorViewModel.Versification;
-			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
+				m_scriptureReference.VerseControl.AllowVerseSegments = false;
+				m_scriptureReference.VerseControl.Versification = m_navigatorViewModel.Versification;
+				m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
-			m_blocksViewer.Initialize(m_navigatorViewModel);
-			m_navigatorViewModel.CurrentBlockChanged += HandleCurrentBlockChanged;
+				m_blocksViewer.Initialize(m_navigatorViewModel);
+				m_navigatorViewModel.CurrentBlockChanged += HandleCurrentBlockChanged;
+				m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
+
+				m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
+				{
+					if (m_blocksViewer.Visible)
+						LoadBlock();
+				}, GetType().FullName + " - anonymous delegate m_blocksViewer.VisibleChanged", ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
+			}
 
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 
-			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
-
-			m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
+			if (m_project.IsLiveParatextProject && readOnly)
 			{
-				if (m_blocksViewer.Visible)
-					LoadBlock();
-			}, true);
+				var wrapper = m_project.GetLiveParatextDataIfCompatible(false, checkForChangesInAvailableBooks: false);
+				m_linkOverride.Visible = m_allowOverride = wrapper == null || !wrapper.UserCanEditProject;
+			}
 
-			SetFilterControlsFromMode();
+			try
+			{
+				HandleStringsLocalized();
+				LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			if (readOnly)
-				MakeReadOnly();
+				SetFilterControlsFromMode();
+
+				if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+					UpdateTestParse(false);
+
+				ReadOnly = readOnly;
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
 		}
 
 		private void HandleCurrentBlockChanged(object sender, EventArgs eventArgs)
@@ -80,10 +107,12 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.QuotationMarksDlg.FilterOptions");
+
 			m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1];
 			m_allQuotesFilterItem = m_toolStripComboBoxFilter.Items[2];
 
-			if (m_navigatorViewModel.Mode != BlocksToDisplay.MissingExpectedQuote &&
+			if (m_navigatorViewModel?.Mode != BlocksToDisplay.MissingExpectedQuote &&
 				((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0 || m_project.QuoteSystemStatus == QuoteSystemStatus.Guessed))
 			{
 				m_toolStripComboBoxFilter.Items.RemoveAt(2);
@@ -93,6 +122,13 @@ namespace Glyssen.Dialogs
 			SetPromptText();
 			SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
 			m_xOfYFmt = m_labelXofY.Text;
+			if (m_labelXofY.Visible)
+				UpdateRelativeNavigationPositionDisplay();
+			m_testResultsFmt = m_testResults.Text;
+			if (m_project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
+				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
+
+			Text = string.Format(Text, m_project.Name);
 		}
 
 		private void SetPromptText()
@@ -101,14 +137,63 @@ namespace Glyssen.Dialogs
 			switch (m_project.QuoteSystemStatus)
 			{
 				case QuoteSystemStatus.Obtained:
-					promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
+					if (m_project.IsSampleProject)
+						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CannotChangeSampleMsg", "The Quote Mark Settings cannot be modified for the Sample project.");
+					else if (m_project.IsLiveParatextProject)
+					{
+						var doNotModifyDirectlyFmt = m_allowOverride ?
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ShouldNotChangeParextProjectQuoteSystem",
+								"If changes are needed, the settings in this {0} project can override the Quotation Rules in the live {1} project {2}. " +
+								"However, if they are overridden, the results of any {3} check in {1} will not be meaningful. Therefore, if possible, " +
+								"have someone with editing privileges in the {2} project do the first two steps of the following procedure and then use " +
+								"Send/Receive in {1} to update the local copy of the project before proceeding with the final step:",
+								"This version is displayed when the user does not have editing privileges for the Paratext project. " +
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"Paratext\" (product name); " +
+								"Param 2: Paratext project short name (unique project identifier); " +
+								"Param 3: Name of the Paratext \"Quotations\" check") :
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CannotChangeParextProjectQuoteSystem",
+								"The Quote Mark Settings cannot be modified directly for this {0} project, which is based on a live {1} project. " +
+								"If you need to make changes, do the following:",
+								"This version is displayed when the user has editing privileges for the Paratext project. " +
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"Paratext\" (product name)");
+
+						promptText = String.Format(doNotModifyDirectlyFmt + Environment.NewLine +
+							LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.HowToChangeParextProjectQuoteSystem",
+								"1) Open the {2} project in {1}, and on the Checking menu, click Quotation Rules.\r\n" +
+								"2) After saving the changes there, re-run the {3} check for all books included in this {0} project.\r\n" +
+								"   (Note: The {4} and {5} checks should also pass in order for a book to be included in a {0} project.)\r\n" +
+								"3) Return to {0} and on the {6} tab of the {7} dialog box, click {8}.",
+								"These steps will be introduced by either \"Project.CannotChangeParextProjectQuoteSystem\" or \"Project.ShouldNotChangeParextProjectQuoteSystem\". " +
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"Paratext\" (product name); " +
+								"Param 2: Paratext project short name (unique project identifier); " +
+								"Param 3: Name of the Paratext \"Quotations\" check; " +
+								"Param 4: Name of the Paratext \"Chapter/Verse Numbers\" check; " +
+								"Param 5: Name of the Paratext \"Markers\" check; " +
+								"Param 6: Name of the \"General\" tab in the Project Settings dialog box; " +
+								"Param 7: Title of the \"Project Settings\" dialog box; " +
+								"Param 8: Name of the \"Update\" button"),
+							/* 0 */ GlyssenInfo.kProduct,
+							/* 1 */ ParatextScrTextWrapper.kParatextProgramName,
+							/* 2 */ m_project.ParatextProjectName,
+							/* 3 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
+							/* 4 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kChapterVerseCheckId),
+							/* 5 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kMarkersCheckId),
+							/* 6 */ m_parentDlg.LocalizedGeneralTabName,
+							/* 7 */ m_parentDlg.Text,
+							/* 8 */ m_parentDlg.LocalizedUpdateButtonName);
+					}
+					else
+						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text release bundle and should not normally be changed.");
 					break;
 				case QuoteSystemStatus.Guessed:
-					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.kProduct);
 					break;
 				case QuoteSystemStatus.Reviewed:
 				case QuoteSystemStatus.UserSet:
-					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.kProduct);
 					break;
 			}
 			m_lblPrompt.Text = promptText;
@@ -130,7 +215,7 @@ namespace Glyssen.Dialogs
 			{
 				if (level.Level == 1)
 					m_chkPairedQuotations.Checked = !string.IsNullOrEmpty(level.Open);
-				
+
 				if (m_chkPairedQuotations.Checked)
 				{
 					switch (level.Level)
@@ -204,14 +289,17 @@ namespace Glyssen.Dialogs
 			return text == QuoteUtils.None ? null : text;
 		}
 
-		private void MakeReadOnly()
+		private bool ReadOnly
 		{
-			m_pnlLevels.Enabled = false;
-			m_pnlDialogueQuotes.Enabled = false;
-			m_chkPairedQuotations.Enabled = false;
-			m_btnOk.Enabled = false;
-			m_btnTest.Visible = false;
-			m_testResults.Visible = false;
+			set
+			{
+				m_pnlLevels.Enabled = !value;
+				m_pnlDialogueQuotes.Enabled = !value;
+				m_chkPairedQuotations.Enabled = !value;
+				m_btnOk.Enabled = !value;
+				m_btnTest.Visible = !value;
+				m_testResults.Visible = !value;
+			}
 		}
 
 		private string SameAsStartDashText
@@ -285,17 +373,39 @@ namespace Glyssen.Dialogs
 			string validationMessage;
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
-				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid", "Quote System Invalid"));
+				MessageBox.Show(validationMessage,
+					LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid",
+					"Quote System Invalid"));
 				DisableForm(false);
 				return;
 			}
+			List<string> msgParts = new List<string>();
+			if (m_project.IsLiveParatextProject)
+			{
+				msgParts.Add(String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.GetDataFromParatext",
+					"This requires {0} to retrieve the current text from {1} project {2}, so any textual changes made there " +
+					"will now be incorporated into this {0} project.",
+					"Param 0: \"Glyssen\" (product name); " +
+					"Param 1: \"Paratext\" (product name); " +
+					"Param 2: Paratext project short name (unique project identifier)"),
+					GlyssenInfo.kProduct,
+					ParatextScrTextWrapper.kParatextProgramName,
+					m_project.ParatextProjectName));
+			}
 			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
 			{
-				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart1", "Changing the quote system will require the text to be broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
-				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
-				string msg = part1 + Environment.NewLine + Environment.NewLine + part2;
-				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ConfirmQuoteSystemChange", "Confirm Quote System Change");
-				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
+				msgParts.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.WorkWillBePreserved",
+					"An attempt will be made to preserve the work you have already completed, but some character assignments might be lost."));
+			}
+			if (msgParts.Any())
+			{
+				msgParts.Insert(0, LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.Part1",
+					"Changing the quote system will require the text to be broken up into speaking parts again."));
+				msgParts.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChange.BackupWillBeCreated",
+					"A backup of your project will be created before this occurs."));
+				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ConfirmQuoteSystemChange",
+					"Confirm Quote System Change");
+				if (MessageBox.Show(String.Join(Environment.NewLine, msgParts), title, MessageBoxButtons.OKCancel) == DialogResult.Cancel)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 					DisableForm(false);
@@ -320,6 +430,9 @@ namespace Glyssen.Dialogs
 			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
 			m_project.QuoteSystem = currentQuoteSystem;
+			// After setting this, the user could get a subsequent dialog box giving them the chance to review the settings,
+			// but since we've already saved their changes, they can't really "Cancel" those saved changes anymore.
+			m_btnCancel.DialogResult = DialogResult.OK;
 		}
 
 		private void HandleAnalysisCompleted(object sender, EventArgs e)
@@ -330,10 +443,12 @@ namespace Glyssen.Dialogs
 			{
 				using (var dlg = new PercentageOfExpectedQuotesFoundTooLowDlg(Text, percentageOfExpectedQuotesFound))
 				{
+					MainForm.LogDialogDisplay(dlg);
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{
-						SelectMissingExpectedQuotesFilter();
+						m_navigatorViewModel.BlockNavigator = new BlockNavigator(m_project.IncludedBooks);
+						ShowTestResults(percentageOfExpectedQuotesFound, true);
 						DisableForm(false);
 						return;
 					}
@@ -343,6 +458,7 @@ namespace Glyssen.Dialogs
 			{
 				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
 				{
+					MainForm.LogDialogDisplay(dlg);
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{
@@ -411,7 +527,7 @@ namespace Glyssen.Dialogs
 					if (!string.IsNullOrEmpty(level3Open))
 						levels.Add(new QuotationMark(level3Open, NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
 				}
-				
+
 				if (m_chkDialogueQuotations.Checked)
 				{
 					string quotationDashMarker = null;
@@ -486,9 +602,7 @@ namespace Glyssen.Dialogs
 
 		private void ShowTestResults(double percentageOfExpected, bool changeFilter)
 		{
-			m_testResults.Text = string.Format(
-				LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.TestResults", "{0:F1}% of expected quotes were found."),
-				percentageOfExpected);
+			m_testResults.Text = string.Format(m_testResultsFmt, percentageOfExpected);
 
 			var showWarning = (100 - percentageOfExpected) > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
 			m_testResults.ForeColor = glyssenColorPalette.GetColor(showWarning ? GlyssenColors.Warning : GlyssenColors.ForeColor);
@@ -547,6 +661,7 @@ namespace Glyssen.Dialogs
 			m_lblStartDialogueQuote.Enabled = m_chkDialogueQuotations.Checked;
 			m_lblEndDialogueQuote.Enabled = m_chkDialogueQuotations.Checked;
 			m_chkAlternateSpeakersInFirstLevelQuotes.Enabled = m_chkDialogueQuotations.Checked;
+			HandleSettingChange(sender, e);
 		}
 
 		private bool QuotationDashSelected
@@ -578,6 +693,9 @@ namespace Glyssen.Dialogs
 		{
 			if (!IsHandleCreated)
 				return;
+
+			if (!m_testResults.Visible)
+				UpdateTestParse(false);
 
 			BlocksToDisplay mode;
 
@@ -611,6 +729,8 @@ namespace Glyssen.Dialogs
 
 		private void SetFilterControlsFromMode()
 		{
+			if (m_navigatorViewModel == null)
+				return;
 			var mode = m_navigatorViewModel.Mode;
 			if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
@@ -634,16 +754,23 @@ namespace Glyssen.Dialogs
 
 		private void UpdateDisplay()
 		{
+			if (m_navigatorViewModel == null)
+				return;
 			var blockRef = m_navigatorViewModel.GetBlockVerseRef();
-			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerse - blockRef.VerseNum;
+			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerseNum - blockRef.VerseNum;
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentBlockDisplayIndex);
-			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
+			UpdateRelativeNavigationPositionDisplay();
 
 			m_navigatorViewModel.GetBlockVerseRef().SendScrReference();
+		}
+
+		private void UpdateRelativeNavigationPositionDisplay()
+		{
+			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
 		}
 
 		private void UpdateNavigationButtonState()
@@ -711,17 +838,36 @@ namespace Glyssen.Dialogs
 
 		private void m_btnTest_Click(object sender, EventArgs e)
 		{
+			UpdateTestParse(true);
+		}
+
+		private void UpdateTestParse(bool changeFilterToShowMissingExpectedQuotes)
+		{
 			try
 			{
 				DisableForm(true);
-				var parsedBooks = QuoteParser.TestQuoteSystem(m_project, CurrentQuoteSystem);
-				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks);
-				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), true);
+				var parsedBooks = m_project.TestQuoteSystem(CurrentQuoteSystem);
+				if (parsedBooks.Any())
+				{
+					m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks.Where(b => m_project.IncludedBooks.Any(ib => ib.BookId == b.BookId)).ToList());
+					ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), changeFilterToShowMissingExpectedQuotes);
+				}
+				else
+					PreventNavigation();
 			}
 			finally
 			{
 				DisableForm(false);
 			}
+		}
+
+		private void PreventNavigation()
+		{
+			m_blocksViewer.Hide();
+			m_toolStrip.Hide();
+			m_tableLayoutPanelDataBrowser.Hide();
+			m_btnTest.Hide();
+			m_splitContainer.Panel1Collapsed = true;
 		}
 
 		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
@@ -730,5 +876,15 @@ namespace Glyssen.Dialogs
 				Settings.Default.QuotationMarksDlgSplitterDistance = e.SplitX;
 		}
 		#endregion
+
+		private void HandleSettingChange(object sender, EventArgs e)
+		{
+			m_testResults.Visible = false;
+		}
+
+		private void m_linkOverride_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			ReadOnly = false;
+		}
 	}
 }

@@ -1,6 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml.Serialization;
 using Glyssen.Bundle;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
 
@@ -11,7 +14,7 @@ namespace GlyssenTests.Bundle
 		private GlyssenDblTextMetadata m_metadata;
 		private GlyssenDblTextMetadata m_metadataWithDeprecatedFields;
 
-		private const string TestXml =
+		private const string kTestXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
 	<projectStatus>
@@ -25,7 +28,7 @@ namespace GlyssenTests.Bundle
 	</language>
 </DBLMetadata>";
 
-		private const string TestWithDeprecatedFieldsXml =
+		private const string kTestWithDeprecatedFieldsXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
 	<fontFamily>Charis SIL</fontFamily>
@@ -40,9 +43,9 @@ namespace GlyssenTests.Bundle
 		public void TestFixtureSetup()
 		{
 			var xs = new XmlSerializer(typeof(GlyssenDblTextMetadata));
-			using (TextReader reader = new StringReader(TestXml))
+			using (TextReader reader = new StringReader(kTestXml))
 				m_metadata = (GlyssenDblTextMetadata)xs.Deserialize(reader);
-			using (TextReader reader = new StringReader(TestWithDeprecatedFieldsXml))
+			using (TextReader reader = new StringReader(kTestWithDeprecatedFieldsXml))
 				m_metadataWithDeprecatedFields = (GlyssenDblTextMetadata)xs.Deserialize(reader);
 		}
 
@@ -89,11 +92,14 @@ namespace GlyssenTests.Bundle
 				Id = "id",
 				Revision = 1,
 				Language = new GlyssenDblMetadataLanguage(),
+				ReferenceTextType = ReferenceTextType.Russian,
+				UniqueRecordingProjectId = new Guid("a6e56d00-5796-4dbc-b1a7-e78904ca7034")
 			};
 
 			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
-<DBLMetadata id=""id"" revision=""1"" controlfileversion=""0"" modifieddate=""0001-01-01T00:00:00"">
+<DBLMetadata id=""id"" revision=""1"" modifieddate=""0001-01-01T00:00:00"" uniqueProjectId=""a6e56d00-5796-4dbc-b1a7-e78904ca7034""
+		controlfileversion=""0"" referenceTextType=""Russian"">
 	<language>
 		<fontSizeInPoints>10</fontSizeInPoints>
 	</language>
@@ -102,6 +108,7 @@ namespace GlyssenTests.Bundle
 		<quoteSystemDate>0001-01-01T00:00:00</quoteSystemDate>
 	</projectStatus>
 	<characterGroupGenerationPreferences />
+	<projectDramatizationPreferences />
 </DBLMetadata>";
 			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());
 		}

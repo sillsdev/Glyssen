@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Properties;
@@ -10,15 +11,31 @@ namespace Glyssen.Utilities
 { 
 	public class FormWithPersistedSettings: Form
 	{
+		protected const int kChildFormLocationX = 202;
+		protected const int kChildFormLocationY = 95;
+
 		private string m_formSettingsName;
 		private bool m_finishedLoading;
 
 		protected override void OnLoad(EventArgs e)
 		{
+			base.OnLoad(e);
+
 			RestoreFormSettings();
 			RestoreGridSettings(this);
 			m_finishedLoading = true;
-			base.OnLoad(e);
+
+			var workingArea = Screen.GetWorkingArea(this);
+			if (!workingArea.Contains(Bounds) && WindowState != FormWindowState.Maximized)
+			{
+				if (Bounds.Left < workingArea.Left || Bounds.Top < workingArea.Top)
+					Location = new Point(Math.Max(Bounds.Left, workingArea.Left), Math.Max(Bounds.Top, workingArea.Top));
+
+				if (Width > workingArea.Width)
+					Width = workingArea.Width;
+				if (Height > workingArea.Height)
+					Height = workingArea.Height;
+			}
 		}
 
 		/// <summary>
@@ -28,9 +45,8 @@ namespace Glyssen.Utilities
 		protected override void OnResizeEnd(EventArgs e)
 		{
 			base.OnResizeEnd(e);
-			if (!m_finishedLoading) return;
-			if (WindowState != FormWindowState.Normal) return;
-			if (string.IsNullOrEmpty(m_formSettingsName)) return;
+			if (!m_finishedLoading || WindowState != FormWindowState.Normal || string.IsNullOrEmpty(m_formSettingsName))
+				return;
 			Settings.Default.Save();
 		}
 
@@ -54,7 +70,8 @@ namespace Glyssen.Utilities
 			{
 				m_formSettingsName = SettingExists(Name.Substring(0, Name.Length - 3) + "DialogFormSettings");
 			}
-			if (string.IsNullOrEmpty(m_formSettingsName)) return;
+			if (string.IsNullOrEmpty(m_formSettingsName))
+				return;
 
 			if (Settings.Default[m_formSettingsName] == null)
 			{
@@ -89,7 +106,9 @@ namespace Glyssen.Utilities
 					}
 					else
 					{
-						((GridSettings)Settings.Default[settingName]).InitializeGrid(grid);
+						var gridSettings = (GridSettings)Settings.Default[settingName];
+						if (gridSettings.Columns.Length == grid.Columns.Count)
+							gridSettings.InitializeGrid(grid);
 					}
 				} 
 			}
@@ -122,7 +141,7 @@ namespace Glyssen.Utilities
 		private static string SettingExists(string settingName)
 		{
 			var setting = Settings.Default.Properties.Cast<SettingsProperty>().FirstOrDefault(p => string.Equals(p.Name, settingName, StringComparison.CurrentCultureIgnoreCase));
-			return setting == null ? null : setting.Name;
+			return setting?.Name;
 		}
 
 		private static string GetGridSettingsName(DataGridView grid)
@@ -145,6 +164,20 @@ namespace Glyssen.Utilities
 
 			// if you are here, the settings were not found
 			return null;
+		}
+
+		protected void TileFormLocation()
+		{
+			if ((Owner == null) || (WindowState == FormWindowState.Maximized))
+				return;
+			var availableScreenRect = Screen.FromControl(this).WorkingArea;
+			var newX = Owner.Location.X + kChildFormLocationX;
+			var newY = Owner.Location.Y + kChildFormLocationY;
+			if (newX + Width > availableScreenRect.Right)
+				newX -= newX + Width - availableScreenRect.Right;
+			if (newY + Height > availableScreenRect.Bottom)
+				newY -= newY + Height - availableScreenRect.Bottom;
+			Location = new Point(newX, newY);
 		}
 	}
 }

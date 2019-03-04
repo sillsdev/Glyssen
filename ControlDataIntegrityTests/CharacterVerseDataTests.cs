@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Properties;
 using NUnit.Framework;
-using Paratext;
 using SIL.Scripture;
 
 namespace ControlDataIntegrityTests
@@ -18,6 +17,14 @@ namespace ControlDataIntegrityTests
 		{
 			// Fixes issue where other test project was interfering with the running of this one (by setting the data to test data).
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
 		}
 
 		[Test]
@@ -84,39 +91,59 @@ namespace ControlDataIntegrityTests
 			}
 		}
 
-		[Test]
-		public void DataIntegrity_NoDuplicateData()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void DataIntegrity_NoDuplicateData(bool readHypotheticalAsNarrator)
 		{
-			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>();
-			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
-			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
-				if (!uniqueCharacterVerses.Add(cv))
-					duplicateCharacterVerses.Add(cv);
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = readHypotheticalAsNarrator;
 
-			Assert.False(duplicateCharacterVerses.Any(),
-				"Duplicate Character-Verse data:" +
-				Environment.NewLine +
-				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
+			try
+			{
+				ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>();
+				IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
+				foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+					if (!uniqueCharacterVerses.Add(cv))
+						duplicateCharacterVerses.Add(cv);
+
+				Assert.False(duplicateCharacterVerses.Any(),
+					"Duplicate Character-Verse data:" +
+					Environment.NewLine +
+					duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
+			}
+			finally
+			{
+				ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+			}
 		}
 
-		[Test]
-		public void DataIntegrity_NoDuplicateWhereOnlyDifferenceIsNormalVsNonnormalDelivery()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void DataIntegrity_NoDuplicateWhereOnlyDifferenceIsNormalVsNonnormalDelivery(bool readHypotheticalAsNarrator)
 		{
-			// PG-152: Currently, the program does not handle duplicates where the
-			// only difference is between normal (blank) delivery and a specified delivery
-			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>(new BcvCharacterEqualityComparer());
-			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
-			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
-				.OrderBy(cv => cv.BcvRef).ThenBy(cv => string.IsNullOrEmpty(cv.Delivery)))
-			{
-				if (!uniqueCharacterVerses.Add(cv) && string.IsNullOrEmpty(cv.Delivery))
-					duplicateCharacterVerses.Add(cv);
-			}
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = readHypotheticalAsNarrator;
 
-			Assert.False(duplicateCharacterVerses.Any(),
-				"Duplicate Character-Verse data:" +
-				Environment.NewLine +
-				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
+			try
+			{
+				// PG-152: Currently, the program does not handle duplicates where the
+				// only difference is between normal (blank) delivery and a specified delivery
+				ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>(new BcvCharacterAndTypeEqualityComparer());
+				IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
+				foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+					.OrderBy(cv => cv.BcvRef).ThenBy(cv => string.IsNullOrEmpty(cv.Delivery)))
+				{
+					if (!uniqueCharacterVerses.Add(cv) && string.IsNullOrEmpty(cv.Delivery))
+						duplicateCharacterVerses.Add(cv);
+				}
+
+				Assert.False(duplicateCharacterVerses.Any(),
+					"Duplicate Character-Verse data:" +
+					Environment.NewLine +
+					duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
+			}
+			finally
+			{
+				ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+			}
 		}
 
 		[Test]
@@ -135,44 +162,57 @@ namespace ControlDataIntegrityTests
 				entriesWhereAliasEqualsCharacterId.Select(cv => cv.BcvRef + ", " + cv.Character + ", " + cv.Alias).OnePerLineWithIndent());
 		}
 
-		[Test]
-		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail(bool readHypotheticalAsNarrator)
 		{
-			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
-			ISet<string> missingCharacters = new SortedSet<string>();
-			ISet<string> missingDefaultCharacters = new SortedSet<string>();
-			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = readHypotheticalAsNarrator;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.CharacterDetail; //resets cache
+
+			try
 			{
-				if (!charactersHavingDetail.Contains(cv.Character))
+				var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
+				ISet<string> missingCharacters = new SortedSet<string>();
+				ISet<string> missingDefaultCharacters = new SortedSet<string>();
+				foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 				{
-					if (CharacterVerseData.IsCharacterStandard(cv.Character))
-						continue;
-
-					var characters = cv.Character.Split('/');
-					if (characters.Length > 1)
+					if (!charactersHavingDetail.Contains(cv.Character))
 					{
-						foreach (var character in characters.Where(character => !charactersHavingDetail.Contains(character)))
-							missingCharacters.Add(character);
-					}
-					else
-						missingCharacters.Add(cv.Character);
-				}
-				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
-				{
-					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
-						continue;
+						if (CharacterVerseData.IsCharacterStandard(cv.Character))
+							continue;
 
-					missingDefaultCharacters.Add(cv.DefaultCharacter);
+						var characters = cv.Character.Split('/');
+						if (characters.Length > 1)
+						{
+							foreach (var character in characters.Where(character => !charactersHavingDetail.Contains(character)))
+								missingCharacters.Add(character);
+						}
+						else
+							missingCharacters.Add(cv.Character);
+					}
+
+					if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
+					{
+						if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
+							continue;
+
+						missingDefaultCharacters.Add(cv.DefaultCharacter);
+					}
 				}
+
+				Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
+					"Characters in Character-Verse data but not in Character-Detail:" +
+					Environment.NewLine +
+					missingCharacters.OnePerLineWithIndent() +
+					Environment.NewLine +
+					"Default characters in Character-Verse data but not in Character-Detail:" +
+					Environment.NewLine +
+					missingDefaultCharacters.OnePerLineWithIndent());
 			}
-			Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
-				"Characters in Character-Verse data but not in Character-Detail:" +
-				Environment.NewLine +
-				missingCharacters.OnePerLineWithIndent() +
-				Environment.NewLine +
-				"Default characters in Character-Verse data but not in Character-Detail:" +
-				Environment.NewLine +
-				missingDefaultCharacters.OnePerLineWithIndent());
+			finally
+			{
+				ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+			}
 		}
 
 		[Test]
@@ -190,7 +230,7 @@ namespace ControlDataIntegrityTests
 				{
 					if (reference.StartsWith("*"))
 						continue;
-					var verseRefs = new VerseRef(reference.Trim().Replace(".", ":")).AllVerses();
+					var verseRefs = new VerseRef(reference.Trim().Replace(".", ":"), ScrVers.English).AllVerses();
 					foreach (var verseRef in verseRefs)
 						parallelPassageVersesForCurrentDatum.Add(new BCVRef(verseRef.BBBCCCVVV));
 				}
@@ -208,6 +248,25 @@ namespace ControlDataIntegrityTests
 				referenceDoesntMatchLineFailures.OnePerLineWithIndent());
 			Assert.IsTrue(!charactersNotEqualFailures.Any(), "Characters do not match for one or more parallel passages:" + Environment.NewLine +
 				charactersNotEqualFailures.OnePerLineWithIndent());
+		}
+
+		private class BcvCharacterAndTypeEqualityComparer : IEqualityComparer<CharacterVerse>
+		{
+			public bool Equals(CharacterVerse x, CharacterVerse y)
+			{
+				return x.BcvRef.Equals(y.BcvRef) && x.Character.Equals(y.Character) &&
+					x.QuoteType == y.QuoteType;
+			}
+
+			public int GetHashCode(CharacterVerse obj)
+			{
+				unchecked
+				{
+					int hashCode = obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0;
+					hashCode = (hashCode * 397) ^ (obj.Character?.GetHashCode() ?? 0);
+					return hashCode;
+				}
+			}
 		}
 	}
 }

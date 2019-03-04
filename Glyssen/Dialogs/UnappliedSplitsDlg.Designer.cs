@@ -94,7 +94,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnClose, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnClose, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnClose, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnClose, "DialogBoxes.UnappliedSplitsDlg.UnappliedSplitsDlg.Close");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnClose, "Common.Close");
 			this.m_btnClose.Location = new System.Drawing.Point(580, 417);
 			this.m_btnClose.Name = "m_btnClose";
 			this.m_btnClose.Size = new System.Drawing.Size(75, 23);
@@ -151,7 +151,7 @@
 			this.glyssenColorPalette.SetForeColor(this.m_checkDeleteData, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkDeleteData, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkDeleteData, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkDeleteData, "DialogBoxes.UnappliedSplitsDlg.SavedAcknowlegement");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkDeleteData, "DialogBoxes.UnappliedSplitsDlg.DoNotShowAgain");
 			this.m_checkDeleteData.Location = new System.Drawing.Point(15, 388);
 			this.m_checkDeleteData.Name = "m_checkDeleteData";
 			this.m_checkDeleteData.Size = new System.Drawing.Size(482, 17);

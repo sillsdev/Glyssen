@@ -31,16 +31,24 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
       <UpgradeVersion Minimum ="0.0.0" IncludeMinimum ="yes" Maximum ="$(var.Property_ProductVersion)" IncludeMaximum ="no" Property ="OLDERVERSIONBEINGUPGRADED" />
     </Upgrade >
 
+    <!-- show the license page -->
+    <UIRef Id="WixUI_Minimal"/>
+    <WixVariable Id="WixUILicenseRtf" Value="..\distfiles\License.rtf" />
+    <!-- Top banner / 493 × 58 -->
+    <WixVariable Id="WixUIBannerBmp" Value="installerBanner.jpg" />
+    <!-- Background bitmap used on the welcome and completion dialogs / 493 × 312 -->
+    <WixVariable Id="WixUIDialogBmp" Value="installerBackground.jpg" />
+
     <!--
     "from the list: Don't use Advertise="yes" Advertised shortcuts are designed to allow
 users to install just the shortcut for your app, then demand-install the
 rest of the app the first time the icon is run.  If this is not behavior you
 are trying to support, you're better off using non-advertised shortcuts. "-->
 
-    <PropertyRef Id="NETFRAMEWORK45" />
-    <Condition Message="Before Glyssen can install on older computers, you need to install Microsoft's free .NET Framework 4.5.">
-      Installed OR NETFRAMEWORK45
-    </Condition>
+	<PropertyRef Id="NETFRAMEWORK45"/>
+	<Condition Message="Glyssen requires .NET Framework 4.6.1 or later.  You need to install Microsoft's free .NET Framework then run this installer again.">
+    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#394254")]]>
+	</Condition>
 
     <!--because of bug, this needs to be 1 -->
     <Property Id ="ALLUSERS">1</Property>
@@ -54,18 +62,18 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
         </Directory>
 
         <Directory Id="DesktopFolder" Name="Desktop"/>
-        
+
       <Directory Id='ProgramMenuFolder' Name='Programs'>
         <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
           <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
             <RemoveFolder Id ="shortcutDirRemover" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="createAndRemoveOnUninstall" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
+            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="create" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
               <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
             </RegistryKey>
           </Component>
-
         </Directory>
       </Directory>
+
       <Directory Id="ProgramFilesFolder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">
@@ -90,12 +98,28 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Glyssen.exe.config" Name="Glyssen.exe.config" KeyPath="yes" Source="..\output\release\Glyssen.exe.config" />
           </Component>
 
+          <Component Id="GlyssenShared.dll" Guid="{2615db6d-fc08-4b08-95cd-e0999d81d310}">
+            <File Id="GlyssenShared.dll" Name="GlyssenShared.dll" KeyPath="yes" Source="..\output\release\GlyssenShared.dll" />
+          </Component>
+
+          <Component Id="GlyssenShared.pdb" Guid="{7f7ffc3e-09d6-49ca-a9f4-cd3120377dbf}">
+            <File Id="GlyssenShared.pdb" Name="GlyssenShared.pdb" KeyPath="yes" Source="..\output\release\GlyssenShared.pdb" />
+          </Component>
+
           <Component Id="SIL.Core.dll" Guid="{b85eba03-ba56-40b9-9c7f-ae166748f6f5}">
             <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" />
           </Component>
 
           <Component Id="SIL.Core.pdb" Guid="{f4954c64-33f6-48e4-a6bc-453cc552925d}">
             <File Id="SIL.Core.pdb" Name="SIL.Core.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.pdb" />
+          </Component>
+
+          <Component Id="SIL.Core.Desktop.dll" Guid="{41c29210-a1ce-476b-bf04-c2b2fdb8862e}">
+            <File Id="SIL.Core.Desktop.dll" Name="SIL.Core.Desktop.dll" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.dll" />
+          </Component>
+
+          <Component Id="SIL.Core.Desktop.pdb" Guid="{edae9768-e53a-4d8d-b41e-68c835ceba1f}">
+            <File Id="SIL.Core.Desktop.pdb" Name="SIL.Core.Desktop.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.pdb" />
           </Component>
 
           <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
@@ -186,47 +210,59 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Geckofx_Winforms.pdb" Name="Geckofx-Winforms.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.pdb" />
           </Component>
 
+		  <Component Id="MarkdownDeep.dll" Guid="{066537FE-B008-4CAE-A65D-A259278FE54E}">
+			<File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
+		  </Component>
+
+		  <Component Id="NetSparkle.Net40.dll" Guid="{01cc5878-5e51-454b-9128-0d779751bc47}">
+			<File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" />
+		  </Component>
+
           <Component Id="icu.net.dll" Guid="{a145070d-4fae-49ab-a7f5-4980895f62ba}">
             <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
           </Component>
 
-          <Component Id="icudt54.dll" Guid="{73ee4690-c094-4aee-9ac2-b90ea1657887}">
-            <File Id="icudt54.dll" Name="icudt54.dll" KeyPath="yes" Source="..\output\release\icudt54.dll" />
+          <Component Id="icudt56.dll" Guid="{73ee4690-c094-4aee-9ac2-b90ea1657887}">
+            <File Id="icudt56.dll" Name="icudt56.dll" KeyPath="yes" Source="..\output\release\icudt56.dll" />
           </Component>
 
-          <Component Id="icuin54.dll" Guid="{fa40a15c-a057-4436-9f8c-a15bc154d36e}">
-            <File Id="icuin54.dll" Name="icuin54.dll" KeyPath="yes" Source="..\output\release\icuin54.dll" />
+          <Component Id="icuin56.dll" Guid="{fa40a15c-a057-4436-9f8c-a15bc154d36e}">
+            <File Id="icuin56.dll" Name="icuin56.dll" KeyPath="yes" Source="..\output\release\icuin56.dll" />
           </Component>
 
-          <Component Id="icuuc54.dll" Guid="{7c312256-e864-40d6-bbcb-2f5b02d44557}">
-            <File Id="icuuc54.dll" Name="icuuc54.dll" KeyPath="yes" Source="..\output\release\icuuc54.dll" />
+          <Component Id="icuuc56.dll" Guid="{7c312256-e864-40d6-bbcb-2f5b02d44557}">
+            <File Id="icuuc56.dll" Name="icuuc56.dll" KeyPath="yes" Source="..\output\release\icuuc56.dll" />
           </Component>
 
-          <Component Id="ParatextShared.dll" Guid="{8a047a21-cabf-4fe4-ab4e-40da9e23f9ce}">
-            <File Id="ParatextShared.dll" Name="ParatextShared.dll" KeyPath="yes" Source="..\output\release\ParatextShared.dll" />
+          <Component Id="ParatextData.dll" Guid="{64b44ac8-6ebd-4b0f-a0ec-27d4f289af34}">
+            <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" />
           </Component>
 
-          <Component Id="ParatextShared.pdb" Guid="{0a3ab828-7c0f-42c8-9d32-2361acdd0b0f}">
-            <File Id="ParatextShared.pdb" Name="ParatextShared.pdb" KeyPath="yes" Source="..\output\release\ParatextShared.pdb" />
+          <!--Component Id="ParatextData.pdb" Guid="{ac4e433e-961f-4dd5-94e5-41e8799a204b}">
+            <File Id="ParatextData.pdb" Name="ParatextData.pdb" KeyPath="yes" Source="..\output\release\ParatextData.pdb" />
+          </Component-->
+
+          <!--Needed for ParatextData-->
+          <Component Id="PtxUtils.dll" Guid="{a93e8f57-72aa-46a0-9993-32e47b27c24d}">
+            <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" />
           </Component>
 
-          <!--Needed for ParatextShared-->
-          <Component Id="NetLoc.dll" Guid="{350690e2-f5b9-47ba-a882-79037f7660fb}">
-            <File Id="NetLoc.dll" Name="NetLoc.dll" KeyPath="yes" Source="..\output\release\NetLoc.dll" />
+          <!--Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
+            <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
+          </Component-->
+          <!--End Needed for ParatextData-->
+
+		  <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="{4F176733-6461-40FE-BCF6-7C9ED31D1E2F}">
+            <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" />
           </Component>
-          <Component Id="Utilities.dll" Guid="{28303157-060A-4ACD-A3B8-B55F42B91550}">
-            <File Id="Utilities.dll" Name="Utilities.dll" KeyPath="yes" Source="..\output\release\Utilities.dll" />
+
+          <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="{FF456908-3726-45C2-BA15-F7ED76630988}">
+            <File Id="Microsoft.Extensions.DependencyModel.dll" Name="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="..\output\release\Microsoft.Extensions.DependencyModel.dll" />
           </Component>
-          <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
-            <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
+
+          <Component Id="DotNetZip.dll" Guid="{C2D40B5E-3B57-4B70-AA3F-28876E44DCAB}">
+            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" />
           </Component>
-          <Component Id="NetLoc.pdb" Guid="{69b72021-5d29-4499-9752-f90346e9fe2f}">
-            <File Id="NetLoc.pdb" Name="NetLoc.pdb" KeyPath="yes" Source="..\output\release\NetLoc.pdb" />
-          </Component>
-          <Component Id="Utilities.pdb" Guid="{6e04ff42-2c96-49a7-aada-bb56771f2a41}">
-            <File Id="Utilities.pdb" Name="Utilities.pdb" KeyPath="yes" Source="..\output\release\Utilities.pdb" />
-          </Component>
-          <!--End Needed for ParatextShared-->
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" />
@@ -264,6 +300,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
       <ComponentRef Id ="removeShortcutDir"/>
       <ComponentRef Id="SIL.Core.dll"/>
+      <ComponentRef Id="SIL.Core.Desktop.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
@@ -275,23 +312,28 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.Scripture.dll"/>
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
+      <ComponentRef Id="MarkdownDeep.dll"/>
+      <ComponentRef Id="NetSparkle.Net40.dll"/>
       <ComponentRef Id="icu.net.dll"/>
-      <ComponentRef Id="icudt54.dll"/>
-      <ComponentRef Id="icuin54.dll"/>
-      <ComponentRef Id="icuuc54.dll"/>
-      <ComponentRef Id="ParatextShared.dll"/>
-      <ComponentRef Id="NetLoc.dll"/>
-      <ComponentRef Id="Utilities.dll"/>
-      <ComponentRef Id="Ionic.Zip.dll"/>
+      <ComponentRef Id="icudt56.dll"/>
+      <ComponentRef Id="icuin56.dll"/>
+      <ComponentRef Id="icuuc56.dll"/>
+      <ComponentRef Id="ParatextData.dll"/>
+      <ComponentRef Id="PtxUtils.dll"/>
+	  <ComponentRef Id="DotNetZip.dll"/>
+      <ComponentRef Id="Microsoft.DotNet.PlatformAbstractions.dll"/>
+      <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
       <ComponentRef Id="Glyssen.exe.config" />
+      <ComponentRef Id="GlyssenShared.dll"/>
       <ComponentRef Id="Analytics.NET.dll"/>
       <ComponentRef Id="DesktopAnalytics.dll"/>
       <ComponentRef Id="Newtonsoft.Json.dll"/>
       <ComponentRef Id="EPPlus.dll"/>
 
       <ComponentRef Id="SIL.Core.pdb"/>
+      <ComponentRef Id="SIL.Core.Desktop.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
@@ -303,15 +345,15 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
-      <ComponentRef Id="ParatextShared.pdb"/>
-      <ComponentRef Id="NetLoc.pdb"/>
-      <ComponentRef Id="Utilities.pdb"/>
+      <!--ComponentRef Id="ParatextData.pdb"/>
+      <ComponentRef Id="PtxUtils.pdb"/-->
       <ComponentRef Id="L10NSharp.pdb"/>
       <ComponentRef Id="Glyssen.pdb" />
-      
+      <ComponentRef Id="GlyssenShared.pdb" />
+
       <ComponentGroupRef Id="DistFiles"/>
       <ComponentGroupRef Id="XulRunner" />
-      
+
     </Feature>
     <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
     <Icon Id="Glyssen.exe" SourceFile ="..\output\release\Glyssen.exe" />

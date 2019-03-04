@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="X:\1 SCRIPT ASSEMBLER\Amgad\Director Guide into Glyssen\English\Glyssen script English DG\9 Apostrophies and r removed\export_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600\bundle_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600_release.zip" controlfileversion="91" audiostocknumber="ENGENG9Ap" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
+  <language>
+    <iso>eng</iso>
+    <name>English</name>
+    <ldml>en</ldml>
+    <rod />
+    <script />
+    <numerals />
+    <fontFamily>Charis SIL</fontFamily>
+    <fontSizeInPoints>14</fontSizeInPoints>
+	<heSaidText>he said.</heSaidText>
+  </language>
+  <identification>
+    <name>World English Bible (WEB)</name>
+    <nameLocal />
+    <systemId type="gbc" />
+    <systemId type="tms" />
+    <systemId type="reap" />
+    <systemId type="paratext" csetid="25dd10a442f26b74ab7aa1209be2721c0c383240">5453af4c7644271c8ad7ca62db7243d5ffd24e34</systemId>
+    <systemId type="biblica" />
+  </identification>
+  <copyright>
+    <statement contentType="xhtml">
+      <p>Public Domain.</p>
+	  <p>See: http://ebible.org/web/</p>
+    </statement>
+  </copyright>
+  <promotion>
+    <promoVersionInfo contentType="xhtml" />
+  </promotion>
+  <archiveStatus>
+    <dateArchived>2016-03-08T19:25:53.5903051+00:00</dateArchived>
+    <dateUpdated>2016-03-08T19:25:53.5903051+00:00</dateUpdated>
+  </archiveStatus>
+  <bookNames>
+    <book code="GEN">
+      <long>The First Book of Moses, Commonly Called Genesis</long>
+      <short>Genesis</short>
+      <abbr>Gen</abbr>
+    </book>
+    <book code="EXO">
+      <long>The Second Book of Moses, Commonly Called Exodus</long>
+      <short>Exodus</short>
+      <abbr>Exo</abbr>
+    </book>
+    <book code="LEV">
+      <long>The Third Book of Moses, Commonly Called Leviticus</long>
+      <short>Leviticus</short>
+      <abbr>Lev</abbr>
+    </book>
+    <book code="NUM">
+      <long>The Fourth Book of Moses, Commonly Called Numbers</long>
+      <short>Numbers</short>
+      <abbr>Num</abbr>
+    </book>
+    <book code="DEU">
+      <long>The Fifth Book of Moses, Commonly Called Deuteronomy</long>
+      <short>Deuteronomy</short>
+      <abbr>Deu</abbr>
+    </book>
+    <book code="JOS">
+      <long>The Book of Joshua</long>
+      <short>Joshua</short>
+      <abbr>Jos</abbr>
+    </book>
+    <book code="JDG">
+      <long>The Book of Judges</long>
+      <short>Judges</short>
+      <abbr>Jdg</abbr>
+    </book>
+    <book code="RUT">
+      <long>The Book of Ruth</long>
+      <short>Ruth</short>
+      <abbr>Rut</abbr>
+    </book>
+    <book code="1SA">
+      <long>The First Book of Samuel</long>
+      <short>1 Samuel</short>
+      <abbr>1Sa</abbr>
+    </book>
+    <book code="2SA">
+      <long>The Second Book of Samuel</long>
+      <short>2 Samuel</short>
+      <abbr>2Sa</abbr>
+    </book>
+    <book code="1KI">
+      <long>The First Book of Kings</long>
+      <short>1 Kings</short>
+      <abbr>1Ki</abbr>
+    </book>
+    <book code="2KI">
+      <long>The Second Book of Kings</long>
+      <short>2 Kings</short>
+      <abbr>2Ki</abbr>
+    </book>
+    <book code="1CH">
+      <long>The First Book of Chronicles</long>
+      <short>1 Chronicles</short>
+      <abbr>1Ch</abbr>
+    </book>
+    <book code="2CH">
+      <long>The Second Book of Chronicles</long>
+      <short>2 Chronicles</short>
+      <abbr>2Ch</abbr>
+    </book>
+    <book code="EZR">
+      <long>The Book of Ezra</long>
+      <short>Ezra</short>
+      <abbr>Ezr</abbr>
+    </book>
+    <book code="NEH">
+      <long>The Book of Nehemiah</long>
+      <short>Nehemiah</short>
+      <abbr>Neh</abbr>
+    </book>
+    <book code="EST">
+      <long>The Book of Esther</long>
+      <short>Esther</short>
+      <abbr>Est</abbr>
+    </book>
+    <book code="JOB">
+      <long>The Book of Job</long>
+      <short>Job</short>
+      <abbr>Job</abbr>
+    </book>
+    <book code="PSA">
+      <long>The Psalms</long>
+      <short>Psalms</short>
+      <abbr>Psa</abbr>
+    </book>
+    <book code="PRO">
+      <long>The Proverbs</long>
+      <short>Proverbs</short>
+      <abbr>Pro</abbr>
+    </book>
+    <book code="ECC">
+      <long>Ecclesiates or, The Preacher</long>
+      <short>Ecclesiastes</short>
+      <abbr>Ecc</abbr>
+    </book>
+    <book code="ISA">
+      <long>The Book of Isaiah</long>
+      <short>Isaiah</short>
+      <abbr>Isa</abbr>
+    </book>
+    <book code="JER">
+      <long>The Book of Jeremiah</long>
+      <short>Jeremiah</short>
+      <abbr>Jer</abbr>
+    </book>
+    <book code="LAM">
+      <long>The Lamentations of Jeremiah</long>
+      <short>Lamentations</short>
+      <abbr>Lam</abbr>
+    </book>
+    <book code="EZK">
+      <long>The Book of Ezekiel</long>
+      <short>Ezekiel</short>
+      <abbr>Ezk</abbr>
+    </book>
+    <book code="DAN">
+      <long>The Book of Daniel</long>
+      <short>Daniel</short>
+      <abbr>Dan</abbr>
+    </book>
+    <book code="HOS">
+      <long>The Book of Hosea</long>
+      <short>Hosea</short>
+      <abbr>Hos</abbr>
+    </book>
+    <book code="JOL">
+      <long>The Book of Joel</long>
+      <short>Joel</short>
+      <abbr>Jol</abbr>
+    </book>
+    <book code="AMO">
+      <long>The Book of Amos</long>
+      <short>Amos</short>
+      <abbr>Amo</abbr>
+    </book>
+    <book code="OBA">
+      <long>The Book of Obadiah</long>
+      <short>Obadiah</short>
+      <abbr>Oba</abbr>
+    </book>
+    <book code="JON">
+      <long>The Book of Jonah</long>
+      <short>Jonah</short>
+      <abbr>Jon</abbr>
+    </book>
+    <book code="MIC">
+      <long>The Book of Micah</long>
+      <short>Micah</short>
+      <abbr>Mic</abbr>
+    </book>
+    <book code="NAM">
+      <long>The Book of Nahum</long>
+      <short>Nahum</short>
+      <abbr>Nam</abbr>
+    </book>
+    <book code="HAB">
+      <long>The Book of Habakkuk</long>
+      <short>Habakkuk</short>
+      <abbr>Hab</abbr>
+    </book>
+    <book code="ZEP">
+      <long>The Book of Zephaniah</long>
+      <short>Zephaniah</short>
+      <abbr>Zep</abbr>
+    </book>
+    <book code="HAG">
+      <long>The Book of Haggai</long>
+      <short>Haggai</short>
+      <abbr>Hag</abbr>
+    </book>
+    <book code="ZEC">
+      <long>The Book of Zechariah</long>
+      <short>Zechariah</short>
+      <abbr>Zec</abbr>
+    </book>
+    <book code="MAL">
+      <long>The Book of Malachi</long>
+      <short>Malachi</short>
+      <abbr>Mal</abbr>
+    </book>
+    <book code="MAT">
+      <long>The Good News According to Matthew</long>
+      <short>Matthew</short>
+      <abbr>Mat</abbr>
+    </book>
+    <book code="MRK">
+      <long>The Good News According to Mark</long>
+      <short>Mark</short>
+      <abbr>Mrk</abbr>
+    </book>
+    <book code="LUK">
+      <long>The Good News According to Luke</long>
+      <short>Luke</short>
+      <abbr>Luk</abbr>
+    </book>
+    <book code="JHN">
+      <long>The Good News According to John</long>
+      <short>John</short>
+      <abbr>Jhn</abbr>
+    </book>
+    <book code="ACT">
+      <long>The Acts of the Apostles</long>
+      <short>Acts</short>
+      <abbr>Act</abbr>
+    </book>
+    <book code="ROM">
+      <long>Paul's Letter to the Romans</long>
+      <short>Romans</short>
+      <abbr>Rom</abbr>
+    </book>
+    <book code="1CO">
+      <long>Paul's First Letter to the Corinthians</long>
+      <short>1 Corinthians</short>
+      <abbr>1Co</abbr>
+    </book>
+    <book code="2CO">
+      <long>Paul's Second Letter to the Corinthians</long>
+      <short>2 Corinthians</short>
+      <abbr>2Co</abbr>
+    </book>
+    <book code="GAL">
+      <long>Paul's Letter to the Galatians</long>
+      <short>Galatians</short>
+      <abbr>Gal</abbr>
+    </book>
+    <book code="EPH">
+      <long>Paul's Letter to the Ephesians</long>
+      <short>Ephesians</short>
+      <abbr>Eph</abbr>
+    </book>
+    <book code="PHP">
+      <long>Paul's Letter to the Philippians</long>
+      <short>Philippians</short>
+      <abbr>Php</abbr>
+    </book>
+    <book code="COL">
+      <long>Paul's Letter to the Colossians</long>
+      <short>Colossians</short>
+      <abbr>Col</abbr>
+    </book>
+    <book code="1TH">
+      <long>Paul's First Letter to the Thessalonians</long>
+      <short>1 Thessalonians</short>
+      <abbr>1Th</abbr>
+    </book>
+    <book code="2TH">
+      <long>Paul's Second Letter to the Thessalonians</long>
+      <short>2 Thessalonians</short>
+      <abbr>2Th</abbr>
+    </book>
+    <book code="1TI">
+      <long>Paul's First Letter to Timothy</long>
+      <short>1 Timothy</short>
+      <abbr>1Ti</abbr>
+    </book>
+    <book code="2TI">
+      <long>Paul's Second Letter to Timothy</long>
+      <short>2 Timothy</short>
+      <abbr>2Ti</abbr>
+    </book>
+    <book code="TIT">
+      <long>Paul's Letter to Titus</long>
+      <short>Titus</short>
+      <abbr>Tit</abbr>
+    </book>
+    <book code="PHM">
+      <long>Paul's Letter to Philemon</long>
+      <short>Philemon</short>
+      <abbr>Phm</abbr>
+    </book>
+    <book code="HEB">
+      <long>The Letter to the Hebrews</long>
+      <short>Hebrews</short>
+      <abbr>Heb</abbr>
+    </book>
+    <book code="JAS">
+      <long>The Letter from James</long>
+      <short>James</short>
+      <abbr>Jas</abbr>
+    </book>
+    <book code="1PE">
+      <long>Peter's First Letter</long>
+      <short>1 Peter</short>
+      <abbr>1Pe</abbr>
+    </book>
+    <book code="2PE">
+      <long>Peter's Second Letter</long>
+      <short>2 Peter</short>
+      <abbr>2Pe</abbr>
+    </book>
+    <book code="1JN">
+      <long>John's First Letter</long>
+      <short>1 John</short>
+      <abbr>1Jn</abbr>
+    </book>
+    <book code="2JN">
+      <long>John's Second Letter</long>
+      <short>2 John</short>
+      <abbr>2Jn</abbr>
+    </book>
+    <book code="3JN">
+      <long>John's Third Letter</long>
+      <short>3 John</short>
+      <abbr>3Jn</abbr>
+    </book>
+    <book code="JUD">
+      <long>The Letter from Jude</long>
+      <short>Jude</short>
+      <abbr>Jud</abbr>
+    </book>
+    <book code="REV">
+      <long>The Revelation to John</long>
+      <short>Revelation</short>
+      <abbr>Rev</abbr>
+    </book>
+  </bookNames>
+  <contents>
+    <bookList default="true" id="0">
+      <name>AdHocCanonBooksPresentBased</name>
+      <nameLocal />
+      <abbreviation />
+      <abbreviationLocal />
+      <description />
+      <descriptionLocal />
+      <books>
+        <book code="GEN" />
+        <book code="EXO" />
+        <book code="LEV" />
+        <book code="NUM" />
+        <book code="DEU" />
+        <book code="JOS" />
+        <book code="JDG" />
+        <book code="RUT" />
+        <book code="1SA" />
+        <book code="2SA" />
+        <book code="1KI" />
+        <book code="2KI" />
+        <book code="1CH" />
+        <book code="2CH" />
+        <book code="EZR" />
+        <book code="NEH" />
+        <book code="EST" />
+        <book code="JOB" />
+        <book code="PSA" />
+        <book code="PRO" />
+        <book code="ECC" />
+        <book code="ISA" />
+        <book code="JER" />
+        <book code="LAM" />
+        <book code="EZK" />
+        <book code="DAN" />
+        <book code="HOS" />
+        <book code="JOL" />
+        <book code="AMO" />
+        <book code="OBA" />
+        <book code="JON" />
+        <book code="MIC" />
+        <book code="NAM" />
+        <book code="HAB" />
+        <book code="ZEP" />
+        <book code="HAG" />
+        <book code="ZEC" />
+        <book code="MAL" />
+        <book code="MAT" />
+        <book code="MRK" />
+        <book code="LUK" />
+        <book code="JHN" />
+        <book code="ACT" />
+        <book code="ROM" />
+        <book code="1CO" />
+        <book code="2CO" />
+        <book code="GAL" />
+        <book code="EPH" />
+        <book code="PHP" />
+        <book code="COL" />
+        <book code="1TH" />
+        <book code="2TH" />
+        <book code="1TI" />
+        <book code="2TI" />
+        <book code="TIT" />
+        <book code="PHM" />
+        <book code="HEB" />
+        <book code="JAS" />
+        <book code="1PE" />
+        <book code="2PE" />
+        <book code="1JN" />
+        <book code="2JN" />
+        <book code="3JN" />
+        <book code="JUD" />
+        <book code="REV" />
+      </books>
+    </bookList>
+  </contents>
+  <projectStatus>
+    <assignCharacterBlock>
+      <bookIndex>26</bookIndex>
+      <blockIndex>477</blockIndex>
+    </assignCharacterBlock>
+    <assignCharacterMode>AllScripture</assignCharacterMode>
+    <quoteSystemStatus>UserSet</quoteSystemStatus>
+    <quoteSystemDate>2016-03-08T12:27:38.1500615-07:00</quoteSystemDate>
+    <bookSelectionStatus>Reviewed</bookSelectionStatus>
+    <projectSettingsStatus>Reviewed</projectSettingsStatus>
+  </projectStatus>
+  <characterGroupGenerationPreferences />
+</DBLMetadata>

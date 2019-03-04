@@ -8,19 +8,18 @@ H1
 {
   font-size: 10pt;
 }
-P, LI
+P
 {
   text-align: left;
   margin-top: 6px;
-}
-UL, LI
-{
-  list-style-type: none;
-  padding-left: 0px;
 }
 IMG.fcbh-logo
 {
   width: 170px;
   vertical-align: middle;
   border: 0;
+}
+.indent
+{
+  margin-left: 15px;
 }

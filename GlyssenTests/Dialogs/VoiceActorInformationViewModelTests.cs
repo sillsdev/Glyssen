@@ -94,9 +94,8 @@ namespace GlyssenTests.Dialogs
 		public void DeleteVoiceActors_SomeActorsAssigned_CountsAreAccurateAndAssignmentsAreRemoved()
 		{
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup1 = new CharacterGroup(m_testProject, priorityComparer);
-			var characterGroup2 = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup1 = new CharacterGroup(m_testProject);
+			var characterGroup2 = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup1);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup2);
 			characterGroup1.AssignVoiceActor(2);
@@ -119,8 +118,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 5, Name = "Gubaru", IsInactive = true };
 			m_testProject.VoiceActorList.AllActors.Add(actor);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			Assert.True(actor.IsInactive);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
@@ -134,8 +132,7 @@ namespace GlyssenTests.Dialogs
 		public void SetInactive_PreviouslyActiveAndAssignedSetToActive_NoChange()
 		{
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(actor.Id);
 			Assert.False(actor.IsInactive);
@@ -150,8 +147,7 @@ namespace GlyssenTests.Dialogs
 		public void SetInactive_PreviouslyActiveAndUnassignedSetToInactive_ModifyActiveStateButNoChangeToGroups()
 		{
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			Assert.False(actor.IsInactive);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
@@ -165,8 +161,7 @@ namespace GlyssenTests.Dialogs
 		public void SetInactive_PreviouslyActiveAndAssignedSetToInactive_ModifyActiveStateAndUnassign()
 		{
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(actor.Id);
 			Assert.False(actor.IsInactive);
@@ -178,35 +173,32 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void AssessChanges_VoiceActorAdded_UndoActionCreated()
+		public void Changes_VoiceActorAdded_UndoActionCreated()
 		{
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
 			m_model.AddNewActor().Name = "Phoenix";
 			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
-			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorAddedUndoAction);
 		}
 
 		[Test]
-		public void AssessChanges_VoiceActorModified_UndoActionCreated()
+		public void Changes_VoiceActorModified_UndoActionCreated()
 		{
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
 			m_testProject.VoiceActorList.AllActors[0].Name = "Monkey Soup";
-			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorEditUndoAction);
 		}
 
 		[Test]
-		public void AssessChanges_VoiceActorDeleted_UndoActionCreated()
+		public void Changes_VoiceActorDeleted_UndoActionCreated()
 		{
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id == 3));
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
-			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorDeletedUndoAction);
 		}
 
 		[Test]
-		public void AssessChanges_DeleteNewlyAddedVoiceActor_NoUndoActionCreated()
+		public void Changes_DeleteNewlyAddedVoiceActor_NoUndoActionCreated()
 		{
 			var addedActor = m_model.AddNewActor();
 			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
@@ -214,7 +206,6 @@ namespace GlyssenTests.Dialogs
 			actorsToDelete.Add(addedActor);
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
-			m_model.AssessChanges();
 			Assert.AreEqual(0, m_model.Changes.Count());
 		}
 	}

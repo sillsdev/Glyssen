@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Glyssen.Shared;
 using L10NSharp;
-using Paratext;
+using SIL.Extensions;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
 		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
-		public const string UnknownCharacter = "Unknown";
+		public const string kUnknownCharacter = "Unknown";
 		/// <summary>
 		/// Blocks represents a quote whose character has not been set.
 		/// Used when the user needs to disambiguate between multiple potential characters.
 		/// </summary>
-		public const string AmbiguousCharacter = "Ambiguous";
+		public const string kAmbiguousCharacter = "Ambiguous";
 
 		public const int kiMinRequiredFields = 5;
 		protected const int kiQuoteType = kiMinRequiredFields + 1;
@@ -25,7 +25,7 @@ namespace Glyssen.Character
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
-		private static Dictionary<string, string> m_singletonLocalizedCharacterIdToCharacterIdDictionary;
+		private static Dictionary<string, string> s_singletonLocalizedCharacterIdToCharacterIdDictionary;
 
 		public enum StandardCharacter
 		{
@@ -36,28 +36,15 @@ namespace Glyssen.Character
 			Intro,
 		}
 
-		public static bool IsCharacterStandard(string characterId, bool includeNarrator = true)
-		{
-			switch (GetStandardCharacterType(characterId))
-			{
-				case StandardCharacter.Narrator:
-					return includeNarrator;
-				case StandardCharacter.Intro:
-				case StandardCharacter.ExtraBiblical:
-				case StandardCharacter.BookOrChapter:
-					return true;
-				default: return false;
-			}
-		}
-
 		public static StandardCharacter GetStandardCharacterType(string characterId)
 		{
-			if (String.IsNullOrEmpty(characterId))
+			if (string.IsNullOrEmpty(characterId))
 				return StandardCharacter.NonStandard;
 
-			int i = characterId.IndexOf("-", StringComparison.Ordinal);
+			var i = characterId.IndexOf("-", StringComparison.Ordinal);
 			if (i < 0)
 				return StandardCharacter.NonStandard;
+
 			switch (characterId.Substring(0, i + 1))
 			{
 				case kNarratorPrefix: return StandardCharacter.Narrator;
@@ -65,7 +52,13 @@ namespace Glyssen.Character
 				case kExtraBiblicalPrefix: return StandardCharacter.ExtraBiblical;
 				case kBookOrChapterPrefix: return StandardCharacter.BookOrChapter;
 			}
+
 			return StandardCharacter.NonStandard;
+		}
+
+		public static bool IsCharacterUnclear(string characterId)
+		{
+			return characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter;
 		}
 
 		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)
@@ -75,7 +68,31 @@ namespace Glyssen.Character
 
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
-			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
+			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+		}
+
+		public static bool IsCharacterStandard(string characterId)
+		{
+			if (characterId == null)
+				return false;
+
+			return IsCharacterOfType(characterId, StandardCharacter.Narrator) ||
+				IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
+				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
+				IsCharacterOfType(characterId, StandardCharacter.Intro);
+			// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
+			// but this is speed-critical code and the overhead of the extra method call is
+			// expensive.
+		}
+
+		public static bool IsCharacterExtraBiblical(string characterId)
+		{
+			if (characterId == null)
+				return false;
+
+			return IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
+				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
+				IsCharacterOfType(characterId, StandardCharacter.Intro);
 		}
 
 		public static string GetCharacterNameForUi(string characterId)
@@ -97,7 +114,7 @@ namespace Glyssen.Character
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				default:
-					localizedCharacterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+					localizedCharacterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
 					break;
 			}
 			if (!SingletonLocalizedCharacterIdToCharacterIdDictionary.ContainsKey(localizedCharacterId))
@@ -128,7 +145,7 @@ namespace Glyssen.Character
 			get
 			{
 				return
-					m_singletonLocalizedCharacterIdToCharacterIdDictionary ?? (m_singletonLocalizedCharacterIdToCharacterIdDictionary =
+					s_singletonLocalizedCharacterIdToCharacterIdDictionary ?? (s_singletonLocalizedCharacterIdToCharacterIdDictionary =
 						new Dictionary<string, string>());
 			}
 		}
@@ -138,7 +155,7 @@ namespace Glyssen.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{
@@ -170,22 +187,11 @@ namespace Glyssen.Character
 		private const string kBookChapterAsEnglishCharacterName = "book title or chapter ({0})";
 
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
-		private IList<CharacterVerse> m_data = new List<CharacterVerse>();
+		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
-		/// <summary>
-		/// Prefer the int bookId counterpart method for performance reasons (this method has to perform a book Id lookup)
-		/// </summary>
-		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
-		{
-			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse, versification);
-		}
-
-		/// <summary>
-		/// This method is preferred over the string bookId counterpart for performance reasons (so we don't have to look up the book number)
-		/// </summary>
 		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
 		{
 			if (versification == null)
@@ -201,14 +207,18 @@ namespace Glyssen.Character
 			}
 			else
 			{
+				// REVIEW: Don't we need to call ChangeVersification here?
 				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
 				int end = new BCVRef(bookId, chapter, initialEndVerse).BBCCCVVV;
 				result = Enumerable.Empty<CharacterVerse>();
 				for (int i = start; i <= end; i++)
 					result = result.Union(m_lookup[i]);
 			}
-			if (finalVerse == 0 || result.Count() == 1)
+			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
+
+			// This is a list (because that makes it easy to do a Union), but it should only ever have exactly one item in it.
+			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
 
 			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
 			while (nextVerse <= finalVerse)
@@ -216,7 +226,12 @@ namespace Glyssen.Character
 				var verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
 				verseRef.ChangeVersification(ScrVers.English);
 				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
-				if (!nextResult.Any())
+				if (nextResult.Any())
+				{
+					if (!interruption.Any())
+						interruption = nextResult.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
+				}
+				else
 				{
 					nextVerse++;
 					continue;
@@ -235,7 +250,7 @@ namespace Glyssen.Character
 				}
 				nextVerse++;
 			}
-			return result;
+			return result.Union(interruption);
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
@@ -251,9 +266,7 @@ namespace Glyssen.Character
 		protected virtual void AddCharacterVerse(CharacterVerse cv)
 		{
 			m_data.Add(cv);
-			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
-			m_uniqueDeliveries = null;
+			ResetCaches();
 		}
 
 		public bool Any()
@@ -287,6 +300,11 @@ namespace Glyssen.Character
 			foreach (CharacterVerse cv in intersection)
 				m_data.Remove(cv);
 
+			ResetCaches();
+		}
+
+		private void ResetCaches()
+		{
 			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
@@ -294,7 +312,7 @@ namespace Glyssen.Character
 
 		public void LoadData(string tabDelimitedCharacterVerseData)
 		{
-			var data = new List<CharacterVerse>();
+			var data = new HashSet<CharacterVerse>();
 			int lineNumber = 0;
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
@@ -306,9 +324,7 @@ namespace Glyssen.Character
 					data.AddRange(cvs);
 			}
 			m_data = data;
-			m_lookup = data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
-			m_uniqueDeliveries = null;
+			ResetCaches();
 		}
 
 		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
@@ -323,7 +339,7 @@ namespace Glyssen.Character
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
 				Debug.Assert(false, string.Format("Invalid chapter number ({0}) on line {1}: {2}", items[1], lineNumber, items[0]));
-			for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)
+			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
 				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 
 			return list;

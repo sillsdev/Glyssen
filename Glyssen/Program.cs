@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
+using Paratext.Data;
+using Paratext.Data.Users;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
@@ -17,13 +21,6 @@ namespace Glyssen
 {
 	static class Program
 	{
-		public const string kCompany = "FCBH-SIL";
-		public const string kProduct = "Glyssen";
-		public const string kApplicationId = "Glyssen";
-
-		public const double kKeyStrokesPerHour = 6000;
-		public const double kCameoCharacterEstimatedHoursLimit = 0.2;
-
 		private const string kOldProductName = "Protoscript Generator";
 
 		// From https://stackoverflow.com/questions/73515/how-to-tell-if-net-code-is-being-run-by-visual-studio-designer
@@ -33,13 +30,22 @@ namespace Glyssen
  		/// </summary>
 		public static bool IsRunning { get; set; }
 
+		public static IEnumerable<ErrorMessageInfo> CompatibleParatextProjectLoadErrors => ScrTextCollection.ErrorMessages.Where(e => e.ProjecType != ProjectType.Resource && !e.ProjecType.IsNoteType());
+		private static List<Exception> _pendingExceptionsToReportToAnalytics = new List<Exception>();
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		static void Main(string[] args)
 		{
-			Program.IsRunning = true;
+			IsRunning = true;
+
+			if (GetRunningGlyssenProcessCount() > 1)
+			{
+				ErrorReport.NotifyUserOfProblem("There is another copy of Glyssen already running. This instance of Glyssen will now shut down.");
+				return;
+			}
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -56,32 +62,100 @@ namespace Glyssen
 
 			SetUpErrorHandling();
 
+			UserInfo userInfo = new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage };
+			bool sldrIsInitialized = false;
+
+			if (ParatextInfo.IsParatextInstalled)
+			{
+				string userName = null;
+
+				try
+				{
+					ParatextData.Initialize();
+					sldrIsInitialized = true;
+					userName = RegistrationInfo.UserName;
+					userInfo.Email = RegistrationInfo.EmailAddress;
+					foreach (var errMsgInfo in CompatibleParatextProjectLoadErrors.Where(e => e.Reason == UnsupportedReason.Unspecified))
+					{
+						_pendingExceptionsToReportToAnalytics.Add(errMsgInfo.Exception);
+					}
+				}
+				catch (Exception fatalEx) when (fatalEx is FileLoadException || fatalEx is TypeInitializationException)
+				{
+					ErrorReport.ReportFatalException(fatalEx);
+				}
+				catch (Exception ex)
+				{
+					_pendingExceptionsToReportToAnalytics.Add(ex);
+				}
+
+				if (userName != null)
+				{
+					var split = userName.LastIndexOf(" ", StringComparison.Ordinal);
+					if (split > 0)
+					{
+						userInfo.FirstName = userName.Substring(0, split);
+						userInfo.LastName = userName.Substring(split + 1);
+					}
+					else
+					{
+						userInfo.LastName = userName;
+
+					}
+				}
+			}
+			// ENHANCE (PG-63): Implement something like this if we decide to give the user the option of manually
+			// specifying the location of Paratext data files if the program isn’t actually installed.
+			//else
+			//{
+			//	RegistrationInfo.Implementation = new GlyssenAnonymousRegistrationInfo();
+
+			//	if (!String.IsNullOrWhiteSpace(Settings.Default.UserSpecifiedParatext8ProjectsDir) &&
+			//		Directory.Exists(Settings.Default.UserSpecifiedParatext8ProjectsDir))
+			//	{
+			//		try
+			//		{
+			//			ParatextData.Initialize(Settings.Default.UserSpecifiedParatext8ProjectsDir);
+			//			sldrIsInitialized = true;
+			//		}
+			//		catch (Exception ex)
+			//		{
+			//			_pendingExceptionsToReportToAnalytics.Add(ex);
+			//			Settings.Default.UserSpecifiedParatext8ProjectsDir = null;
+			//		}
+			//	}
+			//}
+
 #if DEBUG
-			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))
+			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", userInfo))
 #else
-			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
+			//default is to allow tracking if this isn't set
+			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK")?.ToLower();
+			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting == "yes" || feedbackSetting == "true";
 
-			//default is to allow tracking
-			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
-
-			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
+			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", userInfo, allowTracking))
 #endif
 			{
 				Logger.Init();
 
-				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					kCompany, kOldProductName);
-				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
-					Directory.Move(oldPgBaseFolder, BaseDataFolder);
+				foreach (var exception in _pendingExceptionsToReportToAnalytics)
+					Analytics.ReportException(exception);
+				_pendingExceptionsToReportToAnalytics.Clear();
 
-				if (!Directory.Exists(BaseDataFolder))
+				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					GlyssenInfo.kCompany, kOldProductName);
+				var baseDataFolder = GlyssenInfo.BaseDataFolder;
+				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
+					Directory.Move(oldPgBaseFolder, baseDataFolder);
+
+				if (!Directory.Exists(baseDataFolder))
 				{
 					// create the directory
-					Directory.CreateDirectory(BaseDataFolder);
+					Directory.CreateDirectory(baseDataFolder);
 				}
 
 				// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
-				DirectoryUtilities.SetFullControl(BaseDataFolder, false);
+				DirectoryUtilities.SetFullControl(baseDataFolder, false);
 
 				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
@@ -96,25 +170,18 @@ namespace Glyssen
 				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
 
-				Sldr.Initialize();
+				// This might also be needed if Glyssen and ParatextData use different versions of SIL.WritingSystems.dll
+				if (!sldrIsInitialized)
+					Sldr.Initialize();
 
 				try
 				{
-					Application.Run(new MainForm());
+					Application.Run(new MainForm(args));
 				}
 				finally
 				{
 					Sldr.Cleanup();
 				}
-			}
-		}
-
-		public static string BaseDataFolder
-		{
-			get
-			{
-				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					kCompany, kProduct);
 			}
 		}
 
@@ -136,7 +203,7 @@ namespace Glyssen
 				var confirmationString = LocalizationManager.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
-				if (DialogResult.Yes == MessageBox.Show(confirmationString, kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
 					File.Delete(userConfigSettingsPath);
 		}
 
@@ -159,10 +226,10 @@ namespace Glyssen
 		private static void SetUpLocalization()
 		{
 			string installedStringFileFolder = FileLocator.GetDirectoryDistributedWithApplication("localization");
-			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
+			string targetTmxFilePath = Path.Combine(GlyssenInfo.kCompany, GlyssenInfo.kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
+			LocalizationManager = LocalizationManager.Create(desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))
@@ -188,6 +255,15 @@ namespace Glyssen
 		public static string IssuesEmailAddress
 		{
 			get { return "glyssen-support_lsdev@sil.org"; }
+		}
+
+		/// <summary>
+		/// Getting the count of running Glyssen instances.
+		/// </summary>
+		/// <returns>The number of running Glyssen instances</returns>
+		public static int GetRunningGlyssenProcessCount()
+		{
+			return Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("glyssen"));
 		}
 	}
 }

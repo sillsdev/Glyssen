@@ -11,13 +11,11 @@ namespace GlyssenTests.Dialogs
 	internal class RemoveVoiceActorAssignmentsUndoActionTests
 	{
 		private Project m_testProject;
-		private IComparer<string> m_priorityComparer;
 			
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 
 			var actor1 = new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
 			var actor2 = new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
@@ -25,8 +23,8 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> {actor1, actor2, actor3};
 
 			AddCharacterGroup("Jesus");
-			AddCharacterGroup("Mary", "Rhoda", "Rahab");
-			AddCharacterGroup("Moses", "Caiaphas", "Centurian");
+			AddCharacterGroup("Mary, Jesus' mother", "Rhoda", "Rahab");
+			AddCharacterGroup("Moses", "Caiaphas", "centurion at crucifixion");
 		}
 
 		[SetUp]
@@ -35,14 +33,17 @@ namespace GlyssenTests.Dialogs
 			foreach (var group in m_testProject.CharacterGroupList.CharacterGroups)
 				group.RemoveVoiceActor();
 
-			m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses").Name = "Crusty Old Dudes";
+			var mosesGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
+			mosesGroup.GroupIdLabel = CharacterGroup.Label.Other;
+			mosesGroup.GroupIdOtherText = "Crusty Old Dudes";
 		}
 
 		private void AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			var group = new CharacterGroup(m_testProject);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
+			group.SetGroupIdLabel();
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 		}
 
@@ -71,8 +72,8 @@ namespace GlyssenTests.Dialogs
 		public void Constructor_MultipleGroups_RemovesTheVoiceActorForAllGroups()
 		{
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").AssignVoiceActor(3);
-			m_testProject.CharacterGroupList.GetGroupByName("Crusty Old Dudes").AssignVoiceActor(2);
-			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary").AssignVoiceActor(1);
+			m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes").AssignVoiceActor(2);
+			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother").AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
 			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.IsVoiceActorAssigned));
 			Assert.AreEqual(3, action.GroupsAffectedByLastOperation.Count());
@@ -111,8 +112,8 @@ namespace GlyssenTests.Dialogs
 		public void Description_UnassignmentOfMultipleGroups_DescriptionRefersToGroupsGenerically()
 		{
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").AssignVoiceActor(3);
-			m_testProject.CharacterGroupList.GetGroupByName("Crusty Old Dudes").AssignVoiceActor(2);
-			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary").AssignVoiceActor(1);
+			m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes").AssignVoiceActor(2);
+			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother").AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
 			Assert.AreEqual("Remove voice actor assignment for multiple groups", action.Description);
 		}
@@ -124,7 +125,7 @@ namespace GlyssenTests.Dialogs
 			groupWithMoses.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMoses);
 			Assert.IsFalse(groupWithMoses.IsVoiceActorAssigned);
-			groupWithMoses.Name = "Elderly men";
+			groupWithMoses.GroupIdOtherText = "Elderly men";
 			Assert.IsFalse(action.Undo());
 			Assert.IsFalse(groupWithMoses.IsVoiceActorAssigned);
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
@@ -134,12 +135,12 @@ namespace GlyssenTests.Dialogs
 		public void Undo_MultipleGroupsWithOneNotFound_NoChangeAndReturnsFalse()
 		{
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").AssignVoiceActor(3);
-			var groupWithMoses = m_testProject.CharacterGroupList.GetGroupByName("Crusty Old Dudes");
+			var groupWithMoses = m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes");
 			groupWithMoses.AssignVoiceActor(2);
-			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary").AssignVoiceActor(1);
+			m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother").AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, m_testProject.CharacterGroupList.CharacterGroups);
 
-			groupWithMoses.Name = null;
+			groupWithMoses.GroupIdOtherText = null;
 			Assert.IsFalse(action.Undo());
 			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.IsVoiceActorAssigned));
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
@@ -171,8 +172,8 @@ namespace GlyssenTests.Dialogs
 		public void Undo_MultipleGroupsPreviousAssignments_AssignmentsRestored()
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
-			var groupWithMoses = m_testProject.CharacterGroupList.GetGroupByName("Crusty Old Dudes");
-			var groupWithMary = m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary");
+			var groupWithMoses = m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes");
+			var groupWithMary = m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother");
 			groupWithJesus.AssignVoiceActor(3);
 			groupWithMoses.AssignVoiceActor(2);
 			groupWithMary.AssignVoiceActor(1);
@@ -209,25 +210,25 @@ namespace GlyssenTests.Dialogs
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMoses);
 			action.Undo();
 			Assert.AreEqual(2, groupWithMoses.VoiceActorId);
-			groupWithMoses.Name = "Elderly men";
+			groupWithMoses.GroupIdOtherText = "Elderly men";
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual(2, groupWithMoses.VoiceActorId);
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 		}
 
 		[Test]
-		public void Redo_SingleGroupNameChangedToBeExplicit_AssignmentCleared()
+		public void Redo_SingleGroupNameChangedToBeExplicit_RedoFails()
 		{
-			var groupWithMary = m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary");
-			Assert.IsNull(groupWithMary.GroupNameInternal);
+			var groupWithMary = m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother");
 			groupWithMary.AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMary);
 			action.Undo();
 			Assert.AreEqual(1, groupWithMary.VoiceActorId);
-			groupWithMary.Name = "Ladies";
-			Assert.IsTrue(action.Redo());
-			Assert.IsFalse(groupWithMary.IsVoiceActorAssigned);
-			Assert.AreEqual(groupWithMary, action.GroupsAffectedByLastOperation.Single());
+			groupWithMary.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithMary.GroupIdOtherText = "Ladies";
+			Assert.IsFalse(action.Redo());
+			Assert.IsTrue(groupWithMary.IsVoiceActorAssigned);
+			Assert.IsFalse(action.GroupsAffectedByLastOperation.Any());
 		}
 
 		[Test]
@@ -259,9 +260,9 @@ namespace GlyssenTests.Dialogs
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
-			var groupWithMoses = m_testProject.CharacterGroupList.GetGroupByName("Crusty Old Dudes");
+			var groupWithMoses = m_testProject.CharacterGroupList.GetGroupById("Crusty Old Dudes");
 			groupWithMoses.AssignVoiceActor(2);
-			var groupWithMary = m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary");
+			var groupWithMary = m_testProject.CharacterGroupList.GroupContainingCharacterId("Mary, Jesus' mother");
 			groupWithMary.AssignVoiceActor(1);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, new [] { groupWithJesus, groupWithMoses });
 			action.Undo();

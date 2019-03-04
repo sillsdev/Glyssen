@@ -2,32 +2,71 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Glyssen.Bundle;
 using Glyssen.Character;
+using SIL.Scripture;
 
 namespace Glyssen.Rules
 {
 	public class Proximity
 	{
-		public const int kDefaultMinimumProximity = 30;
-		private readonly Project m_project;
+		private readonly bool m_strictlyAdhereToNarratorPreferences;
 
-		public Proximity(Project project)
+		public const int kDefaultMinimumBlocks = 14;
+		//public const int kDefaultMinimumKeystrokes = 110 * kDefaultMinimumBlocks;
+
+		private readonly IReadOnlyList<BookScript> m_booksToConsider;
+		private readonly bool m_narrationByAuthor;
+		private readonly ReferenceText m_referenceText;
+		private readonly Dictionary<BookScript, List<HashSet<string>>> m_considerSameExtrabiblicalCharacter;
+
+		public Proximity(Project project, bool strictlyAdhereToNarratorPreferences = true)
 		{
-			m_project = project;
+			m_strictlyAdhereToNarratorPreferences = strictlyAdhereToNarratorPreferences;
+			m_referenceText = project.ReferenceText;
+			m_booksToConsider = m_referenceText.GetBooksWithBlocksConnectedToReferenceText(project).ToList();
+
+			var dramatizationPreferences = project.DramatizationPreferences;
+			m_narrationByAuthor = project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor;
+			m_considerSameExtrabiblicalCharacter = new Dictionary<BookScript, List<HashSet<string>>>();
+
+			// get the standard character mapping for each book
+			foreach (var book in m_booksToConsider)
+			{
+				// initialize the standard character data
+				var bookData = new Dictionary<ExtraBiblicalMaterialSpeakerOption, HashSet<string>>();
+				GetStandardCharactersToTreatAsOne(book, dramatizationPreferences, bookData);
+
+				// For performance reasons, remove sets with only one item
+				m_considerSameExtrabiblicalCharacter[book] = new List<HashSet<string>>(4);
+				foreach (var compatibleIds in bookData.Values.Where(set => set.Count > 1))
+					m_considerSameExtrabiblicalCharacter[book].Add(compatibleIds);
+			}
 		}
 
-		/// <summary>
-		/// Calculate the minimum number of blocks between two character ids in given collection
-		/// </summary>
-		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate, bool handleEachBookSeparately = true)
+		/// <summary>Adds a value to a HashSet. Creates a new HashSet if the value passed is null</summary>
+		private static void AddOrNew(Dictionary<ExtraBiblicalMaterialSpeakerOption, HashSet<string>> bookData,
+			ExtraBiblicalMaterialSpeakerOption key, string value)
 		{
+			HashSet<string> set = null;
+			if (!bookData.TryGetValue(key, out set))
+				bookData[key] = set = new HashSet<string>();
+
+			set.Add(value);
+		}
+
+		/// <summary>Calculate the minimum number of blocks between two character ids in given collection</summary>
+		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate)
+		{
+			if (!characterIdsToCalculate.Any())
+				return new MinimumProximity(Int32.MaxValue, null, null, null, null);
+
 			RelatedCharactersData relChar = RelatedCharactersData.Singleton;
 			bool foundFirst = false;
 			int currentBlockCount = 0;
-			int minProximity = Int32.MaxValue;
-			bool prevIsSingleCharacterId = true;
+			int minBlockProximity = Int32.MaxValue;
 			string prevCharacterId = null;
-			ISet<string> prevMatchingCharacterIds = new HashSet<string>();
+			ISet<string> prevMatchingCharacterIds = null;
 			BookScript firstBook = null;
 			Block firstBlock = null;
 			BookScript secondBook = null;
@@ -36,16 +75,41 @@ namespace Glyssen.Rules
 			Block prevBlock = null;
 			bool breakOutOfBothLoops = false;
 
-			ISet<string> characterIdsWithAgeVariations =
-				relChar.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges);
-
-			foreach (var book in m_project.IncludedBooks)
+			bool calculateAnyRelatedCharacters = characterIdsToCalculate.Any(c => relChar.HasMatchingCharacterIdsOfADifferentAge(c));
+			foreach (var book in m_booksToConsider)
 			{
 				if (breakOutOfBothLoops)
 					break;
 
-				if (handleEachBookSeparately)
-					currentBlockCount += 50;
+				var countVersesRatherThanBlocks = !m_referenceText.HasContentForBook(book.BookId);
+
+				var treatAsSameCharacter = m_considerSameExtrabiblicalCharacter[book];
+				if (m_narrationByAuthor)
+				{
+					var author = BiblicalAuthors.GetAuthorOfBook(book.BookId);
+					if (author.CombineAuthorAndNarrator && !treatAsSameCharacter.Any(set => set.Contains(author.Name)))
+					{
+						var narrator = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
+						if (!m_strictlyAdhereToNarratorPreferences || (characterIdsToCalculate.Contains(narrator) && characterIdsToCalculate.Contains(author.Name)))
+						{
+							HashSet<string> charactersToTreatAsOneWithNarrator = treatAsSameCharacter.FirstOrDefault(set => set.Contains(narrator));
+							if (charactersToTreatAsOneWithNarrator == null)
+							{
+								charactersToTreatAsOneWithNarrator = new HashSet<string>();
+								treatAsSameCharacter.Add(charactersToTreatAsOneWithNarrator);
+								charactersToTreatAsOneWithNarrator.Add(narrator);
+								charactersToTreatAsOneWithNarrator.Add(author.Name);
+							}
+							else
+							{
+								charactersToTreatAsOneWithNarrator.Add(author.Name);
+							}
+						}
+					}
+				}
+
+				// We don't want to treat book ends as being directly adjacent but not infinitely distant, either.
+				currentBlockCount += kDefaultMinimumBlocks * 5 / 3; // The amount of padding is somewhat arbitrary.
 
 				foreach (var block in book.Blocks)
 				{
@@ -56,74 +120,132 @@ namespace Glyssen.Rules
 					// extra hashsets and doing extra intersects. Please consider the performance implications of any
 					// changes to this code.  (I'm sure it could be optimized further, too...)
 
-					bool isSingleCharacterId = true;
-					ISet<string> matchingCharacterIds = new HashSet<string>();
-					if (characterIdsWithAgeVariations.Contains(characterId))
+					ISet<string> matchingCharacterIds = null;
+					if (calculateAnyRelatedCharacters &&
+						relChar.TryGetMatchingCharacterIdsOfADifferentAge(characterId, out matchingCharacterIds))
 					{
-						matchingCharacterIds = relChar.GetMatchingCharacterIds(characterId, CharacterRelationshipType.SameCharacterWithMultipleAges);
 						if (matchingCharacterIds.Count == 1)
-							characterId = matchingCharacterIds.First();
-						else
-							isSingleCharacterId = false;
+							matchingCharacterIds = null;
+					}
+					else
+					{
+						foreach (var set in treatAsSameCharacter)
+						{
+							if (set.Contains(characterId))
+							{
+								matchingCharacterIds = set;
+								break;
+							}
+						}
 					}
 
-					if (isSingleCharacterId)
+					if (matchingCharacterIds == null)
 					{
-						if (prevIsSingleCharacterId && prevCharacterId == characterId || prevMatchingCharacterIds.Contains(characterId))
+						if ((prevMatchingCharacterIds == null && prevCharacterId == characterId) ||
+							(prevMatchingCharacterIds != null && prevMatchingCharacterIds.Contains(characterId)))
 						{
 							currentBlockCount = 0;
 							prevBook = book;
 							prevBlock = block;
 						}
-						else if (characterIdsToCalculate.Contains(characterId))
+						else if (characterIdsToCalculate.Contains(characterId) &&
+								(!CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ||
+								prevCharacterId == null ||
+								!CharacterVerseData.IsCharacterOfType(prevCharacterId, CharacterVerseData.StandardCharacter.Narrator)))
 						{
-							if (ProcessDifferentCharacter(book, block, isSingleCharacterId, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevIsSingleCharacterId, ref prevCharacterId, ref prevMatchingCharacterIds))
+							if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst,
+								ref currentBlockCount, ref minBlockProximity,
+								ref firstBook, ref prevBook, ref firstBlock, ref prevBlock,
+								ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevCharacterId, ref prevMatchingCharacterIds))
 								break;
 						}
 						else
-							currentBlockCount++;
+						{
+							IncrementCount(countVersesRatherThanBlocks, block, ref currentBlockCount);
+						}
 					}
-					else if (matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
+					else if (prevMatchingCharacterIds != null && matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
 					{
 						currentBlockCount = 0;
 						prevBook = book;
 						prevBlock = block;
+						prevMatchingCharacterIds = matchingCharacterIds;
 					}
 					else if (characterIdsToCalculate.Intersect(matchingCharacterIds).Any())
 					{
-						if (ProcessDifferentCharacter(book, block, isSingleCharacterId, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevIsSingleCharacterId, ref prevCharacterId, ref prevMatchingCharacterIds))
+						if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst,
+							ref currentBlockCount, ref minBlockProximity,
+							ref firstBook, ref prevBook, ref firstBlock, ref prevBlock,
+							ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevCharacterId, ref prevMatchingCharacterIds))
 							break;
 					}
 					else
 					{
-						currentBlockCount++;
+						IncrementCount(countVersesRatherThanBlocks, block, ref currentBlockCount);
 					}
 				}
 			}
 
-			return new MinimumProximity
-			{
-				NumberOfBlocks = minProximity,
-				FirstBook = firstBook,
-				SecondBook = secondBook,
-				FirstBlock = firstBlock,
-				SecondBlock = secondBlock
-			};
+			return new MinimumProximity(minBlockProximity, firstBook, secondBook, firstBlock, secondBlock);
 		}
 
-		private static bool ProcessDifferentCharacter(BookScript book, Block block, bool isSingleCharacterId, string characterId, ISet<string> matchingCharacterIds, ref bool foundFirst, ref int currentBlockCount, ref int minProximity, ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock, ref BookScript secondBook, ref Block secondBlock, ref bool breakOutOfBothLoops, ref bool prevIsSingleCharacterId, ref string prevCharacterId, ref ISet<string> prevMatchingCharacterIds)
+		private void IncrementCount(bool countVersesRatherThanBlocks, Block block, ref int count)
+		{
+			if (countVersesRatherThanBlocks)
+				count += block.ScriptTextCount;
+			else
+				count++;
+			// TODO we think we want this eventually, but it is not performant, and we are not ready to use it.
+			//currentKeystrokeCount += block.Length;
+		}
+
+		/// <summary>Populates bookData with the standard characters that should be allowed to be grouped together without causing proximity problems</summary>
+		private void GetStandardCharactersToTreatAsOne(BookScript book, ProjectDramatizationPreferences dramatizationPreferences,
+			Dictionary<ExtraBiblicalMaterialSpeakerOption, HashSet<string>> bookData)
+		{
+			if (m_strictlyAdhereToNarratorPreferences)
+			{
+				AddOrNew(bookData, dramatizationPreferences.BookTitleAndChapterDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+				AddOrNew(bookData, dramatizationPreferences.SectionHeadDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+				AddOrNew(bookData, dramatizationPreferences.BookIntroductionsDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+				bookData.Remove(ExtraBiblicalMaterialSpeakerOption.Omitted);
+
+				// add the narrator to its group if there are others there already
+				if (bookData.ContainsKey(ExtraBiblicalMaterialSpeakerOption.Narrator))
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			}
+			else
+			{
+				AddOrNew(bookData, ExtraBiblicalMaterialSpeakerOption.Narrator, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+				if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+				if (dramatizationPreferences.SectionHeadDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+				if (dramatizationPreferences.BookIntroductionsDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+			}
+		}
+
+		private static bool ProcessDifferentCharacter(
+			BookScript book, Block block, string characterId, ISet<string> matchingCharacterIds,
+			ref bool foundFirst,
+			ref int currentBlockCount, ref int minBlockProximity,
+			ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock,
+			ref BookScript secondBook, ref Block secondBlock,
+			ref bool breakOutOfBothLoops,
+			ref string prevCharacterId, ref ISet<string> prevMatchingCharacterIds)
 		{
 			if (foundFirst)
 			{
-				if (currentBlockCount < minProximity)
+				if (currentBlockCount < minBlockProximity)
 				{
-					minProximity = currentBlockCount;
+					minBlockProximity = currentBlockCount;
 					firstBook = prevBook;
 					firstBlock = prevBlock;
 					secondBook = book;
 					secondBlock = block;
 
-					if (minProximity == 0)
+					if (minBlockProximity == 0)
 					{
 						breakOutOfBothLoops = true;
 						return true;
@@ -139,7 +261,6 @@ namespace Glyssen.Rules
 			}
 			foundFirst = true;
 			currentBlockCount = 0;
-			prevIsSingleCharacterId = isSingleCharacterId;
 			prevCharacterId = characterId;
 			prevMatchingCharacterIds = matchingCharacterIds;
 
@@ -151,24 +272,64 @@ namespace Glyssen.Rules
 
 	public class MinimumProximity
 	{
-		public int NumberOfBlocks { get; set; }
-		public BookScript FirstBook { get; set; }
-		public BookScript SecondBook { get; set; }
-		public Block FirstBlock { get; set; }
-		public Block SecondBlock { get; set; }
+		private readonly BookScript m_firstBook;
+		private readonly BookScript m_secondBook;
+		private readonly Block m_firstBlock;
+		private readonly Block m_secondBlock;
 
+		/// <summary>
+		/// Number of blocks <em>between</em> characters
+		/// (so the minimum is 0)
+		/// </summary>
+		public int NumberOfBlocks { get; }
+
+		/// <summary>
+		/// Number of "keystrokes" (writing system characters) <em>between</em> characters
+		/// </summary>
+		//public int NumberOfKeystrokes { get; }
+
+		public string FirstReference => new BCVRef(BCVRef.BookToNumber(m_firstBook.BookId), m_firstBlock.ChapterNumber,
+			m_firstBlock.InitialStartVerseNumber).ToString();
+
+		public string SecondReference => new BCVRef(BCVRef.BookToNumber(m_secondBook.BookId), m_secondBlock.ChapterNumber,
+			m_secondBlock.InitialStartVerseNumber).ToString();
+
+		public string FirstCharacterId => m_firstBlock.CharacterIdInScript;
+
+		public string SecondCharacterId => m_secondBlock.CharacterIdInScript;
+
+		public MinimumProximity(int numberOfBlocks, BookScript firstBook, BookScript secondBook, Block firstBlock, Block secondBlock)
+		{
+			NumberOfBlocks = numberOfBlocks;
+			m_firstBook = firstBook;
+			m_secondBook = secondBook;
+			m_firstBlock = firstBlock;
+			m_secondBlock = secondBlock;
+		}
+
+		public MinimumProximity(MinimumProximity copyFrom)
+		{
+			NumberOfBlocks = copyFrom.NumberOfBlocks;
+			m_firstBook = copyFrom.m_firstBook;
+			m_secondBook = copyFrom.m_secondBook;
+			m_firstBlock = copyFrom.m_firstBlock;
+			m_secondBlock = copyFrom.m_secondBlock;
+		}
+
+		private const string kProximityHeader = "Proximity";
+		public static string ReportHeader => kProximityHeader + "  | Characters & Locations";
 		public override string ToString()
 		{
-			if (FirstBlock == null || SecondBlock == null)
+			if (m_firstBlock == null || m_secondBlock == null)
 				return "[no characters in group]";
 
 			var sb = new StringBuilder();
-			sb.Append(NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).Append("  |  ")
-				.Append(FirstBook.BookId).Append(" ").Append(FirstBlock.ChapterNumber).Append(":").Append(FirstBlock.InitialStartVerseNumber)
-				.Append(" (").Append(FirstBlock.CharacterIdInScript).Append(")")
+			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).PadLeft(kProximityHeader.Length)).Append("  |  ")
+				.Append(FirstReference)
+				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
 				.Append(" - ")
-				.Append(SecondBook.BookId).Append(" ").Append(SecondBlock.ChapterNumber).Append(":").Append(SecondBlock.InitialStartVerseNumber)
-				.Append(" (").Append(SecondBlock.CharacterIdInScript).Append(")");
+				.Append(SecondReference)
+				.Append(" (").Append(m_secondBlock.CharacterIdInScript).Append(")");
 			return sb.ToString();
 		}
 	}
@@ -177,19 +338,49 @@ namespace Glyssen.Rules
 	{
 		public double WeightingPower { get; set; }
 
-		public int WeightedNumberOfBlocks
+		public int WeightedNumberOfBlocks => (int)Math.Round(Math.Pow(NumberOfBlocks, WeightingPower));
+
+		public WeightedMinimumProximity(MinimumProximity minimumProximity) : base(minimumProximity)
 		{
-			get { return (int)Math.Round(Math.Pow(NumberOfBlocks, WeightingPower)); }
+			WeightingPower = 1;
+		}
+	}
+
+	public static class MinimumProximityExtensions
+	{
+		public static bool IsAcceptable(this MinimumProximity minimumProximity)
+		{
+			return minimumProximity == null || minimumProximity.NumberOfBlocks >= Proximity.kDefaultMinimumBlocks;
 		}
 
-		public WeightedMinimumProximity(MinimumProximity minimumProximity)
+		public static bool IsFinite(this MinimumProximity minimumProximity)
 		{
-			NumberOfBlocks = minimumProximity.NumberOfBlocks;
-			FirstBook = minimumProximity.FirstBook;
-			SecondBook = minimumProximity.SecondBook;
-			FirstBlock = minimumProximity.FirstBlock;
-			SecondBlock = minimumProximity.SecondBlock;
-			WeightingPower = 1;
+			return minimumProximity != null && minimumProximity.NumberOfBlocks < Int32.MaxValue;
+		}
+
+		public static bool IsBetterThan(this MinimumProximity a, MinimumProximity b)
+		{
+			return (a?.NumberOfBlocks ?? Int32.MaxValue) > (b?.NumberOfBlocks ?? Int32.MaxValue);
+		}
+
+		public static bool IsBetterThanOrEqualTo(this MinimumProximity a, MinimumProximity b)
+		{
+			return (a?.NumberOfBlocks ?? Int32.MaxValue) >= (b?.NumberOfBlocks ?? Int32.MaxValue);
+		}
+
+		public static bool IsAcceptable(this WeightedMinimumProximity weightedMinimumProximity)
+		{
+			return weightedMinimumProximity == null || weightedMinimumProximity.NumberOfBlocks >= Proximity.kDefaultMinimumBlocks;
+		}
+
+		public static bool IsBetterThan(this WeightedMinimumProximity a, WeightedMinimumProximity b)
+		{
+			return (a?.WeightedNumberOfBlocks ?? Int32.MaxValue) > (b?.WeightedNumberOfBlocks ?? Int32.MaxValue);
+		}
+
+		public static bool IsBetterThanOrEqualTo(this WeightedMinimumProximity a, WeightedMinimumProximity b)
+		{
+			return (a?.WeightedNumberOfBlocks ?? Int32.MaxValue) >= (b?.WeightedNumberOfBlocks ?? Int32.MaxValue);
 		}
 	}
 }

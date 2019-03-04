@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -7,14 +6,17 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
+using SIL.Extensions;
 using SIL.IO;
 using SIL.ObjectModel;
+using SIL.Reflection;
 using SIL.Scripture;
-using SIL.Windows.Forms;
 using SIL.WritingSystems;
 
 namespace GlyssenTests
@@ -26,15 +28,25 @@ namespace GlyssenTests
 		private GlyssenBundle GetGlyssenBundleToBeUsedForProject(bool includeLdml = true)
 		{
 			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(includeLdml);
-			m_tempProjectFolders.Add(Path.Combine(Program.BaseDataFolder, bundle.Metadata.Id));
+			m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, bundle.Metadata.Id));
 			return bundle;
+		}
+
+		[TearDown]
+		public void Teardown()
+		{
+			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
+
 			// Clean up anything from previously aborted tests
-			foreach (var directory in Directory.GetDirectories(Program.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
+			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
 				DirectoryUtilities.DeleteDirectoryRobust(directory);
 		}
 
@@ -230,7 +242,7 @@ namespace GlyssenTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(Program.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var project = new Project(originalBundle);
 
@@ -304,7 +316,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void HasUnusedActor_NoUnusedActor_ReturnsFalse()
+		public void UnusedActors_NoUnusedActor_ReturnsEmptyEnumeration()
 		{
 			var project = TestProject.CreateBasicTestProject();
 
@@ -315,11 +327,11 @@ namespace GlyssenTests
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
 			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.False(project.HasUnusedActor);
+			Assert.False(project.UnusedActors.Any());
 		}
 
 		[Test]
-		public void HasUnusedActor_UnusedActor_ReturnsTrue()
+		public void UnusedActors_UnusedActor_ReturnsCorrectActor()
 		{
 			var project = TestProject.CreateBasicTestProject();
 
@@ -332,11 +344,28 @@ namespace GlyssenTests
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
 			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.True(project.HasUnusedActor);
+			Assert.AreEqual(actor2, project.UnusedActors.Single());
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_Level1Only_NoChange()
+		public void UnusedActors_UsedActorAndInactiveActor_ReturnsEmptyEnumeration()
+		{
+			var project = TestProject.CreateBasicTestProject();
+
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 0 };
+			project.VoiceActorList.AllActors.Add(actor1);
+			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 1, IsInactive = true };
+			project.VoiceActorList.AllActors.Add(actor2);
+			var group = new CharacterGroup(project);
+			group.AssignVoiceActor(actor1.Id);
+			project.CharacterGroupList.CharacterGroups.Add(group);
+
+			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
+			Assert.False(project.UnusedActors.Any());
+		}
+
+		[Test]
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_Level1Only_NoChange()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -347,13 +376,13 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
 			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_2Levels_NoContinuer_NoChange()
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_2Levels_NoContinuer_NoChange()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -365,13 +394,13 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
 			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_2Levels_Continuer_ModifiesLevel2Continuer()
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_2Levels_Continuer_ModifiesLevel2Continuer()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -383,7 +412,7 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
 			var expected = new List<QuotationMark>
 			{
@@ -395,7 +424,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_3Levels_Continuer_ModifiesLevel2AndLevel3Continuers()
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3Levels_Continuer_ModifiesLevel2AndLevel3Continuers()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -408,7 +437,7 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
 			var expected = new List<QuotationMark>
 			{
@@ -421,7 +450,74 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ConvertContinuersToParatextAssumptions_Level1NormalAndNarrative_NoChange()
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3Levels_AlreadyFullySpecified_NoChange()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<< <", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<< < <<", 3, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
+
+			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[TestCase(QuotationParagraphContinueType.Innermost, "<", "<<")]
+		[TestCase(QuotationParagraphContinueType.Outermost, "<<", "<<")]
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3Levels_NonCompundingContinuers_NoChange(QuotationParagraphContinueType type,
+			string level2Cont, string level3Cont)
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", level2Cont, 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", level3Cont, 3, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationParagraphContinueType = type;
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
+
+			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3Levels_AllTheSame_ModifiesLevel2AndLevel3Continuers()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<<", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<<", 3, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
+
+			var expected = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<< <<", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<< << <<", 3, QuotationMarkingSystemType.Normal)
+			};
+
+			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_Level1NormalAndNarrative_NoChange()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -433,13 +529,14 @@ namespace GlyssenTests
 			project.WritingSystem.QuotationMarks.Clear();
 			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+			project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
 
 			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 
-		[Test]
-		public void ConvertContinuersToParatextAssumptions_3LevelsPlusNarrative_Continuer_ModifiesLevel2AndLevel3Continuers()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void SetWsQuotationMarksUsingFullySpecifiedContinuers_3LevelsPlusNarrative_Continuer_ModifiesLevel2AndLevel3Continuers(bool fromExternalList)
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var quotationMarks = new List<QuotationMark>
@@ -451,9 +548,16 @@ namespace GlyssenTests
 			};
 
 			project.WritingSystem.QuotationMarks.Clear();
-			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+			if (fromExternalList)
+			{
+				project.SetWsQuotationMarksUsingFullySpecifiedContinuers(quotationMarks);
+			}
+			else
+			{
+				project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
 
-			project.ConvertContinuersToParatextAssumptions();
+				project.SetWsQuotationMarksUsingFullySpecifiedContinuers(project.WritingSystem.QuotationMarks);
+			}
 
 			var expected = new List<QuotationMark>
 			{
@@ -492,6 +596,7 @@ namespace GlyssenTests
 				bundle.Metadata.Language.Iso = "ach";
 				bundle.Metadata.Language.Name = "Acholi"; // see messages in Assert.AreEqual lines below
 				var project = new Project(bundle);
+				m_tempProjectFolders.Add(Path.GetDirectoryName(Path.GetDirectoryName(project.ProjectFilePath)));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
@@ -530,6 +635,112 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
+		{
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Iso = "ach";
+				bundle.Metadata.Language.Ldml = "ach-CM";
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("ach", project.WritingSystem.Id);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
+		}
+
+		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
+		{
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Iso = "ach-CM";
+				bundle.Metadata.Language.Ldml = "ach-CM";
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("ach", project.WritingSystem.Id);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
+		}
+
+		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlCodeIsInvalid_ProjectIsCreatedSuccessfully()
+		{
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Iso = "ach-CM";
+				bundle.Metadata.Language.Ldml = "ach%CM***-blah___ickypoo!";
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("ach", project.WritingSystem.Id);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
+		}
+
+		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
+		{
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Iso = "ach%CM-blah___ickypoo!";
+				bundle.Metadata.Language.Ldml = "ach-CM";
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("ach", project.WritingSystem.Id);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
+		}
+
+		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeNotInLanguageRepo_ProjectIsCreatedUsingPrivateUseWritingSystem()
+		{
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Iso = "zyt";
+				bundle.Metadata.Language.Ldml = "";
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("zyt", project.WritingSystem.Id);
+				Assert.IsTrue(project.WritingSystem.Language.IsPrivateUse);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
+		}
+
+		[Test]
 		public void Constructor_MetadataContainsAvailableBookThatDoesNotExist_SpuriousBookRemovedFromMetadata()
 		{
 			var sampleMetadata = new GlyssenDblTextMetadata();
@@ -554,7 +765,7 @@ namespace GlyssenTests
 			}
 			finally
 			{
-				var testProjFolder = Path.Combine(Program.BaseDataFolder, "~~funkyFrogLipsAndStuff");
+				var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, "~~funkyFrogLipsAndStuff");
 				if (Directory.Exists(testProjFolder))
 					DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 			}
@@ -569,6 +780,7 @@ namespace GlyssenTests
 		public void SetCharacterGroupGenerationPreferencesToValidValues_OneBook(int numMaleNarrators, int numFemaleNarrators, int resultMale, int resultFemale)
 		{
 			var testProject = TestProject.CreateBasicTestProject();
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
 
@@ -586,12 +798,141 @@ namespace GlyssenTests
 		public void SetCharacterGroupGenerationPreferencesToValidValues_ThreeBooks(int numMaleNarrators, int numFemaleNarrators, int resultMale, int resultFemale)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
 			Assert.AreEqual(resultMale, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
+		[Test]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_NarrationByAuthorValueIsZero_SetToDefault()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+
+			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
+			Assert.AreEqual(1, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
+		[TestCase(1, 1)]
+		[TestCase(2, 2)]
+		[TestCase(3, 2)]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_NarrationByAuthor_CappedAtActualNumberOfAuthors(int numMaleNarrators, int expected)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+
+			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
+			Assert.AreEqual(expected, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
+		[Test]
+		public void SetReferenceText_ChangeFromEnglishToFrench_MatchedBlocksGetMigrated()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			testProject.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var mark = testProject.IncludedBooks[0];
+			var blocks = mark.GetScriptBlocks();
+
+			// Case where the vern blocks match 1-for-1 to the English reference text
+			var mark8V5 = blocks.IndexOf(b => b.ChapterNumber == 8 && b.InitialStartVerseNumber == 5);
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark8V5, testProject.Versification);
+			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			matchup.MatchAllBlocks(null);
+			matchup.Apply(null);
+			var matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
+			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
+			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+
+			// Case where two of the English reference text blocks get combined to match a vern block
+			var mark9V9 = blocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
+			var englishRefBlocks = testProject.ReferenceText.Books.Single(b => b.BookId == "MRK").GetScriptBlocks();
+			var mark9V9EnglishRefText = englishRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
+			Assert.AreEqual(9, englishRefBlocks[mark9V9EnglishRefText + 1].InitialStartVerseNumber);
+			matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark9V9, testProject.Versification);
+			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			var expectedEnglishRefTextForMark9V9 = englishRefBlocks[mark9V9EnglishRefText].GetText(true) + " " +
+				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
+			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
+			matchup.MatchAllBlocks(null);
+			matchup.Apply(null);
+			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
+			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
+			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			testProject.ReferenceText = rtFrench;
+
+			var frenchRefBlocks = rtFrench.Books.Single(b => b.BookId == "MRK").GetScriptBlocks();
+
+			// Verify results for case where the vern blocks match 1-for-1 to the English reference text
+			matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
+			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1));
+			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())));
+			Assert.IsTrue(matchedVernBlocks.All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
+			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
+			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
+
+			// Verify results for case where two of the English reference text blocks get combined to match a vern block
+			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
+			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1));
+			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())));
+			var mark9V9FrenchRefText = frenchRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
+			Assert.AreEqual(frenchRefBlocks[mark9V9FrenchRefText].GetText(true) + " " + frenchRefBlocks[mark9V9FrenchRefText + 1].GetText(true),
+				matchedVernBlocks[0].GetPrimaryReferenceText());
+			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchedVernBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.IsTrue(matchedVernBlocks.Skip(1).All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
+			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
+			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
+		}
+
+		[Test]
+		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			testProject.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			testProject.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = () => true;
+			var mark = testProject.IncludedBooks[0];
+			var blocks = mark.GetScriptBlocks();
+
+			var mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41, testProject.Versification);
+			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(40, matchup.CorrelatedBlocks[0].InitialStartVerseNumber);
+			Assert.AreEqual(41, matchup.CorrelatedBlocks[1].InitialStartVerseNumber);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			matchup.MatchAllBlocks(null);
+			matchup.SetReferenceText(3, "this won't match.");
+			matchup.Apply(null);
+			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
+			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
+			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
+
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			testProject.ReferenceText = rtFrench;
+
+			Assert.IsTrue(blocks.Single(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 40).MatchesReferenceText);
+			mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
+			var vernBlocksForMark5V41 = blocks.Skip(mark5V41).Take(4).ToList();
+			Assert.IsFalse(vernBlocksForMark5V41.Any(b => b.MatchesReferenceText));
 		}
 
 		[Test]
@@ -665,6 +1006,57 @@ namespace GlyssenTests
 			project = TestProject.LoadExistingTestProject();
 
 			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoDoesNotSpeak_ReturnsZero()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			Assert.IsFalse(testProject.SpeechDistributionScoreByCharacterId.ContainsKey("Jesus"));
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksOnlyOnce_ReturnsOne()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			Assert.AreEqual(1, testProject.SpeechDistributionScoreByCharacterId["apostles"]);
+			Assert.AreEqual(1, testProject.SpeechDistributionScoreByCharacterId["Enoch"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksFourTimesInOnlyOneChapter_ReturnsFour()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.AreEqual(4, testProject.SpeechDistributionScoreByCharacterId["Stephen"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksThriceInOneChapterTwiceInAnotherChapterAndOnceInEachOfTwoOtherChapterAcrossRangeOfSevenChapters_ReturnsThirtyNine()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.AreEqual(39, testProject.SpeechDistributionScoreByCharacterId["angel of the LORD, an"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksALotInOneBookAndALittleInAnother_ReturnsResultFromMaxBook()
+		{
+			var testProjectA = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProjectA);
+			var resultFromRev = testProjectA.SpeechDistributionScoreByCharacterId["God"];
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.AreEqual(resultFromRev, testProject.SpeechDistributionScoreByCharacterId["God"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.IsTrue(testProject.SpeechDistributionScoreByCharacterId["Boaz"] >= 7);
 		}
 
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)

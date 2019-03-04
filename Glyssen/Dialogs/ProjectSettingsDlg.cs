@@ -7,9 +7,13 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Paratext;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.UI;
 using SIL.IO;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -38,10 +42,12 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
+			m_txtRecordingProjectName.MaxLength = model.Project.MaxProjectNameLength;
+
 			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
 			{
 				var chapterAnnouncement = (ChapterAnnouncement)i;
-				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(Program.kApplicationId,
+				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId,
 					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
 					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
 			}
@@ -50,13 +56,110 @@ namespace Glyssen.Dialogs
 			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 			ProjectSettingsViewModel = model;
+			HandleStringsLocalized();
+		}
+
+		private void HandleStringsLocalized()
+		{
+			LoadReferenceTextOptions();
+			LoadProjectDramatizationOptions();
 			UpdateQuotePageDisplay();
+
+			var fmt = m_linkLblChangeOmittedChapterAnnouncements.Text;
+			var linkStartPos = fmt.IndexOf("{0}");
+			m_linkLblChangeOmittedChapterAnnouncements.Text = String.Format(fmt, m_tabPageScriptOptions.Text);
+			if (linkStartPos >= 0 && m_tabPageScriptOptions.Text.Length > 0)
+				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = new LinkArea(linkStartPos, m_tabPageScriptOptions.Text.Length);
+			else
+				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = default(LinkArea);
+			if (m_model.IsLiveParatextProject)
+				m_lblOriginalSource.Text = String.Format(LocalizationManager.GetString(
+					"DialogBoxes.ProjectSettingsDlg.SourceLabelForParatextProject", "{0} project:", "\"Paratext\" (product name)"),
+					ParatextScrTextWrapper.kParatextProgramName);
+		}
+
+		protected override void OnVisibleChanged(EventArgs e)
+		{
+			base.OnVisibleChanged(e);
+			var project = m_model.Project;
+			if (IsHandleCreated && Visible && project.IsLiveParatextProject &&
+				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0 &&
+				!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(project.GetLiveParatextDataIfCompatible(false, "", false)?.QuotationMarks)))
+			{
+				string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
+						"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +
+						"this project to match the {0} project settings (and get the latest versions of the text), click {3}.",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: Paratext project short name (unique project identifier); " +
+						"Param 2: \"Glyssen\" (product name); " +
+						"Param 3: localized name of the \"Update\" button"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					m_model.Project.ParatextProjectName,
+					GlyssenInfo.kProduct,
+					LocalizedUpdateButtonName);
+				MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+			}
+		}
+
+		private void LoadProjectDramatizationOptions()
+		{
+			var optionList = new List<KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>>
+			{
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.Narrator,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.Narrator", "Narrator")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.MaleActor,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.MaleActor", "Male Actor")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.FemaleActor,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.FemaleActor", "Female Actor")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.EitherGender", "Either Gender")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.Omitted,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.Omitted", "Omitted"))
+			};
+
+			m_bookIntro.DataSource = new BindingSource(optionList, null);
+			m_bookIntro.DisplayMember = "Value";
+			m_bookIntro.ValueMember = "Key";
+
+			m_sectionHeadings.DataSource = new BindingSource(optionList, null);
+			m_sectionHeadings.DisplayMember = "Value";
+			m_sectionHeadings.ValueMember = "Key";
+
+			m_titleChapters.DataSource = new BindingSource(optionList, null);
+			m_titleChapters.DisplayMember = "Value";
+			m_titleChapters.ValueMember = "Key";
+		}
+
+		private void LoadReferenceTextOptions()
+		{
+			var dataSource = new Dictionary<string, ReferenceTextProxy>();
+			foreach (var refTextId in ReferenceTextProxy.AllAvailable)
+			{
+				string key;
+				if (refTextId.Type == ReferenceTextType.Custom)
+				{
+					var fmt = (refTextId.Missing) ?
+						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.MissingReferenceText", "Missing: {0}") :
+						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CustomReferenceText", "Custom: {0}");
+					key = String.Format(fmt, refTextId.CustomIdentifier);
+				}
+				else
+				{
+					key = refTextId.Type.ToString();
+				}
+
+				dataSource.Add(key, refTextId);
+			}
+			m_ReferenceText.DataSource = new BindingSource(dataSource, null);
+			m_ReferenceText.ValueMember = "Value";
+			m_ReferenceText.DisplayMember = "Key";
 		}
 
 		private void ProjectSettingsDlg_Load(object sender, EventArgs e)
 		{
-			MainForm.SetChildFormLocation(this);
+			TileFormLocation();
 		}
 
 		private void RemoveItemFromBookMarkerCombo(ChapterAnnouncement chapterAnnouncement)
@@ -77,6 +180,9 @@ namespace Glyssen.Dialogs
 		}
 
 		public GlyssenBundle UpdatedBundle { get; private set; }
+		internal ParatextScrTextWrapper UpdatedParatextProject { get; private set; }
+
+		public string ReferenceTextTabPageName { get { return m_tabPageReferenceTexts.Text; } }
 
 		private ProjectSettingsViewModel ProjectSettingsViewModel
 		{
@@ -85,7 +191,7 @@ namespace Glyssen.Dialogs
 				m_model = value;
                 RecordingProjectName = value.RecordingProjectName;
                 AudioStockNumber = value.AudioStockNumber;
-				m_txtOriginalBundlePath.Text = value.BundlePath;
+				m_txtOriginalSource.Text = value.IsLiveParatextProject ? value.ParatextProjectName : value.BundlePath;
 				LanguageName = value.LanguageName;
 				IsoCode = value.IsoCode;
 				PublicationName = value.PublicationName;
@@ -100,7 +206,7 @@ namespace Glyssen.Dialogs
 
 				// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
                 var enableControls = m_model.Project.ProjectFileIsWritable;
-                m_btnUpdateFromBundle.Enabled =
+                m_btnUpdateFromSource.Enabled =
                     m_txtRecordingProjectName.Enabled =
                     m_txtAudioStockNumber.Enabled = enableControls && !m_model.Project.IsSampleProject;
                 m_btnQuoteMarkSettings.Enabled = enableControls;
@@ -117,13 +223,26 @@ namespace Glyssen.Dialogs
 
 				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
+
+				foreach (KeyValuePair<string, ReferenceTextProxy> kvp in m_ReferenceText.Items)
+				{
+					if (kvp.Value == m_model.Project.ReferenceTextProxy)
+					{
+						m_ReferenceText.SelectedItem = kvp;
+						break;
+					}
+				}
+
+				m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
+				m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
+				m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
 			}
 		}
 
         private string RecordingProjectName
         {
-            get { return m_txtRecordingProjectName.Text; }
-            set { m_txtRecordingProjectName.Text = value; }
+            get { return m_txtRecordingProjectName.Text.Trim(); }
+            set { m_txtRecordingProjectName.Text = value.Trim(); }
         }
 
         private string AudioStockNumber
@@ -182,15 +301,37 @@ namespace Glyssen.Dialogs
 
 		private void UpdateAnnouncementsPageDisplay()
 		{
-			m_lblExampleSubsequentChapterAnnouncement.Text = m_model.ExampleSubsequentChapterAnnouncement;
-			m_lblExampleFirstChapterAnnouncement.Text = m_model.ExampleFirstChapterAnnouncement;
-			m_lblExampleSingleChapterAnnouncement.Text = m_model.ExampleSingleChapterAnnouncement;
-			m_lblExampleTitleForMultipleChapterBook.Text = m_model.ExampleTitleForMultipleChapterBook;
-			m_lblExampleTitleForSingleChapterBook.Text = m_model.ExampleTitleForSingleChapterBook;
-			bool displayWarning = m_model.ChapterAnnouncementIsStrictlyNumeric;
-			m_lblChapterAnnouncementWarning.Visible = displayWarning;
-			m_lblExampleSubsequentChapterAnnouncement.ForeColor = displayWarning?
-				GlyssenColorPalette.ColorScheme.Warning : GlyssenColorPalette.ColorScheme.ForeColor;
+			var showChangeOmittedChapterAnnouncementsLabel = m_titleChapters.SelectedValue is ExtraBiblicalMaterialSpeakerOption &&
+				(ExtraBiblicalMaterialSpeakerOption) m_titleChapters.SelectedValue == ExtraBiblicalMaterialSpeakerOption.Omitted;
+
+			if (showChangeOmittedChapterAnnouncementsLabel)
+			{
+				m_linkLblChangeOmittedChapterAnnouncements.Visible = true;
+
+				m_lblExampleSubsequentChapterAnnouncement.Text = "";
+				m_lblExampleFirstChapterAnnouncement.Text = "";
+				m_lblExampleSingleChapterAnnouncement.Text = "";
+				m_lblExampleTitleForMultipleChapterBook.Text = "";
+				m_lblExampleTitleForSingleChapterBook.Text = "";
+			}
+			else
+			{
+				m_linkLblChangeOmittedChapterAnnouncements.Visible = false;
+
+				if (m_model != null)
+				{
+					m_lblExampleSubsequentChapterAnnouncement.Text = m_model.ExampleSubsequentChapterAnnouncement;
+					m_lblExampleFirstChapterAnnouncement.Text = m_model.ExampleFirstChapterAnnouncement;
+					m_lblExampleSingleChapterAnnouncement.Text = m_model.ExampleSingleChapterAnnouncement;
+					m_lblExampleTitleForMultipleChapterBook.Text = m_model.ExampleTitleForMultipleChapterBook;
+					m_lblExampleTitleForSingleChapterBook.Text = m_model.ExampleTitleForSingleChapterBook;
+					bool displayWarning = m_model.ChapterAnnouncementIsStrictlyNumeric;
+					m_lblChapterAnnouncementWarning.Visible = displayWarning;
+					m_lblExampleSubsequentChapterAnnouncement.ForeColor = displayWarning
+						? GlyssenColorPalette.ColorScheme.Warning
+						: GlyssenColorPalette.ColorScheme.ForeColor;
+				}
+			}
 		}
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
@@ -212,6 +353,11 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
+			m_model.Project.ReferenceTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
+
+			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
+			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;
+			m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization = (ExtraBiblicalMaterialSpeakerOption)m_titleChapters.SelectedValue;
 
 			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;
@@ -236,49 +382,81 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		public string LocalizedGeneralTabName => m_tabPageGeneral.Text;
+		public string LocalizedUpdateButtonName => m_btnUpdateFromSource.Text.Replace("...", String.Empty);
+
 		private void m_btnQuoteMarkSettings_Click(object sender, EventArgs e)
 		{
-			bool reparseOkay = false;
-			if (m_model.Project.IsSampleProject)
+			var reparseOkay = false;
+			if (m_model.Project.IsLiveParatextProject)
 			{
-				string msg = LocalizationManager.GetString("Project.CannotChangeSampleMsg", "The Quote Mark Settings cannot be modified for the Sample project.");
-				string title = LocalizationManager.GetString("Project.CannotChangeSample", "Cannot Change Sample Project");
-				MessageBox.Show(msg, title);
+				reparseOkay = m_model.Project.QuoteSystemStatus != QuoteSystemStatus.Obtained;
+			}
+			else if (!m_model.Project.IsSampleProject)
+			{
+				if (m_model.Project.IsOkayToChangeQuoteSystem)
+					reparseOkay = true;
+				else
+				{
+					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
+							"The original text release bundle for the project is no longer in its original location ({0}). " +
+							"The Quote Mark Settings cannot be modified without access to it."), m_model.Project.OriginalBundlePath) +
+						Environment.NewLine + Environment.NewLine +
+						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
+					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle", "Message caption");
+					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
+						reparseOkay = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
+				}
+			}
+
+			BlockNavigatorViewModel viewModel = null;
+			try
+			{
+				if (m_model.Project.IncludedBooks.Any())
+					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, m_model);
+				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay, this))
+				{
+					MainForm.LogDialogDisplay(dlg);
+					if (dlg.ShowDialog(this) == DialogResult.OK)
+						UpdateQuotePageDisplay();
+				}
+			}
+			finally
+			{
+				viewModel?.Dispose();
+			}
+		}
+
+		private void m_btnUpdate_Click(object sender, EventArgs e)
+		{
+			if (m_model.IsLiveParatextProject)
+			{
+				UpdatedParatextProject = m_model.GetUpdatedParatextData();
+				if (UpdatedParatextProject != null)
+				{
+					Logger.WriteEvent($"Updating project {m_lblRecordingProjectName} from Paratext data {m_model.ParatextProjectName}");
+					HandleOkButtonClick(sender, e);
+				}
+				else
+				{
+					Analytics.Track("CancelledUpdateProjectFromParatextData", new Dictionary<string, string>
+					{
+						{"projectLanguage", m_model.IsoCode},
+						{"paratextPojectName", m_model.ParatextProjectName},
+						{"projectID", m_model.PublicationId},
+						{"recordingProjectName", m_model.RecordingProjectName}
+					});
+				}
 			}
 			else
 			{
-				if (!m_model.Project.IsReparseOkay())
+				if (SelectBundleForProjectDlg.TryGetBundleName(m_model.RecordingProjectName, m_model.BundlePath, out string selectedBundlePath))
 				{
-					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
-						"The original text bundle for the project is no longer in its original location ({0}). " +
-						"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalBundlePath) +
-						Environment.NewLine + Environment.NewLine +
-						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
-					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
-					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
-						reparseOkay = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
-				}
-				else
-					reparseOkay = true;
-			}
-
-			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, m_model))
-				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay))
-					if (dlg.ShowDialog(this) == DialogResult.OK)
-						UpdateQuotePageDisplay();
-		}
-
-		private void m_btnUpdateFromBundle_Click(object sender, EventArgs e)
-		{
-			using (var dlg = new SelectProjectDlg(false, m_model.BundlePath))
-			{
-				if (dlg.ShowDialog() == DialogResult.OK)
-				{
-					var selectedBundlePath = dlg.FileName;
 					var bundle = new GlyssenBundle(selectedBundlePath);
 					if (ConfirmProjectUpdateFromBundle(bundle))
 					{
-						m_model.BundlePath = dlg.FileName;
+						Logger.WriteEvent($"Updating project {m_lblRecordingProjectName} from bundle {selectedBundlePath}");
+						m_model.BundlePath = selectedBundlePath;
 						UpdatedBundle = bundle;
 						HandleOkButtonClick(sender, e);
 					}
@@ -403,6 +581,146 @@ namespace Glyssen.Dialogs
 					new Font(m_model.WsModel.CurrentDefaultFontName,
 						(float)Math.Min(m_lblBookTitleHeading.Font.SizeInPoints * 1.1, m_model.WsModel.CurrentDefaultFontSize));
 			}
+		}
+
+		private void m_txtRecordingProjectName_TextChanged(object sender, EventArgs e)
+		{
+			m_btnOk.Enabled = !String.IsNullOrWhiteSpace(m_txtRecordingProjectName.Text);
+		}
+
+		private void HandleSelectedReferenceTextChanged(object sender, EventArgs e)
+		{
+			m_linkRefTextAttribution.Text = String.Empty;
+			m_linkRefTextAttribution.Links.Clear();
+			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextProxy>)
+			{
+				var metadata = ((KeyValuePair<string, ReferenceTextProxy>) m_ReferenceText.SelectedItem).Value.Metadata;
+				if (metadata == null)
+					return;
+				var copyright = metadata.Copyright;
+				if (copyright == null || copyright.Statement == null)
+					return;
+
+				var copyrightInternalNodes = copyright.Statement.InternalNodes;
+				if (copyrightInternalNodes != null)
+				{
+					m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+				}
+				const string kHttpPrefix = "http://";
+				var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+				if (linkStart >= 0)
+				{
+					var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
+					if (linkExtent > 0)
+					{
+						//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
+						m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
+							m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
+					}
+				}
+			}
+		}
+
+		private void HandleWebSiteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string tgt = e.Link.LinkData as string;
+
+			if (!string.IsNullOrEmpty(tgt))
+				System.Diagnostics.Process.Start(tgt);
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_tabControl.SelectedTab = m_tabPageScriptOptions;
+			m_titleChapters.Focus();
+		}
+
+		private void m_titleChapters_SelectedValueChanged(object sender, EventArgs e)
+		{
+			UpdateAnnouncementsPageDisplay();
+		}
+
+		private void m_txtRecordingProjectName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			var proposedName = RecordingProjectName;
+
+			if (proposedName.Length == 0)
+			{
+				var captionFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RecordingProjectNameRequiredCaption",
+					"{0} Required",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				var msgFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RecordingProjectNameRequired",
+					"The {0} is required because it will be used as part of the file path to store the project.",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				DisplayRecordingProjectNameValidationError(msgFmt, captionFmt, e);
+				e.Cancel = true;
+				return;
+			}
+
+			var details = new StringBuilder();
+			if (FileSystemUtils.StartsOrEndsWithDisallowedCharacters(proposedName))
+			{
+				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RemoveIllegalStartOrEndCharacters",
+					"Do not start or end the name with a period.",
+					"The \"name\" here refers to the Recording Project Name entered in the Project Settings dialog box."));
+			}
+			var illegalCharacters = FileSystemUtils.GetIllegalFilenameCharacters(proposedName);
+			if (illegalCharacters.Any())
+			{
+				if (details.Length > 0)
+					details.Insert(0, "\u2022 ").Append(Environment.NewLine).Append("\u2022 "); // Make it into a bulleted list
+				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.RemoveIllegalCharacters",
+					"Remove illegal characters from the name:",
+					"The \"name\" here refers to the Recording Project Name entered in the Project Settings dialog box. " +
+					"This will be followed by a list of one or more illegal characters that were encountered."));
+				if (illegalCharacters.Count == 1)
+					details.Append(" ").Append(illegalCharacters[0]);
+				else
+				{
+					foreach (var illegalCharacter in illegalCharacters)
+						details.Append(Environment.NewLine).Append("    ").Append(illegalCharacter);
+				}
+			}
+
+			if (details.Length == 0 && FileSystemUtils.IsReservedFilename(proposedName))
+			{
+				details.Append(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.DoNotUseReservedFilename",
+					"Use a different name. The name {0} is a reserved filename in the Windows operating system.",
+					"The parameter is the Recording Project Name entered in the Project Settings dialog box."));
+			}
+
+			if (details.Length > 0)
+			{
+				details.Insert(0, Environment.NewLine);
+				var captionFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.InvalidRecordingProjectNameCaption",
+					"Invalid {0}",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				var msgFmt = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.InvalidRecordingProjectName",
+					"The {0} will be used as part of the file path to store the project. To make it a legal name, do the following:",
+					"Parameter is the \"Recording Project Name\" label used in the Project Settings dialog box");
+
+				DisplayRecordingProjectNameValidationError(msgFmt + details, captionFmt, e);
+			}
+		}
+
+		private void DisplayRecordingProjectNameValidationError(string msgFmt, string captionFmt, System.ComponentModel.CancelEventArgs e)
+		{
+			var recordingProjectNameLabel = m_lblRecordingProjectName.Text;
+			for (int i = recordingProjectNameLabel.Length - 1; i > 0; i--)
+			{
+				if (char.IsPunctuation(recordingProjectNameLabel[i]))
+					recordingProjectNameLabel = recordingProjectNameLabel.Remove(i, 1);
+				else
+					break;
+			}
+			MessageBox.Show(this, String.Format(msgFmt, recordingProjectNameLabel),
+				String.Format(captionFmt, recordingProjectNameLabel),
+				MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			e.Cancel = true;
 		}
 	}
 }

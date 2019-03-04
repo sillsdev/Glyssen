@@ -179,7 +179,7 @@
 			<Book>REV</Book>
 		</Books>
 	</Author>
-	<Author name="Paul">
+	<Author name="Paul" combineAuthorAndNarrator="true">
 		<Books>
 			<Book>ROM</Book>
 			<Book>1CO</Book>
@@ -201,12 +201,15 @@
 			<Book>HEB</Book>
 		</Books>
 	</Author>
-	<Author name="James">
+	<!--In their styandard 11-person cast, FCBH does not have James narrate his own book, so even though it
+	    does not pose any logical problems or make a funny sounding recording, we do not count JAS when
+		determining the default number of narrators needed. -->
+	<Author name="James" combineAuthorAndNarrator="true" doNotCombineByDefault="true">
 		<Books>
 			<Book>JAS</Book>
 		</Books>
 	</Author>
-	<Author name="Peter">
+	<Author name="Peter (Simon)" combineAuthorAndNarrator="true">
 		<Books>
 			<Book>1PE</Book>
 			<Book>2PE</Book>

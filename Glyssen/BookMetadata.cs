@@ -17,12 +17,17 @@ namespace Glyssen
 		{
 			s_defaultToSingleVoice = new Dictionary<string, Book>
 			{
+				{"EZR", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"NEH", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"ISA", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"JER", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
+				{"LAM", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
+				{"EZK", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
+				{"DAN", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"HOS", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"JOL", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"AMO", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
+				{"OBA", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"MIC", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"NAM", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"HAB", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},

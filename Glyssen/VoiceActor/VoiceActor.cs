@@ -29,27 +29,20 @@ namespace Glyssen.VoiceActor
 		Clear
 	}
 
-	public enum AgeMatchQuality
-	{
-		Perfect,
-		CloseAdult,
-		AdultVsChild,
-		Mismatch,
-	}
-
-	public enum GenderMatchQuality
+	public enum MatchLevel
 	{
 		Perfect,
 		Acceptable,
+		Poor,
 		Mismatch,
 	}
 
 	public class MatchQuality
 	{
-		public AgeMatchQuality AgeMatchQuality { get; set; }
-		public GenderMatchQuality GenderMatchQuality { get; set; }
+		public MatchLevel AgeMatchQuality { get; set; }
+		public MatchLevel GenderMatchQuality { get; set; }
 
-		public MatchQuality(GenderMatchQuality genderMatchQuality, AgeMatchQuality ageMatchQuality)
+		public MatchQuality(MatchLevel genderMatchQuality, MatchLevel ageMatchQuality)
 		{
 			GenderMatchQuality = genderMatchQuality;
 			AgeMatchQuality = ageMatchQuality;
@@ -182,24 +175,31 @@ namespace Glyssen.VoiceActor
 				IsInactive == otherActor.IsInactive;
 		}
 
-		public AgeMatchQuality GetAgeMatchQuality(CharacterDetail character)
+		public MatchLevel GetAgeMatchQuality(CharacterDetail character)
 		{
 			switch (character.Age)
 			{
 				case CharacterAge.Child:
-					return Age == ActorAge.Child ? AgeMatchQuality.Perfect : AgeMatchQuality.Mismatch;
+					switch (Age)
+					{
+						case ActorAge.Child: return MatchLevel.Perfect;
+						case ActorAge.YoungAdult: return Gender == ActorGender.Female ? MatchLevel.Acceptable : MatchLevel.Mismatch;
+						case ActorAge.Adult: return Gender == ActorGender.Female ? MatchLevel.Poor : MatchLevel.Mismatch;
+						default: return MatchLevel.Mismatch;
+					}
 				default:
 					switch (Math.Abs((int)Age - (int)character.Age))
 					{
-						case 0: return AgeMatchQuality.Perfect;
-						case 1: return AgeMatchQuality.CloseAdult;
-						case 2: return AgeMatchQuality.AdultVsChild;
-						default: return AgeMatchQuality.Mismatch;
+						case 0: return MatchLevel.Perfect;
+						case 1: return MatchLevel.Acceptable;
+						case 2: return MatchLevel.Poor;
+						default: return MatchLevel.Mismatch;
 					}
 			}
 		}
 
-		public GenderMatchQuality GetGenderMatchQuality(CharacterDetail characterDetail)
+
+		public MatchLevel GetGenderMatchQuality(CharacterDetail characterDetail)
 		{
 			switch (Gender)
 			{
@@ -210,9 +210,13 @@ namespace Glyssen.VoiceActor
 						case CharacterGender.PreferMale:
 						case CharacterGender.Either:
 						case CharacterGender.Neuter:
-							return GenderMatchQuality.Perfect;
+							return MatchLevel.Perfect;
+						case CharacterGender.PreferFemale:
+							// This might seem odd at first glance, but the only "prefer female" characters in the data
+							// could easily be performed by a male actor.
+							return MatchLevel.Acceptable;
 						default:
-							return GenderMatchQuality.Mismatch;
+							return MatchLevel.Mismatch;
 					}
 
 				default:
@@ -221,26 +225,37 @@ namespace Glyssen.VoiceActor
 						case CharacterGender.Female:
 						case CharacterGender.PreferFemale:
 						case CharacterGender.Neuter:
-							return GenderMatchQuality.Perfect;
-						case CharacterGender.Either:
-							return GenderMatchQuality.Acceptable;
+							return MatchLevel.Perfect;
+//PG-1055						case CharacterGender.Either:
+//									return GenderMatchQuality.Acceptable;
 						default:
-							return GenderMatchQuality.Mismatch;
+							if (characterDetail.Age == CharacterAge.Child)
+							{
+								switch (Age)
+								{
+									case ActorAge.Adult: return MatchLevel.Poor;
+									case ActorAge.Child:
+									case ActorAge.YoungAdult:
+										return MatchLevel.Acceptable;
+									default: return MatchLevel.Mismatch;
+								}
+							}
+							return MatchLevel.Mismatch;
 					}
 			}
 		}
 
 		public bool Matches(CharacterDetail character, bool strictAgeMatching = false)
 		{
-			if (GetGenderMatchQuality(character) != GenderMatchQuality.Perfect)
+			if (GetGenderMatchQuality(character) != MatchLevel.Perfect)
 				return false;
 
 			var ageMatchQuality = GetAgeMatchQuality(character);
 
-			if (ageMatchQuality == AgeMatchQuality.Mismatch)
+			if (ageMatchQuality == MatchLevel.Mismatch)
 				return false;
 
-			return !strictAgeMatching || ageMatchQuality == AgeMatchQuality.Perfect;
+			return !strictAgeMatching || ageMatchQuality == MatchLevel.Perfect;
 		}
 
 		private ActorGender MigrateFromDeprecatedVersionOfGenderData(string deprecatedData)

@@ -163,12 +163,6 @@
   <data name="glyssenIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\glyssen.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CharacterGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CharacterGroups.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="CharacterGroups_FCBH" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CharacterGroups_FCBH.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="helpSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\helpSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,12 +190,6 @@
   <data name="RelatedCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RelatedCharacters.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="RemoveGridRowHot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemoveGridRowHot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RemoveGridRowNormal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemoveGridRowNormal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="MoveArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -216,5 +204,29 @@
   </data>
   <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\printer.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HtmlMsg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HtmlMsg.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BlockSplitCss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlockSplit.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Annotations" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Annotations.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Silent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Silent.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rainbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rainbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhoSpeaks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhoSpeaks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yellow-check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

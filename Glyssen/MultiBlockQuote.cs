@@ -5,7 +5,10 @@
 		None,
 		Start,
 		Continuation,
-		ChangeOfDelivery
+		/// <summary>
+		/// Deprecated: Use Continuation.
+		/// </summary>
+		ChangeOfDelivery = Continuation
 	}
 
 	internal static class MultiBlockQuoteExtensions{
@@ -19,8 +22,6 @@
 					return "Start";
 				case MultiBlockQuote.Continuation:
 					return "Cont";
-				case MultiBlockQuote.ChangeOfDelivery:
-					return "CoD";
 				default:
 					return "?";
 			}

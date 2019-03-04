@@ -3,16 +3,18 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
-using ScrVers = Paratext.ScrVers;
+using static System.Char;
 
 namespace Glyssen.Quote
 {
@@ -44,34 +46,10 @@ namespace Glyssen.Quote
 			projectWorker.ReportProgress(100);
 		}
 
-		public static List<BookScript> TestQuoteSystem(Project project, QuoteSystem altQuoteSystem)
-		{
-			var cvInfo = new CombinedCharacterVerseData(project);
-
-			var unparsedBlocks = Unparse(project.Books);
-
-			var blocksInBook = unparsedBlocks.ToDictionary(bookidBlocksPair => bookidBlocksPair.Key.BookId, bookidBlocksPair => bookidBlocksPair.Value);
-
-			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
-			SetQuoteSystem(altQuoteSystem);
-			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
-			{
-				var bookId = bookidBlocksPair.Key;
-				var blocks =
-					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, project.Versification).Parse().ToList();
-				var parsedBook = new BookScript(bookId, blocks);
-				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
-			});
-
-			// sort the list
-			var bookScripts = parsedBlocksByBook.Values.ToList();
-			bookScripts.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
-			return bookScripts;
-		}
-
 		public static void SetQuoteSystem(QuoteSystem quoteSystem)
 		{
 			s_quoteSystem = quoteSystem;
+			Block.InitializeInterruptionRegEx(quoteSystem.QuotationDashMarker != null && quoteSystem.QuotationDashMarker.Any(c => c == '\u2014' || c == '\u2015'));
 		}
 
 		private readonly ICharacterVerseInfo m_cvInfo;
@@ -81,7 +59,6 @@ namespace Glyssen.Quote
 		private static QuoteSystem s_quoteSystem = QuoteSystem.Default;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
-		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
 		private Regex m_regexStartsWithFirstLevelOpener;
 		private Regex m_regexHasFirstLevelClose;
 
@@ -94,6 +71,7 @@ namespace Glyssen.Quote
 		private bool m_nextBlockContinuesQuote;
 		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		private List<string> m_possibleCharactersForCurrentQuote = new List<string>();
+		private bool m_ignoringNarratorQuotation;
 		#endregion
 
 		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
@@ -132,7 +110,9 @@ namespace Glyssen.Quote
 						splitters.Add(s_quoteSystem.NormalLevels[0].Continue);
 					splitters.Add(s_quoteSystem.NormalLevels[level].Open);
 					if (level == 0)
-						AddQuotationDashes(splitters);
+						AddQuotationDashStart(splitters);
+					else if (level == 1)
+						AddQuotationDashEnd(splitters);
 
 					regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 				}
@@ -142,14 +122,15 @@ namespace Glyssen.Quote
 				splitters.Add(s_quoteSystem.NormalLevels.Last().Close);
 				splitters.Add(s_quoteSystem.NormalLevels.Last().Continue);
 				if (s_quoteSystem.NormalLevels.Count == 1)
-					AddQuotationDashes(splitters);
+					AddQuotationDashEnd(splitters);
 
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 			else
 			{
 				splitters = new List<string>();
-				AddQuotationDashes(splitters);
+				AddQuotationDashStart(splitters);
+				AddQuotationDashEnd(splitters);
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 
@@ -162,26 +143,26 @@ namespace Glyssen.Quote
 				if (!String.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
 					sbAllCharacters.Append(quoteSystemLevel.Continue);
 			}
-			quoteChars.AddRange(sbAllCharacters.ToString().Where(c => !char.IsWhiteSpace(c)));
+			quoteChars.AddRange(sbAllCharacters.ToString().Where(c => !IsWhiteSpace(c)));
 
 			foreach (var expr in regexExpressions)
 			{
 				m_regexes.Add(new Regex(String.Format(expr,
 					Regex.Escape(string.Join(string.Empty, quoteChars)),
-					Regex.Escape(@"(\[\{")), RegexOptions.Compiled));
+					Regex.Escape(GetOpeningPunctuationAsSingleString())), RegexOptions.Compiled));
 			}
 		}
 
-		private void AddQuotationDashes(IList<string> splitters)
+		private void AddQuotationDashStart(IList<string> splitters)
 		{
 			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker))
-			{
 				splitters.Add(s_quoteSystem.QuotationDashMarker);
-				if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
-				{
-					splitters.Add(s_quoteSystem.QuotationDashEndMarker);
-				}
-			}
+		}
+
+		private void AddQuotationDashEnd(IList<string> splitters)
+		{
+			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker) && !string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
+				splitters.Add(s_quoteSystem.QuotationDashEndMarker);
 		}
 
 		private static string BuildQuoteMatcherRegex(IList<string> splitters)
@@ -201,7 +182,7 @@ namespace Glyssen.Quote
 			// Need to group because they could be more than one character each.
 			// ?: => non-matching group
 			// \w => word-forming character
-			return String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}{1}");
+			return String.Format(@"((?:(?:{0})(?:[^ \w{1}])* *))", quoteMatcher, "{0}{1}");
 		}
 
 		/// <summary>
@@ -235,7 +216,7 @@ namespace Glyssen.Quote
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&
 					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation ||
-					!IsFollowOnParagraphStyle(block.StyleTag)))
+					!block.IsFollowOnParagraphStyle))
 				{
 					DecrementQuoteLevel();
 					inPairedFirstLevelQuote = false;
@@ -247,7 +228,6 @@ namespace Glyssen.Quote
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 
 				bool atBeginningOfBlock = true;
-				bool specialOpeningPunctuation = false;
 				foreach (BlockElement element in block.BlockElements)
 				{
 					var scriptText = element as ScriptText;
@@ -272,13 +252,14 @@ namespace Glyssen.Quote
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+										multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 										multiBlock.Delivery = null;
 									}
 									m_currentMultiBlockQuote.Clear();
 									FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0, true);
 									SetBlockInitialVerseFromVerseElement(verseElement);
-									m_quoteLevel = 0;
+									if (!pendingColon)
+										m_quoteLevel = 0;
 									m_nextBlockContinuesQuote = false;
 								}
 							}
@@ -295,17 +276,25 @@ namespace Glyssen.Quote
 					sb.Clear();
 
 					var content = scriptText.Content;
-					int pos = 0;
+					var pos = 0;
 					while (pos < content.Length)
 					{
 						if (pendingColon)
 						{
-							var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
-							if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos &&
-								(pos > 0 || !m_regexHasFirstLevelClose.Match(content, pos + matchFirstLevelOpen.Length).Success))
-								DecrementQuoteLevel();
+							if (s_quoteSystem.NormalLevels.Count > 0)
+							{
+								if (AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(content, pos))
+								{
+									DecrementQuoteLevel();
+									Debug.Assert(m_quoteLevel > 0 || blockInWhichDialogueQuoteStarted == null);
+								}
+								else
+									blockInWhichDialogueQuoteStarted = block;
+							}
 							else
+							{
 								blockInWhichDialogueQuoteStarted = block;
+							}
 							pendingColon = false;
 						}
 
@@ -313,9 +302,10 @@ namespace Glyssen.Quote
 						var match = regex.Match(content, pos);
 						if (match.Success)
 						{
+							var specialOpeningPunctuationLen = 0;
 							if (match.Index > pos)
 							{
-								specialOpeningPunctuation = m_regexStartsWithSpecialOpeningPunctuation.Match(content).Success;
+								specialOpeningPunctuationLen = GetSpecialOpeningPunctuation(content).Length;
 								sb.Append(content.Substring(pos, match.Index - pos));
 							}
 
@@ -323,26 +313,31 @@ namespace Glyssen.Quote
 
 							var token = match.Value;
 
-							if (!specialOpeningPunctuation)
+							if (specialOpeningPunctuationLen > 0)
+							{
+								// this is only the beginning of a block if there are no characters between the special opening punctuation and the quotation mark
+								atBeginningOfBlock &= string.IsNullOrWhiteSpace(content.Substring(specialOpeningPunctuationLen, match.Index - specialOpeningPunctuationLen));
+							}
+							else
 								atBeginningOfBlock &= match.Index == 0;
 
 							if (atBeginningOfBlock)
 							{
-								if (!specialOpeningPunctuation)
+								if (specialOpeningPunctuationLen == 0)
 									atBeginningOfBlock = false;
 
-								if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
+								if (m_quoteLevel > 0 && s_quoteSystem.NormalLevels.Count > m_quoteLevel - 1 && token.StartsWith(ContinuerForCurrentLevel))
 								{
 									thisBlockStartsWithAContinuer = true;
 									int i = ContinuerForCurrentLevel.Length;
-									while (i < token.Length && Char.IsWhiteSpace(token[i]))
+									while (i < token.Length && IsWhiteSpace(token[i]))
 										i++;
 									sb.Append(token.Substring(0, i));
 									if (token.Length == i)
 										continue;
 									token = token.Substring(i);
 								}
-								if ((m_quoteLevel == 0) && (s_quoteSystem.NormalLevels.Count > 0))
+								if (m_quoteLevel == 0 && s_quoteSystem.NormalLevels.Count > 0)
 								{
 									string continuerForNextLevel = ContinuerForNextLevel;
 									if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
@@ -381,15 +376,28 @@ namespace Glyssen.Quote
 										m_currentMultiBlockQuote.Clear();
 										m_nextBlockContinuesQuote = false;
 									}
-									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+									if (m_ignoringNarratorQuotation)
+										m_ignoringNarratorQuotation = false;
+									else
+										FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 									potentialDialogueContinuer = false;
 									inPairedFirstLevelQuote = false;
 								}
 							}
 							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
-								if (m_quoteLevel == 0)
-									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(IsPunctuation))))
+								{
+									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
+									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
+									if (characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
+										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator))
+									{
+										m_ignoringNarratorQuotation = true;
+									}
+									else
+										FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								}
 								sb.Append(token);
 								IncrementQuoteLevel();
 								inPairedFirstLevelQuote = true;
@@ -399,7 +407,10 @@ namespace Glyssen.Quote
 								blockEndedWithSentenceEndingPunctuation = false;
 								pendingColon = token.StartsWith(":");
 								if (pendingColon)
+								{
+									blockInWhichDialogueQuoteStarted = null;
 									sb.Append(token);
+								}
 								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
 								if (!pendingColon)
 								{
@@ -420,7 +431,7 @@ namespace Glyssen.Quote
 								}
 								else
 								{
-									blockEndedWithSentenceEndingPunctuation = !IsFollowOnParagraphStyle(m_workingBlock.StyleTag) && EndsWithSentenceEndingPunctuation(token);
+									blockEndedWithSentenceEndingPunctuation = !m_workingBlock.IsFollowOnParagraphStyle && token.EndsWithSentenceEndingPunctuation();
 								}
 								sb.Append(token);
 							}
@@ -432,7 +443,7 @@ namespace Glyssen.Quote
 						else
 						{
 							var remainingText = content.Substring(pos);
-							if (m_quoteLevel == 1 && block == blockInWhichDialogueQuoteStarted && EndsWithSentenceEndingPunctuation(remainingText))
+							if (m_quoteLevel == 1 && block == blockInWhichDialogueQuoteStarted && remainingText.EndsWithSentenceEndingPunctuation())
 								blockEndedWithSentenceEndingPunctuation = true;
 							sb.Append(remainingText);
 							break;
@@ -456,7 +467,7 @@ namespace Glyssen.Quote
 				foreach (var multiBlock in m_currentMultiBlockQuote)
 				{
 					multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-					multiBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+					multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 					multiBlock.Delivery = null;
 				}
 			}
@@ -468,27 +479,93 @@ namespace Glyssen.Quote
 			return m_outputBlocks;
 		}
 
+		private bool AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(string content, int pos)
+		{
+			// Note: this method is used to try to guess whether an opening quote (that immediately follows
+			// a "dialogue" colon) is just a word or short phrase or a whole quote that happens to have a
+			// preceding colon. This is needed because languages that use a colon (without quotes) to introduce
+			// a bit of dialogue often also use a colon to introduce quoted speech. But we don't want to confuse
+			// a bit of dialogue that happens to begin with an exclamation or some other word or phrase that
+			// merits quotation marks with a full quote.
+			// See PG-487 for an idea that might ultimately do a better job of helping us figure this out.
+			var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
+			if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos)
+			{
+				if (pos > 0)
+					return true;
+				int quotationStartPos = pos + matchFirstLevelOpen.Length;
+				var match = m_regexHasFirstLevelClose.Match(content, quotationStartPos);
+				if (!match.Success)
+					return true;
+				// The remaining logic here is pretty fuzzy. Basically, it feels like a quote that covers more than
+				// half of the remaining text or which consists of 3 or more words is likely to be a full quote.
+				// In any case, it gets some existing (somewhat contrived) tests to pass and also allows a test based
+				// on more realistic data to pass.
+				int lengthOfQuotation = match.Index - quotationStartPos;
+				if (lengthOfQuotation > (content.Length - pos) / 2)
+					return true;
+				if (content.Skip(quotationStartPos).Take(lengthOfQuotation).Count(IsWhiteSpace) > 2)
+					return true;
+				return false;
+			}
+			return false;
+		}
+
+		private string GetOpeningPunctuationAsSingleString()
+		{
+			return string.Join("", CharacterUtils.GetAllCharactersInUnicodeCategory(UnicodeCategory.OpenPunctuation)) + GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString();
+		}
+
+		private string GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString()
+		{
+			return "¡¿";
+		}
+
+		private string GetSpecialOpeningPunctuation(string text)
+		{
+			if (text.Length == 0)
+				return string.Empty;
+
+			var sb = new StringBuilder();
+			var testIndex = 0;
+			var testCharacter = text[testIndex];
+
+			while (CharUnicodeInfo.GetUnicodeCategory(testCharacter) == UnicodeCategory.OpenPunctuation ||
+				GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString().Contains(testCharacter))
+			{
+				sb.Append(testCharacter);
+				testIndex++;
+
+				if (testIndex >= text.Length)
+					break;
+				testCharacter = text[testIndex];
+			}
+
+			return sb.ToString();
+		}
+
 		private bool ProbablyAnApostrophe(string content, int pos)
 		{
 			if (CloserForCurrentLevel != "’" ||
 				pos == 0 || pos >= content.Length - 1)
 				return false;
 
-			if (Char.IsPunctuation(content[pos - 1]) || Char.IsWhiteSpace(content[pos - 1]) ||
-				Char.IsPunctuation(content[pos + 1]))
+			if (IsPunctuation(content[pos - 1]) || IsWhiteSpace(content[pos - 1]) ||
+				IsPunctuation(content[pos + 1]))
 				return false;
 
-			if (Char.IsLetter(content[pos + 1]))
+			if (IsLetter(content[pos + 1]))
 				return true;
 
-			if (!Char.IsWhiteSpace(content[pos + 1]))
+			if (!IsWhiteSpace(content[pos + 1]))
 				return false;
 
 			var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
 			var match = regex.Match(content, pos + 1);
 			return (match.Success &&
 					(match.Value == CloserForCurrentLevel ||
-					(m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) ||
+					((m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) &&
+					(m_quoteLevel == 0 || !m_regexes[m_quoteLevel - 1].Match(content, pos + 1, match.Index - (pos + 1)).Success)) ||
 					(m_quoteLevel > 0 && match.Value == s_quoteSystem.NormalLevels[m_quoteLevel - 1].Open)));
 		}
 
@@ -516,28 +593,6 @@ namespace Glyssen.Quote
 		public string CloserForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
 		public string OpenerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
 
-		private bool EndsWithSentenceEndingPunctuation(string text)
-		{
-			int i = text.Length - 1;
-			while (i >= 0)
-			{
-				char c = text[i];
-				if (char.IsPunctuation(c))
-				{
-					if (CharacterUtils.IsSentenceFinalPunctuation(c))
-					{
-						return true;
-					}
-				}
-				else if (!char.IsWhiteSpace(c))
-				{
-					return false;
-				}
-				i--;
-			}
-			return false;
-		}
-
 		/// <summary>
 		/// Flush the current string builder to a block element
 		/// </summary>
@@ -549,7 +604,7 @@ namespace Glyssen.Quote
 			else
 			{
 				var text = sb.ToString();
-				if (text.Any(Char.IsLetterOrDigit)) // If not, just keep anything (probably opening punctuation) in the builder to be included with the next bit of text.
+				if (text.Any(IsLetterOrDigit)) // If not, just keep anything (probably opening punctuation) in the builder to be included with the next bit of text.
 				{
 					MoveTrailingElementsIfNecessary();
 					m_workingBlock.BlockElements.Add(new ScriptText(text));
@@ -572,10 +627,10 @@ namespace Glyssen.Quote
 				{
 					var verse = m_nonScriptTextBlockElements.First() as Verse;
 					if (verse != null)
-						m_workingBlock.InitialStartVerseNumber = ScrReference.VerseToIntStart(verse.Number);
+						m_workingBlock.InitialStartVerseNumber = BCVRef.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 					m_workingBlock.MultiBlockQuote = (lastBlock.MultiBlockQuote == MultiBlockQuote.Start)
-						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote; 
+						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote;
 
 					// If we removed all block elements, remove the block
 					if (!lastBlock.BlockElements.Any())
@@ -602,6 +657,11 @@ namespace Glyssen.Quote
 		/// <param name="characterUnknown"></param>
 		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
+			Debug.Assert(!m_ignoringNarratorQuotation,
+				"This should only happen if the data is bad or the settings have an ending quote mark that is not properly paired with the starting quote mark.");
+			// reset this flag just to be safe.
+			m_ignoringNarratorQuotation = false;
+
 			FlushStringBuilderToBlockElement(sb);
 			if (m_workingBlock.BlockElements.Count > 0)
 			{
@@ -622,9 +682,10 @@ namespace Glyssen.Quote
 				m_workingBlock.StyleTag = styleTag;
 				return;
 			}
+			Block blockFollowingInterruption = null;
 			if (characterUnknown)
 			{
-				m_workingBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+				m_workingBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 				m_workingBlock.Delivery = null;
 			}
 			else
@@ -644,8 +705,13 @@ namespace Glyssen.Quote
 					if (m_nextBlockContinuesQuote && m_workingBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
-					m_workingBlock.SetCharacterAndDelivery(
-						m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse, m_versification));
+					var characterVerseDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
+						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).ToList();
+					if (characterVerseDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
+					{
+						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
+					}
+					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				}
 				else
 				{
@@ -654,30 +720,111 @@ namespace Glyssen.Quote
 				}
 			}
 
-			switch (m_workingBlock.MultiBlockQuote)
+			var prevBlock = m_outputBlocks.LastOrDefault();
+			if (prevBlock != null &&
+				m_workingBlock.CharacterId == prevBlock.CharacterId &&
+				m_workingBlock.MultiBlockQuote != MultiBlockQuote.Start &&
+				(prevBlock.MultiBlockQuote == MultiBlockQuote.None ||
+				m_workingBlock.MultiBlockQuote != MultiBlockQuote.None) &&
+				!m_workingBlock.BlockElements.OfType<Verse>().Any() &&
+				!prevBlock.BlockElements.OfType<ScriptText>().Last().Content.EndsWithSentenceEndingPunctuation() &&
+				m_workingBlock.IsFollowOnParagraphStyle)
 			{
-				case MultiBlockQuote.Start:
-					ProcessMultiBlock();
-					m_currentMultiBlockQuote.Add(m_workingBlock);
-					break;
-				case MultiBlockQuote.Continuation:
-					m_currentMultiBlockQuote.Add(m_workingBlock);
-					break;
-				case MultiBlockQuote.None:
-					ProcessMultiBlock();
-					break;
+				prevBlock.CombineWith(m_workingBlock);
+			}
+			else
+			{
+				switch (m_workingBlock.MultiBlockQuote)
+				{
+					case MultiBlockQuote.Start:
+						ProcessMultiBlock();
+						m_currentMultiBlockQuote.Add(m_workingBlock);
+						break;
+					case MultiBlockQuote.Continuation:
+						m_currentMultiBlockQuote.Add(m_workingBlock);
+						break;
+					case MultiBlockQuote.None:
+						ProcessMultiBlock();
+						break;
+				}
+
+				m_outputBlocks.Add(m_workingBlock);
 			}
 
-			m_outputBlocks.Add(m_workingBlock);
+			if (blockFollowingInterruption != null)
+			{
+				m_outputBlocks.Add(blockFollowingInterruption);
+				m_currentMultiBlockQuote.Add(blockFollowingInterruption);
+			}
+
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
 			int verseStartNum = m_workingBlock.InitialStartVerseNumber;
 			int verseEndNum = m_workingBlock.InitialEndVerseNumber;
 			if (lastVerse != null)
 			{
-				verseStartNum = ScrReference.VerseToIntStart(lastVerse.Number);
-				verseEndNum = ScrReference.VerseToIntEnd(lastVerse.Number);
+				verseStartNum = lastVerse.StartVerse;
+				verseEndNum = lastVerse.EndVerse;
 			}
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
+		}
+
+		/// <summary>
+		/// This deals with parenthetical interruptions in a quote, like (let the reader understand).
+		/// Coming out of this method, m_workingBlock will always be the last interruption found.
+		/// </summary>
+		/// <param name="bookId"></param>
+		/// <param name="characterVerseDetails"></param>
+		/// <returns>Any portion of the block following the (last) interruption we detect</returns>
+		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
+		{
+			var nextInterruption = m_workingBlock.GetNextInterruption();
+			if (nextInterruption == null)
+				return null;
+
+			Block blockFollowingLastInterruption = null;
+
+			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
+			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
+			if (originalQuoteBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
+				ProcessMultiBlock();
+			m_currentMultiBlockQuote.Add(originalQuoteBlock);
+
+			while (true)
+			{
+				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
+				if (originalQuoteBlock.CharacterId == null)
+					originalQuoteBlock.SetCharacterAndDelivery(characterVerseDetails);
+				var startCharIndex = nextInterruption.Item1.Length;
+				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
+				{
+					blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
+					startCharIndex = 1;
+					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
+					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote && nextInterruption == null ? MultiBlockQuote.Start : MultiBlockQuote.None;
+					blockFollowingLastInterruption.CharacterId = originalQuoteBlock.CharacterId;
+					blockFollowingLastInterruption.CharacterIdOverrideForScript = originalQuoteBlock.CharacterIdOverrideForScript;
+					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
+				}
+				else
+				{
+					blockFollowingLastInterruption = null;
+					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
+				}
+				if (nextInterruption == null)
+					break;
+				m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
+				m_workingBlock = blocks.GetScriptBlocks().Last();
+			}
+
+			foreach (var b in blocks.GetScriptBlocks().TakeWhile(b => b != m_workingBlock))
+			{
+				m_outputBlocks.Add(b);
+			}
+
+			if (blockFollowingLastInterruption == null)
+				m_nextBlockContinuesQuote = false;
+
+			return blockFollowingLastInterruption;
 		}
 
 		private void ProcessMultiBlock()
@@ -702,79 +849,74 @@ namespace Glyssen.Quote
 			return styleTag == "p";
 		}
 
-		private bool IsFollowOnParagraphStyle(string styleTag)
-		{
-			return styleTag.StartsWith("q") || styleTag == "m";
-		}
+		//public static ConcurrentDictionary<BookScript, IReadOnlyList<Block>> Unparse(IEnumerable<BookScript> books)
+		//{
+		//	var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
 
-		public static ConcurrentDictionary<BookScript, IReadOnlyList<Block>> Unparse(IEnumerable<BookScript> books)
-		{
-			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
+		//	Parallel.ForEach(books, book =>
+		//	{
+		//		var oldBlocks = book.GetScriptBlocks();
+		//		var newBlocks = new List<Block>();
+		//		Block currentBlock = null;
 
-			Parallel.ForEach(books, book =>
-			{
-				var oldBlocks = book.GetScriptBlocks();
-				var newBlocks = new List<Block>();
-				Block currentBlock = null;
+		//		foreach (var oldBlock in oldBlocks)
+		//		{
+		//			// is this a new chapter?
+		//			if (oldBlock.IsParagraphStart || (currentBlock == null))
+		//			{
+		//				if (currentBlock != null) newBlocks.Add(currentBlock);
 
-				foreach (var oldBlock in oldBlocks)
-				{
-					// is this a new chapter?
-					if (oldBlock.IsParagraphStart || (currentBlock == null))
-					{
-						if (currentBlock != null) newBlocks.Add(currentBlock);
+		//				if (CharacterVerseData.IsCharacterExtraBiblical(oldBlock.CharacterId) && !oldBlock.UserConfirmed)
+		//				{
+		//					newBlocks.Add(oldBlock.Clone());
+		//					currentBlock = null;
+		//					continue;
+		//				}
+		//				else
+		//				{
+		//					currentBlock = new Block(oldBlock.StyleTag, oldBlock.ChapterNumber, oldBlock.InitialStartVerseNumber,
+		//						oldBlock.InitialEndVerseNumber);
+		//					currentBlock.IsParagraphStart = oldBlock.IsParagraphStart;
+		//				}
+		//			}
 
-						if (CharacterVerseData.IsCharacterStandard(oldBlock.CharacterId, false) && !oldBlock.UserConfirmed)
-						{
-							newBlocks.Add(oldBlock.Clone());
-							currentBlock = null;
-							continue;
-						}
-						else
-						{
-							currentBlock = new Block(oldBlock.StyleTag, oldBlock.ChapterNumber, oldBlock.InitialStartVerseNumber,
-								oldBlock.InitialEndVerseNumber);
-							currentBlock.IsParagraphStart = oldBlock.IsParagraphStart;
-						}
-					}
+		//			foreach (var element in oldBlock.BlockElements)
+		//			{
+		//				if (element is Verse)
+		//				{
+		//					currentBlock.BlockElements.Add(element.Clone());
+		//					continue;
+		//				}
 
-					foreach (var element in oldBlock.BlockElements)
-					{
-						if (element is Verse)
-						{
-							currentBlock.BlockElements.Add(element.Clone());
-							continue;
-						}
+		//				// element is Glyssen.ScriptText
+		//				// check if this text should be appended to the previous element
+		//				var lastElement = currentBlock.BlockElements.LastOrDefault() as ScriptText;
+		//				if (lastElement != null)
+		//				{
+		//					lastElement.Content += ((ScriptText) element).Content;
+		//				}
+		//				else
+		//				{
+		//					currentBlock.BlockElements.Add(element.Clone());
+		//				}
+		//			}
+		//		}
 
-						// element is Glyssen.ScriptText
-						// check if this text should be appended to the previous element
-						var lastElement = currentBlock.BlockElements.LastOrDefault() as ScriptText;
-						if (lastElement != null)
-						{
-							lastElement.Content += ((ScriptText) element).Content;
-						}
-						else
-						{
-							currentBlock.BlockElements.Add(element.Clone());
-						}
-					}
-				}
+		//		// add the last block now
+		//		if (currentBlock != null)
+		//			newBlocks.Add(currentBlock);
 
-				// add the last block now
-				if (currentBlock != null)
-					newBlocks.Add(currentBlock);
+		//		blocksInBook.AddOrUpdate(book, newBlocks, (script, list) => newBlocks);
+		//	});
 
-				blocksInBook.AddOrUpdate(book, newBlocks, (script, list) => newBlocks);
-			});
-
-			return blocksInBook;
-		}
+		//	return blocksInBook;
+		//}
 
 		#region CharacterDelivery utility class
 		public class CharacterDelivery
 		{
-			public readonly string Character;
-			public readonly string Delivery;
+			public string Character { get; private set; }
+			public string Delivery { get; private set; }
 
 			public CharacterDelivery(string character, string delivery)
 			{
@@ -806,11 +948,11 @@ namespace Glyssen.Quote
 				}
 			}
 
-			private static readonly IEqualityComparer<CharacterDelivery> CharacterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
+			private static readonly IEqualityComparer<CharacterDelivery> s_characterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
 
 			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer
 			{
-				get { return CharacterDeliveryComparerInstance; }
+				get { return s_characterDeliveryComparerInstance; }
 			}
 		}
 		#endregion
@@ -820,7 +962,7 @@ namespace Glyssen.Quote
 			public int Compare(char x, char y)
 			{
 				// Putting regular dash at the beginning makes the regex not try to treat it as a range operator
-				if (x.Equals('-'))
+				if (x.Equals('-') && !y.Equals('-'))
 					return -1;
 				return x.CompareTo(y);
 			}

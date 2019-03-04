@@ -20,8 +20,11 @@
 *.xml -whitespace
 changelog -whitespace
 *.lift* -whitespace
-*.csproj.DotSettings -whitespace
+*.DotSettings -whitespace
 *.tmx -whitespace
+*.proj -whitespace
 
+*.glyssen -whitespace
 *CharacterVerse*.txt -whitespace
 *CharacterDetail*.txt -whitespace
+Annotations.txt -whitespace

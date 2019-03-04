@@ -13,8 +13,8 @@ namespace Glyssen.Quote
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
 		public static readonly string None = LocalizationManager.GetString("Common.None", "None");
-		private static readonly object[] DefaultSymbols = { "“", "”", "‘", "’", "«", "»", "‹", "›", "„", "‚", "「", "」", "『", "』", "<<", ">>", "<", ">", None };
-		private static readonly Dictionary<MatchedPair, MatchedPair[]> Level2Possibilities = new Dictionary<MatchedPair, MatchedPair[]>
+		private static readonly object[] s_defaultSymbols = { "“", "”", "‘", "’", "«", "»", "‹", "›", "„", "‚", "「", "」", "『", "』", "<<", ">>", "<", ">", None };
+		private static readonly Dictionary<MatchedPair, MatchedPair[]> s_level2Possibilities = new Dictionary<MatchedPair, MatchedPair[]>
 		{
 			{new MatchedPair("“", "”", false), new []{new MatchedPair("‘", "’", false)}},
 			{new MatchedPair("‘", "’", false), new []{new MatchedPair("“", "”", false)}},
@@ -58,19 +58,19 @@ namespace Glyssen.Quote
 
 		public static object[] AllDefaultSymbols()
 		{
-			return DefaultSymbols;
+			return s_defaultSymbols;
 		}
 
 		public static Dictionary<MatchedPair, MatchedPair> Level2Defaults
 		{
-			get { return Level2Possibilities.ToDictionary(p => p.Key, p => p.Value.First()); }
+			get { return s_level2Possibilities.ToDictionary(p => p.Key, p => p.Value.First()); }
 		}
 
 		public static QuotationMark[] GetLevel2Possibilities(QuotationMark level1)
 		{
 			var level1Mp = new MatchedPair(level1.Open, level1.Close, false);
 			MatchedPair[] level2Possibilities;
-			Level2Possibilities.TryGetValue(level1Mp, out level2Possibilities);
+			s_level2Possibilities.TryGetValue(level1Mp, out level2Possibilities);
 			if (level2Possibilities == null)
 				return null;
 			return level2Possibilities.Select(q => new QuotationMark(q.Open, q.Close, level1.Continue + " " + q.Open, 2, level1.Type)).ToArray();

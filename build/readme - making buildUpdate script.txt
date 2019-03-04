@@ -1,4 +1,10 @@
 (Re)building buildUpdate.sh requires ruby and https://github.com/chrisvire/BuildUpdate
+
+*************************************************************************************
+***** If setting up a new machine, read the Installation instructions on the above
+***** page to enable BuildUpdate to work!!!
+*************************************************************************************
+
 Here's the command line commands I used:
 
 cd <path to where you want to generate buildUpdate.sh>

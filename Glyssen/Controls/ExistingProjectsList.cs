@@ -1,18 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Bundle;
+using Glyssen.Paratext;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
+using Glyssen.Utilities;
+using L10NSharp;
+using L10NSharp.UI;
+using Paratext.Data;
 using SIL.DblBundle;
+using SIL.Extensions;
 using SIL.Windows.Forms.DblBundle;
 
 namespace Glyssen.Controls
 {
 	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
 	{
+		private string m_fmtParatextProjectSource;
+		private readonly Dictionary<string, bool> m_unstartedParatextProjectStates = new Dictionary<string, bool>();
+		private ApplicationMetadata m_glyssenMetadata = null;
+
+		private ApplicationMetadata GlyssenMetadata
+		{
+			get
+			{
+				if (m_glyssenMetadata == null)
+				{
+					m_glyssenMetadata = ApplicationMetadata.Load(out Exception error);
+					if (error != null)
+						throw error;
+				}
+				return m_glyssenMetadata;
+			}
+		}
+
 		public ExistingProjectsList()
 		{
 			InitializeComponent();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			HandleStringsLocalized();
 		}
 
 		public void AddReadOnlyProject(Project project)
@@ -20,44 +49,101 @@ namespace Glyssen.Controls
 			AddReadOnlyProject(project.ProjectFilePath);
 		}
 
-		protected override DataGridViewColumn InactiveColumn { get { return colInactive; } }
-
-		protected override DataGridViewColumn FillColumn { get { return colBundleName; } }
-
-		protected override IEnumerable<string> AllProjectFolders
+		private void HandleStringsLocalized()
 		{
-			get { return Project.AllRecordingProjectFolders; }
+			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
+				"{0} project: {1}", "Param 0: \"Paratext\" (product name); Param 1: Paratext project short name (unique project identifier)");
 		}
 
-		protected override string ProjectFileExtension
+		protected override DataGridViewColumn InactiveColumn => colInactive;
+
+		protected override DataGridViewColumn FillColumn => colBundleName;
+
+		protected override IEnumerable<string> AllProjectFolders => Project.AllRecordingProjectFolders;
+
+		protected override string ProjectFileExtension => Constants.kProjectFileExtension;
+
+		public Func<IEnumerable<ScrText>> GetParatextProjects { private get; set; }
+
+		protected override IEnumerable<Tuple<string, IProjectInfo>> Projects
 		{
-			get { return Project.kProjectFileExtension; }
+			get
+			{
+				var existingProjects = new List<string>();
+				foreach (var project in base.Projects)
+				{
+					existingProjects.Add(project.Item2.Id);
+					yield return project;
+				}
+
+				if (GetParatextProjects != null)
+				{
+					foreach (var scrText in GetParatextProjects())
+					{
+						if (!existingProjects.Contains(scrText.Settings.DBLId))
+							yield return new Tuple<string, IProjectInfo>(scrText.Name, new ParatextProjectProxy(scrText));
+					}
+				}
+			}
 		}
 
 		protected override string GetRecordingProjectName(Tuple<string, IProjectInfo> project)
 		{
-			return Path.GetFileName(Path.GetDirectoryName(project.Item1));
+			var recordingProjName = project.Item1.GetContainingFolderName();
+			if (!String.IsNullOrEmpty(recordingProjName))
+				return recordingProjName;
+			if (!m_unstartedParatextProjectStates.ContainsKey(project.Item1))
+				m_unstartedParatextProjectStates[project.Item1] = IsInactiveParatextProject(project.Item1); 
+			return LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.NoRecordingProject",
+				"(recording project not started)");
 		}
 
 		protected override IEnumerable<object> GetAdditionalRowData(IProjectInfo project)
 		{
-			var metadata = (GlyssenDblTextMetadata) project;
-			yield return Path.GetFileName(metadata.OriginalPathBundlePath);
-			if (metadata.LastModified.Year < 1900)
+			var metadata = project as GlyssenDblTextMetadata;
+			if (metadata == null)
+			{
+				yield return String.Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName, project.Name);
 				yield return null;
+				yield return m_unstartedParatextProjectStates[project.Name];
+			}
 			else
-				yield return metadata.LastModified;
-			yield return metadata.Inactive;
+			{
+				if (!String.IsNullOrEmpty(metadata.OriginalReleaseBundlePath))
+					yield return Path.GetFileName(metadata.OriginalReleaseBundlePath);
+				else if (metadata.Id != SampleProject.kSample)
+					yield return String.Format(m_fmtParatextProjectSource, ParatextScrTextWrapper.kParatextProgramName, metadata.ParatextProjectId);
+				else
+					yield return null;
+				if (metadata.LastModified.Year < 1900)
+					yield return null;
+				else
+					yield return metadata.LastModified;
+				yield return metadata.Inactive;
+			}
 		}
 
 		protected override bool IsInactive(IProjectInfo project)
 		{
-			return ((GlyssenDblTextMetadata)project).Inactive;
+			return (project as GlyssenDblTextMetadata)?.Inactive ?? IsInactiveParatextProject(project.Name);
+		}
+
+		private bool IsInactiveParatextProject(string paratextProjectName)
+		{
+			return GlyssenMetadata.InactiveUnstartedParatextProjects != null &&
+				GlyssenMetadata.InactiveUnstartedParatextProjects.Contains(paratextProjectName, StringComparison.Ordinal);
 		}
 
 		protected override void SetHiddenFlag(bool inactive)
 		{
-			Project.SetHiddenFlag(SelectedProject, inactive);
+			if (m_unstartedParatextProjectStates.ContainsKey(SelectedProject))
+			{
+				m_unstartedParatextProjectStates[SelectedProject] = inactive;
+				GlyssenMetadata.InactiveUnstartedParatextProjects = m_unstartedParatextProjectStates.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+				GlyssenMetadata.Save();
+			}
+			else
+				Project.SetHiddenFlag(SelectedProject, inactive);
 		}
 
 		public void ScrollToSelected()

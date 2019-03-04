@@ -1,31 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Xml;
 using Glyssen;
 using Glyssen.Bundle;
+using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
+using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
+using SIL.Scripture;
 using SIL.WritingSystems;
 
 namespace GlyssenTests
 {
-	class TestProject
+	static class TestProject
 	{
+		private static Exception m_errorDuringProjectCreation;
+		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
 		{
 			JOS,
+			RUT,
+			OBA, // This is a playground book, currently useful for verse bridges and verse segments
+			MAT, // This is derived from Kuna (cuk), not Acholi
 			MRK,
 			LUK,
+			JHN,
 			ACT,
+			ROM_NoData,
+			ICO,
+			IICO_NoData,
 			GAL,
 			EPH,
+			PHP_NoData,
+			COL_NoData,
+			ITH_NoData,
+			IITH_NoData,
+			ITI_NoData,
+			IITI_NoData,
+			TIT_NoData,
 			PHM,
 			HEB,
+			JAS_NoData,
+			IPE_NoData,
+			IIPE_NoData,
 			IJN,
 			IIJN,
 			IIIJN,
@@ -37,38 +62,56 @@ namespace GlyssenTests
 
 		public static void DeleteTestProjectFolder()
 		{
-			var testProjFolder = Path.Combine(Program.BaseDataFolder, kTest);
+			var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, kTest);
 			if (Directory.Exists(testProjFolder))
 				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 		}
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)
 		{
-			DeleteTestProjectFolder();
-			var sampleMetadata = new GlyssenDblTextMetadata();
-			sampleMetadata.AvailableBooks = new List<Book>();
-			var books = new List<UsxDocument>();
+			m_errorDuringProjectCreation = null;
 
-			foreach (var testBook in booksToInclude)
-				AddBook(testBook, sampleMetadata, books);
+			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
+			try
+			{
+				DeleteTestProjectFolder();
+				var sampleMetadata = new GlyssenDblTextMetadata();
+				sampleMetadata.AvailableBooks = new List<Book>();
+				var books = new List<UsxDocument>();
 
-			sampleMetadata.FontFamily = "Times New Roman";
-			sampleMetadata.FontSizeInPoints = 12;
-			sampleMetadata.Id = kTest;
-			sampleMetadata.Language = new GlyssenDblMetadataLanguage { Iso = kTest };
-			sampleMetadata.Identification = new DblMetadataIdentification { Name = kTest };
-			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				foreach (var testBook in booksToInclude)
+					AddBook(testBook, sampleMetadata, books);
 
-			var sampleWs = new WritingSystemDefinition();
-			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem().AllLevels);
+				sampleMetadata.FontFamily = "Times New Roman";
+				sampleMetadata.FontSizeInPoints = 12;
+				sampleMetadata.Id = kTest;
+				sampleMetadata.Language = new GlyssenDblMetadataLanguage {Iso = kTest};
+				sampleMetadata.Identification = new DblMetadataIdentification {Name = kTest};
+				sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
-			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
+				var sampleWs = new WritingSystemDefinition();
+				sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT) || booksToInclude.Contains(TestBook.MAT)).AllLevels);
 
-			// Wait for quote parse to finish
-			while (project.ProjectState != ProjectState.FullyInitialized)
-				Thread.Sleep(100);
+				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
+
+				// Wait for quote parse to finish
+				while (project.ProjectState != ProjectState.FullyInitialized && m_errorDuringProjectCreation == null)
+					Thread.Sleep(100);
+			}
+			finally
+			{
+				AppDomain.CurrentDomain.UnhandledException -= HandleErrorDuringProjectCreation;
+			}
+
+			if (m_errorDuringProjectCreation != null)
+				throw m_errorDuringProjectCreation;
 
 			return LoadExistingTestProject();
+		}
+
+		private static void HandleErrorDuringProjectCreation(object sender, UnhandledExceptionEventArgs e)
+		{
+			m_errorDuringProjectCreation = (e.ExceptionObject as Exception) ?? new Exception("Something went wrong on background thread trying to create test project.");
 		}
 
 		public static Project LoadExistingTestProject()
@@ -89,15 +132,20 @@ namespace GlyssenTests
 			foreach (var testBook in booksToInclude)
 				AddBook(testBook, sampleMetadata, books);
 
-			return UsxParser.ParseProject(books, SfmLoader.GetUsfmStylesheet(), new BackgroundWorker { WorkerReportsProgress = true });
+			int previousPercentageValue = 0;
+			var reportProgress = new Action<int>(i => Assert.IsTrue(previousPercentageValue <= i));
+
+			return UsxParser.ParseBooks(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
 		}
 
-		private static QuoteSystem GetTestQuoteSystem()
+		private static QuoteSystem GetTestQuoteSystem(bool includeDialogueDash)
 		{
 			QuoteSystem testQuoteSystem = new QuoteSystem();
 			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
 			testQuoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
 			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
+			if (includeDialogueDash)
+				testQuoteSystem.AllLevels.Add(new QuotationMark("—", null, null, 1, QuotationMarkingSystemType.Narrative));
 			return testQuoteSystem;
 		}
 
@@ -116,6 +164,24 @@ namespace GlyssenTests
 					book.ShortName = "Joshua";
 					xmlDocument.LoadXml(Properties.Resources.TestJOS);
 					break;
+				case TestBook.RUT:
+					book.Code = "RUT";
+					book.LongName = "Ruth";
+					book.ShortName = "Ruth";
+					xmlDocument.LoadXml(Properties.Resources.TestRUT);
+					break;
+				case TestBook.OBA:
+					book.Code = "OBA";
+					book.LongName = "Obadiah";
+					book.ShortName = "Obadiah";
+					xmlDocument.LoadXml(Properties.Resources.TestOBAwithInterestingVerseNums);
+					break;
+				case TestBook.MAT:
+					book.Code = "MAT";
+					book.LongName = "Gospel of Matthew";
+					book.ShortName = "Matthew";
+					xmlDocument.LoadXml(Properties.Resources.TestMATcuk);
+					break;
 				case TestBook.MRK:
 					book.Code = "MRK";
 					book.LongName = "Gospel of Mark";
@@ -128,11 +194,35 @@ namespace GlyssenTests
 					book.ShortName = "Luke";
 					xmlDocument.LoadXml(Properties.Resources.TestLUK);
 					break;
+				case TestBook.JHN:
+					book.Code = "JHN";
+					book.LongName = "Gospel of John";
+					book.ShortName = "John";
+					xmlDocument.LoadXml(Properties.Resources.TestJHN);
+					break;
 				case TestBook.ACT:
 					book.Code = "ACT";
 					book.LongName = "The Acts of the Apostles";
 					book.ShortName = "Acts";
 					xmlDocument.LoadXml(Properties.Resources.TestACT);
+					break;
+				case TestBook.ROM_NoData:
+					book.Code = "ROM";
+					book.LongName = "The Epistle of Paul to the Romans";
+					book.ShortName = "Romans";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.ICO:
+					book.Code = "1CO";
+					book.LongName = "The First Epistle of Paul to the Church of Corinth";
+					book.ShortName = "1 Corinthians";
+					xmlDocument.LoadXml(Properties.Resources.Test1CO);
+					break;
+				case TestBook.IICO_NoData:
+					book.Code = "2CO";
+					book.LongName = "The First Epistle of Paul to the Church of Corinth";
+					book.ShortName = "2 Corinthians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.GAL:
 					book.Code = "GAL";
@@ -146,6 +236,48 @@ namespace GlyssenTests
 					book.ShortName = "Ephesians";
 					xmlDocument.LoadXml(Properties.Resources.TestEPH);
 					break;
+				case TestBook.PHP_NoData:
+					book.Code = "PHP";
+					book.LongName = "The Epistle of Paul to the Philippians";
+					book.ShortName = "Philippians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.COL_NoData:
+					book.Code = "COL";
+					book.LongName = "The Epistle of Paul to the Colossians";
+					book.ShortName = "Colossians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.ITH_NoData:
+					book.Code = "1TH";
+					book.LongName = "The First Epistle of Paul to the Thessalonians";
+					book.ShortName = "1 Thessalonians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IITH_NoData:
+					book.Code = "2TH";
+					book.LongName = "The Second Epistle of Paul to the Thessalonians";
+					book.ShortName = "2 Thessalonians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.ITI_NoData:
+					book.Code = "1TI";
+					book.LongName = "The First Epistle of Paul to Timothy";
+					book.ShortName = "1 Timothy";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IITI_NoData:
+					book.Code = "2TI";
+					book.LongName = "The Second Epistle of Paul to Timothy";
+					book.ShortName = "2 Timothy";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.TIT_NoData:
+					book.Code = "TIT";
+					book.LongName = "The Epistle of Paul to Titus";
+					book.ShortName = "Titus";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
 				case TestBook.PHM:
 					book.Code = "PHM";
 					book.LongName = "Paul's Letter to Philemon";
@@ -157,6 +289,24 @@ namespace GlyssenTests
 					book.LongName = "Hebrews";
 					book.ShortName = "Hebrews";
 					xmlDocument.LoadXml(Properties.Resources.TestHEB);
+					break;
+				case TestBook.JAS_NoData:
+					book.Code = "JAS";
+					book.LongName = "The Epistle of James";
+					book.ShortName = "James";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IPE_NoData:
+					book.Code = "1PE";
+					book.LongName = "The First Epistle of Peter";
+					book.ShortName = "1 Peter";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IIPE_NoData:
+					book.Code = "2PE";
+					book.LongName = "The Second Epistle of Peter";
+					book.ShortName = "2 Peter";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IJN:
 					book.Code = "1JN";
@@ -194,6 +344,16 @@ namespace GlyssenTests
 			metadata.AvailableBooks.Add(book);
 
 			usxDocuments.Add(new UsxDocument(xmlDocument));
+		}
+
+		public static void SimulateDisambiguationForAllBooks(Project testProject)
+		{
+			testProject.DoTestDisambiguation();
+		}
+
+		public static List<CharacterDetail> GetIncludedCharacterDetails(Project project)
+		{
+			return project.AllCharacterDetailDictionary.Values.Where(c => project.KeyStrokesByCharacterId.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 		}
 	}
 }

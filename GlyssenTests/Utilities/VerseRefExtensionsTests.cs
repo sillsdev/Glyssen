@@ -3,7 +3,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Glyssen.Utilities;
 using NUnit.Framework;
-using Paratext;
+using SIL.Scripture;
 using SIL.Windows.Forms.Scripture;
 
 namespace GlyssenTests.Utilities
@@ -29,7 +29,7 @@ namespace GlyssenTests.Utilities
 		private class DummyForm : Form
 		{
 			public static VerseRef MessageReceived;
-			private static DummyForm mInstance;
+			private static DummyForm s_instance;
 
 			public static void Start()
 			{
@@ -40,9 +40,9 @@ namespace GlyssenTests.Utilities
 			}
 			public static void Stop()
 			{
-				if (mInstance == null)
+				if (s_instance == null)
 					throw new InvalidOperationException("Stop without Start");
-				mInstance.Invoke(new MethodInvoker(mInstance.EndForm));
+				s_instance.Invoke(new MethodInvoker(s_instance.EndForm));
 			}
 			private static void RunForm()
 			{
@@ -57,9 +57,9 @@ namespace GlyssenTests.Utilities
 			protected override void SetVisibleCore(bool value)
 			{
 				// Prevent window getting visible
-				if (mInstance == null)
+				if (s_instance == null)
 					CreateHandle();
-				mInstance = this;
+				s_instance = this;
 				base.SetVisibleCore(false);
 			}
 

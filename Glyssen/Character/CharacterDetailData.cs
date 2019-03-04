@@ -61,6 +61,11 @@ namespace Glyssen.Character
 			return m_dictionary = m_data.ToDictionary(k => k.CharacterId);
 		}
 
+		public IEnumerable<string> GetAllCharacterIdsAsLowerInvariant()
+		{
+			return m_data.Select(c => c.CharacterId.ToLowerInvariant());
+		}
+
 		private void LoadData(string tabDelimitedCharacterDetailData)
 		{
 			var list = new List<CharacterDetail>();
@@ -85,23 +90,27 @@ namespace Glyssen.Character
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Narrator),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.Narrator,
 					Status = true
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.BookOrChapter),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.BookOrChapter
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.ExtraBiblical),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.ExtraBiblical
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Intro),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.Intro
 				});
 			}
 			return list;
@@ -110,6 +119,17 @@ namespace Glyssen.Character
 		private CharacterDetail ProcessLine(string[] items, int lineNumber)
 		{
 			if (lineNumber == 0)
+				return null;
+
+			// In an ideal world, we would probably like to keep "hypothetical-only" characters
+			// around so we can show them in the add character lists.
+			// But
+			// 1) They already don't show up there before this change.
+			// 2) I'm currently just trying to fix a crash which occurs when the user adds a
+			//    "hypothetical-only" character (PG-1104). And it doesn't feel worth it to go
+			//    for the ideal world quite yet.
+			var hypotheticalOnly = items.Length >= 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase);
+			if (ControlCharacterVerseData.ReadHypotheticalAsNarrator && hypotheticalOnly)
 				return null;
 
 			CharacterGender gender;

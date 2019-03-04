@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 using Glyssen.Properties;
-using Paratext;
 using SIL.Xml;
 
 namespace Glyssen
@@ -45,6 +45,14 @@ namespace Glyssen
 		{
 			[XmlAttribute("name")]
 			public string Name { get; set; }
+
+			[XmlAttribute("combineAuthorAndNarrator")]
+			[DefaultValue(false)]
+			public bool CombineAuthorAndNarrator { get; set; }
+
+			[XmlAttribute("doNotCombineByDefault")]
+			[DefaultValue(false)]
+			public bool DoNotCombineByDefault { get; set; }
 
 			[XmlArrayItem("Book")]
 			public List<string> Books { get; set; }

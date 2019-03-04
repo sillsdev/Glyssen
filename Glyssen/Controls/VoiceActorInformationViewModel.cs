@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
-using SIL.ObjectModel;
 
 namespace Glyssen.Controls
 {
@@ -28,13 +26,32 @@ namespace Glyssen.Controls
 
 		private readonly Project m_project;
 		private int m_currentId;
-		private readonly List<IVoiceActorUndoAction> m_undoActions = new List<IVoiceActorUndoAction>();
 		private readonly HashSet<int> m_removedActorIds = new HashSet<int>();
 		private readonly List<Tuple<VoiceActor.VoiceActor, CharacterGroup>> m_originalActors = new List<Tuple<VoiceActor.VoiceActor, CharacterGroup>>();
 
-		public IEnumerable<IVoiceActorUndoAction> Changes { get { return m_undoActions; } }
+		public IEnumerable<IVoiceActorUndoAction> Changes
+		{
+			get
+			{
+				foreach (var id in m_removedActorIds)
+				{
+					var removedActorInfo = m_originalActors.Find(a => a.Item1.Id == id);
+					if (removedActorInfo != null)
+						yield return new VoiceActorDeletedUndoAction(m_project, removedActorInfo.Item1, removedActorInfo.Item2);
+				}
+				foreach (var currentActor in m_project.VoiceActorList.AllActors)
+				{
+					Debug.Assert(!string.IsNullOrWhiteSpace(currentActor.Name));
+					var originalActor = m_originalActors.Find(a => a.Item1.Id == currentActor.Id);
+					if (originalActor == null)
+						yield return new VoiceActorAddedUndoAction(m_project, currentActor.Id);
+					else if (originalActor.Item1.Name != currentActor.Name || !originalActor.Item1.IsInterchangeableWith(currentActor))
+						yield return new VoiceActorEditUndoAction(m_project, originalActor.Item1);
+				}
+			}
+		}
 
-		public EventHandler Saved;
+		public EventHandler Saved { get; set; }
 
 		public enum ActorValidationState
 		{
@@ -49,6 +66,8 @@ namespace Glyssen.Controls
 			if (Actors.Any())
 				m_currentId = Actors.Max(a => a.Id) + 1;
 
+			InitialActorCount = Actors.Count;
+
 			foreach (var actor in Actors)
 			{
 				var characterGroup = project.CharacterGroupList.GetGroupsAssignedToActor(actor.Id).FirstOrDefault();
@@ -58,13 +77,25 @@ namespace Glyssen.Controls
 
 		public Project Project { get { return m_project; } }
 
+		public int InitialActorCount { get; private set; }
+
+		public bool DataHasChanged { get; private set; }
+
+		public bool DataHasChangedInWaysThatMightAffectGroupGeneration
+		{
+			get { return Changes.Any(c => !c.JustChangedName) || Actors.Any(a => a.IsCameo); }
+		}
+
 		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.AllActors; } }
+
+		public IEnumerable<VoiceActor.VoiceActor> ActiveActors { get { return m_project.VoiceActorList.ActiveActors; } }
 
 		public void SaveVoiceActorInformation()
 		{
 			Debug.Assert((Actors.Count == 0) || (Actors.Last().Name != ""));
 
 			m_project.SaveVoiceActorInformationData();
+			DataHasChanged = true;
 
 			if (Saved != null)
 				Saved(this, EventArgs.Empty);
@@ -147,32 +178,13 @@ namespace Glyssen.Controls
 			var table = new DataTable();
 			table.Columns.Add("ID", typeof(VoiceQuality));
 			table.Columns.Add("Name");
-			table.Rows.Add(VoiceQuality.Normal, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Normal", "N - Normal"));
-			table.Rows.Add(VoiceQuality.Dramatic, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Dramatic", "D - Dramatic"));
-			table.Rows.Add(VoiceQuality.Authoritative, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Authoritative", "A - Authoritative/Firm"));
-			table.Rows.Add(VoiceQuality.Weak, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Weak", "W - Weak"));
-			table.Rows.Add(VoiceQuality.Suspicious, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Suspicious", "S - Suspicious"));
-			table.Rows.Add(VoiceQuality.Clear, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Clear", "C - Clear"));
+			table.Rows.Add(VoiceQuality.Normal, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Normal", "N - Normal", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Dramatic, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Dramatic", "D - Dramatic", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Authoritative, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Authoritative", "A - Authoritative/Firm", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Weak, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Weak", "W - Weak", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Suspicious, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Suspicious", "S - Suspicious", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Clear, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Clear", "C - Clear", "This feature not currently in use in Glyssen"));
 			return table;
-		}
-
-		public void AssessChanges()
-		{
-			foreach (var id in m_removedActorIds)
-			{
-				var removedActorInfo = m_originalActors.Find(a => a.Item1.Id == id);
-				if (removedActorInfo != null)
-					m_undoActions.Add(new VoiceActorDeletedUndoAction(m_project, removedActorInfo.Item1, removedActorInfo.Item2));
-			}
-			foreach (var currentActor in m_project.VoiceActorList.AllActors)
-			{
-				Debug.Assert(!string.IsNullOrWhiteSpace(currentActor.Name));
-				var originalActor = m_originalActors.Find(a => a.Item1.Id == currentActor.Id);
-				if (originalActor == null)
-					m_undoActions.Add(new VoiceActorAddedUndoAction(m_project, currentActor.Id));
-				else if (originalActor.Item1.Name != currentActor.Name || !originalActor.Item1.IsInterchangeableWith(currentActor))
-					m_undoActions.Add(new VoiceActorEditUndoAction(m_project, originalActor.Item1));
-			}
 		}
 
 		public bool IsDuplicateActorName(VoiceActor.VoiceActor editedVoiceActor, string newActorName)
@@ -183,13 +195,6 @@ namespace Glyssen.Controls
 		public int CountOfAssignedActors(HashSet<VoiceActor.VoiceActor> actorsToRemove)
 		{
 			return actorsToRemove.Count(IsActorAssigned);
-		}
-
-		public void ResetActorAndCharacterGroupState()
-		{
-			m_project.Status.VoiceActorStatus = VoiceActorStatus.UnProvided;
-			m_project.CharacterGroupList.CharacterGroups = new ObservableList<CharacterGroup>();
-			m_project.Save();
 		}
 
 		public ActorValidationState ValidateActor(int index)
