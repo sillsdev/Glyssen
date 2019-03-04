@@ -1926,12 +1926,21 @@ namespace Glyssen.Dialogs
 				m_listBoxDeliveries.Focus();
 			}
 		}
-		#endregion
 
 		private void m_listBoxDeliveries_DoubleClick(object sender, EventArgs e)
 		{
 			if (m_btnAssign.Enabled && Settings.Default.AssignCharactersDoubleClickShouldAssign)
 				m_btnAssign.PerformClick();
 		}
+
+		private void m_dataGridReferenceText_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+		{
+			if (e.Control is ComboBox && m_dataGridReferenceText.CurrentRow != null)
+			{
+				// PG-1103: Fix the black background on the drop down menu
+				e.CellStyle.BackColor = m_dataGridReferenceText.CurrentRow.DefaultCellStyle.BackColor;
+			}
+		}
+		#endregion
 	}
 }

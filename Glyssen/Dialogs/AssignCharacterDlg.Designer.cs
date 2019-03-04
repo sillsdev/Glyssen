@@ -724,7 +724,6 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripLabelFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFilter, L10NSharp.LocalizationPriority.Medium);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFilter, "DialogBoxes.BlockNavigationControls.m_toolStripLabelFilter");
 			this.m_toolStripLabelFilter.Name = "m_toolStripLabelFilter";
 			this.m_toolStripLabelFilter.Size = new System.Drawing.Size(36, 23);
@@ -1154,6 +1153,7 @@ namespace Glyssen.Dialogs
 			this.m_dataGridReferenceText.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.m_dataGridReferenceText_CellMouseDown);
 			this.m_dataGridReferenceText.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.m_dataGridReferenceText_CellPainting);
 			this.m_dataGridReferenceText.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_dataGridReferenceText_CellValidating);
+			this.m_dataGridReferenceText.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_dataGridReferenceText_EditingControlShowing);
 			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateRowSpecificButtonStates);
 			// 
 			// colCharacter
