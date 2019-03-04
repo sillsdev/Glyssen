@@ -757,7 +757,7 @@ namespace Glyssen
 						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
-						upgradeProject = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+						upgradeProject = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
 					if (!upgradeProject)
 						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 				}

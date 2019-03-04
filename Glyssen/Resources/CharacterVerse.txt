@@ -14084,8 +14084,8 @@ MRK	6	31	Jesus			Dialogue
 MRK	6	35	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MRK	6	36	disciples	taking charge		Normal		
 MRK	6	37	Jesus			Dialogue		
-MRK	6	37	Philip the apostle	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
-MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
+MRK	6	37	Philip the apostle	frustrated	disciples (Philip, see John 6:7)	Dialogue		MRK 6.37;JHN 6.7
+MRK	6	38	Andrew		disciples (Andrew, see John 6:9)	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		Dialogue		
 MRK	6	39	Jesus			Indirect		
 MRK	6	40	Jesus			Indirect		

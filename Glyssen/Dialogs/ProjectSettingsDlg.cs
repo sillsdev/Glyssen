@@ -405,7 +405,7 @@ namespace Glyssen.Dialogs
 						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle", "Message caption");
 					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
-						reparseOkay = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
+						reparseOkay = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
 				}
 			}
 
@@ -450,32 +450,28 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				using (var dlg = new SelectProjectDlg(false, m_model.BundlePath))
+				if (SelectBundleForProjectDlg.TryGetBundleName(m_model.RecordingProjectName, m_model.BundlePath, out string selectedBundlePath))
 				{
-					if (dlg.ShowDialog() == DialogResult.OK)
+					var bundle = new GlyssenBundle(selectedBundlePath);
+					if (ConfirmProjectUpdateFromBundle(bundle))
 					{
-						var selectedBundlePath = dlg.FileName;
-						var bundle = new GlyssenBundle(selectedBundlePath);
-						if (ConfirmProjectUpdateFromBundle(bundle))
+						Logger.WriteEvent($"Updating project {m_lblRecordingProjectName} from bundle {selectedBundlePath}");
+						m_model.BundlePath = selectedBundlePath;
+						UpdatedBundle = bundle;
+						HandleOkButtonClick(sender, e);
+					}
+					else
+					{
+						Analytics.Track("CancelledUpdateProjectFromBundleData", new Dictionary<string, string>
 						{
-							Logger.WriteEvent($"Updating project {m_lblRecordingProjectName} from bundle {selectedBundlePath}");
-							m_model.BundlePath = selectedBundlePath;
-							UpdatedBundle = bundle;
-							HandleOkButtonClick(sender, e);
-						}
-						else
-						{
-							Analytics.Track("CancelledUpdateProjectFromBundleData", new Dictionary<string, string>
-							{
-								{"bundleLanguage", bundle.LanguageIso},
-								{"projectLanguage", m_model.IsoCode},
-								{"bundleID", bundle.Id},
-								{"projectID", m_model.PublicationId},
-								{"recordingProjectName", m_model.RecordingProjectName},
-								{"bundlePathChanged", (m_model.BundlePath != selectedBundlePath).ToString()}
-							});
-							bundle.Dispose();
-						}
+							{"bundleLanguage", bundle.LanguageIso},
+							{"projectLanguage", m_model.IsoCode},
+							{"bundleID", bundle.Id},
+							{"projectID", m_model.PublicationId},
+							{"recordingProjectName", m_model.RecordingProjectName},
+							{"bundlePathChanged", (m_model.BundlePath != selectedBundlePath).ToString()}
+						});
+						bundle.Dispose();
 					}
 				}
 			}
