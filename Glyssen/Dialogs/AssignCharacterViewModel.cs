@@ -143,6 +143,7 @@ namespace Glyssen.Dialogs
 
 		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
 		{
+			Debug.Assert(!String.IsNullOrEmpty(characterId));
 			m_pendingCharacterVerseAdditions.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
 				characterId,
 				delivery == null ? Delivery.Normal.Text : delivery.Text,
@@ -484,18 +485,15 @@ namespace Glyssen.Dialogs
 			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond and
 			// also allows addition of new character/delivery pairs, so we need to check to see whether this has happened and, if
 			// so, add an appropriate entry to the project CV data.
-
-			//foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(IsBlockAssignedToUnknownCharacterDeliveryPair))
-
 			int iLastBlockInMatchup = CurrentReferenceTextMatchup.IndexOfStartBlockInBook + CurrentReferenceTextMatchup.OriginalBlockCount;
 			var blocks = CurrentBook.GetScriptBlocks();
-			for (int i = CurrentReferenceTextMatchup.IndexOfStartBlockInBook; i <= iLastBlockInMatchup || (i < blocks.Count && blocks[i].IsContinuationOfPreviousBlockQuote); i++)
+			for (int i = CurrentReferenceTextMatchup.IndexOfStartBlockInBook; i < iLastBlockInMatchup || (i < blocks.Count && blocks[i].IsContinuationOfPreviousBlockQuote); i++)
 			{
 				var block = blocks[i];
 				if (IsBlockAssignedToUnknownCharacterDeliveryPair(block))
 				{
-				Debug.Assert(block.CharacterId != null);
-				Debug.Assert(block.CharacterId != "");
+					Debug.Assert(block.CharacterId != null);
+					Debug.Assert(block.CharacterId != "");
 					AddRecordToProjectCharacterVerseData(block,
 						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
 						string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
@@ -628,7 +626,8 @@ namespace Glyssen.Dialogs
 						var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
 						var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
 							blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
-						AddPendingProjectCharacterVerseDataIfNeeded(chipOffTheOldBlock, characterId);
+						if (!string.IsNullOrEmpty(firstCharacterId))
+							AddPendingProjectCharacterVerseDataIfNeeded(chipOffTheOldBlock, characterId);
 
 						var isNewBlock = originalNextBlock != chipOffTheOldBlock;
 						if (isNewBlock)
