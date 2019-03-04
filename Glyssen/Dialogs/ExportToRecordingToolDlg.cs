@@ -30,10 +30,11 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
-			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName, Constants.kGlyssenScriptFileExtension, "HearThis");
-			m_lblWarning.Text = string.Format(m_lblWarning.Text, "HearThis");
+			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName, Constants.kGlyssenScriptFileExtension,
+				Constants.kHearThisProductName, Constants.kHearThisMinimumSupportedVersion);
+			m_lblWarning.Text = string.Format(m_lblWarning.Text, Constants.kHearThisProductName);
 
-			Text = string.Format(Text, m_viewModel.Project.Name);
+			Text = string.Format(Text, Constants.kHearThisProductName, m_viewModel.Project.Name);
 		}
 
 		private void Browse_Click(object sender, EventArgs e)

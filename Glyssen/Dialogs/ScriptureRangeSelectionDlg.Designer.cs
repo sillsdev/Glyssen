@@ -1,4 +1,6 @@
-﻿namespace Glyssen.Dialogs
+﻿using System.Windows.Forms;
+
+namespace Glyssen.Dialogs
 {
 	partial class ScriptureRangeSelectionDlg
 	{
@@ -34,17 +36,17 @@
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_ntBooksGrid = new System.Windows.Forms.DataGridView();
-			this.BookCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.VernacularBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.IncludeInScript = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.MultiVoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.m_colNTBookCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_colVernacularNTBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_colIncludeNTBookInScript = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.m_colNTMultiVoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.m_checkBoxNewTestament = new System.Windows.Forms.CheckBox();
 			this.m_checkBoxOldTestament = new System.Windows.Forms.CheckBox();
 			this.m_otBooksGrid = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.m_colOTBookCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_colVernacularOTBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_colIncludeOTBookInScript = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.m_colOTMultiVoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -76,12 +78,13 @@
 			this.m_btnOk.Text = "OK";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+			this.m_btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnCancel.CausesValidation = false;
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -108,15 +111,15 @@
 			this.m_ntBooksGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_ntBooksGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_ntBooksGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BookCode,
-            this.VernacularBookName,
-            this.IncludeInScript,
-            this.MultiVoice});
+            this.m_colNTBookCode,
+            this.m_colVernacularNTBookName,
+            this.m_colIncludeNTBookInScript,
+            this.m_colNTMultiVoice});
 			this.glyssenColorPalette.SetForeColor(this.m_ntBooksGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ntBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ntBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_ntBooksGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_ntBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.dataGridView1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ntBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.m_ntBooksGrid");
 			this.m_ntBooksGrid.Location = new System.Drawing.Point(365, 26);
 			this.m_ntBooksGrid.MultiSelect = false;
 			this.m_ntBooksGrid.Name = "m_ntBooksGrid";
@@ -128,39 +131,40 @@
 			this.m_ntBooksGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksGrid_CellContentClick);
 			this.m_ntBooksGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.BooksGrid_CellFormatting);
 			this.m_ntBooksGrid.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.BooksGrid_CellPainting);
+			this.m_ntBooksGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BooksGrid_CellValidating);
 			this.m_ntBooksGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValueNeeded);
 			this.m_ntBooksGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValuePushed);
 			this.m_ntBooksGrid.SelectionChanged += new System.EventHandler(this.BooksGrid_SelectionChanged);
 			// 
-			// BookCode
+			// m_colNTBookCode
 			// 
-			this.BookCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.BookCode.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.Book!Book";
-			this.BookCode.Name = "BookCode";
-			this.BookCode.ReadOnly = true;
-			this.BookCode.Width = 325;
+			this.m_colNTBookCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.m_colNTBookCode.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.Book!Book";
+			this.m_colNTBookCode.Name = "m_colNTBookCode";
+			this.m_colNTBookCode.ReadOnly = true;
+			this.m_colNTBookCode.Width = 325;
 			// 
-			// VernacularBookName
+			// m_colVernacularNTBookName
 			// 
-			this.VernacularBookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.VernacularBookName.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.VernacularName!Vernacular Name";
-			this.VernacularBookName.Name = "VernacularBookName";
-			this.VernacularBookName.ReadOnly = true;
+			this.m_colVernacularNTBookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.m_colVernacularNTBookName.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.VernacularName!Vernacular Name";
+			this.m_colVernacularNTBookName.Name = "m_colVernacularNTBookName";
+			this.m_colVernacularNTBookName.ReadOnly = true;
 			// 
-			// IncludeInScript
+			// m_colIncludeNTBookInScript
 			// 
-			this.IncludeInScript.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.IncludeInScript.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript!Include in Script";
-			this.IncludeInScript.Name = "IncludeInScript";
-			this.IncludeInScript.Width = 75;
+			this.m_colIncludeNTBookInScript.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.m_colIncludeNTBookInScript.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript!Include in Script";
+			this.m_colIncludeNTBookInScript.Name = "m_colIncludeNTBookInScript";
+			this.m_colIncludeNTBookInScript.Width = 75;
 			// 
-			// MultiVoice
+			// m_colNTMultiVoice
 			// 
-			this.MultiVoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.MultiVoice.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors!Multiple Voice " +
+			this.m_colNTMultiVoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.m_colNTMultiVoice.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors!Multiple Voice " +
     "Actors";
-			this.MultiVoice.Name = "MultiVoice";
-			this.MultiVoice.Width = 75;
+			this.m_colNTMultiVoice.Name = "m_colNTMultiVoice";
+			this.m_colNTMultiVoice.Width = 75;
 			// 
 			// m_checkBoxNewTestament
 			// 
@@ -220,15 +224,15 @@
 			this.m_otBooksGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_otBooksGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_otBooksGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewCheckBoxColumn2});
+            this.m_colOTBookCode,
+            this.m_colVernacularOTBookName,
+            this.m_colIncludeOTBookInScript,
+            this.m_colOTMultiVoice});
 			this.glyssenColorPalette.SetForeColor(this.m_otBooksGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_otBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_otBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_otBooksGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_otBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.dataGridView1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_otBooksGrid, "DialogBoxes.ScriptureRangeSelectionDlg.m_otBooksGrid");
 			this.m_otBooksGrid.Location = new System.Drawing.Point(3, 26);
 			this.m_otBooksGrid.MultiSelect = false;
 			this.m_otBooksGrid.Name = "m_otBooksGrid";
@@ -240,39 +244,40 @@
 			this.m_otBooksGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksGrid_CellContentClick);
 			this.m_otBooksGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.BooksGrid_CellFormatting);
 			this.m_otBooksGrid.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.BooksGrid_CellPainting);
+			this.m_otBooksGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BooksGrid_CellValidating);
 			this.m_otBooksGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValueNeeded);
 			this.m_otBooksGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.BooksGrid_CellValuePushed);
 			this.m_otBooksGrid.SelectionChanged += new System.EventHandler(this.BooksGrid_SelectionChanged);
 			// 
-			// dataGridViewTextBoxColumn1
+			// m_colOTBookCode
 			// 
-			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn1.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.Book!Book";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			this.dataGridViewTextBoxColumn1.Width = 325;
+			this.m_colOTBookCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.m_colOTBookCode.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.Book!Book";
+			this.m_colOTBookCode.Name = "m_colOTBookCode";
+			this.m_colOTBookCode.ReadOnly = true;
+			this.m_colOTBookCode.Width = 325;
 			// 
-			// dataGridViewTextBoxColumn2
+			// m_colVernacularOTBookName
 			// 
-			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn2.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.VernacularName!Vernacular Name";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
+			this.m_colVernacularOTBookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.m_colVernacularOTBookName.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.VernacularName!Vernacular Name";
+			this.m_colVernacularOTBookName.Name = "m_colVernacularOTBookName";
+			this.m_colVernacularOTBookName.ReadOnly = true;
 			// 
-			// dataGridViewCheckBoxColumn1
+			// m_colIncludeOTBookInScript
 			// 
-			this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.dataGridViewCheckBoxColumn1.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript!Include in Script";
-			this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-			this.dataGridViewCheckBoxColumn1.Width = 75;
+			this.m_colIncludeOTBookInScript.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.m_colIncludeOTBookInScript.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.IncludeInScript!Include in Script";
+			this.m_colIncludeOTBookInScript.Name = "m_colIncludeOTBookInScript";
+			this.m_colIncludeOTBookInScript.Width = 75;
 			// 
-			// dataGridViewCheckBoxColumn2
+			// m_colOTMultiVoice
 			// 
-			this.dataGridViewCheckBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.dataGridViewCheckBoxColumn2.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors!Multiple Voice " +
+			this.m_colOTMultiVoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.m_colOTMultiVoice.HeaderText = "_L10N_:DialogBoxes.ScriptureRangeSelectionDlg.MultipleVoiceActors!Multiple Voice " +
     "Actors";
-			this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-			this.dataGridViewCheckBoxColumn2.Width = 75;
+			this.m_colOTMultiVoice.Name = "m_colOTMultiVoice";
+			this.m_colOTMultiVoice.Width = 75;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -341,14 +346,14 @@
 		private System.Windows.Forms.DataGridView m_otBooksGrid;
 		private System.Windows.Forms.CheckBox m_checkBoxOldTestament;
 		private System.Windows.Forms.CheckBox m_checkBoxNewTestament;
-		private System.Windows.Forms.DataGridViewTextBoxColumn BookCode;
-		private System.Windows.Forms.DataGridViewTextBoxColumn VernacularBookName;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn IncludeInScript;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn MultiVoice;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
+		private System.Windows.Forms.DataGridViewTextBoxColumn m_colNTBookCode;
+		private System.Windows.Forms.DataGridViewTextBoxColumn m_colVernacularNTBookName;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn m_colIncludeNTBookInScript;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn m_colNTMultiVoice;
+		private System.Windows.Forms.DataGridViewTextBoxColumn m_colOTBookCode;
+		private System.Windows.Forms.DataGridViewTextBoxColumn m_colVernacularOTBookName;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn m_colIncludeOTBookInScript;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn m_colOTMultiVoice;
 	}
 }

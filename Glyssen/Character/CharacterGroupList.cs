@@ -149,7 +149,7 @@ namespace Glyssen.Character
 			int iNarrator = 0;
 			foreach (var group in groups.Where(g => g.GroupIdLabel != CharacterGroup.Label.Other).OrderByDescending(g => g.EstimatedHours))
 			{
-				Debug.Assert(group.GroupIdLabel == CharacterGroup.Label.None);
+				Debug.Assert(group.GroupIdLabel == CharacterGroup.Label.None || group.AssignedToCameoActor);
 
 				group.SetGroupIdLabel();
 

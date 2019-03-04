@@ -32,6 +32,9 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.NumericUpDown numericUpDown1;
+			System.Windows.Forms.NumericUpDown numericUpDown2;
+			System.Windows.Forms.NumericUpDown numericUpDown3;
 			this.m_tableLayout = new System.Windows.Forms.TableLayoutPanel();
 			this.m_rbMatchVoiceActorList = new System.Windows.Forms.RadioButton();
 			this.m_rbSmall = new System.Windows.Forms.RadioButton();
@@ -65,15 +68,15 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+			numericUpDown3 = new System.Windows.Forms.NumericUpDown();
 			this.m_tableLayout.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(numericUpDown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(numericUpDown3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
@@ -122,9 +125,9 @@
 			this.m_tableLayout.Controls.Add(this.label14, 4, 5);
 			this.m_tableLayout.Controls.Add(this.label15, 3, 5);
 			this.m_tableLayout.Controls.Add(this.label16, 2, 5);
-			this.m_tableLayout.Controls.Add(this.numericUpDown1, 2, 4);
-			this.m_tableLayout.Controls.Add(this.numericUpDown2, 3, 4);
-			this.m_tableLayout.Controls.Add(this.numericUpDown3, 4, 4);
+			this.m_tableLayout.Controls.Add(numericUpDown1, 2, 4);
+			this.m_tableLayout.Controls.Add(numericUpDown2, 3, 4);
+			this.m_tableLayout.Controls.Add(numericUpDown3, 4, 4);
 			this.m_tableLayout.Dock = System.Windows.Forms.DockStyle.Top;
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayout, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_tableLayout.Location = new System.Drawing.Point(0, 0);
@@ -146,8 +149,8 @@
 			// m_rbMatchVoiceActorList
 			// 
 			this.m_rbMatchVoiceActorList.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rbMatchVoiceActorList, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbMatchVoiceActorList.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rbMatchVoiceActorList, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbMatchVoiceActorList.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rbMatchVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rbMatchVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -168,8 +171,8 @@
 			// m_rbSmall
 			// 
 			this.m_rbSmall.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rbSmall, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbSmall.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rbSmall, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbSmall.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rbSmall, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rbSmall.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -190,8 +193,8 @@
 			// m_rbRecommended
 			// 
 			this.m_rbRecommended.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rbRecommended, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbRecommended.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rbRecommended, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbRecommended.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rbRecommended, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rbRecommended.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -212,8 +215,8 @@
 			// m_rbLarge
 			// 
 			this.m_rbLarge.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rbLarge, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbLarge.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rbLarge, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbLarge.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rbLarge, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rbLarge.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -234,8 +237,8 @@
 			// m_rbCustom
 			// 
 			this.m_rbCustom.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rbCustom, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbCustom.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rbCustom, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rbCustom.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rbCustom, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rbCustom.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -758,51 +761,54 @@
 			// 
 			// numericUpDown1
 			// 
-			this.numericUpDown1.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.numericUpDown1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.numericUpDown1, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.numericUpDown1, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.numericUpDown1, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.numericUpDown1, "DialogBoxes.numericUpDown1");
-			this.numericUpDown1.Location = new System.Drawing.Point(407, 103);
-			this.numericUpDown1.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(41, 20);
-			this.numericUpDown1.TabIndex = 32;
-			this.glyssenColorPalette.SetUsePaletteColors(this.numericUpDown1, false);
-			this.numericUpDown1.ValueChanged += new System.EventHandler(this.CastSizeValueChanged);
+			numericUpDown1.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(numericUpDown1, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(numericUpDown1, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(numericUpDown1, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(numericUpDown1, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(numericUpDown1, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(numericUpDown1, "DialogBoxes.CastSizePlanningOptions.numericUpDown1");
+			numericUpDown1.Location = new System.Drawing.Point(407, 103);
+			numericUpDown1.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+			numericUpDown1.Name = "numericUpDown1";
+			numericUpDown1.Size = new System.Drawing.Size(41, 20);
+			numericUpDown1.TabIndex = 32;
+			this.glyssenColorPalette.SetUsePaletteColors(numericUpDown1, false);
+			numericUpDown1.ValueChanged += new System.EventHandler(this.CastSizeValueChanged);
 			// 
 			// numericUpDown2
 			// 
-			this.numericUpDown2.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.numericUpDown2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.numericUpDown2, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.numericUpDown2, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.numericUpDown2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.numericUpDown2, "DialogBoxes.numericUpDown1");
-			this.numericUpDown2.Location = new System.Drawing.Point(457, 103);
-			this.numericUpDown2.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(41, 20);
-			this.numericUpDown2.TabIndex = 33;
-			this.glyssenColorPalette.SetUsePaletteColors(this.numericUpDown2, false);
-			this.numericUpDown2.ValueChanged += new System.EventHandler(this.CastSizeValueChanged);
+			numericUpDown2.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(numericUpDown2, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(numericUpDown2, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(numericUpDown2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(numericUpDown2, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(numericUpDown2, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(numericUpDown2, "DialogBoxes.CastSizePlanningOptions.numericUpDown2");
+			numericUpDown2.Location = new System.Drawing.Point(457, 103);
+			numericUpDown2.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+			numericUpDown2.Name = "numericUpDown2";
+			numericUpDown2.Size = new System.Drawing.Size(41, 20);
+			numericUpDown2.TabIndex = 33;
+			this.glyssenColorPalette.SetUsePaletteColors(numericUpDown2, false);
+			numericUpDown2.ValueChanged += new System.EventHandler(this.CastSizeValueChanged);
 			// 
 			// numericUpDown3
 			// 
-			this.numericUpDown3.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.numericUpDown3, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.numericUpDown3, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.numericUpDown3, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.numericUpDown3, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.numericUpDown3, "DialogBoxes.numericUpDown1");
-			this.numericUpDown3.Location = new System.Drawing.Point(513, 103);
-			this.numericUpDown3.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-			this.numericUpDown3.Name = "numericUpDown3";
-			this.numericUpDown3.Size = new System.Drawing.Size(41, 20);
-			this.numericUpDown3.TabIndex = 34;
-			this.glyssenColorPalette.SetUsePaletteColors(this.numericUpDown3, false);
-			this.numericUpDown3.ValueChanged += new System.EventHandler(this.CastSizeValueChanged);
+			numericUpDown3.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(numericUpDown3, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(numericUpDown3, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(numericUpDown3, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(numericUpDown3, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(numericUpDown3, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(numericUpDown3, "DialogBoxes.CastSizePlanningOptions.numericUpDown3");
+			numericUpDown3.Location = new System.Drawing.Point(513, 103);
+			numericUpDown3.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+			numericUpDown3.Name = "numericUpDown3";
+			numericUpDown3.Size = new System.Drawing.Size(41, 20);
+			numericUpDown3.TabIndex = 34;
+			this.glyssenColorPalette.SetUsePaletteColors(numericUpDown3, false);
+			numericUpDown3.ValueChanged += new System.EventHandler(this.CastSizeValueChanged);
 			// 
 			// m_l10NSharpExtender
 			// 
@@ -826,9 +832,9 @@
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.m_tableLayout.ResumeLayout(false);
 			this.m_tableLayout.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(numericUpDown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(numericUpDown3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.ResumeLayout(false);
@@ -873,8 +879,5 @@
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
-		private System.Windows.Forms.NumericUpDown numericUpDown3;
 	}
 }

@@ -35,6 +35,10 @@ for the sake of convenience, you may want to.
 
 # Release Notes
 
+## November 2018
+Glyssen 1.1 released!
+The major new feature in this version of Glyssen is support for direct access to data from live Paratext 8 projects.
+
 ## February 2018
 Added reference texts for much of the Old Testament
 

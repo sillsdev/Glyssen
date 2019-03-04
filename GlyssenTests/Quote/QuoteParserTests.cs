@@ -4779,6 +4779,78 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", results[i].CharacterId);
 		}
 
+		// PG-1160
+		[Test]
+		public void Parse_VerseWithInterruptionInBlockByItselfWithQuoteStartedInPrecedingSectionAndContinuedAfterwardAndInFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
+		{
+			var block1 = new Block("p", 13, 5).AddVerse(5, "Kun anan Hesus an chicha, “Ammanju ... cha'aju. ")
+				.AddVerse(6, "Tan angsan ... manggwana, ‘Sa'on nan Kristu’ ad angsan nan allilagwoncha. ")
+				.AddVerse(7, "Ad sa'ad ... luhung. ")
+				.AddVerse(8, "Tan ... mangkumut.");
+			var block2 = new Block("p", 13, 9).AddVerse(9, "“Manannad aju ... an sa'on. ")
+				.AddVerse(10, "Gwon sa'ad ... ayutayuta. ")
+				.AddVerse(11, "Ad sa'ad nu ... Ispilitun Apudyus.");
+			var block3 = new Block("p", 13, 12).AddVerse(12, "“Ad san ... impa'toycha chicha. ")
+				.AddVerse(13, "Ad as cha'aju ... pammatina mataku.");
+			var sectionHeadBlock = new Block("s");
+			sectionHeadBlock.BlockElements.Add(new ScriptText("Nan Humu'nakan Nan Amod A'oogjat"));
+			sectionHeadBlock.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var block4 = new Block("p", 13, 14).AddVerse(14, "“Sa'ad nu ilanju ... sumi'achan, (maserpu maagwatan nan mangwhasa,) sa'ad chachay ingkaw ad Judea ... san whibilig. ")
+				.AddVerse(15, "Ad sa'ad nan ... as ijagwidna. ")
+				.AddVerse(16, "Ad sa'ad nan ... nan silupna.");
+			var block5 = new Block("p", 13, 17).AddVerse(17, "“Ad achagchaku chanan mahuki ja chanan mantatakiwhi san sachi gway chimpu. ")
+				.AddVerse(18, "Sija nan ... amod nan tagling. ")
+				.AddVerse(19, "Tan sa'ad ... achi kun puyus ma'gwa nan amasna asin. ")
+				.AddVerse(20, "Sa'ad nu achin Apudyus ... nan whilang nan erkaw san sachiyay chimpu.");
+			var block6 = new Block("p", 13, 21).AddVerse(21, "“Ad sa'ad ..., ‘Ilanju ad, annaja nan Kristu!’ gwinnu ‘Anchiya nan Kristu!’ achiju tuttugwaon. ")
+				.AddVerse(22, "Tan lumosgwa chanan ... gway pinilina allilagwoncha chicha. ")
+				.AddVerse(23, "Gwon ammanju ... nan annachaja ma'gwa.”");
+			var input = new List<Block> { block1, block2, block3, sectionHeadBlock, block4, block5, block6 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(10, results.Count);
+			// Blocks before section break:
+			int i = 0;
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
+			Assert.IsTrue(results[i].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+
+			// Section break:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+
+			// Text preceeding interruption in original block following section break:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+			Assert.AreEqual("{14}\u00A0“Sa'ad nu ilanju ... sumi'achan, ", results[i].GetText(true));
+
+			// Interruption:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("(maserpu maagwatan nan mangwhasa,) ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+
+			// Text following interruption in original first block:
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Following blocks:
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{17}\u00A0“"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{21}\u00A0“"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+		}
+
 		[Test]
 		public void Parse_VerseWithInterruptionInBlockByItselfWithQuoteContinuedInFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
 		{
@@ -5328,6 +5400,118 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.IsTrue(output[1].CharacterIsUnclear());
+		}
+
+		// Test for PG-1121
+		[Test]
+		public void Parse_ColonFollowedByNormalInlineQuoteAndSubsequentVerses_ColonNotTreatedAsStartOfDialogue()
+		{
+			var block1 = new Block("p", 21, 40) { IsParagraphStart = true }
+				.AddVerse(40, "Chay capitán “allinmi” niykuptinmi, Pablo upallachirqa. Upallaruptinkum nirqa:");
+			var blockChapter22 = new Block("c");
+			blockChapter22.BlockElements.Add(new ScriptText("Chapter 22"));
+			blockChapter22.SetStandardCharacter("ACT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var block2 = new Block("p", 22, 1) { IsParagraphStart = true }.AddVerse(1, "“Taytakuna, uyariykuwaychik”, nispa.");
+			var block3 = new Block("p", 22, 2) { IsParagraphStart = true }.AddVerse(2, "Chaymi hebreo upallarurqaku. Pablo nirqa:");
+			var block4 = new Block("p", 22, 3) { IsParagraphStart = true }.AddVerse(3, "Diosninchiktam tukuy servisqaykichikta hina.");
+			var block5 = new Block("p", 22, 6) { IsParagraphStart = true }.AddVerse(6, "Ichaqa Damasco qonqayllamanta kanchaykamuwarqa. ")
+				.AddVerse(7, "Hinaptinmi pampaman wichiykuspay uyarirqani “¡Saulo, Saulo! ¿Imanasqataq qatikachawanki?” niqta. ")
+				.AddVerse(8, "Chaymi ta-purqani: “¿Pitaq Señor?”, nispay. Hinaptinmi arqa: “Ñoqaqa Nazaret Jesusmi kani”, nispan. ")
+				.AddVerse(9, "Riqmasiykunapas nisqantaqa. ")
+				.AddVerse(10, "Hinaptinmi tapurqani: “¿Señor, ruwasaq?” nispay. Payñataqmi: “Hatarispayki Damasco, chaypimnisunki”, nispa. ");
+			var blockChapter23 = new Block("c");
+			blockChapter23.BlockElements.Add(new ScriptText("Chapter 23"));
+			blockChapter23.SetStandardCharacter("ACT", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var block6 = new Block("p", 23, 23) { IsParagraphStart = true }.AddVerse(23, "Soldadokunapa capitanninkunata qayaykuspan kamachirqa:");
+			// Note: In verse 24, the quote really should end right before the word "nispan", but we would need to implement PG-487 to support that.
+			var block7 = new Block("p", 23, 23) { IsParagraphStart = true }.AddText("Iskay pachak alistaychik, chaynapi llaqtaman rinankupaq. ")
+				.AddVerse(24, "Alistaychiktaqyá  Pablo sillakunanpaq, chaynapi sanollata Felixman chayachinaykichikpaq, nispan.");
+			var block8 = new Block("p", 23, 25) { IsParagraphStart = true }.AddVerse(25, "Paykunawanmi kayna niq cartata apachirqa:");
+			var block9 = new Block("p", 23, 26) { IsParagraphStart = true }
+				.AddVerse(26, "“Ancha reqsisqa prefecto Félix, ñoqa Claudio Lisiasmi saludamuyki. ")
+				.AddVerse(27, "Pusachimusqay munarqaku. Ichaqa Roma, soldadokunawan rispay salvaramurqani. ")
+				.AddVerse(28, "Hinaspaymi imamantam judiokunapa cortenman pusarqani. ")
+				.AddVerse(29, "Chaypim yachamurqani acusasqankuta. Ichaqa kananpaqpas. ")
+				.AddVerse(30, "Ichaqa wañurachinankupaq qanman pusachimuyki. Chaynallataqmi acusanankupaq”, nispa.");
+			var input = new List<Block> { block1, blockChapter22, block2, block3, block4, block5, blockChapter23, block6, block7, block8, block9 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+
+			int i = 0;
+			var block = output[i++];
+			Assert.AreEqual("{40}\u00A0Chay capitán ", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("“allinmi” ", block.GetText(true));
+			Assert.AreEqual("commander of Roman troops in Jerusalem", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("niykuptinmi, Pablo upallachirqa. Upallaruptinkum nirqa:", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("Chapter 22", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
+
+			block = output[i++];
+			Assert.AreEqual("{1}\u00A0“Taytakuna, uyariykuwaychik”, ", block.GetText(true));
+			Assert.AreEqual("Paul", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("nispa.", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("{2}\u00A0Chaymi hebreo upallarurqaku. Pablo nirqa:", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("{3}\u00A0Diosninchiktam tukuy servisqaykichikta hina.", block.GetText(true));
+			Assert.AreEqual("Paul", block.CharacterId);
+
+			// This would be nice, but we aren't that good yet.
+			//block = output[i++];
+			//Assert.AreEqual("{6}\u00A0Ichaqa Damasco qonqayllamanta kanchaykamuwarqa. " +
+			//	"{7}\u00A0Hinaptinmi pampaman wichiykuspay uyarirqani “¡Saulo, Saulo! ¿Imanasqataq qatikachawanki?” niqta. " +
+			//	"{8}\u00A0Chaymi ta-purqani: “¿Pitaq Señor?”, nispay. Hinaptinmi arqa: “Ñoqaqa Nazaret Jesusmi kani”, nispan. " +
+			//	"{9}\u00A0Riqmasiykunapas nisqantaqa. " +
+			//	"{10}\u00A0Hinaptinmi tapurqani: “¿Señor, ruwasaq?” nispay. Payñataqmi: “Hatarispayki Damasco, chaypimnisunki”, nispa. ", block.GetText(true));
+			//Assert.AreEqual("Paul", block.CharacterId);
+
+			while (output[++i].GetText(true) != "Chapter 23");
+
+			block = output[i++];
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
+
+			block = output[i++];
+			Assert.AreEqual("{23}\u00A0Soldadokunapa capitanninkunata qayaykuspan kamachirqa:", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("Iskay pachak alistaychik, chaynapi llaqtaman rinankupaq. " +
+				"{24}\u00A0Alistaychiktaqyá  Pablo sillakunanpaq, chaynapi sanollata Felixman chayachinaykichikpaq, nispan.", block.GetText(true));
+			Assert.AreEqual("commander of Roman troops in Jerusalem", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{25}\u00A0Paykunawanmi kayna niq cartata apachirqa:", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("{26}\u00A0“Ancha reqsisqa prefecto Félix, ñoqa Claudio Lisiasmi saludamuyki. " +
+				"{27}\u00A0Pusachimusqay munarqaku. Ichaqa Roma, soldadokunawan rispay salvaramurqani. " +
+				"{28}\u00A0Hinaspaymi imamantam judiokunapa cortenman pusarqani. " +
+				"{29}\u00A0Chaypim yachamurqani acusasqankuta. Ichaqa kananpaqpas. " +
+				"{30}\u00A0Ichaqa wañurachinankupaq qanman pusachimuyki. Chaynallataqmi acusanankupaq”, ", block.GetText(true));
+			Assert.AreEqual("commander of Roman troops in Jerusalem", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("nispa.", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 	}
 }

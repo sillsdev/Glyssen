@@ -347,7 +347,7 @@
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOk, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnOk, "AddCharacter.m_btnOk");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnOk, "Common.OK");
 			this.m_btnOk.Location = new System.Drawing.Point(151, 3);
 			this.m_btnOk.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
 			this.m_btnOk.Name = "m_btnOk";
@@ -361,7 +361,7 @@
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnCancel, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnCancel, "AddCharacter.m_btnCancel");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
 			this.m_btnCancel.Location = new System.Drawing.Point(236, 3);
 			this.m_btnCancel.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
 			this.m_btnCancel.Name = "m_btnCancel";

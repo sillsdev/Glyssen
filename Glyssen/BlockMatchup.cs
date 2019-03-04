@@ -35,21 +35,25 @@ namespace Glyssen
 				{
 					Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
 						$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
-					// REVIEW: This logic assumes that the repeated verse is wholly contained in this onwe block.
+					// REVIEW: This logic assumes that the repeated verse is wholly contained in this one block.
 					blocksForVersesCoveredByBlock = new List<Block>() {originalAnchorBlock};
 					indexOfAnchorBlockInVerse = 0;
 				}
 				m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
 				while (m_iStartBlock > 0)
 				{
-					if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-						!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+					var firstIncludedBlock = blocksForVersesCoveredByBlock.First();
+					if (firstIncludedBlock.InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+						!firstIncludedBlock.StartsAtVerseStart && !firstIncludedBlock.IsChapterAnnouncement)
 					{
 						var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-							blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
-						prepend.RemoveAt(prepend.Count - 1);
-						m_iStartBlock -= prepend.Count;
-						blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+							firstIncludedBlock.InitialStartVerseNumber).ToList();
+						if (prepend.Count > 1)
+						{
+							prepend.RemoveAt(prepend.Count - 1);
+							m_iStartBlock -= prepend.Count;
+							blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+						}
 					}
 					if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
 						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
@@ -202,12 +206,16 @@ namespace Glyssen
 					vernBlock.UserConfirmed = true;
 				}
 			}
+			// No need to do the following here if m_numberOfBlocksAddedBySplitting > 0 because the call to ReplaceBlocks does it.
 			if (m_numberOfBlocksAddedBySplitting == 0)
 			{
 				var lastBlockInMatchup = CorrelatedBlocks.Last();
 				foreach (var block in origBlocks.Skip(m_iStartBlock + OriginalBlockCount).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote))
 				{
 					block.CharacterId = lastBlockInMatchup.CharacterId;
+					// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
+					// outside the matchup (probably not).
+					// block.Delivery = lastBlockInMatchup.Delivery;
 					block.CharacterIdOverrideForScript = lastBlockInMatchup.CharacterIdOverrideForScript;
 				}
 			}
@@ -336,7 +344,7 @@ namespace Glyssen
 				if (existintgEmptyVerseRefText != null)
 				{
 					if (CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
-						CorrelatedBlocks[i].CharacterId = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
+						CorrelatedBlocks[i].SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator));
 					var text = existintgEmptyVerseRefText + referenceLanguageInfo.HeSaidText;
 					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
 						text += referenceLanguageInfo.WordSeparator;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp.UI;
 
@@ -21,7 +22,8 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			Text = string.Format(Text, m_viewModel.Project.Name);
-			m_exportToHearThisToolStripMenuItem.Text = string.Format(m_exportToHearThisToolStripMenuItem.Text, "HearThis");
+			m_exportToHearThisToolStripMenuItem.Text = string.Format(m_exportToHearThisToolStripMenuItem.Text,
+				Constants.kHearThisProductName);
 		}
 
 		private void m_exportToSpreadsheetMenuItem_Click(object sender, EventArgs e)

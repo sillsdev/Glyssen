@@ -87,8 +87,11 @@ namespace Glyssen.Controls
 		{
 			base.OnHandleCreated(e);
 
-			m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
-			m_viewModel.CurrentBlockMatchupChanged += UpdateContextBlocksDisplay;
+			if (m_viewModel != null)
+			{
+				m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+				m_viewModel.CurrentBlockMatchupChanged += UpdateContextBlocksDisplay;
+			}
 			m_blocksDisplayBrowser.VisibleChanged += UpdateContextBlocksDisplay;
 			m_dataGridViewBlocks.VisibleChanged += UpdateContextBlocksDisplay;
 		}
@@ -185,7 +188,7 @@ namespace Glyssen.Controls
 		{
 			this.SafeInvoke(() =>
 			{
-				if (m_blocksDisplayBrowser.Visible)
+				if (m_blocksDisplayBrowser.Visible && m_viewModel != null)
 					m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 				else if (m_dataGridViewBlocks.Visible)
 					m_dataGridViewBlocks.UpdateContext();

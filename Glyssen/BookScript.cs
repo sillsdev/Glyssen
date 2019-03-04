@@ -58,6 +58,12 @@ namespace Glyssen
 		[XmlAttribute("maintitle")]
 		public string MainTitle { get; set; }
 
+		[XmlAttribute("checkstatusoverridden")]
+		public bool CheckStatusOverridden { get; set; }
+
+		[XmlAttribute("ptchecksum")]
+		public string ParatextChecksum { get; set; }
+
 		/// <summary>
 		/// Don't use this getter in production code. It is intended ONLY for use by the XML serializer!
 		/// This is to prevent accidentally leaking the actual list and risking modification by calling code.
@@ -597,6 +603,9 @@ namespace Glyssen
 					do
 					{
 						m_blocks[blockIndexFollowingReplacement].CharacterId = lastReplacementBlock.CharacterId;
+						// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
+						// outside the matchup (probably not).
+						// m_blocks[blockIndexFollowingReplacement].Delivery = lastReplacementBlock.Delivery;
 						m_blocks[blockIndexFollowingReplacement].CharacterIdOverrideForScript = lastReplacementBlock.CharacterIdOverrideForScript;
 					} while (++blockIndexFollowingReplacement < m_blocks.Count && m_blocks[blockIndexFollowingReplacement].IsContinuationOfPreviousBlockQuote);
 				}

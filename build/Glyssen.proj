@@ -22,7 +22,7 @@
   <UsingTask TaskName="FileUpdate"
     AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
     Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-	<UsingTask TaskName="NUnitTeamCity" AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)" Condition="'$(OS)'=='Windows_NT'"/>
+  <UsingTask TaskName="NUnitTeamCity" AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)" Condition="'$(teamcity_version)' != '' And '$(OS)'=='Windows_NT'"/>
 
   <Import Project="../.nuget/NuGet.targets" />
 
@@ -49,7 +49,7 @@
 	<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
 
 	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="1.0.$(BuildCounter)">
+	<CreateProperty Value="1.1.$(BuildCounter)">
 		<Output PropertyName="Version" TaskParameter="Value"/>
 	</CreateProperty>
 	<CreateProperty Value="$(Version).$(BuildHash)">

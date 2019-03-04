@@ -1683,17 +1683,17 @@ namespace GlyssenTests
 			Assert.True(block.ProbablyDoesNotContainInterruption);
 		}
 
-		[TestCase("a (bcd) e", "(bcd) ")]
-		[TestCase("a -b- c", "-b- ")]
-		[TestCase("a - b - c", "- b - ")]
-		[TestCase("a -- b -- c", "-- b -- ")]
-		[TestCase("a —b— c", "—b— ")]
-		[TestCase("a - b-c - d", "- b-c - ")]
-		[TestCase("a -- b-c -- d", "-- b-c -- ")]
-		public void GetNextInterruption_InterruptionFoundCorrectly(string text, string interruption)
+		[TestCase("a (bcd) e", ExpectedResult = "(bcd) ")]
+		[TestCase("a -b- c", ExpectedResult = "-b- ")]
+		[TestCase("a - b - c", ExpectedResult = "- b - ")]
+		[TestCase("a -- b -- c", ExpectedResult = "-- b -- ")]
+		[TestCase("a —b— c", ExpectedResult = "—b— ")]
+		[TestCase("a - b-c - d", ExpectedResult = "- b-c - ")]
+		[TestCase("a -- b-c -- d", ExpectedResult = "-- b-c -- ")]
+		public string GetNextInterruption_InterruptionFoundCorrectly(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.AreEqual(interruption, block.GetNextInterruption().Item1.Value);
+			return block.GetNextInterruption().Item1.Value;
 		}
 
 		[TestCase("a b-c-d e")]

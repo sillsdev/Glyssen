@@ -110,12 +110,7 @@ namespace Glyssen
 			m_referenceTextType = referenceTextType;
 			m_projectFolder = projectFolder;
 
-
-			GetBookName = bookId =>
-			{
-				var book = Books.FirstOrDefault(b => b.BookId == bookId);
-				return book == null ? null : book.PageHeader;
-			};
+			GetBookName = bookId => GetBook(bookId)?.PageHeader;
 
 			if (m_referenceTextType == ReferenceTextType.Custom)
 				SetVersification();

@@ -1,4 +1,4 @@
-Control File Version	134
+Control File Version	138
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -263,8 +263,8 @@ GEN	21	10	Sarah (Sarai) (old)			Normal
 GEN	21	12	God		God (the LORD)	Normal		
 GEN	21	13	God		God (the LORD)	Normal		
 GEN	21	16	Hagar, Sarai's maid			Normal		
-GEN	21	17	angel of the LORD, the		angel of God, the	Normal	Jesus	
-GEN	21	18	angel of the LORD, the		angel of God, the	Normal	Jesus	
+GEN	21	17	angel of the LORD, the		angel of God	Normal	Jesus	
+GEN	21	18	angel of the LORD, the		angel of God	Normal	Jesus	
 GEN	21	22	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
 GEN	21	23	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
 GEN	21	24	Abraham (Abram)			Normal		
@@ -4512,7 +4512,7 @@ JDG	6	16	God		God (the LORD)	Normal
 JDG	6	17	Gideon (Jerubbaal)			Normal		
 JDG	6	18	God		God (the LORD)	Normal		
 JDG	6	18	Gideon (Jerubbaal)			Normal		
-JDG	6	20	angel of the LORD, the		angel of God, the	Normal	Jesus	
+JDG	6	20	angel of the LORD, the		angel of God	Normal	Jesus	
 JDG	6	22	Gideon (Jerubbaal)			Normal		
 JDG	6	23	God		God (the LORD)	Normal		
 JDG	6	24	narrator-JDG			Quotation		
@@ -13589,7 +13589,7 @@ MAT	21	27	Jesus			Dialogue		MAT 21.27;MRK 11.33;LUK 20.8
 MAT	21	28	Jesus			Dialogue		
 MAT	21	29	Jesus			Normal		
 MAT	21	30	Jesus			Normal		
-MAT	21	31	chief priests/elders		chief priests/elders of people	Dialogue	Good Priest	
+MAT	21	31	chief priests/elders		chief priests and the elders of the people	Dialogue	Good Priest	
 MAT	21	31	Jesus			Dialogue		
 MAT	21	32	Jesus			Normal		
 MAT	21	33	Jesus			Normal		
@@ -13887,6 +13887,9 @@ MAT	28	9	Jesus			Normal
 MAT	28	10	Jesus			Dialogue		
 MAT	28	13	chief priests/elders	bribing		Normal		
 MAT	28	14	chief priests/elders	bribing		Normal		
+MAT	28	15	saying (lie about disciples stealing Jesus' body)			Potential		
+MAT	28	15	chief priests/elders			Quotation		
+MAT	28	15	Jews, the			Quotation		
 MAT	28	18	Jesus			Dialogue		
 MAT	28	19	Jesus			Normal		
 MAT	28	20	Jesus			Normal		
@@ -14047,8 +14050,8 @@ MRK	6	31	Jesus			Dialogue
 MRK	6	35	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MRK	6	36	disciples	taking charge		Normal		
 MRK	6	37	Jesus			Dialogue		
-MRK	6	37	Philip the apostle	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
-MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
+MRK	6	37	Philip the apostle	frustrated	disciples (Philip, see John 6:7)	Dialogue		MRK 6.37;JHN 6.7
+MRK	6	38	Andrew		disciples (Andrew, see John 6:9)	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		Dialogue		
 MRK	6	39	Jesus			Indirect		
 MRK	6	40	Jesus			Indirect		
@@ -15351,7 +15354,7 @@ JHN	1	32	John the Baptist			Normal
 JHN	1	33	John the Baptist			Normal		
 JHN	1	34	John the Baptist			Normal		
 JHN	1	36	John the Baptist			Dialogue		
-JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
+JHN	1	38	Andrew/another disciple of John the Baptist	curious	disciples of John the Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
 JHN	1	38	narrator-JHN			Interruption		
@@ -15666,6 +15669,8 @@ JHN	9	17	Pharisees			Dialogue
 JHN	9	19	Jews, the	challenging		Dialogue		
 JHN	9	20	parents of cured man, blind from birth	cautious		Dialogue	father of cured man, blind from birth	
 JHN	9	21	parents of cured man, blind from birth			Normal	mother of cured man, blind from birth	
+JHN	9	22	parents of cured man, blind from birth			Indirect	father of cured man, blind from birth	
+JHN	9	22	Jews, the			Indirect		
 JHN	9	23	parents of cured man, blind from birth			Quotation	mother of cured man, blind from birth	
 JHN	9	24	Jews, the	challenging		Dialogue		
 JHN	9	25	cured man, blind from birth			Dialogue		
@@ -15943,10 +15948,10 @@ JHN	17	25	Jesus	praying		Normal
 JHN	17	26	Jesus	praying		Normal		
 JHN	18	4	Jesus	questioning		Dialogue		
 JHN	18	5	Jesus			Dialogue		
-JHN	18	5	soldiers/officials from chief priests/Pharisees	rowdy		Dialogue		
+JHN	18	5	soldiers/officials from chief priests and Pharisees	rowdy		Dialogue		
 JHN	18	6	Jesus			Quotation		
 JHN	18	7	Jesus	questioning		Dialogue		
-JHN	18	7	soldiers/officials from chief priests/Pharisees	afraid		Dialogue		
+JHN	18	7	soldiers/officials from chief priests and Pharisees	afraid		Dialogue		
 JHN	18	8	Jesus			Dialogue		
 JHN	18	9	Jesus			Quotation		
 JHN	18	11	Jesus			Dialogue		
@@ -16297,11 +16302,11 @@ ACT	10	4	angel		angel of God	Normal
 ACT	10	4	Cornelius	afraid		Normal		
 ACT	10	5	angel		angel of God	Normal		
 ACT	10	6	angel		angel of God	Normal		
-ACT	10	13	God		God (voice)	Normal		
-ACT	10	13	Jesus		Jesus (voice)	Normal		
+ACT	10	13	God		voice (of God)	Normal		
+ACT	10	13	Jesus		voice (of Jesus)	Normal		
 ACT	10	14	Peter (Simon)			Normal		
-ACT	10	15	God		God (voice)	Normal		
-ACT	10	15	Jesus		Jesus (voice)	Normal		
+ACT	10	15	God		voice (of God)	Normal		
+ACT	10	15	Jesus		voice (of Jesus)	Normal		
 ACT	10	17	Peter (Simon)			Indirect		
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		
@@ -16604,6 +16609,7 @@ ACT	23	8	Sadducees			Hypothetical
 ACT	23	9	Pharisees	arguing	teachers of the law, some who were Pharisees	Dialogue		
 ACT	23	10	commander of Roman troops in Jerusalem	ordering		Indirect		
 ACT	23	11	Jesus	in a vision		Normal		
+ACT	23	12	Jews, more than forty in conspiracy	plotting		Indirect		
 ACT	23	14	Jews, more than forty in conspiracy	plotting		Dialogue		
 ACT	23	15	Jews, more than forty in conspiracy	plotting		Dialogue		
 ACT	23	17	Paul			Dialogue		
@@ -17226,7 +17232,7 @@ REV	13	10	voice in heaven			Potential
 REV	13	10	saying about captivity and death by the sword			Potential	God	
 REV	13	10	scripture		scripture (God)	Potential	God	
 REV	13	10	God			Potential		
-REV	13	14	beast, the			Indirect		
+REV	13	14	beast from out of the earth			Indirect		
 REV	14	7	angel flying directly overhead			Normal		
 REV	14	8	angel flying directly overhead, second			Normal		
 REV	14	9	angel flying directly overhead, third			Normal		

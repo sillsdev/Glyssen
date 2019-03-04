@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -70,6 +71,28 @@ namespace Glyssen
 			bldr.Append(" ");
 			bldr.Append(chapterNumber);
 			return bldr.ToString();
+		}
+
+		public BookScript GetBook(string id)
+		{
+#if DEBUG
+			// Debug version imposes sanity check
+			return Books.SingleOrDefault(b => b.BookId == id);
+#else
+// Slightly faster in production
+			return Books.FirstOrDefault(b => b.BookId == id);
+#endif
+		}
+
+		public BookScript GetBook(int bookNum)
+		{
+#if DEBUG
+			// Debug version imposes sanity check
+			return Books.SingleOrDefault(b => b.BookNumber == bookNum);
+#else
+// Slightly faster in production
+			return Books.FirstOrDefault(b => b.BookNumber == bookNum);
+#endif
 		}
 
 		protected string VersificationFilePath => Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName);

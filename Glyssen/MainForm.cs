@@ -12,6 +12,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Shared;
@@ -26,6 +27,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
 using NetSparkle;
+using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
@@ -36,6 +38,7 @@ namespace Glyssen
 	{
 		public static Sparkle UpdateChecker { get; private set; }
 		private Project m_project;
+		private ParatextScrTextWrapper m_paratextScrTextWrapperForRecentlyCreatedProject;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
@@ -286,6 +289,10 @@ namespace Glyssen
 							InitializeProgress();
 							LoadBundle(dlg.SelectedProject);
 							break;
+						case OpenProjectDlg.ProjectType.ParatextProject:
+							InitializeProgress();
+							LoadParatextProject(dlg.SelectedProject);
+							break;
 						default:
 							MessageBox.Show(@"Sorry - not implemented yet");
 							break;
@@ -390,7 +397,7 @@ namespace Glyssen
 			else
 				projFilePath = Project.GetDefaultProjectFilePath(bundle);
 
-			var recordingProjectName = Path.GetFileName(Path.GetDirectoryName(projFilePath));
+			var recordingProjectName = projFilePath.GetContainingFolderName();
 			if (File.Exists(projFilePath))
 			{
 				if (GlyssenDblTextMetadata.GetRevisionOrChangesetId(projFilePath) == bundle.Metadata.RevisionOrChangesetId)
@@ -437,6 +444,105 @@ namespace Glyssen
 			}
 
 			bundle.Dispose();
+		}
+
+		private void LoadParatextProject(string paratextProjId)
+		{
+			Logger.WriteEvent($"Loading {ParatextScrTextWrapper.kParatextProgramName} project {paratextProjId}");
+
+			ParatextScrTextWrapper paratextProject = null;
+
+			if (!LoadAndHandleApplicationExceptions(() => { paratextProject = new ParatextScrTextWrapper(ScrTextCollection.Find(paratextProjId)); }))
+			{
+				SetProject(null);
+				return;
+			}
+
+			var optionalObserverInfo = paratextProject.UserCanEditProject ? Empty :
+				Format(LocalizationManager.GetString("Project.NonEditingRole", "(You do not seem to have editing privileges for this {0} project.)",
+					"Param: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName) +
+				Environment.NewLine;
+
+			if (!paratextProject.HasQuotationRulesSet)
+			{
+				var msg = Format(LocalizationManager.GetString("Project.ParatextQuotationRulesNotDefined",
+						"You are attempting to create a {0} project for {1} project {2}, which does not have its Quotation " +
+						"Rules defined." +
+						"\r\n{3}" +
+						"The Quotation Rules are not only needed to run the {4} check, {0} also uses them to look for " +
+						"speaking parts in the Scripture data. If you are not able to get those rules defined in {1}, you will " +
+						"need to set the Quote Mark Settings manually in this {0} project.",
+						"Param 0: \"Glyssen\" (product name); " +
+						"Param 1: \"Paratext\" (product name); " +
+						"Param 2: Paratext project short name (unique project identifier); " +
+						"Param 3: Optional line indicating that user is an observer on the Paratext project; " +
+						"Param 4: Name of the Paratext \"Quotations\" check"),
+					GlyssenInfo.kProduct,
+					ParatextScrTextWrapper.kParatextProgramName,
+					paratextProjId,
+					optionalObserverInfo,
+					ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId));
+				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+				if (result == DialogResult.Cancel)
+				{
+					Logger.WriteEvent($"User cancelled project creation because {ParatextScrTextWrapper.kParatextProgramName} " +
+						"Quotation Rules were not defined.");
+					SetProject(null);
+					return;
+				}
+				Logger.WriteEvent($"User proceeding with project creation although {ParatextScrTextWrapper.kParatextProgramName} " +
+					"Quotation Rules were not defined.");
+				paratextProject.IgnoreQuotationsProblems();
+			}
+
+			// If the Paratext project contained no supported books at all, we already threw an appropriate exception above.
+			// Now we check for the case where the project has supported books but, because of failing checks, none of them
+			// was included by default.
+			if (!paratextProject.HasBooksWithoutProblems)
+			{
+				var msg = Format(LocalizationManager.GetString("Project.NoBooksPassedChecks",
+					"{0} is not reporting a current successful status for any book in the {1} project for the basic checks " +
+					"that {2} usually requires to pass:" +
+					"\r\n   {3}\r\n{4}\r\n" +
+					"Do you want to proceed with creating a new {2} project for it anyway?",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: \"Glyssen\" (product name); " +
+					"Param 3: List of Paratext check names; " +
+					"Param 4: Optional line indicating that user is an observer on the Paratext project"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					paratextProjId,
+					GlyssenInfo.kProduct,
+					paratextProject.RequiredCheckNames,
+					optionalObserverInfo);
+				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+				if (result == DialogResult.No)
+				{
+					Logger.WriteEvent("User cancelled project creation because no books passed recommended checks.");
+					SetProject(null);
+					return;
+				}
+				Logger.WriteEvent("User proceeding with project creation although no books passed recommended checks.");
+			}
+
+			var projFilePath = Project.GetDefaultProjectFilePath(paratextProject);
+			if (File.Exists(projFilePath))
+				throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
+
+			var glyssenMetadata = ApplicationMetadata.Load(out Exception error);
+			if (glyssenMetadata?.InactiveUnstartedParatextProjects != null)
+			{
+				var list = new List<string>(glyssenMetadata.InactiveUnstartedParatextProjects);
+				if (list.Contains(paratextProjId))
+				{
+					list.Remove(paratextProjId);
+					glyssenMetadata.InactiveUnstartedParatextProjects = list.Any() ? list.ToArray() : null;
+					glyssenMetadata.Save();
+				}
+			}
+
+			SetProject(new Project(paratextProject));
+			m_paratextScrTextWrapperForRecentlyCreatedProject = paratextProject;
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)
@@ -773,7 +879,8 @@ namespace Glyssen
 
 		private void SelectBooks_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new ScriptureRangeSelectionDlg(m_project))
+			using (var dlg = new ScriptureRangeSelectionDlg(m_project, m_paratextScrTextWrapperForRecentlyCreatedProject))
+			{
 				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
@@ -781,6 +888,8 @@ namespace Glyssen
 					UpdateDisplayOfProjectInfo();
 					SaveCurrentProject(true);
 				}
+			}
+			m_paratextScrTextWrapperForRecentlyCreatedProject = null;
 		}
 
 		private void Settings_Click(object sender, EventArgs e)
@@ -807,12 +916,24 @@ namespace Glyssen
 					Analytics.Track("UpdateProjectFromBundleData", new Dictionary<string, string>
 					{
 						{"language", m_project.LanguageIsoCode},
-						{"ID", m_project.Id},
+						{"projectID", m_project.Id},
 						{"recordingProjectName", m_project.Name},
 						{"bundlePathChanged", (m_project.OriginalBundlePath != model.BundlePath).ToString()}
 					});
 					var project = m_project.UpdateProjectFromBundleData(dlg.UpdatedBundle);
 					project.OriginalBundlePath = model.BundlePath;
+					SetProject(project);
+				}
+				else if (dlg.UpdatedParatextProject != null)
+				{
+					Analytics.Track("UpdateProjectFromParatextData", new Dictionary<string, string>
+					{
+						{"language", m_project.LanguageIsoCode},
+						{"paratextPojectName", m_project.ParatextProjectName},
+						{"projectID", m_project.Id},
+						{"recordingProjectName", m_project.Name},
+					});
+					var project = Project.UpdateFromParatextData(m_project, dlg.UpdatedParatextProject);
 					SetProject(project);
 				}
 			}
@@ -828,8 +949,9 @@ namespace Glyssen
 					"This project has been changed to use the {0} reference text, but some blocks were already matched to " +
 					"the previous reference text. Some of those matches cannot be migrated, which means that the reference " +
 					"text data for those blocks is not in the correct language. " +
-					"To avoid confusion, it is probably best to allow Glyssen to clear the matches that cannot be migrated properly. " +
-					"Would you like Glyssen to do that?"), m_project.UiReferenceTextName),
+					"To avoid probable confusion, would you like to allow {1} to clear the matches that cannot be migrated properly?",
+					"Param 0: name of language of new reference text; " +
+					"Param 1: \"Glyssen\" (product name)"), m_project.UiReferenceTextName, GlyssenInfo.kProduct),
 					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
 			}
 			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
@@ -843,7 +965,7 @@ namespace Glyssen
 
 		private void About_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
+			using (var dlg = new SILAboutBox(FileLocationUtilities.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
 				dlg.CheckForUpdatesClicked += HandleAboutDialogCheckForUpdatesClick;
 				dlg.ReleaseNotesClicked += HandleAboutDialogReleaseNotesClicked;
@@ -860,7 +982,7 @@ namespace Glyssen
 
 		private void HandleAboutDialogReleaseNotesClicked(object sender, EventArgs e)
 		{
-			var path = FileLocator.GetFileDistributedWithApplication("ReleaseNotes.md");
+			var path = FileLocationUtilities.GetFileDistributedWithApplication("ReleaseNotes.md");
 			using (var dlg = new ShowReleaseNotesDialog(((Form)sender).Icon, path))
 				dlg.ShowDialog();
 		}
@@ -939,8 +1061,9 @@ namespace Glyssen
 			{
 				if (m_temporaryRefTextOverrideForExporting != null)
 					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
-				else if (!ResolveNullReferenceText(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
-					"To continue and temporarily use the English reference text, click Ignore.")))
+				else if (!ResolveNullReferenceText(Format(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
+					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label  (in the current Windows locale)"),
+					MessageBoxStrings.IgnoreButton)))
 				{
 					return;
 				}
@@ -991,10 +1114,16 @@ namespace Glyssen
 					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
 					"to the required reference text files, please put them in" +
 					"\n    {1}\n" +
-					"and then click Retry to use the {0} reference text.\n\n" +
-					"Otherwise, to permanently change the reference text used by this project, open the {2}\n" +
-					"dialog box and select the desired reference text on the {3} tab page.");
-				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, projectSettingsDlgTitle, referenceTextTabName);
+					"and then click {2} to use the {0} reference text.\n\n" +
+					"Otherwise, to permanently change the reference text used by this project, open the {3}\n" +
+					"dialog box and select the desired reference text on the {4} tab page.",
+					"Param 0: Name of reference text (typically a language name); " +
+					"Param 1: Folder path where custom reference text; " +
+					"Param 2: The name of the \"Retry\" button label (in the current Windows locale); " +
+					"Param 3: Name of the Project Settings dialog box; " +
+					"Param 4: Label of the Reference Text tab");
+				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, MessageBoxStrings.RetryButton,
+					projectSettingsDlgTitle, referenceTextTabName);
 				if (ignoreOptionText != null)
 					msg += "\n\n" + ignoreOptionText;
 				Logger.WriteEvent(msg);

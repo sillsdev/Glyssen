@@ -77,6 +77,12 @@ namespace Glyssen.Quote
 			AllLevels.AddRange(quoteSystem.AllLevels.Select(l => new QuotationMark(l.Open, l.Close, l.Continue, l.Level, l.Type)));
 		}
 
+		public static QuoteSystem TryCreateFromWritingSystem(WritingSystemDefinition ws)
+		{
+			var quoteMarks = ws?.QuotationMarks;
+			return quoteMarks != null && quoteMarks.Any() ? new QuoteSystem(quoteMarks) : null;
+		}
+
 		public static QuoteSystem Default
 		{
 			get { return s_systems.SingleOrDefault(s => s.Name == "Guillemets"); }

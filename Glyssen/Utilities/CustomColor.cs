@@ -48,19 +48,19 @@ namespace Glyssen.Utilities
 
 		public static readonly List<Color> MaxContrastColorList = new List<Color>
 		{
-			Color.FromArgb(255, 236, 066), //Soft Vivid Yellow
-			Color.FromArgb(210, 111, 113), //Dusty Plum
-			Color.FromArgb(247, 160, 102), //Peachy Orange
-			Color.FromArgb(156, 152, 228), //Light Blue/Lavender
-			Color.FromArgb(151, 206, 142), //Soft green
-			Color.FromArgb(169, 150, 160), //Medium Off-Gray
-			Color.FromArgb(243, 092, 180), //Pepto Bismol
-			Color.FromArgb(206, 162, 098), //Grayish Yellow
-			Color.FromArgb(208, 234, 030), //Soft green
-			Color.MediumTurquoise,
-			Color.FromArgb(245, 192, 237), //Light Pink
-			Color.LimeGreen,
-			Color.OrangeRed
+			Color.FromArgb(226, 217, 177), //Tan
+			Color.FromArgb(190, 177, 226), //Dusty Purple
+			Color.FromArgb(226, 186, 177), //Muted Peachy Orange
+			Color.FromArgb(199, 226, 177), //Pale green
+			Color.FromArgb(177, 226, 226), //Washed-out blue green
+			Color.FromArgb(239, 239, 167), //Calming yellow
+			Color.FromArgb(219, 167, 239), //Tainted Pepto Bismol
+			Color.FromArgb(177, 196, 143), //Drab Faded Olive
+			Color.FromArgb(193, 168, 168), //Grayish mauve?
+			Color.FromArgb(224, 205, 123), //Bold sandstone
+			Color.FromArgb(131, 228, 239), //Baby blue sky
+			Color.FromArgb(211, 209, 209), //Basically gray
+			Color.FromArgb(156, 255, 147)  //Intoxicated Leprechaun
 		};
 
 		public virtual Color GetMatchColor(int i)

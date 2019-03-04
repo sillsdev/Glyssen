@@ -1877,24 +1877,6 @@
         <seg>Ittaï</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jabesh, elders of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, elders of</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Yabech, ***elders*** ***of***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jabesh, men of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jabesh, men of</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Yabech, ***men*** ***of***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jabez">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3326,15 +3308,6 @@
         <seg>Saul (Paul)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Sennacherib, king of Assyria">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Sennacherib, king of Assyria</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Sennakérib, roi // [2] Mélek ***of*** ***Assyria***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.seventy-two">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4071,6 +4044,33 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Pierre (Céphas)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (Lord God Almighty)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jésus (Seigneur Dieu, le Tout-Puissant)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Paul (Saul)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Paul (Saul)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Paul (Saul)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>prêtre</seg>
       </tuv>
     </tu>
   </body>

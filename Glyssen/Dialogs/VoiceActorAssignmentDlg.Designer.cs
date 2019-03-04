@@ -183,10 +183,11 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_cameoActorToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cameoActorToolStripMenuItem, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cameoActorToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_cameoActorToolStripMenuItem, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_cameoActorToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.cameoActorToolStripMenuItem");
 			this.m_cameoActorToolStripMenuItem.Name = "m_cameoActorToolStripMenuItem";
-			this.m_cameoActorToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-			this.m_cameoActorToolStripMenuItem.Text = "CameoActor";
+			this.m_cameoActorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.m_cameoActorToolStripMenuItem.Text = "#CameoActor#";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_cameoActorToolStripMenuItem, false);
 			this.m_cameoActorToolStripMenuItem.Click += new System.EventHandler(this.HandleAssignToCameoActorClick);
 			// 
@@ -216,7 +217,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuCharacterGroups, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_contextMenuCharacterGroups, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_contextMenuCharacterGroups, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacterGroups, "DialogBoxes.VoiceActorAssignmentDlg.contextMenuStrip1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacterGroups, "DialogBoxes.VoiceActorAssignmentDlg.m_contextMenuCharacterGroups");
 			this.m_contextMenuCharacterGroups.Name = "m_contextMenuCharacterGroups";
 			this.m_contextMenuCharacterGroups.Size = new System.Drawing.Size(248, 70);
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_contextMenuCharacterGroups, false);
@@ -687,7 +688,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterGroupGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_characterGroupGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_characterGroupGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.betterGrid1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.m_characterGroupGrid");
 			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 33);
 			this.m_characterGroupGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_characterGroupGrid.MultiSelect = false;
@@ -962,7 +963,7 @@ namespace Glyssen.Dialogs
 			this.m_lblFewerOrMore.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFewerOrMore, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFewerOrMore, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFewerOrMore, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFewerOrMore, L10NSharp.LocalizationPriority.Medium);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFewerOrMore, "DialogBoxes.VoiceActorAssignmentDlg.FewerOrMore");
 			this.m_lblFewerOrMore.Location = new System.Drawing.Point(3, 0);
 			this.m_lblFewerOrMore.Name = "m_lblFewerOrMore";

@@ -1565,6 +1565,80 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(CharacterGender.Female, wife.Gender);
 		}
 
+		[TestCase(null)]
+		[TestCase("passionate")]
+		public void ApplyCurrentReferenceTextMatchup_AddedCharacterWithFollowingContinuationBlocks_AssignedAndAddedToProjectForAllBlocksInQuote(string delivery)
+		{
+			const string charChrist = "Christ";
+			Assert.IsFalse(m_testProject.AllCharacterDetailDictionary.ContainsKey(charChrist));
+
+			m_fullProjectRefreshRequired = true;
+			m_model.Mode = BlocksToDisplay.AllScripture;
+
+			const int chapter = 13;
+			const int startVerse = 5;
+			FindRefInMark(chapter, startVerse);
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1];
+			Assert.AreEqual(5, block.InitialStartVerseNumber);
+			Assert.AreEqual(5, block.LastVerseNum, "Sanity check: In this test, we expected the reference text to" +
+				"split off individual verses such that verse 6 would be in a separate block from verse 5.");
+			var firstVerseNumFollowingSetBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[2].InitialStartVerseNumber;
+			Assert.AreEqual(6, firstVerseNumFollowingSetBlock, "Sanity check: In this test, we expected the reference text to" +
+				"split off individual verses such that verse 6 would be in a separate block from verse 5.");
+
+			Assert.AreEqual(8, m_model.CurrentReferenceTextMatchup.OriginalBlocks.Last().LastVerseNum,
+				"Sanity check: in this test, we were expecting the matchup to cover verses 5-8.");
+			int iFollowingBlock = m_model.CurrentBlockIndexInBook + m_model.CurrentReferenceTextMatchup.OriginalBlockCount;
+			var followingBlock = m_testProject.Books[0].GetScriptBlocks()[iFollowingBlock];
+			Assert.IsTrue(followingBlock.IsContinuationOfPreviousBlockQuote,
+				"Sanity check: in this test, we were expecting the block after the matchup to be a continuation.");
+			var lastVerseNumOfBlockFollowingMatchup = followingBlock.LastVerseNum;
+			Assert.IsFalse(m_testProject.Books[0].GetScriptBlocks()[iFollowingBlock + 1].IsContinuationOfPreviousBlockQuote,
+				"Sanity check: in this test, we were expecting only one block after the matchup to be a continuation.");
+			Assert.AreEqual(13, lastVerseNumOfBlockFollowingMatchup,
+				"Sanity check: in this test, we were expecting the block after the matchup to end at verse 13.");
+			m_model.StoreCharacterDetail(charChrist, CharacterGender.Male, CharacterAge.Adult);
+			var newCharacterChrist = new AssignCharacterViewModel.Character(charChrist);
+			var newDelivery = delivery == null ? null : new AssignCharacterViewModel.Delivery(delivery);
+			m_model.AddPendingProjectCharacterVerseData(block, newCharacterChrist, newDelivery);
+			m_model.SetReferenceTextMatchupCharacter(1, newCharacterChrist);
+			if (newDelivery != null)
+			{
+				// REVIEW: Currently, Delivery only gets set on the requested block and does not automatically flow through
+				// the continuation blocks. This is almost certainly the desired behavior for blocks following the matchup
+				// (which the user is not necessarily looking at and which may have already had a different delivery set).
+				// However, we might need to think about whether the delivery should flow through the continuation blocks
+				// within the matchup if they were previously all part of the same block and were merely split off by the
+				// reference text (as is the case with verses 6-8 in this test).
+				// For now, the verification logic in this test is based on the current behavior.
+				m_model.SetReferenceTextMatchupDelivery(1, newDelivery);
+			}
+
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+
+			Assert.AreEqual(1, reloadedProject.ProjectCharacterVerseData.GetCharacters(41, chapter, startVerse, startVerse)
+				.Count(cv => cv.Character == charChrist && cv.Delivery == (delivery?? "")),
+				$"Character ID \"{charChrist}\"{(delivery != null ? " (" + delivery + ")" : "")} missing from " +
+				$"ProjectCharacterVerseData for verse {startVerse}");
+
+			for (int verse = firstVerseNumFollowingSetBlock; verse < lastVerseNumOfBlockFollowingMatchup; verse++)
+				Assert.AreEqual(1, reloadedProject.ProjectCharacterVerseData.GetCharacters(41, chapter, verse, verse)
+						.Count(cv => cv.Character == charChrist && cv.Delivery == ""),
+					$"Character ID \"{charChrist}\" missing from ProjectCharacterVerseData for verse {verse}");
+
+			do
+			{
+				block = reloadedProject.Books[0].GetScriptBlocks()[iFollowingBlock++];
+				Assert.IsTrue(block.IsContinuationOfPreviousBlockQuote);
+				Assert.AreEqual("Christ", block.CharacterId, "Following block is not assigned to \"{charChrist}\"");
+				Assert.IsTrue(string.IsNullOrEmpty(block.Delivery), "Following block should not have Delivery assigned.");
+			} while (block.IsScripture && block.LastVerseNum < lastVerseNumOfBlockFollowingMatchup);
+		}
+
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NeedAssignmentsTask_ReferenceTextSetButNoAssignmentsMade_NoChange()
 		{
