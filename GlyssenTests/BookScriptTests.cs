@@ -1169,6 +1169,26 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
+		// PG-1168
+		[Test]
+		public void ApplyUserDecisions_SplitBlockAfterApplyingReferenceText_SourceBlockCannotBeFoundInTarget_SplitNotAppliedAndNoException()
+		{
+			var source = CreateStandard1CorinthiansScript();
+			var origBlockCount = source.GetScriptBlocks().Count;
+			ReferenceText.GetStandardReferenceText(ReferenceTextType.English).ApplyTo(source, ScrVers.English);
+			Assert.IsTrue(origBlockCount < source.GetScriptBlocks().Count);
+
+			var blockToSplit = source.GetIndexOfFirstBlockForVerse(15, 26);
+			source.SplitBlock(source.GetScriptBlocks()[blockToSplit], "26", 13);
+
+			var target = CreateStandard1CorinthiansScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+		}
+
 		[Test]
 		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
 		{
@@ -2778,6 +2798,69 @@ namespace GlyssenTests
 			}
 
 			return mrkBlocks;
+		}
+
+		private BookScript CreateStandard1CorinthiansScript()
+		{
+			return new BookScript("1CO", GetStandard1CorinthiansScriptBlocks());
+		}
+
+		private IList<Block> GetStandard1CorinthiansScriptBlocks()
+		{
+			m_curSetupChapter = 1;
+			m_curSetupVerse = 0;
+			m_curSetupVerseEnd = 0;
+			m_curStyleTag = null;
+
+			int i = 0;
+			var blocks = new List<Block>();
+
+			blocks.Add(NewTitleBlock("Paul's First Letter to the Church at Corinth"));
+			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			blocks.Add(NewChapterBlock(14));
+			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
+			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ")
+				.AddVerse(2, "Laos i dos parhiteanmuna gabe malua. ")
+				.AddVerse(3, "Laos i three parhiteanmuna gabe malua. ")
+				.AddVerse(4, "Laos i cuatro parhiteanmuna gabe malua. ")
+				.AddVerse(5, "Laos i five parhiteanmuna gabe malua. ")
+				.AddVerse(6, "Laos i seis parhiteanmuna gabe malua. ")
+				.AddVerse(7, "Laos i seven parhiteanmuna gabe malua. "));
+
+			blocks.Add(NewChapterBlock(15));
+			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
+			blocks.Add(NewPara("s", "Taringot tu naung mate"));
+			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ")
+				.AddVerse(2, "Laos i do parhiteanmuna gabe malua. ")
+				.AddVerse(3, "Ai sian mulana hujalo; on do: Naung dosanta, hombar tu na tarsurat i. ")
+				.AddVerse(4, "Naung tartanom do Ibana. ")
+				.AddVerse(5, "Jadi dipataridahon do dirina. ")
+				.AddVerse(6, "Dung i dipataridahon dirina sahali tu. ")
+				.AddVerse(7, "Dung i dipataridahon dirina tu si Jakobus. ")
+				.AddVerse(8, "Dung i dipataridahon dirina tu si Jakobus. ")
+				.AddVerse(9, "Ai ahu do na ummetmet sian angka apostel. ")
+				.AddVerse(10, "Alai na di ahu nuaeng. ")
+				.AddVerse(25, "Ai ingkon mangarajai Ibana, rasirasa dipatunduk saluhut musu i tutoru ni patna. ")
+				.AddVerse(26, "Hamatean i do musu na parpudi sipasohotonna i. ")
+				.AddVerse(27, "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "));
+
+			blocks.Add(NewChapterBlock(16));
+			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
+			blocks.Add(NewPara("s", "Tumpak tu huria na di Jerusalem"));
+			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ")
+				.AddVerse(2, "Verse two Laos i do parhiteanmuna gabe malua. ")
+				.AddVerse(3, "Third verse of chapter 16 i do parhiteanmuna gabe malua. ")
+				.AddVerse(4, "Four i do parhiteanmuna gabe malua. ")
+				.AddVerse(5, "Cinco i do parhiteanmuna gabe malua. ")
+				.AddVerse(6, "This is chapter sixteen, verse six i do parhiteanmuna gabe malua. ")
+				.AddVerse(7, "Seven i do parhiteanmuna gabe malua. ")
+				.AddVerse(8, "Ocho i do parhiteanmuna gabe malua. ")
+				.AddVerse(9, "Last verse of chapter 16 is nine i do parhiteanmuna gabe malua. "));
+
+			return blocks;
 		}
 		#endregion
 
