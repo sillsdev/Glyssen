@@ -626,7 +626,7 @@ namespace Glyssen.Dialogs
 						var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
 						var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
 							blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
-						if (!string.IsNullOrEmpty(firstCharacterId))
+						if (!string.IsNullOrEmpty(characterId))
 							AddPendingProjectCharacterVerseDataIfNeeded(chipOffTheOldBlock, characterId);
 
 						var isNewBlock = originalNextBlock != chipOffTheOldBlock;
