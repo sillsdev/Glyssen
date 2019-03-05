@@ -120,13 +120,13 @@
     <verse num="2" />
     <text>Ruth the Moabitess said to Naomi,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Ruth" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Ruth">
     <text>«Let me now go to the field, and glean among the ears of grain after him in whose sight I shall find favor.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-RUT">
     <text>She said to her,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Naomi" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Naomi">
     <text>«Go, my daughter.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-RUT">
@@ -137,13 +137,13 @@
     <verse num="4" />
     <text>Behold, Boaz came from Bethlehem, and said to the reapers,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Boaz" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="Boaz">
     <text>«God be with you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-RUT">
     <text>They answered him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="harvesters" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="harvesters">
     <text>«God bless you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-RUT">
@@ -231,13 +231,13 @@
     <verse num="19" />
     <text>Her mother-in-law said to her,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="19" characterId="Naomi" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="19" characterId="Naomi">
     <text>«Where have you gleaned today? Where have you worked? Blessed be he who noticed you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-RUT">
     <text>She showed her mother-in-law with whom she had worked, and said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="19" characterId="Ruth" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="19" characterId="Ruth">
     <text>«The man's name with whom I worked today is Boaz.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-RUT">
@@ -314,13 +314,13 @@
     <verse num="9" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="Boaz" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="Boaz">
     <text>«Who are you?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-RUT">
     <text>She answered,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="Ruth" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="Ruth">
     <text>«I am Ruth your handmaid. Therefore spread your skirt over your handmaid; for you are a near kinsman.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-RUT">
@@ -407,14 +407,14 @@
   <block style="p" chapter="4" initialStartVerse="3" characterId="Boaz">
     <text>«Naomi, who has come back out of the country of Moab, is selling the parcel of land, which was our brother Elimelech's.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="Boaz" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="Boaz">
     <verse num="4" />
     <text>I thought to disclose it to you, saying, 'Buy it before those who sit here, and before the elders of my people.' If you will redeem it, redeem it; but if you will not redeem it, then tell me, that I may know. For there is no one to redeem it besides you; and I am after you.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-RUT">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="kinsman-redeemer" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="kinsman-redeemer">
     <text>«I will redeem it.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-RUT">

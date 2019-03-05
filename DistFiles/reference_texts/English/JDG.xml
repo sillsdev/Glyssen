@@ -75,7 +75,7 @@
     <verse num="14" />
     <text>It happened, when she came [to him], that she moved him to ask of her father a field: and she alighted from off her donkey; and Caleb said to her,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="Caleb" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="Caleb">
     <text>«What would you like?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-JDG">
@@ -347,13 +347,13 @@
     <verse num="19" />
     <text>But he himself turned back from the quarries that were by Gilgal, and said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="Ehud, Israelite deliverer" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="Ehud, Israelite deliverer">
     <text>«I have a secret errand to you, king.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-JDG">
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="Eglon, king of Moab" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="Eglon, king of Moab">
     <text>«Keep silence!»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-JDG">
@@ -764,14 +764,14 @@
   <block style="p" chapter="6" initialStartVerse="17" characterId="Gideon (Jerubbaal)">
     <text>«If now I have found favor in your sight, then show me a sign that it is you who talk with me.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="18" characterId="Gideon (Jerubbaal)" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="18" characterId="Gideon (Jerubbaal)">
     <verse num="18" />
     <text>Please don't go away, until I come to you, and bring out my present, and lay it before you.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-JDG">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="18" characterId="God" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="18" characterId="God">
     <text>«I will wait until you come back.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-JDG">
@@ -829,13 +829,13 @@
     <verse num="29" />
     <text>They said one to another,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="29" characterId="townsmen of Ophrah" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="29" characterId="townsmen of Ophrah">
     <text>«Who has done this thing?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="29" characterId="narrator-JDG">
     <text>When they inquired and asked, they said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="29" characterId="person who informed townsmen of Ophrah" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="29" characterId="person who informed townsmen of Ophrah">
     <text>«Gideon the son of Joash has done this thing.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="30" characterId="narrator-JDG">
@@ -1120,13 +1120,13 @@
     <verse num="18" />
     <text>Then he said to Zebah and Zalmunna,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="18" characterId="Gideon (Jerubbaal)" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="18" characterId="Gideon (Jerubbaal)">
     <text>«What kind of men were they whom you killed at Tabor?»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="18" characterId="narrator-JDG">
     <text>They answered,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="18" characterId="Zebah/Zalmunna" characterIdOverrideForScript="Zebah" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="18" characterId="Zebah/Zalmunna" characterIdOverrideForScript="Zebah">
     <text>«They were like you. Each one resembled the children of a king.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="19" characterId="narrator-JDG">
@@ -1387,13 +1387,13 @@
     <verse num="36" />
     <text>When Gaal saw the people, he said to Zebul,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="36" characterId="Gaal, son of Ebed" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="36" characterId="Gaal, son of Ebed">
     <text>«Behold, people are coming down from the tops of the mountains.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="36" characterId="narrator-JDG">
     <text>Zebul said to him,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="36" characterId="Zebul, governor of Shechem" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="36" characterId="Zebul, governor of Shechem">
     <text>«You see the shadow of the mountains as if they were men.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="37" characterId="narrator-JDG">
@@ -1808,26 +1808,26 @@
     <verse num="5" />
     <text>The Gileadites took the fords of the Jordan against the Ephraimites. It was so, that when [any of] the fugitives of Ephraim said,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="5" characterId="Ephraimites" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="5" characterId="Ephraimites">
     <text>Let me go over,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-JDG">
     <text>the men of Gilead said to him,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="5" characterId="Gilead, men of" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="5" characterId="Gilead, men of">
     <text>«Are you an Ephraimite?»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-JDG">
     <text>If he said,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="5" characterId="Ephraimites" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="5" characterId="Ephraimites">
     <text>«No;»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-JDG">
     <verse num="6" />
     <text>then they said to him,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="6" characterId="Gilead, men of" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="6" characterId="Gilead, men of">
     <text>«Now say Shibboleth;»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-JDG">
@@ -1928,13 +1928,13 @@
     <verse num="11" />
     <text>Manoah arose, and went after his wife, and came to the man, and said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="Manoah, father of Samson" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="11" characterId="Manoah, father of Samson">
     <text>«Are you the man who spoke to the woman?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-JDG">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="angel of the LORD, the" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="11" characterId="angel of the LORD, the">
     <text>«I am.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-JDG">
@@ -2034,13 +2034,13 @@
     <verse num="3" />
     <text>Then his father and his mother said to him,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="3" characterId="Manoah, father of Samson/Manoah's wife, mother of Samson" characterIdOverrideForScript="Manoah, father of Samson" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="3" characterId="Manoah, father of Samson/Manoah's wife, mother of Samson" characterIdOverrideForScript="Manoah, father of Samson">
     <text>«Is there never a woman among the daughters of your brothers, or among all my people, that you go to take a wife of the uncircumcised Philistines?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-JDG">
     <text>Samson said to his father,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="3" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="3" characterId="Samson">
     <text>«Get her for me; for she pleases me well.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-JDG">
@@ -2080,14 +2080,14 @@
   <block style="p" chapter="14" initialStartVerse="12" characterId="Samson">
     <text>«Let me tell you a riddle now. If you can declare it to me within the seven days of the feast, and find it out, then I will give you thirty linen garments and thirty changes of clothing;</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="13" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="13" characterId="Samson">
     <verse num="13" />
     <text>but if you can't declare it to me, then you shall give me thirty linen garments and thirty changes of clothing.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="narrator-JDG">
     <text>They said to him,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="13" characterId="Samson's 30 Philistine companions" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="13" characterId="Samson's 30 Philistine companions">
     <text>«Put forth your riddle, that we may hear it.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="narrator-JDG">
@@ -2109,13 +2109,13 @@
     <verse num="16" />
     <text>Samson's wife wept before him, and said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="16" characterId="Samson's Philistine wife" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="16" characterId="Samson's Philistine wife">
     <text>«You just hate me, and don't love me. You have put forth a riddle to the children of my people, and haven't told it me.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="narrator-JDG">
     <text>He said to her,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="16" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="16" characterId="Samson">
     <text>«Behold, I haven't told it my father nor my mother, and shall I tell you?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="17" characterId="narrator-JDG">
@@ -2126,13 +2126,13 @@
     <verse num="18" />
     <text>The men of the city said to him on the seventh day before the sun went down,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="18" characterId="Samson's 30 Philistine companions" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="18" characterId="Samson's 30 Philistine companions">
     <text>«What is sweeter than honey? What is stronger than a lion?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="narrator-JDG">
     <text>He said to them,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="18" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="18" characterId="Samson">
     <text>«If you hadn't plowed with my heifer, you wouldn't have found out my riddle.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="19" characterId="narrator-JDG">
@@ -2180,13 +2180,13 @@
     <verse num="6" />
     <text>Then the Philistines said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="6" characterId="Philistines" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="6" characterId="Philistines">
     <text>«Who has done this?»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="6" characterId="narrator-JDG">
     <text>They said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="6" characterId="informer" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="6" characterId="informer">
     <text>«Samson, the son-in-law of the Timnite, because he has taken his wife, and given her to his companion.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="6" characterId="narrator-JDG">
@@ -2207,39 +2207,39 @@
     <verse num="10" />
     <text>The men of Judah said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="10" characterId="Judah, men of" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="10" characterId="Judah, men of">
     <text>«Why have you come up against us?»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="narrator-JDG">
     <text>They said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="10" characterId="Philistines" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="10" characterId="Philistines">
     <text>«We have come up to bind Samson, to do to him as he has done to us.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="11" characterId="narrator-JDG">
     <verse num="11" />
     <text>Then three thousand men of Judah went down to the cleft of the rock of Etam, and said to Samson,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="11" characterId="Judah, men of" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="11" characterId="Judah, men of">
     <text>«Don't you know that the Philistines are rulers over us? What then is this that you have done to us?»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="11" characterId="narrator-JDG">
     <text>He said to them,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="11" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="11" characterId="Samson">
     <text>«As they did to me, so have I done to them.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="12" characterId="narrator-JDG">
     <verse num="12" />
     <text>They said to him,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="12" characterId="Judah, men of" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="12" characterId="Judah, men of">
     <text>«We have come down to bind you, that we may deliver you into the hand of the Philistines.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="12" characterId="narrator-JDG">
     <text>Samson said to them,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="12" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="12" characterId="Samson">
     <text>«Swear to me that you will not fall on me yourselves.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="13" characterId="narrator-JDG">
@@ -2293,13 +2293,13 @@
     <verse num="2" />
     <text>[It was told] the Gazites, saying,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="2" characterId="person who informed people of Gaza" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="2" characterId="person who informed people of Gaza">
     <text>«Samson is here!»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="narrator-JDG">
     <text>They surrounded him, and laid wait for him all night in the gate of the city, and were quiet all the night, saying,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="2" characterId="Gaza, people of (wicked)" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="2" characterId="Gaza, people of (wicked)">
     <text>[Let be] until morning light, then we will kill him.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="narrator-JDG">
@@ -2369,13 +2369,13 @@
     <verse num="13" />
     <text>Delilah said to Samson,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="13" characterId="Delilah" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="13" characterId="Delilah">
     <text>«Until now, you have mocked me and told me lies. Tell me with what you might be bound.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="13" characterId="narrator-JDG">
     <text>He said to her,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="13" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="13" characterId="Samson">
     <text>«If you weave the seven locks of my head with the web.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="14" characterId="narrator-JDG">
@@ -2420,13 +2420,13 @@
     <verse num="20" />
     <text>She said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="20" characterId="Delilah" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="20" characterId="Delilah">
     <text>«The Philistines are upon you, Samson!»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="narrator-JDG">
     <text>He awoke out of his sleep, and said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="20" characterId="Samson" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="20" characterId="Samson">
     <text>«I will go out as at other times, and shake myself free.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="narrator-JDG">
@@ -2505,13 +2505,13 @@
     <verse num="2" />
     <text>He said to his mother,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="2" characterId="Micah" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="2" characterId="Micah">
     <text>«The eleven hundred [pieces] of silver that were taken from you, about which you uttered a curse, and also spoke it in my ears, behold, the silver is with me; I took it.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="narrator-JDG">
     <text>His mother said,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="2" characterId="Micah's mother" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="2" characterId="Micah's mother">
     <text>«Blessed be my son of God.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="narrator-JDG">
@@ -2543,13 +2543,13 @@
     <verse num="9" />
     <text>Micah said to him,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="9" characterId="Micah" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="9" characterId="Micah">
     <text>«Where did you come from?»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="9" characterId="narrator-JDG">
     <text>He said to him,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="9" characterId="Levite, young, from Bethlehem" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="9" characterId="Levite, young, from Bethlehem">
     <text>«I am a Levite of Bethlehem Judah, and I am looking for a place to live.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="10" characterId="narrator-JDG">
@@ -2999,13 +2999,13 @@
     <verse num="18" />
     <text>The children of Israel arose, and went up to Bethel, and asked counsel of God; and they said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="18" characterId="Israelites" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="18" characterId="Israelites">
     <text>«Who shall go up for us first to battle against the children of Benjamin?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="18" characterId="narrator-JDG">
     <text>God said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="18" characterId="God" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="18" characterId="God">
     <text>«Judah [shall go up] first.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="19" characterId="narrator-JDG">
@@ -3028,13 +3028,13 @@
     <verse num="23" />
     <text>The children of Israel went up and wept before God until evening; and they asked of God, saying,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="23" characterId="Israelites (excluding Benjamites)" delivery="weeping" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="23" characterId="Israelites (excluding Benjamites)" delivery="weeping">
     <text>«Shall I again draw near to battle against the children of Benjamin my brother?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="23" characterId="narrator-JDG">
     <text>God said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="23" characterId="God" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="23" characterId="God">
     <text>«Go up against him.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="24" characterId="narrator-JDG">
@@ -3055,13 +3055,13 @@
     <verse num="28" />
     <text>and Phinehas, the son of Eleazar, the son of Aaron, stood before it in those days), saying,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="28" characterId="Israelites (excluding Benjamites)" delivery="weeping" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="28" characterId="Israelites (excluding Benjamites)" delivery="weeping">
     <text>«Shall I yet again go out to battle against the children of Benjamin my brother, or shall I cease?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="28" characterId="narrator-JDG">
     <text>God said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="28" characterId="God" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="28" characterId="God">
     <text>«Go up; for tomorrow I will deliver him into your hand.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="29" characterId="narrator-JDG">
@@ -3080,13 +3080,13 @@
     <verse num="32" />
     <text>The children of Benjamin said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="32" characterId="Benjamites" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="32" characterId="Benjamites">
     <text>«They are struck down before us, as at the first.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="32" characterId="narrator-JDG">
     <text>But the children of Israel said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="32" characterId="Israelites" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="32" characterId="Israelites">
     <text>«Let us flee, and draw them away from the city to the highways.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="33" characterId="narrator-JDG">

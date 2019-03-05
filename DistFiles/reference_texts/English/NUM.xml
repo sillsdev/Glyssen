@@ -2473,7 +2473,7 @@
     <verse num="12" />
     <text>Moses sent to call Dathan and Abiram, the sons of Eliab; and they said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="12" characterId="Dathan/Abiram" characterIdOverrideForScript="Dathan" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="12" characterId="Dathan/Abiram" characterIdOverrideForScript="Dathan">
     <text>«We won't come up: </text>
     <verse num="13" />
     <text>is it a small thing that you have brought us up out of a land flowing with milk and honey, to kill us in the wilderness, but you must also make yourself a prince over us?</text>
@@ -3381,13 +3381,13 @@
     <verse num="30" />
     <text>The donkey said to Balaam,</text>
   </block>
-  <block style="p" chapter="22" initialStartVerse="30" characterId="donkey (female)" userConfirmed="true">
+  <block style="p" chapter="22" initialStartVerse="30" characterId="donkey (female)">
     <text>«Am I not your donkey, on which you have ridden all your life long to this day? Was I ever in the habit of doing so to you?»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="30" characterId="narrator-NUM">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="22" initialStartVerse="30" characterId="Balaam" userConfirmed="true">
+  <block style="p" chapter="22" initialStartVerse="30" characterId="Balaam">
     <text>«No.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="31" characterId="narrator-NUM">

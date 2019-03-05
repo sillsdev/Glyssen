@@ -178,13 +178,13 @@
     <verse num="14" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="man (Hebrew fighting)" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="man (Hebrew fighting)">
     <text>«Who made you a prince and a judge over us? Do you plan to kill me, as you killed the Egyptian?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-EXO">
     <text>Moses was afraid, and said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Moses" delivery="thinking" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="Moses" delivery="thinking">
     <text>«Surely this thing is known.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-EXO">
@@ -263,13 +263,13 @@
     <verse num="4" />
     <text>When God saw that he turned aside to see, God called to him out of the midst of the bush, and said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="God" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="God">
     <text>«Moses! Moses!»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-EXO">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="Moses" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="Moses">
     <text>«Here I am.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-EXO">
@@ -389,13 +389,13 @@
     <verse num="2" />
     <text>God said to him,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="God" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="God">
     <text>«What is that in your hand?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-EXO">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="Moses" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="Moses">
     <text>«A rod.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-EXO">
@@ -494,13 +494,13 @@
     <verse num="18" />
     <text>Moses went and returned to Jethro his father-in-law, and said to him,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="18" characterId="Moses" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="18" characterId="Moses">
     <text>«Please let me go and return to my brothers who are in Egypt, and see whether they are still alive.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-EXO">
     <text>Jethro said to Moses,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="18" characterId="Jethro (Reuel), Moses' father-in-law" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="18" characterId="Jethro (Reuel), Moses' father-in-law">
     <text>«Go in peace.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-EXO">
@@ -988,13 +988,13 @@
     <verse num="10" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="10" characterId="Pharaoh (3rd)" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="10" characterId="Pharaoh (3rd)">
     <text>«Tomorrow.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-EXO">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="10" characterId="Moses" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="10" characterId="Moses">
     <text>«Be it according to your word, that you may know that there is none like God our God.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="Moses">
@@ -2107,13 +2107,13 @@
     <verse num="15" />
     <text>When the children of Israel saw it, they said one to another,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="15" characterId="Israelites" delivery="questioning" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="15" characterId="Israelites" delivery="questioning">
     <text>«What is it?»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="15" characterId="narrator-EXO">
     <text>For they didn't know what it was. Moses said to them,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="15" characterId="Moses" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="15" characterId="Moses">
     <text>«It is the bread which God has given you to eat.» </text>
     <verse num="16" />
     <text>This is the thing which God has commanded: «Gather of it everyone according to his eating; an omer a head, according to the number of your persons, you shall take it, every man for those who are in his tent.»</text>
@@ -2217,13 +2217,13 @@
     <verse num="2" />
     <text>Therefore the people quarreled with Moses, and said,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="2" characterId="Israelites" delivery="quarreling" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="2" characterId="Israelites" delivery="quarreling">
     <text>«Give us water to drink.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="narrator-EXO">
     <text>Moses said to them,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="2" characterId="Moses" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="2" characterId="Moses">
     <text>«Why do you quarrel with me? Why do you test God?»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="narrator-EXO">

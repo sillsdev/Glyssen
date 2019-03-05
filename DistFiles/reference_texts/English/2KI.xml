@@ -54,13 +54,13 @@
     <verse num="8" />
     <text>They answered him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="messengers of Ahaziah" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="messengers of Ahaziah">
     <text>«He was a hairy man, and wearing a leather belt around his waist.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="Ahaziah, king of Israel" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="Ahaziah, king of Israel">
     <text>«It is Elijah the Tishbite.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-2KI">
@@ -140,13 +140,13 @@
     <verse num="2" />
     <text>Elijah said to Elisha,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Elijah" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Elijah">
     <text>«Please wait here, for God has sent me as far as Bethel.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-2KI">
     <text>Elisha said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Elisha">
     <text>«As God lives, and as your soul lives, I will not leave you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-2KI">
@@ -154,26 +154,26 @@
     <verse num="3" />
     <text>The sons of the prophets who were at Bethel came out to Elisha, and said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="company of the prophets (Bethel)" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="company of the prophets (Bethel)">
     <text>«Do you know that God will take away your master from your head today?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="Elisha">
     <text>«Yes, I know it; hold your peace.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-2KI">
     <verse num="4" />
     <text>Elijah said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Elijah" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="Elijah">
     <text>«Elisha, please wait here, for God has sent me to Jericho.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="Elisha">
     <text>«As God lives, and as your soul lives, I will not leave you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-2KI">
@@ -181,26 +181,26 @@
     <verse num="5" />
     <text>The sons of the prophets who were at Jericho came near to Elisha, and said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="company of the prophets (Jericho)" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="company of the prophets (Jericho)">
     <text>«Do you know that God will take away your master from your head today?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="Elisha">
     <text>«Yes, I know it. Hold your peace.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-2KI">
     <verse num="6" />
     <text>Elijah said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="Elijah" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="Elijah">
     <text>«Please wait here, for God has sent me to the Jordan.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="Elisha">
     <text>«As God lives, and as your soul lives, I will not leave you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-2KI">
@@ -216,13 +216,13 @@
     <verse num="9" />
     <text>It happened, when they had gone over, that Elijah said to Elisha,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="Elijah" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="Elijah">
     <text>«Ask what I shall do for you, before I am taken from you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-2KI">
     <text>Elisha said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="Elisha">
     <text>«Please let a double portion of your spirit be on me.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-2KI">
@@ -270,13 +270,13 @@
     <verse num="16" />
     <text>They said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="company of the prophets (Jericho)" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="company of the prophets (Jericho)">
     <text>«See now, there are with your servants fifty strong men. Please let them go and seek your master. Perhaps the Spirit of God has taken him up, and put him on some mountain, or into some valley.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="Elisha">
     <text>«You shall not send them.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-2KI">
@@ -366,26 +366,26 @@
     <verse num="7" />
     <text>He went and sent to Jehoshaphat the king of Judah, saying,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="Joram, king of Israel" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="Joram, king of Israel">
     <text>«The king of Moab has rebelled against me. Will you go with me against Moab to battle?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="Jehoshaphat, king of Judah" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="Jehoshaphat, king of Judah">
     <text>«I will go up. I am as you are, my people as your people, my horses as your horses.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-2KI">
     <verse num="8" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="Joram, king of Israel" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="Joram, king of Israel">
     <text>«Which way shall we go up?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="Jehoshaphat, king of Judah" delivery="questioning" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="Jehoshaphat, king of Judah" delivery="questioning">
     <text>«The way of the wilderness of Edom.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-2KI">
@@ -401,13 +401,13 @@
     <verse num="11" />
     <text>But Jehoshaphat said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="11" characterId="Jehoshaphat, king of Judah" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="11" characterId="Jehoshaphat, king of Judah">
     <text>«Isn't there here a prophet of God, that we may inquire of God by him?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-2KI">
     <text>One of the king of Israel's servants answered,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="11" characterId="officer of King Jehoshaphat of Israel" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="11" characterId="officer of King Jehoshaphat of Israel">
     <text>«Elisha the son of Shaphat is here, who poured water on the hands of Elijah.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-2KI">
@@ -422,13 +422,13 @@
     <verse num="13" />
     <text>Elisha said to the king of Israel,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="13" characterId="Elisha">
     <text>«What have I to do with you? Go to the prophets of your father, and to the prophets of your mother.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-2KI">
     <text>The king of Israel said to him,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="Joram, king of Israel" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="13" characterId="Joram, king of Israel">
     <text>«No; for God has called these three kings together to deliver them into the hand of Moab.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-2KI">
@@ -509,13 +509,13 @@
     <verse num="2" />
     <text>Elisha said to her,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="Elisha">
     <text>«What shall I do for you? Tell me: what do you have in the house?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-2KI">
     <text>She said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="widow (from company of prophets)" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="widow (from company of prophets)">
     <text>«Your handmaid has nothing in the house, except a pot of oil.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-2KI">
@@ -535,13 +535,13 @@
     <verse num="6" />
     <text>It happened, when the containers were full, that she said to her son,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="widow (from company of prophets)" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="widow (from company of prophets)">
     <text>«Bring me another container.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-2KI">
     <text>He said to her,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="son of widow" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="son of widow">
     <text>«There isn't another container.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-2KI">
@@ -579,26 +579,26 @@
     <verse num="13" />
     <text>He said to him,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="Elisha">
     <text>«Say now to her, 'Behold, you have cared for us with all this care. What is to be done for you? Would you like to be spoken for to the king, or to the captain of the army?'»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-2KI">
     <text>She answered,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="Shunammite woman" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="Shunammite woman">
     <text>«I dwell among my own people.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-2KI">
     <verse num="14" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="Elisha">
     <text>«What then is to be done for her?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-2KI">
     <text>Gehazi answered,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Gehazi" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="Gehazi">
     <text>«Most certainly she has no son, and her husband is old.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-2KI">
@@ -613,13 +613,13 @@
     <verse num="16" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="Elisha">
     <text>«At this season, when the time comes around, you will embrace a son.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-2KI">
     <text>She said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="Shunammite woman" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="Shunammite woman">
     <text>«No, my lord, you man of God, do not lie to your handmaid.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-2KI">
@@ -632,13 +632,13 @@
     <verse num="19" />
     <text>He said to his father,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="19" characterId="son of Shunammite" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="19" characterId="son of Shunammite">
     <text>«My head! My head!»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-2KI">
     <text>He said to his servant,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="19" characterId="husband of Shunammite" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="19" characterId="husband of Shunammite">
     <text>«Carry him to his mother.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-2KI">
@@ -658,13 +658,13 @@
     <verse num="23" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="23" characterId="husband of Shunammite" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="23" characterId="husband of Shunammite">
     <text>«Why would you want go to him today? It is neither new moon nor Sabbath.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="23" characterId="narrator-2KI">
     <text>She said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="23" characterId="Shunammite woman" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="23" characterId="Shunammite woman">
     <text>«It's alright.»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="24" characterId="narrator-2KI">
@@ -804,13 +804,13 @@
     <verse num="43" />
     <text>His servant said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="43" characterId="Gehazi" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="43" characterId="Gehazi">
     <text>«What, should I set this before a hundred men?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="43" characterId="narrator-2KI">
     <text>But he said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="43" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="43" characterId="Elisha">
     <text>«Give the people, that they may eat; for thus says God, 'They will eat, and will have some left over.'»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="44" characterId="narrator-2KI">
@@ -974,13 +974,13 @@
     <verse num="25" />
     <text>But he went in, and stood before his master. Elisha said to him,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="25" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="25" characterId="Elisha">
     <text>«Where did you come from, Gehazi?»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="25" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="25" characterId="Gehazi" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="25" characterId="Gehazi">
     <text>«Your servant went nowhere.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="26" characterId="narrator-2KI">
@@ -1007,27 +1007,27 @@
   <block style="p" chapter="6" initialStartVerse="1" characterId="company of the prophets">
     <text>«See now, the place where we dwell before you is too small for us.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="company of the prophets" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="2" characterId="company of the prophets">
     <verse num="2" />
     <text>Please let us go to the Jordan, and every man take a beam from there, and let us make us a place there, where we may dwell.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="2" characterId="Elisha">
     <text>«Go!»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-2KI">
     <verse num="3" />
     <text>One said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="company of the prophets" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="company of the prophets">
     <text>«Please be pleased to go with your servants.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="Elisha">
     <text>«I will go.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-2KI">
@@ -1095,13 +1095,13 @@
     <verse num="13" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="Ben-Hadad, king of Aram" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="13" characterId="Ben-Hadad, king of Aram">
     <text>«Go and see where he is, that I may send and get him.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-2KI">
     <text>It was told him, saying,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="report to king of Aram" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="13" characterId="report to king of Aram">
     <text>«Behold, he is in Dothan.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-2KI">
@@ -1202,13 +1202,13 @@
     <verse num="28" />
     <text>The king said to her,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="28" characterId="Joram, king of Israel" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="28" characterId="Joram, king of Israel">
     <text>«What ails you?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="28" characterId="narrator-2KI">
     <text>She answered,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="28" characterId="woman in famine" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="28" characterId="woman in famine">
     <text>«This woman said to me, 'Give your son, that we may eat him today, and we will eat my son tomorrow.'</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="29" characterId="woman in famine">
@@ -1252,13 +1252,13 @@
     <verse num="2" />
     <text>Then the captain on whose hand the king leaned answered the man of God, and said,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="2" characterId="officer of king of Israel, on whose arm the king leaned" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="2" characterId="officer of king of Israel, on whose arm the king leaned">
     <text>«Behold, if God made windows in heaven, could this thing be?»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="2" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="2" characterId="Elisha">
     <text>«Behold, you shall see it with your eyes, but shall not eat of it.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-2KI">
@@ -1349,13 +1349,13 @@
     <verse num="19" />
     <text>and that captain answered the man of God, and said,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="19" characterId="officer of king of Israel, on whose arm the king leaned" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="19" characterId="officer of king of Israel, on whose arm the king leaned">
     <text>«Now, behold, if God should make windows in heaven, might such a thing be?»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="19" characterId="narrator-2KI">
     <text>and he said,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="19" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="19" characterId="Elisha">
     <text>«Behold, you shall see it with your eyes, but shall not eat of it.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="20" characterId="narrator-2KI">
@@ -1435,39 +1435,39 @@
     <verse num="12" />
     <text>Hazael said,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="12" characterId="Hazael of Aram" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="12" characterId="Hazael of Aram">
     <text>«Why do you weep, my lord?»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="12" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="12" characterId="Elisha">
     <text>«Because I know the evil that you will do to the children of Israel. You will set their strongholds on fire, and you will kill their young men with the sword, and will dash in pieces their little ones, and rip up their women with child.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-2KI">
     <verse num="13" />
     <text>Hazael said,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="13" characterId="Hazael of Aram" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="13" characterId="Hazael of Aram">
     <text>«But what is your servant, who is but a dog, that he should do this great thing?»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-2KI">
     <text>Elisha answered,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="13" characterId="Elisha" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="13" characterId="Elisha">
     <text>«God has shown me that you will be king over Syria.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-2KI">
     <verse num="14" />
     <text>Then he departed from Elisha, and came to his master, who said to him,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="14" characterId="Ben-Hadad, king of Aram" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="14" characterId="Ben-Hadad, king of Aram">
     <text>«What did Elisha say to you?»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="14" characterId="Hazael of Aram" userConfirmed="true">
+  <block style="p" chapter="8" initialStartVerse="14" characterId="Hazael of Aram">
     <text>«He told me that you would surely recover.»</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="narrator-2KI">
@@ -1556,19 +1556,19 @@
     <verse num="5" />
     <text>When he came, behold, the captains of the army were sitting. Then he said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="company of the prophets, one of (young man)" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="5" characterId="company of the prophets, one of (young man)">
     <text>«I have a message for you, captain.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-2KI">
     <text>Jehu said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="5" characterId="Jehu, son of Nimshi">
     <text>«To which of us all?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="company of the prophets, one of (young man)" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="5" characterId="company of the prophets, one of (young man)">
     <text>«To you, O captain.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-2KI">
@@ -1599,26 +1599,26 @@
     <verse num="11" />
     <text>Then Jehu came forth to the servants of his lord: and one said to him,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="army officer, one of" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="11" characterId="army officer, one of">
     <text>«Is all well? Why did this mad fellow come to you?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-2KI">
     <text>He said to them,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="11" characterId="Jehu, son of Nimshi">
     <text>«You know the man and what his talk was.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-2KI">
     <verse num="12" />
     <text>They said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="12" characterId="army officers" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="12" characterId="army officers">
     <text>«That is a lie. Tell us now.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="12" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="12" characterId="Jehu, son of Nimshi">
     <text>«He said to me, 'Thus says God, I have anointed you king over Israel.'»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-2KI">
@@ -1647,45 +1647,45 @@
     <verse num="17" />
     <text>Now the watchman was standing on the tower in Jezreel, and he spied the company of Jehu as he came, and said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="17" characterId="lookout in Jezreel" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="17" characterId="lookout in Jezreel">
     <text>«I see a company.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="17" characterId="narrator-2KI">
     <text>Joram said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="17" characterId="Joram, king of Israel" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="17" characterId="Joram, king of Israel">
     <text>«Take a horseman, and send to meet them, and let him say, 'Is it peace?'»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="narrator-2KI">
     <verse num="18" />
     <text>So there went one on horseback to meet him, and said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="18" characterId="horseman, first" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="18" characterId="horseman, first">
     <text>«Thus says the king, 'Is it peace?'»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="narrator-2KI">
     <text>Jehu said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="18" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="18" characterId="Jehu, son of Nimshi">
     <text>«What do you have to do with peace? Fall in behind me!»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="narrator-2KI">
     <text>The watchman said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="18" characterId="lookout in Jezreel" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="18" characterId="lookout in Jezreel">
     <text>«The messenger came to them, but he isn't coming back.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="narrator-2KI">
     <verse num="19" />
     <text>Then he sent out a second on horseback, who came to them, and said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="19" characterId="horseman, second" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="19" characterId="horseman, second">
     <text>«Thus says the king, 'Is it peace?'»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="narrator-2KI">
     <text>Jehu answered,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="19" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="19" characterId="Jehu, son of Nimshi">
     <text>«What do you have to do with peace? Fall in behind me!»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="narrator-2KI">
@@ -1709,13 +1709,13 @@
     <verse num="22" />
     <text>It happened, when Joram saw Jehu, that he said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="22" characterId="Joram, king of Israel" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="22" characterId="Joram, king of Israel">
     <text>«Is it peace, Jehu?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="22" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="22" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="22" characterId="Jehu, son of Nimshi">
     <text>«What peace, so long as the prostitution of your mother Jezebel and her witchcraft abound?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="23" characterId="narrator-2KI">
@@ -1848,13 +1848,13 @@
     <verse num="8" />
     <text>A messenger came, and told him,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="8" characterId="messenger from guardians of Ahab's children" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="8" characterId="messenger from guardians of Ahab's children">
     <text>«They have brought the heads of the king's sons.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="narrator-2KI">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="8" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="8" characterId="Jehu, son of Nimshi">
     <text>«Lay them in two heaps at the entrance of the gate until the morning.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="9" characterId="narrator-2KI">
@@ -1878,13 +1878,13 @@
     <verse num="13" />
     <text>Jehu met with the brothers of Ahaziah king of Judah, and said,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="13" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="13" characterId="Jehu, son of Nimshi">
     <text>«Who are you?»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-2KI">
     <text>They answered,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="13" characterId="relatives of Ahaziah, king of Judah" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="13" characterId="relatives of Ahaziah, king of Judah">
     <text>«We are the brothers of Ahaziah. We are going down to greet the children of the king and the children of the queen.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="narrator-2KI">
@@ -1901,19 +1901,19 @@
     <verse num="15" />
     <text>When he had departed from there, he met Jehonadab the son of Rechab coming to meet him. He greeted him, and said to him,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="15" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="15" characterId="Jehu, son of Nimshi">
     <text>«Is your heart right, as my heart is with your heart?»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-2KI">
     <text>Jehonadab answered,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="15" characterId="Jehonadab, son of Recab" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="15" characterId="Jehonadab, son of Recab">
     <text>«It is.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-2KI">
     <text>Jehu said,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="15" characterId="Jehu, son of Nimshi" userConfirmed="true">
+  <block style="p" chapter="10" initialStartVerse="15" characterId="Jehu, son of Nimshi">
     <text>«If it is, give me your hand.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-2KI">
@@ -3119,7 +3119,7 @@
     <verse num="9" />
     <text>When he heard it said of Tirhakah king of Ethiopia,</text>
   </block>
-  <block style="p" chapter="19" initialStartVerse="9" characterId="person who informed Rabshakeh" userConfirmed="true">
+  <block style="p" chapter="19" initialStartVerse="9" characterId="person who informed Rabshakeh">
     <text>«Behold, he has come out to fight against you,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="9" characterId="narrator-2KI">
@@ -3313,26 +3313,26 @@
     <verse num="14" />
     <text>Then Isaiah the prophet came to king Hezekiah, and said to him,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="14" characterId="Isaiah" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="14" characterId="Isaiah">
     <text>«What did these men say? From where did they come to you?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="14" characterId="narrator-2KI">
     <text>Hezekiah said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="14" characterId="Hezekiah, king of Judah" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="14" characterId="Hezekiah, king of Judah">
     <text>«They are come from a far country, even from Babylon.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="15" characterId="narrator-2KI">
     <verse num="15" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="15" characterId="Isaiah" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="15" characterId="Isaiah">
     <text>«What have they seen in your house?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="15" characterId="narrator-2KI">
     <text>Hezekiah answered,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="15" characterId="Hezekiah, king of Judah" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="15" characterId="Hezekiah, king of Judah">
     <text>«They have seen all that is in my house. There is nothing among my treasures that I have not shown them.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="16" characterId="narrator-2KI">
@@ -3641,13 +3641,13 @@
     <verse num="17" />
     <text>Then he said,</text>
   </block>
-  <block style="p" chapter="23" initialStartVerse="17" characterId="Josiah, king of Judah" userConfirmed="true">
+  <block style="p" chapter="23" initialStartVerse="17" characterId="Josiah, king of Judah">
     <text>«What monument is that which I see?»</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="17" characterId="narrator-2KI">
     <text>The men of the city told him,</text>
   </block>
-  <block style="p" chapter="23" initialStartVerse="17" characterId="men of Bethel" userConfirmed="true">
+  <block style="p" chapter="23" initialStartVerse="17" characterId="men of Bethel">
     <text>«It is the tomb of the man of God, who came from Judah, and proclaimed these things that you have done against the altar of Bethel.»</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="18" characterId="narrator-2KI">

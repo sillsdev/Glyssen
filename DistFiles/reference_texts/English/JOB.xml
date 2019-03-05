@@ -36,13 +36,13 @@
     <verse num="7" />
     <text>God said to Satan,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="God" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="God">
     <text>«Where have you come from?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JOB">
     <text>Then Satan answered God, and said,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="Satan (Devil)" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="Satan (Devil)">
     <text>«From going back and forth in the earth, and from walking up and down in it.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-JOB">
@@ -133,13 +133,13 @@
     <verse num="2" />
     <text>God said to Satan,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="God" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="God">
     <text>«Where have you come from?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-JOB">
     <text>Satan answered God, and said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Satan (Devil)" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Satan (Devil)">
     <text>«From going back and forth in the earth, and from walking up and down in it.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-JOB">

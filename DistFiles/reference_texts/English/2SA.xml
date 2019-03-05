@@ -16,26 +16,26 @@
     <verse num="3" />
     <text>David said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="David" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="David">
     <text>«Where do you come from?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-2SA">
     <text>He said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="man from Saul's camp (young)" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="man from Saul's camp (young)">
     <text>«I have escaped out of the camp of Israel.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-2SA">
     <verse num="4" />
     <text>David said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="David" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="David">
     <text>«How did it go? Please tell me.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-2SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="man from Saul's camp (young)" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="man from Saul's camp (young)">
     <text>«The people have fled from the battle, and many of the people also have fallen and are dead; and Saul and Jonathan his son are dead also.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-2SA">
@@ -80,13 +80,13 @@
     <verse num="13" />
     <text>David said to the young man who told him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="David" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="David">
     <text>«Where are you from?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-2SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="man from Saul's camp (young)" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="man from Saul's camp (young)">
     <text>«I am the son of a foreigner, an Amalekite.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-2SA">
@@ -160,25 +160,25 @@
     <verse num="1" />
     <text>It happened after this, that David inquired of God, saying,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="David" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="David">
     <text>«Shall I go up into any of the cities of Judah?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-2SA">
     <text>God said to him,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="God" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="God">
     <text>«Go up.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-2SA">
     <text>David said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="David" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="David">
     <text>«Where shall I go up?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-2SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="God" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="God">
     <text>«To Hebron.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-2SA">
@@ -237,13 +237,13 @@
     <verse num="14" />
     <text>Abner said to Joab,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Abner, commander of Saul's army" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="Abner, commander of Saul's army">
     <text>«Please let the young men arise and play before us!»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-2SA">
     <text>Joab said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Joab" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="Joab">
     <text>«Let them arise!»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-2SA">
@@ -268,13 +268,13 @@
     <verse num="20" />
     <text>Then Abner looked behind him, and said,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="20" characterId="Abner, commander of Saul's army" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="20" characterId="Abner, commander of Saul's army">
     <text>«Is it you, Asahel?»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-2SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="20" characterId="Asahel, brother of Joab" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="20" characterId="Asahel, brother of Joab">
     <text>«It is I.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-2SA">
@@ -633,13 +633,13 @@
     <verse num="6" />
     <text>The king and his men went to Jerusalem against the Jebusites, the inhabitants of the land, who spoke to David, saying,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="Jebusites" delivery="taunting" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="Jebusites" delivery="taunting">
     <text>«Unless you take away the blind and the lame, you shall not come in here;»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-2SA">
     <text>thinking,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="Jebusites" delivery="thought" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="Jebusites" delivery="thought">
     <text>«David can't come in here.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-2SA">
@@ -648,13 +648,13 @@
     <verse num="8" />
     <text>David said on that day,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="David" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="David">
     <text>«Whoever strikes the Jebusites, let him get up to the watercourse, and strike the lame and the blind, who are hated by David's soul.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-2SA">
     <text>Therefore they say,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="saying about blind and lame" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="saying about blind and lame">
     <text>«The blind and the lame can't come into the house.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-2SA">
@@ -695,13 +695,13 @@
     <verse num="19" />
     <text>David inquired of God, saying,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="David" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="David">
     <text>«Shall I go up against the Philistines? Will you deliver them into my hand?»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="19" characterId="narrator-2SA">
     <text>God said to David,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="God" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="God">
     <text>«Go up; for I will certainly deliver the Philistines into your hand.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="20" characterId="narrator-2SA">
@@ -1054,39 +1054,39 @@
     <verse num="2" />
     <text>There was of the house of Saul a servant whose name was Ziba, and they called him to David; and the king said to him,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="2" characterId="David" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="2" characterId="David">
     <text>«Are you Ziba?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-2SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="2" characterId="Ziba, servant of Saul's household" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="2" characterId="Ziba, servant of Saul's household">
     <text>«Your servant is he.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-2SA">
     <verse num="3" />
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="3" characterId="David" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="3" characterId="David">
     <text>«Is there not yet any of the house of Saul, that I may show the kindness of God to him?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-2SA">
     <text>Ziba said to the king,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="3" characterId="Ziba, servant of Saul's household" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="3" characterId="Ziba, servant of Saul's household">
     <text>«Jonathan has yet a son, who is lame of his feet.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-2SA">
     <verse num="4" />
     <text>The king said to him,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="4" characterId="David" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="4" characterId="David">
     <text>«Where is he?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-2SA">
     <text>Ziba said to the king,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="4" characterId="Ziba, servant of Saul's household" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="4" characterId="Ziba, servant of Saul's household">
     <text>«Behold, he is in the house of Machir the son of Ammiel, in Lo Debar.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-2SA">
@@ -1097,13 +1097,13 @@
     <verse num="6" />
     <text>Mephibosheth, the son of Jonathan, the son of Saul, came to David, and fell on his face, and did obeisance. David said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="David" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="David">
     <text>«Mephibosheth.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-2SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="Mephibosheth, son of Jonathan" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="Mephibosheth, son of Jonathan">
     <text>«Behold, your servant!»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-2SA">
@@ -1291,13 +1291,13 @@
     <verse num="10" />
     <text>When they had told David, saying,</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="10" characterId="informer" userConfirmed="true">
+  <block style="p" chapter="11" initialStartVerse="10" characterId="informer">
     <text>«Uriah didn't go down to his house,»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="10" characterId="narrator-2SA">
     <text>David said to Uriah,</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="10" characterId="David" userConfirmed="true">
+  <block style="p" chapter="11" initialStartVerse="10" characterId="David">
     <text>«Haven't you come from a journey? Why didn't you go down to your house?»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="11" characterId="narrator-2SA">
@@ -1443,13 +1443,13 @@
     <verse num="13" />
     <text>David said to Nathan,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="13" characterId="David" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="13" characterId="David">
     <text>«I have sinned against God.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="13" characterId="narrator-2SA">
     <text>Nathan said to David,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="13" characterId="Nathan" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="13" characterId="Nathan">
     <text>«God also has put away your sin. You will not die.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="14" characterId="Nathan">
@@ -1479,13 +1479,13 @@
     <verse num="19" />
     <text>But when David saw that his servants were whispering together, David perceived that the child was dead; and David said to his servants,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="19" characterId="David" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="19" characterId="David">
     <text>«Is the child dead?»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="narrator-2SA">
     <text>They said,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="19" characterId="servants of David" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="19" characterId="servants of David">
     <text>«He is dead.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="20" characterId="narrator-2SA">
@@ -1558,13 +1558,13 @@
     <verse num="4" />
     <text>He said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="4" characterId="Jonadab" delivery="shrewd" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="4" characterId="Jonadab" delivery="shrewd">
     <text>«Why, son of the king, are you so sad from day to day? Won't you tell me?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-2SA">
     <text>Amnon said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="4" characterId="Amnon, son of David" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="4" characterId="Amnon, son of David">
     <text>«I love Tamar, my brother Absalom's sister.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="5" characterId="narrator-2SA">
@@ -1701,13 +1701,13 @@
     <verse num="26" />
     <text>Then Absalom said,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="26" characterId="Absalom, son of David" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="26" characterId="Absalom, son of David">
     <text>«If not, please let my brother Amnon go with us.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="26" characterId="narrator-2SA">
     <text>The king said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="26" characterId="David" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="26" characterId="David">
     <text>«Why should he go with you?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-2SA">
@@ -1802,13 +1802,13 @@
     <verse num="5" />
     <text>The king said to her,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="5" characterId="David" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="5" characterId="David">
     <text>«What ails you?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="5" characterId="narrator-2SA">
     <text>She answered,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="5" characterId="woman from Tekoa" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="5" characterId="woman from Tekoa">
     <text>«Truly I am a widow, and my husband is dead.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="woman from Tekoa">
@@ -1844,26 +1844,26 @@
     <verse num="11" />
     <text>Then she said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="11" characterId="woman from Tekoa" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="11" characterId="woman from Tekoa">
     <text>«Please let the king remember God your God, that the avenger of blood destroy not any more, lest they destroy my son.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-2SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="11" characterId="David" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="11" characterId="David">
     <text>«As God lives, not one hair of your son shall fall to the earth.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="12" characterId="narrator-2SA">
     <verse num="12" />
     <text>Then the woman said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="12" characterId="woman from Tekoa" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="12" characterId="woman from Tekoa">
     <text>«Please let your handmaid speak a word to my lord the king.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="12" characterId="narrator-2SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="12" characterId="David" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="12" characterId="David">
     <text>«Say on.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="narrator-2SA">
@@ -1893,26 +1893,26 @@
     <verse num="18" />
     <text>Then the king answered the woman,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="18" characterId="David" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="18" characterId="David">
     <text>«Please don't hide anything from me that I ask you.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="narrator-2SA">
     <text>The woman said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="18" characterId="woman from Tekoa" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="18" characterId="woman from Tekoa">
     <text>«Let my lord the king now speak.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="19" characterId="narrator-2SA">
     <verse num="19" />
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="19" characterId="David" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="19" characterId="David">
     <text>«Is the hand of Joab with you in all this?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="19" characterId="narrator-2SA">
     <text>The woman answered,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="19" characterId="woman from Tekoa" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="19" characterId="woman from Tekoa">
     <text>«As your soul lives, my lord the king, no one can turn to the right hand or to the left from anything that my lord the king has spoken; for your servant Joab, he urged me, and he put all these words in the mouth of your handmaid;</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="woman from Tekoa">
@@ -2004,13 +2004,13 @@
     <verse num="2" />
     <text>Absalom rose up early, and stood beside the way of the gate. It was so, that when any man had a suit which should come to the king for judgment, then Absalom called to him, and said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="2" characterId="Absalom, son of David" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="2" characterId="Absalom, son of David">
     <text>«What city are you from?»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="narrator-2SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="2" characterId="anyone with complaint for king" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="2" characterId="anyone with complaint for king">
     <text>«Your servant is of one of the tribes of Israel.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="narrator-2SA">
@@ -2170,13 +2170,13 @@
     <verse num="31" />
     <text>Someone told David, saying,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="31" characterId="informer" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="31" characterId="informer">
     <text>«Ahithophel is among the conspirators with Absalom.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="31" characterId="narrator-2SA">
     <text>David said,</text>
   </block>
-  <block style="p" chapter="15" initialStartVerse="31" characterId="David" userConfirmed="true">
+  <block style="p" chapter="15" initialStartVerse="31" characterId="David">
     <text>«God, please turn the counsel of Ahithophel into foolishness.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="32" characterId="narrator-2SA">
@@ -2213,39 +2213,39 @@
     <verse num="2" />
     <text>The king said to Ziba,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="2" characterId="David" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="2" characterId="David">
     <text>What do you mean by these?</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="narrator-2SA">
     <text>Ziba said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="2" characterId="Ziba, servant of Saul's household" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="2" characterId="Ziba, servant of Saul's household">
     <text>The donkeys are for the king's household to ride on; and the bread and summer fruit for the young men to eat; and the wine, that such as are faint in the wilderness may drink.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="narrator-2SA">
     <verse num="3" />
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="3" characterId="David" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="3" characterId="David">
     <text>«Where is your master's son?»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="narrator-2SA">
     <text>Ziba said to the king,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="3" characterId="Ziba, servant of Saul's household" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="3" characterId="Ziba, servant of Saul's household">
     <text>«Behold, he is staying in Jerusalem; for he said, 'Today the house of Israel will restore me the kingdom of my father.'»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="4" characterId="narrator-2SA">
     <verse num="4" />
     <text>Then the king said to Ziba,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="4" characterId="David" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="4" characterId="David">
     <text>«Behold, all that pertains to Mephibosheth is yours.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="4" characterId="narrator-2SA">
     <text>Ziba said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="4" characterId="Ziba, servant of Saul's household" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="4" characterId="Ziba, servant of Saul's household">
     <text>«I do obeisance. Let me find favor in your sight, my lord, O king.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="5" characterId="narrator-2SA">
@@ -2454,13 +2454,13 @@
     <verse num="20" />
     <text>Absalom's servants came to the woman to the house; and they said,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="20" characterId="Absalom's men" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="20" characterId="Absalom's men">
     <text>«Where are Ahimaaz and Jonathan?»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="20" characterId="narrator-2SA">
     <text>The woman said to them,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="20" characterId="woman in Bahurim" userConfirmed="true">
+  <block style="p" chapter="17" initialStartVerse="20" characterId="woman in Bahurim">
     <text>«They have gone over the brook of water.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="20" characterId="narrator-2SA">
@@ -2642,26 +2642,26 @@
     <verse num="22" />
     <text>Then Ahimaaz the son of Zadok said yet again to Joab,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="22" characterId="Ahimaaz (messenger)" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="22" characterId="Ahimaaz (messenger)">
     <text>«But come what may, please let me also run after the Cushite.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="22" characterId="narrator-2SA">
     <text>Joab said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="22" characterId="Joab" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="22" characterId="Joab">
     <text>«Why do you want to run, my son, since that you will have no reward for the news?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="narrator-2SA">
     <verse num="23" />
     <text>But come what may, he said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="23" characterId="Ahimaaz (messenger)" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="23" characterId="Ahimaaz (messenger)">
     <text>«I will run.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="narrator-2SA">
     <text>He said to him,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="23" characterId="Joab" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="23" characterId="Joab">
     <text>«Run!»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="narrator-2SA">
@@ -2683,26 +2683,26 @@
     <verse num="26" />
     <text>The watchman saw another man running; and the watchman called to the porter, and said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="26" characterId="watchman" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="26" characterId="watchman">
     <text>«Behold, a man running alone!»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="26" characterId="narrator-2SA">
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="26" characterId="David" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="26" characterId="David">
     <text>«He also brings news.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="27" characterId="narrator-2SA">
     <verse num="27" />
     <text>The watchman said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="27" characterId="watchman" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="27" characterId="watchman">
     <text>«I think the running of the first one is like the running of Ahimaaz the son of Zadok.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="27" characterId="narrator-2SA">
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="27" characterId="David" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="27" characterId="David">
     <text>«He is a good man, and comes with good news.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="28" characterId="narrator-2SA">
@@ -2722,13 +2722,13 @@
     <verse num="29" />
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="29" characterId="David" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="29" characterId="David">
     <text>«Is it well with the young man Absalom?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="29" characterId="narrator-2SA">
     <text>Ahimaaz answered,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="29" characterId="Ahimaaz (messenger)" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="29" characterId="Ahimaaz (messenger)">
     <text>«When Joab sent the king's servant, even me your servant, I saw a great tumult, but I don't know what it was.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="narrator-2SA">
@@ -2750,13 +2750,13 @@
     <verse num="32" />
     <text>The king said to the Cushite,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="32" characterId="David" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="32" characterId="David">
     <text>«Is it well with the young man Absalom?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="32" characterId="narrator-2SA">
     <text>The Cushite answered,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="32" characterId="messenger, Cushite" userConfirmed="true">
+  <block style="p" chapter="18" initialStartVerse="32" characterId="messenger, Cushite">
     <text>«May the enemies of my lord the king, and all who rise up against you to do you harm, be as that young man is.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="33" characterId="narrator-2SA">
@@ -3094,25 +3094,25 @@
     <verse num="17" />
     <text>He came near to her; and the woman said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="17" characterId="woman, wise" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="17" characterId="woman, wise">
     <text>«Are you Joab?»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="17" characterId="narrator-2SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="17" characterId="Joab" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="17" characterId="Joab">
     <text>«I am.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="17" characterId="narrator-2SA">
     <text>Then she said to him,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="17" characterId="woman, wise" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="17" characterId="woman, wise">
     <text>«Hear the words of your handmaid.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="17" characterId="narrator-2SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="17" characterId="Joab" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="17" characterId="Joab">
     <text>«I do hear.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="18" characterId="narrator-2SA">
@@ -3133,14 +3133,14 @@
   <block style="p" chapter="20" initialStartVerse="20" characterId="Joab">
     <text>«Far be it, far be it from me, that I should swallow up or destroy.</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="21" characterId="Joab" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="21" characterId="Joab">
     <verse num="21" />
     <text>The matter is not so. But a man of the hill country of Ephraim, Sheba the son of Bichri by name, has lifted up his hand against the king, even against David. Deliver him only, and I will depart from the city.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="21" characterId="narrator-2SA">
     <text>The woman said to Joab,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="21" characterId="woman, wise" userConfirmed="true">
+  <block style="p" chapter="20" initialStartVerse="21" characterId="woman, wise">
     <text>«Behold, his head shall be thrown to you over the wall.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="22" characterId="narrator-2SA">
@@ -3184,13 +3184,13 @@
     <verse num="4" />
     <text>The Gibeonites said to him,</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="4" characterId="Gibeonites" userConfirmed="true">
+  <block style="p" chapter="21" initialStartVerse="4" characterId="Gibeonites">
     <text>«It is no matter of silver or gold between us and Saul, or his house; neither is it for us to put any man to death in Israel.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="4" characterId="narrator-2SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="4" characterId="David" userConfirmed="true">
+  <block style="p" chapter="21" initialStartVerse="4" characterId="David">
     <text>«Whatever you say, that will I do for you.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="5" characterId="narrator-2SA">
@@ -3205,7 +3205,7 @@
   <block style="p" chapter="21" initialStartVerse="6" characterId="narrator-2SA">
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="6" characterId="David" userConfirmed="true">
+  <block style="p" chapter="21" initialStartVerse="6" characterId="David">
     <text>«I will give them.»</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="7" characterId="narrator-2SA">
@@ -3616,7 +3616,7 @@
     <verse num="1" />
     <text>Again the anger of God was kindled against Israel, and he moved David against them, saying,</text>
   </block>
-  <block style="p" chapter="24" initialStartVerse="1" characterId="God" userConfirmed="true">
+  <block style="p" chapter="24" initialStartVerse="1" characterId="God">
     <text>«Go, number Israel and Judah.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="narrator-2SA">
@@ -3720,13 +3720,13 @@
     <verse num="21" />
     <text>Araunah said,</text>
   </block>
-  <block style="p" chapter="24" initialStartVerse="21" characterId="Araunah, the Jebusite" userConfirmed="true">
+  <block style="p" chapter="24" initialStartVerse="21" characterId="Araunah, the Jebusite">
     <text>«Why has my lord the king come to his servant?»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="narrator-2SA">
     <text>David said,</text>
   </block>
-  <block style="p" chapter="24" initialStartVerse="21" characterId="David" userConfirmed="true">
+  <block style="p" chapter="24" initialStartVerse="21" characterId="David">
     <text>«To buy your threshing floor, to build an altar to God, that the plague may be stopped from afflicting the people.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="narrator-2SA">

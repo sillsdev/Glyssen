@@ -457,13 +457,13 @@
     <verse num="14" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="commander of the LORD's army" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="commander of the LORD's army">
     <text>«No; but I have come now as commander of God's army.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-JOS">
     <text>Joshua fell on his face to the earth, and worshipped, and said to him,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="Joshua" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="Joshua">
     <text>«What does my lord say to his servant?»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-JOS">
@@ -914,13 +914,13 @@
     <verse num="8" />
     <text>They said to Joshua,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="8" characterId="Gibeonites" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="8" characterId="Gibeonites">
     <text>«We are your servants.»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-JOS">
     <text>Joshua said to them,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="8" characterId="Joshua" userConfirmed="true">
+  <block style="p" chapter="9" initialStartVerse="8" characterId="Joshua">
     <text>«Who are you? Where do you come from?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-JOS">
@@ -1421,43 +1421,43 @@
     <verse num="7" />
     <text>Now therefore divide this land for an inheritance to the nine tribes and the half-tribe of Manasseh.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="8" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="8" characterId="narrator-JOS">
     <verse num="8" />
     <text>With him the Reubenites and the Gadites received their inheritance, which Moses gave them, beyond the Jordan eastward, even as Moses the servant of God gave them:</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
     <text>from Aroer, that is on the edge of the valley of the Arnon, and the city that is in the middle of the valley, and all the plain of Medeba to Dibon;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-JOS">
     <verse num="10" />
     <text>and all the cities of Sihon king of the Amorites, who reigned in Heshbon, to the border of the children of Ammon;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-JOS">
     <verse num="11" />
     <text>and Gilead, and the border of the Geshurites and Maacathites, and all Mount Hermon, and all Bashan to Salecah;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-JOS">
     <verse num="12" />
     <text>all the kingdom of Og in Bashan, who reigned in Ashtaroth and in Edrei (the same was left of the remnant of the Rephaim); for Moses attacked these, and drove them out.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-JOS">
     <verse num="13" />
     <text>Nevertheless the children of Israel didn't drive out the Geshurites, nor the Maacathites: but Geshur and Maacath dwell in the midst of Israel to this day.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-JOS">
     <verse num="14" />
     <text>Only he gave no inheritance to the tribe of Levi. The offerings of God, the God of Israel, made by fire are his inheritance, as he spoke to him.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="15" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="15" characterId="narrator-JOS">
     <verse num="15" />
     <text>Moses gave to the tribe of the children of Reuben according to their families.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-JOS">
     <verse num="16" />
     <text>Their border was from Aroer, that is on the edge of the valley of the Arnon, and the city that is in the middle of the valley, and all the plain by Medeba;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="17" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="17" characterId="narrator-JOS">
     <verse num="17" />
     <text>Heshbon, and all its cities that are in the plain; Dibon, Bamoth Baal, Beth Baal Meon, </text>
     <verse num="18" />
@@ -1469,68 +1469,68 @@
     <verse num="21" />
     <text>all the cities of the plain, and all the kingdom of Sihon king of the Amorites, who reigned in Heshbon, whom Moses struck with the chiefs of Midian, Evi, Rekem, Zur, Hur, and Reba, the princes of Sihon, who lived in the land.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="22" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="22" characterId="narrator-JOS">
     <verse num="22" />
     <text>The children of Israel alse killed Balaam also the son of Beor, the soothsayer, with the sword, among the rest of their slain.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="23" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="23" characterId="narrator-JOS">
     <verse num="23" />
     <text>The border of the children of Reuben was the bank of the Jordan. This was the inheritance of the children of Reuben according to their families, the cities and its villages.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="24" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="24" characterId="narrator-JOS">
     <verse num="24" />
     <text>Moses gave to the tribe of Gad, to the children of Gad, according to their families.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="25" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="25" characterId="narrator-JOS">
     <verse num="25" />
     <text>Their border was Jazer, and all the cities of Gilead, and half the land of the children of Ammon, to Aroer that is before Rabbah;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="26" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="26" characterId="narrator-JOS">
     <verse num="26" />
     <text>and from Heshbon to Ramath Mizpeh, and Betonim; and from Mahanaim to the border of Debir;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-JOS">
     <verse num="27" />
     <text>and in the valley, Beth Haram, Beth Nimrah, Succoth, and Zaphon, the rest of the kingdom of Sihon king of Heshbon, the Jordan's bank, to the uttermost part of the sea of Chinnereth beyond the Jordan eastward.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="28" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="28" characterId="narrator-JOS">
     <verse num="28" />
     <text>This is the inheritance of the children of Gad according to their families, the cities and its villages.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-JOS">
     <verse num="29" />
     <text>Moses gave an inheritance to the half-tribe of Manasseh. It was for the half-tribe of the children of Manasseh according to their families.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="30" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="30" characterId="narrator-JOS">
     <verse num="30" />
     <text>Their border was from Mahanaim, all Bashan, all the kingdom of Og king of Bashan, and all the towns of Jair, which are in Bashan, sixty cities.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="31" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="31" characterId="narrator-JOS">
     <verse num="31" />
     <text>Half Gilead, Ashtaroth, and Edrei, the cities of the kingdom of Og in Bashan, were for the children of Machir the son of Manasseh, even for the half of the children of Machir according to their families.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="32" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="32" characterId="narrator-JOS">
     <verse num="32" />
     <text>These are the inheritances which Moses distributed in the plains of Moab, beyond the Jordan at Jericho, eastward.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="33" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="13" initialStartVerse="33" characterId="narrator-JOS">
     <verse num="33" />
     <text>But to the tribe of Levi Moses gave no inheritance. God, the God of Israel, is their inheritance, as he spoke to them.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="JOS" initialStartVerse="0" characterId="BC-JOS">
     <text>14</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-JOS">
     <verse num="1" />
     <text>These are the inheritances which the children of Israel took in the land of Canaan, which Eleazar the priest, Joshua the son of Nun, and the heads of the fathers' houses of the tribes of the children of Israel, distributed to them, </text>
     <verse num="2" />
     <text>by the lot of their inheritance, as God commanded by Moses, for the nine tribes, and for the half-tribe.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-JOS">
     <verse num="3" />
     <text>For Moses had given the inheritance of the two tribes and the half-tribe beyond the Jordan; but to the Levites he gave no inheritance among them.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-JOS" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-JOS">
     <verse num="4" />
     <text>For the children of Joseph were two tribes, Manasseh and Ephraim: and they gave no portion to the Levites in the land, except cities to dwell in, with their suburbs for their livestock and for their property.</text>
   </block>
@@ -2703,13 +2703,13 @@
     <verse num="22" />
     <text>Joshua said to the people,</text>
   </block>
-  <block style="p" chapter="24" initialStartVerse="22" characterId="Joshua (old)" userConfirmed="true">
+  <block style="p" chapter="24" initialStartVerse="22" characterId="Joshua (old)">
     <text>«You are witnesses against yourselves that you have chosen God yourselves, to serve him.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="narrator-JOS">
     <text>They said,</text>
   </block>
-  <block style="p" chapter="24" initialStartVerse="22" characterId="Israelites" userConfirmed="true">
+  <block style="p" chapter="24" initialStartVerse="22" characterId="Israelites">
     <text>«We are witnesses.»</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="Joshua (old)">

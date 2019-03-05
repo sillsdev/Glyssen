@@ -40,7 +40,7 @@
     <verse num="9" />
     <text>That which has been is that which shall be; and that which has been done is that which shall be done: and there is no new thing under the sun.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="teacher (Preacher)">
     <verse num="10" />
     <text>Is there a thing of which it may be said, «Behold, this is new?» It has been long ago, in the ages which were before us.</text>
   </block>
@@ -132,7 +132,7 @@
     <verse num="14" />
     <text>The wise man's eyes are in his head, and the fool walks in darkness--and yet I perceived that one event happens to them all.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="teacher (Preacher)">
     <verse num="15" />
     <text>Then I said in my heart, «As it happens to the fool, so will it happen even to me; and why was I then more wise?» Then I said in my heart that this also is vanity.</text>
   </block>
@@ -245,22 +245,22 @@
     <verse num="17" />
     <text>I said in my heart,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="17" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="17" characterId="teacher (Preacher)">
     <text>«God will judge the righteous and the wicked; for there is a time there for every purpose and for every work.»</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="18" characterId="teacher (Preacher)">
     <verse num="18" />
     <text>I said in my heart, «As for the sons of men, God tests them, so that they may see that they themselves are like animals.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="teacher (Preacher)">
     <verse num="19" />
     <text>For that which happens to the sons of men happens to animals. Even one thing happens to them. As the one dies, so the other dies. Yes, they have all one breath; and man has no advantage over the animals: for all is vanity.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="20" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="20" characterId="teacher (Preacher)">
     <verse num="20" />
     <text>All go to one place. All are from the dust, and all turn to dust again.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="21" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="3" initialStartVerse="21" characterId="teacher (Preacher)">
     <verse num="21" />
     <text>Who knows the spirit of man, whether it goes upward, and the spirit of the animal, whether it goes downward to the earth?»</text>
   </block>
@@ -299,14 +299,14 @@
     <verse num="7" />
     <text>Then I returned and saw vanity under the sun.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)">
     <verse num="8" />
     <text>There is one who is alone, and he has neither son nor brother. There is no end to all of his labor, neither are his eyes satisfied with wealth.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)">
     <text>«For whom then, do I labor, and deprive my soul of enjoyment?»</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)">
     <text>This also is vanity. Yes, it is a miserable business.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="teacher (Preacher)">
@@ -362,7 +362,7 @@
     <verse num="5" />
     <text>It is better that you should not vow, than that you should vow and not pay.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="teacher (Preacher)">
     <verse num="6" />
     <text>Don't allow your mouth to lead you into sin. Don't protest before the messenger that this was a mistake. Why should God be angry at your voice, and destroy the work of your hands?</text>
   </block>
@@ -512,7 +512,7 @@
     <verse num="10" />
     <text>Don't say, «Why were the former days better than these?»</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="10" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="10" characterId="teacher (Preacher)">
     <text>For you do not ask wisely about this.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="teacher (Preacher)">
@@ -852,7 +852,7 @@
   <block style="c" paragraphStart="true" chapter="12" book="ECC" initialStartVerse="0" characterId="BC-ECC">
     <text>12</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="1" characterId="teacher (Preacher)" userConfirmed="true">
+  <block style="p" chapter="12" initialStartVerse="1" characterId="teacher (Preacher)">
     <verse num="1" />
     <text>Remember also your Creator in the days of your youth, before the evil days come, and the years draw near, when you will say, «I have no pleasure in them;»</text>
   </block>

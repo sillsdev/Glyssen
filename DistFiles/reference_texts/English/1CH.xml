@@ -1918,13 +1918,13 @@
     <verse num="10" />
     <text>David inquired of God, saying,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="10" characterId="David" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="10" characterId="David">
     <text>«Shall I go up against the Philistines? Will you deliver them into my hand?»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="narrator-1CH">
     <text>God said to him,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="10" characterId="God" userConfirmed="true">
+  <block style="p" chapter="14" initialStartVerse="10" characterId="God">
     <text>«Go up; for I will deliver them into your hand.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-1CH">
@@ -2216,14 +2216,14 @@
     <verse num="35" />
     <text>Say, «Save us, God of our salvation! Gather us together and deliver us from the nations, to give thanks to your holy name, to triumph in your praise.»</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="36" characterId="David" delivery="psalm" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="36" characterId="David" delivery="psalm">
     <verse num="36" />
     <text>Blessed be God, the God of Israel, from everlasting even to everlasting.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="36" characterId="narrator-1CH">
     <text>All the people said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="36" characterId="people, all the" userConfirmed="true">
+  <block style="p" chapter="16" initialStartVerse="36" characterId="people, all the">
     <text>«Amen,»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="36" characterId="narrator-1CH">

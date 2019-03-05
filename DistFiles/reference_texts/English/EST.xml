@@ -421,13 +421,13 @@
     <verse num="3" />
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="Xerxes, king of Persia and Media (Ahasuerus)" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <text>«What honor and dignity has been bestowed on Mordecai for this?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-EST">
     <text>Then the king's servants who attended him said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="attendants to Xerxes, king" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="attendants to Xerxes, king">
     <text>«Nothing has been done for him.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-EST">
@@ -442,26 +442,26 @@
     <verse num="5" />
     <text>The king's servants said to him,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="attendants to Xerxes, king" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="5" characterId="attendants to Xerxes, king">
     <text>«Behold, Haman stands in the court.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-EST">
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="Xerxes, king of Persia and Media (Ahasuerus)" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="5" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <text>«Let him come in.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
     <text>So Haman came in. The king said to him,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="6" characterId="Xerxes, king of Persia and Media (Ahasuerus)" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="6" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <text>«What shall be done to the man whom the king delights to honor?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-EST">
     <text>Now Haman said in his heart,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="6" characterId="Haman, highest noble to Xerxes, king" userConfirmed="true">
+  <block style="p" chapter="6" initialStartVerse="6" characterId="Haman, highest noble to Xerxes, king">
     <text>«Who would the king delight to honor more than myself?»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-EST">
@@ -562,13 +562,13 @@
     <verse num="9" />
     <text>Then Harbonah, one of the eunuchs who were with the king said,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="9" characterId="Harbona, eunuch attending Xerxes, king" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="9" characterId="Harbona, eunuch attending Xerxes, king">
     <text>«Behold, the gallows fifty cubits high, which Haman has made for Mordecai, who spoke good for the king, is standing at Haman's house.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-EST">
     <text>The king said,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="9" characterId="Xerxes, king of Persia and Media (Ahasuerus)" userConfirmed="true">
+  <block style="p" chapter="7" initialStartVerse="9" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <text>«Hang him on it!»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-EST">

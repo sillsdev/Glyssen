@@ -44,6 +44,7 @@ GEN	2	23	Adam			Normal
 GEN	3	1	serpent			Normal		
 GEN	3	2	Eve			Normal		
 GEN	3	3	Eve			Normal		
+GEN	3	3	God		God (quoted by Eve)	Quotation		
 GEN	3	4	serpent			Normal		
 GEN	3	5	serpent			Normal		
 GEN	3	9	God	calling out	God (the LORD)	Normal		
