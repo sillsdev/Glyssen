@@ -1194,17 +1194,16 @@ namespace Glyssen.Dialogs
 						m_navigator.ExtendCurrentBlockGroup(1);
 						if (m_currentRelevantIndex >= 0)
 							m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount++;
+						return;
 					}
-					else
-					{
-						Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-						Logger.WriteEvent("In AddToRelevantBlocksIfNeeded, we created a scenario which we don't think should ever happen! currentIndices ({0}), indicesOfNewOrModifiedBlock ({1})", currentIndices, indicesOfNewOrModifiedBlock);
-						Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-						Debug.Fail("Look at this scenario. I don't think this should ever happen.");
-					}
+					// else - This can happen when using a filter (e.g., All Scripture) that does not make use
+					// of MultiBlockCount to track with the block matchups. In that case, we want to fall through
+					// in order do the simple addition of this block to relevant blocks if appropriate.
 				}
+				else
+					return;
 			}
-			else if (IsRelevant(newOrModifiedBlock, true))
+			if (IsRelevant(newOrModifiedBlock, true))
 			{
 				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
 				m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
