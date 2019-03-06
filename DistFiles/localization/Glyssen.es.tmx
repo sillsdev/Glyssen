@@ -10219,10 +10219,18 @@
     </tu>
     <tu tuid="DialogBoxes.UnappliedSplitsDlg.CopyToClipboard">
       <tuv xml:lang="en">
-        <seg>Copy To Clipboard</seg>
+        <seg>Copy to Clipboard</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Copiar al portapapeles</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.UnappliedSplitsDlg.DoNotShowAgain">
+      <tuv xml:lang="en">
+        <seg>Do not show this again for these block splits.  (You will not be able to view this information again.)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>No mostrar esta información de nuevo para estas divisiones de bloque. (No se podrá volver a ver esta información).</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.UnappliedSplitsDlg.Instructions">

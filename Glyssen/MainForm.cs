@@ -719,7 +719,7 @@ namespace Glyssen
 
 		private void ShowLastLocation()
 		{
-			var lastLocation = m_project.Status.LastExportLocation;
+			var lastLocation = m_project.LastExportLocation;
 			m_lastExportLocationLink.Text = lastLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(lastLocation);
 		}
