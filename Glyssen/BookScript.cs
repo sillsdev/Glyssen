@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Xml.Serialization;
 using Glyssen.Character;
@@ -344,9 +345,9 @@ namespace Glyssen
 		private int GetIndexOfFirstBlockThatStartsWithVerse(int chapter, int verse)
 		{
 			var i = GetIndexOfFirstBlockForVerse(chapter, verse);
-			while (m_blocks[i].InitialStartVerseNumber < verse)
+			while (i < m_blocks.Count && m_blocks[i].InitialStartVerseNumber < verse)
 				i++;
-			return i;
+			return i < m_blocks.Count ? i : -1;
 		}
 
 		/// <summary>
@@ -452,6 +453,13 @@ namespace Glyssen
 				var unappliedSplit = m_unappliedSplitBlocks[index];
 				var firstBlockOfSplit = unappliedSplit.First();
 				var i = GetIndexOfFirstBlockThatStartsWithVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
+				if (i < 0)
+				{
+					// The parse was different enough that we can't find a block that starts with that verse number at all.
+					if (ApplySplitAgainstUnchunkedBlock(unappliedSplit))
+						m_unappliedSplitBlocks.RemoveAt(index--);
+					continue;
+				}
 				var iFirstMatchingBlock = i;
 				var iUnapplied = 0;
 				bool blocksMatch;
@@ -469,49 +477,93 @@ namespace Glyssen
 						iUnapplied++;
 					}
 				} while (i < m_blocks.Count && iUnapplied < unappliedSplit.Count);
-				if (blocksMatch)
+				if (blocksMatch ||
+					ApplySplitAgainstCombinedBlocks(unappliedSplit, iFirstMatchingBlock, comparer) ||
+					ApplySplitAgainstUnchunkedBlock(unappliedSplit))
 				{
 					m_unappliedSplitBlocks.RemoveAt(index--);
 				}
-				else
-				{
-					var combinedBlock = CombineBlocks(unappliedSplit);
-					for (int iBlock = iFirstMatchingBlock; iBlock < m_blocks.Count && m_blocks[iBlock].InitialStartVerseNumber == combinedBlock.InitialStartVerseNumber; iBlock++)
-					{
-						if (comparer.Equals(combinedBlock, m_blocks[iBlock]))
-						{
-							i = iBlock;
-							for (iUnapplied = 1; iUnapplied < unappliedSplit.Count; iUnapplied++)
-							{
-								var elementsOfBlockPrecedingSplit = unappliedSplit[iUnapplied - 1].BlockElements;
-								var textElementAtEndOfBlockPrecedingSplit = elementsOfBlockPrecedingSplit.Last() as ScriptText;
-								int offset = textElementAtEndOfBlockPrecedingSplit != null ? textElementAtEndOfBlockPrecedingSplit.Content.Length : 0;
-								string verse;
-								if (unappliedSplit[iUnapplied].BlockElements.First() is Verse)
-								{
-									var lastVerseInPrecedingBlock = elementsOfBlockPrecedingSplit.OfType<Verse>().LastOrDefault();
-									if (lastVerseInPrecedingBlock != null)
-										verse = lastVerseInPrecedingBlock.Number;
-									else
-										verse = m_blocks[i].InitialVerseNumberOrBridge;
-								}
-								else
-								{
-									verse = unappliedSplit[iUnapplied].InitialVerseNumberOrBridge;
-								}
-								SplitBlock(m_blocks[i++], verse, offset);
-								if (unappliedSplit[iUnapplied - 1].MatchesReferenceText)
-									m_blocks[i - 1].SetMatchedReferenceBlock(unappliedSplit[iUnapplied - 1].ReferenceBlocks.Single().Clone());
-							}
-							if (unappliedSplit[iUnapplied - 1].MatchesReferenceText)
-								m_blocks[i].SetMatchedReferenceBlock(unappliedSplit[iUnapplied - 1].ReferenceBlocks.Single().Clone());
+			}
+		}
 
-							m_unappliedSplitBlocks.RemoveAt(index--);
+		private bool ApplySplitAgainstCombinedBlocks(List<Block> unappliedSplit, int iFirstMatchingBlock, SplitBlockComparer comparer)
+		{
+			var combinedBlock = CombineBlocks(unappliedSplit);
+			for (int iBlock = iFirstMatchingBlock; iBlock < m_blocks.Count && m_blocks[iBlock].InitialStartVerseNumber == combinedBlock.InitialStartVerseNumber; iBlock++)
+			{
+				if (comparer.Equals(combinedBlock, m_blocks[iBlock]))
+				{
+					var i = iBlock;
+					int iUnapplied;
+					for (iUnapplied = 1; iUnapplied < unappliedSplit.Count; iUnapplied++)
+					{
+						var elementsOfBlockPrecedingSplit = unappliedSplit[iUnapplied - 1].BlockElements;
+						var textElementAtEndOfBlockPrecedingSplit = elementsOfBlockPrecedingSplit.Last() as ScriptText;
+						int offset = textElementAtEndOfBlockPrecedingSplit?.Content.Length ?? 0;
+						string verse;
+						if (unappliedSplit[iUnapplied].BlockElements.First() is Verse)
+						{
+							var lastVerseInPrecedingBlock = elementsOfBlockPrecedingSplit.OfType<Verse>().LastOrDefault();
+							if (lastVerseInPrecedingBlock != null)
+								verse = lastVerseInPrecedingBlock.Number;
+							else
+								verse = m_blocks[i].InitialVerseNumberOrBridge;
+						}
+						else
+						{
+							verse = unappliedSplit[iUnapplied].InitialVerseNumberOrBridge;
+						}
+						SplitBlock(m_blocks[i++], verse, offset);
+						if (unappliedSplit[iUnapplied - 1].MatchesReferenceText)
+							m_blocks[i - 1].SetMatchedReferenceBlock(unappliedSplit[iUnapplied - 1].ReferenceBlocks.Single().Clone());
+					}
+					if (unappliedSplit[iUnapplied - 1].MatchesReferenceText)
+						m_blocks[i].SetMatchedReferenceBlock(unappliedSplit[iUnapplied - 1].ReferenceBlocks.Single().Clone());
+
+					return true;
+				}
+			}
+			return false;
+		}
+
+		private bool ApplySplitAgainstUnchunkedBlock(List<Block> unappliedSplit)
+		{
+			var firstBlockOfSplit = unappliedSplit.First();
+
+			if (unappliedSplit.Count == 2)
+			{
+				var firstVerseOfSplit = firstBlockOfSplit.BlockElements.First() as Verse;
+				var textFollowingSplit = (unappliedSplit[1].BlockElements.First() as ScriptText)?.Content;
+				if (firstVerseOfSplit != null && textFollowingSplit != null)
+				{
+					// Very likely, the split was done on a block that was part of a larger parsed block that was chunked
+					// up according to the reference text. If we can find that larger block with matching verse text on
+					// either side of the split, we can still apply it, even though we can't fully connect it up with the
+					// reference text.
+					var blockToSplit = GetFirstBlockForVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
+					var elementCount = blockToSplit.BlockElements.Count;
+					for (int iElement = 0; iElement < elementCount; iElement++)
+					{
+						var verse = blockToSplit.BlockElements[iElement] as Verse;
+						if (verse != null && verse.Number == firstVerseOfSplit.Number)
+						{
+							Debug.Assert(iElement + 1 < elementCount);
+							if (iElement + 1 < elementCount)
+							{
+								var textElementToSplit = blockToSplit.BlockElements.Skip(iElement + 1).TakeWhile(e => !(e is Verse)).OfType<ScriptText>().FirstOrDefault();
+								var textPrecedingSplit = firstBlockOfSplit.BlockElements.OfType<ScriptText>().First().Content;
+								if (textElementToSplit?.Content == textPrecedingSplit + textFollowingSplit)
+								{
+									SplitBlock(blockToSplit, verse.Number, textPrecedingSplit.Length);
+									return true;
+								}
+							}
 							break;
 						}
 					}
 				}
 			}
+			return false;
 		}
 
 		public void CleanUpMultiBlockQuotes(ScrVers versification)

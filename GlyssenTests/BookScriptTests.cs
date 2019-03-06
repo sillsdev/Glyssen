@@ -354,7 +354,7 @@ namespace GlyssenTests
 		public void GetScriptBlocks_Joining_ConsecutiveNarratorBlocksInTheSameParagraph_ResultsIncludeJoinedBlocks()
 		{
 			var mrkBlocks = new List<Block>();
-			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
 
 			var block = NewSingleVersePara(1).AddVerse(2);
 			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
@@ -391,7 +391,7 @@ namespace GlyssenTests
 		public void GetScriptBlocks_Joining_ConsecutiveBcBlocksInDifferentParagraphs_ResultsNotJoined()
 		{
 			var mrkBlocks = new List<Block>();
-			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark"));
+			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark", "MRK"));
 			mrkBlocks.Add(NewChapterBlock(1));
 
 			var bookScript = new BookScript("MRK", mrkBlocks);
@@ -1179,14 +1179,54 @@ namespace GlyssenTests
 			Assert.IsTrue(origBlockCount < source.GetScriptBlocks().Count);
 
 			var blockToSplit = source.GetIndexOfFirstBlockForVerse(15, 26);
-			source.SplitBlock(source.GetScriptBlocks()[blockToSplit], "26", 13);
+			source.SplitBlock(source.GetScriptBlocks()[blockToSplit], "26", 14);
 
 			var target = CreateStandard1CorinthiansScript();
+			target.GetScriptBlocks().First(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber <= 26 && b.LastVerseNum >= 26).BlockElements
+				.SkipWhile(e => !(e is Verse) || ((Verse)e).Number != "26").OfType<ScriptText>().First().Content += "blah";
 
 			target.ApplyUserDecisions(source);
 			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
+		}
+
+		// PG-1168
+		// Verse 1: "Alai naeng ma pabotohononku tu. "
+		// Verse 2: "Laos i do parhiteanmuna gabe malua. "
+		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
+		// Verse 27: "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "
+		[TestCase(1, 14, k1Co15V1Text)]
+		[TestCase(2, 5, k1Co15V2Text)]
+		[TestCase(26, 14, k1Co15V26Text)]
+		[TestCase(27, 44, k1Co15V27Text)]
+		public void ApplyUserDecisions_SplitBlockThatWasChuckedOutByTheReferenceText_TextUnChanged_SplitApplied(int verseNum,
+			int splitPos, string fullVerseText)
+		{
+			var source = CreateStandard1CorinthiansScript();
+			var origBlockCount = source.GetScriptBlocks().Count;
+			ReferenceText.GetStandardReferenceText(ReferenceTextType.English).ApplyTo(source, ScrVers.English);
+			var sourceBlocksChunkedOut = source.GetScriptBlocks();
+			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
+
+			var blockToSplit = source.GetIndexOfFirstBlockForVerse(15, verseNum);
+			source.SplitBlock(source.GetScriptBlocks()[blockToSplit], verseNum.ToString(), splitPos);
+
+			var target = CreateStandard1CorinthiansScript();
+			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
+
+			target.ApplyUserDecisions(source);
+			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
+			Assert.IsFalse(sourceBlocksChunkedOut.SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 1, targetBlocksAfterApplyingSplit.Count);
+			Assert.AreEqual(fullVerseText.Substring(0, splitPos),
+				((ScriptText)targetBlocksAfterApplyingSplit.First(b => b.ChapterNumber == 15 && b.LastVerseNum == verseNum)
+				.BlockElements.Last()).Content);
+			Assert.AreEqual(fullVerseText.Substring(splitPos),
+				((ScriptText)targetBlocksAfterApplyingSplit.Last(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber == verseNum)
+					.BlockElements.First()).Content);
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
 		[Test]
@@ -2666,15 +2706,16 @@ namespace GlyssenTests
 		#endregion
 
 		#region Private Helper methods
-		private Block NewTitleBlock(string text)
+		private Block NewTitleBlock(string text, string bookCodeToSetCharacterId)
 		{
 			var block = new Block("mt");
 			block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText(text));
+			block.SetStandardCharacter(bookCodeToSetCharacterId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			return block;
 		}
 
-		private Block NewChapterBlock(int chapterNum)
+		private Block NewChapterBlock(int chapterNum, string bookCodeToSetCharacterId = null)
 		{
 			var block = new Block("c", chapterNum);
 			block.IsParagraphStart = true;
@@ -2684,15 +2725,19 @@ namespace GlyssenTests
 			m_curSetupVerse = 0;
 			m_curSetupVerseEnd = 0;
 			m_curStyleTag = null;
+			if (bookCodeToSetCharacterId != null)
+				block.SetStandardCharacter(bookCodeToSetCharacterId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			return block;
 		}
 
-		private Block NewSingleVersePara(int verseNum, string text = null)
+		private Block NewSingleVersePara(int verseNum, string text = null, string bookCodeToSetNarrator = null)
 		{
 			m_curSetupVerse = verseNum;
 			m_curSetupVerseEnd = 0;
 			var block = new Block("p", m_curSetupChapter, verseNum).AddVerse(verseNum, text);
 			block.IsParagraphStart = true;
+			if (bookCodeToSetNarrator != null)
+				block.SetStandardCharacter(bookCodeToSetNarrator, CharacterVerseData.StandardCharacter.Narrator);
 			m_curStyleTag = "p";
 			return block;
 		}
@@ -2708,11 +2753,13 @@ namespace GlyssenTests
 			return block;
 		}
 
-		private Block NewPara(string styleTag, string text)
+		private Block NewPara(string styleTag, string text, string bookCodeToSetCharacterId = null)
 		{
 			m_curStyleTag = styleTag;
 			var block = NewBlock(text);
 			block.IsParagraphStart = true;
+			if (styleTag == "s" && bookCodeToSetCharacterId != null)
+				block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			return block;
 		}
 
@@ -2736,35 +2783,27 @@ namespace GlyssenTests
 			m_curSetupVerseEnd = 0;
 			m_curStyleTag = null;
 
-			int i = 0;
 			var mrkBlocks = new List<Block>();
 
 			if (includeBookTitle)
-			{
-				mrkBlocks.Add(NewTitleBlock("Gospel According to Mark"));
-				mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
-			}
+				mrkBlocks.Add(NewTitleBlock("Gospel According to Mark", "MRK"));
 
-			mrkBlocks.Add(NewChapterBlock(1));
-			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
-			mrkBlocks.Add(NewPara("s", "Predicación de Juan el Bautista"));
-			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
-			mrkBlocks.Add(NewSingleVersePara(1, "Principio del evangelio de Jesucristo, el Hijo de Dios. ")
+			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
+			mrkBlocks.Add(NewPara("s", "Predicación de Juan el Bautista", "MRK"));
+			mrkBlocks.Add(NewSingleVersePara(1, "Principio del evangelio de Jesucristo, el Hijo de Dios. ", "MRK")
 				.AddVerse(2, "Como está escrito en el profeta Isaías:"));
 			m_curSetupVerse = 2;
-			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(NewPara("q1", "«Yo envío a mi mensajero delante de ti, El cual preparará tu camino.")
 				.AddVerse(3, "Una voz clama en el desierto: “Preparen el camino del Señor; Enderecen sus sendas.”»"));
 			m_curSetupVerse = 3;
-			mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
-			mrkBlocks.Add(NewSingleVersePara(4, "Juan se presentó en el desierto, y bautizaba y proclamaba el bautismo de arrepentimiento para el perdón de pecados. ")
+			mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
+			mrkBlocks.Add(NewSingleVersePara(4, "Juan se presentó en el desierto, y bautizaba y proclamaba el bautismo de arrepentimiento para el perdón de pecados. ", "MRK")
 				.AddVerse(5, "Toda la gente de la provincia de Judea y de Jerusalén acudía a él, y allí en el río Jordán confesaban sus pecados, y Juan los bautizaba."));
 			m_curSetupVerse = 5;
-			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 
 			if (includeExtraVersesInChapter1)
 			{
-				mrkBlocks[i - 1].AddVerse(6, "La ropa de Juan era de pelo de camello, alrededor de la cintura llevaba un cinto de cuero, y se alimentaba de langostas y miel silvestre. ")
+				mrkBlocks.Last().AddVerse(6, "La ropa de Juan era de pelo de camello, alrededor de la cintura llevaba un cinto de cuero, y se alimentaba de langostas y miel silvestre. ")
 					.AddVerse(7, "Al predicar, Juan decía: ");
 
 				m_curSetupVerse = 7;
@@ -2773,28 +2812,25 @@ namespace GlyssenTests
 						"«Después de mí viene uno más poderoso que yo. ¡Yo no soy digno de inclinarme ante él para desatarle la correa de su calzado! ")
 						.AddVerse(8, "A ustedes yo los he bautizado con agua, pero él los bautizará con el Espíritu Santo.»"));
 				m_curSetupVerse = 8;
-				mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
+				mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
 			}
 
-			mrkBlocks.Add(NewPara("s", "El bautismo de Jesús"));
-			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
-			mrkBlocks.Add(NewSingleVersePara(9, "Por esos días llegó Jesús desde Nazaret de Galilea, y fue bautizado por Juan en el Jordán. ")
+			mrkBlocks.Add(NewPara("s", "El bautismo de Jesús", "MRK"));
+			mrkBlocks.Add(NewSingleVersePara(9, "Por esos días llegó Jesús desde Nazaret de Galilea, y fue bautizado por Juan en el Jordán. ", "MRK")
 				.AddVerse(10, "En cuanto Jesús salió del agua, vio que los cielos se abrían y que el Espíritu descendía sobre él como una paloma. ")
 				.AddVerse(11, "Y desde los cielos se oyó una voz que decía: "));
 			m_curSetupVerse = 11;
-			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(NewBlock("«Tú eres mi Hijo amado, en quien me complazco.»"));
-			mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
+			mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
 
 			if (includeExtraVersesInChapter1)
 			{
 				mrkBlocks.Add(NewSingleVersePara(14,
-					"Después de que Juan fue encarcelado, Jesús fue a Galilea para proclamar el evangelio del reino de Dios.")
+					"Después de que Juan fue encarcelado, Jesús fue a Galilea para proclamar el evangelio del reino de Dios.", "MRK")
 					.AddVerse(15, "Decía: "));
 				m_curSetupVerse = 15;
-				mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 				mrkBlocks.Add(NewBlock("«El tiempo se ha cumplido, y el reino de Dios se ha acercado. ¡Arrepiéntanse, y crean en el evangelio!»"));
-				mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
+				mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
 			}
 
 			return mrkBlocks;
@@ -2805,6 +2841,11 @@ namespace GlyssenTests
 			return new BookScript("1CO", GetStandard1CorinthiansScriptBlocks());
 		}
 
+		private const string k1Co15V1Text = "Alai naeng ma pabotohononku tu. ";
+		private const string k1Co15V2Text = "Laos i do parhiteanmuna gabe malua. ";
+		private const string k1Co15V26Text = "Hamatean i do musu na parpudi sipasohotonna i. ";
+		private const string k1Co15V27Text = "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi.";
+
 		private IList<Block> GetStandard1CorinthiansScriptBlocks()
 		{
 			m_curSetupChapter = 1;
@@ -2812,15 +2853,12 @@ namespace GlyssenTests
 			m_curSetupVerseEnd = 0;
 			m_curStyleTag = null;
 
-			int i = 0;
 			var blocks = new List<Block>();
 
-			blocks.Add(NewTitleBlock("Paul's First Letter to the Church at Corinth"));
-			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
+			blocks.Add(NewTitleBlock("Paul's First Letter to the Church at Corinth", "1CO"));
 
-			blocks.Add(NewChapterBlock(14));
-			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
-			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ")
+			blocks.Add(NewChapterBlock(14, "1CO"));
+			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ", "1CO")
 				.AddVerse(2, "Laos i dos parhiteanmuna gabe malua. ")
 				.AddVerse(3, "Laos i three parhiteanmuna gabe malua. ")
 				.AddVerse(4, "Laos i cuatro parhiteanmuna gabe malua. ")
@@ -2829,11 +2867,9 @@ namespace GlyssenTests
 				.AddVerse(7, "Laos i seven parhiteanmuna gabe malua. "));
 
 			blocks.Add(NewChapterBlock(15));
-			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
-			blocks.Add(NewPara("s", "Taringot tu naung mate"));
-			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.ExtraBiblical);
-			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ")
-				.AddVerse(2, "Laos i do parhiteanmuna gabe malua. ")
+			blocks.Add(NewPara("s", "Taringot tu naung mate", "1CO"));
+			blocks.Add(NewSingleVersePara(1, k1Co15V1Text, "1CO")
+				.AddVerse(2, k1Co15V2Text)
 				.AddVerse(3, "Ai sian mulana hujalo; on do: Naung dosanta, hombar tu na tarsurat i. ")
 				.AddVerse(4, "Naung tartanom do Ibana. ")
 				.AddVerse(5, "Jadi dipataridahon do dirina. ")
@@ -2843,14 +2879,12 @@ namespace GlyssenTests
 				.AddVerse(9, "Ai ahu do na ummetmet sian angka apostel. ")
 				.AddVerse(10, "Alai na di ahu nuaeng. ")
 				.AddVerse(25, "Ai ingkon mangarajai Ibana, rasirasa dipatunduk saluhut musu i tutoru ni patna. ")
-				.AddVerse(26, "Hamatean i do musu na parpudi sipasohotonna i. ")
-				.AddVerse(27, "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "));
+				.AddVerse(26, k1Co15V26Text)
+				.AddVerse(27, k1Co15V27Text));
 
-			blocks.Add(NewChapterBlock(16));
-			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.BookOrChapter);
-			blocks.Add(NewPara("s", "Tumpak tu huria na di Jerusalem"));
-			blocks[i++].SetStandardCharacter("1CO", CharacterVerseData.StandardCharacter.ExtraBiblical);
-			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ")
+			blocks.Add(NewChapterBlock(16, "1CO"));
+			blocks.Add(NewPara("s", "Tumpak tu huria na di Jerusalem", "1CO"));
+			blocks.Add(NewSingleVersePara(1, "Alai naeng ma pabotohononku tu. ", "1CO")
 				.AddVerse(2, "Verse two Laos i do parhiteanmuna gabe malua. ")
 				.AddVerse(3, "Third verse of chapter 16 i do parhiteanmuna gabe malua. ")
 				.AddVerse(4, "Four i do parhiteanmuna gabe malua. ")
