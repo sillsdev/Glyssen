@@ -9,6 +9,7 @@ using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using SIL.Extensions;
 using SIL.IO;
 using SIL.Scripture;
 using SIL.Xml;
@@ -1182,11 +1183,15 @@ namespace GlyssenTests
 			source.SplitBlock(source.GetScriptBlocks()[blockToSplit], "26", 14);
 
 			var target = CreateStandard1CorinthiansScript();
-			target.GetScriptBlocks().First(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber <= 26 && b.LastVerseNum >= 26).BlockElements
-				.SkipWhile(e => !(e is Verse) || ((Verse)e).Number != "26").OfType<ScriptText>().First().Content += "blah";
+			var scriptTextForV26 = target.GetScriptBlocks().First(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber <= 26 && b.LastVerseNum >= 26).BlockElements
+				.SkipWhile(e => !(e is Verse) || ((Verse)e).Number != "26").OfType<ScriptText>().First();
+			scriptTextForV26.Content = scriptTextForV26.Content.Replace('a', 'q');
+			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
 
 			target.ApplyUserDecisions(source);
-			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits, targetBlocksAfterApplyingSplit.Count);
+			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
 		}
@@ -1200,7 +1205,7 @@ namespace GlyssenTests
 		[TestCase(2, 5, k1Co15V2Text)]
 		[TestCase(26, 14, k1Co15V26Text)]
 		[TestCase(27, 44, k1Co15V27Text)]
-		public void ApplyUserDecisions_SplitBlockThatWasChuckedOutByTheReferenceText_TextUnChanged_SplitApplied(int verseNum,
+		public void ApplyUserDecisions_SplitBlockThatWasChunkedOutByReferenceText_TextUnchanged_SplitApplied(int verseNum,
 			int splitPos, string fullVerseText)
 		{
 			var source = CreateStandard1CorinthiansScript();
@@ -1228,6 +1233,48 @@ namespace GlyssenTests
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
+
+		// PG-1168
+		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
+		// Verse 27: "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "
+		[Test]
+		public void ApplyUserDecisions_SplitBetweenTwoVersesAndInMiddleOfSecondVerse_TextUnchanged_SplitsApplied()
+		{
+			var source = CreateStandard1CorinthiansScript();
+			var origBlockCount = source.GetScriptBlocks().Count;
+			ReferenceText.GetStandardReferenceText(ReferenceTextType.English).ApplyTo(source, ScrVers.English);
+			var sourceBlocksChunkedOut = source.GetScriptBlocks();
+			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
+
+			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
+			var v27SplitPos = 44;
+			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "27", v27SplitPos, true,
+				CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator), ScrVers.English);
+
+			iBlockToSplit--;
+			Assert.AreEqual("26", ((Verse)source.GetScriptBlocks()[iBlockToSplit].BlockElements.First()).Number);
+			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English);
+
+			var target = CreateStandard1CorinthiansScript();
+			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
+
+			target.ApplyUserDecisions(source);
+			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 3, targetBlocksAfterApplyingSplit.Count);
+			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
+			Assert.AreEqual(k1Co15V26Text, ((ScriptText)blockWithVerse26.BlockElements.Last()).Content);
+			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
+			Assert.AreEqual("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos),
+				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true));
+			Assert.AreEqual("scripture", targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
+			Assert.AreEqual(k1Co15V27Text.Substring(v27SplitPos),
+				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true));
+			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2]
+				.CharacterIs("1CO", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
 
 		[Test]
 		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
@@ -2870,7 +2917,9 @@ namespace GlyssenTests
 			blocks.Add(NewPara("s", "Taringot tu naung mate", "1CO"));
 			blocks.Add(NewSingleVersePara(1, k1Co15V1Text, "1CO")
 				.AddVerse(2, k1Co15V2Text)
-				.AddVerse(3, "Ai sian mulana hujalo; on do: Naung dosanta, hombar tu na tarsurat i. ")
+				.AddVerse(3, "Ai sian mulana hujalo; on do:"));
+			m_curSetupVerse = 3;
+			blocks.Add(NewBlock("Naung dosanta, hombar tu na tarsurat i. ")
 				.AddVerse(4, "Naung tartanom do Ibana. ")
 				.AddVerse(5, "Jadi dipataridahon do dirina. ")
 				.AddVerse(6, "Dung i dipataridahon dirina sahali tu. ")
@@ -2881,6 +2930,7 @@ namespace GlyssenTests
 				.AddVerse(25, "Ai ingkon mangarajai Ibana, rasirasa dipatunduk saluhut musu i tutoru ni patna. ")
 				.AddVerse(26, k1Co15V26Text)
 				.AddVerse(27, k1Co15V27Text));
+			blocks.Last().IsParagraphStart = false;
 
 			blocks.Add(NewChapterBlock(16, "1CO"));
 			blocks.Add(NewPara("s", "Tumpak tu huria na di Jerusalem", "1CO"));
