@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
@@ -43,14 +44,14 @@ namespace Glyssen
 
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
-				SplitBeforeBlock(iBlock, splitId);
+				SplitBeforeBlock(iBlock, splitId, userSplit, characterId, versification);
 				return blockToSplit;
 			}
 
 			Block newBlock = blockToSplit.SplitBlock(verseToSplit, characterOffsetToSplit);
 			if (newBlock == null)
 			{
-				SplitBeforeBlock(iBlock + 1, splitId);
+				SplitBeforeBlock(iBlock + 1, splitId, userSplit, characterId, versification);
 				return m_blocks[iBlock + 1];
 			}
 
@@ -191,7 +192,7 @@ namespace Glyssen
 			return true;
 		}
 
-		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
+		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId, bool userSplit, string characterId, ScrVers versification)
 		{
 			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
 				throw new ArgumentException("Split allowed only between blocks that are part of a multi-block quote");
@@ -205,6 +206,9 @@ namespace Glyssen
 				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.None;
 
 			m_blocks[indexOfBlockToSplit - 1].SplitId = m_blocks[indexOfBlockToSplit].SplitId = splitId;
+
+			if (userSplit && characterId != null)
+				m_blocks[indexOfBlockToSplit].SetCharacterIdAndCharacterIdInScript(characterId, BCVRef.BookToNumber(Id), versification);
 		}
 	}
 }

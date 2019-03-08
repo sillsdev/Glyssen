@@ -554,10 +554,17 @@ namespace Glyssen
 				return false;
 			}
 
+			// We'll be processing the splits in reverse order, which makes everything simpler, so "iStart" is the end of the list.
 			var iStart = unappliedSplit.Count - 1;
 			var lastSplitText = ((ScriptText)unappliedSplit[iStart].BlockElements.Last()).Content;
-			if (lastSplitText.Length < textOfLastVerseInBlockToSplit.Length)
-				iStart--; // The last 
+			if (lastSplitText.Length < textOfLastVerseInBlockToSplit.Length &&
+				textOfLastVerseInBlockToSplit.EndsWith(lastSplitText, StringComparison.Ordinal))
+			{
+				// The last block in the sequence of blocks representing this split is the final piece after the last split,
+				// The last split is therefore actually represented by the preceding block. (And the first split --the one
+				// before the firts block in the sequence -- will be handled by the special logic following the loop).
+				iStart--;
+			}
 
 			// The relevant block elements match. We can re-apply the split.
 			for (var iUnapplied = iStart; iUnapplied >= 0; iUnapplied--)
