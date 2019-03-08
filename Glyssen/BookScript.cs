@@ -554,43 +554,40 @@ namespace Glyssen
 				return false;
 			}
 
-			// We'll be processing the splits in reverse order, which makes everything simpler, so "iStart" is the end of the list.
-			var iStart = unappliedSplit.Count - 1;
-			var lastSplitText = ((ScriptText)unappliedSplit[iStart].BlockElements.Last()).Content;
-			if (lastSplitText.Length < textOfLastVerseInBlockToSplit.Length &&
-				textOfLastVerseInBlockToSplit.EndsWith(lastSplitText, StringComparison.Ordinal))
-			{
-				// The last block in the sequence of blocks representing this split is the final piece after the last split,
-				// The last split is therefore actually represented by the preceding block. (And the first split --the one
-				// before the firts block in the sequence -- will be handled by the special logic following the loop).
-				iStart--;
-			}
-
 			// The relevant block elements match. We can re-apply the split.
-			for (var iUnapplied = iStart; iUnapplied >= 0; iUnapplied--)
-			{
-				var currentSplit = unappliedSplit[iUnapplied];
-				var newBlock = SplitBlock(blockToSplit, currentSplit.InitialVerseNumberOrBridge, currentSplit.Length);
-				if (currentSplit.MatchesReferenceText)
-					newBlock.SetMatchedReferenceBlock(currentSplit.ReferenceBlocks.Single().Clone());
-			}
-			if (indexOfFirstCorrespondingElement > 0 && (
-				firstBlockOfSplit.MatchesReferenceText ||
-				firstBlockOfSplit.CharacterId != blockToSplit.CharacterId ||
-				firstBlockOfSplit.CharacterIdOverrideForScript != blockToSplit.CharacterIdOverrideForScript ||
-				firstBlockOfSplit.Delivery != blockToSplit.Delivery))
-			{
-				// Now re-do the first split, which was originally done by Glyssen as part of chunking up the text
-				// to match the reference text, but needs to be regarded as having been done by the user so that
-				// reference text alignment and character assignments can be re-applied.
-				var prevVerse = blockToSplit.BlockElements.Take(indexOfFirstCorrespondingElement).OfType<Verse>().LastOrDefault()?.Number ??
-					blockToSplit.InitialVerseNumberOrBridge;
 
-				// Matching to ref text is handled by ApplyUserAssignements
-				//var firstNewBlock =
-				SplitBlock(blockToSplit, prevVerse, kSplitAtEndOfVerse);
-				//if (firstBlockOfSplit.MatchesReferenceText)
-				//	firstNewBlock.SetMatchedReferenceBlock(firstBlockOfSplit.ReferenceBlocks.Single().Clone());
+			if (indexOfFirstCorrespondingElement > 0 && firstBlockOfSplit.UserConfirmed)
+			{
+				// The first block of the "split" is a special case because when Glyssen chunked up the text
+				// to match the reference text, it made a temporary split right before this block, but since
+				// it is UserConfirmed, it needs to be regarded as having been done by the user so that
+				// reference text alignment and character assignments can be re-applied in ApplyUserAssignments.
+				var prevVerse = blockToSplit.BlockElements.Take(indexOfFirstCorrespondingElement).OfType<Verse>().LastOrDefault()?.Number;
+				if (prevVerse != null)
+					blockToSplit = SplitBlock(blockToSplit, prevVerse, kSplitAtEndOfVerse);
+			}
+
+			foreach (var currentSplit in unappliedSplit)
+			{
+				var offset = currentSplit.BlockElements.OfType<ScriptText>().First().Content.Length;
+				//	||
+				//(currentSplit.MultiBlockQuote == MultiBlockQuote.Start && currentSplit == unappliedSplit.Last())
+				if ((!currentSplit.UserConfirmed)
+					&& offset == blockToSplit.BlockElements.OfType<ScriptText>().First().Content.Length)
+				{
+					// This is not really a user-split. Glyssen will redo this split as needed when re-aligning to reference text.
+					continue;
+				}
+				try
+				{
+					blockToSplit = SplitBlock(blockToSplit, currentSplit.InitialVerseNumberOrBridge, offset);
+				}
+				catch
+				{
+					// Probably an attempt (unnecessarily) to split between two verses that are already in separate blocks.
+					return offset == blockToSplit.BlockElements.OfType<ScriptText>().First().Content.Length &&
+						currentSplit == unappliedSplit.Last();
+				}
 			}
 			return true;
 		}

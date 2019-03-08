@@ -30,7 +30,7 @@ namespace GlyssenTests
 		public void FixtureSetup()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 
 			using (TempFile tempFile = new TempFile())
 			{
@@ -1234,8 +1234,11 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168
+		// PG-1168 (1CO 15:26)
 		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
+		// Offset:              1         2         3         4         5         6         7         8          9        10        11        12        13        14        15
+		// Offset:    012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890123456789012345678901234567890123456789012345678901234567890
+		// Split:                                                 |
 		// Verse 27: "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "
 		[Test]
 		public void ApplyUserDecisions_SplitBetweenTwoVersesChunkedOutByReferenceTextAndInMiddleOfSecondVerse_TextUnchanged_SplitsApplied()
@@ -1261,7 +1264,7 @@ namespace GlyssenTests
 
 			target.ApplyUserDecisions(source);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
-			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 3, targetBlocksAfterApplyingSplit.Count);
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 2, targetBlocksAfterApplyingSplit.Count);
 			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
 			Assert.AreEqual(k1Co15V26Text, ((ScriptText)blockWithVerse26.BlockElements.Last()).Content);
 			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
@@ -1276,21 +1279,19 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168
-		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
-		// Verse 27: "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "
+		// PG-1168 (MAT 21:31)
 		[Test]
 		public void ApplyUserDecisions_SplitBetweenTwoVersesChunkedOutByReferenceTextAndMultipleSplitsInFollowingVerse_TextUnchanged_SplitsApplied()
 		{
 			var blocks = new List<Block> {
 				NewChapterBlock(21, "MAT"),
 				new Block("p", 21, 30)
-				.AddVerse(30, "Ia amaama i ditopot ma sianggian i, laos songon i do hatana, gabe didok i ma mangalusi: Olo, tuan! Hape, ndang saut laho. ")
-				//Splits:                1         2         3         4         5         6         7         8          9        10        11        12        13        14        15
-				//Splits:      012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890123456789012345678901234567890123456789012345678901234567890
-				//Splits:                                                                  |                              |              |                                |
-				.AddVerse(31, "Ise sian nasida na dua i mangulahon pinangido ni amanasida? Jadi didok nasida ma tu Ibana: Sihahaan i do! Dung i didok Jesus ma tu nasida: Situtu do na hudok on tu hamu: Tagonan do halak sijalobeo dohot boru na jahat bongot tu harajaon ni Debata, unang hamu! ")
-				.AddVerse(32, "Ai na ro do si Johannes tu hamu di dalan hatigoran, ndang dihaporseai hamu ibana; alai anggo angka sijalobeo dohot angka boru na jahat porsea do. Diida hamu do i nian; laos tong so disolsoli hamu rohamuna, laho mangkaporseai ibana. ") };
+					.AddVerse(30, "Ia amaama i ditopot ma sianggian i, laos songon i do hatana, gabe didok i ma mangalusi: Olo, tuan! Hape, ndang saut laho. ")
+					// Offset:               1         2         3         4         5         6         7         8          9        10        11        12        13        14        15
+					// Offset:     012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890123456789012345678901234567890123456789012345678901234567890
+					// Splits:                                                                 |                              |              |                                |
+					.AddVerse(31, "Ise sian nasida na dua i mangulahon pinangido ni amanasida? Jadi didok nasida ma tu Ibana: Sihahaan i do! Dung i didok Jesus ma tu nasida: Situtu do na hudok on tu hamu: Tagonan do halak sijalobeo dohot boru na jahat bongot tu harajaon ni Debata, unang hamu! ")
+					.AddVerse(32, "Ai na ro do si Johannes tu hamu di dalan hatigoran, ndang dihaporseai hamu ibana; alai anggo angka sijalobeo dohot angka boru na jahat porsea do. Diida hamu do i nian; laos tong so disolsoli hamu rohamuna, laho mangkaporseai ibana. ") };
 			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
 			const int kSplitPos1 = 60;
 			const int kSplitPos2 = 90;
@@ -1328,11 +1329,16 @@ namespace GlyssenTests
 			split1.UserConfirmed = true;
 
 			blockToSplit.SetCharacterIdAndCharacterIdInScript("Jesus", source.BookNumber, ScrVers.English);
+			// This next line is really unnecessary, but it matches the real data. We won't check that this gets
+			// reset because we won't expect v. 31 to get broken out. Glyssen will be able to re-apply this
+			// on the fly (I think).
 			blockToSplit.SetMatchedReferenceBlock("{31}Which one of the two did the will of his father?”");
 			// FWIW, in the actual data that this test is based on, neither this block, nor the ones for vv. 30 or 32 had
 			// UserConfirmed set to true. (By contrast, in the above test for 1CO 15:26-26, all three blocks involved in
-			// the split DID have UserConfirmed set to true in the actual data.) I really don't understand how the data
-			// could have gotten saved this way.
+			// the split DID have UserConfirmed set to true in the actual data.) I'm not sure the implementation is really
+			// 100% logivcal, but if blocks in the vernacular match automatically to the reference text and already have
+			// the correct character ID (because there was only one possiblity in the control file), then we don't mark
+			// them as user-confirmed when the user clicks apply.
 
 			Assert.AreEqual(split4.SplitId, blockToSplit.SplitId);
 			Assert.AreEqual(split3.SplitId, blockToSplit.SplitId);
@@ -1343,39 +1349,103 @@ namespace GlyssenTests
 
 			target.ApplyUserDecisions(source);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
-			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 5, targetBlocksAfterApplyingSplit.Count,
-				"There should be 4 explicit user splits, plus the implicit one preceding v. 31.");
-			var blockVerse31Start = targetBlocksAfterApplyingSplit.Single(b => ((Verse)b.BlockElements.First()).Number == "31");
-			Assert.AreEqual(kSplitPos1, blockVerse31Start.BlockElements.OfType<ScriptText>().Single().Content.Length);
-			Assert.IsTrue(blockVerse31Start.MatchesReferenceText);
-			Assert.AreEqual("{31}\u00A0Which one of the two did the will of his father?”", blockVerse31Start.ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 4, targetBlocksAfterApplyingSplit.Count,
+				"There should be 4 explicit user splits, plus the implicit ones at the start and end of v. 31.");
+			var blockVerse31Start = targetBlocksAfterApplyingSplit.Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "31"));
+			Assert.AreEqual(kSplitPos1, blockVerse31Start.BlockElements.OfType<ScriptText>().Last().Content.Length);
 
 			var iBlock = targetBlocksAfterApplyingSplit.IndexOf(blockVerse31Start) + 1;
 
 			var block = targetBlocksAfterApplyingSplit[iBlock++];
 			Assert.AreEqual(kSplitPos2 - kSplitPos1, ((ScriptText)block.BlockElements.Single()).Content.Length);
-			Assert.IsTrue(blockVerse31Start.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(block.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("They said to him,", blockVerse31Start.ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("They said to him,", block.ReferenceBlocks.Single().GetText(true));
 
 			block = targetBlocksAfterApplyingSplit[iBlock++];
 			Assert.AreEqual(kSplitPos3 - kSplitPos2, ((ScriptText)block.BlockElements.Single()).Content.Length);
-			Assert.AreEqual("chief priests/elders", blockVerse31Start.CharacterId);
-			Assert.AreEqual("chief priests", blockVerse31Start.CharacterIdInScript);
+			Assert.AreEqual("chief priests/elders", block.CharacterId);
+			Assert.AreEqual("Good Priest", block.CharacterIdInScript);
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("“The first.”", blockVerse31Start.ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("“The first.”", block.ReferenceBlocks.Single().GetText(true));
 
 			block = targetBlocksAfterApplyingSplit[iBlock++];
 			Assert.AreEqual(kSplitPos4 - kSplitPos3, ((ScriptText)block.BlockElements.Single()).Content.Length);
-			Assert.IsTrue(blockVerse31Start.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(block.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("Jesus said to them,", blockVerse31Start.ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("Jesus said to them,", block.ReferenceBlocks.Single().GetText(true));
 
 			block = targetBlocksAfterApplyingSplit[iBlock];
-			Assert.AreEqual(origLengthOfVerse31 - kSplitPos4, ((ScriptText)block.BlockElements.Single()).Content.Length);
-			Assert.AreEqual("Jesus", blockVerse31Start.CharacterId);
+			Assert.AreEqual(origLengthOfVerse31 - kSplitPos4, block.BlockElements.OfType<ScriptText>().First().Content.Length);
+			Assert.AreEqual("Jesus", block.CharacterId);
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("“Most certainly I tell you that the tax collectors and the prostitutes are entering into the Kingdom of God before you.", blockVerse31Start.ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("“Most certainly I tell you that the tax collectors and the prostitutes are entering into the Kingdom of God before you.",
+				block.ReferenceBlocks.Single().GetText(true));
+
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		// PG-1168 (MRK 8:26)
+		[Test]
+		public void ApplyUserDecisions_SplitInMiddleAndEndOfLastVerseInParaChunkedOutByReferenceText_FirstSplitApplied()
+		{
+			var blocks = new List<Block> {
+				NewChapterBlock(8, "MRK"),
+				new Block("p", 8, 25)
+					.AddVerse(25, "Torang do saluhutna diida. ")
+					// Offset:               1         2         3         4         5         6
+					// Offset:     0123456789012345678901234567890123456789012345678901234567890123456789
+					// Splits:                                                    |
+					.AddVerse(26, "Laos disuru ma ibana muli tu jabuna, didok ma: Unang bongoti huta i! "),
+				NewSingleVersePara(27, "Dung i borhat ma Jesus rap dohot siseanna i tu angka huta mardonokkon Kaesarea Pilippi...", "MRK")
+				};
+			const int kSplitPos = 47;
+			var origLengthOfVerse26 = blocks[1].BlockElements.OfType<ScriptText>().ElementAt(1).Content.Length;
+			blocks[1].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+
+			var source = new BookScript("MRK", blocks);
+			var target = source.Clone(false);
+
+			var origBlockCount = source.GetScriptBlocks().Count;
+			ReferenceText.GetStandardReferenceText(ReferenceTextType.English).ApplyTo(source, ScrVers.English);
+			var sourceBlocksChunkedOut = source.GetScriptBlocks();
+			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
+
+			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(8, 26);
+			Assert.AreEqual(2, iBlockToSplit);
+			var blockToSplit = source.GetScriptBlocks()[iBlockToSplit];
+
+			var split = source.SplitBlock(blockToSplit, "26", kSplitPos, true, "Jesus", ScrVers.English);
+			split.SetMatchedReferenceBlock("“Don't enter into the village, nor tell anyone in the village.”");
+			split.Delivery = "giving orders";
+			split.UserConfirmed = true;
+
+			// This next line is really unnecessary, but it matches the real data. We won't check that this gets
+			// reset because we won't expect v. 26 to get broken out. Glyssen will be able to re-apply this
+			// on the fly (I think).
+			blockToSplit.SetMatchedReferenceBlock("{26}He sent him away to his house, saying,");
+			blockToSplit.UserConfirmed = true;
+
+			Assert.AreEqual(split.SplitId, blockToSplit.SplitId);
+
+			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
+
+			target.ApplyUserDecisions(source);
+			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 2, targetBlocksAfterApplyingSplit.Count,
+				"One explicit break in verse 26, plus one implicit one between v.25 and v. 26");
+			var blockVerse26Start = targetBlocksAfterApplyingSplit.Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "26"));
+			Assert.AreEqual(kSplitPos, blockVerse26Start.BlockElements.OfType<ScriptText>().Last().Content.Length);
+
+			var iBlock = targetBlocksAfterApplyingSplit.IndexOf(blockVerse26Start) + 1;
+
+			var block = targetBlocksAfterApplyingSplit[iBlock];
+			Assert.AreEqual(origLengthOfVerse26 - kSplitPos, block.BlockElements.OfType<ScriptText>().First().Content.Length);
+			Assert.AreEqual("Jesus", block.CharacterId);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("“Don't enter into the village, nor tell anyone in the village.”",
+				block.ReferenceBlocks.Single().GetText(true));
 
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
