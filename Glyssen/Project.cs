@@ -750,7 +750,7 @@ namespace Glyssen
 			get
 			{
 				if (m_projectMetadata.ParserVersion >= Settings.Default.ParserVersion)
-					return true;
+					return false;
 				switch (Settings.Default.ParserVersion)
 				{
 					case 43:
