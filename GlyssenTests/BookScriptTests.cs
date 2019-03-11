@@ -1170,7 +1170,7 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168
+		#region PG-1168: Splits and reference-text alignments in rainbow mode.
 		[Test]
 		public void ApplyUserDecisions_SplitBlockAfterApplyingReferenceText_SourceBlockCannotBeFoundInTarget_SplitNotAppliedAndNoException()
 		{
@@ -1196,7 +1196,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168
+		// 1CO 15:26
 		// Verse 1: "Alai naeng ma pabotohononku tu. "
 		// Verse 2: "Laos i do parhiteanmuna gabe malua. "
 		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
@@ -1234,7 +1234,7 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168 (1CO 15:26)
+		// 1CO 15:26
 		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
 		// Offset:              1         2         3         4         5         6         7         8          9        10        11        12        13        14        15
 		// Offset:    012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890123456789012345678901234567890123456789012345678901234567890
@@ -1279,7 +1279,7 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168 (MAT 21:31)
+		// MAT 21:31
 		[Test]
 		public void ApplyUserDecisions_SplitBetweenTwoVersesChunkedOutByReferenceTextAndMultipleSplitsInFollowingVerse_TextUnchanged_SplitsApplied()
 		{
@@ -1386,7 +1386,7 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// PG-1168 (MRK 8:26)
+		// MRK 8:26
 		[Test]
 		public void ApplyUserDecisions_SplitInMiddleAndEndOfLastVerseInParaChunkedOutByReferenceText_FirstSplitApplied()
 		{
@@ -1450,6 +1450,7 @@ namespace GlyssenTests
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
+		#endregion PG-1168
 
 		[Test]
 		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
