@@ -212,6 +212,10 @@ namespace Glyssen
 				var lastBlockInMatchup = CorrelatedBlocks.Last();
 				foreach (var block in origBlocks.Skip(m_iStartBlock + OriginalBlockCount).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote))
 				{
+					if (lastBlockInMatchup.CharacterIsStandard)
+						throw new InvalidOperationException("Following blocks are continuations of a \"quote\" that is now assigned to " +
+							$"{lastBlockInMatchup.CharacterId}. We need to look at this data condition to see what the desired beahvior is. ***Final block in " +
+							$"matchup: {lastBlockInMatchup} ***First following block: {block}");
 					block.CharacterId = lastBlockInMatchup.CharacterId;
 					// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
 					// outside the matchup (probably not).
@@ -337,14 +341,30 @@ namespace Glyssen
 
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
-			if (CorrelatedBlocks[i].CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+			var block = CorrelatedBlocks[i];
+			if (block.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
+				block.CharacterId == CharacterVerseData.kUnknownCharacter)
 			{
-				var existintgEmptyVerseRefText = CorrelatedBlocks[i].GetEmptyVerseReferenceTextAtDepth(level);
+				var existintgEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existintgEmptyVerseRefText != null)
 				{
-					if (CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
-						CorrelatedBlocks[i].SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator));
+					var narrator = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
+					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+						block.SetNonDramaticCharacterId(narrator);
+					// Deal with following blocks in quote block chain (and mark this one None).
+					if (block.MultiBlockQuote == MultiBlockQuote.Start)
+					{
+						for (int iCont = i + 1; iCont < CorrelatedBlocks.Count; iCont++)
+						{
+							var contBlock = CorrelatedBlocks[iCont];
+							if (contBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
+								break;
+							contBlock.SetNonDramaticCharacterId(narrator);
+							contBlock.MultiBlockQuote = MultiBlockQuote.None;
+							handleHeSaidInserted(iCont, level, null);
+						}
+						block.MultiBlockQuote = MultiBlockQuote.None;
+					}
 					var text = existintgEmptyVerseRefText + referenceLanguageInfo.HeSaidText;
 					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
 						text += referenceLanguageInfo.WordSeparator;
