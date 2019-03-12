@@ -302,7 +302,9 @@ namespace Glyssen
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
 						if (!block.CharacterIsUnclear())
+						{
 							block.UserConfirmed = true; // This does not affect original block until Apply is called
+						}
 					}
 				}
 				else
@@ -343,13 +345,13 @@ namespace Glyssen
 		{
 			var block = CorrelatedBlocks[i];
 			if (block.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				block.CharacterId == CharacterVerseData.kUnknownCharacter)
+				block.CharacterIsUnclear())
 			{
-				var existintgEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
-				if (existintgEmptyVerseRefText != null)
+				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
+				if (existingEmptyVerseRefText != null)
 				{
 					var narrator = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
-					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					if (block.CharacterIsUnclear())
 						block.SetNonDramaticCharacterId(narrator);
 					// Deal with following blocks in quote block chain (and mark this one None).
 					if (block.MultiBlockQuote == MultiBlockQuote.Start)
@@ -359,13 +361,35 @@ namespace Glyssen
 							var contBlock = CorrelatedBlocks[iCont];
 							if (contBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 								break;
-							contBlock.SetNonDramaticCharacterId(narrator);
 							contBlock.MultiBlockQuote = MultiBlockQuote.None;
-							handleHeSaidInserted(iCont, level, null);
+							// It's probably impossible in practice, but if this block has a character other than narrator already set,
+							// let's leave it as is. And, of course, if it's already explicitly set to narrator, then there's nothing to
+							// do.
+							if (contBlock.CharacterIsUnclear())
+							{
+								// By far the common case will be that this block will be associated with a reference
+								// block that has a real character ID. If so, we'll use that ID, even if it's not
+								// narrator because it's better not to have weird UI changes (that might be scrolled off
+								// the screen) that the user won't be able to account for. But in the unusual case where
+								// the vernacular block was unknown/ambiguous and it didn't align to a real ref block (so
+								// we just made up an empty one on the fly), it's probably best to go ahead and assume
+								// that any such continuation blocks are to be assigned to the narrator. In that case,
+								// we need to fire the handler to alert the client.
+								var dataChange = false;
+								var newCharacterId = contBlock.ReferenceBlocks.SingleOrDefault()?.CharacterId;
+								if (CharacterVerseData.IsCharacterUnclear(newCharacterId))
+								{
+									newCharacterId = narrator;
+									dataChange = true;
+								}
+								contBlock.SetNonDramaticCharacterId(newCharacterId);
+								if (dataChange)
+									handleHeSaidInserted(iCont, level, null);
+							}
 						}
 						block.MultiBlockQuote = MultiBlockQuote.None;
 					}
-					var text = existintgEmptyVerseRefText + referenceLanguageInfo.HeSaidText;
+					var text = existingEmptyVerseRefText + referenceLanguageInfo.HeSaidText;
 					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
 						text += referenceLanguageInfo.WordSeparator;
 					SetReferenceText(i, text, level);
