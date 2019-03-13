@@ -1362,6 +1362,8 @@ namespace GlyssenTests
 				"There should be 4 explicit user splits, plus the implicit ones at the start and end of v. 31.");
 			var blockVerse31Start = targetBlocksAfterApplyingSplit.Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "31"));
 			Assert.AreEqual(kSplitPos1, blockVerse31Start.BlockElements.OfType<ScriptText>().Last().Content.Length);
+			Assert.IsTrue(blockVerse31Start.MatchesReferenceText);
+			Assert.AreEqual("{31}Which one of the two did the will of his father?”", blockVerse31Start.GetPrimaryReferenceText());
 
 			var iBlock = targetBlocksAfterApplyingSplit.IndexOf(blockVerse31Start);
 
@@ -1370,7 +1372,7 @@ namespace GlyssenTests
 				block.GetText(true));
 			Assert.IsTrue(block.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn't go.",
+			Assert.AreEqual("{30}\u00A0He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn't go.",
 				block.ReferenceBlocks.Single().GetText(true));
 
 			block = targetBlocksAfterApplyingSplit[++iBlock];
@@ -1402,7 +1404,7 @@ namespace GlyssenTests
 			block = targetBlocksAfterApplyingSplit[++iBlock];
 			Assert.AreEqual("{32}\u00A0Ai na ro do si Johannes tu hamu di dalan hatigoran, ndang dihaporseai hamu ibana; alai anggo angka sijalobeo dohot angka boru na jahat porsea do. Diida hamu do i nian; laos tong so disolsoli hamu rohamuna, laho mangkaporseai ibana. ",
 				block.GetText(true));
-			Assert.AreEqual("For John came to you in the way of righteousness, and you didn't believe him, but the tax collectors and the prostitutes believed him. When you saw it, you didn't even repent afterward, that you might believe him.”",
+			Assert.AreEqual("{32}\u00A0For John came to you in the way of righteousness, and you didn't believe him, but the tax collectors and the prostitutes believed him. When you saw it, you didn't even repent afterward, that you might believe him.”",
 				block.ReferenceBlocks.Single().GetText(true));
 
 			Assert.IsNotNull(target.UnappliedSplits);

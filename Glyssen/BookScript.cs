@@ -365,16 +365,96 @@ namespace Glyssen
 					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript, ScrVers versification = null)
+		public void ApplyUserDecisions(BookScript sourceBookScript, ScrVers versification = null, ReferenceText referenceTextToReapply = null)
 		{
+			var blockComparer = new SplitBlockComparer();
+
+			if (referenceTextToReapply != null)
+				ApplyReferenceBlockMatches(sourceBookScript, versification, referenceTextToReapply, blockComparer);
 			foreach (var sourceUnappliedSplit in sourceBookScript.UnappliedSplits)
 			{
 				List<Block> targetUnappliedSplit = sourceUnappliedSplit.Select(splitPart => splitPart.Clone()).ToList();
 				m_unappliedSplitBlocks.Add(targetUnappliedSplit);
 			}
-			ApplyUserSplits(sourceBookScript);
+
+			ApplyUserSplits(sourceBookScript, blockComparer);
 			ApplyUserAssignments(sourceBookScript, versification);
 			CleanUpMultiBlockQuotes(versification);
+		}
+
+		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ScrVers versification,
+			ReferenceText referenceTextToReapply, SplitBlockComparer blockComparer)
+		{
+			//var clone = Clone(true);
+			//referenceTextToReapply.ApplyTo(clone, versification);
+			//var clonedBlocks = clone.GetScriptBlocks(false);
+			var sourceBlocks = sourceBookScript.GetScriptBlocks(false);
+			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
+			{
+				var sourceBlock = sourceBlocks[iSrc];
+				if (!sourceBlock.MatchesReferenceText)
+					continue;
+				int iTargetBlock = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
+				if (iTargetBlock < 0)
+					continue;
+				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc, versification, 0, false);
+				// TODO: Ensure that somewhere/somehow in all this we clone the blocks when making temporary splits so we don't
+				// affect the original list unless/until we call Apply
+				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock, versification);
+				if (sourceMatchup.CorrelatedBlocks.Count != targetMatchup.CorrelatedBlocks.Count)
+					continue;
+				bool everythingMatched = true;
+				for (int i = 0; i < sourceMatchup.CorrelatedBlocks.Count && everythingMatched; i++)
+				{
+					sourceBlock = sourceMatchup.CorrelatedBlocks[i];
+					var targetBlock = targetMatchup.CorrelatedBlocks[i];
+					if (sourceBlock.MatchesReferenceText && blockComparer.Equals(sourceBlock, targetBlock))
+					{
+						if (targetBlock.IsContinuationOfPreviousBlockQuote)
+						{
+							Block prevBlock;
+							if (i > 0)
+							{
+								prevBlock = targetMatchup.CorrelatedBlocks[i - 1];
+							}
+							else
+							{
+								Debug.Assert(targetMatchup.IndexOfStartBlockInBook > 0);
+								prevBlock = m_blocks[targetMatchup.IndexOfStartBlockInBook - 1];
+							}
+							if (prevBlock.CharacterId != sourceBlock.CharacterId)
+							{
+								everythingMatched = false;
+								break;
+							}
+						}
+						targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
+						targetBlock.CloneReferenceBlocks();
+						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, versification);
+						targetBlock.SplitId = sourceBlock.SplitId;
+						targetBlock.UserConfirmed = sourceBlock.UserConfirmed;
+					}
+					else
+						everythingMatched = false;
+				}
+				if (everythingMatched)
+					targetMatchup.Apply(versification);
+			}
+
+			//foreach (var sourceBlock in sourceBlocks.Where(b => b.MatchesReferenceText))
+			//{
+			//	int iClonedBlock = clone.GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
+			//	if (iClonedBlock < 0)
+			//		continue;
+			//	var clonedBlock = clonedBlocks[iClonedBlock];
+			//	do
+			//	{
+			//		if (blockComparer.Equals(clonedBlock, sourceBlock))
+			//		{
+			//			clonedBlock.MatchesReferenceText = true;
+			//			clonedBlock.ReferenceBlocks = new List<Block> { sourceBlock.ReferenceBlocks.Single().Clone(true) };
+			//		}
+			//	} while ();
 		}
 
 		private void ApplyUserAssignments(BookScript sourceBookScript, ScrVers versification)
@@ -429,7 +509,7 @@ namespace Glyssen
 			}
 		}
 
-		private void ApplyUserSplits(BookScript sourceBookScript)
+		private void ApplyUserSplits(BookScript sourceBookScript, IEqualityComparer<Block> blockComparer)
 		{
 			int splitId = Block.kNotSplit;
 			List<Block> split = null;
@@ -447,7 +527,6 @@ namespace Glyssen
 			if (split != null)
 				m_unappliedSplitBlocks.Add(split);
 
-			var blockComparer = new SplitBlockComparer();
 			var elementComparer = new BlockElementContentsComparer();
 
 			for (int index = 0; index < m_unappliedSplitBlocks.Count; index++)

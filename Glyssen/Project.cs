@@ -1292,11 +1292,15 @@ namespace Glyssen
 
 		private void ApplyUserDecisions(Project sourceProject)
 		{
+			var referenceTextToReapply = (sourceProject.ReferenceText == ReferenceText) ? ReferenceText : null;
+			Debug.Assert(referenceTextToReapply != null, "Reference texts should be the same.");
 			foreach (var targetBookScript in m_books)
 			{
 				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
 				if (sourceBookScript != null)
-					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification);
+				{
+					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification, ReferenceText);
+				}
 			}
 			Analyze();
 		}

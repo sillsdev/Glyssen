@@ -1275,6 +1275,8 @@ namespace Glyssen
 
 	public class BlockComparer : IEqualityComparer<Block>
 	{
+		readonly BlockReferenceComparer m_referenceComparer = new BlockReferenceComparer();
+
 		public bool Equals(Block x, Block y)
 		{
 			if (x == null && y == null)
@@ -1284,9 +1286,7 @@ namespace Glyssen
 
 			return x.StyleTag == y.StyleTag &&
 				x.IsParagraphStart == y.IsParagraphStart &&
-				x.ChapterNumber == y.ChapterNumber &&
-				x.InitialStartVerseNumber == y.InitialStartVerseNumber &&
-				x.InitialEndVerseNumber == y.InitialEndVerseNumber &&
+				m_referenceComparer.Compare(x, y) == 0 &&
 				x.CharacterId == y.CharacterId &&
 				x.CharacterIdOverrideForScript == y.CharacterIdOverrideForScript &&
 				x.Delivery == y.Delivery &&
@@ -1304,6 +1304,8 @@ namespace Glyssen
 
 	public class SplitBlockComparer : IEqualityComparer<Block>
 	{
+		readonly BlockReferenceComparer m_referenceComparer = new BlockReferenceComparer();
+
 		public bool Equals(Block x, Block y)
 		{
 			if (x == null && y == null)
@@ -1311,15 +1313,35 @@ namespace Glyssen
 			if (x == null || y == null)
 				return false;
 
-			return x.ChapterNumber == y.ChapterNumber &&
-				x.InitialStartVerseNumber == y.InitialStartVerseNumber &&
-				x.InitialEndVerseNumber == y.InitialEndVerseNumber &&
+			return CompareReferences(x, y) == 0 &&
 				x.BlockElements.SequenceEqual(y.BlockElements, new BlockElementContentsComparer());
+		}
+
+		public int CompareReferences(Block x, Block y)
+		{
+			return m_referenceComparer.Compare(x, y);
 		}
 
 		public int GetHashCode(Block obj)
 		{
 			return obj.GetHashCode();
+		}
+	}
+
+	public class BlockReferenceComparer : IComparer<Block>
+	{
+		/// <summary>Compares two blocks (assumed to be in the same book) and returns a value indicating
+		/// whether the reference of the one is less than, equal to, or greater than the other.</summary>
+		/// <returns>A signed integer that indicates the relative values of x and y:
+		/// Less than zero => x is less than y;
+		/// Zero => x == y;
+		/// Greater than zero x is greater than y
+		/// </returns>  
+		public int Compare(Block x, Block y)
+		{
+			return (x.ChapterNumber - y.ChapterNumber) * 1000000 +
+				(x.InitialStartVerseNumber - y.InitialStartVerseNumber) * 1000 +
+				(x.InitialEndVerseNumber - y.InitialEndVerseNumber);
 		}
 	}
 }
