@@ -849,7 +849,7 @@ namespace GlyssenTests
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			matchup.MatchAllBlocks(null);
-			matchup.Apply(null);
+			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
@@ -867,7 +867,7 @@ namespace GlyssenTests
 				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
 			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			matchup.MatchAllBlocks(null);
-			matchup.Apply(null);
+			matchup.Apply();
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
@@ -920,7 +920,7 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			matchup.MatchAllBlocks(null);
 			matchup.SetReferenceText(3, "this won't match.");
-			matchup.Apply(null);
+			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));

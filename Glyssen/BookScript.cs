@@ -369,8 +369,6 @@ namespace Glyssen
 		{
 			var blockComparer = new SplitBlockComparer();
 
-			if (referenceTextToReapply != null)
-				ApplyReferenceBlockMatches(sourceBookScript, versification, referenceTextToReapply, blockComparer);
 			foreach (var sourceUnappliedSplit in sourceBookScript.UnappliedSplits)
 			{
 				List<Block> targetUnappliedSplit = sourceUnappliedSplit.Select(splitPart => splitPart.Clone()).ToList();
@@ -378,6 +376,8 @@ namespace Glyssen
 			}
 
 			ApplyUserSplits(sourceBookScript, blockComparer);
+			if (referenceTextToReapply != null)
+				ApplyReferenceBlockMatches(sourceBookScript, versification, referenceTextToReapply, blockComparer);
 			ApplyUserAssignments(sourceBookScript, versification);
 			CleanUpMultiBlockQuotes(versification);
 		}
@@ -389,20 +389,33 @@ namespace Glyssen
 			//referenceTextToReapply.ApplyTo(clone, versification);
 			//var clonedBlocks = clone.GetScriptBlocks(false);
 			var sourceBlocks = sourceBookScript.GetScriptBlocks(false);
+			var iPrevFirstTargetBlock = 0;
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
 			{
 				var sourceBlock = sourceBlocks[iSrc];
 				if (!sourceBlock.MatchesReferenceText)
 					continue;
 				int iTargetBlock = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
-				if (iTargetBlock < 0)
+				if (iTargetBlock < iPrevFirstTargetBlock)
 					continue;
-				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc, versification, 0, false);
-				// TODO: Ensure that somewhere/somehow in all this we clone the blocks when making temporary splits so we don't
-				// affect the original list unless/until we call Apply
-				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock, versification);
+				iPrevFirstTargetBlock = iTargetBlock;
+				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock,
+					versification);
+				if (targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber < m_blocks[iTargetBlock].InitialStartVerseNumber)
+					continue; // Oops, we ended up going backwards into the target 
+				//var lastTargetBlock = targetMatchup.CorrelatedBlocks.Last();
+				//var lastVerseOfTargetMatchup = lastTargetBlock.LastVerse.EndVerse;
+				//var cSourceBlocksToMatchup = sourceBlocks.Skip(iSrc).Count(sb => sb.ChapterNumber == lastTargetBlock.ChapterNumber &&
+				//	sb.InitialStartVerseNumber <= lastVerseOfTargetMatchup || sb.LastVerseNum < lastVerseOfTargetMatchup);
+				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc,
+					versification, (uint)targetMatchup.CorrelatedBlocks.Count, false);
+				Debug.Assert(sourceMatchup.CountOfBlocksAddedBySplitting == 0);
+				iSrc += sourceMatchup.OriginalBlockCount - 1; // Need to subtract 1 because this gets incremented in for loop.
 				if (sourceMatchup.CorrelatedBlocks.Count != targetMatchup.CorrelatedBlocks.Count)
+				{
+					Debug.Fail("Source matchup did not get the requested number of blocks. Did we run off the end of the source?");
 					continue;
+				}
 				bool everythingMatched = true;
 				for (int i = 0; i < sourceMatchup.CorrelatedBlocks.Count && everythingMatched; i++)
 				{

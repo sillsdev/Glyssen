@@ -17,6 +17,7 @@ namespace Glyssen
 		private readonly PortionScript m_portion;
 		private int m_numberOfBlocksAddedBySplitting = 0;
 		private readonly IReferenceLanguageInfo m_referenceLanguageInfo;
+		private ScrVers m_versification;
 
 		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks,
 			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider, uint predeterminedBlockCount = 0)
@@ -175,14 +176,17 @@ namespace Glyssen
 			}
 		}
 
-		public void Apply(ScrVers versification)
+		public void Apply(ScrVers versification = null)
 		{
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
 
-			//var bogusRefBlock = GetInvalidReferenceBlockAtAnyLevel(CorrelatedBlocks);
-			//if (bogusRefBlock != null)
-			//	throw new InvalidReferenceTextException(bogusRefBlock);
+			if (versification != null)
+			{
+				if (m_versification != null && m_versification != versification)
+					throw new ArgumentException("Apply called with unexpected versification!", nameof(versification));
+				m_versification = versification;
+			}
 
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
@@ -197,12 +201,12 @@ namespace Glyssen
 
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
-				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, versification);
+				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, m_versification);
 
 				if (CorrelatedBlocks[i].UserConfirmed)
 				{
 					if (vernBlock.CharacterIsUnclear())
-						throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
+						throw new InvalidOperationException("Character cannot be confirmed as ambiguous or unknown.");
 					vernBlock.UserConfirmed = true;
 				}
 			}
@@ -287,6 +291,7 @@ namespace Glyssen
 
 		public void MatchAllBlocks(ScrVers versification)
 		{
+			m_versification = versification;
 			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 
 			foreach (var block in CorrelatedBlocks)
