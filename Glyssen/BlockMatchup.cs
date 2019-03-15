@@ -23,7 +23,7 @@ namespace Glyssen
 			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider, uint predeterminedBlockCount = 0)
 		{
 			m_vernacularBook = vernacularBook;
-			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+			int bookNum = m_vernacularBook.BookNumber;
 			m_referenceLanguageInfo = heSaidProvider;
 			var blocks = m_vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
@@ -34,7 +34,7 @@ namespace Glyssen
 				var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
 				if (indexOfAnchorBlockInVerse < 0)
 				{
-					Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
+					Logger.WriteEvent($"Anchor block not found in verse: {BookId} {originalAnchorBlock.ChapterNumber}:" +
 						$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
 					// REVIEW: This logic assumes that the repeated verse is wholly contained in this one block.
 					blocksForVersesCoveredByBlock = new List<Block>() {originalAnchorBlock};
@@ -106,17 +106,13 @@ namespace Glyssen
 
 		public int OriginalBlockCount => CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting;
 
-		public IEnumerable<Block> OriginalBlocks
-		{
-			get
-			{
-				return m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(OriginalBlockCount);
-			}
-		}
+		public string BookId => m_vernacularBook.BookId;
 
-		public int CountOfBlocksAddedBySplitting { get { return m_numberOfBlocksAddedBySplitting; } }
+		public IEnumerable<Block> OriginalBlocks => m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(OriginalBlockCount);
 
-		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
+		public int CountOfBlocksAddedBySplitting => m_numberOfBlocksAddedBySplitting;
+
+		public IReadOnlyList<Block> CorrelatedBlocks => m_portion.GetScriptBlocks();
 
 		public bool HasOutstandingChangesToApply
 		{
@@ -149,7 +145,7 @@ namespace Glyssen
 
 		public IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel()
 		{
-			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1, m_vernacularBook.BookId);
+			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1, BookId);
 		}
 
 		private static IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel(IReadOnlyList<Block> blocks, int level, string bookId)
@@ -192,7 +188,7 @@ namespace Glyssen
 			{
 				m_vernacularBook.ReplaceBlocks(m_iStartBlock, OriginalBlockCount, CorrelatedBlocks.Select(b => b.Clone()).ToList());
 			}
-			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+			int bookNum = BCVRef.BookToNumber(BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
@@ -228,7 +224,9 @@ namespace Glyssen
 			else
 				m_numberOfBlocksAddedBySplitting = 0;
 
-			Debug.Assert(origBlocks.Skip(m_iStartBlock).Take(CorrelatedBlocks.Count).All(b => !b.CharacterIsStandard || b.MultiBlockQuote == MultiBlockQuote.None));
+			Debug.Assert(origBlocks.Skip(m_iStartBlock).Take(CorrelatedBlocks.Count)
+				.All(b => !b.CharacterIsStandard || b.MultiBlockQuote == MultiBlockQuote.None),
+				"Applying block matchup resulted in an illegal multi-block quote chain.");
 		}
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)
@@ -296,7 +294,7 @@ namespace Glyssen
 		public void MatchAllBlocks(ScrVers versification)
 		{
 			m_versification = versification;
-			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+			int bookNum = BCVRef.BookToNumber(BookId);
 
 			foreach (var block in CorrelatedBlocks)
 			{
@@ -349,13 +347,13 @@ namespace Glyssen
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
 			var block = CorrelatedBlocks[i];
-			if (block.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
+			if (block.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Narrator) ||
 				block.CharacterIsUnclear())
 			{
 				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existingEmptyVerseRefText != null)
 				{
-					var narrator = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
+					var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
 					if (block.CharacterIsUnclear())
 						block.SetNonDramaticCharacterId(narrator);
 					// Deal with following blocks in quote block chain (and mark this one None).

@@ -445,6 +445,7 @@ namespace Glyssen
 						targetBlock.CloneReferenceBlocks();
 						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, versification);
 						targetBlock.SplitId = sourceBlock.SplitId;
+						targetBlock.MultiBlockQuote = sourceBlock.MultiBlockQuote;
 						targetBlock.UserConfirmed = sourceBlock.UserConfirmed;
 					}
 					else

@@ -36,11 +36,7 @@ namespace Glyssen
 			if (iBlock < 0)
 				throw new ArgumentException(@"Block not found in the list for " + Id, "blockToSplit");
 
-			int splitId;
-			if (blockToSplit.SplitId != Block.kNotSplit)
-				splitId = blockToSplit.SplitId;
-			else
-				splitId = m_blocks.Max(b => b.SplitId) + 1;
+			int splitId = blockToSplit.SplitId;
 
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
@@ -91,9 +87,10 @@ namespace Glyssen
 				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
 					blockToSplit.MatchesReferenceText = false;
 
-				blockToSplit.SplitId = newBlock.SplitId = splitId;
+				if (splitId == Block.kNotSplit)
+					splitId = m_blocks.Max(b => b.SplitId) + 1;
 			}
-			//TODO handle splitId already exists but userSplit == false
+			blockToSplit.SplitId = newBlock.SplitId = splitId;
 
 			return newBlock;
 		}

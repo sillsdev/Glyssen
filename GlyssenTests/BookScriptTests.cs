@@ -1181,11 +1181,7 @@ namespace GlyssenTests
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
 				source.GetIndexOfFirstBlockForVerse(15, 26), ScrVers.English);
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
-			matchup.MatchAllBlocks(ScrVers.English);
-			var narrator = CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear()))
-				block.SetCharacterIdAndCharacterIdInScript(narrator, source.BookNumber, ScrVers.English);
-			matchup.Apply();
+			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
 
 			var blockToSplit = source.GetIndexOfFirstBlockForVerse(15, 26);
@@ -1224,8 +1220,7 @@ namespace GlyssenTests
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
 				source.GetIndexOfFirstBlockForVerse(15, verseNum), ScrVers.English);
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
-			matchup.MatchAllBlocks(ScrVers.English);
-			matchup.Apply();
+			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, verseNum);
@@ -1274,8 +1269,13 @@ namespace GlyssenTests
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
 				source.GetIndexOfFirstBlockForVerse(15, verseNum), ScrVers.English);
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
-			matchup.MatchAllBlocks(ScrVers.English);
-			matchup.Apply();
+			foreach (var block in matchup.CorrelatedBlocks.SkipWhile(b => b.ChapterNumber < 15 || b.InitialStartVerseNumber < verseNum).Skip(1).TakeWhile(b => b.SplitId == 0 || b.IsContinuationOfPreviousBlockQuote))
+			{
+				block.CharacterId = "Walter";
+				block.UserConfirmed = true;
+				block.MultiBlockQuote = MultiBlockQuote.None;
+			}
+			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText + 1, source.GetScriptBlocks().Count);
 
 			var target = CreateStandard1CorinthiansScript();
@@ -1284,7 +1284,7 @@ namespace GlyssenTests
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.IsTrue(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
 
-			foreach (var block in source.GetScriptBlocks().Where(b => b.ChapterNumber == 15))
+			foreach (var block in targetBlocksAfterApplyingSplit.Where(b => b.ChapterNumber == 15 && b.IsScripture))
 				Assert.IsTrue(block.MatchesReferenceText, $"Target block {block} does not match ref text.");
 
 			Assert.IsNotNull(target.UnappliedSplits);
@@ -1298,7 +1298,7 @@ namespace GlyssenTests
 		// Split:                                                 |
 		// Verse 27: "Ai saluhutna do dipatunduk tutoru ni patna. Alai molo saluhut dipatunduk didok, tandap ma disi. "
 		[Test]
-		public void ApplyUserDecisions_AllSourceBlcoksAlignedToReferenceTextWithManualSplitInMiddleOfVerse_TextUnchanged_SplitAppliedAndAllBlocksAligned()
+		public void ApplyUserDecisions_AllSourceBlocksAlignedToReferenceTextWithManualSplitInMiddleOfVerse_TextUnchanged_SplitAppliedAndAllBlocksAligned()
 		{
 			var source = CreateStandard1CorinthiansScript();
 			var origBlockCount = source.GetScriptBlocks().Count;
@@ -1459,7 +1459,6 @@ namespace GlyssenTests
 			Assert.AreEqual(split2.SplitId, blockToSplit.SplitId);
 			Assert.AreEqual(split1.SplitId, blockToSplit.SplitId);
 
-
 			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.AreEqual(source.GetScriptBlocks().Count, targetBlocksAfterApplyingSplit.Count,
@@ -1580,6 +1579,24 @@ namespace GlyssenTests
 
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		/// <summary>
+		/// Match up all blocks to corresponding blocks in the reference text. Anything left over gets "blindly" matched
+		/// to an empty reference block and assigned to narrator.
+		/// </summary>
+		/// <param name="matchup"></param>
+		private static void MatchUpBlocksAndApplyToSource(BlockMatchup matchup)
+		{
+			matchup.MatchAllBlocks(ScrVers.English);
+			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear() ||
+				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))
+			{
+				block.SetNonDramaticCharacterId(narrator);
+				block.MultiBlockQuote = MultiBlockQuote.None;
+			}
+			matchup.Apply();
 		}
 		#endregion PG-1168
 
