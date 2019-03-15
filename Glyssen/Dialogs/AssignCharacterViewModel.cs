@@ -527,13 +527,18 @@ namespace Glyssen.Dialogs
 		{
 			var block = CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex];
 			SetCharacter(block, selectedCharacter);
+			var isNarrator = block.CharacterIsStandard; // Can't be one of the other standard types, but if it were, we'd still want to break the chain.
 			if (block.MultiBlockQuote == MultiBlockQuote.Start)
 			{
-				while (++blockIndex < CurrentReferenceTextMatchup.CorrelatedBlocks.Count && CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex].IsContinuationOfPreviousBlockQuote)
+				foreach (var contBlock in CurrentReferenceTextMatchup.CorrelatedBlocks.Skip(++blockIndex).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote))
 				{
-					SetCharacter(CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex], selectedCharacter);
-					CorrelatedBlockCharacterAssignmentChanged?.Invoke(this, blockIndex);
+					SetCharacter(contBlock, selectedCharacter);
+					if (isNarrator)
+						contBlock.MultiBlockQuote = MultiBlockQuote.None;
+					CorrelatedBlockCharacterAssignmentChanged?.Invoke(this, blockIndex++);
 				}
+				if (isNarrator)
+					block.MultiBlockQuote = MultiBlockQuote.None;
 			}
 		}
 

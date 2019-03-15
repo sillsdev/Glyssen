@@ -770,6 +770,10 @@ namespace Glyssen
 						throw new ArgumentException("Last replacement block must have a MultiBlockQuote value of Start or Continuation, since the first " +
 							"block following the replacement range is a Continuation block.");
 					}
+					if (lastReplacementBlock.CharacterIsStandard)
+						throw new InvalidOperationException("Following blocks are continuations of a \"quote\" that is now assigned to " +
+							$"{lastReplacementBlock.CharacterId}. We need to look at this data condition to see what the desired beahvior is. ***Final block in " +
+							$"matchup: {lastReplacementBlock} ***First following block: {m_blocks[blockIndexFollowingReplacement]}");
 					do
 					{
 						m_blocks[blockIndexFollowingReplacement].CharacterId = lastReplacementBlock.CharacterId;
