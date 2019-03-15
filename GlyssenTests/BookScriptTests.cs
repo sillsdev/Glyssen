@@ -1182,6 +1182,9 @@ namespace GlyssenTests
 				source.GetIndexOfFirstBlockForVerse(15, 26), ScrVers.English);
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			matchup.MatchAllBlocks(ScrVers.English);
+			var narrator = CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear()))
+				block.SetCharacterIdAndCharacterIdInScript(narrator, source.BookNumber, ScrVers.English);
 			matchup.Apply();
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
 
@@ -1280,20 +1283,9 @@ namespace GlyssenTests
 			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.IsTrue(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
-			Assert.AreEqual(fullVerseText.Substring(0, splitPos),
-				((ScriptText)targetBlocksAfterApplyingSplit.First(b => b.ChapterNumber == 15 && b.LastVerseNum == verseNum)
-					.BlockElements.Last()).Content);
-			Assert.AreEqual(fullVerseText.Substring(splitPos),
-				((ScriptText)targetBlocksAfterApplyingSplit.Last(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber == verseNum)
-					.BlockElements.First()).Content);
 
-			foreach (var verse in source.GetScriptBlocks().Where(b => b.ChapterNumber == 15).SelectMany(b => b.BlockElements.OfType<Verse>()))
-			{
-				var blockForVerse = targetBlocksAfterApplyingSplit.Single(
-					tb => tb.ChapterNumber == 15 &&
-						tb.BlockElements.OfType<Verse>().Count(v => v.StartVerse == verse.StartVerse) == 1);
-				Assert.IsTrue(blockForVerse.MatchesReferenceText, $"Target block for verse {verse} does not match ref text.");
-			}
+			foreach (var block in source.GetScriptBlocks().Where(b => b.ChapterNumber == 15))
+				Assert.IsTrue(block.MatchesReferenceText, $"Target block {block} does not match ref text.");
 
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);

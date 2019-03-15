@@ -190,8 +190,7 @@ namespace Glyssen
 
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
-				m_vernacularBook.ReplaceBlocks(m_iStartBlock, CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting,
-					CorrelatedBlocks.Select(b => b.Clone()).ToList());
+				m_vernacularBook.ReplaceBlocks(m_iStartBlock, OriginalBlockCount, CorrelatedBlocks.Select(b => b.Clone()).ToList());
 			}
 			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
@@ -203,12 +202,11 @@ namespace Glyssen
 				vernBlock.SetMatchedReferenceBlock(refBlock);
 				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, m_versification);
 
+				if (vernBlock.CharacterIsUnclear())
+					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown.");
+
 				if (CorrelatedBlocks[i].UserConfirmed)
-				{
-					if (vernBlock.CharacterIsUnclear())
-						throw new InvalidOperationException("Character cannot be confirmed as ambiguous or unknown.");
 					vernBlock.UserConfirmed = true;
-				}
 			}
 			// No need to do the following here if m_numberOfBlocksAddedBySplitting > 0 because the call to ReplaceBlocks does it.
 			if (m_numberOfBlocksAddedBySplitting == 0)
@@ -225,6 +223,8 @@ namespace Glyssen
 			}
 			else
 				m_numberOfBlocksAddedBySplitting = 0;
+
+			Debug.Assert(origBlocks.Skip(m_iStartBlock).Take(CorrelatedBlocks.Count).All(b => !b.CharacterIsStandard || b.MultiBlockQuote == MultiBlockQuote.None));
 		}
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)

@@ -648,16 +648,16 @@ namespace Glyssen
 
 			// The relevant block elements match. We can re-apply the split.
 
-			if (indexOfFirstCorrespondingElement > 0 && firstBlockOfSplit.UserConfirmed)
-			{
-				// The first block of the "split" is a special case because when Glyssen chunked up the text
-				// to match the reference text, it made a temporary split right before this block, but since
-				// it is UserConfirmed, it needs to be regarded as having been done by the user so that
-				// reference text alignment and character assignments can be re-applied in ApplyUserAssignments.
-				var prevVerse = blockToSplit.BlockElements.Take(indexOfFirstCorrespondingElement).OfType<Verse>().LastOrDefault()?.Number;
-				if (prevVerse != null)
-					blockToSplit = SplitBlock(blockToSplit, prevVerse, kSplitAtEndOfVerse);
-			}
+			//if (indexOfFirstCorrespondingElement > 0 && firstBlockOfSplit.UserConfirmed)
+			//{
+			//	// The first block of the "split" is a special case because when Glyssen chunked up the text
+			//	// to match the reference text, it made a temporary split right before this block, but since
+			//	// it is UserConfirmed, it needs to be regarded as having been done by the user so that
+			//	// reference text alignment and character assignments can be re-applied in ApplyUserAssignments.
+			//	var prevVerse = blockToSplit.BlockElements.Take(indexOfFirstCorrespondingElement).OfType<Verse>().LastOrDefault()?.Number;
+			//	if (prevVerse != null)
+			//		blockToSplit = SplitBlock(blockToSplit, prevVerse, kSplitAtEndOfVerse);
+			//}
 
 			foreach (var currentSplit in unappliedSplit)
 			{

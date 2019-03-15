@@ -1162,6 +1162,9 @@ namespace GlyssenTests.Dialogs
 			var matchup = m_model.CurrentReferenceTextMatchup;
 
 			Assert.IsTrue(m_model.CurrentBlockDisplayIndex >= m_model.RelevantBlockCount);
+			matchup.MatchAllBlocks(m_testProject.Versification);
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear()))
+				block.SetCharacterIdAndCharacterIdInScript("Paul", m_model.CurrentBookNumber, m_testProject.Versification);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 			m_model.ApplyCurrentReferenceTextMatchup();
 
