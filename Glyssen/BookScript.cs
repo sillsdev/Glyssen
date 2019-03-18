@@ -396,9 +396,31 @@ namespace Glyssen
 				if (!sourceBlock.MatchesReferenceText)
 					continue;
 				int iTargetBlock = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
-				if (iTargetBlock < iPrevFirstTargetBlock)
+				if (sourceBlock.IsScripture)
+				{
+					if (iTargetBlock < iPrevFirstTargetBlock)
+						continue;
+					iPrevFirstTargetBlock = iTargetBlock;
+				}
+				else
+				{
+					while (!m_blocks[iTargetBlock].IsScripture)
+					{
+						var targetBlock = m_blocks[iTargetBlock];
+						if (((ScriptText)targetBlock.BlockElements.Single()).Content == ((ScriptText)sourceBlock.BlockElements.Single()).Content)
+						{
+							if (!targetBlock.MatchesReferenceText)
+							{
+								targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
+								targetBlock.CloneReferenceBlocks();
+							}
+							iPrevFirstTargetBlock = iTargetBlock;
+							break;
+						}
+						iTargetBlock++;
+					}
 					continue;
-				iPrevFirstTargetBlock = iTargetBlock;
+				}
 				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock,
 					versification);
 				if (targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber < m_blocks[iTargetBlock].InitialStartVerseNumber)
@@ -626,16 +648,24 @@ namespace Glyssen
 			var firstBlockOfSplit = unappliedSplit.First();
 			var combinedBlockElements = CombineBlocks(unappliedSplit).BlockElements;
 
-			var firstVerseOfSplit = firstBlockOfSplit.BlockElements.First() as Verse;
-			if (firstVerseOfSplit == null)
-				return false;
+			var firstVerseOfSplit = firstBlockOfSplit.InitialVerseNumberOrBridge;
 
 			// Very likely, the split was done on a block that was part of a larger parsed block that was chunked
 			// up according to the reference text, though it may also have been split manually. If we can find that
 			// larger block with matching verse text on either side of the splits, we can still apply them (though
 			// we won't attempt to fully or partially connect it up with the reference text).
 			var blockToSplit = GetFirstBlockForVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
-			var indexOfFirstCorrespondingElement = blockToSplit.BlockElements.IndexOf(firstVerseOfSplit, comparer);
+			var indexOfFirstCorrespondingElement = -1;
+			for (int iElem = 0; iElem < blockToSplit.BlockElements.Count; iElem++)
+			{
+				if (blockToSplit.BlockElements[iElem] is Verse v && v.Number == firstVerseOfSplit)
+				{
+					indexOfFirstCorrespondingElement = iElem;
+					break;
+				}
+			}
+			Debug.Assert(indexOfFirstCorrespondingElement != -1);
+			// TODO: Fix this - I think the logic of next line incorrectly assumes that unappliedSplit had two blocks.
 			var indexOfLastCorrespondingElement = indexOfFirstCorrespondingElement + combinedBlockElements.Count - 1;
 			if (indexOfLastCorrespondingElement >= blockToSplit.BlockElements.Count)
 				return false;

@@ -1300,11 +1300,14 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyUserDecisions_AllSourceBlocksAlignedToReferenceTextWithManualSplitInMiddleOfVerse_TextUnchanged_SplitAppliedAndAllBlocksAligned()
 		{
-			var source = CreateStandard1CorinthiansScript();
-			var origBlockCount = source.GetScriptBlocks().Count;
+			var origSource = CreateStandard1CorinthiansScript();
+			var origBlockCount = origSource.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			englishRefText.ApplyTo(source, ScrVers.English);
-			var sourceBlocksChunkedOut = source.GetScriptBlocks();
+			englishRefText.ApplyTo(origSource, ScrVers.English);
+			var sourceBlocksChunkedOut = origSource.GetScriptBlocks();
+			// ICO 15:3 has a paragraph break, so we need to match up the second half of the verse
+			sourceBlocksChunkedOut.Single(b => b.IsScripture && !b.MatchesReferenceText).SetMatchedReferenceBlock("Blah blah");
+			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut);
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
