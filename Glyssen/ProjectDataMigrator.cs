@@ -50,7 +50,8 @@ namespace Glyssen
 					MigrateInvalidCharacterIdForScriptData(project.Books);
 				if (fromControlFileVersion == 104)
 					MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(project);
-
+				if (fromControlFileVersion < 139)
+					MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(project.Books);
 				MigrateDeprecatedCharacterIds(project);
 			}
 
@@ -256,6 +257,40 @@ namespace Glyssen
 			{
 				foreach (var block in book.GetScriptBlocks().Where(block => block.IsChapterAnnouncement && block.BookCode == null))
 					block.BookCode = book.BookId;
+			}
+		}
+
+		// internal for testing
+		internal static void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(IReadOnlyList<BookScript> books)
+		{
+			foreach (var book in books)
+			{
+				int currentSplitId = -1;
+				var contiguousSubsequentBlocksMatchingRefText = new List<Block>();
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.SplitId >= 0)
+					{
+						if (block.SplitId != currentSplitId)
+							currentSplitId = block.SplitId;
+						else
+						{
+							foreach (var b in contiguousSubsequentBlocksMatchingRefText)
+								b.SplitId = currentSplitId;						
+						}
+						contiguousSubsequentBlocksMatchingRefText.Clear();
+					}
+					else if (currentSplitId >= 0)
+					{
+						if (block.MatchesReferenceText)
+							contiguousSubsequentBlocksMatchingRefText.Add(block);
+						else
+						{
+							contiguousSubsequentBlocksMatchingRefText.Clear();
+							currentSplitId = -1;
+						}
+					}
+				}
 			}
 		}
 	}
