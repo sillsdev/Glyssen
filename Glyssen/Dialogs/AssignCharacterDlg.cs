@@ -1669,7 +1669,8 @@ namespace Glyssen.Dialogs
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
 			m_userMadeChangesToReferenceTextMatchup = true;
 			var column = level == 0 && colPrimary.Visible ? colPrimary : colEnglish;
-			m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
+			if (text != null) // This means it was only a character change (for a former continuation block)
+				m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
 			if (!colCharacter.ReadOnly)
 				m_dataGridReferenceText.Rows[iRow].Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
