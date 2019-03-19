@@ -36,7 +36,9 @@ namespace Glyssen
 			if (iBlock < 0)
 				throw new ArgumentException(@"Block not found in the list for " + Id, "blockToSplit");
 
-			int splitId = blockToSplit.SplitId;
+			var splitId = blockToSplit.SplitId;
+			if (userSplit && splitId == Block.kNotSplit)
+				splitId = m_blocks.Max(b => b.SplitId) + 1;
 
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
@@ -86,9 +88,6 @@ namespace Glyssen
 
 				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
 					blockToSplit.MatchesReferenceText = false;
-
-				if (splitId == Block.kNotSplit)
-					splitId = m_blocks.Max(b => b.SplitId) + 1;
 			}
 			blockToSplit.SplitId = newBlock.SplitId = splitId;
 
@@ -188,10 +187,13 @@ namespace Glyssen
 			}
 			return true;
 		}
-
-		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId, bool userSplit, string characterId, ScrVers versification)
+		
+		protected void SplitBeforeBlock(int indexOfBlockToSplit, int splitId, bool userSplit, string characterId, ScrVers versification, bool reapplyingUserSplits = false)
 		{
-			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
+			if (indexOfBlockToSplit == 0)
+				throw new IndexOutOfRangeException("Split cannot occur before first block!");
+
+			if (!reapplyingUserSplits && (m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None))
 				throw new ArgumentException("Split allowed only between blocks that are part of a multi-block quote");
 
 			if (m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.Start)

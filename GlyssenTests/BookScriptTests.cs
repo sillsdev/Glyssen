@@ -1232,8 +1232,7 @@ namespace GlyssenTests
 			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
-			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 1,
-				targetBlocksAfterApplyingSplit.Count);
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 1, targetBlocksAfterApplyingSplit.Count);
 			Assert.AreEqual(fullVerseText.Substring(0, splitPos),
 				((ScriptText)targetBlocksAfterApplyingSplit.First(b => b.ChapterNumber == 15 && b.LastVerseNum == verseNum)
 				.BlockElements.Last()).Content);
@@ -1307,18 +1306,27 @@ namespace GlyssenTests
 			var sourceBlocksChunkedOut = origSource.GetScriptBlocks();
 			// ICO 15:3 has a paragraph break, so we need to match up the second half of the verse
 			sourceBlocksChunkedOut.Single(b => b.IsScripture && !b.MatchesReferenceText).SetMatchedReferenceBlock("Blah blah");
+			var narrator = CharacterVerseData.GetStandardCharacterId(origSource.BookId, CharacterVerseData.StandardCharacter.Narrator);
 			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut);
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
+			var firstBlockforV27 = source.GetScriptBlocks()[iBlockToSplit];
 			var v27SplitPos = 44;
-			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "27", v27SplitPos, true,
-				CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator), ScrVers.English);
+			source.SplitBlock(firstBlockforV27, "27", v27SplitPos, true, narrator, ScrVers.English);
 
-			iBlockToSplit--;
-			Assert.AreEqual("26", ((Verse)source.GetScriptBlocks()[iBlockToSplit].BlockElements.First()).Number);
-			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English)
-				.UserConfirmed = true;
+			firstBlockforV27.SetNonDramaticCharacterId("scripture");
+			firstBlockforV27.UserConfirmed = true;
+
+			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit - 1];
+			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English).UserConfirmed = true;
+
+			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
+			{
+				sb.MultiBlockQuote = MultiBlockQuote.None;
+				sb.SetNonDramaticCharacterId(narrator);
+			}
 
 			var target = CreateStandard1CorinthiansScript();
 			var countOfSourceBlocks = source.GetScriptBlocks().Count;
@@ -1335,8 +1343,7 @@ namespace GlyssenTests
 			Assert.AreEqual("scripture", targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
 			Assert.AreEqual(k1Co15V27Text.Substring(v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true));
-			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2]
-				.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].CharacterId == narrator);
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
@@ -1353,26 +1360,30 @@ namespace GlyssenTests
 			var source = CreateStandard1CorinthiansScript();
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			englishRefText.ApplyTo(source, ScrVers.English);
-			var sourceBlocksChunkedOut = source.GetScriptBlocks();
-			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
+
+			var blockForV26 = source.GetScriptBlocks()[source.GetIndexOfFirstBlockForVerse(15, 26)];
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English)
+				.UserConfirmed = true;
+
+			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
+				source.GetIndexOfFirstBlockForVerse(15, 26), ScrVers.English);
+			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
+			MatchUpBlocksAndApplyToSource(matchup);
+			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText + 1, source.GetScriptBlocks().Count);
+
+			Assert.IsTrue(origBlockCount < source.GetScriptBlocks().Count);
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
 			var v27SplitPos = 44;
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "27", v27SplitPos, true,
 				CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator), ScrVers.English);
 
-			iBlockToSplit--;
-			Assert.AreEqual("26", ((Verse)source.GetScriptBlocks()[iBlockToSplit].BlockElements.First()).Number);
-			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English)
-				.UserConfirmed = true;
-
 			var target = CreateStandard1CorinthiansScript();
-			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
+			var countOfSourceBlocks = source.GetScriptBlocks().Count;
 
 			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
-			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 2, targetBlocksAfterApplyingSplit.Count);
+			Assert.AreEqual(countOfSourceBlocks, targetBlocksAfterApplyingSplit.Count);
 			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
 			Assert.AreEqual(k1Co15V26Text, ((ScriptText)blockWithVerse26.BlockElements.Last()).Content);
 			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
@@ -1421,7 +1432,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, iBlockV30);
 			var blockV30 = source.GetScriptBlocks()[iBlockV30];
 			Assert.AreEqual("30", blockV30.BlockElements.OfType<Verse>().Single().Number);
-			blockV30.SetMatchedReferenceBlock(englishRefText.Books[source.BookNumber].GetFirstBlockForVerse(kChapter, 30));
+			blockV30.CharacterId = blockV30.ReferenceBlocks.Single().CharacterId;
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(kChapter, 31);
 			Assert.AreEqual(2, iBlockToSplit);
@@ -1455,7 +1466,7 @@ namespace GlyssenTests
 
 			var blockV32 = source.GetScriptBlocks()[source.GetIndexOfFirstBlockForVerse(kChapter, 32)];
 			Assert.AreEqual("32", blockV32.BlockElements.OfType<Verse>().Single().Number);
-			blockV32.SetMatchedReferenceBlock(englishRefText.Books[source.BookNumber].GetFirstBlockForVerse(kChapter, 32));
+			blockV32.CharacterId = blockV32.ReferenceBlocks.Single().CharacterId;
 
 			Assert.AreEqual(split4.SplitId, blockToSplit.SplitId);
 			Assert.AreEqual(split3.SplitId, blockToSplit.SplitId);
@@ -1470,16 +1481,16 @@ namespace GlyssenTests
 			var blockVerse31Start = targetBlocksAfterApplyingSplit.Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "31"));
 			Assert.AreEqual(kSplitPos1, blockVerse31Start.BlockElements.OfType<ScriptText>().Last().Content.Length);
 			Assert.IsTrue(blockVerse31Start.MatchesReferenceText);
-			Assert.AreEqual("{31}Which one of the two did the will of his father?”", blockVerse31Start.GetPrimaryReferenceText());
+			Assert.AreEqual("{31}\u00A0Which one of the two did the will of his father?”", blockVerse31Start.GetPrimaryReferenceText());
 
 			var iBlock = targetBlocksAfterApplyingSplit.IndexOf(blockVerse31Start);
 
 			var block = targetBlocksAfterApplyingSplit[iBlock - 1];
 			Assert.AreEqual("{30}\u00A0Ia amaama i ditopot ma sianggian i, laos songon i do hatana, gabe didok i ma mangalusi: Olo, tuan! Hape, ndang saut laho. ",
 				block.GetText(true));
-			Assert.IsTrue(block.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("Jesus", block.CharacterId);
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("{30}\u00A0He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn't go.",
+			Assert.AreEqual("{30}\u00A0He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn’t go.",
 				block.ReferenceBlocks.Single().GetText(true));
 
 			block = targetBlocksAfterApplyingSplit[++iBlock];
@@ -1511,7 +1522,7 @@ namespace GlyssenTests
 			block = targetBlocksAfterApplyingSplit[++iBlock];
 			Assert.AreEqual("{32}\u00A0Ai na ro do si Johannes tu hamu di dalan hatigoran, ndang dihaporseai hamu ibana; alai anggo angka sijalobeo dohot angka boru na jahat porsea do. Diida hamu do i nian; laos tong so disolsoli hamu rohamuna, laho mangkaporseai ibana. ",
 				block.GetText(true));
-			Assert.AreEqual("{32}\u00A0For John came to you in the way of righteousness, and you didn't believe him, but the tax collectors and the prostitutes believed him. When you saw it, you didn't even repent afterward, that you might believe him.”",
+			Assert.AreEqual("{32}\u00A0For John came to you in the way of righteousness, and you didn’t believe him, but the tax collectors and the prostitutes believed him. When you saw it, you didn’t even repent afterward, that you might believe him.",
 				block.ReferenceBlocks.Single().GetText(true));
 
 			Assert.IsNotNull(target.UnappliedSplits);
