@@ -385,9 +385,6 @@ namespace Glyssen
 		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ScrVers versification,
 			ReferenceText referenceTextToReapply, SplitBlockComparer blockComparer)
 		{
-			//var clone = Clone(true);
-			//referenceTextToReapply.ApplyTo(clone, versification);
-			//var clonedBlocks = clone.GetScriptBlocks(false);
 			var sourceBlocks = sourceBookScript.GetScriptBlocks(false);
 			var iPrevFirstTargetBlock = 0;
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
@@ -425,10 +422,6 @@ namespace Glyssen
 					versification);
 				if (targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber < m_blocks[iTargetBlock].InitialStartVerseNumber)
 					continue; // Oops, we ended up going backwards into the target 
-				//var lastTargetBlock = targetMatchup.CorrelatedBlocks.Last();
-				//var lastVerseOfTargetMatchup = lastTargetBlock.LastVerse.EndVerse;
-				//var cSourceBlocksToMatchup = sourceBlocks.Skip(iSrc).Count(sb => sb.ChapterNumber == lastTargetBlock.ChapterNumber &&
-				//	sb.InitialStartVerseNumber <= lastVerseOfTargetMatchup || sb.LastVerseNum < lastVerseOfTargetMatchup);
 				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc,
 					versification, (uint)targetMatchup.CorrelatedBlocks.Count, false);
 				Debug.Assert(sourceMatchup.CountOfBlocksAddedBySplitting == 0);
@@ -445,24 +438,6 @@ namespace Glyssen
 					var targetBlock = targetMatchup.CorrelatedBlocks[i];
 					if ((sourceBlock.MatchesReferenceText || sourceBlock.UserConfirmed) && blockComparer.Equals(sourceBlock, targetBlock))
 					{
-						//if (targetBlock.IsContinuationOfPreviousBlockQuote && !sourceBlock.IsContinuationOfPreviousBlockQuote)
-						//{
-						//	Block prevBlock;
-						//	if (i > 0)
-						//	{
-						//		prevBlock = targetMatchup.CorrelatedBlocks[i - 1];
-						//	}
-						//	else
-						//	{
-						//		Debug.Assert(targetMatchup.IndexOfStartBlockInBook > 0);
-						//		prevBlock = m_blocks[targetMatchup.IndexOfStartBlockInBook - 1];
-						//	}
-						//	if (prevBlock.CharacterId != sourceBlock.CharacterId)
-						//	{
-						//		everythingMatched = false;
-						//		break;
-						//	}
-						//}
 						if (sourceBlock.MatchesReferenceText)
 						{
 							targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
@@ -479,21 +454,6 @@ namespace Glyssen
 				if (everythingMatched)
 					targetMatchup.Apply(versification);
 			}
-
-			//foreach (var sourceBlock in sourceBlocks.Where(b => b.MatchesReferenceText))
-			//{
-			//	int iClonedBlock = clone.GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
-			//	if (iClonedBlock < 0)
-			//		continue;
-			//	var clonedBlock = clonedBlocks[iClonedBlock];
-			//	do
-			//	{
-			//		if (blockComparer.Equals(clonedBlock, sourceBlock))
-			//		{
-			//			clonedBlock.MatchesReferenceText = true;
-			//			clonedBlock.ReferenceBlocks = new List<Block> { sourceBlock.ReferenceBlocks.Single().Clone(true) };
-			//		}
-			//	} while ();
 		}
 
 		private void ApplyUserAssignments(BookScript sourceBookScript, ScrVers versification)
@@ -673,22 +633,17 @@ namespace Glyssen
 			if (indexOfLastCorrespondingElement >= blockToSplit.BlockElements.Count)
 				return false;
 			var textOfLastVerseInBlockToSplit = ((ScriptText)blockToSplit.BlockElements[indexOfLastCorrespondingElement]).Content;
-			if (firstBlockOfSplit.StartsAtVerseStart)
-			{
-				if (!combinedBlockElements.Take(combinedBlockElements.Count).SequenceEqual(
-					blockToSplit.BlockElements.Skip(indexOfFirstCorrespondingElement).Take(combinedBlockElements.Count), comparer))
-				{
-					return false;
-				}
-			}
-			else if (!combinedBlockElements.Take(combinedBlockElements.Count - 1).SequenceEqual(
-					blockToSplit.BlockElements.Skip(indexOfFirstCorrespondingElement).Take(combinedBlockElements.Count - 1), comparer) ||
-				!textOfLastVerseInBlockToSplit.EndsWith(firstBlockOfSplit.BlockElements.OfType<ScriptText>().Last().Content))
+			var textOfLastUnappliedSplitVerse = unappliedSplit.Last().BlockElements.OfType<ScriptText>().Last().Content;
+			if (!combinedBlockElements.Take(combinedBlockElements.Count - 1).SequenceEqual(
+				blockToSplit.BlockElements.Skip(indexOfFirstCorrespondingElement).Take(combinedBlockElements.Count - 1), comparer) ||
+				!textOfLastVerseInBlockToSplit.EndsWith(textOfLastUnappliedSplitVerse))
 			{
 				return false;
 			}
 
 			var helper = new SplitBlockHelper(this, blockToSplit, indexOfLastCorrespondingElement);
+
+			bool restoreFirstBlockSplitId = (unappliedSplit.Count > 1 && unappliedSplit[0].StartsAtVerseStart && blockToSplit.SplitId == Block.kNotSplit);
 			blockToSplit.SplitId = firstBlockOfSplit.SplitId;
 
 			for (int iSplit = unappliedSplit.Count - 1; iSplit >= 0; iSplit--)
@@ -715,30 +670,8 @@ namespace Glyssen
 				chipOffTheOldBlock.Delivery = currentSplit.Delivery;
 			}
 
-			//var remainingTextLength = new RemainingTextLength(blockToSplit, indexOfFirstCorrespondingElement, verseToSplit);
-
-			//foreach (var currentSplit in unappliedSplit)
-			//{
-			//	if (currentSplit.StartsAtVerseStart && verseToSplit == blockToSplit.InitialVerseNumberOrBridge)
-			//	{
-			//		// This is a split right at a verse break. It is likely (though not absolutely certain) that this split
-			//		// originated as a non-user break, when Glyssen aligned the text to the reference text. But since the
-			//		// user then did a manual break, the preceding block break also got converted to a user split. 
-			//		var iBlock = m_blocks.IndexOf(blockToSplit);
-			//		// The "normal" rules for a user break were thus not enforced. In order to be able to re-apply this split,
-			//		// tell it we're reapplying splits, so it skips that check.
-			//		SplitBeforeBlock(iBlock, currentSplit.SplitId, true, currentSplit.CharacterId, null, true);
-			//	}
-			//	else
-			//	{
-			//		remainingTextLength.AdjustFor(currentSplit);
-			//		blockToSplit = SplitBlock(blockToSplit, currentSplit.InitialVerseNumberOrBridge, remainingTextLength.Current);
-			//		blockToSplit.CharacterId = currentSplit.CharacterId;
-			//		remainingTextLength = new RemainingTextLength(blockToSplit, 0, currentSplit.InitialVerseNumberOrBridge);
-			//	}
-			//	blockToSplit.CharacterIdOverrideForScript = currentSplit.CharacterIdOverrideForScript;
-			//	blockToSplit.Delivery = currentSplit.Delivery;
-			//}
+			if (restoreFirstBlockSplitId)
+				blockToSplit.SplitId = Block.kNotSplit;
 			return true;
 		}
 

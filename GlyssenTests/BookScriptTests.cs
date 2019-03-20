@@ -1210,7 +1210,7 @@ namespace GlyssenTests
 		[TestCase(2, 5, k1Co15V2Text)]
 		[TestCase(26, 14, k1Co15V26Text)]
 		[TestCase(27, 44, k1Co15V27Text)]
-		public void ApplyUserDecisions_UnalignedSplitBlockInChunkPreviouslyAlignedToReferenceText_TextUnchanged_SplitApplied(int verseNum,
+		public void ApplyUserDecisions_UnalignedSplitBlockInChunkPreviouslyAlignedToReferenceText_TextUnchanged_ManualSplitAndPrecedingRefTextSplitApplied(int verseNum,
 			int splitPos, string fullVerseText)
 		{
 			var source = CreateStandard1CorinthiansScript();
@@ -1220,27 +1220,44 @@ namespace GlyssenTests
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
 				source.GetIndexOfFirstBlockForVerse(15, verseNum), ScrVers.English);
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
+			// We expect one reapplied split at the start of each preceding verse number (except v. 1) in the chapter
+			// (because all those verses were matched up to the reference text and still match the corresponding target blocks.
+			var countOfExpectedReappliedSplits = matchup.CorrelatedBlocks.Count(b => b.StartsAtVerseStart && b.InitialStartVerseNumber < verseNum);
+
 			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, verseNum);
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], verseNum.ToString(), splitPos);
+			// Plus the manual split in the verse itself:
+			countOfExpectedReappliedSplits++;
+
+			var expectedRematchedBlocks = source.GetScriptBlocks().Where(b => b.IsScripture && b.ChapterNumber == 15 &&
+				b.InitialStartVerseNumber < verseNum).ToList();
 
 			var target = CreateStandard1CorinthiansScript();
 			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
 
 			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
-			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
-			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 1, targetBlocksAfterApplyingSplit.Count);
-			Assert.AreEqual(fullVerseText.Substring(0, splitPos),
-				((ScriptText)targetBlocksAfterApplyingSplit.First(b => b.ChapterNumber == 15 && b.LastVerseNum == verseNum)
-				.BlockElements.Last()).Content);
-			Assert.AreEqual(fullVerseText.Substring(splitPos),
-				((ScriptText)targetBlocksAfterApplyingSplit.Last(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber == verseNum)
-					.BlockElements.First()).Content);
 
-			Assert.False(targetBlocksAfterApplyingSplit.Any(b => b.MatchesReferenceText));
+			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + countOfExpectedReappliedSplits, targetBlocksAfterApplyingSplit.Count);
+			var comparer = new BlockComparer();
+			if (targetBlocksAfterApplyingSplit.Count == source.GetScriptBlocks().Count)
+			{
+				// This happens to be a special case where we can do a better job of preserving alignments.
+				Assert.IsTrue(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, comparer));
+			}
+			else
+			{
+				Assert.IsTrue(expectedRematchedBlocks.SequenceEqual(
+					targetBlocksAfterApplyingSplit.SkipWhile(b => !b.IsScripture || b.ChapterNumber != 15).TakeWhile(b => b.MatchesReferenceText),
+					comparer));
+			}
+			var firstBlockOfSplit = targetBlocksAfterApplyingSplit.First(b => b.ChapterNumber == 15 && b.LastVerseNum == verseNum);
+			Assert.AreEqual(fullVerseText.Substring(0, splitPos), ((ScriptText)firstBlockOfSplit.BlockElements.Last()).Content);
+			var lastBlockOfSplit = targetBlocksAfterApplyingSplit.Last(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber == verseNum);
+			Assert.AreEqual(fullVerseText.Substring(splitPos), ((ScriptText)lastBlockOfSplit.BlockElements.First()).Content);
 
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
@@ -1255,7 +1272,7 @@ namespace GlyssenTests
 		[TestCase(2, 5, k1Co15V2Text)]
 		[TestCase(26, 14, k1Co15V26Text)]
 		[TestCase(27, 44, k1Co15V27Text)]
-		public void ApplyUserDecisions_MatchupWithUserSplitAlignedToReferenceText_TextUnchanged_SplitAndAlignmentsApplied(int verseNum,
+		public void ApplyUserDecisions_MatchupWithUserSplitSubsequentlyAlignedToReferenceText_TextUnchanged_SplitAndAlignmentsApplied(int verseNum,
 			int splitPos, string fullVerseText)
 		{
 			var source = CreateStandard1CorinthiansScript();

@@ -28,6 +28,14 @@ namespace Glyssen
 			return m_blocks;
 		}
 
+		private int GetSplitId(Block blockToSplit, bool userSplit)
+		{
+			var splitId = blockToSplit.SplitId;
+			if (userSplit && splitId == Block.kNotSplit)
+				splitId = m_blocks.Max(b => b.SplitId) + 1;
+			return splitId;
+		}
+
 		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
 			string characterId = null, ScrVers versification = null)
 		{
@@ -36,21 +44,18 @@ namespace Glyssen
 			if (iBlock < 0)
 				throw new ArgumentException(@"Block not found in the list for " + Id, "blockToSplit");
 
-			var splitId = blockToSplit.SplitId;
-			if (userSplit && splitId == Block.kNotSplit)
-				splitId = m_blocks.Max(b => b.SplitId) + 1;
-
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
-				SplitBeforeBlock(iBlock, splitId, userSplit, characterId, versification);
+				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId, versification);
 				return blockToSplit;
 			}
 
 			Block newBlock = blockToSplit.SplitBlock(verseToSplit, characterOffsetToSplit);
 			if (newBlock == null)
 			{
-				SplitBeforeBlock(iBlock + 1, splitId, userSplit, characterId, versification);
-				return m_blocks[iBlock + 1];
+				blockToSplit = m_blocks[++iBlock];
+				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId, versification);
+				return blockToSplit;
 			}
 
 			m_blocks.Insert(iBlock + 1, newBlock);
@@ -89,7 +94,7 @@ namespace Glyssen
 				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
 					blockToSplit.MatchesReferenceText = false;
 			}
-			blockToSplit.SplitId = newBlock.SplitId = splitId;
+			blockToSplit.SplitId = newBlock.SplitId = GetSplitId(blockToSplit, userSplit);
 
 			return newBlock;
 		}
