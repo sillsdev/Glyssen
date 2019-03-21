@@ -67,8 +67,13 @@ namespace Glyssen
 				if (fromControlFileVersion == 104)
 					MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(project);
 				if (fromControlFileVersion < 139)
+				{
 					MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(project.Books);
+					CleanUpMultiBlockQuotesAssignedToNarrator(project.Books);
+					ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(project.Books, project.Versification);
+				}
 				MigrateDeprecatedCharacterIds(project);
+
 				result = MigrationResult.Complete;
 			}
 
@@ -312,6 +317,33 @@ namespace Glyssen
 							currentSplitId = -1;
 						}
 					}
+				}
+			}
+		}
+
+		//internal for testing
+		internal static void CleanUpMultiBlockQuotesAssignedToNarrator(IReadOnlyList<BookScript> books)
+		{
+			foreach (var block in books.SelectMany(book => book.GetScriptBlocks())
+				.Where(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard))
+			{
+				block.MultiBlockQuote = MultiBlockQuote.None;
+			}
+		}
+
+		//internal for testing
+		internal static void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(IReadOnlyList<BookScript> books, ScrVers scrVers)
+		{
+			foreach (var book in books)
+			{
+				Block prevBlock = null;
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.MatchesReferenceText && block.CharacterIsUnclear())
+						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, scrVers);
+					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear())
+						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, scrVers);
+					prevBlock = block;
 				}
 			}
 		}

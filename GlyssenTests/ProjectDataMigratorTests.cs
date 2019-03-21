@@ -536,6 +536,109 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void CleanUpMultiBlockQuotesAssignedToNarrator_MultiBlockQuoteChainAssignedToNarrator_AllBlocksInChainSetToNone()
+		{
+			var blocks = new List<Block>(7);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(5, MultiBlockQuote.Start));
+			blocks.Last().CharacterId = "Jesus";
+			blocks.Add(CreateTestBlock(6, MultiBlockQuote.Continuation));
+			blocks.Last().CharacterId = "Jesus";
+			blocks.Add(CreateTestBlock(7, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.CleanUpMultiBlockQuotesAssignedToNarrator(books);
+
+			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
+			Assert.AreEqual(2, book.Blocks.Count(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterId == "Jesus"),
+				"Multi-block quote chain for Jesus should not have been affected.");
+			Assert.AreEqual(5, book.Blocks.Count(b => b.CharacterId == narrator),
+				"Narrator should still be assigned to the 5 blocks not assigned to Jesus.");
+			Assert.IsTrue(book.Blocks.Where(b => b.CharacterId == narrator).All(b => b.MultiBlockQuote == MultiBlockQuote.None),
+				"Multi-block quote chain should have gotten broken up for all narrator blocks.");
+		}
+
+		[Test]
+		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SingleUnclearBlocksMatched_UnclearBlocksSetToCorrespondingCharacterAndDeliveryFromRefBlocks()
+		{
+			var blocks = new List<Block>(4);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
+			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
+			blocks.Last().CharacterId = "Jesus";
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
+			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdOverrideForScript = "Kelsy" });
+
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
+
+			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
+			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterIdInScript);
+			Assert.AreEqual("Panicky", book.GetScriptBlocks()[1].Delivery);
+			Assert.AreEqual("Jesus", book.GetScriptBlocks()[2].CharacterId);
+			Assert.AreEqual("Phil/Kelsy", book.GetScriptBlocks()[3].CharacterId);
+			Assert.AreEqual("Kelsy", book.GetScriptBlocks()[3].CharacterIdInScript);
+			Assert.IsNull(book.GetScriptBlocks()[3].Delivery);
+		}
+
+		[Test]
+		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SomeUnclearBlocksInQuoteChainMatched_AllBlocksInEntireChainSetToSameCharacter()
+		{
+			var blocks = new List<Block>(5);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
+			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
+				.AddVerse(2, "This is the start of verse two."));
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnknownCharacter }
+				.AddText("Esto es el resto de ello."));
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
+				.AddText("This is the rest of it."));
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
+			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
+			blocks.Last().CharacterId = "the people";
+
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
+
+			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
+			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
+			Assert.AreEqual("panicky", book.GetScriptBlocks()[1].Delivery);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[2].CharacterId);
+			Assert.AreEqual("calmer", book.GetScriptBlocks()[2].Delivery);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[3].CharacterId);
+			Assert.AreEqual("calmer", book.GetScriptBlocks()[3].Delivery);
+			Assert.AreEqual("the people", book.GetScriptBlocks()[4].CharacterId);
+			Assert.IsNull(book.GetScriptBlocks()[4].Delivery);
+		}
+
+		[Test]
 		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithNoMultipleCharacterIds_Unchanged()
 		{
 			var block1 = CreateTestBlock("Andrew");
