@@ -20,22 +20,38 @@ namespace Glyssen
 			SetBookIdForChapterBlocks = 1,
 		}
 
-		public static void MigrateProjectData(Project project, int fromControlFileVersion)
+		public enum MigrationResult
 		{
+			NoOp,
+			Partial,
+			Complete,
+		}
+
+		public static MigrationResult MigrateProjectData(Project project, int fromControlFileVersion)
+		{
+			// There are several places where this can get called prematurely. Unless/until we have a migration
+			// step that works with something other than the Books collection, we can just jump out now if we
+			// don't have any books. If this changes, and we remove this code, see "HEADS UP" comment below.
+			if (!project.Books.Any())
+				return MigrationResult.NoOp;
+
 			Logger.WriteEvent("Migrating project " + project.ProjectFilePath);
 
 			if (s_lastProjectMigrated != project)
 				s_migrationsRun = 0;
 
+			var result = MigrationResult.Partial;
+
 			if (fromControlFileVersion < 90 && (project != s_lastProjectMigrated || (s_migrationsRun & Migrations.SetBookIdForChapterBlocks) == 0))
 			{
+				// HEADS UP! If there are no books, the following method will be a no-op, so we do not want to set the flag.
 				SetBookIdForChapterBlocks(project.Books);
 				s_migrationsRun |= Migrations.SetBookIdForChapterBlocks;
 			}
 
-			// We don't need to track runs of Migrations which only occur for FullyInitialized projects
+			// We don't need to track runs of Migrations which only occur for projects that are ReadyForDataMigration
 			// because we shouldn't call MigrateProjectData again.
-			if (project.ProjectState == ProjectState.FullyInitialized)
+			if ((project.ProjectState & ProjectState.ReadyForDataMigration) > 0)
 			{
 				if (fromControlFileVersion < 96)
 					MigrateInvalidMultiBlockQuoteData(project.Books);
@@ -53,9 +69,12 @@ namespace Glyssen
 				if (fromControlFileVersion < 139)
 					MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(project.Books);
 				MigrateDeprecatedCharacterIds(project);
+				result = MigrationResult.Complete;
 			}
 
 			s_lastProjectMigrated = project;
+
+			return result;
 		}
 
 		// internal for testing
@@ -164,7 +183,8 @@ namespace Glyssen
 			}
 		}
 
-		public static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
+		// internal for testing
+		internal static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
 				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter ||
@@ -177,7 +197,8 @@ namespace Glyssen
 			}
 		}
 
-		public static int MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(Project project)
+		// internal for testing
+		internal static int MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(Project project)
 		{
 			int numberOfChangesMade = 0; // For testing
 
@@ -196,7 +217,8 @@ namespace Glyssen
 			return numberOfChangesMade;
 		}
 
-		public static int MigrateDeprecatedCharacterIds(Project project)
+		// internal for testing
+		internal static int MigrateDeprecatedCharacterIds(Project project)
 		{
 			var cvInfo = new CombinedCharacterVerseData(project);
 			var characterDetailDictionary = project.AllCharacterDetailDictionary;
@@ -222,8 +244,7 @@ namespace Glyssen
 					{
 						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
 						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, block.LastVerseNum).
-								Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+							block.InitialEndVerseNumber, block.LastVerseNum).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
 							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
@@ -251,6 +272,7 @@ namespace Glyssen
 			return numberOfChangesMade;
 		}
 
+		// internal for testing
 		internal static void SetBookIdForChapterBlocks(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
@@ -276,7 +298,7 @@ namespace Glyssen
 						else
 						{
 							foreach (var b in contiguousSubsequentBlocksMatchingRefText)
-								b.SplitId = currentSplitId;						
+								b.SplitId = currentSplitId;
 						}
 						contiguousSubsequentBlocksMatchingRefText.Clear();
 					}
