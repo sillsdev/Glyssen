@@ -204,6 +204,7 @@ namespace Glyssen
 
 				if (CorrelatedBlocks[i].UserConfirmed)
 					vernBlock.UserConfirmed = true;
+				vernBlock.SplitId = CorrelatedBlocks[i].SplitId;
 			}
 			// No need to do the following here if m_numberOfBlocksAddedBySplitting > 0 because the call to ReplaceBlocks does it.
 			if (m_numberOfBlocksAddedBySplitting == 0)

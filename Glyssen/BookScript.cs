@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
-using System.Web.UI.WebControls;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -420,23 +418,47 @@ namespace Glyssen
 				}
 				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock,
 					versification);
-				if (targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber < m_blocks[iTargetBlock].InitialStartVerseNumber)
-					continue; // Oops, we ended up going backwards into the target 
+				var targetMatchupInitialVerse = targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber;
+				if (targetMatchupInitialVerse < m_blocks[iTargetBlock].InitialStartVerseNumber)
+					continue; // Oops, we ended up going backwards into the target
+				if (targetMatchupInitialVerse < sourceBlock.InitialStartVerseNumber)
+				{
+					if (sourceBlock.BlockElements.First() is Verse verseToSplitBefore)
+					{
+						var iCorrespondingTargetMatchupBlock = targetMatchup.CorrelatedBlocks.IndexOf(b => b.BlockElements.OfType<Verse>().FirstOrDefault()?.Number == verseToSplitBefore.Number);
+						if (!sourceBlocks.Skip(iSrc).Take(targetMatchup.CorrelatedBlocks.Count - iCorrespondingTargetMatchupBlock)
+							.SequenceEqual(targetMatchup.CorrelatedBlocks.Skip(iCorrespondingTargetMatchupBlock), blockComparer))
+						{
+							continue;
+						}
+						var verseToSplitAfter = m_blocks[iTargetBlock].BlockElements.OfType<Verse>()
+							.TakeWhile(v => v.Number != verseToSplitBefore.Number).LastOrDefault()?.Number ??
+							m_blocks[iTargetBlock].InitialVerseNumberOrBridge;
+						SplitBlock(m_blocks[iTargetBlock++], verseToSplitAfter, kSplitAtEndOfVerse, false, null, versification);
+						targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock,
+							versification);
+						targetMatchupInitialVerse = targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber;
+						Debug.Assert(targetMatchupInitialVerse == m_blocks[iTargetBlock].InitialStartVerseNumber &&
+							targetMatchupInitialVerse == sourceBlock.InitialStartVerseNumber);
+					}
+					else
+						continue; // TODO: Add test for this
+				}
+				else if (!sourceBlocks.Skip(iSrc).Take(targetMatchup.CorrelatedBlocks.Count).SequenceEqual(targetMatchup.CorrelatedBlocks, blockComparer))
+					continue;
 				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc,
 					versification, (uint)targetMatchup.CorrelatedBlocks.Count, false);
-				Debug.Assert(sourceMatchup.CountOfBlocksAddedBySplitting == 0);
-				iSrc += sourceMatchup.OriginalBlockCount - 1; // Need to subtract 1 because this gets incremented in for loop.
-				if (sourceMatchup.CorrelatedBlocks.Count != targetMatchup.CorrelatedBlocks.Count)
+				if (sourceMatchup.CountOfBlocksAddedBySplitting != 0)
 				{
-					Debug.Fail("Source matchup did not get the requested number of blocks. Did we run off the end of the source?");
+					Debug.Fail("Something unexpected happened. Logic above should guarantee that unsplit source matched split target.");
 					continue;
 				}
-				bool everythingMatched = true;
-				for (int i = 0; i < sourceMatchup.CorrelatedBlocks.Count && everythingMatched; i++)
+				iSrc += sourceMatchup.OriginalBlockCount - 1; // Need to subtract 1 because this gets incremented in for loop.
+
+				for (int i = 0; i < sourceMatchup.CorrelatedBlocks.Count; i++)
 				{
 					sourceBlock = sourceMatchup.CorrelatedBlocks[i];
 					var targetBlock = targetMatchup.CorrelatedBlocks[i];
-					if ((sourceBlock.MatchesReferenceText || sourceBlock.UserConfirmed) && blockComparer.Equals(sourceBlock, targetBlock))
 					{
 						if (sourceBlock.MatchesReferenceText)
 						{
@@ -448,11 +470,8 @@ namespace Glyssen
 						targetBlock.MultiBlockQuote = sourceBlock.MultiBlockQuote;
 						targetBlock.UserConfirmed = sourceBlock.UserConfirmed;
 					}
-					else
-						everythingMatched = false;
 				}
-				if (everythingMatched)
-					targetMatchup.Apply(versification);
+				targetMatchup.Apply(versification);
 			}
 		}
 
@@ -656,6 +675,8 @@ namespace Glyssen
 					// originated as a non-user break, when Glyssen aligned the text to the reference text. But since the
 					// user then did a manual break, the preceding block break also got converted to a user split. 
 					var iBlock = m_blocks.IndexOf(blockToSplit);
+					if (iSplit == 0 && restoreFirstBlockSplitId)
+						return true;
 					// The "normal" rules for a user break were thus not enforced. In order to be able to re-apply this split,
 					// tell it we're reapplying splits, so it skips that check.
 					SplitBeforeBlock(iBlock, currentSplit.SplitId, true, currentSplit.CharacterId, null, true);
