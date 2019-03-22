@@ -1612,95 +1612,6 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// TODO: Add unit tests to show that we can (or can't!) re-apply the insertion of annotations to indicate where a
-		// sound effect is supposed to go.
-		[Test]
-		public void ApplyUserDecisions_AnnotationAddedAtStartOfVerseText_NoTextChange_AnnotationPreserved()
-		{
-			var source = CreateStandardMarkScript(true, true);
-			var blockWhereV11Starts = source.GetFirstBlockForVerse(1, 11);
-			blockWhereV11Starts.BlockElements.Insert(1, new Sound {
-				StartVerse = 11,
-				EffectName = "Thunder",
-				SoundType = SoundType.Sfx,
-				UserSpecifiesLocation = true });
-
-			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
-			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
-				{
-					source[i].CharacterId = "Fred the Frog";
-					source[i].Delivery = "with certitude";
-					source[i].UserConfirmed = true;
-				}
-			}
-
-			var target = CreateStandardMarkScript(true, true);
-			var quoteBlockIndices = new List<int>();
-			int iBlockAtVerse7 = -1;
-			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
-			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
-					quoteBlockIndices.Add(i);
-
-				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
-					iBlockAtVerse7 = i;  // this block has extra verses
-			}
-			Assert.IsTrue(quoteBlockIndices.Count > 0);
-			Assert.IsTrue(iBlockAtVerse7 > 0);
-			int iLastBlock = target.GetScriptBlocks().Count - 1; // this block has extra verses
-			Assert.IsTrue(iLastBlock > iBlockAtVerse7);
-			var indicesOfQuoteBlocksWithExtraVerses = new[] { iBlockAtVerse7, iLastBlock };
-			Assert.IsFalse(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices).Any());
-
-			target.ApplyUserDecisions(source);
-
-			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
-			{
-				if (quoteBlockIndices.Contains(i))
-				{
-					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
-					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
-						Assert.IsFalse(target[i].UserConfirmed);
-					}
-					else
-					{
-						Assert.AreEqual("Fred the Frog", target[i].CharacterId);
-						Assert.AreEqual("with certitude", target[i].Delivery);
-						Assert.IsTrue(target[i].UserConfirmed);
-					}
-				}
-				else
-				{
-					Assert.IsTrue(target[i].CharacterIsStandard);
-					Assert.IsNull(target[i].Delivery);
-					Assert.IsFalse(target[i].UserConfirmed);
-				}
-			}
-
-		}
-
-		[Test]
-		public void ApplyUserDecisions_AnnotationAddedInMiddleOfVerseText_NoTextChange_AnnotationPreserved()
-		{
-			Assert.Fail("Write this test");
-		}
-
-		[Test]
-		public void ApplyUserDecisions_AnnotationAddedAtEndOfVerseText_NoTextChange_AnnotationPreserved()
-		{
-			Assert.Fail("Write this test");
-		}
-
-		[TestCase(0)]
-		[TestCase(10)]
-		[TestCase(46)]
-		public void ApplyUserDecisions_AnnotationAddedInText_TextChanged_AnnotationNotPreserved()
-		{
-			Assert.Fail("Write this test");
-		}
-
 		/// <summary>
 		/// Match up all blocks to corresponding blocks in the reference text. Anything left over gets "blindly" matched
 		/// to an empty reference block and assigned to narrator.
@@ -1719,6 +1630,99 @@ namespace GlyssenTests
 			matchup.Apply();
 		}
 		#endregion PG-1168
+
+		#region PG-1179 unit tests for re-applying insertion of annotations to indicate where a sound effect goes.
+		//[Test]
+		//public void ApplyUserDecisions_AnnotationAddedAtStartOfVerseText_NoTextChange_AnnotationPreserved()
+		//{
+		//	// TODO: This test is not even close to complete!
+		//	var source = CreateStandardMarkScript(true, true);
+		//	var blockWhereV26Starts = source.GetFirstBlockForVerse(1, 26);
+
+		//	blockWhereV26Starts.BlockElements.Insert(1, new Sound
+		//	{
+		//		StartVerse = 26,
+		//		EffectName = "Demons screaming",
+		//		SoundType = SoundType.Sfx,
+		//		UserSpecifiesLocation = true
+		//	});
+
+		//	for (int i = 0; i < source.GetScriptBlocks().Count; i++)
+		//	{
+		//		if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+		//		{
+		//			source[i].CharacterId = "Fred the Frog";
+		//			source[i].Delivery = "with certitude";
+		//			source[i].UserConfirmed = true;
+		//		}
+		//	}
+
+		//	var target = CreateStandardMarkScript(true, true);
+		//	var quoteBlockIndices = new List<int>();
+		//	int iBlockAtVerse7 = -1;
+		//	for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+		//	{
+		//		if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+		//			quoteBlockIndices.Add(i);
+
+		//		if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
+		//			iBlockAtVerse7 = i;  // this block has extra verses
+		//	}
+		//	Assert.IsTrue(quoteBlockIndices.Count > 0);
+		//	Assert.IsTrue(iBlockAtVerse7 > 0);
+		//	int iLastBlock = target.GetScriptBlocks().Count - 1; // this block has extra verses
+		//	Assert.IsTrue(iLastBlock > iBlockAtVerse7);
+		//	var indicesOfQuoteBlocksWithExtraVerses = new[] { iBlockAtVerse7, iLastBlock };
+		//	Assert.IsFalse(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices).Any());
+
+		//	target.ApplyUserDecisions(source);
+
+		//	for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+		//	{
+		//		if (quoteBlockIndices.Contains(i))
+		//		{
+		//			if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
+		//			{
+		//				Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+		//				Assert.IsFalse(target[i].UserConfirmed);
+		//			}
+		//			else
+		//			{
+		//				Assert.AreEqual("Fred the Frog", target[i].CharacterId);
+		//				Assert.AreEqual("with certitude", target[i].Delivery);
+		//				Assert.IsTrue(target[i].UserConfirmed);
+		//			}
+		//		}
+		//		else
+		//		{
+		//			Assert.IsTrue(target[i].CharacterIsStandard);
+		//			Assert.IsNull(target[i].Delivery);
+		//			Assert.IsFalse(target[i].UserConfirmed);
+		//		}
+		//	}
+
+		//}
+
+		//[Test]
+		//public void ApplyUserDecisions_AnnotationAddedInMiddleOfVerseText_NoTextChange_AnnotationPreserved()
+		//{
+		//	Assert.Fail("Write this test");
+		//}
+
+		//[Test]
+		//public void ApplyUserDecisions_AnnotationAddedAtEndOfVerseText_NoTextChange_AnnotationPreserved()
+		//{
+		//	Assert.Fail("Write this test");
+		//}
+
+		//[TestCase(0)]
+		//[TestCase(10)]
+		//[TestCase(46)]
+		//public void ApplyUserDecisions_AnnotationAddedInText_TextChanged_AnnotationNotPreserved(int offset)
+		//{
+		//	Assert.Fail("Write this test");
+		//}
+		#endregion PG-1179
 
 		[Test]
 		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
