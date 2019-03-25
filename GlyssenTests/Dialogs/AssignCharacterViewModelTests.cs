@@ -2072,11 +2072,48 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuote_SetToNarrator_QuoteChainBrokenIntoIndividual()
+		{
+			Func<Block, bool> isAmbiguousStartBlock = block => block.MultiBlockQuote == MultiBlockQuote.Start && block.CharacterId == CharacterVerseData.kAmbiguousCharacter;
+			m_model.AttemptRefBlockMatchup = true;
+			// Find a matchup that has a multi-block quote that is ambiguous.
+			while ((m_model.CurrentReferenceTextMatchup == null ||
+					!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isAmbiguousStartBlock(b))) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+			var indexOfQuoteStartBlock = matchup.CorrelatedBlocks.IndexOf(b => isAmbiguousStartBlock(b));
+			var startBlock = matchup.CorrelatedBlocks[indexOfQuoteStartBlock];
+			var continuationBlocks = matchup.CorrelatedBlocks.Skip(indexOfQuoteStartBlock + 1).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote).ToList();
+			Assert.IsTrue(continuationBlocks.Any());
+			m_indicesOfChangedBlocks.Clear();
+
+			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, AssignCharacterViewModel.Character.Narrator);
+
+			Assert.IsTrue(startBlock.CharacterIs(m_model.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, startBlock.MultiBlockQuote);
+			Assert.IsTrue(continuationBlocks.TrueForAll(b => b.CharacterIs(m_model.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(continuationBlocks.TrueForAll(b => !b.IsContinuationOfPreviousBlockQuote));
+			foreach (var iBlock in m_indicesOfChangedBlocks)
+			{
+				var changedContBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iBlock];
+				var i = continuationBlocks.IndexOf(changedContBlock);
+				Assert.IsTrue(i >= 0);
+				continuationBlocks.RemoveAt(i);
+			}
+			Assert.IsFalse(continuationBlocks.Any());
+		}
+
+		[Test]
 		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuoteButMatchupContainsNoContinuationBlocks_DoesNotCrash()
 		{
 			Func<Block, bool> isStartBlockAtEndOfMatchup = block => block.MultiBlockQuote == MultiBlockQuote.Start && block == m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last();
 			m_model.AttemptRefBlockMatchup = true;
-			// Find a matchup that ends witht he first block of a multi-block quote.
+			// Find a matchup that ends with the first block of a multi-block quote.
 			while ((m_model.CurrentReferenceTextMatchup == null ||
 				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isStartBlockAtEndOfMatchup(b))) &&
 				m_model.CanNavigateToNextRelevantBlock)
