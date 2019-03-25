@@ -124,6 +124,8 @@ namespace Glyssen.Character
 
 			var characterId = items[3];
 			var delivery = items[4];
+			if (delivery == "*narration*")
+				delivery = string.Empty;
 			var alias = items[5];
 			var defaultCharacter = (items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null;
 			var parallelPassageInfo = (items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null;

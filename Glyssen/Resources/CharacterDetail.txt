@@ -90,7 +90,7 @@ army cry	-1	Male	Adult			1KI 22:36	False
 army officer, one of	1	Male	Adult			2KI 9:11	False
 army officers	-1	Male	Adult			2KI 9:12 & 2KI 9:13	False
 arrogant men	-1	Male	Adult				False
-Artaxerxes, king of Persia	1	Male	Adult			EZR 4:17 <-(22 more)-> NEH 2:6	False
+Artaxerxes, king of Persia	1	Male	Adult			EZR 4:17 <-(24 more)-> NEH 5:14	False
 Asa, king of Judah	1	Male	Adult			1KI 15:19 <-(2 more)-> 2CH 16:3	False
 Asahel, brother of Joab	1	Male	Adult			2SA 2:20	False
 Asaph	1	Male	Adult			PSA 74:8 <-(3 more)-> PSA 77:10	False
@@ -327,7 +327,7 @@ experts in religious law, one of the	1	Male				LUK 11:45	False
 explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33	False
 eye	1	Neuter				1CO 12:21	True
 Ezekiel	1	Male				EZK 4:14 <-(14 more)-> EZK 37:10	False
-Ezra, priest and teacher	1	Male				EZR 5:4 <-(55 more)-> EZR 10:11	False
+Ezra, priest and teacher	1	Male				EZR 5:4 <-(56 more)-> NEH 8:15	False
 false prophets	-1	Male				JER 14:13 <-(2 more)-> MIC 2:7	False
 false teachers	-1					1TI 4:3	True
 false witnesses	-1					ACT 6:13 & ACT 6:14	False
@@ -371,7 +371,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24	False
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	False
 Gilead, leaders of	-1	Male				JDG 10:18	False
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	False
-God	1	Male		Y		GEN 1:3 <-(5383 more)-> REV 21:8	False
+God	1	Male		Y		GEN 1:3 <-(5385 more)-> REV 21:8	False
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44	False
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default		False
 great company of heavenly host	-1		Adult			LUK 2:14	False
@@ -507,7 +507,7 @@ Jews, God-fearing from every nation	-1					ACT 2:7 <-(4 more)-> ACT 2:12	False
 Jews, God-fearing from every nation, some	-1					ACT 2:13	False
 Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22	False
 Jews, many	-1					JHN 10:20	False
-Jews, more than forty in conspiracy	-1	Male				ACT 23:14 & ACT 23:15	False
+Jews, more than forty in conspiracy	-1	Male				ACT 23:12 <-(1 more)-> ACT 23:15	False
 Jews, other	-1					JHN 10:21	False
 Jews, the	-1	Male				EZR 5:4 <-(41 more)-> ROM 3:5	False
 Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31	False
@@ -575,7 +575,7 @@ letter from apostles and elders	1	PreferMale				ACT 15:23 <-(5 more)-> ACT 15:29
 Levi	1	Male					False
 Levite husband of concubine	1	Male				JDG 19:12 <-(7 more)-> JDG 20:7	False
 Levite, young, from Bethlehem	1	Male	YoungAdult			JDG 17:9 <-(2 more)-> JDG 18:18	False
-Levites	-1	Male				NEH 8:11 <-(34 more)-> NEH 9:38	False
+Levites	8	Male				NEH 8:11 <-(34 more)-> NEH 9:38	False
 Levites, family heads of	-1	Male				JOS 21:2	False
 living creature, first	1					REV 6:1	False
 living creature, fourth	1					REV 6:7	False
@@ -708,7 +708,7 @@ Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4	True
 mob	-1	PreferMale				ACT 17:6 & ACT 17:7	False
 molded thing	1					ROM 9:20	True
 Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14	False
-Moses	1	Male				EXO 2:13 <-(1144 more)-> DEU 33:29	False
+Moses	1	Male				EXO 2:13 <-(1145 more)-> NEH 8:15	False
 mother of cured man, blind from birth	1	Female					False
 mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21	False
 multitude from all nations, tribes, peoples, languages	-1					REV 7:10	False
@@ -725,7 +725,7 @@ nations	-1					DEU 4:6 <-(7 more)-> MIC 4:11	False
 Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37	False
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5	False
 Neco, king of Egypt	1	Male				2CH 35:21	False
-Nehemiah	1	Male				NEH 1:5 <-(34 more)-> NEH 13:27	False
+Nehemiah	1	Male				NEH 1:1 <-(124 more)-> NEH 13:31	False
 neighbors and relatives of Elizabeth and Zacharias (Zechariah)	-1	Either				LUK 1:58 <-(2 more)-> LUK 1:62	False
 neighbors of man blind from birth	-1					JHN 9:8 <-(1 more)-> JHN 9:12	False
 neighbors of man blind from birth, others	-1					JHN 9:9	False
@@ -806,7 +806,7 @@ people of Tyre and Sidon	-1					ACT 12:22	False
 people praying at John Mark's mother's house	-1					ACT 12:15	False
 people who had known Saul	-1					1SA 10:11	False
 people who saw healing of demon-possessed man who was blind and mute	-1					MAT 12:23	False
-people, all the	-1					1KI 1:39 <-(6 more)-> LUK 7:29	False
+people, all the	-1					1KI 1:39 <-(7 more)-> LUK 7:29	False
 people, arrogant wicked	-1					PSA 73:11	False
 people, God's	-1					ISA 25:9	True
 people, hurried	-1					ISA 5:19	True
@@ -902,6 +902,7 @@ reply to the slain believers (in heavenly vision)	1					REV 6:11	False
 report concerning Paul	1	PreferMale				GAL 1:23	False
 report to king of Aram	1	Male				2KI 6:13	False
 report to king of Assyria	1	Male				2KI 17:26	False
+report to Sanballat and Tobiah	-1	Male				NEH 4:7 <-(2 more)-> NEH 6:16	False
 rest of heads of families	-1	Male					False
 Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37	False
 Reubenites	-1	Male					False
@@ -923,7 +924,7 @@ Samson's Philistine wife	1	Female				JDG 14:16	False
 Samuel	1	Male	Adult			1SA 7:3 <-(75 more)-> 1SA 16:11	False
 Samuel (boy)	1	Male	Child			1SA 3:4 <-(4 more)-> 1SA 3:16	False
 Samuel (dead)	1	Male	Elder			1SA 28:15 <-(3 more)-> 1SA 28:19	False
-Sanballat the Horonite	1	Male				NEH 4:2 <-(1 more)-> NEH 6:7	False
+Sanballat the Horonite	1	Male				NEH 4:1 <-(2 more)-> NEH 6:7	False
 Sanhedrin	-1	Male					False
 Sapphira, wife of Ananias of Jerusalem	1	Female				ACT 5:8	False
 Sarah (Sarai)	1	Female	Adult			GEN 16:2 & GEN 16:5	False
@@ -955,7 +956,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13	False
 scoffers	-1	PreferMale				2PE 3:4	True
 scoundrels	-1	Male				1KI 21:13	False
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17	False
-scripture	-1					2CH 25:4 <-(226 more)-> REV 19:15	False
+scripture	-1					2CH 25:4 <-(228 more)-> REV 19:15	False
 sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False
