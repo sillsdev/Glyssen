@@ -1201,7 +1201,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
 		}
 
-		// 1CO 15:26
+		// 1CO 15
 		// Verse 1: "Alai naeng ma pabotohononku tu. "
 		// Verse 2: "Laos i do parhiteanmuna gabe malua. "
 		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
@@ -1243,7 +1243,52 @@ namespace GlyssenTests
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
-		// 1CO 15:26
+		// 1CO 15
+		[TestCase(3)]
+		[TestCase(4)]
+		public void ApplyUserDecisions_UnalignedSplitBlockInChunkPreviouslyAlignedToReferenceText_TextChangedInLaterVerse_ManualSplitAndRefTextAlignmentsInUnchangedVersesApplied(int verseToChange)
+		{
+			// Verse 2: "Laos i do parhiteanmuna gabe malua. "
+			const int kVerseNumToSplit = 2;
+			const int kSplitPos = 7;
+			var source = CreateStandard1CorinthiansScript();
+			var origBlockCount = source.GetScriptBlocks().Count;
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			
+			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
+				source.GetIndexOfFirstBlockForVerse(15, kVerseNumToSplit), ScrVers.English);
+			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
+
+			MatchUpBlocksAndApplyToSource(matchup);
+			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
+
+			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, kVerseNumToSplit);
+			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], kVerseNumToSplit.ToString(), kSplitPos);
+
+			var target = CreateStandard1CorinthiansScript();
+
+			var iChangedBlock = source.GetIndexOfFirstBlockForVerse(15, verseToChange);
+			var textToChange = (ScriptText)target.GetFirstBlockForVerse(15, verseToChange).BlockElements
+				.SkipWhile(be => !(be is Verse) || ((Verse)be).StartVerse != verseToChange).Skip(1).First();
+			textToChange.Content = "Then this wobbly frog bounced under her chimney and correspondingly fried a spoon to my top ear molecule.";
+
+			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
+
+			var comparer = new BlockComparer();
+			Assert.IsTrue(source.GetScriptBlocks().Take(iBlockToSplit).SequenceEqual(targetBlocksAfterApplyingSplit.Take(iBlockToSplit), comparer));
+			Assert.IsTrue(source.GetScriptBlocks().SkipWhile(b => b.ChapterNumber < 16)
+				.SequenceEqual(targetBlocksAfterApplyingSplit.SkipWhile(b => b.ChapterNumber < 16), comparer));
+			var firstBlockOfSplit = targetBlocksAfterApplyingSplit.First(b => b.ChapterNumber == 15 && b.LastVerseNum == kVerseNumToSplit);
+			Assert.AreEqual(k1Co15V2Text.Substring(0, kSplitPos), ((ScriptText)firstBlockOfSplit.BlockElements.Last()).Content);
+			var lastBlockOfSplit = targetBlocksAfterApplyingSplit.Last(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber == kVerseNumToSplit);
+			Assert.AreEqual(k1Co15V2Text.Substring(kSplitPos), ((ScriptText)lastBlockOfSplit.BlockElements.First()).Content);
+
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		// 1CO 15
 		// Verse 1: "Alai naeng ma pabotohononku tu. "
 		// Verse 2: "Laos i do parhiteanmuna gabe malua. "
 		// Verse 26: "Hamatean i do musu na parpudi sipasohotonna i. "
@@ -1587,6 +1632,54 @@ namespace GlyssenTests
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("“Don't enter into the village, nor tell anyone in the village.”",
 				block.ReferenceBlocks.Single().GetText(true));
+
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[TestCase(2)]
+		[TestCase(3)]
+		[TestCase(4)]
+		public void ApplyUserDecisions_ReferenceTextAligned_VerseBridgingChanged_AlignmentNotApplied(int verseToMatchUp)
+		{
+			const int kChapter = 1;
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var sourceBlocks = new List<Block> {
+				NewChapterBlock(kChapter, "MAT"),
+				new Block("p", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddVerse(1, "Blah")
+					.AddVerse("2-3", "This is the lead-in prose. "),
+				new Block("q", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddText("This is the first bit of poetic stuff. ")
+					.AddVerse("4", "And this is some more text, which is also poetic. "),
+				new Block("m", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddText("Now we're back to prose. ")
+					.AddVerse("5", "That was a nice thing to say.") };
+
+			var origSourceBlockCount = sourceBlocks.Count;
+			var source = new BookScript("MAT", sourceBlocks);
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
+				source.GetIndexOfFirstBlockForVerse(1, verseToMatchUp), ScrVers.English);
+			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
+			MatchUpBlocksAndApplyToSource(matchup);
+			Assert.AreEqual(origSourceBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
+
+			var targetBlocks = new List<Block> {
+				NewChapterBlock(kChapter, "MAT"),
+				new Block("p", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddVerse(1, "Blah")
+					.AddVerse("2", "This is the lead-in prose. "),
+				new Block("q", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddVerse("3-4", "This is the first bit of poetic stuff. And this is some more text,")
+					.AddVerse("5", " which is also poetic. "),
+				new Block("m", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddText("Now we're back to prose. That was a nice thing to say.") };
+
+			var target = new BookScript("MAT", targetBlocks.Select(b => b.Clone()));
+
+			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			Assert.IsTrue(targetBlocks.SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);

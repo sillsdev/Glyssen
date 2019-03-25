@@ -384,20 +384,13 @@ namespace Glyssen
 			ReferenceText referenceTextToReapply, SplitBlockComparer blockComparer)
 		{
 			var sourceBlocks = sourceBookScript.GetScriptBlocks(false);
-			var iPrevFirstTargetBlock = 0;
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
 			{
 				var sourceBlock = sourceBlocks[iSrc];
 				if (!sourceBlock.MatchesReferenceText)
 					continue;
 				int iTargetBlock = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
-				if (sourceBlock.IsScripture)
-				{
-					if (iTargetBlock < iPrevFirstTargetBlock)
-						continue;
-					iPrevFirstTargetBlock = iTargetBlock;
-				}
-				else
+				if (!sourceBlock.IsScripture)
 				{
 					while (!m_blocks[iTargetBlock].IsScripture)
 					{
@@ -409,7 +402,6 @@ namespace Glyssen
 								targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
 								targetBlock.CloneReferenceBlocks();
 							}
-							iPrevFirstTargetBlock = iTargetBlock;
 							break;
 						}
 						iTargetBlock++;
@@ -442,7 +434,7 @@ namespace Glyssen
 							targetMatchupInitialVerse == sourceBlock.InitialStartVerseNumber);
 					}
 					else
-						continue; // TODO: Add test for this
+						continue;
 				}
 				else if (!sourceBlocks.Skip(iSrc).Take(targetMatchup.CorrelatedBlocks.Count).SequenceEqual(targetMatchup.CorrelatedBlocks, blockComparer))
 					continue;
