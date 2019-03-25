@@ -725,7 +725,7 @@ namespace Glyssen
 			if (existingProject == null)
 				return null;
 
-			if (!existingProject.IsSampleProject && existingProject.m_projectMetadata.ParserVersion != Settings.Default.ParserVersion)
+			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteParserUpgrade)
 			{
 				Project upgradedProject = existingProject.IsBundleBasedProject ?
 					AttemptToUpgradeByReparsingBundleData(existingProject) :
@@ -737,6 +737,31 @@ namespace Glyssen
 
 			existingProject.InitializeLoadedProject();
 			return existingProject;
+		}
+
+		/// <summary>
+		/// Returns true if the project was parsed with a quote parser that is older than the current parser version.
+		/// However, in some circumstances, if we know that the new version would not result in improved parsing, this
+		/// property has the side-effect of just updating the project's parser version to the current version number
+		/// and returning false.
+		/// </summary>
+		private bool NeedsQuoteParserUpgrade
+		{
+			get
+			{
+				if (m_projectMetadata.ParserVersion >= Settings.Default.ParserVersion)
+					return false;
+				switch (Settings.Default.ParserVersion)
+				{
+					case 43:
+						if (m_projectMetadata.ParserVersion < 42 || QuoteSystem.QuotationDashMarker?.FirstOrDefault() == ':')
+							return true;
+						m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
+						return false;
+					default:
+						return true;
+				}
+			}
 		}
 
 		private static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded",
