@@ -17,12 +17,13 @@ namespace Glyssen
 		private readonly PortionScript m_portion;
 		private int m_numberOfBlocksAddedBySplitting = 0;
 		private readonly IReferenceLanguageInfo m_referenceLanguageInfo;
+		private ScrVers m_versification;
 
 		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks,
 			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider, uint predeterminedBlockCount = 0)
 		{
 			m_vernacularBook = vernacularBook;
-			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+			int bookNum = m_vernacularBook.BookNumber;
 			m_referenceLanguageInfo = heSaidProvider;
 			var blocks = m_vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
@@ -33,7 +34,7 @@ namespace Glyssen
 				var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
 				if (indexOfAnchorBlockInVerse < 0)
 				{
-					Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
+					Logger.WriteEvent($"Anchor block not found in verse: {BookId} {originalAnchorBlock.ChapterNumber}:" +
 						$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
 					// REVIEW: This logic assumes that the repeated verse is wholly contained in this one block.
 					blocksForVersesCoveredByBlock = new List<Block>() {originalAnchorBlock};
@@ -105,17 +106,13 @@ namespace Glyssen
 
 		public int OriginalBlockCount => CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting;
 
-		public IEnumerable<Block> OriginalBlocks
-		{
-			get
-			{
-				return m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(OriginalBlockCount);
-			}
-		}
+		public string BookId => m_vernacularBook.BookId;
 
-		public int CountOfBlocksAddedBySplitting { get { return m_numberOfBlocksAddedBySplitting; } }
+		public IEnumerable<Block> OriginalBlocks => m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(OriginalBlockCount);
 
-		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
+		public int CountOfBlocksAddedBySplitting => m_numberOfBlocksAddedBySplitting;
+
+		public IReadOnlyList<Block> CorrelatedBlocks => m_portion.GetScriptBlocks();
 
 		public bool HasOutstandingChangesToApply
 		{
@@ -148,7 +145,7 @@ namespace Glyssen
 
 		public IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel()
 		{
-			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1, m_vernacularBook.BookId);
+			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1, BookId);
 		}
 
 		private static IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel(IReadOnlyList<Block> blocks, int level, string bookId)
@@ -175,21 +172,23 @@ namespace Glyssen
 			}
 		}
 
-		public void Apply(ScrVers versification)
+		public void Apply(ScrVers versification = null)
 		{
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
 
-			//var bogusRefBlock = GetInvalidReferenceBlockAtAnyLevel(CorrelatedBlocks);
-			//if (bogusRefBlock != null)
-			//	throw new InvalidReferenceTextException(bogusRefBlock);
+			if (versification != null)
+			{
+				if (m_versification != null && m_versification != versification)
+					throw new ArgumentException("Apply called with unexpected versification!", nameof(versification));
+				m_versification = versification;
+			}
 
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
-				m_vernacularBook.ReplaceBlocks(m_iStartBlock, CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting,
-					CorrelatedBlocks.Select(b => b.Clone()).ToList());
+				m_vernacularBook.ReplaceBlocks(m_iStartBlock, OriginalBlockCount, CorrelatedBlocks.Select(b => b.Clone()).ToList());
 			}
-			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+			int bookNum = BCVRef.BookToNumber(BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
@@ -197,14 +196,15 @@ namespace Glyssen
 
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
-				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, versification);
+				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnclear() ? refBlock : CorrelatedBlocks[i];
+				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, bookNum, m_versification);
+
+				if (vernBlock.CharacterIsUnclear())
+					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown.");
 
 				if (CorrelatedBlocks[i].UserConfirmed)
-				{
-					if (vernBlock.CharacterIsUnclear())
-						throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
 					vernBlock.UserConfirmed = true;
-				}
+				vernBlock.SplitId = CorrelatedBlocks[i].SplitId;
 			}
 			// No need to do the following here if m_numberOfBlocksAddedBySplitting > 0 because the call to ReplaceBlocks does it.
 			if (m_numberOfBlocksAddedBySplitting == 0)
@@ -214,7 +214,7 @@ namespace Glyssen
 				{
 					if (lastBlockInMatchup.CharacterIsStandard)
 						throw new InvalidOperationException("Following blocks are continuations of a \"quote\" that is now assigned to " +
-							$"{lastBlockInMatchup.CharacterId}. We need to look at this data condition to see what the desired beahvior is. ***Final block in " +
+							$"{lastBlockInMatchup.CharacterId}. We need to look at this data condition to see what the desired behavior is. ***Final block in " +
 							$"matchup: {lastBlockInMatchup} ***First following block: {block}");
 					block.CharacterId = lastBlockInMatchup.CharacterId;
 					// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
@@ -225,6 +225,10 @@ namespace Glyssen
 			}
 			else
 				m_numberOfBlocksAddedBySplitting = 0;
+
+			Debug.Assert(origBlocks.Skip(m_iStartBlock).Take(CorrelatedBlocks.Count)
+				.All(b => !b.CharacterIsStandard || b.MultiBlockQuote == MultiBlockQuote.None),
+				"Applying block matchup resulted in an illegal multi-block quote chain.");
 		}
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)
@@ -291,7 +295,8 @@ namespace Glyssen
 
 		public void MatchAllBlocks(ScrVers versification)
 		{
-			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+			m_versification = versification;
+			int bookNum = BCVRef.BookToNumber(BookId);
 
 			foreach (var block in CorrelatedBlocks)
 			{
@@ -344,13 +349,13 @@ namespace Glyssen
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
 			var block = CorrelatedBlocks[i];
-			if (block.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
+			if (block.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Narrator) ||
 				block.CharacterIsUnclear())
 			{
 				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existingEmptyVerseRefText != null)
 				{
-					var narrator = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
+					var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
 					if (block.CharacterIsUnclear())
 						block.SetNonDramaticCharacterId(narrator);
 					// Deal with following blocks in quote block chain (and mark this one None).

@@ -218,7 +218,8 @@ namespace Glyssen
 			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
 		}
 
-		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification, uint predeterminedBlockCount = 0)
+		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification,
+			uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");
@@ -229,10 +230,12 @@ namespace Glyssen
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
 			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(vernacularBook.BookId);
 
-			var matchup = new BlockMatchup(vernacularBook, iBlock, portion =>
+			Action<PortionScript> splitBlocks = allowSplitting ? portion =>
 			{
 				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
-			},
+			} : (Action < PortionScript >)null;
+
+			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
 			nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularVersification, verseSplitLocationsBasedOnRef),
 			this, predeterminedBlockCount);
 
