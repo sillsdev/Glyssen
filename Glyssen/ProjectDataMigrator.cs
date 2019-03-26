@@ -287,7 +287,14 @@ namespace Glyssen
 			}
 		}
 
-		// internal for testing
+		/// <summary>
+		/// This migration fixes a problem caused when a manual split operation that broke a block up into multiple pieces (all with the same split ID)
+		/// was followed by further programatic splitting (at verse breaks) to align the blocks to the reference text. Those splits should have (and now
+		/// do) copied the split id to all intervening blocks because if the user ends up applying the reference text matchup, we need for the whole
+		/// sequence to be treated as a single manual split operation. (This is mainly to allow us to re-apply user decisions in the event of a parser
+		/// change or an updated data set.)
+		/// </summary>
+		/// <remarks>internal for testing</remarks>
 		internal static void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
@@ -313,6 +320,8 @@ namespace Glyssen
 							contiguousSubsequentBlocksMatchingRefText.Add(block);
 						else
 						{
+							// Once we hit a block that is neither a manual split nor aligned to the reference text,
+							// we should be done processing the current split.
 							contiguousSubsequentBlocksMatchingRefText.Clear();
 							currentSplitId = -1;
 						}
