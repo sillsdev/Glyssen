@@ -7302,6 +7302,8 @@ NEH	13	15	Nehemiah	*narration*		Implicit
 NEH	13	16	Nehemiah	*narration*		Implicit		
 NEH	13	17	Nehemiah			Normal		
 NEH	13	18	Nehemiah			Normal		
+NEH	13	19	Nehemiah	*narration*		Implicit		
+NEH	13	20	Nehemiah	*narration*		Implicit		
 NEH	13	21	Nehemiah			Normal		
 NEH	13	22	Nehemiah	commanding		Indirect		
 NEH	13	22	Nehemiah	praying		Implicit		

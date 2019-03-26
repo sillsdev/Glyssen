@@ -953,7 +953,10 @@ namespace Glyssen.RefTextDevUtilities
 
 			if (CharacterDetailData.Singleton.GetDictionary().ContainsKey(fcbhCharacterLabel))
 			{
-				// Never match to some other exising character ID
+				// Never match to some other existing character ID, except one that just differs by age.
+				if (glyssenCharacterId == fcbhCharacterLabel + " (old)")
+					return MatchLikelihood.Reliable;
+
 				return MatchLikelihood.Mismatch;
 			}
 
