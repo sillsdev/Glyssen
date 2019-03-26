@@ -461,7 +461,7 @@ namespace GlyssenTests
 			matchup.CorrelatedBlocks.Single().SetMatchedReferenceBlock(refBlock);
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 
-			matchup.Apply(null);
+			matchup.Apply();
 			Assert.IsFalse(vernacularBlocks.Except(vernacularBlocks.Skip(iBlock).Take(1)).Any(b => b.MatchesReferenceText));
 			Assert.AreEqual(refBlock, vernacularBlocks[iBlock].ReferenceBlocks.Single());
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
@@ -495,7 +495,7 @@ namespace GlyssenTests
 			matchup.MatchAllBlocks(null);
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 
-			matchup.Apply(null);
+			matchup.Apply();
 			Assert.IsFalse(vernacularBlocks[0].MatchesReferenceText);
 			Assert.AreEqual(refBlock1, vernacularBlocks[1].ReferenceBlocks.Single());
 			Assert.AreEqual(refBlock1.CharacterId, vernacularBlocks[1].CharacterId);
@@ -521,7 +521,7 @@ namespace GlyssenTests
 			matchup.SetReferenceText(0, "[2] This is verse two, ");
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 
-			var e = Assert.Throws<InvalidOperationException>(() => matchup.Apply(null));
+			var e = Assert.Throws<InvalidOperationException>(() => matchup.Apply());
 			Assert.AreEqual("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.", e.Message);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 		}
@@ -617,7 +617,7 @@ namespace GlyssenTests
 			matchup.CorrelatedBlocks[0].CharacterId = refBlock1.CharacterId;
 			matchup.CorrelatedBlocks[0].CharacterIdOverrideForScript = "his friend";
 
-			matchup.Apply(null);
+			matchup.Apply();
 			var scriptBlocks = vernBook.GetScriptBlocks(true);
 			int i = 1;
 			Assert.AreEqual(refBlock1, scriptBlocks[i].ReferenceBlocks.Single());
@@ -667,7 +667,7 @@ namespace GlyssenTests
 			matchup.CorrelatedBlocks[2].SetMatchedReferenceBlock(refBlock2);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 
-			matchup.Apply(null);
+			matchup.Apply();
 			var scriptBlocks = vernBook.GetScriptBlocks(false);
 			Assert.AreEqual(vernacularBlocks.Count + 1, scriptBlocks.Count);
 			Assert.IsFalse(scriptBlocks[0].MatchesReferenceText);
@@ -704,7 +704,7 @@ namespace GlyssenTests
 			refBlock2.BlockElements.Add(new ScriptText("said Jesus."));
 			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(refBlock2);
 
-			var e = Assert.Throws<InvalidOperationException>(() => matchup.Apply(null));
+			var e = Assert.Throws<InvalidOperationException>(() => matchup.Apply());
 			Assert.AreEqual("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.", e.Message);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
@@ -738,7 +738,7 @@ namespace GlyssenTests
 				Assert.AreEqual(referenceBlocks[i].CharacterId, matchup.CorrelatedBlocks[i].CharacterId);
 			Assert.AreEqual("demons (Legion)", matchup.CorrelatedBlocks[3].CharacterIdOverrideForScript);
 
-			matchup.Apply(null);
+			matchup.Apply();
 			for (int i = 0; i < 4; i++)
 			{
 				Assert.IsTrue(vernacularBlocks[i].MatchesReferenceText);

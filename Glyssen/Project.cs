@@ -727,6 +727,18 @@ namespace Glyssen
 
 			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteParserUpgrade)
 			{
+				Debug.Assert(existingProject.Books.Any());
+				if (existingProject.ProjectState != ProjectState.FullyInitialized)
+				{
+					// We need to acknowlege that the quote parse has already happened (albeit with
+					// some older version of the parser). This not only might (hypothetically) tell
+					// us not to do it again (although there's currently no logic that would attempt
+					// that), but more importantly, it tells the data migration code that this project
+					// can be migrated. And that's important because when we go to apply existing user
+					// decisions, we want to do that from a project that is free of any old/weird data
+					// that doesn't abide by the current expectations.
+					existingProject.ProjectState = ProjectState.QuoteParseComplete;
+				}
 				Project upgradedProject = existingProject.IsBundleBasedProject ?
 					AttemptToUpgradeByReparsingBundleData(existingProject) :
 					AttemptToUpgradeByReparsingParatextData(existingProject);
@@ -1107,8 +1119,8 @@ namespace Glyssen
 		{
 			upgradedProject.UserDecisionsProject = existingProject;
 			populateAndParseBooks();
-			upgradedProject.m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
-			upgradedProject.InitializeLoadedProject();
+			// While that's happening, we can migrate the existing project if necessary
+			existingProject.UpdateControlFileVersion();
 			return upgradedProject;
 		}
 
@@ -1284,19 +1296,26 @@ namespace Glyssen
 
 		private void UpdateControlFileVersion()
 		{
-			if (m_projectMetadata.ControlFileVersion != 0)
-				ProjectDataMigrator.MigrateProjectData(this, m_projectMetadata.ControlFileVersion);
-			if (m_projectMetadata.ControlFileVersion == 0 || ProjectState == ProjectState.FullyInitialized)
+			if (m_projectMetadata.ControlFileVersion == 0)
 				m_projectMetadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			else
+			{
+				if (ProjectDataMigrator.MigrateProjectData(this, m_projectMetadata.ControlFileVersion) == ProjectDataMigrator.MigrationResult.Complete)
+					m_projectMetadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			}
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)
 		{
+			var referenceTextToReapply = (sourceProject.ReferenceText == ReferenceText) ? ReferenceText : null;
+			Debug.Assert(referenceTextToReapply != null, "Reference texts should be the same.");
 			foreach (var targetBookScript in m_books)
 			{
 				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
 				if (sourceBookScript != null)
-					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification);
+				{
+					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification, ReferenceText);
+				}
 			}
 			Analyze();
 		}
@@ -1472,6 +1491,7 @@ namespace Glyssen
 
 		private void DoQuoteParse()
 		{
+			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 			ProjectState = ProjectState.Parsing;
 			var quoteWorker = new BackgroundWorker {WorkerReportsProgress = true};
 			quoteWorker.DoWork += QuoteWorker_DoWork;
@@ -1493,9 +1513,12 @@ namespace Glyssen
 				throw e.Error;
 			}
 
+			ProjectState = ProjectState.QuoteParseComplete;
+
 			UpdateControlFileVersion();
 			if (UserDecisionsProject != null)
 			{
+				Debug.Assert(UserDecisionsProject.m_projectMetadata.ControlFileVersion == m_projectMetadata.ControlFileVersion);
 				ApplyUserDecisions(UserDecisionsProject);
 				UserDecisionsProject = null;
 			}
@@ -1505,8 +1528,7 @@ namespace Glyssen
 			ClearCharacterStatistics();
 			Save();
 
-			if (QuoteParseCompleted != null)
-				QuoteParseCompleted(this, new EventArgs());
+			QuoteParseCompleted?.Invoke(this, new EventArgs());
 		}
 
 		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -2495,7 +2517,8 @@ namespace Glyssen
 		QuoteParseComplete = 16,
 		FullyInitialized = 32,
 		WritingSystemRecoveryInProcess = 64,
-		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized
+		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized,
+		ReadyForDataMigration = QuoteParseComplete | FullyInitialized
 	}
 }
 

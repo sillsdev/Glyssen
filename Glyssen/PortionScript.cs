@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
@@ -27,6 +28,14 @@ namespace Glyssen
 			return m_blocks;
 		}
 
+		private int GetSplitId(Block blockToSplit, bool userSplit)
+		{
+			var splitId = blockToSplit.SplitId;
+			if (userSplit && splitId == Block.kNotSplit)
+				splitId = m_blocks.Max(b => b.SplitId) + 1;
+			return splitId;
+		}
+
 		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
 			string characterId = null, ScrVers versification = null)
 		{
@@ -35,23 +44,18 @@ namespace Glyssen
 			if (iBlock < 0)
 				throw new ArgumentException(@"Block not found in the list for " + Id, "blockToSplit");
 
-			int splitId;
-			if (blockToSplit.SplitId != Block.kNotSplit)
-				splitId = blockToSplit.SplitId;
-			else
-				splitId = m_blocks.Max(b => b.SplitId) + 1;
-
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
-				SplitBeforeBlock(iBlock, splitId);
+				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId, versification);
 				return blockToSplit;
 			}
 
 			Block newBlock = blockToSplit.SplitBlock(verseToSplit, characterOffsetToSplit);
 			if (newBlock == null)
 			{
-				SplitBeforeBlock(iBlock + 1, splitId);
-				return m_blocks[iBlock + 1];
+				blockToSplit = m_blocks[++iBlock];
+				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId, versification);
+				return blockToSplit;
 			}
 
 			m_blocks.Insert(iBlock + 1, newBlock);
@@ -89,10 +93,8 @@ namespace Glyssen
 
 				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
 					blockToSplit.MatchesReferenceText = false;
-
-				blockToSplit.SplitId = newBlock.SplitId = splitId;
 			}
-			//TODO handle splitId already exists but userSplit == false
+			blockToSplit.SplitId = newBlock.SplitId = GetSplitId(blockToSplit, userSplit);
 
 			return newBlock;
 		}
@@ -190,10 +192,13 @@ namespace Glyssen
 			}
 			return true;
 		}
-
-		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
+		
+		protected void SplitBeforeBlock(int indexOfBlockToSplit, int splitId, bool userSplit, string characterId, ScrVers versification, bool reapplyingUserSplits = false)
 		{
-			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
+			if (indexOfBlockToSplit == 0)
+				throw new IndexOutOfRangeException("Split cannot occur before first block!");
+
+			if (!reapplyingUserSplits && (m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None))
 				throw new ArgumentException("Split allowed only between blocks that are part of a multi-block quote");
 
 			if (m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.Start)
@@ -205,6 +210,9 @@ namespace Glyssen
 				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.None;
 
 			m_blocks[indexOfBlockToSplit - 1].SplitId = m_blocks[indexOfBlockToSplit].SplitId = splitId;
+
+			if (userSplit && characterId != null)
+				m_blocks[indexOfBlockToSplit].SetCharacterIdAndCharacterIdInScript(characterId, BCVRef.BookToNumber(Id), versification);
 		}
 	}
 }

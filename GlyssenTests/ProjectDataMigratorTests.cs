@@ -536,6 +536,109 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void CleanUpMultiBlockQuotesAssignedToNarrator_MultiBlockQuoteChainAssignedToNarrator_AllBlocksInChainSetToNone()
+		{
+			var blocks = new List<Block>(7);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(5, MultiBlockQuote.Start));
+			blocks.Last().CharacterId = "Jesus";
+			blocks.Add(CreateTestBlock(6, MultiBlockQuote.Continuation));
+			blocks.Last().CharacterId = "Jesus";
+			blocks.Add(CreateTestBlock(7, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.CleanUpMultiBlockQuotesAssignedToNarrator(books);
+
+			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
+			Assert.AreEqual(2, book.Blocks.Count(b => b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterId == "Jesus"),
+				"Multi-block quote chain for Jesus should not have been affected.");
+			Assert.AreEqual(5, book.Blocks.Count(b => b.CharacterId == narrator),
+				"Narrator should still be assigned to the 5 blocks not assigned to Jesus.");
+			Assert.IsTrue(book.Blocks.Where(b => b.CharacterId == narrator).All(b => b.MultiBlockQuote == MultiBlockQuote.None),
+				"Multi-block quote chain should have gotten broken up for all narrator blocks.");
+		}
+
+		[Test]
+		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SingleUnclearBlocksMatched_UnclearBlocksSetToCorrespondingCharacterAndDeliveryFromRefBlocks()
+		{
+			var blocks = new List<Block>(4);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
+			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
+			blocks.Last().CharacterId = "Jesus";
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
+			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdOverrideForScript = "Kelsy" });
+
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
+
+			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
+			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterIdInScript);
+			Assert.AreEqual("Panicky", book.GetScriptBlocks()[1].Delivery);
+			Assert.AreEqual("Jesus", book.GetScriptBlocks()[2].CharacterId);
+			Assert.AreEqual("Phil/Kelsy", book.GetScriptBlocks()[3].CharacterId);
+			Assert.AreEqual("Kelsy", book.GetScriptBlocks()[3].CharacterIdInScript);
+			Assert.IsNull(book.GetScriptBlocks()[3].Delivery);
+		}
+
+		[Test]
+		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SomeUnclearBlocksInQuoteChainMatched_AllBlocksInEntireChainSetToSameCharacter()
+		{
+			var blocks = new List<Block>(5);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
+			blocks.Last().SetNonDramaticCharacterId(narrator);
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
+			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
+				.AddVerse(2, "This is the start of verse two."));
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnknownCharacter }
+				.AddText("Esto es el resto de ello."));
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
+				.AddText("This is the rest of it."));
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
+			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
+			blocks.Last().CharacterId = "the people";
+
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
+
+			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
+			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
+			Assert.AreEqual("panicky", book.GetScriptBlocks()[1].Delivery);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[2].CharacterId);
+			Assert.AreEqual("calmer", book.GetScriptBlocks()[2].Delivery);
+			Assert.AreEqual("Phil", book.GetScriptBlocks()[3].CharacterId);
+			Assert.AreEqual("calmer", book.GetScriptBlocks()[3].Delivery);
+			Assert.AreEqual("the people", book.GetScriptBlocks()[4].CharacterId);
+			Assert.IsNull(book.GetScriptBlocks()[4].Delivery);
+		}
+
+		[Test]
 		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithNoMultipleCharacterIds_Unchanged()
 		{
 			var block1 = CreateTestBlock("Andrew");
@@ -931,6 +1034,521 @@ namespace GlyssenTests
 			ProjectDataMigrator.SetBookIdForChapterBlocks(books);
 
 			Assert.IsFalse(books.SelectMany(book => book.Blocks).Where(bl => bl.StyleTag == "c" || bl.StyleTag == "cl").Any(bl => bl.BookCode == null));
+		}
+
+		[Test]
+		public void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits_OneProgramSplit_InterveningBlocksGetSameSplitId()
+		{
+			var blocks = new List<Block>
+			{
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("1"),
+						new ScriptText("Text of verse "),
+					},
+					MultiBlockQuote = MultiBlockQuote.Continuation,
+					SplitId = 0,
+					CharacterId = "Walter",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("one got split back there. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 0,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("2"),
+						new ScriptText("Text of verse two "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = -1,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("got split back there. "),
+						new Verse("3"),
+						new ScriptText("Text of verse three. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 0,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				}
+			};
+
+			SetDummyReferenceText(blocks);
+
+			var origBlocks = blocks.Select(b => b.Clone()).ToList();
+
+			var book = new BookScript("MAT", blocks);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
+			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
+			Assert.IsTrue(resultingBlocks.All(b => b.SplitId == 0));
+			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
+			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
+			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
+			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+		}
+
+		[Test]
+		public void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits_MultipleBooksWithMultipleProgramSplitsBetweenMultipleBlocksInSingleUserSplit_InterveningBlocksGetSameSplitId()
+		{
+			var books = new List<BookScript>(2);
+			var origBlocks = new List<List<Block>>(2);
+			do
+			{
+				var bookId = BCVRef.NumberToBookCode(40 + books.Count);
+
+				var blocks = new List<Block>
+				{
+					new Block
+					{
+						IsParagraphStart = true,
+						BlockElements = new List<BlockElement>
+						{
+							new Verse("1"),
+							new ScriptText("Text of verse "),
+						},
+						MultiBlockQuote = MultiBlockQuote.Continuation,
+						SplitId = books.Count,
+						CharacterId = "Walter",
+						UserConfirmed = true,
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new ScriptText("one got split back there. "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = books.Count,
+						CharacterId = "Fred",
+						UserConfirmed = true,
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new Verse("2"),
+							new ScriptText("Text of verse two. "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = -1,
+						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new Verse("3"),
+							new ScriptText("Text of verse three "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = -1,
+						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new ScriptText("got split back there. "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = books.Count,
+						CharacterId = "Fred",
+						UserConfirmed = true,
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new Verse("4"),
+							new ScriptText("Text of verse four "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = -1,
+						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new ScriptText("got split twice. Once here, "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = books.Count,
+						CharacterId = "Elijah",
+						UserConfirmed = true,
+					},
+					new Block
+					{
+						BlockElements = new List<BlockElement>
+						{
+							new ScriptText("and again there. "),
+						},
+						MultiBlockQuote = MultiBlockQuote.None,
+						SplitId = books.Count,
+						CharacterId = "Elijah",
+						UserConfirmed = true,
+					},
+				};
+
+				SetDummyReferenceText(blocks);
+
+				origBlocks.Add(blocks.Select(b => b.Clone()).ToList());
+
+				books.Add(new BookScript(bookId, blocks));
+
+			} while (books.Count < books.Capacity);
+
+			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
+
+			for (int i = 0; i < books.Count; i++)
+			{
+				var origBookBlocks = origBlocks[i];
+				var resultingBlocks = books[i].GetScriptBlocks();
+				Assert.AreEqual(origBookBlocks.Count, resultingBlocks.Count);
+				Assert.IsTrue(origBookBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
+				Assert.IsTrue(origBookBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
+				Assert.IsTrue(resultingBlocks.All(b => b.SplitId == i));
+				Assert.IsTrue(origBookBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
+				Assert.IsTrue(origBookBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
+				Assert.IsTrue(origBookBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
+				Assert.IsTrue(origBookBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+			}
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits_ProgramSplitsBetweenDifferentUserSplits_NoChange(bool matchRefText)
+		{
+			var blocks = new List<Block>
+			{
+				new Block
+				{
+					IsParagraphStart = true,
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("1"),
+						new ScriptText("Text of verse "),
+					},
+					MultiBlockQuote = MultiBlockQuote.Continuation,
+					SplitId = 2,
+					CharacterId = "Walter",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("one got split back there. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 2,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("2"),
+						new ScriptText("Text of verse two "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = -1,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				},
+				new Block
+				{
+					IsParagraphStart = true,
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("3"),
+						new ScriptText("Text of verse three "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = -1,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("got split back there. "),
+						new Verse("4"),
+						new ScriptText("And then we end with verse four."),
+					},
+					MultiBlockQuote = MultiBlockQuote.Start,
+					SplitId = 1,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					IsParagraphStart = true,
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("5"),
+						new ScriptText("But we also continue that quote at verse five, which was not split at all."),
+					},
+					MultiBlockQuote = MultiBlockQuote.Continuation,
+					SplitId = -1,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+			};
+
+			if (matchRefText)
+				SetDummyReferenceText(blocks);
+
+			var origBlocks = blocks.Select(b => b.Clone()).ToList();
+
+			var book = new BookScript("MAT", blocks);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
+			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
+			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
+			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
+			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
+			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
+			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+		}
+
+		[Test]
+		public void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits_NoProgramSplits_NoChange()
+		{
+			var blocks = new List<Block>
+			{
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("1"),
+						new ScriptText("Text of verse "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 1,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("one got split back there. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 1,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("2-3"),
+						new ScriptText("An this split happened at the verse break. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 1,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				}
+			};
+
+			var origBlocks = blocks.Select(b => b.Clone()).ToList();
+
+			var book = new BookScript("MAT", blocks);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
+			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
+			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
+			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
+			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
+			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+		}
+
+		[Test]
+		public void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits_PrecedingProgramSplit_NoChange()
+		{
+			var blocks = new List<Block>
+			{
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("1"),
+						new ScriptText("Text of verse one. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.Start,
+					SplitId = -1,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("2"),
+						new ScriptText("Text of verse "),
+					},
+					MultiBlockQuote = MultiBlockQuote.Continuation,
+					SplitId = 0,
+					CharacterId = "Fred",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("two got split back there. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 0,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					UserConfirmed = true,
+				}
+			};
+
+			SetDummyReferenceText(blocks);
+
+			var origBlocks = blocks.Select(b => b.Clone()).ToList();
+
+			var book = new BookScript("MAT", blocks);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
+			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
+			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
+			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
+			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
+			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
+			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+		}
+
+		[Test]
+		public void MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits_FollowingProgramSplits_NoChange()
+		{
+			var blocks = new List<Block>
+			{
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("1"),
+						new ScriptText("Text of verse "),
+					},
+					MultiBlockQuote = MultiBlockQuote.None,
+					SplitId = 0,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new ScriptText("one got split in the middle. "),
+					},
+					MultiBlockQuote = MultiBlockQuote.Start,
+					SplitId = 0,
+					CharacterId = "Jesus",
+					UserConfirmed = true,
+				},
+				new Block
+				{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("2"),
+						new ScriptText("Text of verse two."),
+					},
+					MultiBlockQuote = MultiBlockQuote.Continuation,
+					MatchesReferenceText = true,
+					SplitId = -1,
+					CharacterId = "Jesus",
+					UserConfirmed = true,
+				},
+				new Block
+					{
+					BlockElements = new List<BlockElement>
+					{
+						new Verse("3"),
+						new ScriptText("Text of verse three."),
+					},
+					MultiBlockQuote = MultiBlockQuote.Continuation,
+					SplitId = -1,
+					CharacterId = "Jesus",
+				}
+			};
+
+			SetDummyReferenceText(blocks);
+
+			var origBlocks = blocks.Select(b => b.Clone()).ToList();
+
+			var book = new BookScript("MAT", blocks);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			Assert.IsTrue(origBlocks.Select(b => b.GetText(true)).SequenceEqual(resultingBlocks.Select(b => b.GetText(true))));
+			Assert.IsTrue(origBlocks.Select(b => b.MultiBlockQuote).SequenceEqual(resultingBlocks.Select(b => b.MultiBlockQuote)));
+			Assert.IsTrue(origBlocks.Select(b => b.SplitId).SequenceEqual(resultingBlocks.Select(b => b.SplitId)));
+			Assert.IsTrue(origBlocks.Select(b => b.MatchesReferenceText).SequenceEqual(resultingBlocks.Select(b => b.MatchesReferenceText)));
+			Assert.IsTrue(origBlocks.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(resultingBlocks.Select(b => b.GetPrimaryReferenceText())));
+			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
+			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
+		}
+
+		private void SetDummyReferenceText(IEnumerable<Block> blocks)
+		{
+			foreach (var block in blocks)
+				block.SetMatchedReferenceBlock(GetDummyRefBlock(block));
+		}
+
+		private Block GetDummyRefBlock(Block vernBlock)
+		{
+			var refBlock = new Block(vernBlock.StyleTag, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernBlock.InitialEndVerseNumber)
+				{ BlockElements = new List<BlockElement>() };
+			foreach (var element in vernBlock.BlockElements)
+			{
+				if (element is Verse verse)
+					refBlock.BlockElements.Add(new Verse(verse.Number));
+				else if (element is ScriptText text)
+					refBlock.BlockElements.Add(new ScriptText(text.Content.Reverse().ToString()));
+			}
+			return refBlock;
 		}
 
 		private Block CreateTestBlock(int index, MultiBlockQuote multiBlockQuote)
