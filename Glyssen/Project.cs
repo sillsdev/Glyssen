@@ -1124,11 +1124,6 @@ namespace Glyssen
 			return upgradedProject;
 		}
 
-		private static void UpgradedProjectOnQuoteParseCompleted(object sender, EventArgs eventArgs)
-		{
-			throw new NotImplementedException();
-		}
-
 		public static void SetHiddenFlag(string projectFilePath, bool hidden)
 		{
 			Exception exception;
