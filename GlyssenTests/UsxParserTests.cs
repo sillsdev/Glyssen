@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml;
 using Glyssen;
 using Glyssen.Character;
@@ -241,9 +242,7 @@ namespace GlyssenTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", blocks[0].GetText(false));
+			VerifyChapterBlock(blocks[0], 1);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
@@ -256,11 +255,7 @@ namespace GlyssenTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.AreEqual("Global-Chapter 1", blocks[0].GetText(false));
-			Assert.AreEqual("BC-MRK", blocks[0].CharacterId);
-			Assert.True(blocks[0].IsParagraphStart);
+			VerifyChapterBlock(blocks[0], 1, text:"Global-Chapter 1");
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
@@ -275,16 +270,53 @@ namespace GlyssenTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
-			Assert.AreEqual("BC-MRK", blocks[0].CharacterId);
-			Assert.True(blocks[0].IsParagraphStart);
+			VerifyChapterBlock(blocks[0], 1, text:"Specific-Chapter One", tag:"cl");
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 			Assert.IsNull(blocks[1].CharacterId);
 			Assert.True(blocks[1].IsParagraphStart);
+		}
+
+		/// <summary>
+		///  PG-1140: Since the Paratext Markers check unfortunately allows the \cl marker to occur later in the chapter,
+		/// </summary>
+		[Test]
+		public void Parse_SpecificChapterLabelLaterInChapter()
+		{
+			var usxHeader = "<?xml version=\"1.0\" encoding=\"utf-8\"?><usx version=\"2.5\"><book code=\"EPH\" style=\"id\">Test for PG-1140</book>";
+			var doc = UsxDocumentTests.CreateDocFromString(
+				usxHeader + Environment.NewLine +
+				"<para style=\"h\">EPESU</para>" + Environment.NewLine +
+				"<para style=\"mt\">RI EPESU</para>" + Environment.NewLine +
+				"<chapter number=\"1\" style=\"c\"/>" + Environment.NewLine +
+				"<para style=\"s\">Petabea i mPaulu</para>" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				"<verse number=\"1\" style=\"v\"/>Tau i mPue Ala ri Epesu, anu mepo'inaya ri Kerisitu Yesu!</para>" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				"<verse number=\"2\" style=\"v\"/>Yaku, i Paulu, suro i ngKerisitu Yesu ua pepokono i mPue Ala, mampomata - mata tuarapa i Pue Ala Papata pai i Yesu Kerisitu da madonco pai damawai palindo ndaya ri komi.</para>" + Environment.NewLine +
+				"<chapter number=\"6\" style=\"c\"/>" + Environment.NewLine +
+				"<para style=\"s\">Ana pai ine papanya</para>" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				"<verse number=\"1\" style=\"v\"/>Ee wa'a ana! Tandanya tau anu meaya ri Kerisitu, komi da metubunaka ri tau tu'ami, ince'e anu sintinaja da ndiwianaka. " + Environment.NewLine +
+				"<verse number=\"2\" style=\"v\"/>&lt;&lt;Tubunaka inemu pai papamu&gt;&gt; ince'emo songka anu ka'isa ungka ri Pue Ala pai pojanji, " + Environment.NewLine +
+				"<verse number=\"3\" style=\"v\"/>ewase'i, &lt; &lt; Da naka dago ngkatuwumi pai marate inosami ri lino se'i&gt;&gt;.</para>" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				"<verse number=\"23\" syle=\"v\"/>Mbolimo i Pue Ala Papa, pai i Yesu Kerisitu da mawai jaya ri pura - pura anggota dompu kasamba'a-mba'a pai pombepotowe pai todo ri peaya ri Kerisitu. " +
+				"<verse number=\"24\" style=\"v\"/>Mbolimo i Pue Ala da madonco komi pura - pura anu mampotowe Pueta i Yesu Kerisitu pai towe ndaya anu bare'e da re'e kabalinya.</para>" + Environment.NewLine +
+				// Note: As decided in the discussion for PG-1140, the dtaa in this is errant \cl field will just be ignored. To be interpreted as valid, Chapter label data must either
+				// precede the first chapter in the book or immediately follow the \c field to which it pertains.
+				"<para style=\"cl\">Petubunaka ungka ri kami,</para>" + Environment.NewLine +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc, "EPH");
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(9, blocks.Count);
+			VerifyChapterBlock(blocks[1], 1, "EPH");
+			VerifyChapterBlock(blocks[5], 6, "EPH");
+			var lastBlock = blocks.Last();
+			Assert.AreEqual("{23}\u00A0Mbolimo i Pue Ala Papa, pai i Yesu Kerisitu da mawai jaya ri pura - pura anggota dompu kasamba'a-mba'a pai pombepotowe pai todo ri peaya ri Kerisitu. " +
+				"{24}\u00A0Mbolimo i Pue Ala da madonco komi pura - pura anu mampotowe Pueta i Yesu Kerisitu pai towe ndaya anu bare'e da re'e kabalinya.", lastBlock.GetText(true));
+			Assert.IsFalse(blocks.Any(b => b.GetText(false).Contains("Petubunaka")));
 		}
 
 		[Test]
@@ -304,23 +336,14 @@ namespace GlyssenTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(5, blocks.Count);
-			Assert.AreEqual("c", blocks[0].StyleTag);
-			Assert.IsTrue(blocks[0].IsChapterAnnouncement);
-			Assert.AreEqual("MRK", blocks[0].BookCode);
-			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", blocks[0].GetText(true));
+			VerifyChapterBlock(blocks[0], 1);
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("{1}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, {2}\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual("c", blocks[2].StyleTag);
-			Assert.IsTrue(blocks[2].IsChapterAnnouncement);
-			Assert.AreEqual("MRK", blocks[2].BookCode);
-			Assert.AreEqual(2, blocks[2].ChapterNumber);
-			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("2", blocks[2].GetText(true));
+			VerifyChapterBlock(blocks[2], 2);
 			Assert.AreEqual("p", blocks[3].StyleTag);
 			Assert.AreEqual(2, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
@@ -399,9 +422,7 @@ namespace GlyssenTests
 			Assert.AreEqual(0, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
-			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
-			Assert.IsTrue(blocks[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			VerifyChapterBlock(blocks[2], 1);
 			Assert.AreEqual(1, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(Block.kNotSet, blocks[3].CharacterId);
@@ -651,9 +672,21 @@ namespace GlyssenTests
 			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” {37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
 		}
 
-		private UsxParser GetUsxParser(XmlDocument doc)
+		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK")
 		{
-			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			return new UsxParser(bookId, new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+		}
+
+		private void VerifyChapterBlock(Block block, int number, string bookId = "MRK", string text = null, string tag = "c")
+		{
+			Assert.AreEqual(tag, block.StyleTag);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+			Assert.AreEqual(bookId, block.BookCode);
+			Assert.AreEqual(number, block.ChapterNumber);
+			Assert.AreEqual(0, block.InitialStartVerseNumber);
+			Assert.AreEqual(text ?? number.ToString(), block.GetText(true));
+			Assert.AreEqual($"BC-{bookId}", block.CharacterId);
+			Assert.True(block.IsParagraphStart);
 		}
 	}
 

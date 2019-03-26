@@ -90,7 +90,6 @@ namespace Glyssen
 		private readonly XmlNodeList m_nodeList;
 
 		private string m_bookLevelChapterLabel;
-		private bool m_chapterNodeFound;
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
@@ -116,7 +115,6 @@ namespace Glyssen
 				{
 					case "chapter":
 						AddMainTitleIfApplicable(blocks, titleBuilder);
-						m_chapterNodeFound = true;
 						block = ProcessChapterNode(node);
 						if (block == null)
 							continue;
@@ -129,13 +127,7 @@ namespace Glyssen
 						IStyle style = m_stylesheet.GetStyle(usxPara.StyleTag);
 						if (style.IsChapterLabel)
 						{
-							block = ProcessChapterLabelNode(node.InnerText, usxPara);
-							if (block == null)
-								continue;
-
-							// The node before this was the chapter. We already added it, then found this label.
-							// Remove that block so it will be replaced with this one.
-							blocks.RemoveAt(blocks.Count-1);
+							block = ProcessChapterLabelNode(node.InnerText, usxPara, blocks);
 							break;
 						}
 
@@ -274,23 +266,31 @@ namespace Glyssen
 			return block;
 		}
 
-		private Block ProcessChapterLabelNode(string nodeText, UsxNode usxNode)
+		private Block ProcessChapterLabelNode(string nodeText, UsxNode usxNode, IList<Block> blocks)
 		{
-			Block block = null;
+			var lastChapterAnnouncementBlock = blocks.LastOrDefault(b => b.IsChapterAnnouncement);
 
 			// Chapter label before the first chapter means we have a chapter label which applies to all chapters
-			if (!m_chapterNodeFound)
+			if (lastChapterAnnouncementBlock == null)
 				m_bookLevelChapterLabel = nodeText;
-
-			if (m_bookLevelChapterLabel == null)
+			else if (m_bookLevelChapterLabel == null && blocks.Last() == lastChapterAnnouncementBlock)
 			{
-				block = new Block(usxNode.StyleTag, m_currentChapter) { IsParagraphStart = true };
+				// The node before this was the chapter. We already added it, then found this label.
+				// Remove that block so it will be replaced with this one.
+				blocks.RemoveAt(blocks.Count - 1);
+				var block = new Block(usxNode.StyleTag, m_currentChapter) { IsParagraphStart = true, BookCode = m_bookId };
 				block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 				block.BlockElements.Add(new ScriptText(nodeText));
 				m_currentStartVerse = 0;
 				m_currentEndVerse = 0;
+				return block;
 			}
-			return block;
+			// Note: In PG-1140, it was reported that errant/misplaced \cl markers (at the end of the Pauline epistles) were causing
+			// the preceding block to go AWOL. We aren't sure what the text in the \cl field was supposed to be (it was the same in
+			// all the books and ended with a comma, which seemed pretty weird), but we decided to just ignore any \cl marker coming
+			// in an unexpected place. Ideally, the Markers check in Paratext should catch this as an error (and I have requested this),
+			// but at least as of now, it does not.
+			return null;
 		}
 	}
 
