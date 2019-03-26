@@ -304,6 +304,8 @@ namespace GlyssenTests
 				"<para style=\"p\">" + Environment.NewLine +
 				"<verse number=\"23\" syle=\"v\"/>Mbolimo i Pue Ala Papa, pai i Yesu Kerisitu da mawai jaya ri pura - pura anggota dompu kasamba'a-mba'a pai pombepotowe pai todo ri peaya ri Kerisitu. " +
 				"<verse number=\"24\" style=\"v\"/>Mbolimo i Pue Ala da madonco komi pura - pura anu mampotowe Pueta i Yesu Kerisitu pai towe ndaya anu bare'e da re'e kabalinya.</para>" + Environment.NewLine +
+				// Note: As decided in the discussion for PG-1140, the dtaa in this is errant \cl field will just be ignored. To be interpreted as valid, Chapter label data must either
+				// precede the first chapter in the book or immediately follow the \c field to which it pertains.
 				"<para style=\"cl\">Petubunaka ungka ri kami,</para>" + Environment.NewLine +
 				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc, "EPH");

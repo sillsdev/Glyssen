@@ -268,12 +268,12 @@ namespace Glyssen
 
 		private Block ProcessChapterLabelNode(string nodeText, UsxNode usxNode, IList<Block> blocks)
 		{
-			var lastChapter = blocks.LastOrDefault(b => b.IsChapterAnnouncement);
+			var lastChapterAnnouncementBlock = blocks.LastOrDefault(b => b.IsChapterAnnouncement);
 
 			// Chapter label before the first chapter means we have a chapter label which applies to all chapters
-			if (lastChapter == null)
+			if (lastChapterAnnouncementBlock == null)
 				m_bookLevelChapterLabel = nodeText;
-			else if (m_bookLevelChapterLabel == null && blocks.Last() == lastChapter)
+			else if (m_bookLevelChapterLabel == null && blocks.Last() == lastChapterAnnouncementBlock)
 			{
 				// The node before this was the chapter. We already added it, then found this label.
 				// Remove that block so it will be replaced with this one.
@@ -285,6 +285,11 @@ namespace Glyssen
 				m_currentEndVerse = 0;
 				return block;
 			}
+			// Note: In PG-1140, it was reported that errant/misplaced \cl markers (at the end of the Pauline epistles) were causing
+			// the preceding block to go AWOL. We aren't sure what the text in the \cl field was supposed to be (it was the same in
+			// all the books and ended with a comma, which seemed pretty weird), but we decided to just ignore any \cl marker coming
+			// in an unexpected place. Ideally, the Markers check in Paratext should catch this as an error (and I have requested this),
+			// but at least as of now, it does not.
 			return null;
 		}
 	}
