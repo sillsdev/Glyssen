@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\ProjectAnalysis.cs" />
+    <Compile Include="Character\NarratorOverrides.cs" />
     <Compile Include="BiblicalAuthors.cs" />
     <Compile Include="BlockMatchup.cs" />
     <Compile Include="BlockNavigator.cs" />
@@ -630,6 +631,7 @@
     <Content Include="icu64\icudt54.dll" />
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
+    <Content Include="Resources\NarratorOverrides.xml" />
     <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
     <None Include="Resources\Silent.wav" />

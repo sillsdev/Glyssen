@@ -7100,10 +7100,7 @@ EZR	10	11	Ezra, priest and teacher			Normal
 EZR	10	12	assembly, whole			Normal		
 EZR	10	13	assembly, whole			Normal		
 EZR	10	14	assembly, whole			Normal		
-NEH	1	1	Nehemiah	*narration*		Potential		
-NEH	1	2	Nehemiah	*narration*		Implicit		
 NEH	1	3	Hanani, brother of Nehemiah/Judah, men of		Hanani/men of Judah	Normal	Hanani, brother of Nehemiah	
-NEH	1	4	Nehemiah	*narration*		Implicit		
 NEH	1	5	Nehemiah	praying		Normal		
 NEH	1	6	Nehemiah	praying		Normal		
 NEH	1	7	Nehemiah	praying		Normal		
@@ -7111,115 +7108,61 @@ NEH	1	8	Nehemiah	praying		Normal
 NEH	1	9	Nehemiah	praying		Normal		
 NEH	1	10	Nehemiah	praying		Normal		
 NEH	1	11	Nehemiah	praying		Normal		
-NEH	2	1	Nehemiah	*narration*		Implicit		
 NEH	2	2	Artaxerxes, king of Persia			Normal		
-NEH	2	2	Nehemiah	*narration*		Potential		
 NEH	2	3	Nehemiah	sad, very afraid, with respect		Normal		
-NEH	2	4	Nehemiah	*narration*		Potential		
 NEH	2	4	Artaxerxes, king of Persia			Normal		
 NEH	2	5	Nehemiah			Normal		
-NEH	2	6	Nehemiah	*narration*		Potential		
 NEH	2	6	Artaxerxes, king of Persia			Normal		
 NEH	2	7	Nehemiah			Normal		
 NEH	2	8	Nehemiah			Normal		
-NEH	2	9	Nehemiah	*narration*		Implicit		
 NEH	2	9	Artaxerxes, king of Persia			Potential		
-NEH	2	10	Nehemiah	*narration*		Implicit		
-NEH	2	11	Nehemiah	*narration*		Implicit		
-NEH	2	12	Nehemiah	*narration*		Implicit		
-NEH	2	13	Nehemiah	*narration*		Implicit		
-NEH	2	14	Nehemiah	*narration*		Implicit		
-NEH	2	15	Nehemiah	*narration*		Implicit		
-NEH	2	16	Nehemiah	*narration*		Implicit		
 NEH	2	17	Nehemiah			Normal		
 NEH	2	18	Jews, the/priests/nobles and officials (Jewish)			Normal		
-NEH	2	18	Nehemiah	*narration*		Potential		
-NEH	2	19	Nehemiah	*narration*		Potential		
 NEH	2	19	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab	mocking		Normal	Sanballat the Horonite	
 NEH	2	20	Nehemiah			Normal		
-NEH	4	1	Nehemiah	*narration*		Implicit		
 NEH	4	1	Sanballat the Horonite	mocking	Sanballat	Potential		
-NEH	4	2	Nehemiah	*narration*		Potential		
 NEH	4	2	Sanballat the Horonite	angry	Sanballat	Normal		
-NEH	4	3	Nehemiah	*narration*		Potential		
 NEH	4	3	Tobiah the Ammonite official	mocking	Tobiah the Ammonite	Normal		
 NEH	4	4	Nehemiah	praying		Implicit		
 NEH	4	5	Nehemiah	praying		Implicit		
-NEH	4	6	Nehemiah	*narration*		Implicit		
-NEH	4	7	Nehemiah	*narration*		Potential		
 NEH	4	7	report to Sanballat and Tobiah			Potential		
-NEH	4	8	Nehemiah	*narration*		Potential		
 NEH	4	8	Sanballat the Horonite/Tobiah the Ammonite official/men of Ashdod	conspiring		Potential	Sanballat the Horonite	
-NEH	4	9	Nehemiah	*narration*		Implicit		
-NEH	4	10	Nehemiah	*narration*		Potential		
 NEH	4	10	Judah, people in			Normal		
-NEH	4	11	Nehemiah	*narration*		Potential		
 NEH	4	11	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab/men of Ashdod	mocking	enemies of Judah and Benjamin (Sanballat, etc.)	Normal	Sanballat the Horonite	
-NEH	4	12	Nehemiah	*narration*		Potential		
 NEH	4	12	Jews, the	desperate		Normal		
-NEH	4	13	Nehemiah	*narration*		Implicit		
 NEH	4	14	Nehemiah			Normal		
-NEH	4	15	Nehemiah	*narration*		Potential		
 NEH	4	15	report to Sanballat and Tobiah			Potential		
-NEH	4	16	Nehemiah	*narration*		Implicit		
-NEH	4	17	Nehemiah	*narration*		Implicit		
-NEH	4	18	Nehemiah	*narration*		Implicit		
 NEH	4	19	Nehemiah			Normal		
 NEH	4	20	Nehemiah			Normal		
-NEH	4	21	Nehemiah	*narration*		Implicit		
 NEH	4	22	Nehemiah			Normal		
-NEH	4	23	Nehemiah	*narration*		Implicit		
 NEH	5	2	men/wives	desperate	men/their wives	Normal		
 NEH	5	3	men, other/wives, other	desperate	men/their wives, other	Normal		
 NEH	5	4	men, still others/wives, still others	desperate	men/wives, still others	Normal		
 NEH	5	5	men, still others/wives, still others	desperate	men/wives, still others	Normal		
-NEH	5	6	Nehemiah	*narration*		Implicit		
 NEH	5	7	Nehemiah			Normal		
 NEH	5	8	Nehemiah			Normal		
 NEH	5	9	Nehemiah			Normal		
 NEH	5	10	Nehemiah			Normal		
 NEH	5	11	Nehemiah			Normal		
 NEH	5	12	nobles and officials (Jewish)			Normal		
-NEH	5	12	Nehemiah	*narration*		Potential		
 NEH	5	13	assembly, whole			Normal		
 NEH	5	13	Nehemiah			Normal		
-NEH	5	14	Nehemiah	*narration*		Potential		
 NEH	5	14	Artaxerxes, king of Persia	official appointment		Potential		
-NEH	5	15	Nehemiah	*narration*		Implicit		
-NEH	5	16	Nehemiah	*narration*		Implicit		
-NEH	5	17	Nehemiah	*narration*		Implicit		
-NEH	5	18	Nehemiah	*narration*		Implicit		
 NEH	5	19	Nehemiah	praying		Implicit		
-NEH	6	1	Nehemiah	*narration*		Potential		
 NEH	6	1	report to Sanballat and Tobiah			Potential		
-NEH	6	2	Nehemiah	*narration*		Potential		
 NEH	6	2	Sanballat the Horonite/Geshem the Arab	message, scheming	Sanballat/Geshem	Normal	Sanballat the Horonite	
 NEH	6	3	Nehemiah	message		Normal		
-NEH	6	4	Nehemiah	*narration*		Implicit		
-NEH	6	5	Nehemiah	*narration*		Implicit		
-NEH	6	6	Nehemiah	*narration*		Implicit		
 NEH	6	6	Sanballat the Horonite	letter	Sanballat	Normal		
 NEH	6	7	Sanballat the Horonite	letter	Sanballat	Normal		
 NEH	6	8	Nehemiah	message		Normal		
 NEH	6	9	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab/men of Ashdod		they all (enemies)	Quotation		
 NEH	6	9	Nehemiah	praying		Normal		
 NEH	6	9	Sanballat the Horonite/Geshem the Arab	thinking	enemies of Judah and Benjamin (Sanballat, etc.)	Normal	Sanballat the Horonite	
-NEH	6	10	Nehemiah	*narration*		Potential		
 NEH	6	10	Shemaiah		Shemaiah, son of Delaiah, false prophet	Normal		
 NEH	6	11	Nehemiah			Normal		
-NEH	6	12	Nehemiah	*narration*		Implicit		
-NEH	6	13	Nehemiah	*narration*		Implicit		
 NEH	6	14	Nehemiah	praying		Implicit		
-NEH	6	16	Nehemiah	*narration*		Potential		
 NEH	6	16	report to Sanballat and Tobiah			Potential		
-NEH	6	17	Nehemiah	*narration*		Implicit		
-NEH	6	18	Nehemiah	*narration*		Implicit		
-NEH	6	19	Nehemiah	*narration*		Implicit		
-NEH	7	1	Nehemiah	*narration*		Implicit		
-NEH	7	2	Nehemiah	*narration*		Implicit		
 NEH	7	3	Nehemiah			Normal		
-NEH	7	4	Nehemiah	*narration*		Implicit		
-NEH	7	5	Nehemiah	*narration*		Potential		
 NEH	8	1	people, all the			Indirect		
 NEH	8	6	people, all the	praising		Normal		
 NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites	Normal	Nehemiah	
@@ -7276,45 +7219,18 @@ NEH	10	37	priests/Levites/people			Indirect
 NEH	10	38	priests/Levites/people			Indirect		
 NEH	10	39	priests/Levites/people			Indirect		
 # The following line is under review. The obvious switch to first-person happens in v. 31.
-NEH	12	30	Nehemiah	*narration*		Implicit		
-NEH	12	31	Nehemiah	*narration*		Implicit		
-NEH	12	32	Nehemiah	*narration*		Implicit		
-NEH	12	33	Nehemiah	*narration*		Implicit		
-NEH	12	34	Nehemiah	*narration*		Implicit		
-NEH	12	35	Nehemiah	*narration*		Implicit		
-NEH	12	36	Nehemiah	*narration*		Implicit		
-NEH	12	37	Nehemiah	*narration*		Implicit		
-NEH	12	38	Nehemiah	*narration*		Implicit		
-NEH	12	39	Nehemiah	*narration*		Implicit		
-NEH	12	41	Nehemiah	*narration*		Implicit		
-NEH	12	42	Nehemiah	*narration*		Implicit		
 NEH	13	1	scripture			Indirect		
-NEH	13	6	Nehemiah	*narration*		Implicit		
-NEH	13	7	Nehemiah	*narration*		Implicit		
-NEH	13	8	Nehemiah	*narration*		Implicit		
-NEH	13	9	Nehemiah	*narration*		Implicit		
-NEH	13	10	Nehemiah	*narration*		Implicit		
 NEH	13	11	Nehemiah			Normal		
-NEH	13	12	Nehemiah	*narration*		Implicit		
-NEH	13	13	Nehemiah	*narration*		Implicit		
 NEH	13	14	Nehemiah	praying		Implicit		
-NEH	13	15	Nehemiah	*narration*		Implicit		
-NEH	13	16	Nehemiah	*narration*		Implicit		
 NEH	13	17	Nehemiah			Normal		
 NEH	13	18	Nehemiah			Normal		
-NEH	13	19	Nehemiah	*narration*		Implicit		
-NEH	13	20	Nehemiah	*narration*		Implicit		
 NEH	13	21	Nehemiah			Normal		
 NEH	13	22	Nehemiah	commanding		Indirect		
 NEH	13	22	Nehemiah	praying		Implicit		
-NEH	13	23	Nehemiah	*narration*		Implicit		
-NEH	13	24	Nehemiah	*narration*		Implicit		
 NEH	13	25	Nehemiah			Normal		
 NEH	13	26	Nehemiah			Normal		
 NEH	13	27	Nehemiah			Normal		
-NEH	13	28	Nehemiah	*narration*		Implicit		
 NEH	13	29	Nehemiah	praying		Implicit		
-NEH	13	30	Nehemiah	*narration*		Implicit		
 NEH	13	31	Nehemiah	praying		Implicit		
 EST	1	15	Xerxes, king of Persia and Media (Ahasuerus)			Normal		
 EST	1	16	Memucan, noble advisor to Xerxes, king			Normal		
@@ -8410,16 +8326,17 @@ PSA	14	1	fool			Normal
 PSA	16	2	David			Normal		
 PSA	22	0	narrator-PSA			Quotation		
 PSA	22	8	men/people	mocking		Normal		
+PSA	27	8	God			Quotation		
 PSA	27	8	David			Normal		
-PSA	29	9	all in temple	praising		Normal		
+PSA	29	9	all in temple	praising		Hypothetical		
 PSA	30	6	David	felt secure		Normal		
-PSA	30	9	David	crying		Normal		
-PSA	30	10	David	crying		Normal		
-PSA	31	14	David	trusting God		Normal		
-PSA	31	22	David	alarmed		Normal		
-PSA	32	5	David	acknowledging sin		Normal		
-PSA	35	3	David	asking LORD's salvation		Normal		
-PSA	35	10	David	wholeheartedly		Normal		
+PSA	30	9	David	crying		Potential		
+PSA	30	10	David	crying		Potential		
+PSA	31	14	David	trusting God		Quotation		
+PSA	31	22	David	alarmed		Quotation		
+PSA	32	5	David	acknowledging sin		Quotation		
+PSA	35	3	God			Hypothetical		
+PSA	35	10	David	wholeheartedly	all of David's bones	Hypothetical		
 PSA	35	21	David's enemies	accusing		Normal		
 PSA	35	25	David's enemies	accusing		Normal		
 PSA	35	27	David's supporters	shouting		Normal		

@@ -326,10 +326,10 @@ namespace Glyssen.Rules
 			var sb = new StringBuilder();
 			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).PadLeft(kProximityHeader.Length)).Append("  |  ")
 				.Append(FirstReference)
-				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
+				.Append(" (").Append(FirstCharacterId).Append(")")
 				.Append(" - ")
 				.Append(SecondReference)
-				.Append(" (").Append(m_secondBlock.CharacterIdInScript).Append(")");
+				.Append(" (").Append(SecondCharacterId).Append(")");
 			return sb.ToString();
 		}
 	}

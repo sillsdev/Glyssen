@@ -37,7 +37,7 @@ Ahimaaz (messenger)	1	Male	Adult			2SA 18:19 <-(3 more)-> 2SA 18:29	False
 Ahimelech the priest (son of Ahitub)	1	Male	Adult			1SA 21:1 <-(4 more)-> 1SA 22:15	False
 Ahithophel	1	Male	Adult			2SA 16:21 <-(2 more)-> 2SA 17:3	False
 all in Nazareth synagogue	-1		Adult			LUK 4:22	False
-all in temple	-1		Adult			PSA 29:9	False
+all in temple	-1		Adult			PSA 29:9	True
 all seeking God	-1		Adult			PSA 40:16	False
 all the elders	-1	Male	Elder		elders of the church in Jerusalem		False
 all who heard (in synagogues)	-1		Adult			ACT 9:21	False

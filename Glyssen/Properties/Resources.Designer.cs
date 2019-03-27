@@ -19,7 +19,7 @@ namespace Glyssen.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -91,22 +91,23 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MAT	1	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
-        ///MAT	1	17	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	1	25	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	2	8	0	&lt;Sound startVerse=&quot;8&quot; /&gt;
-        ///MAT	2	23	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	3	17	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	11	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	17	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	22	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	25	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	5	48	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	6	7	0	&lt;Sound endVerse=&quot;7&quot; /&gt;
-        ///MAT	6	15	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	6	34	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	7	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
-        ///MAT	7	29	0	&lt;Pause time=&quot;2&quot; /&gt; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to GEN	1	30	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	2	25	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	3	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	4	26	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	5	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	6	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	7	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	8	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	9	29	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	10	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	11	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	12	20	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	13	18	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	14	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	15	19	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	16	16	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	17	27 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Annotations {
             get {
@@ -192,15 +193,14 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
-        ///250 Israelite leaders	250	Male	Adult			
-        ///a Jew	1	Male	Adult			
-        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	
-        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
-        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
-        ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment	Hypothetical Only
+        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John		False
+        ///250 Israelite leaders	250	Male	Adult				False
+        ///a Jew	1	Male	Adult				False
+        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12	False
+        ///Abednego	1	Male	Adult		original Hebrew name: Azariah		False
+        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41	False
+        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterDetail {
             get {
@@ -209,7 +209,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	116
+        ///   Looks up a localized string similar to Control File Version	140
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -344,6 +344,18 @@ namespace Glyssen.Properties {
             get {
                 object obj = ResourceManager.GetObject("MoveArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!--The entries in the file are somewhat similar to the entries in CharacterVerse.txt marked as &quot;Implicit&quot;. The distinction is that
+        ///implicit speech is normally found in the context of a historical narrative, introduced explicitly by the narrator and could/should
+        ///be in quotes, but might not be for practical/stylistic reasons. Whereas, narrator overrides are books or passages where the author
+        ///is using first-person speech to give a historical account, relate a poem, give advice, etc. The text may contain se [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string NarratorOverrides {
+            get {
+                return ResourceManager.GetString("NarratorOverrides", resourceCulture);
             }
         }
         
