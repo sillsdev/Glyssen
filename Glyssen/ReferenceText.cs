@@ -287,8 +287,8 @@ namespace Glyssen
 					iRefBlockMemory = -1;
 				}
 				var currentRefBlock = refBlockList[iRefBlock];
-				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
-				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, Versification);
+				var vernInitStartVerse = currentVernBlock.StartRef(bookNum, vernacularVersification);
+				var refInitStartVerse = currentRefBlock.StartRef(bookNum, Versification);
 
 				var type = CharacterVerseData.GetStandardCharacterType(currentVernBlock.CharacterId);
 				switch (type)
@@ -312,7 +312,7 @@ namespace Glyssen
 									while (i < refBlockList.Count)
 									{
 										var workingRefBlock = refBlockList[i];
-										var workingRefInitStartVerse = new VerseRef(bookNum, workingRefBlock.ChapterNumber, workingRefBlock.InitialStartVerseNumber, Versification);
+										var workingRefInitStartVerse = workingRefBlock.StartRef(bookNum, Versification);
 
 										var compareResult = workingRefInitStartVerse.CompareTo(vernInitStartVerse);
 
@@ -362,7 +362,7 @@ namespace Glyssen
 					if (iRefBlock == refBlockList.Count)
 						return; // couldn't find a ref block to use at all.
 					currentRefBlock = refBlockList[iRefBlock];
-					refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, vernacularVersification);
+					refInitStartVerse = currentRefBlock.StartRef(bookNum, vernacularVersification);
 				}
 
 				var indexOfVernVerseStart = iVernBlock;
@@ -384,7 +384,7 @@ namespace Glyssen
 				if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk > 1)
 				{
 					var lastRefBlockInVerseChunk = refBlockList[iRefBlock];
-					var refVerse = new VerseRef(bookNum, lastRefBlockInVerseChunk.ChapterNumber, lastRefBlockInVerseChunk.InitialStartVerseNumber, Versification);
+					var refVerse = lastRefBlockInVerseChunk.StartRef(bookNum, Versification);
 					if (lastVernVerseFound.CompareTo(refVerse) == 0 && lastVernVerseFound.BBBCCCVVV < refVerse.BBBCCCVVV)
 					{
 						// A versification difference has us pulling a verse from later in the text, so we need to get out and look beyond our current
@@ -479,8 +479,8 @@ namespace Glyssen
 
 		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
-			var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
-			var refInitStartVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification);
+			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
+			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
 				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnclear() ) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
@@ -488,8 +488,8 @@ namespace Glyssen
 
 		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
-			var lastVernVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerseNum, vernacularVersification);
-			var lastRefVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.LastVerseNum, Versification);
+			var lastVernVerse = vernBlock.EndRef(bookNum, vernacularVersification);
+			var lastRefVerse = refBlock.EndRef(bookNum, Versification);
 			return lastVernVerse.CompareTo(lastRefVerse) == 0;
 		}
 
@@ -516,8 +516,8 @@ namespace Glyssen
 
 			public VerseSplitLocation(int bookNum, Block prevBlock, Block splitStartBlock, ScrVers versification)
 			{
-				m_after = new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerseNum, versification);
-				m_before = new VerseRef(bookNum, splitStartBlock.ChapterNumber, splitStartBlock.InitialStartVerseNumber, versification);
+				m_after = prevBlock.EndRef(bookNum, versification);
+				m_before = splitStartBlock.StartRef(bookNum, versification);
 			}
 
 			public static implicit operator VerseRef(VerseSplitLocation location)
@@ -578,7 +578,7 @@ namespace Glyssen
 					verseToSplitAfter = verseSplitLocations[++iSplit];
 				}
 
-				var lastVerse = new VerseRef(bookNum, block.ChapterNumber, block.LastVerseNum, versification);
+				var lastVerse = block.EndRef(bookNum, versification);
 				if (lastVerse < verseToSplitAfter)
 					continue;
 

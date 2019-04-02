@@ -868,6 +868,9 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
+			//if (bookId == "EZR" && block.ChapterNumber == 9)
+			//	Debug.WriteLine("Here");
+
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 
@@ -886,8 +889,8 @@ namespace Glyssen.RefTextDevUtilities
 			switch (characters.Count)
 			{
 				case 1:
-					// If the character Id has slashes, the following line gets the default one.
 					var character = characters.Single();
+					// If the character Id has slashes, the following line gets the default one.
 					var characterIdToUse = character.ResolvedDefaultCharacter;
 
 					switch (IsReliableMatch(fcbhCharacterLabel, characterIdToUse))
@@ -896,8 +899,18 @@ namespace Glyssen.RefTextDevUtilities
 							// Don't bother reporting; these are not interesting
 							break;
 						case MatchLikelihood.Mismatch:
-							goto case 0;
+							if (character.Character.Contains("/" + fcbhCharacterLabel) || character.Character.Contains(fcbhCharacterLabel + "/"))
+							{
+								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
+								return CharacterVerseData.kAmbiguousCharacter;
+							}
+							characterIdToUse = null;
+							break;
 						default:
+
+							if (IsNarratorOverride(bookNum, block, fcbhCharacterLabel))
+								return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+
 							if (characterIdToUse != character.Character)
 							{
 								// This is a multi-character ID. If FCBH's guide happens to prefer a different default one and it's
@@ -910,8 +923,13 @@ namespace Glyssen.RefTextDevUtilities
 							s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabelOrig} => {characterIdToUse} -- {bcvRef}");
 							break;
 					}
+					if (characterIdToUse == null)
+						goto case 0;
 					return characterIdToUse;
 				case 0:
+					if (IsNarratorOverride(bookNum, block, fcbhCharacterLabel))
+						return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+
 					//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
 					//	return characterId;
 					s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnknownCharacter, bcvRef, fcbhCharacterLabel));
@@ -943,6 +961,12 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
+		private static bool IsNarratorOverride(int bookNum, Block block, string fcbhCharacterLabel)
+		{
+			var overrideCharacter = NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English);
+			return (overrideCharacter != null && IsReliableMatch(fcbhCharacterLabel, overrideCharacter) == MatchLikelihood.Reliable);
+		}
+
 		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string glyssenCharacterId)
 		{
 			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId))
@@ -954,7 +978,7 @@ namespace Glyssen.RefTextDevUtilities
 			if (CharacterDetailData.Singleton.GetDictionary().ContainsKey(fcbhCharacterLabel))
 			{
 				// Never match to some other existing character ID, except one that just differs by age.
-				if (glyssenCharacterId == fcbhCharacterLabel + " (old)")
+				if (glyssenCharacterId == fcbhCharacterLabel + " (old)" || glyssenCharacterId == fcbhCharacterLabel + " (dead)")
 					return MatchLikelihood.Reliable;
 
 				return MatchLikelihood.Mismatch;
@@ -983,8 +1007,8 @@ namespace Glyssen.RefTextDevUtilities
 				case "Psalmist":
 					return MatchLikelihood.Mismatch; // Glyssen doesn't currently have a "Psalmist" (narrator) character
 				case "Ezra":
-					if (glyssenCharacterId == "Nehemiah")
-						return MatchLikelihood.Mismatch; // See Neh 8:10 (this can be removed if/when FCBH fixes this error)
+					if (glyssenCharacterId != "Ezra, priest and teacher")
+						return MatchLikelihood.Mismatch; // See Neh 8:10. But this is also needed to prevent bogus match to "leaders" in EZR 9:1
 					break;
 				case "King Hezekiah":
 					if (glyssenCharacterId == "men, large force of")
@@ -1057,12 +1081,19 @@ namespace Glyssen.RefTextDevUtilities
 				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase);
 				case "Shepherd": return glyssenCharacterId == "shepherds at well";
 				case "Jereboam": return glyssenCharacterId == "Jeroboam";
+				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
+				case "Elder of Gilead": return glyssenCharacterId == "Gilead, elders of";
+				case "Elder of Bethlehem": return glyssenCharacterId == "Bethlehem, elders of";
 				case "Rehab": return glyssenCharacterId == "Rahab";
 				case "Servant of Abraham": return glyssenCharacterId == "Abraham's chief servant";
 				case "King of Sodom": return glyssenCharacterId == "Bera, king of Sodom";
 				case "Daughter of Lot": return glyssenCharacterId == "older daughter of Lot";
 				case "Daughter of Jerusalem": return glyssenCharacterId == "maidens";
+				case "Man": return glyssenCharacterId == "men";
+				case "Reuben": return glyssenCharacterId == "Reubenites/Gadites/half-tribe of Manasseh";
 				case "Phinehas": return glyssenCharacterId == "Phineas the priest";
+				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";
+				case "Zechariah": return glyssenCharacterId == "Zechariah, son of Jehoiada the priest";
 				case "Michal (David's wife)": return glyssenCharacterId == "Michal, David's wife";
 				case "Priest (Ahimelech)": return glyssenCharacterId == "Ahimelech the priest (son of Ahitub)";
 				case "Woman at Endor": return glyssenCharacterId == "woman medium";
@@ -1070,6 +1101,7 @@ namespace Glyssen.RefTextDevUtilities
 				case "Zedekiah son of Chenaanah": return glyssenCharacterId == "Zedekiah, son of Kenaanah, false prophet";
 				case "Cushite": return glyssenCharacterId == "messenger, Cushite";
 				case "Uncle": return glyssenCharacterId == "Saul's uncle";
+				case "Afflicted": return glyssenCharacterId == "afflicted person";
 				case "Acsah": return glyssenCharacterId == "Achsah, Caleb's daughter";
 				case "Sodomite": return glyssenCharacterId == "men of Sodom (wicked)";
 				case "Pashhur": return glyssenCharacterId == "Pashur";
@@ -1079,6 +1111,7 @@ namespace Glyssen.RefTextDevUtilities
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
 				case "Cupbearer": return glyssenCharacterId == "chief cupbearer of Egypt";
 				case "Wife of Haman": return glyssenCharacterId == "Zeresh, wife of Haman";
+				case "Mother of King Lemuel": return glyssenCharacterId == "King Lemuel's mother";
 				case "Wife of Samson": return glyssenCharacterId == "Samson's Philistine wife";
 				case "King Joash": return glyssenCharacterId == "Jehoash, king of Israel";
 				case "Syrians": return glyssenCharacterId == "Aramean soldiers";

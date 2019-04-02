@@ -1143,6 +1143,16 @@ namespace Glyssen
 			newRowAValue = leadingVerse + rowB;
 		}
 
+		public VerseRef StartRef(int bookNum, ScrVers versification)
+		{
+			return new VerseRef(bookNum, ChapterNumber, InitialStartVerseNumber, versification);
+		}
+
+		public VerseRef EndRef(int bookNum, ScrVers versification)
+		{
+			return new VerseRef(bookNum, ChapterNumber, LastVerseNum, versification);
+		}
+
 		public bool ChangeReferenceText(string bookId, ReferenceText referenceText, ScrVers vernVersification)
 		{
 			if (!MatchesReferenceText)
@@ -1162,8 +1172,8 @@ namespace Glyssen
 
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var bookNumber = BCVRef.BookToNumber(bookId);
-			var startVerse = new VerseRef(bookNumber, ChapterNumber, InitialStartVerseNumber, vernVersification);
-			var endVerse = new VerseRef(bookNumber, ChapterNumber, LastVerseNum, vernVersification);
+			var startVerse = StartRef(bookNumber, vernVersification);
+			var endVerse = EndRef(ChapterNumber, vernVersification);
 			startVerse.ChangeVersification(englishRefText.Versification);
 			endVerse.ChangeVersification(englishRefText.Versification);
 

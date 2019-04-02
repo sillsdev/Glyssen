@@ -562,7 +562,7 @@ namespace Glyssen.Dialogs
 		public VerseRef GetBlockVerseRef(Block block = null, ScrVers targetVersification = null)
 		{
 			block = block ?? BlockAccessor.CurrentBlock;
-			var verseRef =  new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber, Versification);
+			var verseRef =  block.StartRef(BCVRef.BookToNumber(CurrentBookId), Versification);
 			if (targetVersification != null)
 				verseRef.ChangeVersification(targetVersification);
 			return verseRef;

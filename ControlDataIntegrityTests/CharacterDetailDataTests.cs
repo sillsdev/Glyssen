@@ -68,8 +68,8 @@ namespace ControlDataIntegrityTests
 					missingCharacters.Add(character);
 				}
 			}
-			Assert.False(missingCharacters.Any(),
-				"Characters in Character-Detail data but not in Character-Verse data:" +
+			Assert.False(missingCharacters.Any(c => !NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides.Select(o => o.Character)).Contains(c)),
+				"Characters in Character-Detail data but not in Character-Verse data or NarratorOverrides:" +
 				Environment.NewLine +
 				missingCharacters.OnePerLineWithIndent());
 		}

@@ -131,6 +131,7 @@
     <Compile Include="BlockElementTests.cs" />
     <Compile Include="BlockMatchupTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
+    <Compile Include="Character\NarratorOverridesTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
     <Compile Include="BlockTests.cs" />

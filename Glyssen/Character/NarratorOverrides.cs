@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Properties;
@@ -36,6 +38,34 @@ namespace Glyssen.Character
 		public static List<NarratorOverrideDetail> GetNarratorOverridesForBook(string bookId)
 		{
 			return Singleton.m_dictionary.TryGetValue(bookId, out List<NarratorOverrideDetail> details) ? details : null;
+		}
+
+		/// <summary>
+		/// Gets the character to use in the script for a narrator block in the reference range of the given block. Note
+		/// that this code does not bother to check whether the given block is actually a narrator block.
+		/// </summary>
+		public static string GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
+		{
+			return GetCharacterOverrideForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum);
+		}
+
+		public static NarratorOverrideDetail GetCharacterOverrideDetailForRefRange(VerseRef startRef, int endVerse)
+		{
+			if (endVerse < startRef.VerseNum)
+				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse.");
+			var endRef = new VerseRef(startRef) { VerseNum = endVerse };
+			startRef.ChangeVersification(ScrVers.English);
+			if (startRef.VerseNum == 0)
+				return null;
+			endRef.ChangeVersification(ScrVers.English);
+			return GetNarratorOverridesForBook(startRef.Book)?.FirstOrDefault(o =>
+				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
+				(o.EndChapter > endRef.ChapterNum || (o.EndChapter == endRef.ChapterNum && o.EndVerse >= endRef.VerseNum)));
+		}
+
+		public static string GetCharacterOverrideForRefRange(VerseRef startRef, int endVerse)
+		{
+			return GetCharacterOverrideDetailForRefRange(startRef, endVerse)?.Character;
 		}
 
 		public static IDictionary<string, List<NarratorOverrideDetail>> NarratorOverridesByBookId => Singleton.m_dictionary;

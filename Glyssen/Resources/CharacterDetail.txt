@@ -25,6 +25,7 @@ Adoni-Bezek	1	Male	Adult			JDG 1:7	False
 Adonijah, son of David	1	Male	Adult			1KI 1:5 <-(5 more)-> 1KI 2:17	False
 Adoni-Zedek, king of Jerusalem	1	Male	Adult			JOS 10:4	False
 advisers to king	-1	Male	Adult			DAN 3:24	False
+afflicted person	1	Male	Adult			PSA 102:24	False
 Agabus the prophet	1	Male	Adult			ACT 11:28 & ACT 21:11	False
 Agag, king of the Amalekites	1	Male	Adult			1SA 15:32	False
 Agur	1	Male	Adult			PRO 30:1 <-(31 more)-> PRO 30:33	False
@@ -38,7 +39,7 @@ Ahimelech the priest (son of Ahitub)	1	Male	Adult			1SA 21:1 <-(4 more)-> 1SA 22
 Ahithophel	1	Male	Adult			2SA 16:21 <-(2 more)-> 2SA 17:3	False
 all in Nazareth synagogue	-1		Adult			LUK 4:22	False
 all in temple	-1		Adult			PSA 29:9	True
-all seeking God	-1		Adult			PSA 40:16	False
+all seeking God	-1		Adult			PSA 40:16	True
 all the elders	-1	Male	Elder		elders of the church in Jerusalem		False
 all who heard (in synagogues)	-1		Adult			ACT 9:21	False
 altar	1	PreferMale	Adult			REV 16:7	False
@@ -279,8 +280,7 @@ elders, Ephesian	-1	Male	Elder			ACT 20:38	False
 elders, one of the	1	Male	Elder			REV 5:5 <-(4 more)-> REV 7:17	False
 Eleazar the priest, son of Aaron	1	Male	Adult			NUM 31:21 <-(2 more)-> NUM 31:24	False
 Eleven	11	Male	Adult		This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.		False
-Eli	1	Male	Adult			1SA 1:14 <-(1 more)-> 1SA 2:20	False
-Eli (very old)	1	Male	Elder			1SA 2:23 <-(9 more)-> 1SA 4:16	False
+Eli (very old)	1	Male	Elder			1SA 1:14 <-(12 more)-> 1SA 4:16	False
 Eliab, David's brother	1	Male				1SA 17:28	False
 Eliakim	1	Male					False
 Eliezer, prophet of the Lord	1	Male				2CH 20:37	False
@@ -310,6 +310,7 @@ Epicurean and Stoic philosophers, sneering	-1					ACT 17:32	False
 Epicurean and Stoic philosophers, some	-1					ACT 17:18	False
 Esau	1	Male	Adult			GEN 25:30 <-(12 more)-> GEN 33:15	False
 Esther, queen	1	Female	Adult			EST 4:11 <-(9 more)-> EST 9:13	False
+Ethan	1	Male	Adult			Author of Psalm 89	False
 Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(3 more)-> ACT 8:38	False
 Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25	False
 every created thing	-1					REV 5:13	False
@@ -346,7 +347,7 @@ follower of Christ	1					1CO 1:12	True
 follower of Paul	1					1CO 1:12 & 1CO 3:4	True
 followers of Jesus	-1					LUK 22:49	False
 Folly	-1	Female				PRO 9:16 & PRO 9:17	False
-fool	1					PSA 14:1 & PSA 53:1	False
+fool	1					PSA 14:1 <-(1 more)-> ECC 7:10	True
 foot	1	Neuter				1CO 12:15	True
 foreman	1	Male				RUT 2:6 & RUT 2:7	False
 fortune telling slave girl	1	Female	YoungAdult			ACT 16:17	False
@@ -596,7 +597,7 @@ Malta islanders	-1					ACT 28:4 & ACT 28:6	False
 man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17	False
 man (Hebrew fighting)	1	Male				EXO 2:14	False
 man (hypothetical)	1	Male				ISA 3:6	True
-man all alone	1	Male				ECC 4:8	False
+man all alone	1	Male				ECC 4:8	True
 man answered David	1	Male				2SA 11:3	False
 man delivered from Legion of demons	1	Male			Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.	MRK 5:18 <-(1 more)-> LUK 8:38	False
 man escaped from Jerusalem	1	Male				EZK 33:21	False
@@ -813,7 +814,7 @@ people, hurried	-1					ISA 5:19	True
 people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10	False
 people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56	False
 people, other	-1					MRK 6:15 & LUK 9:8	False
-people, righteous	-1					PSA 52:7 & PSA 92:15	False
+people, righteous	-1					PSA 52:7 & PSA 92:15	True
 people, some	-1					MRK 2:18 <-(2 more)-> LUK 13:1	False
 people, still others	-1					MRK 6:15	False
 peoples, many	-1					ISA 2:3	True
@@ -867,6 +868,7 @@ poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30	False
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19	False
 priest	1	Male				DEU 20:3 & DEU 20:4	True
 priests	-1	Male				HAG 2:12 <-(2 more)-> MAL 1:7	False
+princes	-1	Male				PRO 31:4	True
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13	False
 proclamation	1	Male				EZR 10:7 & EZR 10:8	False
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10	False
@@ -960,7 +962,6 @@ scripture	-1					2CH 25:4 <-(228 more)-> REV 19:15	False
 sea	1	Neuter				ISA 23:4	True
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
 second person to accuse Peter (man)	1	Male				LUK 22:58	False
-Sennacherib's officers	-1	Male				2CH 32:10 <-(8 more)-> 2CH 32:19	False
 Seraiah	1	Male				JER 51:62 & JER 51:64	True
 seraph, one of the	1	Male				ISA 6:7	False
 seraphs	-1	Male				ISA 6:3	False
@@ -1060,6 +1061,7 @@ those standing near	-1	Male			accusers of Peter in courtyard		False
 those standing near Paul in Sanhedrin	-1	Male				ACT 23:4	False
 those who call on God	-1					ROM 10:14	True
 those who fear the Lord	-1					PSA 118:4	True
+those who go by	-1	Male			PSA 129:8		True
 those who heard	-1					HEB 12:19	False
 those who seek God	-1					PSA 70:4	False
 those with the Eleven	-1	Either					False
@@ -1121,6 +1123,7 @@ women of Bethlehem	-1	Female				RUT 1:19 <-(2 more)-> RUT 4:17	False
 women who oppress the poor	-1	Female				AMO 4:1	True
 women, dancing	-1	Female				1SA 18:7	False
 women, seven	7	Female				ISA 4:1	True
+worshipers	-1	Male				PSA 122:1	False
 worshipers of the beast	-1					REV 13:4	False
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12	False
 you (hypothetical Gentile)	1					ROM 11:19	True
