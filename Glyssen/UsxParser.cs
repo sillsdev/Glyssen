@@ -75,7 +75,7 @@ namespace Glyssen
 		private BookScript CreateBookScript()
 		{
 			Logger.WriteEvent("Creating bookScript ({0})", m_bookId);
-			var bookScript = new BookScript(m_bookId, Parse())
+			var bookScript = new BookScript(m_bookId, Parse(), null)
 			{
 				SingleVoice = BookMetadata.DefaultToSingleVoice(m_bookId, out SingleVoiceReason reason),
 				PageHeader = PageHeader,

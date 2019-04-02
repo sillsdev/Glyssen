@@ -89,7 +89,7 @@ namespace Glyssen.Analysis
 				m_alignmentPercent = 0;
 				return;
 			}
-			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze))
+			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze, false))
 			{
 				var blocks = book.GetScriptBlocks();
 				if (!refText.CanDisplayReferenceTextForBook(book) || book.SingleVoice)

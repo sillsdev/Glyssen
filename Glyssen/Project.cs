@@ -393,6 +393,8 @@ namespace Glyssen
 			}
 		}
 
+		public IEnumerable<string> IncludedBookIds => IncludedBooks.Select(b => b.BookId);
+
 		public IReadOnlyList<BookScript> IncludedBooks
 		{
 			get
@@ -1212,7 +1214,7 @@ namespace Glyssen
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			ProjectUtilities.ForEachBookFileInProject(projectDir,
-				(bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
+				(bookId, fileName) => project.m_books.Add(BookScript.Deserialize(fileName, project.Versification)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects
@@ -1314,7 +1316,7 @@ namespace Glyssen
 				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
 				if (sourceBookScript != null)
 				{
-					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification, ReferenceText);
+					targetBookScript.ApplyUserDecisions(sourceBookScript, ReferenceText);
 				}
 			}
 			Analyze();
@@ -1415,8 +1417,9 @@ namespace Glyssen
 
 			var bookScripts = (List<BookScript>) e.Result;
 
-			// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 			foreach (var bookScript in bookScripts)
+			{
+				// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 				if (bookScript == null || bookScript.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
@@ -1425,6 +1428,9 @@ namespace Glyssen
 					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage,
 						bookScripts.Count, nonNullBookScriptsStr));
 				}
+
+				bookScript.Initialize(Versification);
+			}
 
 			if (m_books.Any())
 			{
@@ -2187,20 +2193,17 @@ namespace Glyssen
 			foreach (var book in IncludedBooks)
 			{
 				var bookDistributionScoreStats = new Dictionary<string, DistributionScoreBookStats>();
-				var narratorToUseForSingleVoiceBook = (book.SingleVoice) ?
-					CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) :
-					null;
+				var narratorToUseForSingleVoiceBook = book.SingleVoice ? book.NarratorCharacterId : null;
 
 				string prevCharacter = null;
-				foreach (var block in book.GetScriptBlocks( /*true*/))
-					// The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
+				foreach (var block in book.GetScriptBlocks())
 				{
 					string character;
 					if (narratorToUseForSingleVoiceBook != null)
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
-						character = block.CharacterIdInScript;
+						character = block.GetCharacterIdInScript(Versification);
 
 						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
 						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
@@ -2394,9 +2397,8 @@ namespace Glyssen
 			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
 			{
 				var bookId = bookidBlocksPair.Key;
-				var blocks =
-					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, Versification).Parse().ToList();
-				var parsedBook = new BookScript(bookId, blocks);
+				var blocks = new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, Versification).Parse().ToList();
+				var parsedBook = new BookScript(bookId, blocks, Versification);
 				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
 			});
 
@@ -2444,9 +2446,7 @@ namespace Glyssen
 					}
 					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
 					{
-						block.SetCharacterIdAndCharacterIdInScript(
-							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
-							Versification);
+						block.SetCharacterIdAndCharacterIdInScript(book.NarratorCharacterId, bookNum, Versification);
 						block.UserConfirmed = true;
 					}
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)

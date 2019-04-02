@@ -1223,7 +1223,7 @@ namespace Glyssen.Rules
 				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails)
 			{
 				var dramatizationPreferences = project.DramatizationPreferences;
-				var includedBooks = project.IncludedBooks.Select(b => b.BookId).ToList();
+				var includedBooks = project.IncludedBookIds.ToList();
 				int maleGroupsWithExistingNarratorRoles = 0;
 				int femaleGroupsWithExistingNarratorRoles = 0;
 				CharacterGroup groupWithWorstPrioximity = null;

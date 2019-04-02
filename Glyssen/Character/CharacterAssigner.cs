@@ -34,7 +34,7 @@ namespace Glyssen.Character
 				}
 			}
 
-			bookScript.CleanUpMultiBlockQuotes(versification);
+			bookScript.CleanUpMultiBlockQuotes();
 		}
 	}
 }

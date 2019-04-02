@@ -49,7 +49,7 @@ namespace Glyssen
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
-		private string m_characterIdInScript;
+		private string m_characterIdInScriptOverride;
 		private string m_delivery;
 		private bool m_matchesReferenceText;
 		private static string s_characterSelect;
@@ -191,7 +191,7 @@ namespace Glyssen
 			}
 
 			public int StartVerse { get; private set; }
-			public int EndVerse { get { return LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge; } }
+			public int EndVerse => LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge;
 
 			/// <summary>
 			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
@@ -199,8 +199,8 @@ namespace Glyssen
 			public int LastVerseOfBridge { get; private set; }
 		}
 
-		public int LastVerseNum { get { return LastVerse.EndVerse; } }
-		public IVerse LastVerse { get { return BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this; } }
+		public int LastVerseNum => LastVerse.EndVerse;
+		public IVerse LastVerse => BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this;
 
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
@@ -215,23 +215,37 @@ namespace Glyssen
 		public string CharacterId { get; set; }
 
 		[XmlAttribute("characterIdOverrideForScript")]
-		public string CharacterIdOverrideForScript
-		{
-			get { return m_characterIdInScript; }
-			set { CharacterIdInScript = value; }
-		}
+		public string CharacterIdOverrideForScript => m_characterIdInScriptOverride;
 
 		[XmlIgnore]
 		public string CharacterIdInScript
 		{
-			get { return m_characterIdInScript ?? CharacterId; }
-			set { if (CharacterId != value) m_characterIdInScript = value; }
+			get => CharacterIdOverrideForScript ?? CharacterId;
+			set { if (CharacterId != value) m_characterIdInScriptOverride = value; }
+		}
+
+		public void ApplyNarratorOverrides(ScrVers versification)
+		{
+			if (CharacterIdOverrideForScript == null &&
+				CharacterVerseData.TryGetBookIdFromNarratorCharacterId(CharacterId, out string bookId))
+			{
+				m_characterIdInScriptOverride = NarratorOverrides.GetCharacterOverrideForBlock(BCVRef.BookToNumber(bookId), this, versification);
+			}
+		}
+
+		public string GetCharacterIdInScript(ScrVers versification)
+		{
+			if (CharacterIdOverrideForScript != null)
+				return CharacterIdOverrideForScript;
+			return CharacterVerseData.TryGetBookIdFromNarratorCharacterId(CharacterId, out string bookId) ?
+				(NarratorOverrides.GetCharacterOverrideForBlock(BCVRef.BookToNumber(bookId), this, versification) ?? CharacterId) :
+				CharacterId;
 		}
 
 		[XmlAttribute("delivery")]
 		public string Delivery
 		{
-			get { return m_delivery; }
+			get => m_delivery;
 			set
 			{
 				if (IsNullOrWhiteSpace(value))
@@ -743,7 +757,7 @@ namespace Glyssen
 		public void SetNonDramaticCharacterId(string characterID)
 		{
 			CharacterId = characterID;
-			m_characterIdInScript = null;
+			m_characterIdInScriptOverride = null;
 			Delivery = null;
 		}
 
@@ -825,7 +839,7 @@ namespace Glyssen
 			if (CharacterId == characterId && CharacterIdOverrideForScript != null)
 			{
 				if (CharacterIsStandard)
-					m_characterIdInScript = null;
+					m_characterIdInScriptOverride = null;
 				return;
 			}
 			CharacterId = characterId;
@@ -846,7 +860,7 @@ namespace Glyssen
 				CharacterIdInScript = (cv != null && !IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
 			}
 			else if (CharacterIsStandard)
-				m_characterIdInScript = null;
+				m_characterIdInScriptOverride = null;
 		}
 
 		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
@@ -1043,7 +1057,7 @@ namespace Glyssen
 					newBlock = new Block(StyleTag, ChapterNumber, initialStartVerse, initialEndVerse)
 					{
 						CharacterId = CharacterId,
-						CharacterIdOverrideForScript = CharacterIdOverrideForScript,
+						m_characterIdInScriptOverride = m_characterIdInScriptOverride,
 						Delivery = Delivery,
 						UserConfirmed = UserConfirmed
 					};
@@ -1073,11 +1087,15 @@ namespace Glyssen
 			SetCharacterAndDeliveryInfo(basedOnBlock);
 		}
 
-		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
+		public void SetCharacterInfo(Block basedOnBlock)
 		{
 			CharacterId = basedOnBlock.CharacterId;
-			if (basedOnBlock.CharacterIdOverrideForScript != null)
-				CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
+			m_characterIdInScriptOverride = basedOnBlock.m_characterIdInScriptOverride;
+		}
+
+		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
+		{
+			SetCharacterInfo(basedOnBlock);
 			Delivery = basedOnBlock.Delivery;
 		}
 

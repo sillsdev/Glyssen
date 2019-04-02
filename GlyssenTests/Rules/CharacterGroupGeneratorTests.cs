@@ -1477,6 +1477,11 @@ namespace GlyssenTests.Rules
 			{
 				generator.GenerateCharacterGroups();
 
+				// REVIEW: Are these assertions valid here? I had one fail when running in debug, but
+				// it didn't seem to make it back across the thread boundary, and the test ended up
+				// passing. But since we check these same things after canceling, does it really matter?
+				// Since GenerateCharacterGroups is supposed to handle the cancelling, it does seem like
+				// these assertions should be okay.
 				Assert.Null(generator.GeneratedGroups);
 				Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 				Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
@@ -1573,7 +1578,7 @@ namespace GlyssenTests.Rules
 
 			SetVoiceActors(10, 2, 1);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
-			var allBookIds = m_testProject.IncludedBooks.Select(b => b.BookId).ToList();
+			var allBookIds = m_testProject.IncludedBookIds.ToList();
 
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors.Count, groups.Count);
 			var narratorGroups = groups.Where(g => g.CharacterIds.Any(

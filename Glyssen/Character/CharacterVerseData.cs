@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.Extensions;
@@ -69,6 +70,18 @@ namespace Glyssen.Character
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
 			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+		}
+
+		public static bool TryGetBookIdFromNarratorCharacterId(string characterId, out string bookId)
+		{
+			var match = s_narratorRegex.Match(characterId);
+			if (!match.Success)
+			{
+				bookId = null;
+				return false;
+			}
+			bookId = match.Result("${bookId}");
+			return true;
 		}
 
 		public static bool IsCharacterStandard(string characterId)
@@ -180,6 +193,8 @@ namespace Glyssen.Character
 		protected const string kExtraBiblicalPrefix = "extra-";
 		/// <summary>Character ID prefix for intro material</summary>
 		protected const string kIntroPrefix = "intro-";
+
+		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
 		private const string kNarratorAsEnglishCharacterName = "narrator ({0})";
 		private const string kIntroductionAsEnglishCharacterName = "introduction ({0})";

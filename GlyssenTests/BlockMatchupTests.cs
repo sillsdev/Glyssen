@@ -27,7 +27,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Asi dijo. Despues se fue. ", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
 			Assert.IsFalse(vernacularBlocks.Contains(matchup.CorrelatedBlocks.Single()));
@@ -52,7 +52,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Okay, I guess I will. ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(5, "This is a trailing verse that should not be included.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(6).Select(b => b.GetText(true))));
@@ -75,7 +75,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Peter said: ").IsParagraphStart = true;
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Nice place you got here!");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.GetText(true))));
@@ -94,7 +94,7 @@ namespace GlyssenTests
 				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
 				"Big change in Topic", "s").IsParagraphStart = true;
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(2).Select(b => b.GetText(true))));
@@ -116,7 +116,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(12, "Pero después apareció a 2 de ellos en el camino. ", true, 16, "MRK"));
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(9, "Ellas dieron las instrucciones a los hombres.", true, 16, "MRK")
 				.AddVerse(10, "Y después, Jesús envió por medio de ellos el mensaje de salvación. "));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 3, null, i => true, null);
 			Assert.AreEqual(vernacularBlocks.Last().GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
@@ -131,7 +131,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Despues se fue. ", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, p =>
 			{
 				for (int b = 0; b < p.GetScriptBlocks().Count; b += 2)
@@ -164,7 +164,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Despues se fue.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Verse three.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, p =>
 			{
 				var block = p.GetScriptBlocks().First();
@@ -188,7 +188,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Despues se fue.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Verse three.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 2, p =>
 			{
 				var block = p.GetScriptBlocks()[1];
@@ -212,7 +212,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo alguien. ");
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
@@ -229,7 +229,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo alguien. ");
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
@@ -246,7 +246,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo alguien. ");
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
@@ -263,7 +263,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo alguien. ");
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
@@ -282,7 +282,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			vernacularBlocks.Last().Delivery = "confident";
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var refBlockJesus = ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true);
 			refBlockJesus.Delivery = "commanding";
 			vernacularBlocks[1].SetMatchedReferenceBlock(refBlockJesus);
@@ -323,7 +323,7 @@ namespace GlyssenTests
 			var narrator = vernacularBlocks[2].CharacterId;
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
@@ -367,7 +367,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.")
 				.AddVerse(3, "Dijo asi porque Jesus les habia dicho la misma cosa el dia anterior.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
@@ -414,7 +414,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMAT));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
@@ -452,7 +452,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Asi dijo. Despues se fue. ", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			var correspondingVernBlock = vernacularBlocks[iBlock];
 			Assert.AreEqual(correspondingVernBlock.GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));

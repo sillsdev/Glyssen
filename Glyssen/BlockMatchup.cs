@@ -74,7 +74,7 @@ namespace Glyssen
 					blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
 				while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
 					blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
-				m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
+				m_portion = new PortionScript(vernacularBook, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
 
 				try
 				{
@@ -92,7 +92,7 @@ namespace Glyssen
 			else
 			{
 				m_iStartBlock = iBlock;
-				m_portion = new PortionScript(vernacularBook.BookId, vernacularBook.GetScriptBlocks().Skip(iBlock).Take((int)predeterminedBlockCount).Select(b => b.Clone()));
+				m_portion = new PortionScript(vernacularBook, vernacularBook.GetScriptBlocks().Skip(iBlock).Take((int)predeterminedBlockCount).Select(b => b.Clone()));
 				CorrelatedAnchorBlock = m_portion.GetScriptBlocks().First();
 			}
 
@@ -216,11 +216,9 @@ namespace Glyssen
 						throw new InvalidOperationException("Following blocks are continuations of a \"quote\" that is now assigned to " +
 							$"{lastBlockInMatchup.CharacterId}. We need to look at this data condition to see what the desired behavior is. ***Final block in " +
 							$"matchup: {lastBlockInMatchup} ***First following block: {block}");
-					block.CharacterId = lastBlockInMatchup.CharacterId;
 					// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
 					// outside the matchup (probably not).
-					// block.Delivery = lastBlockInMatchup.Delivery;
-					block.CharacterIdOverrideForScript = lastBlockInMatchup.CharacterIdOverrideForScript;
+					block.SetCharacterInfo(lastBlockInMatchup);
 				}
 			}
 			else

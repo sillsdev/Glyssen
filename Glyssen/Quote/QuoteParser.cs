@@ -783,7 +783,7 @@ namespace Glyssen.Quote
 
 			Block blockFollowingLastInterruption = null;
 
-			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
+			var blocks = new PortionScript(bookId, new[] {m_workingBlock}, m_versification);
 			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
 			if (originalQuoteBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 				ProcessMultiBlock();
@@ -801,8 +801,7 @@ namespace Glyssen.Quote
 					startCharIndex = 1;
 					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
 					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote && nextInterruption == null ? MultiBlockQuote.Start : MultiBlockQuote.None;
-					blockFollowingLastInterruption.CharacterId = originalQuoteBlock.CharacterId;
-					blockFollowingLastInterruption.CharacterIdOverrideForScript = originalQuoteBlock.CharacterIdOverrideForScript;
+					blockFollowingLastInterruption.SetCharacterInfo(originalQuoteBlock);
 					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
 				}
 				else

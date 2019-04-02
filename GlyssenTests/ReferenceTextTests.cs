@@ -78,7 +78,7 @@ namespace GlyssenTests
 			};
 			block.AddVerse(1, "This is versiculo uno.").AddVerse(2, "This is versiculo dos.").AddVerse(3, "This is versiculo tres.");
 			vernacularBlocks.Add(block);
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 			var referenceBlocks = new List<Block>();
 			block = new Block("p", 1, 1)
 			{
@@ -107,7 +107,7 @@ namespace GlyssenTests
 			referenceBlocks.Add(block);
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			refText.ApplyTo(vernBook, m_vernVersification);
+			refText.ApplyTo(vernBook);
 
 			Assert.AreEqual(3, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
@@ -1836,7 +1836,7 @@ namespace GlyssenTests
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "respondio Juan el");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "“amado”");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Eso es todo.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "This is what happened.", true));
@@ -1848,23 +1848,22 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			// Now pre-match the vernacular blocks for verse 2:
-			var narrator = CharacterVerseData.GetStandardCharacterId(vernBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
 			vernacularBlocks[1].SetMatchedReferenceBlock(CreateNarratorBlockForVerse(2, "Then Jesus said:", true));
 			vernacularBlocks[2].SetMatchedReferenceBlock(referenceBlocks[1].Clone());
 			vernacularBlocks[2].ReferenceBlocks.Single().BlockElements.RemoveAt(0); // Get rid of verse number
 			vernacularBlocks[3].SetMatchedReferenceBlock(referenceBlocks[3].Clone());
 			vernacularBlocks[4].SetMatchedReferenceBlock(new Block("p", 1, 2)
 			{
-				CharacterId = narrator,
+				CharacterId = vernBook.NarratorCharacterId,
 				BlockElements = new List<BlockElement> { new ScriptText("responded John the ") }
 			});
 			vernacularBlocks[5].SetMatchedReferenceBlock(new Block("p", 1, 2)
 			{
-				CharacterId = narrator,
+				CharacterId = vernBook.NarratorCharacterId,
 				BlockElements = new List<BlockElement> { new ScriptText("beloved.") }
 			});
 
-			refText.ApplyTo(vernBook, m_vernVersification);
+			refText.ApplyTo(vernBook);
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(7, result.Count);
@@ -2788,7 +2787,7 @@ namespace GlyssenTests
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "—Nunca os dejare!");
 			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "—Gracias.");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "respondio Pedro.");
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
@@ -2811,11 +2810,11 @@ namespace GlyssenTests
 			});
 			vernacularBlocks[4].SetMatchedReferenceBlock(new Block("p", 1, 2)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId(vernBook.BookId, CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = vernBook.NarratorCharacterId,
 				BlockElements = new List<BlockElement> { new ScriptText("answered Peter.") }
 			});
 
-			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock);
 			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
