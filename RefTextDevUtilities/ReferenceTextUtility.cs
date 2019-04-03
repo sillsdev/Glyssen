@@ -353,12 +353,12 @@ namespace Glyssen.RefTextDevUtilities
 						{
 							if (existingEnglishRefBook != null)
 							{
-								newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks) {PageHeader = chapterLabel});
+								newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks, existingEnglishRefBook.Versification) {PageHeader = chapterLabel});
 								newBlocks.Clear();
 							}
 
 							if (mode == Mode.GenerateEnglish)
-								existingEnglishRefBook = new BookScript(referenceTextBookId, new Block[10000]);
+								existingEnglishRefBook = new BookScript(referenceTextBookId, new Block[10000], ScrVers.English);
 							else
 								existingEnglishRefBook = existingEnglishRefBooks[iBook++];
 
@@ -763,7 +763,7 @@ namespace Glyssen.RefTextDevUtilities
 
 					if (mode == Mode.Generate || mode == Mode.GenerateEnglish)
 					{
-						newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks) {PageHeader = chapterLabel});
+						newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks, existingEnglishRefBook.Versification) {PageHeader = chapterLabel});
 
 						foreach (var bookScript in newBooks)
 						{

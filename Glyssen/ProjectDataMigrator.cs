@@ -70,7 +70,7 @@ namespace Glyssen
 				{
 					MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(project.Books);
 					CleanUpMultiBlockQuotesAssignedToNarrator(project.Books);
-					ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(project.Books, project.Versification);
+					ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(project.Books);
 				}
 				MigrateDeprecatedCharacterIds(project);
 
@@ -341,7 +341,7 @@ namespace Glyssen
 		}
 
 		//internal for testing
-		internal static void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(IReadOnlyList<BookScript> books, ScrVers scrVers)
+		internal static void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
 			{
@@ -349,9 +349,9 @@ namespace Glyssen
 				foreach (var block in book.GetScriptBlocks())
 				{
 					if (block.MatchesReferenceText && block.CharacterIsUnclear())
-						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, scrVers);
+						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, book.Versification);
 					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear())
-						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, scrVers);
+						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, book.Versification);
 					prevBlock = block;
 				}
 			}

@@ -43,7 +43,6 @@ namespace Glyssen
 			else
 			{
 				referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-				referenceText.LoadBooks();
 				switch (id.Type)
 				{
 					case ReferenceTextType.English:
@@ -57,6 +56,7 @@ namespace Glyssen
 						referenceText.m_vers = ScrVers.English;
 						break;
 				}
+				referenceText.LoadBooks();
 				s_instantiatedReferenceTexts[id] = referenceText;
 			}
 			return referenceText;
@@ -67,10 +67,10 @@ namespace Glyssen
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
 			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
-			return fileName != null ? XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName) : null;
+			return fileName != null ? BookScript.Deserialize(fileName, Versification) : null;
 		}
 
-		private string[] BookScriptFiles { get { return Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension); } }
+		private string[] BookScriptFiles => Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension);
 
 		private void LoadBooks()
 		{
@@ -178,7 +178,7 @@ namespace Glyssen
 					yield return book;
 				else
 				{
-					var clone = book.Clone(true, applyNarratorOverrides);
+					var clone = book.GetCloneWithJoinedBlocks(applyNarratorOverrides);
 					ApplyTo(clone);
 					yield return clone;
 				}
@@ -201,7 +201,7 @@ namespace Glyssen
 			var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
 			MakesSplits(vernacularBook, bookNum, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
 
-			if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
+			if (MakesSplits(referenceBook, bookNum, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
 				m_modifiedBooks.Add(referenceBook.BookId);
 
 			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularBook.Versification, vernacularBook.SingleVoice);
@@ -232,7 +232,7 @@ namespace Glyssen
 
 			Action<PortionScript> splitBlocks = allowSplitting ? portion =>
 			{
-				MakesSplits(portion, bookNum, vernacularBook.Versification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
+				MakesSplits(portion, bookNum, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
 			} : (Action < PortionScript >)null;
 
 			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
@@ -601,7 +601,7 @@ namespace Glyssen
 							ErrorReport.NotifyUserOfProblem(
 								"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Chapter: {3}; Verse: {4}; Block: {5}",
 								descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
-								blocksToSplit.Id, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
+								blocksToSplit.BookId, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
 						}
 #endif
 						if (iSplit == verseSplitLocations.Count - 1)

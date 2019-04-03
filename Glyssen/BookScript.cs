@@ -34,8 +34,13 @@ namespace Glyssen
 		public BookScript(string bookId, IEnumerable<Block> blocks, ScrVers versification) : base(bookId, blocks, versification)
 		{
 			OnBlocksReset();
-			BookNumber = BCVRef.BookToNumber(bookId);
-			Initialize(versification);
+		}
+
+		public static BookScript Deserialize(string fileName, ScrVers versification, out Exception error)
+		{
+			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName, out error);
+			newBook.Initialize(versification);
+			return newBook;
 		}
 
 		public static BookScript Deserialize(string fileName, ScrVers versification)
@@ -44,24 +49,6 @@ namespace Glyssen
 			newBook.Initialize(versification);
 			return newBook;
 		}
-
-		[XmlAttribute("id")]
-		public string BookId
-		{
-			get => Id;
-			set
-			{
-				m_id = value;
-				BookNumber = BCVRef.BookToNumber(m_id);
-				NarratorCharacterId = CharacterVerseData.GetStandardCharacterId(m_id, CharacterVerseData.StandardCharacter.Narrator);
-			}
-		}
-
-		[XmlIgnore]
-		public int BookNumber { get; private set; }
-
-		[XmlIgnore]
-		public string NarratorCharacterId { get; private set; }
 
 		[XmlAttribute("singlevoice")]
 		public bool SingleVoice { get; set; }
@@ -115,7 +102,6 @@ namespace Glyssen
 		// This method is currently only used for testing
 		internal BookScript Clone()
 		{
-			// REVIEW: Need to make sure Versification gets copied over
 			BookScript newBook = (BookScript)MemberwiseClone();
 			newBook.Blocks = new List<Block>(GetScriptBlocks().Select(b => b.Clone()));
 			newBook.m_unappliedSplitBlocks = new List<List<Block>>(m_unappliedSplitBlocks.Select(l => l.Select(b => b.Clone()).ToList()));
@@ -161,7 +147,7 @@ namespace Glyssen
 
 				modifyClonedBlockAsNeeded = block =>
 				{
-
+					block.ApplyNarratorOverrides(Versification);
 				};
 
 				shouldCombine = (curr, prev) =>
@@ -196,31 +182,16 @@ namespace Glyssen
 			{
 				var prevBlock = list.Last();
 				currBlock = m_blocks[i].Clone();
-
 				modifyClonedBlockAsNeeded(currBlock);
 				if (shouldCombine(currBlock, prevBlock))
-				{
-					if (prevBlock == m_blocks[i - 1])
-					{
-						// Needs to be cloned in order to join. Then we replace the
-						// existing one with the cloned/joined block;
-						list[list.Count - 1] = Block.CombineBlocks(prevBlock, currBlock);
-					}
-					else
-					{
-						// Already cloned. Just add this one to it.
-						prevBlock.CombineWith(currBlock);
-					}
-				}
+					prevBlock.CombineWith(currBlock);
 				else
-				{
 					list.Add(currBlock);
-				}
 			}
 
 			//if (SingleVoice)
 			//{
-			//	list.Add(m_blocks[0].Clone()); // TODO: Check to see if we need to force this to narrator
+			//	list.Add(m_blocks[0].Clone());
 			//	var prevBlock = list.Single();
 			//	prevBlock.MatchesReferenceText = false;
 			//	for (var i = 1; i < m_blockCount; i++)
@@ -535,7 +506,6 @@ namespace Glyssen
 		{
 			var comparer = new BlockElementContentsComparer();
 			int iTarget = 0;
-			var bookNum = BCVRef.BookToNumber(sourceBookScript.BookId);
 			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
 			{
 				if (iTarget == m_blocks.Count)
@@ -559,7 +529,7 @@ namespace Glyssen
 						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
 					{
 						if (sourceBlock.CharacterIdOverrideForScript == null)
-							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, bookNum, Versification);
+							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, sourceBookScript.BookNumber, Versification);
 						else
 							m_blocks[iTarget].SetCharacterInfo(sourceBlock);
 						m_blocks[iTarget].Delivery = sourceBlock.Delivery;

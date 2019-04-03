@@ -28,6 +28,7 @@ namespace GlyssenTests
 		{
 			JOS,
 			RUT,
+			PSA_NoData,
 			OBA, // This is a playground book, currently useful for verse bridges and verse segments
 			MAT, // This is derived from Kuna (cuk), not Acholi
 			MRK,
@@ -169,6 +170,12 @@ namespace GlyssenTests
 					book.LongName = "Ruth";
 					book.ShortName = "Ruth";
 					xmlDocument.LoadXml(Properties.Resources.TestRUT);
+					break;
+				case TestBook.PSA_NoData:
+					book.Code = "PSA";
+					book.LongName = "The Book of Psalms";
+					book.ShortName = "Psalms";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.OBA:
 					book.Code = "OBA";

@@ -163,11 +163,11 @@ namespace Glyssen
 			WritingSystemDefinition ws)
 			: this(metadata, ws: ws)
 		{
-			ParseAndSetBooks(books, stylesheet);
-
 			Directory.CreateDirectory(ProjectFolder);
 			RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
 			m_vers = LoadVersification(VersificationFilePath);
+
+			ParseAndSetBooks(books, stylesheet);
 		}
 
 		public static IEnumerable<string> AllPublicationFolders => Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
@@ -1285,7 +1285,7 @@ namespace Glyssen
 			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification,
+				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books,
 					m_projectMetadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 
 				UpdateControlFileVersion();
@@ -1381,6 +1381,8 @@ namespace Glyssen
 
 		private void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
+			if (Versification == null)
+				throw new NullReferenceException("What!!!");
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 			var usxWorker = new BackgroundWorker {WorkerReportsProgress = true};
 			usxWorker.DoWork += UsxWorker_DoWork;
@@ -1631,7 +1633,7 @@ namespace Glyssen
 			if (RobustFile.Exists(path))
 			{
 				Exception error;
-				var bookScript = XmlSerializationHelper.DeserializeFromFile<BookScript>(GetBookDataFilePath(bookId), out error);
+				var bookScript = BookScript.Deserialize(GetBookDataFilePath(bookId), Versification, out error);
 				if (error != null)
 					ErrorReport.ReportNonFatalException(error);
 				return bookScript;

@@ -215,12 +215,16 @@ namespace Glyssen
 		public string CharacterId { get; set; }
 
 		[XmlAttribute("characterIdOverrideForScript")]
-		public string CharacterIdOverrideForScript => m_characterIdInScriptOverride;
+		public string CharacterIdOverrideForScript
+		{
+			get { return m_characterIdInScriptOverride; }
+			set { CharacterIdInScript = value; }
+		}
 
 		[XmlIgnore]
 		public string CharacterIdInScript
 		{
-			get => CharacterIdOverrideForScript ?? CharacterId;
+			get { return m_characterIdInScriptOverride ?? CharacterId; }
 			set { if (CharacterId != value) m_characterIdInScriptOverride = value; }
 		}
 
@@ -235,11 +239,10 @@ namespace Glyssen
 
 		public string GetCharacterIdInScript(ScrVers versification)
 		{
-			if (CharacterIdOverrideForScript != null)
-				return CharacterIdOverrideForScript;
-			return CharacterVerseData.TryGetBookIdFromNarratorCharacterId(CharacterId, out string bookId) ?
+			return CharacterIdOverrideForScript ??
+				(CharacterVerseData.TryGetBookIdFromNarratorCharacterId(CharacterId, out string bookId) ?
 				(NarratorOverrides.GetCharacterOverrideForBlock(BCVRef.BookToNumber(bookId), this, versification) ?? CharacterId) :
-				CharacterId;
+				CharacterId);
 		}
 
 		[XmlAttribute("delivery")]
@@ -1191,7 +1194,7 @@ namespace Glyssen
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var bookNumber = BCVRef.BookToNumber(bookId);
 			var startVerse = StartRef(bookNumber, vernVersification);
-			var endVerse = EndRef(ChapterNumber, vernVersification);
+			var endVerse = EndRef(bookNumber, vernVersification);
 			startVerse.ChangeVersification(englishRefText.Versification);
 			endVerse.ChangeVersification(englishRefText.Versification);
 

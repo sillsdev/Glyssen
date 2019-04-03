@@ -685,7 +685,7 @@ namespace GlyssenTests.Dialogs
 			blockC.BlockElements.Add(new ScriptText("Verse 3-4"));
 			var blockD = new Block("p", 1, 3, 4) { MultiBlockQuote = MultiBlockQuote.None };
 			blockD.BlockElements.Add(new ScriptText("Jesus said"));
-			var bookScriptJud = new BookScript("JUD", new List<Block> { blockA, blockB, blockC, blockD });
+			var bookScriptJud = new BookScript("JUD", new List<Block> { blockA, blockB, blockC, blockD }, ScrVers.English);
 			var bookList = new List<BookScript> { bookScriptJud };
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 3), new BCVRef(65, 1, 4)};
@@ -713,7 +713,7 @@ namespace GlyssenTests.Dialogs
 
 			var blockC = new Block("p", 1, 1, 2) {MultiBlockQuote = MultiBlockQuote.Start};
 			blockC.BlockElements.Add(new ScriptText("'This is the quote'"));
-			var bookScriptJud = new BookScript("JUD", new List<Block> {blockA, blockB, blockC});
+			var bookScriptJud = new BookScript("JUD", new List<Block> {blockA, blockB, blockC}, ScrVers.English);
 			var bookList = new List<BookScript> {bookScriptJud};
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 1), new BCVRef(65, 1, 2)};
