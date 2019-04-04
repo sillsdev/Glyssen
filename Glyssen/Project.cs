@@ -160,11 +160,11 @@ namespace Glyssen
 		/// Used only for sample project and in tests.
 		/// </summary>
 		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet,
-			WritingSystemDefinition ws)
+			WritingSystemDefinition ws, string versificationInfo = null)
 			: this(metadata, ws: ws)
 		{
 			Directory.CreateDirectory(ProjectFolder);
-			RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
+			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? Resources.EnglishVersification);
 			m_vers = LoadVersification(VersificationFilePath);
 
 			ParseAndSetBooks(books, stylesheet);

@@ -70,6 +70,11 @@ namespace GlyssenTests
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)
 		{
+			return CreateTestProject(null, booksToInclude);
+		}
+
+		public static Project CreateTestProject(string versificationInfo, params TestBook[] booksToInclude)
+		{
 			m_errorDuringProjectCreation = null;
 
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
@@ -93,7 +98,7 @@ namespace GlyssenTests
 				var sampleWs = new WritingSystemDefinition();
 				sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT) || booksToInclude.Contains(TestBook.MAT)).AllLevels);
 
-				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
+				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs, versificationInfo);
 
 				// Wait for quote parse to finish
 				while (project.ProjectState != ProjectState.FullyInitialized && m_errorDuringProjectCreation == null)

@@ -126,7 +126,7 @@ namespace Glyssen
 			if (m_blockCount == 0)
 				return clonedBook;
 
-			Action<Block> modifyClonedBlockAsNeeded;
+			Action<Block> modifyClonedBlockAsNeeded = null;
 			Func<Block, Block, bool> shouldCombine;
 
 			if (SingleVoice)
@@ -145,10 +145,14 @@ namespace Glyssen
 				if (m_styleSheet == null)
 					m_styleSheet = SfmLoader.GetUsfmStylesheet();
 
-				modifyClonedBlockAsNeeded = block =>
+				if (applyNarratorOverrides)
 				{
-					block.ApplyNarratorOverrides(Versification);
-				};
+					modifyClonedBlockAsNeeded =
+						block =>
+						{
+							block.ApplyNarratorOverrides(Versification);
+						};
+				}
 
 				shouldCombine = (curr, prev) =>
 				{
@@ -176,13 +180,13 @@ namespace Glyssen
 			}
 
 			var currBlock = m_blocks[0].Clone();
-			modifyClonedBlockAsNeeded(currBlock);
+			modifyClonedBlockAsNeeded?.Invoke(currBlock);
 			list.Add(currBlock);
 			for (var i = 1; i < m_blockCount; i++)
 			{
 				var prevBlock = list.Last();
 				currBlock = m_blocks[i].Clone();
-				modifyClonedBlockAsNeeded(currBlock);
+				modifyClonedBlockAsNeeded?.Invoke(currBlock);
 				if (shouldCombine(currBlock, prevBlock))
 					prevBlock.CombineWith(currBlock);
 				else
