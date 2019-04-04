@@ -331,8 +331,7 @@ namespace Glyssen
 							}
 
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
-							if (currentRefBlock.IsChapterAnnouncement)
-								continue;
+							continue;
 						}
 						goto case CharacterVerseData.StandardCharacter.ExtraBiblical;
 					case CharacterVerseData.StandardCharacter.ExtraBiblical:

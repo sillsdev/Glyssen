@@ -421,23 +421,13 @@ namespace GlyssenTests
 			};
 			block.BlockElements.Add(new ScriptText("El Evangelio Segun San Mateo"));
 			vernacularBlocks.Add(block);
-			block = new Block("c", 1)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-			};
-			block.BlockElements.Add(new ScriptText("1"));
+			block = NewChapterBlock("MAT", 1);
 			vernacularBlocks.Add(block);
 			vernacularBlocks.Add(CreateBlockForVerse("Paul", 1, "This is versiculo uno.", true)
 				.AddVerse(2, "This is versiculo dos.")
 				.AddVerse(3, "This is versiculo tres."));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(4, "Now the narrator butts in."));
-			block = new Block("c", 2)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-			};
-			block.BlockElements.Add(new ScriptText("2"));
+			block = NewChapterBlock("MAT", 2);
 			vernacularBlocks.Add(block);
 			block = new Block("s", 2)
 			{
@@ -455,23 +445,13 @@ namespace GlyssenTests
 			};
 			block.BlockElements.Add(new ScriptText("The Gospel According to Saint Thomas"));
 			referenceBlocks.Add(block);
-			block = new Block("c", 1)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-			};
+			block = NewChapterBlock("MAT", 1);
 			referenceBlocks.Add(block);
-			block.BlockElements.Add(new ScriptText("1"));
 			referenceBlocks.Add(CreateBlockForVerse("Paul", 1, "This is verse one.", true));
 			referenceBlocks.Add(CreateBlockForVerse("Paul", 2, "This is verse two.", true));
 			referenceBlocks.Add(CreateBlockForVerse("Paul", 3, "This is verse three.", true));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Now the narrator butts in."));
-			block = new Block("c", 2)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-			};
-			block.BlockElements.Add(new ScriptText("2"));
+			block = NewChapterBlock("MAT", 2);
 			referenceBlocks.Add(block);
 			block = new Block("s", 2)
 			{
@@ -1667,30 +1647,15 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse("scripture", 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2));
-			vernacularBlocks.Add(new Block("c", 3)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-				BlockElements = new List<BlockElement> { new ScriptText("3") }
-			});
+			vernacularBlocks.Add(NewChapterBlock("MAT", 3));
 
 			var indonesianReferenceBlocks = new List<Block>();
 			indonesianReferenceBlocks.Add(CreateBlockForVerse("scripture", 23, "<<Orang Nazaret.>>", false, 2));
-			indonesianReferenceBlocks.Add(new Block("c", 3)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-				BlockElements = new List<BlockElement> { new ScriptText("3") }
-			});
+			indonesianReferenceBlocks.Add(NewChapterBlock("MAT", 3));
 
 			var englishReferenceBlocks = new List<Block>();
 			englishReferenceBlocks.Add(CreateBlockForVerse("scripture", 23, "“He will be called a Nazarene.”", false, 2));
-			englishReferenceBlocks.Add(new Block("c", 3)
-			{
-				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
-				BlockElements = new List<BlockElement> { new ScriptText("Matthew 3") }
-			});
+			englishReferenceBlocks.Add(NewChapterBlock("MAT", 3, "Matthew 3"));
 
 			for (int i = 0; i < englishReferenceBlocks.Count; i++)
 				indonesianReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
@@ -1707,7 +1672,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
-			Assert.True(result[1].ReferenceBlocks.Single().GetPrimaryReferenceText() == "Matthew 3");
+			Assert.AreEqual("Matthew 3", result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[TestCase(null)]
@@ -1918,10 +1883,10 @@ namespace GlyssenTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Fourteen Twenty-four.", true, 14, "ROM"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(25, "Fourteen Twenty-five.", false, 14, "ROM"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Fourteen Twenty-six.", false, 14, "ROM"));
-			vernacularBlocks.Add(CreateBlockForVerse(chapterAnnouncementCharacter, 0, "15", true, 15, "c"));
+			vernacularBlocks.Add(NewChapterBlock("ROM", 15));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Fifteen One.", true, 15, "ROM"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Fifteen Two.", false, 15, "ROM"));
-			vernacularBlocks.Add(CreateBlockForVerse(chapterAnnouncementCharacter, 0, "16", true, 16, "c"));
+			vernacularBlocks.Add(NewChapterBlock("ROM", 16));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Sixteen One.", true, 16, "ROM"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Gaius, whose hospitality...", true, 16, "ROM"));
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Erastus sayas hi.", "ROM");
@@ -1965,11 +1930,12 @@ namespace GlyssenTests
 			//EXO 8:5-32 = EXO 8:1-28
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(29, "Versículo 29. ", true, 7, "EXO"));
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("EXO", CharacterVerseData.StandardCharacter.BookOrChapter), 0, "Chapter 8", false, 8, "c"));
+			vernacularBlocks.Add(NewChapterBlock("EXO", 8, "Chapter 8"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Versículo 1.", false, 8, "EXO"));
 			var vernBook = new BookScript("EXO", vernacularBlocks, m_vernVersification);
 
 			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(NewChapterBlock("EXO", 8, "Chapter 8"));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Verse 4. ", true, 8, "EXO"));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(5, "Verse 5.", false, 8, "EXO"));
 
@@ -1980,12 +1946,12 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("The Gospel According to Thomas 8", result[1].GetPrimaryReferenceText());
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[2].MatchesReferenceText);
 		}
 
@@ -2401,12 +2367,11 @@ namespace GlyssenTests
 		public void GetBooksWithBlocksConnectedToReferenceText_SomeBlocksPrematchedAndJoined_PrematchedVersesDoNotGetResplit(bool applyNarratorOverrides)
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(new Block("c", 3) {BookCode = "MAT"});
-			vernacularBlocks.Last().BlockElements.Add(new ScriptText("3"));
+			vernacularBlocks.Add(NewChapterBlock("MAT", 3));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Een dat time, John wa Bactize come ta de wildaness een Judea, an e staat fa preach dey. ", true, 3));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "E tell um say, "));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "E tell um say, ", chapter:3));
 			AddBlockForVerseInProgress(vernacularBlocks, "John the Baptist", "“Oona mus change oona sinful way an dohn do um no mo. Cause de time mos yah wen God gwine rule oba we!” ");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "John been de man wa de prophet Isaiah beena taak bout wen e say,"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "John been de man wa de prophet Isaiah beena taak bout wen e say,", chapter: 3));
 			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "“Somebody da holla een de wildaness say, ‘Oona mus cleah de road weh de Lawd gwine come shru.", "q1");
 			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "Mek de pat scraight fa um fa waak!’ ”", "q2");
 
@@ -2422,11 +2387,12 @@ namespace GlyssenTests
 				.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
 			Assert.AreEqual(6, result.Count);
-			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[0].MatchesReferenceText && result[0].ReferenceBlocks.Single().IsChapterAnnouncement);
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.IsFalse(result[3].MatchesReferenceText);
-			Assert.IsFalse(result[4].MatchesReferenceText);
+			// These final three blocks aren't of major importance in this test, but here's how they shake out:
+			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.IsTrue(result[4].MatchesReferenceText);
 			Assert.IsFalse(result[5].MatchesReferenceText);
 
 			Assert.AreEqual("In those days, John the Baptizer came, preaching in the wilderness of Judea, {2}\u00A0saying,", result[1].GetPrimaryReferenceText());
@@ -2934,6 +2900,18 @@ namespace GlyssenTests
 		}
 
 		#region private helper methods
+		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
+		{
+			var block = new Block("c", chapterNum)
+			{
+				BookCode = bookId,
+				IsParagraphStart = true,
+				CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter)
+			};
+			block.BlockElements.Add(new ScriptText(text ?? chapterNum.ToString()));
+			return block;
+		}
+
 		internal static Block CreateBlockForVerse(string characterId, int initialStartVerseNumber, string text, bool paraStart = false,
 			int chapter = 1, string styleTag = "p", int initialEndVerseNumber = 0)
 		{
@@ -3003,6 +2981,9 @@ namespace GlyssenTests
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
 			: base(metadata, ReferenceTextType.Custom, null)
 		{
+			if (m_vers != null && book.Versification == null)
+				book.Initialize(m_vers);
+
 			m_books.Add(book);
 		}
 
@@ -3010,6 +2991,8 @@ namespace GlyssenTests
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
 			m_vers = ScrVers.English;
+			foreach (var book in m_books.Where(b => b.Versification == null))
+				book.Initialize(m_vers);
 		}
 
 		private static GlyssenDblTextMetadata NewMetadata

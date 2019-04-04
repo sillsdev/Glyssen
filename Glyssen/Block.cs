@@ -1086,8 +1086,14 @@ namespace Glyssen
 		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, ScrVers scrVers)
 		{
 			if (basedOnBlock.CharacterIdOverrideForScript == null)
+			{
+				// Typically, if the reference text has a character ID representing multiple characters, it will not have
+				// an override to specify which one to use in the script.
 				SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
-			SetCharacterAndDeliveryInfo(basedOnBlock);
+				Delivery = basedOnBlock.Delivery;
+			}
+			else
+				SetCharacterAndDeliveryInfo(basedOnBlock);
 		}
 
 		public void SetCharacterInfo(Block basedOnBlock)

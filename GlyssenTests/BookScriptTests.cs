@@ -3288,7 +3288,6 @@ namespace GlyssenTests
 			var block = new Block("c", chapterNum);
 			block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText(chapterNum.ToString()));
-			block.IsParagraphStart = true;
 			m_curSetupChapter = chapterNum;
 			m_curSetupVerse = 0;
 			m_curSetupVerseEnd = 0;
