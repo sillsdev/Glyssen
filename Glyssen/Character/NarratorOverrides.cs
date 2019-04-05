@@ -53,11 +53,19 @@ namespace Glyssen.Character
 		{
 			if (endVerse < startRef.VerseNum)
 				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse.");
-			var endRef = new VerseRef(startRef) { VerseNum = endVerse };
+
+			bool endAndStartAreSame = endVerse == startRef.VerseNum;
+			VerseRef endRef = endAndStartAreSame ? startRef : new VerseRef(startRef) {VerseNum = endVerse};
+
 			startRef.ChangeVersification(ScrVers.English);
-			if (startRef.VerseNum == 0)
+			if (startRef.VerseNum == 0) // Currently, we don't support overriding verse 0 (Hebrew subtitle in Psalms) -- this allows us to define overrides with chapter ranges.
 				return null;
-			endRef.ChangeVersification(ScrVers.English);
+
+			if (endAndStartAreSame) // Calling change versification is kind of expensive, so this is a helpful optimization
+				endRef = startRef;
+			else
+				endRef.ChangeVersification(ScrVers.English);
+
 			return GetNarratorOverridesForBook(startRef.Book)?.FirstOrDefault(o =>
 				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
 				(o.EndChapter > endRef.ChapterNum || (o.EndChapter == endRef.ChapterNum && o.EndVerse >= endRef.VerseNum)));

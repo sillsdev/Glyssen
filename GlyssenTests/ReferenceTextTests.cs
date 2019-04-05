@@ -2435,12 +2435,9 @@ namespace GlyssenTests
 			Assert.AreEqual(referenceBlocks.Single().GetText(true), result.ReferenceBlocks.Single().GetText(true));
 		}
 
-		[TestCase(true, false)]
-		[TestCase(false, false)]
-		[TestCase(true, true)]
-		[TestCase(false, true)]
-		public void GetBooksWithBlocksConnectedToReferenceText_ApplyNarratorOverrides_FactoryOverridesAppliedCorrectly(bool applyNarratorOverrides,
-			bool russianOrthodoxVersification)
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetBooksWithBlocksConnectedToReferenceText_EnglishVersification_FactoryOverridesAppliedIfRequested(bool applyNarratorOverrides)
 		{
 			// This test is based on the NarratorOverrides.xml control file having the following contents:
 			//< Override startChapter = "68" endChapter = "70" character = "David" />
@@ -2451,88 +2448,71 @@ namespace GlyssenTests
 			//< Override startChapter = "82" startVerse = "8" endChapter = "83" character = "Asaph" />
 			//< Override startChapter = "84" endChapter = "85" character = "sons of Korah" />
 
-			var testProject = TestProject.CreateTestProject(russianOrthodoxVersification ? Resources.RussianOrthodoxVersification : null, TestProject.TestBook.PSA_NoData);
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PSA_NoData);
 			var psalms = testProject.Books[0];
 			var vernacularBlocks = new List<Block>();
 
-			// In English, the Hebrew subtitle is "verse 0" (i.e., not numbered), but in Russian Orthodox, it is marked as verse 1.
-			var verseNumAdjustment = russianOrthodoxVersification ? 1 : 0;
-			// Also, all the chapters in this range are shifted down by one!
-			var chapterNumAdjustment = russianOrthodoxVersification ? -1 : 0;
-
-			var chapter = 71 + chapterNumAdjustment;
+			var chapter = 71;
 			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 + verseNumAdjustment, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 , "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2 + verseNumAdjustment, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(24 + verseNumAdjustment, "Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Защото се посрамиха - защото се смутиха - ония, ", "q2");
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "които искат зло за мене.", "q2");
-			chapter = 72 + chapterNumAdjustment;
+
+			chapter = 72;
 			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
-			if (russianOrthodoxVersification)
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Псалом за Соломона.", true, chapter, psalms.BookId, "d"));
-			else
-				AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Псалом за Соломона.", "d");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 + verseNumAdjustment, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Псалом за Соломона", "d");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2 + verseNumAdjustment, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(20 + verseNumAdjustment, "Свършиха се молитвите на Иесевия син Давида.", true, chapter, psalms.BookId, "q1"));
-			chapter = 73 + chapterNumAdjustment;
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(20, "Свършиха се молитвите на Иесевия син Давида.", true, chapter, psalms.BookId, "q1"));
+			chapter = 73;
 			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
-			if (russianOrthodoxVersification)
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Асафов псалом.", true, chapter, psalms.BookId, "d"));
-			else
-				AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Асафов псалом.", "d");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 + verseNumAdjustment, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Асафов псалом.", "d");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2 + verseNumAdjustment, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
-			vernacularBlocks.Add(CreateBlockForVerse("Mike/Fred", 5 + verseNumAdjustment, "Hi, this is Fred!", true, chapter, "q1"));
+			vernacularBlocks.Add(CreateBlockForVerse("Mike/Fred", 5, "Hi, this is Fred!", true, chapter, "q1"));
 			vernacularBlocks.Last().CharacterIdOverrideForScript = "Fred";
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(28 + verseNumAdjustment, "Но за мене е добре да се приближа при Бога; ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(28, "Но за мене е добре да се приближа при Бога; ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Тебе, Господи Иеова, направих прибежището си, ", "q2");
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "За да възгласявам всичките Твои дела.", "q1");
-			chapter = 74 + chapterNumAdjustment;
+			chapter = 74;
 			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
-			if (russianOrthodoxVersification)
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Асафов псалом.", true, chapter, psalms.BookId, "d"));
-			else
-				AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Асафов псалом.", "d");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 + verseNumAdjustment, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Асафов псалом.", "d");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2 + verseNumAdjustment, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(23 + verseNumAdjustment, "Не забравяй гласа на противниците Си; ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Не забравяй гласа на противниците Си; ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", "q2");
-			chapter = 82 + chapterNumAdjustment;
+			chapter = 82;
 			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
-			if (russianOrthodoxVersification)
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Асафов псалом.", true, chapter, psalms.BookId, "d"));
-			else
-				AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Асафов псалом.", "d");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 + verseNumAdjustment, "Бог стои в Божия събор, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Асафов псалом.", "d");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Бог стои в Божия събор, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Седи всред боговете.", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2 + verseNumAdjustment, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
-			vernacularBlocks.Add(CreateBlockForVerse("Mike/Fred", 5 + verseNumAdjustment, "Hi, this is Mike!", true, chapter, "q1"));
+			vernacularBlocks.Add(CreateBlockForVerse("Mike/Fred", 5, "Hi, this is Mike!", true, chapter, "q1"));
 			vernacularBlocks.Last().CharacterIdOverrideForScript = "Mike";
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(7 + verseNumAdjustment, "А при все това вие ще умрете като човеци, ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "А при все това вие ще умрете като човеци, ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И ще паднете като един от князете.", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(8 + verseNumAdjustment, "Стани, Боже, съди земята; ", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Стани, Боже, съди земята; ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Защото Ти имаш наследство всред всичките народи.", "q2");
-			chapter = 84 + chapterNumAdjustment;
+
+			chapter = 84;
 			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
-			if (russianOrthodoxVersification)
-				vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "За първия певец, на гетския инструмент, псалом на Кореевите потомци.", true, chapter, psalms.BookId, "d"));
-			else
-				AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "За първия певец, на гетския инструмент, псалом на Кореевите потомци.", "d");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1 + verseNumAdjustment, "Колко са мили Твоите обиталища Господи на силите!", true, chapter, psalms.BookId, "q1"));
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(2 + verseNumAdjustment, "Копнее и даже примира душата ми за дворовете Господни; ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "За първия певец, на гетския инструмент, псалом на Кореевите потомци.", "d");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Колко са мили Твоите обиталища Господи на силите!", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Копнее и даже примира душата ми за дворовете Господни; ", true, chapter, psalms.BookId, "q1"));
 			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Сърцето ми и плътта ми викат към живия Бог.", "q2");
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(12 + verseNumAdjustment, "Господи на Силите, Блажен оня човек, който уповава на Тебе.", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(12, "Господи на Силите, Блажен оня човек, който уповава на Тебе.", true, chapter, psalms.BookId, "q1"));
+
 			psalms.Blocks = vernacularBlocks;
 
 			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
@@ -2552,78 +2532,38 @@ namespace GlyssenTests
 			// Setup is identical for both test cases - expected results are a bit different.
 			if (applyNarratorOverrides)
 			{
-				if (russianOrthodoxVersification)
+				foreach (var b in narratorBlocks)
 				{
-					foreach (var b in narratorBlocks)
+					if (b.InitialStartVerseNumber == 0)
 					{
-						if (b.InitialStartVerseNumber == 1)
-						{
-							Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
-							Assert.AreEqual("d", b.StyleTag);
-							continue;
-						}
-						switch (b.ChapterNumber)
-						{
-							case 70:
-								Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
-								break;
-							case 71:
-								Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
-								break;
-							case 72:
-							case 73:
-								Assert.AreEqual("Asaph", b.CharacterIdInScript);
-								break;
-							case 81:
-								if (b.LastVerseNum < 3 || b.InitialStartVerseNumber > 8)
-									Assert.AreEqual("Asaph", b.CharacterIdInScript);
-								else
-									Assert.AreEqual("God", b.CharacterIdInScript);
-								break;
-							case 83:
-								Assert.AreEqual("sons of Korah", b.CharacterIdInScript);
-								break;
-							default:
-								Assert.Fail("Unexpected chapter number in result blocks");
-								break;
-						}
+						Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
+						Assert.AreEqual("d", b.StyleTag);
+						continue;
 					}
-				}
-				else
-				{
-					foreach (var b in narratorBlocks)
+					switch (b.ChapterNumber)
 					{
-						if (b.InitialStartVerseNumber == 0)
-						{
+						case 71:
 							Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
-							Assert.AreEqual("d", b.StyleTag);
-							continue;
-						}
-						switch (b.ChapterNumber)
-						{
-							case 71:
-								Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
-								break;
-							case 72:
-								Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
-								break;
-							case 73:
-							case 74:
+							break;
+						case 72:
+							Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
+							break;
+						case 73:
+						case 74:
+							Assert.AreEqual("Asaph", b.CharacterIdInScript);
+							break;
+						case 82:
+							if (b.LastVerseNum < 2 || b.InitialStartVerseNumber > 7)
 								Assert.AreEqual("Asaph", b.CharacterIdInScript);
-								break;
-							case 82:
-								if (b.LastVerseNum < 2 || b.InitialStartVerseNumber > 7)
-									Assert.AreEqual("Asaph", b.CharacterIdInScript);
-								else
-									Assert.AreEqual("God", b.CharacterIdInScript);
-								break;
-							case 84:
-								Assert.AreEqual("sons of Korah", b.CharacterIdInScript);
-								break;
-							default:
-								Assert.Fail("Unexpected chapter number in result blocks");
-								break;
-						}
+							else
+								Assert.AreEqual("God", b.CharacterIdInScript);
+							break;
+						case 84:
+							Assert.AreEqual("sons of Korah", b.CharacterIdInScript);
+							break;
+						default:
+							Assert.Fail("Unexpected chapter number in result blocks");
+							break;
 					}
 				}
 			}
@@ -2635,80 +2575,53 @@ namespace GlyssenTests
 			var i = 0;
 			var block = resultBlocksExcludingDirectSpeech[i++];
 
-
-			chapter = 71 + chapterNumAdjustment;
+			chapter = 71;
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.IsTrue(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (1 + verseNumAdjustment) + "}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (2 + verseNumAdjustment) + "}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (24 + verseNumAdjustment) + "}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
+			Assert.AreEqual("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			chapter = 72 + chapterNumAdjustment;
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.IsTrue(block.IsChapterAnnouncement);
-
-			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("Псалом за Соломона.", block.GetText(false));
-			Assert.IsTrue(block.MatchesReferenceText);
-
-			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (1 + verseNumAdjustment) + "}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
-
-			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (2 + verseNumAdjustment) + "}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
-
-			block = resultBlocksExcludingDirectSpeech[i++];
-			Assert.AreEqual(chapter, block.ChapterNumber);
-			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (20 + verseNumAdjustment) + "}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
-
-			block = resultBlocksExcludingDirectSpeech[i++];
-			chapter = 73 + chapterNumAdjustment;
+			chapter = 72;
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.IsTrue(block.IsChapterAnnouncement);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("d", block.StyleTag);
-			Assert.AreEqual("Асафов псалом.", block.GetText(false));
+			Assert.AreEqual("Псалом за Соломона", block.GetText(false));
 			Assert.IsTrue(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (1 + verseNumAdjustment) + "}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (2 + verseNumAdjustment) + "}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (28 + verseNumAdjustment) + "}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
+			Assert.AreEqual("{20}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			chapter = 74 + chapterNumAdjustment;
+			chapter = 73;
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.IsTrue(block.IsChapterAnnouncement);
 
@@ -2721,20 +2634,20 @@ namespace GlyssenTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (1 + verseNumAdjustment) + "}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (2 + verseNumAdjustment) + "}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (23 + verseNumAdjustment) + "}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
+			Assert.AreEqual("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			chapter = 82 + chapterNumAdjustment;
+			chapter = 74;
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.IsTrue(block.IsChapterAnnouncement);
 
@@ -2747,25 +2660,51 @@ namespace GlyssenTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (1 + verseNumAdjustment) + "}\u00A0Бог стои в Божия събор, Седи всред боговете.", block.GetText(true));
+			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (2 + verseNumAdjustment) + "}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (7 + verseNumAdjustment) + "}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете.", block.GetText(true));
+			Assert.AreEqual("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 82;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("d", block.StyleTag);
+			Assert.AreEqual("Асафов псалом.", block.GetText(false));
+			Assert.IsTrue(block.MatchesReferenceText);
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (8 + verseNumAdjustment) + "}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
+			Assert.AreEqual("{1}\u00A0Бог стои в Божия събор, Седи всред боговете.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
-			chapter = 84 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{7}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 84;
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.IsTrue(block.IsChapterAnnouncement);
 
@@ -2778,17 +2717,288 @@ namespace GlyssenTests
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (1 + verseNumAdjustment) + "}\u00A0Колко са мили Твоите обиталища Господи на силите!", block.GetText(true));
+			Assert.AreEqual("{1}\u00A0Колко са мили Твоите обиталища Господи на силите!", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (2 + verseNumAdjustment) + "}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог.", block.GetText(true));
+			Assert.AreEqual("{2}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог.", block.GetText(true));
 
 			block = resultBlocksExcludingDirectSpeech[i++];
 			Assert.AreEqual(chapter, block.ChapterNumber);
 			Assert.AreEqual("q1", block.StyleTag);
-			Assert.AreEqual("{" + (12 + verseNumAdjustment) + "}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе.", block.GetText(true));
+			Assert.AreEqual("{12}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе.", block.GetText(true));
+
+			Assert.AreEqual(i, resultBlocksExcludingDirectSpeech.Count, "Oops. we got more blocks than expected.");
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetBooksWithBlocksConnectedToReferenceText_RussianOrthoVersification_FactoryOverridesAppliedIfRequested(bool applyNarratorOverrides)
+		{
+			// This test is based on the NarratorOverrides.xml control file having the following contents:
+			//< Override startChapter = "68" endChapter = "70" character = "David" />
+			//< !--FCBH Has Psalm 71 being narrated by "Psalmist"-- >
+			//< Override startChapter = "72" character = "Solomon, king" />
+			//< Override startChapter = "73" endChapter = "82" endVerse = "1" character = "Asaph" />
+			//< Override startChapter = "82" startVerse = "2" endVerse = "7" character = "God" />
+			//< Override startChapter = "82" startVerse = "8" endChapter = "83" character = "Asaph" />
+			//< Override startChapter = "84" endChapter = "85" character = "sons of Korah" />
+
+			var testProject = TestProject.CreateTestProject(Resources.RussianOrthodoxVersification, TestProject.TestBook.PSA_NoData);
+			var psalms = testProject.Books[0];
+			var vernacularBlocks = new List<Block>();
+
+			// Also, all the chapter numbers in this range are one less than their english counterparts (which is what the overrides are based on)!
+			var chapterNumAdjustment = -1;
+
+			var chapter = 71 + chapterNumAdjustment;
+			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Защото се посрамиха - защото се смутиха - ония, ", "q2");
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "които искат зло за мене.", "q2");
+
+			chapter = 72 + chapterNumAdjustment;
+			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Псалом за Соломона: Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(20, "Свършиха се молитвите на Иесевия син Давида.", true, chapter, psalms.BookId, "q1"));
+			chapter = 73 + chapterNumAdjustment;
+			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Асафов псалом. Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
+			vernacularBlocks.Add(CreateBlockForVerse("Mike/Fred", 5, "Hi, this is Fred!", true, chapter, "q1"));
+			vernacularBlocks.Last().CharacterIdOverrideForScript = "Fred";
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(28, "Но за мене е добре да се приближа при Бога; ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Тебе, Господи Иеова, направих прибежището си, ", "q2");
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "За да възгласявам всичките Твои дела.", "q1");
+			chapter = 74 + chapterNumAdjustment;
+			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Асафов псалом. Боже, дай твоето правосъдие на царя, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И правдата си на царския син,", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Не забравяй гласа на противниците Си; ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", "q2");
+			chapter = 82 + chapterNumAdjustment;
+			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Асафов псалом. Бог стои в Божия събор, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Седи всред боговете.", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "За да съди Твоите люде с правда, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И угнетените Ти с правосъдие.", "q2");
+			vernacularBlocks.Add(CreateBlockForVerse("Mike/Fred", 5, "Hi, this is Mike!", true, chapter, "q1"));
+			vernacularBlocks.Last().CharacterIdOverrideForScript = "Mike";
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "А при все това вие ще умрете като човеци, ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "И ще паднете като един от князете.", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Стани, Боже, съди земята; ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Защото Ти имаш наследство всред всичките народи.", "q2");
+
+			// Note: In the following chapter, in English, the Hebrew subtitle is "verse 0" (i.e., not numbered), but in Russian Orthodox,
+			// it is marked as verse 1 and any subsequent verse is bumped up by 1.
+			chapter = 84 + chapterNumAdjustment;
+			vernacularBlocks.Add(NewChapterBlock(psalms.BookId, chapter, $"Псалми {chapter}"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "За първия певец, на гетския инструмент, псалом на Кореевите потомци.", true, chapter, psalms.BookId));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Колко са мили Твоите обиталища Господи на силите!", true, chapter, psalms.BookId, "q1"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Копнее и даже примира душата ми за дворовете Господни; ", true, chapter, psalms.BookId, "q1"));
+			AddBlockForVerseInProgress(vernacularBlocks, psalms.NarratorCharacterId, "Сърцето ми и плътта ми викат към живия Бог.", "q2");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(13, "Господи на Силите, Блажен оня човек, който уповава на Тебе.", true, chapter, psalms.BookId, "q1"));
+
+			psalms.Blocks = vernacularBlocks;
+
+			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
+
+			var theBlockSpokenByMike = result.Single(b => b.CharacterIdInScript == "Mike");
+			var theBlockSpokenByFred = result.Single(b => b.CharacterIdInScript == "Fred");
+			Assert.AreEqual(theBlockSpokenByMike.CharacterId, theBlockSpokenByFred.CharacterId);
+			Assert.AreEqual(theBlockSpokenByMike.InitialStartVerseNumber, theBlockSpokenByFred.InitialStartVerseNumber);
+
+			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
+
+			Assert.IsTrue(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
+
+			var narratorBlocks = resultBlocksExcludingDirectSpeech.Where(b => !b.IsChapterAnnouncement);
+
+			// Setup is identical for both test cases - expected results are a bit different.
+			if (applyNarratorOverrides)
+			{
+				foreach (var b in narratorBlocks)
+				{
+					switch (b.ChapterNumber)
+					{
+						case 70:
+							Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
+							break;
+						case 71:
+							Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
+							break;
+						case 72:
+						case 73:
+							Assert.AreEqual("Asaph", b.CharacterIdInScript);
+							break;
+						case 81:
+							if (b.LastVerseNum < 2 || b.InitialStartVerseNumber > 7)
+								Assert.AreEqual("Asaph", b.CharacterIdInScript);
+							else
+								Assert.AreEqual("God", b.CharacterIdInScript);
+							break;
+						case 83:
+							if (b.InitialStartVerseNumber == 1)
+								Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
+							else
+								Assert.AreEqual("sons of Korah", b.CharacterIdInScript);
+							break;
+						default:
+							Assert.Fail("Unexpected chapter number in result blocks");
+							break;
+					}
+				}
+			}
+			else
+			{
+				Assert.IsTrue(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId));
+			}
+
+			var i = 0;
+			var block = resultBlocksExcludingDirectSpeech[i++];
+
+			chapter = 71 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{1}\u00A0Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 72 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{1}\u00A0Псалом за Соломона: Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{20}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 73 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{1}\u00A0Асафов псалом. Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 74 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{1}\u00A0Асафов псалом. Боже, дай твоето правосъдие на царя, И правдата си на царския син,", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 82 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{1}\u00A0Асафов псалом. Бог стои в Божия събор, Седи всред боговете.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0За да съди Твоите люде с правда, И угнетените Ти с правосъдие.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{7}\u00A0А при все това вие ще умрете като човеци, И ще паднете като един от князете.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			chapter = 84 + chapterNumAdjustment;
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.IsTrue(block.IsChapterAnnouncement);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("p", block.StyleTag);
+			Assert.AreEqual("{1}\u00A0За първия певец, на гетския инструмент, псалом на Кореевите потомци.", block.GetText(true));
+			Assert.IsTrue(block.MatchesReferenceText);
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{2}\u00A0Колко са мили Твоите обиталища Господи на силите!", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{3}\u00A0Копнее и даже примира душата ми за дворовете Господни; Сърцето ми и плътта ми викат към живия Бог.", block.GetText(true));
+
+			block = resultBlocksExcludingDirectSpeech[i++];
+			Assert.AreEqual(chapter, block.ChapterNumber);
+			Assert.AreEqual("q1", block.StyleTag);
+			Assert.AreEqual("{13}\u00A0Господи на Силите, Блажен оня човек, който уповава на Тебе.", block.GetText(true));
 
 			Assert.AreEqual(i, resultBlocksExcludingDirectSpeech.Count, "Oops. we got more blocks than expected.");
 		}
