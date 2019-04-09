@@ -872,7 +872,7 @@ princes	-1	Male				PRO 31:4	True
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13	False
 proclamation	1	Male				EZR 10:7 & EZR 10:8	False
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10	False
-prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	False
+old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	False
 prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16	False
 prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42	False
 prophets	-1					JER 25:5 & JER 25:6	False

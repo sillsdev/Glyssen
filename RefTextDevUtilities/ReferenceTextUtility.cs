@@ -1109,13 +1109,17 @@ namespace Glyssen.RefTextDevUtilities
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
+				case "Noble": return glyssenCharacterId == "Ammonite nobles";
 				case "Cupbearer": return glyssenCharacterId == "chief cupbearer of Egypt";
+				case "Prophet (deceitful & old)": return glyssenCharacterId == "old prophet in Bethel";
+				case "Prophet: Baal": return glyssenCharacterId == "prophets of Baal";
 				case "Wife of Haman": return glyssenCharacterId == "Zeresh, wife of Haman";
 				case "Mother of King Lemuel": return glyssenCharacterId == "King Lemuel's mother";
 				case "Wife of Samson": return glyssenCharacterId == "Samson's Philistine wife";
 				case "King Joash": return glyssenCharacterId == "Jehoash, king of Israel";
 				case "Syrians": return glyssenCharacterId == "Aramean soldiers";
 				case "Watchman": return glyssenCharacterId == "lookout";
+				case "Advisor (young)": return glyssenCharacterId == "young men (advisors of Rehoboam)";
 				case "Daughter of Zelophehad": return glyssenCharacterId == "daughters of Zelophehad";
 				case "Elder of Congregation": return glyssenCharacterId == "Israelite assembly, elders of";
 				case "Recabite Man": return glyssenCharacterId == "Recabite family, men of";
