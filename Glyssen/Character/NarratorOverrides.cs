@@ -51,24 +51,37 @@ namespace Glyssen.Character
 
 		public static NarratorOverrideDetail GetCharacterOverrideDetailForRefRange(VerseRef startRef, int endVerse)
 		{
+			int endChapter;
+			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out endChapter))
+				return null;
+
+			return GetNarratorOverridesForBook(startRef.Book)?.FirstOrDefault(o =>
+				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
+				(o.EndChapter > endChapter || (o.EndChapter == endChapter && o.EndVerse >= endVerse)));
+		}
+
+		public static bool ChangeToEnglishVersification(ref VerseRef startRef, ref int endVerse, out int endChapter)
+		{
 			if (endVerse < startRef.VerseNum)
 				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse.");
 
 			bool endAndStartAreSame = endVerse == startRef.VerseNum;
-			VerseRef endRef = endAndStartAreSame ? startRef : new VerseRef(startRef) {VerseNum = endVerse};
+			VerseRef endRef = endAndStartAreSame ? startRef : new VerseRef(startRef) { VerseNum = endVerse };
 
 			startRef.ChangeVersification(ScrVers.English);
 			if (startRef.VerseNum == 0) // Currently, we don't support overriding verse 0 (Hebrew subtitle in Psalms) -- this allows us to define overrides with chapter ranges.
-				return null;
+			{
+				endChapter = -1;
+				return false;
+			}
 
 			if (endAndStartAreSame) // Calling change versification is kind of expensive, so this is a helpful optimization
 				endRef = startRef;
 			else
 				endRef.ChangeVersification(ScrVers.English);
-
-			return GetNarratorOverridesForBook(startRef.Book)?.FirstOrDefault(o =>
-				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
-				(o.EndChapter > endRef.ChapterNum || (o.EndChapter == endRef.ChapterNum && o.EndVerse >= endRef.VerseNum)));
+			endVerse = endRef.VerseNum;
+			endChapter = endRef.ChapterNum;
+			return true;
 		}
 
 		public static string GetCharacterOverrideForRefRange(VerseRef startRef, int endVerse)
@@ -76,7 +89,7 @@ namespace Glyssen.Character
 			return GetCharacterOverrideDetailForRefRange(startRef, endVerse)?.Character;
 		}
 
-		public static IDictionary<string, List<NarratorOverrideDetail>> NarratorOverridesByBookId => Singleton.m_dictionary;
+		public static IReadOnlyDictionary<string, List<NarratorOverrideDetail>> NarratorOverridesByBookId => Singleton.m_dictionary;
 
 		[XmlElement(ElementName = "Book")]
 		public List<BookNarratorOverrides> Books { get; set; }
@@ -97,7 +110,8 @@ namespace Glyssen.Character
 			public NarratorOverrideDetail()
 			{
 				StartVerse = 1;
-				StartBlock = 1;
+				StartBlock = 0;
+				EndBlock = 0;
 			}
 
 			[XmlAttribute("startChapter")]
@@ -108,7 +122,7 @@ namespace Glyssen.Character
 			public int StartVerse { get; set; }
 
 			[XmlAttribute("startBlock")]
-			[DefaultValue(1)]
+			[DefaultValue(0)]
 			public int StartBlock { get; set; }
 
 			private int? m_endChapter;
@@ -121,6 +135,10 @@ namespace Glyssen.Character
 
 			[XmlAttribute("endVerse")]
 			public int EndVerse { get; set; }
+
+			[XmlAttribute("endBlock")]
+			[DefaultValue(0)]
+			public int EndBlock { get; set; }
 
 			[XmlAttribute("character")]
 			public string Character { get; set; }

@@ -228,23 +228,6 @@ namespace Glyssen
 			set { if (CharacterId != value) m_characterIdInScriptOverride = value; }
 		}
 
-		public void ApplyNarratorOverrides(ScrVers versification)
-		{
-			if (CharacterIdOverrideForScript == null &&
-				CharacterVerseData.TryGetBookIdFromNarratorCharacterId(CharacterId, out string bookId))
-			{
-				m_characterIdInScriptOverride = NarratorOverrides.GetCharacterOverrideForBlock(BCVRef.BookToNumber(bookId), this, versification);
-			}
-		}
-
-		public string GetCharacterIdInScript(ScrVers versification)
-		{
-			return CharacterIdOverrideForScript ??
-				(CharacterVerseData.TryGetBookIdFromNarratorCharacterId(CharacterId, out string bookId) ?
-				(NarratorOverrides.GetCharacterOverrideForBlock(BCVRef.BookToNumber(bookId), this, versification) ?? CharacterId) :
-				CharacterId);
-		}
-
 		[XmlAttribute("delivery")]
 		public string Delivery
 		{

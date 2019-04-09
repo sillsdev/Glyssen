@@ -2205,7 +2205,7 @@ namespace Glyssen
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
-						character = block.GetCharacterIdInScript(Versification);
+						character = book.GetCharacterIdInScript(block);
 
 						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
 						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)

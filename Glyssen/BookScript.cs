@@ -150,7 +150,7 @@ namespace Glyssen
 					modifyClonedBlockAsNeeded =
 						block =>
 						{
-							block.ApplyNarratorOverrides(Versification);
+							block.CharacterIdInScript = GetCharacterIdInScript(block);
 						};
 				}
 
@@ -235,6 +235,100 @@ namespace Glyssen
 			//}
 
 			return clonedBook;
+		}
+
+		private enum VerseOverrideCharacterStatus
+		{
+			VerseNotFound,
+			FoundOverrideCharacterInVerse,
+			FoundNarratorInVerse,
+			FoundOtherCharacterInVerse,
+		}
+
+		internal string GetCharacterIdInScript(Block block)
+		{
+			if (block.CharacterIdOverrideForScript != null)
+				return block.CharacterIdOverrideForScript;
+
+			if (block.CharacterId == NarratorCharacterId)
+			{
+				var startRef = block.StartRef(BookNumber, Versification);
+				var endVerse = block.LastVerseNum;
+				if (!NarratorOverrides.ChangeToEnglishVersification(ref startRef, ref endVerse, out var endChapter))
+					return null;
+				var info = NarratorOverrides.GetCharacterOverrideDetailForRefRange(startRef, endVerse);
+				if (info == null)
+					return block.CharacterId;
+
+				if (info.StartBlock > 0 && info.StartChapter == startRef.ChapterNum && info.StartVerse == startRef.VerseNum)
+				{
+					if (GetBlocksForVerse(info.StartChapter, info.StartVerse).IndexOf(block) + 1 != info.StartBlock)
+						return block.CharacterId;
+				}
+
+				if (info.EndBlock > 0 && info.EndChapter == startRef.ChapterNum && info.EndVerse == startRef.VerseNum)
+				{
+					if (GetBlocksForVerse(info.EndChapter, info.EndVerse).IndexOf(block) + 1 != info.EndBlock)
+						return block.CharacterId;
+				}
+
+				return (AllOverriddenVersesInChapterAreExplictlyAssignedToImplicitSpeaker(info, startRef.ChapterNum)) ?
+					block.CharacterId : info.Character;
+			}
+			return block.CharacterId;
+		}
+
+		private bool AllOverriddenVersesInChapterAreExplictlyAssignedToImplicitSpeaker(NarratorOverrides.NarratorOverrideDetail info, int chapter)
+		{
+			var firstVerse = info.StartChapter == chapter ? info.StartVerse : 1;
+			var lastVerse = info.EndChapter == chapter ? info.EndVerse : Versification.GetLastVerse(BookNumber, chapter);
+			int iBlock;
+			for (iBlock = -1; firstVerse <= lastVerse; firstVerse++)
+			{
+				iBlock = GetIndexOfFirstBlockForVerse(chapter, firstVerse);
+				if (iBlock > -1)
+					break;
+			}
+			var firstVerseStatus = VerseOverrideCharacterStatus.VerseNotFound;
+			do
+			{
+				var checkBlock = m_blocks[iBlock++];
+
+				if (checkBlock.InitialStartVerseNumber > firstVerse)
+				{
+					if (firstVerseStatus == VerseOverrideCharacterStatus.FoundNarratorInVerse)
+					{
+						// Found at least one verse in the range that was assigned entirely to the narrator,
+						// so we can safely assume that any narrator blocks in the range should be overridden.
+						return false;
+					}
+				}
+				if (checkBlock.CharacterId == info.Character)
+				{
+					// The part of the range covered by this block is explicitly assigned to the override character, but it could be a
+					// self quote, so we need to keep looking at any remaining verses in this override.
+					firstVerseStatus = VerseOverrideCharacterStatus.FoundOverrideCharacterInVerse;
+				}
+				else if (checkBlock.CharacterId == NarratorCharacterId)
+				{
+					firstVerseStatus = VerseOverrideCharacterStatus.FoundNarratorInVerse;
+				}
+				else if (checkBlock.CharacterIsStandard)
+				{
+					continue;
+				}
+				else
+				{
+					// REVIEW: Found a block assigned to some other character (or ambiguous/unknown?)
+					// What to do?
+				}
+				if (checkBlock.LastVerseNum > firstVerse)
+				{
+					//firstVerseStatus = VerseOverrideCharacterStatus.VerseNotFound;
+					firstVerse = checkBlock.LastVerseNum;
+				}
+			} while (firstVerse <= lastVerse && iBlock < m_blocks.Count);
+			return true;
 		}
 
 		public string GetVerseText(int chapter, int verse)

@@ -545,6 +545,90 @@ namespace GlyssenTests
 			Assert.AreEqual("{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first.", result[0].GetPrimaryReferenceText());
 		}
 
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.All, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.All, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.AllWithMissingVerse, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.AllWithMissingVerse, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.None, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.Some, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.None, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.Some, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.All, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.All, ExpectedResult = "narrator-SNG")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.AllWithMissingVerse, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.AllWithMissingVerse, ExpectedResult = "narrator-SNG")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.None, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.Some, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.None, ExpectedResult = "beloved")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.Some, ExpectedResult = "beloved")]
+		[TestCase(ScrVersType.English, "NEH", 13, 6, TextExplicitOverrides.All, ExpectedResult = "narrator-NEH")]
+		[TestCase(ScrVersType.English, "NEH", 13, 31, TextExplicitOverrides.None, ExpectedResult = "Nehemiah")]
+		public string GetCharacterIdInScript_ResultDependsOnWhetherBlocksAlreadyHaveCharacterSpeakingExplicitlyInAllVersesInOverride(
+			ScrVersType versType, string bookId, int chapter, int verse, TextExplicitOverrides option)
+		{
+			var testBook = GetTestBook(versType, bookId, option);
+			var bookNum = testBook.BookNumber;
+			var block = testBook.GetFirstBlockForVerse(chapter, verse);
+			if (option == TextExplicitOverrides.None || option == TextExplicitOverrides.Some)
+			{
+				var vref = new VerseRef(bookNum, chapter, verse, testBook.Versification);
+				vref.ChangeVersification(ScrVers.English);
+				var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailForRefRange(vref, vref.VerseNum);
+				var overrideStartRef = new VerseRef(bookNum, overrideInfo.StartChapter, overrideInfo.StartVerse);
+				overrideStartRef.ChangeVersification(testBook.Versification);
+				var overrideEndRef = new VerseRef(bookNum, overrideInfo.EndChapter, overrideInfo.EndVerse);
+				overrideEndRef.ChangeVersification(testBook.Versification);
+				for (var c = overrideStartRef.ChapterNum; c <= overrideEndRef.ChapterNum; c++)
+				{
+					var startVerse = (c == overrideStartRef.ChapterNum) ? overrideStartRef.VerseNum : 1;
+					var endVerse = (c == overrideEndRef.ChapterNum) ? overrideEndRef.VerseNum : testBook.Versification.GetLastVerse(bookNum, c);
+					var expectedCharacter = overrideInfo.Character;
+					if (startVerse == 1 && bookId == "PSA" && versType == ScrVersType.RussianOrthodox)
+					{
+						// If this verse 1 is actually the Hebrew subtitle (verse "0" in the English numbering system),
+						// then it's a special case and we don't want it to get overridden.
+						var psalmVerse1Ref = new VerseRef(bookNum, c, 1, testBook.Versification);
+						psalmVerse1Ref.ChangeVersification(ScrVers.English);
+						if (psalmVerse1Ref.VerseNum == 0)
+							expectedCharacter = testBook.NarratorCharacterId;
+					}
+					for (int v = startVerse; v <= endVerse; v++)
+					{
+						if (c == 72 && v == 1)
+						Assert.True(testBook.GetBlocksForVerse(c, v).All(b => testBook.GetCharacterIdInScript(b) == expectedCharacter),
+							$"Unexpected character in {bookId} {c}:{v} (expected: {expectedCharacter})");
+					}
+				}
+			}
+			return testBook.GetCharacterIdInScript(block);
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideSpecifiesStartAndEndBlock_ReturnValueDependsOnBlock()
+		{
+			const string bookId = "LEV";
+			var testBlocks = GetTestBlocks(ScrVers.English, bookId, TextExplicitOverrides.None);
+			var iBlockFor16_2 = testBlocks.IndexOf(b => b.ChapterNumber == 16 && b.BlockElements.OfType<Verse>().LastOrDefault()?.Number == "2");
+			Assert.AreEqual(3, testBlocks[iBlockFor16_2 + 1].InitialStartVerseNumber, "Test set-up sanity check");
+			testBlocks.Insert(iBlockFor16_2 + 1, new Block("p", 16, 2, 2)
+			{
+				CharacterId = testBlocks[iBlockFor16_2].CharacterId,
+				BlockElements = new List<BlockElement>(new [] {new ScriptText("«Tell Aaron not to come into the Most Holy Place, before the mercy seat on the ark, lest he die.") })
+			});
+			var iBlockFor16_34 = testBlocks.IndexOf(b => b.ChapterNumber == 16 && b.BlockElements.OfType<Verse>().FirstOrDefault()?.Number == "34");
+			Assert.AreEqual(17, testBlocks[iBlockFor16_34 + 1].ChapterNumber, "Test set-up sanity check");
+			testBlocks.Insert(iBlockFor16_34 + 1, new Block("p", 16, 34, 34)
+			{
+				CharacterId = testBlocks[iBlockFor16_34].CharacterId,
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("It was done as God commanded Moses.") })
+			});
+			var testBook = new BookScript(bookId, testBlocks, ScrVers.English);
+			Assert.AreEqual(testBook.NarratorCharacterId, testBook.GetCharacterIdInScript(testBook[iBlockFor16_2]));
+			Assert.AreEqual("God", testBook.GetCharacterIdInScript(testBook[iBlockFor16_2 + 1]));
+			Assert.AreEqual("God", testBook.GetCharacterIdInScript(testBook[iBlockFor16_34]));
+			Assert.AreEqual(testBook.NarratorCharacterId, testBook.GetCharacterIdInScript(testBook[iBlockFor16_34 + 1]));
+		}
+
 		[TestCase(".", "p", "{1} This is not empty.", " ", "{1}\u00A0This is not empty.")]
 		[TestCase("?", "li", " ", "{1} Neither is this.", "{1}\u00A0Neither is this.")]
 		[TestCase("!", "q1", "{1}", "The other block's ref text was just a verse number.", "{1}\u00A0The other block's ref text was just a verse number.")]
@@ -3274,6 +3358,89 @@ namespace GlyssenTests
 		#endregion
 
 		#region Private Helper methods
+		public enum TextExplicitOverrides
+		{
+			All,
+			Some,
+			None,
+			AllWithMissingVerse
+		}
+
+		private BookScript GetTestBook(ScrVersType versType, string bookId, TextExplicitOverrides option)
+		{
+			var scrVers = new ScrVers(versType);
+			return new BookScript(bookId, GetTestBlocks(scrVers, bookId, option), scrVers);
+		}
+
+		private List<Block> GetTestBlocks(ScrVers scrVers, string bookId, TextExplicitOverrides option)
+		{
+			var bookNum = BCVRef.BookToNumber(bookId);
+
+			List<Block> blocks;
+			var narrator = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			blocks = new List<Block>();
+			for (int c = 1; c <= scrVers.GetLastChapter(bookNum); c++)
+			{
+				var refOfFirstVerse = scrVers.FirstIncludedVerse(bookNum, c);
+				if (refOfFirstVerse == null)
+					continue;
+				blocks.Add(NewChapterBlock(c, bookId));
+				var lastVerseInChapter = scrVers.GetLastVerse(bookNum, c);
+				var firstVerse = ((VerseRef)refOfFirstVerse).VerseNum;
+				for (int v = firstVerse; v <= lastVerseInChapter; v++)
+				{
+					var block = new Block("p", c, v, v);
+					if (option == TextExplicitOverrides.None || option == TextExplicitOverrides.Some && (v % 2 == 0))
+					{
+						block.CharacterId = narrator;
+					}
+					else
+					{
+						var verseRef = new VerseRef(bookNum, c, v, scrVers);
+						var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailForRefRange(verseRef, v);
+						if (overrideInfo != null)
+						{
+							if (c == overrideInfo.StartChapter && v == overrideInfo.StartVerse && (option == TextExplicitOverrides.All || option == TextExplicitOverrides.AllWithMissingVerse))
+							{
+								block.IsParagraphStart = true;
+								block.CharacterId = narrator;
+								block.BlockElements.Add(new Verse(v.ToString()));
+								block.BlockElements.Add(new ScriptText("Then the override character said: "));
+								blocks.Add(block);
+								block = new Block("p", c, v, v) { CharacterId = overrideInfo.Character };
+								block.BlockElements.Add(new ScriptText("The first thing I want to say is... "));
+								blocks.Add(block);
+								continue;
+							}
+							if (option == TextExplicitOverrides.AllWithMissingVerse && (c == overrideInfo.StartChapter && v == overrideInfo.StartVerse + 1 ||
+								c > overrideInfo.StartChapter && v == 2))
+							{
+								continue; // This is the one verse in this chapter for this override that we'll omit
+							}
+							if (c % 3 != 1 && v > 2)
+							{
+								var lastVerseToCombine = lastVerseInChapter - 2;
+								if (overrideInfo.EndChapter == c && overrideInfo.EndVerse - 1 < lastVerseToCombine)
+									lastVerseToCombine = overrideInfo.EndVerse - 1;
+								while (v < lastVerseToCombine)
+								{
+									block.BlockElements.Add(new Verse(v++.ToString()));
+									block.BlockElements.Add(new ScriptText("Multi-verse para."));
+								}
+							}
+							block.CharacterId = overrideInfo.Character ?? narrator;
+						}
+						else
+							block.CharacterId = narrator;
+					}
+					block.BlockElements.Add(new Verse(v.ToString()));
+					block.BlockElements.Add(new ScriptText("Blah."));
+					blocks.Add(block);
+				}
+			}
+			return blocks;
+		}
+
 		private Block NewTitleBlock(string text, string bookCodeToSetCharacterId)
 		{
 			var block = new Block("mt");
