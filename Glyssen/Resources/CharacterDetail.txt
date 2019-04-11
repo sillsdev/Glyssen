@@ -270,6 +270,7 @@ Egyptians, all the	-1					GEN 47:15 <-(2 more)-> GEN 47:25	False
 Ehud, Israelite deliverer	1	Male				JDG 3:19 <-(1 more)-> JDG 3:28	False
 eighty other priests	80	Male					False
 Ekron, people of	-1					1SA 5:10 & 1SA 5:11	False
+Elasah, son of Shaphan	1	Male				JER 29:4-28	False
 elders	-1	Male	Elder			RUT 4:11 <-(2 more)-> 2CH 10:7	False
 elders of Israel	-1	Male	Elder			1SA 4:3 <-(1 more)-> 1SA 8:6	False
 elders of Jabesh	-1	Male	Elder			1SA 11:3	False
@@ -363,7 +364,8 @@ Gaza, people of (wicked)	-1					JDG 16:2	False
 Gedaliah, governor of Judah	1	Male			son of Ahikam, son of Shaphan	2KI 25:24 <-(2 more)-> JER 40:16	False
 Gedaliah, son of Pashur	1	Male					False
 Gehazi	1	Male				2KI 4:14 <-(6 more)-> 2KI 8:5	False
-Gemariah	1	Male			son of Shaphan		False
+Gemariah, son of Shaphan	1	Male				JER 29:4-28	False
+Gemariah, son of Hilkiah	1	Male					False
 Gentiles	-1					ACT 13:48	False
 Gentiles, Jews, and leaders at Iconium	-1					ACT 14:5	False
 Geshem the Arab	1	Male					False
@@ -762,6 +764,7 @@ officials of Trans-Euphrates	-1	Male					False
 officials, Ephesus (friends of Paul)	-1	Male				ACT 19:31	False
 officials, royal, to Xerxes, king	-1	Male				EST 3:3	False
 old man in Gibeah	1	Male	Elder			JDG 19:17 <-(2 more)-> JDG 19:24	False
+old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	False
 older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34	False
 On	1	Male			son of Peleth (Reubenite)		False
 one at table of Pharisee (expert in religious law)	1	Male				LUK 14:15	False
@@ -872,7 +875,6 @@ princes	-1	Male				PRO 31:4	True
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13	False
 proclamation	1	Male				EZR 10:7 & EZR 10:8	False
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10	False
-old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	False
 prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16	False
 prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42	False
 prophets	-1					JER 25:5 & JER 25:6	False
@@ -1103,6 +1105,7 @@ wicked, the	-1					PSA 94:7 & PSA 141:7	False
 widow	1	Female				DEU 25:7 & DEU 25:9	True
 widow (from company of prophets)	1	Female				2KI 4:1 <-(1 more)-> 2KI 4:6	False
 widow at Zarephath	1	Female				1KI 17:12 <-(1 more)-> 1KI 17:24	False
+wife suspected of infidelity	1	Female				NUM 5:22	False
 Wisdom	1	Female				PRO 1:22 <-(52 more)-> PRO 9:12	False
 wise men of Pharaoh	-1	Male				ISA 19:11	True
 witnesses, false	-1	Male				MAT 26:61 & MRK 14:58	False

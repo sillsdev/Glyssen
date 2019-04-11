@@ -256,23 +256,38 @@ namespace Glyssen
 				var endVerse = block.LastVerseNum;
 				if (!NarratorOverrides.ChangeToEnglishVersification(ref startRef, ref endVerse, out var endChapter))
 					return null;
-				var info = NarratorOverrides.GetCharacterOverrideDetailForRefRange(startRef, endVerse);
-				if (info == null)
+				var matches = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(startRef, endVerse)?.ToList();
+				if (matches == null || !matches.Any())
 					return block.CharacterId;
 
-				if (info.StartBlock > 0 && info.StartChapter == startRef.ChapterNum && info.StartVerse == startRef.VerseNum)
+				NarratorOverrides.NarratorOverrideDetail info;
+				if (matches.Count == 1 && matches[0].StartBlock == 0 && matches[0].EndBlock == 0)
 				{
-					if (GetBlocksForVerse(info.StartChapter, info.StartVerse).IndexOf(block) + 1 != info.StartBlock)
+					info = matches[0];
+				}
+				else
+				{
+					info = null;
+					for (var index = 0; index < matches.Count; index++)
+					{
+						info = matches[index];
+						if (info.StartBlock > 0 && info.StartChapter == startRef.ChapterNum && info.StartVerse == startRef.VerseNum)
+						{
+							if (GetBlocksForVerse(info.StartChapter, info.StartVerse).IndexOf(block) + 1 == info.StartBlock)
+								break;
+						}
+						else if (info.EndBlock > 0 && info.EndChapter == startRef.ChapterNum && info.EndVerse == startRef.VerseNum)
+						{
+							if (GetBlocksForVerse(info.EndChapter, info.EndVerse).IndexOf(block) + 1 == info.EndBlock)
+								break;
+						}
+						info = null;
+					}
+					if (info == null)
 						return block.CharacterId;
 				}
 
-				if (info.EndBlock > 0 && info.EndChapter == startRef.ChapterNum && info.EndVerse == startRef.VerseNum)
-				{
-					if (GetBlocksForVerse(info.EndChapter, info.EndVerse).IndexOf(block) + 1 != info.EndBlock)
-						return block.CharacterId;
-				}
-
-				return (AllOverriddenVersesInChapterAreExplictlyAssignedToImplicitSpeaker(info, startRef.ChapterNum)) ?
+				return (AllOverriddenVersesInChapterAreExplictlyAssignedToImplicitSpeaker(info, block.ChapterNumber)) ?
 					block.CharacterId : info.Character;
 			}
 			return block.CharacterId;
@@ -289,6 +304,8 @@ namespace Glyssen
 				if (iBlock > -1)
 					break;
 			}
+			if (iBlock == -1)
+				throw new ArgumentException("There are no blocks for the specified chapter", nameof(chapter));
 			var firstVerseStatus = VerseOverrideCharacterStatus.VerseNotFound;
 			do
 			{

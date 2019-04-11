@@ -67,11 +67,15 @@ namespace Glyssen.Character
 		Hypothetical,
 
 		/// <summary>
-		/// Quotations of actual past speech or written words, proverbs, etc. Typically, these can be
-		/// read by the narrator, though in some cases it may be useful to use another voice and/or
-		/// special sound effects. When spoken by the narrator, a "Quotation" can also be a place where
-		/// quotation marks are likely to be used for something other than speech (e.g., a translation,
-		/// a foreign phrase, a title, or a literal name).
+		/// Quotations of actual past speech or written words, proverbs, etc. OR something a person or
+		/// group is commanded to speak. Typically, these can be read by the narrator, though in some
+		/// cases it may be useful to use another voice and/or special sound effects. When spoken by
+		/// the narrator, a "Quotation" can also be a place where quotation marks are likely to be used
+		/// for something other than speech (e.g., a translation, a foreign phrase, a title, or a literal
+		/// name). For dramatic effect, it might sometimes be appropriate to have the person being
+		/// quoted or commanded to speak actually speak the words (especially it is a command to say
+		/// something immediately (e.g., when God tells Moses or a prophet to say something). This quote
+		/// type is used any place where the reference text dramatizes this kind of second-level speech.
 		/// </summary>
 		Quotation,
 

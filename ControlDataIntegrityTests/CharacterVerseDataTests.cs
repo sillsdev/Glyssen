@@ -250,6 +250,25 @@ namespace ControlDataIntegrityTests
 				charactersNotEqualFailures.OnePerLineWithIndent());
 		}
 
+		/// <summary>
+		/// The Implicit quote type indicates that we expect the (whole) verse to be spoken by a particular character.
+		/// Since this will be automatically applied to any verse that does not have any explicit quotes (i.e., is 
+		/// identified by the quote parser as 100% "narrator"), this test ensures that we don't have any verses marked
+		/// as Implicit which also include some other quote type.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_ImplicitCharacterIsExclusive()
+		{
+			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.QuoteType == QuoteType.Implicit))
+			{
+				Assert.AreEqual(0, ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
+					cv.Chapter, cv.Verse, versification:ScrVers.English).Count(c => c.Character != cv.Character ||
+					c.QuoteType == QuoteType.Normal || c.QuoteType == QuoteType.Dialogue),
+					$"Character-verse file contains an Implicit quote for {cv.Character} in {cv.BookCode} {cv.Chapter}:{cv.Verse} " +
+					$"that also has other possible quotes.");
+			}
+		}
+
 		private class BcvCharacterAndTypeEqualityComparer : IEqualityComparer<CharacterVerse>
 		{
 			public bool Equals(CharacterVerse x, CharacterVerse y)

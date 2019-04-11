@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Properties;
@@ -46,16 +45,19 @@ namespace Glyssen.Character
 		/// </summary>
 		public static string GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
 		{
-			return GetCharacterOverrideForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum);
+			var details = GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum).ToList();
+			if (details.Count == 1)
+				return details[0].Character;
+			throw new NotImplementedException("Handle multiple");
 		}
 
-		public static NarratorOverrideDetail GetCharacterOverrideDetailForRefRange(VerseRef startRef, int endVerse)
+		public static IEnumerable<NarratorOverrideDetail> GetCharacterOverrideDetailsForRefRange(VerseRef startRef, int endVerse)
 		{
 			int endChapter;
 			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out endChapter))
 				return null;
 
-			return GetNarratorOverridesForBook(startRef.Book)?.FirstOrDefault(o =>
+			return GetNarratorOverridesForBook(startRef.Book)?.Where(o =>
 				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
 				(o.EndChapter > endChapter || (o.EndChapter == endChapter && o.EndVerse >= endVerse)));
 		}
@@ -82,11 +84,6 @@ namespace Glyssen.Character
 			endVerse = endRef.VerseNum;
 			endChapter = endRef.ChapterNum;
 			return true;
-		}
-
-		public static string GetCharacterOverrideForRefRange(VerseRef startRef, int endVerse)
-		{
-			return GetCharacterOverrideDetailForRefRange(startRef, endVerse)?.Character;
 		}
 
 		public static IReadOnlyDictionary<string, List<NarratorOverrideDetail>> NarratorOverridesByBookId => Singleton.m_dictionary;
@@ -145,7 +142,7 @@ namespace Glyssen.Character
 
 			private string StartBlockAsSegmentLetter(bool suppressSegmentA = true)
 			{
-				if (suppressSegmentA && StartBlock == 1)
+				if (StartBlock == 0 || (suppressSegmentA && StartBlock == 1))
 					return string.Empty;
 				return ((char)('a' + StartBlock - 1)).ToString();
 			}

@@ -359,7 +359,8 @@ GEN	26	5	God		God (the LORD)	Normal
 GEN	26	7	men of Gerar			Indirect		
 GEN	26	7	Isaac	deceiving		Normal		
 GEN	26	7	Isaac	thought		Normal		
-GEN	26	7	narrator-GEN			Hypothetical		
+GEN	26	7	Isaac	afraid to say		Hypothetical		
+GEN	26	7	narrator-GEN			Potential		
 GEN	26	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	9	Isaac			Normal		
 GEN	26	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
@@ -1689,167 +1690,167 @@ EXO	40	12	God		God (the LORD)	Normal
 EXO	40	13	God		God (the LORD)	Normal		
 EXO	40	14	God		God (the LORD)	Normal		
 EXO	40	15	God		God (the LORD)	Normal		
-LEV	1	2	God		God (the LORD)	Potential		
-LEV	1	3	God		God (the LORD)	Potential		
-LEV	1	4	God		God (the LORD)	Potential		
-LEV	1	5	God		God (the LORD)	Potential		
-LEV	1	6	God		God (the LORD)	Potential		
-LEV	1	7	God		God (the LORD)	Potential		
-LEV	1	8	God		God (the LORD)	Potential		
-LEV	1	9	God		God (the LORD)	Potential		
-LEV	1	10	God		God (the LORD)	Potential		
-LEV	1	11	God		God (the LORD)	Potential		
-LEV	1	12	God		God (the LORD)	Potential		
-LEV	1	13	God		God (the LORD)	Potential		
-LEV	1	14	God		God (the LORD)	Potential		
-LEV	1	15	God		God (the LORD)	Potential		
-LEV	1	16	God		God (the LORD)	Potential		
-LEV	1	17	God		God (the LORD)	Potential		
-LEV	2	1	God		God (the LORD)	Potential		
-LEV	2	2	God		God (the LORD)	Potential		
-LEV	2	3	God		God (the LORD)	Potential		
-LEV	2	4	God		God (the LORD)	Potential		
-LEV	2	5	God		God (the LORD)	Potential		
-LEV	2	6	God		God (the LORD)	Potential		
-LEV	2	7	God		God (the LORD)	Potential		
-LEV	2	8	God		God (the LORD)	Potential		
-LEV	2	9	God		God (the LORD)	Potential		
-LEV	2	10	God		God (the LORD)	Potential		
-LEV	2	11	God		God (the LORD)	Potential		
-LEV	2	12	God		God (the LORD)	Potential		
-LEV	2	13	God		God (the LORD)	Potential		
-LEV	2	14	God		God (the LORD)	Potential		
-LEV	2	15	God		God (the LORD)	Potential		
-LEV	2	16	God		God (the LORD)	Potential		
-LEV	3	1	God		God (the LORD)	Potential		
-LEV	3	2	God		God (the LORD)	Potential		
-LEV	3	3	God		God (the LORD)	Potential		
-LEV	3	4	God		God (the LORD)	Potential		
-LEV	3	5	God		God (the LORD)	Potential		
-LEV	3	6	God		God (the LORD)	Potential		
-LEV	3	7	God		God (the LORD)	Potential		
-LEV	3	8	God		God (the LORD)	Potential		
-LEV	3	9	God		God (the LORD)	Potential		
-LEV	3	10	God		God (the LORD)	Potential		
-LEV	3	11	God		God (the LORD)	Potential		
-LEV	3	12	God		God (the LORD)	Potential		
-LEV	3	13	God		God (the LORD)	Potential		
-LEV	3	14	God		God (the LORD)	Potential		
-LEV	3	15	God		God (the LORD)	Potential		
-LEV	3	16	God		God (the LORD)	Potential		
-LEV	3	17	God		God (the LORD)	Potential		
-LEV	4	2	God		God (the LORD)	Potential		
-LEV	4	3	God		God (the LORD)	Potential		
-LEV	4	4	God		God (the LORD)	Potential		
-LEV	4	5	God		God (the LORD)	Potential		
-LEV	4	6	God		God (the LORD)	Potential		
-LEV	4	7	God		God (the LORD)	Potential		
-LEV	4	8	God		God (the LORD)	Potential		
-LEV	4	9	God		God (the LORD)	Potential		
-LEV	4	10	God		God (the LORD)	Potential		
-LEV	4	11	God		God (the LORD)	Potential		
-LEV	4	12	God		God (the LORD)	Potential		
-LEV	4	13	God		God (the LORD)	Potential		
-LEV	4	14	God		God (the LORD)	Potential		
-LEV	4	15	God		God (the LORD)	Potential		
-LEV	4	16	God		God (the LORD)	Potential		
-LEV	4	17	God		God (the LORD)	Potential		
-LEV	4	18	God		God (the LORD)	Potential		
-LEV	4	19	God		God (the LORD)	Potential		
-LEV	4	20	God		God (the LORD)	Potential		
-LEV	4	21	God		God (the LORD)	Potential		
-LEV	4	22	God		God (the LORD)	Potential		
-LEV	4	23	God		God (the LORD)	Potential		
-LEV	4	24	God		God (the LORD)	Potential		
-LEV	4	25	God		God (the LORD)	Potential		
-LEV	4	26	God		God (the LORD)	Potential		
-LEV	4	27	God		God (the LORD)	Potential		
-LEV	4	28	God		God (the LORD)	Potential		
-LEV	4	29	God		God (the LORD)	Potential		
-LEV	4	30	God		God (the LORD)	Potential		
-LEV	4	31	God		God (the LORD)	Potential		
-LEV	4	32	God		God (the LORD)	Potential		
-LEV	4	33	God		God (the LORD)	Potential		
-LEV	4	34	God		God (the LORD)	Potential		
-LEV	4	35	God		God (the LORD)	Potential		
-LEV	5	1	God		God (the LORD)	Potential		
-LEV	5	2	God		God (the LORD)	Potential		
-LEV	5	3	God		God (the LORD)	Potential		
-LEV	5	4	God		God (the LORD)	Potential		
-LEV	5	5	God		God (the LORD)	Potential		
-LEV	5	6	God		God (the LORD)	Potential		
-LEV	5	7	God		God (the LORD)	Potential		
-LEV	5	8	God		God (the LORD)	Potential		
-LEV	5	9	God		God (the LORD)	Potential		
-LEV	5	10	God		God (the LORD)	Potential		
-LEV	5	11	God		God (the LORD)	Potential		
-LEV	5	12	God		God (the LORD)	Potential		
-LEV	5	13	God		God (the LORD)	Potential		
-LEV	5	15	God		God (the LORD)	Potential		
-LEV	5	16	God		God (the LORD)	Potential		
-LEV	5	17	God		God (the LORD)	Potential		
-LEV	5	18	God		God (the LORD)	Potential		
-LEV	5	19	God		God (the LORD)	Potential		
-LEV	6	2	God		God (the LORD)	Potential		
-LEV	6	3	God		God (the LORD)	Potential		
-LEV	6	4	God		God (the LORD)	Potential		
-LEV	6	5	God		God (the LORD)	Potential		
-LEV	6	6	God		God (the LORD)	Potential		
-LEV	6	7	God		God (the LORD)	Potential		
-LEV	6	9	God		God (the LORD)	Potential		
-LEV	6	10	God		God (the LORD)	Potential		
-LEV	6	11	God		God (the LORD)	Potential		
-LEV	6	12	God		God (the LORD)	Potential		
-LEV	6	13	God		God (the LORD)	Potential		
-LEV	6	14	God		God (the LORD)	Potential		
-LEV	6	15	God		God (the LORD)	Potential		
-LEV	6	16	God		God (the LORD)	Potential		
-LEV	6	17	God		God (the LORD)	Potential		
-LEV	6	18	God		God (the LORD)	Potential		
-LEV	6	20	God		God (the LORD)	Potential		
-LEV	6	21	God		God (the LORD)	Potential		
-LEV	6	22	God		God (the LORD)	Potential		
-LEV	6	23	God		God (the LORD)	Potential		
-LEV	6	25	God		God (the LORD)	Potential		
-LEV	6	26	God		God (the LORD)	Potential		
-LEV	6	27	God		God (the LORD)	Potential		
-LEV	6	28	God		God (the LORD)	Potential		
-LEV	6	29	God		God (the LORD)	Potential		
-LEV	6	30	God		God (the LORD)	Potential		
-LEV	7	1	God		God (the LORD)	Potential		
-LEV	7	2	God		God (the LORD)	Potential		
-LEV	7	3	God		God (the LORD)	Potential		
-LEV	7	4	God		God (the LORD)	Potential		
-LEV	7	5	God		God (the LORD)	Potential		
-LEV	7	6	God		God (the LORD)	Potential		
-LEV	7	7	God		God (the LORD)	Potential		
-LEV	7	8	God		God (the LORD)	Potential		
-LEV	7	9	God		God (the LORD)	Potential		
-LEV	7	10	God		God (the LORD)	Potential		
-LEV	7	11	God		God (the LORD)	Potential		
-LEV	7	12	God		God (the LORD)	Potential		
-LEV	7	13	God		God (the LORD)	Potential		
-LEV	7	14	God		God (the LORD)	Potential		
-LEV	7	15	God		God (the LORD)	Potential		
-LEV	7	16	God		God (the LORD)	Potential		
-LEV	7	17	God		God (the LORD)	Potential		
-LEV	7	18	God		God (the LORD)	Potential		
-LEV	7	19	God		God (the LORD)	Potential		
-LEV	7	20	God		God (the LORD)	Potential		
-LEV	7	21	God		God (the LORD)	Potential		
-LEV	7	23	God		God (the LORD)	Potential		
-LEV	7	24	God		God (the LORD)	Potential		
-LEV	7	25	God		God (the LORD)	Potential		
-LEV	7	26	God		God (the LORD)	Potential		
-LEV	7	27	God		God (the LORD)	Potential		
-LEV	7	29	God		God (the LORD)	Potential		
-LEV	7	30	God		God (the LORD)	Potential		
-LEV	7	31	God		God (the LORD)	Potential		
-LEV	7	32	God		God (the LORD)	Potential		
-LEV	7	33	God		God (the LORD)	Potential		
-LEV	7	34	God		God (the LORD)	Potential			
-LEV	8	2	God		God (the LORD)	Potential		
-LEV	8	3	God		God (the LORD)	Potential		
+LEV	1	2	God		God (the LORD)	Implicit		
+LEV	1	3	God		God (the LORD)	Implicit		
+LEV	1	4	God		God (the LORD)	Implicit		
+LEV	1	5	God		God (the LORD)	Implicit		
+LEV	1	6	God		God (the LORD)	Implicit		
+LEV	1	7	God		God (the LORD)	Implicit		
+LEV	1	8	God		God (the LORD)	Implicit		
+LEV	1	9	God		God (the LORD)	Implicit		
+LEV	1	10	God		God (the LORD)	Implicit		
+LEV	1	11	God		God (the LORD)	Implicit		
+LEV	1	12	God		God (the LORD)	Implicit		
+LEV	1	13	God		God (the LORD)	Implicit		
+LEV	1	14	God		God (the LORD)	Implicit		
+LEV	1	15	God		God (the LORD)	Implicit		
+LEV	1	16	God		God (the LORD)	Implicit		
+LEV	1	17	God		God (the LORD)	Implicit		
+LEV	2	1	God		God (the LORD)	Implicit		
+LEV	2	2	God		God (the LORD)	Implicit		
+LEV	2	3	God		God (the LORD)	Implicit		
+LEV	2	4	God		God (the LORD)	Implicit		
+LEV	2	5	God		God (the LORD)	Implicit		
+LEV	2	6	God		God (the LORD)	Implicit		
+LEV	2	7	God		God (the LORD)	Implicit		
+LEV	2	8	God		God (the LORD)	Implicit		
+LEV	2	9	God		God (the LORD)	Implicit		
+LEV	2	10	God		God (the LORD)	Implicit		
+LEV	2	11	God		God (the LORD)	Implicit		
+LEV	2	12	God		God (the LORD)	Implicit		
+LEV	2	13	God		God (the LORD)	Implicit		
+LEV	2	14	God		God (the LORD)	Implicit		
+LEV	2	15	God		God (the LORD)	Implicit		
+LEV	2	16	God		God (the LORD)	Implicit		
+LEV	3	1	God		God (the LORD)	Implicit		
+LEV	3	2	God		God (the LORD)	Implicit		
+LEV	3	3	God		God (the LORD)	Implicit		
+LEV	3	4	God		God (the LORD)	Implicit		
+LEV	3	5	God		God (the LORD)	Implicit		
+LEV	3	6	God		God (the LORD)	Implicit		
+LEV	3	7	God		God (the LORD)	Implicit		
+LEV	3	8	God		God (the LORD)	Implicit		
+LEV	3	9	God		God (the LORD)	Implicit		
+LEV	3	10	God		God (the LORD)	Implicit		
+LEV	3	11	God		God (the LORD)	Implicit		
+LEV	3	12	God		God (the LORD)	Implicit		
+LEV	3	13	God		God (the LORD)	Implicit		
+LEV	3	14	God		God (the LORD)	Implicit		
+LEV	3	15	God		God (the LORD)	Implicit		
+LEV	3	16	God		God (the LORD)	Implicit		
+LEV	3	17	God		God (the LORD)	Implicit		
+LEV	4	2	God		God (the LORD)	Implicit		
+LEV	4	3	God		God (the LORD)	Implicit		
+LEV	4	4	God		God (the LORD)	Implicit		
+LEV	4	5	God		God (the LORD)	Implicit		
+LEV	4	6	God		God (the LORD)	Implicit		
+LEV	4	7	God		God (the LORD)	Implicit		
+LEV	4	8	God		God (the LORD)	Implicit		
+LEV	4	9	God		God (the LORD)	Implicit		
+LEV	4	10	God		God (the LORD)	Implicit		
+LEV	4	11	God		God (the LORD)	Implicit		
+LEV	4	12	God		God (the LORD)	Implicit		
+LEV	4	13	God		God (the LORD)	Implicit		
+LEV	4	14	God		God (the LORD)	Implicit		
+LEV	4	15	God		God (the LORD)	Implicit		
+LEV	4	16	God		God (the LORD)	Implicit		
+LEV	4	17	God		God (the LORD)	Implicit		
+LEV	4	18	God		God (the LORD)	Implicit		
+LEV	4	19	God		God (the LORD)	Implicit		
+LEV	4	20	God		God (the LORD)	Implicit		
+LEV	4	21	God		God (the LORD)	Implicit		
+LEV	4	22	God		God (the LORD)	Implicit		
+LEV	4	23	God		God (the LORD)	Implicit		
+LEV	4	24	God		God (the LORD)	Implicit		
+LEV	4	25	God		God (the LORD)	Implicit		
+LEV	4	26	God		God (the LORD)	Implicit		
+LEV	4	27	God		God (the LORD)	Implicit		
+LEV	4	28	God		God (the LORD)	Implicit		
+LEV	4	29	God		God (the LORD)	Implicit		
+LEV	4	30	God		God (the LORD)	Implicit		
+LEV	4	31	God		God (the LORD)	Implicit		
+LEV	4	32	God		God (the LORD)	Implicit		
+LEV	4	33	God		God (the LORD)	Implicit		
+LEV	4	34	God		God (the LORD)	Implicit		
+LEV	4	35	God		God (the LORD)	Implicit		
+LEV	5	1	God		God (the LORD)	Implicit		
+LEV	5	2	God		God (the LORD)	Implicit		
+LEV	5	3	God		God (the LORD)	Implicit		
+LEV	5	4	God		God (the LORD)	Implicit		
+LEV	5	5	God		God (the LORD)	Implicit		
+LEV	5	6	God		God (the LORD)	Implicit		
+LEV	5	7	God		God (the LORD)	Implicit		
+LEV	5	8	God		God (the LORD)	Implicit		
+LEV	5	9	God		God (the LORD)	Implicit		
+LEV	5	10	God		God (the LORD)	Implicit		
+LEV	5	11	God		God (the LORD)	Implicit		
+LEV	5	12	God		God (the LORD)	Implicit		
+LEV	5	13	God		God (the LORD)	Implicit		
+LEV	5	15	God		God (the LORD)	Implicit		
+LEV	5	16	God		God (the LORD)	Implicit		
+LEV	5	17	God		God (the LORD)	Implicit		
+LEV	5	18	God		God (the LORD)	Implicit		
+LEV	5	19	God		God (the LORD)	Implicit		
+LEV	6	2	God		God (the LORD)	Implicit		
+LEV	6	3	God		God (the LORD)	Implicit		
+LEV	6	4	God		God (the LORD)	Implicit		
+LEV	6	5	God		God (the LORD)	Implicit		
+LEV	6	6	God		God (the LORD)	Implicit		
+LEV	6	7	God		God (the LORD)	Implicit		
+LEV	6	9	God		God (the LORD)	Implicit		
+LEV	6	10	God		God (the LORD)	Implicit		
+LEV	6	11	God		God (the LORD)	Implicit		
+LEV	6	12	God		God (the LORD)	Implicit		
+LEV	6	13	God		God (the LORD)	Implicit		
+LEV	6	14	God		God (the LORD)	Implicit		
+LEV	6	15	God		God (the LORD)	Implicit		
+LEV	6	16	God		God (the LORD)	Implicit		
+LEV	6	17	God		God (the LORD)	Implicit		
+LEV	6	18	God		God (the LORD)	Implicit		
+LEV	6	20	God		God (the LORD)	Implicit		
+LEV	6	21	God		God (the LORD)	Implicit		
+LEV	6	22	God		God (the LORD)	Implicit		
+LEV	6	23	God		God (the LORD)	Implicit		
+LEV	6	25	God		God (the LORD)	Implicit		
+LEV	6	26	God		God (the LORD)	Implicit		
+LEV	6	27	God		God (the LORD)	Implicit		
+LEV	6	28	God		God (the LORD)	Implicit		
+LEV	6	29	God		God (the LORD)	Implicit		
+LEV	6	30	God		God (the LORD)	Implicit		
+LEV	7	1	God		God (the LORD)	Implicit		
+LEV	7	2	God		God (the LORD)	Implicit		
+LEV	7	3	God		God (the LORD)	Implicit		
+LEV	7	4	God		God (the LORD)	Implicit		
+LEV	7	5	God		God (the LORD)	Implicit		
+LEV	7	6	God		God (the LORD)	Implicit		
+LEV	7	7	God		God (the LORD)	Implicit		
+LEV	7	8	God		God (the LORD)	Implicit		
+LEV	7	9	God		God (the LORD)	Implicit		
+LEV	7	10	God		God (the LORD)	Implicit		
+LEV	7	11	God		God (the LORD)	Implicit		
+LEV	7	12	God		God (the LORD)	Implicit		
+LEV	7	13	God		God (the LORD)	Implicit		
+LEV	7	14	God		God (the LORD)	Implicit		
+LEV	7	15	God		God (the LORD)	Implicit		
+LEV	7	16	God		God (the LORD)	Implicit		
+LEV	7	17	God		God (the LORD)	Implicit		
+LEV	7	18	God		God (the LORD)	Implicit		
+LEV	7	19	God		God (the LORD)	Implicit		
+LEV	7	20	God		God (the LORD)	Implicit		
+LEV	7	21	God		God (the LORD)	Implicit		
+LEV	7	23	God		God (the LORD)	Implicit		
+LEV	7	24	God		God (the LORD)	Implicit		
+LEV	7	25	God		God (the LORD)	Implicit		
+LEV	7	26	God		God (the LORD)	Implicit		
+LEV	7	27	God		God (the LORD)	Implicit		
+LEV	7	29	God		God (the LORD)	Implicit		
+LEV	7	30	God		God (the LORD)	Implicit		
+LEV	7	31	God		God (the LORD)	Implicit		
+LEV	7	32	God		God (the LORD)	Implicit		
+LEV	7	33	God		God (the LORD)	Implicit		
+LEV	7	34	God		God (the LORD)	Implicit		
+LEV	8	2	God		God (the LORD)	Implicit		
+LEV	8	3	God		God (the LORD)	Implicit		
 LEV	8	5	Moses			Normal		
 LEV	8	31	Moses			Normal		
 LEV	8	32	Moses			Normal		
@@ -1875,240 +1876,236 @@ LEV	10	15	Moses			Normal
 LEV	10	17	Moses			Normal		
 LEV	10	18	Moses			Normal		
 LEV	10	19	Aaron			Normal		
-LEV	11	2	God		God (the LORD)	Potential		
-LEV	11	3	God		God (the LORD)	Potential		
-LEV	11	4	God		God (the LORD)	Potential		
-LEV	11	5	God		God (the LORD)	Potential		
-LEV	11	6	God		God (the LORD)	Potential		
-LEV	11	7	God		God (the LORD)	Potential		
-LEV	11	8	God		God (the LORD)	Potential		
-LEV	11	9	God		God (the LORD)	Potential		
-LEV	11	10	God		God (the LORD)	Potential		
-LEV	11	11	God		God (the LORD)	Potential		
-LEV	11	12	God		God (the LORD)	Potential		
-LEV	11	13	God		God (the LORD)	Potential		
-LEV	11	14	God		God (the LORD)	Potential		
-LEV	11	15	God		God (the LORD)	Potential		
-LEV	11	16	God		God (the LORD)	Potential		
-LEV	11	17	God		God (the LORD)	Potential		
-LEV	11	18	God		God (the LORD)	Potential		
-LEV	11	19	God		God (the LORD)	Potential		
-LEV	11	20	God		God (the LORD)	Potential		
-LEV	11	21	God		God (the LORD)	Potential		
-LEV	11	22	God		God (the LORD)	Potential		
-LEV	11	23	God		God (the LORD)	Potential		
-LEV	11	24	God		God (the LORD)	Potential		
-LEV	11	25	God		God (the LORD)	Potential		
-LEV	11	26	God		God (the LORD)	Potential		
-LEV	11	27	God		God (the LORD)	Potential		
-LEV	11	28	God		God (the LORD)	Potential		
-LEV	11	29	God		God (the LORD)	Potential		
-LEV	11	30	God		God (the LORD)	Potential		
-LEV	11	31	God		God (the LORD)	Potential		
-LEV	11	32	God		God (the LORD)	Potential		
-LEV	11	33	God		God (the LORD)	Potential		
-LEV	11	34	God		God (the LORD)	Potential		
-LEV	11	35	God		God (the LORD)	Potential		
-LEV	11	36	God		God (the LORD)	Potential		
-LEV	11	37	God		God (the LORD)	Potential		
-LEV	11	38	God		God (the LORD)	Potential		
-LEV	11	39	God		God (the LORD)	Potential		
-LEV	11	40	God		God (the LORD)	Potential		
-LEV	11	41	God		God (the LORD)	Potential		
-LEV	11	42	God		God (the LORD)	Potential		
-LEV	11	43	God		God (the LORD)	Potential		
-LEV	11	44	God		God (the LORD)	Potential		
-LEV	11	45	God		God (the LORD)	Potential		
+LEV	11	2	God		God (the LORD)	Implicit		
+LEV	11	3	God		God (the LORD)	Implicit		
+LEV	11	4	God		God (the LORD)	Implicit		
+LEV	11	5	God		God (the LORD)	Implicit		
+LEV	11	6	God		God (the LORD)	Implicit		
+LEV	11	7	God		God (the LORD)	Implicit		
+LEV	11	8	God		God (the LORD)	Implicit		
+LEV	11	9	God		God (the LORD)	Implicit		
+LEV	11	10	God		God (the LORD)	Implicit		
+LEV	11	11	God		God (the LORD)	Implicit		
+LEV	11	12	God		God (the LORD)	Implicit		
+LEV	11	13	God		God (the LORD)	Implicit		
+LEV	11	14	God		God (the LORD)	Implicit		
+LEV	11	15	God		God (the LORD)	Implicit		
+LEV	11	16	God		God (the LORD)	Implicit		
+LEV	11	17	God		God (the LORD)	Implicit		
+LEV	11	18	God		God (the LORD)	Implicit		
+LEV	11	19	God		God (the LORD)	Implicit		
+LEV	11	20	God		God (the LORD)	Implicit		
+LEV	11	21	God		God (the LORD)	Implicit		
+LEV	11	22	God		God (the LORD)	Implicit		
+LEV	11	23	God		God (the LORD)	Implicit		
+LEV	11	24	God		God (the LORD)	Implicit		
+LEV	11	25	God		God (the LORD)	Implicit		
+LEV	11	26	God		God (the LORD)	Implicit		
+LEV	11	27	God		God (the LORD)	Implicit		
+LEV	11	28	God		God (the LORD)	Implicit		
+LEV	11	29	God		God (the LORD)	Implicit		
+LEV	11	30	God		God (the LORD)	Implicit		
+LEV	11	31	God		God (the LORD)	Implicit		
+LEV	11	32	God		God (the LORD)	Implicit		
+LEV	11	33	God		God (the LORD)	Implicit		
+LEV	11	34	God		God (the LORD)	Implicit		
+LEV	11	35	God		God (the LORD)	Implicit		
+LEV	11	36	God		God (the LORD)	Implicit		
+LEV	11	37	God		God (the LORD)	Implicit		
+LEV	11	38	God		God (the LORD)	Implicit		
+LEV	11	39	God		God (the LORD)	Implicit		
+LEV	11	40	God		God (the LORD)	Implicit		
+LEV	11	41	God		God (the LORD)	Implicit		
+LEV	11	42	God		God (the LORD)	Implicit		
+LEV	11	43	God		God (the LORD)	Implicit		
+LEV	11	44	God		God (the LORD)	Implicit		
+LEV	11	45	God		God (the LORD)	Implicit		
 LEV	11	46	God		God (the LORD)	Potential		
 LEV	11	47	God		God (the LORD)	Potential		
-LEV	12	2	God		God (the LORD)	Potential		
-LEV	12	3	God		God (the LORD)	Potential		
-LEV	12	4	God		God (the LORD)	Potential		
-LEV	12	5	God		God (the LORD)	Potential		
-LEV	12	6	God		God (the LORD)	Potential		
-LEV	12	7	God		God (the LORD)	Potential		
-LEV	12	8	God		God (the LORD)	Potential		
-LEV	13	2	God		God (the LORD)	Potential		
-LEV	13	3	God		God (the LORD)	Potential		
-LEV	13	4	God		God (the LORD)	Potential		
-LEV	13	5	God		God (the LORD)	Potential		
-LEV	13	6	God		God (the LORD)	Potential		
-LEV	13	7	God		God (the LORD)	Potential		
-LEV	13	8	God		God (the LORD)	Potential		
-LEV	13	9	God		God (the LORD)	Potential		
-LEV	13	10	God		God (the LORD)	Potential		
-LEV	13	11	God		God (the LORD)	Potential		
-LEV	13	12	God		God (the LORD)	Potential		
-LEV	13	13	God		God (the LORD)	Potential		
-LEV	13	14	God		God (the LORD)	Potential		
-LEV	13	15	God		God (the LORD)	Potential		
-LEV	13	16	God		God (the LORD)	Potential		
-LEV	13	17	God		God (the LORD)	Potential		
-LEV	13	18	God		God (the LORD)	Potential		
-LEV	13	19	God		God (the LORD)	Potential		
-LEV	13	20	God		God (the LORD)	Potential		
-LEV	13	21	God		God (the LORD)	Potential		
-LEV	13	22	God		God (the LORD)	Potential		
-LEV	13	23	God		God (the LORD)	Potential		
-LEV	13	24	God		God (the LORD)	Potential		
-LEV	13	25	God		God (the LORD)	Potential		
-LEV	13	26	God		God (the LORD)	Potential		
-LEV	13	27	God		God (the LORD)	Potential		
-LEV	13	28	God		God (the LORD)	Potential		
-LEV	13	29	God		God (the LORD)	Potential		
-LEV	13	30	God		God (the LORD)	Potential		
-LEV	13	31	God		God (the LORD)	Potential		
-LEV	13	32	God		God (the LORD)	Potential		
-LEV	13	33	God		God (the LORD)	Potential		
-LEV	13	34	God		God (the LORD)	Potential		
-LEV	13	35	God		God (the LORD)	Potential		
-LEV	13	36	God		God (the LORD)	Potential		
-LEV	13	37	God		God (the LORD)	Potential		
-LEV	13	38	God		God (the LORD)	Potential		
-LEV	13	39	God		God (the LORD)	Potential		
-LEV	13	40	God		God (the LORD)	Potential		
-LEV	13	41	God		God (the LORD)	Potential		
-LEV	13	42	God		God (the LORD)	Potential		
-LEV	13	43	God		God (the LORD)	Potential		
-LEV	13	44	God		God (the LORD)	Potential		
-LEV	13	45	God		God (the LORD)	Potential		
-LEV	13	46	God		God (the LORD)	Potential		
-LEV	13	47	God		God (the LORD)	Potential		
-LEV	13	48	God		God (the LORD)	Potential		
-LEV	13	49	God		God (the LORD)	Potential		
-LEV	13	50	God		God (the LORD)	Potential		
-LEV	13	51	God		God (the LORD)	Potential		
-LEV	13	52	God		God (the LORD)	Potential		
-LEV	13	53	God		God (the LORD)	Potential		
-LEV	13	54	God		God (the LORD)	Potential		
-LEV	13	55	God		God (the LORD)	Potential		
-LEV	13	56	God		God (the LORD)	Potential		
-LEV	13	57	God		God (the LORD)	Potential		
-LEV	13	58	God		God (the LORD)	Potential		
+LEV	12	2	God		God (the LORD)	Implicit		
+LEV	12	3	God		God (the LORD)	Implicit		
+LEV	12	4	God		God (the LORD)	Implicit		
+LEV	12	5	God		God (the LORD)	Implicit		
+LEV	12	6	God		God (the LORD)	Implicit		
+LEV	12	7	God		God (the LORD)	Implicit		
+LEV	12	8	God		God (the LORD)	Implicit		
+LEV	13	2	God		God (the LORD)	Implicit		
+LEV	13	3	God		God (the LORD)	Implicit		
+LEV	13	4	God		God (the LORD)	Implicit		
+LEV	13	5	God		God (the LORD)	Implicit		
+LEV	13	6	God		God (the LORD)	Implicit		
+LEV	13	7	God		God (the LORD)	Implicit		
+LEV	13	8	God		God (the LORD)	Implicit		
+LEV	13	9	God		God (the LORD)	Implicit		
+LEV	13	10	God		God (the LORD)	Implicit		
+LEV	13	11	God		God (the LORD)	Implicit		
+LEV	13	12	God		God (the LORD)	Implicit		
+LEV	13	13	God		God (the LORD)	Implicit		
+LEV	13	14	God		God (the LORD)	Implicit		
+LEV	13	15	God		God (the LORD)	Implicit		
+LEV	13	16	God		God (the LORD)	Implicit		
+LEV	13	17	God		God (the LORD)	Implicit		
+LEV	13	18	God		God (the LORD)	Implicit		
+LEV	13	19	God		God (the LORD)	Implicit		
+LEV	13	20	God		God (the LORD)	Implicit		
+LEV	13	21	God		God (the LORD)	Implicit		
+LEV	13	22	God		God (the LORD)	Implicit		
+LEV	13	23	God		God (the LORD)	Implicit		
+LEV	13	24	God		God (the LORD)	Implicit		
+LEV	13	25	God		God (the LORD)	Implicit		
+LEV	13	26	God		God (the LORD)	Implicit		
+LEV	13	27	God		God (the LORD)	Implicit		
+LEV	13	28	God		God (the LORD)	Implicit		
+LEV	13	29	God		God (the LORD)	Implicit		
+LEV	13	30	God		God (the LORD)	Implicit		
+LEV	13	31	God		God (the LORD)	Implicit		
+LEV	13	32	God		God (the LORD)	Implicit		
+LEV	13	33	God		God (the LORD)	Implicit		
+LEV	13	34	God		God (the LORD)	Implicit		
+LEV	13	35	God		God (the LORD)	Implicit		
+LEV	13	36	God		God (the LORD)	Implicit		
+LEV	13	37	God		God (the LORD)	Implicit		
+LEV	13	38	God		God (the LORD)	Implicit		
+LEV	13	39	God		God (the LORD)	Implicit		
+LEV	13	40	God		God (the LORD)	Implicit		
+LEV	13	41	God		God (the LORD)	Implicit		
+LEV	13	42	God		God (the LORD)	Implicit		
+LEV	13	43	God		God (the LORD)	Implicit		
+LEV	13	44	God		God (the LORD)	Implicit		
+LEV	13	45	God		God (the LORD)	Implicit		
+LEV	13	46	God		God (the LORD)	Implicit		
+LEV	13	47	God		God (the LORD)	Implicit		
+LEV	13	48	God		God (the LORD)	Implicit		
+LEV	13	49	God		God (the LORD)	Implicit		
+LEV	13	50	God		God (the LORD)	Implicit		
+LEV	13	51	God		God (the LORD)	Implicit		
+LEV	13	52	God		God (the LORD)	Implicit		
+LEV	13	53	God		God (the LORD)	Implicit		
+LEV	13	54	God		God (the LORD)	Implicit		
+LEV	13	55	God		God (the LORD)	Implicit		
+LEV	13	56	God		God (the LORD)	Implicit		
+LEV	13	57	God		God (the LORD)	Implicit		
+LEV	13	58	God		God (the LORD)	Implicit		
 LEV	13	59	God		God (the LORD)	Potential		
-LEV	14	2	God		God (the LORD)	Potential		
-LEV	14	3	God		God (the LORD)	Potential		
-LEV	14	4	God		God (the LORD)	Potential		
-LEV	14	5	God		God (the LORD)	Potential		
-LEV	14	6	God		God (the LORD)	Potential		
-LEV	14	7	God		God (the LORD)	Potential		
-LEV	14	8	God		God (the LORD)	Potential		
-LEV	14	9	God		God (the LORD)	Potential		
-LEV	14	10	God		God (the LORD)	Potential		
-LEV	14	11	God		God (the LORD)	Potential		
-LEV	14	12	God		God (the LORD)	Potential		
-LEV	14	13	God		God (the LORD)	Potential		
-LEV	14	14	God		God (the LORD)	Potential		
-LEV	14	15	God		God (the LORD)	Potential		
-LEV	14	16	God		God (the LORD)	Potential		
-LEV	14	17	God		God (the LORD)	Potential		
-LEV	14	18	God		God (the LORD)	Potential		
-LEV	14	19	God		God (the LORD)	Potential		
-LEV	14	20	God		God (the LORD)	Potential		
-LEV	14	21	God		God (the LORD)	Potential		
-LEV	14	22	God		God (the LORD)	Potential		
-LEV	14	23	God		God (the LORD)	Potential		
-LEV	14	24	God		God (the LORD)	Potential		
-LEV	14	25	God		God (the LORD)	Potential		
-LEV	14	26	God		God (the LORD)	Potential		
-LEV	14	27	God		God (the LORD)	Potential		
-LEV	14	28	God		God (the LORD)	Potential		
-LEV	14	29	God		God (the LORD)	Potential		
-LEV	14	30	God		God (the LORD)	Potential		
+LEV	14	2	God		God (the LORD)	Implicit		
+LEV	14	3	God		God (the LORD)	Implicit		
+LEV	14	4	God		God (the LORD)	Implicit		
+LEV	14	5	God		God (the LORD)	Implicit		
+LEV	14	6	God		God (the LORD)	Implicit		
+LEV	14	7	God		God (the LORD)	Implicit		
+LEV	14	8	God		God (the LORD)	Implicit		
+LEV	14	9	God		God (the LORD)	Implicit		
+LEV	14	10	God		God (the LORD)	Implicit		
+LEV	14	11	God		God (the LORD)	Implicit		
+LEV	14	12	God		God (the LORD)	Implicit		
+LEV	14	13	God		God (the LORD)	Implicit		
+LEV	14	14	God		God (the LORD)	Implicit		
+LEV	14	15	God		God (the LORD)	Implicit		
+LEV	14	16	God		God (the LORD)	Implicit		
+LEV	14	17	God		God (the LORD)	Implicit		
+LEV	14	18	God		God (the LORD)	Implicit		
+LEV	14	19	God		God (the LORD)	Implicit		
+LEV	14	20	God		God (the LORD)	Implicit		
+LEV	14	21	God		God (the LORD)	Implicit		
+LEV	14	22	God		God (the LORD)	Implicit		
+LEV	14	23	God		God (the LORD)	Implicit		
+LEV	14	24	God		God (the LORD)	Implicit		
+LEV	14	25	God		God (the LORD)	Implicit		
+LEV	14	26	God		God (the LORD)	Implicit		
+LEV	14	27	God		God (the LORD)	Implicit		
+LEV	14	28	God		God (the LORD)	Implicit		
+LEV	14	29	God		God (the LORD)	Implicit		
+LEV	14	30	God		God (the LORD)	Implicit		
 LEV	14	31	God		God (the LORD)	Potential		
 LEV	14	32	God		God (the LORD)	Potential		
-LEV	14	34	God		God (the LORD)	Potential		
-LEV	14	35	God		God (the LORD)	Potential		
-LEV	14	36	God		God (the LORD)	Potential		
-LEV	14	37	God		God (the LORD)	Potential		
-LEV	14	38	God		God (the LORD)	Potential		
-LEV	14	39	God		God (the LORD)	Potential		
-LEV	14	40	God		God (the LORD)	Potential		
-LEV	14	41	God		God (the LORD)	Potential		
-LEV	14	42	God		God (the LORD)	Potential		
-LEV	14	43	God		God (the LORD)	Potential		
-LEV	14	44	God		God (the LORD)	Potential		
-LEV	14	45	God		God (the LORD)	Potential		
-LEV	14	46	God		God (the LORD)	Potential		
-LEV	14	47	God		God (the LORD)	Potential		
-LEV	14	48	God		God (the LORD)	Potential		
-LEV	14	49	God		God (the LORD)	Potential		
-LEV	14	50	God		God (the LORD)	Potential		
-LEV	14	51	God		God (the LORD)	Potential		
-LEV	14	52	God		God (the LORD)	Potential		
-LEV	14	53	God		God (the LORD)	Potential		
+LEV	14	34	God		God (the LORD)	Implicit		
+LEV	14	35	God		God (the LORD)	Implicit		
+LEV	14	36	God		God (the LORD)	Implicit		
+LEV	14	37	God		God (the LORD)	Implicit		
+LEV	14	38	God		God (the LORD)	Implicit		
+LEV	14	39	God		God (the LORD)	Implicit		
+LEV	14	40	God		God (the LORD)	Implicit		
+LEV	14	41	God		God (the LORD)	Implicit		
+LEV	14	42	God		God (the LORD)	Implicit		
+LEV	14	43	God		God (the LORD)	Implicit		
+LEV	14	44	God		God (the LORD)	Implicit		
+LEV	14	45	God		God (the LORD)	Implicit		
+LEV	14	46	God		God (the LORD)	Implicit		
+LEV	14	47	God		God (the LORD)	Implicit		
+LEV	14	48	God		God (the LORD)	Implicit		
+LEV	14	49	God		God (the LORD)	Implicit		
+LEV	14	50	God		God (the LORD)	Implicit		
+LEV	14	51	God		God (the LORD)	Implicit		
+LEV	14	52	God		God (the LORD)	Implicit		
+LEV	14	53	God		God (the LORD)	Implicit		
 LEV	14	54	God		God (the LORD)	Potential		
 LEV	14	55	God		God (the LORD)	Potential		
 LEV	14	56	God		God (the LORD)	Potential		
 LEV	14	57	God		God (the LORD)	Potential		
-LEV	15	2	God		God (the LORD)	Potential		
-LEV	15	3	God		God (the LORD)	Potential		
-LEV	15	4	God		God (the LORD)	Potential		
-LEV	15	5	God		God (the LORD)	Potential		
-LEV	15	6	God		God (the LORD)	Potential		
-LEV	15	7	God		God (the LORD)	Potential		
-LEV	15	8	God		God (the LORD)	Potential		
-LEV	15	9	God		God (the LORD)	Potential		
-LEV	15	10	God		God (the LORD)	Potential		
-LEV	15	11	God		God (the LORD)	Potential		
-LEV	15	12	God		God (the LORD)	Potential		
-LEV	15	13	God		God (the LORD)	Potential		
-LEV	15	14	God		God (the LORD)	Potential		
-LEV	15	15	God		God (the LORD)	Potential		
-LEV	15	16	God		God (the LORD)	Potential		
-LEV	15	17	God		God (the LORD)	Potential		
-LEV	15	18	God		God (the LORD)	Potential		
-LEV	15	19	God		God (the LORD)	Potential		
-LEV	15	20	God		God (the LORD)	Potential		
-LEV	15	21	God		God (the LORD)	Potential		
-LEV	15	22	God		God (the LORD)	Potential		
-LEV	15	23	God		God (the LORD)	Potential		
-LEV	15	24	God		God (the LORD)	Potential		
-LEV	15	25	God		God (the LORD)	Potential		
-LEV	15	26	God		God (the LORD)	Potential		
-LEV	15	27	God		God (the LORD)	Potential		
-LEV	15	28	God		God (the LORD)	Potential		
-LEV	15	29	God		God (the LORD)	Potential		
-LEV	15	30	God		God (the LORD)	Potential		
-LEV	15	31	God		God (the LORD)	Potential		
+LEV	15	2	God		God (the LORD)	Implicit		
+LEV	15	3	God		God (the LORD)	Implicit		
+LEV	15	4	God		God (the LORD)	Implicit		
+LEV	15	5	God		God (the LORD)	Implicit		
+LEV	15	6	God		God (the LORD)	Implicit		
+LEV	15	7	God		God (the LORD)	Implicit		
+LEV	15	8	God		God (the LORD)	Implicit		
+LEV	15	9	God		God (the LORD)	Implicit		
+LEV	15	10	God		God (the LORD)	Implicit		
+LEV	15	11	God		God (the LORD)	Implicit		
+LEV	15	12	God		God (the LORD)	Implicit		
+LEV	15	13	God		God (the LORD)	Implicit		
+LEV	15	14	God		God (the LORD)	Implicit		
+LEV	15	15	God		God (the LORD)	Implicit		
+LEV	15	16	God		God (the LORD)	Implicit		
+LEV	15	17	God		God (the LORD)	Implicit		
+LEV	15	18	God		God (the LORD)	Implicit		
+LEV	15	19	God		God (the LORD)	Implicit		
+LEV	15	20	God		God (the LORD)	Implicit		
+LEV	15	21	God		God (the LORD)	Implicit		
+LEV	15	22	God		God (the LORD)	Implicit		
+LEV	15	23	God		God (the LORD)	Implicit		
+LEV	15	24	God		God (the LORD)	Implicit		
+LEV	15	25	God		God (the LORD)	Implicit		
+LEV	15	26	God		God (the LORD)	Implicit		
+LEV	15	27	God		God (the LORD)	Implicit		
+LEV	15	28	God		God (the LORD)	Implicit		
+LEV	15	29	God		God (the LORD)	Implicit		
+LEV	15	30	God		God (the LORD)	Implicit		
+LEV	15	31	God		God (the LORD)	Implicit		
 LEV	15	32	God		God (the LORD)	Potential		
 LEV	15	33	God		God (the LORD)	Potential		
-# The preferred way to handle Lev 16:2b is to manually split the verse into 2 blocks (if necessary) but assign both parts to narrator;
-# then let Glyssen apply the narrator override to the second block.
-LEV	16	2	God		God (the LORD)	Implicit		
-LEV	16	3	God		God (the LORD)	Potential		
-LEV	16	4	God		God (the LORD)	Potential		
-LEV	16	5	God		God (the LORD)	Potential		
-LEV	16	6	God		God (the LORD)	Potential		
-LEV	16	7	God		God (the LORD)	Potential		
-LEV	16	8	God		God (the LORD)	Potential		
-LEV	16	9	God		God (the LORD)	Potential		
-LEV	16	10	God		God (the LORD)	Potential		
-LEV	16	11	God		God (the LORD)	Potential		
-LEV	16	12	God		God (the LORD)	Potential		
-LEV	16	13	God		God (the LORD)	Potential		
-LEV	16	14	God		God (the LORD)	Potential		
-LEV	16	15	God		God (the LORD)	Potential		
-LEV	16	16	God		God (the LORD)	Potential		
-LEV	16	17	God		God (the LORD)	Potential		
-LEV	16	18	God		God (the LORD)	Potential		
-LEV	16	19	God		God (the LORD)	Potential		
-LEV	16	20	God		God (the LORD)	Potential		
-LEV	16	21	God		God (the LORD)	Potential		
-LEV	16	22	God		God (the LORD)	Potential		
-LEV	16	23	God		God (the LORD)	Potential		
-LEV	16	24	God		God (the LORD)	Potential		
-LEV	16	25	God		God (the LORD)	Potential		
-LEV	16	26	God		God (the LORD)	Potential		
-LEV	16	27	God		God (the LORD)	Potential		
-LEV	16	28	God		God (the LORD)	Potential		
-LEV	16	29	God		God (the LORD)	Potential		
-LEV	16	30	God		God (the LORD)	Potential		
-LEV	16	31	God		God (the LORD)	Potential		
-LEV	16	32	God		God (the LORD)	Potential		
-LEV	16	33	God		God (the LORD)	Potential		
-# The preferred way to handle Lev 16:34a is to manually split the verse into 2 blocks (if necessary) but assign both parts to narrator;
-# then let Glyssen apply the narrator override to the first block.
+LEV	16	2	God		God (the LORD)	Normal		
+LEV	16	3	God		God (the LORD)	Implicit		
+LEV	16	4	God		God (the LORD)	Implicit		
+LEV	16	5	God		God (the LORD)	Implicit		
+LEV	16	6	God		God (the LORD)	Implicit		
+LEV	16	7	God		God (the LORD)	Implicit		
+LEV	16	8	God		God (the LORD)	Implicit		
+LEV	16	9	God		God (the LORD)	Implicit		
+LEV	16	10	God		God (the LORD)	Implicit		
+LEV	16	11	God		God (the LORD)	Implicit		
+LEV	16	12	God		God (the LORD)	Implicit		
+LEV	16	13	God		God (the LORD)	Implicit		
+LEV	16	14	God		God (the LORD)	Implicit		
+LEV	16	15	God		God (the LORD)	Implicit		
+LEV	16	16	God		God (the LORD)	Implicit		
+LEV	16	17	God		God (the LORD)	Implicit		
+LEV	16	18	God		God (the LORD)	Implicit		
+LEV	16	19	God		God (the LORD)	Implicit		
+LEV	16	20	God		God (the LORD)	Implicit		
+LEV	16	21	God		God (the LORD)	Implicit		
+LEV	16	22	God		God (the LORD)	Implicit		
+LEV	16	23	God		God (the LORD)	Implicit		
+LEV	16	24	God		God (the LORD)	Implicit		
+LEV	16	25	God		God (the LORD)	Implicit		
+LEV	16	26	God		God (the LORD)	Implicit		
+LEV	16	27	God		God (the LORD)	Implicit		
+LEV	16	28	God		God (the LORD)	Implicit		
+LEV	16	29	God		God (the LORD)	Implicit		
+LEV	16	30	God		God (the LORD)	Implicit		
+LEV	16	31	God		God (the LORD)	Implicit		
+LEV	16	32	God		God (the LORD)	Implicit		
+LEV	16	33	God		God (the LORD)	Implicit		
 LEV	16	34	God		God (the LORD)	Normal		
 LEV	17	2	God		God (the LORD)	Implicit		
 LEV	17	3	God		God (the LORD)	Implicit		
@@ -2217,20 +2214,20 @@ LEV	20	25	God		God (the LORD)	Implicit
 LEV	20	26	God		God (the LORD)	Implicit		
 LEV	20	27	God		God (the LORD)	Implicit		
 LEV	21	1	God		God (the LORD)	Normal		
-LEV	21	2	God		God (the LORD)	Normal		
-LEV	21	3	God		God (the LORD)	Normal		
-LEV	21	4	God		God (the LORD)	Normal		
-LEV	21	5	God		God (the LORD)	Normal		
-LEV	21	6	God		God (the LORD)	Normal		
-LEV	21	7	God		God (the LORD)	Normal		
-LEV	21	8	God		God (the LORD)	Normal		
-LEV	21	9	God		God (the LORD)	Normal		
-LEV	21	10	God		God (the LORD)	Normal		
-LEV	21	11	God		God (the LORD)	Normal		
-LEV	21	12	God		God (the LORD)	Normal		
-LEV	21	13	God		God (the LORD)	Normal		
-LEV	21	14	God		God (the LORD)	Normal		
-LEV	21	15	God		God (the LORD)	Normal		
+LEV	21	2	God		God (the LORD)	Implicit		
+LEV	21	3	God		God (the LORD)	Implicit		
+LEV	21	4	God		God (the LORD)	Implicit		
+LEV	21	5	God		God (the LORD)	Implicit		
+LEV	21	6	God		God (the LORD)	Implicit		
+LEV	21	7	God		God (the LORD)	Implicit		
+LEV	21	8	God		God (the LORD)	Implicit		
+LEV	21	9	God		God (the LORD)	Implicit		
+LEV	21	10	God		God (the LORD)	Implicit		
+LEV	21	11	God		God (the LORD)	Implicit		
+LEV	21	12	God		God (the LORD)	Implicit		
+LEV	21	13	God		God (the LORD)	Implicit		
+LEV	21	14	God		God (the LORD)	Implicit		
+LEV	21	15	God		God (the LORD)	Implicit		
 LEV	21	17	God		God (the LORD)	Implicit		
 LEV	21	18	God		God (the LORD)	Implicit		
 LEV	21	19	God		God (the LORD)	Implicit		
@@ -2268,64 +2265,65 @@ LEV	22	30	God		God (the LORD)	Implicit
 LEV	22	31	God		God (the LORD)	Implicit		
 LEV	22	32	God		God (the LORD)	Implicit		
 LEV	22	33	God		God (the LORD)	Implicit		
-LEV	23	2	God		God (the LORD)	Normal		
-LEV	23	3	God		God (the LORD)	Normal		
-LEV	23	4	God		God (the LORD)	Normal		
-LEV	23	5	God		God (the LORD)	Normal		
-LEV	23	6	God		God (the LORD)	Normal		
-LEV	23	7	God		God (the LORD)	Normal		
-LEV	23	8	God		God (the LORD)	Normal		
-LEV	23	10	God		God (the LORD)	Normal		
-LEV	23	11	God		God (the LORD)	Normal		
-LEV	23	12	God		God (the LORD)	Normal		
-LEV	23	13	God		God (the LORD)	Normal		
-LEV	23	14	God		God (the LORD)	Normal		
-LEV	23	15	God		God (the LORD)	Normal		
-LEV	23	16	God		God (the LORD)	Normal		
-LEV	23	17	God		God (the LORD)	Normal		
-LEV	23	18	God		God (the LORD)	Normal		
-LEV	23	19	God		God (the LORD)	Normal		
-LEV	23	20	God		God (the LORD)	Normal		
-LEV	23	21	God		God (the LORD)	Normal		
-LEV	23	22	God		God (the LORD)	Normal		
-LEV	23	24	God		God (the LORD)	Normal		
-LEV	23	25	God		God (the LORD)	Normal		
-LEV	23	27	God		God (the LORD)	Normal		
-LEV	23	28	God		God (the LORD)	Normal		
-LEV	23	29	God		God (the LORD)	Normal		
-LEV	23	30	God		God (the LORD)	Normal		
-LEV	23	31	God		God (the LORD)	Normal		
-LEV	23	32	God		God (the LORD)	Normal		
-LEV	23	34	God		God (the LORD)	Normal		
-LEV	23	35	God		God (the LORD)	Normal		
-LEV	23	36	God		God (the LORD)	Normal		
-LEV	23	37	God		God (the LORD)	Normal		
-LEV	23	38	God		God (the LORD)	Normal		
-LEV	23	39	God		God (the LORD)	Normal		
-LEV	23	40	God		God (the LORD)	Normal		
-LEV	23	41	God		God (the LORD)	Normal		
-LEV	23	42	God		God (the LORD)	Normal		
-LEV	23	43	God		God (the LORD)	Normal		
-LEV	24	2	God		God (the LORD)	Normal		
-LEV	24	3	God		God (the LORD)	Normal		
-LEV	24	4	God		God (the LORD)	Normal		
-LEV	24	5	God		God (the LORD)	Normal		
-LEV	24	6	God		God (the LORD)	Normal		
-LEV	24	7	God		God (the LORD)	Normal		
-LEV	24	8	God		God (the LORD)	Normal		
-LEV	24	9	God		God (the LORD)	Normal		
-LEV	24	11	son of Shelomith (whose father was an Egyptian)			Indirect		
-LEV	24	14	God		God (the LORD)	Normal		
-LEV	24	15	God		God (the LORD)	Normal		
-LEV	24	16	God		God (the LORD)	Normal		
-LEV	24	17	God		God (the LORD)	Normal		
-LEV	24	18	God		God (the LORD)	Normal		
-LEV	24	19	God		God (the LORD)	Normal		
-LEV	24	20	God		God (the LORD)	Normal		
-LEV	24	21	God		God (the LORD)	Normal		
-LEV	24	22	God		God (the LORD)	Normal		
+LEV	23	2	God		God (the LORD)	Implicit		
+LEV	23	3	God		God (the LORD)	Implicit		
+LEV	23	4	God		God (the LORD)	Implicit		
+LEV	23	5	God		God (the LORD)	Implicit		
+LEV	23	6	God		God (the LORD)	Implicit		
+LEV	23	7	God		God (the LORD)	Implicit		
+LEV	23	8	God		God (the LORD)	Implicit		
+LEV	23	10	God		God (the LORD)	Implicit		
+LEV	23	11	God		God (the LORD)	Implicit		
+LEV	23	12	God		God (the LORD)	Implicit		
+LEV	23	13	God		God (the LORD)	Implicit		
+LEV	23	14	God		God (the LORD)	Implicit		
+LEV	23	15	God		God (the LORD)	Implicit		
+LEV	23	16	God		God (the LORD)	Implicit		
+LEV	23	17	God		God (the LORD)	Implicit		
+LEV	23	18	God		God (the LORD)	Implicit		
+LEV	23	19	God		God (the LORD)	Implicit		
+LEV	23	20	God		God (the LORD)	Implicit		
+LEV	23	21	God		God (the LORD)	Implicit		
+LEV	23	22	God		God (the LORD)	Implicit		
+LEV	23	24	God		God (the LORD)	Implicit		
+LEV	23	25	God		God (the LORD)	Implicit		
+LEV	23	27	God		God (the LORD)	Implicit		
+LEV	23	28	God		God (the LORD)	Implicit		
+LEV	23	29	God		God (the LORD)	Implicit		
+LEV	23	30	God		God (the LORD)	Implicit		
+LEV	23	31	God		God (the LORD)	Implicit		
+LEV	23	32	God		God (the LORD)	Implicit		
+LEV	23	34	God		God (the LORD)	Implicit		
+LEV	23	35	God		God (the LORD)	Implicit		
+LEV	23	36	God		God (the LORD)	Implicit		
+LEV	23	37	God		God (the LORD)	Implicit		
+LEV	23	38	God		God (the LORD)	Implicit		
+LEV	23	39	God		God (the LORD)	Implicit		
+LEV	23	40	God		God (the LORD)	Implicit		
+LEV	23	41	God		God (the LORD)	Implicit		
+LEV	23	42	God		God (the LORD)	Implicit		
+LEV	23	43	God		God (the LORD)	Implicit		
+LEV	24	2	God		God (the LORD)	Implicit		
+LEV	24	3	God		God (the LORD)	Implicit		
+LEV	24	4	God		God (the LORD)	Implicit		
+LEV	24	5	God		God (the LORD)	Implicit		
+LEV	24	6	God		God (the LORD)	Implicit		
+LEV	24	7	God		God (the LORD)	Implicit		
+LEV	24	8	God		God (the LORD)	Implicit		
+LEV	24	9	God		God (the LORD)	Implicit		
+LEV	24	11	son of Shelomith (whose father was an Egyptian)			Potential		
+LEV	24	14	God		God (the LORD)	Implicit		
+LEV	24	15	God		God (the LORD)	Implicit		
+LEV	24	16	God		God (the LORD)	Implicit		
+LEV	24	17	God		God (the LORD)	Implicit		
+LEV	24	18	God		God (the LORD)	Implicit		
+LEV	24	19	God		God (the LORD)	Implicit		
+LEV	24	20	God		God (the LORD)	Implicit		
+LEV	24	21	God		God (the LORD)	Implicit		
+LEV	24	22	God		God (the LORD)	Implicit		
 LEV	24	23	Moses			Indirect		
 LEV	24	23	God		God (the LORD)	Indirect		
+LEV	24	23	son of Shelomith (whose father was an Egyptian)			Quotation		
 LEV	25	2	God		God (the LORD)	Implicit		
 LEV	25	3	God		God (the LORD)	Implicit		
 LEV	25	4	God		God (the LORD)	Implicit		
@@ -2457,153 +2455,159 @@ LEV	27	30	God		God (the LORD)	Implicit
 LEV	27	31	God		God (the LORD)	Implicit		
 LEV	27	32	God		God (the LORD)	Implicit		
 LEV	27	33	God		God (the LORD)	Implicit		
-NUM	1	2	God		God (the LORD)	Normal		
-NUM	1	3	God		God (the LORD)	Normal		
-NUM	1	4	God		God (the LORD)	Normal		
-NUM	1	5	God		God (the LORD)	Normal		
-NUM	1	6	God		God (the LORD)	Normal		
-NUM	1	7	God		God (the LORD)	Normal		
-NUM	1	8	God		God (the LORD)	Normal		
-NUM	1	9	God		God (the LORD)	Normal		
-NUM	1	10	God		God (the LORD)	Normal		
-NUM	1	11	God		God (the LORD)	Normal		
-NUM	1	12	God		God (the LORD)	Normal		
-NUM	1	13	God		God (the LORD)	Normal		
-NUM	1	14	God		God (the LORD)	Normal		
-NUM	1	15	God		God (the LORD)	Normal		
+NUM	1	2	God		God (the LORD)	Implicit		
+NUM	1	3	God		God (the LORD)	Implicit		
+NUM	1	4	God		God (the LORD)	Implicit		
+NUM	1	5	God		God (the LORD)	Implicit		
+NUM	1	6	God		God (the LORD)	Implicit		
+NUM	1	7	God		God (the LORD)	Implicit		
+NUM	1	8	God		God (the LORD)	Implicit		
+NUM	1	9	God		God (the LORD)	Implicit		
+NUM	1	10	God		God (the LORD)	Implicit		
+NUM	1	11	God		God (the LORD)	Implicit		
+NUM	1	12	God		God (the LORD)	Implicit		
+NUM	1	13	God		God (the LORD)	Implicit		
+NUM	1	14	God		God (the LORD)	Implicit		
+NUM	1	15	God		God (the LORD)	Implicit		
+# REVIEW: The following verse seems unlikely to be quoted speech by God
 NUM	1	16	God		God (the LORD)	Potential		
-NUM	1	49	God		God (the LORD)	Normal		
-NUM	1	50	God		God (the LORD)	Normal		
-NUM	1	51	God		God (the LORD)	Normal		
-NUM	1	52	God		God (the LORD)	Normal		
-NUM	1	53	God		God (the LORD)	Normal		
-NUM	2	2	God		God (the LORD)	Normal		
-NUM	2	3	God		God (the LORD)	Potential		
-NUM	2	4	God		God (the LORD)	Potential		
-NUM	2	5	God		God (the LORD)	Potential		
-NUM	2	6	God		God (the LORD)	Potential		
-NUM	2	7	God		God (the LORD)	Potential		
-NUM	2	8	God		God (the LORD)	Potential		
-NUM	2	9	God		God (the LORD)	Potential		
-NUM	2	10	God		God (the LORD)	Potential		
-NUM	2	11	God		God (the LORD)	Potential		
-NUM	2	12	God		God (the LORD)	Potential		
-NUM	2	13	God		God (the LORD)	Potential		
-NUM	2	14	God		God (the LORD)	Potential		
-NUM	2	15	God		God (the LORD)	Potential		
-NUM	2	16	God		God (the LORD)	Potential		
-NUM	2	17	God		God (the LORD)	Potential		
-NUM	2	18	God		God (the LORD)	Potential		
-NUM	2	19	God		God (the LORD)	Potential		
-NUM	2	20	God		God (the LORD)	Potential		
-NUM	2	21	God		God (the LORD)	Potential		
-NUM	2	22	God		God (the LORD)	Potential		
-NUM	2	23	God		God (the LORD)	Potential		
-NUM	2	24	God		God (the LORD)	Potential		
-NUM	2	25	God		God (the LORD)	Potential		
-NUM	2	26	God		God (the LORD)	Potential		
-NUM	2	27	God		God (the LORD)	Potential		
-NUM	2	28	God		God (the LORD)	Potential		
-NUM	2	29	God		God (the LORD)	Potential		
-NUM	2	30	God		God (the LORD)	Potential		
-NUM	2	31	God		God (the LORD)	Potential		
-NUM	3	6	God		God (the LORD)	Normal		
-NUM	3	7	God		God (the LORD)	Normal		
-NUM	3	8	God		God (the LORD)	Normal		
-NUM	3	9	God		God (the LORD)	Normal		
-NUM	3	10	God		God (the LORD)	Normal		
-NUM	3	12	God		God (the LORD)	Normal		
-NUM	3	13	God		God (the LORD)	Normal		
-NUM	3	15	God		God (the LORD)	Normal		
-NUM	3	40	God		God (the LORD)	Normal		
-NUM	3	41	God		God (the LORD)	Normal		
-NUM	3	45	God		God (the LORD)	Normal		
-NUM	3	46	God		God (the LORD)	Normal		
-NUM	3	47	God		God (the LORD)	Normal		
-NUM	3	48	God		God (the LORD)	Normal		
-NUM	4	2	God		God (the LORD)	Normal		
-NUM	4	3	God		God (the LORD)	Normal		
-NUM	4	4	God		God (the LORD)	Normal		
-NUM	4	5	God		God (the LORD)	Normal		
-NUM	4	6	God		God (the LORD)	Normal		
-NUM	4	7	God		God (the LORD)	Normal		
-NUM	4	8	God		God (the LORD)	Normal		
-NUM	4	9	God		God (the LORD)	Normal		
-NUM	4	10	God		God (the LORD)	Normal		
-NUM	4	11	God		God (the LORD)	Normal		
-NUM	4	12	God		God (the LORD)	Normal		
-NUM	4	13	God		God (the LORD)	Normal		
-NUM	4	14	God		God (the LORD)	Normal		
-NUM	4	15	God		God (the LORD)	Normal		
-NUM	4	16	God		God (the LORD)	Normal		
-NUM	4	18	God		God (the LORD)	Normal		
-NUM	4	19	God		God (the LORD)	Normal		
-NUM	4	20	God		God (the LORD)	Normal		
-NUM	4	22	God		God (the LORD)	Normal		
-NUM	4	23	God		God (the LORD)	Normal		
-NUM	4	24	God		God (the LORD)	Normal		
-NUM	4	25	God		God (the LORD)	Normal		
-NUM	4	26	God		God (the LORD)	Normal		
-NUM	4	27	God		God (the LORD)	Normal		
-NUM	4	28	God		God (the LORD)	Normal		
-NUM	4	29	God		God (the LORD)	Normal		
-NUM	4	30	God		God (the LORD)	Normal		
-NUM	4	31	God		God (the LORD)	Normal		
-NUM	4	32	God		God (the LORD)	Normal		
-NUM	4	33	God		God (the LORD)	Normal		
-NUM	5	2	God		God (the LORD)	Normal		
-NUM	5	3	God		God (the LORD)	Normal		
-NUM	5	6	God		God (the LORD)	Normal		
-NUM	5	7	God		God (the LORD)	Normal		
-NUM	5	8	God		God (the LORD)	Normal		
-NUM	5	9	God		God (the LORD)	Normal		
-NUM	5	10	God		God (the LORD)	Normal		
-NUM	5	12	God		God (the LORD)	Normal		
-NUM	5	13	God		God (the LORD)	Normal		
-NUM	5	14	God		God (the LORD)	Normal		
-NUM	5	15	God		God (the LORD)	Normal		
-NUM	5	16	God		God (the LORD)	Normal		
-NUM	5	17	God		God (the LORD)	Normal		
-NUM	5	18	God		God (the LORD)	Normal		
+NUM	1	49	God		God (the LORD)	Implicit		
+NUM	1	50	God		God (the LORD)	Implicit		
+NUM	1	51	God		God (the LORD)	Implicit		
+NUM	1	52	God		God (the LORD)	Implicit		
+NUM	1	53	God		God (the LORD)	Implicit		
+NUM	2	2	God		God (the LORD)	Implicit		
+NUM	2	3	God		God (the LORD)	Implicit		
+NUM	2	4	God		God (the LORD)	Implicit		
+NUM	2	5	God		God (the LORD)	Implicit		
+NUM	2	6	God		God (the LORD)	Implicit		
+NUM	2	7	God		God (the LORD)	Implicit		
+NUM	2	8	God		God (the LORD)	Implicit		
+NUM	2	9	God		God (the LORD)	Implicit		
+NUM	2	10	God		God (the LORD)	Implicit		
+NUM	2	11	God		God (the LORD)	Implicit		
+NUM	2	12	God		God (the LORD)	Implicit		
+NUM	2	13	God		God (the LORD)	Implicit		
+NUM	2	14	God		God (the LORD)	Implicit		
+NUM	2	15	God		God (the LORD)	Implicit		
+NUM	2	16	God		God (the LORD)	Implicit		
+NUM	2	17	God		God (the LORD)	Implicit		
+NUM	2	18	God		God (the LORD)	Implicit		
+NUM	2	19	God		God (the LORD)	Implicit		
+NUM	2	20	God		God (the LORD)	Implicit		
+NUM	2	21	God		God (the LORD)	Implicit		
+NUM	2	22	God		God (the LORD)	Implicit		
+NUM	2	23	God		God (the LORD)	Implicit		
+NUM	2	24	God		God (the LORD)	Implicit		
+NUM	2	25	God		God (the LORD)	Implicit		
+NUM	2	26	God		God (the LORD)	Implicit		
+NUM	2	27	God		God (the LORD)	Implicit		
+NUM	2	28	God		God (the LORD)	Implicit		
+NUM	2	29	God		God (the LORD)	Implicit		
+NUM	2	30	God		God (the LORD)	Implicit		
+NUM	2	31	God		God (the LORD)	Implicit		
+NUM	3	6	God		God (the LORD)	Implicit		
+NUM	3	7	God		God (the LORD)	Implicit		
+NUM	3	8	God		God (the LORD)	Implicit		
+NUM	3	9	God		God (the LORD)	Implicit		
+NUM	3	10	God		God (the LORD)	Implicit		
+NUM	3	12	God		God (the LORD)	Implicit		
+NUM	3	13	God		God (the LORD)	Implicit		
+NUM	3	15	God		God (the LORD)	Implicit		
+NUM	3	40	God		God (the LORD)	Implicit		
+NUM	3	41	God		God (the LORD)	Implicit		
+NUM	3	45	God		God (the LORD)	Implicit		
+NUM	3	46	God		God (the LORD)	Implicit		
+NUM	3	47	God		God (the LORD)	Implicit		
+NUM	3	48	God		God (the LORD)	Implicit		
+NUM	4	2	God		God (the LORD)	Implicit		
+NUM	4	3	God		God (the LORD)	Implicit		
+NUM	4	4	God		God (the LORD)	Implicit		
+NUM	4	5	God		God (the LORD)	Implicit		
+NUM	4	6	God		God (the LORD)	Implicit		
+NUM	4	7	God		God (the LORD)	Implicit		
+NUM	4	8	God		God (the LORD)	Implicit		
+NUM	4	9	God		God (the LORD)	Implicit		
+NUM	4	10	God		God (the LORD)	Implicit		
+NUM	4	11	God		God (the LORD)	Implicit		
+NUM	4	12	God		God (the LORD)	Implicit		
+NUM	4	13	God		God (the LORD)	Implicit		
+NUM	4	14	God		God (the LORD)	Implicit		
+NUM	4	15	God		God (the LORD)	Implicit		
+NUM	4	16	God		God (the LORD)	Implicit		
+NUM	4	18	God		God (the LORD)	Implicit		
+NUM	4	19	God		God (the LORD)	Implicit		
+NUM	4	20	God		God (the LORD)	Implicit		
+NUM	4	22	God		God (the LORD)	Implicit		
+NUM	4	23	God		God (the LORD)	Implicit		
+NUM	4	24	God		God (the LORD)	Implicit		
+NUM	4	25	God		God (the LORD)	Implicit		
+NUM	4	26	God		God (the LORD)	Implicit		
+NUM	4	27	God		God (the LORD)	Implicit		
+NUM	4	28	God		God (the LORD)	Implicit		
+NUM	4	29	God		God (the LORD)	Implicit		
+NUM	4	30	God		God (the LORD)	Implicit		
+NUM	4	31	God		God (the LORD)	Implicit		
+NUM	4	32	God		God (the LORD)	Implicit		
+NUM	4	33	God		God (the LORD)	Implicit		
+NUM	5	2	God		God (the LORD)	Implicit		
+NUM	5	3	God		God (the LORD)	Implicit		
+NUM	5	6	God		God (the LORD)	Implicit		
+NUM	5	7	God		God (the LORD)	Implicit		
+NUM	5	8	God		God (the LORD)	Implicit		
+NUM	5	9	God		God (the LORD)	Implicit		
+NUM	5	10	God		God (the LORD)	Implicit		
+NUM	5	12	God		God (the LORD)	Implicit		
+NUM	5	13	God		God (the LORD)	Implicit		
+NUM	5	14	God		God (the LORD)	Implicit		
+NUM	5	15	God		God (the LORD)	Implicit		
+NUM	5	16	God		God (the LORD)	Implicit		
+NUM	5	17	God		God (the LORD)	Implicit		
+NUM	5	18	God		God (the LORD)	Implicit		
 NUM	5	19	God		God (the LORD)	Normal		
+NUM	5	19	priest			Quotation		
 NUM	5	20	God		God (the LORD)	Normal		
+NUM	5	20	priest			Quotation		
 NUM	5	21	God		God (the LORD)	Normal		
+NUM	5	21	priest			Quotation		
 NUM	5	22	God		God (the LORD)	Normal		
-NUM	5	23	God		God (the LORD)	Normal		
-NUM	5	24	God		God (the LORD)	Normal		
-NUM	5	25	God		God (the LORD)	Normal		
-NUM	5	26	God		God (the LORD)	Normal		
-NUM	5	27	God		God (the LORD)	Normal		
-NUM	5	28	God		God (the LORD)	Normal		
-NUM	5	29	God		God (the LORD)	Normal		
-NUM	5	30	God		God (the LORD)	Normal		
-NUM	5	31	God		God (the LORD)	Normal		
-NUM	6	2	God		God (the LORD)	Normal		
-NUM	6	3	God		God (the LORD)	Normal		
-NUM	6	4	God		God (the LORD)	Normal		
-NUM	6	5	God		God (the LORD)	Normal		
-NUM	6	6	God		God (the LORD)	Normal		
-NUM	6	7	God		God (the LORD)	Normal		
-NUM	6	8	God		God (the LORD)	Normal		
-NUM	6	9	God		God (the LORD)	Normal		
-NUM	6	10	God		God (the LORD)	Normal		
-NUM	6	11	God		God (the LORD)	Normal		
-NUM	6	12	God		God (the LORD)	Normal		
-NUM	6	13	God		God (the LORD)	Normal		
-NUM	6	14	God		God (the LORD)	Normal		
-NUM	6	15	God		God (the LORD)	Normal		
-NUM	6	16	God		God (the LORD)	Normal		
-NUM	6	17	God		God (the LORD)	Normal		
-NUM	6	18	God		God (the LORD)	Normal		
-NUM	6	19	God		God (the LORD)	Normal		
-NUM	6	20	God		God (the LORD)	Normal		
-NUM	6	21	God		God (the LORD)	Normal		
-NUM	6	23	God		God (the LORD)	Normal		
-NUM	6	24	God		God (the LORD)	Normal		
-NUM	6	25	God		God (the LORD)	Normal		
-NUM	6	26	God		God (the LORD)	Normal		
-NUM	6	27	God		God (the LORD)	Normal		
-NUM	7	5	God		God (the LORD)	Normal		
+NUM	5	22	priest			Quotation		
+NUM	5	22	wife suspected of infidelity			Quotation		
+NUM	5	23	God		God (the LORD)	Implicit		
+NUM	5	24	God		God (the LORD)	Implicit		
+NUM	5	25	God		God (the LORD)	Implicit		
+NUM	5	26	God		God (the LORD)	Implicit		
+NUM	5	27	God		God (the LORD)	Implicit		
+NUM	5	28	God		God (the LORD)	Implicit		
+NUM	5	29	God		God (the LORD)	Implicit		
+NUM	5	30	God		God (the LORD)	Implicit		
+NUM	5	31	God		God (the LORD)	Implicit		
+NUM	6	2	God		God (the LORD)	Implicit		
+NUM	6	3	God		God (the LORD)	Implicit		
+NUM	6	4	God		God (the LORD)	Implicit		
+NUM	6	5	God		God (the LORD)	Implicit		
+NUM	6	6	God		God (the LORD)	Implicit		
+NUM	6	7	God		God (the LORD)	Implicit		
+NUM	6	8	God		God (the LORD)	Implicit		
+NUM	6	9	God		God (the LORD)	Implicit		
+NUM	6	10	God		God (the LORD)	Implicit		
+NUM	6	11	God		God (the LORD)	Implicit		
+NUM	6	12	God		God (the LORD)	Implicit		
+NUM	6	13	God		God (the LORD)	Implicit		
+NUM	6	14	God		God (the LORD)	Implicit		
+NUM	6	15	God		God (the LORD)	Implicit		
+NUM	6	16	God		God (the LORD)	Implicit		
+NUM	6	17	God		God (the LORD)	Implicit		
+NUM	6	18	God		God (the LORD)	Implicit		
+NUM	6	19	God		God (the LORD)	Implicit		
+NUM	6	20	God		God (the LORD)	Implicit		
+NUM	6	21	God		God (the LORD)	Implicit		
+NUM	6	23	God		God (the LORD)	Implicit		
+NUM	6	24	God		God (the LORD)	Implicit		
+NUM	6	25	God		God (the LORD)	Implicit		
+NUM	6	26	God		God (the LORD)	Implicit		
+NUM	6	27	God		God (the LORD)	Implicit		
+NUM	7	5	God		God (the LORD)	Implicit		
 NUM	7	11	God		God (the LORD)	Normal		
 NUM	8	2	God		God (the LORD)	Normal		
 NUM	8	6	God		God (the LORD)	Normal		
@@ -5126,9 +5130,9 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	16	17	Saul			Normal		
 1SA	16	18	Saul's servant			Normal		
 1SA	16	19	Saul's messengers to Jesse			Normal		
-1SA	16	19	Saul	via messenger		Quotation		
+1SA	16	19	Saul		Saul (via messenger)	Quotation		
 1SA	16	22	Saul's messengers to Jesse			Normal		
-1SA	16	22	Saul	via messenger		Quotation		
+1SA	16	22	Saul		Saul (via messenger)	Quotation		
 1SA	17	8	Goliath, Philistine champion			Normal		
 1SA	17	9	Goliath, Philistine champion			Normal		
 1SA	17	10	Goliath, Philistine champion			Normal		
@@ -7027,12 +7031,12 @@ EZR	5	16	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter	
 EZR	5	17	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	6	1	Darius, king of Medes and Persians	decree		Potential		
 EZR	6	2	Darius, king of Medes and Persians	decree		Potential		
-EZR	6	3	royal record		written record on scroll	Implicit		
-EZR	6	3	Darius, king of Medes and Persians	decree		Potential		
-EZR	6	4	royal record		written record on scroll	Implicit		
-EZR	6	4	Darius, king of Medes and Persians	decree		Potential		
-EZR	6	5	royal record		written record on scroll	Implicit		
-EZR	6	5	Darius, king of Medes and Persians	decree		Potential		
+EZR	6	3	royal record		written record on scroll	Potential		
+EZR	6	3	Cyrus, king of Persia	decree		Quotation		
+EZR	6	4	royal record		written record on scroll	Potential		
+EZR	6	4	Cyrus, king of Persia	decree		Quotation		
+EZR	6	5	royal record		written record on scroll	Potential		
+EZR	6	5	Cyrus, king of Persia	decree		Quotation		
 EZR	6	6	Darius, king of Medes and Persians	decree		Implicit		
 EZR	6	7	Darius, king of Medes and Persians	decree		Implicit		
 EZR	6	8	Darius, king of Medes and Persians	decree		Implicit		
@@ -7079,7 +7083,6 @@ EZR	10	13	assembly, whole			Normal
 EZR	10	14	assembly, whole			Normal		
 # The preferred way to handle Nehemiah 1:1b is to manually split the verse into 2 blocks (if necessary) but assign both parts to narrator;
 # then let Glyssen apply the narrator override to the second block.
-NEH	1	1	Nehemiah			Implicit		
 NEH	1	3	Hanani, brother of Nehemiah/Judah, men of		Hanani/men of Judah	Normal	Hanani, brother of Nehemiah	
 NEH	1	5	Nehemiah	praying		Normal		
 NEH	1	6	Nehemiah	praying		Normal		
@@ -7103,8 +7106,8 @@ NEH	2	20	Nehemiah			Normal
 NEH	4	1	Sanballat the Horonite	mocking	Sanballat	Potential		
 NEH	4	2	Sanballat the Horonite	angry	Sanballat	Normal		
 NEH	4	3	Tobiah the Ammonite official	mocking	Tobiah the Ammonite	Normal		
-NEH	4	4	Nehemiah	praying		Implicit		
-NEH	4	5	Nehemiah	praying		Implicit		
+NEH	4	4	Nehemiah	praying		Potential		
+NEH	4	5	Nehemiah	praying		Potential		
 NEH	4	7	report to Sanballat and Tobiah			Potential		
 NEH	4	8	Sanballat the Horonite/Tobiah the Ammonite official/men of Ashdod	conspiring		Potential	Sanballat the Horonite	
 NEH	4	10	Judah, people in			Normal		
@@ -7128,7 +7131,7 @@ NEH	5	12	nobles and officials (Jewish)			Normal
 NEH	5	13	assembly, whole			Normal		
 NEH	5	13	Nehemiah			Normal		
 NEH	5	14	Artaxerxes, king of Persia	official appointment		Potential		
-NEH	5	19	Nehemiah	praying		Implicit		
+NEH	5	19	Nehemiah	praying		Potential		
 NEH	6	1	report to Sanballat and Tobiah			Potential		
 NEH	6	2	Sanballat the Horonite/Geshem the Arab	message, scheming	Sanballat/Geshem	Normal	Sanballat the Horonite	
 NEH	6	3	Nehemiah	message		Normal		
@@ -7140,7 +7143,7 @@ NEH	6	9	Nehemiah	praying		Normal
 NEH	6	9	Sanballat the Horonite/Geshem the Arab	thinking	enemies of Judah and Benjamin (Sanballat, etc.)	Normal	Sanballat the Horonite	
 NEH	6	10	Shemaiah		Shemaiah, son of Delaiah, false prophet	Normal		
 NEH	6	11	Nehemiah			Normal		
-NEH	6	14	Nehemiah	praying		Implicit		
+NEH	6	14	Nehemiah	praying		Potential		
 NEH	6	16	report to Sanballat and Tobiah			Potential		
 NEH	7	3	Nehemiah			Normal		
 NEH	8	1	people, all the			Indirect		
@@ -7201,17 +7204,17 @@ NEH	10	39	priests/Levites/people			Indirect
 # The following line is under review. The obvious switch to first-person happens in v. 31.
 NEH	13	1	scripture			Indirect		
 NEH	13	11	Nehemiah			Normal		
-NEH	13	14	Nehemiah	praying		Implicit		
+NEH	13	14	Nehemiah	praying		Potential		
 NEH	13	17	Nehemiah			Normal		
 NEH	13	18	Nehemiah			Normal		
 NEH	13	21	Nehemiah			Normal		
 NEH	13	22	Nehemiah	commanding		Indirect		
-NEH	13	22	Nehemiah	praying		Implicit		
+NEH	13	22	Nehemiah	praying		Potential		
 NEH	13	25	Nehemiah			Normal		
 NEH	13	26	Nehemiah			Normal		
 NEH	13	27	Nehemiah			Normal		
-NEH	13	29	Nehemiah	praying		Implicit		
-NEH	13	31	Nehemiah	praying		Implicit		
+NEH	13	29	Nehemiah	praying		Potential		
+NEH	13	31	Nehemiah	praying		Potential		
 EST	1	15	Xerxes, king of Persia and Media (Ahasuerus)			Normal		
 EST	1	16	Memucan, noble advisor to Xerxes, king			Normal		
 EST	1	17	Memucan, noble advisor to Xerxes, king			Normal		
@@ -8414,24 +8417,24 @@ PSA	78	19	Israelite community	unbelief		Normal
 PSA	78	20	Israelite community	unbelief		Normal		
 PSA	79	10	nations			Hypothetical		
 PSA	80	0	narrator-PSA			Quotation		
-PSA	81	6	God		God (the LORD)	Implicit		
-PSA	81	7	God		God (the LORD)	Implicit		
-PSA	81	8	God		God (the LORD)	Implicit		
-PSA	81	9	God		God (the LORD)	Implicit		
-PSA	81	10	God		God (the LORD)	Implicit		
-PSA	81	11	God		God (the LORD)	Implicit		
-PSA	81	12	God		God (the LORD)	Implicit		
-PSA	81	13	God		God (the LORD)	Implicit		
-PSA	81	14	God		God (the LORD)	Implicit		
-PSA	81	15	God		God (the LORD)	Implicit		
-PSA	81	16	God		God (the LORD)	Implicit		
+PSA	81	6	God		God (the LORD)	Potential		
+PSA	81	7	God		God (the LORD)	Potential		
+PSA	81	8	God		God (the LORD)	Potential		
+PSA	81	9	God		God (the LORD)	Potential		
+PSA	81	10	God		God (the LORD)	Potential		
+PSA	81	11	God		God (the LORD)	Potential		
+PSA	81	12	God		God (the LORD)	Potential		
+PSA	81	13	God		God (the LORD)	Potential		
+PSA	81	14	God		God (the LORD)	Potential		
+PSA	81	15	God		God (the LORD)	Potential		
+PSA	81	16	God		God (the LORD)	Potential		
 PSA	82	1	narrator-PSA			Quotation		
-PSA	82	2	God		God (the LORD)	Implicit		
-PSA	82	3	God		God (the LORD)	Implicit		
-PSA	82	4	God		God (the LORD)	Implicit		
-PSA	82	5	God		God (the LORD)	Implicit		
-PSA	82	6	God		God (the LORD)	Implicit		
-PSA	82	7	God		God (the LORD)	Implicit		
+PSA	82	2	God		God (the LORD)	Potential		
+PSA	82	3	God		God (the LORD)	Potential		
+PSA	82	4	God		God (the LORD)	Potential		
+PSA	82	5	God		God (the LORD)	Potential		
+PSA	82	6	God		God (the LORD)	Potential		
+PSA	82	7	God		God (the LORD)	Potential		
 PSA	83	4	enemies of Israel			Normal		
 PSA	83	12	enemies of Israel			Normal		
 PSA	87	4	God			Normal		
@@ -8509,10 +8512,10 @@ PSA	137	3	captors, our			Normal
 PSA	137	7	Edomites			Normal		
 PSA	138	1	narrator-PSA			Quotation		
 PSA	141	7	wicked, the			Hypothetical		
-PRO	1	11	sinners			Normal		
-PRO	1	12	sinners			Implicit		
-PRO	1	13	sinners			Implicit		
-PRO	1	14	sinners			Implicit		
+PRO	1	11	sinners			Hypothetical		
+PRO	1	12	sinners			Hypothetical		
+PRO	1	13	sinners			Hypothetical		
+PRO	1	14	sinners			Hypothetical		
 PRO	1	22	Wisdom			Implicit		
 PRO	1	23	Wisdom			Implicit		
 PRO	1	24	Wisdom			Implicit		
@@ -8551,6 +8554,7 @@ PRO	8	7	Wisdom			Implicit
 PRO	8	8	Wisdom			Implicit		
 PRO	8	9	Wisdom			Implicit		
 PRO	8	10	Wisdom			Implicit		
+#FCBH also has v. 11 as being spoken by Wisdom, although it's not as obvious.
 PRO	8	11	Wisdom			Potential		
 PRO	8	12	Wisdom			Implicit		
 PRO	8	13	Wisdom			Implicit		
@@ -8580,10 +8584,10 @@ PRO	8	36	Wisdom			Implicit
 PRO	9	4	Wisdom			Normal		
 PRO	9	5	Wisdom			Implicit		
 PRO	9	6	Wisdom			Implicit		
-PRO	9	7	Wisdom			Potential		
-PRO	9	8	Wisdom			Potential		
-PRO	9	9	Wisdom			Potential		
-PRO	9	10	Wisdom			Potential		
+PRO	9	7	Wisdom			Implicit		
+PRO	9	8	Wisdom			Implicit		
+PRO	9	9	Wisdom			Implicit		
+PRO	9	10	Wisdom			Implicit		
 PRO	9	11	Wisdom			Implicit		
 PRO	9	12	Wisdom			Implicit		
 PRO	9	16	Folly			Normal		
@@ -8636,13 +8640,7 @@ ECC	9	16	narrator-ECC			Quotation
 ECC	10	20	narrator-ECC			Potential		
 ECC	12	1	narrator-ECC			Hypothetical		
 ECC	12	8	narrator-ECC			Quotation		
-SNG	1	2	beloved			Implicit		
-SNG	1	3	beloved			Implicit		
-SNG	1	4	beloved			Potential		
 SNG	1	4	maidens			Potential		
-SNG	1	5	beloved			Implicit		
-SNG	1	6	beloved			Implicit		
-SNG	1	7	beloved			Implicit		
 SNG	1	8	lover			Potential		
 SNG	1	8	maidens			Potential		
 SNG	1	9	lover			Implicit		
@@ -8665,16 +8663,18 @@ SNG	2	7	lover			Potential
 SNG	2	7	beloved			Potential		
 SNG	2	8	beloved			Implicit		
 SNG	2	9	beloved			Implicit		
-SNG	2	10	beloved			Implicit		
-SNG	2	10	lover			Normal		
-SNG	2	11	beloved			Implicit		
-SNG	2	11	lover			Normal		
-SNG	2	12	beloved			Implicit		
-SNG	2	12	lover			Normal		
-SNG	2	13	beloved			Implicit		
-SNG	2	13	lover			Normal		
-SNG	2	14	lover			Implicit		
-SNG	2	15	lover/beloved/maidens			Implicit		
+SNG	2	10	lover			Quotation		
+SNG	2	11	beloved			Potential		
+SNG	2	11	lover			Quotation		
+SNG	2	12	beloved			Potential		
+SNG	2	12	lover			Quotation		
+SNG	2	13	beloved			Potential		
+SNG	2	13	lover			Quotation		
+SNG	2	14	lover			Quotation		
+SNG	2	15	lover			Quotation		
+SNG	2	15	lover			Potential		
+SNG	2	15	beloved			Potential		
+SNG	2	15	maidens			Potential		
 SNG	2	16	beloved			Implicit		
 SNG	2	17	beloved			Implicit		
 SNG	3	1	beloved			Implicit		
@@ -9956,7 +9956,7 @@ JER	17	11	God		God (the LORD)	Potential
 JER	17	12	Jeremiah			Implicit		
 JER	17	13	Jeremiah			Implicit		
 JER	17	14	Jeremiah			Implicit		
-JER	17	15	Jeremiah			Implicit		
+JER	17	15	Jeremiah			Potential		
 JER	17	15	Jeremiah's enemies			Quotation		
 JER	17	16	Jeremiah			Implicit		
 JER	17	17	Jeremiah			Implicit		
@@ -10014,13 +10014,13 @@ JER	20	6	God		God (the LORD)	Normal
 JER	20	7	Jeremiah			Implicit		
 JER	20	8	Jeremiah			Implicit		
 JER	20	9	Jeremiah			Implicit		
-JER	20	10	Jeremiah			Implicit		
+JER	20	10	Jeremiah			Potential		
 JER	20	10	Jeremiah's enemies			Hypothetical		
 JER	20	11	Jeremiah			Implicit		
 JER	20	12	Jeremiah			Implicit		
 JER	20	13	Jeremiah			Implicit		
 JER	20	14	Jeremiah			Implicit		
-JER	20	15	Jeremiah			Implicit		
+JER	20	15	Jeremiah			Potential		
 JER	20	15	messenger			Quotation		
 JER	20	16	Jeremiah			Implicit		
 JER	20	17	Jeremiah			Implicit		
@@ -10210,9 +10210,11 @@ JER	28	13	God		God (the LORD)(word of the LORD came)	Normal
 JER	28	14	God		God (the LORD)(word of the LORD came)	Normal		
 JER	28	15	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	28	16	Jeremiah		Jeremiah (the LORD says)	Normal		
-JER	29	4-28	Jeremiah	letter	Jeremiah (the LORD says)	Implicit		
-JER	29	5-15	God		God (the LORD Almighty, the God of Israel)	Normal		
-JER	29	17-19	God		God (the LORD Almighty, the God of Israel)	Normal		
+JER	29	4-28	Jeremiah	letter	Jeremiah (the LORD says)	Potential		
+JER	29	4-28	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Potential		
+JER	29	5-15	God		God (the LORD Almighty, the God of Israel)	Potential		
+JER	29	16	God		God (the LORD Almighty, the God of Israel)	Potential		
+JER	29	17-19	God		God (the LORD Almighty, the God of Israel)	Potential		
 JER	29	20	God		God (the LORD Almighty, the God of Israel)	Potential		
 JER	29	21-23	God		God (the LORD Almighty, the God of Israel)	Normal		
 JER	29	24	God		God (the LORD Almighty, the God of Israel)	Potential		
@@ -10385,11 +10387,11 @@ JER	36	5	Jeremiah			Normal
 JER	36	6	Jeremiah			Normal		
 JER	36	7	Jeremiah			Normal		
 JER	36	14	Jehudi			Normal		
-JER	36	15	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
-JER	36	16	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
-JER	36	17	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
+JER	36	15	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
+JER	36	16	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
+JER	36	17	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	18	Baruch			Normal		
-JER	36	19	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
+JER	36	19	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	28	God		God (the LORD)(word of the LORD came)	Normal		
 JER	36	29	God		God (the LORD)(word of the LORD came)	Normal		
 JER	36	30	God		God (the LORD)(word of the LORD came)	Normal		
@@ -12473,64 +12475,27 @@ NAM	2	13	God		God (the LORD Almighty)	Normal
 NAM	3	5	God		God (the LORD Almighty)	Normal		
 NAM	3	6	God		God (the LORD Almighty)	Normal		
 NAM	3	7	God		God (the LORD Almighty)	Normal		
-HAB	1	2	Habakkuk			Implicit		
 HAB	1	2	Habakkuk	crying		Hypothetical		
-HAB	1	3	Habakkuk			Implicit		
-HAB	1	4	Habakkuk			Implicit		
-HAB	1	5	God		God (the LORD)	Implicit		
-HAB	1	6	God		God (the LORD)	Implicit		
-HAB	1	7	God		God (the LORD)	Implicit		
-HAB	1	8	God		God (the LORD)	Implicit		
-HAB	1	9	God		God (the LORD)	Implicit		
-HAB	1	10	God		God (the LORD)	Implicit		
-HAB	1	11	God		God (the LORD)	Implicit		
-HAB	1	12	Habakkuk			Implicit		
-HAB	1	13	Habakkuk			Implicit		
-HAB	1	14	Habakkuk			Implicit		
-HAB	1	15	Habakkuk			Implicit		
-HAB	1	16	Habakkuk			Implicit		
-HAB	1	17	Habakkuk			Implicit		
-HAB	2	1	Habakkuk			Implicit		
-HAB	2	2	Habakkuk			Implicit		
-HAB	2	2	God		God (the LORD)	Implicit		
-HAB	2	3	God		God (the LORD)	Implicit		
-HAB	2	4	God		God (the LORD)	Implicit		
-HAB	2	5	God		God (the LORD)	Implicit		
-HAB	2	6	God		God (the LORD)	Implicit		
-HAB	2	7	God		God (the LORD)	Implicit		
-HAB	2	8	God		God (the LORD)	Implicit		
-HAB	2	9	God		God (the LORD)	Implicit		
-HAB	2	10	God		God (the LORD)	Implicit		
-HAB	2	11	God		God (the LORD)	Implicit		
-HAB	2	12	God		God (the LORD)	Implicit		
-HAB	2	13	God		God (the LORD)	Implicit		
-HAB	2	14	God		God (the LORD)	Implicit		
-HAB	2	15	God		God (the LORD)	Implicit		
-HAB	2	16	God		God (the LORD)	Implicit		
-HAB	2	17	God		God (the LORD)	Implicit		
-HAB	2	18	God		God (the LORD)	Implicit		
-HAB	2	19	God		God (the LORD)	Implicit		
-HAB	2	20	God		God (the LORD)	Implicit		
-HAB	3	2	Habakkuk			Implicit		
-HAB	3	3	Habakkuk			Implicit		
-HAB	3	3	narrator-HAB			Implicit		
-HAB	3	4	Habakkuk			Implicit		
-HAB	3	5	Habakkuk			Implicit		
-HAB	3	6	Habakkuk			Implicit		
-HAB	3	7	Habakkuk			Implicit		
-HAB	3	8	Habakkuk			Implicit		
-HAB	3	9	Habakkuk			Implicit		
-HAB	3	10	Habakkuk			Implicit		
-HAB	3	11	Habakkuk			Implicit		
-HAB	3	12	Habakkuk			Implicit		
-HAB	3	13	Habakkuk			Implicit		
-HAB	3	14	Habakkuk			Implicit		
-HAB	3	15	Habakkuk			Implicit		
-HAB	3	16	Habakkuk			Implicit		
-HAB	3	17	Habakkuk			Implicit		
-HAB	3	18	Habakkuk			Implicit		
-HAB	3	19	Habakkuk			Implicit		
-HAB	3	19	narrator-HAB			Implicit		
+HAB	2	2	God		God (the LORD)	Normal		
+HAB	2	3	God		God (the LORD)	Normal		
+HAB	2	4	God		God (the LORD)	Normal		
+HAB	2	5	God		God (the LORD)	Normal		
+HAB	2	6	God		God (the LORD)	Normal		
+HAB	2	7	God		God (the LORD)	Normal		
+HAB	2	8	God		God (the LORD)	Normal		
+HAB	2	9	God		God (the LORD)	Normal		
+HAB	2	10	God		God (the LORD)	Normal		
+HAB	2	11	God		God (the LORD)	Normal		
+HAB	2	12	God		God (the LORD)	Normal		
+HAB	2	13	God		God (the LORD)	Normal		
+HAB	2	14	God		God (the LORD)	Normal		
+HAB	2	15	God		God (the LORD)	Normal		
+HAB	2	16	God		God (the LORD)	Normal		
+HAB	2	17	God		God (the LORD)	Normal		
+HAB	2	18	God		God (the LORD)	Normal		
+HAB	2	19	God		God (the LORD)	Normal		
+HAB	2	19	man (hypothetical)			Hypothetical		
+HAB	2	20	God		God (the LORD)	Normal		
 ZEP	1	2	God		God (the LORD)	Normal		
 ZEP	1	3	God		God (the LORD)	Normal		
 ZEP	1	4	God		God (the LORD)	Normal		
@@ -12718,9 +12683,7 @@ ZEC	11	11	Zechariah			Potential
 ZEC	11	12	Zechariah			Potential		
 ZEC	11	13-17	Zechariah		Zechariah (the LORD says)	Potential		
 ZEC	11	13-17	God			Normal		
-ZEC	12	1-14	Zechariah		Zechariah (word of the LORD)	Implicit		
 ZEC	12	2-14	God			Normal		
-ZEC	13	1-9	Zechariah		Zechariah (word of the LORD)	Implicit		
 ZEC	13	1-9	God			Normal		
 ZEC	14	20	narrator-ZEC			Potential		
 MAL	1	2	God		God (the LORD)	Normal		
@@ -12825,113 +12788,113 @@ MAT	4	16	scripture			Quotation	Isaiah
 MAT	4	17	Jesus	preaching		Normal		
 MAT	4	19	Jesus	inviting		Dialogue		
 MAT	4	21	Jesus	inviting		Indirect		
-MAT	5	3	Jesus	preaching		Normal		
-MAT	5	4	Jesus	preaching		Normal		
-MAT	5	5	Jesus	preaching		Normal		
-MAT	5	6	Jesus	preaching		Normal		
-MAT	5	7	Jesus	preaching		Normal		
-MAT	5	8	Jesus	preaching		Normal		
-MAT	5	9	Jesus	preaching		Normal		
-MAT	5	10	Jesus	preaching		Normal		
-MAT	5	11	Jesus	preaching		Normal		
-MAT	5	12	Jesus	preaching		Normal		
-MAT	5	13	Jesus	preaching		Normal		
-MAT	5	14	Jesus	preaching		Normal		
-MAT	5	15	Jesus	preaching		Normal		
-MAT	5	16	Jesus	preaching		Normal		
-MAT	5	17	Jesus	preaching		Normal		
-MAT	5	18	Jesus	preaching		Normal		
-MAT	5	19	Jesus	preaching		Normal		
-MAT	5	20	Jesus	preaching		Normal		
-MAT	5	21	Jesus	preaching		Normal		
-MAT	5	22	Jesus	preaching		Normal		
-MAT	5	23	Jesus	preaching		Normal		
-MAT	5	24	Jesus	preaching		Normal		
-MAT	5	25	Jesus	preaching		Normal		
-MAT	5	26	Jesus	preaching		Normal		
-MAT	5	27	Jesus	preaching		Normal		
-MAT	5	28	Jesus	preaching		Normal		
-MAT	5	29	Jesus	preaching		Normal		
-MAT	5	30	Jesus	preaching		Normal		
-MAT	5	31	Jesus	preaching		Normal		
-MAT	5	32	Jesus	preaching		Normal		
-MAT	5	33	Jesus	preaching		Normal		
-MAT	5	34	Jesus	preaching		Normal		
-MAT	5	35	Jesus	preaching		Normal		
-MAT	5	36	Jesus	preaching		Normal		
-MAT	5	37	Jesus	preaching		Normal		
-MAT	5	38	Jesus	preaching		Normal		
-MAT	5	39	Jesus	preaching		Normal		
-MAT	5	40	Jesus	preaching		Normal		
-MAT	5	41	Jesus	preaching		Normal		
-MAT	5	42	Jesus	preaching		Normal		
-MAT	5	43	Jesus	preaching		Normal		
-MAT	5	44	Jesus	preaching		Normal		
-MAT	5	45	Jesus	preaching		Normal		
-MAT	5	46	Jesus	preaching		Normal		
-MAT	5	47	Jesus	preaching		Normal		
-MAT	5	48	Jesus	preaching		Normal		
-MAT	6	1	Jesus	preaching		Normal		
-MAT	6	2	Jesus	preaching		Normal		
-MAT	6	3	Jesus	preaching		Normal		
-MAT	6	4	Jesus	preaching		Normal		
-MAT	6	5	Jesus	preaching		Normal		
-MAT	6	6	Jesus	preaching		Normal		
-MAT	6	7	Jesus	preaching		Normal		
-MAT	6	8	Jesus	preaching		Normal		
-MAT	6	9	Jesus	preaching		Normal		
-MAT	6	10	Jesus	preaching		Normal		
-MAT	6	11	Jesus	preaching		Normal		
-MAT	6	12	Jesus	preaching		Normal		
-MAT	6	13	Jesus	preaching		Normal		
-MAT	6	14	Jesus	preaching		Normal		
-MAT	6	15	Jesus	preaching		Normal		
-MAT	6	16	Jesus	preaching		Normal		
-MAT	6	17	Jesus	preaching		Normal		
-MAT	6	18	Jesus	preaching		Normal		
-MAT	6	19	Jesus	preaching		Normal		
-MAT	6	20	Jesus	preaching		Normal		
-MAT	6	21	Jesus	preaching		Normal		
-MAT	6	22	Jesus	preaching		Normal		
-MAT	6	23	Jesus	preaching		Normal		
-MAT	6	24	Jesus	preaching		Normal		
-MAT	6	25	Jesus	preaching		Normal		
-MAT	6	26	Jesus	preaching		Normal		
-MAT	6	27	Jesus	preaching		Normal		
-MAT	6	28	Jesus	preaching		Normal		
-MAT	6	29	Jesus	preaching		Normal		
-MAT	6	30	Jesus	preaching		Normal		
-MAT	6	31	Jesus	preaching		Normal		
-MAT	6	32	Jesus	preaching		Normal		
-MAT	6	33	Jesus	preaching		Normal		
-MAT	6	34	Jesus	preaching		Normal		
-MAT	7	1	Jesus	preaching		Normal		
-MAT	7	2	Jesus	preaching		Normal		
-MAT	7	3	Jesus	preaching		Normal		
-MAT	7	4	Jesus	preaching		Normal		
-MAT	7	5	Jesus	preaching		Normal		
-MAT	7	6	Jesus	preaching		Normal		
-MAT	7	7	Jesus	preaching		Normal		
-MAT	7	8	Jesus	preaching		Normal		
-MAT	7	9	Jesus	preaching		Normal		
-MAT	7	10	Jesus	preaching		Normal		
-MAT	7	11	Jesus	preaching		Normal		
-MAT	7	12	Jesus	preaching		Normal		
-MAT	7	13	Jesus	preaching		Normal		
-MAT	7	14	Jesus	preaching		Normal		
-MAT	7	15	Jesus	preaching		Normal		
-MAT	7	16	Jesus	preaching		Normal		
-MAT	7	17	Jesus	preaching		Normal		
-MAT	7	18	Jesus	preaching		Normal		
-MAT	7	19	Jesus	preaching		Normal		
-MAT	7	20	Jesus	preaching		Normal		
-MAT	7	21	Jesus	preaching		Normal		
-MAT	7	22	Jesus	preaching		Normal		
-MAT	7	23	Jesus	preaching		Normal		
-MAT	7	24	Jesus	preaching		Normal		
-MAT	7	25	Jesus	preaching		Normal		
-MAT	7	26	Jesus	preaching		Normal		
-MAT	7	27	Jesus	preaching		Normal		
+MAT	5	3	Jesus	preaching		Implicit		
+MAT	5	4	Jesus	preaching		Implicit		
+MAT	5	5	Jesus	preaching		Implicit		
+MAT	5	6	Jesus	preaching		Implicit		
+MAT	5	7	Jesus	preaching		Implicit		
+MAT	5	8	Jesus	preaching		Implicit		
+MAT	5	9	Jesus	preaching		Implicit		
+MAT	5	10	Jesus	preaching		Implicit		
+MAT	5	11	Jesus	preaching		Implicit		
+MAT	5	12	Jesus	preaching		Implicit		
+MAT	5	13	Jesus	preaching		Implicit		
+MAT	5	14	Jesus	preaching		Implicit		
+MAT	5	15	Jesus	preaching		Implicit		
+MAT	5	16	Jesus	preaching		Implicit		
+MAT	5	17	Jesus	preaching		Implicit		
+MAT	5	18	Jesus	preaching		Implicit		
+MAT	5	19	Jesus	preaching		Implicit		
+MAT	5	20	Jesus	preaching		Implicit		
+MAT	5	21	Jesus	preaching		Implicit		
+MAT	5	22	Jesus	preaching		Implicit		
+MAT	5	23	Jesus	preaching		Implicit		
+MAT	5	24	Jesus	preaching		Implicit		
+MAT	5	25	Jesus	preaching		Implicit		
+MAT	5	26	Jesus	preaching		Implicit		
+MAT	5	27	Jesus	preaching		Implicit		
+MAT	5	28	Jesus	preaching		Implicit		
+MAT	5	29	Jesus	preaching		Implicit		
+MAT	5	30	Jesus	preaching		Implicit		
+MAT	5	31	Jesus	preaching		Implicit		
+MAT	5	32	Jesus	preaching		Implicit		
+MAT	5	33	Jesus	preaching		Implicit		
+MAT	5	34	Jesus	preaching		Implicit		
+MAT	5	35	Jesus	preaching		Implicit		
+MAT	5	36	Jesus	preaching		Implicit		
+MAT	5	37	Jesus	preaching		Implicit		
+MAT	5	38	Jesus	preaching		Implicit		
+MAT	5	39	Jesus	preaching		Implicit		
+MAT	5	40	Jesus	preaching		Implicit		
+MAT	5	41	Jesus	preaching		Implicit		
+MAT	5	42	Jesus	preaching		Implicit		
+MAT	5	43	Jesus	preaching		Implicit		
+MAT	5	44	Jesus	preaching		Implicit		
+MAT	5	45	Jesus	preaching		Implicit		
+MAT	5	46	Jesus	preaching		Implicit		
+MAT	5	47	Jesus	preaching		Implicit		
+MAT	5	48	Jesus	preaching		Implicit		
+MAT	6	1	Jesus	preaching		Implicit		
+MAT	6	2	Jesus	preaching		Implicit		
+MAT	6	3	Jesus	preaching		Implicit		
+MAT	6	4	Jesus	preaching		Implicit		
+MAT	6	5	Jesus	preaching		Implicit		
+MAT	6	6	Jesus	preaching		Implicit		
+MAT	6	7	Jesus	preaching		Implicit		
+MAT	6	8	Jesus	preaching		Implicit		
+MAT	6	9	Jesus	preaching		Implicit		
+MAT	6	10	Jesus	preaching		Implicit		
+MAT	6	11	Jesus	preaching		Implicit		
+MAT	6	12	Jesus	preaching		Implicit		
+MAT	6	13	Jesus	preaching		Implicit		
+MAT	6	14	Jesus	preaching		Implicit		
+MAT	6	15	Jesus	preaching		Implicit		
+MAT	6	16	Jesus	preaching		Implicit		
+MAT	6	17	Jesus	preaching		Implicit		
+MAT	6	18	Jesus	preaching		Implicit		
+MAT	6	19	Jesus	preaching		Implicit		
+MAT	6	20	Jesus	preaching		Implicit		
+MAT	6	21	Jesus	preaching		Implicit		
+MAT	6	22	Jesus	preaching		Implicit		
+MAT	6	23	Jesus	preaching		Implicit		
+MAT	6	24	Jesus	preaching		Implicit		
+MAT	6	25	Jesus	preaching		Implicit		
+MAT	6	26	Jesus	preaching		Implicit		
+MAT	6	27	Jesus	preaching		Implicit		
+MAT	6	28	Jesus	preaching		Implicit		
+MAT	6	29	Jesus	preaching		Implicit		
+MAT	6	30	Jesus	preaching		Implicit		
+MAT	6	31	Jesus	preaching		Implicit		
+MAT	6	32	Jesus	preaching		Implicit		
+MAT	6	33	Jesus	preaching		Implicit		
+MAT	6	34	Jesus	preaching		Implicit		
+MAT	7	1	Jesus	preaching		Implicit		
+MAT	7	2	Jesus	preaching		Implicit		
+MAT	7	3	Jesus	preaching		Implicit		
+MAT	7	4	Jesus	preaching		Implicit		
+MAT	7	5	Jesus	preaching		Implicit		
+MAT	7	6	Jesus	preaching		Implicit		
+MAT	7	7	Jesus	preaching		Implicit		
+MAT	7	8	Jesus	preaching		Implicit		
+MAT	7	9	Jesus	preaching		Implicit		
+MAT	7	10	Jesus	preaching		Implicit		
+MAT	7	11	Jesus	preaching		Implicit		
+MAT	7	12	Jesus	preaching		Implicit		
+MAT	7	13	Jesus	preaching		Implicit		
+MAT	7	14	Jesus	preaching		Implicit		
+MAT	7	15	Jesus	preaching		Implicit		
+MAT	7	16	Jesus	preaching		Implicit		
+MAT	7	17	Jesus	preaching		Implicit		
+MAT	7	18	Jesus	preaching		Implicit		
+MAT	7	19	Jesus	preaching		Implicit		
+MAT	7	20	Jesus	preaching		Implicit		
+MAT	7	21	Jesus	preaching		Implicit		
+MAT	7	22	Jesus	preaching		Implicit		
+MAT	7	23	Jesus	preaching		Implicit		
+MAT	7	24	Jesus	preaching		Implicit		
+MAT	7	25	Jesus	preaching		Implicit		
+MAT	7	26	Jesus	preaching		Implicit		
+MAT	7	27	Jesus	preaching		Implicit		
 MAT	8	2	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MAT	8	3	Jesus			Dialogue		
 MAT	8	4	Jesus	giving orders		Dialogue		
