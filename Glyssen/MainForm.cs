@@ -1166,11 +1166,13 @@ namespace Glyssen
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
+				m_project.PrepareForExport();
 
 				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
 
 				Debug.Assert(sourceDir != null);
 				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
+
 				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
 
 				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
@@ -1198,6 +1200,7 @@ namespace Glyssen
 			}
 			finally
 			{
+				m_project.ExportCompleted();
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}
