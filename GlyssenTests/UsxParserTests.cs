@@ -98,6 +98,131 @@ namespace GlyssenTests
 			Assert.AreEqual(9, blocks[3].InitialStartVerseNumber);
 		}
 
+		[TestCase(". ", "*")]
+		[TestCase(".", "?")]
+		[TestCase(". [", "...")]
+		public void Parse_MissingVerseWithOnlyPunctuation_VerseAndPunctuationOmitted(string v10Ending, string punctInMissingVerse)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Mateo</para>" + Environment.NewLine +
+				"<chapter number=\"18\" style=\"c\" />" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				$"<verse number=\"10\" style=\"v\"/>A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin{v10Ending}<verse number=\"11\" style=\"v\"/>{punctInMissingVerse} " +
+				"<note caller=\"+\" style=\"f\"><char style=\"fr\" closed=\"false\">18.11 </char><char style=\"ft\" closed=\"false\">‑Godogodofluwia ‑pla: " +
+				"«Ka Nclɔɔa 'Cʋa ci 'lɛ le ɔ 'ka maa ‑ɔ mlɔa 'lɛ na gbʋʋnsa na.» </char></note> " +
+				"<verse number=\"12\" style=\"v\"/>'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"<verse number=\"13\" style=\"v\"/>N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual("{10}\u00A0A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin" + v10Ending +
+				"{12}\u00A0'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"{13}\u00A0N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.", blocks[2].GetText(true));
+			Assert.IsTrue(blocks[2].StartsAtVerseStart);
+			Assert.AreEqual(10, blocks[2].InitialStartVerseNumber);
+		}
+
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		[TestCase("(", ")")]
+		[TestCase("\u300c", "\u300d")]
+		[TestCase("\uff62", "\uff63")]
+		[TestCase("\u3010", "\u3011")]
+		[TestCase("\u3014", "\u3015")]
+		public void Parse_MissingVerseEnclosedInBrackets_VerseAndPunctuationOmitted(string open, string close)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Mateo</para>" + Environment.NewLine +
+				"<chapter number=\"18\" style=\"c\" />" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				$"<verse number=\"10\" style=\"v\"/>A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin. {open} <verse number=\"11\" style=\"v\"/>{close} " +
+				"<note caller=\"+\" style=\"f\"><char style=\"fr\" closed=\"false\">18.11 </char><char style=\"ft\" closed=\"false\">‑Godogodofluwia ‑pla: " +
+				"«Ka Nclɔɔa 'Cʋa ci 'lɛ le ɔ 'ka maa ‑ɔ mlɔa 'lɛ na gbʋʋnsa na.» </char></note> " +
+				"<verse number=\"12\" style=\"v\"/>'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"<verse number=\"13\" style=\"v\"/>N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual("{10}\u00A0A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin. " +
+				"{12}\u00A0'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"{13}\u00A0N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.", blocks[2].GetText(true));
+			Assert.IsTrue(blocks[2].StartsAtVerseStart);
+			Assert.AreEqual(10, blocks[2].InitialStartVerseNumber);
+		}
+
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		[TestCase("(", ")")]
+		[TestCase("\u300c", "\u300d")]
+		[TestCase("\uff62", "\uff63")]
+		[TestCase("\u3010", "\u3011")]
+		[TestCase("\u3014", "\u3015")]
+		public void Parse_MissingVerseAtStartOfParaEnclosedInBrackets_VerseAndPunctuationOmitted(string open, string close)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Mateo</para>" + Environment.NewLine +
+				"<chapter number=\"18\" style=\"c\" />" + Environment.NewLine +
+				"<para style=\"p\"><verse number=\"10\" style=\"v\"/>A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin. </para>" + Environment.NewLine +
+				"<para style=\"s\">The coolest section head ever</para>" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				$"{open} <verse number=\"11\" style=\"v\"/>{close} " +
+				"<note caller=\"+\" style=\"f\"><char style=\"fr\" closed=\"false\">18.11 </char><char style=\"ft\" closed=\"false\">‑Godogodofluwia ‑pla: " +
+				"«Ka Nclɔɔa 'Cʋa ci 'lɛ le ɔ 'ka maa ‑ɔ mlɔa 'lɛ na gbʋʋnsa na.» </char></note> " +
+				"<verse number=\"12\" style=\"v\"/>'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"<verse number=\"13\" style=\"v\"/>N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.</para> " +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(5, blocks.Count);
+			Assert.AreEqual("The coolest section head ever", blocks[3].GetText(true));
+			Assert.AreEqual(10, blocks[3].InitialStartVerseNumber);
+			Assert.AreEqual("{12}\u00A0'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"{13}\u00A0N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.", blocks[4].GetText(true));
+			Assert.IsTrue(blocks[4].StartsAtVerseStart);
+			Assert.AreEqual(12, blocks[4].InitialStartVerseNumber);
+		}
+
+		// Technically, we barely care about the references on section heads (they actually get the reference from the preceding verse),
+		// but it really doesn't make sense for them to have the reference of a verse that doesn't even exist.
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		[TestCase("(", ")")]
+		[TestCase("\u300c", "\u300d")]
+		[TestCase("\uff62", "\uff63")]
+		[TestCase("\u3010", "\u3011")]
+		[TestCase("\u3014", "\u3015")]
+		public void Parse_MissingVerseAtEndOfParaEnclosedInBrackets_VerseAndPunctuationOmitted_FollowingSectionHeadUsesPrevReference(string open, string close)
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Mateo</para>" + Environment.NewLine +
+				"<chapter number=\"18\" style=\"c\" />" + Environment.NewLine +
+				"<para style=\"p\"><verse number=\"10\" style=\"v\"/>A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin. " +
+				$"{open} <verse number=\"11\" style=\"v\"/>{close} " +
+				"<note caller=\"+\" style=\"f\"><char style=\"fr\" closed=\"false\">18.11 </char><char style=\"ft\" closed=\"false\">‑Godogodofluwia ‑pla: " +
+				"«Ka Nclɔɔa 'Cʋa ci 'lɛ le ɔ 'ka maa ‑ɔ mlɔa 'lɛ na gbʋʋnsa na.» </char></note></para>" +
+				"<para style=\"s\">The coolest section head ever</para>" + Environment.NewLine +
+				"<para style=\"p\">" + Environment.NewLine +
+				"<verse number=\"12\" style=\"v\"/>'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"<verse number=\"13\" style=\"v\"/>N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.</para>" + Environment.NewLine +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(5, blocks.Count);
+			Assert.AreEqual("{10}\u00A0A zʋlʋ pɔlɛ 'kʋ ɩya. N solu 'nylugo ‑laagɔɔn na, ‑deliin. ", blocks[2].GetText(true));
+			Assert.AreEqual("The coolest section head ever", blocks[3].GetText(true));
+			Assert.AreEqual(10, blocks[3].InitialStartVerseNumber);
+			Assert.AreEqual("{12}\u00A0'Nsasa a 'lɛ wɔlɩ ‑naa bha? Gbazɩ nclɔɔ ‑ka 'nyɩ ‑ka mlɔ na, 'ɔ cɩ 'ta 'ka ‑ɛ mlɔ 'lɛ na, mʋ bha? " +
+				"{13}\u00A0N solu anyɩ ɩ ‑glɩ ‑nʋawlɛ.", blocks[4].GetText(true));
+			Assert.IsTrue(blocks[4].StartsAtVerseStart);
+			Assert.AreEqual(12, blocks[4].InitialStartVerseNumber);
+		}
+
 		[Test]
 		public void Parse_ParagraphWithSpaceAfterVerseAndNoteWithFollowingVerse_ExtraSpaceIsRemoved()
 		{
@@ -645,7 +770,6 @@ namespace GlyssenTests
 		[Test]
 		public void Parse_OnlyVerseInParagraphConsistsEntirelyOfNote_DoNotIncludeParagraph()
 		{
-			// World English Bible, LUK 17:36, PG-594
 			var doc = UsxDocumentTests.CreateMarkOneDoc(
 				"  <para style=\"p\">\r\n" +
 				"    <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +

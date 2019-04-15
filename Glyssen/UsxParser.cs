@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -171,7 +170,7 @@ namespace Glyssen
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}
-									RemoveLastElementIfVerse(block);
+									RemoveEmptyTrailingVerse(block);
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
 									m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
 									m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
@@ -210,7 +209,12 @@ namespace Glyssen
 							block.BlockElements.Add(new ScriptText(sb.ToString()));
 							sb.Clear();
 						}
-						RemoveLastElementIfVerse(block);
+						if (RemoveEmptyTrailingVerse(block))
+						{
+							var lastVerse = block.LastVerse;
+							m_currentStartVerse = lastVerse.StartVerse;
+							m_currentEndVerse = lastVerse.EndVerse;
+						}
 						break;
 				}
 				if (block != null && block.BlockElements.Count > 0)
@@ -219,13 +223,57 @@ namespace Glyssen
 			return blocks;
 		}
 
-		private static void RemoveLastElementIfVerse(Block block)
+		private static bool RemoveEmptyTrailingVerse(Block block)
 		{
 			if (block.BlockElements.Count > 0)
 			{
 				var lastBlockElement = block.BlockElements.Last();
 				if (lastBlockElement is Verse)
-					block.BlockElements.Remove(block.BlockElements.Last());
+				{
+					block.BlockElements.Remove(lastBlockElement);
+					return true;
+				}
+				if ((lastBlockElement is ScriptText text && text.Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c))) &&
+					block.BlockElements.Count > 1)
+				{
+					block.BlockElements.Remove(lastBlockElement);
+					if (RemoveEmptyTrailingVerse(block))
+					{
+						RemoveMatchingOpeningPunctuation(block, text.Content.Trim());
+						return true;
+					}
+					if (block.BlockElements.Any())
+					{
+						Debug.Fail("This should be impossible. The only block elements the UsxParser can add are Verse and ScriptText, and they must alternate.");
+						block.BlockElements.Add(lastBlockElement); // But just in case, we'll put it back so we don't leave the block corrupt.
+					}
+				}
+			}
+			return false;
+		}
+
+		private static void RemoveMatchingOpeningPunctuation(Block block, string punct)
+		{
+			char punctToTrim;
+			switch (punct)
+			{
+				case "]": punctToTrim = '['; break;
+				case "}": punctToTrim = '{'; break;
+				case ")": punctToTrim = '('; break;
+				case "\u300d": punctToTrim = '\u300c'; break;
+				case "\uff63": punctToTrim = '\uff62'; break;
+				case "\u3011": punctToTrim = '\u3010'; break;
+				case "\u3015": punctToTrim = '\u3014'; break;
+				default: return;
+			}
+			var finalScriptText = block.BlockElements.LastOrDefault() as ScriptText;
+			if (finalScriptText != null && finalScriptText.Content.TrimEnd().Last() == punctToTrim)
+			{
+				finalScriptText.Content = finalScriptText.Content.TrimEnd().TrimEnd(punctToTrim);
+				if (finalScriptText.Content.All(char.IsWhiteSpace))
+				{
+					block.BlockElements.Remove(finalScriptText);
+				}
 			}
 		}
 
