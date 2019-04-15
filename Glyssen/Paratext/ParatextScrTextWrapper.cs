@@ -266,11 +266,16 @@ namespace Glyssen.Paratext
 			m_metadata = null;
 		}
 
+		public void IncludeBooks(IEnumerable<string> booksToInclude)
+		{
+			var set = new HashSet<string>(booksToInclude);
+			foreach (var bookMetadata in GlyssenDblTextMetadata.AvailableBooks.Where(b => !b.IncludeInScript && set.Contains(b.Code)))
+				bookMetadata.IncludeInScript = true;
+		}
+
 		public void IncludeOverriddenBooksFromProject(Project project)
 		{
-			var included = new HashSet<string>(project.IncludedBooks.Select(b => b.BookId));
-			foreach (var bookMetadata in GlyssenDblTextMetadata.AvailableBooks.Where(b => !b.IncludeInScript && included.Contains(b.Code)))
-				bookMetadata.IncludeInScript = true;
+			IncludeBooks(project.IncludedBooks.Select(b => b.BookId));
 		}
 	}
 }

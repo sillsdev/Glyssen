@@ -1399,6 +1399,7 @@ namespace Glyssen
 		internal void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers,
 			Action<BookScript> postParseAction)
 		{
+			wrapper.IncludeBooks(new HashSet<string>(bookNumbers.Select(BCVRef.NumberToBookCode)));
 			var usxBookInfoList = wrapper.GetUsxDocumentsForIncludedParatextBooks(bookNumbers);
 
 			void EnhancedPostParseAction(BookScript book)
