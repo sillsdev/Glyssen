@@ -232,7 +232,7 @@ namespace Glyssen
 		/// just put a verse number in brackets along with a footnote (which Glyssen discards already) to
 		/// indicate that the verse was omitted because it is not contained in the most reliable manuscripts.
 		/// </summary>
-		/// <returns><c>true</c> if an empt verse is removed; <c>false</c> otherwise.</returns>
+		/// <returns><c>true</c> if an empty verse is removed; <c>false</c> otherwise.</returns>
 		private static bool RemoveEmptyTrailingVerse(Block block)
 		{
 			if (block.BlockElements.Count > 0)
@@ -250,8 +250,8 @@ namespace Glyssen
 				// might have all PUA characters, but upon further consideration, I decided
 				// that was extremely unlikely, and there was probably a greater risk of
 				// some other symbol, number, separator, etc. being the only thing in the
-				// text. And it would be slow and unweildy to check all the other possibilities
-				// and somethign might still fall through the cracks.
+				// text. And it would be slow and unwieldy to check all the other possibilities
+				// and something might still fall through the cracks.
 				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 &&
 					!text.Content.Any(char.IsLetter))
 				{
