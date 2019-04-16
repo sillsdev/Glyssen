@@ -461,10 +461,12 @@ namespace Glyssen
 				if (m_includeDelivery)
 					columnNum++;
 
-				// for script text set both width and text wrapping
+				// for script text set text wrapping, language-specific info, width, etc.
 				sheet.Column(columnNum).Style.WrapText = true; // script text
 				sheet.Column(columnNum).Style.Font.Name = Project.FontFamily;
 				sheet.Column(columnNum).Style.Font.Size = Project.FontSizeInPoints;
+				if (Project.RightToLeftScript)
+					sheet.Column(columnNum).Style.ReadingOrder = ExcelReadingOrder.RightToLeft;
 
 				// it is much faster to reset the column header font than to select every cell except the first one
 				sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
@@ -481,6 +483,9 @@ namespace Glyssen
 
 					if (Project.ReferenceText.FontSizeInPoints > 9)
 						sheet.Column(columnNum).Style.Font.Size = Project.ReferenceText.FontSizeInPoints;
+
+					if (Project.ReferenceText.RightToLeftScript)
+						sheet.Column(columnNum).Style.ReadingOrder = ExcelReadingOrder.RightToLeft;
 
 					// it is much faster to reset the column header font than to select every cell except the first one
 					sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;

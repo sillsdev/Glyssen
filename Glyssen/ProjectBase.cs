@@ -14,6 +14,7 @@ namespace Glyssen
 	public abstract class ProjectBase
 	{
 		public const string kShareFileExtension = ".glyssenshare";
+		public const string kFallbackVersificationPrefix = "fallback_";
 
 		public static ScrVers LoadVersification(string vrsPath)
 		{
@@ -96,5 +97,6 @@ namespace Glyssen
 		}
 
 		protected string VersificationFilePath => Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName);
+		protected string FallbackVersificationFilePath => Path.Combine(ProjectFolder, kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 	}
 }

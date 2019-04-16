@@ -102,10 +102,37 @@ namespace Glyssen
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
 			if (loadVersification)
 			{
-				if (RobustFile.Exists(VersificationFilePath))
+				if (HasVersificationFile)
 					m_vers = LoadVersification(VersificationFilePath);
 				else if (IsLiveParatextProject)
-					m_vers = GetSourceParatextProject().Settings.Versification;
+				{
+					try
+					{
+						m_vers = GetSourceParatextProject().Settings.Versification;
+					}
+					catch (ProjectNotFoundException e)
+					{
+						Logger.WriteError("Paratext project not found. Falling back to get usable versification file.", e);
+						if (RobustFile.Exists(FallbackVersificationFilePath))
+							m_vers = LoadVersification(FallbackVersificationFilePath);
+						else
+						{
+							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingMsg",
+								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
+								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
+								"for this project, some things will not work as expected.",
+								"Param 0: \"Paratext\" (product name); " +
+								"Param 1: Paratext project short name (unique project identifier); " +
+								"Param 2: Glyssen recording project name; " +
+								"Param 3: “English” (versification mame)"),
+								ParatextScrTextWrapper.kParatextProgramName,
+								ParatextProjectName,
+								Name,
+								"“English”"), GlyssenInfo.kProduct);
+							m_vers = ScrVers.English;
+						}
+					}
+				}
 			}
 			if (installFonts)
 				InstallFontsIfNecessary();
@@ -169,6 +196,8 @@ namespace Glyssen
 
 			ParseAndSetBooks(books, stylesheet);
 		}
+
+		private bool HasVersificationFile => RobustFile.Exists(VersificationFilePath);
 
 		public static IEnumerable<string> AllPublicationFolders => Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
 
@@ -1227,6 +1256,8 @@ namespace Glyssen
 
 		private void RemoveAvailableBooksThatDoNotCorrespondToExistingBooks()
 		{
+			ScrText sourceParatextProject = null;
+
 			for (int i = 0; i < m_metadata.AvailableBooks.Count; i++)
 			{
 				if (!m_books.Any(b => b.BookId == m_metadata.AvailableBooks[i].Code))
@@ -1244,7 +1275,18 @@ namespace Glyssen
 						//    as no longer included.
 						if (m_metadata.AvailableBooks[i].IncludeInScript)
 						{
-							if (GetSourceParatextProject().BookPresent(Canon.BookIdToNumber(m_metadata.AvailableBooks[i].Code)))
+							if (sourceParatextProject == null)
+							{
+								try
+								{
+									sourceParatextProject = GetSourceParatextProject();
+								}
+								catch (ProjectNotFoundException e)
+								{
+									Logger.WriteError($"Paratext project not found. Removing {m_metadata.AvailableBooks[i].Code}.", e);
+								}
+							}
+							if (sourceParatextProject != null && sourceParatextProject.BookPresent(Canon.BookIdToNumber(m_metadata.AvailableBooks[i].Code)))
 								m_metadata.AvailableBooks[i].IncludeInScript = false;
 							else
 								m_metadata.AvailableBooks.RemoveAt(i--);
@@ -1359,6 +1401,7 @@ namespace Glyssen
 		internal void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers,
 			Action<BookScript> postParseAction)
 		{
+			wrapper.IncludeBooks(new HashSet<string>(bookNumbers.Select(BCVRef.NumberToBookCode)));
 			var usxBookInfoList = wrapper.GetUsxDocumentsForIncludedParatextBooks(bookNumbers);
 
 			void EnhancedPostParseAction(BookScript book)
@@ -1658,6 +1701,26 @@ namespace Glyssen
 
 			if (AnalysisCompleted != null)
 				AnalysisCompleted(this, new EventArgs());
+		}
+
+		internal void PrepareForExport()
+		{
+			if (!HasVersificationFile)
+			{
+				try
+				{
+					m_vers.Save(FallbackVersificationFilePath);
+				}
+				catch (Exception e)
+				{
+					Logger.WriteError($"Failed to save fallback versification file to {FallbackVersificationFilePath}", e);
+				}
+			}
+		}
+
+		internal void ExportCompleted()
+		{
+			RobustFile.Delete(FallbackVersificationFilePath);
 		}
 
 		public void Save(bool saveCharacterGroups = false)
