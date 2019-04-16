@@ -15,7 +15,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ParserVersion" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">43</Value>
+      <Value Profile="(Default)">44</Value>
     </Setting>
     <Setting Name="DefaultSfmDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
