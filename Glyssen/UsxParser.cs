@@ -223,6 +223,16 @@ namespace Glyssen
 			return blocks;
 		}
 
+		/// <summary>
+		/// In addition to cleaning up any completely *empty* Verse (i.e., a verse number not followed by
+		/// a ScriptText), this method also checks for a Verse followed by a ScriptText that doesn't have any
+		/// useful text (i.e., at least one word-forming character). In that case, the bogus ScriptText and
+		/// the preceding Verse element are both removed, and as a special case we also check for and remove
+		/// any matching opening bracket/brace from the preceding ScriptText, since some translations will
+		/// just put a verse number in brackets along with a footnote (which Glyssen discards already) to
+		/// indicate that the verse was omitted because it is not contained in the most reliable manuscripts.
+		/// </summary>
+		/// <returns><c>true</c> if an empt verse is removed; <c>false</c> otherwise.</returns>
 		private static bool RemoveEmptyTrailingVerse(Block block)
 		{
 			if (block.BlockElements.Count > 0)
@@ -233,20 +243,28 @@ namespace Glyssen
 					block.BlockElements.Remove(lastBlockElement);
 					return true;
 				}
-				if ((lastBlockElement is ScriptText text && text.Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c))) &&
-					block.BlockElements.Count > 1)
+				// Originally, the last part of this condition was:
+				// text.Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c))
+				// because char.IsLetter doesn't know what to do with PUA characters and
+				// I didn't want to run the risk of accidentally deleting a verse that
+				// might have all PUA characters, but upon further consideration, I decided
+				// that was extremely unlikely, and there was probably a greater risk of
+				// some other symbol, number, separator, etc. being the only thing in the
+				// text. And it would be slow and unweildy to check all the other possibilities
+				// and somethign might still fall through the cracks.
+				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 &&
+					!text.Content.Any(char.IsLetter))
 				{
-					block.BlockElements.Remove(lastBlockElement);
-					if (RemoveEmptyTrailingVerse(block))
-					{
-						RemoveMatchingOpeningPunctuation(block, text.Content.Trim());
-						return true;
-					}
-					if (block.BlockElements.Any())
+					if (!(block.BlockElements[block.BlockElements.Count - 2] is Verse))
 					{
 						Debug.Fail("This should be impossible. The only block elements the UsxParser can add are Verse and ScriptText, and they must alternate.");
-						block.BlockElements.Add(lastBlockElement); // But just in case, we'll put it back so we don't leave the block corrupt.
+						return false;
 					}
+					var potentialClosingBracketPunct = text.Content.Trim();
+					// Remove both the bogus ScriptText and the preceding Verse.
+					block.BlockElements.RemoveRange(block.BlockElements.Count - 2, 2);
+					RemoveMatchingOpeningPunctuation(block, potentialClosingBracketPunct);
+					return true;
 				}
 			}
 			return false;
