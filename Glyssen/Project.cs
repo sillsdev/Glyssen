@@ -117,7 +117,7 @@ namespace Glyssen
 							m_vers = LoadVersification(FallbackVersificationFilePath);
 						else
 						{
-							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingMsg",
+							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
 								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
 								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
 								"for this project, some things will not work as expected.",
@@ -870,7 +870,7 @@ namespace Glyssen
 		}
 
 		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
-			string contextMessage = "", bool checkForChangesInAvailableBooks = true)
+			string contextMessage = "", bool checkForChangesInAvailableBooks = true, bool forceReload = false)
 		{
 			ParatextScrTextWrapper scrTextWrapper = null;
 			ScrText sourceScrText = null;
@@ -906,6 +906,36 @@ namespace Glyssen
 					return null;
 				}
 			} while (sourceScrText == null); // retry
+
+			if (forceReload)
+			{
+				bool reloadSucceeded = false;
+				do
+				{
+					try
+					{
+						sourceScrText.Reload();
+						reloadSucceeded = true;
+					}
+					catch (Exception e)
+					{
+						if (canInteractWithUser)
+						{
+							string msg = contextMessage + Format(
+								LocalizationManager.GetString("Project.ParatextProjectReloadFailure",
+									"An error occurred reloading the {0} project {1}:\r\n{2}\r\n\r\n" +
+									"If you cannot fix the problem, you can cancel and continue to work with the existing project data.",
+									"Param 0: \"Paratext\" (product name); " +
+									"Param 1: Paratext project short name (unique project identifier); " +
+									"Param 2: Specific error message"),
+								ParatextScrTextWrapper.kParatextProgramName, ParatextProjectName, e.Message);
+							if (DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel))
+								continue;
+						}
+						return null;
+					}
+				} while (!reloadSucceeded);
+			}
 
 			try
 			{
@@ -1116,7 +1146,13 @@ namespace Glyssen
 					foundDataChange = true;
 				};
 
-			existingProject.CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
+			if (upgradedProject.QuoteSystemStatus == QuoteSystemStatus.Obtained && scrTextWrapper.HasQuotationRulesSet)
+			{
+				upgradedProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(scrTextWrapper.QuotationMarks);
+				foundDataChange |= upgradedProject.QuoteSystem != existingProject.QuoteSystem;
+			}
+			else
+				existingProject.CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
 			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
 				exclude, handleNewPassingBook, exclude);
@@ -2391,13 +2427,13 @@ namespace Glyssen
 			// attribute may or may not be set. If not, the default is None, but if any levels have continuers specified, we
 			// interpret this as All (since None doesn't make sense in this case).
 			if (quotationMarks == null ||
-				m_wsDefinition.QuotationParagraphContinueType == QuotationParagraphContinueType.Innermost ||
-				m_wsDefinition.QuotationParagraphContinueType == QuotationParagraphContinueType.Outermost)
+				WritingSystem.QuotationParagraphContinueType == QuotationParagraphContinueType.Innermost ||
+				WritingSystem.QuotationParagraphContinueType == QuotationParagraphContinueType.Outermost)
 				return;
 
 			var replacementQuotationMarks = GetQuotationMarksWithFullySpecifiedContinuers(quotationMarks).ToList();
-			m_wsDefinition.QuotationMarks.Clear();
-			m_wsDefinition.QuotationMarks.AddRange(replacementQuotationMarks);
+			WritingSystem.QuotationMarks.Clear();
+			WritingSystem.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 
 		public bool ProjectFileIsWritable
