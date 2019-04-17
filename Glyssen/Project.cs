@@ -117,7 +117,7 @@ namespace Glyssen
 							m_vers = LoadVersification(FallbackVersificationFilePath);
 						else
 						{
-							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingMsg",
+							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
 								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
 								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
 								"for this project, some things will not work as expected.",
@@ -923,7 +923,7 @@ namespace Glyssen
 						{
 							string msg = contextMessage + Format(
 								LocalizationManager.GetString("Project.ParatextProjectReloadFailure",
-									"An error occurred reloading the {0} project {1}:\r{2}\r\r" +
+									"An error occurred reloading the {0} project {1}:\r\n{2}\r\n\r\n" +
 									"If you cannot fix the problem, you can cancel and continue to work with the existing project data.",
 									"Param 0: \"Paratext\" (product name); " +
 									"Param 1: Paratext project short name (unique project identifier); " +
