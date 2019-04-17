@@ -909,14 +909,32 @@ namespace Glyssen
 
 			if (forceReload)
 			{
-				try
+				bool reloadSucceeded = false;
+				do
 				{
-					sourceScrText.Reload();
-				}
-				catch (Exception e)
-				{
-					Logger.WriteError(e);
-				}
+					try
+					{
+						sourceScrText.Reload();
+						reloadSucceeded = true;
+					}
+					catch (Exception e)
+					{
+						if (canInteractWithUser)
+						{
+							string msg = contextMessage + Format(
+								LocalizationManager.GetString("Project.ParatextProjectReloadFailure",
+									"An error occurred reloading the {0} project {1}:\r{2}\r\r" +
+									"If you cannot fix the problem, you can cancel and continue to work with the existing project data.",
+									"Param 0: \"Paratext\" (product name); " +
+									"Param 1: Paratext project short name (unique project identifier); " +
+									"Param 2: Specific error message"),
+								ParatextScrTextWrapper.kParatextProgramName, ParatextProjectName, e.Message);
+							if (DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel))
+								continue;
+						}
+						return null;
+					}
+				} while (!reloadSucceeded);
 			}
 
 			try
