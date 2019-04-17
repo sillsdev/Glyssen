@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen.Bundle;
 using Glyssen.Paratext;
 using Glyssen.Shared;
+using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
 
@@ -179,7 +180,7 @@ namespace Glyssen.Dialogs
 
 		internal ParatextScrTextWrapper GetUpdatedParatextData()
 		{
-			return Project.GetLiveParatextDataIfCompatible();
+			return Project.GetLiveParatextDataIfCompatible(forceReload:true);
 		}
 	}
 }

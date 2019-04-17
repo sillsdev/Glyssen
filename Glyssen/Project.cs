@@ -870,7 +870,7 @@ namespace Glyssen
 		}
 
 		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
-			string contextMessage = "", bool checkForChangesInAvailableBooks = true)
+			string contextMessage = "", bool checkForChangesInAvailableBooks = true, bool forceReload = false)
 		{
 			ParatextScrTextWrapper scrTextWrapper = null;
 			ScrText sourceScrText = null;
@@ -906,6 +906,18 @@ namespace Glyssen
 					return null;
 				}
 			} while (sourceScrText == null); // retry
+
+			if (forceReload)
+			{
+				try
+				{
+					sourceScrText.Reload();
+				}
+				catch (Exception e)
+				{
+					Logger.WriteError(e);
+				}
+			}
 
 			try
 			{
@@ -1116,7 +1128,13 @@ namespace Glyssen
 					foundDataChange = true;
 				};
 
-			existingProject.CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
+			if (upgradedProject.QuoteSystemStatus == QuoteSystemStatus.Obtained && scrTextWrapper.HasQuotationRulesSet)
+			{
+				upgradedProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(scrTextWrapper.QuotationMarks);
+				foundDataChange |= upgradedProject.QuoteSystem != existingProject.QuoteSystem;
+			}
+			else
+				existingProject.CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
 			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
 				exclude, handleNewPassingBook, exclude);
@@ -2391,13 +2409,13 @@ namespace Glyssen
 			// attribute may or may not be set. If not, the default is None, but if any levels have continuers specified, we
 			// interpret this as All (since None doesn't make sense in this case).
 			if (quotationMarks == null ||
-				m_wsDefinition.QuotationParagraphContinueType == QuotationParagraphContinueType.Innermost ||
-				m_wsDefinition.QuotationParagraphContinueType == QuotationParagraphContinueType.Outermost)
+				WritingSystem.QuotationParagraphContinueType == QuotationParagraphContinueType.Innermost ||
+				WritingSystem.QuotationParagraphContinueType == QuotationParagraphContinueType.Outermost)
 				return;
 
 			var replacementQuotationMarks = GetQuotationMarksWithFullySpecifiedContinuers(quotationMarks).ToList();
-			m_wsDefinition.QuotationMarks.Clear();
-			m_wsDefinition.QuotationMarks.AddRange(replacementQuotationMarks);
+			WritingSystem.QuotationMarks.Clear();
+			WritingSystem.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 
 		public bool ProjectFileIsWritable
