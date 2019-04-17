@@ -201,13 +201,15 @@ namespace ControlDataIntegrityTests
 				}
 
 				Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
-					"Characters in Character-Verse data but not in Character-Detail:" +
+					(missingCharacters.Any() ? "Characters in Character-Verse data but not in " +
+					$"{(readHypotheticalAsNarrator ? "(or set as hypothetical-only in)" : "")} Character-Detail:" +
 					Environment.NewLine +
-					missingCharacters.OnePerLineWithIndent() +
+					missingCharacters.OnePerLineWithIndent() : "") +
+					(missingDefaultCharacters.Any() ? Environment.NewLine +
+					"Default characters in Character-Verse data but not in " +
+					$"{(readHypotheticalAsNarrator ? "(or set as hypothetical-only in)" : "")} Character-Detail:" +
 					Environment.NewLine +
-					"Default characters in Character-Verse data but not in Character-Detail:" +
-					Environment.NewLine +
-					missingDefaultCharacters.OnePerLineWithIndent());
+					missingDefaultCharacters.OnePerLineWithIndent() : ""));
 			}
 			finally
 			{

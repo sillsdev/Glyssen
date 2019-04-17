@@ -869,7 +869,7 @@ Pilate's wife	1	Female				MAT 27:19	False
 pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	True
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30	False
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19	False
-priest	1	Male				DEU 20:3 & DEU 20:4	True
+priest	1	Male				NUM 5:19 <-(4 more)-> DEU 20:4	False
 priests	-1	Male				HAG 2:12 <-(2 more)-> MAL 1:7	False
 princes	-1	Male				PRO 31:4	True
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13	False
