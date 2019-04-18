@@ -198,6 +198,8 @@ namespace Glyssen
 				vernBlock.SetMatchedReferenceBlock(refBlock);
 				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnclear() ? refBlock : CorrelatedBlocks[i];
 				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, bookNum, m_versification);
+				if (vernBlock.CharacterIsStandard)
+					vernBlock.MultiBlockQuote = MultiBlockQuote.None;
 
 				if (vernBlock.CharacterIsUnclear())
 					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown.");
@@ -206,23 +208,10 @@ namespace Glyssen
 					vernBlock.UserConfirmed = true;
 				vernBlock.SplitId = CorrelatedBlocks[i].SplitId;
 			}
-			// No need to do the following here if m_numberOfBlocksAddedBySplitting > 0 because the call to ReplaceBlocks does it.
+			// No need to update following continuation blocks here if m_numberOfBlocksAddedBySplitting > 0 because the call to
+			// ReplaceBlocks (above) already did it.
 			if (m_numberOfBlocksAddedBySplitting == 0)
-			{
-				var lastBlockInMatchup = CorrelatedBlocks.Last();
-				foreach (var block in origBlocks.Skip(m_iStartBlock + OriginalBlockCount).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote))
-				{
-					if (lastBlockInMatchup.CharacterIsStandard)
-						throw new InvalidOperationException("Following blocks are continuations of a \"quote\" that is now assigned to " +
-							$"{lastBlockInMatchup.CharacterId}. We need to look at this data condition to see what the desired behavior is. ***Final block in " +
-							$"matchup: {lastBlockInMatchup} ***First following block: {block}");
-					block.CharacterId = lastBlockInMatchup.CharacterId;
-					// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
-					// outside the matchup (probably not).
-					// block.Delivery = lastBlockInMatchup.Delivery;
-					block.CharacterIdOverrideForScript = lastBlockInMatchup.CharacterIdOverrideForScript;
-				}
-			}
+				m_vernacularBook.UpdateFollowingContinuationBlocks(m_iStartBlock + OriginalBlockCount - 1);
 			else
 				m_numberOfBlocksAddedBySplitting = 0;
 
