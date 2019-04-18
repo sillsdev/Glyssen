@@ -11705,6 +11705,15 @@
         <seg>El proyecto {0} {1} no incluye ningún libro compatible con {2}.</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.NonEditingRole">
+      <note>Param: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>(You do not seem to have editing privileges for this {0} project.)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(Parece que no tiene permiso de editar este proyecto {0}.)</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.NotWritableMsg">
       <tuv xml:lang="en">
         <seg>The project file is not writable. No changes will be saved.</seg>
@@ -11757,6 +11766,15 @@
         <seg>Para actualizar el proyecto {0}, el proyecto {2} debe estar disponible en {1}, pero no lo está.</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.ParatextProjectMissingNoFallbackVersificationFile">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: “English” (versification mame)</note>
+      <tuv xml:lang="en">
+        <seg>{0} project {1} is not available and project {2} does not have a fallback versification file; therefore, the {3} versification is being used by default. If this is not the correct versification for this project, some things will not work as expected.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El proyecto {0} {1} no está disponible y el proyecto {2} no tiene un archivo de versificación de respaldo. Así que la versificación {3} se usará por defecto. Si ésta no es la correcta versificación para este proyecto, se esperan algunos problemas.</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.ParatextProjectNotFound">
       <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name); Param 3: Glyssen recording project name</note>
       <tuv xml:lang="en">
@@ -11764,6 +11782,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>No se puede acceder al proyecto {0} {1}, que es necesario para que {2} cargue el proyecto {3}.\n\nDetalles técnicos:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectReloadFailure">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Specific error message</note>
+      <tuv xml:lang="en">
+        <seg>An error occurred reloading the {0} project {1}:\n{2}\n\nIf you cannot fix the problem, you can cancel and continue to work with the existing project data.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ocurrió un error al recargar el proyecto {0} {1}:\n{2}\n\nSi no se puede resolver el problema, se puede cancelar y así continuar utilizando los datos existentes del proyecto.</seg>
       </tuv>
     </tu>
     <tu tuid="Project.ParatextProjectUnavailable">
