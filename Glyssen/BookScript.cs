@@ -969,33 +969,55 @@ namespace Glyssen
 
 		public void ReplaceBlocks(int iStartBlock, int count, IReadOnlyCollection<Block> replacementBlocks)
 		{
-			var blockIndexFollowingReplacement = iStartBlock + count;
-			if (m_blocks.Count > blockIndexFollowingReplacement)
-			{
-				if (m_blocks[blockIndexFollowingReplacement].IsContinuationOfPreviousBlockQuote)
-				{
-					var lastReplacementBlock = replacementBlocks.Last();
-					if (lastReplacementBlock.MultiBlockQuote == MultiBlockQuote.None)
-					{
-						throw new ArgumentException("Last replacement block must have a MultiBlockQuote value of Start or Continuation, since the first " +
-							"block following the replacement range is a Continuation block.");
-					}
-					if (lastReplacementBlock.CharacterIsStandard)
-						throw new InvalidOperationException("Following blocks are continuations of a \"quote\" that is now assigned to " +
-							$"{lastReplacementBlock.CharacterId}. We need to look at this data condition to see what the desired beahvior is. ***Final block in " +
-							$"matchup: {lastReplacementBlock} ***First following block: {m_blocks[blockIndexFollowingReplacement]}");
-					do
-					{
-						m_blocks[blockIndexFollowingReplacement].SetCharacterInfo(lastReplacementBlock);
-						// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
-						// outside the matchup (probably not).
-						// m_blocks[blockIndexFollowingReplacement].Delivery = lastReplacementBlock.Delivery;
-					} while (++blockIndexFollowingReplacement < m_blocks.Count && m_blocks[blockIndexFollowingReplacement].IsContinuationOfPreviousBlockQuote);
-				}
-			}
 			m_blocks.RemoveRange(iStartBlock, count);
 			m_blocks.InsertRange(iStartBlock, replacementBlocks);
+			UpdateFollowingContinuationBlocks(iStartBlock + replacementBlocks.Count - 1);
 			OnBlocksInserted(iStartBlock, replacementBlocks.Count - count);
+		}
+
+		/// <summary>
+		/// "Fixes" any quote continuation blocks immediately following the given block index. If the given index
+		/// is for a quote block (i.e., the character ID is not narrator or -- and this is probably impossible in
+		/// practice -- some other standard character type), then the following continuation blocks are set to have
+		/// the same character speak. Otherwise, the multi-block quote chain is broken and the following block(s)
+		/// form a new chain, beginning with the first following block. (Of course, if there is only one following
+		/// block, then it's no longer a multi-block chain at all.)
+		/// </summary>
+		/// <param name="iBlock"></param>
+		public void UpdateFollowingContinuationBlocks(int iBlock)
+		{
+			var iNextBlock = iBlock + 1;
+			if (m_blocks.Count > iNextBlock && m_blocks[iNextBlock].IsContinuationOfPreviousBlockQuote)
+			{
+				var baseBlock = m_blocks[iBlock];
+				if (baseBlock.MultiBlockQuote == MultiBlockQuote.None)
+				{
+					if (m_blocks.Count > iNextBlock + 1 && m_blocks[iNextBlock + 1].IsContinuationOfPreviousBlockQuote)
+					{
+						m_blocks[iNextBlock++].MultiBlockQuote = MultiBlockQuote.Start;
+						do
+						{
+							m_blocks[iNextBlock].MultiBlockQuote = MultiBlockQuote.Continuation;
+						} while (++iNextBlock < m_blocks.Count && m_blocks[iNextBlock].IsContinuationOfPreviousBlockQuote);
+					}
+					else
+					{
+						m_blocks[iNextBlock].MultiBlockQuote = MultiBlockQuote.None;
+					}
+				}
+				else
+				{
+					if (baseBlock.CharacterIsStandard)
+						throw new InvalidOperationException("Caller is responsible for setting preceding block(s)' MultiBlockQuote property set to None\r\n" +
+							$"{baseBlock.ToString(true, BookId)}");
+					do
+					{
+						m_blocks[iNextBlock].SetCharacterInfo(baseBlock);
+						// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks.
+						// m_blocks[iNextBlock].Delivery = baseBlock.Delivery;
+					} while (++iNextBlock < m_blocks.Count && m_blocks[iNextBlock].IsContinuationOfPreviousBlockQuote);
+				}
+			}
 		}
 	}
 }

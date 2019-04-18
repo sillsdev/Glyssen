@@ -85,21 +85,25 @@ namespace Glyssen.Dialogs
 			base.OnVisibleChanged(e);
 			var project = m_model.Project;
 			if (IsHandleCreated && Visible && project.IsLiveParatextProject &&
-				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0 &&
-				!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(project.GetLiveParatextDataIfCompatible(false, "", false)?.QuotationMarks)))
+				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0)
 			{
-				string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
-						"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +
-						"this project to match the {0} project settings (and get the latest versions of the text), click {3}.",
-						"Param 0: \"Paratext\" (product name); " +
-						"Param 1: Paratext project short name (unique project identifier); " +
-						"Param 2: \"Glyssen\" (product name); " +
-						"Param 3: localized name of the \"Update\" button"),
-					ParatextScrTextWrapper.kParatextProgramName,
-					m_model.Project.ParatextProjectName,
-					GlyssenInfo.kProduct,
-					LocalizedUpdateButtonName);
-				MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+				var paratextProj = project.GetLiveParatextDataIfCompatible(false, "", false);
+				if (paratextProj != null &&
+					!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(paratextProj.QuotationMarks)))
+				{
+					string msg = string.Format(LocalizationManager.GetString("Project.ParatextQuoteSystemChanged",
+							"The quotation mark settings in {0} project {1} no longer match the settings in this {2} project. To update " +
+							"this project to match the {0} project settings (and get the latest versions of the text), click {3}.",
+							"Param 0: \"Paratext\" (product name); " +
+							"Param 1: Paratext project short name (unique project identifier); " +
+							"Param 2: \"Glyssen\" (product name); " +
+							"Param 3: localized name of the \"Update\" button"),
+						ParatextScrTextWrapper.kParatextProgramName,
+						m_model.Project.ParatextProjectName,
+						GlyssenInfo.kProduct,
+						LocalizedUpdateButtonName);
+					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
+				}
 			}
 		}
 
