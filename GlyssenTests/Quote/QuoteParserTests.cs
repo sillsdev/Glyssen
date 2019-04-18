@@ -5513,5 +5513,64 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("nispa.", block.GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
+
+		// Test for PG40
+		[Test]
+		public void Parse_NoQuotationMarksInPassageWithImplicitQuotes_ImplicitCharacterInfoSet()
+		{
+			var block1 = new Block("p", 2, 28) { IsParagraphStart = true }.AddVerse(28, "Simeon received him, blessed God, and said,");
+			var block2 = new Block("q1", 2, 29) { IsParagraphStart = true }.AddVerse(29, "Release your servant in peace now, Lord,");
+			var block3 = new Block("q2", 2, 29) { IsParagraphStart = true }.AddText("according to your promise;");
+			var block4 = new Block("q1", 2, 30) { IsParagraphStart = true }.AddVerse(30, "for I have seen you come to the rescue,");
+			var block5 = new Block("q2", 2, 31) { IsParagraphStart = true }.AddVerse(31, "according to your plan, before all peoples;");
+			var block6 = new Block("q1", 2, 32) { IsParagraphStart = true }.AddVerse(32, "a brilliance to make the nations see,");
+			var block7 = new Block("q2", 2, 32) { IsParagraphStart = true }.AddText("and the shekinah of your people Israel.");
+			var block8 = new Block("p", 2, 33) { IsParagraphStart = true }.AddVerse(33, "Joseph and his mom were wowed by the things spoken concerning the boy; ")
+				.AddVerse(34, "He blessed them, saying to Mary, “Get ready for some ups and downs in Israel because of this child. People are going to criticize him. ")
+				.AddVerse(35, "Additionally, a sword will puncture your soul, so the thoughts of many hearts can be shown.”");
+			var block9 = new Block("p", 2, 36) { IsParagraphStart = true }.AddVerse(36, "There was a prophetess named Anna (she was old, having been married 7 years ")
+				.AddVerse(37, "and then surviving as a widow for 84 more), who didn’t leave the temple, where she worshipped with fasting and prayer.");
+			var input = new List<Block> { block1, block2, block3, block4, block5, block6, block7, block8, block9 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+
+			int i = 0;
+			var block = output[i++];
+			Assert.AreEqual("{28}\u00A0Simeon received him, blessed God, and said,", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("{29}\u00A0Release your servant in peace now, Lord, according to your promise;", block.GetText(true));
+			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{30}\u00A0for I have seen you come to the rescue,", block.GetText(true));
+			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{31}\u00A0according to your plan, before all peoples;", block.GetText(true));
+			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{32}\u00A0a brilliance to make the nations see, and the shekinah of your people Israel.", block.GetText(true));
+			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{33}\u00A0Joseph and his mom were wowed by the things spoken concerning the boy; " +
+					"{34}\u00A0He blessed them, saying to Mary, ", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("“Get ready for some ups and downs in Israel because of this child. People are going to criticize him. " +
+				"{35}\u00A0Additionally, a sword will puncture your soul, so the thoughts of many hearts can be shown.”", block.GetText(true));
+			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{36}\u00A0There was a prophetess named Anna (she was old, having been married 7 years " +
+				"{37}\u00A0and then surviving as a widow for 84 more), who didn’t leave the temple, where she worshipped with fasting and prayer.", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
 	}
 }
