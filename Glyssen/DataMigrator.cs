@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,7 @@ using SIL.DblBundle;
 using SIL.IO;
 using SIL.Scripture;
 using SIL.Reporting;
+using SIL.Xml;
 
 namespace Glyssen
 {
@@ -33,6 +35,8 @@ namespace Glyssen
 		{
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
+
+			bool retVal = true;
 
 			Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>
 			{
@@ -161,13 +165,143 @@ namespace Glyssen
 					{
 						Logger.WriteError("Unable to clean up superfluous sample Audio Audio folder.", e);
 					}
+					var safeReplacements = new List<Tuple<string, string>>();
+					var unsafeReplacements = new List<Tuple<string, string>>();
+					foreach (var folder in Project.AllRecordingProjectFolders.Where(d => d.EndsWith(" Audio Audio")))
+					{
+						// Because of the way this bug (PG-1192) worked, the most likely thing is that the "correct"
+						// version of the project will have been initially created but then all the actual work will
+						// have gotten saved into the "incorrect" version. If this looks to be the case, we can
+						// probably safely delete the correct one and then rename the incorrect one to have the correct
+						// name.
+						var baseFolder = Path.GetDirectoryName(folder);
+						Debug.Assert(baseFolder != null);
+						var languageFolder = Path.GetDirectoryName(baseFolder);
+						Debug.Assert(languageFolder != null);
+						var langCode = Path.GetFileName(languageFolder);
+						Debug.Assert(langCode != null);
+						var incorrectProjName = Path.GetFileName(folder);
+						Debug.Assert(incorrectProjName != null);
+						var correctProjectName = incorrectProjName.Substring(0, incorrectProjName.Length - " Audio".Length);
+						var correctProjectFolder = Path.Combine(baseFolder, correctProjectName);
+						if (Directory.Exists(correctProjectFolder))
+						{
+							var glyssenProjFilename = langCode + Constants.kProjectFileExtension;
+							var incorrectProjectFilePath = Path.Combine(folder, glyssenProjFilename);
+							var correctProjectFilePath = Path.Combine(correctProjectFolder, glyssenProjFilename);
+							var finfoIncorrectProject = new FileInfo(incorrectProjectFilePath);
+							var finfoCorrectProject = new FileInfo(correctProjectFilePath);
+							if (finfoCorrectProject.Exists && finfoIncorrectProject.Exists)
+							{
+								if (finfoCorrectProject.LastWriteTimeUtc < finfoIncorrectProject.LastWriteTimeUtc)
+								{
+									var books = Directory.GetFiles(correctProjectFolder, "???.xml").Select(XmlSerializationHelper.DeserializeFromFile<BookScript>);
+									foreach (var book in books)
+									{
+										if (book.GetScriptBlocks().Any(b => b.UserConfirmed || b.MatchesReferenceText))
+										{
+											unsafeReplacements.Add(new Tuple<string, string>(folder, correctProjectFolder));
+											break;
+										}
+									}
+									if (unsafeReplacements.LastOrDefault()?.Item1 == folder)
+										continue;
+									try
+									{
+										var projToBackUp = Project.Load(correctProjectFilePath);
+										projToBackUp.CreateBackup("Overwritten by migration 3-4");
+									}
+									catch (Exception e)
+									{
+										Logger.WriteError("Unable to load project and create backup", e);
+										safeReplacements.Add(new Tuple<string, string>(folder, correctProjectFolder));
+										continue;
+									}
+									try
+									{
+										RobustIO.DeleteDirectory(correctProjectFolder, true);
+										RobustIO.MoveDirectory(folder, correctProjectFolder);
+									}
+									catch (IOException e)
+									{
+										Logger.WriteError("Unable to replace project after making backup", e);
+										Console.WriteLine(e);
+										unsafeReplacements.Add(new Tuple<string, string>(folder, correctProjectFolder));
+									}
+								}
+								else
+								{
+									unsafeReplacements.Add(new Tuple<string, string>(folder, correctProjectFolder));
+								}
+							}
+						}
+					}
+
+					var preamble = String.Format(LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudioPreamble",
+						"To correct a former bug in the way default recording projects were named, {0} has identified the following " +
+						"project(s) that should be renamed to only have a single \"Audio\" in the name:",
+						"Param: \"Glyssen\" (product name)"), GlyssenInfo.kProduct) + Environment.NewLine;
+
+					if (safeReplacements.Any())
+					{
+
+						var msg = preamble +
+							String.Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
+							String.Format(LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+							"Doing this will replace the existing project(s) by the same name, which were originally created by {0}. " +
+							"Since none of the blocks in the project(s) to be overwritten have any user decisions recorded, this seems " +
+							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+							"this action, you can either clean up the problem projects yourself or verify that is is safe and then restart " +
+							"{0}. You will be asked about this each time you start the program until all affected projects have been handled.\r\n" +
+							"Confirm overwriting?",
+							"Param: \"Glyssen\" (product name); " +
+							"This follows the ConfirmReplacementsOfAudioAudioPreamble."),
+							GlyssenInfo.kProduct);
+						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
+							MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+						{
+							foreach (var replacement in safeReplacements)
+							{
+								RobustIO.DeleteDirectory(replacement.Item2, true);
+								RobustIO.MoveDirectory(replacement.Item1, replacement.Item2);
+							}
+						}
+						safeReplacements.Clear();
+					}
+					if (unsafeReplacements.Any())
+					{
+						var msg = preamble +
+							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
+							String.Format(LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+							"However, doing this would replace the existing project(s) by the same name. " +
+							"Since {0} was unable to determine whether this was safe or otherwise failed to do the replacement, it is recommended " +
+							"that you clean up the problem project(s) yourself. You are encouraged to contact a local support person if needed or " +
+							"seek help on {1}. You will be reminded about this each time you start the program until all affected projects have " +
+							"been handled.",
+							"Param 0: \"Glyssen\" (product name); " +
+							"Param 1: \"https://community.scripture.software.sil.org/\"" +
+							"This follows the ConfirmReplacementsOfAudioAudioPreamble."),
+							GlyssenInfo.kProduct,
+							Constants.kSupportSite);
+						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK,
+							MessageBoxIcon.Exclamation))
+						{
+							foreach (var replacement in safeReplacements)
+							{
+								RobustIO.DeleteDirectory(replacement.Item2);
+								RobustIO.MoveDirectory(replacement.Item1, replacement.Item2);
+							}
+						}
+					}
+					if (unsafeReplacements.Any() || safeReplacements.Any())
+						retVal = false;
 					break;
 				default:
 					throw new Exception("No migration found from the existing data version!");
 			}
 
 			info.DataVersion = Settings.Default.DataFormatVersion;
-			return true;
+			return retVal;
 		}
 	}
 }

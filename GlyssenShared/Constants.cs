@@ -15,5 +15,7 @@
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 		public const string kHearThisProductName = "HearThis";
 		public const string kHearThisMinimumSupportedVersion = "2.0";
+
+		public const string kSupportSite = "https://community.scripture.software.sil.org/";
 	}
 }

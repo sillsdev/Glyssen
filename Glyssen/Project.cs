@@ -2125,7 +2125,7 @@ namespace Glyssen
 			}
 		}
 
-		private void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
+		internal void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
 		{
 			if (!m_books.Any(b => b.GetScriptBlocks().Any(sb => sb.UserConfirmed)))
 				return;
