@@ -949,6 +949,7 @@ namespace Glyssen
 						"Param 1: Paratext project short name (unique project identifier); " +
 						"Param 2: \"Glyssen\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName,
+						ParatextProjectName,
 						GlyssenInfo.kProduct));
 				}
 			}
@@ -2160,7 +2161,7 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters($"{publicationName}{DefaultRecordingProjectNameSuffix}", MaxBaseRecordingNameLength);
+			publicationName = FileSystemUtils.RemoveDangerousCharacters($"{publicationName}", MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
 		}
 

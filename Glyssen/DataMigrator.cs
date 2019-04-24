@@ -10,7 +10,9 @@ using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.DblBundle;
+using SIL.IO;
 using SIL.Scripture;
+using SIL.Reporting;
 
 namespace Glyssen
 {
@@ -148,6 +150,16 @@ namespace Glyssen
 						File.Move(pgProjFile, newName);
 						if (Settings.Default.CurrentProject == pgProjFile)
 							Settings.Default.CurrentProject = newName;
+					}
+					break; // No need to go to case 3, since the problem it fixes would only have been caused by a version of Glyssen with data version 3 
+				case 3:
+					try
+					{
+						RobustIO.DeleteDirectory(Path.GetDirectoryName(SampleProject.SampleProjectFilePath) + " Audio", true);
+					}
+					catch (IOException e)
+					{
+						Logger.WriteError("Unable to clean up superfluous sample Audio Audio folder.", e);
 					}
 					break;
 				default:
