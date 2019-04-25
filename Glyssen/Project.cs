@@ -73,9 +73,10 @@ namespace Glyssen
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
 		private CharacterGroupList m_characterGroupList;
-		private readonly ISet<CharacterDetail> m_projectCharacterDetailData;
+		private ISet<CharacterDetail> ProjectCharacterDetail { get; set; }
 		private bool m_projectFileIsWritable = true;
 		private ReferenceText m_referenceText;
+		private Project m_userDecisionsProject;
 
 		private Dictionary<string, int> m_speechDistributionScore;
 		private Dictionary<string, int> m_keyStrokesByCharacterId;
@@ -99,7 +100,7 @@ namespace Glyssen
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
-			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
+			ProjectCharacterDetail = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
 			if (loadVersification)
 			{
 				if (HasVersificationFile)
@@ -440,24 +441,24 @@ namespace Glyssen
 			set => m_projectMetadata.OriginalReleaseBundlePath = value;
 		}
 
-		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
+		public ProjectCharacterVerseData ProjectCharacterVerseData { get; private set; }
 
 		public IReadOnlyDictionary<string, CharacterDetail> AllCharacterDetailDictionary
 		{
 			get
 			{
-				if (!m_projectCharacterDetailData.Any())
+				if (!ProjectCharacterDetail.Any())
 					return CharacterDetailData.Singleton.GetDictionary();
 				Dictionary<string, CharacterDetail> characterDetails =
 					new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
-				characterDetails.AddRange(m_projectCharacterDetailData.ToDictionary(k => k.CharacterId));
+				characterDetails.AddRange(ProjectCharacterDetail.ToDictionary(k => k.CharacterId));
 				return characterDetails;
 			}
 		}
 
 		public void AddProjectCharacterDetail(CharacterDetail characterDetail)
 		{
-			m_projectCharacterDetailData.Add(characterDetail);
+			ProjectCharacterDetail.Add(characterDetail);
 		}
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
@@ -604,7 +605,37 @@ namespace Glyssen
 		/// <summary>
 		/// If this is set, the user decisions in it will be applied when the quote parser is done
 		/// </summary>
-		private Project UserDecisionsProject { get; set; }
+		private Project UserDecisionsProject
+		{
+			get => m_userDecisionsProject;
+			set
+			{
+				if (m_userDecisionsProject != value)
+				{
+					if (value == null)
+						m_userDecisionsProject = null;
+					else
+					{
+						Debug.Assert(m_userDecisionsProject == null);
+						m_userDecisionsProject = value;
+						if (m_userDecisionsProject.ProjectCharacterVerseData.Any())
+						{
+							if (ProjectCharacterVerseData.Any())
+								ProjectCharacterVerseData.UnionWith(m_userDecisionsProject.ProjectCharacterVerseData);
+							else
+								ProjectCharacterVerseData = m_userDecisionsProject.ProjectCharacterVerseData;
+						}
+						if (m_userDecisionsProject.ProjectCharacterDetail.Any())
+						{
+							if (m_userDecisionsProject.ProjectCharacterDetail.Any())
+								ProjectCharacterDetail.UnionWith(m_userDecisionsProject.ProjectCharacterDetail);
+							else
+								ProjectCharacterDetail = m_userDecisionsProject.ProjectCharacterDetail;
+						}
+					}
+				}
+			}
+		}
 
 		public VoiceActorList VoiceActorList
 		{
@@ -1810,7 +1841,7 @@ namespace Glyssen
 
 		public void SaveProjectCharacterDetailData()
 		{
-			ProjectCharacterDetailData.WriteToFile(m_projectCharacterDetailData, ProjectCharacterDetailDataPath);
+			ProjectCharacterDetailData.WriteToFile(ProjectCharacterDetail, ProjectCharacterDetailDataPath);
 		}
 
 		public void SaveCharacterGroupData()
