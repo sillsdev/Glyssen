@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -237,6 +239,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(10000)]
 		public void QuoteSystem_Changed()
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -248,13 +251,107 @@ namespace GlyssenTests
 
 				WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
+				QuoteSystem afterQuoteParserCompletes = null;
+
+				project.QuoteParseCompleted += delegate(object sender, EventArgs args)
+				{
+					afterQuoteParserCompletes = ((Project)sender).QuoteSystem;
+				};
+
 				project.QuoteSystem = QuoteSystem.Default;
+
+				do
+				{
+					Thread.Sleep(100);
+				} while (afterQuoteParserCompletes == null);
+
+				Assert.AreEqual(QuoteSystem.Default, afterQuoteParserCompletes);
 			}
 			finally
 			{
 				// Must dispose after because changing the quote system needs access to original bundle file
 				originalBundleAndFile.Item2.Dispose();
 			}
+		}
+
+		[TestCase("Boaz")]
+		[TestCase("Mr. Rogers")]
+		[Timeout(1000000)]
+		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
+		{
+			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
+			try
+			{
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				var originalBundle = originalBundleAndFile.Item1;
+				var testProject = new Project(originalBundle);
+
+				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+				var book = testProject.IncludedBooks.First();
+				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+					book.GetScriptBlocks().Count - 1, testProject.Versification);
+
+				foreach (var block in matchup.CorrelatedBlocks)
+				{
+					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
+							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
+						.Any(c => c.Character == character))
+					{
+						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
+							character, "foamy", null, true));
+					}
+					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
+					block.Delivery = "foamy";
+					block.UserConfirmed = true;
+				}
+
+				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
+
+				matchup.Apply(testProject.Versification);
+
+				var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+				newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
+
+				bool complete = false;
+
+				testProject.QuoteParseCompleted += delegate
+				{
+					complete = true;
+				};
+
+				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+				testProject.QuoteSystem = newQuoteSystem;
+
+				do
+				{
+					Thread.Sleep(100);
+				} while (!complete);
+
+				var userConfirmedBlocksAfterReapplying = testProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
+				{
+					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				}
+			}
+			finally
+			{
+				// Must dispose after because changing the quote system needs access to original bundle file
+				originalBundleAndFile.Item2.Dispose();
+			}
+		}
+
+		[TestCase("Boaz")]
+		[TestCase("Mr. Rogers")]
+		[Timeout(1000000)]
+		public void UpdateProject_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
+		{
+			Assert.Fail("Write this test");
 		}
 
 		[Test]
