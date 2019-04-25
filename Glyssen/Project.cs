@@ -1177,6 +1177,8 @@ namespace Glyssen
 				}
 				if (foundDataChange)
 					upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
+
+				upgradedProject.ProjectStateChanged?.Invoke(upgradedProject, new ProjectStateChangedEventArgs());
 			};
 
 			UpgradeProject(existingProject, upgradedProject, () =>
