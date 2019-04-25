@@ -1123,6 +1123,8 @@ namespace Glyssen
 		internal static Project UpdateFromParatextData(Project existingProject, ParatextScrTextWrapper scrTextWrapper)
 		{
 			var upgradedProject = new Project(existingProject.m_projectMetadata);
+			// Initially we want to include anything that is included in Paratext so we don't lose user decisions.
+			scrTextWrapper.IncludeBooks(upgradedProject.AvailableBooks.Select(b => b.Code));
 
 			// Add metadata for any books that are available in scrTextWrapper but not in the
 			// existing project. Remove metadata for any books formerly available that are not now.
@@ -1130,7 +1132,8 @@ namespace Glyssen
 			bool foundDataChange = false;
 			Action<string> nowMissing = bookCode =>
 			{
-				RobustFile.Delete(existingProject.GetBookDataFilePath(bookCode));
+				var origPath = existingProject.GetBookDataFilePath(bookCode);
+				RobustFile.Move(origPath, origPath + ".nolongeravailable");
 				foundDataChange = true;
 			};
 
@@ -1158,25 +1161,28 @@ namespace Glyssen
 			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
 				exclude, handleNewPassingBook, exclude);
 
-			foreach (var bookMetadata in scrTextWrapper.GlyssenDblTextMetadata.AvailableBooks.Where(b => booksToExcludeFromProject.Contains(b.Code)))
-				bookMetadata.IncludeInScript = false;
-			
+			upgradedProject.QuoteParseCompleted += delegate
+			{
+				foreach (var book in upgradedProject.AvailableBooks.Where(b => b.IncludeInScript && booksToExcludeFromProject.Contains(b.Code)))
+					book.IncludeInScript = false;
+
+				foreach (var book in upgradedProject.IncludedBooks)
+				{
+					if (!foundDataChange)
+					{
+						var existingBook = existingProject.GetBook(book.BookNumber);
+						if (existingBook == null || book.ParatextChecksum != existingBook.ParatextChecksum)
+							foundDataChange = true;
+					}
+				}
+				if (foundDataChange)
+					upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
+			};
+
 			UpgradeProject(existingProject, upgradedProject, () =>
 			{
 				upgradedProject.ParseAndSetBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
 			});
-			foreach (var book in upgradedProject.IncludedBooks)
-			{
-				book.ParatextChecksum = scrTextWrapper.GetBookChecksum(book.BookNumber);
-				if (!foundDataChange)
-				{
-					var existingBook = existingProject.GetBook(book.BookNumber);
-					if (existingBook == null || book.ParatextChecksum != existingBook.ParatextChecksum)
-						foundDataChange = true;
-				}
-			}
-			if (foundDataChange)
-				upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
 
 			return upgradedProject;
 		}
