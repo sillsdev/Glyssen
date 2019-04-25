@@ -211,7 +211,7 @@ namespace Glyssen
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
-		private static string DefaultRecordingProjectNameSuffix => " " +
+		internal static string DefaultRecordingProjectNameSuffix => " " +
 			LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
 				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
 
@@ -2161,7 +2161,7 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters($"{publicationName}", MaxBaseRecordingNameLength);
+			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
 		}
 

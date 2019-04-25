@@ -195,10 +195,13 @@ namespace Glyssen
 							{
 								if (finfoCorrectProject.LastWriteTimeUtc < finfoIncorrectProject.LastWriteTimeUtc)
 								{
-									var books = Directory.GetFiles(correctProjectFolder, "???.xml").Select(XmlSerializationHelper.DeserializeFromFile<BookScript>);
+									var books = Directory.GetFiles(correctProjectFolder, "???.xml").Where(b => Canon.IsBookIdValid(Path.GetFileNameWithoutExtension(b)))
+										.Select(XmlSerializationHelper.DeserializeFromFile<BookScript>);
 									foreach (var book in books)
 									{
-										if (book.GetScriptBlocks().Any(b => b.UserConfirmed || b.MatchesReferenceText))
+										// If book == null, there was a problem loading it. It may be locked or be in some incompatible format.
+										// In any case, we shouldn't risk assuming we can safely replace it.
+										if (book == null || book.GetScriptBlocks().Any(b => b.UserConfirmed || b.MatchesReferenceText))
 										{
 											unsafeReplacements.Add(new Tuple<string, string>(folder, correctProjectFolder));
 											break;
@@ -237,26 +240,36 @@ namespace Glyssen
 						}
 					}
 
-					var preamble = String.Format(LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudioPreamble",
-						"To correct a former bug in the way default recording projects were named, {0} has identified the following " +
-						"project(s) that should be renamed to only have a single \"Audio\" in the name:",
-						"Param: \"Glyssen\" (product name)"), GlyssenInfo.kProduct) + Environment.NewLine;
-
 					if (safeReplacements.Any())
 					{
-
-						var msg = preamble +
+						string fmt;
+						if (safeReplacements.Count == 1)
+						{
+							fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
+								"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
+								"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
+								"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+								"this action, you can either clean up the problem project yourself or verify that is is safe and then restart " +
+								"{0}. You will be asked about this each time you start the program as long as this problem remains unresolved.\r\n" +
+								"Confirm overwriting?",
+								"Param: \"Glyssen\" (product name); " +
+								"This follows the \"AudioAudioProblemPreambleSingle\".");
+						}
+						else
+						{
+							fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+								"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
+								"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
+								"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+								"this action, you can either clean up the problem projects yourself or verify that is is safe and then restart " +
+								"{0}. You will be asked about this each time you start the program as long as these problems remains unresolved.\r\n" +
+								"Confirm overwriting?",
+								"Param: \"Glyssen\" (product name); " +
+								"This follows the \"AudioAudioProblemPreambleMultiple\".");
+						}
+						var msg = GetAudioAudioProblemPreamble(safeReplacements.Count) +
 							String.Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
-							String.Format(LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
-							"Doing this will replace the existing project(s) by the same name, which were originally created by {0}. " +
-							"Since none of the blocks in the project(s) to be overwritten have any user decisions recorded, this seems " +
-							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
-							"this action, you can either clean up the problem projects yourself or verify that is is safe and then restart " +
-							"{0}. You will be asked about this each time you start the program until all affected projects have been handled.\r\n" +
-							"Confirm overwriting?",
-							"Param: \"Glyssen\" (product name); " +
-							"This follows the ConfirmReplacementsOfAudioAudioPreamble."),
-							GlyssenInfo.kProduct);
+							String.Format(fmt, GlyssenInfo.kProduct);
 						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
 							MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
 						{
@@ -265,33 +278,39 @@ namespace Glyssen
 								RobustIO.DeleteDirectory(replacement.Item2, true);
 								RobustIO.MoveDirectory(replacement.Item1, replacement.Item2);
 							}
+							safeReplacements.Clear();
 						}
-						safeReplacements.Clear();
 					}
 					if (unsafeReplacements.Any())
 					{
-						var msg = preamble +
-							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
-							String.Format(LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
-							"However, doing this would replace the existing project(s) by the same name. " +
-							"Since {0} was unable to determine whether this was safe or otherwise failed to do the replacement, it is recommended " +
-							"that you clean up the problem project(s) yourself. You are encouraged to contact a local support person if needed or " +
-							"seek help on {1}. You will be reminded about this each time you start the program until all affected projects have " +
-							"been handled.",
-							"Param 0: \"Glyssen\" (product name); " +
-							"Param 1: \"https://community.scripture.software.sil.org/\"" +
-							"This follows the ConfirmReplacementsOfAudioAudioPreamble."),
-							GlyssenInfo.kProduct,
-							Constants.kSupportSite);
-						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK,
-							MessageBoxIcon.Exclamation))
+						string fmt;
+						if (unsafeReplacements.Count == 1)
 						{
-							foreach (var replacement in safeReplacements)
-							{
-								RobustIO.DeleteDirectory(replacement.Item2);
-								RobustIO.MoveDirectory(replacement.Item1, replacement.Item2);
-							}
+							fmt = LocalizationManager.GetString("DataMigration.NoticeToManuallyFixAudioAudioProject",
+								"However, doing this would replace the existing project by the same name. " +
+								"Since {0} was unable to determine whether this was safe or otherwise failed to do the replacement, it is recommended " +
+								"that you clean up the problem project yourself. You are encouraged to contact a local support person if needed or " +
+								"seek help on {1}. You will be reminded about this each time you start the program as long as this problem remains unresolved.",
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"https://community.scripture.software.sil.org/\"" +
+								"This follows the \"AudioAudioProblemPreambleSingle\".");
 						}
+						else
+						{
+
+							fmt = LocalizationManager.GetString("DataMigration.NoticeToManuallyFixAudioAudioProjects",
+								"However, doing this would replace the existing projects by the same name. " +
+								"Since {0} was unable to determine whether this was safe or otherwise failed to do the replacements, it is recommended " +
+								"that you clean up the problem projects yourself. You are encouraged to contact a local support person if needed or " +
+								"seek help on {1}. You will be reminded about this each time you start the program as long as these problems remains unresolved.",
+								"Param 0: \"Glyssen\" (product name); " +
+								"Param 1: \"https://community.scripture.software.sil.org/\"" +
+								"This follows the \"AudioAudioProblemPreambleMultiple\".");
+						}
+						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
+							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
+							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
+						MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;
@@ -300,8 +319,33 @@ namespace Glyssen
 					throw new Exception("No migration found from the existing data version!");
 			}
 
-			info.DataVersion = Settings.Default.DataFormatVersion;
+			if (retVal)
+				info.DataVersion = Settings.Default.DataFormatVersion;
 			return retVal;
+		}
+
+		private static string GetAudioAudioProblemPreamble(int count)
+		{
+			string fmt;
+			if (count == 1)
+			{
+				fmt = LocalizationManager.GetString("DataMigration.AudioAudioProblemPreambleSingle",
+					"To correct a problem in the way default recording project names were assigned in a previous version of the program, {0} has identified " +
+					"the following project that should be renamed to end with only a single \"{1}\":",
+					"Param 0: \"Glyssen\" (product name); " +
+					"Param 1: the default recording project suffix (see \"Project.RecordingProjectDefaultSuffix\"); " +
+					"This version of the preamble is for when there is a single project (see \"DataMigration.AudioAudioProblemPreambleMultiple\"");
+			}
+			else
+			{
+				fmt = LocalizationManager.GetString("DataMigration.AudioAudioProblemPreambleMultiple",
+					"To correct a problem in the way default recording project names were assigned in a previous version of the program, {0} has identified " +
+					"the following projects that should be renamed to end with only a single \"{1}\":",
+					"Param 0: \"Glyssen\" (product name); " +
+					"Param 1: the default recording project suffix (see \"Project.RecordingProjectDefaultSuffix\"); " +
+					"This version of the preamble is for when there are multiple projects (see \"DataMigration.AudioAudioProblemPreambleSingle\"");
+			}
+			return String.Format(fmt, GlyssenInfo.kProduct, Project.DefaultRecordingProjectNameSuffix.TrimStart()) + Environment.NewLine;
 		}
 	}
 }
