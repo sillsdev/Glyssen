@@ -324,7 +324,7 @@ namespace Glyssen
 				if (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
-				if (block.InitialStartVerseNumber > verse ||
+				if (block.InitialStartVerseNumber > verse || block.InitialEndVerseNumber > verse ||
 					(iFirstBlockToExamine > 0 && !(block.BlockElements.First() is Verse) && m_blocks[iFirstBlockToExamine - 1].LastVerseNum == verse))
 				{
 					iFirstBlockToExamine--;
