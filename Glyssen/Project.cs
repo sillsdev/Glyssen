@@ -1161,13 +1161,17 @@ namespace Glyssen
 			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
 				exclude, handleNewPassingBook, exclude);
 
-			upgradedProject.QuoteParseCompleted += delegate
+			void OnUpgradedProjectOnQuoteParseCompleted(object sender, EventArgs e)
 			{
+				upgradedProject.QuoteParseCompleted -= OnUpgradedProjectOnQuoteParseCompleted;
+
 				foreach (var book in upgradedProject.AvailableBooks.Where(b => b.IncludeInScript && booksToExcludeFromProject.Contains(b.Code)))
 					book.IncludeInScript = false;
 
 				foreach (var book in upgradedProject.IncludedBooks)
 				{
+					book.ParatextChecksum = scrTextWrapper.GetBookChecksum(book.BookNumber);
+
 					if (!foundDataChange)
 					{
 						var existingBook = existingProject.GetBook(book.BookNumber);
@@ -1179,7 +1183,9 @@ namespace Glyssen
 					upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
 
 				upgradedProject.ProjectStateChanged?.Invoke(upgradedProject, new ProjectStateChangedEventArgs());
-			};
+			}
+
+			upgradedProject.QuoteParseCompleted += OnUpgradedProjectOnQuoteParseCompleted;
 
 			UpgradeProject(existingProject, upgradedProject, () =>
 			{
