@@ -157,11 +157,11 @@ namespace Glyssen
 				// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
 				DirectoryUtilities.SetFullControl(baseDataFolder, false);
 
+				SetUpLocalization();
+
 				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
 				SampleProject.CreateSampleProjectIfNeeded();
-
-				SetUpLocalization();
 
 				// The following not only gets the location of the settings file;
 				// it also detects corruption and deletes it if needed so we don't crash.

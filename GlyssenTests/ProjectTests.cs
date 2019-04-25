@@ -1009,6 +1009,13 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Name_GetDefaultRecordingProjectName_SetCorrectly()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			Assert.AreEqual(project.Id + " Audio", project.Name);
+		}
+
+		[Test]
 		public void CalculateSpeechDistributionScore_CharacterWhoDoesNotSpeak_ReturnsZero()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
