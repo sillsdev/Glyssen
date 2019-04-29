@@ -324,11 +324,13 @@ namespace Glyssen
 				if (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
-				if (block.InitialStartVerseNumber > verse || block.InitialEndVerseNumber > verse ||
-					(iFirstBlockToExamine > 0 && !(block.BlockElements.First() is Verse) && m_blocks[iFirstBlockToExamine - 1].LastVerseNum == verse))
+				if (block.BlockElements.First() is Verse)
 				{
-					iFirstBlockToExamine--;
+					if (block.InitialStartVerseNumber == verse || (block.InitialEndVerseNumber > 0 && block.InitialEndVerseNumber >= verse))
+						return iFirstBlockToExamine;
 				}
+				if (iFirstBlockToExamine > 0 && m_blocks[iFirstBlockToExamine - 1].LastVerseNum >= verse)
+					return iFirstBlockToExamine - 1;
 				break;
 			}
 
