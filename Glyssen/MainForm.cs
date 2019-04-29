@@ -933,7 +933,7 @@ namespace Glyssen
 						{"projectID", m_project.Id},
 						{"recordingProjectName", m_project.Name},
 					});
-					var project = Project.UpdateFromParatextData(m_project, dlg.UpdatedParatextProject);
+					var project = m_project.UpdateProjectFromParatextData(dlg.UpdatedParatextProject);
 					SetProject(project);
 				}
 			}
