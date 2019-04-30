@@ -61,7 +61,7 @@ namespace Glyssen
 						ReferenceTexts = GetReferenceTexts(project, block),
 						Tag = block.StyleTag,
 						VernacularText = new TextWithLanguage {BlockElements = block.VernacularBlockElements.ToList()},
-						Verse = block.InitialStartVerseNumber.ToString()
+						Verse = block.VerseNumber.ToString()
 					};
 					var actor = block.VoiceActor;
 					gsBlock.Actor = string.IsNullOrEmpty(actor) ? "unassigned" : actor;
@@ -80,20 +80,27 @@ namespace Glyssen
 
 		private static List<TextWithLanguage> GetReferenceTexts(Project project, ProjectExporter.ExportBlock block)
 		{
-			var referenceTexts = new List<TextWithLanguage>(2)
-			{
-				new TextWithLanguage
-				{
-					LanguageCode = project.ReferenceText.LanguageLdml,
-					BlockElements = block.PrimaryReferenceTextBlockElements?.ToList()
-				}
-			};
+			var referenceTexts = new List<TextWithLanguage>(2);
 			if (project.ReferenceText.HasSecondaryReferenceText)
 			{
 				referenceTexts.Add(new TextWithLanguage
 				{
+					LanguageCode = project.ReferenceText.LanguageLdml,
+					BlockElements = block.AdditionalReferenceTextBlockElements?.ToList()
+				});
+
+				referenceTexts.Add(new TextWithLanguage
+				{
 					LanguageCode = project.ReferenceText.SecondaryReferenceText.LanguageLdml,
-					BlockElements = block.SecondaryReferenceTextBlockElements?.ToList()
+					BlockElements = block.EnglishReferenceTextBlockElements?.ToList()
+				});
+			}
+			else
+			{
+				referenceTexts.Add(new TextWithLanguage
+				{
+					LanguageCode = project.ReferenceText.LanguageLdml,
+					BlockElements = block.EnglishReferenceTextBlockElements?.ToList()
 				});
 			}
 			return referenceTexts;

@@ -46,14 +46,14 @@ namespace GlyssenTests
 					new Verse("1-2"),
 					new ScriptText("Ye paa awili Tiopillas")
 				},
-				PrimaryReferenceTextBlockElements = new List<BlockElement>
+				AdditionalReferenceTextBlockElements = new List<BlockElement>
 				{
 					new Verse("1"),
 					new ScriptText("Bikman Tiofilus, "),
 					new Verse("2"),
 					new ScriptText("Ol i bihainim tok bilong")
 				},
-				SecondaryReferenceTextBlockElements = new List<BlockElement>
+				EnglishReferenceTextBlockElements = new List<BlockElement>
 				{
 					new Verse("1"),
 					new ScriptText("Many have undertaken to set "),
