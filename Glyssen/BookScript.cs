@@ -321,12 +321,18 @@ namespace Glyssen
 					m_chapterStartBlockIndices[chapter] = index;
 					chapterStartFound = true;
 				}
+
+				// Note: block.InitialEndVerseNumber will be non-0 only for a verse bridge.
+				// But in the case of a verse bridge, it is not sufficient to consider only
+				// the InitialStartVerseNumber when checking to see if we've found the correct
+				// block.
+
 				if (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
 				if (block.BlockElements.First() is Verse)
 				{
-					if (block.InitialStartVerseNumber == verse || (block.InitialEndVerseNumber > 0 && block.InitialEndVerseNumber >= verse))
+					if (block.InitialStartVerseNumber == verse || block.InitialEndVerseNumber >= verse)
 						return iFirstBlockToExamine;
 				}
 				if (iFirstBlockToExamine > 0 && m_blocks[iFirstBlockToExamine - 1].LastVerseNum >= verse)
