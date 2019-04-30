@@ -240,8 +240,8 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		[Timeout(10000)]
-		public void QuoteSystem_Changed()
+		[Timeout(9000)]
+		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
@@ -252,21 +252,23 @@ namespace GlyssenTests
 
 				WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
-				QuoteSystem afterQuoteParserCompletes = null;
+				QuoteSystem quoteSystemAfterQuoteParserCompletes = null;
 
 				project.QuoteParseCompleted += delegate(object sender, EventArgs args)
 				{
-					afterQuoteParserCompletes = ((Project)sender).QuoteSystem;
+					quoteSystemAfterQuoteParserCompletes = ((Project)sender).QuoteSystem;
 				};
 
+				Assert.AreNotEqual(QuoteSystem.Default, project.QuoteSystem);
 				project.QuoteSystem = QuoteSystem.Default;
 
 				do
 				{
 					Thread.Sleep(100);
-				} while (afterQuoteParserCompletes == null);
+				} while (quoteSystemAfterQuoteParserCompletes == null);
 
-				Assert.AreEqual(QuoteSystem.Default, afterQuoteParserCompletes);
+				Assert.AreEqual(QuoteSystem.Default, quoteSystemAfterQuoteParserCompletes);
+				Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 			}
 			finally
 			{
