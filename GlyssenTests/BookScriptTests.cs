@@ -219,6 +219,22 @@ namespace GlyssenTests
 
 		[TestCase(4)]
 		[TestCase(5)]
+		public void GetFirstBlockForVerse_VerseBridgeFollowsSectionHead_ReturnsActualVerseNotSectionHead(int verseToFind)
+		{
+			var matBlocks = new List<Block>();
+			matBlocks.Add(NewChapterBlock(7));
+			matBlocks.Add(NewSingleVersePara(1).AddVerse(2).AddVerse(3));
+			m_curSetupVerse = 3;
+			matBlocks.Add(NewPara("s", "This is a section head", "MAT"));
+			var blockToFind = NewVerseBridgePara(4, 5, "This is it.");
+			matBlocks.Add(blockToFind);
+			matBlocks.Add(NewSingleVersePara(6));
+			var bookScript = new BookScript("MAT", matBlocks);
+			Assert.AreEqual(blockToFind.GetText(true), bookScript.GetFirstBlockForVerse(7, verseToFind).GetText(true));
+		}
+
+		[TestCase(4)]
+		[TestCase(5)]
 		[TestCase(6)]
 		public void GetFirstBlockForVerse_VerseIsInVerseBridgeAtEndOfBlock_ReturnsCorrectBlock(int verseToFind)
 		{
