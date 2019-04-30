@@ -65,5 +65,11 @@ namespace Glyssen.Character
 			RemoveAll(GetCharacters(bookNum, chapterNumber, initialStartVerseNumber, initialEndVerseNumber)
 				.Where(c => c.Character == characterId && c.Delivery == delivery), new BcvCharacterDeliveryEqualityComparer());
 		}
+
+		public void UnionWith(ProjectCharacterVerseData otherProjectData)
+		{
+			foreach (var cv in otherProjectData.GetAllQuoteInfo())
+				AddCharacterVerse(cv);
+		}
 	}
 }

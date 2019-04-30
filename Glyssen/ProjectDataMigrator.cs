@@ -255,6 +255,7 @@ namespace Glyssen
 							// but was subsequently removed or renamed from the master character detail list.
 							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+							block.UserConfirmed = false;
 							block.CharacterId = CharacterVerseData.kUnknownCharacter;
 							block.CharacterIdInScript = null;
 							numberOfChangesMade++;

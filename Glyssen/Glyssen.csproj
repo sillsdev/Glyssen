@@ -353,6 +353,7 @@
       <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="IBlockAccessor.cs" />
+    <Compile Include="Paratext\IParatextScrTextWrapper.cs" />
     <Compile Include="Paratext\ParatextProjectBookInfo.cs" />
     <Compile Include="Paratext\NoSupportedBooksException.cs" />
     <Compile Include="Paratext\ParatextProjectProxy.cs" />
