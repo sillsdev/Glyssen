@@ -1391,12 +1391,12 @@ namespace GlyssenTests
 			var v27SplitPos = 44;
 			source.SplitBlock(firstBlockforV27, "27", v27SplitPos, true, narrator, ScrVers.English);
 
-			firstBlockforV27.SetNonDramaticCharacterId("scripture");
+			firstBlockforV27.SetNonDramaticCharacterId(CharacterVerse.kScriptureCharacter);
 			firstBlockforV27.UserConfirmed = true;
 
 			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit - 1];
 			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
-			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English).UserConfirmed = true;
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter, ScrVers.English).UserConfirmed = true;
 
 			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
 			{
@@ -1416,7 +1416,7 @@ namespace GlyssenTests
 			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
 			Assert.AreEqual("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true));
-			Assert.AreEqual("scripture", targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
 			Assert.AreEqual(k1Co15V27Text.Substring(v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true));
 			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].CharacterId == narrator);
@@ -1438,7 +1438,7 @@ namespace GlyssenTests
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var blockForV26 = source.GetScriptBlocks()[source.GetIndexOfFirstBlockForVerse(15, 26)];
-			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, "scripture", ScrVers.English)
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter, ScrVers.English)
 				.UserConfirmed = true;
 
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
@@ -1465,7 +1465,7 @@ namespace GlyssenTests
 			var iBlockEndingInV26 = targetBlocksAfterApplyingSplit.IndexOf(blockWithVerse26);
 			Assert.AreEqual("{27}\u00A0" + k1Co15V27Text.Substring(0, v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].GetText(true));
-			Assert.AreEqual("scripture", targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
 			Assert.AreEqual(k1Co15V27Text.Substring(v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true));
 			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2]

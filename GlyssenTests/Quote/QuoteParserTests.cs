@@ -4723,11 +4723,11 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("{6}\u00A0But the righteousness that is by faith says: ", results[i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?›» ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(narratorTextV6, results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("{7}\u00A0«or ‹Who will descend into the deep?›» ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(narratorTextV7, results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 		}
@@ -5012,13 +5012,13 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?› ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual(interruptionTextV6, results[++i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("{7}\u00A0or ‹Who will descend into the deep?› ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			AssertIsInterruption(results[++i], interruptionTextV7);
 		}
@@ -5076,10 +5076,10 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("{6}\u00A0Re' la' chiriij i korik wach k'uxliis re' inchalik ruuk' i kojb'aal iriq'or i Looq' laj Huuj chi je' wilih: ", results[i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("«Ma-aq'or pan ak'ux: “Ha'wach narijohtiik pan taxaaj?” ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			AssertIsInterruption(results[++i], "(re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ");
 			Assert.AreEqual("{7}\u00A0oon: “Ha'wach nariqajiik chipaam i richamiil i julkahq?”» ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual("(re're' je' cho ruksjiik i Kristo chikixilak taqeh kamnaq). ", results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 		}
@@ -5359,11 +5359,11 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.None, output[5].MultiBlockQuote);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), output[0].CharacterId);
-			Assert.AreEqual("scripture", output[1].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[1].CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[2].CharacterId);
-			Assert.AreEqual("scripture", output[3].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[3].CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
-			Assert.AreEqual("scripture", output[5].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[5].CharacterId);
 		}
 		#endregion
 	}
