@@ -814,7 +814,7 @@ namespace Glyssen
 
 		private List<object> GetHeaders()
 		{
-			List<object> headers = new List<object>(10);
+			List<object> headers = new List<object>(14);
 			headers.Add("#");
 			headers.Add("Actor");
 			headers.Add("Tag");
@@ -828,7 +828,7 @@ namespace Glyssen
 			headers.Add("Text");
 			AddDirectorsGuideHeader(headers, ReferenceText.GetStandardReferenceText(ReferenceTextType.English).LanguageName);
 			AddDirectorsGuideHeader(headers, Project.ReferenceText.HasSecondaryReferenceText ? Project.ReferenceText.LanguageName :
-				"No additional");
+				"No Additional");
 			headers.Add("Size");
 			if (IncludeCreateClips)
 				headers.Add("Clip File");
@@ -987,10 +987,10 @@ namespace Glyssen
 
 		private List<List<object>> GetRolesForVoiceActorsData()
 		{
-			var groups = new List<List<object>>();
+			var groups = new List<List<object>>(Project.CharacterGroupList.CharacterGroups.Count);
 			foreach (var characterGroup in Project.CharacterGroupList.CharacterGroups)
 			{
-				var group = new List<object>();
+				var group = new List<object>(5);
 				group.Add(characterGroup.GroupIdForUiDisplay);
 				group.Add(characterGroup.CharacterIds);
 				group.Add(characterGroup.AttributesDisplay);
@@ -1003,12 +1003,7 @@ namespace Glyssen
 		#endregion
 
 		/// <summary>
-		/// Ideally, we will replace List<object> with this class everywhere.
-		/// I think the export-to-Excel code needs List<List<object>> eventually
-		/// (which is how that got propagated everywhere to begin with),
-		/// but we can just convert List<ExportBlock> to it when we need it.
-		/// I just haven't been able to prioritize getting everything converted,
-		/// but at least we have a start and new code can use this class.
+		/// This simple helper class represents just the basic information about a block needed for the various forms of export.
 		/// </summary>
 		public class ExportBlock
 		{
@@ -1030,13 +1025,17 @@ namespace Glyssen
 			public string Delivery { get; set; }
 			public string ClipFilePath { get; set; }
 
+			#region These three properties get set when preparing to export to a glyssenscript file.
 			public IEnumerable<BlockElement> VernacularBlockElements { get; set; }
 			public IEnumerable<BlockElement> EnglishReferenceTextBlockElements { get; set; }
 			public IEnumerable<BlockElement> AdditionalReferenceTextBlockElements { get; set; }
+			#endregion
 
+			#region These three properties get set when preparing to export in tabular form.
 			public string VernacularText { get; set; }
 			public string EnglishReferenceText { get; set; }
 			public string AdditionalReferenceText { get; set; }
+			#endregion
 
 			public void SetReferenceTextFromBlock(Block block, bool includeSecondaryDirectorsGuide)
 			{
