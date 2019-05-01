@@ -738,14 +738,18 @@ namespace Glyssen
 			do
 			{
 				rowToModify = data[rowIndex];
-				text = rowToModify.EnglishReferenceText;
+				text = Project.ReferenceText.HasSecondaryReferenceText ? rowToModify.AdditionalReferenceText : rowToModify.EnglishReferenceText;
 			} while (text == null && --rowIndex >= 0);
 			Debug.Assert(text != null, "We should have been able to find a preceding row with a non-empty reference text");
 
-			rowToModify.EnglishReferenceText = modify(text, annotationInfo);
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 			{
-				rowToModify.AdditionalReferenceText = modify(rowToModify.AdditionalReferenceText ?? Empty, annotationInfo);
+				rowToModify.AdditionalReferenceText = modify(text ?? Empty, annotationInfo);
+				rowToModify.EnglishReferenceText = modify(rowToModify.EnglishReferenceText ?? Empty, annotationInfo);
+			}
+			else
+			{
+				rowToModify.EnglishReferenceText = modify(text ?? Empty, annotationInfo);
 			}
 
 			return rowIndex;
@@ -794,7 +798,17 @@ namespace Glyssen
 			if (m_includeDelivery)
 				exportData.Delivery = refBlock.Delivery;
 
-			exportData.SetReferenceTextFromBlock(refBlock, Project.ReferenceText.HasSecondaryReferenceText);
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+			{
+				if (refBlock.MatchesReferenceText)
+					exportData.EnglishReferenceText = refBlock.GetPrimaryReferenceText();
+				exportData.AdditionalReferenceText = refBlock.GetText(true, true);
+			}
+			else
+			{
+				exportData.EnglishReferenceText = refBlock.GetText(true, true);
+			}
+
 			return exportData;
 		}
 
@@ -813,10 +827,8 @@ namespace Glyssen
 			headers.Add("Delivery");
 			headers.Add("Text");
 			AddDirectorsGuideHeader(headers, ReferenceText.GetStandardReferenceText(ReferenceTextType.English).LanguageName);
-			if (Project.ReferenceText.HasSecondaryReferenceText)
-				AddDirectorsGuideHeader(headers, Project.ReferenceText.LanguageName);
-			else
-				headers.Add("");
+			AddDirectorsGuideHeader(headers, Project.ReferenceText.HasSecondaryReferenceText ? Project.ReferenceText.LanguageName :
+				"No additional");
 			headers.Add("Size");
 			if (IncludeCreateClips)
 				headers.Add("Clip File");

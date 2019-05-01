@@ -61,7 +61,7 @@ namespace GlyssenTests
 				new CharacterGroup(project),
 				new CharacterGroup(project)
 			});
-			var characterIdAssignedToGroup1 = project.IncludedBooks.First().GetScriptBlocks().First().CharacterId;
+			var characterIdAssignedToGroup1 = project.IncludedBooks.First().GetScriptBlocks().First(b => !b.CharacterIsStandard).CharacterId;
 			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add(characterIdAssignedToGroup1);
 			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
 
@@ -913,7 +913,7 @@ namespace GlyssenTests
 
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
+			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
@@ -935,7 +935,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
-			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t3\t\t\tText of verse three, part two. {4}\u00A0Text of verse four. {5}\u00A0Text of verse five.\t\t\t");
+			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t3\t\t\t\tText of verse three, part two. {4}\u00A0Text of verse four. {5}\u00A0Text of verse five.\t\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
@@ -1009,7 +1009,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
+			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred/Marko\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false, true, false, null, null).AsObjectArray().ToList()));
@@ -1018,9 +1018,8 @@ namespace GlyssenTests
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false, true, false, null, null).AsObjectArray().ToList()));
 		}
 
-		[TestCase(true)]
-		[TestCase(false)]
-		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyReferenceText_OutputContainsReferenceText(bool includeSecondaryReferenceText)
+		[Test]
+		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyOnlyEnglishReferenceText_OutputContainsReferenceText()
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -1032,13 +1031,61 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t\t");
+			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, false, null, null).AsObjectArray().ToList()));
+		}
+
+		[Test]
+		public void GetTabSeparatedLine_GetExportDataForBlock_PrimaryAndSecondaryReferenceTexts_OutputContainsReferenceText()
+		{
+			var block = new Block("p", 4);
+			block.IsParagraphStart = true;
+			block.CharacterId = "Fred";
+			block.Delivery = "With great gusto and quivering frustration";
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Texto de versiculos uno y dos en harmonia y bondad."));
+			block.ReferenceBlocks.Single().SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
+
+			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+
+			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
+			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
+				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t" +
+				"{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, true, null, null).AsObjectArray().ToList()));
+		}
+
+		[Test]
+		public void GetTabSeparatedLine_GetExportDataForBlock_EnglishReferenceTextMissing_OutputContainsReferenceText()
+		{
+			var block = new Block("p", 4);
+			block.IsParagraphStart = true;
+			block.CharacterId = "Fred";
+			block.Delivery = "With great gusto and quivering frustration";
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Texto de versiculos uno y dos en harmonia y bondad."));
+
+			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+
+			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
+			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
+				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, true, null, null).AsObjectArray().ToList()));
 		}
 
 		[Test]
