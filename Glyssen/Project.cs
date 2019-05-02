@@ -73,7 +73,7 @@ namespace Glyssen
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
 		private CharacterGroupList m_characterGroupList;
-		private readonly ISet<CharacterDetail> m_projectCharacterDetailData;
+		private ISet<CharacterDetail> ProjectCharacterDetail { get; set; }
 		private bool m_projectFileIsWritable = true;
 		private ReferenceText m_referenceText;
 
@@ -99,7 +99,7 @@ namespace Glyssen
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
-			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
+			ProjectCharacterDetail = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
 			if (loadVersification)
 			{
 				if (HasVersificationFile)
@@ -180,7 +180,7 @@ namespace Glyssen
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(paratextProject.QuotationMarks);
 			}
 
-			ParseAndSetBooks(paratextProject.GetUsxDocumentsForIncludedParatextBooks(), paratextProject.Stylesheet);
+			ParseAndSetBooks(paratextProject.UsxDocumentsForIncludedBooks, paratextProject.Stylesheet);
 		}
 
 		/// <summary>
@@ -211,7 +211,7 @@ namespace Glyssen
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
-		private static string DefaultRecordingProjectNameSuffix => " " +
+		internal static string DefaultRecordingProjectNameSuffix => " " +
 			LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
 				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
 
@@ -442,24 +442,24 @@ namespace Glyssen
 			set => m_projectMetadata.OriginalReleaseBundlePath = value;
 		}
 
-		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
+		public ProjectCharacterVerseData ProjectCharacterVerseData { get; private set; }
 
 		public IReadOnlyDictionary<string, CharacterDetail> AllCharacterDetailDictionary
 		{
 			get
 			{
-				if (!m_projectCharacterDetailData.Any())
+				if (!ProjectCharacterDetail.Any())
 					return CharacterDetailData.Singleton.GetDictionary();
 				Dictionary<string, CharacterDetail> characterDetails =
 					new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
-				characterDetails.AddRange(m_projectCharacterDetailData.ToDictionary(k => k.CharacterId));
+				characterDetails.AddRange(ProjectCharacterDetail.ToDictionary(k => k.CharacterId));
 				return characterDetails;
 			}
 		}
 
 		public void AddProjectCharacterDetail(CharacterDetail characterDetail)
 		{
-			m_projectCharacterDetailData.Add(characterDetail);
+			ProjectCharacterDetail.Add(characterDetail);
 		}
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
@@ -868,7 +868,7 @@ namespace Glyssen
 				{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
 				{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
 			});
-			return UpdateFromParatextData(existingProject, scrTextWrapper);
+			return existingProject.UpdateProjectFromParatextData(scrTextWrapper);
 		}
 
 		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
@@ -951,6 +951,7 @@ namespace Glyssen
 						"Param 1: Paratext project short name (unique project identifier); " +
 						"Param 2: \"Glyssen\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName,
+						ParatextProjectName,
 						GlyssenInfo.kProduct));
 				}
 			}
@@ -1073,7 +1074,7 @@ namespace Glyssen
 			}
 		}
 
-		private void HandleDifferencesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper,
+		private void HandleDifferencesInAvailableBooks(IParatextScrTextWrapper scrTextWrapper,
 			Action<string> nowMissingPreviouslyExcluded,
 			Action<string> nowMissingPreviouslyIncluded,
 			Action<string> noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride,
@@ -1082,7 +1083,7 @@ namespace Glyssen
 			Action<string> foundInBoth = null)
 		{
 			var existingAvailable = (IReadOnlyList<Book>)m_projectMetadata.AvailableBooks;
-			var nowAvailable = (IReadOnlyList<Book>)scrTextWrapper.GlyssenDblTextMetadata.AvailableBooks;
+			var nowAvailable = scrTextWrapper.AvailableBooks;
 			var x = 0;
 			foreach (Book nowAvailableBook in nowAvailable)
 			{
@@ -1121,17 +1122,20 @@ namespace Glyssen
 			}
 		}
 
-		internal static Project UpdateFromParatextData(Project existingProject, ParatextScrTextWrapper scrTextWrapper)
+		internal Project UpdateProjectFromParatextData(IParatextScrTextWrapper scrTextWrapper)
 		{
-			var upgradedProject = new Project(existingProject.m_projectMetadata);
+			var existingAvailable = m_projectMetadata.AvailableBooks;
+			var upgradedProject = new Project(m_projectMetadata, Name);
+			// Initially we want to include anything that is included in Paratext so we don't lose user decisions.
+			scrTextWrapper.IncludeBooks(upgradedProject.AvailableBooks.Select(b => b.Code));
 
 			// Add metadata for any books that are available in scrTextWrapper but not in the
 			// existing project. Remove metadata for any books formerly available that are not now.
-			var existingAvailable = existingProject.m_projectMetadata.AvailableBooks;
 			bool foundDataChange = false;
 			Action<string> nowMissing = bookCode =>
 			{
-				RobustFile.Delete(existingProject.GetBookDataFilePath(bookCode));
+				var origPath = GetBookDataFilePath(bookCode);
+				RobustFile.Move(origPath, origPath + ".nolongeravailable");
 				foundDataChange = true;
 			};
 
@@ -1151,33 +1155,44 @@ namespace Glyssen
 			if (upgradedProject.QuoteSystemStatus == QuoteSystemStatus.Obtained && scrTextWrapper.HasQuotationRulesSet)
 			{
 				upgradedProject.SetWsQuotationMarksUsingFullySpecifiedContinuers(scrTextWrapper.QuotationMarks);
-				foundDataChange |= upgradedProject.QuoteSystem != existingProject.QuoteSystem;
+				foundDataChange |= upgradedProject.QuoteSystem != QuoteSystem;
 			}
 			else
-				existingProject.CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
+				CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
-			existingProject.HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
+			HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
 				exclude, handleNewPassingBook, exclude);
 
-			foreach (var bookMetadata in scrTextWrapper.GlyssenDblTextMetadata.AvailableBooks.Where(b => booksToExcludeFromProject.Contains(b.Code)))
-				bookMetadata.IncludeInScript = false;
-			
-			UpgradeProject(existingProject, upgradedProject, () =>
+			void OnUpgradedProjectOnQuoteParseCompleted(object sender, EventArgs e)
 			{
-				upgradedProject.ParseAndSetBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
-			});
-			foreach (var book in upgradedProject.IncludedBooks)
-			{
-				book.ParatextChecksum = scrTextWrapper.GetBookChecksum(book.BookNumber);
-				if (!foundDataChange)
+				upgradedProject.QuoteParseCompleted -= OnUpgradedProjectOnQuoteParseCompleted;
+
+				foreach (var book in upgradedProject.AvailableBooks.Where(b => b.IncludeInScript && booksToExcludeFromProject.Contains(b.Code)))
+					book.IncludeInScript = false;
+
+				foreach (var book in upgradedProject.IncludedBooks)
 				{
-					var existingBook = existingProject.GetBook(book.BookNumber);
-					if (existingBook == null || book.ParatextChecksum != existingBook.ParatextChecksum)
-						foundDataChange = true;
+					book.ParatextChecksum = scrTextWrapper.GetBookChecksum(book.BookNumber);
+
+					if (!foundDataChange)
+					{
+						var existingBook = GetBook(book.BookNumber);
+						if (existingBook == null || book.ParatextChecksum != existingBook.ParatextChecksum)
+							foundDataChange = true;
+					}
 				}
+				if (foundDataChange)
+					upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
+
+				upgradedProject.ProjectStateChanged?.Invoke(upgradedProject, new ProjectStateChangedEventArgs());
 			}
-			if (foundDataChange)
-				upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
+
+			upgradedProject.QuoteParseCompleted += OnUpgradedProjectOnQuoteParseCompleted;
+
+			UpgradeProject(this, upgradedProject, () =>
+			{
+				upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
+			});
 
 			return upgradedProject;
 		}
@@ -1803,7 +1818,7 @@ namespace Glyssen
 
 		public void SaveProjectCharacterDetailData()
 		{
-			ProjectCharacterDetailData.WriteToFile(m_projectCharacterDetailData, ProjectCharacterDetailDataPath);
+			ProjectCharacterDetailData.WriteToFile(ProjectCharacterDetail, ProjectCharacterDetailDataPath);
 		}
 
 		public void SaveCharacterGroupData()
@@ -2127,12 +2142,12 @@ namespace Glyssen
 				{
 					scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);
 					UserDecisionsProject = copyOfExistingProject;
-					ParseAndSetBooks(scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks(), scrTextWrapper.Stylesheet);
+					ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
 				}
 			}
 		}
 
-		private void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
+		internal void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
 		{
 			if (!m_books.Any(b => b.GetScriptBlocks().Any(sb => sb.UserConfirmed)))
 				return;
@@ -2168,7 +2183,7 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters($"{publicationName}{DefaultRecordingProjectNameSuffix}", MaxBaseRecordingNameLength);
+			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
 		}
 
@@ -2486,7 +2501,7 @@ namespace Glyssen
 					Logger.WriteEvent("Paratext project is unavailable or is no longer compatible! Cannot test quote system.");
 					return new BookScript[] { };
 				}
-				usxDocsForBooksToInclude = scrTextWrapper.GetUsxDocumentsForIncludedParatextBooks();
+				usxDocsForBooksToInclude = scrTextWrapper.UsxDocumentsForIncludedBooks;
 				stylesheet = scrTextWrapper.Stylesheet;
 			}
 			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, null);

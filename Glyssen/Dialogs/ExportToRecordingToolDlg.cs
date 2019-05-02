@@ -57,7 +57,7 @@ namespace Glyssen.Dialogs
 			Cursor = Cursors.WaitCursor;
 			try
 			{
-				ScriptExporter.MakeGlyssenScriptFile(m_viewModel.Project, m_viewModel.GetExportBlocks(), m_fileNameTextBox.Text);
+				ScriptExporter.MakeGlyssenScriptFile(m_viewModel.Project, m_viewModel.GetExportData(getBlockElements:true), m_fileNameTextBox.Text);
 			}
 			finally
 			{
