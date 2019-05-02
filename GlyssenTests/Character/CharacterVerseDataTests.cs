@@ -185,14 +185,14 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void ExpectedQuotes_Hypothetical_IsExpected()
+		public void ExpectedQuotes_Hypothetical_IsNotExpected()
 		{
 			// Every line in the control file for PSA 10 is Hypothetical
 			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("PSA")].ContainsKey(10));
 		}
 
 		[Test]
-		public void ExpectedQuotes_PotentialAndIndirect_IsExpected()
+		public void ExpectedQuotes_PotentialAndIndirect_IsNotExpected()
 		{
 			// ACT 8   37  Ethiopian officer of Queen Candace Indirect
 			// ACT 8   37  Philip the evangelist Philip  Potential
@@ -200,7 +200,7 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void ExpectedQuotes_Implicit_IsExpected()
+		public void ExpectedQuotes_Implicit_IsNotExpected()
 		{
 			// Every line in the control file for LEV 1 is Implicit		
 			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
