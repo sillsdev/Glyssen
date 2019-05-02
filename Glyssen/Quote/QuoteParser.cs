@@ -722,13 +722,24 @@ namespace Glyssen.Quote
 
 			var prevBlock = m_outputBlocks.LastOrDefault();
 			if (prevBlock != null &&
+				// Prevent combining blocks spoken by different characters (e.g., Parse_QuoteInNewParagraphWithinVerseBridge_NarratorAndOther)
 				m_workingBlock.CharacterId == prevBlock.CharacterId &&
+				// Prevent combining a new multi-block quote with a previous block (e.g., Parse_TwoAdjacentQuotesBySameCharacter_NotCombined) - this is unlikely
 				m_workingBlock.MultiBlockQuote != MultiBlockQuote.Start &&
+				// Prevent combining blocks within a multi-block quote (e.g., Parse_MultiBlockQuote_BlocksDoNotGetCombined)
 				(prevBlock.MultiBlockQuote == MultiBlockQuote.None ||
 				m_workingBlock.MultiBlockQuote != MultiBlockQuote.None) &&
+				// Prevent combining verses (e.g., Parse_PoetryLinesInDifferentVersesWithNoInterveningSentenceEndingPunctuation_VersesAreNotCombined)
 				!m_workingBlock.BlockElements.OfType<Verse>().Any() &&
+				// Prevent combining sentences
 				!prevBlock.BlockElements.OfType<ScriptText>().Last().Content.EndsWithSentenceEndingPunctuation() &&
-				m_workingBlock.IsFollowOnParagraphStyle)
+				// Only combine following poetry pragraphs, etc. (i.e., prevent joining two "normal" paragraphs).
+				m_workingBlock.IsFollowOnParagraphStyle &&
+				// PG-1121: Since indentation (without quotes) is often used to indicate a Scripture quotation, prevent combining following
+				// poetry paragraphs with the preceding "normal" paragraph if a Scripture quote is expected in this verse.
+				(prevBlock.IsFollowOnParagraphStyle ||
+				!m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
+				m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).Any(cv => cv.IsScriptureQuotation)))
 			{
 				prevBlock.CombineWith(m_workingBlock);
 			}

@@ -39,12 +39,12 @@ namespace Glyssen.Rules
 			// REVIEW: Should these numbers be hard-coded like this (which probably assumes a NT recording project), or should they
 			// really be based on the percentage that these characters speak compared to the total recording time for the project?
 			s_deityCharacters = new SortedDictionary<int, IList<HashSet<string>>>();
-			s_deityCharacters.Add(1, new List<HashSet<string>> { new HashSet<string> { "Jesus", "God", "Holy Spirit, the", "scripture" } });
+			s_deityCharacters.Add(1, new List<HashSet<string>> { new HashSet<string> { "Jesus", "God", "Holy Spirit, the", CharacterVerse.kScriptureCharacter } });
 			var jesusSet = new HashSet<string> { "Jesus" };
-			s_deityCharacters.Add(4, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "Holy Spirit, the", "scripture" } });
+			s_deityCharacters.Add(4, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "Holy Spirit, the", CharacterVerse.kScriptureCharacter } });
 			var holySpiritSet = new HashSet<string> { "Holy Spirit, the" };
-			s_deityCharacters.Add(7, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "scripture" }, holySpiritSet });
-			s_deityCharacters.Add(17, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { "scripture" } });
+			s_deityCharacters.Add(7, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", CharacterVerse.kScriptureCharacter }, holySpiritSet });
+			s_deityCharacters.Add(17, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { CharacterVerse.kScriptureCharacter } });
 		}
 
 		public CharacterGroupGenerator(Project project, CastSizeRowValues ghostCastSize = null, BackgroundWorker worker = null)

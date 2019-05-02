@@ -1666,7 +1666,7 @@ namespace GlyssenTests
 		public void ApplyTo_ChapterLabelFollowsMatchedBlock_SecondaryReferenceTextIsCorrect()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse("scripture", 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2));
 			vernacularBlocks.Add(new Block("c", 3)
 			{
 				BookCode = "MAT",
@@ -1675,7 +1675,7 @@ namespace GlyssenTests
 			});
 
 			var indonesianReferenceBlocks = new List<Block>();
-			indonesianReferenceBlocks.Add(CreateBlockForVerse("scripture", 23, "<<Orang Nazaret.>>", false, 2));
+			indonesianReferenceBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "<<Orang Nazaret.>>", false, 2));
 			indonesianReferenceBlocks.Add(new Block("c", 3)
 			{
 				BookCode = "MAT",
@@ -1684,7 +1684,7 @@ namespace GlyssenTests
 			});
 
 			var englishReferenceBlocks = new List<Block>();
-			englishReferenceBlocks.Add(CreateBlockForVerse("scripture", 23, "“He will be called a Nazarene.”", false, 2));
+			englishReferenceBlocks.Add(CreateBlockForVerse(CharacterVerse.kScriptureCharacter, 23, "“He will be called a Nazarene.”", false, 2));
 			englishReferenceBlocks.Add(new Block("c", 3)
 			{
 				BookCode = "MAT",
@@ -2406,8 +2406,8 @@ namespace GlyssenTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "E tell um say, "));
 			AddBlockForVerseInProgress(vernacularBlocks, "John the Baptist", "“Oona mus change oona sinful way an dohn do um no mo. Cause de time mos yah wen God gwine rule oba we!” ");
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "John been de man wa de prophet Isaiah beena taak bout wen e say,"));
-			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "“Somebody da holla een de wildaness say, ‘Oona mus cleah de road weh de Lawd gwine come shru.", "q1");
-			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "Mek de pat scraight fa um fa waak!’ ”", "q2");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerse.kScriptureCharacter, "“Somebody da holla een de wildaness say, ‘Oona mus cleah de road weh de Lawd gwine come shru.", "q1");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerse.kScriptureCharacter, "Mek de pat scraight fa um fa waak!’ ”", "q2");
 
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			testProject.Books[0].Blocks = vernacularBlocks;
