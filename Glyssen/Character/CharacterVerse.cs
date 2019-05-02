@@ -93,6 +93,7 @@ namespace Glyssen.Character
 
 	public class CharacterVerse
 	{
+		public const string kScriptureCharacter = "scripture";
 		internal const string kMultiCharacterIdSeparator = "/";
 		private string m_localizedCharacter;
 		private string m_localizedAlias;
@@ -109,7 +110,8 @@ namespace Glyssen.Character
 		public string Alias { get; }
 		public QuoteType QuoteType { get; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
-		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal;
+		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || IsScriptureQuotation;
+		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
 		public string DefaultCharacter { get; }
 		public string LocalizedCharacter
 		{
