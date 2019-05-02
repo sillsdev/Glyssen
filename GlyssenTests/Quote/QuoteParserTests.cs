@@ -1822,7 +1822,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote()
+		public void Parse_MultiBlockQuote_BlocksDoNotGetCombined()
 		{
 			// This is totally hacked data and is not a very likely scenario
 			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
@@ -5402,6 +5402,28 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[1].CharacterIsUnclear());
 		}
 
+		[Test]
+		public void Parse_TwoAdjacentQuotesBySameCharacter_NotCombined()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 9, 3) {IsParagraphStart = true}.AddVerse(3, "Jesus replied:"),
+				new Block("p", 9, 3) {IsParagraphStart = true}.AddText("\u2014Neither this man nor his parents sinned\u2014"),
+				new Block("q", 9, 3) {IsParagraphStart = true, MultiBlockQuote = MultiBlockQuote.Start}.AddText("“but this happened so that the works of God might be displayed in him."),
+				new Block("q", 9, 4) {IsParagraphStart = true, MultiBlockQuote = MultiBlockQuote.Continuation}.AddVerse(4, "“As long as it is day, we must do the works of him who sent me. Night is coming, when no one can work. ")
+					.AddVerse(5, "While I am in the world, I am the light of the world.”")
+			};
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+		}
+
 		// Test for PG-1121
 		[Test]
 		public void Parse_ColonFollowedByNormalInlineQuoteAndSubsequentVerses_ColonNotTreatedAsStartOfDialogue()
@@ -5552,7 +5574,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithScriptureQuote_NotJoined()
+		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithScriptureQuote_PoetryParasNotCombinedWithNormalPara()
 		{
 			var input = new List<Block>();
 			input.Add(new Block("c", 8, 0) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
