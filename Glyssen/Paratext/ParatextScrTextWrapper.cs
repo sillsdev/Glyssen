@@ -16,7 +16,7 @@ using SIL.WritingSystems;
 
 namespace Glyssen.Paratext
 {
-	internal class ParatextScrTextWrapper
+	internal class ParatextScrTextWrapper : IParatextScrTextWrapper
 	{
 		internal const string kLiveParatextProjectType = "live Paratext project";
 		public const string kParatextProgramName = "Paratext";
@@ -159,7 +159,9 @@ namespace Glyssen.Paratext
 			}
 		}
 
-		public GlyssenDblTextMetadata GlyssenDblTextMetadata
+		public IReadOnlyList<Book> AvailableBooks => GlyssenDblTextMetadata.AvailableBooks;
+
+		internal GlyssenDblTextMetadata GlyssenDblTextMetadata
 		{
 			get
 			{
@@ -219,7 +221,9 @@ namespace Glyssen.Paratext
 			return new UsxDocument(UsfmToUsx.ConvertToXmlDocument(UnderlyingScrText, bookNum, UnderlyingScrText.GetText(bookNum)));
 		}
 
-		public ParatextUsxBookList GetUsxDocumentsForIncludedParatextBooks(ISet<int> subset = null)
+		public IEnumerable<UsxDocument> UsxDocumentsForIncludedBooks => GetUsxDocumentsForIncludedParatextBooks();
+
+		internal ParatextUsxBookList GetUsxDocumentsForIncludedParatextBooks(ISet<int> subset = null)
 		{
 			// Getting the checksum and the checking status at the same time and returning them together ensures that they are really
 			// in sync, rather than relying on the caller to get them at the same time. 
@@ -266,11 +270,16 @@ namespace Glyssen.Paratext
 			m_metadata = null;
 		}
 
+		public void IncludeBooks(IEnumerable<string> booksToInclude)
+		{
+			var set = new HashSet<string>(booksToInclude);
+			foreach (var bookMetadata in GlyssenDblTextMetadata.AvailableBooks.Where(b => !b.IncludeInScript && set.Contains(b.Code)))
+				bookMetadata.IncludeInScript = true;
+		}
+
 		public void IncludeOverriddenBooksFromProject(Project project)
 		{
-			var included = new HashSet<string>(project.IncludedBooks.Select(b => b.BookId));
-			foreach (var bookMetadata in GlyssenDblTextMetadata.AvailableBooks.Where(b => !b.IncludeInScript && included.Contains(b.Code)))
-				bookMetadata.IncludeInScript = true;
+			IncludeBooks(project.IncludedBooks.Select(b => b.BookId));
 		}
 	}
 }

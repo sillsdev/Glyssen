@@ -186,7 +186,7 @@ namespace Glyssen
 				m_project.IsQuoteSystemReadyForParse;
 			m_btnSelectBooks.Enabled = !readOnly && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.ProjectFileIsWritable;
-			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
+			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed && m_project.IncludedBooks.Any();
 			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
 			if (m_project.ReferenceText == null)
@@ -600,7 +600,7 @@ namespace Glyssen
 
 		private void UpdateDisplayOfPercentOfCharactersAssigned()
 		{
-			if (!m_btnIdentify.Enabled)
+			if (!m_btnIdentify.Enabled || m_project == null)
 			{
 				m_lblPercentAssigned.Text = Empty;
 				return;
@@ -608,12 +608,12 @@ namespace Glyssen
 
 			double percentAssigned = 0;
 			double percentAligned = 0;
-			if (m_project?.ProjectAnalysis != null)
+			if (m_project.ProjectAnalysis != null)
 			{
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
 				percentAligned = m_project.ProjectAnalysis.AlignmentPercent;
 			}
-			if (m_project != null && m_project.ReferenceText == null)
+			if (m_project.ReferenceText == null)
 				m_lblPercentAssigned.Text = LocalizationManager.GetString("MainForm.ReferenceTextUnavailable", "Reference text unavailable");
 			else
 			{
@@ -933,7 +933,7 @@ namespace Glyssen
 						{"projectID", m_project.Id},
 						{"recordingProjectName", m_project.Name},
 					});
-					var project = Project.UpdateFromParatextData(m_project, dlg.UpdatedParatextProject);
+					var project = m_project.UpdateProjectFromParatextData(dlg.UpdatedParatextProject);
 					SetProject(project);
 				}
 			}
@@ -1166,11 +1166,13 @@ namespace Glyssen
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
+				m_project.PrepareForExport();
 
 				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
 
 				Debug.Assert(sourceDir != null);
 				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
+
 				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
 
 				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
@@ -1198,6 +1200,7 @@ namespace Glyssen
 			}
 			finally
 			{
+				m_project.ExportCompleted();
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}

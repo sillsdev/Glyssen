@@ -7415,12 +7415,66 @@
         <seg>Grabando... (disculpe la tardanza)</seg>
       </tuv>
     </tu>
+    <tu tuid="DataMigration.AudioAudioProblemPreambleMultiple">
+      <note>Param 0: "Glyssen" (product name); Param 1: the default recording project suffix (see "Project.RecordingProjectDefaultSuffix"); This version of the preamble is for when there are multiple projects (see "DataMigration.AudioAudioProblemPreambleSingle"</note>
+      <tuv xml:lang="en">
+        <seg>To correct a problem in the way default recording project names were assigned in a previous version of the program, {0} has identified the following projects that should be renamed to end with only a single "{1}":</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para poder corregir un problema en la forma que se asignaban los nombres de proyectos de grabación por defecto en una versión previa de {0}, se han identificado los siguientes proyectos, que se deben nombrar para terminar con un solo "{1}":</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DataMigration.AudioAudioProblemPreambleSingle">
+      <note>Param 0: "Glyssen" (product name); Param 1: the default recording project suffix (see "Project.RecordingProjectDefaultSuffix"); This version of the preamble is for when there is a single project (see "DataMigration.AudioAudioProblemPreambleMultiple"</note>
+      <tuv xml:lang="en">
+        <seg>To correct a problem in the way default recording project names were assigned in a previous version of the program, {0} has identified the following project that should be renamed to end with only a single "{1}":</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Para poder corregir un problema en la forma que se asignaban los nombres de proyectos de grabación por defecto en una versión previa de {0}, se ha identificado el siguiente proyecto, que se debe nombrar para terminar con un solo "{1}":</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DataMigration.ConfirmReplacementOfAudioAudio">
+      <note>Param: "Glyssen" (product name); This follows the "AudioAudioProblemPreambleSingle".</note>
+      <tuv xml:lang="en">
+        <seg>Doing this will replace the existing project by the same name, which was originally created by {0}. Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm this action, you can either clean up the problem project yourself or verify that is is safe and then restart {0}. You will be asked about this each time you start the program as long as this problem remains unresolved.\nConfirm overwriting?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El hacer esto reemplacerá el proyecto existente con el mismo nombre, el cual fue creado originalmente por {0}. Ya que ninguno de los bloques en ese proyecto tiene grabado decisión alguna hecho por el usario, esto pareciera que no presenta ningún problema, pero debida a la incapacidad de {0} de grabar un archivo de respaldo, se tendrá que confirmar el reemplazamiento. De lo contrario, usted puede resolver este problema manualmente o verifcar que no haya riezgo de perder nada importante, y luego reiniciar {0}. Se le volverá a presentar este mensaje de confirmación hasta que se resueleve este problema.\n¿Confirmar?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DataMigration.ConfirmReplacementsOfAudioAudio">
+      <note>Param: "Glyssen" (product name); This follows the "AudioAudioProblemPreambleMultiple".</note>
+      <tuv xml:lang="en">
+        <seg>Doing this will replace the existing projects by the same name, which were originally created by {0}. Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm this action, you can either clean up the problem projects yourself or verify that is is safe and then restart {0}. You will be asked about this each time you start the program as long as these problems remains unresolved.\nConfirm overwriting?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El hacer esto reemplacerá los proyectos existentes con los mismos nombres, los cuales fueron creado originalmente por {0}. Ya que ninguno de los bloques en esos proyectos tiene grabado decisión alguna hecho por el usario, esto pareciera que no presenta ningún problema, pero debida a la incapacidad de {0} de grabar archivos de respaldo, se tendrá que confirmar los reemplazamientos. De lo contrario, usted puede resolver los problemas manualmente o verifcar que no haya riezgo de perder nada importante, y luego reiniciar {0}. Se le volverá a presentar este mensaje de confirmación hasta que se resueleven todos los problemas.\n¿Confirmar?</seg>
+      </tuv>
+    </tu>
     <tu tuid="DataMigration.InvalidVersificationFile">
       <tuv xml:lang="en">
         <seg>Invalid versification file encountered during data migration. Errors must be fixed or subsequent attempts to open this project will fail.\nProject: {0}\nText release Bundle: {1}\nVersification file: {2}\nError: {3}</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Se encontró un archivo de versificación no válido durante la migración de datos. Si no se corregen los errores, intentos posteriores de abrir este proyecto fracasarán.\nproyecto: {0}\npaquete de descarga de texto: {1}\narchivo de versificación: {2}\nerror: {3}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DataMigration.NoticeToManuallyFixAudioAudioProject">
+      <note>Param 0: "Glyssen" (product name); Param 1: "https://community.scripture.software.sil.org/"This follows the "AudioAudioProblemPreambleSingle".</note>
+      <tuv xml:lang="en">
+        <seg>However, doing this would replace the existing project by the same name. Since {0} was unable to determine whether this was safe or otherwise failed to do the replacement, it is recommended that you clean up the problem project yourself. You are encouraged to contact a local support person if needed or seek help on {1}. You will be reminded about this each time you start the program as long as this problem remains unresolved.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sin embargo, el hacer esto reemplacería el proyecto existente con el mismo nombre. Ya que {0} no pudo determinar si esto se podría hacer sin correr el riesgo de perder información importante o lo intentó hacer y no lo logró, se recomiende que usted mismo resuelve este problema manualmente. Se le anime que busque apoyo local o en {1}. Se le volverá a presentar este recodatorio cada vez que se inicia el programa hasta que se resueleve este problema.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DataMigration.NoticeToManuallyFixAudioAudioProjects">
+      <note>Param 0: "Glyssen" (product name); Param 1: "https://community.scripture.software.sil.org/"This follows the "AudioAudioProblemPreambleMultiple".</note>
+      <tuv xml:lang="en">
+        <seg>However, doing this would replace the existing projects by the same name. Since {0} was unable to determine whether this was safe or otherwise failed to do the replacements, it is recommended that you clean up the problem projects yourself. You are encouraged to contact a local support person if needed or seek help on {1}. You will be reminded about this each time you start the program as long as these problems remains unresolved.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sin embargo, el hacer esto reemplacería los proyectos existentes con los mismos nombres. Ya que {0} no pudo determinar si esto se podría hacer sin correr el riesgo de perder información importante o lo intentó hacer y no lo logró, se recomiende que usted mismo resuelve estos problemas manualmente. Se le anime que busque apoyo local o en {1}. Se le volverá a presentar este recodatorio cada vez que se inicia el programa hasta que se resueleven todos los problemas.</seg>
       </tuv>
     </tu>
     <tu tuid="DblBundle.FontFileCopyFailed">
@@ -11705,6 +11759,15 @@
         <seg>El proyecto {0} {1} no incluye ningún libro compatible con {2}.</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.NonEditingRole">
+      <note>Param: "Paratext" (product name)</note>
+      <tuv xml:lang="en">
+        <seg>(You do not seem to have editing privileges for this {0} project.)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(Parece que no tiene permiso de editar este proyecto {0}.)</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.NotWritableMsg">
       <tuv xml:lang="en">
         <seg>The project file is not writable. No changes will be saved.</seg>
@@ -11757,6 +11820,15 @@
         <seg>Para actualizar el proyecto {0}, el proyecto {2} debe estar disponible en {1}, pero no lo está.</seg>
       </tuv>
     </tu>
+    <tu tuid="Project.ParatextProjectMissingNoFallbackVersificationFile">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: “English” (versification mame)</note>
+      <tuv xml:lang="en">
+        <seg>{0} project {1} is not available and project {2} does not have a fallback versification file; therefore, the {3} versification is being used by default. If this is not the correct versification for this project, some things will not work as expected.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>El proyecto {0} {1} no está disponible y el proyecto {2} no tiene un archivo de versificación de respaldo. Así que la versificación {3} se usará por defecto. Si ésta no es la correcta versificación para este proyecto, se esperan algunos problemas.</seg>
+      </tuv>
+    </tu>
     <tu tuid="Project.ParatextProjectNotFound">
       <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name); Param 3: Glyssen recording project name</note>
       <tuv xml:lang="en">
@@ -11764,6 +11836,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>No se puede acceder al proyecto {0} {1}, que es necesario para que {2} cargue el proyecto {3}.\n\nDetalles técnicos:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.ParatextProjectReloadFailure">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Specific error message</note>
+      <tuv xml:lang="en">
+        <seg>An error occurred reloading the {0} project {1}:\n{2}\n\nIf you cannot fix the problem, you can cancel and continue to work with the existing project data.</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ocurrió un error al recargar el proyecto {0} {1}:\n{2}\n\nSi no se puede resolver el problema, se puede cancelar y así continuar utilizando los datos existentes del proyecto.</seg>
       </tuv>
     </tu>
     <tu tuid="Project.ParatextProjectUnavailable">

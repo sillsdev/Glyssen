@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Paratext;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -18,6 +20,7 @@ using SIL.ObjectModel;
 using SIL.Reflection;
 using SIL.Scripture;
 using SIL.WritingSystems;
+using Rhino.Mocks;
 
 namespace GlyssenTests
 {
@@ -237,7 +240,8 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void QuoteSystem_Changed()
+		[Timeout(9000)]
+		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
@@ -248,11 +252,243 @@ namespace GlyssenTests
 
 				WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
+				QuoteSystem quoteSystemAfterQuoteParserCompletes = null;
+
+				project.QuoteParseCompleted += delegate(object sender, EventArgs args)
+				{
+					quoteSystemAfterQuoteParserCompletes = ((Project)sender).QuoteSystem;
+				};
+
+				Assert.AreNotEqual(QuoteSystem.Default, project.QuoteSystem);
 				project.QuoteSystem = QuoteSystem.Default;
+
+				do
+				{
+					Thread.Sleep(100);
+				} while (quoteSystemAfterQuoteParserCompletes == null);
+
+				Assert.AreEqual(QuoteSystem.Default, quoteSystemAfterQuoteParserCompletes);
+				Assert.AreEqual(project.QuoteSystem, quoteSystemAfterQuoteParserCompletes);
 			}
 			finally
 			{
 				// Must dispose after because changing the quote system needs access to original bundle file
+				originalBundleAndFile.Item2.Dispose();
+			}
+		}
+
+		[TestCase("Boaz")]
+		[TestCase("Mr. Rogers")]
+		[Timeout(8000)]
+		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
+		{
+			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
+			try
+			{
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				var originalBundle = originalBundleAndFile.Item1;
+				var testProject = new Project(originalBundle);
+
+				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+				var book = testProject.IncludedBooks.First();
+				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+					book.GetScriptBlocks().Count - 1, testProject.Versification);
+
+				foreach (var block in matchup.CorrelatedBlocks)
+				{
+					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
+							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
+						.Any(c => c.Character == character))
+					{
+						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
+							character, "foamy", null, true));
+					}
+					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
+					block.Delivery = "foamy";
+					block.UserConfirmed = true;
+				}
+
+				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
+
+				matchup.Apply(testProject.Versification);
+
+				var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+				newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
+
+				bool complete = false;
+
+				testProject.QuoteParseCompleted += delegate
+				{
+					complete = true;
+				};
+
+				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+				testProject.QuoteSystem = newQuoteSystem;
+
+				do
+				{
+					Thread.Sleep(100);
+				} while (!complete);
+
+				var userConfirmedBlocksAfterReapplying = testProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
+				{
+					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				}
+			}
+			finally
+			{
+				// Must dispose after because changing the quote system needs access to original bundle file
+				originalBundleAndFile.Item2.Dispose();
+			}
+		}
+
+		[TestCase("Boaz")]
+		[TestCase("Mr. Rogers")]
+		[Timeout(8000)]
+		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
+		{
+			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
+			try
+			{
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				var originalBundle = originalBundleAndFile.Item1;
+				var testProject = new Project(originalBundle);
+
+				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+				var book = testProject.IncludedBooks.First();
+				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+					book.GetScriptBlocks().Count - 1, testProject.Versification);
+
+				foreach (var block in matchup.CorrelatedBlocks)
+				{
+					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
+							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
+						.Any(c => c.Character == character))
+					{
+						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
+							character, "foamy", null, true));
+					}
+					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
+					block.Delivery = "foamy";
+					block.UserConfirmed = true;
+				}
+
+				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
+
+				matchup.Apply(testProject.Versification);
+
+				bool complete = false;
+
+				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+				var updatedProject = testProject.UpdateProjectFromBundleData(originalBundle);
+
+				updatedProject.QuoteParseCompleted += delegate
+				{
+					complete = true;
+				};
+
+				do
+				{
+					Thread.Sleep(100);
+				} while (!complete);
+
+				var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
+				{
+					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				}
+			}
+			finally
+			{
+				originalBundleAndFile.Item2.Dispose();
+			}
+		}
+
+		[TestCase("Boaz")]
+		[TestCase("Mr. Rogers")]
+		[Timeout(8000)]
+		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
+		{
+			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
+			try
+			{
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				var originalBundle = originalBundleAndFile.Item1;
+				var testProject = new Project(originalBundle);
+
+				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+				var book = testProject.IncludedBooks.First();
+				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
+					book.GetScriptBlocks().Count - 1, testProject.Versification);
+
+				foreach (var block in matchup.CorrelatedBlocks)
+				{
+					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
+							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
+						.Any(c => c.Character == character))
+					{
+						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
+							character, "foamy", null, true));
+					}
+					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
+					block.Delivery = "foamy";
+					block.UserConfirmed = true;
+				}
+
+				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
+					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
+
+				matchup.Apply(testProject.Versification);
+
+				bool complete = false;
+
+				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
+
+				var scrTextWrapper = MockRepository.GenerateMock<IParatextScrTextWrapper>();
+				scrTextWrapper.Stub(w => w.AvailableBooks).Return(testProject.AvailableBooks);
+				scrTextWrapper.Stub(w => w.HasQuotationRulesSet).Return(false);
+				scrTextWrapper.Stub(w => w.DoesBookPassChecks(book.BookNumber)).Return(true);
+				var list = new ParatextUsxBookList {{book.BookNumber, originalBundle.UsxBooksToInclude.Single(), "checksum", true}};
+				scrTextWrapper.Stub(w => w.UsxDocumentsForIncludedBooks).Return(list);
+				scrTextWrapper.Stub(w => w.Stylesheet).Return(new TestStylesheet());
+
+				var updatedProject = testProject.UpdateProjectFromParatextData(scrTextWrapper);
+
+				updatedProject.QuoteParseCompleted += delegate
+				{
+					complete = true;
+				};
+
+				do
+				{
+					Thread.Sleep(100);
+				} while (!complete);
+
+				var userConfirmedBlocksAfterReapplying = updatedProject.IncludedBooks.First().GetScriptBlocks().Where(b => b.UserConfirmed).ToList();
+				Assert.AreEqual(origCountOfUserConfirmedBlocks, userConfirmedBlocksAfterReapplying.Count);
+				foreach (var blockWithReappliedUserDecision in userConfirmedBlocksAfterReapplying)
+				{
+					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
+					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
+				}
+			}
+			finally
+			{
 				originalBundleAndFile.Item2.Dispose();
 			}
 		}
@@ -849,7 +1085,7 @@ namespace GlyssenTests
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			matchup.MatchAllBlocks(null);
-			matchup.Apply(null);
+			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
@@ -867,7 +1103,7 @@ namespace GlyssenTests
 				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
 			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			matchup.MatchAllBlocks(null);
-			matchup.Apply(null);
+			matchup.Apply();
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
@@ -920,7 +1156,7 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			matchup.MatchAllBlocks(null);
 			matchup.SetReferenceText(3, "this won't match.");
-			matchup.Apply(null);
+			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
@@ -1006,6 +1242,13 @@ namespace GlyssenTests
 			project = TestProject.LoadExistingTestProject();
 
 			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
+		}
+
+		[Test]
+		public void Name_GetDefaultRecordingProjectName_SetCorrectly()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			Assert.AreEqual(project.Id + " Audio", project.Name);
 		}
 
 		[Test]

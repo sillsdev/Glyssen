@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -90,7 +89,6 @@ namespace Glyssen
 		private readonly XmlNodeList m_nodeList;
 
 		private string m_bookLevelChapterLabel;
-		private bool m_chapterNodeFound;
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
@@ -116,7 +114,6 @@ namespace Glyssen
 				{
 					case "chapter":
 						AddMainTitleIfApplicable(blocks, titleBuilder);
-						m_chapterNodeFound = true;
 						block = ProcessChapterNode(node);
 						if (block == null)
 							continue;
@@ -129,13 +126,7 @@ namespace Glyssen
 						IStyle style = m_stylesheet.GetStyle(usxPara.StyleTag);
 						if (style.IsChapterLabel)
 						{
-							block = ProcessChapterLabelNode(node.InnerText, usxPara);
-							if (block == null)
-								continue;
-
-							// The node before this was the chapter. We already added it, then found this label.
-							// Remove that block so it will be replaced with this one.
-							blocks.RemoveAt(blocks.Count-1);
+							block = ProcessChapterLabelNode(node.InnerText, usxPara, blocks);
 							break;
 						}
 
@@ -179,7 +170,7 @@ namespace Glyssen
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}
-									RemoveLastElementIfVerse(block);
+									RemoveEmptyTrailingVerse(block);
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
 									m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
 									m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
@@ -218,7 +209,12 @@ namespace Glyssen
 							block.BlockElements.Add(new ScriptText(sb.ToString()));
 							sb.Clear();
 						}
-						RemoveLastElementIfVerse(block);
+						if (RemoveEmptyTrailingVerse(block))
+						{
+							var lastVerse = block.LastVerse;
+							m_currentStartVerse = lastVerse.StartVerse;
+							m_currentEndVerse = lastVerse.EndVerse;
+						}
 						break;
 				}
 				if (block != null && block.BlockElements.Count > 0)
@@ -227,13 +223,75 @@ namespace Glyssen
 			return blocks;
 		}
 
-		private static void RemoveLastElementIfVerse(Block block)
+		/// <summary>
+		/// In addition to cleaning up any completely *empty* Verse (i.e., a verse number not followed by
+		/// a ScriptText), this method also checks for a Verse followed by a ScriptText that doesn't have any
+		/// useful text (i.e., at least one word-forming character). In that case, the bogus ScriptText and
+		/// the preceding Verse element are both removed, and as a special case we also check for and remove
+		/// any matching opening bracket/brace from the preceding ScriptText, since some translations will
+		/// just put a verse number in brackets along with a footnote (which Glyssen discards already) to
+		/// indicate that the verse was omitted because it is not contained in the most reliable manuscripts.
+		/// </summary>
+		/// <returns><c>true</c> if an empty verse is removed; <c>false</c> otherwise.</returns>
+		private static bool RemoveEmptyTrailingVerse(Block block)
 		{
 			if (block.BlockElements.Count > 0)
 			{
 				var lastBlockElement = block.BlockElements.Last();
 				if (lastBlockElement is Verse)
-					block.BlockElements.Remove(block.BlockElements.Last());
+				{
+					block.BlockElements.Remove(lastBlockElement);
+					return true;
+				}
+				// Originally, the last part of this condition was:
+				// text.Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c))
+				// because char.IsLetter doesn't know what to do with PUA characters and
+				// I didn't want to run the risk of accidentally deleting a verse that
+				// might have all PUA characters, but upon further consideration, I decided
+				// that was extremely unlikely, and there was probably a greater risk of
+				// some other symbol, number, separator, etc. being the only thing in the
+				// text. And it would be slow and unwieldy to check all the other possibilities
+				// and something might still fall through the cracks.
+				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 &&
+					!text.Content.Any(char.IsLetter))
+				{
+					if (!(block.BlockElements[block.BlockElements.Count - 2] is Verse))
+					{
+						Debug.Fail("This should be impossible. The only block elements the UsxParser can add are Verse and ScriptText, and they must alternate.");
+						return false;
+					}
+					var potentialClosingBracketPunct = text.Content.Trim();
+					// Remove both the bogus ScriptText and the preceding Verse.
+					block.BlockElements.RemoveRange(block.BlockElements.Count - 2, 2);
+					RemoveMatchingOpeningPunctuation(block, potentialClosingBracketPunct);
+					return true;
+				}
+			}
+			return false;
+		}
+
+		private static void RemoveMatchingOpeningPunctuation(Block block, string punct)
+		{
+			char punctToTrim;
+			switch (punct)
+			{
+				case "]": punctToTrim = '['; break;
+				case "}": punctToTrim = '{'; break;
+				case ")": punctToTrim = '('; break;
+				case "\u300d": punctToTrim = '\u300c'; break;
+				case "\uff63": punctToTrim = '\uff62'; break;
+				case "\u3011": punctToTrim = '\u3010'; break;
+				case "\u3015": punctToTrim = '\u3014'; break;
+				default: return;
+			}
+			var finalScriptText = block.BlockElements.LastOrDefault() as ScriptText;
+			if (finalScriptText != null && finalScriptText.Content.TrimEnd().Last() == punctToTrim)
+			{
+				finalScriptText.Content = finalScriptText.Content.TrimEnd().TrimEnd(punctToTrim);
+				if (finalScriptText.Content.All(char.IsWhiteSpace))
+				{
+					block.BlockElements.Remove(finalScriptText);
+				}
 			}
 		}
 
@@ -274,23 +332,31 @@ namespace Glyssen
 			return block;
 		}
 
-		private Block ProcessChapterLabelNode(string nodeText, UsxNode usxNode)
+		private Block ProcessChapterLabelNode(string nodeText, UsxNode usxNode, IList<Block> blocks)
 		{
-			Block block = null;
+			var lastChapterAnnouncementBlock = blocks.LastOrDefault(b => b.IsChapterAnnouncement);
 
 			// Chapter label before the first chapter means we have a chapter label which applies to all chapters
-			if (!m_chapterNodeFound)
+			if (lastChapterAnnouncementBlock == null)
 				m_bookLevelChapterLabel = nodeText;
-
-			if (m_bookLevelChapterLabel == null)
+			else if (m_bookLevelChapterLabel == null && blocks.Last() == lastChapterAnnouncementBlock)
 			{
-				block = new Block(usxNode.StyleTag, m_currentChapter) { IsParagraphStart = true };
+				// The node before this was the chapter. We already added it, then found this label.
+				// Remove that block so it will be replaced with this one.
+				blocks.RemoveAt(blocks.Count - 1);
+				var block = new Block(usxNode.StyleTag, m_currentChapter) { IsParagraphStart = true, BookCode = m_bookId };
 				block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 				block.BlockElements.Add(new ScriptText(nodeText));
 				m_currentStartVerse = 0;
 				m_currentEndVerse = 0;
+				return block;
 			}
-			return block;
+			// Note: In PG-1140, it was reported that errant/misplaced \cl markers (at the end of the Pauline epistles) were causing
+			// the preceding block to go AWOL. We aren't sure what the text in the \cl field was supposed to be (it was the same in
+			// all the books and ended with a comma, which seemed pretty weird), but we decided to just ignore any \cl marker coming
+			// in an unexpected place. Ideally, the Markers check in Paratext should catch this as an error (and I have requested this),
+			// but at least as of now, it does not.
+			return null;
 		}
 	}
 
