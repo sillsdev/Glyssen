@@ -728,7 +728,10 @@ namespace Glyssen.Quote
 				m_workingBlock.MultiBlockQuote != MultiBlockQuote.None) &&
 				!m_workingBlock.BlockElements.OfType<Verse>().Any() &&
 				!prevBlock.BlockElements.OfType<ScriptText>().Last().Content.EndsWithSentenceEndingPunctuation() &&
-				m_workingBlock.IsFollowOnParagraphStyle)
+				m_workingBlock.IsFollowOnParagraphStyle &&
+				(prevBlock.IsFollowOnParagraphStyle ||
+				!m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
+				m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).Any(cv => cv.IsScriptureQuotation)))
 			{
 				prevBlock.CombineWith(m_workingBlock);
 			}
