@@ -45,7 +45,9 @@ namespace Glyssen.Character
 		/// </summary>
 		public static string GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
 		{
-			var details = GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum).ToList();
+			var details = GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)?.ToList();
+			if (details == null)
+				return null;
 			if (details.Count == 1)
 				return details[0].Character;
 			throw new NotImplementedException("Handle multiple");

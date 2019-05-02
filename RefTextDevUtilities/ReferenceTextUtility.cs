@@ -27,10 +27,13 @@ namespace Glyssen.RefTextDevUtilities
 
 		private const string kBookHeader = "Book";
 		private const string kBookHeaderAlt = "Bk";
-		private const string kChapterHeader = "Cp";
-		private const string kVerseHeader = "Vs";
-		private const string kCharacterHeader = "CHARACTER";
-		private const string kCharacterHeaderAlt = "Char";
+		private const string kChapterHeader = "Chapter";
+		private const string kChapterHeaderAlt = "Cp";
+		private const string kVerseHeader = "Verse";
+		private const string kVerseHeaderAlt = "Vs";
+		private const string kCharacterHeader = "Character";
+		private const string kCharacterHeaderAlt1 = "CHARACTER";
+		private const string kCharacterHeaderAlt2 = "Char";
 		private const string kEnglishHeader = "ENGLISH";
 		private const string kEnglishHeaderAltEnglishOnly = "Text";
 		public const string kTempFolderPrefix = "New";
@@ -1111,7 +1114,7 @@ namespace Glyssen.RefTextDevUtilities
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
 				case "Noble": return glyssenCharacterId == "Ammonite nobles";
 				case "Cupbearer": return glyssenCharacterId == "chief cupbearer of Egypt";
-				case "Prophet (deceitful & old)": return glyssenCharacterId == "old prophet in Bethel";
+				case "Prophet (old)": return glyssenCharacterId == "old prophet in Bethel";
 				case "Prophet: Baal": return glyssenCharacterId == "prophets of Baal";
 				case "Wife of Haman": return glyssenCharacterId == "Zeresh, wife of Haman";
 				case "Mother of King Lemuel": return glyssenCharacterId == "King Lemuel's mother";
@@ -1196,13 +1199,16 @@ namespace Glyssen.RefTextDevUtilities
 							switch (value)
 							{
 								case kChapterHeader:
+								case kChapterHeaderAlt:
 									chapterCol = col;
 									break;
 								case kVerseHeader:
+								case kVerseHeaderAlt:
 									verseCol = col;
 									break;
 								case kCharacterHeader:
-								case kCharacterHeaderAlt:
+								case kCharacterHeaderAlt1:
+								case kCharacterHeaderAlt2:
 									characterCol = col;
 									break;
 								case kEnglishHeaderAltEnglishOnly: // If re-generating English, the English column can be labeled "Text"

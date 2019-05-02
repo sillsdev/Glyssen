@@ -293,7 +293,7 @@ namespace GlyssenTests
 
 				var book = testProject.IncludedBooks.First();
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1, testProject.Versification);
+					book.GetScriptBlocks().Count - 1);
 
 				foreach (var block in matchup.CorrelatedBlocks)
 				{
@@ -365,7 +365,7 @@ namespace GlyssenTests
 
 				var book = testProject.IncludedBooks.First();
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1, testProject.Versification);
+					book.GetScriptBlocks().Count - 1);
 
 				foreach (var block in matchup.CorrelatedBlocks)
 				{
@@ -433,7 +433,7 @@ namespace GlyssenTests
 
 				var book = testProject.IncludedBooks.First();
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1, testProject.Versification);
+					book.GetScriptBlocks().Count - 1);
 
 				foreach (var block in matchup.CorrelatedBlocks)
 				{

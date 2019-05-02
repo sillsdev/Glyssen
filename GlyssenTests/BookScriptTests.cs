@@ -229,7 +229,7 @@ namespace GlyssenTests
 			var blockToFind = NewVerseBridgePara(4, 5, "This is it.");
 			matBlocks.Add(blockToFind);
 			matBlocks.Add(NewSingleVersePara(6));
-			var bookScript = new BookScript("MAT", matBlocks);
+			var bookScript = new BookScript("MAT", matBlocks, ScrVers.English);
 			Assert.AreEqual(blockToFind.GetText(true), bookScript.GetFirstBlockForVerse(7, verseToFind).GetText(true));
 		}
 
@@ -247,7 +247,7 @@ namespace GlyssenTests
 			m_curSetupVerseEnd = 6;
 			mrkBlocks.Add(NewBlock("This is another paragraph for the bridge"));
 			mrkBlocks.Add(NewSingleVersePara(7));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(blockToFind.GetText(true), bookScript.GetFirstBlockForVerse(1, verseToFind).GetText(true));
 		}
 
