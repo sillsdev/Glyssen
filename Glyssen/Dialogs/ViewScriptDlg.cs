@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using L10NSharp;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -73,6 +74,12 @@ namespace Glyssen.Dialogs
 				col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 				col.Width = colWidth;
 			}
+			if (!m_viewModel.IncludeVoiceActors)
+				m_dataGridView.Columns[(int)ExportColumn.Actor].Visible = false;
+			if (LocalizationManager.UILanguageId == "en")
+				m_dataGridView.Columns[(int)ExportColumn.CharacterIdLocalized].Visible = false;
+			if (!m_viewModel.Project.ReferenceText.HasSecondaryReferenceText)
+				m_dataGridView.Columns[(int)ExportColumn.AdditionalReferenceText].Visible = false;
 		}
 
 		private void ViewScriptDlg_Shown(object sender, EventArgs e)
