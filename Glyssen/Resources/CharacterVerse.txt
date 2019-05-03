@@ -7083,6 +7083,7 @@ EZR	10	13	assembly, whole			Normal
 EZR	10	14	assembly, whole			Normal		
 # The preferred way to handle Nehemiah 1:1b is to manually split the verse into 2 blocks (if necessary) but assign both parts to narrator;
 # then let Glyssen apply the narrator override to the second block.
+NEH	1	2	Nehemiah			Indirect		
 NEH	1	3	Hanani, brother of Nehemiah/Judah, men of		Hanani/men of Judah	Normal	Hanani, brother of Nehemiah	
 NEH	1	5	Nehemiah	praying		Normal		
 NEH	1	6	Nehemiah	praying		Normal		
@@ -7148,8 +7149,15 @@ NEH	6	16	report to Sanballat and Tobiah			Potential
 NEH	7	3	Nehemiah			Normal		
 NEH	8	1	people, all the			Indirect		
 NEH	8	6	people, all the	praising		Normal		
-NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites	Normal	Nehemiah	
-NEH	8	10	Nehemiah/Ezra, priest and teacher			Normal	Nehemiah	
+# In v. 9, the quote is attributed to Nehemiah, Ezra, and the Levites, but in v. 10 there is a singular masculine pronoun, which in most
+# translations is translated with the ambiguous "he". But some translations do insert an explicit name (either Nehemiah or Ezra). Ezra
+# is probably the best guess (as the Spiritual leader), but if the translation names a speaker explicitly, the script needs to match that.
+NEH	8	9	Nehemiah		Nehemiah (with Ezra and Levites) - see v. 10	Normal		
+NEH	8	9	Ezra, priest and teacher		Ezra (with Nehemiah and Levites) - see v. 10	Normal		
+# REVIEW (PG-1198): The following should probably not default to Ezra, but rather be treated as "uncertain", to be resolved by a vernacular speaker.
+NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites	Normal	Ezra, priest and teacher	
+NEH	8	10	Nehemiah			Normal		
+NEH	8	10	Ezra, priest and teacher			Normal		
 NEH	8	11	Levites			Normal		
 NEH	8	15	heads of all the families/priests/Levites	proclamation		Normal		
 NEH	8	15	Moses	proclamation		Quotation		
@@ -8476,6 +8484,10 @@ PSA	94	7	wicked, the			Normal
 PSA	95	10	God		God (the LORD)	Quotation		
 PSA	95	11	God		God (the LORD)	Quotation		
 PSA	102	24	narrator-PSA			Quotation		
+PSA	102	25	narrator-PSA			Quotation		
+PSA	102	26	narrator-PSA			Quotation		
+PSA	102	27	narrator-PSA			Quotation		
+PSA	102	28	narrator-PSA			Quotation		
 PSA	105	11	God		God (the LORD)	Quotation		
 PSA	105	15	God		God (the LORD)	Quotation		
 PSA	106	48	people, all the			Hypothetical		
@@ -8489,12 +8501,10 @@ PSA	118	2	Israel			Hypothetical
 PSA	118	3	house of Aaron, the			Hypothetical		
 PSA	118	4	those who fear the Lord			Hypothetical		
 PSA	122	1	worshipers		they (worshipers)	Quotation		
-PSA	129	1	afflicted person			Potential		
 PSA	129	1	narrator-PSA			Quotation		
-PSA	129	2	afflicted person			Potential		
+PSA	129	1	Israel			Hypothetical		
 PSA	129	2	narrator-PSA			Quotation		
 PSA	129	2	Israel			Hypothetical		
-PSA	129	3	afflicted person			Potential		
 PSA	129	3	narrator-PSA			Quotation		
 PSA	129	3	Israel			Hypothetical		
 PSA	129	8	those who go by			Hypothetical		

@@ -25,7 +25,6 @@ Adoni-Bezek	1	Male	Adult			JDG 1:7	False
 Adonijah, son of David	1	Male	Adult			1KI 1:5 <-(5 more)-> 1KI 2:17	False
 Adoni-Zedek, king of Jerusalem	1	Male	Adult			JOS 10:4	False
 advisers to king	-1	Male	Adult			DAN 3:24	False
-afflicted person	1	Male	Adult			PSA 102:24	False
 Agabus the prophet	1	Male	Adult			ACT 11:28 & ACT 21:11	False
 Agag, king of the Amalekites	1	Male	Adult			1SA 15:32	False
 Agur	1	Male	Adult			PRO 30:1 <-(31 more)-> PRO 30:33	False
