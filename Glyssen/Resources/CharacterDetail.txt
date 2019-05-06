@@ -65,7 +65,7 @@ angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18	False
 angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11	False
 angel who talked with Zechariah	1		Adult			ZEC 1:9 <-(23 more)-> ZEC 6:8	False
 angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29	False
-angel, another (vision)	1		Adult			ZEC 2:4	False
+angel, another (in vision)	1		Adult			ZEC 2:4	False
 angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3	False
 angel, coming out of temple	1		Adult			REV 14:15	False
 angel, coming out of temple, another	1		Adult			REV 14:18	False
@@ -173,7 +173,7 @@ centurion at Paul's flogging	1	Male	Adult			ACT 22:26	False
 centurion on ship with Paul	1	Male	Adult			ACT 27:43	False
 centurion summoned by Pilate	1	Male	Adult			MRK 15:45	False
 centurion with great faith	1	Male	Adult			MAT 8:6 <-(4 more)-> LUK 7:8	False
-centurion, one of the	1	Male	Adult			ACT 23:18	False
+centurion in the barracks	1	Male	Adult			ACT 23:18	False
 chariot commanders of Aram	-1	Male	Adult			1KI 22:32 & 2CH 18:31	False
 chief baker of Egypt	1	Male	Adult			GEN 40:16 & GEN 40:17	False
 chief cupbearer of Egypt	1	Male	Adult			GEN 40:9 <-(6 more)-> GEN 41:13	False
@@ -194,8 +194,7 @@ commander of the LORD's army	1	Male	Adult		Default character should be Jesus	JOS
 company of the prophets	-1		Adult			2KI 4:40 <-(3 more)-> 2KI 6:5	False
 company of the prophets (Bethel)	-1		Adult			2KI 2:3	False
 company of the prophets (Jericho)	-1		Adult			2KI 2:5 <-(1 more)-> 2KI 2:16	False
-company of the prophets, one of (the LORD says) (young man)	1	Male	YoungAdult			2KI 9:6 <-(3 more)-> 2KI 9:10	False
-company of the prophets, one of (young man)	1	Male	YoungAdult			2KI 9:5	False
+company of the prophets, one of (young man)	1	Male	YoungAdult			2KI 9:5 <-(4 more)-> 2KI 9:10	False
 conquerors of beast, image & his name	-1		Adult			REV 15:3 & REV 15:4	False
 conquerors of Lo Debar	-1	Male	Adult			AMO 6:13	True
 Cornelius	1	Male	Adult			ACT 10:4 <-(4 more)-> ACT 10:48	False
@@ -339,7 +338,7 @@ father of cured man, blind from birth	1	Male					False
 father of demon-possessed boy	1	Male				MAT 17:15 <-(8 more)-> LUK 9:40	False
 Felix, governor of Judea	1	Male				ACT 23:34 <-(3 more)-> ACT 24:25	False
 Festus, governor of Judea	1	Male				ACT 25:4 <-(18 more)-> ACT 26:24	False
-figure like that of a man (in vision of God)	1	Male			Default character should be Jesus	EZK 8:5 <-(8 more)-> EZK 9:1	False
+figure like that of a man (in vision)	1	Male			Default character should be Jesus	EZK 8:5 <-(8 more)-> EZK 9:1	False
 flatterers	-1					PSA 12:4	False
 follower of Apollos	1					1CO 1:12 & 1CO 3:4	True
 follower of Cephas (Peter)	1					1CO 1:12	True
@@ -543,6 +542,7 @@ Judah	1	Male				GEN 37:26 <-(32 more)-> GEN 44:34	False
 Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:22	True
 Judah, men of	-1	Male				JDG 1:3 <-(6 more)-> 2SA 19:42	False
 Judah, people in	-1					NEH 4:10	False
+Judah, remnant of	-1					JER 42:20	False
 Judaizers	-1	Male				GAL 6:12	False
 Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5	False
 Judas, apostle (not Judas Iscariot)	1	Male				JHN 14:22	False
@@ -605,7 +605,7 @@ man escaped from Jerusalem	1	Male				EZK 33:21	False
 man from Saul's camp (young)	1	Male	YoungAdult			2SA 1:3 <-(6 more)-> 2SA 1:13	False
 man in linen above river	1	Male				DAN 12:7 <-(4 more)-> DAN 12:13	False
 man in linen with writing kit (in vision)	1	Male				EZK 9:11	False
-man like bronze with measuring rod (vision of God)	1	Male				EZK 40:4 <-(13 more)-> EZK 47:12	False
+man like bronze with measuring rod (in vision)	1	Male				EZK 40:4 <-(13 more)-> EZK 47:12	False
 man of Gibeah	1	Male				1SA 10:12	False
 man of God (prophet to Amaziah)	1	Male				2CH 25:7 <-(1 more)-> 2CH 25:9	False
 man of God (prophet to Eli)	1	Male				1SA 2:27 <-(8 more)-> 1SA 2:36	False
@@ -616,7 +616,7 @@ man reporting to David	1	Male				2SA 13:30	False
 man standing among myrtle trees	1	Male				ZEC 1:10	False
 man who says 'I know him'	1	Male				1JN 2:4	True
 man who says 'we remain in union with God'	1	Male				1JN 2:6	True
-man with measuring line (vision)	1	Male				ZEC 2:2	False
+man with measuring line (in vision)	1	Male				ZEC 2:2	False
 man with sponge	1	Male				MRK 15:36	False
 man, still another	1	Male				LUK 9:61	False
 man, wicked	1	Male				PSA 10:6 <-(1 more)-> PSA 10:13	True
@@ -901,7 +901,7 @@ Rehoboam, king	1	Male				1KI 12:5 <-(8 more)-> 2CH 10:14	False
 Rehum, commanding officer	1	Male					False
 relative	1	Male				AMO 6:10	True
 relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13	False
-reply to the slain believers (in heavenly vision)	1					REV 6:11	False
+reply to the slain believers (in vision)	1					REV 6:11	False
 report concerning Paul	1	PreferMale				GAL 1:23	False
 report to king of Aram	1	Male				2KI 6:13	False
 report to king of Assyria	1	Male				2KI 17:26	False
@@ -1089,7 +1089,6 @@ voice in heaven, loud	1					REV 12:10 <-(1 more)-> REV 12:12	False
 voice of great crowd in heaven, loud	-1					REV 19:1 <-(1 more)-> REV 19:3	False
 voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:6 <-(1 more)-> REV 19:8	False
 voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> ISA 40:5	False
-voice of one speaking (in vision of God)	1	Male				EZK 2:1 <-(15 more)-> EZK 3:11	False
 voices in heaven, loud	-1					REV 11:15	False
 warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19	False
 watchman	1	Male				2SA 13:34 <-(2 more)-> ISA 21:12	False

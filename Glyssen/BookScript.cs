@@ -214,7 +214,7 @@ namespace Glyssen
 				NarratorOverrides.NarratorOverrideDetail info;
 				if (matches.Count == 1 &&
 					(matches[0].StartBlock == 0 || matches[0].StartChapter < startRef.ChapterNum || (matches[0].StartChapter == startRef.ChapterNum && matches[0].StartVerse < startRef.VerseNum)) &&
-					(matches[0].EndBlock == 0 || matches[0].EndChapter > startRef.ChapterNum || (matches[0].EndChapter == startRef.ChapterNum && matches[0].EndVerse < endVerse)))
+					(matches[0].EndBlock == 0 || matches[0].EndChapter > startRef.ChapterNum || (matches[0].EndChapter == startRef.ChapterNum && matches[0].EndVerse > endVerse)))
 				{
 					info = matches[0];
 				}
@@ -278,15 +278,23 @@ namespace Glyssen
 				firstVerse = m_blocks[iBlock].InitialStartVerseNumber;
 				var blocksForVerse = m_blocks.Skip(iBlock).TakeWhile(b => b.InitialStartVerseNumber == firstVerse).ToList();
 				if (blocksForVerse.All(b => b.CharacterId == NarratorCharacterId))
-					return false;
+				{
+					if (m_blocks[iBlock].StartsAtVerseStart)
+						return false;
+					for (int iPrev = 0; iBlock - iPrev >= 0; iPrev++)
+					{
+						if (m_blocks[iBlock - iPrev].IsScripture && m_blocks[iBlock - iPrev].CharacterId == NarratorCharacterId)
+							return false;
+					}
+				}
 				iBlock += blocksForVerse.Count;
-				//var lastBlockInGroup = blocksForVerse.Last();
-				//if (lastBlockInGroup.CharacterId != NarratorCharacterId)
-				//	continue;
-				//var lastVerseNumInLastBlockInGroup = lastBlockInGroup.LastVerseNum;
-				//if (lastVerseNumInLastBlockInGroup > lastVerse || (lastVerseNumInLastBlockInGroup == lastVerse && // TODO: Deal with info.EndBlock > 0
-				//	(iBlock == m_blocks.Count || m_blocks[iBlock].StartsAtVerseStart)))
-				//	return false; // There's at least one whole verse in the range that is assigned to narrator.
+				var lastBlockInGroup = blocksForVerse.Last();
+				if (lastBlockInGroup.CharacterId != NarratorCharacterId)
+					continue;
+				var lastVerseNumInLastBlockInGroup = lastBlockInGroup.LastVerseNum;
+				if (lastVerseNumInLastBlockInGroup > lastVerse || (lastVerseNumInLastBlockInGroup == lastVerse && // TODO: Deal with info.EndBlock > 0
+					(iBlock == m_blocks.Count || m_blocks[iBlock].StartsAtVerseStart)))
+					return false; // There's at least one whole verse in the range that is assigned to narrator.
 			} while (iBlock < m_blocks.Count && m_blocks[iBlock].ChapterNumber == chapter && m_blocks[iBlock].LastVerseNum <= lastVerse);
 			return true;
 		}

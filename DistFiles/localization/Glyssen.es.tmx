@@ -1181,15 +1181,6 @@
         <seg>los once apóstoles</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Eli">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Eli</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Elí</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Eli (very old)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1278,15 +1269,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Eliseo (anciano)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Elisha (the LORD says)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Elisha (the LORD says)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Eliseo (dice el Señor)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Elisha's servant">
@@ -1476,15 +1458,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Hezequiel</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Ezekiel (in vision of God)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Ezekiel (in vision of God)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Ezequiel (en una visión de Dios)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ezra">
@@ -1955,15 +1928,6 @@
         <seg>Hoglá</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Holy Spirit">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Holy Spirit</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Espíritu Santo</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Holy Spirit and the bride">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2423,24 +2387,6 @@
         <seg>Jeremías (dice el Señor)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jeremiah (word of the LORD came)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah (word of the LORD came)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jeremías (vino palabra de Jehová)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jeremiah (word of the LORD)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah (word of the LORD)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jeremías (palabra del Señor)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jeremiah quoting the prophets">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2502,15 +2448,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Jesús</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus (Lord God Almighty)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jesús ***(Lord*** ***God*** todopoderoso)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jesus (child)">
@@ -4223,24 +4160,6 @@
         <seg>Zacarías (dice el Señor)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Zacarías (visión)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Zechariah (word of the LORD)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Zechariah (word of the LORD)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Zacarías (palabra del Señor)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Zechariah, son of Jehoiada the priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4412,15 +4331,6 @@
         <seg>ángel que habló con Zacarías</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel who talked with Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who talked with Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel que habló con Zacarías (en una visión)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.angel who wrestled with Jacob">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4428,15 +4338,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>ángel que luchó con Jacob</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel, another (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel, another (vision)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel, another (vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel, another, coming down from heaven">
@@ -5913,15 +5814,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>profeta</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet in Bethel">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet in Bethel</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>profeta en Betel</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.prophet of the LORD">
@@ -12098,6 +11990,105 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>De derecha a izquierda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ezekiel (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ezekiel (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hezequiel ***(in*** visión, espejo)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gemariah, son of Hilkiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gemariah, son of Hilkiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guemarías, ***son*** ***of*** Hilquías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gemariah, son of Shaphan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gemariah, son of Shaphan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guemarías, ***son*** ***of*** Safán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús ***(in*** visión, espejo)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (the Lord)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (the Lord)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús ***(the*** ***Lord)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah, remnant of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah, remnant of</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Judá, ***remnant*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nehemiah (with Ezra and Levites) - see v. 10">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nehemiah (with Ezra and Levites) - see v. 10</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nehemías ***(with*** ***Ezra*** ***and*** ***Levites)*** ***-*** ***see*** ***v.*** ***10***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Saul (via messenger)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Saul (via messenger)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Saulo ***(via*** ***messenger)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Seraiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Seraiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seraías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.worshipers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>worshipers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>adorador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zechariah (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Zacarías ***(in*** visión, espejo)</seg>
       </tuv>
     </tu>
   </body>

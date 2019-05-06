@@ -995,15 +995,6 @@
         <seg>Eleazar ***the*** priest, ***son*** ***of*** Aaron</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Eli">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Eli</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Eli</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Eli (very old)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1092,15 +1083,6 @@
       </tuv>
       <tuv xml:lang="pt">
         <seg>Elisha ***(old)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Elisha (the LORD says)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Elisha (the LORD says)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Elisha ***(the*** ***LORD*** ***says)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Elishama">
@@ -1236,15 +1218,6 @@
       </tuv>
       <tuv xml:lang="pt">
         <seg>Ezekiel</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Ezekiel (in vision of God)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Ezekiel (in vision of God)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Ezekiel ***(in*** vision ***of*** ***God)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Felix, governor of Judea">
@@ -2046,24 +2019,6 @@
       </tuv>
       <tuv xml:lang="pt">
         <seg>Jeremiah ***(the*** ***LORD*** ***says)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jeremiah (word of the LORD came)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah (word of the LORD came)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Jeremiah ***(word*** ***of*** ***the*** ***LORD*** ***came)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jeremiah (word of the LORD)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah (word of the LORD)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Jeremiah ***(word*** ***of*** ***the*** ***LORD)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jeremiah quoting the prophets">
@@ -3677,15 +3632,6 @@
         <seg>Zechariah ***(the*** ***LORD*** ***says)***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Zechariah (word of the LORD)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Zechariah (word of the LORD)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Zechariah ***(word*** ***of*** ***the*** ***LORD)***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Zechariah, son of Jehoiada the priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3828,15 +3774,6 @@
       </tuv>
       <tuv xml:lang="pt">
         <seg>chefe da sinagoga</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Zechariah (vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zedekiah, king of Judah">
@@ -4100,15 +4037,6 @@
         <seg>Pedro (Cefas)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus (Lord God Almighty)</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Jesus (Senhor Deus, o Todo-poderoso)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4125,6 +4053,105 @@
       </tuv>
       <tuv xml:lang="pt">
         <seg>Rabsaqué (comandante de campo)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ezekiel (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ezekiel (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Ezekiel ***(in*** vision)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gemariah, son of Hilkiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gemariah, son of Hilkiah</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Gemariah, ***son*** ***of*** Hilkiah</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gemariah, son of Shaphan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gemariah, son of Shaphan</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Gemariah, ***son*** ***of*** Shaphan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Jesus ***(in*** vision)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (the Lord)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (the Lord)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Jesus ***(the*** ***Lord)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah, remnant of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah, remnant of</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Judah, ***remnant*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nehemiah (with Ezra and Levites) - see v. 10">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nehemiah (with Ezra and Levites) - see v. 10</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Nehemiah ***(with*** ***Ezra*** ***and*** ***Levites)*** ***-*** ***see*** ***v.*** ***10***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Saul (via messenger)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Saul (via messenger)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Saulo ***(via*** ***messenger)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Seraiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Seraiah</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Seraiah</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.worshipers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>worshipers</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>adorador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zechariah (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Zechariah ***(in*** vision)</seg>
       </tuv>
     </tu>
   </body>

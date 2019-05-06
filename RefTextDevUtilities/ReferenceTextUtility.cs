@@ -1140,7 +1140,7 @@ namespace Glyssen.RefTextDevUtilities
 						glyssenCharacterId.IndexOf("men", StringComparison.OrdinalIgnoreCase) >= 0 ||
 						glyssenCharacterId.IndexOf("messenger", StringComparison.OrdinalIgnoreCase) >= 0;
 				case "Heavenly Man":
-					return glyssenCharacterId == "man like bronze with measuring rod (vision of God)" ||
+					return glyssenCharacterId == "man like bronze with measuring rod (in vision)" ||
 						glyssenCharacterId == "man's voice from the Ulai (in vision)" ||
 						glyssenCharacterId == "one who looked like a man" ||
 						glyssenCharacterId == "man in linen above river";

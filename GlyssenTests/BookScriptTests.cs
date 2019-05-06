@@ -709,12 +709,11 @@ namespace GlyssenTests
 			var blocks = new List<Block>
 			{
 				NewChapterBlock(1, "NEH"),
-				new Block("p", 1, 1) {CharacterId = narrator}.AddText("The writings of Nehemiah bar Hacaliah."),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse(1, "The writings of Nehemiah bar Hacaliah."),
 				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was the month Chislev, in the twentieth year of King A."),
 				new Block("p", 1, 1) {CharacterId = "Nehemiah"}.AddText("I was in Shushan the palace, when along came,"),
 				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddVerse(2, "Hanani, one of my brothers. I asked him,"),
-				new Block("p", 1, 2) {CharacterId = "Nehemiah"}
-					.AddVerse(2, "«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddText("«How are the Jews who avoided capture in Jerusalem?»"),
 				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "They replied to Nehemiah,"),
 				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»"),
 				new Block("p", 1, 4) {CharacterId = "Nehemiah"}.AddVerse(4, "When I got the news, I cried for days on end, fasting and praying."),
@@ -740,11 +739,10 @@ namespace GlyssenTests
 			var blocks = new List<Block>
 			{
 				NewChapterBlock(1, "NEH"),
-				new Block("p", 1, 1) {CharacterId = narrator}.AddText("The writings of Nehemiah bar Hacaliah."),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse(1, "The writings of Nehemiah bar Hacaliah."),
 				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was Chislev 20 and I was in Shushan the palace.")
 					.AddVerse(2, "Hanani came. I asked him,"),
-				new Block("p", 1, 2) {CharacterId = "Nehemiah"}
-					.AddVerse(2, "«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddText("«How are the Jews who avoided capture in Jerusalem?»"),
 				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "And he's like,"),
 				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»")
 
@@ -766,18 +764,68 @@ namespace GlyssenTests
 			var blocks = new List<Block>
 			{
 				NewChapterBlock(2, "HAB"),
-				new Block("p", 2, 1) {CharacterId = narrator}.AddText("I will stand watch on the ramparts to see what he will tell me and what I will answer concerning my complaint. ")
+				new Block("p", 2, 1) {CharacterId = narrator}.AddVerse(1, "I will stand watch on the ramparts to see what he will tell me and what I will answer concerning my complaint. ")
 					.AddVerse(2, "God answered me,"),
-				new Block("p", 2, 2) {CharacterId = "God"}.AddVerse(2, "«Write the vision on tablets, that he who runs may read it."),
+				new Block("p", 2, 2) {CharacterId = "God"}.AddText("«Write the vision on tablets, that he who runs may read it."),
 				new Block("p", 2, 3) {CharacterId = "God"}.AddVerse(3, "Wait for the vision's fulfillment! It will come without delay.»")
 
 			};
-			var bookOfNehemiah = new BookScript("HAB", blocks, ScrVers.English);
+			var bookOfHabakkuk = new BookScript("HAB", blocks, ScrVers.English);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.BookOrChapter),
-				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[0]));
-			Assert.AreEqual("Habakkuk", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[1]));
-			Assert.AreEqual("God", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[2]));
-			Assert.AreEqual("God", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[3]));
+				bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[0]));
+			Assert.AreEqual("Habakkuk", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[1]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[2]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[3]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideRangeEndsInBlock1OfVerse_FixName_GetsOverrideCharacterButNotForBlock2()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, "HAB"),
+				new Block("p", 2, 10) {CharacterId = narrator}.AddVerse(10, "God said:"),
+				new Block("p", 2, 10) {CharacterId = "God"}.AddText("This is important").AddVerse(11).AddVerse(12).AddVerse(13).AddVerse(14),
+				new Block("p", 2, 14) {CharacterId = narrator}.AddText("Thus he spoke.").AddVerse(15, "Again he said:"),
+				new Block("p", 2, 15) {CharacterId = "God"}.AddText("Start of God's speech in v. 15...").AddVerse(16),
+				new Block("p", 2, 17) {CharacterId = narrator}.AddVerse(17).AddVerse(18).AddVerse(19),
+				new Block("p", 2, 19) {CharacterId = narrator}.AddText("Part II of v. 19")
+			};
+			var bookOfHabakkuk = new BookScript("HAB", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[0]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[1]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[2]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[3]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[4]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[5]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[6]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideRangeEndsInBlock1OfVerse_AllVersesHaveExplicitAssignment_NoOverrideApplied()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, "HAB"),
+				new Block("p", 2, 10) {CharacterId = narrator}.AddVerse(10, "God said:"),
+				new Block("p", 2, 10) {CharacterId = "God"}.AddText("This is important").AddVerse(11).AddVerse(12).AddVerse(13).AddVerse(14),
+				new Block("p", 2, 14) {CharacterId = narrator}.AddText("Thus he spoke.").AddVerse(15, "Again he said:"),
+				new Block("p", 2, 15) {CharacterId = "God"}.AddText("Start of God's speech in v. 15...").AddVerse(16),
+				new Block("p", 2, 17) {CharacterId = "God"}.AddVerse(17).AddVerse(18).AddVerse(19),
+				new Block("p", 2, 19) {CharacterId = narrator}.AddText("Part II of v. 19")
+			};
+			var bookOfHabakkuk = new BookScript("HAB", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[0]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[1]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[2]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[3]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[4]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[5]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[6]));
 		}
 
 		[Test]
