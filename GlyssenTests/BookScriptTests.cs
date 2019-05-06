@@ -703,18 +703,48 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerse_GetsOverrideCharacterButNotForBlock1()
+		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerseNoVersesWhollyAssignedToNarrator_OverrideNotApplied()
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
 			var blocks = new List<Block>
 			{
 				NewChapterBlock(1, "NEH"),
 				new Block("p", 1, 1) {CharacterId = narrator}.AddText("The writings of Nehemiah bar Hacaliah."),
-				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was Chislev 20. I was thinking:"),
-				new Block("p", 1, 1) {CharacterId = "Nehemiah"}.AddText("«I love working in Shushan the palace.»"),
-				new Block("p", 1, 2) {CharacterId = narrator}.AddVerse(2, "Hanani came. I asked him,"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was the month Chislev, in the twentieth year of King A."),
+				new Block("p", 1, 1) {CharacterId = "Nehemiah"}.AddText("I was in Shushan the palace, when along came,"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddVerse(2, "Hanani, one of my brothers. I asked him,"),
 				new Block("p", 1, 2) {CharacterId = "Nehemiah"}
-					.AddVerse(2, "«How are Jews who avoided capture in Jerusalem?»"),
+					.AddVerse(2, "«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "They replied to Nehemiah,"),
+				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»"),
+				new Block("p", 1, 4) {CharacterId = "Nehemiah"}.AddVerse(4, "When I got the news, I cried for days on end, fasting and praying."),
+
+			};
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[0]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[1]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[2]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[3]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[4]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[5]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[6]));
+			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[7]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[8]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerseWhichIsWhollyAssignedToNarrator_GetsOverrideCharacterButNotForBlock1()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "NEH"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("The writings of Nehemiah bar Hacaliah."),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was Chislev 20 and I was in Shushan the palace.")
+					.AddVerse(2, "Hanani came. I asked him,"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}
+					.AddVerse(2, "«How are the Jews who avoided capture in Jerusalem?»"),
 				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "And he's like,"),
 				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»")
 
@@ -726,14 +756,28 @@ namespace GlyssenTests
 			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[2]));
 			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[3]));
 			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[4]));
-			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[5]));
-			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[6]));
+			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[5]));
 		}
 
 		[Test]
 		public void GetCharacterIdInScript_OverrideRangeEndsInBlock1OfVerse_GetsOverrideCharacterButNotForBlock2()
 		{
-			Assert.Fail("Write this test.");
+			var narrator = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, "HAB"),
+				new Block("p", 2, 1) {CharacterId = narrator}.AddText("I will stand watch on the ramparts to see what he will tell me and what I will answer concerning my complaint. ")
+					.AddVerse(2, "God answered me,"),
+				new Block("p", 2, 2) {CharacterId = "God"}.AddVerse(2, "«Write the vision on tablets, that he who runs may read it."),
+				new Block("p", 2, 3) {CharacterId = "God"}.AddVerse(3, "Wait for the vision's fulfillment! It will come without delay.»")
+
+			};
+			var bookOfNehemiah = new BookScript("HAB", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[0]));
+			Assert.AreEqual("Habakkuk", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[1]));
+			Assert.AreEqual("God", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[2]));
+			Assert.AreEqual("God", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[3]));
 		}
 
 		[Test]

@@ -193,58 +193,7 @@ namespace Glyssen
 					list.Add(currBlock);
 			}
 
-			//if (SingleVoice)
-			//{
-			//	list.Add(m_blocks[0].Clone());
-			//	var prevBlock = list.Single();
-			//	prevBlock.MatchesReferenceText = false;
-			//	for (var i = 1; i < m_blockCount; i++)
-			//	{
-			//		var clonedBlock = m_blocks[i].Clone();
-			//		clonedBlock.MatchesReferenceText = false;
-			//		if (!clonedBlock.CharacterIsStandard)
-			//			clonedBlock.CharacterId = narrator;
-
-			//		if (shouldCombine(clonedBlock, prevBlock))
-			//			prevBlock.CombineWith(clonedBlock);
-			//		else
-			//		{
-			//			list.Add(clonedBlock);
-			//			prevBlock = clonedBlock;
-			//		}
-			//	}
-			//}
-			//else
-			//{
-			//	list.Add(m_blocks[0]);
-			//	if (m_styleSheet == null)
-			//		m_styleSheet = SfmLoader.GetUsfmStylesheet();
-
-			//	for (var i = 1; i < m_blockCount; i++)
-			//	{
-			//		var block = m_blocks[i];
-			//		var prevBlock = list.Last();
-
-			//		if (shouldCombine(block, prevBlock))
-			//		{
-			//			list[list.Count - 1] = Block.CombineBlocks(prevBlock, block);
-			//			continue;
-			//		}
-			//		list.Add(block);
-			//	}
-			//}
-
 			return clonedBook;
-		}
-
-		[Flags]
-		private enum VerseOverrideCharacterStatus
-		{
-			VerseNotFound = 0,
-			FoundOverrideCharacterInVerse = 1,
-			FoundNarratorInVerse = 2,
-			FoundPotentialSelfQuote = FoundOverrideCharacterInVerse | FoundNarratorInVerse,
-			FoundOtherCharacterInVerse = 4,
 		}
 
 		internal string GetCharacterIdInScript(Block block)
@@ -280,7 +229,7 @@ namespace Glyssen
 							if (GetBlocksForVerse(info.StartChapter, info.StartVerse).IndexOf(block) + 1 == info.StartBlock)
 								break;
 						}
-						else if (info.EndBlock > 0 && info.EndChapter == startRef.ChapterNum && info.EndVerse == startRef.VerseNum)
+						else if (info.EndBlock > 0 && info.EndChapter == startRef.ChapterNum && info.EndVerse == endVerse)
 						{
 							if (GetBlocksForVerse(info.EndChapter, info.EndVerse).IndexOf(block) + 1 == info.EndBlock)
 								break;
@@ -316,7 +265,10 @@ namespace Glyssen
 			int iBlock = GetIndexOfFirstBlockForVerse(chapter, firstVerse);
 			if (info.StartBlock > 1)
 			{
-				// TODO: Need to skip ahead to get to correct start block.
+				// Skip ahead to get to correct start block.
+				for (int i = 1; i < info.StartBlock; i++)
+					if (m_blocks[++iBlock].InitialStartVerseNumber != firstVerse)
+						break;
 			}
 			if (iBlock == -1)
 				throw new ArgumentException("There are no blocks for the specified chapter!", nameof(chapter));
@@ -328,10 +280,10 @@ namespace Glyssen
 				if (blocksForVerse.All(b => b.CharacterId == NarratorCharacterId))
 					return false;
 				iBlock += blocksForVerse.Count;
-				var lastBlockInGroup = blocksForVerse.Last();
-				if (lastBlockInGroup.CharacterId != NarratorCharacterId)
-					continue;
-				var lastVerseNumInLastBlockInGroup = lastBlockInGroup.LastVerseNum;
+				//var lastBlockInGroup = blocksForVerse.Last();
+				//if (lastBlockInGroup.CharacterId != NarratorCharacterId)
+				//	continue;
+				//var lastVerseNumInLastBlockInGroup = lastBlockInGroup.LastVerseNum;
 				//if (lastVerseNumInLastBlockInGroup > lastVerse || (lastVerseNumInLastBlockInGroup == lastVerse && // TODO: Deal with info.EndBlock > 0
 				//	(iBlock == m_blocks.Count || m_blocks[iBlock].StartsAtVerseStart)))
 				//	return false; // There's at least one whole verse in the range that is assigned to narrator.
