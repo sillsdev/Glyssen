@@ -12,7 +12,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_LoadsCorrectly()
 		{
-			Assert.IsNotNull(NarratorOverrides.GetNarratorOverridesForBook("PSA"));
+			Assert.IsTrue(NarratorOverrides.GetNarratorOverridesForBook("PSA").Any());
 		}
 
 		[Test]

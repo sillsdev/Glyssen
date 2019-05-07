@@ -22,6 +22,7 @@ namespace Glyssen
 	public class BookScript : PortionScript, IScrBook
 	{
 		private Dictionary<int, int> m_chapterStartBlockIndices;
+		private Dictionary<Block, string> m_narratorOverrides;
 		private List<List<Block>> m_unappliedSplitBlocks = new List<List<Block>>();
 		private ScrStylesheetAdapter m_styleSheet;
 		private int m_blockCount;
@@ -126,13 +127,13 @@ namespace Glyssen
 			if (m_blockCount == 0)
 				return clonedBook;
 
-			Action<Block> modifyClonedBlockAsNeeded = null;
+			Action<Block, Block> modifyClonedBlockAsNeeded = null;
 			Func<Block, Block, bool> shouldCombine;
 
 			if (SingleVoice)
 			{
 				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
-				modifyClonedBlockAsNeeded = clone =>
+				modifyClonedBlockAsNeeded = (orig, clone) =>
 				{
 					clone.MatchesReferenceText = false;
 					if (!clone.CharacterIsStandard)
@@ -148,9 +149,9 @@ namespace Glyssen
 				if (applyNarratorOverrides)
 				{
 					modifyClonedBlockAsNeeded =
-						block =>
+						(orig, clone) =>
 						{
-							block.CharacterIdInScript = GetCharacterIdInScript(block);
+							clone.CharacterIdInScript = GetCharacterIdInScript(orig);
 						};
 				}
 
@@ -180,13 +181,13 @@ namespace Glyssen
 			}
 
 			var currBlock = m_blocks[0].Clone();
-			modifyClonedBlockAsNeeded?.Invoke(currBlock);
+			modifyClonedBlockAsNeeded?.Invoke(m_blocks[0], currBlock);
 			list.Add(currBlock);
 			for (var i = 1; i < m_blockCount; i++)
 			{
 				var prevBlock = list.Last();
 				currBlock = m_blocks[i].Clone();
-				modifyClonedBlockAsNeeded?.Invoke(currBlock);
+				modifyClonedBlockAsNeeded?.Invoke(m_blocks[i], currBlock);
 				if (shouldCombine(currBlock, prevBlock))
 					prevBlock.CombineWith(currBlock);
 				else
@@ -201,102 +202,108 @@ namespace Glyssen
 			if (block.CharacterIdOverrideForScript != null)
 				return block.CharacterIdOverrideForScript;
 
-			if (block.CharacterId == NarratorCharacterId)
-			{
-				var startRef = block.StartRef(BookNumber, Versification);
-				var endVerse = block.LastVerseNum;
-				if (!NarratorOverrides.ChangeToEnglishVersification(ref startRef, ref endVerse, out var endChapter))
-					return null;
-				var matches = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(startRef, endVerse)?.ToList();
-				if (matches == null || !matches.Any())
-					return block.CharacterId;
-
-				NarratorOverrides.NarratorOverrideDetail info;
-				if (matches.Count == 1 &&
-					(matches[0].StartBlock == 0 || matches[0].StartChapter < startRef.ChapterNum || (matches[0].StartChapter == startRef.ChapterNum && matches[0].StartVerse < startRef.VerseNum)) &&
-					(matches[0].EndBlock == 0 || matches[0].EndChapter > startRef.ChapterNum || (matches[0].EndChapter == startRef.ChapterNum && matches[0].EndVerse > endVerse)))
-				{
-					info = matches[0];
-				}
-				else
-				{
-					info = null;
-					for (var index = 0; index < matches.Count; index++)
-					{
-						info = matches[index];
-						if (info.StartBlock > 0 && info.StartChapter == startRef.ChapterNum && info.StartVerse == startRef.VerseNum)
-						{
-							if (GetBlocksForVerse(info.StartChapter, info.StartVerse).IndexOf(block) + 1 == info.StartBlock)
-								break;
-						}
-						else if (info.EndBlock > 0 && info.EndChapter == startRef.ChapterNum && info.EndVerse == endVerse)
-						{
-							if (GetBlocksForVerse(info.EndChapter, info.EndVerse).IndexOf(block) + 1 == info.EndBlock)
-								break;
-						}
-						info = null;
-					}
-					if (info == null)
-						return block.CharacterId;
-				}
-
-				return (AllOverriddenVersesInChapterAreExplictlyAssignedToImplicitSpeaker(info, block.ChapterNumber)) ?
-					block.CharacterId : info.Character;
-			}
-			return block.CharacterId;
+			if (m_narratorOverrides == null)
+				PopulateEffectiveNarratorOverrides();
+			return m_narratorOverrides.TryGetValue(block, out string characterOverride) ?
+				characterOverride : block.CharacterId;
 		}
 
-		private bool AllOverriddenVersesInChapterAreExplictlyAssignedToImplicitSpeaker(NarratorOverrides.NarratorOverrideDetail info, int chapter)
+		private void AddOverrideInfo(NarratorOverrides.NarratorOverrideDetail info)
 		{
-			var firstVerse = info.StartChapter == chapter ? info.StartVerse : 1;
-			int lastVerse;
-			if (info.EndChapter == chapter)
-			{
-				lastVerse = info.EndVerse;
-				if (Versification != ScrVers.English)
-				{
-					var verseRef = new VerseRef(BookNumber, chapter, lastVerse, ScrVers.English);
-					verseRef.ChangeVersification(Versification);
-					lastVerse = (verseRef.ChapterNum == chapter) ? verseRef.VerseNum : Versification.GetLastVerse(BookNumber, chapter);
-				}
-			}
-			else
-				lastVerse = Versification.GetLastVerse(BookNumber, chapter);
-			int iBlock = GetIndexOfFirstBlockForVerse(chapter, firstVerse);
-			if (info.StartBlock > 1)
-			{
-				// Skip ahead to get to correct start block.
-				for (int i = 1; i < info.StartBlock; i++)
-					if (m_blocks[++iBlock].InitialStartVerseNumber != firstVerse)
-						break;
-			}
+			if (BookId == "PSA" && info.StartChapter == 82 && info.StartVerse == 1)
+				Debug.WriteLine("Hi");
+			var firstChapter = info.StartChapter;
+			int iBlock = GetIndexOfFirstBlockForVerse(firstChapter, info.StartVerse);
+			while (iBlock == -1 && ++firstChapter <= info.EndChapter)
+				iBlock = GetIndexOfFirstBlockForVerse(firstChapter, 1);
 			if (iBlock == -1)
-				throw new ArgumentException("There are no blocks for the specified chapter!", nameof(chapter));
+				return; // No existing blocks are covered by this override
 
-			do
+			if (info.StartBlock > 1 && m_blocks[iBlock].ChapterNumber == info.StartChapter)
 			{
-				firstVerse = m_blocks[iBlock].InitialStartVerseNumber;
-				var blocksForVerse = m_blocks.Skip(iBlock).TakeWhile(b => b.InitialStartVerseNumber == firstVerse).ToList();
-				if (blocksForVerse.All(b => b.CharacterId == NarratorCharacterId))
+				var lastVerseNumInBlock = m_blocks[iBlock].LastVerseNum;
+				if (lastVerseNumInBlock == info.StartVerse || (lastVerseNumInBlock < info.StartVerse && lastVerseNumInBlock >= info.StartVerse))
 				{
-					if (m_blocks[iBlock].StartsAtVerseStart)
-						return false;
-					for (int iPrev = 0; iBlock - iPrev >= 0; iPrev++)
+					// Skip ahead to get to correct start block.
+					for (int i = 1; i < info.StartBlock; i++)
 					{
-						if (m_blocks[iBlock - iPrev].IsScripture && m_blocks[iBlock - iPrev].CharacterId == NarratorCharacterId)
-							return false;
+						var block = m_blocks[++iBlock];
+						if (!block.IsScripture)
+						{
+							// Unlikely, but if this happens, we don't want to count it as one of the blocks to skip.
+							i--;
+							continue;
+						}
+						if (block.InitialStartVerseNumber > info.StartVerse && block.InitialEndVerseNumber > info.StartVerse)
+							break;
 					}
 				}
-				iBlock += blocksForVerse.Count;
-				var lastBlockInGroup = blocksForVerse.Last();
-				if (lastBlockInGroup.CharacterId != NarratorCharacterId)
+			}
+
+			bool applyOverride = false;
+			var narratorBlocksInRange = new List<Block>();
+			int blocksFoundAtEndVerse = 0;
+			int currentLastVerseNum = -1;
+			bool currentVerseBlocksAllNarrator = false;
+
+			for (int i = iBlock; i < m_blockCount; i++)
+			{
+				var block = m_blocks[i];
+
+				if (block.ChapterNumber > info.EndChapter)
+					break;
+				if (block.ChapterNumber == info.EndChapter)
+				{
+					var lastVerseNum = block.LastVerseNum;
+					if (lastVerseNum > info.EndVerse)
+						break;
+					if (lastVerseNum == info.EndVerse)
+					{
+						blocksFoundAtEndVerse++;
+						if (info.EndBlock > 0 && blocksFoundAtEndVerse > info.EndBlock)
+							break;
+					}
+				}
+
+				if (block.CharacterId == NarratorCharacterId)
+					narratorBlocksInRange.Add(block);
+				else
+				{
+					if (!applyOverride)
+					{
+						currentLastVerseNum = block.LastVerseNum;
+						currentVerseBlocksAllNarrator = false;
+					}
 					continue;
-				var lastVerseNumInLastBlockInGroup = lastBlockInGroup.LastVerseNum;
-				if (lastVerseNumInLastBlockInGroup > lastVerse || (lastVerseNumInLastBlockInGroup == lastVerse && // TODO: Deal with info.EndBlock > 0
-					(iBlock == m_blocks.Count || m_blocks[iBlock].StartsAtVerseStart)))
-					return false; // There's at least one whole verse in the range that is assigned to narrator.
-			} while (iBlock < m_blocks.Count && m_blocks[iBlock].ChapterNumber == chapter && m_blocks[iBlock].LastVerseNum <= lastVerse);
-			return true;
+				}
+				if (applyOverride)
+					continue;
+
+				if (currentLastVerseNum != block.LastVerseNum)
+				{
+					if (currentVerseBlocksAllNarrator || (currentLastVerseNum == -1 && block.BlockElements.Skip(1).OfType<Verse>().Any()))
+					{
+						applyOverride = true;
+						continue;
+					}
+					currentLastVerseNum = block.LastVerseNum;
+					currentVerseBlocksAllNarrator = true;
+				}
+
+				if (block.BlockElements.OfType<Verse>().Count() >= 2)
+					applyOverride = true;
+			}
+			applyOverride |= currentVerseBlocksAllNarrator;
+			//	if (lastVerseNumInLastBlockInGroup > lastVerse || (lastVerseNumInLastBlockInGroup == lastVerse && // TODO: Deal with info.EndBlock > 1
+			//		(iBlock == m_blocks.Count || m_blocks[iBlock].StartsAtVerseStart)))
+			//	{
+			//		// There's at least one whole verse in the range that is assigned to narrator.
+			//		applyOverride = true;
+			//	}
+			//} while (iBlock < m_blocks.Count && m_blocks[iBlock].ChapterNumber < info.EndChapter ||
+			//	(m_blocks[iBlock].ChapterNumber == info.EndChapter && m_blocks[iBlock].LastVerseNum <= info.EndVerse));
+			if (applyOverride)
+				m_narratorOverrides.AddRange(narratorBlocksInRange.Select(b => new KeyValuePair<Block, string>(b, info.Character)));
 		}
 
 		public string GetVerseText(int chapter, int verse)
@@ -339,6 +346,7 @@ namespace Glyssen
 		private void OnBlocksReset()
 		{
 			m_chapterStartBlockIndices = new Dictionary<int, int>();
+			m_narratorOverrides = null;
 			m_blockCount = m_blocks.Count;
 		}
 
@@ -472,6 +480,14 @@ namespace Glyssen
 			else if (m_blockCount != m_blocks.Count)
 				throw new InvalidOperationException(
 					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
+		}
+
+		private void PopulateEffectiveNarratorOverrides()
+		{
+			m_narratorOverrides = new Dictionary<Block, string>();
+
+			foreach (var info in NarratorOverrides.GetNarratorOverridesForBook(BookId, Versification))
+				AddOverrideInfo(info);
 		}
 
 		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null)

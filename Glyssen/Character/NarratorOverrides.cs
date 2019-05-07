@@ -34,9 +34,15 @@ namespace Glyssen.Character
 			}
 		}
 
-		public static List<NarratorOverrideDetail> GetNarratorOverridesForBook(string bookId)
+		public static IEnumerable<NarratorOverrideDetail> GetNarratorOverridesForBook(string bookId, ScrVers targetVersification = null)
 		{
-			return Singleton.m_dictionary.TryGetValue(bookId, out List<NarratorOverrideDetail> details) ? details : null;
+			if (!Singleton.m_dictionary.TryGetValue(bookId, out List<NarratorOverrideDetail> details))
+				return null;
+			if (targetVersification == null || targetVersification == ScrVers.English)
+				return details;
+
+			var bookNum = BCVRef.BookToNumber(bookId);
+			return details.Select(t => t.WithVersification(bookNum, targetVersification));
 		}
 
 		/// <summary>
@@ -152,6 +158,20 @@ namespace Glyssen.Character
 			public override string ToString()
 			{
 				return $"{StartChapter}:{StartVerse}{StartBlockAsSegmentLetter()}-{(EndChapter == StartChapter ? null : EndChapter + ":")}{EndVerse}, {Character}";
+			}
+
+			public NarratorOverrideDetail WithVersification(int bookNum, ScrVers targetVersification)
+			{
+				var clone = (NarratorOverrideDetail)MemberwiseClone();
+				var startRef = new VerseRef(bookNum, StartChapter, StartVerse, ScrVers.English);
+				startRef.ChangeVersification(targetVersification);
+				var endRef = new VerseRef(bookNum, EndChapter, EndVerse, ScrVers.English);
+				endRef.ChangeVersification(targetVersification);
+				clone.StartChapter = startRef.ChapterNum;
+				clone.StartVerse = startRef.VerseNum;
+				clone.EndChapter = endRef.ChapterNum;
+				clone.EndVerse = endRef.VerseNum;
+				return clone;
 			}
 		}
 	}

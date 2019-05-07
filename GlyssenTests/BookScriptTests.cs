@@ -679,7 +679,7 @@ namespace GlyssenTests
 			var blocks = new List<Block>
 			{
 				NewChapterBlock(2, "NEH"),
-				new Block("p", 2, 2) {CharacterId = "Artaxerxes, king of Persia"}.AddText("«What's wrong? This is sorrow of heart.»"),
+				new Block("p", 2, 2) {CharacterId = "Artaxerxes, king of Persia"}.AddVerse(2, "«What's wrong? This is sorrow of heart.»"),
 				new Block("p", 2, 2) {CharacterId = narrator}.AddText("So I freaked.").AddVerse(3, "I replied:"),
 				new Block("p", 2, 3) {CharacterId = "Nehemiah"}.AddText("«Don't die! Why shouldn't I be sad, when my fathers' city is a hot mess?»"),
 				new Block("p", 2, 4) {CharacterId = narrator}.AddVerse(4, "So the king's like,"),
@@ -803,8 +803,9 @@ namespace GlyssenTests
 			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[6]));
 		}
 
-		[Test]
-		public void GetCharacterIdInScript_OverrideRangeEndsInBlock1OfVerse_AllVersesHaveExplicitAssignment_NoOverrideApplied()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetCharacterIdInScript_OverrideRangeEndsInBlock1OfVerse_AllVersesHaveExplicitAssignment_NoOverrideApplied(bool extraWeirdSectionHead)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.Narrator);
 			var blocks = new List<Block>
@@ -817,15 +818,28 @@ namespace GlyssenTests
 				new Block("p", 2, 17) {CharacterId = "God"}.AddVerse(17).AddVerse(18).AddVerse(19),
 				new Block("p", 2, 19) {CharacterId = narrator}.AddText("Part II of v. 19")
 			};
+			if (extraWeirdSectionHead)
+			{
+				blocks.Insert(2, new Block("s", 2, 10)
+					{ CharacterId = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.ExtraBiblical)}
+					.AddText("Why is there a section head here?"));
+			}
+
+			int i = 0;
 			var bookOfHabakkuk = new BookScript("HAB", blocks, ScrVers.English);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.BookOrChapter),
-				bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[0]));
-			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[1]));
-			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[2]));
-			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[3]));
-			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[4]));
-			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[5]));
-			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[6]));
+				bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			if (extraWeirdSectionHead)
+			{
+				Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			}
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
 		}
 
 		[Test]
