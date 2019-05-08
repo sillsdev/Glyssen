@@ -37,7 +37,7 @@ namespace Glyssen.Character
 		public static IEnumerable<NarratorOverrideDetail> GetNarratorOverridesForBook(string bookId, ScrVers targetVersification = null)
 		{
 			if (!Singleton.m_dictionary.TryGetValue(bookId, out List<NarratorOverrideDetail> details))
-				return null;
+				return new NarratorOverrideDetail[0];
 			if (targetVersification == null || targetVersification == ScrVers.English)
 				return details;
 
@@ -65,7 +65,7 @@ namespace Glyssen.Character
 			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out endChapter))
 				return null;
 
-			return GetNarratorOverridesForBook(startRef.Book)?.Where(o =>
+			return GetNarratorOverridesForBook(startRef.Book).Where(o =>
 				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
 				(o.EndChapter > endChapter || (o.EndChapter == endChapter && o.EndVerse >= endVerse)));
 		}

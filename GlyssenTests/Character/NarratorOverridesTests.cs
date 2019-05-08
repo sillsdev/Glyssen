@@ -15,10 +15,10 @@ namespace GlyssenTests.Character
 	class NarratorOverridesTests
 	{
 		[Test]
-		public void GetCharacterOverrideDetailsForRefRange_BookWithNoOverrides_ReturnsEmpty()
+		public void GetCharacterOverrideDetailsForRefRange_BookWithNoOverrides_ReturnsNull()
 		{
 			var genesis1_1 = new VerseRef(001001001, ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1).Any());
+			Assert.IsNull(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1));
 		}
 
 		[Test]
@@ -94,7 +94,7 @@ namespace GlyssenTests.Character
 
 		[TestCase("PSA", 31, 1, -1, ExpectedResult = "David")]
 		[TestCase("EZR", 8, 1, -1, ExpectedResult = "Ezra, priest and teacher")]
-		[TestCase("NEH", 12, 30, 42, ExpectedResult = "Nehemiah")]
+		[TestCase("NEH", 12, 31, 42, ExpectedResult = "Nehemiah")]
 		public string GetCharacterOverrideDetailsForRefRange_RangeWithinOverride_ReturnsCorrectOverrideCharacter(string bookId, int chapter, int startVerse, int endVerse)
 		{
 			var bookNum = BCVRef.BookToNumber(bookId);
@@ -114,11 +114,11 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void GetCharacterOverrideDetailsForRefRange_RangeStartsInVerseZeroInMultiChapterOverride_ReturnsEmpty()
+		public void GetCharacterOverrideDetailsForRefRange_RangeStartsInVerseZeroInMultiChapterOverride_ReturnsNull()
 		{
 			var bookNum = BCVRef.BookToNumber("PSA");
 			var verseRef = new VerseRef(new BCVRef(bookNum, 45, 0), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2).Any());
+			Assert.IsNull(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2));
 		}
 
 		[Test]
