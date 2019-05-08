@@ -263,7 +263,8 @@ namespace Glyssen
 					}
 				}
 
-				if (block.CharacterId == NarratorCharacterId)
+				// A block at verse 0 (in the Psalms) is a Hebrew Title line. We do not support overriding those.
+				if (block.InitialStartVerseNumber > 0 && block.CharacterId == NarratorCharacterId)
 					narratorBlocksInRange.Add(block);
 				else
 				{
