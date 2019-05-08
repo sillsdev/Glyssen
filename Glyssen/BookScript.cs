@@ -210,8 +210,6 @@ namespace Glyssen
 
 		private void AddOverrideInfo(NarratorOverrides.NarratorOverrideDetail info)
 		{
-			if (BookId == "PSA" && info.StartChapter == 82 && info.StartVerse == 1)
-				Debug.WriteLine("Hi");
 			var firstChapter = info.StartChapter;
 			int iBlock = GetIndexOfFirstBlockForVerse(firstChapter, info.StartVerse);
 			while (iBlock == -1 && ++firstChapter <= info.EndChapter)
@@ -294,14 +292,6 @@ namespace Glyssen
 					applyOverride = true;
 			}
 			applyOverride |= currentVerseBlocksAllNarrator;
-			//	if (lastVerseNumInLastBlockInGroup > lastVerse || (lastVerseNumInLastBlockInGroup == lastVerse && // TODO: Deal with info.EndBlock > 1
-			//		(iBlock == m_blocks.Count || m_blocks[iBlock].StartsAtVerseStart)))
-			//	{
-			//		// There's at least one whole verse in the range that is assigned to narrator.
-			//		applyOverride = true;
-			//	}
-			//} while (iBlock < m_blocks.Count && m_blocks[iBlock].ChapterNumber < info.EndChapter ||
-			//	(m_blocks[iBlock].ChapterNumber == info.EndChapter && m_blocks[iBlock].LastVerseNum <= info.EndVerse));
 			if (applyOverride)
 				m_narratorOverrides.AddRange(narratorBlocksInRange.Select(b => new KeyValuePair<Block, string>(b, info.Character)));
 		}

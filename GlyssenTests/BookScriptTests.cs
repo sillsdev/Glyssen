@@ -732,8 +732,9 @@ namespace GlyssenTests
 			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[8]));
 		}
 
-		[Test]
-		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerseWhichIsWhollyAssignedToNarrator_GetsOverrideCharacterButNotForBlock1()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerseWhichIsWhollyAssignedToNarrator_GetsOverrideCharacterButNotForBlock1(bool extraWeirdSectionHead)
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
 			var blocks = new List<Block>
@@ -747,14 +748,26 @@ namespace GlyssenTests
 				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»")
 
 			};
+			if (extraWeirdSectionHead)
+			{
+				blocks.Insert(2, new Block("s", 2, 10)
+						{ CharacterId = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.ExtraBiblical) }
+					.AddText("Why is there a section head here?"));
+			}
+			int i = 0;
 			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.BookOrChapter),
-				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[0]));
-			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[1]));
-			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[2]));
-			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[3]));
-			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[4]));
-			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[5]));
+				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			if (extraWeirdSectionHead)
+			{
+				Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			}
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
 		}
 
 		[Test]
@@ -776,6 +789,23 @@ namespace GlyssenTests
 			Assert.AreEqual("Habakkuk", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[1]));
 			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[2]));
 			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[3]));
+		}
+
+		[TestCase("Agur")]
+		[TestCase("Some other character that can't really happen")]
+		public void GetCharacterIdInScript_BlockHasCharacterIdInScriptSet_GetsExistingOverrideCharacter(string overrideCharacter)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(30, "PRO"),
+				new Block("p", 30, 8) {CharacterId = narrator, CharacterIdOverrideForScript = overrideCharacter}
+					.AddVerse(1, "Don't let me lie or steal or do something stupid."),
+			};
+			var bookOfProverbs = new BookScript("PRO", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfProverbs.GetCharacterIdInScript(bookOfProverbs.GetScriptBlocks()[0]));
+			Assert.AreEqual(overrideCharacter, bookOfProverbs.GetCharacterIdInScript(bookOfProverbs.GetScriptBlocks()[1]));
 		}
 
 		[Test]
@@ -866,6 +896,40 @@ namespace GlyssenTests
 			Assert.AreEqual("God", testBook.GetCharacterIdInScript(testBook[iBlockFor2_2 + 1]));
 			Assert.AreEqual("God", testBook.GetCharacterIdInScript(testBook[iBlockFor2_19]));
 			Assert.AreEqual(testBook.NarratorCharacterId, testBook.GetCharacterIdInScript(testBook[iBlockFor2_19 + 1]));
+		}
+
+		[Test]
+		public void GetScriptBlocks_JoiningAndApplyingNarratorOverrides_AdjacentSentencesInSameParagraphAndVerse_BlocksCombinedWithOverrideCharacter()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "NEH"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse(1, "The writings of Nehemiah bar Hacaliah:"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was the month Chislev, in the twentieth year of King Arty;"),
+				new Block("q", 1, 1) {CharacterId = narrator}.AddText("I was in Shushan the palace, when along came"),
+				new Block("p", 1, 2) {CharacterId = narrator}.AddVerse(2, "Hanani, one of my brothers. I asked him,"),
+				new Block("q", 1, 2) {CharacterId = "Nehemiah"}.AddText("«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "He said,"),
+				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»"),
+				new Block("p", 1, 4) {CharacterId = narrator}.AddVerse(4, "When I got the news, I cried for days on end, fasting and praying."),
+
+			};
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+
+			var result = bookOfNehemiah.GetCloneWithJoinedBlocks(true).GetScriptBlocks();
+			Assert.AreEqual(7, result.Count);
+
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.BookOrChapter), result[0].CharacterIdInScript);
+			Assert.AreEqual(narrator, result[1].CharacterIdInScript);
+			Assert.AreEqual("Nehemiah", result[2].CharacterIdInScript);
+			Assert.AreEqual("It was the month Chislev, in the twentieth year of King Arty; I was in Shushan the palace, when along came", result[2].GetText(true));
+			Assert.AreEqual("Nehemiah", result[3].CharacterIdInScript);
+			Assert.AreEqual("{2}\u00A0Hanani, one of my brothers. I asked him, «How are the Jews who avoided capture in Jerusalem?»", result[3].GetText(true));
+			Assert.AreEqual("Nehemiah", result[4].CharacterIdInScript);
+			Assert.AreEqual("{3}\u00A0He said,", result[4].GetText(true));
+			Assert.AreEqual("Hanani", result[5].CharacterIdInScript);
+			Assert.AreEqual("Nehemiah", result[6].CharacterIdInScript);
 		}
 
 		[TestCase(".", "p", "{1} This is not empty.", " ", "{1}\u00A0This is not empty.")]

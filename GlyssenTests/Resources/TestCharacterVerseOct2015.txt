@@ -7596,6 +7596,13 @@ PSA	137	3	captors, our			Normal
 PSA	137	7	Edomites			Normal		
 PSA	138	1	narrator-PSA			Normal		
 PSA	141	7	wicked, the			Hypothetical		
+PRO	30	1	Agur			Potential		
+PRO	30	2	Agur			Potential		
+PRO	30	8	narrator-PRO			Quotation	Agur	
+PRO	30	9	narrator-PRO			Quotation	Agur	
+PRO	30	15	narrator-PRO			Quotation	Agur	
+PRO	30	16	narrator-PRO			Quotation	Agur	
+PRO	30	20	immoral woman			Hypothetical		
 ECC	1	2	teacher (Preacher)			Normal		
 ECC	1	10	someone			Normal		
 ECC	1	16	teacher (Preacher)			Normal		

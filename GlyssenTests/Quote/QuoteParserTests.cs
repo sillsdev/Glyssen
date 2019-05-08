@@ -5614,7 +5614,7 @@ namespace GlyssenTests.Quote
 		}
 		#endregion
 		
-		// Test for PG40
+		// Test for PG-40
 		[Test]
 		public void Parse_NoQuotationMarksInPassageWithImplicitQuotes_ImplicitCharacterInfoSet()
 		{
