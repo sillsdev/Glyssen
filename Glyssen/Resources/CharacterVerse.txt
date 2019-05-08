@@ -1,7 +1,6 @@
 Control File Version	141
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
-# PSA will be handled as complete units, each psalm will be spoken by one voice								
 # SNG we will need to review again								
 # ISA more review necessary on who is speaking: God or the Isaiah								
 # JER possibly no markup of this book... will need to review								
@@ -1852,10 +1851,10 @@ LEV	8	2	God		God (the LORD)	Implicit
 LEV	8	3	God		God (the LORD)	Implicit		
 LEV	8	5	Moses			Normal		
 LEV	8	31	Moses			Normal		
-LEV	8	32	Moses			Normal		
-LEV	8	33	Moses			Normal		
-LEV	8	34	Moses			Normal		
-LEV	8	35	Moses			Normal		
+LEV	8	32	Moses			Implicit		
+LEV	8	33	Moses			Implicit		
+LEV	8	34	Moses			Implicit		
+LEV	8	35	Moses			Implicit		
 LEV	9	2	Moses			Normal		
 LEV	9	3	Moses			Normal		
 LEV	9	4	Moses			Normal		

@@ -5613,8 +5613,8 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?", output[4].GetText(true));
 		}
 		#endregion
-		
-		// Test for PG-40
+
+		#region Tests for PG-40
 		[Test]
 		public void Parse_NoQuotationMarksInPassageWithImplicitQuotes_ImplicitCharacterInfoSet()
 		{
@@ -5643,19 +5643,19 @@ namespace GlyssenTests.Quote
 
 			block = output[i++];
 			Assert.AreEqual("{29}\u00A0Release your servant in peace now, Lord, according to your promise;", block.GetText(true));
-			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+			Assert.AreEqual("Simeon, devout man in Jerusalem", block.CharacterId);
 
 			block = output[i++];
 			Assert.AreEqual("{30}\u00A0for I have seen you come to the rescue,", block.GetText(true));
-			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+			Assert.AreEqual("Simeon, devout man in Jerusalem", block.CharacterId);
 
 			block = output[i++];
 			Assert.AreEqual("{31}\u00A0according to your plan, before all peoples;", block.GetText(true));
-			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+			Assert.AreEqual("Simeon, devout man in Jerusalem", block.CharacterId);
 
 			block = output[i++];
 			Assert.AreEqual("{32}\u00A0a brilliance to make the nations see, and the shekinah of your people Israel.", block.GetText(true));
-			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+			Assert.AreEqual("Simeon, devout man in Jerusalem", block.CharacterId);
 
 			block = output[i++];
 			Assert.AreEqual("{33}\u00A0Joseph and his mom were wowed by the things spoken concerning the boy; " +
@@ -5665,12 +5665,106 @@ namespace GlyssenTests.Quote
 			block = output[i++];
 			Assert.AreEqual("“Get ready for some ups and downs in Israel because of this child. People are going to criticize him. " +
 				"{35}\u00A0Additionally, a sword will puncture your soul, so the thoughts of many hearts can be shown.”", block.GetText(true));
-			Assert.AreEqual("Simeon, devout man in Jerusalem	", block.CharacterId);
+			Assert.AreEqual("Simeon, devout man in Jerusalem", block.CharacterId);
 
 			block = output[i++];
 			Assert.AreEqual("{36}\u00A0There was a prophetess named Anna (she was old, having been married 7 years " +
 				"{37}\u00A0and then surviving as a widow for 84 more), who didn’t leave the temple, where she worshipped with fasting and prayer.", block.GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
+
+		[Test]
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithMultipleLeadingAndSingleTrailingNarratorVerse_ImplicitCharacterInfoNotSet()
+		{
+			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
+			var block1 = new Block("p", 8, 30) { IsParagraphStart = true }.AddVerse(30, "Moses sprinkled the men with oil.")
+				.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.")
+				.AddVerse(32, "Burn the leftovers.").AddVerse(33, "Stay seven days until you are consecrated.")
+				.AddVerse(34, "This is how the Lord will make atomnement.").AddVerse(35, "Staying there night and day will keep you from dying.")
+				.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> { chapter, block1 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.Fail("Write this test based on PG-40 decision");
+		}
+
+		[Test]
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithLeadingAndTrailingNarratorVerses_ImplicitCharacterInfoNotSet()
+		{
+			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
+			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.")
+				.AddVerse(32, "Burn the leftovers.").AddVerse(33, "Stay seven days until you are consecrated.")
+				.AddVerse(34, "This is how the Lord will make atomnement.").AddVerse(35, "Staying there night and day will keep you from dying.")
+				.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> { chapter, block1 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.Fail("Write this test based on PG-40 decision");
+		}
+
+		[Test]
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SpechBrokenOutAsSeparateParagraph_ImplicitCharacterInfoSet()
+		{
+			var chapter = new Block("c", 8) {CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter)}.AddText("8");
+			var block1 = new Block("p", 8, 31) {IsParagraphStart = true}.AddVerse(31, "And Moses told Aaron and sons,");
+			var block2 = new Block("p", 8, 31) {IsParagraphStart = true}.AddText("Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.")
+				.AddVerse(32, "Burn the leftovers.").AddVerse(33, "Stay seven days until you are consecrated.")
+				.AddVerse(34, "This is how the Lord will make atomnement.").AddVerse(35, "Staying there night and day will keep you from dying.");
+			var block3 = new Block("q1", 8, 36) {IsParagraphStart = true}.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> {chapter, block1, block2, block3 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.Fail("Write this test based on PG-40 decision");
+		}
+
+		[Test]
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_OneVersePerParagraph_ImplicitCharacterInfoSet()
+		{
+			var chapter = new Block("c", 8) {CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter)}.AddText("8");
+			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.");
+			var block2 = new Block("q1", 8, 32) { IsParagraphStart = true }.AddVerse(32, "Burn the leftovers.");
+			var block3 = new Block("q2", 8, 33) { IsParagraphStart = true }.AddVerse(33, "Stay seven days until you are consecrated.");
+			var block4 = new Block("q1", 8, 34) { IsParagraphStart = true }.AddVerse(34, "This is how the Lord will make atomnement.");
+			var block5 = new Block("q2", 8, 35) { IsParagraphStart = true }.AddVerse(35, "Staying there night and day will keep you from dying.");
+			var block6 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> { chapter, block1, block2, block3, block4, block5, block6 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.AreEqual(input.Count, output.Count);
+
+			int i = 1;
+			var block = output[i++];
+			Assert.AreEqual("{31}\u00A0And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			block = output[i++];
+			Assert.AreEqual("{32}\u00A0Burn the leftovers.", block.GetText(true));
+			Assert.AreEqual("Moses", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{33}\u00A0Stay seven days until you are consecrated.", block.GetText(true));
+			Assert.AreEqual("Moses", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{34}\u00A0This is how the Lord will make atomnement.", block.GetText(true));
+			Assert.AreEqual("Moses", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{35}\u00A0Staying there night and day will keep you from dying.", block.GetText(true));
+			Assert.AreEqual("Moses", block.CharacterId);
+
+			block = output[i++];
+			Assert.AreEqual("{36}\u00A0So that's what Aaron and the boys did.", block.GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+		#endregion PG-40
 	}
 }

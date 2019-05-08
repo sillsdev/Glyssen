@@ -476,7 +476,13 @@ namespace Glyssen.Quote
 				// In case the last set of blocks were a multi-block quote
 				ProcessMultiBlock();
 			}
+			SetImplicitCharacters();
 			return m_outputBlocks;
+		}
+
+		private void SetImplicitCharacters()
+		{
+			// TODO (PG-40): Implement
 		}
 
 		private bool AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(string content, int pos)

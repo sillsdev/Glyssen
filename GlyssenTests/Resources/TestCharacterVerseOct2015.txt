@@ -1837,10 +1837,10 @@ LEV	8	2	God		God (the LORD)	Normal
 LEV	8	3	God		God (the LORD)	Normal		
 LEV	8	5	Moses			Normal		
 LEV	8	31	Moses			Normal		
-LEV	8	32	Moses			Normal		
-LEV	8	33	Moses			Normal		
-LEV	8	34	Moses			Normal		
-LEV	8	35	Moses			Normal		
+LEV	8	32	Moses			Implicit		
+LEV	8	33	Moses			Implicit		
+LEV	8	34	Moses			Implicit		
+LEV	8	35	Moses			Implicit		
 LEV	9	2	Moses			Normal		
 LEV	9	3	Moses			Normal		
 LEV	9	4	Moses			Normal		
