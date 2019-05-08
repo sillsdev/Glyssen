@@ -15,10 +15,10 @@ namespace GlyssenTests.Character
 	class NarratorOverridesTests
 	{
 		[Test]
-		public void GetCharacterOverrideDetailsForRefRange_BookWithNoOverrides_ReturnsNull()
+		public void GetCharacterOverrideDetailsForRefRange_BookWithNoOverrides_ReturnsEmpty()
 		{
 			var genesis1_1 = new VerseRef(001001001, ScrVers.English);
-			Assert.IsNull(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1));
+			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(genesis1_1, 1).Any());
 		}
 
 		[Test]
