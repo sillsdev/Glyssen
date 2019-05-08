@@ -737,8 +737,6 @@ news giver to Joseph	1	Male				GEN 48:1	False
 news to Pharoah's palace	1					GEN 45:16	False
 Nicodemus	1	Male				JHN 3:2 <-(2 more)-> JHN 7:51	False
 Nineveh	-1	Female			The text personifies the city using female pronouns	NAM 2:8 & ZEP 2:15	False
-no one	1					ACT 4:32 & JAS 1:13	True
-no one speaking by the Holy Spirit	1					1CO 12:3	True
 Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27	False
 nobles and officials (Jewish)	-1	Male				NEH 5:12	False
 non-reader	1					ISA 29:12	False
@@ -774,7 +772,6 @@ one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7	True
 one who looked like a man	1	Male				DAN 10:11 <-(54 more)-> DAN 12:4	False
 one with garments stained crimson (Christ?)	1	Male			Default character should be Jesus	ISA 63:1 <-(3 more)-> ISA 63:6	False
 onlookers	-1					ISA 14:16 & ISA 14:17	True
-only someone speaking by the Holy Spirit	1					1CO 12:3	True
 oppressors of poor	-1					AMO 8:5 & AMO 8:6	True
 Orpah	1	Female					False
 other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49	False
