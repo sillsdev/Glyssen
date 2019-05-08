@@ -121,6 +121,8 @@ namespace Glyssen.Character
 			if (lineNumber == 0)
 				return null;
 
+			// Going back to having hypothetical characters show in the list, but not get assigned unless
+			// used in the reference text.
 			// In an ideal world, we would probably like to keep "hypothetical-only" characters
 			// around so we can show them in the add character lists.
 			// But
@@ -128,9 +130,7 @@ namespace Glyssen.Character
 			// 2) I'm currently just trying to fix a crash which occurs when the user adds a
 			//    "hypothetical-only" character (PG-1104). And it doesn't feel worth it to go
 			//    for the ideal world quite yet.
-			var hypotheticalOnly = items.Length >= 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase);
-			if (ControlCharacterVerseData.ReadHypotheticalAsNarrator && hypotheticalOnly)
-				return null;
+			//var hypotheticalOnly = items.Length >= 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase);
 
 			CharacterGender gender;
 			if (!Enum.TryParse(items[2], false, out gender))

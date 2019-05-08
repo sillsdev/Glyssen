@@ -10,24 +10,24 @@ namespace Glyssen.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{
-		// This is only here (for the moment) for ControlDataIntegrityTests to be able to validate the actual
-		// control file independent of how we want to read out the data.
-		public static bool ReadHypotheticalAsNarrator
-		{
-			get => s_readHypotheticalAsNarrator;
-			set
-			{
-				if (value == s_readHypotheticalAsNarrator)
-					return;
+		//// This is only here (for the moment) for ControlDataIntegrityTests to be able to validate the actual
+		//// control file independent of how we want to read out the data.
+		//public static bool ReadHypotheticalAsNarrator
+		//{
+		//	get => s_readHypotheticalAsNarrator;
+			//set
+			//{
+			//	if (value == s_readHypotheticalAsNarrator)
+			//		return;
 
-				if (Program.IsRunning)
-					throw new InvalidOperationException();
-				s_readHypotheticalAsNarrator = value;
-				s_singleton = null;
-			}
-		}
+			//	if (Program.IsRunning)
+			//		throw new InvalidOperationException();
+			//	s_readHypotheticalAsNarrator = value;
+			//	s_singleton = null;
+			//}
+		//}
 
-		private static bool s_readHypotheticalAsNarrator = true;
+		//private static bool s_readHypotheticalAsNarrator = true;
 
 		private static ControlCharacterVerseData s_singleton;
 		private static string s_tabDelimitedCharacterVerseData;
@@ -128,15 +128,15 @@ namespace Glyssen.Character
 			var defaultCharacter = (items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null;
 			var parallelPassageInfo = (items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null;
 
-			if (ReadHypotheticalAsNarrator && quoteType == QuoteType.Hypothetical)
-			{
-				characterId = GetStandardCharacterId(BCVRef.NumberToBookCode(bcvRef.Book), StandardCharacter.Narrator);
-				delivery = string.Empty;
-				alias = string.Empty;
-				quoteType = QuoteType.Quotation;
-				defaultCharacter = string.Empty;
-				parallelPassageInfo = string.Empty;
-			}
+			//if (ReadHypotheticalAsNarrator && quoteType == QuoteType.Hypothetical)
+			//{
+			//	characterId = GetStandardCharacterId(BCVRef.NumberToBookCode(bcvRef.Book), StandardCharacter.Narrator);
+			//	delivery = string.Empty;
+			//	alias = string.Empty;
+			//	quoteType = QuoteType.Quotation;
+			//	defaultCharacter = string.Empty;
+			//	parallelPassageInfo = string.Empty;
+			//}
 			return new CharacterVerse(bcvRef, characterId, delivery, alias, false, quoteType, defaultCharacter, parallelPassageInfo);
 		}
 

@@ -14,7 +14,7 @@ namespace DevTools
 			Console.WriteLine("1) Use Paratext key terms to attempt localization of character IDs");
 			Console.WriteLine("2) Remove verse bridges from control file (currently removes comments)");
 			Console.WriteLine("3) Generate comparison file against FCBH template");
-			Console.WriteLine("4) Update CharacterDetail file (make references and hypothetical-only correspond to CharacterVerse file)");
+			Console.WriteLine("4) Update CharacterDetail file (make references correspond to CharacterVerse file)");
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using SIL.Scripture;
+using static System.String;
 
 namespace DevTools
 {
@@ -24,11 +25,15 @@ namespace DevTools
 
 		private static void PopulateReferences(List<CharacterDetailLine> lines)
 		{
-			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
-			Dictionary<string, List<BCVRef>> dictionaryWithHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
-			ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
-			Dictionary<string, List<BCVRef>> dictionaryWithoutHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
-			Dictionary<string, List<BCVRef>> dictionaryOfDefaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.DefaultCharacter).ToDictionary(dc => dc.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			//ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+			Dictionary<string, List<BCVRef>> dictionaryWithHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().SelectMany(cv =>
+				{
+					return cv.Character.Split('/').Select(c => new Tuple<string, Glyssen.Character.CharacterVerse>(c, cv));
+				})
+				.GroupBy(t => t.Item1, t => t.Item2).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			//ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
+			//Dictionary<string, List<BCVRef>> dictionaryWithoutHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			//Dictionary<string, List<BCVRef>> dictionaryOfDefaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.DefaultCharacter).ToDictionary(dc => dc.Key, cv => cv.Select(c => c.BcvRef).ToList());
 
 			foreach (var line in lines)
 			{
@@ -49,38 +54,35 @@ namespace DevTools
 							break;
 					}
 
-					if (!dictionaryWithoutHypotheticals.TryGetValue(line.CharacterId, out bcvRefs) &&
-					    !dictionaryOfDefaultCharacters.TryGetValue(line.CharacterId, out bcvRefs))
-					{
-						line.HypotheticalOnly = true;
-					}
+					//if (!dictionaryWithoutHypotheticals.TryGetValue(line.CharacterId, out bcvRefs) &&
+					//    !dictionaryOfDefaultCharacters.TryGetValue(line.CharacterId, out bcvRefs))
+					//{
+					//	line.HypotheticalOnly = true;
+					//}
 				}
 			}
 		}
 
 		private static string Stringify(List<CharacterDetailLine> lines)
 		{
-			StringBuilder sb = new StringBuilder();
-			foreach (var line in lines)
-				sb.Append(GetNewLine(line)).Append(Environment.NewLine);
-			return sb.ToString();
+			return Join(Environment.NewLine, lines.Select(GetNewLine));
 		}
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
 			// Just making sure...
-			if (s_findTabsRegex.Matches(line.CurrentLine).Count != 7)
+			if (s_findTabsRegex.Matches(line.CurrentLine).Count != 6)
 				throw new ArgumentException();
 
-			var match = Regex.Match(line.CurrentLine, @"\t[^\t]*\t", RegexOptions.RightToLeft);
+			var match = Regex.Match(line.CurrentLine, @"\t[^\t]*", RegexOptions.RightToLeft);
 			var lineWithReferenceComment = line.CurrentLine.Substring(0, match.Index + 1) + line.ReferenceComment;
-
-			return $"{lineWithReferenceComment}\t{line.HypotheticalOnly}";
+			return lineWithReferenceComment;
+			//return $"{lineWithReferenceComment}\t{line.HypotheticalOnly}";
 		}
 
 		private static void WriteFile(string fileText)
 		{
-			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference Comment\tHypothetical Only" + Environment.NewLine + fileText;
+			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference" + Environment.NewLine + fileText;
 			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
 		}
 
@@ -107,7 +109,7 @@ namespace DevTools
 			public string CharacterId { get; set; }
 			public string CurrentLine { get; set; }
 			public string ReferenceComment { get; set; }
-			public bool HypotheticalOnly { get; set; }
+//			public bool HypotheticalOnly { get; set; }
 		}
 
 		public static void GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit()
