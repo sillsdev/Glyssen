@@ -62,7 +62,7 @@ namespace Glyssen
 				RegexOptions.Compiled);
 			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
 				RegexOptions.Compiled);
-			s_regexFollowOnParagraphStyles = new Regex("^((q.{0,2})|m|mi|(pi.?))$", RegexOptions.Compiled);
+			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi.?))$", RegexOptions.Compiled);
 			InitializeInterruptionRegEx(false);
 		}
 
