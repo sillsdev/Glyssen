@@ -1081,10 +1081,12 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			switch (fcbhCharacterLabel)
 			{
-				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase);
+				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase) ||
+					glyssenCharacterId == "horses (or their angelic riders) (in vision)";
 				case "Shepherd": return glyssenCharacterId == "shepherds at well";
 				case "Jereboam": return glyssenCharacterId == "Jeroboam";
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
+				case "Elder": return glyssenCharacterId == "elder of the land";
 				case "Elder of Gilead": return glyssenCharacterId == "Gilead, elders of";
 				case "Elder of Bethlehem": return glyssenCharacterId == "Bethlehem, elders of";
 				case "Rehab": return glyssenCharacterId == "Rahab";
@@ -1104,7 +1106,7 @@ namespace Glyssen.RefTextDevUtilities
 				case "Zedekiah son of Chenaanah": return glyssenCharacterId == "Zedekiah, son of Kenaanah, false prophet";
 				case "Cushite": return glyssenCharacterId == "messenger, Cushite";
 				case "Uncle": return glyssenCharacterId == "Saul's uncle";
-				case "Afflicted": return glyssenCharacterId == "afflicted person";
+				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
 				case "Acsah": return glyssenCharacterId == "Achsah, Caleb's daughter";
 				case "Sodomite": return glyssenCharacterId == "men of Sodom (wicked)";
 				case "Pashhur": return glyssenCharacterId == "Pashur";
@@ -1135,6 +1137,8 @@ namespace Glyssen.RefTextDevUtilities
 				case "Prophet (young)": return glyssenCharacterId == "company of the prophets, one of (the LORD says) (young man)";
 				case "Jehu the Seer": return glyssenCharacterId == "Jehu, son of Hanani";
 				case "Israelite": return glyssenCharacterId.StartsWith("Israel");
+				case "Sailor": return glyssenCharacterId == "sailors on ship to Tarshish";
+				case "Captain": return glyssenCharacterId == "captain of ship to Tarshish";
 				case "Soldier":
 					return glyssenCharacterId.IndexOf("soldier", StringComparison.OrdinalIgnoreCase) >= 0 ||
 						glyssenCharacterId.IndexOf("men", StringComparison.OrdinalIgnoreCase) >= 0 ||

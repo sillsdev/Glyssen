@@ -417,7 +417,7 @@ holy one (in vision)	1	Male				DAN 8:14
 Holy Spirit, the	1	Male		Y		EZK 3:24 <-(27 more)-> REV 22:17
 horseman, first	1	Male				2KI 9:18
 horseman, second	1	Male				2KI 9:19
-horses (in vision)	-1	PreferMale				ZEC 1:11
+horses (or their angelic riders) (in vision)	-1	PreferMale				ZEC 1:11
 Hosea	1	Male				HOS 3:3 & HOS 4:1
 house of Aaron, the	-1	Male				PSA 118:3
 Huldah, prophetess	1	Female				2KI 22:15 <-(10 more)-> 2CH 34:28

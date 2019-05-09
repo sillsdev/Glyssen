@@ -357,8 +357,8 @@ GEN	26	5	God		God (the LORD)	Normal
 GEN	26	7	men of Gerar			Indirect		
 GEN	26	7	Isaac	deceiving		Normal		
 GEN	26	7	Isaac	thought		Normal		
-GEN	26	7	Isaac	afraid to say		Hypothetical		
-GEN	26	7	narrator-GEN			Potential		
+#The words that Isaac was afraid to say (i.e., "my wife") should be spoken by the narrator
+GEN	26	7	narrator-GEN			Hypothetical		
 GEN	26	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	9	Isaac			Normal		
 GEN	26	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
@@ -12650,7 +12650,7 @@ ZEC	1	8	Zechariah		Zechariah (in vision)	Normal
 ZEC	1	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	9	Zechariah		Zechariah (in vision)	Normal		
 ZEC	1	10	man standing among myrtle trees	vision		Normal		
-ZEC	1	11	horses (in vision)			Normal		
+ZEC	1	11	horses (or their angelic riders) (in vision)			Normal		
 ZEC	1	12	angel of the LORD, the			Normal	Jesus	
 ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
