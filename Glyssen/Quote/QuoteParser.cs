@@ -22,7 +22,7 @@ namespace Glyssen.Quote
 	{
 		public static void ParseProject(Project project, BackgroundWorker projectWorker)
 		{
-			var cvInfo = new CombinedCharacterVerseData(project);
+			var cvInfo = new ParserCharacterRepository(new CombinedCharacterVerseData(project), project.ReferenceText);
 
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
@@ -52,7 +52,7 @@ namespace Glyssen.Quote
 			Block.InitializeInterruptionRegEx(quoteSystem.QuotationDashMarker != null && quoteSystem.QuotationDashMarker.Any(c => c == '\u2014' || c == '\u2015'));
 		}
 
-		private readonly ICharacterVerseInfo m_cvInfo;
+		private readonly ICharacterVerseRepository m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
@@ -74,7 +74,7 @@ namespace Glyssen.Quote
 		private bool m_ignoringNarratorQuotation;
 		#endregion
 
-		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
+		public QuoteParser(ICharacterVerseRepository cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
 		{
 			m_cvInfo = cvInfo;
 			m_bookId = bookId;

@@ -15277,10 +15277,10 @@ ROM	16	22	Tertius			Indirect
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
 1CO	12	3	no one says			Normal		
-1CO	12	15	foot			Normal		
-1CO	12	16	ear			Normal		
-1CO	12	21	eye			Normal		
-1CO	12	21	head			Normal		
+1CO	12	15	foot			Hypothetical		
+1CO	12	16	ear			Hypothetical		
+1CO	12	21	eye			Hypothetical		
+1CO	12	21	head			Hypothetical		
 1CO	14	16	person without the gift of tongues			Hypothetical		
 1CO	14	21	scripture			Quotation	God	
 1CO	14	25	unbeliever who comes under conviction			Normal		

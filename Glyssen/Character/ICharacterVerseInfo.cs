@@ -3,10 +3,13 @@ using SIL.Scripture;
 
 namespace Glyssen.Character
 {
-	public interface ICharacterVerseInfo
+	public interface ICharacterVerseRepository
 	{
 		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null);
+	}
 
+	public interface ICharacterVerseInfo : ICharacterVerseRepository
+	{
 		IEnumerable<CharacterVerse> GetAllQuoteInfo();
 
 		IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId);

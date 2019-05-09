@@ -5766,5 +5766,77 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 		#endregion PG-40
+
+		#region Test for PG-1201
+		[Test]
+		public void Parse_HypotheticalCharacterNotInReferenceText_HypotheticalCharacterTreatedAsNarratorQuote()
+		{
+			var chapter = new Block("c", 12) { CharacterId = CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("12");
+			var block1 = new Block("p", 12, 15) { IsParagraphStart = true }
+				.AddVerse(15, "If the foot says, “I ain't a hand, so I ain't part of the body,” that wouldn't make it so. ")
+				.AddVerse(16, "Likewise, if the ear says, “I ain't no eye, so I ain't part of the body,” that logic doesn't fly. ")
+				.AddVerse(17, "If the whole body were one member, where would the other senses and functions get done? ")
+				.AddVerse(18, "But in fact God has placed the parts in the body as He saw fit. ")
+				.AddVerse(19, "If there were just one big honkin' part, where would the body be? ")
+				.AddVerse(20, "As it is, there are many parts, but one body.");
+			var block2 = new Block("p", 12, 15) { IsParagraphStart = true }
+			.AddVerse(21, "The eye can't tell the hand, “I don’t need you!” And the head can't tell the feet, “I don’t need you!”");
+			var input = new List<Block> { chapter, block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton,
+				ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian));
+			IList<Block> output = new QuoteParser(cvRepo, "1CO", input).Parse().ToList();
+
+			Assert.AreEqual(input.Count, output.Count);
+			Assert.IsTrue(output.Skip(1).All(b => b.CharacterIs("1CO", CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
+		[Test]
+		public void Parse_HypotheticalCharacterInReferenceText_HypotheticalCharacterUsed()
+		{
+			var chapter = new Block("c", 10) { CharacterId = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("10");
+			var block6a = new Block("q1", 10, 6) { IsParagraphStart = true }.AddVerse(6, "He says to himself, “Nothing could ever shake me.”");
+			var block6b = new Block("q2", 10, 6) { IsParagraphStart = true }.AddText("He swears, “No one will ever harm me.”");
+			var block7a = new Block("q1", 10, 7) { IsParagraphStart = true }.AddVerse(7, "His mouth is filled with lies and threats;");
+			var block7b = new Block("q2", 10, 7) {IsParagraphStart = true}.AddText("trouble and evil are under his tongue.");
+			var block8a = new Block("q1", 10, 8) {IsParagraphStart = true}.AddVerse(8, "He lies in ambush near the hamlets;");
+			var block8b = new Block("q2", 10, 8) { IsParagraphStart = true }.AddText(" he jumps out to kill the innocent.");
+			var block8c = new Block("q1", 10, 8) {IsParagraphStart = true}.AddText("His eyes watch for his victims from his hiding place;");
+			var block9a = new Block("q2", 10, 9) { IsParagraphStart = true }.AddVerse(9, "like a lion in hiding he crouches in wait."); 
+			var block9b = new Block("q1", 10, 9) {IsParagraphStart = true}.AddText("He lies in wait to snare the helpless;");
+			var block9c = new Block("q2", 10, 9) { IsParagraphStart = true }.AddText("he catches the weak and drags them off in his mesh bag.");
+			var block10a = new Block("q1", 10, 10) {IsParagraphStart = true}.AddVerse(10, "His victims are crushed and collapse;");
+			var block10b = new Block("q2", 10, 10) { IsParagraphStart = true }.AddText("they fall under his power.");
+			var block11a = new Block("q1", 10, 11) {IsParagraphStart = true}.AddVerse(11, "He tells himself, “God will never take note;");
+			var block11b = new Block("q2", 10, 11) { IsParagraphStart = true }.AddText("he hides his face and ignores everything.”");
+
+			var input = new List<Block> { chapter, block6a, block6b, block7a, block7b, block8a, block8b, block8c,
+				block9a, block9b, block9c, block10a, block10b, block11a, block11b };
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var cvRepo = new ParserCharacterRepository(ControlCharacterVerseData.Singleton,
+				ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			IList<Block> output = new QuoteParser(cvRepo, "PSA", input).Parse().ToList();
+
+			int i = 1;
+			var narrator = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator);
+			Assert.AreEqual("{6}\u00A0He says to himself, ", output[i].GetText(true));
+			Assert.AreEqual(narrator, output[i++].CharacterId);
+			Assert.AreEqual("“Nothing could ever shake me.”", output[i].GetText(true));
+			Assert.AreEqual("man, wicked", output[i++].CharacterId);
+			Assert.AreEqual("He swears, ", output[i].GetText(true));
+			Assert.AreEqual(narrator, output[i++].CharacterId);
+			Assert.AreEqual("“No one will ever harm me.”", output[i].GetText(true));
+			Assert.AreEqual("man, wicked", output[i++].CharacterId);
+			Assert.IsTrue(output.Skip(i).TakeWhile(b => b.InitialStartVerseNumber < 11 || b.InitialStartVerseNumber == 11 && b.StartsAtVerseStart)
+				.All(b => b.CharacterId == narrator));
+			Assert.AreEqual("“God will never take note; he hides his face and ignores everything.”", output.Last().GetText(true));
+			Assert.AreEqual("man, wicked", output.Last().CharacterId);
+		}
+		#endregion
 	}
 }

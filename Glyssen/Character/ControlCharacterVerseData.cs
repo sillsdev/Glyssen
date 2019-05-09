@@ -10,25 +10,6 @@ namespace Glyssen.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{
-		//// This is only here (for the moment) for ControlDataIntegrityTests to be able to validate the actual
-		//// control file independent of how we want to read out the data.
-		//public static bool ReadHypotheticalAsNarrator
-		//{
-		//	get => s_readHypotheticalAsNarrator;
-			//set
-			//{
-			//	if (value == s_readHypotheticalAsNarrator)
-			//		return;
-
-			//	if (Program.IsRunning)
-			//		throw new InvalidOperationException();
-			//	s_readHypotheticalAsNarrator = value;
-			//	s_singleton = null;
-			//}
-		//}
-
-		//private static bool s_readHypotheticalAsNarrator = true;
-
 		private static ControlCharacterVerseData s_singleton;
 		private static string s_tabDelimitedCharacterVerseData;
 		private Dictionary<int, Dictionary<int, HashSet<int>>> m_expectedQuotes;
