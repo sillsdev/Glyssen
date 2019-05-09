@@ -264,7 +264,8 @@ namespace Glyssen
 				}
 
 				// A block at verse 0 (in the Psalms) is a Hebrew Title line. We do not support overriding those.
-				if (block.InitialStartVerseNumber > 0 && block.CharacterId == NarratorCharacterId)
+				// Style tag "qa" is an acrostic header. These also do not get overridden.
+				if (block.InitialStartVerseNumber > 0 && block.CharacterId == NarratorCharacterId /* TODO: && block.StyleTag != "qa" */)
 					narratorBlocksInRange.Add(block);
 				else
 				{
