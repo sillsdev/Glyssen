@@ -809,30 +809,26 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetCharacterIdInScript_AcrosticHeading_NotCombined(string q1, string q2)
+		public void GetCharacterIdInScript_AcrosticHeading_NotCombined()
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator);
 			var blocks = new List<Block>
 			{
 				NewChapterBlock(119, "PSA"),
-				new Block(q1, 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(8, "I will keep thy statutes;"),
-				new Block(q2, 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddText("This language doesn't use periods in poetry"),
+				new Block("q1", 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(8, "I will keep thy statutes;"),
+				new Block("q2", 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddText("This language doesn't use periods in poetry"),
 				new Block("qa", 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddText("Beth"),
-				new Block(q1, 119, 3) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
+				new Block("q1", 119, 9) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
 			};
 
 			var bookOfPsalms = new BookScript("PSA", blocks, ScrVers.English);
 
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.BookOrChapter),
 				bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[0]));
-			Assert.AreEqual(overrideCharacter, bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[1]));
-
-			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual(q1, output[0].StyleTag);
-			Assert.AreEqual("{8}\u00A0I will keep thy statutes; This language doesn't use periods in poetry", output[0].GetText(true));
-			Assert.AreEqual("Beth", output[1].GetText(true));
-			Assert.AreEqual("{9}\u00A0How shall a pipsqueak cleanse his way?", output[2].GetText(true));
-			Assert.IsTrue(output.All(b => b.CharacterIs("PSA", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual("psalmist (Aleph)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[1]));
+			Assert.AreEqual("psalmist (Aleph)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[2]));
+			Assert.AreEqual(narrator, bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[3]));
+			Assert.AreEqual("psalmist (Beth)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[4]));
 		}
 
 		[Test]
