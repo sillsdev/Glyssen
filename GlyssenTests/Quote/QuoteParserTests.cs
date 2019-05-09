@@ -5439,7 +5439,7 @@ namespace GlyssenTests.Quote
 				new Block(q1, 119, 8) {IsParagraphStart = true}.AddVerse(8, "I will keep thy statutes;"),
 				new Block(q2, 119, 8) {IsParagraphStart = true}.AddText("This language doesn't use periods in poetry"),
 				new Block("qa", 119, 8) {IsParagraphStart = true}.AddText("Beth"),
-				new Block(q1, 119, 3) {IsParagraphStart = true}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
+				new Block(q1, 119, 9) {IsParagraphStart = true}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
 			};
 
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
