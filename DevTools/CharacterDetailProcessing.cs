@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using SIL.Scripture;
@@ -82,6 +81,8 @@ namespace DevTools
 
 		private static void WriteFile(string fileText)
 		{
+			// Note: Keeping the "Status" column around in case we want to bring it back, but it is currently always empty and
+			// always ignored in Glyssen.
 			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference" + Environment.NewLine + fileText;
 			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
 		}

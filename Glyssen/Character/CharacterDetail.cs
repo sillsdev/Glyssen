@@ -26,7 +26,7 @@ namespace Glyssen.Character
 		public int MaxSpeakers { get; set; }
 		public CharacterGender Gender { get; set; }
 		public CharacterAge Age { get; set; }
-		public bool Status { get; set; }
+		//public bool Status { get; set; }
 		public string Comment { get; set; }
 		public string ReferenceComment { get; set; }
 		public CharacterVerseData.StandardCharacter StandardCharacterType { get; set; } = CharacterVerseData.StandardCharacter.NonStandard;
