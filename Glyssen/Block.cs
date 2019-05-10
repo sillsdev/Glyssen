@@ -62,7 +62,11 @@ namespace Glyssen
 				RegexOptions.Compiled);
 			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
 				RegexOptions.Compiled);
-			s_regexFollowOnParagraphStyles = new Regex("^((q.{0,2})|m|mi|(pi.?))$", RegexOptions.Compiled);
+			// Rather than a very permissive regex that attempts to include all \q* markers in hopes of catching any future markers that
+			// might be added to the USFM standard, this regex matches only the known allowed poetry markers. It specifically prevents matching
+			// "qa", which is an acrostic header and should not be treated like other poetry markers. As the standard is changed in the future,
+			// any new markers that should be treated as "follow on" paragraphs will need to be added here.
+			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi.?))$", RegexOptions.Compiled);
 			InitializeInterruptionRegEx(false);
 		}
 
