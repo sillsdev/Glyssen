@@ -11,14 +11,6 @@ namespace Glyssen.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
-		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
-		public const string kUnknownCharacter = "Unknown";
-		/// <summary>
-		/// Blocks represents a quote whose character has not been set.
-		/// Used when the user needs to disambiguate between multiple potential characters.
-		/// </summary>
-		public const string kAmbiguousCharacter = "Ambiguous";
-
 		public const int kiMinRequiredFields = 5;
 		protected const int kiQuoteType = kiMinRequiredFields + 1;
 		protected const int kiDefaultCharacter = kiQuoteType + 1;
@@ -36,63 +28,9 @@ namespace Glyssen.Character
 			Intro,
 		}
 
-		public static StandardCharacter GetStandardCharacterType(string characterId)
-		{
-			if (string.IsNullOrEmpty(characterId))
-				return StandardCharacter.NonStandard;
-
-			var i = characterId.IndexOf("-", StringComparison.Ordinal);
-			if (i < 0)
-				return StandardCharacter.NonStandard;
-
-			switch (characterId.Substring(0, i + 1))
-			{
-				case kNarratorPrefix: return StandardCharacter.Narrator;
-				case kIntroPrefix: return StandardCharacter.Intro;
-				case kExtraBiblicalPrefix: return StandardCharacter.ExtraBiblical;
-				case kBookOrChapterPrefix: return StandardCharacter.BookOrChapter;
-			}
-
-			return StandardCharacter.NonStandard;
-		}
-
 		public static bool IsCharacterUnclear(string characterId)
 		{
-			return characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter;
-		}
-
-		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)
-		{
-			return GetCharacterPrefix(standardCharacterType) + bookId;
-		}
-
-		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
-		{
-			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
-		}
-
-		public static bool IsCharacterStandard(string characterId)
-		{
-			if (characterId == null)
-				return false;
-
-			return IsCharacterOfType(characterId, StandardCharacter.Narrator) ||
-				IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
-				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
-				IsCharacterOfType(characterId, StandardCharacter.Intro);
-			// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
-			// but this is speed-critical code and the overhead of the extra method call is
-			// expensive.
-		}
-
-		public static bool IsCharacterExtraBiblical(string characterId)
-		{
-			if (characterId == null)
-				return false;
-
-			return IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
-				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
-				IsCharacterOfType(characterId, StandardCharacter.Intro);
+			return characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter;
 		}
 
 		public static string GetCharacterNameForUi(string characterId)
@@ -154,32 +92,6 @@ namespace Glyssen.Character
 		{
 			return characterId.Substring(characterId.Length - 3);
 		}
-
-		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
-		{
-			switch (standardCharacterType)
-			{
-				case StandardCharacter.Narrator:
-					return kNarratorPrefix;
-				case StandardCharacter.BookOrChapter:
-					return kBookOrChapterPrefix;
-				case StandardCharacter.ExtraBiblical:
-					return kExtraBiblicalPrefix;
-				case StandardCharacter.Intro:
-					return kIntroPrefix;
-				default:
-					throw new ArgumentException("Unexpected standard character type.");
-			}
-		}
-
-		/// <summary>Character ID prefix for material to be read by narrator</summary>
-		protected const string kNarratorPrefix = "narrator-";
-		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
-		protected const string kBookOrChapterPrefix = "BC-";
-		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
-		protected const string kExtraBiblicalPrefix = "extra-";
-		/// <summary>Character ID prefix for intro material</summary>
-		protected const string kIntroPrefix = "intro-";
 
 		private const string kNarratorAsEnglishCharacterName = "narrator ({0})";
 		private const string kIntroductionAsEnglishCharacterName = "introduction ({0})";

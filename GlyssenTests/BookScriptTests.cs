@@ -440,7 +440,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Peter said, ");
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			vernacularBlocks.Add(block);
 			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
 			block.BlockElements.Add(new ScriptText("«This is line 1," + trailingWhitespace));
@@ -468,7 +468,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Peter said, ");
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			vernacularBlocks.Add(block);
 			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
 			block.BlockElements.Add(new ScriptText("«This is line 1," + trailingWhitespace));
@@ -524,7 +524,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "John said, ");
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(NewBlock("rt0"));
 			vernacularBlocks.Add(block);
 			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
@@ -560,12 +560,12 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("{1} This is the genealogy of Jesus.");
 			vernacularBlocks.Add(block);
 			block = NewSingleVersePara(2, "Abraham fue el primero.");
 			block.BlockElements.Insert(0, new ScriptText("starting with the first patriarch: "));
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(ellipsis + "{2} Abraham was first.");
 			vernacularBlocks.Add(block);
 
@@ -588,12 +588,12 @@ namespace GlyssenTests
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
 			block.StyleTag = styleTag;
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block1RefText);
 			vernacularBlocks.Add(block);
 			block = new Block(styleTag, m_curSetupChapter, 1); // IsParaStart == false by default.
 			block.BlockElements.Add(new ScriptText("Abraham fue el primero."));
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block2RefText);
 			vernacularBlocks.Add(block);
 
@@ -614,14 +614,14 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block1RefText);
 			vernacularBlocks.Add(block);
 			block = new Block(block2StyleTag, m_curSetupChapter, 1);
 			if (block2StyleTag != "p")
 				block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText("Abraham fue el primero."));
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block2RefText);
 			vernacularBlocks.Add(block);
 
@@ -644,7 +644,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block1RefText);
 			var origRefText1 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
@@ -652,7 +652,7 @@ namespace GlyssenTests
 			if (block2StyleTag != "p")
 				block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText("Abraham fue el primero."));
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block2RefText);
 			var origRefText2 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
@@ -676,7 +676,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block1RefText);
 			var origRefText1 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
@@ -685,7 +685,7 @@ namespace GlyssenTests
 				block.IsParagraphStart = false;
 			else
 				block.StyleTag = block2StyleTag;
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block2RefText);
 			var origRefText2 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
@@ -706,7 +706,7 @@ namespace GlyssenTests
 			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			foreach (var block in jude.GetScriptBlocks())
 			{
-				if (block.CharacterIsUnclear())
+				if (block.CharacterIsUnknown)
 					block.CharacterId = "Paul";
 				block.SetMatchedReferenceBlock("blah");
 			}
@@ -727,13 +727,13 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block1RefText);
 			vernacularBlocks.Add(block);
 			block = NewPara(block2StyleTag, "Abraham fue el primero.");
 			if (block2StyleTag == "p")
 				block.IsParagraphStart = false;
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(block2RefText);
 			vernacularBlocks.Add(block);
 
@@ -756,7 +756,7 @@ namespace GlyssenTests
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
 			Assert.IsFalse(target.GetScriptBlocks().Any(b => b.UserConfirmed));
-			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.kUnknownCharacter));
+			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.kUnexpectedCharacter));
 			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
@@ -769,7 +769,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -805,7 +805,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					if (i % 2 == 0)
 					{
@@ -828,7 +828,7 @@ namespace GlyssenTests
 				{
 					if (i % 2 == 0)
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsNull(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -854,7 +854,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -867,7 +867,7 @@ namespace GlyssenTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -888,7 +888,7 @@ namespace GlyssenTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -913,7 +913,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript(false, true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -926,7 +926,7 @@ namespace GlyssenTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -947,7 +947,7 @@ namespace GlyssenTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -972,7 +972,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript(true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -984,7 +984,7 @@ namespace GlyssenTests
 			var quoteBlockIndices = new List<int>();
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					quoteBlockIndices.Add(i);
 					if (i % 2 != 0)
@@ -1005,7 +1005,7 @@ namespace GlyssenTests
 				{
 					if (i % 2 != 0)
 					{
-						Assert.AreEqual(CharacterVerseData.kUnknownCharacter, target[i].CharacterId);
+						Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, target[i].CharacterId);
 						Assert.Null(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -1032,7 +1032,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Thomas/James";
 					Assert.AreEqual(source[i].CharacterId, source[i].CharacterIdInScript, "CharacterId setter should not set CharacterInScript to default character");
@@ -1062,7 +1062,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Thomas/James";
 					source[i].CharacterIdInScript = "James";
@@ -1094,7 +1094,7 @@ namespace GlyssenTests
 			{
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
-					if (source[i].CharacterIsUnclear())
+					if (source[i].CharacterIsUnknown)
 						source[i].CharacterId = "Jesus";
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (i < 20)
@@ -1111,7 +1111,7 @@ namespace GlyssenTests
 			{
 				if (userConfirmedCharacterBlockIndices.Contains(i))
 				{
-					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsFalse(target[i].CharacterIsUnknown);
 					Assert.IsTrue(target[i].UserConfirmed);
 					Assert.IsTrue(target[i].MatchesReferenceText);
 					Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
@@ -1136,7 +1136,7 @@ namespace GlyssenTests
 			{
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
-					if (source[i].CharacterIsUnclear())
+					if (source[i].CharacterIsUnknown)
 						source[i].CharacterId = "Jesus";
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (userConfirmedCharacterBlockIndices.Count >= 2)
@@ -1156,7 +1156,7 @@ namespace GlyssenTests
 			{
 				if (userConfirmedCharacterBlockIndices.Contains(i))
 				{
-					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsFalse(target[i].CharacterIsUnknown);
 					Assert.IsTrue(target[i].UserConfirmed);
 					if (i == userConfirmedCharacterBlockIndices[0])
 					{
@@ -1398,10 +1398,10 @@ namespace GlyssenTests
 			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
 			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter, ScrVers.English).UserConfirmed = true;
 
-			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
+			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnknown))
 			{
 				sb.MultiBlockQuote = MultiBlockQuote.None;
-				sb.SetNonDramaticCharacterId(narrator);
+				sb.SpecialCharacter == Block.SpecialCharacters.Narrator;
 			}
 
 			var target = CreateStandard1CorinthiansScript();
@@ -1621,7 +1621,7 @@ namespace GlyssenTests
 				};
 			const int kSplitPos = 47;
 			var origLengthOfVerse26 = blocks[1].BlockElements.OfType<ScriptText>().ElementAt(1).Content.Length;
-			blocks[1].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			blocks[1].SpecialCharacter = Block.SpecialCharacters.Narrator;
 
 			var source = new BookScript("MRK", blocks);
 			var target = source.Clone(false);
@@ -1728,10 +1728,10 @@ namespace GlyssenTests
 		{
 			matchup.MatchAllBlocks(ScrVers.English);
 			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear() ||
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnknown ||
 				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))
 			{
-				block.SetNonDramaticCharacterId(narrator);
+				block.SpecialCharacter == Block.SpecialCharacters.Narrator;
 				block.MultiBlockQuote = MultiBlockQuote.None;
 			}
 			matchup.Apply();
@@ -2715,7 +2715,7 @@ namespace GlyssenTests
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
 			Assert.AreEqual("Bill", blockToSplit.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, newBlock.CharacterId);
 			Assert.IsTrue(blockToSplit.UserConfirmed);
 			Assert.IsFalse(newBlock.UserConfirmed);
 		}
@@ -3027,14 +3027,14 @@ namespace GlyssenTests
 			var blocks = new List<Block>();
 			blocks.Add(NewChapterBlock(1));
 			var blockToSplit = new Block("p", m_curSetupChapter, 10) { IsParagraphStart = true };
-			blockToSplit.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			blockToSplit.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			blockToSplit.AddVerse(10, "Ich hörte hinter mir eine Stimme, die durchdringend wie eine Posaune klang ").AddVerse(11, "und die mir befahl: ");
 			blocks.Add(blockToSplit);
 			var spanishRefBlock = new Block("p", m_curSetupChapter, 10).AddVerse(10, "Oí detrás de mí una gran voz, como sonido de trompeta, que decía: ");
-			spanishRefBlock.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			spanishRefBlock.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			blockToSplit.SetMatchedReferenceBlock(spanishRefBlock);
 			var englishRefBlock = new Block("p", m_curSetupChapter, 10).AddVerse(10, "I heard behind me a loud voice like a trumpet ").AddVerse(11, "saying, ");
-			englishRefBlock.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			englishRefBlock.SpecialCharacter = Block.SpecialCharacters.Narrator;
 			spanishRefBlock.SetMatchedReferenceBlock(englishRefBlock);
 
 			var bookScript = new BookScript("REV", blocks);
@@ -3215,10 +3215,10 @@ namespace GlyssenTests
 
 			var replacementBlocks = new List<Block>();
 			replacementBlocks.Add(NewSingleVersePara(1, "This is the new text."));
-			replacementBlocks[0].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			replacementBlocks[0].SpecialCharacter = Block.SpecialCharacters.Narrator;
 			replacementBlocks[0].SetMatchedReferenceBlock("{1} Reference text for v1.");
 			replacementBlocks.Add(NewSingleVersePara(2, "This is the new text."));
-			replacementBlocks[1].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			replacementBlocks[1].SpecialCharacter = Block.SpecialCharacters.Narrator;
 			replacementBlocks[1].SetMatchedReferenceBlock("{2} Reference text for v2.");
 			replacementBlocks[1].MultiBlockQuote = lastBlockMultiBlockQuote;
 

@@ -41,7 +41,7 @@ namespace GlyssenTests.Rules
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT, TestProject.TestBook.JUD);
 			// Since we're testing something that should only happen once phase 1 is complete, we simulate that by assigning all ambiguous/unknown blocks
-			foreach (var block in m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Where(b => b.CharacterIsUnclear()))
+			foreach (var block in m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Where(b => b.CharacterIsUnknown))
 				block.CharacterId = "Adam";
 
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;

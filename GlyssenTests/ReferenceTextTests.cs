@@ -2896,6 +2896,18 @@ namespace GlyssenTests
 
 		internal static Block AddBlockForVerseInProgress(IList<Block> list, string characterId, string text, string styleTag = "")
 		{
+			return AddBlockForVerseInProgress(list, characterId, Block.SpecialCharacters.NormalBiblicalCharacter, text, styleTag);
+		}
+
+		internal static Block AddBlockForVerseInProgress(IList<Block> list, Block.SpecialCharacters specialChar, string text, string styleTag = "")
+		{
+			return AddBlockForVerseInProgress(list, null, specialChar, text, styleTag);
+		}
+
+		internal static Block AddBlockForVerseInProgress(IList<Block> list, string characterId, Block.SpecialCharacters specialChar,
+			string text, string styleTag = "")
+		{
+			Assert.True(characterId != null ^ specialChar == Block.SpecialCharacters.NormalBiblicalCharacter);
 			var lastBlock = list.Last();
 			var initialStartVerse = lastBlock.InitialStartVerseNumber;
 			var initialEndVerse = lastBlock.InitialEndVerseNumber;

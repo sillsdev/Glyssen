@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,24 @@ namespace Glyssen
 	[XmlRoot("block")]
 	public class Block
 	{
+		[Flags]
+		public enum SpecialCharacters : byte
+		{
+			NormalBiblicalCharacter = 0,
+			Narrator = 1,
+			BookTitle = 2,
+			ChapterAnnouncement = 4,
+			ExtraBiblical = 8,
+			Intro = 16,
+			BookTitleOrChapter = BookTitle | ChapterAnnouncement,
+			Standard = Narrator | BookTitleOrChapter | ExtraBiblical,
+			NeedsReview = 32, 
+			Unexpected = 64,
+			Ambiguous = 128,
+			Unknown = Unexpected | Ambiguous,
+			Unclear = NeedsReview | Unknown,
+		}
+
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
 		public const string kNotSet = null;
 
@@ -52,6 +71,8 @@ namespace Glyssen
 		private string m_characterIdInScript;
 		private string m_delivery;
 		private bool m_matchesReferenceText;
+		private SpecialCharacters m_specialCharacter;
+		private string m_characterId;
 		private static string s_characterSelect;
 		private static readonly Regex s_verseNumbersOrSounds;
 		private static readonly Regex s_emptyVerseText;
@@ -145,7 +166,7 @@ namespace Glyssen
 				}
 				return m_chapterNumber;
 			}
-			set { m_chapterNumber = value; }
+			set => m_chapterNumber = value;
 		}
 
 		/// <summary>
@@ -173,14 +194,14 @@ namespace Glyssen
 				}
 				return m_initialStartVerseNumber;
 			}
-			set { m_initialStartVerseNumber = value; }
+			set => m_initialStartVerseNumber = value;
 		}
 
 		[XmlAttribute("initialEndVerse")]
 		[DefaultValue(0)]
 		public int InitialEndVerseNumber {
-			get { return m_initialEndVerseNumber; }
-			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
+			get => m_initialEndVerseNumber;
+			set => m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value;
 		}
 
 		private class VerseNumberFromBlock : IVerse
@@ -195,7 +216,7 @@ namespace Glyssen
 			}
 
 			public int StartVerse { get; private set; }
-			public int EndVerse { get { return LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge; } }
+			public int EndVerse => LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge;
 
 			/// <summary>
 			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
@@ -203,8 +224,8 @@ namespace Glyssen
 			public int LastVerseOfBridge { get; private set; }
 		}
 
-		public int LastVerseNum { get { return LastVerse.EndVerse; } }
-		public IVerse LastVerse { get { return BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this; } }
+		public int LastVerseNum => LastVerse.EndVerse;
+		public IVerse LastVerse => BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this;
 
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
@@ -216,37 +237,60 @@ namespace Glyssen
 		/// null. In other contexts, use the SetCharacterIdAndCharacterIdInScript method.
 		/// </summary>
 		[XmlAttribute("characterId")]
-		public string CharacterId { get; set; }
+		public string CharacterId
+		{
+			get => m_characterId;
+			set
+			{
+				if (value == Empty)
+					throw new ArgumentException("Character ID cannot be set to an empty string.", nameof(CharacterId));
+				m_characterId = value;
+				if (m_characterId != null)
+					SpecialCharacter = SpecialCharacters.NormalBiblicalCharacter;
+			}
+		}
 
 		[XmlAttribute("characterIdOverrideForScript")]
 		public string CharacterIdOverrideForScript
 		{
-			get { return m_characterIdInScript; }
-			set { CharacterIdInScript = value; }
+			get => m_characterIdInScript;
+			set => CharacterIdInScript = value;
 		}
 
 		[XmlIgnore]
 		public string CharacterIdInScript
 		{
-			get { return m_characterIdInScript ?? CharacterId; }
+			get => m_characterIdInScript ?? CharacterId;
 			set { if (CharacterId != value) m_characterIdInScript = value; }
 		}
 
 		[XmlAttribute("delivery")]
 		public string Delivery
 		{
-			get { return m_delivery; }
-			set
-			{
-				if (IsNullOrWhiteSpace(value))
-					value = null;
-				m_delivery = value;
-			}
+			get => m_delivery;
+			set => m_delivery = IsNullOrWhiteSpace(value) ? null : value;
 		}
 
 		[XmlAttribute("userConfirmed")]
 		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
+
+		[XmlAttribute("characterInfoFlags")]
+		[DefaultValue(SpecialCharacters.NormalBiblicalCharacter)]
+		public SpecialCharacters SpecialCharacter
+		{
+			get => m_specialCharacter;
+			set
+			{
+				m_specialCharacter = value;
+				if (m_specialCharacter > 0)
+				{
+					SetNonDramaticCharacterId(null);
+					if (CharacterIsUnknown)
+						UserConfirmed = false;
+				}
+			}
+		}
 
 		[XmlAttribute("multiBlockQuote")]
 		[DefaultValue(MultiBlockQuote.None)]
@@ -265,7 +309,7 @@ namespace Glyssen
 			// m_matchesReferenceText should imply exactly one reference block (and I *so* wish I had modeled it
 			// that way), but if a previous program bug or deserialization issue should put a block into a bad
 			// state, there are lots of places where it could crash, so if there isn't exactly 1, return false.
-			get { return m_matchesReferenceText && ReferenceBlocks.Count ==  1; }
+			get => m_matchesReferenceText && ReferenceBlocks.Count ==  1;
 			set
 			{
 				m_matchesReferenceText = value;
@@ -331,11 +375,11 @@ namespace Glyssen
 		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
 		public List<BlockElement> BlockElements { get; set; }
 
-		public bool CharacterIsStandard { get { return CharacterVerseData.IsCharacterStandard(CharacterId); } }
+		public bool CharacterIsStandard => CharacterIs(SpecialCharacters.Standard);
 
-		public bool IsChapterAnnouncement { get { return StyleTag == "c" || StyleTag == "cl"; } }
+		public bool IsChapterAnnouncement => CharacterIs(SpecialCharacters.ChapterAnnouncement);
 
-		public bool ContainsVerseNumber { get { return BlockElements.OfType<Verse>().Any(); } }
+		public bool ContainsVerseNumber => BlockElements.OfType<Verse>().Any();
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
@@ -710,10 +754,7 @@ namespace Glyssen
 		/// actually store an additional piece of information about the block to distinguish this case and prevent
 		/// a false positive. (For the current planned usage, an occasional false positive will not be a big deal.)
 		/// </summary>
-		public bool IsQuote
-		{
-			get { return !CharacterVerseData.IsCharacterStandard(CharacterId) || UserConfirmed; }
-		}
+		public bool IsQuote => UserConfirmed && !CharacterIs(SpecialCharacters.Standard);
 
 		public bool IsQuoteStart => IsQuote && !IsContinuationOfPreviousBlockQuote;
 
@@ -722,25 +763,24 @@ namespace Glyssen
 		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
 		/// programmatically and cannot be changed.)
 		/// </summary>
-		public bool IsScripture
-		{
-			get { return !CharacterVerseData.IsCharacterExtraBiblical(CharacterId); }
-		}
+		public bool IsScripture => !CharacterIs(SpecialCharacters.ExtraBiblical);
 
-		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
-		{
-			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
-		}
+		private bool CharacterIs(SpecialCharacters flags) => (SpecialCharacter & flags) == flags;
 
-		public bool CharacterIsUnclear()
-		{
-			return CharacterVerseData.IsCharacterUnclear(CharacterId);
-		}
 
-		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
-		{
-			SetNonDramaticCharacterId(CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType));
-		}
+		/// <summary>
+		/// Either "Unknown" (i.e., Unexpected) or "Ambiguous"
+		/// </summary>
+		public bool CharacterIsUnknown => CharacterIs(SpecialCharacters.Unknown);
+
+		//public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
+		//{
+		//	switch (standardCharacterType)
+		//	{
+		//			case CharacterVerseData.StandardCharacter.Narrator:
+		//	}
+		//	SetNonDramaticCharacterId(null);
+		//}
 
 		// Convenience method for setting the character ID to a standard character or non-character. This ensures that
 		// fields are cleared that would be inappropriate for this kind of character.
@@ -766,8 +806,7 @@ namespace Glyssen
 			}
 			else if (characterList.Count == 0)
 			{
-				SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
-				UserConfirmed = false;
+				SpecialCharacter = SpecialCharacters.Unexpected;
 			}
 			else
 			{
@@ -792,7 +831,7 @@ namespace Glyssen
 					}
 					else
 					{
-						SetNonDramaticCharacterId(CharacterVerseData.kAmbiguousCharacter);
+						SpecialCharacter = SpecialCharacters.Ambiguous;
 						UserConfirmed = false;
 					}
 				}
@@ -821,11 +860,7 @@ namespace Glyssen
 
 		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
-			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
-			{
-				SetNonDramaticCharacterId(characterId);
-				return;
-			}
+			Debug.Assert(characterId != "Unknown" && characterId != "Ambiguous");
 			if (CharacterId == characterId && CharacterIdOverrideForScript != null)
 			{
 				if (CharacterIsStandard)
@@ -1073,12 +1108,17 @@ namespace Glyssen
 		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, ScrVers scrVers)
 		{
 			if (basedOnBlock.CharacterIdOverrideForScript == null)
-				SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
+			{
+				SpecialCharacter = basedOnBlock.SpecialCharacter;
+				if (SpecialCharacter != SpecialCharacters.NormalBiblicalCharacter)
+					SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
+			}
 			SetCharacterAndDeliveryInfo(basedOnBlock);
 		}
 
 		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
 		{
+			SpecialCharacter = basedOnBlock.SpecialCharacter;
 			CharacterId = basedOnBlock.CharacterId;
 			if (basedOnBlock.CharacterIdOverrideForScript != null)
 				CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;

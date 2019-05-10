@@ -2323,7 +2323,7 @@ namespace Glyssen
 						character = block.CharacterIdInScript;
 
 						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
-						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
+						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnexpectedCharacter)
 							continue;
 
 						if (character == null)
@@ -2562,7 +2562,7 @@ namespace Glyssen
 					{
 						ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 					}
-					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					{
 						block.SetCharacterIdAndCharacterIdInScript(
 							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
@@ -2598,7 +2598,7 @@ namespace Glyssen
 #if DEBUG
 				foreach (var block in book.GetScriptBlocks())
 				{
-					if (block.CharacterIsUnclear())
+					if (block.CharacterIsUnknown)
 						Debug.Fail("Failed to disambiguate");
 				}
 #endif

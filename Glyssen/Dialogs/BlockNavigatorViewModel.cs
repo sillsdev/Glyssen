@@ -272,7 +272,7 @@ namespace Glyssen.Dialogs
 						// correct block within the sequence of correlated blocks rather than within the book.
 						index -= m_currentRefBlockMatchups.IndexOfStartBlockInBook;
 						var newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
-						while (newAnchorBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						while (newAnchorBlock.SpecialCharacter == Block.SpecialCharacters.ExtraBiblical)
 						{
 							index++; // A section head should NEVER be the last one in the matchup!
 							newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
@@ -1058,7 +1058,7 @@ namespace Glyssen.Dialogs
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
 
-				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
+				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnknown) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
 			if (block.IsContinuationOfPreviousBlockQuote)
@@ -1136,7 +1136,7 @@ namespace Glyssen.Dialogs
 			if (CurrentBookIsSingleVoice)
 				return false;
 
-			return (block.UserConfirmed || block.CharacterIsUnclear());
+			return (block.UserConfirmed || block.CharacterIsUnknown);
 		}
 
 		internal bool CurrentBlockHasMissingExpectedQuote(IEnumerable<BCVRef> versesWithPotentialMissingQuote)

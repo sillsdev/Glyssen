@@ -72,7 +72,7 @@ namespace Glyssen
 					ref i);
 				if (i > iLastBlock)
 					blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
-				while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+				while (blocksForVersesCoveredByBlock.Last().SpecialCharacter == Block.SpecialCharacters.ExtraBiblical)
 					blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
 				m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
 
@@ -165,7 +165,7 @@ namespace Glyssen
 
 			if (refBlocks.Any(r => r.MatchesReferenceText))
 			{
-				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical)),
+				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.SpecialCharacter == Block.SpecialCharacters.ExtraBiblical),
 					"All reference blocks should have the same number of levels of underlying reference blocks.");
 				foreach (var bogusRefBlock in GetInvalidReferenceBlocksAtAnyLevel(refBlocks, level + 1, bookId))
 					yield return bogusRefBlock;
@@ -196,12 +196,12 @@ namespace Glyssen
 
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
-				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnclear() ? refBlock : CorrelatedBlocks[i];
+				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnknown ? refBlock : CorrelatedBlocks[i];
 				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, bookNum, m_versification);
 				if (vernBlock.CharacterIsStandard)
 					vernBlock.MultiBlockQuote = MultiBlockQuote.None;
 
-				if (vernBlock.CharacterIsUnclear())
+				if (vernBlock.CharacterIsUnknown)
 					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown.");
 
 				if (CorrelatedBlocks[i].UserConfirmed)
@@ -291,11 +291,11 @@ namespace Glyssen
 			{
 				if (block.MatchesReferenceText)
 				{
-					if (block.CharacterIsUnclear())
+					if (block.CharacterIsUnknown)
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
-						if (!block.CharacterIsUnclear())
+						if (!block.CharacterIsUnknown)
 						{
 							block.UserConfirmed = true; // This does not affect original block until Apply is called
 						}
@@ -338,15 +338,14 @@ namespace Glyssen
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
 			var block = CorrelatedBlocks[i];
-			if (block.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				block.CharacterIsUnclear())
+			if (block.SpecialCharacter == Block.SpecialCharacters.Narrator ||
+				block.CharacterIsUnknown)
 			{
 				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existingEmptyVerseRefText != null)
 				{
-					var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
-					if (block.CharacterIsUnclear())
-						block.SetNonDramaticCharacterId(narrator);
+					if (block.CharacterIsUnknown)
+						block.SpecialCharacter = Block.SpecialCharacters.Narrator;
 					// Deal with following blocks in quote block chain (and mark this one None).
 					if (block.MultiBlockQuote == MultiBlockQuote.Start)
 					{
@@ -359,7 +358,7 @@ namespace Glyssen
 							// It's probably impossible in practice, but if this block has a character other than narrator already set,
 							// let's leave it as is. And, of course, if it's already explicitly set to narrator, then there's nothing to
 							// do.
-							if (contBlock.CharacterIsUnclear())
+							if (contBlock.CharacterIsUnknown)
 							{
 								// By far the common case will be that this block will be associated with a reference
 								// block that has a real character ID. If so, we'll use that ID, even if it's not
@@ -369,16 +368,17 @@ namespace Glyssen
 								// we just made up an empty one on the fly), it's probably best to go ahead and assume
 								// that any such continuation blocks are to be assigned to the narrator. In that case,
 								// we need to fire the handler to alert the client.
-								var dataChange = false;
-								var newCharacterId = contBlock.ReferenceBlocks.SingleOrDefault()?.CharacterId;
-								if (CharacterVerseData.IsCharacterUnclear(newCharacterId))
+								var refBlock = contBlock.ReferenceBlocks.SingleOrDefault();
+								if (refBlock != null)
 								{
-									newCharacterId = narrator;
-									dataChange = true;
+									if (refBlock.CharacterIsUnknown)
+									{
+										contBlock.SpecialCharacter = Block.SpecialCharacters.Narrator;
+										handleHeSaidInserted(iCont, level, null);
+									}
+									else
+										contBlock.SetNonDramaticCharacterId(refBlock.CharacterId);
 								}
-								contBlock.SetNonDramaticCharacterId(newCharacterId);
-								if (dataChange)
-									handleHeSaidInserted(iCont, level, null);
 							}
 						}
 						block.MultiBlockQuote = MultiBlockQuote.None;

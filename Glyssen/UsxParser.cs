@@ -46,7 +46,7 @@ namespace Glyssen
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
 			// The above call to lock bookScripts probably fixes the problem!!! :-) We hope...
 			foreach (var bookScript in bookScripts)
-				if (bookScript == null || bookScript.BookId == null)
+				if (bookScript?.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
 					var nonNullBookScriptsStr = string.Join(";", nonNullBookScripts);
@@ -149,9 +149,9 @@ namespace Glyssen
 
 						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse) { IsParagraphStart = true };
 						if (m_currentChapter == 0)
-							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);
+							block.SpecialCharacter = Block.SpecialCharacters.Intro;
 						else if (style.IsPublishable && !style.IsVerseText)
-							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
+							block.SpecialCharacter = Block.SpecialCharacters.ExtraBiblical;
 
 						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
@@ -299,8 +299,7 @@ namespace Glyssen
 		{
 			if (titleBuilder.Length < 1)
 				return;
-			var titleBlock = new Block("mt");
-			titleBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			var titleBlock = new Block("mt") {SpecialCharacter = Block.SpecialCharacters.BookTitle};
 			titleBlock.BlockElements.Add(new ScriptText(titleBuilder.ToString().Trim()));
 			blocks.Add(titleBlock);
 			titleBuilder.Clear();
@@ -326,8 +325,12 @@ namespace Glyssen
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
 			m_currentStartVerse = 0;
 			m_currentEndVerse = 0;
-			var block = new Block(usxChapter.StyleTag, m_currentChapter) { IsParagraphStart = true, BookCode = m_bookId};
-			block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			var block = new Block(usxChapter.StyleTag, m_currentChapter)
+			{
+				IsParagraphStart = true,
+				BookCode = m_bookId,
+				SpecialCharacter = Block.SpecialCharacters.ChapterAnnouncement
+			};
 			block.BlockElements.Add(new ScriptText(chapterText));
 			return block;
 		}
@@ -344,8 +347,12 @@ namespace Glyssen
 				// The node before this was the chapter. We already added it, then found this label.
 				// Remove that block so it will be replaced with this one.
 				blocks.RemoveAt(blocks.Count - 1);
-				var block = new Block(usxNode.StyleTag, m_currentChapter) { IsParagraphStart = true, BookCode = m_bookId };
-				block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+				var block = new Block(usxNode.StyleTag, m_currentChapter)
+				{
+					IsParagraphStart = true,
+					BookCode = m_bookId,
+					SpecialCharacter = Block.SpecialCharacters.ChapterAnnouncement
+				};
 				block.BlockElements.Add(new ScriptText(nodeText));
 				m_currentStartVerse = 0;
 				m_currentEndVerse = 0;

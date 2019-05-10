@@ -65,7 +65,7 @@ namespace Glyssen
 			{
 				if (string.IsNullOrEmpty(characterId))
 				{
-					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
+					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 					newBlock.UserConfirmed = false;
 				}
 				else

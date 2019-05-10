@@ -391,7 +391,7 @@ namespace Glyssen.Dialogs
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
 			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
 					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnknownCharacter))
+				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnexpectedCharacter))
 			{
 				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
@@ -419,7 +419,7 @@ namespace Glyssen.Dialogs
 					colCharacter.Items.Add(character);
 
 				colCharacter.ReadOnly = colCharacter.Items.Count == 1 &&
-					!m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
+					!m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnknown);
 
 				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
@@ -498,7 +498,7 @@ namespace Glyssen.Dialogs
 
 		private void SetCharacterCellValue(DataGridViewRow row, Block correlatedBlock)
 		{
-			string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
+			string characterId = correlatedBlock.CharacterIsUnknown ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
 				correlatedBlock.CharacterId;
 
 			if (CharacterVerseData.IsCharacterStandard(characterId))

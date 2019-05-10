@@ -51,7 +51,7 @@ namespace GlyssenTests
 			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var block = new Block("p", 1, 10);
 			block.BlockElements.Add(new ScriptText("dijo."));
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -64,7 +64,7 @@ namespace GlyssenTests
 		{
 			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var block = new Block("p", 1, 10).AddVerse(10, "dijo."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -76,7 +76,7 @@ namespace GlyssenTests
 		public void ChangeReferenceText_FrenchToEnglish_EnglishMovedFromSecondaryToPrimary()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			var refBlock = block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary French reference text.");
 			refBlock.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
 			Assert.IsTrue(block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
@@ -90,7 +90,7 @@ namespace GlyssenTests
 			var block = new Block("p", 2, 1)
 				.AddVerse(1, "Now when Jesus was born in Bethlehem, Judea during King Herod's reign of terror, oriental magi came to Zion, ")
 				.AddVerse(2, "wondering where the King of the Jews was supposed to be born because they had seen his star in the sky and come to worship."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
 			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
 				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
@@ -108,7 +108,7 @@ namespace GlyssenTests
 		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_ReturnsFalse()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsFalse(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -122,7 +122,7 @@ namespace GlyssenTests
 		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyAfterVerseNumber_VerseNumberKeptAsReferenceText()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("{10}\u00A0     ");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -136,7 +136,7 @@ namespace GlyssenTests
 		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyNoVerseNumber_BlankReferenceText()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("     ");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
@@ -150,7 +150,7 @@ namespace GlyssenTests
 		public void ChangeReferenceText_EnglishToAzeriDifferentNumberOfBlockElements_DoesNotMatch_ReturnsFalse()
 		{
 			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
 			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
 			Assert.IsFalse(block.ChangeReferenceText("REV", rtAzeri, ScrVers.English));
@@ -191,7 +191,7 @@ namespace GlyssenTests
 			}
 
 			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
-			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SpecialCharacter = SpecialCharacters.Narrator;
 			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: “Tell no one about this!” Then he said: “Give her something to eat.” " +
 				"{1} He went out from there. He came into his own country, and his disciples followed him.");
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
@@ -771,7 +771,7 @@ namespace GlyssenTests
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
 			block.SetCharacterAndDelivery(new CharacterVerse[0]);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, block.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
 
@@ -975,7 +975,7 @@ namespace GlyssenTests
 		}
 
 		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnknownCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
 		public void SetCharacterAndCharacterIdInScript_CharacterIdSetUnclear_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block = new Block("p", 40, 8);

@@ -53,6 +53,12 @@ namespace Glyssen
 			// because we shouldn't call MigrateProjectData again.
 			if ((project.ProjectState & ProjectState.ReadyForDataMigration) > 0)
 			{
+				if (fromControlFileVersion < 140)
+				{
+					// We have to do this first because all the code for dealing with special (standard & unclear) strings
+					// in the CharacterId field has been ripped out and assumes this migration has been done.
+					MigrateSpecialCharacterIds(project.Books);
+				}
 				if (fromControlFileVersion < 96)
 					MigrateInvalidMultiBlockQuoteData(project.Books);
 				if (fromControlFileVersion < 138)
@@ -192,8 +198,7 @@ namespace Glyssen
 		internal static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
-				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter ||
-				block.CharacterIsStandard) &&
+				block.SpecialCharacter != Block.SpecialCharacters.NormalBiblicalCharacter &&
 				block.CharacterIdOverrideForScript != null)))
 			{
 				block.CharacterIdInScript = null;
@@ -233,44 +238,29 @@ namespace Glyssen
 			{
 				int bookNum = BCVRef.BookToNumber(book.BookId);
 
-				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-					block.CharacterId != CharacterVerseData.kUnknownCharacter &&
-					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
+				foreach (var block in book.GetScriptBlocks().Where(block => block.CharacterId != null))
 				{
-					if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
+					var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+					if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+						block.InitialEndVerseNumber, block.LastVerseNum).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 					{
-						if (block.UserConfirmed)
-						{
-							block.UserConfirmed = false;
-							numberOfChangesMade++;
-						}
+						// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
+						// but was subsequently removed or renamed from the master character detail list.
+						project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+							block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+						block.SpecialCharacter = Block.SpecialCharacters.Unexpected;
+						numberOfChangesMade++;
 					}
 					else
 					{
-						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
-						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-							block.InitialEndVerseNumber, block.LastVerseNum).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+						var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum).ToList();
+						if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
-							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
-							// but was subsequently removed or renamed from the master character detail list.
-							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
-							block.UserConfirmed = false;
-							block.CharacterId = CharacterVerseData.kUnknownCharacter;
-							block.CharacterIdInScript = null;
+							if (characters.Count(c => c.Character == block.CharacterId) == 1)
+								block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+							else
+								block.SetCharacterAndDelivery(characters);
 							numberOfChangesMade++;
-						}
-						else
-						{
-							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum).ToList();
-							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
-							{
-								if (characters.Count(c => c.Character == block.CharacterId) == 1)
-									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
-								else
-									block.SetCharacterAndDelivery(characters);
-								numberOfChangesMade++;
-							}
 						}
 					}
 				}
@@ -349,13 +339,131 @@ namespace Glyssen
 				Block prevBlock = null;
 				foreach (var block in book.GetScriptBlocks())
 				{
-					if (block.MatchesReferenceText && block.CharacterIsUnclear())
+					if (block.MatchesReferenceText && block.CharacterIsUnknown)
 						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, scrVers);
-					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear())
+					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnknown)
 						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, scrVers);
 					prevBlock = block;
 				}
 			}
+		}
+
+		/// <summary>
+		/// This migration moves standard, "Unknown" (i.e., uhnexpected) and "Ambiguous") character IDs to SpecialCharacter.
+		/// </summary>
+		/// <remarks>internal for testing</remarks>
+		internal static void MigrateSpecialCharacterIds(IReadOnlyList<BookScript> books)
+		{
+			// Represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
+			const string kUnexpectedCharacter = "Unknown";
+			// Represents a quote whose character has not been set. Used when the user needs to disambiguate between multiple potential characters.
+			const string kAmbiguousCharacter = "Ambiguous";
+
+
+			foreach (var book in books)
+			{
+				foreach (var block in book.GetScriptBlocks())
+				{
+					switch (GetStandardCharacterType(block.CharacterId))
+					{
+						case CharacterVerseData.StandardCharacter.Narrator: block.SpecialCharacter = Block.SpecialCharacters.Narrator; break;
+						case CharacterVerseData.StandardCharacter.ExtraBiblical: block.SpecialCharacter = Block.SpecialCharacters.ExtraBiblical; break;
+						case CharacterVerseData.StandardCharacter.BookOrChapter:
+							block.SpecialCharacter = (block.StyleTag == "c" || block.StyleTag == "cl") ?
+								Block.SpecialCharacters.ChapterAnnouncement :
+								Block.SpecialCharacters.BookTitle;
+							break;
+						case CharacterVerseData.StandardCharacter.Intro: block.SpecialCharacter = Block.SpecialCharacters.Intro; break;
+
+						default:
+							if (block.CharacterId == kAmbiguousCharacter)
+								block.SpecialCharacter = Block.SpecialCharacters.Ambiguous;
+							else if (block.CharacterId == kUnexpectedCharacter)
+								block.SpecialCharacter = Block.SpecialCharacters.Unexpected;
+							break;
+					}
+				}
+			}
+		}
+
+		/// <summary>Character ID prefix for material to be read by narrator</summary>
+		private const string kNarratorPrefix = "narrator-";
+		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
+		private const string kBookOrChapterPrefix = "BC-";
+		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
+		private const string kExtraBiblicalPrefix = "extra-";
+		/// <summary>Character ID prefix for intro material</summary>
+		private const string kIntroPrefix = "intro-";
+
+		public static CharacterVerseData.StandardCharacter GetStandardCharacterType(string characterId)
+		{
+			if (string.IsNullOrEmpty(characterId))
+				return CharacterVerseData.StandardCharacter.NonStandard;
+
+			var i = characterId.IndexOf("-", StringComparison.Ordinal);
+			if (i < 0)
+				return CharacterVerseData.StandardCharacter.NonStandard;
+
+			switch (characterId.Substring(0, i + 1))
+			{
+				case kNarratorPrefix: return CharacterVerseData.StandardCharacter.Narrator;
+				case kIntroPrefix: return CharacterVerseData.StandardCharacter.Intro;
+				case kExtraBiblicalPrefix: return CharacterVerseData.StandardCharacter.ExtraBiblical;
+				case kBookOrChapterPrefix: return CharacterVerseData.StandardCharacter.BookOrChapter;
+			}
+
+			return CharacterVerseData.StandardCharacter.NonStandard;
+		}
+
+		internal static string GetCharacterPrefix(CharacterVerseData.StandardCharacter standardCharacterType)
+		{
+			switch (standardCharacterType)
+			{
+				case CharacterVerseData.StandardCharacter.Narrator:
+					return kNarratorPrefix;
+				case CharacterVerseData.StandardCharacter.BookOrChapter:
+					return kBookOrChapterPrefix;
+				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+					return kExtraBiblicalPrefix;
+				case CharacterVerseData.StandardCharacter.Intro:
+					return kIntroPrefix;
+				default:
+					throw new ArgumentException("Unexpected standard character type.");
+			}
+		}
+
+		public static string GetStandardCharacterId(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
+		{
+			return GetCharacterPrefix(standardCharacterType) + bookId;
+		}
+
+		public static bool IsCharacterOfType(string characterId, CharacterVerseData.StandardCharacter standardCharacterType)
+		{
+			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+		}
+
+		public static bool IsCharacterStandard(string characterId)
+		{
+			if (characterId == null)
+				return false;
+
+			return IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ||
+				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.BookOrChapter) ||
+				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.ExtraBiblical) ||
+				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Intro);
+			// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
+			// but this is speed-critical code and the overhead of the extra method call is
+			// expensive.
+		}
+
+		public static bool IsCharacterExtraBiblical(string characterId)
+		{
+			if (characterId == null)
+				return false;
+
+			return IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.BookOrChapter) ||
+				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.ExtraBiblical) ||
+				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Intro);
 		}
 	}
 }

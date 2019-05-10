@@ -69,8 +69,7 @@ namespace GlyssenTests
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true));
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks,
-				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, Block.SpecialCharacters.ExtraBiblical,
 				"Big change in Topic", "s").IsParagraphStart = true;
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Peter said: ").IsParagraphStart = true;
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Nice place you got here!");
@@ -318,10 +317,10 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "Ya sabiamos, ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
@@ -361,10 +360,10 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "Ya sabiamos, ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.")
 				.AddVerse(3, "Dijo asi porque Jesus les habia dicho la misma cosa el dia anterior.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
@@ -392,7 +391,7 @@ namespace GlyssenTests
 			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId, "If any of the ref blocks is narrator, default vern block to narrator.");
 			Assert.AreEqual("said Jesus. To which Matthew replied, “We knew that.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, matchup.CorrelatedBlocks[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, matchup.CorrelatedBlocks[2].CharacterId);
 			Assert.AreEqual(string.Empty, matchup.CorrelatedBlocks[2].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[3].CharacterId);
 			Assert.AreEqual("He said this {3}\u00A0because the day before Jesus had said, “Tomorrow will be verse two.”", matchup.CorrelatedBlocks[3].GetPrimaryReferenceText());
@@ -411,7 +410,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
@@ -474,9 +473,9 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. To which Peter and John replied, ");
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "Que pinta!");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "Que pinta!");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Despues se fue. ", true));
 
 			var refBlock1 = ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "This is verse two, ", true);
@@ -514,7 +513,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
@@ -806,7 +805,7 @@ namespace GlyssenTests
 		public void SetReferenceText_FirstBlock_VernBlockHasVerseBridgeThatCoversNumberInRefBlock_SpecifiedBlockMatchedWithReferenceBlockHavingStartVerseNumberFromVernBlock(string separator)
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().Delivery = "expressionless";
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
 
@@ -825,7 +824,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual("Then Jesus told them {2}\u00A0that it was just verse two.", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newRefBlock.InitialEndVerseNumber);
@@ -836,7 +835,7 @@ namespace GlyssenTests
 		public void SetReferenceText_FirstBlock_NoVerseNumber_ExistingRefBlock_SpecifiedBlockMatchedWithReferenceBlockHavingVerseNumberFromVernBlock()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().Delivery = "expressionless";
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
 
@@ -856,7 +855,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual("Then Jesus told them that it was just verse two.", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(3, newRefBlock.InitialEndVerseNumber);
@@ -869,7 +868,7 @@ namespace GlyssenTests
 		public void SetReferenceText_VerseNumberAddedToRefBlockOfFirstBlock_FollowingRefBlockDoesNotStartWithVerseNumber_InitialVerseRefOfFollowingReferenceBlockChanged(string separator)
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
 
 			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Yo soy el pan de vida.”", "p");
@@ -1012,7 +1011,7 @@ namespace GlyssenTests
 		public void SetReferenceText_VerseNumberRemovedFromRefBlockOfFirstBlock_FollowingRefBlockDoesNotStartWithVerseNumber_InitialVerseRefOfFollowingReferenceBlockChanged()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			var refBlock1 = new Block("q", 1, 1);
 			refBlock1.CharacterId = "Jesus";
 			refBlock1.BlockElements.Add(new ScriptText("Then Jesus spoke, "));
@@ -1047,7 +1046,7 @@ namespace GlyssenTests
 		public void SetReferenceText_SubsequentBlock_VerseNumberInMiddle_SpecifiedBlockMatchedWithReferenceBlockWithInitialVerseNumberFromPreviousRefBlock(string separator)
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo dos y tres, ", "p");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
@@ -1056,7 +1055,7 @@ namespace GlyssenTests
 
 			var newRefBlock = matchup.SetReferenceText(1, "saying, {2-3}" + separator + "“This is verse two and three.”");
 			// Ensure block 0 not changed
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, matchup.CorrelatedBlocks[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, matchup.CorrelatedBlocks[0].CharacterId);
 			Assert.IsTrue(matchup.CorrelatedBlocks[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Then Jesus spoke unto them, ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 
@@ -1253,7 +1252,7 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "dijo Jesus. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "dijo Jesus. ");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
@@ -1402,9 +1401,9 @@ namespace GlyssenTests
 			Assert.IsFalse(matchup.CorrelatedBlocks[2].MatchesReferenceText);
 		}
 
-		[TestCase(CharacterVerseData.kUnknownCharacter, null)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter, null)]
 		[TestCase(CharacterVerseData.kAmbiguousCharacter, null)]
-		[TestCase(CharacterVerseData.kUnknownCharacter, "Andrew")]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter, "Andrew")]
 		[TestCase(CharacterVerseData.kAmbiguousCharacter, "Andrew")]
 		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_ContBlocksAlignedToNarratorRefBlocks_HeSaidInsertedIntoEmptyRefTextsAndBlockChainBroken(string origCharacter, string refTextCharacter)
 		{
@@ -1484,7 +1483,7 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, matchup.CorrelatedBlocks.Last().MultiBlockQuote);
 		}
 
-		[TestCase(CharacterVerseData.kUnknownCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
 		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
 		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_ContBlocksNotAlignedToRefText_HeSaidInsertedIntoEmptyRefTextsAndContBlocksSetToNarrator(string origCharacter)
 		{

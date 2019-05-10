@@ -377,7 +377,7 @@ namespace Glyssen
 
 				for (int i = indexOfVernVerseStart; i <= iVernBlock; i++)
 				{
-					if (vernBlockList[i].CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+					if (vernBlockList[i].SpecialCharacter == Block.SpecialCharacters.ExtraBiblical)
 						numberOfVernBlocksInVerseChunk--;
 				}
 
@@ -422,7 +422,7 @@ namespace Glyssen
 					else
 					{
 						iVernBlock = indexOfVernVerseStart + i;
-						if (vernBlockList[iVernBlock].CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						if (vernBlockList[iVernBlock].SpecialCharacter == Block.SpecialCharacters.ExtraBiblical)
 							iVernBlock++;
 
 						int j = 0;
@@ -482,7 +482,7 @@ namespace Glyssen
 			var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
 			var refInitStartVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnclear() ) &&
+				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnknown ) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}
 

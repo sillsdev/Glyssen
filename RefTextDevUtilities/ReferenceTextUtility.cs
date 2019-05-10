@@ -885,9 +885,9 @@ namespace Glyssen.RefTextDevUtilities
 				//	return knownMatch;
 				if (TryGetDocumentedUnknownCharacter(fcbhCharacterLabel, bookId, block.ChapterNumber, block.InitialStartVerseNumber, out var documentedCharacterId))
 					return documentedCharacterId;
-				s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnknownCharacter, bcvRef, fcbhCharacterLabel));
+				s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnexpectedCharacter, bcvRef, fcbhCharacterLabel));
 				//return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
-				return CharacterVerseData.kUnknownCharacter;
+				return CharacterVerseData.kUnexpectedCharacter;
 			}
 			else
 			{
