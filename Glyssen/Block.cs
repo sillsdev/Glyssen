@@ -145,7 +145,7 @@ namespace Glyssen
 				}
 				return m_chapterNumber;
 			}
-			set { m_chapterNumber = value; }
+			set => m_chapterNumber = value;
 		}
 
 		/// <summary>
@@ -173,14 +173,14 @@ namespace Glyssen
 				}
 				return m_initialStartVerseNumber;
 			}
-			set { m_initialStartVerseNumber = value; }
+			set => m_initialStartVerseNumber = value;
 		}
 
 		[XmlAttribute("initialEndVerse")]
 		[DefaultValue(0)]
 		public int InitialEndVerseNumber {
-			get { return m_initialEndVerseNumber; }
-			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
+			get => m_initialEndVerseNumber;
+			set => m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value;
 		}
 
 		private class VerseNumberFromBlock : IVerse
@@ -195,7 +195,7 @@ namespace Glyssen
 			}
 
 			public int StartVerse { get; private set; }
-			public int EndVerse { get { return LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge; } }
+			public int EndVerse => LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge;
 
 			/// <summary>
 			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
@@ -203,8 +203,8 @@ namespace Glyssen
 			public int LastVerseOfBridge { get; private set; }
 		}
 
-		public int LastVerseNum { get { return LastVerse.EndVerse; } }
-		public IVerse LastVerse { get { return BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this; } }
+		public int LastVerseNum => LastVerse.EndVerse;
+		public IVerse LastVerse => BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this;
 
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
@@ -221,27 +221,22 @@ namespace Glyssen
 		[XmlAttribute("characterIdOverrideForScript")]
 		public string CharacterIdOverrideForScript
 		{
-			get { return m_characterIdInScript; }
-			set { CharacterIdInScript = value; }
+			get => m_characterIdInScript;
+			set => CharacterIdInScript = value;
 		}
 
 		[XmlIgnore]
 		public string CharacterIdInScript
 		{
-			get { return m_characterIdInScript ?? CharacterId; }
+			get => m_characterIdInScript ?? CharacterId;
 			set { if (CharacterId != value) m_characterIdInScript = value; }
 		}
 
 		[XmlAttribute("delivery")]
 		public string Delivery
 		{
-			get { return m_delivery; }
-			set
-			{
-				if (IsNullOrWhiteSpace(value))
-					value = null;
-				m_delivery = value;
-			}
+			get => m_delivery;
+			set => m_delivery = IsNullOrWhiteSpace(value) ? null : value;
 		}
 
 		[XmlAttribute("userConfirmed")]
@@ -265,7 +260,7 @@ namespace Glyssen
 			// m_matchesReferenceText should imply exactly one reference block (and I *so* wish I had modeled it
 			// that way), but if a previous program bug or deserialization issue should put a block into a bad
 			// state, there are lots of places where it could crash, so if there isn't exactly 1, return false.
-			get { return m_matchesReferenceText && ReferenceBlocks.Count ==  1; }
+			get => m_matchesReferenceText && ReferenceBlocks.Count ==  1;
 			set
 			{
 				m_matchesReferenceText = value;
@@ -335,7 +330,7 @@ namespace Glyssen
 
 		public bool IsChapterAnnouncement { get { return StyleTag == "c" || StyleTag == "cl"; } }
 
-		public bool ContainsVerseNumber { get { return BlockElements.OfType<Verse>().Any(); } }
+		public bool ContainsVerseNumber => BlockElements.OfType<Verse>().Any();
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
