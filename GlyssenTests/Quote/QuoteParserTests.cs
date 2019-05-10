@@ -5424,6 +5424,34 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[3].CharacterId);
 		}
 
+		// Test for PG-1203
+		[TestCase("q", "q")]
+		[TestCase("q", "qr")]
+		[TestCase("q", "qc")]
+		[TestCase("qm1", "qm2")]
+		[TestCase("q1", "q2")]
+		[TestCase("q", "qm")]
+		[TestCase("qc", "qr")]
+		public void Parse_AcrosticHeading_NotCombined(string q1, string q2)
+		{
+			var input = new List<Block>
+			{
+				new Block(q1, 119, 8) {IsParagraphStart = true}.AddVerse(8, "I will keep thy statutes;"),
+				new Block(q2, 119, 8) {IsParagraphStart = true}.AddText("This language doesn't use periods in poetry"),
+				new Block("qa", 119, 8) {IsParagraphStart = true}.AddText("Beth"),
+				new Block(q1, 119, 9) {IsParagraphStart = true}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
+			};
+
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "PSA", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual(q1, output[0].StyleTag);
+			Assert.AreEqual("{8}\u00A0I will keep thy statutes; This language doesn't use periods in poetry", output[0].GetText(true));
+			Assert.AreEqual("Beth", output[1].GetText(true));
+			Assert.AreEqual("{9}\u00A0How shall a pipsqueak cleanse his way?", output[2].GetText(true));
+			Assert.IsTrue(output.All(b => b.CharacterIs("PSA", CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
 		// Test for PG-1121
 		[Test]
 		public void Parse_ColonFollowedByNormalInlineQuoteAndSubsequentVerses_ColonNotTreatedAsStartOfDialogue()
