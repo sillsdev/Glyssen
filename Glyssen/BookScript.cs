@@ -217,23 +217,32 @@ namespace Glyssen
 			if (iBlock == -1)
 				return; // No existing blocks are covered by this override
 
-			if (info.StartBlock > 1 && m_blocks[iBlock].ChapterNumber == info.StartChapter)
+			if (m_blocks[iBlock].ChapterNumber == info.StartChapter)
 			{
-				var lastVerseNumInBlock = m_blocks[iBlock].LastVerseNum;
-				if (lastVerseNumInBlock == info.StartVerse || (lastVerseNumInBlock < info.StartVerse && lastVerseNumInBlock >= info.StartVerse))
+				if (m_blocks[iBlock].LastVerseNum < info.StartVerse)
 				{
-					// Skip ahead to get to correct start block.
-					for (int i = 1; i < info.StartBlock; i++)
+					iBlock += m_blocks.Skip(iBlock).IndexOf(b => b.ChapterNumber > info.StartChapter);
+					if (iBlock == -1)
+						return; // All the blocks in this chapter are before the override starts and there are no more blocks beyond this chapter.
+				}
+				else if (info.StartBlock > 1)
+				{
+					var lastVerseNumInBlock = m_blocks[iBlock].LastVerseNum;
+					if (lastVerseNumInBlock == info.StartVerse || (lastVerseNumInBlock < info.StartVerse && lastVerseNumInBlock >= info.StartVerse))
 					{
-						var block = m_blocks[++iBlock];
-						if (!block.IsScripture)
+						// Skip ahead to get to correct start block.
+						for (int i = 1; i < info.StartBlock; i++)
 						{
-							// Unlikely, but if this happens, we don't want to count it as one of the blocks to skip.
-							i--;
-							continue;
+							var block = m_blocks[++iBlock];
+							if (!block.IsScripture)
+							{
+								// Unlikely, but if this happens, we don't want to count it as one of the blocks to skip.
+								i--;
+								continue;
+							}
+							if (block.InitialStartVerseNumber > info.StartVerse && block.InitialEndVerseNumber > info.StartVerse)
+								break;
 						}
-						if (block.InitialStartVerseNumber > info.StartVerse && block.InitialEndVerseNumber > info.StartVerse)
-							break;
 					}
 				}
 			}
@@ -263,10 +272,13 @@ namespace Glyssen
 					}
 				}
 
-				// A block at verse 0 (in the Psalms) is a Hebrew Title line. We do not support overriding those.
-				// Style tag "qa" is an acrostic header. These also do not get overridden.
-				if (block.InitialStartVerseNumber > 0 && block.CharacterId == NarratorCharacterId /* TODO: && block.StyleTag != "qa" */)
-					narratorBlocksInRange.Add(block);
+				if (block.InitialStartVerseNumber > 0 && block.CharacterId == NarratorCharacterId)
+				{
+					// A block at verse 0 (in the Psalms) is a Hebrew Title line. We do not support overriding those.
+					// Style tag "qa" is an acrostic header. These also do not get overridden.
+					if (block.StyleTag != "qa")
+						narratorBlocksInRange.Add(block);
+				}
 				else
 				{
 					if (!applyOverride)

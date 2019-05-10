@@ -809,7 +809,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetCharacterIdInScript_AcrosticHeading_NotCombined()
+		public void GetCharacterIdInScript_AcrosticHeading_HeadingNotOverridden()
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator);
 			var blocks = new List<Block>
@@ -829,6 +829,29 @@ namespace GlyssenTests
 			Assert.AreEqual("psalmist (Aleph)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[2]));
 			Assert.AreEqual(narrator, bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[3]));
 			Assert.AreEqual("psalmist (Beth)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[4]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_NoBlocksExistForVersesInStartChapterButBlocksDoExistForSubsequentChapter_OverrideApplied()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "PRO"),
+				new Block("q1", 1, 1) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(1, "The proverbs of Solomon bar David, king of Israel:"),
+				new Block("q1", 1, 7) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(7, "The fear of the Lord is the start of knowledge,"),
+				new Block("q2", 1, 7) {IsParagraphStart = true, CharacterId = narrator}.AddText("but fools loathe wisdom and instruction."),
+				NewChapterBlock(2, "PRO"),
+				new Block("q1", 2, 1) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(1, "My son, if you adopt my words"),
+				new Block("q2", 2, 1) {IsParagraphStart = true, CharacterId = narrator}.AddText("and store up my commands within you,"),
+				new Block("q1", 2, 2) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(2, "tuning your auditory faculties to wisdom"),
+				new Block("q2", 2, 2) {IsParagraphStart = true, CharacterId = narrator}.AddText("and sticking your heart to understanding—"),
+			};
+
+			var bookOfPsalms = new BookScript("PRO", blocks, ScrVers.English);
+
+			Assert.IsTrue(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 1).All(b => bookOfPsalms.GetCharacterIdInScript(b) == narrator));
+			Assert.IsTrue(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 2).All(b => bookOfPsalms.GetCharacterIdInScript(b) == "Solomon, king"));
 		}
 
 		[Test]
