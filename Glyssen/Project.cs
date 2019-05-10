@@ -799,6 +799,12 @@ namespace Glyssen
 							return true;
 						m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 						return false;
+					case 46:
+						// This change only affects the way the \qa marker is handled, and that marker is most likely only used in Psalm 119
+						if (m_projectMetadata.ParserVersion < 45 || AvailableBooks.Any(b => b.Code == "PSA"))
+							return true;
+						m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
+						return false;
 					default:
 						return true;
 				}
