@@ -693,6 +693,7 @@ namespace Glyssen.Dialogs
 			public string Alias { get { return m_alias; } }
 			public string LocalizedAlias { get { return m_localizedAlias; } }
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
+			public Block.SpecialCharacters Type { get; private set; }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 			public bool IsStandard => new List<String>
 			{

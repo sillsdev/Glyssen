@@ -765,7 +765,7 @@ namespace Glyssen
 		/// </summary>
 		public bool IsScripture => !CharacterIs(SpecialCharacters.ExtraBiblical);
 
-		private bool CharacterIs(SpecialCharacters flags) => (SpecialCharacter & flags) == flags;
+		public bool CharacterIs(SpecialCharacters flags) => (SpecialCharacter & flags) == flags;
 
 
 		/// <summary>
@@ -916,6 +916,10 @@ namespace Glyssen
 			{
 				foreach (var character in characters)
 				{
+					switch (character.Type)
+					{
+							case SpecialCharacters.Narrator:
+					}
 					if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
 					{
 

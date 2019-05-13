@@ -2094,9 +2094,9 @@ namespace GlyssenTests.Dialogs
 
 			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, AssignCharacterViewModel.Character.Narrator);
 
-			Assert.IsTrue(startBlock.CharacterIs(m_model.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(startBlock.CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.AreEqual(MultiBlockQuote.None, startBlock.MultiBlockQuote);
-			Assert.IsTrue(continuationBlocks.TrueForAll(b => b.CharacterIs(m_model.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(continuationBlocks.TrueForAll(b => b.CharacterIs(Block.SpecialCharacters.Narrator)));
 			Assert.IsTrue(continuationBlocks.TrueForAll(b => !b.IsContinuationOfPreviousBlockQuote));
 			foreach (var iBlock in m_indicesOfChangedBlocks)
 			{

@@ -57,7 +57,7 @@ namespace Glyssen.Analysis
 						continue;
 					}
 
-					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
+					if (block.CharacterIs(Block.SpecialCharacters.Narrator))
 						NarratorBlocks++;
 					else if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 						UnknownBlocks++;

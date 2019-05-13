@@ -411,13 +411,13 @@ namespace GlyssenTests
 
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var result = bookScript.GetScriptBlocks(true);
-			Assert.IsTrue(result[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(result[1].CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.IsTrue(result[1].IsParagraphStart);
 			var textOfFirstVerseBlock = result[1].GetText(true);
 			Assert.IsTrue(textOfFirstVerseBlock.StartsWith("{1}\u00A0"));
 			Assert.IsTrue(textOfFirstVerseBlock.Contains("{2}\u00A0"));
 			Assert.IsTrue(textOfFirstVerseBlock.Contains(" «Sons of Thunder» the rest of verse 2. {3}\u00A0"));
-			Assert.IsTrue(result[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(result[2].CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.IsTrue(result[2].IsParagraphStart);
 			Assert.IsTrue(result[2].GetText(true).StartsWith("{4}\u00A0"));
 		}
@@ -1469,7 +1469,7 @@ namespace GlyssenTests
 			Assert.AreEqual(k1Co15V27Text.Substring(v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true));
 			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2]
-				.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+				.CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
@@ -1571,7 +1571,7 @@ namespace GlyssenTests
 
 			block = targetBlocksAfterApplyingSplit[++iBlock];
 			Assert.AreEqual(kSplitPos2 - kSplitPos1, ((ScriptText)block.BlockElements.Single()).Content.Length);
-			Assert.IsTrue(block.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(block.CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("They said to him,", block.ReferenceBlocks.Single().GetText(true));
 
@@ -1584,7 +1584,7 @@ namespace GlyssenTests
 
 			block = targetBlocksAfterApplyingSplit[++iBlock];
 			Assert.AreEqual(kSplitPos4 - kSplitPos3, ((ScriptText)block.BlockElements.Single()).Content.Length);
-			Assert.IsTrue(block.CharacterIs(source.BookId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(block.CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("Jesus said to them,", block.ReferenceBlocks.Single().GetText(true));
 
@@ -3094,7 +3094,7 @@ namespace GlyssenTests
 			Assert.AreEqual("Andrew", result[1].CharacterId);
 			Assert.AreEqual("Andrew", result[1].CharacterIdInScript);
 			Assert.True(result[1].UserConfirmed);
-			Assert.IsTrue(result[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(result[2].CharacterIs(Block.SpecialCharacters.Narrator));
 		}
 
 		[Test]
