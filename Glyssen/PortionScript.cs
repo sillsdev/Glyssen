@@ -14,9 +14,9 @@ namespace Glyssen
 		protected string m_id;
 		protected List<Block> m_blocks;
 
-		public PortionScript(string id, IEnumerable<Block> blocks)
+		public PortionScript(string bookId, IEnumerable<Block> blocks)
 		{
-			m_id = id;
+			m_id = bookId;
 			if (blocks != null)
 				m_blocks = blocks.ToList();
 		}
@@ -65,7 +65,7 @@ namespace Glyssen
 			{
 				if (string.IsNullOrEmpty(characterId))
 				{
-					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
+					newBlock.SpecialCharacter = Block.SpecialCharacters.Unexpected;
 					newBlock.UserConfirmed = false;
 				}
 				else

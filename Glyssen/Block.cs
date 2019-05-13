@@ -73,6 +73,7 @@ namespace Glyssen
 		private bool m_matchesReferenceText;
 		private SpecialCharacters m_specialCharacter;
 		private string m_characterId;
+		private object m_owner;
 		private static string s_characterSelect;
 		private static readonly Regex s_verseNumbersOrSounds;
 		private static readonly Regex s_emptyVerseText;
@@ -169,11 +170,20 @@ namespace Glyssen
 			set => m_chapterNumber = value;
 		}
 
-		/// <summary>
-		/// This is only set for chapter announcement blocks
-		/// </summary>
-		[XmlAttribute("book")]
-		public string BookCode { get; set; }
+		public BookScript Book
+		{
+			get => (m_owner as BookScript) ?? ((Block)m_owner).Book;
+			set => SetOwner(value);
+		}
+
+		private void SetOwner(object owner)
+		{
+			m_owner = owner;
+			foreach (var referenceBlock in ReferenceBlocks)
+				referenceBlock.SetOwner(this);
+		}
+
+		private string BookCode => Book?.BookId;
 
 		[XmlAttribute("initialStartVerse")]
 		public int InitialStartVerseNumber
@@ -388,21 +398,20 @@ namespace Glyssen
 			ReferenceBlocks = new List<Block> { referenceBlock };
 			MatchesReferenceText = true;
 		}
-
-		public void SetMatchedReferenceBlock(int bookNum, ScrVers versification,
+		public void SetMatchedReferenceBlock(ScrVers versification,
 			IReferenceLanguageInfo referenceLanguageInfo, IEnumerable<Block> referenceBlocksToJoin = null)
 		{
 			if (referenceBlocksToJoin == null)
 				referenceBlocksToJoin = ReferenceBlocks;
 			var refBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber, InitialEndVerseNumber);
-			refBlock.SetCharacterAndDeliveryInfo(this, bookNum, versification);
+			refBlock.SetCharacterAndDeliveryInfo(this, versification);
 			if (referenceBlocksToJoin.Any())
 				refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
 			else
 			{
 				refBlock.BlockElements.Add(new ScriptText(""));
 				if (referenceLanguageInfo.HasSecondaryReferenceText)
-					refBlock.SetMatchedReferenceBlock(bookNum, versification, referenceLanguageInfo.BackingReferenceLanguage);
+					refBlock.SetMatchedReferenceBlock(versification, referenceLanguageInfo.BackingReferenceLanguage);
 			}
 			SetMatchedReferenceBlock(refBlock);
 		}
@@ -729,7 +738,7 @@ namespace Glyssen
 			if (!includeReference)
 				return ToString();
 
-			if (bookId == null && !IsNullOrEmpty(BookCode))
+			if (bookId == null)
 				bookId = BookCode;
 			int bookNum;
 			if (bookId == null)
@@ -853,9 +862,9 @@ namespace Glyssen
 			}
 		}
 
-		public void SetCharacterIdAndCharacterIdInScript(string characterId, int bookNumber, ScrVers scrVers = null)
+		public void SetCharacterIdAndCharacterIdInScript(string characterId, ScrVers scrVers = null)
 		{
-			SetCharacterIdAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
+			SetCharacterIdAndCharacterIdInScript(characterId, () => GetMatchingCharacter(scrVers));
 		}
 
 		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
@@ -871,9 +880,9 @@ namespace Glyssen
 			UseDefaultForMultipleChoiceCharacter(getMatchingCharacterForVerse);
 		}
 
-		public void UseDefaultForMultipleChoiceCharacter(int bookNumber, ScrVers scrVers = null)
+		public void UseDefaultForMultipleChoiceCharacter(ScrVers scrVers = null)
 		{
-			UseDefaultForMultipleChoiceCharacter(() => GetMatchingCharacter(bookNumber, scrVers));
+			UseDefaultForMultipleChoiceCharacter(() => GetMatchingCharacter(scrVers));
 		}
 
 		public void UseDefaultForMultipleChoiceCharacter(Func<CharacterVerse> getMatchingCharacterForVerse)
@@ -888,14 +897,14 @@ namespace Glyssen
 				m_characterIdInScript = null;
 		}
 
-		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
+		private CharacterVerse GetMatchingCharacter(ScrVers scrVers)
 		{
-			return GetMatchingCharacter(ControlCharacterVerseData.Singleton, bookNumber, scrVers);
+			return GetMatchingCharacter(ControlCharacterVerseData.Singleton, scrVers);
 		}
 
-		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
+		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, ScrVers scrVers)
 		{
-			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
+			return cvInfo.GetCharacters(Book.BookNumber, ChapterNumber, InitialStartVerseNumber,
 				InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId);
 		}
 
@@ -915,36 +924,7 @@ namespace Glyssen
 			if (characters != null)
 			{
 				foreach (var character in characters)
-				{
-					switch (character.Type)
-					{
-							case SpecialCharacters.Narrator:
-					}
-					if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
-					{
-
-					}
-					if (character.IsNarrator)
-					{
-						sb.AppendFormat(optionTemplate,
-							CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
-							character.LocalizedDisplay);
-					}
-					else
-					{
-						var stdCharacterType = CharacterVerseData.GetStandardCharacterType(character.CharacterId);
-						if (stdCharacterType == CharacterVerseData.StandardCharacter.NonStandard)
-						{
-							sb.AppendFormat(optionTemplate, character.CharacterId, character.LocalizedDisplay);
-						}
-						else
-						{
-							sb.AppendFormat(optionTemplate,
-								CharacterVerseData.GetStandardCharacterId(BookCode, stdCharacterType),
-								character.LocalizedDisplay);
-						}
-					}
-				}
+					sb.AppendFormat(optionTemplate, character.CharacterId, character.LocalizedDisplay);
 			}
 
 			sb.Append("</select>");
@@ -1109,13 +1089,13 @@ namespace Glyssen
 			return newBlock;
 		}
 
-		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, ScrVers scrVers)
+		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, ScrVers scrVers)
 		{
 			if (basedOnBlock.CharacterIdOverrideForScript == null)
 			{
 				SpecialCharacter = basedOnBlock.SpecialCharacter;
 				if (SpecialCharacter != SpecialCharacters.NormalBiblicalCharacter)
-					SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
+					SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, scrVers);
 			}
 			SetCharacterAndDeliveryInfo(basedOnBlock);
 		}
@@ -1228,7 +1208,7 @@ namespace Glyssen
 			var matchingRefBlocks = refBlocksForPassage.Where(refBlock => refBlock.GetPrimaryReferenceText() == GetPrimaryReferenceText()).ToList();
 			if (matchingRefBlocks.Count == 1)
 			{
-				SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), vernVersification, referenceText, matchingRefBlocks);
+				SetMatchedReferenceBlock(vernVersification, referenceText, matchingRefBlocks);
 				return true;
 			}
 

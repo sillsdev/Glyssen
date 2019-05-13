@@ -18,7 +18,7 @@ namespace Glyssen.Analysis
 
 		public int TotalBlocks { get; private set; }
 		public int NarratorBlocks { get; private set; }
-		public int UnknownBlocks { get; private set; }
+		public int UnexpectedBlocks { get; private set; }
 		public int AmbiguousBlocks { get; private set; }
 		public double TotalPercentAssigned { get; private set; }
 		public int UserAssignedBlocks { get; private set; }
@@ -33,13 +33,13 @@ namespace Glyssen.Analysis
 				return m_alignmentPercent;
 			}
 		}
-		public double PercentUnknown { get; private set; }
+		public double PercentUnexpected { get; private set; }
 
 		public void AnalyzeQuoteParse()
 		{
 			TotalBlocks = 0;
 			NarratorBlocks = 0;
-			UnknownBlocks = 0;
+			UnexpectedBlocks = 0;
 			AmbiguousBlocks = 0;
 			UserAssignedBlocks = 0;
 			NeedsAssignment = 0;
@@ -59,9 +59,9 @@ namespace Glyssen.Analysis
 
 					if (block.CharacterIs(Block.SpecialCharacters.Narrator))
 						NarratorBlocks++;
-					else if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
-						UnknownBlocks++;
-					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
+					else if (block.CharacterIs(Block.SpecialCharacters.Unexpected))
+						UnexpectedBlocks++;
+					else if (block.CharacterIs(Block.SpecialCharacters.Ambiguous))
 						AmbiguousBlocks++;
 					if (block.UserConfirmed)
 						UserAssignedBlocks++;
@@ -71,9 +71,9 @@ namespace Glyssen.Analysis
 			}
 			m_alignmentPercent = -1;
 
-			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
+			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnexpectedBlocks + AmbiguousBlocks), TotalBlocks);
 			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
-			PercentUnknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
+			PercentUnexpected = MathUtilities.PercentAsDouble(UnexpectedBlocks, TotalBlocks);
 #if DEBUG
 			ReportInConsole();
 #endif
@@ -99,7 +99,7 @@ namespace Glyssen.Analysis
 					foreach (Block block in blocks)
 					{
 						totalBlocksForExport++;
-						if (!CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId) && !block.MatchesReferenceText)
+						if (!block.CharacterIs(Block.SpecialCharacters.ExtraBiblical) && !block.MatchesReferenceText)
 							blocksNotAlignedToReferenceText++;
 					}
 				}
@@ -115,7 +115,7 @@ namespace Glyssen.Analysis
 			Console.WriteLine("Blocks assigned automatically: " + MathUtilities.FormattedPercent(TotalPercentAssigned, 2, 5));
 			double narrator = MathUtilities.PercentAsDouble(NarratorBlocks, TotalBlocks);
 			Console.WriteLine("Narrator: " + MathUtilities.FormattedPercent(narrator, 2, 5));
-			Console.WriteLine("Unknown: " + MathUtilities.FormattedPercent(PercentUnknown, 2, 5));
+			Console.WriteLine("Unexpected: " + MathUtilities.FormattedPercent(PercentUnexpected, 2, 5));
 			Console.WriteLine("*************************************************************");
 		}
 	}

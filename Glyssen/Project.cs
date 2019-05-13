@@ -1745,7 +1745,7 @@ namespace Glyssen
 				{"TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
 				{"UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
 				{"TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture)}
+				{"PercentUnexpected", ProjectAnalysis.PercentUnexpected.ToString(CultureInfo.InvariantCulture)}
 			});
 
 			if (AnalysisCompleted != null)

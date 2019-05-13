@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
-using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
 using Glyssen.Shared;
@@ -32,13 +31,13 @@ namespace Glyssen
 		public BookScript(string bookId, IEnumerable<Block> blocks) : base(bookId, blocks)
 		{
 			OnBlocksReset();
-			BookNumber = BCVRef.BookToNumber(bookId);
+			BookNumber = BCVRef.BookToNumber(BookId);
 		}
 
 		[XmlAttribute("id")]
 		public string BookId
 		{
-			get { return Id; }
+			get => Id;
 			set
 			{
 				m_id = value;
@@ -137,13 +136,12 @@ namespace Glyssen
 				list.Add(m_blocks[0].Clone());
 				var prevBlock = list.Single();
 				prevBlock.MatchesReferenceText = false;
-				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
 				for (var i = 1; i < m_blockCount; i++)
 				{
 					var clonedBlock = m_blocks[i].Clone();
 					clonedBlock.MatchesReferenceText = false;
 					if (!clonedBlock.CharacterIsStandard)
-						clonedBlock.CharacterId = narrator;
+						clonedBlock.SpecialCharacter = Block.SpecialCharacters.Narrator;
 
 					if (!clonedBlock.IsParagraphStart || (clonedBlock.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) // && clonedBlock.CharacterId == prevBlock.CharacterId)
 						prevBlock.CombineWith(clonedBlock);
@@ -236,6 +234,8 @@ namespace Glyssen
 		private void OnBlocksReset()
 		{
 			m_chapterStartBlockIndices = new Dictionary<int, int>();
+			foreach (var block in m_blocks)
+				block.Book = this;
 			m_blockCount = m_blocks.Count;
 		}
 
@@ -243,9 +243,11 @@ namespace Glyssen
 		{
 			base.OnBlocksInserted(insertionIndex);
 			Debug.Assert(insertionIndex > 0);
+			foreach (var insertedBlock in m_blocks.Skip(insertionIndex).Take(countOfInsertedBlocks))
+				insertedBlock.Book = this;
 			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum =>
 				chapterNum > m_blocks[insertionIndex - 1].ChapterNumber).ToList();
-			foreach (var chapterNum in  chapterNumbersToIncrement)
+			foreach (var chapterNum in chapterNumbersToIncrement)
 				m_chapterStartBlockIndices[chapterNum] += countOfInsertedBlocks;
 
 			m_blockCount += countOfInsertedBlocks;
@@ -465,7 +467,7 @@ namespace Glyssen
 							targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
 							targetBlock.CloneReferenceBlocks();
 						}
-						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, versification);
+						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, versification);
 						targetBlock.SplitId = sourceBlock.SplitId;
 						targetBlock.MultiBlockQuote = sourceBlock.MultiBlockQuote;
 						targetBlock.UserConfirmed = sourceBlock.UserConfirmed;
@@ -857,7 +859,7 @@ namespace Glyssen
 				{
 					if (baseBlock.CharacterIsStandard)
 						throw new InvalidOperationException("Caller is responsible for setting preceding block(s)' MultiBlockQuote property set to None\r\n" +
-							$"{baseBlock.ToString(true, BookId)}");
+							$"{baseBlock.ToString(true)}");
 					do
 					{
 						m_blocks[iNextBlock].CharacterId = baseBlock.CharacterId;

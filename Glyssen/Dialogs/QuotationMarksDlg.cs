@@ -454,9 +454,9 @@ namespace Glyssen.Dialogs
 					}
 				}
 			}
-			else if (m_project.ProjectAnalysis.PercentUnknown > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes)
+			else if (m_project.ProjectAnalysis.PercentUnexpected > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes)
 			{
-				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
+				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnexpected))
 				{
 					MainForm.LogDialogDisplay(dlg);
 					dlg.ShowDialog();

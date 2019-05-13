@@ -1104,7 +1104,7 @@ namespace GlyssenTests
 			rtPortuguese.Expect(r => r.HasSecondaryReferenceText).Return(true);
 			rtEnglish.Expect(r => r.BackingReferenceLanguage).Return(null);
 			rtEnglish.Expect(r => r.HasSecondaryReferenceText).Return(false);
-			vernBlock.SetMatchedReferenceBlock(40, m_testVersification, rtFrench);
+			vernBlock.SetMatchedReferenceBlock(m_testVersification, rtFrench);
 
 			Assert.AreEqual("", vernBlock.GetPrimaryReferenceText());
 			var refBlockFrench = vernBlock.ReferenceBlocks.Single();

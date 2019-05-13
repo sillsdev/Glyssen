@@ -290,59 +290,57 @@ namespace Glyssen
 				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
 				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, Versification);
 
-				var type = CharacterVerseData.GetStandardCharacterType(currentVernBlock.CharacterId);
+				var type = currentVernBlock.SpecialCharacter;
 				switch (type)
 				{
-					case CharacterVerseData.StandardCharacter.BookOrChapter:
-						if (currentVernBlock.IsChapterAnnouncement)
+					case Block.SpecialCharacters.ChapterAnnouncement:
+						var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
+						refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
+
+						if (HasSecondaryReferenceText)
 						{
-							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
-							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
-
-							if (HasSecondaryReferenceText)
+							if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
 							{
-								if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
+								refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
+							}
+							else if (!currentRefBlock.IsChapterAnnouncement)
+							{
+								// Find the reference text's chapter announcement to get the secondary reference text chapter announcement
+								var i = iRefBlock + 1;
+								while (i < refBlockList.Count)
 								{
-									refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
-								}
-								else if (!currentRefBlock.IsChapterAnnouncement)
-								{
-									// Find the reference text's chapter announcement to get the secondary reference text chapter announcement
-									var i = iRefBlock + 1;
-									while (i < refBlockList.Count)
+									var workingRefBlock = refBlockList[i];
+									var workingRefInitStartVerse = new VerseRef(bookNum, workingRefBlock.ChapterNumber, workingRefBlock.InitialStartVerseNumber, Versification);
+
+									var compareResult = workingRefInitStartVerse.CompareTo(vernInitStartVerse);
+
+									if (compareResult > 0) // break out early; we passed the verse reference, so there is no chapter label
+										break;
+
+									if (compareResult == 0 && workingRefBlock.IsChapterAnnouncement && workingRefBlock.MatchesReferenceText)
 									{
-										var workingRefBlock = refBlockList[i];
-										var workingRefInitStartVerse = new VerseRef(bookNum, workingRefBlock.ChapterNumber, workingRefBlock.InitialStartVerseNumber, Versification);
-
-										var compareResult = workingRefInitStartVerse.CompareTo(vernInitStartVerse);
-
-										if (compareResult > 0) // break out early; we passed the verse reference, so there is no chapter label
-											break;
-
-										if (compareResult == 0 && workingRefBlock.IsChapterAnnouncement && workingRefBlock.MatchesReferenceText)
-										{
-											refChapterBlock.SetMatchedReferenceBlock(workingRefBlock.ReferenceBlocks.Single().Clone());
-											break;
-										}
-
-										i++;
+										refChapterBlock.SetMatchedReferenceBlock(workingRefBlock.ReferenceBlocks.Single().Clone());
+										break;
 									}
+
+									i++;
 								}
 							}
-
-							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
-							if (currentRefBlock.IsChapterAnnouncement)
-								continue;
 						}
-						goto case CharacterVerseData.StandardCharacter.ExtraBiblical;
-					case CharacterVerseData.StandardCharacter.ExtraBiblical:
-						if (type == CharacterVerseData.GetStandardCharacterType(currentRefBlock.CharacterId))
+
+						currentVernBlock.SetMatchedReferenceBlock(currentRefBlock);
+						if (currentRefBlock.IsChapterAnnouncement)
+							continue;
+						goto case Block.SpecialCharacters.BookTitle;
+					case Block.SpecialCharacters.BookTitle:
+					case Block.SpecialCharacters.ExtraBiblical:
+						if (type == currentRefBlock.SpecialCharacter)
 						{
 							currentVernBlock.SetMatchedReferenceBlock(currentRefBlock);
 							continue;
 						}
-						goto case CharacterVerseData.StandardCharacter.Intro;
-					case CharacterVerseData.StandardCharacter.Intro:
+						goto case Block.SpecialCharacters.Intro;
+					case Block.SpecialCharacters.Intro:
 						// This will be re-incremented in the for loop, so it effectively allows
 						// the vern index to advance while keeping the ref index the same.
 						iRefBlock--;
@@ -356,7 +354,7 @@ namespace Glyssen
 						break;
 				}
 
-				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > refInitStartVerse)
+				while (currentRefBlock.CharacterIs(Block.SpecialCharacters.ExtraBiblical) || vernInitStartVerse > refInitStartVerse)
 				{
 					iRefBlock++;
 					if (iRefBlock == refBlockList.Count)
@@ -397,7 +395,7 @@ namespace Glyssen
 
 					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
 					// ref blocks into one and call it a match.
-					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(vernacularVersification, this,
 						refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk));
 					continue;
 				}
@@ -445,7 +443,7 @@ namespace Glyssen
 						{
 							// Since there's only one vernacular block for this verse (or verse bridge), just combine all
 							// ref blocks into one and call it a match.
-							vernBlockInVerseChunk.SetMatchedReferenceBlock(bookNum, vernacularVersification, this, remainingRefBlocks);
+							vernBlockInVerseChunk.SetMatchedReferenceBlock(vernacularVersification, this, remainingRefBlocks);
 						}
 						else
 						{
@@ -497,7 +495,7 @@ namespace Glyssen
 		{
 			for (; ; )
 			{
-				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterExtraBiblical(b.CharacterId));
+				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !b.CharacterIs(Block.SpecialCharacters.ExtraBiblical));
 				if (nextScriptureBlock == null)
 					break;
 				var nextVerseRef = new VerseRef(endVerse.BookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.InitialStartVerseNumber, versification);

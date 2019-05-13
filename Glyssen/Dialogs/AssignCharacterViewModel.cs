@@ -609,7 +609,7 @@ namespace Glyssen.Dialogs
 				if (currentBlock.CharacterId != firstCharacterId)
 				{
 					if (string.IsNullOrEmpty(firstCharacterId))
-						currentBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
+						currentBlock.SpecialCharacter = Block.SpecialCharacters.Unexpected;
 					else
 					{
 						Debug.Assert(currentBlock.CharacterIdOverrideForScript == null && firstCharacterId.SplitCharacterId().Length == 1,
@@ -693,7 +693,7 @@ namespace Glyssen.Dialogs
 			public string Alias { get { return m_alias; } }
 			public string LocalizedAlias { get { return m_localizedAlias; } }
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
-			public Block.SpecialCharacters Type { get; private set; }
+			public CharacterVerseData.StandardCharacter Type { get; private set; }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 			public bool IsStandard => new List<String>
 			{
@@ -703,7 +703,7 @@ namespace Glyssen.Dialogs
 				s_extraCharacter
 			}.Contains(CharacterId);
 
-			public string LocalizedDisplay { get { return ToLocalizedString(); } }
+			public string LocalizedDisplay => ToLocalizedString();
 
 			public static void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
 				string extraCharacter, Func<string> funcToGetBookId, Func<string, string> funcToGetRelevantAlias)
@@ -718,8 +718,7 @@ namespace Glyssen.Dialogs
 
 			internal Character(string characterId, string localizedCharacterId = null, string alias = null, string localizedAlias = null, bool projectSpecific = true)
 			{
-				m_characterId = CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ?
-					s_narrator.CharacterId : characterId;
+				m_characterId = characterId;
 				m_localizedCharacterId = localizedCharacterId ?? characterId;
 				m_alias = String.IsNullOrWhiteSpace(alias) ? null : alias;
 				m_localizedAlias = String.IsNullOrWhiteSpace(localizedAlias) ? null : localizedAlias;

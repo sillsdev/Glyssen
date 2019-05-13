@@ -252,8 +252,7 @@ namespace Glyssen.Quote
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-										multiBlock.Delivery = null;
+										multiBlock.SpecialCharacter = Block.SpecialCharacters.Unexpected;
 									}
 									m_currentMultiBlockQuote.Clear();
 									FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0, true);
@@ -467,8 +466,7 @@ namespace Glyssen.Quote
 				foreach (var multiBlock in m_currentMultiBlockQuote)
 				{
 					multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-					multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-					multiBlock.Delivery = null;
+					multiBlock.SpecialCharacter = Block.SpecialCharacters.Unexpected;
 				}
 			}
 			else
@@ -685,8 +683,7 @@ namespace Glyssen.Quote
 			Block blockFollowingInterruption = null;
 			if (characterUnknown)
 			{
-				m_workingBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
-				m_workingBlock.Delivery = null;
+				m_workingBlock.SpecialCharacter = Block.SpecialCharacters.Unexpected;
 			}
 			else
 			{
@@ -716,7 +713,7 @@ namespace Glyssen.Quote
 				else
 				{
 					m_nextBlockContinuesQuote = false;
-					m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
+					m_workingBlock.SpecialCharacter = Block.SpecialCharacters.Narrator;
 				}
 			}
 
@@ -776,7 +773,7 @@ namespace Glyssen.Quote
 				verseStartNum = lastVerse.StartVerse;
 				verseEndNum = lastVerse.EndVerse;
 			}
-			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
+			m_workingBlock = new Block(m_bookId, styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
 
 		/// <summary>
@@ -794,7 +791,7 @@ namespace Glyssen.Quote
 
 			Block blockFollowingLastInterruption = null;
 
-			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
+			var blocks = new PortionScript(new[] {m_workingBlock});
 			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
 			if (originalQuoteBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 				ProcessMultiBlock();

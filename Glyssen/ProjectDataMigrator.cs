@@ -17,7 +17,7 @@ namespace Glyssen
 		[Flags]
 		private enum Migrations
 		{
-			SetBookIdForChapterBlocks = 1,
+			ConvertFromDeprecatedPreVersion140 = 1,
 		}
 
 		public enum MigrationResult
@@ -42,23 +42,17 @@ namespace Glyssen
 
 			var result = MigrationResult.Partial;
 
-			if (fromControlFileVersion < 90 && (project != s_lastProjectMigrated || (s_migrationsRun & Migrations.SetBookIdForChapterBlocks) == 0))
+			if (fromControlFileVersion < 140 && (project != s_lastProjectMigrated || (s_migrationsRun & Migrations.ConvertFromDeprecatedPreVersion140) == 0))
 			{
-				// HEADS UP! If there are no books, the following method will be a no-op, so we do not want to set the flag.
-				SetBookIdForChapterBlocks(project.Books);
-				s_migrationsRun |= Migrations.SetBookIdForChapterBlocks;
+				// HEADS UP! If there are no books, the following method will be a no-op, so we do not want to set the flag. (See comment above.)
+				MigrateSpecialCharacterIds(project.Books);
+				s_migrationsRun |= Migrations.ConvertFromDeprecatedPreVersion140;
 			}
 
 			// We don't need to track runs of Migrations which only occur for projects that are ReadyForDataMigration
 			// because we shouldn't call MigrateProjectData again.
 			if ((project.ProjectState & ProjectState.ReadyForDataMigration) > 0)
 			{
-				if (fromControlFileVersion < 140)
-				{
-					// We have to do this first because all the code for dealing with special (standard & unclear) strings
-					// in the CharacterId field has been ripped out and assumes this migration has been done.
-					MigrateSpecialCharacterIds(project.Books);
-				}
 				if (fromControlFileVersion < 96)
 					MigrateInvalidMultiBlockQuoteData(project.Books);
 				if (fromControlFileVersion < 138)
@@ -214,13 +208,11 @@ namespace Glyssen
 
 			foreach (BookScript book in project.Books)
 			{
-				int bookNum = BCVRef.BookToNumber(book.BookId);
-
 				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
 					block.CharacterId.Contains("/") &&
 					block.CharacterIdOverrideForScript == null))
 				{
-					block.UseDefaultForMultipleChoiceCharacter(bookNum, project.Versification);
+					block.UseDefaultForMultipleChoiceCharacter(project.Versification);
 					numberOfChangesMade++;
 				}
 			}
@@ -266,16 +258,6 @@ namespace Glyssen
 				}
 			}
 			return numberOfChangesMade;
-		}
-
-		// internal for testing
-		internal static void SetBookIdForChapterBlocks(IReadOnlyList<BookScript> books)
-		{
-			foreach (var book in books)
-			{
-				foreach (var block in book.GetScriptBlocks().Where(block => block.IsChapterAnnouncement && block.BookCode == null))
-					block.BookCode = book.BookId;
-			}
 		}
 
 		/// <summary>
@@ -337,12 +319,12 @@ namespace Glyssen
 			foreach (var book in books)
 			{
 				Block prevBlock = null;
-				foreach (var block in book.GetScriptBlocks())
+				foreach (var block in book.GetScriptBlocks().Where(b => b.CharacterIsUnknown))
 				{
-					if (block.MatchesReferenceText && block.CharacterIsUnknown)
-						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, scrVers);
-					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnknown)
-						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, scrVers);
+					if (block.MatchesReferenceText)
+						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), scrVers);
+					else if (block.IsContinuationOfPreviousBlockQuote)
+						block.SetCharacterAndDeliveryInfo(prevBlock, scrVers);
 					prevBlock = block;
 				}
 			}

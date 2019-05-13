@@ -303,7 +303,7 @@ namespace Glyssen
 				}
 				else
 				{
-					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
+					block.SetMatchedReferenceBlock(versification, m_referenceLanguageInfo);
 				}
 			}
 		}

@@ -539,21 +539,15 @@ namespace GlyssenTests
 		public void CleanUpMultiBlockQuotesAssignedToNarrator_MultiBlockQuoteChainAssignedToNarrator_AllBlocksInChainSetToNone()
 		{
 			var blocks = new List<Block>(7);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
-			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
-			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
-			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
-			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None, Block.SpecialCharacters.Narrator));
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start, Block.SpecialCharacters.Narrator));
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation, Block.SpecialCharacters.Narrator));
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation, Block.SpecialCharacters.Narrator));
 			blocks.Add(CreateTestBlock(5, MultiBlockQuote.Start));
 			blocks.Last().CharacterId = "Jesus";
 			blocks.Add(CreateTestBlock(6, MultiBlockQuote.Continuation));
 			blocks.Last().CharacterId = "Jesus";
-			blocks.Add(CreateTestBlock(7, MultiBlockQuote.None));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
+			blocks.Add(CreateTestBlock(7, MultiBlockQuote.None, Block.SpecialCharacters.Narrator));
 
 			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
 			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
@@ -573,16 +567,12 @@ namespace GlyssenTests
 		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SingleUnclearBlocksMatched_UnclearBlocksSetToCorrespondingCharacterAndDeliveryFromRefBlocks()
 		{
 			var blocks = new List<Block>(4);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
-			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
-			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None, Block.SpecialCharacters.Narrator));
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None, Block.SpecialCharacters.Unexpected));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
 			blocks.Last().CharacterId = "Jesus";
-			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation, Block.SpecialCharacters.Ambiguous));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdOverrideForScript = "Kelsy" });
 
 			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
@@ -591,7 +581,7 @@ namespace GlyssenTests
 			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
 
 			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
-			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
+			Assert.IsTrue(book.GetScriptBlocks()[0].CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
 			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterIdInScript);
 			Assert.AreEqual("Panicky", book.GetScriptBlocks()[1].Delivery);
@@ -605,19 +595,15 @@ namespace GlyssenTests
 		public void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks_SomeUnclearBlocksInQuoteChainMatched_AllBlocksInEntireChainSetToSameCharacter()
 		{
 			var blocks = new List<Block>(5);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
-			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
-			blocks.Last().SpecialCharacter = Block.SpecialCharacters.Narrator;
-			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None, Block.SpecialCharacters.Narrator));
+			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start, Block.SpecialCharacters.Unexpected));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
 				.AddVerse(2, "This is the start of verse two."));
-			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnexpectedCharacter }
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, SpecialCharacter = Block.SpecialCharacters.Unexpected }
 				.AddText("Esto es el resto de ello."));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
 				.AddText("This is the rest of it."));
-			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
+			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation, Block.SpecialCharacters.Unexpected));
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
 			blocks.Last().CharacterId = "the people";
 
@@ -627,7 +613,7 @@ namespace GlyssenTests
 			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
 
 			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
-			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
+			Assert.IsTrue(book.GetScriptBlocks()[0].CharacterIs(Block.SpecialCharacters.Narrator));
 			Assert.AreEqual("Phil", book.GetScriptBlocks()[1].CharacterId);
 			Assert.AreEqual("panicky", book.GetScriptBlocks()[1].Delivery);
 			Assert.AreEqual("Phil", book.GetScriptBlocks()[2].CharacterId);
@@ -653,20 +639,20 @@ namespace GlyssenTests
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 		}
 
-		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
-		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
+		[TestCase(Block.SpecialCharacters.Ambiguous)]
+		[TestCase(Block.SpecialCharacters.Unexpected)]
+		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIsUnknownAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(Block.SpecialCharacters unclearCharacterType)
 		{
 			var block1 = CreateTestBlock("Andrew");
 			block1.UserConfirmed = true;
-			block1.CharacterId = unclearCharacterId;
-			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
+			block1.SpecialCharacter = unclearCharacterType;
+			Assert.AreEqual(unclearCharacterType, block1.SpecialCharacter);
 			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
 
 			var block2 = CreateTestBlock("Peter");
 			block2.UserConfirmed = true;
-			block2.CharacterId = unclearCharacterId;
-			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
+			block2.SpecialCharacter = unclearCharacterType;
+			Assert.AreEqual(unclearCharacterType, block2.SpecialCharacter);
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 
 			var book = new BookScript("MAT", new List<Block> { block1, block2 });
@@ -677,10 +663,10 @@ namespace GlyssenTests
 
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
-			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
+			Assert.AreEqual(unclearCharacterType, block1.SpecialCharacter);
 			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);
 			Assert.False(block1.UserConfirmed);
-			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
+			Assert.AreEqual(unclearCharacterType, block2.SpecialCharacter);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
 			Assert.False(block2.UserConfirmed);
 		}
@@ -1551,7 +1537,7 @@ namespace GlyssenTests
 			return refBlock;
 		}
 
-		private Block CreateTestBlock(int index, MultiBlockQuote multiBlockQuote)
+		private Block CreateTestBlock(int index, MultiBlockQuote multiBlockQuote, Block.SpecialCharacters specialCharacter = Block.SpecialCharacters.NormalBiblicalCharacter)
 		{
 			string indexStr = index.ToString();
 			return new Block
@@ -1562,6 +1548,7 @@ namespace GlyssenTests
 					new ScriptText("Text of verse " + indexStr + ". "),
 				},
 				MultiBlockQuote = multiBlockQuote,
+				SpecialCharacter = specialCharacter
 			};
 		}
 
