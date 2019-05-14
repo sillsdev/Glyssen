@@ -29,7 +29,7 @@ namespace Glyssen.Rules
 			m_bookIds = bookIds.Intersect(author.Books).ToList();
 			m_keyStrokesByCharacterId = keyStrokesByCharacterId;
 			foreach (var bookId in m_bookIds)
-				KeyStrokeCount += m_keyStrokesByCharacterId[CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator)];
+				KeyStrokeCount += m_keyStrokesByCharacterId[CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator)];
 
 			if (includeAuthorCharacter && author.CombineAuthorAndNarrator)
 				KeyStrokeCount += m_keyStrokesByCharacterId[author.Name];

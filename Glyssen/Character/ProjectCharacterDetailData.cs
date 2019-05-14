@@ -37,16 +37,14 @@ namespace Glyssen.Character
 			foreach (var line in tabDelimitedCharacterDetailData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries))
 			{
 				var detail = ProcessLine(line.Split(new[] {"\t"}, StringSplitOptions.None));
-				var existing = list.FirstOrDefault(cd => cd.CharacterId == detail.CharacterId);
+				var existing = list.FirstOrDefault(cd => cd.CharacterId == detail.CharacterId) as BiblicalCharacterDetail;
 				if (existing != null)
 				{
 					// This should no longer be possible, but because of a prior bug (PG-903) in the software, this used to
 					// be possible, and we don't want Glyssen to crash trying to load projects with this problem.
 					Logger.WriteEvent($"Project character detail file ({fullPath}) contained a duplicate character ID: {detail.CharacterId} -- ignored!");
 					// Use values from the last duplicate character found
-					existing.MaxSpeakers = detail.MaxSpeakers;
-					existing.Gender = detail.Gender;
-					existing.Age = detail.Age;
+					existing.Redefine(detail);
 				}
 				else
 					list.Add(detail);
@@ -54,7 +52,7 @@ namespace Glyssen.Character
 			return list;
 		}
 
-		private static CharacterDetail ProcessLine(string[] items)
+		private static BiblicalCharacterDetail ProcessLine(string[] items)
 		{
 			CharacterGender gender;
 			if (!Enum.TryParse(items[2], false, out gender))
@@ -62,13 +60,7 @@ namespace Glyssen.Character
 			CharacterAge age;
 			if (!Enum.TryParse(items[3], false, out age))
 				age = CharacterAge.Adult;
-			return new CharacterDetail
-			{
-				CharacterId = items[0],
-				MaxSpeakers = Int32.Parse(items[1]),
-				Gender = gender,
-				Age = age
-			};
+			return new BiblicalCharacterDetail(items[0], Int32.Parse(items[1]), gender, age);
 		}
 	}
 }

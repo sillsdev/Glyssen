@@ -13,10 +13,10 @@ namespace GlyssenTests.Rules
 		public void Constructor_BooksWithDifferentAuthors_NoStatsCombined()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator)] = 52000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.StandardCharacter.Narrator)] = 48000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HOS", CharacterVerseData.StandardCharacter.Narrator)] = 12000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)] = 1000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.CharacterType.Narrator)] = 52000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.CharacterType.Narrator)] = 48000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HOS", CharacterVerseData.CharacterType.Narrator)] = 12000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator)] = 1000;
 			var includedBooks = new List<string> { "JER", "EZK", "HOS", "JUD" };
 
 			Assert.AreEqual(52000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), includedBooks, keyStrokesByBook).KeyStrokeCount);
@@ -29,14 +29,14 @@ namespace GlyssenTests.Rules
 		public void Constructor_BooksWithSameAuthors_StatsCombinedForBooksWithSameAuthors()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.Narrator)] = 50000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ISA", CharacterVerseData.StandardCharacter.Narrator)] = 66000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator)] = 52000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.StandardCharacter.Narrator)] = 48000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // 52000 combined
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator)] = 20000; // 42000 combined
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)] = 22000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.CharacterType.Narrator)] = 50000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ISA", CharacterVerseData.CharacterType.Narrator)] = 66000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.CharacterType.Narrator)] = 52000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.CharacterType.Narrator)] = 48000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.CharacterType.Narrator)] = 24000; // 52000 combined
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.Narrator)] = 28000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.CharacterType.Narrator)] = 20000; // 42000 combined
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.CharacterType.Narrator)] = 22000;
 			var includedBooks = new List<string> { "GEN", "ISA", "JER", "EZK", "LUK", "ACT", "JHN", "REV" };
 
 			Assert.AreEqual(50000, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), includedBooks, keyStrokesByBook).KeyStrokeCount);
@@ -53,8 +53,8 @@ namespace GlyssenTests.Rules
 		public void Constructor_AuthorHasNoIncludedBooks_KeyStrokeCountReturnsZero()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // 52000 combined
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.CharacterType.Narrator)] = 24000; // 52000 combined
+			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.Narrator)] = 28000;
 			var includedBooks = new List<string> { "GEN", "ISA", "JER", "JHN", "REV" };
 
 			Assert.AreEqual(0, new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), includedBooks, keyStrokesByBook).KeyStrokeCount);

@@ -2245,11 +2245,8 @@ namespace Glyssen
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
 		{
-			foreach (var book in IncludedBooks)
-			{
-				foreach (var block in book.GetScriptBlocks())
-					block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber(book.BookId), Versification);
-			}
+			foreach (var block in IncludedBooks.SelectMany(book => book.GetScriptBlocks()))
+				block.UseDefaultForMultipleChoiceCharacter(Versification);
 		}
 
 		public Dictionary<string, int> SpeechDistributionScoreByCharacterId
@@ -2308,41 +2305,40 @@ namespace Glyssen
 			{
 				var bookDistributionScoreStats = new Dictionary<string, DistributionScoreBookStats>();
 				var narratorToUseForSingleVoiceBook = (book.SingleVoice) ?
-					CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) :
+					CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Narrator) :
 					null;
 
 				string prevCharacter = null;
 				foreach (var block in book.GetScriptBlocks( /*true*/))
-					// The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
+					// The logic for calculating keystrokes had join = true, but this is less efficient and should not be needed.
 				{
 					string character;
 					if (narratorToUseForSingleVoiceBook != null)
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
-						character = block.CharacterIdInScript;
-
 						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
-						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnexpectedCharacter)
+						if (block.CharacterIs(Block.SpecialCharacters.Unclear))
 							continue;
+						character = block.CharacterIdInScript;
 
 						if (character == null)
 						{
-							throw new Exception($"Block has character set to null. This should never happen! " +
+							throw new Exception("Block has character set to null. This should only happen if it is assigned to a special character! " +
 								$"Block ({book.BookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}): {block}");
 						}
 
 						switch (CharacterVerseData.GetStandardCharacterType(character))
 						{
-							case CharacterVerseData.StandardCharacter.Intro:
+							case CharacterVerseData.CharacterType.Intro:
 								if (DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
 									continue;
 								break;
-							case CharacterVerseData.StandardCharacter.ExtraBiblical:
+							case CharacterVerseData.CharacterType.ExtraBiblical:
 								if (DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
 									continue;
 								break;
-							case CharacterVerseData.StandardCharacter.BookOrChapter:
+							case CharacterVerseData.CharacterType.BookOrChapter:
 								if (DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
 									continue;
 								break;
@@ -2565,7 +2561,7 @@ namespace Glyssen
 					if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					{
 						block.SetCharacterIdAndCharacterIdInScript(
-							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
+							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Narrator), bookNum,
 							Versification);
 						block.UserConfirmed = true;
 					}

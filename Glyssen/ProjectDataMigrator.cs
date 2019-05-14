@@ -348,14 +348,14 @@ namespace Glyssen
 				{
 					switch (GetStandardCharacterType(block.CharacterId))
 					{
-						case CharacterVerseData.StandardCharacter.Narrator: block.SpecialCharacter = Block.SpecialCharacters.Narrator; break;
-						case CharacterVerseData.StandardCharacter.ExtraBiblical: block.SpecialCharacter = Block.SpecialCharacters.ExtraBiblical; break;
-						case CharacterVerseData.StandardCharacter.BookOrChapter:
+						case CharacterVerseData.CharacterType.Narrator: block.SpecialCharacter = Block.SpecialCharacters.Narrator; break;
+						case CharacterVerseData.CharacterType.ExtraBiblical: block.SpecialCharacter = Block.SpecialCharacters.ExtraBiblical; break;
+						case CharacterVerseData.CharacterType.BookOrChapter:
 							block.SpecialCharacter = (block.StyleTag == "c" || block.StyleTag == "cl") ?
 								Block.SpecialCharacters.ChapterAnnouncement :
 								Block.SpecialCharacters.BookTitle;
 							break;
-						case CharacterVerseData.StandardCharacter.Intro: block.SpecialCharacter = Block.SpecialCharacters.Intro; break;
+						case CharacterVerseData.CharacterType.Intro: block.SpecialCharacter = Block.SpecialCharacters.Intro; break;
 
 						default:
 							if (block.CharacterId == kAmbiguousCharacter)
@@ -377,49 +377,49 @@ namespace Glyssen
 		/// <summary>Character ID prefix for intro material</summary>
 		private const string kIntroPrefix = "intro-";
 
-		public static CharacterVerseData.StandardCharacter GetStandardCharacterType(string characterId)
+		public static CharacterVerseData.CharacterType GetStandardCharacterType(string characterId)
 		{
 			if (string.IsNullOrEmpty(characterId))
-				return CharacterVerseData.StandardCharacter.NonStandard;
+				return CharacterVerseData.CharacterType.NonStandard;
 
 			var i = characterId.IndexOf("-", StringComparison.Ordinal);
 			if (i < 0)
-				return CharacterVerseData.StandardCharacter.NonStandard;
+				return CharacterVerseData.CharacterType.NonStandard;
 
 			switch (characterId.Substring(0, i + 1))
 			{
-				case kNarratorPrefix: return CharacterVerseData.StandardCharacter.Narrator;
-				case kIntroPrefix: return CharacterVerseData.StandardCharacter.Intro;
-				case kExtraBiblicalPrefix: return CharacterVerseData.StandardCharacter.ExtraBiblical;
-				case kBookOrChapterPrefix: return CharacterVerseData.StandardCharacter.BookOrChapter;
+				case kNarratorPrefix: return CharacterVerseData.CharacterType.Narrator;
+				case kIntroPrefix: return CharacterVerseData.CharacterType.Intro;
+				case kExtraBiblicalPrefix: return CharacterVerseData.CharacterType.ExtraBiblical;
+				case kBookOrChapterPrefix: return CharacterVerseData.CharacterType.BookOrChapter;
 			}
 
-			return CharacterVerseData.StandardCharacter.NonStandard;
+			return CharacterVerseData.CharacterType.NonStandard;
 		}
 
-		internal static string GetCharacterPrefix(CharacterVerseData.StandardCharacter standardCharacterType)
+		internal static string GetCharacterPrefix(CharacterVerseData.CharacterType standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{
-				case CharacterVerseData.StandardCharacter.Narrator:
+				case CharacterVerseData.CharacterType.Narrator:
 					return kNarratorPrefix;
-				case CharacterVerseData.StandardCharacter.BookOrChapter:
+				case CharacterVerseData.CharacterType.BookOrChapter:
 					return kBookOrChapterPrefix;
-				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+				case CharacterVerseData.CharacterType.ExtraBiblical:
 					return kExtraBiblicalPrefix;
-				case CharacterVerseData.StandardCharacter.Intro:
+				case CharacterVerseData.CharacterType.Intro:
 					return kIntroPrefix;
 				default:
 					throw new ArgumentException("Unexpected standard character type.");
 			}
 		}
 
-		public static string GetStandardCharacterId(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
+		public static string GetStandardCharacterId(string bookId, CharacterVerseData.CharacterType standardCharacterType)
 		{
 			return GetCharacterPrefix(standardCharacterType) + bookId;
 		}
 
-		public static bool IsCharacterOfType(string characterId, CharacterVerseData.StandardCharacter standardCharacterType)
+		public static bool IsCharacterOfType(string characterId, CharacterVerseData.CharacterType standardCharacterType)
 		{
 			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
 		}
@@ -429,10 +429,10 @@ namespace Glyssen
 			if (characterId == null)
 				return false;
 
-			return IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ||
-				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.BookOrChapter) ||
-				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.ExtraBiblical) ||
-				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Intro);
+			return IsCharacterOfType(characterId, CharacterVerseData.CharacterType.Narrator) ||
+				IsCharacterOfType(characterId, CharacterVerseData.CharacterType.BookOrChapter) ||
+				IsCharacterOfType(characterId, CharacterVerseData.CharacterType.ExtraBiblical) ||
+				IsCharacterOfType(characterId, CharacterVerseData.CharacterType.Intro);
 			// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
 			// but this is speed-critical code and the overhead of the extra method call is
 			// expensive.
@@ -443,9 +443,9 @@ namespace Glyssen
 			if (characterId == null)
 				return false;
 
-			return IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.BookOrChapter) ||
-				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.ExtraBiblical) ||
-				IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Intro);
+			return IsCharacterOfType(characterId, CharacterVerseData.CharacterType.BookOrChapter) ||
+				IsCharacterOfType(characterId, CharacterVerseData.CharacterType.ExtraBiblical) ||
+				IsCharacterOfType(characterId, CharacterVerseData.CharacterType.Intro);
 		}
 	}
 }

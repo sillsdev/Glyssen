@@ -613,7 +613,7 @@ namespace Glyssen
 				string singleVoiceNarratorOverride = null;
 				if (book.SingleVoice)
 					singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId,
-						CharacterVerseData.StandardCharacter.Narrator);
+						CharacterVerseData.CharacterType.Narrator);
 				List<Block> pendingMismatchedReferenceBlocks = null;
 				foreach (var block in book.GetScriptBlocks())
 				{

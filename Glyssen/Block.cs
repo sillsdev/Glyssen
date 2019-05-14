@@ -25,13 +25,13 @@ namespace Glyssen
 		[Flags]
 		public enum SpecialCharacters : byte
 		{
-			NormalBiblicalCharacter = 0,
-			Narrator = 1,
+			NormalBiblicalCharacter = CharacterVerseData.CharacterType.NonStandard, // 0
+			Narrator = CharacterVerseData.CharacterType.Narrator, // 1
 			BookTitle = 2,
 			ChapterAnnouncement = 4,
-			ExtraBiblical = 8,
-			Intro = 16,
-			BookTitleOrChapter = BookTitle | ChapterAnnouncement,
+			ExtraBiblical = CharacterVerseData.CharacterType.ExtraBiblical, // 8
+			Intro = CharacterVerseData.CharacterType.Intro, // 16
+			BookTitleOrChapter = BookTitle | ChapterAnnouncement, // CharacterVerseData.StandardCharacter.BookOrChapter (6)
 			Standard = Narrator | BookTitleOrChapter | ExtraBiblical,
 			NeedsReview = 32, 
 			Unexpected = 64,
@@ -774,7 +774,7 @@ namespace Glyssen
 		/// </summary>
 		public bool IsScripture => !CharacterIs(SpecialCharacters.ExtraBiblical);
 
-		public bool CharacterIs(SpecialCharacters flags) => (SpecialCharacter & flags) == flags;
+		public bool CharacterIs(SpecialCharacters flags) => (SpecialCharacter & flags) > 0;
 
 
 		/// <summary>

@@ -229,13 +229,13 @@ namespace Glyssen.Character
 			{
 				switch (CharacterVerseData.GetStandardCharacterType(character.CharacterId))
 				{
-					case CharacterVerseData.StandardCharacter.Narrator:
-						return CharacterIds.All(i => CharacterVerseData.GetStandardCharacterType(i) == CharacterVerseData.StandardCharacter.Narrator);
+					case CharacterVerseData.CharacterType.Narrator:
+						return CharacterIds.All(i => CharacterVerseData.GetStandardCharacterType(i) == CharacterVerseData.CharacterType.Narrator);
 					default:
 						return CharacterIds.All(i =>
 						{
 							var type = CharacterVerseData.GetStandardCharacterType(i);
-							return type != CharacterVerseData.StandardCharacter.Narrator && type != CharacterVerseData.StandardCharacter.NonStandard;
+							return type != CharacterVerseData.CharacterType.Narrator && type != CharacterVerseData.CharacterType.NonStandard;
 						});
 				}
 			}
@@ -318,7 +318,7 @@ namespace Glyssen.Character
 				return;
 			}
 
-			if (CharacterIds.All(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
+			if (CharacterIds.All(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.CharacterType.Narrator)))
 				GroupIdLabel = Label.Narrator;
 			else if (IsVoiceActorAssigned)
 			{

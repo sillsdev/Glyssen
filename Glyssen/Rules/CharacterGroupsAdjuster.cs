@@ -36,7 +36,7 @@ namespace Glyssen.Rules
 		{
 			get
 			{
-				return m_project.IncludedBooks.Select(b => CharacterVerseData.GetStandardCharacterId(b.BookId, CharacterVerseData.StandardCharacter.Narrator))
+				return m_project.IncludedBooks.Select(b => CharacterVerseData.GetStandardCharacterId(b.BookId, CharacterVerseData.CharacterType.Narrator))
 					.Any(narrator => !m_project.CharacterGroupList.CharacterGroups.SelectMany(g => g.CharacterIds).Contains(narrator));
 			}
 		}

@@ -80,7 +80,7 @@ namespace ControlDataIntegrityTests
 				if (!string.IsNullOrEmpty(defaultCharacter))
 					Assert.AreNotEqual(character, defaultCharacter, "Line: " + line);
 
-				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator))
+				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.CharacterType.Narrator))
 					Assert.AreNotEqual("Dialogue", match.Result("${type}"), "Line: " + line);
 
 				var matchResult = match.Result("$&");

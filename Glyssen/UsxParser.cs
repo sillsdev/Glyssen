@@ -328,7 +328,6 @@ namespace Glyssen
 			var block = new Block(usxChapter.StyleTag, m_currentChapter)
 			{
 				IsParagraphStart = true,
-				BookCode = m_bookId,
 				SpecialCharacter = Block.SpecialCharacters.ChapterAnnouncement
 			};
 			block.BlockElements.Add(new ScriptText(chapterText));
@@ -350,7 +349,6 @@ namespace Glyssen
 				var block = new Block(usxNode.StyleTag, m_currentChapter)
 				{
 					IsParagraphStart = true,
-					BookCode = m_bookId,
 					SpecialCharacter = Block.SpecialCharacters.ChapterAnnouncement
 				};
 				block.BlockElements.Add(new ScriptText(nodeText));

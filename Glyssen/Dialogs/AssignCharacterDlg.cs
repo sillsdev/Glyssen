@@ -390,7 +390,7 @@ namespace Glyssen.Dialogs
 		{
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
 			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
-					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
+					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.CharacterType.Narrator) ||
 				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnexpectedCharacter))
 			{
 				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
@@ -503,7 +503,7 @@ namespace Glyssen.Dialogs
 
 			if (CharacterVerseData.IsCharacterStandard(characterId))
 			{
-				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.CharacterType.Narrator))
 					row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
 				else
 					row.Cells[colCharacter.Index].ReadOnly = true;

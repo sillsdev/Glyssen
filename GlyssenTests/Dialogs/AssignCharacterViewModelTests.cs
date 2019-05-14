@@ -305,7 +305,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var block = new Block("p", chapter, verse)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator),
 				Delivery = delivery
 			};
 			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
@@ -1903,10 +1903,10 @@ namespace GlyssenTests.Dialogs
 		public void Constructor_StartingIndexIsExtraBiblicalBlock_StartingIndexIgnored()
 		{
 			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, new BookBlockIndices(0,
-				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical) &&
+				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.CharacterType.ExtraBiblical) &&
 				b.InitialStartVerseNumber > 0)));
 			model.AttemptRefBlockMatchup = true;
-			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.CharacterType.ExtraBiblical));
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
 
@@ -1914,10 +1914,10 @@ namespace GlyssenTests.Dialogs
 		public void Constructor_StartingIndexIsChapterBlock_StartingIndexIgnored()
 		{
 			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, new BookBlockIndices(0,
-				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter) &&
+				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.CharacterType.BookOrChapter) &&
 				b.ChapterNumber > 0)));
 			model.AttemptRefBlockMatchup = true;
-			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.CharacterType.BookOrChapter));
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
 

@@ -365,7 +365,7 @@ namespace GlyssenTests
 		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
 		{
 			var block = new Block("c", 4);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("Chapter 4", block.GetText(true));
@@ -378,14 +378,14 @@ namespace GlyssenTests
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => chapterNum + (bookId == "MRK" ? " Marky" : " Unknown");
 			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("4 Marky", block.GetText(true));
 			Assert.AreEqual("4 Marky", block.GetText(false));
 
 			block = new Block(chapterStyleTag, 1) { BookCode = "LUK" };
-			block.SetStandardCharacter("LUK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("LUK", CharacterVerseData.CharacterType.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 1"));
 
 			Assert.AreEqual("1 Unknown", block.GetText(true));
@@ -398,7 +398,7 @@ namespace GlyssenTests
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => (bookId == null) ? "ARGHHHH!" : "Marky " + chapterNum;
 			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("Marky 4", block.GetText(false));
@@ -411,7 +411,7 @@ namespace GlyssenTests
 		{
 			Block.FormatChapterAnnouncement = (bookId, chapterNum) => null;
 			var block = new Block("c", 4) { BookCode = "MRK" };
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.BookOrChapter);
 			block.BlockElements.Add(new ScriptText("Chapter 4"));
 
 			Assert.AreEqual("Chapter 4", block.GetText(false));
@@ -447,7 +447,7 @@ namespace GlyssenTests
 		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{
 			var block = new Block("p", 4);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			block.BlockElements.Add(new Verse("1"));
 			block.BlockElements.Add(new ScriptText("Text of verse one. "));
 			block.BlockElements.Add(new Verse("2"));
@@ -856,7 +856,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -866,7 +866,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("GEN", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			block.SetStandardCharacter("GEN", CharacterVerseData.CharacterType.ExtraBiblical);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -875,7 +875,7 @@ namespace GlyssenTests
 		{
 			var block = new Block("c", 4);
 			block.BlockElements.Add(new ScriptText("4"));
-			block.SetStandardCharacter("REV", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("REV", CharacterVerseData.CharacterType.BookOrChapter);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -884,7 +884,7 @@ namespace GlyssenTests
 		{
 			var block = new Block("ip");
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			block.SetStandardCharacter("ROM", CharacterVerseData.StandardCharacter.Intro);
+			block.SetStandardCharacter("ROM", CharacterVerseData.CharacterType.Intro);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 

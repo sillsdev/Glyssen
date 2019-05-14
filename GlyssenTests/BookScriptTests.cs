@@ -392,21 +392,21 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
 
 			var block = NewSingleVersePara(1).AddVerse(2);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			mrkBlocks.Add(block);
 			m_curSetupVerse = 2;
 
 			block = NewBlock(" «Sons of Thunder»");
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			mrkBlocks.Add(block);
 
 			block = NewBlock(" the rest of verse 2. ");
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			block.Delivery = ""; // There was a bug in which null and blank delivery were not considered the same, thus causing blocks not to combine
 			mrkBlocks.Add(block.AddVerse(3));
 
 			block = NewSingleVersePara(4).AddVerse(5);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			mrkBlocks.Add(block);
 
 			var bookScript = new BookScript("MRK", mrkBlocks);
@@ -494,7 +494,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetScriptBlocks_Joining_VernacularContainsQBlocksIntroducedByPBlock_AllVernacularBlocksCombined()
 		{
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator);
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Peter said, ");
 			block.CharacterId = narrator;
@@ -703,7 +703,7 @@ namespace GlyssenTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			var jude = testProject.IncludedBooks.Single();
-			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
+			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.CharacterType.BookOrChapter));
 			foreach (var block in jude.GetScriptBlocks())
 			{
 				if (block.CharacterIsUnknown)
@@ -1382,7 +1382,7 @@ namespace GlyssenTests
 			var sourceBlocksChunkedOut = origSource.GetScriptBlocks();
 			// ICO 15:3 has a paragraph break, so we need to match up the second half of the verse
 			sourceBlocksChunkedOut.Single(b => b.IsScripture && !b.MatchesReferenceText).SetMatchedReferenceBlock("Blah blah");
-			var narrator = CharacterVerseData.GetStandardCharacterId(origSource.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId(origSource.BookId, CharacterVerseData.CharacterType.Narrator);
 			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut);
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
@@ -1452,7 +1452,7 @@ namespace GlyssenTests
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
 			var v27SplitPos = 44;
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "27", v27SplitPos, true,
-				CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator), ScrVers.English);
+				CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.CharacterType.Narrator), ScrVers.English);
 
 			var target = CreateStandard1CorinthiansScript();
 			var countOfSourceBlocks = source.GetScriptBlocks().Count;
@@ -1513,7 +1513,7 @@ namespace GlyssenTests
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(kChapter, 31);
 			Assert.AreEqual(2, iBlockToSplit);
 			var blockToSplit = source.GetScriptBlocks()[iBlockToSplit];
-			var narrator = CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.CharacterType.Narrator);
 
 			var split4 = source.SplitBlock(blockToSplit, "31", kSplitPos4, true, "Jesus", ScrVers.English);
 			split4.SetMatchedReferenceBlock("“Most certainly I tell you that the tax collectors and the prostitutes are entering into the Kingdom of God before you.");
@@ -1677,7 +1677,7 @@ namespace GlyssenTests
 		public void ApplyUserDecisions_ReferenceTextAligned_VerseBridgingChanged_AlignmentNotApplied(int verseToMatchUp)
 		{
 			const int kChapter = 1;
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator);
 			var sourceBlocks = new List<Block> {
 				NewChapterBlock(kChapter, "MAT"),
 				new Block("p", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
@@ -1727,7 +1727,7 @@ namespace GlyssenTests
 		private static void MatchUpBlocksAndApplyToSource(BlockMatchup matchup)
 		{
 			matchup.MatchAllBlocks(ScrVers.English);
-			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.CharacterType.Narrator);
 			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnknown ||
 				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))
 			{
@@ -3078,7 +3078,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(block);
 
 			block = NewSingleVersePara(2);
-			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.Narrator);
 			block.MultiBlockQuote = MultiBlockQuote.None;
 			mrkBlocks.Add(block);
 
@@ -3231,7 +3231,7 @@ namespace GlyssenTests
 		[TestCase(MultiBlockQuote.Start)]
 		public void ReplaceBlocks_WithQuoteBlocks_FollowingBlocksAreContinuationOfQuote_CharacterIdUpdatedForFollowingBlocks(MultiBlockQuote finalReplacementBlockMultiBlockQuoteType)
 		{
-			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator);
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
 			mrkBlocks.Add(NewSingleVersePara(1));
@@ -3311,7 +3311,7 @@ namespace GlyssenTests
 		[Test]
 		public void ReplaceBlocks_WithNarratorBlock_MultipleFollowingBlocksAreContinuationOfQuote_MultiBlockQuoteChainBroken()
 		{
-			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator);
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
 			mrkBlocks.Add(NewSingleVersePara(1));
@@ -3376,7 +3376,7 @@ namespace GlyssenTests
 		[Test]
 		public void ReplaceBlocks_WithNarratorBlock_SingleFollowingBlockIsContinuationOfQuote_MultiBlockQuoteChainBroken()
 		{
-			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator);
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
 			mrkBlocks.Add(NewSingleVersePara(1));
@@ -3436,7 +3436,7 @@ namespace GlyssenTests
 			var block = new Block("mt");
 			block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText(text));
-			block.SetStandardCharacter(bookCodeToSetCharacterId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter(bookCodeToSetCharacterId, CharacterVerseData.CharacterType.BookOrChapter);
 			return block;
 		}
 
@@ -3451,7 +3451,7 @@ namespace GlyssenTests
 			m_curSetupVerseEnd = 0;
 			m_curStyleTag = null;
 			if (bookCodeToSetCharacterId != null)
-				block.SetStandardCharacter(bookCodeToSetCharacterId, CharacterVerseData.StandardCharacter.BookOrChapter);
+				block.SetStandardCharacter(bookCodeToSetCharacterId, CharacterVerseData.CharacterType.BookOrChapter);
 			return block;
 		}
 
@@ -3462,7 +3462,7 @@ namespace GlyssenTests
 			var block = new Block("p", m_curSetupChapter, verseNum).AddVerse(verseNum, text);
 			block.IsParagraphStart = true;
 			if (bookCodeToSetNarrator != null)
-				block.SetStandardCharacter(bookCodeToSetNarrator, CharacterVerseData.StandardCharacter.Narrator);
+				block.SetStandardCharacter(bookCodeToSetNarrator, CharacterVerseData.CharacterType.Narrator);
 			m_curStyleTag = "p";
 			return block;
 		}
@@ -3484,7 +3484,7 @@ namespace GlyssenTests
 			var block = NewBlock(text);
 			block.IsParagraphStart = true;
 			if (styleTag == "s" && bookCodeToSetCharacterId != null)
-				block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+				block.SetStandardCharacter("MRK", CharacterVerseData.CharacterType.ExtraBiblical);
 			return block;
 		}
 
@@ -3670,9 +3670,9 @@ namespace GlyssenTests
 			var blocks = GetStandardMarkScriptBlocks(true, true);
 			var i = blocks.Count;
 			blocks.Add(NewChapterBlock(2));
-			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.CharacterType.BookOrChapter);
 			blocks.Add(NewPara("s", "Predicación de Juan el Bautista (chapter 2)"));
-			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.CharacterType.ExtraBiblical);
 			blocks.Add(NewSingleVersePara(1, "Principio del evangelio de Jesucristo, el Hijo de Dios. (chapter 2) ")
 				.AddVerse(2, "Como está escrito en el profeta Isaías: (chapter 2) "));
 			var orig = new BookScript("MRK", blocks);

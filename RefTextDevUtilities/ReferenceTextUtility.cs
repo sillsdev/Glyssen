@@ -358,7 +358,7 @@ namespace Glyssen.RefTextDevUtilities
 							{
 								CharacterId =
 									CharacterVerseData.GetStandardCharacterId(existingEnglishRefBook.BookId,
-										CharacterVerseData.StandardCharacter.BookOrChapter),
+										CharacterVerseData.CharacterType.BookOrChapter),
 							};
 							var bookTitleAndchapter1Announcement = referenceTextRow.GetText(language);
 							var summaryForBook = resultSummary.SingleOrDefault(b => b.BookId == existingEnglishRefBook.BookId);
@@ -530,7 +530,7 @@ namespace Glyssen.RefTextDevUtilities
 							{
 								CharacterId =
 									CharacterVerseData.GetStandardCharacterId(existingEnglishRefBook.BookId,
-										CharacterVerseData.StandardCharacter.BookOrChapter),
+										CharacterVerseData.CharacterType.BookOrChapter),
 								IsParagraphStart = true,
 								BookCode = existingEnglishRefBook.BookId
 							};
@@ -544,7 +544,7 @@ namespace Glyssen.RefTextDevUtilities
 							if (mode == Mode.CreateCharacterMapping)
 							{
 								if (!CharacterVerseData.IsCharacterOfType(existingEnglishRefBlock.CharacterId,
-										CharacterVerseData.StandardCharacter.Narrator) || !referenceTextRow.CharacterId.StartsWith("Narr_0"))
+										CharacterVerseData.CharacterType.Narrator) || !referenceTextRow.CharacterId.StartsWith("Narr_0"))
 								{
 									var verse = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId), int.Parse(referenceTextRow.Chapter),
 										int.Parse(referenceTextRow.Verse));
@@ -842,7 +842,7 @@ namespace Glyssen.RefTextDevUtilities
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
-				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator);
 
 			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*)-FX\\d+", "$1");
 			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*) \\(female\\)", "$1");
@@ -920,7 +920,7 @@ namespace Glyssen.RefTextDevUtilities
 			if (characterId == "Ambassador" && bookId == "ISA" && chapter == 18 && verse == 2)
 			{
 				// It really doesn't make sense for this to be a quote. Just make it narrator.
-				documentedCharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+				documentedCharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator);
 				return true;
 			}
 
@@ -1077,7 +1077,7 @@ namespace Glyssen.RefTextDevUtilities
 			sb.Clear();
 			foreach (var glyssenToFcbhIdsEntry in glyssenToFcbhIds)
 				if (glyssenToFcbhIdsEntry.Value.Count > 1 ||
-					CharacterVerseData.IsCharacterOfType(glyssenToFcbhIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
+					CharacterVerseData.IsCharacterOfType(glyssenToFcbhIdsEntry.Key, CharacterVerseData.CharacterType.Narrator) ||
 					glyssenToFcbhIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
 				{
 					sb.Append(string.Format("{0}\t{1}", glyssenToFcbhIdsEntry.Key, glyssenToFcbhIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
@@ -1089,7 +1089,7 @@ namespace Glyssen.RefTextDevUtilities
 			sb.Clear();
 			foreach (var fcbhToGlyssenIdsEntry in fcbhToGlyssenIds)
 				if (fcbhToGlyssenIdsEntry.Value.Count > 1 ||
-					CharacterVerseData.IsCharacterOfType(fcbhToGlyssenIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
+					CharacterVerseData.IsCharacterOfType(fcbhToGlyssenIdsEntry.Key, CharacterVerseData.CharacterType.Narrator) ||
 					fcbhToGlyssenIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
 					sb.Append(string.Format("{0}\t{1}", fcbhToGlyssenIdsEntry.Key, fcbhToGlyssenIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
 			path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForFcbhToGlyssenMultiMap);

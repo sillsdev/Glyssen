@@ -390,7 +390,7 @@ namespace Glyssen.Quote
 									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
 									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
 									if (characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
-										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator))
+										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.CharacterType.Narrator))
 									{
 										m_ignoringNarratorQuotation = true;
 									}

@@ -188,7 +188,6 @@ namespace Glyssen
 			{
 				m_vernacularBook.ReplaceBlocks(m_iStartBlock, OriginalBlockCount, CorrelatedBlocks.Select(b => b.Clone()).ToList());
 			}
-			int bookNum = BCVRef.BookToNumber(BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
@@ -197,7 +196,7 @@ namespace Glyssen
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
 				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnknown ? refBlock : CorrelatedBlocks[i];
-				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, bookNum, m_versification);
+				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, m_versification);
 				if (vernBlock.CharacterIsStandard)
 					vernBlock.MultiBlockQuote = MultiBlockQuote.None;
 
@@ -285,7 +284,6 @@ namespace Glyssen
 		public void MatchAllBlocks(ScrVers versification)
 		{
 			m_versification = versification;
-			int bookNum = BCVRef.BookToNumber(BookId);
 
 			foreach (var block in CorrelatedBlocks)
 			{
@@ -294,7 +292,7 @@ namespace Glyssen
 					if (block.CharacterIsUnknown)
 					{
 						var refBlock = block.ReferenceBlocks.Single();
-						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
+						block.SetCharacterAndDeliveryInfo(refBlock, versification);
 						if (!block.CharacterIsUnknown)
 						{
 							block.UserConfirmed = true; // This does not affect original block until Apply is called

@@ -75,7 +75,7 @@ namespace GlyssenTests.Rules
 		{
 			m_testProject.Books.Single(book => book.BookId == bookCode).GetBlocksForVerse(chapter, verse)
 				.Single(b => b.CharacterId == existingCharacterId).CharacterId =
-				CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Narrator);
+				CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.CharacterType.Narrator);
 		}
 
 		[Test]
@@ -133,9 +133,9 @@ namespace GlyssenTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = true;
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.Narrator)));
+			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.BookOrChapter)));
 			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains("Gamaliel"));
 			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Contains("Jesus"));
 			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Contains("Peter (Simon)"));
@@ -159,9 +159,9 @@ namespace GlyssenTests.Rules
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator)));
+			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.BookOrChapter)));
 			Assert.AreEqual(0, adjuster.CharacterGroupsToRemove.Count());
 			Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
 			Assert.IsTrue(adjuster.BooksHaveBeenExcluded);
@@ -216,7 +216,7 @@ namespace GlyssenTests.Rules
 				SetBlockCharacterToNarrator("MRK", 9, 26, "many in crowd");
 				SetBlockCharacterToNarrator("MRK", 5, 35, "men from Jairus' house");
 				RenameCharacter(41, 7, 1,
-					CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator),
 					"Mephibosheth");
 
 				var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -253,9 +253,9 @@ namespace GlyssenTests.Rules
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator)));
+			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.BookOrChapter)));
 			Assert.IsTrue(adjuster.CharacterGroupsToRemove.Any());
 			Assert.IsTrue(adjuster.GroupsAreNotInSynchWithData);
 		}
@@ -268,9 +268,9 @@ namespace GlyssenTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator)));
+			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.BookOrChapter)));
 			var countOfCharactersNotCovered = adjuster.CharactersNotCoveredByAnyGroup.Count();
 			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
@@ -280,10 +280,10 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
 			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
 			Assert.AreEqual(originalCountOfGroups + 1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
+			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator));
 			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.GroupId == newGroup.GroupId && g != newGroup));
-			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.BookOrChapter)));
 			Assert.AreEqual(countOfCharactersNotCovered, newGroup.CharacterIds.Count);
 		}
 
@@ -299,9 +299,9 @@ namespace GlyssenTests.Rules
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
 			Assert.IsTrue(charactersNotInUse.Count > 0);
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator)));
+			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.BookOrChapter)));
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 
 			adjuster.MakeMinimalAdjustments();
@@ -324,9 +324,9 @@ namespace GlyssenTests.Rules
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
 			Assert.IsTrue(charactersNotInUse.Count > 0);
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
-			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator)));
+			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical)));
+			Assert.IsTrue(charactersNotInUse.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.BookOrChapter)));
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
 			var groupsToRemove = adjuster.CharacterGroupsToRemove.ToList();
 			Assert.IsTrue(groupsToRemove.Any());

@@ -89,28 +89,28 @@ namespace Glyssen.Character
 				string bookCode = BCVRef.NumberToBookCode(booknum);
 				list.Add(new CharacterDetail
 				{
-					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.CharacterType.Narrator),
 					Gender = CharacterGender.Neuter,
-					StandardCharacterType = CharacterVerseData.StandardCharacter.Narrator,
+					StandardCharacterType = CharacterVerseData.CharacterType.Narrator,
 					Status = true
 				});
 				list.Add(new CharacterDetail
 				{
-					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.BookOrChapter),
+					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.CharacterType.BookOrChapter),
 					Gender = CharacterGender.Neuter,
-					StandardCharacterType = CharacterVerseData.StandardCharacter.BookOrChapter
+					StandardCharacterType = CharacterVerseData.CharacterType.BookOrChapter
 				});
 				list.Add(new CharacterDetail
 				{
-					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.ExtraBiblical),
+					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.CharacterType.ExtraBiblical),
 					Gender = CharacterGender.Neuter,
-					StandardCharacterType = CharacterVerseData.StandardCharacter.ExtraBiblical
+					StandardCharacterType = CharacterVerseData.CharacterType.ExtraBiblical
 				});
 				list.Add(new CharacterDetail
 				{
-					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Intro),
+					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.CharacterType.Intro),
 					Gender = CharacterGender.Neuter,
-					StandardCharacterType = CharacterVerseData.StandardCharacter.Intro
+					StandardCharacterType = CharacterVerseData.CharacterType.Intro
 				});
 			}
 			return list;

@@ -439,7 +439,7 @@ namespace GlyssenTests.Rules
 				bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor = "JUD";
 			}
 			var thirdToLastPlaceBookThatGotCombined = CharacterVerseData.GetBookCodeFromStandardCharacterId(
-				narratorGroups[34].CharacterIds.Single(c => c != CharacterVerseData.GetStandardCharacterId(bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor, CharacterVerseData.StandardCharacter.Narrator)));
+				narratorGroups[34].CharacterIds.Single(c => c != CharacterVerseData.GetStandardCharacterId(bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor, CharacterVerseData.CharacterType.Narrator)));
 			Assert.IsTrue(
 				thirdToLastPlaceBookThatGotCombined == "JOL" ||
 				thirdToLastPlaceBookThatGotCombined == "NAM" ||
@@ -623,10 +623,10 @@ namespace GlyssenTests.Rules
 	{
 		private readonly string idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
 		private readonly string idPeter = BiblicalAuthors.GetAuthorOfBook("2PE").Name;
-		private readonly string narratorGalForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator));
-		private readonly string narrator2PeForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("2PE", CharacterVerseData.StandardCharacter.Narrator));
-		private readonly string narratorMrkForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator));
-		private readonly string narratorActForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator));
+		private readonly string narratorGalForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.Narrator));
+		private readonly string narrator2PeForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("2PE", CharacterVerseData.CharacterType.Narrator));
+		private readonly string narratorMrkForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator));
+		private readonly string narratorActForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.Narrator));
 		private Dictionary<string, int> m_keyStrokesByCharId;
 		private List<CharacterDetail> m_includedCharacterDetails;
 		private Dictionary<string, CharacterDetail> m_characterDetails;
@@ -963,7 +963,7 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narratorsForAuthor.All(n => BiblicalAuthors.GetAuthorOfBook(CharacterVerseData.GetBookCodeFromStandardCharacterId(n))
 				.Name == idPaul));
 			Assert.IsTrue(narratorGroupForActs.CharacterIds.All(c =>
-				CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.StandardCharacter.Narrator));
+				CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.CharacterType.Narrator));
 			Assert.IsFalse(authorsGroup.CharacterIds.ToList().Intersect(narratorGroupForActs.CharacterIds.ToList()).Any());
 		}
 
@@ -1062,7 +1062,7 @@ namespace GlyssenTests.Rules
 			var narratorGroups = result.NarratorGroups;
 			Assert.AreEqual(groups.Count, narratorGroups.Count);
 			Assert.AreEqual(27, narratorGroups.Sum(g => g.CharacterIds.Count(
-				c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator))));
+				c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.CharacterType.Narrator))));
 
 			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
 			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
@@ -1085,7 +1085,7 @@ namespace GlyssenTests.Rules
 		private string GetNarrUi(string bookId)
 		{
 			return CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId(
-				bookId, CharacterVerseData.StandardCharacter.Narrator));
+				bookId, CharacterVerseData.CharacterType.Narrator));
 		}
 	}
 }

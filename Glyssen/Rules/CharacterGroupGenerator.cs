@@ -203,7 +203,7 @@ namespace Glyssen.Rules
 			foreach (var actor in nonCameoActors)
 			{
 				// After we find the second match, we can quit looking because we're only interested in unique matches.
-				var matches = includedCharacterDetails.Where(c => c.StandardCharacterType == CharacterVerseData.StandardCharacter.NonStandard && actor.Matches(c)).Take(2).ToList();
+				var matches = includedCharacterDetails.Where(c => c.StandardCharacterType == CharacterVerseData.CharacterType.NonStandard && actor.Matches(c)).Take(2).ToList();
 				if (matches.Any())
 				{
 					if (matches.Count == 1)
@@ -310,7 +310,7 @@ namespace Glyssen.Rules
 								continue;
 
 							// if there are any standard characters still not assigned, it is because they are omitted
-							if (characterDetails[characterId].StandardCharacterType != CharacterVerseData.StandardCharacter.NonStandard)
+							if (characterDetails[characterId].StandardCharacterType != CharacterVerseData.CharacterType.NonStandard)
 								continue;
 
 							CharacterDetail characterDetail;
@@ -633,7 +633,7 @@ namespace Glyssen.Rules
 				{
 					return NarratorGroups.Count +
 						m_groups.Count(g => g.AssignedToCameoActor &&
-						g.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+						g.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.CharacterType.Narrator)));
 				}
 			}
 			internal CharacterGroup BookIntroductionGroup { get; set; }
@@ -889,7 +889,7 @@ namespace Glyssen.Rules
 
 			private static void AddNarratorToGroup(CharacterGroup narratorGroup, string bookId, Func<string, bool> includeAuthorCharacter = null)
 			{
-				narratorGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
+				narratorGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator));
 				if (includeAuthorCharacter != null)
 				{
 					var author = BiblicalAuthors.GetAuthorOfBook(bookId);
@@ -1011,7 +1011,7 @@ namespace Glyssen.Rules
 
 				var booksByNarratorKeystrokes = new List<Tuple<string, int>>(bookIDs
 					.Select(bookId => new Tuple<string, int>(bookId,
-						keyStrokesByCharacterId[CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator)])));
+						keyStrokesByCharacterId[CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator)])));
 				Debug.Assert(booksByNarratorKeystrokes.Count > narratorGroups.Count);
 
 				booksByNarratorKeystrokes.Sort((a, b) => b.Item2.CompareTo(a.Item2));
@@ -1065,15 +1065,15 @@ namespace Glyssen.Rules
 
 					switch (characterType)
 					{
-						case CharacterVerseData.StandardCharacter.BookOrChapter:
+						case CharacterVerseData.CharacterType.BookOrChapter:
 							characterGroup = BookTitleChapterGroup;
 							break;
 
-						case CharacterVerseData.StandardCharacter.ExtraBiblical:
+						case CharacterVerseData.CharacterType.ExtraBiblical:
 							characterGroup = SectionHeadGroup;
 							break;
 
-						case CharacterVerseData.StandardCharacter.Intro:
+						case CharacterVerseData.CharacterType.Intro:
 							characterGroup = BookIntroductionGroup;
 							break;
 
@@ -1096,22 +1096,22 @@ namespace Glyssen.Rules
 				}
 			}
 
-			private CharacterGroup GetExtraBiblicalToNarratorGroup(string characterId, CharacterVerseData.StandardCharacter characterType,
+			private CharacterGroup GetExtraBiblicalToNarratorGroup(string characterId, CharacterVerseData.CharacterType characterType,
 				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				var dramatizationOption = ExtraBiblicalMaterialSpeakerOption.Omitted;
 
 				switch (characterType)
 				{
-					case CharacterVerseData.StandardCharacter.BookOrChapter:
+					case CharacterVerseData.CharacterType.BookOrChapter:
 						dramatizationOption = dramatizationPreferences.BookTitleAndChapterDramatization;
 						break;
 
-					case CharacterVerseData.StandardCharacter.ExtraBiblical:
+					case CharacterVerseData.CharacterType.ExtraBiblical:
 						dramatizationOption = dramatizationPreferences.SectionHeadDramatization;
 						break;
 
-					case CharacterVerseData.StandardCharacter.Intro:
+					case CharacterVerseData.CharacterType.Intro:
 						dramatizationOption = dramatizationPreferences.BookIntroductionsDramatization;
 						break;
 				}
@@ -1119,7 +1119,7 @@ namespace Glyssen.Rules
 				if (dramatizationOption == ExtraBiblicalMaterialSpeakerOption.Omitted)
 					return null;
 
-				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.StandardCharacter.Narrator);
+				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.CharacterType.Narrator);
 				var narratorId = narratorPrefix + characterId.Substring(characterId.Length - 3);
 				List<CharacterGroup> possibleGroups;
 
@@ -1199,7 +1199,7 @@ namespace Glyssen.Rules
 				var potentialGroups = GetGroupsAvailableForNarrator(groups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
 
 				return potentialGroups.Where(g => !g.CharacterIds.Any(
-							c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)
+							c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.CharacterType.Narrator)
 							)).ToList();
 			}
 
@@ -1232,7 +1232,7 @@ namespace Glyssen.Rules
 				foreach (var characterGroup in characterGroups)
 				{
 					var narratorRoles = characterGroup.CharacterIds.Where(c =>
-						CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)).ToList();
+						CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.CharacterType.Narrator)).ToList();
 
 					if (narratorRoles.Any())
 					{
@@ -1281,8 +1281,8 @@ namespace Glyssen.Rules
 					if (numberOfUnassignedMaleNarrators + numberOfUnassignedFemaleNarrators == 0)
 						numberOfUnassignedMaleNarrators = 1;
 
-					if (!includedCharacterDetails.Any(c => c.StandardCharacterType == CharacterVerseData.StandardCharacter.NonStandard ||
-						                                   c.StandardCharacterType == CharacterVerseData.StandardCharacter.Narrator))
+					if (!includedCharacterDetails.Any(c => c.StandardCharacterType == CharacterVerseData.CharacterType.NonStandard ||
+						                                   c.StandardCharacterType == CharacterVerseData.CharacterType.Narrator))
 						numberOfExtraBiblicalGroups = 0;
 				}
 

@@ -36,7 +36,7 @@ namespace GlyssenTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.CharacterType.BookOrChapter));
 			Assert.IsTrue(blocks[1].CharacterId == Block.kNotSet);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
@@ -543,10 +543,10 @@ namespace GlyssenTests
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(0, blocks[0].ChapterNumber);
 			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.CharacterType.Intro));
 			Assert.AreEqual(0, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
-			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
+			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.CharacterType.Intro));
 			VerifyChapterBlock(blocks[2], 1);
 			Assert.AreEqual(1, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
@@ -569,7 +569,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("s", blocks[1].StyleTag);
-			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.CharacterType.ExtraBiblical));
 			Assert.AreEqual("John the Baptist prepares the way", blocks[1].GetText(false));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);

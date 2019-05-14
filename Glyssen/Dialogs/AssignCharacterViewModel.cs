@@ -437,7 +437,7 @@ namespace Glyssen.Dialogs
 				block.CharacterIdInScript = null;
 			}
 			else if (selectedCharacter.IsNarrator)
-				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
+				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.CharacterType.Narrator);
 			else
 				block.SetCharacterIdAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
 					m_project.Versification);
@@ -567,7 +567,7 @@ namespace Glyssen.Dialogs
 				var cv = new CharacterVerse(
 					reference,
 					character.IsNarrator
-						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)
+						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.CharacterType.Narrator)
 						: character.CharacterId,
 					delivery.IsNormal ? null : delivery.Text,
 					character.Alias,
@@ -693,7 +693,7 @@ namespace Glyssen.Dialogs
 			public string Alias { get { return m_alias; } }
 			public string LocalizedAlias { get { return m_localizedAlias; } }
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
-			public CharacterVerseData.StandardCharacter Type { get; private set; }
+			public CharacterVerseData.CharacterType Type { get; private set; }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 			public bool IsStandard => new List<String>
 			{
@@ -743,10 +743,10 @@ namespace Glyssen.Dialogs
 			{
 				switch (CharacterVerseData.GetStandardCharacterType(characterId))
 				{
-					case CharacterVerseData.StandardCharacter.Narrator: return s_narrator.ToString();
-					case CharacterVerseData.StandardCharacter.Intro: return String.Format(s_introCharacter, s_funcToGetBookId());
-					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
-					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
+					case CharacterVerseData.CharacterType.Narrator: return s_narrator.ToString();
+					case CharacterVerseData.CharacterType.Intro: return String.Format(s_introCharacter, s_funcToGetBookId());
+					case CharacterVerseData.CharacterType.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
+					case CharacterVerseData.CharacterType.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
 					default:
 						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter)
 							return "";

@@ -89,7 +89,7 @@ namespace Glyssen.Rules
 					var author = BiblicalAuthors.GetAuthorOfBook(book.BookId);
 					if (author.CombineAuthorAndNarrator && !treatAsSameCharacter.Any(set => set.Contains(author.Name)))
 					{
-						var narrator = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
+						var narrator = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Narrator);
 						if (!m_strictlyAdhereToNarratorPreferences || (characterIdsToCalculate.Contains(narrator) && characterIdsToCalculate.Contains(author.Name)))
 						{
 							HashSet<string> charactersToTreatAsOneWithNarrator = treatAsSameCharacter.FirstOrDefault(set => set.Contains(narrator));
@@ -149,9 +149,9 @@ namespace Glyssen.Rules
 							prevBlock = block;
 						}
 						else if (characterIdsToCalculate.Contains(characterId) &&
-								(!CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ||
+								(!CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.CharacterType.Narrator) ||
 								prevCharacterId == null ||
-								!CharacterVerseData.IsCharacterOfType(prevCharacterId, CharacterVerseData.StandardCharacter.Narrator)))
+								!CharacterVerseData.IsCharacterOfType(prevCharacterId, CharacterVerseData.CharacterType.Narrator)))
 						{
 							if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst,
 								ref currentBlockCount, ref minBlockProximity,
@@ -205,24 +205,24 @@ namespace Glyssen.Rules
 		{
 			if (m_strictlyAdhereToNarratorPreferences)
 			{
-				AddOrNew(bookData, dramatizationPreferences.BookTitleAndChapterDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
-				AddOrNew(bookData, dramatizationPreferences.SectionHeadDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
-				AddOrNew(bookData, dramatizationPreferences.BookIntroductionsDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+				AddOrNew(bookData, dramatizationPreferences.BookTitleAndChapterDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.BookOrChapter));
+				AddOrNew(bookData, dramatizationPreferences.SectionHeadDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.ExtraBiblical));
+				AddOrNew(bookData, dramatizationPreferences.BookIntroductionsDramatization, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Intro));
 				bookData.Remove(ExtraBiblicalMaterialSpeakerOption.Omitted);
 
 				// add the narrator to its group if there are others there already
 				if (bookData.ContainsKey(ExtraBiblicalMaterialSpeakerOption.Narrator))
-					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Narrator));
 			}
 			else
 			{
-				AddOrNew(bookData, ExtraBiblicalMaterialSpeakerOption.Narrator, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+				AddOrNew(bookData, ExtraBiblicalMaterialSpeakerOption.Narrator, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Narrator));
 				if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
-					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.BookOrChapter));
 				if (dramatizationPreferences.SectionHeadDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
-					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.ExtraBiblical));
 				if (dramatizationPreferences.BookIntroductionsDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
-					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.CharacterType.Intro));
 			}
 		}
 

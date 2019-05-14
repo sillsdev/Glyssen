@@ -19,13 +19,13 @@ namespace Glyssen.Character
 
 		private static Dictionary<string, string> s_singletonLocalizedCharacterIdToCharacterIdDictionary;
 
-		public enum StandardCharacter
+		public enum CharacterType // These can be cast back-and-forth with Block.SpecialCharacters
 		{
-			NonStandard,
-			Narrator,
-			BookOrChapter,
-			ExtraBiblical,
-			Intro,
+			NonStandard = 0,
+			Narrator = 1,
+			BookOrChapter = 6, // Both the 2nd and 3rd bit set, corresponding to Block.SpecialCharacters.BookTitleOrChapter
+			ExtraBiblical = 8,
+			Intro = 16,
 		}
 
 		public static bool IsCharacterUnclear(string characterId)
@@ -39,16 +39,16 @@ namespace Glyssen.Character
 
 			switch (GetStandardCharacterType(characterId))
 			{
-				case StandardCharacter.Narrator:
+				case CharacterType.Narrator:
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
-				case StandardCharacter.Intro:
+				case CharacterType.Intro:
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", kIntroductionAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
-				case StandardCharacter.ExtraBiblical:
+				case CharacterType.ExtraBiblical:
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", kSectionHeadAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
-				case StandardCharacter.BookOrChapter:
+				case CharacterType.BookOrChapter:
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				default:
@@ -65,13 +65,13 @@ namespace Glyssen.Character
 		{
 			switch (GetStandardCharacterType(standardCharacterId))
 			{
-				case StandardCharacter.Narrator:
+				case CharacterType.Narrator:
 					return String.Format(kNarratorAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.Intro:
+				case CharacterType.Intro:
 					return String.Format(kIntroductionAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.ExtraBiblical:
+				case CharacterType.ExtraBiblical:
 					return String.Format(kSectionHeadAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.BookOrChapter:
+				case CharacterType.BookOrChapter:
 					return String.Format(kBookChapterAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
 				default:
 					throw new ArgumentException("The provided character ID is not a standard character.", "standardCharacterId");

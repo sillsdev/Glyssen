@@ -186,17 +186,17 @@ namespace GlyssenTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro)
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Intro)
 			};
 
 
 			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical), minProximity.SecondCharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.BookOrChapter), minProximity.FirstCharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical), minProximity.SecondCharacterId);
 			Assert.AreEqual("MRK 1:0", minProximity.FirstReference);
 			Assert.AreEqual("MRK 1:0", minProximity.SecondReference);
 		}
@@ -206,14 +206,14 @@ namespace GlyssenTests.Rules
 		{
 			HashSet<string> characterIds = new HashSet<string>();
 
-			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
-			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
-			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.BookOrChapter));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Intro));
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.BookOrChapter), minProximity.FirstCharacterId);
 			Assert.AreEqual(minProximity.FirstCharacterId, minProximity.SecondCharacterId);
 			Assert.AreEqual("MRK 0:0", minProximity.FirstReference);
 			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
@@ -238,8 +238,8 @@ namespace GlyssenTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.BookOrChapter),
 				idPaul
 			};
 
@@ -266,10 +266,10 @@ namespace GlyssenTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Narrator),
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Intro),
-				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.CharacterType.Narrator),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.CharacterType.ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.CharacterType.Intro),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 
 			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
@@ -299,10 +299,10 @@ namespace GlyssenTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Intro), // Not actually used in GAL test data
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.Intro), // Not actually used in GAL test data
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.BookOrChapter),
 				idPaul
 			};
 

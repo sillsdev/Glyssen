@@ -90,7 +90,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true));
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Nice place you got here!");
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks,
-				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.ExtraBiblical),
 				"Big change in Topic", "s").IsParagraphStart = true;
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
@@ -632,7 +632,7 @@ namespace GlyssenTests
 			Assert.AreEqual(scriptBlocks[1].CharacterIdOverrideForScript, scriptBlocks[i].CharacterIdOverrideForScript);
 			Assert.AreEqual(MultiBlockQuote.Continuation, scriptBlocks[i].MultiBlockQuote);
 			Assert.IsFalse(scriptBlocks[++i].MatchesReferenceText);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 				scriptBlocks[i].CharacterId);
 			Assert.IsNull(scriptBlocks[i].CharacterIdOverrideForScript);
 			Assert.AreEqual(MultiBlockQuote.None, scriptBlocks[i].MultiBlockQuote);
@@ -1268,7 +1268,7 @@ namespace GlyssenTests
 			Assert.IsTrue(callbackCalled);
 
 			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
-			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId);
 

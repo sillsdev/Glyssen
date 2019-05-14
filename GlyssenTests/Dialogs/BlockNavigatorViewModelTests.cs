@@ -589,11 +589,11 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			FindRefInMark(3, 19);
 
-			var iSectionHeadBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			var iSectionHeadBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.CharacterType.ExtraBiblical));
 			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + iSectionHeadBlock;
 
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
-			Assert.AreNotEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+			Assert.AreNotEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
 			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iSectionHeadBlock + 1],
 				m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock);

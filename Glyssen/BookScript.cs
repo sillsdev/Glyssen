@@ -481,7 +481,6 @@ namespace Glyssen
 		{
 			var comparer = new BlockElementContentsComparer();
 			int iTarget = 0;
-			var bookNum = BCVRef.BookToNumber(sourceBookScript.BookId);
 			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
 			{
 				if (iTarget == m_blocks.Count)
@@ -505,7 +504,7 @@ namespace Glyssen
 						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
 					{
 						if (sourceBlock.CharacterIdOverrideForScript == null)
-							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, bookNum, versification);
+							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, versification);
 						else
 						{
 							m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
@@ -765,7 +764,7 @@ namespace Glyssen
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
 				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block)))
 			{
-				ProcessAssignmentForMultiBlockQuote(BCVRef.BookToNumber(BookId), multiBlock.ToList(), versification);
+				ProcessAssignmentForMultiBlockQuote(multiBlock.ToList(), versification);
 			}
 		}
 
@@ -791,7 +790,7 @@ namespace Glyssen
 			m_unappliedSplitBlocks.Clear();
 		}
 
-		public static void ProcessAssignmentForMultiBlockQuote(int bookNum, List<Block> multiBlockQuote, ScrVers versification)
+		public static void ProcessAssignmentForMultiBlockQuote(List<Block> multiBlockQuote, ScrVers versification)
 		{
 			var uniqueCharacters = multiBlockQuote.Select(b => b.CharacterId).Where(c => c != null).Distinct().ToList();
 			int numUniqueCharacters = uniqueCharacters.Count;
@@ -810,7 +809,7 @@ namespace Glyssen
 					var realCharacter = uniqueCharacterDeliveries.Single();
 					foreach (Block block in multiBlockQuote)
 					{
-						block.SetCharacterIdAndCharacterIdInScript(realCharacter.Character, bookNum, versification);
+						block.SetCharacterIdAndCharacterIdInScript(realCharacter.Character, versification);
 						block.Delivery = realCharacter.Delivery;
 					}
 				}

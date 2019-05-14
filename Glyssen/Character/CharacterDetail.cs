@@ -20,16 +20,46 @@ namespace Glyssen.Character
 		Neuter,
 	}
 
-	public class CharacterDetail
+	public abstract class CharacterDetail
 	{
-		public string CharacterId { get; set; }
-		public int MaxSpeakers { get; set; }
-		public CharacterGender Gender { get; set; }
-		public CharacterAge Age { get; set; }
+		public abstract string CharacterId { get; }
+		public abstract int MaxSpeakers { get; }
+		public abstract CharacterGender Gender { get; }
+		public abstract CharacterAge Age { get; }
+		public abstract CharacterVerseData.CharacterType CharacterType { get; }
+	}
+
+	public class BiblicalCharacterDetail : CharacterDetail
+	{
+		private CharacterGender m_gender;
+		private int m_maxSpeakers;
+		private CharacterAge m_age;
+
+		public BiblicalCharacterDetail(string characterId, int maxSpeakers, CharacterGender gender, CharacterAge age)
+		{
+			CharacterId = characterId;
+			m_maxSpeakers = maxSpeakers;
+			m_gender = gender;
+			m_age = age;
+		}
+
+		public override string CharacterId { get; }
+
+		public override int MaxSpeakers => m_maxSpeakers;
+		public override CharacterGender Gender => m_gender;
+		public override CharacterAge Age => m_age;
+
 		public bool Status { get; set; }
 		public string Comment { get; set; }
 		public string ReferenceComment { get; set; }
-		public CharacterVerseData.StandardCharacter StandardCharacterType { get; set; } = CharacterVerseData.StandardCharacter.NonStandard;
+		public override CharacterVerseData.CharacterType CharacterType => CharacterVerseData.CharacterType.NonStandard;
+
+		public void Redefine(BiblicalCharacterDetail basedOn)
+		{
+			m_maxSpeakers = basedOn.MaxSpeakers;
+			m_gender = basedOn.Gender;
+			m_age = basedOn.Age;
+		}
 	}
 
 	public class CharacterGenderComparer : IComparer<CharacterGender>

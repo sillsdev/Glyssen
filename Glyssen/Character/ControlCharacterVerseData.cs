@@ -130,7 +130,7 @@ namespace Glyssen.Character
 
 			if (ReadHypotheticalAsNarrator && quoteType == QuoteType.Hypothetical)
 			{
-				characterId = GetStandardCharacterId(BCVRef.NumberToBookCode(bcvRef.Book), StandardCharacter.Narrator);
+				characterId = GetStandardCharacterId(BCVRef.NumberToBookCode(bcvRef.Book), CharacterType.Narrator);
 				delivery = string.Empty;
 				alias = string.Empty;
 				quoteType = QuoteType.Quotation;

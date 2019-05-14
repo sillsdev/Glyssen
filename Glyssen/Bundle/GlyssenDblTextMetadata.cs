@@ -440,19 +440,20 @@ namespace Glyssen.Bundle
 		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
 		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization { get; set; }
 
-		public bool IncludeCharacter(string characterId)
+		public bool IncludeCharacter(Block.SpecialCharacters specialCharacter)
 		{
-			switch (CharacterVerseData.GetStandardCharacterType(characterId))
+			switch (specialCharacter)
 			{
-				case CharacterVerseData.StandardCharacter.BookOrChapter:
+				case Block.SpecialCharacters.BookTitle:
+				case Block.SpecialCharacters.ChapterAnnouncement:
 					if (BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
 						return false;
 					break;
-				case CharacterVerseData.StandardCharacter.Intro:
+				case Block.SpecialCharacters.Intro:
 					if (BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
 						return false;
 					break;
-				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+				case Block.SpecialCharacters.ExtraBiblical:
 					if (SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
 						return false;
 					break;

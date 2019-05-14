@@ -690,8 +690,8 @@ namespace GlyssenTests
 		[Test]
 		public void MigrateInvalidCharacterIdForScriptData_NarratorBlocksWithNonNullCharacterIdInScript_CharacterIdInScriptSetToNull()
 		{
-			var bcMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter);
-			var narratorMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var bcMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter);
+			var narratorMat = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator);
 			var block1 = CreateTestBlock("Andrew");
 			block1.UserConfirmed = false;
 			block1.CharacterId = bcMat;
@@ -970,7 +970,7 @@ namespace GlyssenTests
 			var genesis = new BookScript("GEN",
 				new List<Block>
 				{
-					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.CharacterType.BookOrChapter)),
 					CreateChapterBlock("GEN", 1, chapterStyleTag),
 					CreateTestBlock(1, MultiBlockQuote.None),
 					CreateChapterBlock("GEN", 2, chapterStyleTag),
@@ -990,7 +990,7 @@ namespace GlyssenTests
 			var matthew = new BookScript("MAT",
 				new List<Block>
 				{
-					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter)),
 					CreateChapterBlock("MAT", 1, chapterStyleTag),
 					CreateTestBlock(2, MultiBlockQuote.None),
 					CreateTestBlock(1, MultiBlockQuote.None),
@@ -1059,7 +1059,7 @@ namespace GlyssenTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 				},
 				new Block
 				{
@@ -1139,7 +1139,7 @@ namespace GlyssenTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator),
 					},
 					new Block
 					{
@@ -1150,7 +1150,7 @@ namespace GlyssenTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator),
 					},
 					new Block
 					{
@@ -1172,7 +1172,7 @@ namespace GlyssenTests
 						},
 						MultiBlockQuote = MultiBlockQuote.None,
 						SplitId = -1,
-						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator),
+						CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.Narrator),
 					},
 					new Block
 					{
@@ -1262,7 +1262,7 @@ namespace GlyssenTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 				},
 				new Block
 				{
@@ -1274,7 +1274,7 @@ namespace GlyssenTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = -1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1350,7 +1350,7 @@ namespace GlyssenTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 1,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1420,7 +1420,7 @@ namespace GlyssenTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 0,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 					UserConfirmed = true,
 				}
 			};
@@ -1458,7 +1458,7 @@ namespace GlyssenTests
 					},
 					MultiBlockQuote = MultiBlockQuote.None,
 					SplitId = 0,
-					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 					UserConfirmed = true,
 				},
 				new Block
@@ -1563,7 +1563,7 @@ namespace GlyssenTests
 
 		private Block CreateChapterBlock(string bookId, int chapter, string styleTag)
 		{
-			var chapterVerse = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			var chapterVerse = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.CharacterType.BookOrChapter);
 
 			return new Block
 			{

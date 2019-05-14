@@ -260,9 +260,9 @@ namespace GlyssenTests
 				new CharacterGroup(project),
 				new CharacterGroup(project)
 			});
-			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator));
+			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.CharacterType.Narrator));
 			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
-			project.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
+			project.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator));
 			project.CharacterGroupList.CharacterGroups[1].AssignVoiceActor(2);
 
 			var exporter = new ProjectExporter(project);
@@ -283,8 +283,8 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
-			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator);
+			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical);
 			var jude = project.IncludedBooks.Single();
 			jude.Blocks = new List<Block>(new[]
 			{
@@ -403,7 +403,7 @@ namespace GlyssenTests
 		public void GetExportData_AnnotationWithNegativeOffsetInVerseThatDoesNotMatchReferenceText_AnnotationInsertedCorrectlyWithoutCrashing()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator);
 			var mark = project.IncludedBooks.Single();
 			mark.Blocks = new List<Block>
 			{
@@ -535,8 +535,8 @@ namespace GlyssenTests
 			Assert.IsTrue(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Azeri
 			// Since the test version of Jude does not match perfectly with this reference text, we expect two rows
 			// where the vernacular has no corresponding reference text.
-			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
-			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
+			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical));
+			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator));
 			Assert.IsTrue(data.Where(d => d.StyleTag == "s1").All(d => d.CharacterId == extra));
 			var scriptureRowsWithNoReferenceText = data.Where(d => d.AdditionalReferenceText == null && d.StyleTag != "s1").ToList();
 			Assert.AreEqual(2, scriptureRowsWithNoReferenceText.Count);
@@ -569,8 +569,8 @@ namespace GlyssenTests
 			Assert.IsTrue(matchedRows.Any(d => d.EnglishReferenceText.Contains(" the "))); // A word that should be in English, but not Russian
 			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two Scripture rows
 			// where the vernacular has no corresponding reference text.
-			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
-			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
+			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.ExtraBiblical));
+			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator));
 			Assert.IsTrue(data.Where(d => d.StyleTag == "s1")
 				.All(d => d.CharacterId == extra));
 			var scriptureRowsWithNoReferenceText = data.Where(d => d.AdditionalReferenceText == null &&
@@ -618,7 +618,7 @@ namespace GlyssenTests
 			Assert.IsFalse(rowForRev1V3.AdditionalReferenceText.Contains("|||"));
 			Assert.IsTrue(annotationRowForRev1V3.AdditionalReferenceText.Equals(annotationRowForRev1V3.EnglishReferenceText) &&
 				annotationRowForRev1V3.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "2")));
-			Assert.IsTrue(sectionHeadRowForRev1V3.CharacterId.Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
+			Assert.IsTrue(sectionHeadRowForRev1V3.CharacterId.Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.CharacterType.ExtraBiblical))));
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev1V20 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20).ToList();
@@ -674,7 +674,7 @@ namespace GlyssenTests
 			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
 				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
 				rowForRev1V3.VernacularText);
-			Assert.IsTrue(sectionHeadRowForRev1V3.CharacterId.Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
+			Assert.IsTrue(sectionHeadRowForRev1V3.CharacterId.Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.CharacterType.ExtraBiblical))));
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev1V20 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20).ToList();

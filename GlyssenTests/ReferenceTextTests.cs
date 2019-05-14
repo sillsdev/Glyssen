@@ -228,13 +228,13 @@ namespace GlyssenTests
 			vernacularBlocks.Add(CreateBlockForVerse("Fred", 1, "Cosas que Fred dice, ", true));
 			var block = new Block("s", 1, 1)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.ExtraBiblical),
 			};
 			block.BlockElements.Add(new ScriptText("Section cabeza text"));
 			vernacularBlocks.Add(block);
 			block = new Block("p", 1, 2)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 			};
 			block.AddVerse(2, "Blah blah. ").AddVerse(3, "More blah blah. ").AddVerse(4, "The final blah blah.");
 			vernacularBlocks.Add(block);
@@ -246,7 +246,7 @@ namespace GlyssenTests
 			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "I hope you enjoy your flight. "));
 			block = new Block("s", 1, 3)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.ExtraBiblical),
 			};
 			block.BlockElements.Add(new ScriptText("Section head text (the English version)"));
 			referenceBlocks.Add(block);
@@ -277,7 +277,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(31, "But eagerly desire the greater gifts.", false, 12, "1CO"));
 			var block = new Block("s", 12, 31)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.CharacterType.ExtraBiblical),
 			};
 			block.BlockElements.Add(new ScriptText("Love"));
 			vernacularBlocks.Add(block);
@@ -361,7 +361,7 @@ namespace GlyssenTests
 			var block = new Block("p", 1, 1)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 			};
 			block.AddVerse(1, "This is versiculo uno.").AddVerse(2, "Pedro, Jacobo y Juan respondieron, ");
 			vernacularBlocks.Add(block);
@@ -381,7 +381,7 @@ namespace GlyssenTests
 			block = new Block("p", 1, 1)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator),
 			};
 			block.AddVerse(1, "This is verse one.").AddVerse(2, "Peter, James, and John said, ");
 			referenceBlocks.Add(block);
@@ -402,7 +402,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator), result[0].CharacterId);
 			Assert.AreEqual("Peter/James/John", result[1].CharacterId);
 			Assert.AreEqual("John", result[1].CharacterIdInScript);
 			Assert.IsTrue(result.All(b => !b.UserConfirmed));
@@ -417,14 +417,14 @@ namespace GlyssenTests
 			var vernacularBlocks = new List<Block>();
 			var block = new Block("mt", 1)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 			block.BlockElements.Add(new ScriptText("El Evangelio Segun San Mateo"));
 			vernacularBlocks.Add(block);
 			block = new Block("c", 1)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 			block.BlockElements.Add(new ScriptText("1"));
 			vernacularBlocks.Add(block);
@@ -435,13 +435,13 @@ namespace GlyssenTests
 			block = new Block("c", 2)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 			block.BlockElements.Add(new ScriptText("2"));
 			vernacularBlocks.Add(block);
 			block = new Block("s", 2)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.ExtraBiblical),
 			};
 			block.BlockElements.Add(new ScriptText("This is una historia about a scruffy robot jugando volleybol"));
 			vernacularBlocks.Add(block);
@@ -451,14 +451,14 @@ namespace GlyssenTests
 			var referenceBlocks = new List<Block>();
 			block = new Block("mt", 1)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 			block.BlockElements.Add(new ScriptText("The Gospel According to Saint Thomas"));
 			referenceBlocks.Add(block);
 			block = new Block("c", 1)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 			referenceBlocks.Add(block);
 			block.BlockElements.Add(new ScriptText("1"));
@@ -469,13 +469,13 @@ namespace GlyssenTests
 			block = new Block("c", 2)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 			};
 			block.BlockElements.Add(new ScriptText("2"));
 			referenceBlocks.Add(block);
 			block = new Block("s", 2)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.ExtraBiblical),
 			};
 			block.BlockElements.Add(new ScriptText("This is a story about a scruffy robot playing volleyball"));
 			referenceBlocks.Add(block);
@@ -487,9 +487,9 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(referenceBlocks.Count, result.Count);
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter), result[0].CharacterId);
 			Assert.AreEqual("The Gospel According to Saint Thomas", result[0].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter), result[1].CharacterId);
 			Assert.AreEqual("The Gospel According to Thomas 1", result[1].GetPrimaryReferenceText());
 			Assert.AreEqual("Paul", result[2].CharacterId);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].GetPrimaryReferenceText());
@@ -497,13 +497,13 @@ namespace GlyssenTests
 			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
 			Assert.AreEqual("Paul", result[4].CharacterId);
 			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[5].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator), result[5].CharacterId);
 			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[6].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter), result[6].CharacterId);
 			Assert.AreEqual("The Gospel According to Thomas 2", result[6].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical), result[7].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.ExtraBiblical), result[7].CharacterId);
 			Assert.AreEqual(referenceBlocks[7].GetText(true), result[7].GetPrimaryReferenceText());
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[8].CharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator), result[8].CharacterId);
 			Assert.AreEqual(referenceBlocks[8].GetText(true), result[8].GetPrimaryReferenceText());
 		}
 
@@ -550,7 +550,7 @@ namespace GlyssenTests
 			var block = new Block("p", 1, 1)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.AddVerse(1, "Then Jesus said, ");
 			vernacularBlocks.Add(block);
@@ -562,7 +562,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(block);
 			block = new Block("p", 1, 1)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.BlockElements.Add(new ScriptText("Y Pablo respondio diciendo, "));
 			vernacularBlocks.Add(block);
@@ -578,7 +578,7 @@ namespace GlyssenTests
 			block = new Block("p", 1, 1)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.AddVerse(1, "Then Jesus said, ");
 			referenceBlocks.Add(block);
@@ -590,7 +590,7 @@ namespace GlyssenTests
 			referenceBlocks.Add(block);
 			block = new Block("p", 1, 1)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.BlockElements.Add(new ScriptText("And Paul responded, "));
 			referenceBlocks.Add(block);
@@ -618,7 +618,7 @@ namespace GlyssenTests
 			var block = new Block("p", 1, 1, 3)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.BlockElements.Add(new Verse("1-3"));
 			block.BlockElements.Add(new ScriptText("Entonces Jesús dijo que los reducirían un burro. El número de ellos dónde encontrarlo. Y todo salió bien."));
@@ -644,7 +644,7 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyTo_ReferenceHasVerseBridgeCorrespondingToTwoVernVerses_Mismatched()
 		{
-			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator);
 
 			var vernacularBlocks = new List<Block>
 				{
@@ -683,7 +683,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetExportData_VernVerseHasMorePartsThanReference_FinalBlockOfVerseContainsStartOfFollowingVerseInBothVernAndRef_BeginningAndEndMatch()
 		{
-			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.Narrator);
 
 			var vernacularBlocks = new List<Block>
 				{
@@ -740,7 +740,7 @@ namespace GlyssenTests
 			var block = new Block("p", 1, 1, 1)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.AddVerse(1, "Entonces Jesús dijo que los reducirían un burro. ")
 				.AddVerse("2-3", "El número de ellos dónde encontrarlo. Y todo salió bien. ")
@@ -780,7 +780,7 @@ namespace GlyssenTests
 			var block = new Block("p", 1, 2, 3)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.AddVerse("2-3", "El número de ellos dónde encontrarlo. Y todo salió bien. ")
 				.AddVerse(4, "El cuarto versiculo.");
@@ -896,7 +896,7 @@ namespace GlyssenTests
 		{
 			// PG-764 Chikunda (I Corinthians 5:3-4)
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.Narrator), 3,
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.CharacterType.Narrator), 3,
 				"Ndiye, kana dzvangu ndilikutali na imwepo pathupi, ndichilikumweko na imwepo pamzimu. Ndiye ngatindilipo, ndatotonga kale mudzina la Mfumu Jesu padzulu pa mamuna ayita dzvimwedzvi. Apo pamunizagumana, ndinizagumana na imwepo pamzimu, na mphamvu ya Mfumu yathu Jesu alipo na ifepo, ",
 				false, 5, "p" , 4));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(5,
@@ -1070,7 +1070,7 @@ namespace GlyssenTests
 			var block = new Block("p", 1, 1, 1)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.BlockElements.Add(new Verse("1"));
 			block.BlockElements.Add(new ScriptText("Entonces Jesús dijo que los reducirían un burro. "));
@@ -1124,7 +1124,7 @@ namespace GlyssenTests
 			block = new Block("p", 1, 1, 3)
 			{
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Narrator)
 			};
 			block.BlockElements.Add(new Verse("1-3"));
 			block.BlockElements.Add(new ScriptText("Then Jesus said would reduce a donkey. The number of them where to find it. And all went well."));
@@ -1396,7 +1396,7 @@ namespace GlyssenTests
 			referenceBlocks.Add(CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"));
 			var block = new Block("d", 1) {
 				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.CharacterType.Narrator),
 				BlockElements = new List<BlockElement> { new ScriptText("A psalm of David") }
 			};
 			referenceBlocks.Add(block);
@@ -1450,7 +1450,7 @@ namespace GlyssenTests
 		public void ApplyTo_VernacularHasIntroAndReferenceDoesnt_IntroIgnored()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Intro uno", true));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Intro), 0, "Intro uno", true));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Con gran temblor...", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 
@@ -1473,12 +1473,12 @@ namespace GlyssenTests
 		public void ApplyTo_VernacularAndReferenceHaveIntros_IntroNotMatched()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Intro uno", true));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Intro), 0, "Intro uno", true));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Con gran temblor...", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 
 			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro), 0, "Introduction", true));
+			referenceBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.Intro), 0, "Introduction", true));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Trembling and bewildered...", true));
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
@@ -1670,7 +1670,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(new Block("c", 3)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 				BlockElements = new List<BlockElement> { new ScriptText("3") }
 			});
 
@@ -1679,7 +1679,7 @@ namespace GlyssenTests
 			indonesianReferenceBlocks.Add(new Block("c", 3)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 				BlockElements = new List<BlockElement> { new ScriptText("3") }
 			});
 
@@ -1688,7 +1688,7 @@ namespace GlyssenTests
 			englishReferenceBlocks.Add(new Block("c", 3)
 			{
 				BookCode = "MAT",
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.CharacterType.BookOrChapter),
 				BlockElements = new List<BlockElement> { new ScriptText("Matthew 3") }
 			});
 
@@ -1848,7 +1848,7 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			// Now pre-match the vernacular blocks for verse 2:
-			var narrator = CharacterVerseData.GetStandardCharacterId(vernBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId(vernBook.BookId, CharacterVerseData.CharacterType.Narrator);
 			vernacularBlocks[1].SetMatchedReferenceBlock(CreateNarratorBlockForVerse(2, "Then Jesus said:", true));
 			vernacularBlocks[2].SetMatchedReferenceBlock(referenceBlocks[1].Clone());
 			vernacularBlocks[2].ReferenceBlocks.Single().BlockElements.RemoveAt(0); // Get rid of verse number
@@ -1912,7 +1912,7 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyTo_VernacularAndReferenceVersificationsDoNotMatch_VersesMappedToEarlierChapter_InterveningMaterialMatches()
 		{
-			var chapterAnnouncementCharacter = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.BookOrChapter);
+			var chapterAnnouncementCharacter = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.CharacterType.BookOrChapter);
 			//ROM 14:24-26 = ROM 16:25-27
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Fourteen Twenty-three. ", true, 14, "ROM"));
@@ -1966,7 +1966,7 @@ namespace GlyssenTests
 			//EXO 8:5-32 = EXO 8:1-28
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(29, "Versículo 29. ", true, 7, "EXO"));
-			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("EXO", CharacterVerseData.StandardCharacter.BookOrChapter), 0, "Chapter 8", false, 8, "c"));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("EXO", CharacterVerseData.CharacterType.BookOrChapter), 0, "Chapter 8", false, 8, "c"));
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Versículo 1.", false, 8, "EXO"));
 			var vernBook = new BookScript("EXO", vernacularBlocks);
 
@@ -2034,7 +2034,7 @@ namespace GlyssenTests
 			// Acts 10:23
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Narrator before SH", true, 10, "ACT"));
-			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical), "SH", "s");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.CharacterType.ExtraBiblical), "SH", "s");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Narrator after SH", "ACT");
 			var vernBook = new BookScript("ACT", vernacularBlocks);
 			vernBook.SingleVoice = true;
@@ -2064,7 +2064,7 @@ namespace GlyssenTests
 			var block = CreateNarratorBlockForVerse(42, "Mi tana bona na gari", true, 9, "LUK");
 			block.AddVerse(43, "Mana vure subo tara");
 			vernacularBlocks.Add(block);
-			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.ExtraBiblical), "Jesus te ghoi bosaa na mateana", "s");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.CharacterType.ExtraBiblical), "Jesus te ghoi bosaa na mateana", "s");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tana bona na vure tara", "LUK");
 			var vernBook = new BookScript("LUK", vernacularBlocks);
 			vernBook.SingleVoice = singleVoice;
@@ -2355,7 +2355,7 @@ namespace GlyssenTests
 			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "That's all.", true));
 
 			// Now pre-match the vern blocks for verse 2:
-			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.CharacterType.Narrator);
 			vernacularBlocks[1].SetMatchedReferenceBlock(CreateNarratorBlockForVerse(2, "Then Jesus said:", true));
 			vernacularBlocks[2].SetMatchedReferenceBlock(referenceBlocks[1].Clone());
 			vernacularBlocks[2].ReferenceBlocks.Single().BlockElements.RemoveAt(0); // Get rid of verse number
@@ -2474,17 +2474,17 @@ namespace GlyssenTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Hanən dyamdyamb.", true, 16, "MRK"));
 			vernacularBlocks.Add(new Block("ms", 16, 8)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("Nyaa pɔ́g echě  Kálag e Makɔsɛ ésógé") }
 			});
 			vernacularBlocks.Add(new Block("mr", 16, 8)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("16.9-20") }
 			});
 			vernacularBlocks.Add(new Block("s", 16, 8)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté Maria Magdalɛnɛ yə̌l") }
 			});
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(9, "Áde Yesuɛ  bé mbéb saámbé áte. ", true, 16, "MRK")
@@ -2492,7 +2492,7 @@ namespace GlyssenTests
 				.AddVerse(11, "Boŋ áde béwógé bán Yesuɛ adé á aloŋgé, bán ane mmwaád anyíné-ʼɛ mɔ́, bénkêndúbɛ́ɛ́."));
 			vernacularBlocks.Add(new Block("s", 16, 11)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté ábɛ̄ bad bébɛ yə̌l") }
 			});
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(12, "Ámbīd e póndé Yesuɛ anlúméd. Boŋ enɛ́n ngen anlúméd yə̌l nyaa émpēe. ", true, 16, "MRK")
@@ -2505,19 +2505,19 @@ namespace GlyssenTests
 				.AddVerse(18, "Bɛ́kōbɛ̄n nyə̌ mekáá, éebɛnlé bɔ́ dyamdyam. Ké bémmwɛ̄-ʼɛ ké eʼwɛ, ábê eʼwɛ béebɛnlé bɔ́ dyamdyam. Bɛ́bān bad bé nkole mekáá á yə̌l, bad bé nkole bɛ̂ bédyɛ̄ɛ̄-ʼɛ bwâm.”");
 			vernacularBlocks.Add(new Block("s", 16, 18)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ apǔmmé") }
 			});
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(19, "Áde Sáŋgú Yesuɛ ámáá bɔ́ ḿmɛ́n mekan aláa, dɔ́ɔ Dyǒb ábɛ́lé boŋ ápūmē ámīn. ", true, 16, "MRK")
 				.AddVerse(20, "Hɛ́ɛ bembapɛɛ bébídé, boŋ békɛ békalé Eyale é Dyǒb hǒm tɛ́ɛ́."));
 			vernacularBlocks.Add(new Block("ms", 16, 20)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("Nyaa empée echě kálag e Makɔsɛ ésógé") }
 			});
 			vernacularBlocks.Add(new Block("mr", 16, 20)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.CharacterType.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("16.9-10") }
 			});
 			var altEndingBlock = CreateNarratorBlockForVerse(9, "Hɛ́ɛ ábê bebaád békíí, boŋ mésyə̄ə̄l ḿme bénlyə̄gtɛ̄nnē bɔ́, bésɛ̄lē mɔ́ esóŋ-esóŋ. ", true, 16, "MRK")
@@ -2811,7 +2811,7 @@ namespace GlyssenTests
 			});
 			vernacularBlocks[4].SetMatchedReferenceBlock(new Block("p", 1, 2)
 			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId(vernBook.BookId, CharacterVerseData.StandardCharacter.Narrator),
+				CharacterId = CharacterVerseData.GetStandardCharacterId(vernBook.BookId, CharacterVerseData.CharacterType.Narrator),
 				BlockElements = new List<BlockElement> { new ScriptText("answered Peter.") }
 			});
 
@@ -2933,12 +2933,12 @@ namespace GlyssenTests
 
 		internal static Block AddNarratorBlockForVerseInProgress(IList<Block> list, string text, string book = "MAT")
 		{
-			return AddBlockForVerseInProgress(list, CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.StandardCharacter.Narrator), text);
+			return AddBlockForVerseInProgress(list, CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.CharacterType.Narrator), text);
 		}
 
 		internal static Block CreateNarratorBlockForVerse(int verseNumber, string text, bool paraStart = false, int chapter = 1, string book = "MAT", string styleTag = "p")
 		{
-			return CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.StandardCharacter.Narrator),
+			return CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.CharacterType.Narrator),
 				verseNumber, text, paraStart, chapter, styleTag);
 		}
 		#endregion
