@@ -1105,7 +1105,7 @@ namespace GlyssenTests
 			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			foreach (var block in jude.GetScriptBlocks())
 			{
-				if (block.CharacterIsUnclear())
+				if (block.CharacterIsUnclear)
 					block.CharacterId = "Paul";
 				block.SetMatchedReferenceBlock("blah");
 			}
@@ -1155,7 +1155,7 @@ namespace GlyssenTests
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
 			Assert.IsFalse(target.GetScriptBlocks().Any(b => b.UserConfirmed));
-			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.kUnknownCharacter));
+			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.kUnexpectedCharacter));
 			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
@@ -1168,7 +1168,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -1204,7 +1204,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					if (i % 2 == 0)
 					{
@@ -1227,7 +1227,7 @@ namespace GlyssenTests
 				{
 					if (i % 2 == 0)
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsNull(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -1253,7 +1253,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -1266,7 +1266,7 @@ namespace GlyssenTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -1287,7 +1287,7 @@ namespace GlyssenTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -1312,7 +1312,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript(false, true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -1325,7 +1325,7 @@ namespace GlyssenTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -1346,7 +1346,7 @@ namespace GlyssenTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -1371,7 +1371,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript(true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -1383,7 +1383,7 @@ namespace GlyssenTests
 			var quoteBlockIndices = new List<int>();
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					quoteBlockIndices.Add(i);
 					if (i % 2 != 0)
@@ -1404,7 +1404,7 @@ namespace GlyssenTests
 				{
 					if (i % 2 != 0)
 					{
-						Assert.AreEqual(CharacterVerseData.kUnknownCharacter, target[i].CharacterId);
+						Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, target[i].CharacterId);
 						Assert.Null(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -1431,7 +1431,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Thomas/James";
 					Assert.AreEqual(source[i].CharacterId, source[i].CharacterIdInScript, "CharacterId setter should not set CharacterInScript to default character");
@@ -1461,7 +1461,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Thomas/James";
 					source[i].CharacterIdInScript = "James";
@@ -1493,7 +1493,7 @@ namespace GlyssenTests
 			{
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
-					if (source[i].CharacterIsUnclear())
+					if (source[i].CharacterIsUnclear)
 						source[i].CharacterId = "Jesus";
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (i < 20)
@@ -1510,7 +1510,7 @@ namespace GlyssenTests
 			{
 				if (userConfirmedCharacterBlockIndices.Contains(i))
 				{
-					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsFalse(target[i].CharacterIsUnclear);
 					Assert.IsTrue(target[i].UserConfirmed);
 					Assert.IsTrue(target[i].MatchesReferenceText);
 					Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
@@ -1535,7 +1535,7 @@ namespace GlyssenTests
 			{
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
-					if (source[i].CharacterIsUnclear())
+					if (source[i].CharacterIsUnclear)
 						source[i].CharacterId = "Jesus";
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (userConfirmedCharacterBlockIndices.Count >= 2)
@@ -1555,7 +1555,7 @@ namespace GlyssenTests
 			{
 				if (userConfirmedCharacterBlockIndices.Contains(i))
 				{
-					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsFalse(target[i].CharacterIsUnclear);
 					Assert.IsTrue(target[i].UserConfirmed);
 					if (i == userConfirmedCharacterBlockIndices[0])
 					{
@@ -1796,7 +1796,7 @@ namespace GlyssenTests
 			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
 			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter).UserConfirmed = true;
 
-			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
+			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear))
 			{
 				sb.MultiBlockQuote = MultiBlockQuote.None;
 				sb.SetNonDramaticCharacterId(origSource.NarratorCharacterId);
@@ -2127,7 +2127,7 @@ namespace GlyssenTests
 		{
 			matchup.MatchAllBlocks(ScrVers.English);
 			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear() ||
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear ||
 				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))
 			{
 				block.SetNonDramaticCharacterId(narrator);
@@ -3114,7 +3114,7 @@ namespace GlyssenTests
 			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
 			Assert.AreEqual("Bill", blockToSplit.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, newBlock.CharacterId);
 			Assert.IsTrue(blockToSplit.UserConfirmed);
 			Assert.IsFalse(newBlock.UserConfirmed);
 		}

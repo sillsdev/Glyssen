@@ -727,10 +727,7 @@ namespace Glyssen
 			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
 		}
 
-		public bool CharacterIsUnclear()
-		{
-			return CharacterVerseData.IsCharacterUnclear(CharacterId);
-		}
+		public bool CharacterIsUnclear => CharacterVerseData.IsCharacterUnclear(CharacterId);
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
@@ -761,7 +758,7 @@ namespace Glyssen
 			}
 			else if (characterList.Count == 0)
 			{
-				SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
+				SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 				UserConfirmed = false;
 			}
 			else
@@ -816,7 +813,8 @@ namespace Glyssen
 
 		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
-			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
+			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter ||
+				characterId == CharacterVerseData.kNeedsReview)
 			{
 				SetNonDramaticCharacterId(characterId);
 				return;

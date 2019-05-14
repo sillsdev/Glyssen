@@ -59,13 +59,13 @@ namespace Glyssen.Analysis
 
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
 						NarratorBlocks++;
-					else if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					else if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 						UnknownBlocks++;
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 						AmbiguousBlocks++;
 					if (block.UserConfirmed)
 						UserAssignedBlocks++;
-					if (block.UserConfirmed || block.CharacterIsUnclear())
+					if (block.UserConfirmed || block.CharacterIsUnclear)
 						NeedsAssignment++;
 				}
 			}

@@ -12,13 +12,12 @@ namespace Glyssen.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
-		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
-		public const string kUnknownCharacter = "Unknown";
-		/// <summary>
-		/// Blocks represents a quote whose character has not been set.
-		/// Used when the user needs to disambiguate between multiple potential characters.
-		/// </summary>
+		/// <summary>Represents a quote whose character has not been set because not quote was expected at this location</summary>
+		public const string kUnexpectedCharacter = "Unknown";
+		/// <summary>Represents a quote where the user needs to disambiguate between multiple potential characters</summary>
 		public const string kAmbiguousCharacter = "Ambiguous";
+		/// <summary>Special character ID that the user can use for a quote that needs further review (by a vernacular speaker, advisor, etc.)</summary>
+		public const string kNeedsReview = "Needs Review";
 
 		public const int kiMinRequiredFields = 5;
 		protected const int kiQuoteType = kiMinRequiredFields + 1;
@@ -59,7 +58,7 @@ namespace Glyssen.Character
 
 		public static bool IsCharacterUnclear(string characterId)
 		{
-			return characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter;
+			return characterId == kAmbiguousCharacter || characterId == kUnexpectedCharacter;
 		}
 
 		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)

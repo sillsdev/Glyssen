@@ -481,7 +481,7 @@ namespace Glyssen
 			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
 			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnclear() ) &&
+				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnclear) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}
 

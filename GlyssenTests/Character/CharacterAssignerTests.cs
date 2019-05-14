@@ -170,7 +170,7 @@ namespace GlyssenTests.Character
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, true);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[2].CharacterId);
 			Assert.False(bookScript[2].UserConfirmed);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, bookScript[3].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, bookScript[3].CharacterId);
 			Assert.False(bookScript[3].UserConfirmed);
 		}
 

@@ -1411,6 +1411,17 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
+		public void GenerateCharacterGroups_BlockNeedsReview_NeedsReviewCharacterNotIncludedInGeneratedGroups()
+		{
+			SetVoiceActors(8, 2);
+
+			m_testProject.IncludedBooks[0].Blocks[3].CharacterId = CharacterVerseData.kNeedsReview;
+
+			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
+			Assert.False(groups.Any(g => g.CharacterIds.Contains(CharacterVerseData.kNeedsReview)));
+		}
+
+		[Test]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsButNotInScript_ProjectCharacterDetailNotIncludedInGeneratedGroups()
 		{
 			SetVoiceActors(8, 2);

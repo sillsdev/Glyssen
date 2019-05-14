@@ -2325,11 +2325,12 @@ namespace Glyssen
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
+						if (block.CharacterIsUnclear)
+							continue; // REVIEW: Should we throw an exception if this happens (in production code)?
 						character = book.GetCharacterIdInScript(block);
 
-						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
-						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
-							continue;
+						if (character == CharacterVerseData.kNeedsReview)
+							continue; // The "Needs Review" character should never be added to a group.
 
 						if (character == null)
 						{
@@ -2566,9 +2567,9 @@ namespace Glyssen
 					{
 						ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 					}
-					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					{
-						block.SetCharacterIdAndCharacterIdInScript(book.NarratorCharacterId, bookNum, Versification);
+						block.SetNonDramaticCharacterId(book.NarratorCharacterId);
 						block.UserConfirmed = true;
 					}
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
@@ -2598,11 +2599,8 @@ namespace Glyssen
 				ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 
 #if DEBUG
-				foreach (var block in book.GetScriptBlocks())
-				{
-					if (block.CharacterIsUnclear())
-						Debug.Fail("Failed to disambiguate");
-				}
+				if (book.GetScriptBlocks().Any(block => block.CharacterIsUnclear))
+					Debug.Fail("Failed to disambiguate");
 #endif
 			}
 		}

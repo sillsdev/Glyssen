@@ -1058,7 +1058,7 @@ namespace Glyssen.Dialogs
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex);
 
-				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
+				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
 			if (block.IsContinuationOfPreviousBlockQuote)
@@ -1119,6 +1119,8 @@ namespace Glyssen.Dialogs
 				return block.IsScripture;
 			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
 				return block.IsQuote;
+			if ((Mode & BlocksToDisplay.NeedsReview) > 0)
+				return block.CharacterIdInScript == CharacterVerseData.kNeedsReview;
 			return false;
 		}
 
@@ -1136,7 +1138,7 @@ namespace Glyssen.Dialogs
 			if (CurrentBookIsSingleVoice)
 				return false;
 
-			return (block.UserConfirmed || block.CharacterIsUnclear());
+			return (block.UserConfirmed || block.CharacterIsUnclear);
 		}
 
 		internal bool CurrentBlockHasMissingExpectedQuote(IEnumerable<BCVRef> versesWithPotentialMissingQuote)

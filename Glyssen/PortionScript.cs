@@ -103,14 +103,14 @@ namespace Glyssen
 			{
 				if (string.IsNullOrEmpty(characterId))
 				{
-					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
+					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 					newBlock.UserConfirmed = false;
 				}
 				else
 				{
 					newBlock.Delivery = null;
 					if (Versification == null)
-						throw new InvalidOperationException("SplitBlock called on a script that has not been initilized with a versification");
+						throw new InvalidOperationException("SplitBlock called on a script that has not been initialized with a versification");
 					if (BookNumber < 0)
 						throw new InvalidOperationException("Attempting a user-originated split of a block which is not part of a known Scripture book. Possible characters cannot be determined.");
 					newBlock.SetCharacterIdAndCharacterIdInScript(characterId, BookNumber, Versification);

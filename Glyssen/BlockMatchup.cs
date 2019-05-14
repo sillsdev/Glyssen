@@ -196,12 +196,12 @@ namespace Glyssen
 
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
-				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnclear() ? refBlock : CorrelatedBlocks[i];
+				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnclear ? refBlock : CorrelatedBlocks[i];
 				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, bookNum, m_versification);
 				if (vernBlock.CharacterIsStandard)
 					vernBlock.MultiBlockQuote = MultiBlockQuote.None;
 
-				if (vernBlock.CharacterIsUnclear())
+				if (vernBlock.CharacterIsUnclear)
 					throw new InvalidOperationException("Vernacular block matched to reference block must have a CharacterId that is not ambiguous or unknown.");
 
 				if (CorrelatedBlocks[i].UserConfirmed)
@@ -291,11 +291,11 @@ namespace Glyssen
 			{
 				if (block.MatchesReferenceText)
 				{
-					if (block.CharacterIsUnclear())
+					if (block.CharacterIsUnclear)
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
-						if (!block.CharacterIsUnclear())
+						if (!block.CharacterIsUnclear)
 						{
 							block.UserConfirmed = true; // This does not affect original block until Apply is called
 						}
@@ -339,13 +339,13 @@ namespace Glyssen
 		{
 			var block = CorrelatedBlocks[i];
 			if (block.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				block.CharacterIsUnclear())
+				block.CharacterIsUnclear)
 			{
 				var existingEmptyVerseRefText = block.GetEmptyVerseReferenceTextAtDepth(level);
 				if (existingEmptyVerseRefText != null)
 				{
 					var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
-					if (block.CharacterIsUnclear())
+					if (block.CharacterIsUnclear)
 						block.SetNonDramaticCharacterId(narrator);
 					// Deal with following blocks in quote block chain (and mark this one None).
 					if (block.MultiBlockQuote == MultiBlockQuote.Start)
@@ -359,7 +359,7 @@ namespace Glyssen
 							// It's probably impossible in practice, but if this block has a character other than narrator already set,
 							// let's leave it as is. And, of course, if it's already explicitly set to narrator, then there's nothing to
 							// do.
-							if (contBlock.CharacterIsUnclear())
+							if (contBlock.CharacterIsUnclear)
 							{
 								// By far the common case will be that this block will be associated with a reference
 								// block that has a real character ID. If so, we'll use that ID, even if it's not

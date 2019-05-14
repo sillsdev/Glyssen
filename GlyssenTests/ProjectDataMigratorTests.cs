@@ -577,7 +577,7 @@ namespace GlyssenTests
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
-			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
 			blocks.Last().CharacterId = "Jesus";
@@ -609,15 +609,15 @@ namespace GlyssenTests
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
-			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
 				.AddVerse(2, "This is the start of verse two."));
-			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnknownCharacter }
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnexpectedCharacter }
 				.AddText("Esto es el resto de ello."));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
 				.AddText("This is the rest of it."));
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
 			blocks.Last().CharacterId = "the people";
 
@@ -654,7 +654,7 @@ namespace GlyssenTests
 		}
 
 		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnknownCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
 		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
@@ -857,8 +857,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterIdInScript);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, blockInRev43.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, blockInRev43.CharacterIdInScript);
 		}
 
 		[Test]
@@ -891,7 +891,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, unexpectedPeterInRev711.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, unexpectedPeterInRev711.CharacterId);
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
 		}
 

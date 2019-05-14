@@ -914,35 +914,26 @@ namespace Glyssen
 			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count;
 			if (numUniqueCharacterDeliveries > 1)
 			{
-				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnknownCharacter };
-				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1)
+				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnexpectedCharacter };
+				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1 || // More than one real character => Ambiguous
+					(numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))) // Only values are Ambiguous and Unique => Ambiguous
 				{
-					// More than one real character. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
-				}
-				else if (numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))
-				{
-					// Only values are Ambiguous and Unique. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
+					foreach (Block block in multiBlockQuote)
+					{
+						block.SetNonDramaticCharacterId(CharacterVerseData.kAmbiguousCharacter);
+						block.UserConfirmed = false;
+					}
 				}
 				else if (numUniqueCharacterDeliveries <= numUniqueCharacters)
 				{
 					// Only one real character (and delivery). Set to that character (and delivery).
-					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnknownCharacter);
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, realCharacter.Character, realCharacter.Delivery, versification);
+					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnexpectedCharacter);
+					foreach (Block block in multiBlockQuote)
+					{
+						block.SetCharacterIdAndCharacterIdInScript(realCharacter.Character, bookNum, versification);
+						block.Delivery = realCharacter.Delivery;
+					}
 				}
-			}
-		}
-
-		private static void SetCharacterAndDeliveryForMultipleBlocks(int bookNum, IEnumerable<Block> blocks, string character, string delivery, ScrVers versification)
-		{
-			foreach (Block block in blocks)
-			{
-				block.SetCharacterIdAndCharacterIdInScript(character, bookNum, versification);
-				block.Delivery = delivery;
-
-				if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
-					block.UserConfirmed = false;
 			}
 		}
 

@@ -388,7 +388,7 @@ namespace Glyssen.Dialogs
 				return false; // Can't change these.
 
 			if (newCharacter == null)
-				return !(currentBlock.CharacterIsUnclear() || currentBlock.CharacterId == null);
+				return !(currentBlock.CharacterIsUnclear || currentBlock.CharacterId == null);
 			if (newCharacter.IsNarrator)
 			{
 				if (!currentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
@@ -441,7 +441,7 @@ namespace Glyssen.Dialogs
 			else
 				block.SetCharacterIdAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
 					m_project.Versification);
-			block.UserConfirmed = !block.CharacterIsUnclear();
+			block.UserConfirmed = !block.CharacterIsUnclear;
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
@@ -470,7 +470,7 @@ namespace Glyssen.Dialogs
 			int numberOfBlocksCompleted = 0;
 			if (DoingAssignmentTask)
 			{
-				numberOfBlocksCompleted = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
+				numberOfBlocksCompleted = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear);
 			}
 			else if (DoingAlignmentTask)
 			{
@@ -609,7 +609,7 @@ namespace Glyssen.Dialogs
 				if (currentBlock.CharacterId != firstCharacterId)
 				{
 					if (string.IsNullOrEmpty(firstCharacterId))
-						currentBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+						currentBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 					else
 					{
 						Debug.Assert(currentBlock.CharacterIdOverrideForScript == null && firstCharacterId.SplitCharacterId().Length == 1,
@@ -748,7 +748,7 @@ namespace Glyssen.Dialogs
 					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
 					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
 					default:
-						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
+						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);
 						characterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
@@ -924,7 +924,7 @@ namespace Glyssen.Dialogs
 		{
 			if (CurrentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 				return Character.Narrator;
-			if (CurrentBlock.CharacterIsUnclear())
+			if (CurrentBlock.CharacterIsUnclear)
 			{
 				if (!CurrentBlock.ContainsVerseNumber)
 				{

@@ -192,9 +192,7 @@ namespace Glyssen
 		internal static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
-				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter ||
-				block.CharacterIsStandard) &&
-				block.CharacterIdOverrideForScript != null)))
+				(block.CharacterIsUnclear || block.CharacterIsStandard) && block.CharacterIdOverrideForScript != null)))
 			{
 				block.CharacterIdInScript = null;
 				if (!block.CharacterIsStandard)
@@ -234,7 +232,7 @@ namespace Glyssen
 				int bookNum = BCVRef.BookToNumber(book.BookId);
 
 				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-					block.CharacterId != CharacterVerseData.kUnknownCharacter &&
+					block.CharacterId != CharacterVerseData.kUnexpectedCharacter &&
 					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
 				{
 					if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
@@ -256,7 +254,7 @@ namespace Glyssen
 							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
 							block.UserConfirmed = false;
-							block.CharacterId = CharacterVerseData.kUnknownCharacter;
+							block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 							block.CharacterIdInScript = null;
 							numberOfChangesMade++;
 						}
@@ -349,9 +347,9 @@ namespace Glyssen
 				Block prevBlock = null;
 				foreach (var block in book.GetScriptBlocks())
 				{
-					if (block.MatchesReferenceText && block.CharacterIsUnclear())
+					if (block.MatchesReferenceText && block.CharacterIsUnclear)
 						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, book.Versification);
-					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear())
+					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear)
 						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, book.Versification);
 					prevBlock = block;
 				}

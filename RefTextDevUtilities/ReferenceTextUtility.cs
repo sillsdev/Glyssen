@@ -935,9 +935,9 @@ namespace Glyssen.RefTextDevUtilities
 
 					//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
 					//	return characterId;
-					s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnknownCharacter, bcvRef, fcbhCharacterLabel));
+					s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kUnexpectedCharacter, bcvRef, fcbhCharacterLabel));
 					//return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
-					return CharacterVerseData.kUnknownCharacter;
+					return CharacterVerseData.kUnexpectedCharacter;
 				default:
 					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, string>(c.ResolvedDefaultCharacter, c.Character)).ToList();
 					try

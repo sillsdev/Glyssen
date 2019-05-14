@@ -146,7 +146,7 @@ namespace ControlDataIntegrityTests
 			{
 				if (!charactersHavingDetail.Contains(cv.Character))
 				{
-					if (CharacterVerseData.IsCharacterStandard(cv.Character))
+					if (CharacterVerseData.IsCharacterStandard(cv.Character) || cv.Character == CharacterVerseData.kNeedsReview)
 						continue;
 
 					var characters = cv.Character.Split('/');
@@ -161,7 +161,7 @@ namespace ControlDataIntegrityTests
 
 				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
 				{
-					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
+					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter) || cv.Character == CharacterVerseData.kNeedsReview)
 						continue;
 
 					missingDefaultCharacters.Add(cv.DefaultCharacter);

@@ -283,6 +283,7 @@ GEN	22	12	angel of the LORD, the	calling out		Normal	Jesus
 GEN	22	14	saying (proverb)			Quotation		
 GEN	22	14	narrator-GEN			Quotation		
 GEN	22	14	Abraham (Abram)			Indirect		
+GEN	22	14	Needs Review			Quotation		
 GEN	22	16	angel of the LORD, the	calling out		Normal	Jesus	
 GEN	22	17	angel of the LORD, the	calling out		Normal	Jesus	
 GEN	22	18	angel of the LORD, the	calling out		Normal	Jesus	
@@ -6326,6 +6327,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	5	4	Naaman			Normal		
 2KI	5	4	Naaman's servants		Someone (servant of Naaman?)	Normal		
 2KI	5	4	servant of Naaman's wife (young girl)			Normal		
+2KI	5	4	Needs Review			Normal		
 2KI	5	5	Ben-Hadad, king of Aram			Normal		
 2KI	5	6	Ben-Hadad, king of Aram	letter		Normal		
 2KI	5	7	Joram, king of Israel			Normal		
@@ -7157,10 +7159,10 @@ NEH	8	6	people, all the	praising		Normal
 # is probably the best guess (as the Spiritual leader), but if the translation names a speaker explicitly, the script needs to match that.
 NEH	8	9	Nehemiah		Nehemiah (with Ezra and Levites) - see v. 10	Normal		
 NEH	8	9	Ezra, priest and teacher		Ezra (with Nehemiah and Levites) - see v. 10	Normal		
-# REVIEW (PG-1198): The following should probably not default to Ezra, but rather be treated as "uncertain", to be resolved by a vernacular speaker.
-NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites	Normal	Ezra, priest and teacher	
+NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites (needs review)	Normal	Needs Review	
 NEH	8	10	Nehemiah			Normal		
 NEH	8	10	Ezra, priest and teacher			Normal		
+NEH	8	10	Needs Review			Normal		
 NEH	8	11	Levites			Normal		
 NEH	8	15	heads of all the families/priests/Levites	proclamation		Normal		
 NEH	8	15	Moses	proclamation		Quotation		
@@ -8788,8 +8790,12 @@ SNG	8	6	maidens			Potential
 SNG	8	7	beloved			Potential		
 SNG	8	7	lover			Potential		
 SNG	8	7	maidens			Potential		
-SNG	8	8	brothers of beloved			Implicit		
-SNG	8	9	brothers of beloved			Implicit		
+SNG	8	8	brothers of beloved			Potential		
+SNG	8	8	sisters of beloved			Potential		
+SNG	8	8	Needs Review			Implicit		
+SNG	8	9	brothers of beloved			Potential		
+SNG	8	9	sisters of beloved			Potential		
+SNG	8	9	Needs Review			Implicit		
 SNG	8	10	beloved			Implicit		
 SNG	8	11	beloved			Implicit		
 SNG	8	12	beloved			Implicit		

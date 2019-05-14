@@ -252,7 +252,7 @@ namespace Glyssen.Quote
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+										multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 										multiBlock.Delivery = null;
 									}
 									m_currentMultiBlockQuote.Clear();
@@ -467,7 +467,7 @@ namespace Glyssen.Quote
 				foreach (var multiBlock in m_currentMultiBlockQuote)
 				{
 					multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-					multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+					multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 					multiBlock.Delivery = null;
 				}
 			}
@@ -691,7 +691,7 @@ namespace Glyssen.Quote
 			Block blockFollowingInterruption = null;
 			if (characterUnknown)
 			{
-				m_workingBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+				m_workingBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 				m_workingBlock.Delivery = null;
 			}
 			else

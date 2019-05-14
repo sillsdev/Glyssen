@@ -744,6 +744,7 @@ namespace Glyssen.Dialogs
             "Verses with expected quotes",
             "All quotes",
             "All Scripture",
+            "Needs review",
             "Verses not aligned with reference text"});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripComboBoxFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripComboBoxFilter, null);

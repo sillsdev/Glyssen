@@ -15,6 +15,7 @@ namespace Glyssen.Dialogs
 		ExcludeUserConfirmed = 128,
 		AllQuotes = 256,
 		NotAlignedToReferenceText = 512,
+		NeedsReview = 1024,
 		NotAssignedAutomatically = Unexpected | Ambiguous,
 		/// <summary>
 		/// This name is ambiguous, but we'll keep it around for backwards compatibility.
