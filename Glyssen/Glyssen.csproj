@@ -173,7 +173,6 @@
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BlockSplitData.cs" />
     <Compile Include="BookBlockIndices.cs" />
-    <Compile Include="BookMetadata.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />

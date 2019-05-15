@@ -135,7 +135,6 @@
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
     <Compile Include="BlockTests.cs" />
-    <Compile Include="BookMetadataTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />
     <Compile Include="Bundle\GlyssenBundleTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />

@@ -222,8 +222,7 @@ namespace Glyssen.Dialogs
 					grid[m_multiVoiceColumnIndex, books.IndexOf(availableBook)].ReadOnly = true;
 
 				var bookScript = m_project.Books.SingleOrDefault(b => b.BookId == availableBook.Code);
-				m_multiVoice[availableBook.Code] = !bookScript?.SingleVoice ??
-					!BookMetadata.DefaultToSingleVoice(availableBook.Code, out SingleVoiceReason reason);
+				m_multiVoice[availableBook.Code] = !bookScript?.SingleVoice ?? true;
 			}
 		}
 
@@ -249,26 +248,6 @@ namespace Glyssen.Dialogs
 
 		private void btnOk_Click(object sender, EventArgs e)
 		{
-			var multiVoiceBooksRequiringConfirmation = new List<string>();
-			foreach (var bookId in m_multiVoice.Keys)
-			{
-				var bookScript = m_project.IncludedBooks.SingleOrDefault(b => b.BookId == bookId);
-				if (bookScript != null && bookScript.SingleVoice != m_multiVoice[bookScript.BookId])
-					continue;
-
-				if (m_multiVoice[bookId] && BookMetadata.DefaultToSingleVoice(bookId, out SingleVoiceReason singleVoiceReason) &&
-					singleVoiceReason == SingleVoiceReason.TooComplexToAssignAccurately)
-				{
-					multiVoiceBooksRequiringConfirmation.Add(bookId);
-				}
-			}
-
-			if (multiVoiceBooksRequiringConfirmation.Any() && !ConfirmSetToMultiVoice(multiVoiceBooksRequiringConfirmation))
-			{
-				DialogResult = DialogResult.None;
-				return;
-			}
-
 			var bookNumsToAddFromParatext = new HashSet<int>(); 
 			foreach (var book in m_project.AvailableBooks)
 			{
@@ -367,33 +346,6 @@ namespace Glyssen.Dialogs
 				}
 			}
 			return result == DialogResult.Yes;
-		}
-
-		private bool ConfirmSetToMultiVoice(List<string> booksToAskUserAbout)
-		{
-			if (booksToAskUserAbout.Any())
-			{
-				string msg = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1",
-					"You have selected to record the following books with multiple voice actors. " +
-					"Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books:") +
-					Environment.NewLine +
-					Join(Environment.NewLine, booksToAskUserAbout) + Environment.NewLine +
-					Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2",
-					"Are you sure? If you select {0}, the script for the above books will be prepared for recording by a single narrator, rather than for multiple voice actors.",
-					"Param is the \"No\" button label (in a message box)"),
-					MessageBoxStrings.NoButton);
-				string caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption",
-					"Are you sure?");
-				DialogResult result = MessageBox.Show(msg, caption, MessageBoxButtons.YesNoCancel);
-				if (result == DialogResult.Cancel)
-					return false;
-				if (result == DialogResult.No)
-				{
-					foreach (var book in booksToAskUserAbout)
-						m_multiVoice[book] = false;
-				}
-			}
-			return true;
 		}
 
 		private void BooksGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
