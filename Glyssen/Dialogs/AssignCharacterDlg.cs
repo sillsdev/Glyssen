@@ -272,25 +272,24 @@ namespace Glyssen.Dialogs
 			var mode = m_viewModel.Mode;
 			Logger.WriteEvent("Initial filter in Identify Speaking Parts dialog: " + mode);
 
-			if (mode == BlocksToDisplay.NotYetAssigned)
-				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if (mode == BlocksToDisplay.NotAssignedAutomatically)
-				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 2;
-			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 3;
-			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 4;
-			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 5;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 6;
-			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 7;
-			else
-				// ReSharper disable once NotResolvedInText
-				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+			// Note: although the BlocksToDisplay enumeration is a "Flags" enumeration, in
+			// practice, the UI only allows for the mode to be set to specific values
+			// (including certain named combinations), so for the purpose of re-selecting
+			// the correct filter, we can check for the known valid enumerations.
+			switch (mode)
+			{
+				case BlocksToDisplay.NotYetAssigned: m_toolStripComboBoxFilter.SelectedIndex = 0; break;
+				case BlocksToDisplay.NotAssignedAutomatically: m_toolStripComboBoxFilter.SelectedIndex = 1; break;
+				case BlocksToDisplay.MissingExpectedQuote: m_toolStripComboBoxFilter.SelectedIndex = 2; break;
+				case BlocksToDisplay.MoreQuotesThanExpectedSpeakers: m_toolStripComboBoxFilter.SelectedIndex = 3; break;
+				case BlocksToDisplay.AllExpectedQuotes: m_toolStripComboBoxFilter.SelectedIndex = 4; break;
+				case BlocksToDisplay.AllQuotes: m_toolStripComboBoxFilter.SelectedIndex = 5; break;
+				case BlocksToDisplay.AllScripture: m_toolStripComboBoxFilter.SelectedIndex = 6; break;
+				case BlocksToDisplay.NeedsReview: m_toolStripComboBoxFilter.SelectedIndex = 7; break;
+				case BlocksToDisplay.NotAlignedToReferenceText: m_toolStripComboBoxFilter.SelectedIndex = 8; break;
+				default:
+					throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+			}
 		}
 
 		private void BlocksViewerVisibleChanged(object sender, EventArgs args)
