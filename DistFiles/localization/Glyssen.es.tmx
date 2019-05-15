@@ -10153,31 +10153,6 @@
         <seg>Anular todos</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption">
-      <tuv xml:lang="en">
-        <seg>Are you sure?</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>¿Está seguro?</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1">
-      <tuv xml:lang="en">
-        <seg>You have selected to record the following books with multiple voice actors. Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books:</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Usted ha seleccionado los siguientes libros para grabarlos con dobladores múltiples. Glyssen puede ayudarle a hacer esto, pero posiblemente no obtendrá los resultados deseados sin intervención manual debido a la complejidad de estos libros:</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2">
-      <note>Param is the "No" button label (in a message box)</note>
-      <tuv xml:lang="en">
-        <seg>Are you sure? If you select {0}, the script for the above books will be prepared for recording by a single narrator, rather than for multiple voice actors.</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>¿Está seguro? Si selecciona {0}, el guion para estos libros tendrá un sólo narrador en vez de dobladores múltiples.</seg>
-      </tuv>
-    </tu>
     <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks">
       <note>Param 0: "Glyssen" (product name); Param 1: Glyssen recording project name</note>
       <tuv xml:lang="en">
