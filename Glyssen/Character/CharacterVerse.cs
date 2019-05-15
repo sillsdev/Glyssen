@@ -110,7 +110,7 @@ namespace Glyssen.Character
 		public string Alias { get; }
 		public QuoteType QuoteType { get; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
-		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || IsScriptureQuotation;
+		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
 		public string DefaultCharacter { get; }
 		public string LocalizedCharacter

@@ -618,7 +618,8 @@ namespace GlyssenTests
 			Assert.IsFalse(rowForRev1V3.AdditionalReferenceText.Contains("|||"));
 			Assert.IsTrue(annotationRowForRev1V3.AdditionalReferenceText.Equals(annotationRowForRev1V3.EnglishReferenceText) &&
 				annotationRowForRev1V3.AdditionalReferenceText.Equals(string.Format(Pause.kPauseSecondsFormat, "2")));
-			Assert.IsTrue(sectionHeadRowForRev1V3.CharacterId.Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV"),
+				sectionHeadRowForRev1V3.CharacterId);
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev1V20 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20).ToList();
@@ -674,7 +675,8 @@ namespace GlyssenTests
 			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
 				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
 				rowForRev1V3.VernacularText);
-			Assert.IsTrue(sectionHeadRowForRev1V3.CharacterId.Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterNameForUi(CharacterVerseData.StandardCharacter.ExtraBiblical, "REV"),
+				sectionHeadRowForRev1V3.CharacterId);
 
 			//Pause for final verse in chapter (pauses come after verse text)
 			var rowsForRev1V20 = data.Where(d => d.BookId == "REV" && d.ChapterNumber == 1 && d.VerseNumber == 20).ToList();

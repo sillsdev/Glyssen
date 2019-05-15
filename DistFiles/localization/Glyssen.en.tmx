@@ -3519,10 +3519,10 @@
         <seg>horseman, second</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.horses (in vision)">
+    <tu tuid="CharacterName.horses (or their angelic riders) (in vision)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>horses (in vision)</seg>
+        <seg>horses (or their angelic riders) (in vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hosea">
@@ -4677,6 +4677,12 @@
         <seg>Levites</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Levites (needs review)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Levites (needs review)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Levites, family heads of">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5685,6 +5691,12 @@
         <seg>Neco, king of Egypt</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Needs Review">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Needs Review</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Nehemiah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5755,18 +5767,6 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Nineveh, the city of revelry</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.no one">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>no one</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.no one speaking by the Holy Spirit">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>no one speaking by the Holy Spirit</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Noah">
@@ -6007,12 +6007,6 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>onlookers</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.only someone speaking by the Holy Spirit">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>only someone speaking by the Holy Spirit</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.oppressors of poor">
@@ -7639,6 +7633,12 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Sisera</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.sisters of beloved">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>sisters of beloved</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.slave drivers, Egyptian">

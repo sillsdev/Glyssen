@@ -482,7 +482,21 @@ namespace Glyssen.Quote
 
 		private void SetImplicitCharacters()
 		{
-			// TODO (PG-40): Implement
+			for (int i = 0; i < m_outputBlocks.Count; i++)
+			{
+				var block = m_outputBlocks[i];
+				if (block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
+				{
+					var implicitCv = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+						block.LastVerseNum, m_versification).SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+					if (implicitCv != null)
+					{
+						block.SetNonDramaticCharacterId(implicitCv.Character);
+						block.UseDefaultForMultipleChoiceCharacter(() => implicitCv);
+						block.Delivery = implicitCv.Delivery;
+					}
+				}
+			}
 		}
 
 		private bool AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(string content, int pos)

@@ -1,4 +1,4 @@
-Control File Version	141
+Control File Version	142
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # SNG we will need to review again								
@@ -98,52 +98,52 @@ GEN	8	17	God		God (the LORD)	Normal
 GEN	8	21	God	said in his heart	God (the LORD)	Normal		
 GEN	8	22	God		God (the LORD)	Normal		
 GEN	9	1	God		God (the LORD)	Normal		
-GEN	9	2	God		God (the LORD)	Normal		
-GEN	9	3	God		God (the LORD)	Normal		
-GEN	9	4	God		God (the LORD)	Normal		
-GEN	9	5	God		God (the LORD)	Normal		
-GEN	9	6	God		God (the LORD)	Normal		
-GEN	9	7	God		God (the LORD)	Normal		
-GEN	9	9	God		God (the LORD)	Normal		
-GEN	9	10	God		God (the LORD)	Normal		
-GEN	9	11	God		God (the LORD)	Normal		
+GEN	9	2	God		God (the LORD)	Implicit		
+GEN	9	3	God		God (the LORD)	Implicit		
+GEN	9	4	God		God (the LORD)	Implicit		
+GEN	9	5	God		God (the LORD)	Implicit		
+GEN	9	6	God		God (the LORD)	Implicit		
+GEN	9	7	God		God (the LORD)	Implicit		
+GEN	9	9	God		God (the LORD)	Implicit		
+GEN	9	10	God		God (the LORD)	Implicit		
+GEN	9	11	God		God (the LORD)	Implicit		
 GEN	9	12	God		God (the LORD)	Normal		
-GEN	9	13	God		God (the LORD)	Normal		
-GEN	9	14	God		God (the LORD)	Normal		
-GEN	9	15	God		God (the LORD)	Normal		
-GEN	9	16	God		God (the LORD)	Normal		
+GEN	9	13	God		God (the LORD)	Implicit		
+GEN	9	14	God		God (the LORD)	Implicit		
+GEN	9	15	God		God (the LORD)	Implicit		
+GEN	9	16	God		God (the LORD)	Implicit		
 GEN	9	17	God		God (the LORD)	Normal		
 GEN	9	25	Noah			Normal		
 GEN	9	26	Noah			Normal		
-GEN	9	27	Noah			Normal		
+GEN	9	27	Noah			Implicit		
 GEN	10	9	saying about Nimrod			Quotation		
 GEN	11	3	men of Babel			Normal		
 GEN	11	4	men of Babel			Normal		
 GEN	11	6	God		God (the LORD)	Normal		
 GEN	11	7	God		God (the LORD)	Normal		
 GEN	12	1	God		God (the LORD)	Normal		
-GEN	12	2	God		God (the LORD)	Normal		
-GEN	12	3	God		God (the LORD)	Normal		
+GEN	12	2	God		God (the LORD)	Implicit		
+GEN	12	3	God		God (the LORD)	Implicit		
 GEN	12	7	God		God (the LORD)	Normal		
 GEN	12	11	Abraham (Abram)			Normal		
-GEN	12	12	Abraham (Abram)			Normal		
-GEN	12	13	Abraham (Abram)			Normal		
+GEN	12	12	Abraham (Abram)			Implicit		
+GEN	12	13	Abraham (Abram)			Implicit		
 GEN	12	18	Pharaoh (1st)		Pharaoh	Normal		
 GEN	12	19	Pharaoh (1st)		Pharaoh	Normal		
 GEN	13	8	Abraham (Abram)			Normal		
 GEN	13	9	Abraham (Abram)			Normal		
 GEN	13	14	God		God (the LORD)	Normal		
-GEN	13	15	God		God (the LORD)	Normal		
-GEN	13	16	God		God (the LORD)	Normal		
-GEN	13	17	God		God (the LORD)	Normal		
+GEN	13	15	God		God (the LORD)	Implicit		
+GEN	13	16	God		God (the LORD)	Implicit		
+GEN	13	17	God		God (the LORD)	Implicit		
 GEN	14	4	Bera, king of Sodom/Birsha, king of Gomorrah/Shinab, king of Admah/Shemeber, king of Zeboiim/king of Bela			Indirect	Bera, king of Sodom	
 GEN	14	17	narrator-GEN			Quotation		
 GEN	14	19	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	20	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	21	Bera, king of Sodom			Normal		
 GEN	14	22	Abraham (Abram)			Normal		
-GEN	14	23	Abraham (Abram)			Normal		
-GEN	14	24	Abraham (Abram)			Normal		
+GEN	14	23	Abraham (Abram)			Implicit		
+GEN	14	24	Abraham (Abram)			Implicit		
 GEN	15	1	God		God (the LORD) (in vision)	Normal		
 GEN	15	2	Abraham (Abram)			Normal		
 GEN	15	3	Abraham (Abram)			Normal		
@@ -153,13 +153,13 @@ GEN	15	7	God		God (the LORD) (in vision)	Normal
 GEN	15	8	Abraham (Abram)			Normal		
 GEN	15	9	God		God (the LORD) (in vision)	Normal		
 GEN	15	13	God		God (the LORD) (in vision)	Normal		
-GEN	15	14	God		God (the LORD) (in vision)	Normal		
-GEN	15	15	God		God (the LORD) (in vision)	Normal		
-GEN	15	16	God		God (the LORD) (in vision)	Normal		
+GEN	15	14	God		God (the LORD) (in vision)	Implicit		
+GEN	15	15	God		God (the LORD) (in vision)	Implicit		
+GEN	15	16	God		God (the LORD) (in vision)	Implicit		
 GEN	15	18	God		God (the LORD) (in vision)	Normal		
-GEN	15	19	God		God (the LORD) (in vision)	Normal		
-GEN	15	20	God		God (the LORD) (in vision)	Normal		
-GEN	15	21	God		God (the LORD) (in vision)	Normal		
+GEN	15	19	God		God (the LORD) (in vision)	Implicit		
+GEN	15	20	God		God (the LORD) (in vision)	Implicit		
+GEN	15	21	God		God (the LORD) (in vision)	Implicit		
 GEN	16	2	Sarah (Sarai)			Normal		
 GEN	16	5	Sarah (Sarai)			Normal		
 GEN	16	6	Abraham (Abram)			Normal		
@@ -171,28 +171,28 @@ GEN	16	11	angel of the LORD, the			Normal	Jesus
 GEN	16	12	angel of the LORD, the			Normal	Jesus	
 GEN	16	13	Hagar, Sarai's maid			Normal		
 GEN	17	1	God		God (the LORD)	Normal		
-GEN	17	2	God		God (the LORD)	Normal		
-GEN	17	4	God		God (the LORD)	Normal		
-GEN	17	5	God		God (the LORD)	Normal		
-GEN	17	6	God		God (the LORD)	Normal		
-GEN	17	7	God		God (the LORD)	Normal		
-GEN	17	8	God		God (the LORD)	Normal		
+GEN	17	2	God		God (the LORD)	Implicit		
+GEN	17	4	God		God (the LORD)	Implicit		
+GEN	17	5	God		God (the LORD)	Implicit		
+GEN	17	6	God		God (the LORD)	Implicit		
+GEN	17	7	God		God (the LORD)	Implicit		
+GEN	17	8	God		God (the LORD)	Implicit		
 GEN	17	9	God		God (the LORD)	Normal		
-GEN	17	10	God		God (the LORD)	Normal		
-GEN	17	11	God		God (the LORD)	Normal		
-GEN	17	12	God		God (the LORD)	Normal		
-GEN	17	13	God		God (the LORD)	Normal		
-GEN	17	14	God		God (the LORD)	Normal		
+GEN	17	10	God		God (the LORD)	Implicit		
+GEN	17	11	God		God (the LORD)	Implicit		
+GEN	17	12	God		God (the LORD)	Implicit		
+GEN	17	13	God		God (the LORD)	Implicit		
+GEN	17	14	God		God (the LORD)	Implicit		
 GEN	17	15	God		God (the LORD)	Normal		
-GEN	17	16	God		God (the LORD)	Normal		
+GEN	17	16	God		God (the LORD)	Implicit		
 GEN	17	17	Abraham (Abram)			Normal		
 GEN	17	18	Abraham (Abram)			Normal		
 GEN	17	19	God		God (the LORD)	Normal		
-GEN	17	20	God		God (the LORD)	Normal		
-GEN	17	21	God		God (the LORD)	Normal		
+GEN	17	20	God		God (the LORD)	Implicit		
+GEN	17	21	God		God (the LORD)	Implicit		
 GEN	18	3	Abraham (Abram)			Normal		
-GEN	18	4	Abraham (Abram)			Normal		
-GEN	18	5	Abraham (Abram)			Normal		
+GEN	18	4	Abraham (Abram)			Implicit		
+GEN	18	5	Abraham (Abram)			Implicit		
 GEN	18	5	three men (two angels and the LORD)		God (the LORD) (three men)	Normal	angels at Sodom, two	
 GEN	18	6	Abraham (Abram)			Normal		
 GEN	18	9	Abraham (Abram)			Normal		
@@ -204,10 +204,10 @@ GEN	18	14	God		God (the LORD)	Normal
 GEN	18	15	God		God (the LORD)	Normal		
 GEN	18	15	Sarah (Sarai) (old)			Normal		
 GEN	18	17	God		God (the LORD)	Normal		
-GEN	18	18	God		God (the LORD)	Normal		
-GEN	18	19	God		God (the LORD)	Normal		
+GEN	18	18	God		God (the LORD)	Implicit		
+GEN	18	19	God		God (the LORD)	Implicit		
 GEN	18	20	God		God (the LORD)	Normal		
-GEN	18	21	God		God (the LORD)	Normal		
+GEN	18	21	God		God (the LORD)	Implicit		
 GEN	18	23	Abraham (Abram)			Normal		
 GEN	18	24	Abraham (Abram)			Normal		
 GEN	18	25	Abraham (Abram)			Normal		
@@ -228,20 +228,20 @@ GEN	19	2	Lot			Normal
 GEN	19	3	angels at Sodom, two		angels appeared like men, two	Indirect		
 GEN	19	5	men of Sodom (wicked)			Normal		
 GEN	19	7	Lot			Normal		
-GEN	19	8	Lot			Normal		
+GEN	19	8	Lot			Implicit		
 GEN	19	9	men of Sodom (wicked)			Normal		
 GEN	19	12	angels at Sodom, two		angels appeared like men, two	Normal		
-GEN	19	13	angels at Sodom, two		angels appeared like men, two	Normal		
+GEN	19	13	angels at Sodom, two		angels appeared like men, two	Implicit		
 GEN	19	14	Lot			Normal		
 GEN	19	15	angels at Sodom, two		angels appeared like men, two	Normal		
 GEN	19	17	angels at Sodom, two		angels appeared like men, two	Normal		
 GEN	19	18	Lot			Normal		
-GEN	19	19	Lot			Normal		
-GEN	19	20	Lot			Normal		
+GEN	19	19	Lot			Implicit		
+GEN	19	20	Lot			Implicit		
 GEN	19	21	angels at Sodom, two		angels appeared like men, two	Normal		
 GEN	19	22	angels at Sodom, two		angels appeared like men, two	Normal		
 GEN	19	31	older daughter of Lot			Normal		
-GEN	19	32	older daughter of Lot			Normal		
+GEN	19	32	older daughter of Lot			Implicit		
 GEN	19	34	older daughter of Lot			Normal		
 GEN	20	2	Abraham (Abram)			Normal		
 GEN	20	3	God		God (the LORD) (in vision)	Normal		
@@ -12842,14 +12842,14 @@ MAL	4	5	God		God (the LORD)	Normal
 MAL	4	6	God		God (the LORD)	Normal		
 MAT	1	1	narrator-MAT			Quotation		
 MAT	1	16	narrator-MAT			Quotation		
-MAT	1	20	angel		angel of the LORD	Normal		
-MAT	1	21	angel		angel of the LORD	Normal		
+MAT	1	20	angel		angel of the Lord	Normal		
+MAT	1	21	angel		angel of the Lord	Normal		
 MAT	1	23	narrator-MAT			Quotation		
 MAT	1	23	narrator-MAT			Interruption		
 MAT	1	23	scripture		scripture (prophet)	Quotation	Isaiah	
 #If the language requires the words of the angel to be repeated in quotes, this could be read by the narrator
 MAT	1	24	narrator-MAT			Quotation		
-MAT	1	24	angel		angel of the LORD	Indirect		
+MAT	1	24	angel		angel of the Lord	Indirect		
 MAT	1	25	narrator-MAT			Quotation		
 MAT	2	1	narrator-MAT			Quotation		
 MAT	2	2	magi (wise men from East)			Dialogue		
@@ -12861,11 +12861,11 @@ MAT	2	7	narrator-MAT			Quotation
 MAT	2	7	Herod the Great			Indirect		
 MAT	2	8	Herod the Great	sly		Dialogue		
 MAT	2	12	dream			Indirect	angel	
-MAT	2	13	angel	commanding	angel of the LORD	Normal		
+MAT	2	13	angel	commanding	angel of the Lord	Normal		
 MAT	2	15	scripture			Quotation	God	
 MAT	2	16	Herod the Great			Indirect		
 MAT	2	18	scripture			Quotation	God	
-MAT	2	20	angel	commanding	angel of the LORD	Normal		
+MAT	2	20	angel	commanding	angel of the Lord	Implicit		
 MAT	2	22	dream			Indirect	angel	
 MAT	2	23	scripture			Quotation		
 MAT	3	2	John the Baptist	proclaim		Normal		
@@ -14280,14 +14280,14 @@ MRK	16	15	Jesus			Potential
 MRK	16	16	Jesus			Potential		
 MRK	16	17	Jesus			Potential		
 MRK	16	18	Jesus			Potential		
-LUK	1	13	Gabriel		angel of the LORD	Dialogue		
-LUK	1	14	Gabriel		angel of the LORD	Normal		
-LUK	1	15	Gabriel		angel of the LORD	Normal		
-LUK	1	16	Gabriel		angel of the LORD	Normal		
-LUK	1	17	Gabriel		angel of the LORD	Normal		
+LUK	1	13	Gabriel		angel of the Lord	Dialogue		
+LUK	1	14	Gabriel		angel of the Lord	Normal		
+LUK	1	15	Gabriel		angel of the Lord	Normal		
+LUK	1	16	Gabriel		angel of the Lord	Normal		
+LUK	1	17	Gabriel		angel of the Lord	Normal		
 LUK	1	18	Zacharias (Zechariah)			Dialogue		
-LUK	1	19	Gabriel		angel of the LORD	Dialogue		
-LUK	1	20	Gabriel		angel of the LORD	Normal		
+LUK	1	19	Gabriel		angel of the Lord	Dialogue		
+LUK	1	20	Gabriel		angel of the Lord	Normal		
 LUK	1	21	people	wondering		Indirect		
 LUK	1	22	people	wondering		Indirect		
 LUK	1	25	Elizabeth			Normal		
@@ -14341,9 +14341,9 @@ LUK	1	77	Zacharias (Zechariah)	praising		Normal
 LUK	1	78	Zacharias (Zechariah)	praising		Normal		
 LUK	1	79	Zacharias (Zechariah)	praising		Normal		
 LUK	2	1	Caesar Augustus			Indirect		
-LUK	2	10	angel		angel of the LORD	Normal		
-LUK	2	11	angel		angel of the LORD	Normal		
-LUK	2	12	angel		angel of the LORD	Normal		
+LUK	2	10	angel		angel of the Lord	Normal		
+LUK	2	11	angel		angel of the Lord	Normal		
+LUK	2	12	angel		angel of the Lord	Normal		
 LUK	2	14	great company of heavenly host			Normal		
 LUK	2	15	shepherds outside Bethlehem	awe		Normal		
 LUK	2	23	scripture			Quotation	God	
@@ -16021,7 +16021,7 @@ ACT	5	5	Ananias of Jerusalem			Indirect
 ACT	5	8	Peter (Simon)			Dialogue		
 ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue		
 ACT	5	9	Peter (Simon)			Dialogue		
-ACT	5	20	angel	commanding	angel of the LORD	Normal		
+ACT	5	20	angel	commanding	angel of the Lord	Implicit		
 ACT	5	23	officers	perplexed		Normal		
 ACT	5	24	Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
@@ -16113,7 +16113,7 @@ ACT	8	21	Peter (Simon)	rebuking		Normal
 ACT	8	22	Peter (Simon)	rebuking		Normal		
 ACT	8	23	Peter (Simon)	rebuking		Normal		
 ACT	8	24	Simon, sorcerer			Dialogue		
-ACT	8	26	angel		angel of the LORD	Normal		
+ACT	8	26	angel		angel of the Lord	Normal		
 ACT	8	26	narrator-ACT			Interruption		
 ACT	8	27	narrator-ACT			Quotation		
 ACT	8	29	Holy Spirit, the			Normal		
@@ -16214,8 +16214,8 @@ ACT	11	28	Agabus the prophet			Indirect
 ACT	11	29	disciples			Indirect		
 ACT	11	26	Barnabas/Paul		Barnabas/Paul (Saul)	Indirect		
 ACT	11	26	narrator-ACT			Quotation		
-ACT	12	7	angel	commanding	angel of the LORD	Normal		
-ACT	12	8	angel	commanding	angel of the LORD	Normal		
+ACT	12	7	angel	commanding	angel of the Lord	Normal		
+ACT	12	8	angel	commanding	angel of the Lord	Normal		
 ACT	12	11	Peter (Simon)	speaking or thinking to himself		Normal		
 ACT	12	13	Rhoda			Indirect		
 ACT	12	14	Rhoda	overjoyed		Normal		

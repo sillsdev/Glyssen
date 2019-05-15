@@ -198,11 +198,15 @@ namespace GlyssenTests.Character
 			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("ACT")][8].Contains(37));
 		}
 
+		// Note: We didn't used to consider Implicit as expected, but now that we're marking more things as implicit (so we can
+		// take advantage of the improved logic in the quote parser for implicit quotes), it seems better to regard them as
+		// expected. They really are expected, and most languages that regularly use quotation marks will have them for most
+		// implicit passages.
 		[Test]
-		public void ExpectedQuotes_Implicit_IsNotExpected()
+		public void ExpectedQuotes_Implicit_IsExpected()
 		{
-			// Every line in the control file for LEV 1 is Implicit		
-			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
+			// Every line in the control file for LEV 1 is Implicit.
+			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
 		}
 	}
 }

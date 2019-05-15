@@ -221,9 +221,10 @@ namespace Glyssen
 			{
 				if (m_blocks[iBlock].LastVerseNum < info.StartVerse)
 				{
-					iBlock += m_blocks.Skip(iBlock).IndexOf(b => b.ChapterNumber > info.StartChapter);
-					if (iBlock == -1)
+					var offsetToNextChapter = m_blocks.Skip(iBlock).IndexOf(b => b.ChapterNumber > info.StartChapter);
+					if (offsetToNextChapter == -1)
 						return; // All the blocks in this chapter are before the override starts and there are no more blocks beyond this chapter.
+					iBlock += offsetToNextChapter;
 				}
 				else if (info.StartBlock > 1)
 				{

@@ -52,10 +52,10 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			m_viewModel.SetUiStrings(
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"),
+				CharacterVerseData.StandardCharacterNameFormatNarrator,
+				CharacterVerseData.StandardCharacterNameFormatBookOrChapter,
+				CharacterVerseData.StandardCharacterNameFormatIntroduction,
+				CharacterVerseData.StandardCharacterNameFormatSectionHead,
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
 			if (m_toolStripComboBoxFilter.Items.Count == m_indexOfFirstFilterItemRemoved)

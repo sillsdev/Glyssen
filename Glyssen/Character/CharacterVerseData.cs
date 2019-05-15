@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -7,6 +8,7 @@ using Glyssen.Shared;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Character
 {
@@ -38,7 +40,7 @@ namespace Glyssen.Character
 
 		public static StandardCharacter GetStandardCharacterType(string characterId)
 		{
-			if (string.IsNullOrEmpty(characterId))
+			if (IsNullOrEmpty(characterId))
 				return StandardCharacter.NonStandard;
 
 			var i = characterId.IndexOf("-", StringComparison.Ordinal);
@@ -107,50 +109,37 @@ namespace Glyssen.Character
 				IsCharacterOfType(characterId, StandardCharacter.Intro);
 		}
 
+		public static string StandardCharacterNameFormatNarrator = LocalizationManager.GetString("CharacterName.Standard.Fmt.Narrator", "narrator ({0})");
+		public static string StandardCharacterNameFormatIntroduction = LocalizationManager.GetString("CharacterName.Standard.Fmt.Introduction", "introduction ({0})");
+		public static string StandardCharacterNameFormatSectionHead = LocalizationManager.GetString("CharacterName.Standard.Fmt.SectionHead", "section head ({0})");
+		public static string StandardCharacterNameFormatBookOrChapter = LocalizationManager.GetString("CharacterName.Standard.Fmt.BookOrChapter", "book title or chapter ({0})");
+
 		public static string GetCharacterNameForUi(string characterId)
 		{
-			string localizedCharacterId;
-
-			switch (GetStandardCharacterType(characterId))
-			{
-				case StandardCharacter.Narrator:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				case StandardCharacter.Intro:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", kIntroductionAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				case StandardCharacter.ExtraBiblical:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", kSectionHeadAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				case StandardCharacter.BookOrChapter:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				default:
-					localizedCharacterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
-					break;
-			}
-			if (!SingletonLocalizedCharacterIdToCharacterIdDictionary.ContainsKey(localizedCharacterId))
-				SingletonLocalizedCharacterIdToCharacterIdDictionary.Add(localizedCharacterId, characterId);
+			var standardCharacterType = GetStandardCharacterType(characterId);
+			string localizedCharacterId = standardCharacterType == StandardCharacter.NonStandard ?
+				LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId) :
+				GetStandardCharacterNameForUi(standardCharacterType, GetBookCodeFromStandardCharacterId(characterId));
+			SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId] = characterId;
 
 			return localizedCharacterId;
 		}
 
-		public static string GetStandardCharacterIdAsEnglish(string standardCharacterId)
+		private static string GetStandardCharacterNameFormatForUi(StandardCharacter standardCharacter)
 		{
-			switch (GetStandardCharacterType(standardCharacterId))
+			switch (standardCharacter)
 			{
-				case StandardCharacter.Narrator:
-					return String.Format(kNarratorAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.Intro:
-					return String.Format(kIntroductionAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.ExtraBiblical:
-					return String.Format(kSectionHeadAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.BookOrChapter:
-					return String.Format(kBookChapterAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
+				case StandardCharacter.Narrator: return StandardCharacterNameFormatNarrator;
+				case StandardCharacter.Intro: return StandardCharacterNameFormatIntroduction;
+				case StandardCharacter.ExtraBiblical: return StandardCharacterNameFormatSectionHead;
+				case StandardCharacter.BookOrChapter: return StandardCharacterNameFormatBookOrChapter;
 				default:
-					throw new ArgumentException("The provided character ID is not a standard character.", "standardCharacterId");
+					throw new InvalidEnumArgumentException($"{nameof(standardCharacter)} must be a standard character type!");
 			}
 		}
+
+		public static string GetStandardCharacterNameForUi(StandardCharacter standardCharacter, string bookId) =>
+			Format(GetStandardCharacterNameFormatForUi(standardCharacter), bookId);
 
 		public static Dictionary<string, string> SingletonLocalizedCharacterIdToCharacterIdDictionary
 		{
@@ -184,21 +173,16 @@ namespace Glyssen.Character
 			}
 		}
 
-		/// <summary>Character ID prefix for material to be read by narrator</summary>
+		/// <summary>Character ID prefix for material to be read by narrator (not for UI)</summary>
 		protected const string kNarratorPrefix = "narrator-";
-		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
+		/// <summary>Character ID prefix for book titles or chapter breaks (not for UI)</summary>
 		protected const string kBookOrChapterPrefix = "BC-";
-		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
+		/// <summary>Character ID prefix for extra-biblical material (i.e., section heads) (not for UI)</summary>
 		protected const string kExtraBiblicalPrefix = "extra-";
-		/// <summary>Character ID prefix for intro material</summary>
+		/// <summary>Character ID prefix for intro material (not for UI)</summary>
 		protected const string kIntroPrefix = "intro-";
 
 		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
-
-		private const string kNarratorAsEnglishCharacterName = "narrator ({0})";
-		private const string kIntroductionAsEnglishCharacterName = "introduction ({0})";
-		private const string kSectionHeadAsEnglishCharacterName = "section head ({0})";
-		private const string kBookChapterAsEnglishCharacterName = "book title or chapter ({0})";
 
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
@@ -305,7 +289,7 @@ namespace Glyssen.Character
 
 		public IEnumerable<string> GetUniqueDeliveries()
 		{
-			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !string.IsNullOrEmpty(d))));
+			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !IsNullOrEmpty(d))));
 		}
 
 		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
@@ -346,13 +330,13 @@ namespace Glyssen.Character
 			var list = new List<CharacterVerse>();
 
 			if (items.Length < kiQuoteType)
-				throw new ApplicationException("Bad format in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
+				throw new ApplicationException("Bad format in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + Join("\t", items));
 			if (items.Length > kMaxItems)
-				throw new ApplicationException("Incorrect number of fields in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
+				throw new ApplicationException("Incorrect number of fields in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + Join("\t", items));
 
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
-				Debug.Assert(false, string.Format("Invalid chapter number ({0}) on line {1}: {2}", items[1], lineNumber, items[0]));
+				Debug.Assert(false, Format("Invalid chapter number ({0}) on line {1}: {2}", items[1], lineNumber, items[0]));
 			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
 				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 
