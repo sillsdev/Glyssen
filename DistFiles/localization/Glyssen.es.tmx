@@ -4556,6 +4556,15 @@
         <seg>ángel que habló con Zacarías</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.angel who talked with Zechariah (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel who talked with Zechariah (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ángel que habló con Zacarías (en una visión)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.angel who wrestled with Jacob">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">

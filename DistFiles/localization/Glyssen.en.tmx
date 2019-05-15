@@ -837,10 +837,10 @@
         <seg>angel of God</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel of the LORD">
+    <tu tuid="CharacterName.angel of the Lord">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>angel of the LORD</seg>
+        <seg>angel of the Lord</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel of the LORD, the">
