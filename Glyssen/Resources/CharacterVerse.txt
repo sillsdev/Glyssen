@@ -8695,10 +8695,10 @@ SNG	2	15	beloved			Potential
 SNG	2	15	maidens			Potential		
 SNG	2	16	beloved			Potential		
 SNG	2	17	beloved			Potential		
-SNG	3	1	beloved			Implicit		
-SNG	3	2	beloved			Implicit		
-SNG	3	3	beloved			Implicit		
-SNG	3	4	beloved			Implicit		
+SNG	3	1	beloved			Potential		
+SNG	3	2	beloved			Potential		
+SNG	3	3	beloved			Potential		
+SNG	3	4	beloved			Potential		
 SNG	3	5	beloved			Potential		
 SNG	3	5	lover			Potential		
 SNG	3	6	beloved			Potential		
