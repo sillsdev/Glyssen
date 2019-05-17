@@ -8562,8 +8562,7 @@ PRO	8	7	Wisdom			Implicit
 PRO	8	8	Wisdom			Implicit		
 PRO	8	9	Wisdom			Implicit		
 PRO	8	10	Wisdom			Implicit		
-#FCBH also has v. 11 as being spoken by Wisdom, although it's not as obvious.
-PRO	8	11	Wisdom			Potential		
+PRO	8	11	Wisdom			Implicit		
 PRO	8	12	Wisdom			Implicit		
 PRO	8	13	Wisdom			Implicit		
 PRO	8	14	Wisdom			Implicit		
@@ -8620,10 +8619,42 @@ PRO	30	9	narrator-PRO			Quotation	Agur
 PRO	30	15	narrator-PRO			Quotation	Agur	
 PRO	30	16	narrator-PRO			Quotation	Agur	
 PRO	30	20	immoral woman			Hypothetical		
-PRO	31	2	King Lemuel's mother/King Lemuel			Potential		
-PRO	31	4	princes			Hypothetical		
+PRO	31	2	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	3	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	4	King Lemuel's mother/King Lemuel			Implicit		
+# Unfortunately, if this hypothetical speech is in first-level quotes (which is likely), it
+# will mess up the logic that makes this whole verse implicitly spoken by King Lemuel's mother.
+# In any case, we don't want to dramatize it as being spoken by the princes, so we'll omit this:
+# PRO	31	4	princes			Hypothetical		
+PRO	31	5	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	6	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	7	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	8	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	9	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	10	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	11	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	12	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	13	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	14	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	15	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	16	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	17	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	18	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	19	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	20	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	21	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	22	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	23	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	24	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	25	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	26	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	27	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	28	King Lemuel's mother/King Lemuel			Potential		
 PRO	31	28	children of excellent wife			Indirect		
+PRO	31	29	King Lemuel's mother/King Lemuel			Potential		
 PRO	31	29	husband of excellent wife			Hypothetical		
+PRO	31	30	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	31	King Lemuel's mother/King Lemuel			Potential		
 ECC	1	2	narrator-ECC			Quotation		
 ECC	1	10	someone			Hypothetical		
 ECC	1	16	narrator-ECC			Quotation		

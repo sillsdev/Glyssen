@@ -867,7 +867,6 @@ poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	1	Male				NUM 5:19 <-(4 more)-> DEU 20:4
 priests	-1	Male				DEU 27:9 <-(31 more)-> ACT 4:1
-princes	-1	Male				PRO 31:4
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
 proclamation	1	Male				EZR 10:7 & EZR 10:8
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
