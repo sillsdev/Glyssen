@@ -939,6 +939,8 @@ namespace Glyssen.RefTextDevUtilities
 					//return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 					return CharacterVerseData.kUnexpectedCharacter;
 				default:
+					if (characters.Any(c => c.Character == CharacterVerseData.kNeedsReview) && ForceRefTextToNeedsReview(fcbhCharacterLabel, bookId, block.ChapterNumber, block.InitialStartVerseNumber))
+						return CharacterVerseData.kNeedsReview;
 					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, string>(c.ResolvedDefaultCharacter, c.Character)).ToList();
 					try
 					{
@@ -961,6 +963,15 @@ namespace Glyssen.RefTextDevUtilities
 							return CharacterVerseData.kAmbiguousCharacter;
 						}
 					}
+			}
+		}
+
+		private static bool ForceRefTextToNeedsReview(string fcbhCharacterLabel, string bookId, int chapter, int verse)
+		{
+			switch (fcbhCharacterLabel)
+			{
+				case "Servant": return (bookId == "2KI" && chapter == 5 && verse == 4);
+				default: return false;
 			}
 		}
 

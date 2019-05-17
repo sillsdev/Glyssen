@@ -1,24 +1,9 @@
 Control File Version	142
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
-# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
-# SNG we will need to review again								
-# ISA more review necessary on who is speaking: God or the Isaiah								
-# JER possibly no markup of this book... will need to review								
-# EZK candidate for not dramatizing								
-# HOS candidate for not dramatizing								
-# JOL candidate for not dramatizing								
-# AMO candidate for not dramatizing								
-# OBA candidate for not dramatizing								
-# MIC candidate for not dramatizing								
-# NAM candidate for not dramatizing								
-# HAB candidate for not dramatizing								
-# ZEP candidate for not dramatizing								
-# HAG candidate for not dramatizing								
-# ZEC candidate for not dramatizing								
-# MAL candidate for not dramatizing								
+# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
 GEN	1	5	narrator-GEN			Quotation		
-#Languages which do not allow indirect speech may have God speak to assign the names of things in vv. 5, 8, and 10.								
+#Languages which do not allow indirect speech may have God speak to assign the names of things in vv. 5, 8, and 10.
 GEN	1	5	God			Indirect		
 GEN	1	6	God		God (the LORD)	Normal		
 GEN	1	8	narrator-GEN			Quotation		
@@ -192,7 +177,7 @@ GEN	17	20	God		God (the LORD)	Implicit
 GEN	17	21	God		God (the LORD)	Implicit		
 GEN	18	3	Abraham (Abram)			Normal		
 GEN	18	4	Abraham (Abram)			Implicit		
-GEN	18	5	Abraham (Abram)			Implicit		
+GEN	18	5	Abraham (Abram)			Normal		
 GEN	18	5	three men (two angels and the LORD)		God (the LORD) (three men)	Normal	angels at Sodom, two	
 GEN	18	6	Abraham (Abram)			Normal		
 GEN	18	9	Abraham (Abram)			Normal		
@@ -1689,6 +1674,13 @@ EXO	40	12	God		God (the LORD)	Normal
 EXO	40	13	God		God (the LORD)	Normal		
 EXO	40	14	God		God (the LORD)	Normal		
 EXO	40	15	God		God (the LORD)	Normal		
+# In a few of the following chapters, FCBH has God speak all the way through the end. However,
+# some other translations have God's speech end earlier, with the final verse(s) in each section
+# being a summary (spoken by the narrator). So rather than forcing these questionable places to
+# be Implicit, we use "Potential" quotes for these verses, so that the quote parser will assign
+# it properly if explicit quotes are used in the text. The reference text will have them set
+# explicitly according to FCBH's interpretation, but the scripter can look at these places and
+# choose to assign them to narrator if that is preferable.
 LEV	1	2	God		God (the LORD)	Implicit		
 LEV	1	3	God		God (the LORD)	Implicit		
 LEV	1	4	God		God (the LORD)	Implicit		
@@ -3184,792 +3176,793 @@ NUM	36	6	Moses		Moses (at LORD's command)	Normal
 NUM	36	7	Moses		Moses (at LORD's command)	Normal		
 NUM	36	8	Moses		Moses (at LORD's command)	Normal		
 NUM	36	9	Moses		Moses (at LORD's command)	Normal		
-DEU	1	6	Moses			Normal		
-DEU	1	6	God		God (the LORD)	Normal		
-DEU	1	7	Moses			Normal		
-DEU	1	7	God		God (the LORD)	Normal		
-DEU	1	8	Moses			Normal		
-DEU	1	8	God		God (the LORD)	Normal		
-DEU	1	9	Moses			Normal		
-DEU	1	10	Moses			Normal		
-DEU	1	11	Moses			Normal		
-DEU	1	12	Moses			Normal		
-DEU	1	13	Moses			Normal		
-DEU	1	14	Moses			Normal		
-DEU	1	15	Moses			Normal		
-DEU	1	16	Moses			Normal		
-DEU	1	17	Moses			Normal		
-DEU	1	18	Moses			Normal		
-DEU	1	19	Moses			Normal		
-DEU	1	20	Moses			Normal		
-DEU	1	21	Moses			Normal		
-DEU	1	22	Moses			Normal		
-DEU	1	23	Moses			Normal		
-DEU	1	24	Moses			Normal		
-DEU	1	25	Moses			Normal		
-DEU	1	25	Joshua/Caleb		explorers, twelve	Normal	Joshua	NUM 14.7; DEU 1.25
-DEU	1	26	Moses			Normal		
-DEU	1	27	Moses			Normal		
-DEU	1	28	Moses			Normal		
-DEU	1	29	Moses			Normal		
-DEU	1	30	Moses			Normal		
-DEU	1	31	Moses			Normal		
-DEU	1	32	Moses			Normal		
-DEU	1	33	Moses			Normal		
-DEU	1	34	Moses			Normal		
-DEU	1	35	Moses			Normal		
-DEU	1	35	God		God (the LORD)	Normal		
-DEU	1	36	Moses			Normal		
-DEU	1	36	God		God (the LORD)	Normal		
-DEU	1	37	Moses			Normal		
-DEU	1	37	God		God (the LORD)	Normal		
-DEU	1	38	Moses			Normal		
-DEU	1	38	God		God (the LORD)	Normal		
-DEU	1	39	Moses			Normal		
-DEU	1	39	God		God (the LORD)	Normal		
-DEU	1	40	Moses			Normal		
-DEU	1	40	God		God (the LORD)	Normal		
-DEU	1	41	Moses			Normal		
-DEU	1	42	Moses			Normal		
-DEU	1	42	God		God (the LORD)	Normal		
-DEU	1	43	Moses			Normal		
-DEU	1	44	Moses			Normal		
-DEU	1	45	Moses			Normal		
-DEU	1	46	Moses			Normal		
-DEU	2	1	Moses			Normal		
-DEU	2	2	Moses			Normal		
-DEU	2	3	Moses			Normal		
-DEU	2	3	God		God (the LORD)	Normal		
-DEU	2	4	Moses			Normal		
-DEU	2	4	God		God (the LORD)	Normal		
-DEU	2	5	Moses			Normal		
-DEU	2	5	God		God (the LORD)	Normal		
-DEU	2	6	Moses			Normal		
-DEU	2	6	God		God (the LORD)	Normal		
-DEU	2	7	Moses			Normal		
-DEU	2	8	Moses			Normal		
-DEU	2	9	Moses			Normal		
-DEU	2	9	God		God (the LORD)	Normal		
-DEU	2	10	Moses			Normal		
-DEU	2	11	Moses			Normal		
-DEU	2	12	Moses			Normal		
-DEU	2	13	Moses			Normal		
-DEU	2	13	God		God (the LORD)	Normal		
-DEU	2	14	Moses			Normal		
-DEU	2	15	Moses			Normal		
-DEU	2	16	Moses			Normal		
-DEU	2	17	Moses			Normal		
-DEU	2	18	Moses			Normal		
-DEU	2	18	God		God (the LORD)	Normal		
-DEU	2	19	Moses			Normal		
-DEU	2	19	God		God (the LORD)	Normal		
-DEU	2	20	Moses			Normal		
-DEU	2	21	Moses			Normal		
-DEU	2	22	Moses			Normal		
-DEU	2	23	Moses			Normal		
-DEU	2	24	Moses			Normal		
-DEU	2	24	God		God (the LORD)	Normal		
-DEU	2	25	Moses			Normal		
-DEU	2	25	God		God (the LORD)	Normal		
-DEU	2	26	Moses			Normal		
-DEU	2	27	Moses			Normal		
-DEU	2	28	Moses			Normal		
-DEU	2	29	Moses			Normal		
-DEU	2	30	Moses			Normal		
-DEU	2	31	Moses			Normal		
-DEU	2	31	God		God (the LORD)	Normal		
-DEU	2	32	Moses			Normal		
-DEU	2	33	Moses			Normal		
-DEU	2	34	Moses			Normal		
-DEU	2	35	Moses			Normal		
-DEU	2	36	Moses			Normal		
-DEU	2	37	Moses			Normal		
-DEU	3	1	Moses			Normal		
-DEU	3	2	God		God (the LORD)	Normal		
-DEU	3	2	Moses			Normal		
-DEU	3	3	Moses			Normal		
-DEU	3	4	Moses			Normal		
-DEU	3	5	Moses			Normal		
-DEU	3	6	Moses			Normal		
-DEU	3	7	Moses			Normal		
-DEU	3	8	Moses			Normal		
-DEU	3	9	Moses			Normal		
-DEU	3	10	Moses			Normal		
-DEU	3	11	Moses			Normal		
-DEU	3	12	Moses			Normal		
-DEU	3	13	Moses			Normal		
-DEU	3	14	Moses			Normal		
-DEU	3	15	Moses			Normal		
-DEU	3	16	Moses			Normal		
-DEU	3	17	Moses			Normal		
-DEU	3	18	Moses			Normal		
-DEU	3	19	Moses			Normal		
-DEU	3	20	Moses			Normal		
-DEU	3	21	Moses			Normal		
-DEU	3	22	Moses			Normal		
-DEU	3	23	Moses			Normal		
-DEU	3	24	Moses			Normal		
-DEU	3	25	Moses			Normal		
-DEU	3	26	Moses			Normal		
-DEU	3	26	God		God (the LORD)	Normal		
-DEU	3	27	Moses			Normal		
-DEU	3	27	God		God (the LORD)	Normal		
-DEU	3	28	Moses			Normal		
-DEU	3	28	God		God (the LORD)	Normal		
-DEU	3	29	Moses			Normal		
-DEU	4	1	Moses			Normal		
-DEU	4	2	Moses			Normal		
-DEU	4	3	Moses			Normal		
-DEU	4	4	Moses			Normal		
-DEU	4	5	Moses			Normal		
-DEU	4	6	Moses			Normal		
+DEU	1	6	Moses			Implicit		
+DEU	1	6	God		God (the LORD)	Quotation		
+DEU	1	7	Moses			Implicit		
+DEU	1	7	God		God (the LORD)	Quotation		
+DEU	1	8	Moses			Implicit		
+DEU	1	8	God		God (the LORD)	Quotation		
+DEU	1	9	Moses			Implicit		
+DEU	1	10	Moses			Implicit		
+DEU	1	11	Moses			Implicit		
+DEU	1	12	Moses			Implicit		
+DEU	1	13	Moses			Implicit		
+DEU	1	14	Moses			Implicit		
+DEU	1	15	Moses			Implicit		
+DEU	1	16	Moses			Implicit		
+DEU	1	17	Moses			Implicit		
+DEU	1	18	Moses			Implicit		
+DEU	1	19	Moses			Implicit		
+DEU	1	20	Moses			Implicit		
+DEU	1	21	Moses			Implicit		
+DEU	1	22	Moses			Implicit		
+DEU	1	23	Moses			Implicit		
+DEU	1	24	Moses			Implicit		
+DEU	1	25	Moses			Implicit		
+DEU	1	25	Joshua/Caleb		explorers, twelve	Quotation	Joshua	NUM 14.7; DEU 1.25
+DEU	1	26	Moses			Implicit		
+DEU	1	27	Moses			Implicit		
+DEU	1	28	Moses			Implicit		
+DEU	1	29	Moses			Implicit		
+DEU	1	30	Moses			Implicit		
+DEU	1	31	Moses			Implicit		
+DEU	1	32	Moses			Implicit		
+DEU	1	33	Moses			Implicit		
+DEU	1	34	Moses			Implicit		
+DEU	1	35	Moses			Implicit		
+DEU	1	35	God		God (the LORD)	Quotation		
+DEU	1	36	Moses			Implicit		
+DEU	1	36	God		God (the LORD)	Quotation		
+DEU	1	37	Moses			Implicit		
+DEU	1	37	God		God (the LORD)	Quotation		
+DEU	1	38	Moses			Implicit		
+DEU	1	38	God		God (the LORD)	Quotation		
+DEU	1	39	Moses			Implicit		
+DEU	1	39	God		God (the LORD)	Quotation		
+DEU	1	40	Moses			Implicit		
+DEU	1	40	God		God (the LORD)	Quotation		
+DEU	1	41	Moses			Implicit		
+DEU	1	41	Israel			Quotation		
+DEU	1	42	Moses			Implicit		
+DEU	1	42	God		God (the LORD)	Quotation		
+DEU	1	43	Moses			Implicit		
+DEU	1	44	Moses			Implicit		
+DEU	1	45	Moses			Implicit		
+DEU	1	46	Moses			Implicit		
+DEU	2	1	Moses			Implicit		
+DEU	2	2	Moses			Implicit		
+DEU	2	3	Moses			Implicit		
+DEU	2	3	God		God (the LORD)	Quotation		
+DEU	2	4	Moses			Implicit		
+DEU	2	4	God		God (the LORD)	Quotation		
+DEU	2	5	Moses			Implicit		
+DEU	2	5	God		God (the LORD)	Quotation		
+DEU	2	6	Moses			Implicit		
+DEU	2	6	God		God (the LORD)	Quotation		
+DEU	2	7	Moses			Implicit		
+DEU	2	8	Moses			Implicit		
+DEU	2	9	Moses			Implicit		
+DEU	2	9	God		God (the LORD)	Quotation		
+DEU	2	10	Moses			Implicit		
+DEU	2	11	Moses			Implicit		
+DEU	2	12	Moses			Implicit		
+DEU	2	13	Moses			Implicit		
+DEU	2	13	God		God (the LORD)	Quotation		
+DEU	2	14	Moses			Implicit		
+DEU	2	15	Moses			Implicit		
+DEU	2	16	Moses			Implicit		
+DEU	2	17	Moses			Implicit		
+DEU	2	18	Moses			Implicit		
+DEU	2	18	God		God (the LORD)	Quotation		
+DEU	2	19	Moses			Implicit		
+DEU	2	19	God		God (the LORD)	Quotation		
+DEU	2	20	Moses			Implicit		
+DEU	2	21	Moses			Implicit		
+DEU	2	22	Moses			Implicit		
+DEU	2	23	Moses			Implicit		
+DEU	2	24	Moses			Implicit		
+DEU	2	24	God		God (the LORD)	Quotation		
+DEU	2	25	Moses			Implicit		
+DEU	2	25	God		God (the LORD)	Quotation		
+DEU	2	26	Moses			Implicit		
+DEU	2	27	Moses			Implicit		
+DEU	2	28	Moses			Implicit		
+DEU	2	29	Moses			Implicit		
+DEU	2	30	Moses			Implicit		
+DEU	2	31	Moses			Implicit		
+DEU	2	31	God		God (the LORD)	Quotation		
+DEU	2	32	Moses			Implicit		
+DEU	2	33	Moses			Implicit		
+DEU	2	34	Moses			Implicit		
+DEU	2	35	Moses			Implicit		
+DEU	2	36	Moses			Implicit		
+DEU	2	37	Moses			Implicit		
+DEU	3	1	Moses			Implicit		
+DEU	3	2	God		God (the LORD)	Quotation		
+DEU	3	2	Moses			Implicit		
+DEU	3	3	Moses			Implicit		
+DEU	3	4	Moses			Implicit		
+DEU	3	5	Moses			Implicit		
+DEU	3	6	Moses			Implicit		
+DEU	3	7	Moses			Implicit		
+DEU	3	8	Moses			Implicit		
+DEU	3	9	Moses			Implicit		
+DEU	3	10	Moses			Implicit		
+DEU	3	11	Moses			Implicit		
+DEU	3	12	Moses			Implicit		
+DEU	3	13	Moses			Implicit		
+DEU	3	14	Moses			Implicit		
+DEU	3	15	Moses			Implicit		
+DEU	3	16	Moses			Implicit		
+DEU	3	17	Moses			Implicit		
+DEU	3	18	Moses			Implicit		
+DEU	3	19	Moses			Implicit		
+DEU	3	20	Moses			Implicit		
+DEU	3	21	Moses			Implicit		
+DEU	3	22	Moses			Implicit		
+DEU	3	23	Moses			Implicit		
+DEU	3	24	Moses			Implicit		
+DEU	3	25	Moses			Implicit		
+DEU	3	26	Moses			Implicit		
+DEU	3	26	God		God (the LORD)	Quotation		
+DEU	3	27	Moses			Implicit		
+DEU	3	27	God		God (the LORD)	Quotation		
+DEU	3	28	Moses			Implicit		
+DEU	3	28	God		God (the LORD)	Quotation		
+DEU	3	29	Moses			Implicit		
+DEU	4	1	Moses			Implicit		
+DEU	4	2	Moses			Implicit		
+DEU	4	3	Moses			Implicit		
+DEU	4	4	Moses			Implicit		
+DEU	4	5	Moses			Implicit		
+DEU	4	6	Moses			Implicit		
 DEU	4	6	nations			Hypothetical		
-DEU	4	7	Moses			Normal		
-DEU	4	8	Moses			Normal		
-DEU	4	9	Moses			Normal		
-DEU	4	10	Moses			Normal		
-DEU	4	11	Moses			Normal		
-DEU	4	12	Moses			Normal		
-DEU	4	13	Moses			Normal		
-DEU	4	14	Moses			Normal		
-DEU	4	15	Moses			Normal		
-DEU	4	16	Moses			Normal		
-DEU	4	17	Moses			Normal		
-DEU	4	18	Moses			Normal		
-DEU	4	19	Moses			Normal		
-DEU	4	20	Moses			Normal		
-DEU	4	21	Moses			Normal		
-DEU	4	22	Moses			Normal		
-DEU	4	23	Moses			Normal		
-DEU	4	24	Moses			Normal		
-DEU	4	25	Moses			Normal		
-DEU	4	26	Moses			Normal		
-DEU	4	27	Moses			Normal		
-DEU	4	28	Moses			Normal		
-DEU	4	29	Moses			Normal		
-DEU	4	30	Moses			Normal		
-DEU	4	31	Moses			Normal		
-DEU	4	32	Moses			Normal		
-DEU	4	33	Moses			Normal		
-DEU	4	34	Moses			Normal		
-DEU	4	35	Moses			Normal		
-DEU	4	36	Moses			Normal		
-DEU	4	37	Moses			Normal		
-DEU	4	38	Moses			Normal		
-DEU	4	39	Moses			Normal		
-DEU	4	40	Moses			Normal		
+DEU	4	7	Moses			Implicit		
+DEU	4	8	Moses			Implicit		
+DEU	4	9	Moses			Implicit		
+DEU	4	10	Moses			Implicit		
+DEU	4	11	Moses			Implicit		
+DEU	4	12	Moses			Implicit		
+DEU	4	13	Moses			Implicit		
+DEU	4	14	Moses			Implicit		
+DEU	4	15	Moses			Implicit		
+DEU	4	16	Moses			Implicit		
+DEU	4	17	Moses			Implicit		
+DEU	4	18	Moses			Implicit		
+DEU	4	19	Moses			Implicit		
+DEU	4	20	Moses			Implicit		
+DEU	4	21	Moses			Implicit		
+DEU	4	22	Moses			Implicit		
+DEU	4	23	Moses			Implicit		
+DEU	4	24	Moses			Implicit		
+DEU	4	25	Moses			Implicit		
+DEU	4	26	Moses			Implicit		
+DEU	4	27	Moses			Implicit		
+DEU	4	28	Moses			Implicit		
+DEU	4	29	Moses			Implicit		
+DEU	4	30	Moses			Implicit		
+DEU	4	31	Moses			Implicit		
+DEU	4	32	Moses			Implicit		
+DEU	4	33	Moses			Implicit		
+DEU	4	34	Moses			Implicit		
+DEU	4	35	Moses			Implicit		
+DEU	4	36	Moses			Implicit		
+DEU	4	37	Moses			Implicit		
+DEU	4	38	Moses			Implicit		
+DEU	4	39	Moses			Implicit		
+DEU	4	40	Moses			Implicit		
 DEU	5	1	Moses			Normal		
-DEU	5	2	Moses			Normal		
-DEU	5	3	Moses			Normal		
-DEU	5	4	Moses			Normal		
-DEU	5	5	Moses			Normal		
-DEU	5	6	Moses			Normal		
-DEU	5	6	God		God (the LORD)	Normal		
-DEU	5	7	Moses			Normal		
-DEU	5	7	God		God (the LORD)	Normal		
-DEU	5	8	Moses			Normal		
-DEU	5	8	God		God (the LORD)	Normal		
-DEU	5	9	Moses			Normal		
-DEU	5	9	God		God (the LORD)	Normal		
-DEU	5	10	Moses			Normal		
-DEU	5	10	God		God (the LORD)	Normal		
-DEU	5	11	Moses			Normal		
-DEU	5	11	God		God (the LORD)	Normal		
-DEU	5	12	Moses			Normal		
-DEU	5	12	God		God (the LORD)	Normal		
-DEU	5	13	Moses			Normal		
-DEU	5	13	God		God (the LORD)	Normal		
-DEU	5	14	Moses			Normal		
-DEU	5	14	God		God (the LORD)	Normal		
-DEU	5	15	Moses			Normal		
-DEU	5	15	God		God (the LORD)	Normal		
-DEU	5	16	Moses			Normal		
-DEU	5	16	God		God (the LORD)	Normal		
-DEU	5	17	Moses			Normal		
-DEU	5	17	God		God (the LORD)	Normal		
-DEU	5	18	Moses			Normal		
-DEU	5	18	God		God (the LORD)	Normal		
-DEU	5	19	Moses			Normal		
-DEU	5	19	God		God (the LORD)	Normal		
-DEU	5	20	Moses			Normal		
-DEU	5	20	God		God (the LORD)	Normal		
-DEU	5	21	Moses			Normal		
-DEU	5	21	God		God (the LORD)	Normal		
-DEU	5	22	Moses			Normal		
-DEU	5	23	Moses			Normal		
-DEU	5	24	Moses			Normal		
-DEU	5	24	Israel			Normal		
-DEU	5	25	Moses			Normal		
-DEU	5	25	Israel			Normal		
-DEU	5	26	Moses			Normal		
-DEU	5	26	Israel			Normal		
-DEU	5	27	Moses			Normal		
-DEU	5	27	Israel			Normal		
-DEU	5	28	Moses			Normal		
-DEU	5	28	God		God (the LORD)	Normal		
-DEU	5	29	Moses			Normal		
-DEU	5	29	God		God (the LORD)	Normal		
-DEU	5	30	Moses			Normal		
-DEU	5	30	God		God (the LORD)	Normal		
-DEU	5	31	Moses			Normal		
-DEU	5	31	God		God (the LORD)	Normal		
-DEU	5	32	Moses			Normal		
-DEU	5	33	Moses			Normal		
-DEU	6	1	Moses			Normal		
-DEU	6	2	Moses			Normal		
-DEU	6	3	Moses			Normal		
-DEU	6	4	Moses			Normal		
-DEU	6	5	Moses			Normal		
-DEU	6	6	Moses			Normal		
-DEU	6	7	Moses			Normal		
-DEU	6	8	Moses			Normal		
-DEU	6	9	Moses			Normal		
-DEU	6	10	Moses			Normal		
-DEU	6	11	Moses			Normal		
-DEU	6	12	Moses			Normal		
-DEU	6	13	Moses			Normal		
-DEU	6	14	Moses			Normal		
-DEU	6	15	Moses			Normal		
-DEU	6	16	Moses			Normal		
-DEU	6	17	Moses			Normal		
-DEU	6	18	Moses			Normal		
-DEU	6	19	Moses			Normal		
-DEU	6	20	Moses			Normal		
+DEU	5	2	Moses			Implicit		
+DEU	5	3	Moses			Implicit		
+DEU	5	4	Moses			Implicit		
+DEU	5	5	Moses			Implicit		
+DEU	5	6	Moses			Implicit		
+DEU	5	6	God		God (the LORD)	Quotation		
+DEU	5	7	Moses			Implicit		
+DEU	5	7	God		God (the LORD)	Quotation		
+DEU	5	8	Moses			Implicit		
+DEU	5	8	God		God (the LORD)	Quotation		
+DEU	5	9	Moses			Implicit		
+DEU	5	9	God		God (the LORD)	Quotation		
+DEU	5	10	Moses			Implicit		
+DEU	5	10	God		God (the LORD)	Quotation		
+DEU	5	11	Moses			Implicit		
+DEU	5	11	God		God (the LORD)	Quotation		
+DEU	5	12	Moses			Implicit		
+DEU	5	12	God		God (the LORD)	Quotation		
+DEU	5	13	Moses			Implicit		
+DEU	5	13	God		God (the LORD)	Quotation		
+DEU	5	14	Moses			Implicit		
+DEU	5	14	God		God (the LORD)	Quotation		
+DEU	5	15	Moses			Implicit		
+DEU	5	15	God		God (the LORD)	Quotation		
+DEU	5	16	Moses			Implicit		
+DEU	5	16	God		God (the LORD)	Quotation		
+DEU	5	17	Moses			Implicit		
+DEU	5	17	God		God (the LORD)	Quotation		
+DEU	5	18	Moses			Implicit		
+DEU	5	18	God		God (the LORD)	Quotation		
+DEU	5	19	Moses			Implicit		
+DEU	5	19	God		God (the LORD)	Quotation		
+DEU	5	20	Moses			Implicit		
+DEU	5	20	God		God (the LORD)	Quotation		
+DEU	5	21	Moses			Implicit		
+DEU	5	21	God		God (the LORD)	Quotation		
+DEU	5	22	Moses			Implicit		
+DEU	5	23	Moses			Implicit		
+DEU	5	24	Moses			Implicit		
+DEU	5	24	Israel			Quotation		
+DEU	5	25	Moses			Implicit		
+DEU	5	25	Israel			Quotation		
+DEU	5	26	Moses			Implicit		
+DEU	5	26	Israel			Quotation		
+DEU	5	27	Moses			Implicit		
+DEU	5	27	Israel			Quotation		
+DEU	5	28	Moses			Implicit		
+DEU	5	28	God		God (the LORD)	Quotation		
+DEU	5	29	Moses			Implicit		
+DEU	5	29	God		God (the LORD)	Quotation		
+DEU	5	30	Moses			Implicit		
+DEU	5	30	God		God (the LORD)	Quotation		
+DEU	5	31	Moses			Implicit		
+DEU	5	31	God		God (the LORD)	Quotation		
+DEU	5	32	Moses			Implicit		
+DEU	5	33	Moses			Implicit		
+DEU	6	1	Moses			Implicit		
+DEU	6	2	Moses			Implicit		
+DEU	6	3	Moses			Implicit		
+DEU	6	4	Moses			Implicit		
+DEU	6	5	Moses			Implicit		
+DEU	6	6	Moses			Implicit		
+DEU	6	7	Moses			Implicit		
+DEU	6	8	Moses			Implicit		
+DEU	6	9	Moses			Implicit		
+DEU	6	10	Moses			Implicit		
+DEU	6	11	Moses			Implicit		
+DEU	6	12	Moses			Implicit		
+DEU	6	13	Moses			Implicit		
+DEU	6	14	Moses			Implicit		
+DEU	6	15	Moses			Implicit		
+DEU	6	16	Moses			Implicit		
+DEU	6	17	Moses			Implicit		
+DEU	6	18	Moses			Implicit		
+DEU	6	19	Moses			Implicit		
+DEU	6	20	Moses			Implicit		
 DEU	6	20	son (child) in Israel (hypothetical)			Hypothetical		
-DEU	6	21	Moses			Normal		
+DEU	6	21	Moses			Implicit		
 DEU	6	21	Israel			Hypothetical		
-DEU	6	22	Moses			Normal		
+DEU	6	22	Moses			Implicit		
 DEU	6	22	Israel			Hypothetical		
-DEU	6	23	Moses			Normal		
+DEU	6	23	Moses			Implicit		
 DEU	6	23	Israel			Hypothetical		
-DEU	6	24	Moses			Normal		
+DEU	6	24	Moses			Implicit		
 DEU	6	24	Israel			Hypothetical		
-DEU	6	25	Moses			Normal		
+DEU	6	25	Moses			Implicit		
 DEU	6	25	Israel			Hypothetical		
-DEU	7	1	Moses			Normal		
-DEU	7	2	Moses			Normal		
-DEU	7	3	Moses			Normal		
-DEU	7	4	Moses			Normal		
-DEU	7	5	Moses			Normal		
-DEU	7	6	Moses			Normal		
-DEU	7	7	Moses			Normal		
-DEU	7	8	Moses			Normal		
-DEU	7	9	Moses			Normal		
-DEU	7	10	Moses			Normal		
-DEU	7	11	Moses			Normal		
-DEU	7	12	Moses			Normal		
-DEU	7	13	Moses			Normal		
-DEU	7	14	Moses			Normal		
-DEU	7	15	Moses			Normal		
-DEU	7	16	Moses			Normal		
-DEU	7	17	Moses			Normal		
+DEU	7	1	Moses			Implicit		
+DEU	7	2	Moses			Implicit		
+DEU	7	3	Moses			Implicit		
+DEU	7	4	Moses			Implicit		
+DEU	7	5	Moses			Implicit		
+DEU	7	6	Moses			Implicit		
+DEU	7	7	Moses			Implicit		
+DEU	7	8	Moses			Implicit		
+DEU	7	9	Moses			Implicit		
+DEU	7	10	Moses			Implicit		
+DEU	7	11	Moses			Implicit		
+DEU	7	12	Moses			Implicit		
+DEU	7	13	Moses			Implicit		
+DEU	7	14	Moses			Implicit		
+DEU	7	15	Moses			Implicit		
+DEU	7	16	Moses			Implicit		
+DEU	7	17	Moses			Implicit		
 DEU	7	17	Israel			Hypothetical		
-DEU	7	18	Moses			Normal		
-DEU	7	19	Moses			Normal		
-DEU	7	20	Moses			Normal		
-DEU	7	21	Moses			Normal		
-DEU	7	22	Moses			Normal		
-DEU	7	23	Moses			Normal		
-DEU	7	24	Moses			Normal		
-DEU	7	25	Moses			Normal		
-DEU	7	26	Moses			Normal		
-DEU	8	1	Moses			Normal		
-DEU	8	2	Moses			Normal		
-DEU	8	3	Moses			Normal		
-DEU	8	4	Moses			Normal		
-DEU	8	5	Moses			Normal		
-DEU	8	6	Moses			Normal		
-DEU	8	7	Moses			Normal		
-DEU	8	8	Moses			Normal		
-DEU	8	9	Moses			Normal		
-DEU	8	10	Moses			Normal		
-DEU	8	11	Moses			Normal		
-DEU	8	12	Moses			Normal		
-DEU	8	13	Moses			Normal		
-DEU	8	14	Moses			Normal		
-DEU	8	15	Moses			Normal		
-DEU	8	16	Moses			Normal		
-DEU	8	17	Moses			Normal		
+DEU	7	18	Moses			Implicit		
+DEU	7	19	Moses			Implicit		
+DEU	7	20	Moses			Implicit		
+DEU	7	21	Moses			Implicit		
+DEU	7	22	Moses			Implicit		
+DEU	7	23	Moses			Implicit		
+DEU	7	24	Moses			Implicit		
+DEU	7	25	Moses			Implicit		
+DEU	7	26	Moses			Implicit		
+DEU	8	1	Moses			Implicit		
+DEU	8	2	Moses			Implicit		
+DEU	8	3	Moses			Implicit		
+DEU	8	4	Moses			Implicit		
+DEU	8	5	Moses			Implicit		
+DEU	8	6	Moses			Implicit		
+DEU	8	7	Moses			Implicit		
+DEU	8	8	Moses			Implicit		
+DEU	8	9	Moses			Implicit		
+DEU	8	10	Moses			Implicit		
+DEU	8	11	Moses			Implicit		
+DEU	8	12	Moses			Implicit		
+DEU	8	13	Moses			Implicit		
+DEU	8	14	Moses			Implicit		
+DEU	8	15	Moses			Implicit		
+DEU	8	16	Moses			Implicit		
+DEU	8	17	Moses			Implicit		
 DEU	8	17	Israel			Hypothetical		
-DEU	8	18	Moses			Normal		
-DEU	8	19	Moses			Normal		
-DEU	8	20	Moses			Normal		
-DEU	9	1	Moses			Normal		
-DEU	9	2	Moses			Normal		
+DEU	8	18	Moses			Implicit		
+DEU	8	19	Moses			Implicit		
+DEU	8	20	Moses			Implicit		
+DEU	9	1	Moses			Implicit		
+DEU	9	2	Moses			Implicit		
 DEU	9	2	saying about Anakites			Quotation		
-DEU	9	3	Moses			Normal		
-DEU	9	4	Moses			Normal		
+DEU	9	3	Moses			Implicit		
+DEU	9	4	Moses			Implicit		
 DEU	9	4	Israel			Hypothetical		
-DEU	9	5	Moses			Normal		
-DEU	9	6	Moses			Normal		
-DEU	9	7	Moses			Normal		
-DEU	9	8	Moses			Normal		
-DEU	9	9	Moses			Normal		
-DEU	9	10	Moses			Normal		
-DEU	9	11	Moses			Normal		
-DEU	9	12	Moses			Normal		
-DEU	9	12	God		God (the LORD)	Normal		
-DEU	9	13	Moses			Normal		
-DEU	9	13	God		God (the LORD)	Normal		
-DEU	9	14	Moses			Normal		
-DEU	9	14	God		God (the LORD)	Normal		
-DEU	9	15	Moses			Normal		
-DEU	9	16	Moses			Normal		
-DEU	9	17	Moses			Normal		
-DEU	9	18	Moses			Normal		
-DEU	9	19	Moses			Normal		
-DEU	9	20	Moses			Normal		
-DEU	9	21	Moses			Normal		
-DEU	9	22	Moses			Normal		
-DEU	9	23	Moses			Normal		
-DEU	9	23	God		God (the LORD)	Normal		
-DEU	9	24	Moses			Normal		
-DEU	9	25	Moses			Normal		
-DEU	9	26	Moses			Normal		
-DEU	9	27	Moses			Normal		
-DEU	9	28	Moses			Normal		
-DEU	9	29	Moses			Normal		
-DEU	10	1	Moses			Normal		
-DEU	10	2	Moses			Normal		
-DEU	10	3	Moses			Normal		
-DEU	10	4	Moses			Normal		
-DEU	10	5	Moses			Normal		
-DEU	10	6	Moses			Normal		
-DEU	10	7	Moses			Normal		
-DEU	10	8	Moses			Normal		
-DEU	10	9	Moses			Normal		
-DEU	10	10	Moses			Normal		
-DEU	10	11	Moses			Normal		
-DEU	10	11	God		God (the LORD)	Normal		
-DEU	10	12	Moses			Normal		
-DEU	10	13	Moses			Normal		
-DEU	10	14	Moses			Normal		
-DEU	10	15	Moses			Normal		
-DEU	10	16	Moses			Normal		
-DEU	10	17	Moses			Normal		
-DEU	10	18	Moses			Normal		
-DEU	10	19	Moses			Normal		
-DEU	10	20	Moses			Normal		
-DEU	10	21	Moses			Normal		
-DEU	10	22	Moses			Normal		
-DEU	11	1	Moses			Normal		
-DEU	11	2	Moses			Normal		
-DEU	11	3	Moses			Normal		
-DEU	11	4	Moses			Normal		
-DEU	11	5	Moses			Normal		
-DEU	11	6	Moses			Normal		
-DEU	11	7	Moses			Normal		
-DEU	11	8	Moses			Normal		
-DEU	11	9	Moses			Normal		
-DEU	11	10	Moses			Normal		
-DEU	11	11	Moses			Normal		
-DEU	11	12	Moses			Normal		
-DEU	11	13	Moses			Normal		
-DEU	11	14	Moses			Normal		
-DEU	11	15	Moses			Normal		
-DEU	11	16	Moses			Normal		
-DEU	11	17	Moses			Normal		
-DEU	11	18	Moses			Normal		
-DEU	11	19	Moses			Normal		
-DEU	11	20	Moses			Normal		
-DEU	11	21	Moses			Normal		
-DEU	11	22	Moses			Normal		
-DEU	11	23	Moses			Normal		
-DEU	11	24	Moses			Normal		
-DEU	11	25	Moses			Normal		
-DEU	11	26	Moses			Normal		
-DEU	11	27	Moses			Normal		
-DEU	11	28	Moses			Normal		
-DEU	11	29	Moses			Normal		
-DEU	11	30	Moses			Normal		
-DEU	11	31	Moses			Normal		
-DEU	11	32	Moses			Normal		
-DEU	12	1	Moses			Normal		
-DEU	12	2	Moses			Normal		
-DEU	12	3	Moses			Normal		
-DEU	12	4	Moses			Normal		
-DEU	12	5	Moses			Normal		
-DEU	12	6	Moses			Normal		
-DEU	12	7	Moses			Normal		
-DEU	12	8	Moses			Normal		
-DEU	12	9	Moses			Normal		
-DEU	12	10	Moses			Normal		
-DEU	12	11	Moses			Normal		
-DEU	12	12	Moses			Normal		
-DEU	12	13	Moses			Normal		
-DEU	12	14	Moses			Normal		
-DEU	12	15	Moses			Normal		
-DEU	12	16	Moses			Normal		
-DEU	12	17	Moses			Normal		
-DEU	12	18	Moses			Normal		
-DEU	12	19	Moses			Normal		
-DEU	12	20	Moses			Normal		
+DEU	9	5	Moses			Implicit		
+DEU	9	6	Moses			Implicit		
+DEU	9	7	Moses			Implicit		
+DEU	9	8	Moses			Implicit		
+DEU	9	9	Moses			Implicit		
+DEU	9	10	Moses			Implicit		
+DEU	9	11	Moses			Implicit		
+DEU	9	12	Moses			Implicit		
+DEU	9	12	God		God (the LORD)	Quotation		
+DEU	9	13	Moses			Implicit		
+DEU	9	13	God		God (the LORD)	Quotation		
+DEU	9	14	Moses			Implicit		
+DEU	9	14	God		God (the LORD)	Quotation		
+DEU	9	15	Moses			Implicit		
+DEU	9	16	Moses			Implicit		
+DEU	9	17	Moses			Implicit		
+DEU	9	18	Moses			Implicit		
+DEU	9	19	Moses			Implicit		
+DEU	9	20	Moses			Implicit		
+DEU	9	21	Moses			Implicit		
+DEU	9	22	Moses			Implicit		
+DEU	9	23	Moses			Implicit		
+DEU	9	23	God		God (the LORD)	Quotation		
+DEU	9	24	Moses			Implicit		
+DEU	9	25	Moses			Implicit		
+DEU	9	26	Moses			Implicit		
+DEU	9	27	Moses			Implicit		
+DEU	9	28	Moses			Implicit		
+DEU	9	29	Moses			Implicit		
+DEU	10	1	Moses			Implicit		
+DEU	10	2	Moses			Implicit		
+DEU	10	3	Moses			Implicit		
+DEU	10	4	Moses			Implicit		
+DEU	10	5	Moses			Implicit		
+DEU	10	6	Moses			Implicit		
+DEU	10	7	Moses			Implicit		
+DEU	10	8	Moses			Implicit		
+DEU	10	9	Moses			Implicit		
+DEU	10	10	Moses			Implicit		
+DEU	10	11	Moses			Implicit		
+DEU	10	11	God		God (the LORD)	Quotation		
+DEU	10	12	Moses			Implicit		
+DEU	10	13	Moses			Implicit		
+DEU	10	14	Moses			Implicit		
+DEU	10	15	Moses			Implicit		
+DEU	10	16	Moses			Implicit		
+DEU	10	17	Moses			Implicit		
+DEU	10	18	Moses			Implicit		
+DEU	10	19	Moses			Implicit		
+DEU	10	20	Moses			Implicit		
+DEU	10	21	Moses			Implicit		
+DEU	10	22	Moses			Implicit		
+DEU	11	1	Moses			Implicit		
+DEU	11	2	Moses			Implicit		
+DEU	11	3	Moses			Implicit		
+DEU	11	4	Moses			Implicit		
+DEU	11	5	Moses			Implicit		
+DEU	11	6	Moses			Implicit		
+DEU	11	7	Moses			Implicit		
+DEU	11	8	Moses			Implicit		
+DEU	11	9	Moses			Implicit		
+DEU	11	10	Moses			Implicit		
+DEU	11	11	Moses			Implicit		
+DEU	11	12	Moses			Implicit		
+DEU	11	13	Moses			Implicit		
+DEU	11	14	Moses			Implicit		
+DEU	11	15	Moses			Implicit		
+DEU	11	16	Moses			Implicit		
+DEU	11	17	Moses			Implicit		
+DEU	11	18	Moses			Implicit		
+DEU	11	19	Moses			Implicit		
+DEU	11	20	Moses			Implicit		
+DEU	11	21	Moses			Implicit		
+DEU	11	22	Moses			Implicit		
+DEU	11	23	Moses			Implicit		
+DEU	11	24	Moses			Implicit		
+DEU	11	25	Moses			Implicit		
+DEU	11	26	Moses			Implicit		
+DEU	11	27	Moses			Implicit		
+DEU	11	28	Moses			Implicit		
+DEU	11	29	Moses			Implicit		
+DEU	11	30	Moses			Implicit		
+DEU	11	31	Moses			Implicit		
+DEU	11	32	Moses			Implicit		
+DEU	12	1	Moses			Implicit		
+DEU	12	2	Moses			Implicit		
+DEU	12	3	Moses			Implicit		
+DEU	12	4	Moses			Implicit		
+DEU	12	5	Moses			Implicit		
+DEU	12	6	Moses			Implicit		
+DEU	12	7	Moses			Implicit		
+DEU	12	8	Moses			Implicit		
+DEU	12	9	Moses			Implicit		
+DEU	12	10	Moses			Implicit		
+DEU	12	11	Moses			Implicit		
+DEU	12	12	Moses			Implicit		
+DEU	12	13	Moses			Implicit		
+DEU	12	14	Moses			Implicit		
+DEU	12	15	Moses			Implicit		
+DEU	12	16	Moses			Implicit		
+DEU	12	17	Moses			Implicit		
+DEU	12	18	Moses			Implicit		
+DEU	12	19	Moses			Implicit		
+DEU	12	20	Moses			Implicit		
 DEU	12	20	Israel			Hypothetical		
-DEU	12	21	Moses			Normal		
-DEU	12	22	Moses			Normal		
-DEU	12	23	Moses			Normal		
-DEU	12	24	Moses			Normal		
-DEU	12	25	Moses			Normal		
-DEU	12	26	Moses			Normal		
-DEU	12	27	Moses			Normal		
-DEU	12	28	Moses			Normal		
-DEU	12	29	Moses			Normal		
-DEU	12	30	Moses			Normal		
+DEU	12	21	Moses			Implicit		
+DEU	12	22	Moses			Implicit		
+DEU	12	23	Moses			Implicit		
+DEU	12	24	Moses			Implicit		
+DEU	12	25	Moses			Implicit		
+DEU	12	26	Moses			Implicit		
+DEU	12	27	Moses			Implicit		
+DEU	12	28	Moses			Implicit		
+DEU	12	29	Moses			Implicit		
+DEU	12	30	Moses			Implicit		
 DEU	12	30	Israel			Hypothetical		
-DEU	12	31	Moses			Normal		
-DEU	12	32	Moses			Normal		
-DEU	13	1	Moses			Normal		
-DEU	13	2	Moses			Normal		
+DEU	12	31	Moses			Implicit		
+DEU	12	32	Moses			Implicit		
+DEU	13	1	Moses			Implicit		
+DEU	13	2	Moses			Implicit		
 DEU	13	2	Israel			Hypothetical		
-DEU	13	3	Moses			Normal		
-DEU	13	4	Moses			Normal		
-DEU	13	5	Moses			Normal		
-DEU	13	6	Moses			Normal		
+DEU	13	3	Moses			Implicit		
+DEU	13	4	Moses			Implicit		
+DEU	13	5	Moses			Implicit		
+DEU	13	6	Moses			Implicit		
 DEU	13	6	Israel			Hypothetical		
-DEU	13	7	Moses			Normal		
-DEU	13	8	Moses			Normal		
-DEU	13	9	Moses			Normal		
-DEU	13	10	Moses			Normal		
-DEU	13	11	Moses			Normal		
-DEU	13	12	Moses			Normal		
-DEU	13	13	Moses			Normal		
+DEU	13	7	Moses			Implicit		
+DEU	13	8	Moses			Implicit		
+DEU	13	9	Moses			Implicit		
+DEU	13	10	Moses			Implicit		
+DEU	13	11	Moses			Implicit		
+DEU	13	12	Moses			Implicit		
+DEU	13	13	Moses			Implicit		
 DEU	13	13	Israel			Hypothetical		
-DEU	13	14	Moses			Normal		
-DEU	13	15	Moses			Normal		
-DEU	13	16	Moses			Normal		
-DEU	13	17	Moses			Normal		
-DEU	13	18	Moses			Normal		
-DEU	14	1	Moses			Normal		
-DEU	14	2	Moses			Normal		
-DEU	14	3	Moses			Normal		
-DEU	14	4	Moses			Normal		
-DEU	14	5	Moses			Normal		
-DEU	14	6	Moses			Normal		
-DEU	14	7	Moses			Normal		
-DEU	14	8	Moses			Normal		
-DEU	14	9	Moses			Normal		
-DEU	14	10	Moses			Normal		
-DEU	14	11	Moses			Normal		
-DEU	14	12	Moses			Normal		
-DEU	14	13	Moses			Normal		
-DEU	14	14	Moses			Normal		
-DEU	14	15	Moses			Normal		
-DEU	14	16	Moses			Normal		
-DEU	14	17	Moses			Normal		
-DEU	14	18	Moses			Normal		
-DEU	14	19	Moses			Normal		
-DEU	14	20	Moses			Normal		
-DEU	14	21	Moses			Normal		
-DEU	14	22	Moses			Normal		
-DEU	14	23	Moses			Normal		
-DEU	14	24	Moses			Normal		
-DEU	14	25	Moses			Normal		
-DEU	14	26	Moses			Normal		
-DEU	14	27	Moses			Normal		
-DEU	14	28	Moses			Normal		
-DEU	14	29	Moses			Normal		
-DEU	15	1	Moses			Normal		
-DEU	15	2	Moses			Normal		
-DEU	15	3	Moses			Normal		
-DEU	15	4	Moses			Normal		
-DEU	15	5	Moses			Normal		
-DEU	15	6	Moses			Normal		
-DEU	15	7	Moses			Normal		
-DEU	15	8	Moses			Normal		
-DEU	15	9	Moses			Normal		
+DEU	13	14	Moses			Implicit		
+DEU	13	15	Moses			Implicit		
+DEU	13	16	Moses			Implicit		
+DEU	13	17	Moses			Implicit		
+DEU	13	18	Moses			Implicit		
+DEU	14	1	Moses			Implicit		
+DEU	14	2	Moses			Implicit		
+DEU	14	3	Moses			Implicit		
+DEU	14	4	Moses			Implicit		
+DEU	14	5	Moses			Implicit		
+DEU	14	6	Moses			Implicit		
+DEU	14	7	Moses			Implicit		
+DEU	14	8	Moses			Implicit		
+DEU	14	9	Moses			Implicit		
+DEU	14	10	Moses			Implicit		
+DEU	14	11	Moses			Implicit		
+DEU	14	12	Moses			Implicit		
+DEU	14	13	Moses			Implicit		
+DEU	14	14	Moses			Implicit		
+DEU	14	15	Moses			Implicit		
+DEU	14	16	Moses			Implicit		
+DEU	14	17	Moses			Implicit		
+DEU	14	18	Moses			Implicit		
+DEU	14	19	Moses			Implicit		
+DEU	14	20	Moses			Implicit		
+DEU	14	21	Moses			Implicit		
+DEU	14	22	Moses			Implicit		
+DEU	14	23	Moses			Implicit		
+DEU	14	24	Moses			Implicit		
+DEU	14	25	Moses			Implicit		
+DEU	14	26	Moses			Implicit		
+DEU	14	27	Moses			Implicit		
+DEU	14	28	Moses			Implicit		
+DEU	14	29	Moses			Implicit		
+DEU	15	1	Moses			Implicit		
+DEU	15	2	Moses			Implicit		
+DEU	15	3	Moses			Implicit		
+DEU	15	4	Moses			Implicit		
+DEU	15	5	Moses			Implicit		
+DEU	15	6	Moses			Implicit		
+DEU	15	7	Moses			Implicit		
+DEU	15	8	Moses			Implicit		
+DEU	15	9	Moses			Implicit		
 DEU	15	9	Israel			Hypothetical		
-DEU	15	10	Moses			Normal		
-DEU	15	11	Moses			Normal		
-DEU	15	12	Moses			Normal		
-DEU	15	13	Moses			Normal		
-DEU	15	14	Moses			Normal		
-DEU	15	15	Moses			Normal		
-DEU	15	16	Moses			Normal		
-DEU	15	17	Moses			Normal		
-DEU	15	18	Moses			Normal		
-DEU	15	19	Moses			Normal		
-DEU	15	20	Moses			Normal		
-DEU	15	21	Moses			Normal		
-DEU	15	22	Moses			Normal		
-DEU	15	23	Moses			Normal		
-DEU	16	1	Moses			Normal		
-DEU	16	2	Moses			Normal		
-DEU	16	3	Moses			Normal		
-DEU	16	4	Moses			Normal		
-DEU	16	5	Moses			Normal		
-DEU	16	6	Moses			Normal		
-DEU	16	7	Moses			Normal		
-DEU	16	8	Moses			Normal		
-DEU	16	9	Moses			Normal		
-DEU	16	10	Moses			Normal		
-DEU	16	11	Moses			Normal		
-DEU	16	12	Moses			Normal		
-DEU	16	13	Moses			Normal		
-DEU	16	14	Moses			Normal		
-DEU	16	15	Moses			Normal		
-DEU	16	16	Moses			Normal		
-DEU	16	17	Moses			Normal		
-DEU	16	18	Moses			Normal		
-DEU	16	19	Moses			Normal		
-DEU	16	20	Moses			Normal		
-DEU	16	21	Moses			Normal		
-DEU	16	22	Moses			Normal		
-DEU	17	1	Moses			Normal		
-DEU	17	2	Moses			Normal		
-DEU	17	3	Moses			Normal		
-DEU	17	4	Moses			Normal		
-DEU	17	5	Moses			Normal		
-DEU	17	6	Moses			Normal		
-DEU	17	7	Moses			Normal		
-DEU	17	8	Moses			Normal		
-DEU	17	9	Moses			Normal		
-DEU	17	10	Moses			Normal		
-DEU	17	11	Moses			Normal		
-DEU	17	12	Moses			Normal		
-DEU	17	13	Moses			Normal		
-DEU	17	14	Moses			Normal		
+DEU	15	10	Moses			Implicit		
+DEU	15	11	Moses			Implicit		
+DEU	15	12	Moses			Implicit		
+DEU	15	13	Moses			Implicit		
+DEU	15	14	Moses			Implicit		
+DEU	15	15	Moses			Implicit		
+DEU	15	16	Moses			Implicit		
+DEU	15	17	Moses			Implicit		
+DEU	15	18	Moses			Implicit		
+DEU	15	19	Moses			Implicit		
+DEU	15	20	Moses			Implicit		
+DEU	15	21	Moses			Implicit		
+DEU	15	22	Moses			Implicit		
+DEU	15	23	Moses			Implicit		
+DEU	16	1	Moses			Implicit		
+DEU	16	2	Moses			Implicit		
+DEU	16	3	Moses			Implicit		
+DEU	16	4	Moses			Implicit		
+DEU	16	5	Moses			Implicit		
+DEU	16	6	Moses			Implicit		
+DEU	16	7	Moses			Implicit		
+DEU	16	8	Moses			Implicit		
+DEU	16	9	Moses			Implicit		
+DEU	16	10	Moses			Implicit		
+DEU	16	11	Moses			Implicit		
+DEU	16	12	Moses			Implicit		
+DEU	16	13	Moses			Implicit		
+DEU	16	14	Moses			Implicit		
+DEU	16	15	Moses			Implicit		
+DEU	16	16	Moses			Implicit		
+DEU	16	17	Moses			Implicit		
+DEU	16	18	Moses			Implicit		
+DEU	16	19	Moses			Implicit		
+DEU	16	20	Moses			Implicit		
+DEU	16	21	Moses			Implicit		
+DEU	16	22	Moses			Implicit		
+DEU	17	1	Moses			Implicit		
+DEU	17	2	Moses			Implicit		
+DEU	17	3	Moses			Implicit		
+DEU	17	4	Moses			Implicit		
+DEU	17	5	Moses			Implicit		
+DEU	17	6	Moses			Implicit		
+DEU	17	7	Moses			Implicit		
+DEU	17	8	Moses			Implicit		
+DEU	17	9	Moses			Implicit		
+DEU	17	10	Moses			Implicit		
+DEU	17	11	Moses			Implicit		
+DEU	17	12	Moses			Implicit		
+DEU	17	13	Moses			Implicit		
+DEU	17	14	Moses			Implicit		
 DEU	17	14	Israel			Hypothetical		
-DEU	17	15	Moses			Normal		
-DEU	17	16	Moses			Normal		
-DEU	17	16	God		God (the LORD)	Normal		
-DEU	17	17	Moses			Normal		
-DEU	17	18	Moses			Normal		
-DEU	17	19	Moses			Normal		
-DEU	17	20	Moses			Normal		
-DEU	18	1	Moses			Normal		
-DEU	18	2	Moses			Normal		
-DEU	18	3	Moses			Normal		
-DEU	18	4	Moses			Normal		
-DEU	18	5	Moses			Normal		
-DEU	18	6	Moses			Normal		
-DEU	18	7	Moses			Normal		
-DEU	18	8	Moses			Normal		
-DEU	18	9	Moses			Normal		
-DEU	18	10	Moses			Normal		
-DEU	18	11	Moses			Normal		
-DEU	18	12	Moses			Normal		
-DEU	18	13	Moses			Normal		
-DEU	18	14	Moses			Normal		
-DEU	18	15	Moses			Normal		
-DEU	18	16	Moses			Normal		
-DEU	18	16	Israel			Normal		
-DEU	18	17	Moses			Normal		
-DEU	18	17	God		God (the LORD)	Normal		
-DEU	18	18	Moses			Normal		
-DEU	18	18	God		God (the LORD)	Normal		
-DEU	18	19	Moses			Normal		
-DEU	18	19	God		God (the LORD)	Normal		
-DEU	18	20	Moses			Normal		
-DEU	18	20	God		God (the LORD)	Normal		
-DEU	18	21	Moses			Normal		
+DEU	17	15	Moses			Implicit		
+DEU	17	16	Moses			Implicit		
+DEU	17	16	God		God (the LORD)	Quotation		
+DEU	17	17	Moses			Implicit		
+DEU	17	18	Moses			Implicit		
+DEU	17	19	Moses			Implicit		
+DEU	17	20	Moses			Implicit		
+DEU	18	1	Moses			Implicit		
+DEU	18	2	Moses			Implicit		
+DEU	18	3	Moses			Implicit		
+DEU	18	4	Moses			Implicit		
+DEU	18	5	Moses			Implicit		
+DEU	18	6	Moses			Implicit		
+DEU	18	7	Moses			Implicit		
+DEU	18	8	Moses			Implicit		
+DEU	18	9	Moses			Implicit		
+DEU	18	10	Moses			Implicit		
+DEU	18	11	Moses			Implicit		
+DEU	18	12	Moses			Implicit		
+DEU	18	13	Moses			Implicit		
+DEU	18	14	Moses			Implicit		
+DEU	18	15	Moses			Implicit		
+DEU	18	16	Moses			Implicit		
+DEU	18	16	Israel			Quotation		
+DEU	18	17	Moses			Implicit		
+DEU	18	17	God		God (the LORD)	Quotation		
+DEU	18	18	Moses			Implicit		
+DEU	18	18	God		God (the LORD)	Quotation		
+DEU	18	19	Moses			Implicit		
+DEU	18	19	God		God (the LORD)	Quotation		
+DEU	18	20	Moses			Implicit		
+DEU	18	20	God		God (the LORD)	Quotation		
+DEU	18	21	Moses			Implicit		
 DEU	18	21	Israel			Hypothetical		
-DEU	18	22	Moses			Normal		
-DEU	19	1	Moses			Normal		
-DEU	19	2	Moses			Normal		
-DEU	19	3	Moses			Normal		
-DEU	19	4	Moses			Normal		
-DEU	19	5	Moses			Normal		
-DEU	19	6	Moses			Normal		
-DEU	19	7	Moses			Normal		
-DEU	19	8	Moses			Normal		
-DEU	19	9	Moses			Normal		
-DEU	19	10	Moses			Normal		
-DEU	19	11	Moses			Normal		
-DEU	19	12	Moses			Normal		
-DEU	19	13	Moses			Normal		
-DEU	19	14	Moses			Normal		
-DEU	19	15	Moses			Normal		
-DEU	19	16	Moses			Normal		
-DEU	19	17	Moses			Normal		
-DEU	19	18	Moses			Normal		
-DEU	19	19	Moses			Normal		
-DEU	19	20	Moses			Normal		
-DEU	19	21	Moses			Normal		
-DEU	20	1	Moses			Normal		
-DEU	20	2	Moses			Normal		
-DEU	20	3	Moses			Normal		
+DEU	18	22	Moses			Implicit		
+DEU	19	1	Moses			Implicit		
+DEU	19	2	Moses			Implicit		
+DEU	19	3	Moses			Implicit		
+DEU	19	4	Moses			Implicit		
+DEU	19	5	Moses			Implicit		
+DEU	19	6	Moses			Implicit		
+DEU	19	7	Moses			Implicit		
+DEU	19	8	Moses			Implicit		
+DEU	19	9	Moses			Implicit		
+DEU	19	10	Moses			Implicit		
+DEU	19	11	Moses			Implicit		
+DEU	19	12	Moses			Implicit		
+DEU	19	13	Moses			Implicit		
+DEU	19	14	Moses			Implicit		
+DEU	19	15	Moses			Implicit		
+DEU	19	16	Moses			Implicit		
+DEU	19	17	Moses			Implicit		
+DEU	19	18	Moses			Implicit		
+DEU	19	19	Moses			Implicit		
+DEU	19	20	Moses			Implicit		
+DEU	19	21	Moses			Implicit		
+DEU	20	1	Moses			Implicit		
+DEU	20	2	Moses			Implicit		
+DEU	20	3	Moses			Implicit		
 DEU	20	3	priest			Hypothetical		
-DEU	20	4	Moses			Normal		
+DEU	20	4	Moses			Implicit		
 DEU	20	4	priest			Hypothetical		
-DEU	20	5	Moses			Normal		
+DEU	20	5	Moses			Implicit		
 DEU	20	5	officers			Hypothetical		
-DEU	20	6	Moses			Normal		
+DEU	20	6	Moses			Implicit		
 DEU	20	6	officers			Hypothetical		
-DEU	20	7	Moses			Normal		
+DEU	20	7	Moses			Implicit		
 DEU	20	7	officers			Hypothetical		
-DEU	20	8	Moses			Normal		
+DEU	20	8	Moses			Implicit		
 DEU	20	8	officers			Hypothetical		
-DEU	20	9	Moses			Normal		
-DEU	20	10	Moses			Normal		
-DEU	20	11	Moses			Normal		
-DEU	20	12	Moses			Normal		
-DEU	20	13	Moses			Normal		
-DEU	20	14	Moses			Normal		
-DEU	20	15	Moses			Normal		
-DEU	20	16	Moses			Normal		
-DEU	20	17	Moses			Normal		
-DEU	20	18	Moses			Normal		
-DEU	20	19	Moses			Normal		
-DEU	20	20	Moses			Normal		
-DEU	21	1	Moses			Normal		
-DEU	21	2	Moses			Normal		
-DEU	21	3	Moses			Normal		
-DEU	21	4	Moses			Normal		
-DEU	21	5	Moses			Normal		
-DEU	21	6	Moses			Normal		
-DEU	21	7	Moses			Normal		
+DEU	20	9	Moses			Implicit		
+DEU	20	10	Moses			Implicit		
+DEU	20	11	Moses			Implicit		
+DEU	20	12	Moses			Implicit		
+DEU	20	13	Moses			Implicit		
+DEU	20	14	Moses			Implicit		
+DEU	20	15	Moses			Implicit		
+DEU	20	16	Moses			Implicit		
+DEU	20	17	Moses			Implicit		
+DEU	20	18	Moses			Implicit		
+DEU	20	19	Moses			Implicit		
+DEU	20	20	Moses			Implicit		
+DEU	21	1	Moses			Implicit		
+DEU	21	2	Moses			Implicit		
+DEU	21	3	Moses			Implicit		
+DEU	21	4	Moses			Implicit		
+DEU	21	5	Moses			Implicit		
+DEU	21	6	Moses			Implicit		
+DEU	21	7	Moses			Implicit		
 DEU	21	7	elders of the town			Hypothetical		
-DEU	21	8	Moses			Normal		
+DEU	21	8	Moses			Implicit		
 DEU	21	8	elders of the town			Hypothetical		
-DEU	21	9	Moses			Normal		
-DEU	21	10	Moses			Normal		
-DEU	21	11	Moses			Normal		
-DEU	21	12	Moses			Normal		
-DEU	21	13	Moses			Normal		
-DEU	21	14	Moses			Normal		
-DEU	21	15	Moses			Normal		
-DEU	21	16	Moses			Normal		
-DEU	21	17	Moses			Normal		
-DEU	21	18	Moses			Normal		
-DEU	21	19	Moses			Normal		
-DEU	21	20	Moses			Normal		
+DEU	21	9	Moses			Implicit		
+DEU	21	10	Moses			Implicit		
+DEU	21	11	Moses			Implicit		
+DEU	21	12	Moses			Implicit		
+DEU	21	13	Moses			Implicit		
+DEU	21	14	Moses			Implicit		
+DEU	21	15	Moses			Implicit		
+DEU	21	16	Moses			Implicit		
+DEU	21	17	Moses			Implicit		
+DEU	21	18	Moses			Implicit		
+DEU	21	19	Moses			Implicit		
+DEU	21	20	Moses			Implicit		
 DEU	21	20	parents of rebellious son			Hypothetical		
-DEU	21	21	Moses			Normal		
-DEU	21	22	Moses			Normal		
-DEU	21	23	Moses			Normal		
-DEU	22	1	Moses			Normal		
-DEU	22	2	Moses			Normal		
-DEU	22	3	Moses			Normal		
-DEU	22	4	Moses			Normal		
-DEU	22	5	Moses			Normal		
-DEU	22	6	Moses			Normal		
-DEU	22	7	Moses			Normal		
-DEU	22	8	Moses			Normal		
-DEU	22	9	Moses			Normal		
-DEU	22	10	Moses			Normal		
-DEU	22	11	Moses			Normal		
-DEU	22	12	Moses			Normal		
-DEU	22	13	Moses			Normal		
-DEU	22	14	Moses			Normal		
+DEU	21	21	Moses			Implicit		
+DEU	21	22	Moses			Implicit		
+DEU	21	23	Moses			Implicit		
+DEU	22	1	Moses			Implicit		
+DEU	22	2	Moses			Implicit		
+DEU	22	3	Moses			Implicit		
+DEU	22	4	Moses			Implicit		
+DEU	22	5	Moses			Implicit		
+DEU	22	6	Moses			Implicit		
+DEU	22	7	Moses			Implicit		
+DEU	22	8	Moses			Implicit		
+DEU	22	9	Moses			Implicit		
+DEU	22	10	Moses			Implicit		
+DEU	22	11	Moses			Implicit		
+DEU	22	12	Moses			Implicit		
+DEU	22	13	Moses			Implicit		
+DEU	22	14	Moses			Implicit		
 DEU	22	14	husband accusing wife			Hypothetical		
-DEU	22	15	Moses			Normal		
-DEU	22	16	Moses			Normal		
+DEU	22	15	Moses			Implicit		
+DEU	22	16	Moses			Implicit		
 DEU	22	16	father of accused daughter			Hypothetical		
-DEU	22	17	Moses			Normal		
+DEU	22	17	Moses			Implicit		
 DEU	22	17	father of accused daughter			Hypothetical		
-DEU	22	18	Moses			Normal		
-DEU	22	19	Moses			Normal		
-DEU	22	20	Moses			Normal		
-DEU	22	21	Moses			Normal		
-DEU	22	22	Moses			Normal		
-DEU	22	23	Moses			Normal		
-DEU	22	24	Moses			Normal		
-DEU	22	25	Moses			Normal		
-DEU	22	26	Moses			Normal		
-DEU	22	27	Moses			Normal		
-DEU	22	28	Moses			Normal		
-DEU	22	29	Moses			Normal		
-DEU	22	30	Moses			Normal		
-DEU	23	1	Moses			Normal		
-DEU	23	2	Moses			Normal		
-DEU	23	3	Moses			Normal		
-DEU	23	4	Moses			Normal		
-DEU	23	5	Moses			Normal		
-DEU	23	6	Moses			Normal		
-DEU	23	7	Moses			Normal		
-DEU	23	8	Moses			Normal		
-DEU	23	9	Moses			Normal		
-DEU	23	10	Moses			Normal		
-DEU	23	11	Moses			Normal		
-DEU	23	12	Moses			Normal		
-DEU	23	13	Moses			Normal		
-DEU	23	14	Moses			Normal		
-DEU	23	15	Moses			Normal		
-DEU	23	16	Moses			Normal		
-DEU	23	17	Moses			Normal		
-DEU	23	18	Moses			Normal		
-DEU	23	19	Moses			Normal		
-DEU	23	20	Moses			Normal		
-DEU	23	21	Moses			Normal		
-DEU	23	22	Moses			Normal		
-DEU	23	23	Moses			Normal		
-DEU	23	24	Moses			Normal		
-DEU	23	25	Moses			Normal		
-DEU	24	1	Moses			Normal		
-DEU	24	2	Moses			Normal		
-DEU	24	3	Moses			Normal		
-DEU	24	4	Moses			Normal		
-DEU	24	5	Moses			Normal		
-DEU	24	6	Moses			Normal		
-DEU	24	7	Moses			Normal		
-DEU	24	8	Moses			Normal		
-DEU	24	9	Moses			Normal		
-DEU	24	10	Moses			Normal		
-DEU	24	11	Moses			Normal		
-DEU	24	12	Moses			Normal		
-DEU	24	13	Moses			Normal		
-DEU	24	14	Moses			Normal		
-DEU	24	15	Moses			Normal		
-DEU	24	16	Moses			Normal		
-DEU	24	17	Moses			Normal		
-DEU	24	18	Moses			Normal		
-DEU	24	19	Moses			Normal		
-DEU	24	20	Moses			Normal		
-DEU	24	21	Moses			Normal		
-DEU	24	22	Moses			Normal		
-DEU	25	1	Moses			Normal		
-DEU	25	2	Moses			Normal		
-DEU	25	3	Moses			Normal		
-DEU	25	4	Moses			Normal		
-DEU	25	5	Moses			Normal		
-DEU	25	6	Moses			Normal		
-DEU	25	7	Moses			Normal		
+DEU	22	18	Moses			Implicit		
+DEU	22	19	Moses			Implicit		
+DEU	22	20	Moses			Implicit		
+DEU	22	21	Moses			Implicit		
+DEU	22	22	Moses			Implicit		
+DEU	22	23	Moses			Implicit		
+DEU	22	24	Moses			Implicit		
+DEU	22	25	Moses			Implicit		
+DEU	22	26	Moses			Implicit		
+DEU	22	27	Moses			Implicit		
+DEU	22	28	Moses			Implicit		
+DEU	22	29	Moses			Implicit		
+DEU	22	30	Moses			Implicit		
+DEU	23	1	Moses			Implicit		
+DEU	23	2	Moses			Implicit		
+DEU	23	3	Moses			Implicit		
+DEU	23	4	Moses			Implicit		
+DEU	23	5	Moses			Implicit		
+DEU	23	6	Moses			Implicit		
+DEU	23	7	Moses			Implicit		
+DEU	23	8	Moses			Implicit		
+DEU	23	9	Moses			Implicit		
+DEU	23	10	Moses			Implicit		
+DEU	23	11	Moses			Implicit		
+DEU	23	12	Moses			Implicit		
+DEU	23	13	Moses			Implicit		
+DEU	23	14	Moses			Implicit		
+DEU	23	15	Moses			Implicit		
+DEU	23	16	Moses			Implicit		
+DEU	23	17	Moses			Implicit		
+DEU	23	18	Moses			Implicit		
+DEU	23	19	Moses			Implicit		
+DEU	23	20	Moses			Implicit		
+DEU	23	21	Moses			Implicit		
+DEU	23	22	Moses			Implicit		
+DEU	23	23	Moses			Implicit		
+DEU	23	24	Moses			Implicit		
+DEU	23	25	Moses			Implicit		
+DEU	24	1	Moses			Implicit		
+DEU	24	2	Moses			Implicit		
+DEU	24	3	Moses			Implicit		
+DEU	24	4	Moses			Implicit		
+DEU	24	5	Moses			Implicit		
+DEU	24	6	Moses			Implicit		
+DEU	24	7	Moses			Implicit		
+DEU	24	8	Moses			Implicit		
+DEU	24	9	Moses			Implicit		
+DEU	24	10	Moses			Implicit		
+DEU	24	11	Moses			Implicit		
+DEU	24	12	Moses			Implicit		
+DEU	24	13	Moses			Implicit		
+DEU	24	14	Moses			Implicit		
+DEU	24	15	Moses			Implicit		
+DEU	24	16	Moses			Implicit		
+DEU	24	17	Moses			Implicit		
+DEU	24	18	Moses			Implicit		
+DEU	24	19	Moses			Implicit		
+DEU	24	20	Moses			Implicit		
+DEU	24	21	Moses			Implicit		
+DEU	24	22	Moses			Implicit		
+DEU	25	1	Moses			Implicit		
+DEU	25	2	Moses			Implicit		
+DEU	25	3	Moses			Implicit		
+DEU	25	4	Moses			Implicit		
+DEU	25	5	Moses			Implicit		
+DEU	25	6	Moses			Implicit		
+DEU	25	7	Moses			Implicit		
 DEU	25	7	widow			Hypothetical		
-DEU	25	8	Moses			Normal		
+DEU	25	8	Moses			Implicit		
 DEU	25	8	brother-in-law of widow			Hypothetical		
 DEU	25	8	elders of the town			Indirect		
-DEU	25	9	Moses			Normal		
+DEU	25	9	Moses			Implicit		
 DEU	25	9	widow			Hypothetical		
-DEU	25	10	Moses			Normal		
+DEU	25	10	Moses			Implicit		
 DEU	25	10	narrator-DEU			Quotation		
-DEU	25	11	Moses			Normal		
-DEU	25	12	Moses			Normal		
-DEU	25	13	Moses			Normal		
-DEU	25	14	Moses			Normal		
-DEU	25	15	Moses			Normal		
-DEU	25	16	Moses			Normal		
-DEU	25	17	Moses			Normal		
-DEU	25	18	Moses			Normal		
-DEU	25	19	Moses			Normal		
-DEU	26	1	Moses			Normal		
-DEU	26	2	Moses			Normal		
-DEU	26	3	Moses			Normal		
+DEU	25	11	Moses			Implicit		
+DEU	25	12	Moses			Implicit		
+DEU	25	13	Moses			Implicit		
+DEU	25	14	Moses			Implicit		
+DEU	25	15	Moses			Implicit		
+DEU	25	16	Moses			Implicit		
+DEU	25	17	Moses			Implicit		
+DEU	25	18	Moses			Implicit		
+DEU	25	19	Moses			Implicit		
+DEU	26	1	Moses			Implicit		
+DEU	26	2	Moses			Implicit		
+DEU	26	3	Moses			Implicit		
 DEU	26	3	Israel			Hypothetical		
-DEU	26	4	Moses			Normal		
-DEU	26	5	Moses			Normal		
+DEU	26	4	Moses			Implicit		
+DEU	26	5	Moses			Implicit		
 DEU	26	5	Israel			Hypothetical		
-DEU	26	6	Moses			Normal		
+DEU	26	6	Moses			Implicit		
 DEU	26	6	Israel			Hypothetical		
-DEU	26	7	Moses			Normal		
+DEU	26	7	Moses			Implicit		
 DEU	26	7	Israel			Hypothetical		
-DEU	26	8	Moses			Normal		
+DEU	26	8	Moses			Implicit		
 DEU	26	8	Israel			Hypothetical		
-DEU	26	9	Moses			Normal		
+DEU	26	9	Moses			Implicit		
 DEU	26	9	Israel			Hypothetical		
-DEU	26	10	Moses			Normal		
+DEU	26	10	Moses			Implicit		
 DEU	26	10	Israel			Hypothetical		
-DEU	26	11	Moses			Normal		
-DEU	26	12	Moses			Normal		
-DEU	26	13	Moses			Normal		
+DEU	26	11	Moses			Implicit		
+DEU	26	12	Moses			Implicit		
+DEU	26	13	Moses			Implicit		
 DEU	26	13	Israel			Hypothetical		
-DEU	26	14	Moses			Normal		
+DEU	26	14	Moses			Implicit		
 DEU	26	14	Israel			Hypothetical		
-DEU	26	15	Moses			Normal		
+DEU	26	15	Moses			Implicit		
 DEU	26	15	Israel			Hypothetical		
-DEU	26	16	Moses			Normal		
-DEU	26	17	Moses			Normal		
-DEU	26	18	Moses			Normal		
-DEU	26	19	Moses			Normal		
+DEU	26	16	Moses			Implicit		
+DEU	26	17	Moses			Implicit		
+DEU	26	18	Moses			Implicit		
+DEU	26	19	Moses			Implicit		
 DEU	27	1	Moses/elders of Israel			Normal	Moses	
 DEU	27	2	Moses/elders of Israel			Normal	Moses	
 DEU	27	3	Moses/elders of Israel			Normal	Moses	
@@ -3981,243 +3974,243 @@ DEU	27	8	Moses/elders of Israel			Normal	Moses
 DEU	27	9	Moses/priests			Normal	Moses	
 DEU	27	10	Moses/priests			Normal	Moses	
 DEU	27	11	Moses			Indirect		
-DEU	27	12	Moses			Normal		
-DEU	27	13	Moses			Normal		
-DEU	27	14	Moses			Normal		
-DEU	27	15	Moses			Normal		
-DEU	27	16	Moses			Normal		
-DEU	27	17	Moses			Normal		
-DEU	27	18	Moses			Normal		
-DEU	27	19	Moses			Normal		
-DEU	27	20	Moses			Normal		
-DEU	27	21	Moses			Normal		
-DEU	27	22	Moses			Normal		
-DEU	27	23	Moses			Normal		
-DEU	27	24	Moses			Normal		
-DEU	27	25	Moses			Normal		
-DEU	27	26	Moses			Normal		
-DEU	28	1	Moses			Normal		
-DEU	28	2	Moses			Normal		
-DEU	28	3	Moses			Normal		
-DEU	28	4	Moses			Normal		
-DEU	28	5	Moses			Normal		
-DEU	28	6	Moses			Normal		
-DEU	28	7	Moses			Normal		
-DEU	28	8	Moses			Normal		
-DEU	28	9	Moses			Normal		
-DEU	28	10	Moses			Normal		
-DEU	28	11	Moses			Normal		
-DEU	28	12	Moses			Normal		
-DEU	28	13	Moses			Normal		
-DEU	28	14	Moses			Normal		
-DEU	28	15	Moses			Normal		
-DEU	28	16	Moses			Normal		
-DEU	28	17	Moses			Normal		
-DEU	28	18	Moses			Normal		
-DEU	28	19	Moses			Normal		
-DEU	28	20	Moses			Normal		
-DEU	28	21	Moses			Normal		
-DEU	28	22	Moses			Normal		
-DEU	28	23	Moses			Normal		
-DEU	28	24	Moses			Normal		
-DEU	28	25	Moses			Normal		
-DEU	28	26	Moses			Normal		
-DEU	28	27	Moses			Normal		
-DEU	28	28	Moses			Normal		
-DEU	28	29	Moses			Normal		
-DEU	28	30	Moses			Normal		
-DEU	28	31	Moses			Normal		
-DEU	28	32	Moses			Normal		
-DEU	28	33	Moses			Normal		
-DEU	28	34	Moses			Normal		
-DEU	28	35	Moses			Normal		
-DEU	28	36	Moses			Normal		
-DEU	28	37	Moses			Normal		
-DEU	28	38	Moses			Normal		
-DEU	28	39	Moses			Normal		
-DEU	28	40	Moses			Normal		
-DEU	28	41	Moses			Normal		
-DEU	28	42	Moses			Normal		
-DEU	28	43	Moses			Normal		
-DEU	28	44	Moses			Normal		
-DEU	28	45	Moses			Normal		
-DEU	28	46	Moses			Normal		
-DEU	28	47	Moses			Normal		
-DEU	28	48	Moses			Normal		
-DEU	28	49	Moses			Normal		
-DEU	28	50	Moses			Normal		
-DEU	28	51	Moses			Normal		
-DEU	28	52	Moses			Normal		
-DEU	28	53	Moses			Normal		
-DEU	28	54	Moses			Normal		
-DEU	28	55	Moses			Normal		
-DEU	28	56	Moses			Normal		
-DEU	28	57	Moses			Normal		
-DEU	28	58	Moses			Normal		
-DEU	28	59	Moses			Normal		
-DEU	28	60	Moses			Normal		
-DEU	28	61	Moses			Normal		
-DEU	28	62	Moses			Normal		
-DEU	28	63	Moses			Normal		
-DEU	28	64	Moses			Normal		
-DEU	28	65	Moses			Normal		
-DEU	28	66	Moses			Normal		
-DEU	28	67	Moses			Normal		
-DEU	28	68	Moses			Normal		
-DEU	29	2	Moses			Normal		
-DEU	29	3	Moses			Normal		
-DEU	29	4	Moses			Normal		
-DEU	29	5	Moses			Normal		
-DEU	29	6	Moses			Normal		
-DEU	29	7	Moses			Normal		
-DEU	29	8	Moses			Normal		
-DEU	29	9	Moses			Normal		
-DEU	29	10	Moses			Normal		
-DEU	29	11	Moses			Normal		
-DEU	29	12	Moses			Normal		
-DEU	29	13	Moses			Normal		
-DEU	29	14	Moses			Normal		
-DEU	29	15	Moses			Normal		
-DEU	29	16	Moses			Normal		
-DEU	29	17	Moses			Normal		
-DEU	29	18	Moses			Normal		
-DEU	29	19	Moses			Normal		
-DEU	29	20	Moses			Normal		
-DEU	29	21	Moses			Normal		
-DEU	29	22	Moses			Normal		
-DEU	29	23	Moses			Normal		
-DEU	29	24	Moses			Normal		
-DEU	29	25	Moses			Normal		
-DEU	29	26	Moses			Normal		
-DEU	29	27	Moses			Normal		
-DEU	29	28	Moses			Normal		
-DEU	29	29	Moses			Normal		
-DEU	30	1	Moses			Normal		
-DEU	30	2	Moses			Normal		
-DEU	30	3	Moses			Normal		
-DEU	30	4	Moses			Normal		
-DEU	30	5	Moses			Normal		
-DEU	30	6	Moses			Normal		
-DEU	30	7	Moses			Normal		
-DEU	30	8	Moses			Normal		
-DEU	30	9	Moses			Normal		
-DEU	30	10	Moses			Normal		
-DEU	30	11	Moses			Normal		
-DEU	30	12	Moses			Normal		
-DEU	30	13	Moses			Normal		
-DEU	30	14	Moses			Normal		
-DEU	30	15	Moses			Normal		
-DEU	30	16	Moses			Normal		
-DEU	30	17	Moses			Normal		
-DEU	30	18	Moses			Normal		
-DEU	30	19	Moses			Normal		
-DEU	30	20	Moses			Normal		
-DEU	31	2	Moses			Normal		
-DEU	31	3	Moses			Normal		
-DEU	31	4	Moses			Normal		
-DEU	31	5	Moses			Normal		
-DEU	31	6	Moses			Normal		
-DEU	31	7	Moses			Normal		
-DEU	31	8	Moses			Normal		
-DEU	31	10	Moses			Normal		
-DEU	31	11	Moses			Normal		
-DEU	31	12	Moses			Normal		
-DEU	31	13	Moses			Normal		
+DEU	27	12	Moses			Implicit		
+DEU	27	13	Moses			Implicit		
+DEU	27	14	Moses			Implicit		
+DEU	27	15	Moses			Implicit		
+DEU	27	16	Moses			Implicit		
+DEU	27	17	Moses			Implicit		
+DEU	27	18	Moses			Implicit		
+DEU	27	19	Moses			Implicit		
+DEU	27	20	Moses			Implicit		
+DEU	27	21	Moses			Implicit		
+DEU	27	22	Moses			Implicit		
+DEU	27	23	Moses			Implicit		
+DEU	27	24	Moses			Implicit		
+DEU	27	25	Moses			Implicit		
+DEU	27	26	Moses			Implicit		
+DEU	28	1	Moses			Implicit		
+DEU	28	2	Moses			Implicit		
+DEU	28	3	Moses			Implicit		
+DEU	28	4	Moses			Implicit		
+DEU	28	5	Moses			Implicit		
+DEU	28	6	Moses			Implicit		
+DEU	28	7	Moses			Implicit		
+DEU	28	8	Moses			Implicit		
+DEU	28	9	Moses			Implicit		
+DEU	28	10	Moses			Implicit		
+DEU	28	11	Moses			Implicit		
+DEU	28	12	Moses			Implicit		
+DEU	28	13	Moses			Implicit		
+DEU	28	14	Moses			Implicit		
+DEU	28	15	Moses			Implicit		
+DEU	28	16	Moses			Implicit		
+DEU	28	17	Moses			Implicit		
+DEU	28	18	Moses			Implicit		
+DEU	28	19	Moses			Implicit		
+DEU	28	20	Moses			Implicit		
+DEU	28	21	Moses			Implicit		
+DEU	28	22	Moses			Implicit		
+DEU	28	23	Moses			Implicit		
+DEU	28	24	Moses			Implicit		
+DEU	28	25	Moses			Implicit		
+DEU	28	26	Moses			Implicit		
+DEU	28	27	Moses			Implicit		
+DEU	28	28	Moses			Implicit		
+DEU	28	29	Moses			Implicit		
+DEU	28	30	Moses			Implicit		
+DEU	28	31	Moses			Implicit		
+DEU	28	32	Moses			Implicit		
+DEU	28	33	Moses			Implicit		
+DEU	28	34	Moses			Implicit		
+DEU	28	35	Moses			Implicit		
+DEU	28	36	Moses			Implicit		
+DEU	28	37	Moses			Implicit		
+DEU	28	38	Moses			Implicit		
+DEU	28	39	Moses			Implicit		
+DEU	28	40	Moses			Implicit		
+DEU	28	41	Moses			Implicit		
+DEU	28	42	Moses			Implicit		
+DEU	28	43	Moses			Implicit		
+DEU	28	44	Moses			Implicit		
+DEU	28	45	Moses			Implicit		
+DEU	28	46	Moses			Implicit		
+DEU	28	47	Moses			Implicit		
+DEU	28	48	Moses			Implicit		
+DEU	28	49	Moses			Implicit		
+DEU	28	50	Moses			Implicit		
+DEU	28	51	Moses			Implicit		
+DEU	28	52	Moses			Implicit		
+DEU	28	53	Moses			Implicit		
+DEU	28	54	Moses			Implicit		
+DEU	28	55	Moses			Implicit		
+DEU	28	56	Moses			Implicit		
+DEU	28	57	Moses			Implicit		
+DEU	28	58	Moses			Implicit		
+DEU	28	59	Moses			Implicit		
+DEU	28	60	Moses			Implicit		
+DEU	28	61	Moses			Implicit		
+DEU	28	62	Moses			Implicit		
+DEU	28	63	Moses			Implicit		
+DEU	28	64	Moses			Implicit		
+DEU	28	65	Moses			Implicit		
+DEU	28	66	Moses			Implicit		
+DEU	28	67	Moses			Implicit		
+DEU	28	68	Moses			Implicit		
+DEU	29	2	Moses			Implicit		
+DEU	29	3	Moses			Implicit		
+DEU	29	4	Moses			Implicit		
+DEU	29	5	Moses			Implicit		
+DEU	29	6	Moses			Implicit		
+DEU	29	7	Moses			Implicit		
+DEU	29	8	Moses			Implicit		
+DEU	29	9	Moses			Implicit		
+DEU	29	10	Moses			Implicit		
+DEU	29	11	Moses			Implicit		
+DEU	29	12	Moses			Implicit		
+DEU	29	13	Moses			Implicit		
+DEU	29	14	Moses			Implicit		
+DEU	29	15	Moses			Implicit		
+DEU	29	16	Moses			Implicit		
+DEU	29	17	Moses			Implicit		
+DEU	29	18	Moses			Implicit		
+DEU	29	19	Moses			Implicit		
+DEU	29	20	Moses			Implicit		
+DEU	29	21	Moses			Implicit		
+DEU	29	22	Moses			Implicit		
+DEU	29	23	Moses			Implicit		
+DEU	29	24	Moses			Implicit		
+DEU	29	25	Moses			Implicit		
+DEU	29	26	Moses			Implicit		
+DEU	29	27	Moses			Implicit		
+DEU	29	28	Moses			Implicit		
+DEU	29	29	Moses			Implicit		
+DEU	30	1	Moses			Implicit		
+DEU	30	2	Moses			Implicit		
+DEU	30	3	Moses			Implicit		
+DEU	30	4	Moses			Implicit		
+DEU	30	5	Moses			Implicit		
+DEU	30	6	Moses			Implicit		
+DEU	30	7	Moses			Implicit		
+DEU	30	8	Moses			Implicit		
+DEU	30	9	Moses			Implicit		
+DEU	30	10	Moses			Implicit		
+DEU	30	11	Moses			Implicit		
+DEU	30	12	Moses			Implicit		
+DEU	30	13	Moses			Implicit		
+DEU	30	14	Moses			Implicit		
+DEU	30	15	Moses			Implicit		
+DEU	30	16	Moses			Implicit		
+DEU	30	17	Moses			Implicit		
+DEU	30	18	Moses			Implicit		
+DEU	30	19	Moses			Implicit		
+DEU	30	20	Moses			Implicit		
+DEU	31	2	Moses			Implicit		
+DEU	31	3	Moses			Implicit		
+DEU	31	4	Moses			Implicit		
+DEU	31	5	Moses			Implicit		
+DEU	31	6	Moses			Implicit		
+DEU	31	7	Moses			Implicit		
+DEU	31	8	Moses			Implicit		
+DEU	31	10	Moses			Implicit		
+DEU	31	11	Moses			Implicit		
+DEU	31	12	Moses			Implicit		
+DEU	31	13	Moses			Implicit		
 DEU	31	14	God		God (the LORD)	Normal		
 DEU	31	16	God		God (the LORD)	Normal		
-DEU	31	17	God		God (the LORD)	Normal		
-DEU	31	18	God		God (the LORD)	Normal		
-DEU	31	19	God		God (the LORD)	Normal		
-DEU	31	20	God		God (the LORD)	Normal		
-DEU	31	21	God		God (the LORD)	Normal		
+DEU	31	17	God		God (the LORD)	Implicit		
+DEU	31	18	God		God (the LORD)	Implicit		
+DEU	31	19	God		God (the LORD)	Implicit		
+DEU	31	20	God		God (the LORD)	Implicit		
+DEU	31	21	God		God (the LORD)	Implicit		
 DEU	31	23	God		God (the LORD)	Normal		
-DEU	31	26	Moses			Normal		
-DEU	31	27	Moses			Normal		
-DEU	31	28	Moses			Normal		
-DEU	31	29	Moses			Normal		
-DEU	32	1	Moses			Normal		
-DEU	32	2	Moses			Normal		
-DEU	32	3	Moses			Normal		
-DEU	32	4	Moses			Normal		
-DEU	32	5	Moses			Normal		
-DEU	32	6	Moses			Normal		
-DEU	32	7	Moses			Normal		
-DEU	32	8	Moses			Normal		
-DEU	32	9	Moses			Normal		
-DEU	32	10	Moses			Normal		
-DEU	32	11	Moses			Normal		
-DEU	32	12	Moses			Normal		
-DEU	32	13	Moses			Normal		
-DEU	32	14	Moses			Normal		
-DEU	32	15	Moses			Normal		
-DEU	32	16	Moses			Normal		
-DEU	32	17	Moses			Normal		
-DEU	32	18	Moses			Normal		
-DEU	32	19	Moses			Normal		
-DEU	32	20	Moses			Normal		
-DEU	32	20	God		God (the LORD)	Normal		
-DEU	32	21	Moses			Normal		
-DEU	32	21	God		God (the LORD)	Normal		
-DEU	32	22	Moses			Normal		
-DEU	32	22	God		God (the LORD)	Normal		
-DEU	32	23	Moses			Normal		
-DEU	32	23	God		God (the LORD)	Normal		
-DEU	32	24	Moses			Normal		
-DEU	32	24	God		God (the LORD)	Normal		
-DEU	32	25	Moses			Normal		
-DEU	32	25	God		God (the LORD)	Normal		
-DEU	32	26	Moses			Normal		
-DEU	32	26	God		God (the LORD)	Normal		
-DEU	32	27	Moses			Normal		
-DEU	32	27	God		God (the LORD)	Normal		
-DEU	32	28	Moses			Normal		
-DEU	32	29	Moses			Normal		
-DEU	32	30	Moses			Normal		
-DEU	32	31	Moses			Normal		
-DEU	32	32	Moses			Normal		
-DEU	32	33	Moses			Normal		
-DEU	32	34	Moses			Normal		
-DEU	32	34	God		God (the LORD)	Normal		
-DEU	32	35	Moses			Normal		
-DEU	32	35	God		God (the LORD)	Normal		
-DEU	32	36	Moses			Normal		
-DEU	32	37	Moses			Normal		
-DEU	32	37	God		God (the LORD)	Normal		
-DEU	32	38	Moses			Normal		
-DEU	32	38	God		God (the LORD)	Normal		
-DEU	32	39	Moses			Normal		
-DEU	32	39	God		God (the LORD)	Normal		
-DEU	32	40	Moses			Normal		
-DEU	32	40	God		God (the LORD)	Normal		
-DEU	32	41	Moses			Normal		
-DEU	32	41	God		God (the LORD)	Normal		
-DEU	32	42	Moses			Normal		
-DEU	32	42	God		God (the LORD)	Normal		
-DEU	32	43	Moses			Normal		
+DEU	31	26	Moses			Implicit		
+DEU	31	27	Moses			Implicit		
+DEU	31	28	Moses			Implicit		
+DEU	31	29	Moses			Implicit		
+DEU	32	1	Moses			Implicit		
+DEU	32	2	Moses			Implicit		
+DEU	32	3	Moses			Implicit		
+DEU	32	4	Moses			Implicit		
+DEU	32	5	Moses			Implicit		
+DEU	32	6	Moses			Implicit		
+DEU	32	7	Moses			Implicit		
+DEU	32	8	Moses			Implicit		
+DEU	32	9	Moses			Implicit		
+DEU	32	10	Moses			Implicit		
+DEU	32	11	Moses			Implicit		
+DEU	32	12	Moses			Implicit		
+DEU	32	13	Moses			Implicit		
+DEU	32	14	Moses			Implicit		
+DEU	32	15	Moses			Implicit		
+DEU	32	16	Moses			Implicit		
+DEU	32	17	Moses			Implicit		
+DEU	32	18	Moses			Implicit		
+DEU	32	19	Moses			Implicit		
+DEU	32	20	Moses			Implicit		
+DEU	32	20	God		God (the LORD)	Quotation		
+DEU	32	21	Moses			Implicit		
+DEU	32	21	God		God (the LORD)	Quotation		
+DEU	32	22	Moses			Implicit		
+DEU	32	22	God		God (the LORD)	Quotation		
+DEU	32	23	Moses			Implicit		
+DEU	32	23	God		God (the LORD)	Quotation		
+DEU	32	24	Moses			Implicit		
+DEU	32	24	God		God (the LORD)	Quotation		
+DEU	32	25	Moses			Implicit		
+DEU	32	25	God		God (the LORD)	Quotation		
+DEU	32	26	Moses			Implicit		
+DEU	32	26	God		God (the LORD)	Quotation		
+DEU	32	27	Moses			Implicit		
+DEU	32	27	God		God (the LORD)	Quotation		
+DEU	32	28	Moses			Implicit		
+DEU	32	29	Moses			Implicit		
+DEU	32	30	Moses			Implicit		
+DEU	32	31	Moses			Implicit		
+DEU	32	32	Moses			Implicit		
+DEU	32	33	Moses			Implicit		
+DEU	32	34	Moses			Implicit		
+DEU	32	34	God		God (the LORD)	Quotation		
+DEU	32	35	Moses			Implicit		
+DEU	32	35	God		God (the LORD)	Quotation		
+DEU	32	36	Moses			Implicit		
+DEU	32	37	Moses			Implicit		
+DEU	32	37	God		God (the LORD)	Quotation		
+DEU	32	38	Moses			Implicit		
+DEU	32	38	God		God (the LORD)	Quotation		
+DEU	32	39	Moses			Implicit		
+DEU	32	39	God		God (the LORD)	Quotation		
+DEU	32	40	Moses			Implicit		
+DEU	32	40	God		God (the LORD)	Quotation		
+DEU	32	41	Moses			Implicit		
+DEU	32	41	God		God (the LORD)	Quotation		
+DEU	32	42	Moses			Implicit		
+DEU	32	42	God		God (the LORD)	Quotation		
+DEU	32	43	Moses			Implicit		
 DEU	32	46	Moses			Normal		
 DEU	32	47	Moses			Normal		
-DEU	32	49	God		God (the LORD)	Normal		
-DEU	32	50	God		God (the LORD)	Normal		
-DEU	32	51	God		God (the LORD)	Normal		
-DEU	32	52	God		God (the LORD)	Normal		
+DEU	32	49	God		God (the LORD)	Implicit		
+DEU	32	50	God		God (the LORD)	Implicit		
+DEU	32	51	God		God (the LORD)	Implicit		
+DEU	32	52	God		God (the LORD)	Implicit		
 DEU	33	2	Moses			Normal		
-DEU	33	3	Moses			Normal		
-DEU	33	4	Moses			Normal		
-DEU	33	5	Moses			Normal		
-DEU	33	6	Moses			Normal		
+DEU	33	3	Moses			Implicit		
+DEU	33	4	Moses			Implicit		
+DEU	33	5	Moses			Implicit		
+DEU	33	6	Moses			Implicit		
 DEU	33	7	Moses			Normal		
 DEU	33	8	Moses			Normal		
-DEU	33	9	Moses			Normal		
-DEU	33	10	Moses			Normal		
-DEU	33	11	Moses			Normal		
+DEU	33	9	Moses			Implicit		
+DEU	33	10	Moses			Implicit		
+DEU	33	11	Moses			Implicit		
 DEU	33	12	Moses			Normal		
 DEU	33	13	Moses			Normal		
-DEU	33	14	Moses			Normal		
-DEU	33	15	Moses			Normal		
-DEU	33	16	Moses			Normal		
-DEU	33	17	Moses			Normal		
+DEU	33	14	Moses			Implicit		
+DEU	33	15	Moses			Implicit		
+DEU	33	16	Moses			Implicit		
+DEU	33	17	Moses			Implicit		
 DEU	33	18	Moses			Normal		
-DEU	33	19	Moses			Normal		
+DEU	33	19	Moses			Implicit		
 DEU	33	20	Moses			Normal		
 DEU	33	21	Moses			Normal		
 DEU	33	22	Moses			Normal		
@@ -4229,14 +4222,14 @@ DEU	33	27	Moses			Normal
 DEU	33	28	Moses			Normal		
 DEU	33	29	Moses			Normal		
 DEU	34	4	God		God (the LORD)	Normal		
-JOS	1	2	God		God (the LORD)	Normal		
-JOS	1	3	God		God (the LORD)	Normal		
-JOS	1	4	God		God (the LORD)	Normal		
-JOS	1	5	God		God (the LORD)	Normal		
-JOS	1	6	God		God (the LORD)	Normal		
-JOS	1	7	God		God (the LORD)	Normal		
-JOS	1	8	God		God (the LORD)	Normal		
-JOS	1	9	God		God (the LORD)	Normal		
+JOS	1	2	God		God (the LORD)	Implicit		
+JOS	1	3	God		God (the LORD)	Implicit		
+JOS	1	4	God		God (the LORD)	Implicit		
+JOS	1	5	God		God (the LORD)	Implicit		
+JOS	1	6	God		God (the LORD)	Implicit		
+JOS	1	7	God		God (the LORD)	Implicit		
+JOS	1	8	God		God (the LORD)	Implicit		
+JOS	1	9	God		God (the LORD)	Implicit		
 JOS	1	11	Joshua			Normal		
 JOS	1	13	Joshua			Normal		
 JOS	1	14	Joshua			Normal		
@@ -8655,29 +8648,38 @@ ECC	9	16	narrator-ECC			Quotation
 ECC	10	20	narrator-ECC			Potential		
 ECC	12	1	narrator-ECC			Hypothetical		
 ECC	12	8	narrator-ECC			Quotation		
+SNG	1	2	beloved			Potential		
+SNG	1	3	beloved			Potential		
+SNG	1	4	beloved			Potential		
+SNG	1	4	lover			Quotation		
 SNG	1	4	maidens			Potential		
+SNG	1	4	Needs Review			Potential		
 SNG	1	8	lover			Potential		
 SNG	1	8	maidens			Potential		
-SNG	1	9	lover			Implicit		
-SNG	1	10	lover			Implicit		
+SNG	1	8	Needs Review			Implicit		
+SNG	1	9	lover			Potential		
+SNG	1	10	lover			Potential		
 SNG	1	11	lover			Potential		
 SNG	1	11	maidens			Potential		
-SNG	1	12	beloved			Implicit		
-SNG	1	13	beloved			Implicit		
-SNG	1	14	beloved			Implicit		
-SNG	1	15	lover			Implicit		
-SNG	1	16	beloved			Implicit		
-SNG	1	17	lover			Implicit		
-SNG	2	1	beloved			Implicit		
-SNG	2	2	lover			Implicit		
-SNG	2	3	beloved			Implicit		
-SNG	2	4	beloved			Implicit		
-SNG	2	5	beloved			Implicit		
-SNG	2	6	beloved			Implicit		
-SNG	2	7	lover			Potential		
+SNG	1	11	Needs Review			Implicit		
+SNG	1	12	beloved			Potential		
+SNG	1	13	beloved			Potential		
+SNG	1	14	beloved			Potential		
+SNG	1	15	lover			Potential		
+SNG	1	16	beloved			Potential		
+SNG	1	17	lover			Potential		
+SNG	1	17	beloved			Potential		
+SNG	1	17	Needs Review			Implicit		
+SNG	2	1	beloved			Potential		
+SNG	2	2	lover			Potential		
+SNG	2	3	beloved			Potential		
+SNG	2	4	beloved			Potential		
+SNG	2	5	beloved			Potential		
+SNG	2	6	beloved			Potential		
 SNG	2	7	beloved			Potential		
-SNG	2	8	beloved			Implicit		
-SNG	2	9	beloved			Implicit		
+SNG	2	8	beloved			Potential		
+SNG	2	9	beloved			Potential		
+SNG	2	10	beloved			Potential		
 SNG	2	10	lover			Quotation		
 SNG	2	11	beloved			Potential		
 SNG	2	11	lover			Quotation		
@@ -8685,13 +8687,14 @@ SNG	2	12	beloved			Potential
 SNG	2	12	lover			Quotation		
 SNG	2	13	beloved			Potential		
 SNG	2	13	lover			Quotation		
+SNG	2	14	beloved			Potential		
 SNG	2	14	lover			Quotation		
 SNG	2	15	lover			Quotation		
 SNG	2	15	lover			Potential		
 SNG	2	15	beloved			Potential		
 SNG	2	15	maidens			Potential		
-SNG	2	16	beloved			Implicit		
-SNG	2	17	beloved			Implicit		
+SNG	2	16	beloved			Potential		
+SNG	2	17	beloved			Potential		
 SNG	3	1	beloved			Implicit		
 SNG	3	2	beloved			Implicit		
 SNG	3	3	beloved			Implicit		
@@ -8709,7 +8712,6 @@ SNG	3	9	maidens			Potential
 SNG	3	10	beloved			Potential		
 SNG	3	10	maidens			Potential		
 SNG	3	11	beloved			Potential		
-SNG	3	11	maidens			Potential		
 SNG	4	1	lover			Implicit		
 SNG	4	2	lover			Implicit		
 SNG	4	3	lover			Implicit		
@@ -16624,17 +16626,21 @@ ROM	3	5	Jews, the	speaking ironically		Hypothetical
 ROM	3	7	someone	arguing		Hypothetical		
 ROM	3	8	Paul		we (the Apostles, including Paul)	Hypothetical		
 ROM	3	10	scripture			Quotation	David	
-ROM	3	11	scripture			Quotation	David	
-ROM	3	12	scripture			Quotation	David	
-ROM	3	13	scripture			Quotation	David	
-ROM	3	14	scripture			Quotation	psalmist	
-ROM	3	15	scripture			Quotation	Isaiah	
-ROM	3	16	scripture			Quotation	Isaiah	
-ROM	3	17	scripture			Quotation	Isaiah	
-ROM	3	18	scripture			Quotation	David	
+ROM	3	11	scripture			Implicit	David	
+ROM	3	12	scripture			Implicit	David	
+ROM	3	13	scripture			Implicit	David	
+# ROM 3:14 is a quote from PSA 10:7. While the Septuigint combines PSA 10 with 9 (The Hebrew has them separate)
+# and therefore attributes the whole thing to David, Davidic authorship is disputed by some. We used to just
+# default to psalmist, but since Psalm 10 now overrides to David, it makes more sense to go with the more
+# popular position that this is indeed Davidic.
+ROM	3	14	scripture			Implicit	David	
+ROM	3	15	scripture			Implicit	Isaiah	
+ROM	3	16	scripture			Implicit	Isaiah	
+ROM	3	17	scripture			Implicit	Isaiah	
+ROM	3	18	scripture			Implicit	David	
 ROM	4	3	scripture			Quotation		
-ROM	4	7	scripture			Quotation	David	
-ROM	4	8	scripture			Quotation	David	
+ROM	4	7	scripture			Implicit	David	
+ROM	4	8	scripture			Implicit	David	
 ROM	4	9	scripture			Quotation		
 ROM	4	17	scripture			Quotation	God	
 ROM	4	18	scripture			Quotation	God	
@@ -16763,7 +16769,7 @@ ROM	16	22	Tertius			Indirect
 2CO	8	17	Titus			Indirect		
 2CO	9	2	Paul			Indirect		
 2CO	9	7	each one			Hypothetical		
-2CO	9	9	scripture			Quotation	psalmist	
+2CO	9	9	scripture			Quotation	Moses	
 2CO	10	1	narrator-2CO			Quotation		
 2CO	10	10	some people (quoted by Paul)			Quotation		
 2CO	10	17	scripture			Quotation	God	

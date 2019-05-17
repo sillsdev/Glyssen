@@ -52,11 +52,13 @@ namespace Glyssen.Character
 		public static string GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
 		{
 			var details = GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)?.ToList();
-			if (details == null)
-				return null;
-			if (details.Count == 1)
-				return details[0].Character;
-			throw new NotImplementedException("Handle multiple");
+			switch (details.Count)
+			{
+				case 0: return null;
+				case 1: return details[0].Character;
+				default:
+					throw new NotImplementedException("Handle multiple");
+			}
 		}
 
 		public static IEnumerable<NarratorOverrideDetail> GetCharacterOverrideDetailsForRefRange(VerseRef startRef, int endVerse)

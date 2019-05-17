@@ -222,15 +222,21 @@ namespace ControlDataIntegrityTests
 		/// dramatized, but it is not necessarily clear who is speaking.
 		/// </summary>
 		[Test]
-		public void DataIntegrity_ImplicitCharacterIsExclusiveUnlessItIsNeedsReview()
+		public void DataIntegrity_ImplicitCharacterIsExclusiveUnlessItIsNeedsReviewOrTheOtherEntryIsAQuotationInDeuteronomy()
 		{
 			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
 				.Where(i => i.QuoteType == QuoteType.Implicit && i.Character != CharacterVerseData.kNeedsReview))
 			{
-				Assert.AreEqual(0, ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
-					cv.Chapter, cv.Verse, versification:ScrVers.English).Count(c => c != cv),
+				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
+					cv.Chapter, cv.Verse, versification: ScrVers.English).Where(c => c != cv).ToList();
+				if (otherEntries.Any())
+				{
+					Assert.IsTrue(cv.BookCode == "DEU" && otherEntries.All(o => 
+						o.QuoteType == QuoteType.Quotation || o.QuoteType == QuoteType.Hypothetical ||
+						o.QuoteType == QuoteType.Indirect),
 					$"Character-verse file contains an Implicit quote for {cv.Character} in {cv.BookCode} {cv.Chapter}:{cv.Verse} " +
-					"that also has other possible quotes.");
+						"that also has other incompatible quotes.");
+				}
 			}
 		}
 
