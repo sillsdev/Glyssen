@@ -877,6 +877,26 @@ namespace GlyssenTests
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
 		}
 
+		[Test]
+		public void MigrateDeprecatedCharacterIds_NormalQuoteChangedToAlternate_CharacterIdUnchanged()
+		{
+			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8).Any(cv => cv.Character == "God"),
+				"Test setup condition not met: God should not be returned as a character when includeAlternates is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8, includeAlternates:true).Any(cv => cv.Character == "God"),
+				"Test setup condition not met: God should be returned as a character when includeAlternates is true.");
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var blockText = new List<string>(2);
+			foreach (var block in testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote))
+			{
+				block.SetNonDramaticCharacterId("God");
+				blockText.Add(block.ToString(true, "REV"));
+			}
+			Assert.That(blockText.Any(), "Test setup condition not met: There should be a direct quote in Rev 1:8");
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.IsTrue(blockText.SequenceEqual(testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote).Select(b => b.ToString(true, "REV"))));
+		}
+
 		/// <summary>
 		/// PG-471
 		/// </summary>

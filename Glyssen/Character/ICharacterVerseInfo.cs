@@ -5,7 +5,7 @@ namespace Glyssen.Character
 {
 	public interface ICharacterVerseRepository
 	{
-		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null);
+		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
 	}
 
 	public interface ICharacterVerseInfo : ICharacterVerseRepository

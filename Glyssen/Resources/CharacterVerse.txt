@@ -8835,8 +8835,9 @@ SNG	8	12	beloved			Potential
 SNG	8	13	lover			Potential		
 SNG	8	14	beloved			Potential		
 ISA	1	2	God		God (the LORD) (in vision)	Normal		
-ISA	1	2	Isaiah			Normal		
+ISA	1	2	Isaiah			Alternate		
 ISA	1	3	God		God (the LORD) (in vision)	Normal		
+ISA	1	3	Isaiah			Alternate		
 ISA	1	4	Isaiah			Potential		
 ISA	1	5	Isaiah			Potential		
 ISA	1	6	Isaiah			Potential		
@@ -8858,17 +8859,21 @@ ISA	1	21	Isaiah			Potential
 ISA	1	22	Isaiah			Potential		
 ISA	1	23	Isaiah			Potential		
 ISA	1	24	God		God (the LORD)	Normal		
-ISA	1	24	Isaiah			Normal		
+ISA	1	24	Isaiah			Alternate		
 ISA	1	25	God		God (the LORD)	Normal		
+ISA	1	25	Isaiah			Alternate		
 ISA	1	26	God		God (the LORD)	Normal		
-ISA	1	27	Isaiah			Potential		
-ISA	1	28	Isaiah			Potential		
+ISA	1	26	Isaiah			Alternate		
+ISA	1	27	God		God (the LORD)	Potential		
+ISA	1	27	Isaiah			Alternate		
+ISA	1	28	God		God (the LORD)	Potential		
+ISA	1	28	Isaiah			Alternate		
 ISA	1	29	God		God (the LORD)	Potential		
-ISA	1	29	Isaiah			Potential		
+ISA	1	29	Isaiah			Alternate		
 ISA	1	30	God		God (the LORD)	Potential		
-ISA	1	30	Isaiah			Potential		
+ISA	1	30	Isaiah			Alternate		
 ISA	1	31	God		God (the LORD)	Potential		
-ISA	1	31	Isaiah			Potential		
+ISA	1	31	Isaiah			Alternate		
 ISA	2	3	peoples, many			Hypothetical		
 ISA	2	4	Isaiah			Potential		
 ISA	2	5	Isaiah			Potential		
@@ -16192,11 +16197,13 @@ ACT	10	4	angel		angel of God	Normal
 ACT	10	4	Cornelius	afraid		Normal		
 ACT	10	5	angel		angel of God	Normal		
 ACT	10	6	angel		angel of God	Normal		
-ACT	10	13	God		voice (of God)	Normal		
-ACT	10	13	Jesus		voice (of Jesus)	Normal		
+ACT	10	13	Holy Spirit, the		voice (of the Holy Spirit)	Normal		
+ACT	10	13	God		voice (of God)	Alternate		
+ACT	10	13	Jesus		voice (of Jesus)	Alternate		
 ACT	10	14	Peter (Simon)			Normal		
-ACT	10	15	God		voice (of God)	Normal		
-ACT	10	15	Jesus		voice (of Jesus)	Normal		
+ACT	10	15	Holy Spirit, the		voice (of the Holy Spirit)	Normal		
+ACT	10	15	God		voice (of God)	Alternate		
+ACT	10	15	Jesus		voice (of Jesus)	Alternate		
 ACT	10	17	Peter (Simon)			Indirect		
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		
@@ -17007,7 +17014,7 @@ JUD	1	14	Enoch			Normal
 JUD	1	15	Enoch			Normal		
 JUD	1	18	apostles			Normal		
 REV	1	7	narrator-REV			Quotation		
-REV	1	8	God		God (the Lord)	Normal		
+REV	1	8	God		God (the Lord)	Alternate		
 REV	1	8	Jesus		Jesus (the Lord)	Normal		
 REV	1	11	Jesus		voice like a trumpet	Normal		
 REV	1	13	narrator-REV			Quotation		

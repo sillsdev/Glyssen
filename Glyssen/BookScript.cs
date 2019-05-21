@@ -284,6 +284,11 @@ namespace Glyssen
 				{
 					if (!applyOverride)
 					{
+						if (currentLastVerseNum < block.InitialStartVerseNumber && currentVerseBlocksAllNarrator)
+						{
+							applyOverride = true;
+							continue;
+						}
 						currentLastVerseNum = block.LastVerseNum;
 						currentVerseBlocksAllNarrator = false;
 					}

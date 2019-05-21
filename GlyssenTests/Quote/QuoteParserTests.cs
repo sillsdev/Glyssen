@@ -6,6 +6,7 @@ using Glyssen.Character;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using NUnit.Framework;
+using SIL.Extensions;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.WritingSystems;
@@ -5400,6 +5401,28 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.IsTrue(output[1].CharacterIsUnclear);
+		}
+
+		[Test]
+		public void Parse_AlternateCharactersInControlFile_QuoteAssignedToNormalCharacter()
+		{
+			var bookNumActs = BCVRef.BookToNumber("ACT");
+			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, 15)
+				.Any(cv => cv.Character == "God" || cv.Character == "Jesus"),
+				"Test setup condition not met: Neither God nor Jesus should be returned as a character when includeAlternates is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, 15, includeAlternates: true)
+				.Select(cv => cv.Character)
+				.SetEquals(new HashSet<string>{"Holy Spirit, the", "God", "Jesus"}),
+				"Test setup condition not met: God and Jesus should be returned as a character when includeAlternates is true.");
+
+			var input = new List<Block> { new Block("p", 10, 15)
+				.AddVerse(15, "Il entend la voix ... fois. Elle lui dit: «Ce que Dieu a ... interdit!»") };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.IsTrue(output[0].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("Holy Spirit, the", output[1].CharacterId);
+			Assert.IsFalse(output[1].UserConfirmed);
 		}
 
 		[Test]

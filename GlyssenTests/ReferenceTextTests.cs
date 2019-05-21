@@ -2441,7 +2441,7 @@ namespace GlyssenTests
 		{
 			// This test is based on the NarratorOverrides.xml control file having the following contents:
 			//< Override startChapter = "68" endChapter = "70" character = "David" />
-			//< !--FCBH Has Psalm 71 being narrated by "Psalmist"-- >
+			//<Override startChapter="71" character="psalmist"/>
 			//< Override startChapter = "72" character = "Solomon, king" />
 			//< Override startChapter = "73" endChapter = "82" endVerse = "1" character = "Asaph" />
 			//< Override startChapter = "82" startVerse = "2" endVerse = "7" character = "God" />
@@ -2543,7 +2543,7 @@ namespace GlyssenTests
 					switch (b.ChapterNumber)
 					{
 						case 71:
-							Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
+							Assert.AreEqual("psalmist", b.CharacterIdInScript);
 							break;
 						case 72:
 							Assert.AreEqual("Solomon, king", b.CharacterIdInScript);
@@ -2738,7 +2738,7 @@ namespace GlyssenTests
 		{
 			// This test is based on the NarratorOverrides.xml control file having the following contents:
 			//<Override startChapter = "68" endChapter = "70" character = "David" />
-			//<!--FCBH Has Psalm 71 being narrated by "Psalmist"-- >
+			//<Override startChapter="71" character="psalmist"/>
 			//<Override startChapter = "72" character = "Solomon, king" />
 			//<Override startChapter = "73" endChapter = "82" endVerse = "1" character = "Asaph" />
 			//<Override startChapter="81" startVerse="6" character="God"/>
@@ -2836,7 +2836,7 @@ namespace GlyssenTests
 					switch (b.ChapterNumber)
 					{
 						case 70:
-							Assert.AreEqual(psalms.NarratorCharacterId, b.CharacterIdInScript);
+							Assert.AreEqual("psalmist", b.CharacterIdInScript);
 							break;
 						case 71:
 							Assert.AreEqual("Solomon, king", b.CharacterIdInScript);

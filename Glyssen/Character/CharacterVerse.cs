@@ -76,6 +76,7 @@ namespace Glyssen.Character
 		/// quoted or commanded to speak actually speak the words (especially it is a command to say
 		/// something immediately (e.g., when God tells Moses or a prophet to say something). This quote
 		/// type is used any place where the reference text dramatizes this kind of second-level speech.
+		/// See also, <seealso cref="Alternate"/>
 		/// </summary>
 		Quotation,
 
@@ -89,6 +90,22 @@ namespace Glyssen.Character
 		/// will always be marked as ambiguous so the user has a chance to evaluate them and decide what to do.
 		/// </summary>
 		Interruption,
+
+		/// <summary>
+		/// Used to indicate a possible alternate speaker for dramatization purposes. This is normally used in
+		/// prophetic works or other places where speech is attributed to both the original speaker and the
+		/// prophet, spokesperson, or announcer. As opposed to <seealso cref="Quotation"/>, which normally
+		/// indicates past speech, this quote type is used to distinguish between the character presumed to be
+		/// the preferred speaker and an alternate speaker who could legitimately speak the same lines but is
+		/// not expected to (based on the decision reflected by the reference text). Hence, Glyssen will
+		/// automatically assign the quoted text to the preferred chatacter and never to the alternate, but the
+		/// alternate will be listed as an option in Identify Speaking Parts, in case the scripter wants to
+		/// choose that character instead. This makes it possible to avoid ambiguity for the vast number of
+		/// passages where there is a single well-defined quote and the ambiguity is mearly a dramatization
+		/// decision. (Basically, the effect is the same as using <seealso cref="Hypothetical"/>, except without
+		/// the performance hit to look in the reference text to see whether the alternate character is used.
+		/// </summary>
+		Alternate,
 	}
 
 	public class CharacterVerse

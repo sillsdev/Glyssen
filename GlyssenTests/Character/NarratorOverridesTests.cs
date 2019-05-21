@@ -24,9 +24,9 @@ namespace GlyssenTests.Character
 		[Test]
 		public void GetCharacterOverrideDetailsForRefRange_ChapterBeforeAnyOverrideInBook_ReturnsEmpty()
 		{
-			var bookNum = BCVRef.BookToNumber("PSA");
-			var psalm1_1 = new VerseRef(new BCVRef(bookNum, 1, 1), ScrVers.English);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(psalm1_1, 1).Any());
+			var bookNum = BCVRef.BookToNumber("EZR");
+			var ezra1_1 = new VerseRef(new BCVRef(bookNum, 1, 1), ScrVers.English);
+			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra1_1, 1).Any());
 		}
 
 		[Test]
@@ -155,7 +155,7 @@ namespace GlyssenTests.Character
 			if (verse == -1)
 				verse = ScrVers.Vulgate.GetLastVerse(bookNum, chapter);
 			var verseRef = new VerseRef(new BCVRef(bookNum, chapter, verse), ScrVers.Vulgate);
-			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Any());
+			Assert.IsTrue(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character == "psalmist");
 		}
 	}
 }

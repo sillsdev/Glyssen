@@ -190,7 +190,7 @@ namespace Glyssen.Character
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false)
 		{
 			if (versification == null)
 				versification = ScrVers.English;
@@ -212,6 +212,8 @@ namespace Glyssen.Character
 				for (int i = start; i <= end; i++)
 					result = result.Union(m_lookup[i]);
 			}
+			if (!includeAlternates)
+				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate);
 			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
 

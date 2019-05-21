@@ -24,6 +24,7 @@ namespace GlyssenTests.Dialogs
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 
@@ -1517,16 +1518,16 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
-		// PG-1104
+		// PG-1104 - Note: We now always include factory hypothetical characters in our list
+		// (though they might not be considered by the quote parser), so they should be treated
+		// like any other character - it is an exception to attempt to add one that already exists.
 		[Test]
-		public void StoreCharacterDetail_CharacterDetailOnlyUsedForHypotheticalSpeech_DoesNotThrow()
+		public void StoreCharacterDetail_CharacterDetailOnlyUsedForHypotheticalSpeech_Throws()
 		{
-			m_fullProjectRefreshRequired = true;
-			m_model.StoreCharacterDetail("sluggard", CharacterGender.Male, CharacterAge.Adult);
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("sluggard"),
-				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
-			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("sluggard"));
+			Assert.Throws<ArgumentException>(() =>
+			{
+				m_model.StoreCharacterDetail("sluggard", CharacterGender.Male, CharacterAge.Adult);
+			});
 		}
 
 		[Test]
@@ -1992,6 +1993,24 @@ namespace GlyssenTests.Dialogs
 				m_model.LoadPreviousRelevantBlock();
 				Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
 			}
+		}
+
+		[Test]
+		public void GetCharactersForCurrentReference_AlternatesPresent_GetsAllIncludingAlternates()
+		{
+			m_model.Mode = BlocksToDisplay.AllQuotes;
+			while (m_model.CurrentBlock.ChapterNumber != 10 || m_model.CurrentBlock.InitialStartVerseNumber != 13)
+				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual("ACT", m_model.CurrentBookId);
+			Assert.AreEqual(10, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(13, m_model.CurrentBlock.InitialStartVerseNumber);
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
+			Assert.AreEqual(4, characters.Count);
+			Assert.IsFalse(characters.Any(c => c.ProjectSpecific));
+			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "Jesus"));
+			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "God"));
+			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "Holy Spirit, the"));
 		}
 	}
 

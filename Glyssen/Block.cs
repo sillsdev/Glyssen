@@ -854,7 +854,7 @@ namespace Glyssen
 		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
 		{
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
-				InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId);
+				InitialEndVerseNumber, versification: scrVers, includeAlternates:true).FirstOrDefault(c => c.Character == CharacterId);
 		}
 
 		public static string BuildSplitLineHtml(int id)

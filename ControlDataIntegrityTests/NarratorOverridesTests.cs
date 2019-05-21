@@ -115,6 +115,22 @@ namespace ControlDataIntegrityTests
 			}
 		}
 
+		[Test]
+		public void DataIntegrity_EndChaptersAndVersesWithinEnglishVersificationLimits()
+		{
+			foreach (var bookOverrides in NarratorOverrides.NarratorOverridesByBookId)
+			{
+				var bookNum = BCVRef.BookToNumber(bookOverrides.Key);
+				foreach (NarratorOverrides.NarratorOverrideDetail overrideDetail in bookOverrides.Value)
+				{
+					Assert.True(overrideDetail.EndChapter <= ScrVers.English.GetLastChapter(bookNum),
+						$"Invalid end chapter: {overrideDetail}");
+					Assert.True(overrideDetail.EndVerse <= ScrVers.English.GetLastVerse(bookNum, overrideDetail.EndChapter),
+						$"Invalid end verse: {overrideDetail}");
+				}
+			}
+		}
+
 		/// <summary>
 		/// The Implicit quote type indicates that we expect the (whole) verse to be spoken by a particular (real-life)
 		/// character (or in the case of Wisdom and Folly in Proverbs, personfications of real abstract-concept characters).

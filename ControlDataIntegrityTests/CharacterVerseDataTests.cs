@@ -240,6 +240,28 @@ namespace ControlDataIntegrityTests
 			}
 		}
 
+		/// <summary>
+		/// The Alternate quote type implies that there should also be (at least one) regular (not Indirect, Hypotthetical or Interruption)
+		/// entry for the verse.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_AlternateAccompaniedByAnotherCharacter()
+		{
+			foreach (var alternate in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+				.Where(i => i.QuoteType == QuoteType.Alternate))
+			{
+				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(alternate.BookCode),
+					alternate.Chapter, alternate.Verse, versification: ScrVers.English)
+					.Where(c => c.QuoteType == QuoteType.Normal ||
+					c.QuoteType == QuoteType.Potential ||
+					c.QuoteType == QuoteType.Dialogue ||
+					c.QuoteType == QuoteType.Quotation);
+				Assert.IsTrue(otherEntries.Any(),
+					$"Character-verse file contains an Alternate quote for {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}" +
+					", but there is no primary character.");
+			}
+		}
+
 		private class BcvCharacterAndTypeEqualityComparer : IEqualityComparer<CharacterVerse>
 		{
 			public bool Equals(CharacterVerse x, CharacterVerse y)

@@ -630,8 +630,8 @@ namespace GlyssenTests
 					for (int v = startVerse; v <= endVerse; v++)
 					{
 						if (c == 72 && v == 1)
-						Assert.True(testBook.GetBlocksForVerse(c, v).All(b => testBook.GetCharacterIdInScript(b) == expectedCharacter),
-							$"Unexpected character in {bookId} {c}:{v} (expected: {expectedCharacter})");
+							Assert.True(testBook.GetBlocksForVerse(c, v).All(b => testBook.GetCharacterIdInScript(b) == expectedCharacter),
+								$"Unexpected character in {bookId} {c}:{v} (expected: {expectedCharacter})");
 					}
 				}
 			}
