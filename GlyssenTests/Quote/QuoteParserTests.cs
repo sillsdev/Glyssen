@@ -5728,17 +5728,29 @@ namespace GlyssenTests.Quote
 		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithMultipleLeadingAndSingleTrailingNarratorVerse_ImplicitCharacterInfoNotSet()
 		{
 			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
-			var block1 = new Block("p", 8, 30) { IsParagraphStart = true }.AddVerse(30, "Moses sprinkled the men with oil.")
-				.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.")
-				.AddVerse(32, "Burn the leftovers.").AddVerse(33, "Stay seven days until you are consecrated.")
-				.AddVerse(34, "This is how the Lord will make atomnement.").AddVerse(35, "Staying there night and day will keep you from dying.")
+			var block1 = new Block("p", 8, 30) { IsParagraphStart = true }.AddVerse(30, "Moses sprinkled the men with oil. ")
+				.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
+				.AddVerse(32, "Burn the leftovers.").AddVerse(33, "Stay seven days until you are consecrated. ")
+				.AddVerse(34, "This is how the Lord will make atomnement. ").AddVerse(35, "Staying there night and day will keep you from dying. ")
 				.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
-			Assert.Fail("Write this test based on PG-40 decision");
+			Assert.AreEqual(4, output.Count);
+			int i = 1;
+			var outBlock = output[i++];
+			Assert.AreEqual(30, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, outBlock.LastVerseNum);
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(32, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(35, outBlock.LastVerseNum);
+			Assert.AreEqual("Moses", outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(36, outBlock.InitialStartVerseNumber);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
@@ -5754,7 +5766,19 @@ namespace GlyssenTests.Quote
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
-			Assert.Fail("Write this test based on PG-40 decision");
+			Assert.AreEqual(4, output.Count);
+			int i = 1;
+			var outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, outBlock.LastVerseNum);
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(32, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(35, outBlock.LastVerseNum);
+			Assert.AreEqual("Moses", outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(36, outBlock.InitialStartVerseNumber);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
@@ -5762,16 +5786,29 @@ namespace GlyssenTests.Quote
 		{
 			var chapter = new Block("c", 8) {CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter)}.AddText("8");
 			var block1 = new Block("p", 8, 31) {IsParagraphStart = true}.AddVerse(31, "And Moses told Aaron and sons,");
-			var block2 = new Block("p", 8, 31) {IsParagraphStart = true}.AddText("Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.")
-				.AddVerse(32, "Burn the leftovers.").AddVerse(33, "Stay seven days until you are consecrated.")
-				.AddVerse(34, "This is how the Lord will make atomnement.").AddVerse(35, "Staying there night and day will keep you from dying.");
+			var block2 = new Block("p", 8, 31) {IsParagraphStart = true}.AddText("Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
+				.AddVerse(32, "Burn the leftovers. ").AddVerse(33, "Stay seven days until you are consecrated. ")
+				.AddVerse(34, "This is how the Lord will make atomnement. ").AddVerse(35, "Staying there night and day will keep you from dying. ");
 			var block3 = new Block("q1", 8, 36) {IsParagraphStart = true}.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> {chapter, block1, block2, block3 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
-			Assert.Fail("Write this test based on PG-40 decision");
+			Assert.AreEqual(4, output.Count);
+			int i = 1;
+			var outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, outBlock.LastVerseNum);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+			outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ", ((ScriptText)outBlock.BlockElements.First()).Content);
+			Assert.AreEqual(35, outBlock.LastVerseNum);
+			Assert.AreEqual("Moses", outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(36, outBlock.InitialStartVerseNumber);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
