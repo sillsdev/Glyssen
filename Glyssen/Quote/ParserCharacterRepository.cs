@@ -28,5 +28,10 @@ namespace Glyssen.Quote
 						CharacterVerseData.GetStandardCharacterId(cv.BookCode, CharacterVerseData.StandardCharacter.Narrator),
 						String.Empty, String.Empty, false, QuoteType.Quotation)).Distinct();
 		}
+
+		public string GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		{
+			return m_cvInfo.GetImplicitCharacter(bookId, chapter, startVerse, endVerse, versification);
+		}
 	}
 }

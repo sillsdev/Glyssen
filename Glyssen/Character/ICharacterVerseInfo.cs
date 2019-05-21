@@ -5,7 +5,14 @@ namespace Glyssen.Character
 {
 	public interface ICharacterVerseRepository
 	{
-		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
+		/// <summary>
+		/// Gets all characters completely covered by the given range of verses. If there are multiple verses, only
+		/// characters known to speak in ALL the verses will be included in the returned set.
+		/// </summary>
+		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
+
+		string GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null);
 	}
 
 	public interface ICharacterVerseInfo : ICharacterVerseRepository

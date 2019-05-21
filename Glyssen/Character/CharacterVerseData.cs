@@ -253,6 +253,11 @@ namespace Glyssen.Character
 			return result.Union(interruption);
 		}
 
+		public string GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		{
+			throw new NotImplementedException();
+		}
+
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
 		{
 			return m_data;

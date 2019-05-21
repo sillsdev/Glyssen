@@ -487,8 +487,36 @@ namespace Glyssen.Quote
 				var block = m_outputBlocks[i];
 				if (block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
 				{
-					var implicitCv = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+					CharacterVerse implicitCv = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
 						block.LastVerseNum, m_versification).SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+					if (implicitCv == null)
+					{
+						int iElem;
+						for (iElem = 1; iElem < block.BlockElements.Count; iElem++)
+						{
+							if (block.BlockElements[iElem] is Verse verse)
+							{
+								implicitCv = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, verse.StartVerse,
+									verse.EndVerse, 0, m_versification).SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+								if (implicitCv != null)
+									break;
+							}
+						}
+						if (implicitCv != null)
+						{
+							var newBlock = new Block(block.StyleTag, block.ChapterNumber,
+								block.InitialStartVerseNumber, block.InitialEndVerseNumber)
+							{
+								CharacterId = block.CharacterId,
+								BlockElements = block.BlockElements.Take(iElem).ToList(),
+							};
+							m_outputBlocks.Insert(i++, newBlock);
+							if (m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, newBlock.LastVerseNum, versification: m_versification)
+								.Any(cv => cv.Character == implicitCv.Character))
+								newBlock.CharacterId = CharacterVerseData.kNeedsReview;
+							block.BlockElements = block.BlockElements.Skip(iElem).ToList();
+						}
+					}
 					if (implicitCv != null)
 					{
 						block.SetNonDramaticCharacterId(implicitCv.Character);
