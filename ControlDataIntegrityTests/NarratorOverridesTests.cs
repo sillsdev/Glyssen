@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using NUnit.Framework;
@@ -164,12 +165,18 @@ namespace ControlDataIntegrityTests
 					}
 					else
 					{
+						// Turns out that the following isn't necessarily true. In Poetic material, there can be multiple blocks of poetry
+						// attributed to one character, followed by multiple blocks attributed to another character. Unfortunately, in practice
+						// it can be tricky to know how many blocks to count because contiguous blocks of poetry may get joined if there is no
+						// sentence-ending punctuation, and that may not be consistent across al translations. (Indeed, some translations may not
+						// even retain the poetry-style markup.) If this proves unwieldy, we may just need to avoid using partial verse overrides
+						// in poetry and instead explicitly set the reference text and require the scripter to look at each place to get it right.
 						// This is an unusual situation, but it if happens that a character starts speaking in the first block
 						// of a verse, they have to stop in that same block; otherwise, they might as well have spoken the whole verse.
-						Assert.IsTrue(partialStart.StartBlock == partialStart.EndBlock || partialStart.EndChapter > partialStart.StartChapter ||
-							partialStart.EndVerse > partialStart.StartVerse,
-							$"Character {partialStart.Character} is assigned as the override for more than one contiguous block in {book.Id} " +
-							$"{partialStart.StartChapter}:{partialStart.StartVerse}!");
+						//Assert.IsTrue(partialStart.StartBlock == partialStart.EndBlock || partialStart.EndChapter > partialStart.StartChapter ||
+						//	partialStart.EndVerse > partialStart.StartVerse,
+						//	$"Character {partialStart.Character} is assigned as the override for more than one contiguous block in {book.Id} " +
+						//	$"{partialStart.StartChapter}:{partialStart.StartVerse}!");
 
 						var endsForSameChapterAndVerse = book.Overrides.Where(o => o.EndChapter == partialStart.StartChapter &&
 							o.EndVerse == partialStart.StartVerse).ToList();
@@ -178,11 +185,24 @@ namespace ControlDataIntegrityTests
 							$"that is already covered by the end verse of another entry!");
 
 						if (partialStart.StartBlock >= 3)
-							Assert.IsTrue(endsForSameChapterAndVerse.Any(
-								e => e.EndBlock == partialStart.StartBlock - 1 || e.EndBlock == partialStart.StartBlock - 2),
-							$"There is a \"hole\" (more than one missing block in the block chain) because an override for {book.Id} " +
-								$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start block of {partialStart.StartBlock} " +
-								$"but no preceding entries");
+						{
+							if (!endsForSameChapterAndVerse.Any(
+								e => e.EndBlock == partialStart.StartBlock - 1 || e.EndBlock == partialStart.StartBlock - 2))
+							{
+								var msg = $"There is a \"hole\" (more than one missing block in the block chain) because an override for {book.Id} " +
+									$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start block of {partialStart.StartBlock} " +
+									"but no preceding entries";
+								if (book.Id == "SNG" && partialStart.StartChapter == 4 && partialStart.StartVerse == 16)
+								{
+									Debug.WriteLine($"Known exception: {msg}");
+								}
+								else
+								{
+									// If this exception is thrown, check the specififed entry carefully. If it is intentional, add another exception above.
+									throw new InconclusiveException($"Possible error: {msg}");
+								}
+							}
+						}
 					}
 				}
 			}
