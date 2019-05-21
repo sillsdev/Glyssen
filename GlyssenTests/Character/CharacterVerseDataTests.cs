@@ -79,6 +79,17 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
+		public void GetCharacters_NonEnglishVersificationWithVerseBridge_FindsCharacterAfterChangingVersification()
+		{
+			// Psalm 37:16-17 in Russian Orthodox => Psalm 38:15-16 in English
+			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 38, 15, 16,
+				versification: ScrVers.English).Single().Character;
+			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, 16, 17,
+				versification:ScrVers.RussianOrthodox).Single();
+			Assert.AreEqual(expected, character.Character);
+		}
+
+		[Test]
 		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForThirdVerse_FindsCharacterForThirdVerse()
 		{
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, 1, 0, 3).Single();

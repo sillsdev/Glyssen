@@ -197,19 +197,20 @@ namespace Glyssen.Character
 
 			IEnumerable<CharacterVerse> result;
 
+			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
+			verseRef.ChangeVersification(ScrVers.English);
+
 			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
 			{
-				var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
-				verseRef.ChangeVersification(ScrVers.English);
 				result = m_lookup[verseRef.BBBCCCVVV];
 			}
 			else
 			{
-				// REVIEW: Don't we need to call ChangeVersification here?
-				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
-				int end = new BCVRef(bookId, chapter, initialEndVerse).BBCCCVVV;
+				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
+				initialEndRef.ChangeVersification(ScrVers.English);
+				int end = initialEndRef.BBBCCCVVV;
 				result = Enumerable.Empty<CharacterVerse>();
-				for (int i = start; i <= end; i++)
+				for (int i = verseRef.BBBCCCVVV; i <= end; i++)
 					result = result.Union(m_lookup[i]);
 			}
 			if (!includeAlternates)
@@ -223,7 +224,7 @@ namespace Glyssen.Character
 			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
 			while (nextVerse <= finalVerse)
 			{
-				var verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
+				verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
 				verseRef.ChangeVersification(ScrVers.English);
 				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
 				if (nextResult.Any())
