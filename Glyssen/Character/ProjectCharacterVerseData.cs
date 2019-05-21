@@ -31,6 +31,12 @@ namespace Glyssen.Character
 			});
 		}
 
+		public override CharacterVerse GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		{
+			// There's no way to add a project-specific implicit character
+			return null;
+		}
+
 		public void WriteToFile(string fullPath)
 		{
 			RemoveDataAlsoInControlFile();

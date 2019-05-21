@@ -254,9 +254,29 @@ namespace Glyssen.Character
 			return result.Union(interruption);
 		}
 
-		public string GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		public virtual CharacterVerse GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
 		{
-			throw new NotImplementedException();
+			if (versification == null)
+				versification = ScrVers.English;
+
+			var startRef = new VerseRef(bookId, chapter, startVerse, versification);
+			startRef.ChangeVersification(ScrVers.English);
+			var start = startRef.BBBCCCVVV;
+			var implicitCv = m_lookup[start].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+
+			if (endVerse == 0 || startVerse == endVerse)
+				return implicitCv;
+
+			var endRef = new VerseRef(bookId, chapter, endVerse, versification);
+			endRef.ChangeVersification(ScrVers.English);
+			int end = endRef.BBBCCCVVV;
+			for (int i = start; i <= end; i++)
+			{
+				var cvImplicit = m_lookup[i].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+				if (cvImplicit != null)
+					return cvImplicit;
+			}
+			return null;
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()

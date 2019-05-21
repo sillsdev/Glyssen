@@ -5857,7 +5857,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_ImplicitQuoteIsPartOfAVerseBridge_Hmmmmmmmm()
+		public void Parse_ImplicitQuoteIsPartOfAVerseBridge_BreakOffBridgePartsAndMarkThemAsNeedsReview()
 		{
 			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
 			var block1 = new Block("p", 8, 31, 32) {IsParagraphStart = true}

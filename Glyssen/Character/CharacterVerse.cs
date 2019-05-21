@@ -294,6 +294,11 @@ namespace Glyssen.Character
 	{
 		public bool Equals(CharacterVerse x, CharacterVerse y)
 		{
+			if (x == null && y == null)
+				return true;
+			if (x == null || y == null)
+				return false;
+
 			return x.Character.Equals(y.Character) && x.Delivery.Equals(y.Delivery);
 		}
 

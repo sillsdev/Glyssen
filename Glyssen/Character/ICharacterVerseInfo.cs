@@ -12,7 +12,7 @@ namespace Glyssen.Character
 		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
 
-		string GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null);
+		CharacterVerse GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null);
 	}
 
 	public interface ICharacterVerseInfo : ICharacterVerseRepository

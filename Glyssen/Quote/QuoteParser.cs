@@ -482,46 +482,49 @@ namespace Glyssen.Quote
 
 		private void SetImplicitCharacters()
 		{
+			var comparer = new CharacterDeliveryEqualityComparer();
 			for (int i = 0; i < m_outputBlocks.Count; i++)
 			{
 				var block = m_outputBlocks[i];
 				if (block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
 				{
-					CharacterVerse implicitCv = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
-						block.LastVerseNum, m_versification).SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
-					if (implicitCv == null)
+					var initialImplicitCv = m_cvInfo.GetImplicitCharacter(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+						 m_versification);
+					var subsequentImplicitCv = initialImplicitCv;
+
+					int iElem;
+					for (iElem = 1; iElem < block.BlockElements.Count; iElem++)
 					{
-						int iElem;
-						for (iElem = 1; iElem < block.BlockElements.Count; iElem++)
+						if (block.BlockElements[iElem] is Verse verse)
 						{
-							if (block.BlockElements[iElem] is Verse verse)
-							{
-								implicitCv = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, verse.StartVerse,
-									verse.EndVerse, 0, m_versification).SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
-								if (implicitCv != null)
-									break;
-							}
-						}
-						if (implicitCv != null)
-						{
-							var newBlock = new Block(block.StyleTag, block.ChapterNumber,
-								block.InitialStartVerseNumber, block.InitialEndVerseNumber)
-							{
-								CharacterId = block.CharacterId,
-								BlockElements = block.BlockElements.Take(iElem).ToList(),
-							};
-							m_outputBlocks.Insert(i++, newBlock);
-							if (m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, newBlock.LastVerseNum, versification: m_versification)
-								.Any(cv => cv.Character == implicitCv.Character))
-								newBlock.CharacterId = CharacterVerseData.kNeedsReview;
-							block.BlockElements = block.BlockElements.Skip(iElem).ToList();
+							subsequentImplicitCv = m_cvInfo.GetImplicitCharacter(m_bookNum, block.ChapterNumber, verse.StartVerse,
+								verse.EndVerse, m_versification);
+							if (!comparer.Equals(initialImplicitCv, subsequentImplicitCv))
+								break;
 						}
 					}
-					if (implicitCv != null)
+					if (!comparer.Equals(initialImplicitCv, subsequentImplicitCv))
 					{
-						block.SetNonDramaticCharacterId(implicitCv.Character);
-						block.UseDefaultForMultipleChoiceCharacter(() => implicitCv);
-						block.Delivery = implicitCv.Delivery;
+						var newBlock = new Block(block.StyleTag, block.ChapterNumber,
+							block.InitialStartVerseNumber, block.InitialEndVerseNumber)
+						{
+							CharacterId = initialImplicitCv?.Character ?? block.CharacterId,
+							Delivery = initialImplicitCv?.Delivery,
+							BlockElements = block.BlockElements.Take(iElem).ToList(),
+						};
+						m_outputBlocks.Insert(i, newBlock);
+						//if (m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, newBlock.LastVerseNum, versification: m_versification)
+						//	.Any(cv => cv.Character == implicitCv.Character))
+						//	newBlock.CharacterId = CharacterVerseData.kNeedsReview;
+						block.BlockElements = block.BlockElements.Skip(iElem).ToList();
+						// Since we inserted a block into the list, the remainder of the original block is now at 1 + 1, so
+						// it will get processed next time around.
+					}
+					else if (initialImplicitCv != null)
+					{
+						block.SetNonDramaticCharacterId(initialImplicitCv.Character);
+						block.UseDefaultForMultipleChoiceCharacter(() => initialImplicitCv);
+						block.Delivery = initialImplicitCv.Delivery;
 					}
 				}
 			}
