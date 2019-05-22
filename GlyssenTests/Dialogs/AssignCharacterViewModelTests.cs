@@ -1016,7 +1016,7 @@ namespace GlyssenTests.Dialogs
 			var origRelevantBlockCount = model.RelevantBlockCount;
 			var origBlock = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
 			var origBlockText = origBlock.GetText(true);
-			var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.First();
+			var blockToSplit = origBlock;
 
 			model.LoadNextRelevantBlock();
 			var origNextRelevantBlockText = model.CurrentBlock.GetText(true);
@@ -1039,6 +1039,45 @@ namespace GlyssenTests.Dialogs
 
 			model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlockText, model.CurrentBlock.GetText(true));
+		}
+
+		// PG-1204
+		[Test]
+		public void SplitBlock_TextBlockIsOnlyOriginalBlockInIndex_BlockMatchupExtendedToContainBothBlocksAndStillBeRelevant()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.MissingExpectedQuote;
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsTrue(model.IsCurrentBlockRelevant);
+			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 && model.CanNavigateToNextRelevantBlock)
+			{
+				model.LoadNextRelevantBlock();
+			}
+			Assert.IsTrue(model.IsCurrentBlockRelevant, $"Setup problem: no block in {project.IncludedBooks.Single().BookId} " +
+				$"matches the filter for {model.Mode} and results in a matchup with a single original block.");
+
+			var origBlock = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
+			var origBlockText = origBlock.GetText(true);
+			var blockToSplit = origBlock;
+
+			var indexOfFirstVerseElement = blockToSplit.BlockElements.IndexOf(be => be is Verse);
+			var verseToSplit = ((Verse)blockToSplit.BlockElements[indexOfFirstVerseElement]).Number;
+			var splitPosInVerse = ((ScriptText)blockToSplit.BlockElements[indexOfFirstVerseElement + 1]).Content.IndexOf(" ");
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, verseToSplit, splitPosInVerse) },
+				GetListOfCharacters(2, new[] { "", "" }));
+
+			Assert.AreEqual(2, model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.AreEqual(origBlock, model.CurrentReferenceTextMatchup.OriginalBlocks.First());
+			Assert.AreEqual(String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), origBlockText);
+
+			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
+			model.Mode = BlocksToDisplay.AllScripture;
+			model.LoadNextRelevantBlock();
+
+			Assert.True(model.IndexOfFirstBlockInCurrentGroup > indexOfBlockThatWasSplitOff);
 		}
 
 		// PG-1075
