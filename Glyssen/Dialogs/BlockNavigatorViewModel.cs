@@ -806,8 +806,13 @@ namespace Glyssen.Dialogs
 
 		private void SetBlock(BookBlockIndices indices, bool clearBlockMatchup = true)
 		{
-			if (clearBlockMatchup)
+			if (clearBlockMatchup && m_currentRefBlockMatchups != null &&
+				(m_includedBooks.ElementAt(indices.BookIndex) != m_currentRefBlockMatchups.BookId ||
+					indices.BlockIndex != m_currentRefBlockMatchups.IndexOfStartBlockInBook ||
+					indices.BlockCount != m_currentRefBlockMatchups.OriginalBlockCount))
+			{
 				ClearBlockMatchup();
+			}
 			m_navigator.SetIndices(indices);
 			if (!IsCurrentBlockRelevant)
 				m_temporarilyIncludedBookBlockIndices = indices;

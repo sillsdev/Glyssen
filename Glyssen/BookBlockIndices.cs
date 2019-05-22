@@ -46,6 +46,13 @@ namespace Glyssen
 			}
 		}
 
+		/// <summary>
+		/// This will always return a value which is >= 1. This is needed when the actual
+		/// number of blocks is needed, because unfortunately MultiBlockCount can have a 
+		/// value or either 1 or 0, and either way, it represents a single block.
+		/// </summary>
+		public uint BlockCount => MultiBlockCount > 1 ? MultiBlockCount : 1;
+
 		public int EffectiveFinalBlockIndex => IsMultiBlock ? BlockIndex + (int)MultiBlockCount - 1 : BlockIndex;
 
 		public bool IsUndefined => BookIndex == -1 || BlockIndex == -1;
