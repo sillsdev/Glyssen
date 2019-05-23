@@ -1858,15 +1858,21 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 
+		// ENHANCE: Add a similar test for a relevant matchup consisting of multiple orginal blocks but that
+		// also inserts blocks due to splits from aligning to reference text. (None of the existing test data
+		// used in the fixtures in this file (as of 5/23/2019) have such data.)
 		[Test]
-		public void ApplyCurrentReferenceTextMatchup_RelevantMatchup_RemainsRelevant()
+		public void ApplyCurrentReferenceTextMatchup_NotAlignedToReferenceText_RelevantMatchupConsistingOfSingleBlockThatIsSplitByRefText_RemainsRelevant()
 		{
+			// It might seem counter-intuitive that we want the block to remain relevant, but we want the user
+			// to be able to navigate back to it and not have the total count keep going down.
 			m_assigned = 0;
 			m_fullProjectRefreshRequired = true;
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			while (m_model.CurrentReferenceTextMatchup == null || m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting == 0 ||
+				m_model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 ||
 				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.All(
 				b => m_model.GetCharactersForCurrentReferenceTextMatchup().Any(c => c.CharacterId == b.CharacterId)))
 			{

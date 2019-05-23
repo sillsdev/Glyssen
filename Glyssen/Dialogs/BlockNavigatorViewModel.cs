@@ -887,12 +887,12 @@ namespace Glyssen.Dialogs
 				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
-			bool relevantBlockRemoved = false;
-			if (insertions > 0 && !BlockAccessor.GetIndices().IsMultiBlock)
-			{
-				foreach (var indices in IndicesOfOriginalRelevantBlocks)
-					relevantBlockRemoved |= m_relevantBookBlockIndices.Remove(indices);
-			}
+			//bool relevantBlockRemoved = false;
+			//if (insertions > 0 && !BlockAccessor.GetIndices().IsMultiBlock)
+			//{
+			//	foreach (var indices in IndicesOfOriginalRelevantBlocks)
+			//		relevantBlockRemoved |= m_relevantBookBlockIndices.Remove(indices);
+			//}
 
 			m_currentRefBlockMatchups.Apply(m_project.Versification);
 			if (insertionIndex < 0)
@@ -907,24 +907,24 @@ namespace Glyssen.Dialogs
 
 			var origRelevantBlockCount = RelevantBlockCount;
 
-			if (relevantBlockRemoved)
-			{
-				m_relevantBookBlockIndices.InsertRange(insertionIndex,
-					m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => BlockAccessor.GetIndicesOfSpecificBlock(b)));
-				if (m_temporarilyIncludedBookBlockIndices != null)
-				{
-					var indexOfCurrentBlock = m_relevantBookBlockIndices.IndexOf(m_temporarilyIncludedBookBlockIndices);
-					if (indexOfCurrentBlock >= 0)
-					{
-						m_temporarilyIncludedBookBlockIndices = null;
-						m_currentRelevantIndex = indexOfCurrentBlock;
-					}
-				}
-			}
-			else if (BlockAccessor.GetIndices().IsMultiBlock)
-			{
-				m_navigator.ExtendCurrentBlockGroup((uint)insertions);
-			}
+			//if (relevantBlockRemoved)
+			//{
+			//	m_relevantBookBlockIndices.InsertRange(insertionIndex,
+			//		m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => BlockAccessor.GetIndicesOfSpecificBlock(b)));
+			//	if (m_temporarilyIncludedBookBlockIndices != null)
+			//	{
+			//		var indexOfCurrentBlock = m_relevantBookBlockIndices.IndexOf(m_temporarilyIncludedBookBlockIndices);
+			//		if (indexOfCurrentBlock >= 0)
+			//		{
+			//			m_temporarilyIncludedBookBlockIndices = null;
+			//			m_currentRelevantIndex = indexOfCurrentBlock;
+			//		}
+			//	}
+			//}
+			//else //if (BlockAccessor.GetIndices().IsMultiBlock)
+			//{
+			m_navigator.ExtendCurrentBlockGroup((uint)insertions);
+			//}
 
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",

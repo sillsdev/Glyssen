@@ -38,12 +38,8 @@ namespace Glyssen
 		[XmlElement("multiBlockCount")]
 		public uint MultiBlockCount
 		{
-			get { return m_multiBlockCount; }
-			set
-			{
-				m_multiBlockCount = value;
-				Debug.Assert(MultiBlockCount >= 0);
-			}
+			get => m_multiBlockCount;
+			set => m_multiBlockCount = value == 1 ? 0 : value;
 		}
 
 		/// <summary>
