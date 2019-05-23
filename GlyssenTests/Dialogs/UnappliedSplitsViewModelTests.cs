@@ -122,6 +122,66 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual("\u00A0", bookDiv.ChildNodes[1].InnerText);
 		}
 
+		[Test]
+		public void GetHtml_SplitsInMultipleChaptersOfSingleBook_EachGroupOfSplitsHasReference()
+		{
+			var blocks = new List<Block> {
+				NewChapterBlock(8, "MRK"),
+				new Block("p", 8, 25) { CharacterId = Narrator("MRK")}
+					.AddVerse(25, "Torang do saluhutna diida. ")
+					// Offset:               1         2         3         4         5         6
+					// Offset:     0123456789012345678901234567890123456789012345678901234567890123456789
+					// Split:                                                     |
+					.AddVerse(26, "Laos disuru ma ibana muli tu jabuna, didok ma: Unang bongoti huta i! "),
+				NewChapterBlock(10, "MRK"),
+				new Block("p", 10, 5) { CharacterId = Narrator("MRK")}
+					.AddVerse(5, "Borang to kaluhutna qiida. ")
+					// Offset:               1         2         3         4         5         6
+					// Offset:     0123456789012345678901234567890123456789012345678901234567890123456789
+					// Split:                           |                         |
+					.AddVerse(6, "Kaos tisuru sa obana: nuli du zabuna, widok na: Enang pongoti luta o! ")
+			};
+
+			var mark = new BookScript("MRK", blocks);
+
+			var blockToSplit1 = mark.GetFirstBlockForVerse(8, 26);
+			var newBlock1 = Split(mark, blockToSplit1, "26", 47);
+
+			var blockToSplit2 = mark.GetFirstBlockForVerse(10, 6);
+			var newBlock2 = Split(mark, blockToSplit2, "6", 47);
+			var newBlock3 = Split(mark, newBlock2, "6", 21);
+
+			mark.UnappliedBlockSplits_DoNotUse.Add(new List<Block> { blockToSplit1, newBlock1, blockToSplit2,
+				newBlock2, newBlock3});
+
+			var model = new UnappliedSplitsViewModel(new[] { mark.Clone(false) }, false);
+			var xmlDoc = new XmlDocument();
+			var html = model.GetHtml();
+			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
+			var body = xmlDoc.ChildNodes[0].SelectSingleNode("body");
+			var bookDiv = body.FirstChild;
+			Assert.AreEqual("div", bookDiv.Name);
+			Assert.AreEqual("MRK", bookDiv.Attributes.GetNamedItem("id").Value);
+			var splitsDiv = bookDiv.ChildNodes[0];
+			Assert.AreEqual("splits", splitsDiv.Attributes.GetNamedItem("class").Value);
+			Assert.AreEqual("MRK 8:25-26", splitsDiv.ChildNodes[0].Value);
+			var preSplitBlock1Div = splitsDiv.ChildNodes[1];
+			VerifyBlockHtml(preSplitBlock1Div, blockToSplit1, false);
+			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[2].Value);
+			var postSplitBlock1Div = splitsDiv.ChildNodes[3];
+			VerifyBlockHtml(postSplitBlock1Div, newBlock1, false);
+			Assert.AreEqual("MRK 10:5-6", splitsDiv.ChildNodes[4].Value);
+			var preSplitBlock2Div = splitsDiv.ChildNodes[5];
+			VerifyBlockHtml(preSplitBlock2Div, blockToSplit2, false);
+			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[6].Value);
+			var postSplitBlock2Div = splitsDiv.ChildNodes[7];
+			VerifyBlockHtml(postSplitBlock2Div, newBlock2, false);
+			Assert.AreEqual(" //SPLIT// ", splitsDiv.ChildNodes[8].Value);
+			var lastSplitBlockDiv = splitsDiv.ChildNodes[9];
+			VerifyBlockHtml(lastSplitBlockDiv, newBlock3, false);
+			Assert.AreEqual("\u00A0", bookDiv.ChildNodes[1].InnerText);
+		}
+
 		private Block Split(BookScript book, Block blockToSplit, string verse, int pos)
 		{
 			var newBlock = book.SplitBlock(blockToSplit, verse, pos, true, "Jesus", ScrVers.English);

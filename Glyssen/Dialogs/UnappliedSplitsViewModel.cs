@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Dialogs
 {
@@ -27,7 +28,7 @@ namespace Glyssen.Dialogs
 			foreach (var book in m_books.Where(b => b.UnappliedSplits.Any()))
 				bldr.Append(BuildBookHtml(book));
 
-			return string.Format(kHtmlFrame, m_style, bldr);
+			return Format(kHtmlFrame, m_style, bldr);
 		}
 
 		private string BuildBookHtml(BookScript book)
@@ -44,27 +45,41 @@ namespace Glyssen.Dialogs
 		{
 			var bldr = new StringBuilder();
 			bldr.Append("<div class=\"splits\">");
-			bldr.Append(CreateReferenceForUnappliedSplit(BCVRef.BookToNumber(bookId), unappliedSplit));
+			var currentSplitGroup = new List<Block>();
 			foreach (var block in unappliedSplit)
 			{
-				bldr.Append(BuildBlockHtml(block));
-				if (unappliedSplit.IndexOf(block) != unappliedSplit.Count-1)
-					bldr.Append(" //SPLIT// ");
+				// REVIEW: Not sure how, but somehow we've ended up with some data in the wild where
+				// unrelated splits in different chapters both have a split id of 0. This makes for
+				// wonky references. It's be nice to figure out how this happened and make sure it can't
+				// still happen, but for now, let's at least make sure we display the references separately.
+				if (currentSplitGroup.Any() && (currentSplitGroup[0].SplitId != block.SplitId ||
+					currentSplitGroup[0].ChapterNumber != block.ChapterNumber))
+				{
+					AddHtmlForGroupOfSplits(bldr, bookId, currentSplitGroup);
+					currentSplitGroup.Clear();
+				}
+				currentSplitGroup.Add(block);
 			}
+			if (currentSplitGroup.Any())
+				AddHtmlForGroupOfSplits(bldr, bookId, currentSplitGroup);
+
 			bldr.Append("</div>");
-//			bldr.Append("<hr>"); // Doesn't get copied to clipboard
+			//			bldr.Append("<hr>"); // Doesn't get copied to clipboard
 			bldr.Append("<div>&nbsp;</div>");
 			return bldr.ToString();
 		}
 
-		private string CreateReferenceForUnappliedSplit(int bookNum, IList<Block> unappliedSplit)
+		private void AddHtmlForGroupOfSplits(StringBuilder bldr, string bookId, List<Block> currentSplitGroup)
 		{
-			if (unappliedSplit.Count == 0)
-				throw new ArgumentException("unappliedSplit must contain at least one block.", "unappliedSplit");
+			bldr.Append(CreateReferenceForSplits(BCVRef.BookToNumber(bookId), currentSplitGroup));
+			bldr.Append(Join(" //SPLIT// ", currentSplitGroup.Select(BuildBlockHtml)));
+		}
 
-			int chapterNumber = unappliedSplit[0].ChapterNumber;
-			BCVRef startRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[0].InitialStartVerseNumber);
-			BCVRef endRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[unappliedSplit.Count-1].LastVerseNum);
+		private string CreateReferenceForSplits(int bookNum, IList<Block> groupOfSplits)
+		{
+			int chapterNumber = groupOfSplits[0].ChapterNumber;
+			BCVRef startRef = new BCVRef(bookNum, chapterNumber, groupOfSplits[0].InitialStartVerseNumber);
+			BCVRef endRef = new BCVRef(bookNum, chapterNumber, groupOfSplits.Last().LastVerseNum);
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
