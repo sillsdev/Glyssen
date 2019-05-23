@@ -1180,8 +1180,8 @@ namespace Glyssen.Dialogs
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					Logger.WriteMinorEvent("Split block in {0} into {1} parts.", m_scriptureReference.VerseControl.VerseRef.ToString(),
-						dlg.SplitLocations.Count + 1);
+					Logger.WriteMinorEvent($"Split block in {m_scriptureReference.VerseControl.VerseRef} into {dlg.SplitLocations.Count + 1} parts. " +
+						$"({dlg.SelectedCharacters.Count(kvp => !IsNullOrEmpty(kvp.Value))} characters assigned");
 					try
 					{
 						Cursor.Current = Cursors.WaitCursor;
