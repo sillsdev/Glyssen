@@ -132,6 +132,7 @@
     <Compile Include="BlockMatchupTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
+    <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookMetadataTests.cs" />
