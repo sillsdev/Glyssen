@@ -83,21 +83,21 @@ namespace GlyssenTests.Character
 		{
 			// Psalm 37:16-17 in Russian Orthodox => Psalm 38:15-16 in English
 			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 38, 15, 16,
-				versification: ScrVers.English).Single().Character;
+				versification: ScrVers.English).Single();
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, 16, 17,
 				versification:ScrVers.RussianOrthodox).Single();
-			Assert.AreEqual(expected, character.Character);
+			Assert.AreEqual(expected.Character, character.Character);
 		}
 
 		[Test]
 		public void GetCharacters_OriginalVersificationWithVerseBridge_FindsCharacterAfterChangingVersification()
 		{
-			// Fix this comment! // Joshua 5:16-6:4 in Russian Orthodox => Joshua 6:1-5 in English
+			// 1 Samuel 24:1-2 in Original => 1 Samuel 23:29-24:1 in English
 			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("1SA"), 24, 1,
-				versification: ScrVers.English).Single().Character;
+				versification: ScrVers.English).Single();
 			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("1SA"), 24, 1, 2,
 				versification: ScrVers.Original).Single();
-			Assert.AreEqual(expected, character.Character);
+			Assert.AreEqual(expected.Character, character.Character);
 		}
 
 		[Test]
