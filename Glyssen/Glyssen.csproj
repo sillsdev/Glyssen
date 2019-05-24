@@ -299,6 +299,7 @@
     </Compile>
     <Compile Include="Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
     <Compile Include="Dialogs\SelectBundleForProjectDlg.cs" />
+    <Compile Include="Dialogs\UnappliedSplitsViewModel.cs" />
     <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
