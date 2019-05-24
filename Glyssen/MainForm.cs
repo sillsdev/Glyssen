@@ -130,7 +130,8 @@ namespace Glyssen
 			{
 				if (m_project.HasUnappliedSplits())
 					using (var viewModel = new AssignCharacterViewModel(m_project))
-					using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font, m_project.IncludedBooks))
+					using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font,
+						new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 					{
 						LogDialogDisplay(dlg);
 						dlg.ShowDialog(this);
