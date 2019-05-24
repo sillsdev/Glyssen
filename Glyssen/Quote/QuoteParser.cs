@@ -783,23 +783,23 @@ namespace Glyssen.Quote
 					{
 						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
 					}
-					if (m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation &&
-						characterVerseDetails.Any(cv => m_outputBlocks.Last().CharacterId == cv.Character))
+					if (m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation)
 					{
-						// Generally, we should be able to pretty much assume that since this is a continuation
-						// of the previous block's quote, we have the same character and delivery. But there's a
-						// slight chance the delivery could change. And an even slighter chance we could have two
-						// possible deliveries left after removing any other characters from this list. So we'll
-						// be conservative and just prune the list down by character.
-						characterVerseDetails.RemoveAll(cv => cv.Character != m_outputBlocks.Last().CharacterId);
+						var prevQuoteBlock = m_outputBlocks.Last();
+						if (!prevQuoteBlock.CharacterIsUnclear)
+						{
+							// Generally, we should be able to pretty much assume that since this is a continuation
+							// of the previous block's quote, we have the same character and delivery. But there's a
+							// slight chance the delivery could change. And an even slighter chance we could have two
+							// possible deliveries left after removing any other characters from this list. So we'll
+							// be conservative and just prune the list down by character.
+							characterVerseDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
+							Debug.Assert(characterVerseDetails.Any(),
+								"We are in the middle of a quote and we have no speakers left who were possible when this quote " +
+								"opened. The logic for m_possibleCharactersForCurrentQuote should have kept us from running off " +
+								"the rails like this.");
+						}
 					}
-#if DEBUG
-					else
-					{
-						Debug.Fail("We are in the middle of a quote and we're about to change speakers. The logic " +
-							"for m_possibleCharactersForCurrentQuote should have made this impossible.");
-					}
-#endif
 					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				}
 				else

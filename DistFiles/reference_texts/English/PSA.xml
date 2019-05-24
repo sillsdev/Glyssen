@@ -447,7 +447,7 @@
     <verse num="6" />
     <text>He says in his heart,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="6" characterId="narrator-PSA">
+  <block style="p" chapter="10" initialStartVerse="6" characterId="man, wicked">
     <text>«I shall not be shaken. For generations I shall have no trouble.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="narrator-PSA">
@@ -468,7 +468,7 @@
     <verse num="11" />
     <text>He says in his heart,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="10" initialStartVerse="11" characterId="man, wicked">
     <text>«God has forgotten. He hides his face. He will never see it.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="narrator-PSA">
