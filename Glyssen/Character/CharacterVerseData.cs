@@ -199,20 +199,24 @@ namespace Glyssen.Character
 
 			IEnumerable<CharacterVerse> result;
 
+			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
+			verseRef.ChangeVersification(ScrVers.English);
+
 			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
 			{
-				var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
-				verseRef.ChangeVersification(ScrVers.English);
 				result = m_lookup[verseRef.BBBCCCVVV];
 			}
 			else
 			{
-				// REVIEW: Don't we need to call ChangeVersification here?
-				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
-				int end = new BCVRef(bookId, chapter, initialEndVerse).BBCCCVVV;
+				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
+				initialEndRef.ChangeVersification(ScrVers.English);
 				result = Enumerable.Empty<CharacterVerse>();
-				for (int i = start; i <= end; i++)
-					result = result.Union(m_lookup[i]);
+				do
+				{
+					result = result.Union(m_lookup[verseRef.BBBCCCVVV]);
+					verseRef.NextVerse();
+					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
+				} while (verseRef <= initialEndRef);
 			}
 			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
@@ -220,35 +224,32 @@ namespace Glyssen.Character
 			// This is a list (because that makes it easy to do a Union), but it should only ever have exactly one item in it.
 			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
 
-			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
-			while (nextVerse <= finalVerse)
+			var finalVerseRef = new VerseRef(bookId, chapter, finalVerse, versification);
+			finalVerseRef.ChangeVersification(ScrVers.English);
+			verseRef.NextVerse();
+			while (verseRef <= finalVerseRef)
 			{
-				var verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
-				verseRef.ChangeVersification(ScrVers.English);
 				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
 				if (nextResult.Any())
 				{
 					if (!interruption.Any())
 						interruption = nextResult.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
+
+					if (!result.Any())
+					{
+						result = nextResult;
+					}
+					else
+					{
+						var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
+						if (intersection.Count() == 1)
+						{
+							result = intersection;
+							break;
+						}
+					}
 				}
-				else
-				{
-					nextVerse++;
-					continue;
-				}
-				if (!result.Any())
-				{
-					result = nextResult;
-					nextVerse++;
-					continue;
-				}
-				var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
-				if (intersection.Count() == 1)
-				{
-					result = intersection;
-					break;
-				}
-				nextVerse++;
+				verseRef.NextVerse();
 			}
 			return result.Union(interruption);
 		}

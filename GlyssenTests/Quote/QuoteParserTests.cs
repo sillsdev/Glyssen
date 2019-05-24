@@ -1822,7 +1822,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote()
+		public void Parse_MultiBlockQuote_BlocksDoNotGetCombined()
 		{
 			// This is totally hacked data and is not a very likely scenario
 			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
@@ -4734,11 +4734,11 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("{6}\u00A0But the righteousness that is by faith says: ", results[i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?›» ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(narratorTextV6, results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("{7}\u00A0«or ‹Who will descend into the deep?›» ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(narratorTextV7, results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 		}
@@ -5023,13 +5023,13 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?› ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual(interruptionTextV6, results[++i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("{7}\u00A0or ‹Who will descend into the deep?› ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			AssertIsInterruption(results[++i], interruptionTextV7);
 		}
@@ -5087,10 +5087,10 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("{6}\u00A0Re' la' chiriij i korik wach k'uxliis re' inchalik ruuk' i kojb'aal iriq'or i Looq' laj Huuj chi je' wilih: ", results[i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("«Ma-aq'or pan ak'ux: “Ha'wach narijohtiik pan taxaaj?” ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			AssertIsInterruption(results[++i], "(re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ");
 			Assert.AreEqual("{7}\u00A0oon: “Ha'wach nariqajiik chipaam i richamiil i julkahq?”» ", results[++i].GetText(true));
-			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, results[i].CharacterId);
 			Assert.AreEqual("(re're' je' cho ruksjiik i Kristo chikixilak taqeh kamnaq). ", results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 		}
@@ -5370,11 +5370,11 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.None, output[5].MultiBlockQuote);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), output[0].CharacterId);
-			Assert.AreEqual("scripture", output[1].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[1].CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[2].CharacterId);
-			Assert.AreEqual("scripture", output[3].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[3].CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
-			Assert.AreEqual("scripture", output[5].CharacterId);
+			Assert.AreEqual(CharacterVerse.kScriptureCharacter, output[5].CharacterId);
 		}
 		#endregion
 	}
@@ -5411,6 +5411,56 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.IsTrue(output[1].CharacterIsUnclear());
+		}
+
+		[Test]
+		public void Parse_TwoAdjacentQuotesBySameCharacter_NotCombined()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 9, 3) {IsParagraphStart = true}.AddVerse(3, "Jesus replied:"),
+				new Block("p", 9, 3) {IsParagraphStart = true}.AddText("\u2014Neither this man nor his parents sinned\u2014"),
+				new Block("q", 9, 3) {IsParagraphStart = true, MultiBlockQuote = MultiBlockQuote.Start}.AddText("“but this happened so that the works of God might be displayed in him."),
+				new Block("q", 9, 4) {IsParagraphStart = true, MultiBlockQuote = MultiBlockQuote.Continuation}.AddVerse(4, "“As long as it is day, we must do the works of him who sent me. Night is coming, when no one can work. ")
+					.AddVerse(5, "While I am in the world, I am the light of the world.”")
+			};
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+		}
+
+		// Test for PG-1203
+		[TestCase("q", "q")]
+		[TestCase("q", "qr")]
+		[TestCase("q", "qc")]
+		[TestCase("qm1", "qm2")]
+		[TestCase("q1", "q2")]
+		[TestCase("q", "qm")]
+		[TestCase("qc", "qr")]
+		public void Parse_AcrosticHeading_NotCombined(string q1, string q2)
+		{
+			var input = new List<Block>
+			{
+				new Block(q1, 119, 8) {IsParagraphStart = true}.AddVerse(8, "I will keep thy statutes;"),
+				new Block(q2, 119, 8) {IsParagraphStart = true}.AddText("This language doesn't use periods in poetry"),
+				new Block("qa", 119, 8) {IsParagraphStart = true}.AddText("Beth"),
+				new Block(q1, 119, 9) {IsParagraphStart = true}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
+			};
+
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "PSA", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual(q1, output[0].StyleTag);
+			Assert.AreEqual("{8}\u00A0I will keep thy statutes; This language doesn't use periods in poetry", output[0].GetText(true));
+			Assert.AreEqual("Beth", output[1].GetText(true));
+			Assert.AreEqual("{9}\u00A0How shall a pipsqueak cleanse his way?", output[2].GetText(true));
+			Assert.IsTrue(output.All(b => b.CharacterIs("PSA", CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
 		// Test for PG-1121
@@ -5524,5 +5574,83 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("nispa.", block.GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
+
+		#region PG-1191: Combine poetry blocks with preceding paragraph only if there's not an expected Scripture quote in the verse
+		[Test]
+		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithoutScriptureQuote_PoetryParagraphsCombinedWithPreceding()
+		{
+			var input = new List<Block>();
+			input.Add(new Block("c", 8, 0) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
+			input.Add(new Block("p", 8, 34) { IsParagraphStart = true }.AddVerse(34, "Lë naʼ nayúj lu guich rulabëʼ, rna cni:"));
+			input.Add(new Block("q", 8, 34) { IsParagraphStart = true }.AddText("Ca böʼcuʼ zxílaʼdauʼ,"));
+			input.Add(new Block("q", 8, 34) { IsParagraphStart = true }.AddText("Gulachë́ʼë Lëʼ quië ludöddëʼ"));
+			input.Add(new Block("q", 8, 34) { IsParagraphStart = true }.AddText("Lëʼ, Len ca böʼcuʼ zxílaʼdauʼ,"));
+			input.Add(new Block("q", 8, 34) { IsParagraphStart = true }.AddText("Cutu rnëbaʼ catiʼ nu rchugu lítsaʼbaʼ, Caʼ benëʼ Lëʼ, cutu bsalj ruʼë gnëʼ."));
+
+			input.Add(new Block("q", 8, 35) { IsParagraphStart = true }.AddVerse(35, "Gulucaʼnëʼ Lëʼ caʼz,"));
+			input.Add(new Block("q", 8, 35) { IsParagraphStart = true }.AddText("Len cutu gluʼë latj nu cuequi xbey Lëʼ."));
+			input.Add(new Block("q", 8, 35) { IsParagraphStart = true }.AddText("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?"));
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+
+			Assert.AreEqual(4, output.Count);
+
+			Assert.IsTrue(output[1].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[1].IsParagraphStart);
+			Assert.AreEqual("p", output[1].StyleTag);
+			Assert.AreEqual("{34}\u00A0Lë naʼ nayúj lu guich rulabëʼ, rna cni: Ca böʼcuʼ zxílaʼdauʼ, Gulachë́ʼë Lëʼ quië ludöddëʼ Lëʼ, Len ca böʼcuʼ zxílaʼdauʼ, " +
+				"Cutu rnëbaʼ catiʼ nu rchugu lítsaʼbaʼ, Caʼ benëʼ Lëʼ, cutu bsalj ruʼë gnëʼ.", output[1].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[2].IsParagraphStart);
+			Assert.AreEqual("q", output[2].StyleTag);
+			Assert.AreEqual("{35}\u00A0Gulucaʼnëʼ Lëʼ caʼz, Len cutu gluʼë latj nu cuequi xbey Lëʼ.", output[2].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[3].IsParagraphStart);
+			Assert.AreEqual("q", output[3].StyleTag);
+			Assert.AreEqual("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?", output[3].GetText(true));
+		}
+
+		[Test]
+		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithScriptureQuote_PoetryParasNotCombinedWithNormalPara()
+		{
+			var input = new List<Block>();
+			input.Add(new Block("c", 8, 0) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
+			input.Add(new Block("p", 8, 32) { IsParagraphStart = true }.AddVerse(32, "Lë naʼ nayúj lu guich rulabëʼ, rna cni:"));
+			input.Add(new Block("q", 8, 32) { IsParagraphStart = true }.AddText("Ca böʼcuʼ zxílaʼdauʼ,"));
+			input.Add(new Block("q", 8, 32) { IsParagraphStart = true }.AddText("Gulachë́ʼë Lëʼ quië ludöddëʼ"));
+			input.Add(new Block("q", 8, 32) { IsParagraphStart = true }.AddText("Lëʼ, Len ca böʼcuʼ zxílaʼdauʼ,"));
+			input.Add(new Block("q", 8, 32) { IsParagraphStart = true }.AddText("Cutu rnëbaʼ catiʼ nu rchugu lítsaʼbaʼ, Caʼ benëʼ Lëʼ, cutu bsalj ruʼë gnëʼ."));
+
+			input.Add(new Block("q", 8, 33) { IsParagraphStart = true }.AddVerse(33, "Gulucaʼnëʼ Lëʼ caʼz,"));
+			input.Add(new Block("q", 8, 33) { IsParagraphStart = true }.AddText("Len cutu gluʼë latj nu cuequi xbey Lëʼ."));
+			input.Add(new Block("q", 8, 33) { IsParagraphStart = true }.AddText("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?"));
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+
+			Assert.AreEqual(5, output.Count);
+
+			Assert.IsTrue(output[1].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[1].IsParagraphStart);
+			Assert.AreEqual("p", output[1].StyleTag);
+			Assert.AreEqual("{32}\u00A0Lë naʼ nayúj lu guich rulabëʼ, rna cni:", output[1].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[2].IsParagraphStart);
+			Assert.AreEqual("q", output[2].StyleTag);
+			Assert.AreEqual("Ca böʼcuʼ zxílaʼdauʼ, Gulachë́ʼë Lëʼ quië ludöddëʼ Lëʼ, Len ca böʼcuʼ zxílaʼdauʼ, " +
+				"Cutu rnëbaʼ catiʼ nu rchugu lítsaʼbaʼ, Caʼ benëʼ Lëʼ, cutu bsalj ruʼë gnëʼ.", output[2].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[3].IsParagraphStart);
+			Assert.AreEqual("q", output[3].StyleTag);
+			Assert.AreEqual("{33}\u00A0Gulucaʼnëʼ Lëʼ caʼz, Len cutu gluʼë latj nu cuequi xbey Lëʼ.", output[3].GetText(true));
+			Assert.IsTrue(output[4].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[4].IsParagraphStart);
+			Assert.AreEqual("q", output[4].StyleTag);
+			Assert.AreEqual("¿Nuzxa caz gac quixjöʼ zxguiaʼ nabágaʼgac bunách uládz queëʼ?", output[4].GetText(true));
+		}
+		#endregion
 	}
 }

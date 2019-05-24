@@ -946,7 +946,7 @@ namespace GlyssenTests.Rules
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
-			var scriptureGroup = groups.Single(g => g.CharacterIds.Contains("scripture"));
+			var scriptureGroup = groups.Single(g => g.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			var godGroup = groups.Single(g => g.CharacterIds.Contains("God"));
 			var hsGroup = groups.Single(g => g.CharacterIds.Contains("Holy Spirit, the"));
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
@@ -964,7 +964,7 @@ namespace GlyssenTests.Rules
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			var holySpiritGroup = groups.Single(g => g.CharacterIds.Contains("Holy Spirit, the"));
 			var scriptureAndGodGroup = groups.Single(g => g.CharacterIds.Contains("God"));
-			Assert.That(scriptureAndGodGroup.CharacterIds.Contains("scripture"));
+			Assert.That(scriptureAndGodGroup.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
 			Assert.AreEqual(1, holySpiritGroup.CharacterIds.Count);
 			Assert.AreEqual(2, scriptureAndGodGroup.CharacterIds.Count);
@@ -979,7 +979,7 @@ namespace GlyssenTests.Rules
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			var dietyGroup = groups.Single(g => g.CharacterIds.Contains("God"));
 			Assert.That(dietyGroup.CharacterIds.Contains("Holy Spirit, the"));
-			Assert.That(dietyGroup.CharacterIds.Contains("scripture"));
+			Assert.That(dietyGroup.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
 			Assert.AreEqual(3, dietyGroup.CharacterIds.Count);
 		}
@@ -993,7 +993,7 @@ namespace GlyssenTests.Rules
 			var dietyGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			Assert.That(dietyGroup.CharacterIds.Contains("God"));
 			Assert.That(dietyGroup.CharacterIds.Contains("Holy Spirit, the"));
-			Assert.That(dietyGroup.CharacterIds.Contains("scripture"));
+			Assert.That(dietyGroup.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.AreEqual(4, dietyGroup.CharacterIds.Count);
 		}
 
@@ -1009,7 +1009,7 @@ namespace GlyssenTests.Rules
 			Assert.True(godGroup.CharacterIds.Count > 1);
 			var hsGroup = groups.Single(g => g.CharacterIds.Contains("Holy Spirit, the"));
 			Assert.True(hsGroup.CharacterIds.Count > 1);
-			var scriptureGroup = groups.Single(g => g.CharacterIds.Contains("scripture"));
+			var scriptureGroup = groups.Single(g => g.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.True(scriptureGroup.CharacterIds.Count > 1);
 		}
 	}
@@ -2041,7 +2041,7 @@ namespace GlyssenTests.Rules
 			var dietyGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			Assert.IsTrue(dietyGroup.CharacterIds.SetEquals(new []
 				{
-					"Jesus", "God", "Holy Spirit, the", "scripture"
+					"Jesus", "God", "Holy Spirit, the", CharacterVerse.kScriptureCharacter
 				}));
 		}
 	}

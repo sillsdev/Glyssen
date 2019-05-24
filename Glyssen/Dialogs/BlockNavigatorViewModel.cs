@@ -1191,9 +1191,18 @@ namespace Glyssen.Dialogs
 						// We need to increment the count of blocks in both the navigator and the current
 						// relevant block (if the current matchup is relevant). These BookBlockIndices objects
 						// are (hopefully identical?) copies of each other.
-						m_navigator.ExtendCurrentBlockGroup(1);
+						// If the index actually represents a series of blocks (i.e., a block "matchup" in
+						// rainbow mode), then we just need to extend it by 1 more to account for the newly added block.
+						// However, if there is only one original* block represented by the matchup, then the
+						// multi-block count is 0 (not 1), so we need to increment it by 2 to reflext that there
+						// are now two blocks. (So basically, IIRC, 1 is not really a valid value for the multi-
+						// block count.)
+						// * We based the count of the number of original blocks, even if the process of matching
+						// them up causes them to be split into separate verses.
+						var extendBy = m_relevantBookBlockIndices[m_currentRelevantIndex].IsMultiBlock ? (uint)1 : 2;
+						m_navigator.ExtendCurrentBlockGroup(extendBy);
 						if (m_currentRelevantIndex >= 0)
-							m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount++;
+							m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount += extendBy;
 						return;
 					}
 					// else - This can happen when using a filter (e.g., All Scripture) that does not make use
