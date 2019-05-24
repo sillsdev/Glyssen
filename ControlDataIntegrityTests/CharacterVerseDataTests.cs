@@ -242,7 +242,7 @@ namespace ControlDataIntegrityTests
 
 		/// <summary>
 		/// The Alternate quote type implies that there should also be (at least one) regular (not Indirect, Hypotthetical or Interruption)
-		/// entry for the verse.
+		/// entry for the verse. And it can't be a narrator quotation.
 		/// </summary>
 		[Test]
 		public void DataIntegrity_AlternateAccompaniedByAnotherCharacter()
@@ -256,7 +256,7 @@ namespace ControlDataIntegrityTests
 					c.QuoteType == QuoteType.Potential ||
 					c.QuoteType == QuoteType.Dialogue ||
 					c.QuoteType == QuoteType.Quotation);
-				Assert.IsTrue(otherEntries.Any(),
+				Assert.IsTrue(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-")),
 					$"Character-verse file contains an Alternate quote for {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}" +
 					", but there is no primary character.");
 			}

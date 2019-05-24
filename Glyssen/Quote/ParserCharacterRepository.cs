@@ -19,8 +19,7 @@ namespace Glyssen.Quote
 
 		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false)
 		{
-			// Note: includeAlternates is ignored. It should always be false for the parser.
-			return m_cvInfo.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification)
+			return m_cvInfo.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification, includeAlternates)
 				.Select(cv => cv.QuoteType != QuoteType.Hypothetical ||
 					m_referenceText.GetBook(bookId)?.GetBlocksForVerse(chapter,
 							initialStartVerse, finalVerse > 0 ? finalVerse : (initialEndVerse > 0 ? initialEndVerse : initialStartVerse))

@@ -5425,6 +5425,48 @@ namespace GlyssenTests.Quote
 			Assert.IsFalse(output[1].UserConfirmed);
 		}
 
+		/// <summary>
+		/// This test covers the case where the reference guide and control file assume that God wil speak for a couple verses
+		/// and then the prophet/narrator will take over. But in the project data, the quote is never closed, so God should
+		/// continue to speak in the script. The control file can accommodate this by listing God as an Alternate for the
+		/// following verses. This test ensures that will we normally ignore Alternates when doing automatic block assignments,
+		/// we do properly take them into consideration when a quote is not closed.
+		/// </summary>
+		[Test]
+		public void Parse_LongQuoteStartsAsNormalButContinuesAsAlternateInControlFile_QuoteAssignedToInitialNormalCharacter()
+		{
+			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
+			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, 2, 3).Select(cv => cv.Character).Distinct().Single(),
+				"Test setup condition not met: God (not Isaiah) should be the primary/expected character in ISA 1:2-3; " +
+				"Isaiah should not be included when includeAlternates is false.");
+			Assert.AreEqual("Isaiah", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, 4, 5).Select(cv => cv.Character).Distinct().Single(),
+				"Test setup condition not met: Isaiah (not God) should be the primary/expected character in ISA 1:4-5; " +
+				"God should not be included when includeAlternates is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, 2, 5, includeAlternates: true)
+					.Select(cv => cv.Character).Distinct()
+					.SetEquals(new HashSet<string> { "Isaiah", "God" }),
+				"Test setup condition not met: God and Isaiah should both be returned as characters for ISA 1:2-5 when includeAlternates is true.");
+
+			var input = new List<Block> {
+				new Block("q1", 1, 2)
+					.AddVerse(2, "Listen, because the Lord has spoken: “I reared children, but they rebelled.")
+					.AddVerse(3, "The ox and donkey know who takes care of them, but Israel doesn’t know diddly."),
+				new Block("q1", 1, 4)
+					.AddVerse(4, "“Oh, you sinful nation, burdened by iniquity! You offspring of evildoers! You corrupt children!"),
+				new Block("q2", 1, 4)
+					.AddText("“They’ve abandoned the Lord; they’ve despised the Holy One of Israel; they’ve walked away from me."),
+				new Block("q2", 1, 5)
+					.AddVerse(5, "“Why be struck down? Why continue to rebel? Your head is sick, and your heart is faint.”")
+			};
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			Assert.AreEqual(input.Count + 1, output.Count);
+			Assert.IsTrue(output[0].CharacterIs("ISA", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output.Skip(1).All(b => b.CharacterId == "God"));
+			Assert.IsTrue(output.All(b => !b.UserConfirmed));
+		}
+
 		[Test]
 		public void Parse_TwoAdjacentQuotesBySameCharacter_NotCombined()
 		{

@@ -7760,8 +7760,24 @@ SNG	8	11	beloved			Implicit
 SNG	8	12	beloved			Implicit		
 SNG	8	13	lover			Implicit		
 SNG	8	14	beloved			Implicit		
-ISA	1	2	God		God (the LORD)	Normal		
-ISA	1	3	God		God (the LORD)	Normal		
+ISA	1	2	God		God (the LORD) (in vision)	Normal		
+ISA	1	2	Isaiah			Alternate		
+ISA	1	3	God		God (the LORD) (in vision)	Normal		
+ISA	1	3	Isaiah			Alternate		
+ISA	1	4	Isaiah			Potential		
+ISA	1	4	God		God (the LORD) (in vision)	Alternate		
+ISA	1	5	Isaiah			Potential		
+ISA	1	5	God		God (the LORD) (in vision)	Alternate		
+ISA	1	6	Isaiah			Potential		
+ISA	1	6	God		God (the LORD) (in vision)	Alternate		
+ISA	1	7	Isaiah			Potential		
+ISA	1	7	God		God (the LORD) (in vision)	Alternate		
+ISA	1	8	Isaiah			Potential		
+ISA	1	8	God		God (the LORD) (in vision)	Alternate		
+ISA	1	9	Isaiah			Potential		
+ISA	1	9	God		God (the LORD) (in vision)	Alternate		
+ISA	1	10	Isaiah			Potential		
+ISA	1	10	God		God (the LORD) (in vision)	Alternate		
 ISA	1	11	God		God (the LORD)	Normal		
 ISA	1	12	God		God (the LORD)	Normal		
 ISA	1	13	God		God (the LORD)	Normal		

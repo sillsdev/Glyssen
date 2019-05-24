@@ -245,7 +245,7 @@ namespace Glyssen.Quote
 							if (m_possibleCharactersForCurrentQuote.Any())
 							{
 								m_possibleCharactersForCurrentQuote = m_possibleCharactersForCurrentQuote.Intersect(
-									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse, verseElement.EndVerse, versification: m_versification).Select(cv => cv.Character)).ToList();
+									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse, verseElement.EndVerse, versification: m_versification, includeAlternates:true).Select(cv => cv.Character)).ToList();
 
 								if (!m_possibleCharactersForCurrentQuote.Any())
 								{
@@ -777,11 +777,29 @@ namespace Glyssen.Quote
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 					var characterVerseDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
-						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).ToList();
+						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification,
+						m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation).ToList();
 					if (characterVerseDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
 					{
 						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
 					}
+					if (m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation &&
+						characterVerseDetails.Any(cv => m_outputBlocks.Last().CharacterId == cv.Character))
+					{
+						// Generally, we should be able to pretty much assume that since this is a continuation
+						// of the previous block's quote, we have the same character and delivery. But there's a
+						// slight chance the delivery could change. And an even slighter chance we could have two
+						// possible deliveries left after removing any other characters from this list. So we'll
+						// be conservative and just prune the list down by character.
+						characterVerseDetails.RemoveAll(cv => cv.Character != m_outputBlocks.Last().CharacterId);
+					}
+#if DEBUG
+					else
+					{
+						Debug.Fail("We are in the middle of a quote and we're about to change speakers. The logic " +
+							"for m_possibleCharactersForCurrentQuote should have made this impossible.");
+					}
+#endif
 					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				}
 				else
