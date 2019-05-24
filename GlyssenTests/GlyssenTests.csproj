@@ -133,6 +133,7 @@
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="Character\NarratorOverridesTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
+    <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />

@@ -208,10 +208,13 @@ namespace Glyssen.Character
 			{
 				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
 				initialEndRef.ChangeVersification(ScrVers.English);
-				int end = initialEndRef.BBBCCCVVV;
 				result = Enumerable.Empty<CharacterVerse>();
-				for (int i = verseRef.BBBCCCVVV; i <= end; i++)
-					result = result.Union(m_lookup[i]);
+				do
+				{
+					result = result.Union(m_lookup[verseRef.BBBCCCVVV]);
+					verseRef.NextVerse();
+					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
+				} while (verseRef <= initialEndRef);
 			}
 			if (!includeAlternates)
 				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate);
@@ -221,35 +224,32 @@ namespace Glyssen.Character
 			// This is a list (because that makes it easy to do a Union), but it should only ever have exactly one item in it.
 			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
 
-			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
-			while (nextVerse <= finalVerse)
+			var finalVerseRef = new VerseRef(bookId, chapter, finalVerse, versification);
+			finalVerseRef.ChangeVersification(ScrVers.English);
+			verseRef.NextVerse();
+			while (verseRef <= finalVerseRef)
 			{
-				verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
-				verseRef.ChangeVersification(ScrVers.English);
 				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
 				if (nextResult.Any())
 				{
 					if (!interruption.Any())
 						interruption = nextResult.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
+
+					if (!result.Any())
+					{
+						result = nextResult;
+					}
+					else
+					{
+						var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
+						if (intersection.Count() == 1)
+						{
+							result = intersection;
+							break;
+						}
+					}
 				}
-				else
-				{
-					nextVerse++;
-					continue;
-				}
-				if (!result.Any())
-				{
-					result = nextResult;
-					nextVerse++;
-					continue;
-				}
-				var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
-				if (intersection.Count() == 1)
-				{
-					result = intersection;
-					break;
-				}
-				nextVerse++;
+				verseRef.NextVerse();
 			}
 			return result.Union(interruption);
 		}
