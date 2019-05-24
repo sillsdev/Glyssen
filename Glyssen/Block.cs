@@ -834,7 +834,7 @@ namespace Glyssen
 			UseDefaultForMultipleChoiceCharacter(() => GetMatchingCharacter(bookNumber, scrVers));
 		}
 
-		public void UseDefaultForMultipleChoiceCharacter(Func<CharacterVerse> getMatchingCharacterForVerse)
+		public void UseDefaultForMultipleChoiceCharacter(Func<ICharacterDeliveryInfo> getMatchingCharacterForVerse)
 		{
 			var ids = CharacterId.SplitCharacterId(2);
 			if (ids.Length > 1)

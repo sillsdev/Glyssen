@@ -4486,36 +4486,36 @@ JDG	4	18	Jael			Normal
 JDG	4	19	Sisera			Normal		
 JDG	4	20	Sisera			Normal		
 JDG	4	22	Jael			Normal		
-JDG	5	2	Deborah/Barak			Implicit	Deborah	
-JDG	5	3	Deborah/Barak			Implicit	Deborah	
-JDG	5	4	Deborah/Barak			Implicit	Deborah	
-JDG	5	5	Deborah/Barak			Implicit	Deborah	
-JDG	5	6	Deborah/Barak			Implicit	Deborah	
-JDG	5	7	Deborah/Barak			Implicit	Deborah	
-JDG	5	8	Deborah/Barak			Implicit	Deborah	
-JDG	5	9	Deborah/Barak			Implicit	Deborah	
-JDG	5	10	Deborah/Barak			Implicit	Deborah	
-JDG	5	11	Deborah/Barak			Implicit	Deborah	
-JDG	5	12	Deborah/Barak			Implicit	Deborah	
-JDG	5	13	Deborah/Barak			Implicit	Deborah	
-JDG	5	14	Deborah/Barak			Implicit	Deborah	
-JDG	5	15	Deborah/Barak			Implicit	Deborah	
-JDG	5	16	Deborah/Barak			Implicit	Deborah	
-JDG	5	17	Deborah/Barak			Implicit	Deborah	
-JDG	5	18	Deborah/Barak			Implicit	Deborah	
-JDG	5	19	Deborah/Barak			Implicit	Deborah	
-JDG	5	20	Deborah/Barak			Implicit	Deborah	
-JDG	5	21	Deborah/Barak			Implicit	Deborah	
-JDG	5	22	Deborah/Barak			Implicit	Deborah	
-JDG	5	23	Deborah/Barak			Implicit	Deborah	
-JDG	5	24	Deborah/Barak			Implicit	Deborah	
-JDG	5	25	Deborah/Barak			Implicit	Deborah	
-JDG	5	26	Deborah/Barak			Implicit	Deborah	
-JDG	5	27	Deborah/Barak			Implicit	Deborah	
-JDG	5	28	Deborah/Barak			Implicit	Deborah	
-JDG	5	29	Deborah/Barak			Implicit	Deborah	
-JDG	5	30	Deborah/Barak			Implicit	Deborah	
-JDG	5	31	Deborah/Barak			Implicit	Deborah	
+JDG	5	2	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	3	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	4	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	5	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	6	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	7	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	8	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	9	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	10	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	11	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	12	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	13	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	14	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	15	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	16	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	17	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	18	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	19	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	20	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	21	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	22	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	23	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	24	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	25	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	26	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	27	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	28	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	29	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	30	Deborah/Barak	singing		Implicit	Deborah	
+JDG	5	31	Deborah/Barak	singing		Implicit	Deborah	
 JDG	6	8	prophet			Normal		
 JDG	6	9	prophet			Normal		
 JDG	6	10	prophet			Normal		

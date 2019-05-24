@@ -195,29 +195,29 @@ namespace Glyssen.Character
 			if (versification == null)
 				versification = ScrVers.English;
 
-			IEnumerable<CharacterVerse> result;
+			List<CharacterVerse> result;
 
 			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
 			verseRef.ChangeVersification(ScrVers.English);
 
 			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
 			{
-				result = m_lookup[verseRef.BBBCCCVVV];
+				result = m_lookup[verseRef.BBBCCCVVV].ToList();
 			}
 			else
 			{
 				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
 				initialEndRef.ChangeVersification(ScrVers.English);
-				result = Enumerable.Empty<CharacterVerse>();
+				result = new List<CharacterVerse>();
 				do
 				{
-					result = result.Union(m_lookup[verseRef.BBBCCCVVV]);
+					result = result.Union(m_lookup[verseRef.BBBCCCVVV]).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
 			}
 			if (!includeAlternates)
-				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate);
+				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate).ToList();
 			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
 
@@ -227,9 +227,10 @@ namespace Glyssen.Character
 			var finalVerseRef = new VerseRef(bookId, chapter, finalVerse, versification);
 			finalVerseRef.ChangeVersification(ScrVers.English);
 			verseRef.NextVerse();
+			// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 			while (verseRef <= finalVerseRef)
 			{
-				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
+				var nextResult = m_lookup[verseRef.BBBCCCVVV].ToList();
 				if (nextResult.Any())
 				{
 					if (!interruption.Any())
@@ -241,10 +242,10 @@ namespace Glyssen.Character
 					}
 					else
 					{
-						var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
-						if (intersection.Count() == 1)
+						nextResult.RemoveAll(c => !result.Contains(c, m_characterDeliveryEqualityComparer));
+						if (nextResult.Count == 1)
 						{
-							result = intersection;
+							result = nextResult;
 							break;
 						}
 					}
@@ -254,29 +255,33 @@ namespace Glyssen.Character
 			return result.Union(interruption);
 		}
 
-		public virtual CharacterVerse GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		public virtual ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
 		{
 			if (versification == null)
 				versification = ScrVers.English;
 
-			var startRef = new VerseRef(bookId, chapter, startVerse, versification);
-			startRef.ChangeVersification(ScrVers.English);
-			var start = startRef.BBBCCCVVV;
-			var implicitCv = m_lookup[start].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+			var verseRef = new VerseRef(bookId, chapter, startVerse, versification);
+			verseRef.ChangeVersification(ScrVers.English);
+			var implicitCv = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
 
-			if (endVerse == 0 || startVerse == endVerse)
+			if (endVerse == 0 || startVerse == endVerse || implicitCv == null)
 				return implicitCv;
 
-			var endRef = new VerseRef(bookId, chapter, endVerse, versification);
-			endRef.ChangeVersification(ScrVers.English);
-			int end = endRef.BBBCCCVVV;
-			for (int i = start; i <= end; i++)
+			var initialEndRef = new VerseRef(bookId, chapter, endVerse, versification);
+			initialEndRef.ChangeVersification(ScrVers.English);
+			do
 			{
-				var cvImplicit = m_lookup[i].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
-				if (cvImplicit != null)
-					return cvImplicit;
-			}
-			return null;
+				var cvNextVerse = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+				// Unless all verses in the range have the same implicit character, we cannot say that there is an
+				// implicit character for this range. Note that there is the slight possibility that the delivery may vary
+				// from one verse to the next, butit doesn't seem worth it to fail to find the implict character just
+				// because of that. Especially since the delivery info is only of minor usefulness.
+				if (cvNextVerse?.Character != implicitCv.Character)
+					return NeedsReviewCharacter.Singleton;
+				verseRef.NextVerse();
+				// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
+			} while (verseRef <= initialEndRef);
+			return implicitCv;
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
@@ -377,6 +382,24 @@ namespace Glyssen.Character
 		{
 			foreach (CharacterVerse cv in GetAllQuoteInfo())
 				cv.ResetLocalization();
+		}
+
+		public class NeedsReviewCharacter : ICharacterDeliveryInfo
+		{
+			public static NeedsReviewCharacter Singleton { get; }
+
+			public string Character => kNeedsReview;
+			public string Delivery => Empty;
+			public string DefaultCharacter => null;
+
+			static NeedsReviewCharacter()
+			{
+				Singleton = new NeedsReviewCharacter();
+			}
+
+			private NeedsReviewCharacter()
+			{
+			}
 		}
 	}
 }

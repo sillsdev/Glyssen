@@ -3,6 +3,13 @@ using SIL.Scripture;
 
 namespace Glyssen.Character
 {
+	public interface ICharacterDeliveryInfo
+	{
+		string Character { get; }
+		string Delivery { get; }
+		string DefaultCharacter { get; }
+	}
+
 	public interface ICharacterVerseRepository
 	{
 		/// <summary>
@@ -12,7 +19,7 @@ namespace Glyssen.Character
 		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
 
-		CharacterVerse GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null);
+		ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null);
 	}
 
 	public interface ICharacterVerseInfo : ICharacterVerseRepository

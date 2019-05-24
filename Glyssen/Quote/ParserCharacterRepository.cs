@@ -29,7 +29,7 @@ namespace Glyssen.Quote
 						String.Empty, String.Empty, false, QuoteType.Quotation)).Distinct();
 		}
 
-		public CharacterVerse GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		public ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
 		{
 			return m_cvInfo.GetImplicitCharacter(bookId, chapter, startVerse, endVerse, versification);
 		}

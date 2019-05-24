@@ -108,7 +108,7 @@ namespace Glyssen.Character
 		Alternate,
 	}
 
-	public class CharacterVerse
+	public class CharacterVerse : ICharacterDeliveryInfo
 	{
 		public const string kScriptureCharacter = "scripture";
 		internal const string kMultiCharacterIdSeparator = "/";
@@ -290,9 +290,9 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterDeliveryEqualityComparer : IEqualityComparer<CharacterVerse>
+	public class CharacterDeliveryEqualityComparer : IEqualityComparer<ICharacterDeliveryInfo>
 	{
-		public bool Equals(CharacterVerse x, CharacterVerse y)
+		public bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
 		{
 			if (x == null && y == null)
 				return true;
@@ -302,7 +302,7 @@ namespace Glyssen.Character
 			return x.Character.Equals(y.Character) && x.Delivery.Equals(y.Delivery);
 		}
 
-		public int GetHashCode(CharacterVerse obj)
+		public int GetHashCode(ICharacterDeliveryInfo obj)
 		{
 			unchecked
 			{

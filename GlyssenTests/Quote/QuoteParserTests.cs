@@ -5797,7 +5797,7 @@ namespace GlyssenTests.Quote
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
 
-			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual(5, output.Count);
 			int i = 1;
 			var outBlock = output[i++];
 			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
@@ -5806,6 +5806,7 @@ namespace GlyssenTests.Quote
 			outBlock = output[i++];
 			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
 			Assert.AreEqual("Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ", ((ScriptText)outBlock.BlockElements.First()).Content);
+			outBlock = output[i++];
 			Assert.AreEqual(35, outBlock.LastVerseNum);
 			Assert.AreEqual("Moses", outBlock.CharacterId);
 			outBlock = output[i++];

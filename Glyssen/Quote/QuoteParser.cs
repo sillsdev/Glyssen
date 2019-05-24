@@ -508,14 +508,34 @@ namespace Glyssen.Quote
 						var newBlock = new Block(block.StyleTag, block.ChapterNumber,
 							block.InitialStartVerseNumber, block.InitialEndVerseNumber)
 						{
-							CharacterId = initialImplicitCv?.Character ?? block.CharacterId,
-							Delivery = initialImplicitCv?.Delivery,
 							BlockElements = block.BlockElements.Take(iElem).ToList(),
 						};
 						m_outputBlocks.Insert(i, newBlock);
-						//if (m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, newBlock.LastVerseNum, versification: m_versification)
-						//	.Any(cv => cv.Character == implicitCv.Character))
-						//	newBlock.CharacterId = CharacterVerseData.kNeedsReview;
+						CharacterVerse leadInCharacter;
+						if (subsequentImplicitCv != null && (leadInCharacter = m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, newBlock.LastVerseNum, versification: m_versification)
+							.SingleOrDefault(cv => cv.Character == subsequentImplicitCv.Character)) != null)
+						{
+							if (newBlock.StartsAtVerseStart)
+								newBlock.CharacterId = CharacterVerseData.kNeedsReview;
+							else
+							{
+								newBlock.SetCharacterIdAndCharacterIdInScript(leadInCharacter.Character, m_bookNum, m_versification);
+								newBlock.Delivery = leadInCharacter.Delivery;
+							}
+						}
+						else
+						{
+							if (initialImplicitCv != null)
+							{
+								newBlock.SetCharacterIdAndCharacterIdInScript(initialImplicitCv.Character, m_bookNum, m_versification);
+								newBlock.Delivery = initialImplicitCv.Delivery;
+							}
+							else
+								newBlock.CharacterId = block.CharacterId; // i.e., Narrator
+						}
+						var startVerse = (Verse)block.BlockElements[iElem];
+						block.InitialStartVerseNumber = startVerse.StartVerse;
+						block.InitialEndVerseNumber = startVerse.EndVerse;
 						block.BlockElements = block.BlockElements.Skip(iElem).ToList();
 						// Since we inserted a block into the list, the remainder of the original block is now at 1 + 1, so
 						// it will get processed next time around.
