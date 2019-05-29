@@ -110,7 +110,7 @@ namespace GlyssenTests
 		public void CreateGlyssenScript_FirstChapterIs0_FirstChapterInScriptIs0()
 		{
 			var project = TestProject.CreateBasicTestProject();
-			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, GetTestData(includeChapter0BookTitle: true));
+			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, GetTestData(true));
 
 			Assert.That(glyssenScript.Script.Books[0].Chapters[0].Id, Is.EqualTo(0));
 		}
@@ -119,9 +119,64 @@ namespace GlyssenTests
 		public void CreateGlyssenScript_FirstChapterIs1_FirstChapterInScriptIs1()
 		{
 			var project = TestProject.CreateBasicTestProject();
-			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, GetTestData(includeChapter0BookTitle: false));
+			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, GetTestData(false));
 
 			Assert.That(glyssenScript.Script.Books[0].Chapters[0].Id, Is.EqualTo(1));
+		}
+
+		[Test]
+		public void CreateGlyssenScript_DeliveryIsSet_DeliveryIsExported()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var blockWhereMichaelSpeaks = project.IncludedBooks.Single().GetScriptBlocks().Single(b => b.InitialStartVerseNumber == 9 && b.IsQuote);
+			blockWhereMichaelSpeaks.CharacterId = "Michael, archangel";
+			blockWhereMichaelSpeaks.Delivery = "rebuking";
+			var exporter = new ProjectExporter(project);
+			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, exporter.GetExportData(getBlockElements:true));
+
+			var scriptBlocks = glyssenScript.Script.Books[0].Chapters[1].Blocks; // Chapter 0 is just the book title
+			var michael = scriptBlocks.Single(b => b.Character == "Michael, archangel");
+			Assert.AreEqual("rebuking", michael.Delivery);
+		}
+
+		[Test]
+		public void CreateGlyssenScript_Jude_ParagraphStartInfoIsExported()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var exporter = new ProjectExporter(project);
+			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, exporter.GetExportData(getBlockElements: true));
+
+			string prevVerse = null;
+			foreach (var block in glyssenScript.Script.Books[0].Chapters[1].Blocks)
+			{
+				if (block.Verse != prevVerse)
+				{
+					switch (block.Verse)
+					{
+						// These are the verses that correspond to paragraph breaks in TestJUD.xml
+						case "1":
+						case "2":
+						case "3":
+						case "5":
+						case "8":
+						case "14":
+						case "16":
+						case "17":
+						case "24":
+							Assert.IsTrue(block.IsParagraphStart);
+							break;
+						default:
+							Assert.IsFalse(block.IsParagraphStart);
+							break;
+					}
+					prevVerse = block.Verse;
+				}
+				else
+				{
+					// The first verse in Jude (in TestJUD.xml) is broken into to two paragraphs 
+					Assert.AreEqual(block.Verse == "1", block.IsParagraphStart, $"Block should not have been a paragraph start: {block.Verse}");
+				}
+			}
 		}
 
 		[Test]
