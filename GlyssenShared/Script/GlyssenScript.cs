@@ -17,7 +17,7 @@ namespace Glyssen.Shared.Script
 		// Needed for serialization/deserialization
 		public GlyssenScript()
 		{
-			Version = "2.0";
+			Version = "2.1";
 		}
 
 		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source) : this()
@@ -134,6 +134,9 @@ namespace Glyssen.Shared.Script
 		/// </summary>
 		[XmlAttribute("delivery")]
 		public string Delivery { get; set; }
+
+		[XmlAttribute("paragraphStart")]
+		public bool IsParagraphStart { get; set; }
 
 		[XmlElement("vernacularText")]
 		public TextWithLanguage VernacularText { get; set; }

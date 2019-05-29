@@ -866,6 +866,8 @@ namespace Glyssen
 			if (includeDelivery)
 				exportData.Delivery = block.Delivery;
 
+			exportData.IsParagraphStart = block.IsParagraphStart;
+
 			if (!getBlockElements)
 			{
 				exportData.VernacularText = block.GetText(true);
@@ -1023,6 +1025,7 @@ namespace Glyssen
 			}
 			public string LocalizedCharacterId { get; set; }
 			public string Delivery { get; set; }
+			public bool IsParagraphStart { get; set; }
 			public string ClipFilePath { get; set; }
 
 			#region These three properties get set when preparing to export to a glyssenscript file.

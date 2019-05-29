@@ -55,8 +55,10 @@ namespace Glyssen
 				{
 					var gsBlock = new ScriptBlock
 					{
-						// Enhance: add localizedCharacterId to script
+						// ENHANCE: add localizedCharacterId to script
 						Character = block.CharacterId,
+						Delivery = block.Delivery,
+						IsParagraphStart = block.IsParagraphStart,
 						Id = blockId++,
 						ReferenceTexts = GetReferenceTexts(project, block),
 						Tag = block.StyleTag,
