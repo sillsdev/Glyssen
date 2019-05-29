@@ -125,7 +125,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void CreateGlyssenScript_DeliveryIsSet_DeliveryAndParagraphStartAreIncluded()
+		public void CreateGlyssenScript_DeliveryIsSet_DeliveryIsExported()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var blockWhereMichaelSpeaks = project.IncludedBooks.Single().GetScriptBlocks().Single(b => b.InitialStartVerseNumber == 9 && b.IsQuote);
@@ -140,7 +140,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void CreateGlyssenScript_Jude_ParagraphStartInfoIsIncluded()
+		public void CreateGlyssenScript_Jude_ParagraphStartInfoIsExported()
 		{
 			var project = TestProject.CreateBasicTestProject();
 			var exporter = new ProjectExporter(project);
