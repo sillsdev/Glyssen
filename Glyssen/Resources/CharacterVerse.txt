@@ -16870,7 +16870,7 @@ PHP	2	11	everyone			Hypothetical
 PHP	4	4	Paul			Potential		
 COL	2	18	narrator-COL			Quotation		
 COL	2	21	rules of the world			Hypothetical		
-COL	4	17	Paul			Quotation		
+COL	4	17	narrator-COL			Quotation		
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Hypothetical		
 1TH	5	27	Paul			Potential		

@@ -15,7 +15,6 @@ using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
-using SIL.Scripture;
 using SIL.WritingSystems;
 
 namespace GlyssenTests
