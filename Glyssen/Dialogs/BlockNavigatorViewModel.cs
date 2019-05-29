@@ -1201,7 +1201,7 @@ namespace Glyssen.Dialogs
 						// block count.)
 						// * We based the count of the number of original blocks, even if the process of matching
 						// them up causes them to be split into separate verses.
-						var extendBy = m_relevantBookBlockIndices[m_currentRelevantIndex].IsMultiBlock ? (uint)1 : 2;
+						var extendBy = currentIndices.IsMultiBlock ? (uint)1 : 2;
 						m_navigator.ExtendCurrentBlockGroup(extendBy);
 						if (m_currentRelevantIndex >= 0)
 							m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount += extendBy;
