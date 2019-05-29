@@ -16863,6 +16863,7 @@ ROM	16	22	Tertius			Indirect
 1CO	6	12	narrator-1CO			Hypothetical		
 1CO	6	13	narrator-1CO			Hypothetical		
 1CO	6	16	scripture			Quotation		
+1CO	6	18	scripture			Quotation		
 1CO	7	10	Paul			Potential		
 1CO	8	1	narrator-1CO			Hypothetical		
 1CO	8	5	narrator-1CO			Quotation		
