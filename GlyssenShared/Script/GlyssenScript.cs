@@ -17,7 +17,7 @@ namespace Glyssen.Shared.Script
 		// Needed for serialization/deserialization
 		public GlyssenScript()
 		{
-			Version = "3.0";
+			Version = "2.1";
 		}
 
 		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source) : this()

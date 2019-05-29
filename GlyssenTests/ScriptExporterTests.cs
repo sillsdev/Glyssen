@@ -128,20 +128,32 @@ namespace GlyssenTests
 		public void CreateGlyssenScript_DeliveryIsSet_DeliveryAndParagraphStartAreIncluded()
 		{
 			var project = TestProject.CreateBasicTestProject();
-			project.IncludedBooks.Single().GetScriptBlocks().Single(b => b.InitialStartVerseNumber == 9 && b.IsQuote).Delivery = "rebuking";
+			var blockWhereMichaelSpeaks = project.IncludedBooks.Single().GetScriptBlocks().Single(b => b.InitialStartVerseNumber == 9 && b.IsQuote);
+			blockWhereMichaelSpeaks.CharacterId = "Michael, archangel";
+			blockWhereMichaelSpeaks.Delivery = "rebuking";
 			var exporter = new ProjectExporter(project);
 			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, exporter.GetExportData(getBlockElements:true));
 
-			var scriptBlocks = glyssenScript.Script.Books[0].Chapters[1].Blocks;
+			var scriptBlocks = glyssenScript.Script.Books[0].Chapters[1].Blocks; // Chapter 0 is just the book title
 			var michael = scriptBlocks.Single(b => b.Character == "Michael, archangel");
 			Assert.AreEqual("rebuking", michael.Delivery);
+		}
+
+		[Test]
+		public void CreateGlyssenScript_Jude_ParagraphStartInfoIsIncluded()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var exporter = new ProjectExporter(project);
+			var glyssenScript = ScriptExporter.CreateGlyssenScript(project, exporter.GetExportData(getBlockElements: true));
+
 			string prevVerse = null;
-			foreach (var block in scriptBlocks)
+			foreach (var block in glyssenScript.Script.Books[0].Chapters[1].Blocks)
 			{
 				if (block.Verse != prevVerse)
 				{
 					switch (block.Verse)
 					{
+						// These are the verses that correspond to paragraph breaks in TestJUD.xml
 						case "1":
 						case "2":
 						case "3":
@@ -160,7 +172,10 @@ namespace GlyssenTests
 					prevVerse = block.Verse;
 				}
 				else
+				{
+					// The first verse in Jude (in TestJUD.xml) is broken into to two paragraphs 
 					Assert.AreEqual(block.Verse == "1", block.IsParagraphStart, $"Block should not have been a paragraph start: {block.Verse}");
+				}
 			}
 		}
 
