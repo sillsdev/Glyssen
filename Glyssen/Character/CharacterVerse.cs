@@ -104,6 +104,13 @@ namespace Glyssen.Character
 		/// passages where there is a single well-defined quote and the ambiguity is mearly a dramatization
 		/// decision. (Basically, the effect is the same as using <seealso cref="Hypothetical"/>, except without
 		/// the performance hit to look in the reference text to see whether the alternate character is used.
+		/// This type can also be used when there is a potential quote that spills over into a subsequent verse
+		/// that has an actual expected quote. Some translations (e.g., ISV) wrap virtually the entire text in
+		/// quotes to indicate that the prophet is speaking all the text. In these cases, the actual quote may
+		/// be second level. For translations that do not do this, we don't want the prophet to accidentally be
+		/// considered as a candidate for the quoted text (which would result in an ambiguity). By using the
+		/// Alternate quote type, we ensure that it will only be considered for an on-going quote that was
+		/// opened in a previous verse.
 		/// </summary>
 		Alternate,
 	}

@@ -12,6 +12,11 @@ namespace ControlDataIntegrityTests
 	[TestFixture]
 	public class CharacterVerseDataTests
 	{
+		private const string kRegexBCV = "^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t";
+
+		private IEnumerable<string> AllDataLines =>
+			Resources.CharacterVerseData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries).Skip(1).Where(l => !l.StartsWith("#"));
+
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
 		{
@@ -28,16 +33,12 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>" + typeof(QuoteType).GetRegexEnumValuesString() + ")\t(?<defaultCharacter>[^\t]*)\t(?<parallelPassageRef>[^\t]*)$", RegexOptions.Compiled);
+			Regex regex = new Regex(kRegexBCV + "(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>" + typeof(QuoteType).GetRegexEnumValuesString() + ")\t(?<defaultCharacter>[^\t]*)\t(?<parallelPassageRef>[^\t]*)$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
-			string[] allLines = Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
-			foreach (var line in allLines.Skip(1))
+			foreach (var line in AllDataLines)
 			{
-				if (line.StartsWith("#"))
-					continue;
-
 				var match = regex.Match(line);
 				Assert.IsTrue(match.Success, "Failed to match line: " + line);
 
@@ -48,11 +49,11 @@ namespace ControlDataIntegrityTests
 
 				var chapter = Int32.Parse(match.Result("${chapter}"));
 				Assert.IsTrue(chapter > 0, "Line: " + line);
-				Assert.IsTrue(chapter <= 150, "Line: " + line);
+				Assert.IsTrue(chapter <= ScrVers.English.GetLastChapter(bookNum), "Line: " + line);
 
 				var verse = Int32.Parse(match.Result("${verse}"));
 				Assert.IsTrue(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
-				Assert.IsTrue(verse <= 152, "Line: " + line);
+				Assert.IsTrue(verse <= ScrVers.English.GetLastVerse(bookNum, chapter), "Line: " + line);
 
 				var sEndVerse = match.Result("${endVerse}");
 				if (!string.IsNullOrEmpty(sEndVerse))
@@ -241,24 +242,71 @@ namespace ControlDataIntegrityTests
 		}
 
 		/// <summary>
-		/// The Alternate quote type implies that there should also be (at least one) regular (not Indirect, Hypotthetical or Interruption)
-		/// entry for the verse. And it can't be a narrator quotation.
+		/// The Alternate quote type implies that there should also be (at least one) regular (not Implicit, Indirect or Interruption)
+		/// entry for the verse. And it can't be a narrator quotation. Also in the NT, the reference text typically doesn't dramatize
+		/// Hypoteticals, so for NT books, we won't allow those to be the primary either.
 		/// </summary>
 		[Test]
 		public void DataIntegrity_AlternateAccompaniedByAnotherCharacter()
 		{
+			var acceptablePrimaryQuoteTypes = new List<QuoteType>
+			{
+				QuoteType.Normal,
+				QuoteType.Potential,
+				QuoteType.Dialogue,
+				QuoteType.Quotation,
+				QuoteType.Hypothetical
+			};
 			foreach (var alternate in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
 				.Where(i => i.QuoteType == QuoteType.Alternate))
 			{
+				if (alternate.BookCode == "MAT" && acceptablePrimaryQuoteTypes.Count == 5)
+					acceptablePrimaryQuoteTypes.Remove(QuoteType.Hypothetical);
 				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(alternate.BookCode),
-					alternate.Chapter, alternate.Verse, versification: ScrVers.English)
-					.Where(c => c.QuoteType == QuoteType.Normal ||
-					c.QuoteType == QuoteType.Potential ||
-					c.QuoteType == QuoteType.Dialogue ||
-					c.QuoteType == QuoteType.Quotation);
+						alternate.Chapter, alternate.Verse, versification: ScrVers.English)
+					.Where(c => acceptablePrimaryQuoteTypes.Contains(c.QuoteType));
 				Assert.IsTrue(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-")),
 					$"Character-verse file contains an Alternate quote for {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}" +
 					", but there is no primary character.");
+			}
+		}
+
+		/// <summary>
+		/// Although the class that reads and uses the data in this file does not actually care what order the lines are in,
+		/// for ease of maintenance, we keep it in canonical order. If any verse or chapter numbers appear out of order, it
+		/// is most likely a typo.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_AscendingCanonicalOrder()
+		{
+			Regex regex = new Regex(kRegexBCV, RegexOptions.Compiled);
+			int prevBookNum = 1;
+			int prevChapterNum = 1;
+			int prevVerseNum = 1;
+
+			foreach (var line in AllDataLines)
+			{
+				var match = regex.Match(line);
+				Assert.IsTrue(match.Success, "Failed to match line: " + line);
+
+				var bookId = match.Result("${bookId}");
+				var bookNum = BCVRef.BookToNumber(bookId);
+				if (prevBookNum < bookNum)
+				{
+					prevChapterNum = 1;
+					prevVerseNum = bookId == "PSA" ? 0 : 1;
+				}
+				else
+					Assert.AreEqual(prevBookNum, bookNum, "Book out of order" + Environment.NewLine + line);
+
+				var chapter = Int32.Parse(match.Result("${chapter}"));
+				if (prevChapterNum < chapter)
+					prevVerseNum = bookId == "PSA" ? 0 : 1;
+				else
+					Assert.AreEqual(prevChapterNum, chapter, "Chapter out of order" + Environment.NewLine + line);
+
+				var verse = Int32.Parse(match.Result("${verse}"));
+				Assert.IsTrue(verse >= prevVerseNum, "Verse out of order" + Environment.NewLine + line);
 			}
 		}
 

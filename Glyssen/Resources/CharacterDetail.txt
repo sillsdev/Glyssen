@@ -299,7 +299,7 @@ enemies of Israel	-1					PSA 83:4 & PSA 83:12
 enemies of Judah and Benjamin	-1	Male				EZR 4:2
 enemy	1	Female				MIC 7:10
 Enoch	1	Male				JUD 1:14 & JUD 1:15
-Ephraim	-1	PreferMale				HOS 12:8
+Ephraim	-1	PreferMale				ISA 7:6 & HOS 12:8
 Ephraimites	-1					JDG 8:1 <-(4 more)-> ISA 9:10
 Ephron the Hittite	1	Male				GEN 23:11 & GEN 23:15
 Epicurean and Stoic philosophers	-1					ACT 17:19 & ACT 17:20
@@ -786,6 +786,7 @@ Pashur	1	Male			son of Malkijah	JER 21:2 & JER 38:4
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(198 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
+Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
 people	-1					2CH 26:23 <-(31 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
 people at coronation of King Joash	-1					2KI 11:12
@@ -1044,6 +1045,7 @@ steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10
 stingy man	1	Male				PRO 23:7
 synagogue ruler	1	Male				LUK 13:14
 synagogue rulers in Pisidian Antioch	-1	Male				ACT 13:15
+Syria	-1	Male				ISA 7:6
 Tamar, daughter of David	1	Female				2SA 13:12 <-(1 more)-> 2SA 13:16
 Tamar, daughter-in-law of Judah	1	Female				GEN 38:16 <-(1 more)-> GEN 38:18
 Tattenai, governor	1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
