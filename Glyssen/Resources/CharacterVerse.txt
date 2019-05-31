@@ -8980,12 +8980,12 @@ ISA	6	3	seraphs			Normal
 ISA	6	5	Isaiah			Normal		
 ISA	6	7	Isaiah			Potential		
 ISA	6	7	seraph, one of the			Normal		
-ISA	6	8	Isaiah			Potential		
-ISA	6	8	God		God (the LORD)	Normal		
-ISA	6	9	God		God (the LORD)	Normal		
+ISA	6	8	Isaiah			Dialogue		
+ISA	6	8	God		God (the LORD)	Dialogue		
+ISA	6	9	God		God (the LORD)	Dialogue		
 ISA	6	10	God		God (the LORD)	Implicit		
-ISA	6	11	Isaiah			Normal		
-ISA	6	11	God		God (the LORD)	Normal		
+ISA	6	11	Isaiah			Dialogue		
+ISA	6	11	God		God (the LORD)	Dialogue		
 ISA	6	12	God		God (the LORD)	Implicit		
 ISA	6	13	God		God (the LORD)	Normal		
 ISA	7	2	messenger			Normal		
@@ -9002,7 +9002,7 @@ ISA	7	7	God		God (the LORD)	Normal
 ISA	7	8	God		God (the LORD)	Implicit		
 ISA	7	9	God		God (the LORD)	Implicit		
 ISA	7	11	God		God (the LORD)	Implicit		
-ISA	7	12	Ahaz, king of Judah			Normal		
+ISA	7	12	Ahaz, king of Judah			Dialogue		
 ISA	7	13	Isaiah			Normal		
 # Although the pronoun is ambiguous, the wording in this verse makes it very unlikely that
 # God is speaking. Nonetheless, the ISV does explicitly attribute it to God.
@@ -9154,7 +9154,6 @@ ISA	12	6	Isaiah			Alternate
 ISA	13	2	Isaiah			Potential		
 ISA	13	2	God		God (the LORD)	Alternate		
 ISA	13	3	God		God (the LORD)	Implicit		
-ISA	13	3	Isaiah			Alternate		
 ISA	13	4	Isaiah			Potential		
 ISA	13	4	God		God (the LORD)	Alternate		
 ISA	13	5	Isaiah			Potential		
@@ -9340,25 +9339,25 @@ ISA	33	18	you (hypothetical)	thinking		Hypothetical
 ISA	33	24	narrator-ISA			Hypothetical		
 ISA	35	4	narrator-ISA			Hypothetical		
 ISA	36	4	Rabshakeh			Normal		2KI 18:19; 2CH 32:10; ISA 36:4
-ISA	36	5	Rabshakeh			Normal		2KI 18:20; ISA 36:5
-ISA	36	6	Rabshakeh			Normal		2KI 18:21; ISA 36:6
-ISA	36	7	Rabshakeh			Normal		2KI 18:22; 2CH 32:12; ISA 36:7
-ISA	36	8	Rabshakeh			Normal		2KI 18:23; ISA 36:8
-ISA	36	9	Rabshakeh			Normal		2KI 18:24; ISA 36:9
-ISA	36	10	Rabshakeh			Normal		2KI 18:25; ISA 36:10
+ISA	36	5	Rabshakeh			Implicit		2KI 18:20; ISA 36:5
+ISA	36	6	Rabshakeh			Implicit		2KI 18:21; ISA 36:6
+ISA	36	7	Rabshakeh			Implicit		2KI 18:22; 2CH 32:12; ISA 36:7
+ISA	36	8	Rabshakeh			Implicit		2KI 18:23; ISA 36:8
+ISA	36	9	Rabshakeh			Implicit		2KI 18:24; ISA 36:9
+ISA	36	10	Rabshakeh			Implicit		2KI 18:25; ISA 36:10
 ISA	36	11	Eliakim/Shebna/Joah			Normal	Eliakim	
 ISA	36	12	Rabshakeh			Normal		2KI 18:27; ISA 36:12
 ISA	36	13	Rabshakeh			Normal		2KI 18:28; ISA 36:13
-ISA	36	14	Rabshakeh			Normal		2KI 18:29; ISA 36:14
-ISA	36	15	Rabshakeh			Normal		2KI 18:30; 2CH 32:11; ISA 36:15
-ISA	36	16	Rabshakeh			Normal		2KI 18:31; ISA 36:16
-ISA	36	17	Rabshakeh			Normal		2KI 18:32a; ISA 36:17
-ISA	36	18	Rabshakeh			Normal		2KI 18:32c-33; 2CH 32:13; ISA 36:18
-ISA	36	19	Rabshakeh			Normal		2KI 18:34; ISA 36:19
-ISA	36	20	Rabshakeh			Normal		2KI 18:35; 2CH 32:14; ISA 36:20
+ISA	36	14	Rabshakeh			Implicit		2KI 18:29; ISA 36:14
+ISA	36	15	Rabshakeh			Implicit		2KI 18:30; 2CH 32:11; ISA 36:15
+ISA	36	16	Rabshakeh			Implicit		2KI 18:31; ISA 36:16
+ISA	36	17	Rabshakeh			Implicit		2KI 18:32a; ISA 36:17
+ISA	36	18	Rabshakeh			Implicit		2KI 18:32c-33; 2CH 32:13; ISA 36:18
+ISA	36	19	Rabshakeh			Implicit		2KI 18:34; ISA 36:19
+ISA	36	20	Rabshakeh			Implicit		2KI 18:35; 2CH 32:14; ISA 36:20
 ISA	36	21	Hezekiah, king of Judah			Normal		
 ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
-ISA	37	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
+ISA	37	4	Eliakim/Shebna/chief priests			Implicit	Eliakim	
 ISA	37	6	Isaiah			Normal		
 ISA	37	7	Isaiah			Normal		
 ISA	37	9	person who informed Rabshakeh			Normal		

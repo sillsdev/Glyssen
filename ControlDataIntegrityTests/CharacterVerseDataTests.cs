@@ -243,8 +243,9 @@ namespace ControlDataIntegrityTests
 
 		/// <summary>
 		/// The Alternate quote type implies that there should also be (at least one) regular (not Implicit, Indirect or Interruption)
-		/// entry for the verse. And it can't be a narrator quotation. Also in the NT, the reference text typically doesn't dramatize
-		/// Hypoteticals, so for NT books, we won't allow those to be the primary either.
+		/// entry for the verse. At least for now (until we find some place where it's definitely warranted), we also won't allow Dialogue
+		/// to be the primary character (since hopefully, that's more concrete). And it can't be a narrator quotation. Also in the NT, the
+		/// reference text typically doesn't dramatize Hypotheticals, so for NT books, we won't allow those to be the primary either.
 		/// </summary>
 		[Test]
 		public void DataIntegrity_AlternateAccompaniedByAnotherCharacter()
@@ -253,7 +254,6 @@ namespace ControlDataIntegrityTests
 			{
 				QuoteType.Normal,
 				QuoteType.Potential,
-				QuoteType.Dialogue,
 				QuoteType.Quotation,
 				QuoteType.Hypothetical
 			};
