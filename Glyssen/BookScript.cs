@@ -453,6 +453,14 @@ namespace Glyssen
 					Debug.Fail("Something unexpected happened. Logic above should guarantee that unsplit source matched split target.");
 					continue;
 				}
+				if (!sourceMatchup.AllScriptureBlocksMatch)
+				{
+					Debug.Fail("If I can't figure out how to write this unit test, this failure should show me what the data looks like in this case.");
+					// TODO: need unit test for this. Something has changed (in the reference text? in the parser?) that causes the target matchup
+					// to now contain more (?) blocks than were orginally matched up when the source blocks were aligned.
+					continue;
+				}
+
 				iSrc += sourceMatchup.OriginalBlockCount - 1; // Need to subtract 1 because this gets incremented in for loop.
 
 				for (int i = 0; i < sourceMatchup.CorrelatedBlocks.Count; i++)
@@ -460,11 +468,8 @@ namespace Glyssen
 					sourceBlock = sourceMatchup.CorrelatedBlocks[i];
 					var targetBlock = targetMatchup.CorrelatedBlocks[i];
 					{
-						if (sourceBlock.MatchesReferenceText)
-						{
-							targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
-							targetBlock.CloneReferenceBlocks();
-						}
+						targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
+						targetBlock.CloneReferenceBlocks();
 						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, versification);
 						targetBlock.SplitId = sourceBlock.SplitId;
 						targetBlock.MultiBlockQuote = sourceBlock.MultiBlockQuote;
