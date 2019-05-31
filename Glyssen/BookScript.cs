@@ -455,9 +455,8 @@ namespace Glyssen
 				}
 				if (!sourceMatchup.AllScriptureBlocksMatch)
 				{
-					Debug.Fail("If I can't figure out how to write this unit test, this failure should show me what the data looks like in this case.");
-					// TODO: need unit test for this. Something has changed (in the reference text? in the parser?) that causes the target matchup
-					// to now contain more (?) blocks than were orginally matched up when the source blocks were aligned.
+					// Something has apparently changed (in the reference text or in the parser?) that causes the target matchup
+					// to now contain some blocks than were not orginally matched up when the source blocks were aligned.
 					continue;
 				}
 
