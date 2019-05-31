@@ -334,6 +334,43 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
 		}
 
+		// PG-1211
+		[Test]
+		public void SetMode_SwitchToFilterWithNothingRelevantAfterApplyingMatchupThatCausedCurrentBlockTobeReplaced_ReplacedBlockIsCurrent()
+		{
+			m_fullProjectRefreshRequired = true;
+
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.AttemptRefBlockMatchup = true;
+			while (m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0 &&
+				m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.GetText(true) == m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.GetText(true)) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			Assert.That(!m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.GetText(true) == m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.GetText(true)),
+				"Could not find any relvant block in project whose alignment to the reference text would result in splitting the anchor block.");
+
+			foreach (var block in m_model.CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
+				block.MultiBlockQuote = MultiBlockQuote.None;
+				block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+				block.Delivery = null;
+			}
+
+			var origCorrelatedBlocksText = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)).ToList();
+
+			m_model.ApplyCurrentReferenceTextMatchup();
+			m_model.Mode = BlocksToDisplay.KnownTroubleSpots;
+			Assert.AreEqual(0, m_model.RelevantBlockCount, "IMPORTANT NOTE: We're using the KnownTroubleSpots for convenience because it isn't " +
+				"implemented. Therefore, nothing matches it. If we ever implement it, this test may need to be adjusted to ensure that when we " +
+				"switch to the new filter, nothing matches.");
+
+			Assert.IsTrue(origCorrelatedBlocksText.SequenceEqual(m_testProject.IncludedBooks.Single().GetScriptBlocks()
+				.Skip(m_model.CurrentBlockIndexInBook).Take(origCorrelatedBlocksText.Count).Select(b => b.GetText(true))));
+		}
+
 		[Test]
 		public void GetDeliveriesForCharacter_NullCharacter_GetsEmptyEnumeration()
 		{
