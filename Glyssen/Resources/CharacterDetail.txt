@@ -46,6 +46,7 @@ Amasa	1	Male	Adult		leader in Ephraim	2CH 28:13
 Amasai, chief of thirty	1	Male	Adult			1CH 12:18
 Amaziah, king of Judah	1	Male	Adult			2KI 14:8 <-(2 more)-> 2CH 25:17
 Amaziah, priest of Bethel	1	Male	Adult			AMO 7:10 <-(2 more)-> AMO 7:13
+ambassador	-1	Male	Adult			ISA 18:2
 Ammonite nobles	-1	Male	Adult			2SA 10:3 & 1CH 19:3
 Amnon, son of David	1	Male	Adult			2SA 13:4 <-(5 more)-> 2SA 13:17
 Amos	1	Male	Adult			AMO 1:2 <-(8 more)-> AMO 8:2

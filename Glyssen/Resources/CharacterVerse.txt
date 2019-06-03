@@ -9235,23 +9235,32 @@ ISA	14	21	Isaiah			Potential
 ISA	14	21	God		God (the LORD)	Alternate		
 ISA	14	22	God		God (the LORD)	Normal		
 ISA	14	23	God		God (the LORD)	Normal		
-ISA	14	24	God	has sworn	God (the LORD)	Normal		
-ISA	14	25	God	has sworn	God (the LORD)	Normal		
+ISA	14	24	God		God (the LORD)	Normal		
+ISA	14	25	God		God (the LORD)	Implicit		
+ISA	14	26	God		God (the LORD)	Potential		
+ISA	14	27	God		God (the LORD)	Potential		
+ISA	14	29	God		God (the LORD)	Potential		
+ISA	14	30	God		God (the LORD)	Potential		
+ISA	14	31	God		God (the LORD)	Potential		
 ISA	14	32	answer from Israel			Hypothetical		
 ISA	16	3	Moabites			Hypothetical		
 ISA	16	3	Moabitesses (female)			Hypothetical		
+ISA	16	3	Needs Review			Hypothetical		
 ISA	16	4	Moabites			Hypothetical		
 ISA	16	4	Moabitesses (female)			Hypothetical		
+ISA	16	4	Needs Review			Hypothetical		
 ISA	16	14	God		God (the LORD)	Normal		
 ISA	17	1	God		God (the LORD)	Normal		
-ISA	17	2	God		God (the LORD)	Normal		
+ISA	17	2	God		God (the LORD)	Implicit		
 ISA	17	3	God		God (the LORD)	Normal		
-ISA	17	4	God		God (the LORD)	Normal		
-ISA	17	5	God		God (the LORD)	Normal		
+ISA	17	4	God		God (the LORD)	Implicit		
+ISA	17	5	God		God (the LORD)	Implicit		
 ISA	17	6	God		God (the LORD)	Normal		
+ISA	18	2	ambassador			Potential		
 ISA	18	4	God		God (the LORD)	Normal		
-ISA	19	2	God		God (the LORD)	Normal		
-ISA	19	3	God		God (the LORD)	Normal		
+ISA	19	1	God		God (the LORD)	Potential		
+ISA	19	2	God		God (the LORD)	Implicit		
+ISA	19	3	God		God (the LORD)	Implicit		
 ISA	19	4	God		God (the LORD)	Normal		
 ISA	19	11	wise men of Pharaoh			Hypothetical		
 ISA	19	25	God		God (the LORD)	Normal		
