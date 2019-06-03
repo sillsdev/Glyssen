@@ -253,26 +253,35 @@ namespace Glyssen.Dialogs
 			{
 				bool includingThisBook = m_includeInScript[book.Code];
 
-				var existingBookScript = includingThisBook ? m_project.IncludedBooks.SingleOrDefault(b => b.BookId == book.Code) : null;
-
-				book.IncludeInScript = includingThisBook;
-
-				if (!book.IncludeInScript)
+				if (!includingThisBook)
+				{
+					book.IncludeInScript = false;
 					continue;
+				}
+
+				if (!m_project.IsLiveParatextProject)
+					book.IncludeInScript = true;
+
+				var existingBookScript = m_project.IncludedBooks.SingleOrDefault(b => b.BookId == book.Code);
 
 				if (existingBookScript != null)
 				{
+					bool prevSingleVoiceValue = existingBookScript.SingleVoice;
 					existingBookScript.SingleVoice = !m_multiVoice[existingBookScript.BookId];
-					Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+					if (prevSingleVoiceValue != existingBookScript.SingleVoice)
 					{
-						{ "book", existingBookScript.BookId },
-						{ "singleVoice", existingBookScript.SingleVoice.ToString() },
-						{ "method", "ScriptureRangeSelectionDlg.m_btnOk_Click" }
-					});
+						Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+						{
+							{"book", existingBookScript.BookId},
+							{"singleVoice", existingBookScript.SingleVoice.ToString()},
+							{"method", "ScriptureRangeSelectionDlg.m_btnOk_Click"}
+						});
+					}
 					continue;
 				}
 
 				Debug.Assert(m_project.IsLiveParatextProject);
+				book.IncludeInScript = true;
 
 				BookScript bookScriptFromExistingFile = m_project.FluffUpBookFromFileIfPossible(book.Code);
 				if (bookScriptFromExistingFile == null || UserWantsUpdatedContent(bookScriptFromExistingFile))
@@ -314,7 +323,7 @@ namespace Glyssen.Dialogs
 		{
 			// If there is a newer version ask user if they want to get the updated version.
 			GetParatextScrTextWrapperIfNeeded(true);
-			if (m_paratextScrTextWrapper.GetBookChecksum(bookScriptFromExistingFile.BookNumber) == bookScriptFromExistingFile.ParatextChecksum)
+			if (m_paratextScrTextWrapper == null || m_paratextScrTextWrapper.GetBookChecksum(bookScriptFromExistingFile.BookNumber) == bookScriptFromExistingFile.ParatextChecksum)
 				return false;
 			// If the updated version does NOT pass tests but the existing version does (i.e., user didn't override the checking status),
 			// we'll just stick with the version we have. If they want to update it manually later, they can.
