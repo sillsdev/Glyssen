@@ -2137,6 +2137,37 @@ namespace GlyssenTests
 		}
 		#endregion PG-1168
 
+		/// <summary>
+		/// PG-1207
+		/// </summary>
+		[Test]
+		public void ApplyUserDecisions_SourceMatchupNotAllMatchedToReferenceText_AlignmentNotApplied()
+		{
+			const int kChapter = 2;
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block> {
+				NewChapterBlock(kChapter, "MAT"),
+				new Block("p", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
+					.AddVerse(1, "Jésus naît à Bethléem, en Judée, au moment où Hérode le Grand est roi. Alors, des sages viennent de l'est et arrivent à Jérusalem."),
+				new Block("p", kChapter, 2) { IsParagraphStart = true, CharacterId = narrator }
+					.AddVerse(2, "Ils demandent: "),
+				new Block("p", kChapter, 2) { IsParagraphStart = false, CharacterId = "magi (wise men from East)" }
+					.AddText(" <<Où est le roi des Juifs qui vient de naître? Nous avons vu son étoile se lever à l'est, et nous sommes venus l'adorer.>>")
+			};
+
+			var source = new BookScript("MAT", blocks, ScrVers.English);
+			source[1].SetMatchedReferenceBlock("When Jesus was born in Bethlehem, Judea in the days of Herod, eastern wise men came to Jerusalem.");
+
+			var target = new BookScript("MAT", blocks.Select(b => b.Clone()), source.Versification);
+
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			target.ApplyUserDecisions(source, englishRefText);
+			Assert.IsTrue(blocks.SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
 		#region PG-1179 unit tests for re-applying insertion of annotations to indicate where a sound effect goes.
 		//[Test]
 		//public void ApplyUserDecisions_AnnotationAddedAtStartOfVerseText_NoTextChange_AnnotationPreserved()
