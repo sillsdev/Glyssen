@@ -334,6 +334,43 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
 		}
 
+		// PG-1211
+		[Test]
+		public void SetMode_SwitchToFilterWithNothingRelevantAfterApplyingMatchupThatCausedCurrentBlockTobeReplaced_ReplacedBlockIsCurrent()
+		{
+			m_fullProjectRefreshRequired = true;
+
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.AttemptRefBlockMatchup = true;
+			while (m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0 &&
+				m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.GetText(true) == m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.GetText(true)) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			Assert.That(!m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.GetText(true) == m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.GetText(true)),
+				"Could not find any relvant block in project whose alignment to the reference text would result in splitting the anchor block.");
+
+			foreach (var block in m_model.CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
+				block.MultiBlockQuote = MultiBlockQuote.None;
+				block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+				block.Delivery = null;
+			}
+
+			var origCorrelatedBlocksText = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)).ToList();
+
+			m_model.ApplyCurrentReferenceTextMatchup();
+			m_model.Mode = BlocksToDisplay.KnownTroubleSpots;
+			Assert.AreEqual(0, m_model.RelevantBlockCount, "IMPORTANT NOTE: We're using the KnownTroubleSpots for convenience because it isn't " +
+				"implemented. Therefore, nothing matches it. If we ever implement it, this test may need to be adjusted to ensure that when we " +
+				"switch to the new filter, nothing matches.");
+
+			Assert.IsTrue(origCorrelatedBlocksText.SequenceEqual(m_testProject.IncludedBooks.Single().GetScriptBlocks()
+				.Skip(m_model.CurrentBlockIndexInBook).Take(origCorrelatedBlocksText.Count).Select(b => b.GetText(true))));
+		}
+
 		[Test]
 		public void GetDeliveriesForCharacter_NullCharacter_GetsEmptyEnumeration()
 		{
@@ -1043,7 +1080,7 @@ namespace GlyssenTests.Dialogs
 
 		// PG-1204
 		[Test]
-		public void SplitBlock_TextBlockIsOnlyOriginalBlockInIndex_BlockMatchupExtendedToContainBothBlocksAndStillBeRelevant()
+		public void SplitBlock_RelevantTextBlockIsOnlyOriginalBlockInIndex_BlockMatchupExtendedToContainBothBlocks()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			var model = new AssignCharacterViewModel(project);
@@ -1072,6 +1109,47 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(2, model.CurrentReferenceTextMatchup.OriginalBlockCount);
 			Assert.AreEqual(origBlock, model.CurrentReferenceTextMatchup.OriginalBlocks.First());
 			Assert.AreEqual(String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), origBlockText);
+
+			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
+			model.Mode = BlocksToDisplay.AllScripture;
+			model.LoadNextRelevantBlock();
+
+			Assert.True(model.IndexOfFirstBlockInCurrentGroup > indexOfBlockThatWasSplitOff);
+		}
+
+		// PG-1208
+		[Test]
+		public void SplitBlock_AdHocTextBlockIsOnlyOriginalBlockInIndex_BlockMatchupExtendedToContainBothBlocksAndStillBeAdHoc()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.MissingExpectedQuote;
+			model.AttemptRefBlockMatchup = true;
+			var verseRef = new VerseRef(BCVRef.BookToNumber("MAT"), 1, 1, ScrVers.English);
+			Assert.IsTrue(model.TryLoadBlock(verseRef));
+			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 || model.IsCurrentBlockRelevant)
+			{
+				if (!verseRef.NextVerse())
+					Assert.Fail("Could not find any block in MAT to test this case.");
+				Assert.IsTrue(model.TryLoadBlock(verseRef));
+			}
+
+			var origBlock = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
+			var origBlockText = origBlock.GetText(true);
+			var blockToSplit = origBlock;
+
+			var indexOfFirstVerseElement = blockToSplit.BlockElements.IndexOf(be => be is Verse);
+			var verseToSplit = ((Verse)blockToSplit.BlockElements[indexOfFirstVerseElement]).Number;
+			var splitPosInVerse = ((ScriptText)blockToSplit.BlockElements[indexOfFirstVerseElement + 1]).Content.IndexOf(" ");
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, verseToSplit, splitPosInVerse) },
+				GetListOfCharacters(2, new[] { "", "" }));
+
+			Assert.AreEqual(2, model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.AreEqual(origBlock, model.CurrentReferenceTextMatchup.OriginalBlocks.First());
+			Assert.AreEqual(String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), origBlockText);
+			Assert.IsFalse(model.IsCurrentBlockRelevant);
 
 			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
 			model.Mode = BlocksToDisplay.AllScripture;

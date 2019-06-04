@@ -11,7 +11,6 @@ namespace Glyssen
 		private readonly IReadOnlyList<BookScript> m_books;
 		private BookScript m_currentBook;
 		private BookBlockIndices m_currentIndices = new BookBlockIndices();
-		private Block m_currentBlock;
 
 		public BlockNavigator(IReadOnlyList<BookScript> books)
 		{
@@ -19,13 +18,12 @@ namespace Glyssen
 			m_currentBook = m_books.FirstOrDefault(b => b.HasScriptBlocks);
 			if (m_currentBook == null)
 				throw new ArgumentException("The list of books must contain at least one block.");
-			m_currentBlock = m_currentBook[0];
 			m_currentIndices = new BookBlockIndices(0, 0);
 		}
 
 		public BookScript CurrentBook
 		{
-			get { return m_currentBook; }
+			get => m_currentBook;
 			set
 			{
 				m_currentBook = value;
@@ -35,11 +33,10 @@ namespace Glyssen
 
 		public Block CurrentBlock
 		{
-			get { return m_currentBlock; }
+			get => m_currentBook[m_currentIndices.BlockIndex];
 			set
 			{
 				m_currentIndices = GetIndicesOfSpecificBlock(value);
-				m_currentBlock = value;
 				m_currentBook = m_books[m_currentIndices.BookIndex];
 			}
 		}
@@ -62,12 +59,11 @@ namespace Glyssen
 		{
 			m_currentIndices = new BookBlockIndices(indices);
 			m_currentBook = m_books[m_currentIndices.BookIndex];
-			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentIndices.BlockIndex];
 		}
 
 		public BookBlockIndices GetIndicesOfSpecificBlock(Block block)
 		{
-			if (block == m_currentBlock)
+			if (block == CurrentBlock)
 				return GetIndices();
 			// In production code, I think this will always only be called for the current book, so we try that
 			// first before looking at all the rest of the books for this block.
@@ -135,7 +131,7 @@ namespace Glyssen
 
 		public bool IsLastBlock()
 		{
-			return IsLastBlockInBook(m_currentBook, m_currentBlock) && IsLastBook(m_currentBook);
+			return IsLastBlockInBook(m_currentBook, CurrentBlock) && IsLastBook(m_currentBook);
 		}
 
 		public bool IsLastBlockInBook(BookScript book, Block block)
@@ -198,7 +194,7 @@ namespace Glyssen
 		{
 			if (IsLastBlock())
 				return null;
-			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
+			if (IsLastBlockInBook(m_currentBook, CurrentBlock))
 			{
 				var nextBook = GetNextBook();
 				if (!nextBook.HasScriptBlocks)
@@ -229,7 +225,7 @@ namespace Glyssen
 
 		public Block GetNthNextBlockWithinBook(int n, Block baseLineBlock)
 		{
-			if (baseLineBlock == m_currentBlock)
+			if (baseLineBlock == CurrentBlock)
 				return GetNthNextBlockWithinBook(n);
 			BookBlockIndices indices = GetIndicesOfSpecificBlock(baseLineBlock);
 			return GetNthNextBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
@@ -278,7 +274,7 @@ namespace Glyssen
 
 		public Block GetNthPreviousBlockWithinBook(int n, Block baseLineBlock)
 		{
-			if (baseLineBlock == m_currentBlock)
+			if (baseLineBlock == CurrentBlock)
 				return GetNthPreviousBlockWithinBook(n);
 			BookBlockIndices indices = GetIndicesOfSpecificBlock(baseLineBlock);
 			return GetNthPreviousBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
@@ -295,7 +291,7 @@ namespace Glyssen
 		{
 			if (IsLastBlock())
 				return null;
-			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
+			if (IsLastBlockInBook(m_currentBook, CurrentBlock))
 			{
 				var nextBook = GoToNextBook();
 				if (!nextBook.HasScriptBlocks)
@@ -304,7 +300,8 @@ namespace Glyssen
 				return nextBook[m_currentIndices.BlockIndex];
 			}
 
-			return m_currentBlock = m_currentBook[++m_currentIndices.BlockIndex];
+			m_currentIndices.BlockIndex++;
+			return CurrentBlock;
 		}
 
 		private BookScript GetPreviousBook()
@@ -323,9 +320,9 @@ namespace Glyssen
 
 		public Block GetPreviousBlock()
 		{
-			if (IsFirstBlock(m_currentBlock))
+			if (IsFirstBlock(CurrentBlock))
 				return null;
-			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
+			if (IsFirstBlockInBook(m_currentBook, CurrentBlock))
 			{
 				var previousBook = GetPreviousBook();
 				if (!previousBook.HasScriptBlocks)
@@ -338,9 +335,9 @@ namespace Glyssen
 
 		public Block GoToPreviousBlock()
 		{
-			if (IsFirstBlock(m_currentBlock))
+			if (IsFirstBlock(CurrentBlock))
 				return null;
-			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
+			if (IsFirstBlockInBook(m_currentBook, CurrentBlock))
 			{
 				var previousBook = GoToPreviousBook();
 				if (!previousBook.HasScriptBlocks)
@@ -349,7 +346,8 @@ namespace Glyssen
 				return previousBook[m_currentIndices.BlockIndex];
 			}
 
-			return m_currentBlock = m_currentBook[--m_currentIndices.BlockIndex];
+			m_currentIndices.BlockIndex--;
+			return CurrentBlock;
 		}
 
 		public void ExtendCurrentBlockGroup(uint additionalBlocks)

@@ -1,4 +1,4 @@
-Control File Version	139
+Control File Version	140
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -16154,7 +16154,7 @@ ACT	4	27	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Pet
 ACT	4	28	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
-ACT	4	32	no one			Hypothetical		
+ACT	4	32	narrator-ACT			Hypothetical		
 ACT	4	33	apostles			Indirect		
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	2	Ananias of Jerusalem			Indirect		
@@ -16863,6 +16863,7 @@ ROM	16	22	Tertius			Indirect
 1CO	6	12	narrator-1CO			Hypothetical		
 1CO	6	13	narrator-1CO			Hypothetical		
 1CO	6	16	scripture			Quotation		
+1CO	6	18	scripture			Quotation		
 1CO	7	10	Paul			Potential		
 1CO	8	1	narrator-1CO			Hypothetical		
 1CO	8	5	narrator-1CO			Quotation		
@@ -16873,8 +16874,7 @@ ROM	16	22	Tertius			Indirect
 1CO	10	28	anyone			Hypothetical		
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
-1CO	12	3	no one speaking by the Holy Spirit			Hypothetical		
-1CO	12	3	only someone speaking by the Holy Spirit			Hypothetical		
+1CO	12	3	narrator-1CO			Hypothetical		
 1CO	12	15	foot			Hypothetical		
 1CO	12	16	ear			Hypothetical		
 1CO	12	21	eye			Hypothetical		
@@ -16962,7 +16962,7 @@ PHP	2	11	everyone			Hypothetical
 PHP	4	4	Paul			Potential		
 COL	2	18	narrator-COL			Quotation		
 COL	2	21	rules of the world			Hypothetical		
-COL	4	17	Paul			Quotation		
+COL	4	17	narrator-COL			Quotation		
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Hypothetical		
 1TH	5	27	Paul			Potential		
@@ -17056,7 +17056,7 @@ HEB	12	29	scripture			Quotation	Moses
 HEB	13	5	scripture			Quotation	God	
 HEB	13	6	scripture			Quotation	psalmist	
 HEB	13	11	narrator-HEB			Quotation		
-JAS	1	13	no one			Hypothetical		
+JAS	1	13	narrator-JAS			Hypothetical		
 JAS	2	3	someone			Hypothetical		
 JAS	2	8	scripture			Quotation	God	
 JAS	2	11	scripture			Quotation	God	
