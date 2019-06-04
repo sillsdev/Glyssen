@@ -1064,7 +1064,7 @@ namespace Glyssen.Dialogs
 					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
 
 				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
-					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.AllScriptureBlocksMatch);
 			}
 			if (block.IsContinuationOfPreviousBlockQuote)
 				return false;
