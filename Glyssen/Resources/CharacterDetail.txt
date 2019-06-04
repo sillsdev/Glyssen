@@ -431,6 +431,7 @@ idolaters from Judah (men)	-1	Male				JER 44:16 <-(1 more)-> JER 44:18
 idolaters from Judah (women)	-1	Female				JER 44:19
 immoral woman	1	Female				PRO 7:14 <-(6 more)-> PRO 30:20
 informer	-1	PreferMale				JDG 15:6 <-(9 more)-> ACT 21:31
+inhabitants of Egyptian and Ethiopian coastlands	-1	Male				ISA 20:6
 inscription on forehead of Babylon	1	PreferFemale				REV 17:5
 invaders	-1	Male				JER 6:4 & JER 6:5
 invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
@@ -951,6 +952,7 @@ saying about Nimrod	1					GEN 10:9
 saying about Saul	1					1SA 10:12 & 1SA 19:24
 saying about seer	1					1SA 9:9
 saying about sow	1					2PE 2:22
+saying about  short bed and narrow blanket	1					ISA 28:20
 saying about what controls you	1					2PE 2:19
 saying about yeast	1					1CO 5:6 & GAL 5:9
 saying about Zion	1					PSA 87:5
@@ -1008,6 +1010,7 @@ Simeon, devout man in Jerusalem	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35
 Simon, sorcerer	1	Male				ACT 8:9 <-(1 more)-> ACT 8:24
 singers	-1	Male				1CH 16:41
 singers from the ends of the earth	-1					ISA 24:16
+singers in Judah	-1					ISA 26:1 <-(1 more)-> ISA 26:6
 singers, and relatives	-1	Male				2CH 5:13
 sinners	-1					PRO 1:11 <-(3 more)-> ISA 33:14
 Sisera	1	Male				JDG 4:19 & JDG 4:20
@@ -1023,7 +1026,7 @@ soldiers, some (near Jordan River)	-1	Male	Adult			LUK 3:14
 Solomon, king	1	Male				1KI 1:52 <-(124 more)-> 2CH 8:11
 some convinced by Paul	-1	Male				ACT 28:24
 some people (quoted by Paul)	-1					2CO 10:10
-someone	-1					ECC 1:10 <-(6 more)-> JAS 4:13
+someone	-1					ECC 1:10 <-(7 more)-> JAS 4:13
 someone (hypothetical argument)	-1					PSA 11:1 <-(3 more)-> 2CO 12:16
 someone from Seir	1	PreferMale				ISA 21:11
 someone hiding	1	Male				AMO 6:10
@@ -1034,6 +1037,7 @@ son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21
 son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11 & LEV 24:23
 son of Shunammite	1	Male	Child			2KI 4:19
 son of widow	1	Male				2KI 4:6
+song about the prostitute	1	Either				ISA 23:16
 song of the prostitute	1	Female				ISA 23:16
 sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14
 sons of Korah	-1	Male				PSA 42:3 & PSA 42:9

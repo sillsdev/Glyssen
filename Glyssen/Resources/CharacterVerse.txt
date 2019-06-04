@@ -9266,49 +9266,94 @@ ISA	19	11	wise men of Pharaoh			Hypothetical
 ISA	19	25	God		God (the LORD)	Normal		
 ISA	20	2	God		God (the LORD)	Normal		
 ISA	20	3	God		God (the LORD)	Normal		
-ISA	20	4	God		God (the LORD)	Normal		
-ISA	20	5	God		God (the LORD)	Normal		
+ISA	20	4	God		God (the LORD)	Implicit		
+ISA	20	5	God		God (the LORD)	Implicit		
 ISA	20	6	God		God (the LORD)	Normal		
+ISA	20	6	inhabitants of Egyptian and Ethiopian coastlands			Hypothetical		
+ISA	21	2	God		God (the LORD) (in vision)	Potential		
 ISA	21	6	God		God (the LORD)	Normal		
-ISA	21	7	God		God (the LORD)	Normal		
+ISA	21	7	God		God (the LORD)	Implicit		
 ISA	21	8	lookout			Normal		
 ISA	21	9	lookout			Normal		
+ISA	21	9	God		God (the LORD)	Normal		
+ISA	21	9	someone			Normal		
+ISA	21	9	Needs Review			Normal		
+ISA	21	10	lookout			Normal		
+ISA	21	10	God		God (the LORD)	Normal		
+ISA	21	10	someone			Normal		
+ISA	21	10	Needs Review			Normal		
 ISA	21	11	someone from Seir			Normal		
 ISA	21	12	watchman			Normal		
 ISA	21	16	God		God (the LORD)	Normal		
 ISA	21	17	God		God (the LORD)	Normal		
-ISA	22	4	Isaiah			Normal		
+ISA	22	4	Isaiah			Quotation		
+ISA	22	5	Isaiah			Quotation		
 ISA	22	13	someone in Jerusalem			Hypothetical		
 ISA	22	14	God		God (the LORD)	Normal		
 ISA	22	15	God		God (the LORD)	Normal		
-ISA	22	16	God		God (the LORD)	Normal		
-ISA	22	17	God		God (the LORD)	Potential		
-ISA	22	18	God		God (the LORD)	Potential		
-ISA	22	19	God		God (the LORD)	Normal		
-ISA	22	20	God		God (the LORD)	Normal		
-ISA	22	21	God		God (the LORD)	Normal		
-ISA	22	22	God		God (the LORD)	Normal		
-ISA	22	23	God		God (the LORD)	Normal		
-ISA	22	24	God		God (the LORD)	Normal		
+ISA	22	16	Isaiah			Quotation		
+ISA	22	16	God		God (the LORD)	Alternate		
+ISA	22	17	Isaiah			Quotation		
+ISA	22	17	God		God (the LORD)	Alternate		
+ISA	22	18	Isaiah			Quotation		
+ISA	22	18	God		God (the LORD)	Alternate		
+ISA	22	19	God		God (the LORD)	Implicit		
+ISA	22	20	God		God (the LORD)	Implicit		
+ISA	22	21	God		God (the LORD)	Implicit		
+ISA	22	22	God		God (the LORD)	Implicit		
+ISA	22	23	God		God (the LORD)	Implicit		
+ISA	22	24	God		God (the LORD)	Implicit		
 ISA	22	25	God		God (the LORD)	Normal		
 ISA	23	4	sea			Hypothetical		
 ISA	23	12	God		God (the LORD)	Normal		
 ISA	23	16	song of the prostitute			Quotation		
-ISA	24	16	Isaiah			Normal		
+ISA	23	16	song about the prostitute			Quotation		
+ISA	23	16	Needs Review			Implicit		
+ISA	24	16	Isaiah			Quotation		
 ISA	24	16	singers from the ends of the earth			Hypothetical		
 ISA	25	9	people, God's			Hypothetical		
-ISA	27	2	God		God (the LORD)	Normal		
-ISA	27	3	God		God (the LORD)	Normal		
-ISA	27	4	God		God (the LORD)	Normal		
-ISA	27	5	God		God (the LORD)	Normal		
+# Really, the singers in v. 1-6 is all hypothetical (future), but marking the whole verses as implicit since we know we want to dramatize it.
+ISA	26	1	singers in Judah			Hypothetical		
+ISA	26	2	singers in Judah			Implicit		
+ISA	26	3	singers in Judah			Implicit		
+ISA	26	4	singers in Judah			Implicit		
+ISA	26	5	singers in Judah			Implicit		
+ISA	26	6	singers in Judah			Implicit		
+# Almost all translations have the song stop at the end of v. 6 But some may have it continue through the whole chapter.
+ISA	26	7	singers in Judah			Hypothetical		
+ISA	26	8	singers in Judah			Hypothetical		
+ISA	26	9	singers in Judah			Hypothetical		
+ISA	26	10	singers in Judah			Hypothetical		
+ISA	26	11	singers in Judah			Hypothetical		
+ISA	26	12	singers in Judah			Hypothetical		
+ISA	26	13	singers in Judah			Hypothetical		
+ISA	26	14	singers in Judah			Hypothetical		
+ISA	26	15	singers in Judah			Hypothetical		
+ISA	26	16	singers in Judah			Hypothetical		
+ISA	26	17	singers in Judah			Hypothetical		
+ISA	26	18	singers in Judah			Hypothetical		
+ISA	26	19	singers in Judah			Hypothetical		
+ISA	26	20	singers in Judah			Hypothetical		
+ISA	26	21	singers in Judah			Hypothetical		
+ISA	27	2	God		God (the LORD)	Potential		
+ISA	27	3	God		God (the LORD)	Implicit		
+ISA	27	4	God		God (the LORD)	Implicit		
+ISA	27	5	God		God (the LORD)	Implicit		
 ISA	28	9	hearers	mocking		Potential		
+ISA	28	9	Needs Review			Potential		
 ISA	28	10	hearers	mocking		Potential		
-ISA	28	12	God		God (the LORD)	Normal		
+ISA	28	10	Needs Review			Potential		
+ISA	28	10	God		God (the LORD)	Quotation		
+ISA	28	12	God		God (the LORD)	Quotation		
+ISA	28	13	God	mocking	God (the LORD)	Normal		
 ISA	28	15	rulers of people in Jerusalem	boasting		Hypothetical		
 ISA	28	16	God		God (the LORD)	Normal		
 ISA	28	17	God		God (the LORD)	Normal		
-ISA	28	18	God		God (the LORD)	Normal		
-ISA	28	19	God		God (the LORD)	Normal		
+ISA	28	18	God		God (the LORD)	Potential		
+ISA	28	19	God		God (the LORD)	Potential		
+ISA	28	20	God		God (the LORD)	Potential		
+ISA	28	20	saying about  short bed and narrow blanket	ironic		Hypothetical		
+ISA	28	20	Needs Review			Potential		
 ISA	29	11	person asking someone to read a sealed book			Hypothetical		
 ISA	29	11	reader			Hypothetical		
 ISA	29	12	person asking someone to read a sealed book			Hypothetical		
