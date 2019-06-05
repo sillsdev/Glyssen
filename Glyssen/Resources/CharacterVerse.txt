@@ -9630,40 +9630,55 @@ ISA	42	6	God		God (the LORD)	Implicit
 ISA	42	7	God		God (the LORD)	Implicit		
 ISA	42	8	God		God (the LORD)	Implicit		
 ISA	42	9	God		God (the LORD)	Implicit		
-ISA	42	14	God		God (the LORD)	Normal		
-ISA	42	15	God		God (the LORD)	Normal		
-ISA	42	16	God		God (the LORD)	Normal		
-ISA	42	17	God		God (the LORD)	Normal		
-ISA	42	18	God		God (the LORD)	Normal		
-ISA	42	19	God		God (the LORD)	Normal		
-ISA	42	20	God		God (the LORD)	Normal		
+ISA	42	14	God		God (the LORD)	Implicit		
+ISA	42	15	God		God (the LORD)	Implicit		
+ISA	42	16	God		God (the LORD)	Implicit		
+ISA	42	17	God		God (the LORD)	Implicit		
+ISA	42	18	God		God (the LORD)	Implicit		
+ISA	42	19	God		God (the LORD)	Implicit		
+ISA	42	20	Isaiah			Potential		
+ISA	42	20	God		God (the LORD)	Alternate		
+ISA	42	21	Isaiah			Potential		
+ISA	42	21	God		God (the LORD)	Alternate		
+ISA	42	22	Isaiah			Potential		
+ISA	42	22	God		God (the LORD)	Alternate		
 ISA	42	22	narrator-ISA			Hypothetical		
+ISA	42	23	Isaiah			Potential		
+ISA	42	23	God		God (the LORD)	Alternate		
+ISA	42	24	Isaiah			Potential		
+ISA	42	24	God		God (the LORD)	Alternate		
+ISA	42	25	Isaiah			Potential		
+ISA	42	25	God		God (the LORD)	Alternate		
 ISA	43	1	God		God (the LORD)	Normal		
-ISA	43	2	God		God (the LORD)	Normal		
-ISA	43	3	God		God (the LORD)	Normal		
-ISA	43	4	God		God (the LORD)	Normal		
-ISA	43	5	God		God (the LORD)	Normal		
-ISA	43	6	God		God (the LORD)	Normal		
-ISA	43	7	God		God (the LORD)	Normal		
+ISA	43	2	God		God (the LORD)	Implicit		
+ISA	43	3	God		God (the LORD)	Implicit		
+ISA	43	4	God		God (the LORD)	Implicit		
+ISA	43	5	God		God (the LORD)	Implicit		
+ISA	43	6	God		God (the LORD)	Implicit		
+ISA	43	7	God		God (the LORD)	Implicit		
+ISA	43	8	Isaiah			Potential		
+ISA	43	8	God		God (the LORD)	Alternate		
+ISA	43	9	Isaiah			Potential		
+ISA	43	9	God		God (the LORD)	Alternate		
 ISA	43	9	others			Hypothetical		
 ISA	43	10	God		God (the LORD)	Normal		
-ISA	43	11	God		God (the LORD)	Normal		
+ISA	43	11	God		God (the LORD)	Implicit		
 ISA	43	12	God		God (the LORD)	Normal		
-ISA	43	13	God		God (the LORD)	Normal		
+ISA	43	13	God		God (the LORD)	Implicit		
 ISA	43	14	God		God (the LORD)	Normal		
-ISA	43	15	God		God (the LORD)	Normal		
-ISA	43	18	God		God (the LORD)	Normal		
-ISA	43	19	God		God (the LORD)	Normal		
-ISA	43	20	God		God (the LORD)	Normal		
-ISA	43	21	God		God (the LORD)	Normal		
-ISA	43	22	God		God (the LORD)	Normal		
-ISA	43	23	God		God (the LORD)	Normal		
-ISA	43	24	God		God (the LORD)	Normal		
-ISA	43	25	God		God (the LORD)	Normal		
-ISA	43	26	God		God (the LORD)	Normal		
-ISA	43	27	God		God (the LORD)	Normal		
-ISA	43	28	God		God (the LORD)	Normal		
-ISA	44	1	God		God (the LORD)	Normal		
+ISA	43	15	God		God (the LORD)	Implicit		
+ISA	43	18	God		God (the LORD)	Implicit		
+ISA	43	19	God		God (the LORD)	Implicit		
+ISA	43	20	God		God (the LORD)	Implicit		
+ISA	43	21	God		God (the LORD)	Implicit		
+ISA	43	22	God		God (the LORD)	Implicit		
+ISA	43	23	God		God (the LORD)	Implicit		
+ISA	43	24	God		God (the LORD)	Implicit		
+ISA	43	25	God		God (the LORD)	Implicit		
+ISA	43	26	God		God (the LORD)	Implicit		
+ISA	43	27	God		God (the LORD)	Implicit		
+ISA	43	28	God		God (the LORD)	Implicit		
+ISA	44	1	God		God (the LORD)	Implicit		
 ISA	44	2	God		God (the LORD)	Normal		
 ISA	44	3	God		God (the LORD)	Normal		
 ISA	44	4	God		God (the LORD)	Normal		
