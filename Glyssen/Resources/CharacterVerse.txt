@@ -9354,44 +9354,115 @@ ISA	28	19	God		God (the LORD)	Potential
 ISA	28	20	God		God (the LORD)	Potential		
 ISA	28	20	saying about  short bed and narrow blanket	ironic		Hypothetical		
 ISA	28	20	Needs Review			Potential		
+ISA	29	1	God		God (the LORD)	Potential		
+ISA	29	2	God		God (the LORD)	Potential		
+ISA	29	3	God		God (the LORD)	Potential		
+ISA	29	4	God		God (the LORD)	Potential		
+ISA	29	4	Isaiah			Potential		
+ISA	29	4	Needs Review			Implicit		
+ISA	29	5	Isaiah			Potential		
+ISA	29	5	God		God (the LORD)	Potential		
+ISA	29	5	Needs Review			Implicit		
+ISA	29	6	Isaiah			Potential		
+ISA	29	6	God		God (the LORD)	Alternate		
+ISA	29	7	Isaiah			Potential		
+ISA	29	7	God		God (the LORD)	Alternate		
+ISA	29	8	Isaiah			Potential		
+ISA	29	8	God		God (the LORD)	Alternate		
+ISA	29	9	Isaiah			Potential		
+ISA	29	9	God		God (the LORD)	Alternate		
+ISA	29	10	Isaiah			Potential		
+ISA	29	10	God		God (the LORD)	Alternate		
+ISA	29	11	Isaiah			Potential		
+ISA	29	11	God		God (the LORD)	Alternate		
 ISA	29	11	person asking someone to read a sealed book			Hypothetical		
 ISA	29	11	reader			Hypothetical		
+ISA	29	12	Isaiah			Potential		
+ISA	29	12	God		God (the LORD)	Alternate		
 ISA	29	12	person asking someone to read a sealed book			Hypothetical		
 ISA	29	12	non-reader			Normal		
 ISA	29	13	God		God (the LORD)	Normal		
-ISA	29	14	God		God (the LORD)	Normal		
+ISA	29	14	God		God (the LORD)	Implicit		
+ISA	29	15	Isaiah			Potential		
+ISA	29	15	God		God (the LORD)	Alternate		
 ISA	29	15	those hiding from the LORD			Hypothetical		
+ISA	29	16	Isaiah			Potential		
+ISA	29	16	God		God (the LORD)	Alternate		
 ISA	29	16	what is formed			Hypothetical		
+ISA	29	17	Isaiah			Potential		
+ISA	29	18	Isaiah			Potential		
+ISA	29	19	Isaiah			Potential		
+ISA	29	20	Isaiah			Potential		
+ISA	29	21	Isaiah			Potential		
 ISA	29	22	God		God (the LORD)	Normal		
-ISA	29	23	God		God (the LORD)	Normal		
-ISA	29	24	God		God (the LORD)	Normal		
+ISA	29	23	God		God (the LORD)	Implicit		
+ISA	29	24	God		God (the LORD)	Implicit		
 ISA	30	1	God		God (the LORD)	Normal		
-ISA	30	2	God		God (the LORD)	Normal		
-ISA	30	3	God		God (the LORD)	Normal		
-ISA	30	4	God		God (the LORD)	Normal		
-ISA	30	5	God		God (the LORD)	Normal		
+ISA	30	2	God		God (the LORD)	Implicit		
+ISA	30	3	God		God (the LORD)	Implicit		
+ISA	30	4	God		God (the LORD)	Implicit		
+ISA	30	5	God		God (the LORD)	Implicit		
+ISA	30	6	God		God (the LORD)	Potential		
+ISA	30	6	Isaiah			Alternate		
+ISA	30	7	God		God (the LORD)	Potential		
+ISA	30	7	Isaiah			Alternate		
+ISA	30	8	God		God (the LORD)	Potential		
+ISA	30	8	Isaiah			Alternate		
+ISA	30	9	God		God (the LORD)	Potential		
+ISA	30	9	Isaiah			Alternate		
+ISA	30	10	God		God (the LORD)	Potential		
+ISA	30	10	Isaiah			Alternate		
 ISA	30	10	rebels			Hypothetical		
 ISA	30	11	rebels			Hypothetical		
 ISA	30	12	God		God (Holy One of Israel)	Normal		
-ISA	30	13	God		God (Holy One of Israel)	Normal		
-ISA	30	14	God		God (Holy One of Israel)	Normal		
+ISA	30	13	God		God (Holy One of Israel)	Implicit		
+ISA	30	14	God		God (Holy One of Israel)	Implicit		
 ISA	30	15	God		God (the LORD)	Normal		
 ISA	30	16	God		God (the LORD)	Potential		
-ISA	30	16	you (rebellious people)			Quotation		
-ISA	30	17	God		God (the LORD)	Potential		
-ISA	30	21	voice behind you			Normal	God	
+ISA	30	16	rebels		you (rebellious people)	Quotation		
+ISA	30	17	God		God (the LORD)	Implicit		
+ISA	30	18	Isaiah			Potential		
+ISA	30	18	God		God (the LORD)	Alternate		
+ISA	30	20	narrator-ISA			Quotation		
+ISA	30	21	God		voice behind you (God)	Normal		
 ISA	30	22	you (people of Zion, restored)			Hypothetical		
 ISA	31	4	God		God (the LORD)	Normal		
 ISA	31	5	God		God (the LORD)	Normal		
-ISA	31	8	God		God (the LORD)	Normal		
+ISA	31	6	God		God (the LORD)	Potential		
+ISA	31	7	God		God (the LORD)	Potential		
+ISA	31	8	God		God (the LORD)	Implicit		
 ISA	31	9	God		God (the LORD)	Normal		
+ISA	32	9	Isaiah			Potential		
+ISA	32	9	God		God (the LORD)	Alternate		
+ISA	32	10	Isaiah			Potential		
+ISA	32	10	God		God (the LORD)	Alternate		
+ISA	32	11	Isaiah			Potential		
+ISA	32	11	God		God (the LORD)	Alternate		
+ISA	32	12	Isaiah			Potential		
+ISA	32	12	God		God (the LORD)	Alternate		
+ISA	32	13	Isaiah			Potential		
+ISA	32	13	God		God (the LORD)	Alternate		
+ISA	32	14	Isaiah			Potential		
+ISA	32	14	God		God (the LORD)	Alternate		
+ISA	32	15	Isaiah			Potential		
+ISA	32	15	God		God (the LORD)	Alternate		
+ISA	32	16	Isaiah			Potential		
+ISA	32	16	God		God (the LORD)	Alternate		
+ISA	32	17	Isaiah			Potential		
+ISA	32	17	God		God (the LORD)	Alternate		
+ISA	32	18	God		God (the LORD)	Potential		
+ISA	32	18	Isaiah			Alternate		
+ISA	32	19	God		God (the LORD)	Potential		
+ISA	32	19	Isaiah			Alternate		
 ISA	33	10	God		God (the LORD)	Normal		
-ISA	33	11	God		God (the LORD)	Normal		
-ISA	33	12	God		God (the LORD)	Normal		
+ISA	33	11	God		God (the LORD)	Implicit		
+ISA	33	12	God		God (the LORD)	Implicit		
+ISA	33	13	God		God (the LORD)	Implicit		
 ISA	33	14	sinners			Hypothetical		
 ISA	33	18	you (hypothetical)	thinking		Hypothetical		
 ISA	33	24	narrator-ISA			Hypothetical		
-ISA	35	4	narrator-ISA			Hypothetical		
+ISA	34	5	God		God (the LORD)	Potential		
+ISA	35	4	you (hypothetical)			Hypothetical		
 ISA	36	4	Rabshakeh			Normal		2KI 18:19; 2CH 32:10; ISA 36:4
 ISA	36	5	Rabshakeh			Implicit		2KI 18:20; ISA 36:5
 ISA	36	6	Rabshakeh			Implicit		2KI 18:21; ISA 36:6

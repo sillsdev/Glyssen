@@ -893,7 +893,7 @@ Rahab	1	Female				JOS 2:4 <-(7 more)-> JOS 2:21
 reader	1					ISA 29:11
 Rebekah	1	Female				GEN 24:18 <-(17 more)-> GEN 27:46
 Rebekah's mother	1	Female				GEN 24:55 <-(2 more)-> GEN 24:60
-rebels	-1	PreferMale				ISA 30:10 & ISA 30:11
+rebels	-1	PreferMale				ISA 30:10 <-(1 more)-> ISA 30:16
 Recab	1	Male				2SA 4:8
 Recabite family, men of	-1	Male				JER 35:6 <-(4 more)-> JER 35:11
 Regem-Melech	1	Male				ZEC 7:3
@@ -1082,7 +1082,6 @@ unbeliever who comes under conviction	1					1CO 14:25
 unbelievers	-1					1TH 4:12
 Uriah	1	Male				2SA 11:11
 voice (God?)	1	PreferMale				ISA 40:6 <-(1 more)-> ISA 40:8
-voice behind you	1	PreferMale				ISA 30:21
 voice from altar	1	Male				REV 9:14
 voice from among living creatures	1	Male				REV 6:6
 voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:4 <-(2 more)-> REV 14:13
@@ -1133,9 +1132,8 @@ worshipers	-1	Male				PSA 122:1
 worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12
 you (hypothetical Gentile)	1					ROM 11:19
-you (hypothetical)	-1					PRO 3:28 <-(9 more)-> 1PE 1:17
+you (hypothetical)	-1					PRO 3:28 <-(10 more)-> 1PE 1:17
 you (people of Zion, restored)	-1					ISA 14:4 <-(17 more)-> ISA 30:22
-you (rebellious people)	-1					ISA 30:16
 you ought to say	1					JAS 4:15
 young man	1	Male	YoungAdult			NUM 11:27
 young men (advisors of Rehoboam)	-1	Male	YoungAdult			1KI 12:10 <-(2 more)-> 2CH 10:11
