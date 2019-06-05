@@ -1036,7 +1036,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t\t");
+			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, false, null, null).AsObjectArray().ToList()));
@@ -1060,8 +1060,8 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
-				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t" +
-				"{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t");
+				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t" +
+				"{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, true, null, null).AsObjectArray().ToList()));
@@ -1084,7 +1084,7 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
-				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t");
+				"{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Texto de versiculos uno y dos en harmonia y bondad.\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, true, null, null).AsObjectArray().ToList()));
