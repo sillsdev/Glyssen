@@ -9528,7 +9528,7 @@ ISA	37	31	God		God (the LORD)	Alternate
 ISA	37	32	Isaiah			Normal		
 ISA	37	32	God		God (the LORD)	Alternate		
 ISA	37	33	Isaiah			Normal		
-ISA	37	33	IsaiahGod		God (the LORD)	Quotation		
+ISA	37	33	God		God (the LORD)	Quotation		
 ISA	37	34	God		God (the LORD)	Implicit		
 ISA	37	34	Isaiah			Alternate		
 ISA	37	35	God		God (the LORD)	Implicit		
@@ -9555,7 +9555,7 @@ ISA	38	21	Isaiah			Normal
 ISA	38	21	narrator-ISA			Quotation		
 ISA	38	22	Hezekiah, king of Judah			Normal		
 ISA	38	22	narrator-ISA			Quotation		
-ISA	39	1	informer			indirect		
+ISA	39	1	informer			Indirect		
 ISA	39	3	Isaiah			Normal		
 ISA	39	3	Hezekiah, king of Judah			Normal		
 ISA	39	4	Isaiah			Normal		
