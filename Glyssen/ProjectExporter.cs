@@ -39,8 +39,8 @@ namespace Glyssen
 		CharacterIdLocalized = 7,
 		Delivery = 8,
 		VernacularText = 9,
-		EnglishReferenceText = 10,
-		AdditionalReferenceText = 11,
+		AdditionalReferenceText = 10,
+		EnglishReferenceText = 11,
 		VernacularTextLength = 12,
 		ClipFileLink = 13,
 	}
@@ -473,10 +473,6 @@ namespace Glyssen
 
 				sheet.Column(columnNum++).Width = 50d;
 
-				// English reference text always comes first
-				sheet.Column(columnNum).Style.WrapText = true;
-				sheet.Column(columnNum++).Width = 50d;
-
 				if (Project.ReferenceText.HasSecondaryReferenceText)
 				{
 					sheet.Column(columnNum).Style.WrapText = true; // secondary reference text
@@ -505,6 +501,10 @@ namespace Glyssen
 					sheet.Column(columnNum).Hidden = true;
 				}
 				columnNum++;
+
+				// English reference text
+				sheet.Column(columnNum).Style.WrapText = true;
+				sheet.Column(columnNum++).Width = 50d;
 
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // block length
 
@@ -826,9 +826,9 @@ namespace Glyssen
 				"If desired, the column heading can be localized to indicate the name of this UI locale language."));
 			headers.Add("Delivery");
 			headers.Add("Text");
-			AddDirectorsGuideHeader(headers, ReferenceText.GetStandardReferenceText(ReferenceTextType.English).LanguageName);
 			AddDirectorsGuideHeader(headers, Project.ReferenceText.HasSecondaryReferenceText ? Project.ReferenceText.LanguageName :
 				"No Additional");
+			AddDirectorsGuideHeader(headers, ReferenceText.GetStandardReferenceText(ReferenceTextType.English).LanguageName);
 			headers.Add("Size");
 			if (IncludeCreateClips)
 				headers.Add("Clip File");
@@ -1075,8 +1075,8 @@ namespace Glyssen
 						LocalizedCharacterId,
 						Delivery,
 						VernacularText,
-						EnglishReferenceText,
 						AdditionalReferenceText,
+						EnglishReferenceText,
 						Length
 					};
 				}
@@ -1092,8 +1092,8 @@ namespace Glyssen
 					LocalizedCharacterId,
 					Delivery,
 					VernacularText,
-					EnglishReferenceText,
 					AdditionalReferenceText,
+					EnglishReferenceText,
 					Length,
 					ClipFilePath
 				};
