@@ -8010,8 +8010,10 @@ ISA	36	20	field commander from king of Assyria			Normal
 ISA	36	21	Hezekiah, king of Judah			Normal		
 ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
 ISA	37	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
-ISA	37	6	Isaiah		Isaiah, the prophet	Normal		
-ISA	37	7	Isaiah		Isaiah, the prophet	Normal		
+ISA	37	6	Isaiah			Normal		
+ISA	37	6	God		God (the LORD)	Alternate		
+ISA	37	7	Isaiah			Implicit		
+ISA	37	7	God		God (the LORD)	Alternate		
 ISA	37	10	Sennacherib's messengers			Normal		
 ISA	37	11	Sennacherib's messengers			Normal		
 ISA	37	12	Sennacherib's messengers			Normal		

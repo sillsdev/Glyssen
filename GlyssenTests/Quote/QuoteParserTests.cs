@@ -5413,7 +5413,7 @@ namespace GlyssenTests.Quote
 			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, 15, includeAlternates: true)
 				.Select(cv => cv.Character)
 				.SetEquals(new HashSet<string>{"Holy Spirit, the", "God", "Jesus"}),
-				"Test setup condition not met: God and Jesus should be returned as a character when includeAlternates is true.");
+				"Test setup condition not met: God and Jesus should be returned as characters when includeAlternates is true.");
 
 			var input = new List<Block> { new Block("p", 10, 15)
 				.AddVerse(15, "Il entend la voix ... fois. Elle lui dit: «Ce que Dieu a ... interdit!»") };
@@ -5423,6 +5423,41 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[0].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("Holy Spirit, the", output[1].CharacterId);
 			Assert.IsFalse(output[1].UserConfirmed);
+		}
+
+		[Test]
+		public void Parse_AlternateCharactersInControlFile_VerseTextAssignedToImplicitCharacter()
+		{
+			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
+			var onlyNonAlternateCv = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, 6).Single();
+			Assert.AreEqual("Isaiah", onlyNonAlternateCv.Character,
+				"Test setup condition not met: Isaiah should be the only character returned for ISA 37:6 when includeAlternates is false.");
+			Assert.AreEqual(QuoteType.Normal, onlyNonAlternateCv.QuoteType,
+				"Test setup condition not met: Isaiah should be Normal for ISA 37:6.");
+			onlyNonAlternateCv = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, 7).Single();
+			Assert.AreEqual("Isaiah", onlyNonAlternateCv.Character,
+				"Test setup condition not met: Isaiah should be the only character returned for ISA 37:7 when includeAlternates is false.");
+			Assert.AreEqual(QuoteType.Implicit, onlyNonAlternateCv.QuoteType,
+				"Test setup condition not met: Isaiah should be Implicit for ISA 37:7.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, 6, finalVerse: 7, includeAlternates: true)
+					.Select(cv => cv.Character)
+					.SetEquals(new HashSet<string> { "Isaiah", "God" }),
+				"Test setup condition not met: Isaiah and God should be returned as characters when includeAlternates is true.");
+
+			var input = new List<Block>
+			{
+				new Block("p", 37, 6).AddVerse(6, "Isaiah told them,"),
+				new Block("p", 37, 6).AddText("Tell your master, God says: Don't fear the blasphemous words of the servants of the king of Assyria.")
+				.AddVerse(7, "Lo I will freak him out with some news to make him go home and get killed there."),
+			};
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.IsTrue(output[0].CharacterIs("ISA", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("Isaiah", output[1].CharacterId);
+			Assert.IsFalse(output[1].UserConfirmed);
+			Assert.AreEqual("Isaiah", output[2].CharacterId);
+			Assert.IsFalse(output[2].UserConfirmed);
 		}
 
 		/// <summary>

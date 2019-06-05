@@ -242,10 +242,14 @@ namespace ControlDataIntegrityTests
 		}
 
 		/// <summary>
-		/// The Alternate quote type implies that there should also be (at least one) regular (not Implicit, Indirect or Interruption)
+		/// The Alternate quote type implies that there should also be (at least one) regular (not Indirect or Interruption)
 		/// entry for the verse. At least for now (until we find some place where it's definitely warranted), we also won't allow Dialogue
 		/// to be the primary character (since hopefully, that's more concrete). And it can't be a narrator quotation. Also in the NT, the
 		/// reference text typically doesn't dramatize Hypotheticals, so for NT books, we won't allow those to be the primary either.
+		/// While it might seem that Implicit should not be allowed to be primary, it can be because Alternate is typically used in
+		/// places such as prophecy where we know exactly who's talking, but it really could be dramatized using either the primary or the
+		/// secondary character. By making the primary character implicit, we ensure that the script gets created with a useful default
+		/// but still allow the user to override it if desired.
 		/// </summary>
 		[Test]
 		public void DataIntegrity_AlternateAccompaniedByAnotherCharacter()
@@ -255,7 +259,8 @@ namespace ControlDataIntegrityTests
 				QuoteType.Normal,
 				QuoteType.Potential,
 				QuoteType.Quotation,
-				QuoteType.Hypothetical
+				QuoteType.Hypothetical,
+				QuoteType.Implicit
 			};
 			foreach (var alternate in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
 				.Where(i => i.QuoteType == QuoteType.Alternate))
