@@ -9481,113 +9481,155 @@ ISA	36	18	Rabshakeh			Implicit		2KI 18:32c-33; 2CH 32:13; ISA 36:18
 ISA	36	19	Rabshakeh			Implicit		2KI 18:34; ISA 36:19
 ISA	36	20	Rabshakeh			Implicit		2KI 18:35; 2CH 32:14; ISA 36:20
 ISA	36	21	Hezekiah, king of Judah			Normal		
+ISA	36	22	Rabshakeh			Quotation		
 ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
+ISA	37	3	Hezekiah, king of Judah			Alternate		
 ISA	37	4	Eliakim/Shebna/chief priests			Implicit	Eliakim	
+ISA	37	4	Hezekiah, king of Judah			Alternate		
 ISA	37	6	Isaiah			Normal		
-ISA	37	7	Isaiah			Normal		
+ISA	37	6	God		God (the LORD)	Alternate		
+ISA	37	7	Isaiah			Implicit		
+ISA	37	7	God		God (the LORD)	Alternate		
+ISA	37	8	informer			Indirect		
 ISA	37	9	person who informed Rabshakeh			Normal		
 ISA	37	10	Rabshakeh			Normal		2KI 19:10; ISA 37:10
-ISA	37	11	Rabshakeh			Normal		2KI 19:11; ISA 37:11
-ISA	37	12	Rabshakeh			Normal		2KI 19:12; ISA 37:12
-ISA	37	13	Rabshakeh			Normal		2KI 19:13; ISA 37:13
-ISA	37	16	Hezekiah, king of Judah			Normal		
-ISA	37	17	Hezekiah, king of Judah			Normal		
-ISA	37	18	Hezekiah, king of Judah			Normal		
-ISA	37	19	Hezekiah, king of Judah			Normal		
-ISA	37	20	Hezekiah, king of Judah			Normal		
+ISA	37	11	Rabshakeh			Implicit		2KI 19:11; ISA 37:11
+ISA	37	12	Rabshakeh			Implicit		2KI 19:12; ISA 37:12
+ISA	37	13	Rabshakeh			Implicit		2KI 19:13; ISA 37:13
+ISA	37	16	Hezekiah, king of Judah			Implicit		
+ISA	37	17	Hezekiah, king of Judah			Implicit		
+ISA	37	18	Hezekiah, king of Judah			Implicit		
+ISA	37	19	Hezekiah, king of Judah			Implicit		
+ISA	37	20	Hezekiah, king of Judah			Implicit		
 ISA	37	21	Isaiah			Normal		
-ISA	37	22	Isaiah			Normal		
-ISA	37	23	Isaiah			Normal		
+ISA	37	21	God		God (the LORD)	Alternate		
+ISA	37	22	Isaiah			Implicit		
+ISA	37	22	God		God (the LORD)	Alternate		
+ISA	37	23	Isaiah			Implicit		
+ISA	37	23	God		God (the LORD)	Alternate		
 ISA	37	24	Isaiah			Normal		
+ISA	37	24	Rabshakeh			Quotation		
+ISA	37	24	God		God (the LORD)	Alternate		
 ISA	37	25	Isaiah			Normal		
-ISA	37	26	Isaiah			Normal		
-ISA	37	27	Isaiah			Normal		
-ISA	37	28	Isaiah			Normal		
-ISA	37	29	Isaiah			Normal		
+ISA	37	25	Rabshakeh			Quotation		
+ISA	37	25	God		God (the LORD)	Alternate		
+ISA	37	26	God		God (the LORD)	Implicit		
+ISA	37	26	Isaiah			Alternate		
+ISA	37	27	God		God (the LORD)	Implicit		
+ISA	37	27	Isaiah			Alternate		
+ISA	37	28	God		God (the LORD)	Implicit		
+ISA	37	28	Isaiah			Alternate		
+ISA	37	29	God		God (the LORD)	Implicit		
+ISA	37	29	Isaiah			Alternate		
 ISA	37	30	Isaiah			Normal		
+ISA	37	30	God		God (the LORD)	Alternate		
 ISA	37	31	Isaiah			Normal		
+ISA	37	31	God		God (the LORD)	Alternate		
 ISA	37	32	Isaiah			Normal		
+ISA	37	32	God		God (the LORD)	Alternate		
 ISA	37	33	Isaiah			Normal		
-ISA	37	34	Isaiah			Normal		
-ISA	37	35	Isaiah			Normal		
+ISA	37	33	IsaiahGod		God (the LORD)	Quotation		
+ISA	37	34	God		God (the LORD)	Implicit		
+ISA	37	34	Isaiah			Alternate		
+ISA	37	35	God		God (the LORD)	Implicit		
+ISA	37	35	Isaiah			Alternate		
 ISA	38	1	Isaiah			Normal		
 ISA	38	3	Hezekiah, king of Judah			Normal		
-ISA	38	5	God		God (the LORD)	Normal		
-ISA	38	6	God		God (the LORD)	Normal		
-ISA	38	7	God		God (the LORD)	Normal		
+ISA	38	5	God		God (the LORD)	Implicit		
+ISA	38	6	God		God (the LORD)	Implicit		
+ISA	38	7	Isaiah			Normal		
+ISA	38	7	God		God (the LORD)	Alternate		
 ISA	38	8	God		God (the LORD)	Normal		
-ISA	38	10	Hezekiah, king of Judah	writing		Normal		
-ISA	38	11	Hezekiah, king of Judah	writing		Normal		
-ISA	38	12	Hezekiah, king of Judah	writing		Normal		
-ISA	38	13	Hezekiah, king of Judah	writing		Normal		
-ISA	38	14	Hezekiah, king of Judah	writing		Normal		
-ISA	38	15	Hezekiah, king of Judah	writing		Potential		
-ISA	38	16	Hezekiah, king of Judah	writing		Potential		
-ISA	38	17	Hezekiah, king of Judah	writing		Potential		
-ISA	38	18	Hezekiah, king of Judah	writing		Potential		
-ISA	38	19	Hezekiah, king of Judah	writing		Potential		
-ISA	38	20	Hezekiah, king of Judah	writing		Potential		
-# Should the following be marked as a Quotation? The phrase had said seems to imply a flashback, but some translations may try to habnle this as active narrative.								
+ISA	38	10	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	11	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	12	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	13	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	14	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	15	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	16	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	17	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	18	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	19	Hezekiah, king of Judah	writing		Implicit		
+ISA	38	20	Hezekiah, king of Judah	writing		Implicit		
 ISA	38	21	Isaiah			Normal		
-# Should the following be marked as a Quotation? The phrase had said seems to imply a flashback, but some translations may try to habnle this as active narrative.								
+ISA	38	21	narrator-ISA			Quotation		
 ISA	38	22	Hezekiah, king of Judah			Normal		
-ISA	39	3	Hezekiah, king of Judah			Normal		
+ISA	38	22	narrator-ISA			Quotation		
+ISA	39	1	informer			indirect		
 ISA	39	3	Isaiah			Normal		
-ISA	39	4	Hezekiah, king of Judah			Normal		
+ISA	39	3	Hezekiah, king of Judah			Normal		
 ISA	39	4	Isaiah			Normal		
+ISA	39	4	Hezekiah, king of Judah			Normal		
 ISA	39	5	Isaiah			Normal		
 ISA	39	6	Isaiah			Normal		
+ISA	39	6	God		God (the LORD)	Alternate		
 ISA	39	7	Isaiah			Normal		
+ISA	39	7	God		God (the LORD)	Alternate		
 ISA	39	8	Hezekiah, king of Judah	response to Isaiah		Normal		
 ISA	39	8	Hezekiah, king of Judah	thought		Normal		
 ISA	40	1	God			Normal		
+ISA	40	1	Isaiah			Alternate		
 ISA	40	2	God			Normal		
+ISA	40	2	Isaiah			Alternate		
 ISA	40	3	voice of one calling (preparing way for Christ)			Normal		
 ISA	40	4	voice of one calling (preparing way for Christ)			Normal		
 ISA	40	5	voice of one calling (preparing way for Christ)			Normal		
-ISA	40	6	voice (God?)			Normal	God	
+ISA	40	6	voice (God?)			Normal		
+ISA	40	6	God			Alternate		
+ISA	40	6	Needs Review			Alternate		
+ISA	40	6	voice in reply (Isaiah?)			Normal		
 ISA	40	6	Isaiah			Normal		
-ISA	40	7	voice (God?)			Normal	God	
-ISA	40	8	voice (God?)			Normal	God	
+ISA	40	7	voice (God?)			Implicit		
+ISA	40	7	God			Alternate		
+ISA	40	7	Needs Review			Alternate		
+ISA	40	8	voice (God?)			Implicit		
+ISA	40	8	God			Alternate		
+ISA	40	8	Needs Review			Alternate		
 ISA	40	9	one who brings good news			Hypothetical		
 ISA	40	25	God		God (the Holy One)	Normal		
-ISA	40	27	Israel			Hypothetical		
-ISA	41	1	God		God (the LORD)	Normal		
-ISA	41	2	God		God (the LORD)	Normal		
-ISA	41	3	God		God (the LORD)	Normal		
-ISA	41	4	God		God (the LORD)	Normal		
-ISA	41	6	islanders			Normal		
+ISA	40	27	Israel		Jacob (Israel)	Hypothetical		
+ISA	41	1	God		God (the LORD)	Potential		
+ISA	41	2	God		God (the LORD)	Potential		
+ISA	41	3	God		God (the LORD)	Potential		
+ISA	41	4	God		God (the LORD)	Potential		
+ISA	41	5	God		God (the LORD)	Potential		
+ISA	41	6	God		God (the LORD)	Potential		
+ISA	41	6	islanders		everyone (islanders or foreigners)	Hypothetical		
+ISA	41	7	God		God (the LORD)	Potential		
 ISA	41	7	craftsman			Hypothetical		
-ISA	41	8	God		God (the LORD)	Normal		
-ISA	41	9	God		God (the LORD)	Normal		
-ISA	41	10	God		God (the LORD)	Normal		
-ISA	41	11	God		God (the LORD)	Normal		
-ISA	41	12	God		God (the LORD)	Normal		
-ISA	41	13	God		God (the LORD)	Normal		
-ISA	41	14	God		God (the LORD)	Normal		
-ISA	41	15	God		God (the LORD)	Normal		
-ISA	41	16	God		God (the LORD)	Normal		
-ISA	41	17	God		God (the LORD)	Normal		
-ISA	41	18	God		God (the LORD)	Normal		
-ISA	41	19	God		God (the LORD)	Normal		
-ISA	41	20	God		God (the LORD)	Normal		
+ISA	41	8	God		God (the LORD)	Potential		
+ISA	41	9	God		God (the LORD)	Potential		
+ISA	41	10	God		God (the LORD)	Potential		
+ISA	41	11	God		God (the LORD)	Potential		
+ISA	41	12	God		God (the LORD)	Potential		
+ISA	41	13	God		God (the LORD)	Quotation		
+ISA	41	14	God		God (the LORD)	Quotation		
+ISA	41	15	God		God (the LORD)	Potential		
+ISA	41	16	God		God (the LORD)	Potential		
+ISA	41	17	God		God (the LORD)	Potential		
+ISA	41	18	God		God (the LORD)	Potential		
+ISA	41	19	God		God (the LORD)	Potential		
+ISA	41	20	God		God (the LORD)	Potential		
 ISA	41	21	God		God (the LORD)	Normal		
-ISA	41	22	God		God (the LORD)	Normal		
-ISA	41	23	God		God (the LORD)	Normal		
-ISA	41	24	God		God (the LORD)	Normal		
-ISA	41	25	God		God (the LORD)	Normal		
-ISA	41	26	God		God (the LORD)	Normal		
-ISA	41	27	God		God (the LORD)	Normal		
-ISA	41	28	God		God (the LORD)	Normal		
-ISA	41	29	God		God (the LORD)	Normal		
-ISA	42	1	God		God (the LORD)	Normal		
-ISA	42	2	God		God (the LORD)	Normal		
-ISA	42	3	God		God (the LORD)	Normal		
-ISA	42	4	God		God (the LORD)	Normal		
-ISA	42	6	God		God (the LORD)	Normal		
-ISA	42	7	God		God (the LORD)	Normal		
-ISA	42	8	God		God (the LORD)	Normal		
-ISA	42	9	God		God (the LORD)	Normal		
+ISA	41	22	God		God (the LORD)	Potential		
+ISA	41	23	God		God (the LORD)	Potential		
+ISA	41	24	God		God (the LORD)	Potential		
+ISA	41	25	God		God (the LORD)	Potential		
+ISA	41	26	God		God (the LORD)	Quotation		
+ISA	41	26	Isaiah			Alternate		
+ISA	41	27	God		God (the LORD)	Quotation		
+ISA	41	28	God		God (the LORD)	Potential		
+ISA	41	28	Isaiah			Alternate		
+ISA	41	29	God		God (the LORD)	Potential		
+ISA	41	29	Isaiah			Alternate		
+ISA	42	1	God		God (the LORD)	Potential		
+ISA	42	2	God		God (the LORD)	Potential		
+ISA	42	3	God		God (the LORD)	Potential		
+ISA	42	4	God		God (the LORD)	Potential		
+ISA	42	6	God		God (the LORD)	Implicit		
+ISA	42	7	God		God (the LORD)	Implicit		
+ISA	42	8	God		God (the LORD)	Implicit		
+ISA	42	9	God		God (the LORD)	Implicit		
 ISA	42	14	God		God (the LORD)	Normal		
 ISA	42	15	God		God (the LORD)	Normal		
 ISA	42	16	God		God (the LORD)	Normal		

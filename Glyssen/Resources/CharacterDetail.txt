@@ -430,7 +430,7 @@ hymn, early creedal	1	PreferMale				1TI 3:16
 idolaters from Judah (men)	-1	Male				JER 44:16 <-(1 more)-> JER 44:18
 idolaters from Judah (women)	-1	Female				JER 44:19
 immoral woman	1	Female				PRO 7:14 <-(6 more)-> PRO 30:20
-informer	-1	PreferMale				JDG 15:6 <-(9 more)-> ACT 21:31
+informer	-1	PreferMale				JDG 15:6 <-(10 more)-> ACT 21:31
 inhabitants of Egyptian and Ethiopian coastlands	-1	Male				ISA 20:6
 inscription on forehead of Babylon	1	PreferFemale				REV 17:5
 invaders	-1	Male				JER 6:4 & JER 6:5
@@ -1081,7 +1081,8 @@ twenty-four elders	24	Male				REV 4:11 <-(4 more)-> REV 19:4
 unbeliever who comes under conviction	1					1CO 14:25
 unbelievers	-1					1TH 4:12
 Uriah	1	Male				2SA 11:11
-voice (God?)	1	PreferMale				ISA 40:6 <-(1 more)-> ISA 40:8
+voice (God?)	1	Male				ISA 40:6 <-(1 more)-> ISA 40:8
+voice in reply (Isaiah?)	1	Male				ISA 40:6
 voice from altar	1	Male				REV 9:14
 voice from among living creatures	1	Male				REV 6:6
 voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:4 <-(2 more)-> REV 14:13
