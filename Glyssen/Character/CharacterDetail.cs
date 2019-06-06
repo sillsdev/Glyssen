@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using SIL.Scripture;
 
 namespace Glyssen.Character
 {
@@ -29,7 +34,42 @@ namespace Glyssen.Character
 		//public bool Status { get; set; }
 		public string Comment { get; set; }
 		public string ReferenceComment { get; set; }
+		public string DefaultFCBHCharacter { get; set; }
 		public CharacterVerseData.StandardCharacter StandardCharacterType { get; set; } = CharacterVerseData.StandardCharacter.NonStandard;
+
+		private const string kScriptureRegex = "(?<bookId>[1-3A-Z][A-Z][A-Z]) (?<chapter>\\d+):(?<verse>\\d+)";
+		static Regex s_regexFirstScriptureRef = new Regex("^" + kScriptureRegex, RegexOptions.Compiled);
+		static Regex s_regexLastScriptureRef = new Regex(kScriptureRegex + "$", RegexOptions.Compiled);
+
+		public BCVRef FirstReference
+		{
+			get
+			{
+				if (string.IsNullOrEmpty(ReferenceComment))
+					return new BCVRef(1, 1, 1);
+				var m = s_regexFirstScriptureRef.Match(ReferenceComment);
+				if (m.Success)
+					return new BCVRef(BCVRef.BookToNumber(m.Result("${bookId}")), int.Parse(m.Result("${chapter}")), int.Parse(m.Result("${verse}")));
+				throw new DataException($"Invalid ReferenceComment ({ReferenceComment}) in character detail for character {CharacterId}!");
+			}
+		}
+
+		public BCVRef LastReference
+		{
+			get
+			{
+				if (string.IsNullOrEmpty(ReferenceComment))
+				{
+					var lastBook = ScrVers.English.GetLastBook();
+					var lastChapter = ScrVers.English.GetLastChapter(lastBook);
+					return new BCVRef(lastBook, lastChapter, ScrVers.English.GetLastVerse(lastBook, lastChapter));
+				}
+				var m = s_regexLastScriptureRef.Match(ReferenceComment);
+				if (m.Success)
+					return new BCVRef(BCVRef.BookToNumber(m.Result("${bookId}")), int.Parse(m.Result("${chapter}")), int.Parse(m.Result("${verse}")));
+				throw new DataException($"Invalid ReferenceComment ({ReferenceComment}) in character detail for character {CharacterId}!");
+			}
+		}
 	}
 
 	public class CharacterGenderComparer : IComparer<CharacterGender>

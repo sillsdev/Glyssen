@@ -1,4 +1,4 @@
-#Character ID	Max Speakers	Gender	Age	Status	Comment	Reference
+#Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
 2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 & JHN 21:5
 250 Israelite leaders	250	Male	Adult			NUM 16:3
 a Jew	1	Male	Adult			JHN 3:26
@@ -19,7 +19,7 @@ Absalom's men	-1	Male	Adult			2SA 17:20
 Absalom's secret messengers	-1	Male	Adult			2SA 15:10
 Achan	1	Male	Adult			JOS 7:20 & JOS 7:21
 Achish, king of Gath	1	Male	Adult			1SA 21:14 <-(9 more)-> 1SA 29:10
-Achsah, Caleb's daughter	1	Female	Adult			JOS 15:19 <-(1 more)-> JDG 1:15
+Achsah, Caleb's daughter	1	Female	Adult			JOS 15:19 <-(1 more)-> JDG 1:15	Acsah (female)
 Adam	1	Male	Adult			GEN 2:23 <-(1 more)-> GEN 3:12
 Adoni-Bezek	1	Male	Adult			JDG 1:7
 Adonijah, son of David	1	Male	Adult			1KI 1:5 <-(5 more)-> 1KI 2:17
@@ -34,7 +34,7 @@ Ahaziah, king of Israel	1	Male	Adult			1KI 22:49 <-(3 more)-> 2KI 1:8
 Ahijah the priest	1	Male	Adult			1SA 14:36
 Ahijah the prophet	1	Male	Adult			1KI 11:31 <-(18 more)-> 1KI 14:16
 Ahimaaz (messenger)	1	Male	Adult			2SA 17:21 <-(4 more)-> 2SA 18:29
-Ahimelech the priest (son of Ahitub)	1	Male	Adult			1SA 21:1 <-(4 more)-> 1SA 22:15
+Ahimelech the priest (son of Ahitub)	1	Male	Adult			1SA 21:1 <-(4 more)-> 1SA 22:15	Priest (Ahimelech)
 Ahithophel	1	Male	Adult			2SA 16:21 <-(2 more)-> 2SA 17:3
 all in Nazareth synagogue	-1		Adult			LUK 4:22
 all in temple	-1		Adult			PSA 29:9
@@ -126,7 +126,7 @@ believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or 
 beloved	1	Female	Adult			SNG 1:12 <-(62 more)-> SNG 8:14
 Belshazzar, king of Babylon	1	Male	Adult			DAN 5:7 <-(3 more)-> DAN 5:16
 Benaiah, son of Jehoiada	1	Male				1KI 1:36 <-(1 more)-> 1KI 2:30
-Ben-Hadad, king of Aram	1	Male				1KI 20:12 <-(8 more)-> 2KI 8:14
+Ben-Hadad, king of Aram	1	Male				1KI 20:12 <-(8 more)-> 2KI 8:14	Ben Hadad
 Benjamin	1	Male				
 Benjamite messenger to Eli	1	Male				1SA 4:16 & 1SA 4:17
 Benjamites	-1					JDG 20:32 & JDG 20:39
@@ -135,7 +135,7 @@ Berekiah	1	Male			leader in Ephraim	2CH 28:13
 Bernice	1	Female				ACT 26:31
 Beth Shemesh, men of	-1	Male				1SA 6:20
 Beth Shemesh, messenger from	1	PreferMale				1SA 6:21
-Bethlehem, elders of	-1	Male	Elder			1SA 16:4
+Bethlehem, elders of	-1	Male	Elder			1SA 16:4	Elder of Bethlehem
 Bethuel, Rebekah's father	1	Male	Adult			GEN 24:50 & GEN 24:51
 Bildad the Shuhite	1	Male				JOB 8:2 <-(44 more)-> JOB 25:6
 Birsha, king of Gomorrah	1	Male				GEN 14:4
@@ -176,8 +176,8 @@ centurion summoned by Pilate	1	Male	Adult			MRK 15:45
 centurion with great faith	1	Male	Adult			MAT 8:6 <-(4 more)-> LUK 7:8
 centurion in the barracks	1	Male	Adult			ACT 23:18
 chariot commanders of Aram	-1	Male	Adult			1KI 22:32 & 2CH 18:31
-chief baker of Egypt	1	Male	Adult			GEN 40:8 <-(1 more)-> GEN 40:17
-chief cupbearer of Egypt	1	Male	Adult			GEN 40:8 <-(7 more)-> GEN 41:13
+chief baker of Egypt	1	Male	Adult			GEN 40:8 <-(1 more)-> GEN 40:17	Chief Baker
+chief cupbearer of Egypt	1	Male	Adult			GEN 40:8 <-(7 more)-> GEN 41:13	Cupbearer
 chief official	1	Male				DAN 1:10
 chief priests	-1	Male				2KI 19:3 <-(64 more)-> ACT 25:7
 chiefs of 10 tribes	10	Male			not Reuben, Gad, half tribe of Manasseh	JOS 22:16 <-(4 more)-> JOS 22:32
@@ -274,7 +274,7 @@ elders	-1	Male	Elder			RUT 4:11 <-(35 more)-> ACT 4:18
 elders of Israel	-1	Male	Elder			DEU 27:1 <-(9 more)-> 1SA 8:6
 elders of Jabesh	-1	Male	Elder			1SA 11:3
 elders of the Jews	-1	Male	Elder			LUK 7:4 & LUK 7:5
-elders of the land	-1	Male	Elder			JER 26:18 & JER 26:19
+elders of the land	-1	Male	Elder			JER 26:18 & JER 26:19	Elder
 elders of the town	-1	Male	Elder			DEU 21:7 <-(1 more)-> DEU 25:8
 elders, Ephesian	-1	Male	Elder			ACT 20:38
 elders, one of the	1	Male	Elder			REV 5:5 <-(4 more)-> REV 7:17
@@ -370,7 +370,7 @@ Gentiles, Jews, and leaders at Iconium	-1					ACT 14:5
 Geshem the Arab	1	Male				NEH 2:19 <-(3 more)-> NEH 6:9
 Gibeonites	-1	Male				JOS 9:6 <-(11 more)-> 2SA 21:6
 Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
-Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10
+Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6
 God	1	Male		Y		GEN 1:3 <-(5435 more)-> REV 21:8
@@ -594,7 +594,7 @@ Macedonian	1	Male				ACT 16:9
 magi (wise men from East)	-1	Male				MAT 2:2
 magicians	-1	Male				EXO 8:19
 magistrates, chief	-1	Male				ACT 16:39
-maidens	-1	Female	YoungAdult			SNG 1:4 <-(16 more)-> SNG 8:7
+maidens	-1	Female	YoungAdult			SNG 1:4 <-(16 more)-> SNG 8:7	Daughter of Jerusalem (female)
 Makir	1	Male			son of Ammiel from Lo Debar	2SA 17:29
 Malta islanders	-1					ACT 28:4 & ACT 28:6
 man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17
@@ -657,7 +657,7 @@ men of Gerar	-1	Male				GEN 26:7
 men of Gennesaret	-1	Male				MAT 14:35
 men of Jabesh	-1	Male				1SA 11:1 & 1SA 11:10
 men of Jericho	-1	Male				2KI 2:19
-men of Sodom (wicked)	-1	Male				GEN 19:5 & GEN 19:9
+men of Sodom (wicked)	-1	Male				GEN 19:5 & GEN 19:9	Sodomite
 men who have gone astray	-1	Male				2TI 2:18
 men with leprosy, four	4	Male				2KI 7:3 <-(2 more)-> 2KI 7:10
 men, large force of	-1	Male				2CH 32:4
@@ -680,7 +680,7 @@ messenger to David	1	Male				2SA 15:13
 messenger to king of Jericho	1	Male				JOS 2:2
 messenger to Saul	1	Male				1SA 23:27
 messenger, another	1	Male				JOB 1:16
-messenger, Cushite	1	Male				2SA 18:31 & 2SA 18:32
+messenger, Cushite	1	Male				2SA 18:31 & 2SA 18:32	Cushite
 messenger, still another	1					JOB 1:17
 messenger, yet another	1					JOB 1:18 & JOB 1:19
 messengers from Jephthah	-1	PreferMale				JDG 11:12 <-(12 more)-> JDG 11:27
@@ -698,7 +698,7 @@ Micah	1	Male				JDG 17:2 <-(10 more)-> MIC 3:8
 Micah's mother	1	Female				JDG 17:2 & JDG 17:3
 Micaiah, prophet of the LORD	1	Male				1KI 22:14 <-(18 more)-> 2CH 18:27
 Michael, archangel	1	Male				JUD 1:9
-Michal, David's wife	1	Female				1SA 19:11 <-(2 more)-> 2SA 6:20
+Michal, David's wife	1	Female				1SA 19:11 <-(2 more)-> 2SA 6:20	Michal (David's wife) (female)
 Midianite soldier who had a dream	1	Male				JDG 7:13
 Midianite soldier who interprets dream	1	Male				JDG 7:14
 midwife of Rachel	1	Female				GEN 35:17
@@ -758,13 +758,13 @@ officials of Ben-Hadad, king of Aram	-1	Male				1KI 20:23 <-(4 more)-> 1KI 20:33
 officials of David	-1	Male				2SA 15:15
 officials of high priest, one of the	1	Male				JHN 18:22
 officials of Samaria	-1	Male				2KI 10:4 & 2KI 10:5
-officials of Succoth	-1	Male				JDG 8:6
+officials of Succoth	-1	Male				JDG 8:6	Prince of Succoth
 officials of Trans-Euphrates	-1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
 officials, Ephesus (friends of Paul)	-1	Male				ACT 19:31
 officials, royal, to Xerxes, king	-1	Male				EST 3:3
 old man in Gibeah	1	Male	Elder			JDG 19:17 <-(2 more)-> JDG 19:24
-old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32
-older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34
+old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	Prophet (old)
+older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34	Daughter of Lot (female)
 On	1	Male			son of Peleth (Reubenite)	NUM 16:3
 one at table of Pharisee (expert in religious law)	1	Male				LUK 14:15
 one of you	-1					ROM 9:19 & JAS 2:16
@@ -784,7 +784,7 @@ owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33
 owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
 parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(2 more)-> JHN 9:23
 parents of rebellious son	2	Either				DEU 21:20
-Pashur	1	Male			son of Malkijah	JER 21:2 & JER 38:4
+Pashur	1	Male			son of Malkijah	JER 21:2 & JER 38:4	Pashhur
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(198 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
@@ -861,7 +861,7 @@ Philistine commanders	-1	Male				1SA 29:3 <-(1 more)-> 1SA 29:5
 Philistine priests and fortune tellers	-1	Male				1SA 6:3 <-(5 more)-> 1SA 6:9
 Philistine rulers	-1	Male				JDG 16:5 <-(2 more)-> 1CH 12:19
 Philistines	-1	Male				JDG 15:6 <-(11 more)-> 1SA 14:12
-Phineas the priest	1	Male				JOS 22:16 <-(5 more)-> JOS 22:32
+Phineas the priest	1	Male				JOS 22:16 <-(5 more)-> JOS 22:32	Phinehas
 Phineas' wife (daughter-in-law of Eli)	1	Female				1SA 4:21 & 1SA 4:22
 Pilate	1	Male				MAT 27:11 <-(42 more)-> JHN 19:22
 Pilate's wife	1	Female				MAT 27:19
@@ -939,7 +939,7 @@ Saul's announcement	1	Male				1SA 13:4
 Saul's attendants	-1	Male				1SA 16:15 <-(1 more)-> 1SA 28:7
 Saul's messengers to Jesse	-1	Male				1SA 16:19 & 1SA 16:22
 Saul's servant	1	Male				1SA 9:11 <-(1 more)-> 1SA 18:24
-Saul's uncle	1	Male				1SA 10:14 & 1SA 10:15
+Saul's uncle	1	Male				1SA 10:14 & 1SA 10:15	Uncle
 saying (lie about disciples stealing Jesus' body)	1	Male				MAT 28:15
 saying (proverb)	1					GEN 22:14
 saying about Anakites	1					DEU 9:2
@@ -1040,7 +1040,7 @@ son of widow	1	Male				2KI 4:6
 song about the prostitute	1	Either				ISA 23:16
 song of the prostitute	1	Female				ISA 23:16
 sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14
-sons of Korah	-1	Male				PSA 42:3 & PSA 42:9
+sons of Korah	-1	Male				PSA 42:3 & PSA 42:9	Son of Korah
 sons of Korah's enemies	-1	Male				PSA 42:3
 sons of prophet in Bethel	-1	Male				1KI 13:30
 souls of those killed for word of God	-1					REV 6:10
@@ -1119,7 +1119,7 @@ woman from Tekoa	1	Female				2SA 14:4 <-(13 more)-> 2SA 14:20
 woman in Bahurim	1	Female				2SA 17:20
 woman in crowd	1	Female				LUK 11:27
 woman in famine	1	Female				2KI 6:26 <-(1 more)-> 2KI 6:29
-woman medium	1	Female				1SA 28:9 <-(5 more)-> 1SA 28:22
+woman medium	1	Female				1SA 28:9 <-(5 more)-> 1SA 28:22	Woman at Endor (female)
 woman who could not straighten up	1	Female				LUK 13:13
 woman, bleeding for twelve years	1	Female				MAT 9:21 <-(2 more)-> LUK 8:47
 woman, caught in adultery	1	Female				JHN 8:11
@@ -1148,7 +1148,7 @@ Zechariah	1	Male				ZEC 1:8 <-(108 more)-> ZEC 11:17
 Zechariah, son of Jehoiada the priest	1	Male				2CH 24:20 & 2CH 24:22
 Zedekiah, king of Judah	1	Male				JER 32:3 <-(11 more)-> JER 38:26
 Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19
-Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18:23
+Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18:23	Zedekiah son of Chenaanah
 Zephaniah, priest	1	Male			son of Maaseiah	JER 21:2 & JER 37:3
 Zeresh, wife of Haman	1	Female				EST 5:14 & EST 6:13
 Zerubbabel	1	Male				EZR 4:3

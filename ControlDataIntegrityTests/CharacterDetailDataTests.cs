@@ -23,7 +23,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
 			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t(" + typeof(CharacterGender).GetRegexEnumValuesString() + ")?\t(" +
-				typeof(CharacterAge).GetRegexEnumValuesString() + ")?\tY?\t[^\t]*\t[^\t]*$", RegexOptions.Compiled);
+				typeof(CharacterAge).GetRegexEnumValuesString() + ")?\tY?\t[^\t]*\t[^\t]*\t?[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -74,6 +74,40 @@ namespace ControlDataIntegrityTests
 				"Duplicate character IDs in Character-Detail data:" +
 				Environment.NewLine +
 				duplicateCharacterIds.OnePerLineWithIndent());
+		}
+
+		// Technically, there's no harm in having them be identical, but it's not necessary.
+		[Test]
+		public void DataIntegrity_FCBHCharacterIdNotEqualtoGlyssenCharacterId()
+		{
+			var unnecessary = CharacterDetailData.Singleton.GetAll().Where(d => d.CharacterId == d.DefaultFCBHCharacter).ToList();
+			Assert.IsFalse(unnecessary.Any(),
+				"No need to specify FCBH character ID in Character-Detail data if it matches Glyssen character ID:" +
+				Environment.NewLine +
+				unnecessary.Select(d => d.CharacterId).OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_FemaleCharacterFCBHCharacterIdHasFemaleSuffix()
+		{
+			var missingFemaleSuffix = CharacterDetailData.Singleton.GetAll()
+				.Where(d => (d.Gender == CharacterGender.Female || d.Gender == CharacterGender.PreferFemale) &&
+					d.DefaultFCBHCharacter != null && !d.DefaultFCBHCharacter.EndsWith(" (female)")).ToList();
+			Assert.IsFalse(missingFemaleSuffix.Any(),
+				"Missing \" (female)\" suffix on FCBH character ID in Character-Detail data:" +
+				Environment.NewLine +
+				missingFemaleSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_ReferenceCommentFieldIsValid()
+		{
+			var bogusReferenceComment = CharacterDetailData.Singleton.GetAll()
+				.Where(d => d.FirstReference.BBCCCVVV > d.LastReference.BBCCCVVV).ToList();
+			Assert.IsFalse(bogusReferenceComment.Any(),
+				"Invaid ReferenceComment in Character-Detail data:" +
+				Environment.NewLine +
+				bogusReferenceComment.Select(d => $"{d.CharacterId}: {d.ReferenceComment}").OnePerLineWithIndent());
 		}
 	}
 

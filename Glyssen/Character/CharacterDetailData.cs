@@ -31,10 +31,7 @@ namespace Glyssen.Character
 			LoadData(TabDelimitedCharacterDetailData);
 		}
 
-		public static CharacterDetailData Singleton
-		{
-			get { return s_singleton ?? (s_singleton = new CharacterDetailData()); }
-		}
+		public static CharacterDetailData Singleton => s_singleton ?? (s_singleton = new CharacterDetailData());
 
 		public static bool CharacterIsMale(string characterId, bool treatEitherAsMale = true)
 		{
@@ -180,7 +177,9 @@ namespace Glyssen.Character
 				Gender = gender,
 				Age = age,
 				//Status = items[4].Equals("Y", StringComparison.OrdinalIgnoreCase) || items[4].Equals("True", StringComparison.OrdinalIgnoreCase),
-				Comment = items[5]
+				Comment = items[5],
+				ReferenceComment = items.Length >= 7 ? items[6] : null,
+				DefaultFCBHCharacter = items.Length >= 8 ? items[7] : null
 			};
 		}
 	}

@@ -6326,6 +6326,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	5	7	Joram, king of Israel			Normal		
 2KI	5	8	Elisha			Normal		
 2KI	5	10	Elisha's messenger			Normal		
+2KI	5	10	Gehazi			Alternate		
 2KI	5	11	Naaman			Normal		
 2KI	5	12	Naaman			Normal		
 2KI	5	13	Naaman's servants			Normal		
