@@ -1116,46 +1116,18 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase) ||
 					glyssenCharacterId == "horses (or their angelic riders) (in vision)";
-				case "Shepherd": return glyssenCharacterId == "shepherds at well";
 				case "Jereboam": return glyssenCharacterId == "Jeroboam";
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
 				case "Rehab": return glyssenCharacterId == "Rahab";
-				case "Servant of Abraham": return glyssenCharacterId == "Abraham's chief servant";
-				case "King of Sodom": return glyssenCharacterId == "Bera, king of Sodom";
-				case "Man": return glyssenCharacterId == "men";
 				case "Reuben": return glyssenCharacterId == "Reubenites";
 				case "Judah": return glyssenCharacterId == "Judah, men of";
 				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";
 				case "Zechariah": return glyssenCharacterId == "Zechariah, son of Jehoiada the priest";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
-				case "Pashhur": return glyssenCharacterId == "Pashur";
-				case "Official": return glyssenCharacterId == "chief official";
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
-				case "Noble": return glyssenCharacterId == "Ammonite nobles";
-				case "Prophet: Baal": return glyssenCharacterId == "prophets of Baal";
-				case "Wife of Haman": return glyssenCharacterId == "Zeresh, wife of Haman";
-				case "Mother of King Lemuel": return glyssenCharacterId == "King Lemuel's mother";
-				case "Wife of Samson": return glyssenCharacterId == "Samson's Philistine wife";
-				case "King Joash": return glyssenCharacterId == "Jehoash, king of Israel";
-				case "Syrians": return glyssenCharacterId == "Aramean soldiers";
 				case "Watchman": return glyssenCharacterId == "lookout";
-				case "Advisor (young)": return glyssenCharacterId == "young men (advisors of Rehoboam)";
-				case "Daughter of Zelophehad": return glyssenCharacterId == "daughters of Zelophehad";
-				case "Elder of Congregation": return glyssenCharacterId == "Israelite assembly, elders of";
-				case "Recabite Man": return glyssenCharacterId == "Recabite family, men of";
-				case "Elder in Samaria": return glyssenCharacterId == "officials of Samaria";
-				case "Maiden (girl)": return glyssenCharacterId == "young women (maidens)";
-				case "Woman of Tekoa": return glyssenCharacterId == "woman from Tekoa";
-				case "Jonathan the Priest": return glyssenCharacterId == "Jonathan, son of Abiathar";
-				case "Mother of Samson": return glyssenCharacterId == "Manoah's wife, mother of Samson";
-				case "Chaldean": return glyssenCharacterId == "astrologers";
-				case "Prophet (young)": return glyssenCharacterId == "company of the prophets, one of (the LORD says) (young man)";
-				case "Jehu the Seer": return glyssenCharacterId == "Jehu, son of Hanani";
-				case "Israelite": return glyssenCharacterId.StartsWith("Israel");
-				case "Sailor": return glyssenCharacterId == "sailors on ship to Tarshish";
-				case "Captain": return glyssenCharacterId == "captain of ship to Tarshish";
 				case "Soldier":
 					return glyssenCharacterId.IndexOf("soldier", StringComparison.OrdinalIgnoreCase) >= 0 ||
 						glyssenCharacterId.IndexOf("men", StringComparison.OrdinalIgnoreCase) >= 0 ||

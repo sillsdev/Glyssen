@@ -8507,9 +8507,9 @@ PSA	129	2	Israel			Hypothetical
 PSA	129	3	narrator-PSA			Quotation		
 PSA	129	3	Israel			Hypothetical		
 PSA	129	8	those who go by			Hypothetical		
-PSA	132	3	narrator-PSA			Quotation		
-PSA	132	4	narrator-PSA			Quotation		
-PSA	132	5	narrator-PSA			Quotation		
+PSA	132	3	David			Quotation		
+PSA	132	4	David			Quotation		
+PSA	132	5	David			Quotation		
 PSA	132	11	God		God (the LORD)	Normal		
 PSA	132	12	God		God (the LORD)	Normal		
 PSA	132	14	God		God (the LORD)	Normal		
