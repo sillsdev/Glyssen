@@ -108,7 +108,7 @@ Azariah, son of Hoshaiah	1	Male				JER 43:2 & JER 43:3
 Azariah, son of Jehohanan	1	Male			leader in Ephraim	2CH 28:13
 Azariah, son of Oded	1	Male				2CH 15:2 <-(4 more)-> 2CH 15:7
 Baanah	1	Male				2SA 4:8
-Babylon	1		Adult			REV 18:7
+Babylon (personified as adulteress)	1	Female	Adult			REV 18:7
 Balaam	1	Male	Adult			NUM 22:8 <-(46 more)-> NUM 24:24
 Balak	1	Male	Adult			NUM 22:5 <-(8 more)-> NUM 24:11
 Barak	1	Male	Adult			JDG 4:8 <-(29 more)-> JDG 5:31
@@ -320,6 +320,7 @@ everyone in Judean hills who heard	-1					LUK 1:65 & LUK 1:66
 everyone seeing healing of paralyzed man	-1					LUK 5:26
 everyone who saw healing of paralytic	-1					MRK 2:12
 everyone who witnessed healing of boy	-1					LUK 9:43
+every tongue	-1					ISA 45:24
 evil men and troublemakers	-1	Male				1SA 30:22
 evil spirit in possessed man	1	Male				ACT 19:15
 evil spirits	-1					MRK 3:11
@@ -375,6 +376,7 @@ Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
 God	1	Male		Y		GEN 1:3 <-(5561 more)-> REV 21:8
+God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
 great company of heavenly host	-1		Adult			LUK 2:14

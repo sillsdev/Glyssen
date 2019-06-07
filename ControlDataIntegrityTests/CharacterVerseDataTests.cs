@@ -218,9 +218,11 @@ namespace ControlDataIntegrityTests
 		/// The Implicit quote type indicates that we expect the (whole) verse to be spoken by a particular character.
 		/// Since this will be automatically applied to any verse that does not have any explicit quotes (i.e., is 
 		/// identified by the quote parser as 100% "narrator"), this test ensures that we don't have any verses marked
-		/// as Implicit which also include some other quote type. The one exception to this is that we do allow "Needs Review"
-		/// as an implicit character, alongside other potential characters. This is used when we know a verse should be
+		/// as Implicit which also include some other quote type. The three exceptions to this are:
+		/// * We do allow "Needs Review" as an implicit character, alongside other potential characters. This is used when we know a verse should be
 		/// dramatized, but it is not necessarily clear who is speaking.
+		/// * We do allow Hypothetical characters (which often occur in the speech and are sometimes dramatized) 
+		/// * In Deuteronomy, we also allow Quotations and Indirect speech
 		/// </summary>
 		[Test]
 		public void DataIntegrity_ImplicitCharacterIsExclusiveUnlessItIsNeedsReviewOrTheOtherEntryIsAQuotationInDeuteronomy()
@@ -229,12 +231,12 @@ namespace ControlDataIntegrityTests
 				.Where(i => i.QuoteType == QuoteType.Implicit && i.Character != CharacterVerseData.kNeedsReview))
 			{
 				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
-					cv.Chapter, cv.Verse, versification: ScrVers.English).Where(c => c != cv).ToList();
+					cv.Chapter, cv.Verse, versification: ScrVers.English)
+					.Where(c => c != cv && c.QuoteType != QuoteType.Hypothetical).ToList();
 				if (otherEntries.Any())
 				{
 					Assert.IsTrue(cv.BookCode == "DEU" && otherEntries.All(o => 
-						o.QuoteType == QuoteType.Quotation || o.QuoteType == QuoteType.Hypothetical ||
-						o.QuoteType == QuoteType.Indirect),
+						o.QuoteType == QuoteType.Quotation || o.QuoteType == QuoteType.Indirect),
 					$"Character-verse file contains an Implicit quote for {cv.Character} in {cv.BookCode} {cv.Chapter}:{cv.Verse} " +
 						"that also has other incompatible quotes.");
 				}

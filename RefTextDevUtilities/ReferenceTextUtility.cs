@@ -1129,6 +1129,8 @@ namespace Glyssen.RefTextDevUtilities
 				case "Ephraim": return glyssenCharacterId == "Ephraimites";
 				case "Judah": return glyssenCharacterId == "Judah, men of";
 
+				case "Woman": return glyssenCharacterId == "Babylon (personified as adulteress)";
+				case "Queen of Babylon": return glyssenCharacterId == "Babylon (personified as adulteress)";
 				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";
 				case "Zechariah": return glyssenCharacterId == "Zechariah, son of Jehoiada the priest";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");

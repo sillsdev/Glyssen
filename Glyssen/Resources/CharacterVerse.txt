@@ -9747,58 +9747,72 @@ ISA	45	15	Needs Review			Implicit
 ISA	45	15	Isaiah			Potential		
 ISA	45	15	Egyptians/Ethiopians/Sabeans			Hypothetical		
 ISA	45	18	God		God (the LORD)	Normal		
-ISA	45	19	God		God (the LORD)	Normal		
-ISA	45	20	God		God (the LORD)	Normal		
-ISA	45	21	God		God (the LORD)	Normal		
-ISA	45	22	God		God (the LORD)	Normal		
-ISA	45	23	God		God (the LORD)	Normal		
+ISA	45	19	God		God (the LORD)	Implicit		
+ISA	45	20	God		God (the LORD)	Implicit		
+ISA	45	21	God		God (the LORD)	Implicit		
+ISA	45	22	God		God (the LORD)	Implicit		
+ISA	45	23	God		God (the LORD)	Implicit		
 ISA	45	24	God		God (the LORD)	Normal		
+ISA	45	24	every tongue			Hypothetical		
 ISA	45	25	God		God (the LORD)	Potential		
-ISA	46	3	God		God (the LORD)	Normal		
-ISA	46	4	God		God (the LORD)	Normal		
-ISA	46	5	God		God (the LORD)	Normal		
-ISA	46	6	God		God (the LORD)	Normal		
-ISA	46	7	God		God (the LORD)	Normal		
-ISA	46	8	God		God (the LORD)	Normal		
-ISA	46	9	God		God (the LORD)	Normal		
-ISA	46	10	God		God (the LORD)	Normal		
-ISA	46	11	God		God (the LORD)	Normal		
-ISA	46	12	God		God (the LORD)	Normal		
-ISA	46	13	God		God (the LORD)	Normal		
-ISA	47	1	God		God (the LORD)	Normal		
-ISA	47	2	God		God (the LORD)	Normal		
-ISA	47	3	God		God (the LORD)	Normal		
-ISA	47	5	God		God (the LORD)	Normal		
-ISA	47	6	God		God (the LORD)	Normal		
+ISA	46	1	God		God (the LORD)	Potential		
+ISA	46	1	Needs Review			Implicit		
+ISA	46	2	God		God (the LORD)	Potential		
+ISA	46	2	Needs Review			Implicit		
+ISA	46	3	God		God (the LORD)	Implicit		
+ISA	46	4	God		God (the LORD)	Implicit		
+ISA	46	5	God		God (the LORD)	Implicit		
+ISA	46	6	God		God (the LORD)	Implicit		
+ISA	46	7	God		God (the LORD)	Implicit		
+ISA	46	8	God		God (the LORD)	Implicit		
+ISA	46	9	God		God (the LORD)	Implicit		
+ISA	46	10	God		God (the LORD)	Implicit		
+ISA	46	11	God		God (the LORD)	Implicit		
+ISA	46	12	God		God (the LORD)	Implicit		
+ISA	46	13	God		God (the LORD)	Implicit		
+ISA	47	1	God		God (the LORD)	Implicit		
+ISA	47	2	God		God (the LORD)	Implicit		
+ISA	47	3	God		God (the LORD)	Implicit		
+ISA	47	5	God		God (the LORD)	Implicit		
+ISA	47	6	God		God (the LORD)	Implicit		
 ISA	47	7	God		God (the LORD)	Normal		
+ISA	47	7	Babylon (personified as adulteress)			Hypothetical		
 ISA	47	8	God		God (the LORD)	Normal		
-ISA	47	9	God		God (the LORD)	Normal		
+ISA	47	8	Babylon (personified as adulteress)			Hypothetical		
+ISA	47	9	God		God (the LORD)	Implicit		
 ISA	47	10	God		God (the LORD)	Normal		
-ISA	47	11	God		God (the LORD)	Normal		
-ISA	47	12	God		God (the LORD)	Normal		
-ISA	47	13	God		God (the LORD)	Normal		
-ISA	47	14	God		God (the LORD)	Normal		
-ISA	47	15	God		God (the LORD)	Normal		
-ISA	48	1	God		God (the LORD)	Normal		
-ISA	48	2	God		God (the LORD)	Normal		
-ISA	48	3	God		God (the LORD)	Normal		
-ISA	48	4	God		God (the LORD)	Normal		
-ISA	48	5	God		God (the LORD)	Normal		
-ISA	48	6	God		God (the LORD)	Normal		
-ISA	48	7	God		God (the LORD)	Normal		
-ISA	48	8	God		God (the LORD)	Normal		
-ISA	48	9	God		God (the LORD)	Normal		
-ISA	48	10	God		God (the LORD)	Normal		
-ISA	48	11	God		God (the LORD)	Normal		
-ISA	48	12	God		God (the LORD)	Normal		
-ISA	48	13	God		God (the LORD)	Normal		
-ISA	48	14	God		God (the LORD)	Normal		
-ISA	48	15	God		God (the LORD)	Normal		
-ISA	48	16	God		God (the LORD)	Normal		
-ISA	48	17	God		God (the LORD)	Normal		
-ISA	48	18	God		God (the LORD)	Normal		
-ISA	48	19	God		God (the LORD)	Normal		
+ISA	47	10	Babylon (personified as adulteress)			Hypothetical		
+ISA	47	11	God		God (the LORD)	Implicit		
+ISA	47	12	God		God (the LORD)	Implicit		
+ISA	47	13	God		God (the LORD)	Implicit		
+ISA	47	14	God		God (the LORD)	Implicit		
+ISA	47	15	God		God (the LORD)	Implicit		
+ISA	48	1	God		God (the LORD)	Potential		
+ISA	48	2	God		God (the LORD)	Potential		
+ISA	48	3	God		God (the LORD)	Implicit		
+ISA	48	4	God		God (the LORD)	Implicit		
+ISA	48	5	God		God (the LORD)	Implicit		
+ISA	48	6	God		God (the LORD)	Implicit		
+ISA	48	7	God		God (the LORD)	Implicit		
+ISA	48	8	God		God (the LORD)	Implicit		
+ISA	48	9	God		God (the LORD)	Implicit		
+ISA	48	10	God		God (the LORD)	Implicit		
+ISA	48	11	God		God (the LORD)	Implicit		
+ISA	48	12	God		God (the LORD)	Implicit		
+ISA	48	13	God		God (the LORD)	Implicit		
+ISA	48	14	God		God (the LORD)	Potential		
+ISA	48	15	God		God (the LORD)	Implicit		
+ISA	48	16	Needs Review			Implicit		
+ISA	48	16	Jesus			Potential		
+ISA	48	16	God		God (the LORD)	Potential		
+ISA	48	16	Cyrus, king of Persia			Potential		
+ISA	48	16	God's chosen (beloved) friend or ally			Potential		
+ISA	48	17	God		God (the LORD)	Potential		
+ISA	48	18	God		God (the LORD)	Implicit		
+ISA	48	19	God		God (the LORD)	Implicit		
+ISA	48	20	God		God (the LORD)	Implicit		
 ISA	48	20	exiles			Hypothetical		
+ISA	48	21	God		God (the LORD)	Potential		
 ISA	48	22	God		God (the LORD)	Normal		
 ISA	49	3	God		God (the LORD)	Quotation		
 ISA	49	4	Israel			Quotation	narrator-ISA	
@@ -17608,7 +17622,7 @@ REV	18	3	angel, another, coming down from heaven	shouting		Normal
 REV	18	4	voice from heaven, another			Normal		
 REV	18	5	voice from heaven, another			Normal		
 REV	18	6	voice from heaven, another			Normal		
-REV	18	7	Babylon			Normal		
+REV	18	7	Babylon (personified as adulteress)			Hypothetical		
 REV	18	7	voice from heaven, another			Normal		
 REV	18	8	voice from heaven, another			Normal		
 REV	18	9	voice from heaven, another			Normal		
