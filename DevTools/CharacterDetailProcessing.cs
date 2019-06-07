@@ -12,7 +12,7 @@ namespace DevTools
 	class CharacterDetailProcessing
 	{
 		private const char kTab = '\t';
-		private static readonly Regex s_findTabsRegex = new Regex("\t", RegexOptions.Compiled);
+		private static readonly Regex s_regexContentBeforeAndAfterReference = new Regex(@"(?<precedingPart>([^\t]*\t){6})[^\t]*(?<followingPart>.*)", RegexOptions.Compiled);
 
 		public static void GenerateReferences()
 		{
@@ -69,12 +69,11 @@ namespace DevTools
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			// Just making sure...
-			if (s_findTabsRegex.Matches(line.CurrentLine).Count != 6)
-				throw new ArgumentException();
+			var match = s_regexContentBeforeAndAfterReference.Match(line.CurrentLine);
+			if (!match.Success)
+				throw new ArgumentException($"Invalid input: {line.CurrentLine}", nameof(line));
 
-			var match = Regex.Match(line.CurrentLine, @"\t[^\t]*", RegexOptions.RightToLeft);
-			var lineWithReferenceComment = line.CurrentLine.Substring(0, match.Index + 1) + line.ReferenceComment;
+			var lineWithReferenceComment = match.Result("${precedingPart}") + line.ReferenceComment + match.Result("${followingPart}");
 			return lineWithReferenceComment;
 			//return $"{lineWithReferenceComment}\t{line.HypotheticalOnly}";
 		}
@@ -83,7 +82,7 @@ namespace DevTools
 		{
 			// Note: Keeping the "Status" column around in case we want to bring it back, but it is currently always empty and
 			// always ignored in Glyssen.
-			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference" + Environment.NewLine + fileText;
+			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference\tFCBH Character" + Environment.NewLine + fileText;
 			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
 		}
 
