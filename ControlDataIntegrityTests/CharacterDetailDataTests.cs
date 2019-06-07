@@ -88,15 +88,47 @@ namespace ControlDataIntegrityTests
 		}
 
 		[Test]
-		public void DataIntegrity_FemaleCharacterFCBHCharacterIdHasFemaleSuffix()
+		public void DataIntegrity_AdultFemaleCharacterFCBHCharacterIdHasFemaleSuffix()
 		{
 			var missingFemaleSuffix = CharacterDetailData.Singleton.GetAll()
 				.Where(d => (d.Gender == CharacterGender.Female || d.Gender == CharacterGender.PreferFemale) &&
-					d.DefaultFCBHCharacter != null && !d.DefaultFCBHCharacter.EndsWith(" (female)")).ToList();
+					(d.Age == CharacterAge.Adult || d.Age == CharacterAge.Elder) &&
+					d.DefaultFCBHCharacter != null &&
+					!d.DefaultFCBHCharacter.EndsWith(" (female)")).ToList();
 			Assert.IsFalse(missingFemaleSuffix.Any(),
 				"Missing \" (female)\" suffix on FCBH character ID in Character-Detail data:" +
 				Environment.NewLine +
 				missingFemaleSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_YoungFemaleCharacterFCBHCharacterIdHasGirlSuffix()
+		{
+			var missingGirlSuffix = CharacterDetailData.Singleton.GetAll()
+				.Where(d => (d.Gender == CharacterGender.Female || d.Gender == CharacterGender.PreferFemale) &&
+					d.Age == CharacterAge.YoungAdult &&
+					d.DefaultFCBHCharacter != null &&
+					(!d.DefaultFCBHCharacter.EndsWith(" (girl)") &&
+						!d.DefaultFCBHCharacter.EndsWith(" (female)"))).ToList();
+			Assert.IsFalse(missingGirlSuffix.Any(),
+				"Missing \" (girl)\" suffix on FCBH character ID in Character-Detail data:" +
+				Environment.NewLine +
+				missingGirlSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_ChildFemaleCharacterFCBHCharacterIdHasYoungGirlSuffix()
+		{
+			var missingGirlSuffix = CharacterDetailData.Singleton.GetAll()
+				.Where(d => (d.Gender == CharacterGender.Female || d.Gender == CharacterGender.PreferFemale) &&
+					d.Age == CharacterAge.Child &&
+					d.DefaultFCBHCharacter != null &&
+					(!d.DefaultFCBHCharacter.EndsWith(" (young girl)") &&
+					!d.DefaultFCBHCharacter.EndsWith(" Girl (female)"))).ToList();
+			Assert.IsFalse(missingGirlSuffix.Any(),
+				"Missing \" (young girl)\" suffix on FCBH character ID in Character-Detail data:" +
+				Environment.NewLine +
+				missingGirlSuffix.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}").OnePerLineWithIndent());
 		}
 
 		[Test]
