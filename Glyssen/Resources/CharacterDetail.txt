@@ -312,6 +312,7 @@ Esau	1	Male	Adult			GEN 25:30 <-(12 more)-> GEN 33:15
 Esther, queen	1	Female	Adult			EST 4:11 <-(9 more)-> EST 9:13
 Ethan	1	Male	Adult			
 Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(3 more)-> ACT 8:38
+Ethiopians	-1					ISA 45:14
 Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25
 every created thing	-1					REV 5:13
 everyone	-1					LUK 4:38 <-(1 more)-> PHP 2:11
@@ -555,7 +556,8 @@ King Lemuel's mother	1	Female				PRO 31:2 <-(28 more)-> PRO 31:31	Mother of King
 king	1	Male				PRO 25:7
 king of the Ammonites	1	Male				JDG 11:13
 king of Aram	1	Male				1KI 22:31 & 2CH 18:30
-king of Assyria	1	Male				2KI 17:27 <-(5 more)-> ISA 10:14
+Shalmaneser, king of Assyria	1	Male				2KI 17:27
+Sennacherib, king of Assyria	1	Male				ISA 10:8 <-(4 more)-> ISA 10:14	King Sennacherib
 king of Babylon	1	Male				ISA 14:13 & ISA 14:14
 king of Bela	1	Male				GEN 14:4
 king of Jericho	1	Male				JOS 2:3
@@ -918,6 +920,7 @@ rule given by Paul	1	Male				2TH 3:10
 rulers of people in Jerusalem	-1	Male				ISA 28:15
 rules of the world	1					COL 2:21
 Ruth	1	Female				RUT 1:10 <-(9 more)-> RUT 3:17
+Sabeans	-1					ISA 45:14
 Sadducees	-1	Male				MAT 16:1 <-(19 more)-> ACT 23:8
 sailors on ship to Italy (Rome)	-1	Male				ACT 27:12 <-(2 more)-> ACT 27:39
 sailors on ship to Tarshish	-1	Male				JON 1:5 <-(5 more)-> JON 1:16	Sailor
@@ -1152,6 +1155,7 @@ Zedekiah, king of Judah	1	Male				JER 32:3 <-(11 more)-> JER 38:26
 Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19
 Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18:23	Zedekiah son of Chenaanah
 Zephaniah, priest	1	Male			son of Maaseiah	JER 21:2 & JER 37:3
+Zephaniah, prophet	1	Male			son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hezekiah	
 Zeresh, wife of Haman	1	Female				EST 5:14 & EST 6:13	Wife of Haman (female)
 Zerubbabel	1	Male				EZR 4:3
 Ziba, servant of Saul's household	1	Male				2SA 9:2 <-(5 more)-> 2SA 16:4

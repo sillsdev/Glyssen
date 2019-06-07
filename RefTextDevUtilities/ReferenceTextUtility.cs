@@ -1119,8 +1119,16 @@ namespace Glyssen.RefTextDevUtilities
 				case "Jereboam": return glyssenCharacterId == "Jeroboam";
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
 				case "Rehab": return glyssenCharacterId == "Rahab";
+
+				// Glyssen uses the person's name only to refer to the actual historical character, even
+				// if the biblical text refers to the decendents using the name of the ancestor. FCBH is not
+				// consistent in this. For example, their Reuben could refer to Reuben himself, or the
+				// Reubenites, but they also have a Reubenite character label, so we can't unambiguously
+				// say what label our "Reubenite" character maps to.
 				case "Reuben": return glyssenCharacterId == "Reubenites";
+				case "Ephraim": return glyssenCharacterId == "Ephraimites";
 				case "Judah": return glyssenCharacterId == "Judah, men of";
+
 				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";
 				case "Zechariah": return glyssenCharacterId == "Zechariah, son of Jehoiada the priest";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
