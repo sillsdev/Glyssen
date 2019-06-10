@@ -9820,21 +9820,21 @@ ISA	49	2	Isaiah			Potential
 # (e.g., ISV) might have these as 2nd level quotes.
 ISA	49	3	God		God (the LORD)	Quotation		
 ISA	49	3	Isaiah			Alternate		
-# This is a self-quote by God's servant (named in the passage as "Israel"), presumably the Messiah:
-ISA	49	4	narrator-ISA			Quotation		
-ISA	49	4	Isaiah			Alternate		
+# This is a self-quote by the narator, speaking prophetically on behalf of God's servant
+# (named in the passage as "Israel", but presumably the Messiah):
+ISA	49	4	Isaiah			Quotation		
 ISA	49	5	Isaiah			Potential		
 ISA	49	6	God		God (the LORD)	Normal		
 ISA	49	6	Isaiah			Alternate		
 ISA	49	7	God		God (the LORD)	Normal		
 ISA	49	7	Isaiah			Alternate		
 ISA	49	8	God		God (the LORD)	Normal		
-ISA	49	7	Isaiah			Alternate		
+ISA	49	8	Isaiah			Alternate		
 ISA	49	9	God		God (the LORD)	Implicit		
 ISA	49	10	God		God (the LORD)	Implicit		
 ISA	49	11	God		God (the LORD)	Implicit		
 ISA	49	12	God		God (the LORD)	Implicit		
-Some translations consider that God continues to speak in v. 13-14
+# Some translations consider that God continues to speak in v. 13-14
 ISA	49	13	God		God (the LORD)	Potential		
 ISA	49	14	God		God (the LORD)	Potential		
 ISA	49	14	Zion			Hypothetical		
@@ -9868,9 +9868,10 @@ ISA	50	8	Isaiah			Potential
 ISA	50	9	Isaiah			Potential		
 ISA	50	10	Isaiah			Potential		
 ISA	50	11	Isaiah			Potential		
-ISA	51	1	God		God (the LORD)	Normal		
-ISA	51	2	God		God (the LORD)	Normal		
-ISA	51	3	God		God (the LORD)	Normal		
+ISA	51	1	God		God (the LORD)	Implicit		
+ISA	51	2	God		God (the LORD)	Implicit		
+ISA	51	3	Isaiah			Potential		
+ISA	51	3	God		God (the LORD)	Alternate		
 ISA	51	4	God		God (the LORD)	Normal		
 ISA	51	5	God		God (the LORD)	Normal		
 ISA	51	6	God		God (the LORD)	Normal		

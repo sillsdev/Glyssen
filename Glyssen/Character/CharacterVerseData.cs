@@ -347,10 +347,11 @@ namespace Glyssen.Character
 			int lineNumber = 0;
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
+				lineNumber++;
 				if (line.Length == 0 || line[0] == '#')
 					continue;
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
-				IList<CharacterVerse> cvs = ProcessLine(items, lineNumber++);
+				IList<CharacterVerse> cvs = ProcessLine(items, lineNumber);
 				if (cvs != null)
 					data.AddRange(cvs);
 			}
