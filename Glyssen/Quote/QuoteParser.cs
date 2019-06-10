@@ -482,6 +482,7 @@ namespace Glyssen.Quote
 
 		private void SetImplicitCharacters()
 		{
+			var prevBlockWasOriginallyNarratorCharacter = false;
 			var comparer = new CharacterDeliveryEqualityComparer();
 			for (int i = 0; i < m_outputBlocks.Count; i++)
 			{
@@ -542,10 +543,61 @@ namespace Glyssen.Quote
 					}
 					else if (initialImplicitCv != null)
 					{
-						block.SetNonDramaticCharacterId(initialImplicitCv.Character);
-						block.UseDefaultForMultipleChoiceCharacter(() => initialImplicitCv);
-						block.Delivery = initialImplicitCv.Delivery;
+						// In case you're wondering about the final check in these two expressions, in the C-V
+						// control file, if we have a self-quote (i.e., same character) in a verse that is implicitly
+						// expected to be spoken 100% by a particular character, then we ignore the fact that the
+						// adjacent block got assigned as an explicit quote. This keeps us from unnecessarily marking
+						// a block for review just because there were no first-level quotes around it (in which case
+						// the first-level quotes will be around the embedded self-quote). See ISA 51:16, for an example.
+						var prevBlockForThisSameVerseWasSetToCorrectCharacterDueToExplicitlyMarkedQuotes =
+							!prevBlockWasOriginallyNarratorCharacter && i > 0 &&
+							m_outputBlocks[i - 1].LastVerse.StartVerse == block.InitialStartVerseNumber &&
+							m_outputBlocks[i - 1].CharacterId == initialImplicitCv.Character &&
+							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+								block.InitialEndVerseNumber, versification:m_versification).Any(cv => cv.QuoteType == QuoteType.Quotation);
+						var nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes =
+							i + 1 < m_outputBlocks.Count &&
+							m_outputBlocks[i + 1].InitialStartVerseNumber == block.LastVerse.StartVerse &&
+							m_outputBlocks[i + 1].CharacterId == initialImplicitCv.Character &&
+							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, m_outputBlocks[i + 1].InitialStartVerseNumber,
+									m_outputBlocks[i + 1].InitialEndVerseNumber, versification: m_versification)
+								.Any(cv => cv.QuoteType == QuoteType.Quotation);
+
+						bool needsReview;
+						if (block.BlockElements.OfType<Verse>().Skip(1).Any())
+						{
+							// This is similar to the "he said" check below but deals with the more extreme/weird case where this
+							// block has multiple intervening verses that were all supposed to be assigned implicitly. If *both*
+							// the preceding block and following block cover the start/end verses for this block, something fishy
+							// is probably going on (e.g., maybe something we expected to be rendered as direct speech is being
+							// rendered indirectly).
+							needsReview = prevBlockForThisSameVerseWasSetToCorrectCharacterDueToExplicitlyMarkedQuotes &&
+								nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes;
+						}
+						else
+						{
+							// Check for a possible unexpected "He said" block and mark it as Needs Review.
+							needsReview = prevBlockForThisSameVerseWasSetToCorrectCharacterDueToExplicitlyMarkedQuotes ||
+								nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes;
+						}
+
+						if (needsReview)
+						{
+							block.CharacterId = CharacterVerseData.kNeedsReview;
+						}
+						else
+						{
+							block.SetNonDramaticCharacterId(initialImplicitCv.Character);
+							block.UseDefaultForMultipleChoiceCharacter(() => initialImplicitCv);
+							block.Delivery = initialImplicitCv.Delivery;
+						}
 					}
+
+					prevBlockWasOriginallyNarratorCharacter = true;
+				}
+				else
+				{
+					prevBlockWasOriginallyNarratorCharacter = false;
 				}
 			}
 		}

@@ -218,10 +218,11 @@ namespace ControlDataIntegrityTests
 		/// The Implicit quote type indicates that we expect the (whole) verse to be spoken by a particular character.
 		/// Since this will be automatically applied to any verse that does not have any explicit quotes (i.e., is 
 		/// identified by the quote parser as 100% "narrator"), this test ensures that we don't have any verses marked
-		/// as Implicit which also include some other quote type. The three exceptions to this are:
+		/// as Implicit which also include some other quote type. The four exceptions to this are:
 		/// * We do allow "Needs Review" as an implicit character, alongside other potential characters. This is used when we know a verse should be
 		/// dramatized, but it is not necessarily clear who is speaking.
 		/// * We do allow Hypothetical characters (which often occur in the speech and are sometimes dramatized) 
+		/// * We allow self-quotations (as these help us determine when *not* to mark a block as Needs Review)
 		/// * In Deuteronomy, we also allow Quotations and Indirect speech
 		/// </summary>
 		[Test]
@@ -232,7 +233,8 @@ namespace ControlDataIntegrityTests
 			{
 				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
 					cv.Chapter, cv.Verse, versification: ScrVers.English)
-					.Where(c => c != cv && c.QuoteType != QuoteType.Hypothetical).ToList();
+					.Where(c => c != cv && c.QuoteType != QuoteType.Hypothetical &&
+					(c.QuoteType != QuoteType.Quotation || c.Character != cv.Character)).ToList();
 				if (otherEntries.Any())
 				{
 					Assert.IsTrue(cv.BookCode == "DEU" && otherEntries.All(o => 

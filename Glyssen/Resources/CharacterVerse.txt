@@ -9872,16 +9872,18 @@ ISA	51	1	God		God (the LORD)	Implicit
 ISA	51	2	God		God (the LORD)	Implicit		
 ISA	51	3	Isaiah			Potential		
 ISA	51	3	God		God (the LORD)	Alternate		
-ISA	51	4	God		God (the LORD)	Normal		
-ISA	51	5	God		God (the LORD)	Normal		
-ISA	51	6	God		God (the LORD)	Normal		
-ISA	51	7	God		God (the LORD)	Normal		
-ISA	51	8	God		God (the LORD)	Normal		
-ISA	51	12	God		God (the LORD)	Normal		
-ISA	51	13	God		God (the LORD)	Normal		
-ISA	51	14	God		God (the LORD)	Normal		
+ISA	51	4	God		God (the LORD)	Implicit		
+ISA	51	5	God		God (the LORD)	Implicit		
+ISA	51	6	God		God (the LORD)	Implicit		
+ISA	51	7	God		God (the LORD)	Implicit		
+ISA	51	8	God		God (the LORD)	Implicit		
+ISA	51	11	God		God (the LORD)	Potential		
+ISA	51	12	God		God (the LORD)	Implicit		
+ISA	51	13	God		God (the LORD)	Implicit		
+ISA	51	14	God		God (the LORD)	Implicit		
 ISA	51	15	God		God (the LORD)	Normal		
-ISA	51	16	God		God (the LORD)	Normal		
+ISA	51	16	God		God (the LORD)	Implicit		
+ISA	51	16	God		God (the LORD)	Quotation		
 ISA	51	22	God		God (the LORD)	Normal		
 ISA	51	23	God		God (the LORD)	Normal		
 ISA	52	3	God		God (the LORD)	Normal		

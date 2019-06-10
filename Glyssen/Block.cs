@@ -332,6 +332,8 @@ namespace Glyssen
 
 		public bool ContainsVerseNumber => BlockElements.OfType<Verse>().Any();
 
+		public bool CoversMoreThanOneVerse => BlockElements.Skip(1).Any(e => e is Verse);
+
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
 			if (referenceBlock == null)

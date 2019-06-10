@@ -5892,6 +5892,154 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_ImplicitQuoteHasExplicitQuotationMarksAndExtraHeSaidsInSeparateBlocks_ExplicitQuoteMarkedAsImplicitSpeakerAndHeSaidMarkedAsNeedsReview()
+		{
+			 
+			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
+			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }
+				.AddVerse(31, "And Moses told Aaron and sons, «Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
+				.AddVerse(32, "Burn the leftovers», so he said.");
+			var block2 = new Block("p", 8, 33) { IsParagraphStart = true }
+				.AddVerse(33, "Moses continued: «Stay seven days until you are consecrated. ")
+				.AddVerse(34, "This is how the Lord will make atomnement. ")
+				.AddVerse(35, "Staying there night and day will keep you from dying,» said he.");
+			var block3 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> { chapter, block1, block2, block3 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.AreEqual(8, output.Count);
+			int i = 1;
+			var outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, outBlock.LastVerseNum);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+			outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("«Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. {32}\u00A0Burn the leftovers», ", outBlock.GetText(true));
+			outBlock = output[i++];
+			Assert.AreEqual(32, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("so he said.", outBlock.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(33, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("{33}\u00A0Moses continued: ", outBlock.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual("«Stay seven days until you are consecrated. {34}\u00A0This is how the Lord will make atomnement. {35}\u00A0Staying there night and day will keep you from dying,» ", outBlock.GetText(true));
+			Assert.AreEqual("Moses", outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(35, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("said he.", outBlock.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(36, outBlock.InitialStartVerseNumber);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_ImplicitQuoteHasExplicitQuotationMarksAndExtraHeSaidsWeirdAndComplex_ExplicitQuoteMarkedAsImplicitSpeakerAndHeSaidMarkedAsNeedsReview()
+		{
+
+			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
+			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }
+				.AddVerse(31, "And Moses told Aaron and sons, «Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
+				.AddVerse("32-33", "Stay seven days next to the burning leftovers until you are consecrated.»");
+			var block2 = new Block("p", 8, 32, 33) { IsParagraphStart = true }
+				.AddText("Having thus commanded, ")
+				.AddVerse(34, "Moses told them how to make atomnement, saying: ")
+				.AddVerse(35, "«Stay there night and day to keep you from dying.»");
+			var block3 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> { chapter, block1, block2, block3 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.AreEqual(6, output.Count);
+			int i = 1;
+			var outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, outBlock.LastVerseNum);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+			outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("«Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. {32-33}\u00A0Stay seven days next to the burning leftovers until you are consecrated.»", outBlock.GetText(true));
+			outBlock = output[i++];
+			Assert.AreEqual(32, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(33, outBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Having thus commanded, {34}\u00A0Moses told them how to make atomnement, saying: ", outBlock.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(35, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("{35}\u00A0«Stay there night and day to keep you from dying.»", outBlock.GetText(true));
+			Assert.AreEqual("Moses", outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(36, outBlock.InitialStartVerseNumber);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_ImplicitQuoteContainsExpectedSelfQuoteMarkedAsFirstLevel_ImplicitCharacterInfoSet()
+		{
+
+			var chapter = new Block("c", 51) { CharacterId = CharacterVerseData.GetStandardCharacterId("ISA", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
+			var block1 = new Block("q1", 51, 16) { IsParagraphStart = true }.AddVerse(16, "I have told you what to say, and I will keep you safe in the palm of my hand.");
+			var block2 = new Block("q1", 51, 16) { IsParagraphStart = true }.AddText("I spread out the heavens and laid foundations for the earth.");
+			var block3 = new Block("q1", 51, 16) { IsParagraphStart = true }.AddText("Now I say, «Jerusalem, your people are mine.»");
+			var input = new List<Block> { chapter, block1, block2, block3 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+
+			Assert.AreEqual(5, output.Count);
+			int i = 1;
+			Assert.IsTrue(output.Skip(1).All(b => "God" == b.CharacterId));
+		}
+
+		[Test]
+		public void Parse_ImplicitQuoteHasExplicitQuotationMarksAndExtraHeSaidInContinuousBlock_ExplicitQuoteMarkedAsImplicitSpeakerAndHeSaidMarkedAsNeedsReview()
+		{
+
+			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
+			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }
+				.AddVerse(31, "And Moses told Aaron and sons, «Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
+				.AddVerse(32, "Burn the leftovers», so he said. ")
+				.AddVerse(33, "Moses continued: «Stay seven days until you are consecrated. ")
+				.AddVerse(34, "This is how the Lord will make atomnement. ")
+				.AddVerse(35, "Staying there night and day will keep you from dying,» said he.");
+			var block2 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
+			var input = new List<Block> { chapter, block1, block2 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LEV", input).Parse().ToList();
+
+			Assert.AreEqual(7, output.Count);
+			int i = 1;
+			var outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, outBlock.LastVerseNum);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+			outBlock = output[i++];
+			Assert.AreEqual(31, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("«Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. {32}\u00A0Burn the leftovers», ", outBlock.GetText(true));
+			outBlock = output[i++];
+			Assert.AreEqual(32, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("so he said. {33}\u00A0Moses continued: ", outBlock.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual("«Stay seven days until you are consecrated. {34}\u00A0This is how the Lord will make atomnement. {35}\u00A0Staying there night and day will keep you from dying,» ", outBlock.GetText(true));
+			Assert.AreEqual("Moses", outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(35, outBlock.InitialStartVerseNumber);
+			Assert.AreEqual("said he.", outBlock.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
+			outBlock = output[i++];
+			Assert.AreEqual(36, outBlock.InitialStartVerseNumber);
+			Assert.IsTrue(outBlock.CharacterIs("LEV", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
 		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_OneVersePerParagraph_ImplicitCharacterInfoSet()
 		{
 			var chapter = new Block("c", 8) {CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter)}.AddText("8");

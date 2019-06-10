@@ -299,7 +299,7 @@ namespace Glyssen
 
 				if (currentLastVerseNum != block.LastVerseNum)
 				{
-					if (currentVerseBlocksAllNarrator || (currentLastVerseNum == -1 && block.BlockElements.Skip(1).OfType<Verse>().Any()))
+					if (currentVerseBlocksAllNarrator || (currentLastVerseNum == -1 && block.CoversMoreThanOneVerse))
 					{
 						applyOverride = true;
 						continue;
