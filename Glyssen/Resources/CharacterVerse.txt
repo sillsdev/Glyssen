@@ -9814,31 +9814,60 @@ ISA	48	20	God		God (the LORD)	Implicit
 ISA	48	20	exiles			Hypothetical		
 ISA	48	21	God		God (the LORD)	Potential		
 ISA	48	22	God		God (the LORD)	Normal		
+ISA	49	1	Isaiah			Potential		
+ISA	49	2	Isaiah			Potential		
+# We definitely want the quotes in vv. 3, 6, 7 & 8 to be recorded by God, but some translations 
+# (e.g., ISV) might have these as 2nd level quotes.
 ISA	49	3	God		God (the LORD)	Quotation		
-ISA	49	4	Israel			Quotation	narrator-ISA	
+ISA	49	3	Isaiah			Alternate		
+# This is a self-quote by God's servant (named in the passage as "Israel"), presumably the Messiah:
+ISA	49	4	narrator-ISA			Quotation		
+ISA	49	4	Isaiah			Alternate		
+ISA	49	5	Isaiah			Potential		
 ISA	49	6	God		God (the LORD)	Normal		
+ISA	49	6	Isaiah			Alternate		
 ISA	49	7	God		God (the LORD)	Normal		
+ISA	49	7	Isaiah			Alternate		
 ISA	49	8	God		God (the LORD)	Normal		
-ISA	49	9	God		God (the LORD)	Normal		
-ISA	49	10	God		God (the LORD)	Normal		
-ISA	49	11	God		God (the LORD)	Normal		
-ISA	49	12	God		God (the LORD)	Normal		
+ISA	49	7	Isaiah			Alternate		
+ISA	49	9	God		God (the LORD)	Implicit		
+ISA	49	10	God		God (the LORD)	Implicit		
+ISA	49	11	God		God (the LORD)	Implicit		
+ISA	49	12	God		God (the LORD)	Implicit		
+Some translations consider that God continues to speak in v. 13-14
+ISA	49	13	God		God (the LORD)	Potential		
+ISA	49	14	God		God (the LORD)	Potential		
 ISA	49	14	Zion			Hypothetical		
-ISA	49	15	God		God (the LORD)	Normal		
-ISA	49	15	Zion			Normal		
-ISA	49	16	God		God (the LORD)	Normal		
-ISA	49	17	God		God (the LORD)	Normal		
+ISA	49	15	God		God (the LORD)	Implicit		
+ISA	49	16	God		God (the LORD)	Implicit		
+ISA	49	17	God		God (the LORD)	Implicit		
+ISA	49	17	Isaiah			Alternate		
 ISA	49	18	God		God (the LORD)	Normal		
-ISA	49	19	God		God (the LORD)	Normal		
-ISA	49	20	God		God (the LORD)	Normal		
+ISA	49	18	God	vowing	God (the LORD)	Quotation		
+ISA	49	18	Isaiah			Alternate		
+ISA	49	19	God		God (the LORD)	Implicit		
+ISA	49	19	Isaiah			Alternate		
+ISA	49	20	God		God (the LORD)	Implicit		
+ISA	49	20	Isaiah			Alternate		
 ISA	49	21	God		God (the LORD)	Normal		
+ISA	49	21	Zion			Hypothetical		
+ISA	49	21	Isaiah			Alternate		
 ISA	49	22	God		God (the LORD)	Normal		
-ISA	49	23	God		God (the LORD)	Normal		
+ISA	49	23	God		God (the LORD)	Implicit		
+ISA	49	24	God		God (the LORD)	Potential		
 ISA	49	25	God		God (the LORD)	Normal		
-ISA	49	26	God		God (the LORD)	Normal		
+ISA	49	26	God		God (the LORD)	Implicit		
 ISA	50	1	God		God (the LORD)	Normal		
-ISA	50	2	God		God (the LORD)	Normal		
-ISA	50	3	God		God (the LORD)	Normal		
+ISA	50	2	God		God (the LORD)	Implicit		
+ISA	50	3	God		God (the LORD)	Implicit		
+ISA	50	4	Isaiah			Potential		
+ISA	50	5	Isaiah			Potential		
+ISA	50	6	Isaiah			Potential		
+ISA	50	7	Isaiah			Potential		
+ISA	50	8	Isaiah			Potential		
+ISA	50	9	Isaiah			Potential		
+ISA	50	10	Isaiah			Potential		
+ISA	50	11	Isaiah			Potential		
 ISA	51	1	God		God (the LORD)	Normal		
 ISA	51	2	God		God (the LORD)	Normal		
 ISA	51	3	God		God (the LORD)	Normal		

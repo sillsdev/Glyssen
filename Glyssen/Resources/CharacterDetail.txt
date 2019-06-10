@@ -1161,7 +1161,7 @@ Zephaniah, prophet	1	Male			son of Cushi, the son of Gedaliah, the son of Amaria
 Zeresh, wife of Haman	1	Female				EST 5:14 & EST 6:13	Wife of Haman (female)
 Zerubbabel	1	Male				EZR 4:3
 Ziba, servant of Saul's household	1	Male				2SA 9:2 <-(5 more)-> 2SA 16:4
-Zion	1					ISA 49:14 & ISA 49:15
+Zion	1	PreferFemale				ISA 49:14 & ISA 49:21
 Ziphites	-1	Male				1SA 23:19 <-(2 more)-> PSA 54:0
 Zipporah, Moses' wife	1	Female				EXO 2:19 <-(1 more)-> EXO 4:26
 Zophar the Naamathite	1	Male				JOB 11:2 <-(45 more)-> JOB 20:29
