@@ -126,7 +126,12 @@ namespace Glyssen.ReferenceTextUtility
 							ExcelSpreadsheetLoader.CancelAsync();
 					}
 					if (File.Exists(openDlg.FileName))
-						m_lblSpreadsheetFilePath.Text = openDlg.FileName;
+					{
+						if (m_lblSpreadsheetFilePath.Text == openDlg.FileName)
+							LoadExcelSpreadsheet(m_lblSpreadsheetFilePath.Text); // Force attempted reload
+						else
+							m_lblSpreadsheetFilePath.Text = openDlg.FileName;
+					}
 				}
 			}
 		}
@@ -206,15 +211,19 @@ namespace Glyssen.ReferenceTextUtility
 		{
 			lock (this)
 			{
+				m_lblLoading.Visible = false;
 				if (e.Error != null)
 				{
-					m_lblLoading.Visible = false;
 					MessageBox.Show(this, $"The file {m_lblSpreadsheetFilePath.Text} could not be read.", "Invalid Excel Spreadsheet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					return;
 				}
 
 				if (!ExcelSpreadsheetLoader.CancellationPending)
+				{
 					Data = e.Result as ReferenceTextData;
+					if (Data == null)
+						MessageBox.Show(this, $"No error was reported, but no data was loaded from file {m_lblSpreadsheetFilePath.Text}.", "Something bad happened", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
 			}
 		}
 
@@ -364,7 +373,8 @@ namespace Glyssen.ReferenceTextUtility
 					{
 						var destinationCellForeColor = r.Cells[e.ColumnIndex].Style.ForeColor;
 						var destValue = r.Cells[e.ColumnIndex].Value as string;
-						return (!String.IsNullOrWhiteSpace(destValue) || r.Cells[colAction.Index].Value as string == "Compare to Current") &&
+						var action = r.Cells[colAction.Index].Value as string;
+						return (!String.IsNullOrWhiteSpace(destValue) || action == "Compare to Current" || action == "Skip") &&
 							(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
 					});
 					languageInfo.OutputFolder = newValue;

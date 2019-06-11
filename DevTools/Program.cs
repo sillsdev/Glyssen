@@ -129,13 +129,13 @@ namespace DevTools
 			switch (sensitivity)
 			{
 				case "1":
-					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.AllDifferences;
+					ReferenceTextUtility.DifferencesToIgnore = ReferenceTextUtility.Ignore.Nothing;
 					break;
 				case "2":
-					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.WhitespaceDifferences;
+					ReferenceTextUtility.DifferencesToIgnore = ReferenceTextUtility.Ignore.WhitespaceDifferences;
 					break;
 				case "4":
-					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.AllDifferencesExceptAlphaNumericText;
+					ReferenceTextUtility.DifferencesToIgnore = ReferenceTextUtility.Ignore.AllDifferencesExceptAlphaNumericText;
 					break;
 			}
 			ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.FindDifferencesBetweenCurrentVersionAndNewText, id);

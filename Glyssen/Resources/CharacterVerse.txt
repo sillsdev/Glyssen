@@ -1,4 +1,4 @@
-Control File Version	140
+Control File Version	141
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -16794,6 +16794,7 @@ ROM	9	15	scripture			Quotation	God
 ROM	9	17	scripture			Quotation	God	
 ROM	9	19	one of you			Hypothetical		
 ROM	9	20	molded thing			Hypothetical		
+ROM	9	20	scripture			Potential	Isaiah	
 ROM	9	25	scripture			Quotation	God	
 ROM	9	26	scripture			Quotation	Hosea	
 ROM	9	27	scripture			Quotation	Isaiah	

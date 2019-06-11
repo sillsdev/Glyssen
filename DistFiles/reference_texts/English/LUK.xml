@@ -1543,13 +1543,7 @@
     <text>Fear took hold of all, and they glorified God, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising">
-    <text>“A great prophet has arisen among us!”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK">
-    <text>and,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising">
-    <text>“God has visited his people!”</text>
+    <text>“A great prophet has arisen among us!” and, “God has visited his people!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />

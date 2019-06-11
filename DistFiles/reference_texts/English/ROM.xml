@@ -1036,7 +1036,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-ROM">
     <verse num="20" />
-    <text>But indeed, O man, who are you to reply against God? Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
+    <text>But indeed, O man, who are you to reply against God?</text>
+  </block>
+  <block style="p" paragraphStart="false" chapter="9" initialStartVerse="20" characterId="scripture">
+    <text>Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />

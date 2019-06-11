@@ -26,10 +26,14 @@ namespace Glyssen.RefTextDevUtilities
 		public static string ProprietaryRefTextTempBaseFolder => Path.Combine(GlyssenInfo.BaseDataFolder, "Newly Generated Reference Texts");
 
 		private const string kBookHeader = "Book";
+		private const string kBookHeaderAlt = "Bk";
 		private const string kChapterHeader = "Cp";
 		private const string kVerseHeader = "Vs";
 		private const string kCharacterHeader = "CHARACTER";
+		private const string kCharacterHeaderAlt = "Char";
 		private const string kEnglishHeader = "ENGLISH";
+		private const string kNewGuideFormattingIgnore = "New Guide"; // The "\nFormatting" part will be truncated
+		private const string kPrompts = "Prompts";
 		public const string kTempFolderPrefix = "New";
 
 		private static readonly ReferenceText s_existingEnglish;
@@ -87,6 +91,7 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			InitializeQuoteDetectionRegexes();
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			DifferencesToIgnore = Ignore.Default;
 		}
 
 		public static void WriteOutput(string msg = "", bool error = false)
@@ -168,15 +173,17 @@ namespace Glyssen.RefTextDevUtilities
 			GenerateEnglish
 		}
 
+		[Flags]
 		public enum Ignore
 		{
-			QuotationMarkDifferences,
-			AllDifferences,
-			WhitespaceDifferences,
-			AllDifferencesExceptAlphaNumericText,
+			Nothing = 0,
+			WhitespaceDifferences = 1,
+			QuotationMarkDifferences = 2,
+			Default = QuotationMarkDifferences | WhitespaceDifferences,
+			AllDifferencesExceptAlphaNumericText = 4 | Default,
 		}
 
-		public static Ignore ComparisonSensitivity { get; set; }
+		public static Ignore DifferencesToIgnore { get; set; }
 
 		public static void ProcessReferenceTextDataFromFile(Mode mode, ReferenceTextProxy refTextId = null)
 		{
@@ -253,7 +260,7 @@ namespace Glyssen.RefTextDevUtilities
 			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
 
 			ErrorsOccurred = !ntData.IsValid || (otData != null && !otData.IsValid);
-			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
+			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66);
 
 			var annotationsToOutput = new List<string>();
 
@@ -425,14 +432,24 @@ namespace Glyssen.RefTextDevUtilities
 							newBlocks.Add(newBlock);
 						}
 
-						var existingEnglishRefBlock = existingEnglishRefBook.GetScriptBlocks()[iBlock++];
-
-						if (existingEnglishRefBlock != null)
+						Block existingEnglishRefBlock = null;
+						if (mode != Mode.GenerateEnglish)
 						{
-							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
+							var blocks = existingEnglishRefBook.GetScriptBlocks();
+							if (blocks.Count <= iBlock)
 							{
-								existingEnglishRefBlock = existingEnglishRefBook.GetScriptBlocks()[iBlock++];
+								WriteOutput($"Went past end of existing blocks. Skipping {referenceTextRow}");
+								continue;
 							}
+							existingEnglishRefBlock = blocks[iBlock++];
+
+							//if (existingEnglishRefBlock != null)
+							//{
+								while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
+								{
+									existingEnglishRefBlock = blocks[iBlock++];
+								}
+						//	}
 						}
 
 						if (referenceTextRow.Verse == "<<")
@@ -571,8 +588,9 @@ namespace Glyssen.RefTextDevUtilities
 
 							string originalText = referenceTextRow.GetText(language);
 							var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
-							var modifiedText =
-								s_doubleSingleOpenQuote.Replace(verseNumberFixedText, openDoubleQuote + "\u202F" + openQuoteSingle);
+
+							var modifiedText = verseNumberFixedText.Replace('\n', ' ');
+							modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText, openDoubleQuote + "\u202F" + openQuoteSingle);
 							modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
 							modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
 							modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
@@ -956,23 +974,30 @@ namespace Glyssen.RefTextDevUtilities
 
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
-				var worksheet = xls.Workbook.Worksheets["Sheet1"];
+				var worksheet = xls.Workbook.Worksheets["Main DG"] ?? xls.Workbook.Worksheets.First();
 
 				string bookCol = null, chapterCol = null, verseCol = null, characterCol = null;
 
 				var cells = worksheet.Cells;
 				var rowData = cells.GroupBy(c => c.Start.Row).ToList();
 				int rowsToSkip = -1;
-				for (int iRow = 0; iRow <= rowData.Count; iRow++)
+				for (int iRow = 0; iRow < rowData.Count; iRow++)
 				{
 					var nonNullCellAddresses = rowData[iRow].Where(er => !String.IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
-					var bookAddress = nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader))?.Address;
+					var bookAddress = (nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader)) ??
+						nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeaderAlt)))?.Address;
 					if (bookAddress != null)
 					{
 						bookCol = GetColumnFromCellAddress(bookAddress);
+						bool doneProcessingColumns = false;
 						foreach (var excelRange in nonNullCellAddresses.Skip(1))
 						{
-							var value = cells[excelRange.Address].Value.ToString();
+							var value = cells[excelRange.Address].Value?.ToString();
+							if (value == null)
+								continue;
+							var iBreak = value.IndexOfAny(new[] {'\n', '\r'});
+							if (iBreak > 0)
+								value = value.Substring(0, iBreak);
 							var col = GetColumnFromCellAddress(excelRange.Address);
 							switch (value)
 							{
@@ -983,16 +1008,26 @@ namespace Glyssen.RefTextDevUtilities
 									verseCol = col;
 									break;
 								case kCharacterHeader:
+								case kCharacterHeaderAlt:
 									characterCol = col;
 									break;
 								case kEnglishHeader: // English is required and must come first!
 									allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
+									break;
+								case kNewGuideFormattingIgnore:
+									break; // Ignore
+								case kPrompts:
+								case "":
+									if (allLanguages.Any())
+										doneProcessingColumns = true;
 									break;
 								default:
 									if (allLanguages.Any()) // Any other columns before English will be ignored
 										allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
 									break;
 							}
+							if (doneProcessingColumns)
+								break;
 						}
 						rowsToSkip = iRow + 1;
 						break;
@@ -1027,7 +1062,7 @@ namespace Glyssen.RefTextDevUtilities
 						((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
 						verseStr,
 						(string)cells[characterCol + row].Value,
-						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value.ToString())));
+						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value?.ToString())));
 				}
 			}
 
@@ -1156,13 +1191,13 @@ namespace Glyssen.RefTextDevUtilities
 			var excelStrWithoutAnnotations = Regex.Replace(excelStr, " \\|\\|\\|.*?\\|\\|\\| ", "");
 			excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "{[^0-9]+.*?}", "");
 
-			if (ComparisonSensitivity == Ignore.AllDifferencesExceptAlphaNumericText)
+			if (DifferencesToIgnore == Ignore.AllDifferencesExceptAlphaNumericText)
 			{
 				if (existingStr.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).SequenceEqual(
 					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c))))
 					return true;
 			}
-			else if (ComparisonSensitivity == Ignore.WhitespaceDifferences)
+			else if ((DifferencesToIgnore & Ignore.WhitespaceDifferences) > 0)
 			{
 				if (existingStr.Where(c => !Char.IsWhiteSpace(c)).SequenceEqual(excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c))))
 					return true;
@@ -1176,7 +1211,7 @@ namespace Glyssen.RefTextDevUtilities
 				//excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "^ ({\\d+})", "$1");
 
 				string existingStrModified;
-				if (ComparisonSensitivity == Ignore.QuotationMarkDifferences)
+				if ((DifferencesToIgnore & Ignore.QuotationMarkDifferences) > 0)
 				{
 					existingStrModified = Regex.Replace(s_removeQuotes.Replace(existingStr, ""), "\u00A0 ", "\u00A0").Trim();
 					excelStrWithoutAnnotations = s_removeQuotes.Replace(excelStrWithoutAnnotations, "").Trim();
