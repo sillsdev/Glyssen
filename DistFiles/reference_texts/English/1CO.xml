@@ -1596,10 +1596,14 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
     <text>The last enemy that will be abolished is death.</text>
+	<verse num="27" />
+    <text>For,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture">
+    <text>“He put all things in subjection under his feet.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-    <verse num="27" />
-    <text>For, “He put all things in subjection under his feet.” But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
+    <text>But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />

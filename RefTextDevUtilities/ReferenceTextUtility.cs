@@ -198,7 +198,15 @@ namespace Glyssen.RefTextDevUtilities
 				otData?.FilterBy(refTextId.Name);
 			}
 
-			ProcessReferenceTextData(mode, ntData, otData, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null);
+			try
+			{
+				ProcessReferenceTextData(mode, ntData, otData, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null);
+			}
+			catch (Exception e)
+			{
+				WriteOutput(e.Message);
+				//throw;
+			}
 		}
 
 		private static bool ProcessExcelFile(string excelPath, out ReferenceTextData data)
@@ -244,7 +252,15 @@ namespace Glyssen.RefTextDevUtilities
 		/// <param name="data"></param>
 		public static void ProcessReferenceTextData(Mode mode, ReferenceTextData data, ReferenceTextData otData)
 		{
-			ProcessReferenceTextData(mode, data, otData, null);
+			try
+			{
+				ProcessReferenceTextData(mode, data, otData, null);
+			}
+			catch (Exception e)
+			{
+				WriteOutput(e.Message);
+				//throw;
+			}
 		}
 
 		public static void ProcessReferenceTextData(
@@ -337,7 +353,7 @@ namespace Glyssen.RefTextDevUtilities
 									existingEnglishRefBooks.Select(b => BCVRef.BookToNumber(b.BookId)).Contains(BCVRef.BookToNumber(GetBookIdFromFcbhBookCode(r.Book)));
 						});
 
-					foreach (var referenceTextRow in referenceTextRowsToProcess)
+					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
 					{
 						var referenceTextBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book);
 
@@ -589,7 +605,7 @@ namespace Glyssen.RefTextDevUtilities
 							string originalText = referenceTextRow.GetText(language);
 							var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-							var modifiedText = verseNumberFixedText.Replace('\n', ' ');
+							var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
 							modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText, openDoubleQuote + "\u202F" + openQuoteSingle);
 							modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
 							modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
@@ -668,13 +684,12 @@ namespace Glyssen.RefTextDevUtilities
 									}
 									else
 									{
-										var splits2 = Regex.Split(split,
-											"(" + RegexEscapedDoNotCombine + "{[^0-9]+.*?}|{[^0-9]+.*?}| \\|\\|\\|.*?\\|\\|\\| )");
+										var splits2 = s_anyAnnotationForSplittingRegex.Split(split);
 										foreach (var s in splits2)
 										{
 											if (string.IsNullOrWhiteSpace(s))
 												continue;
-											var match2 = Regex.Match(s, RegexEscapedDoNotCombine + "{[^0-9]+.*?}|{[^0-9]+.*?}| \\|\\|\\|.*?\\|\\|\\| ");
+											var match2 = s_anyAnnotationRegex.Match(s);
 											if (match2.Success)
 											{
 												ScriptAnnotation annotation;
@@ -1188,19 +1203,20 @@ namespace Glyssen.RefTextDevUtilities
 		private static bool CompareVersions(string excelStr, Block existingBlock, string bookId)
 		{
 			var existingStr = existingBlock.GetText(true);
-			var excelStrWithoutAnnotations = Regex.Replace(excelStr, " \\|\\|\\|.*?\\|\\|\\| ", "");
-			excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "{[^0-9]+.*?}", "");
+			var excelStrWithoutAnnotations = s_annotationDelimitedWith3VerticalBarsRegex.Replace(excelStr, "");
+			excelStrWithoutAnnotations = s_annotationInCurlyBracesRegex.Replace(excelStrWithoutAnnotations, "");
+
+			int indexOfFirstDifference = -1;
 
 			if (DifferencesToIgnore == Ignore.AllDifferencesExceptAlphaNumericText)
 			{
-				if (existingStr.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).SequenceEqual(
-					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c))))
-					return true;
+				indexOfFirstDifference = DiffersAtIndex(existingStr.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).ToString(),
+					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).ToString());
 			}
 			else if ((DifferencesToIgnore & Ignore.WhitespaceDifferences) > 0)
 			{
-				if (existingStr.Where(c => !Char.IsWhiteSpace(c)).SequenceEqual(excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c))))
-					return true;
+				indexOfFirstDifference = DiffersAtIndex(existingStr.Where(c => !Char.IsWhiteSpace(c)).ToString(),
+					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c)).ToString());
 			}
 			else
 			{
@@ -1221,9 +1237,11 @@ namespace Glyssen.RefTextDevUtilities
 					existingStrModified = existingStr;
 				}
 
-				if (excelStrWithoutAnnotations == existingStrModified)
-					return true;
+				indexOfFirstDifference = DiffersAtIndex(excelStrWithoutAnnotations, existingStrModified);
 			}
+			if (indexOfFirstDifference == -1)
+				return true;
+
 			string lengthComparison;
 			int lengthChange = existingStr.Length - excelStr.Length;
 			if (lengthChange == 0)
@@ -1234,13 +1252,27 @@ namespace Glyssen.RefTextDevUtilities
 				lengthComparison = $"String length shrunk by {lengthChange} characters";
 
 			WriteOutput($"Difference found in text at {bookId} {existingBlock.ChapterNumber}:{existingBlock.InitialStartVerseNumber} - {lengthComparison}");
-			WriteOutput($"   Existing: {existingStr}");
-			WriteOutput($"   New:      {excelStr}");
+			WriteOutput($"   Existing:   {existingStr}");
+			WriteOutput($"   New:        {excelStr}");
+			WriteOutput($"   Difference: {new string(' ', indexOfFirstDifference)}^");
 			// ------------------------------------------
 			// Put a breakpoint here to investigate differences
 			// | | | |
 			// V V V V
 			return false;
+		}
+
+		/// <summary>
+		/// Compare two strings and return the index of the first difference.  Return -1 if the strings are equal.
+		/// </summary>
+		private static int DiffersAtIndex(string s1, string s2)
+		{
+			int index = 0;
+			int min = Math.Min(s1.Length, s2.Length);
+			while (index < min && s1[index] == s2[index])
+				index++;
+
+			return (index == min && s1.Length == s2.Length) ? -1 : index;
 		}
 
 		private static void GetQuoteMarksForLanguage(string languageName, out string doubleOpen, out string doubleClose, out string singleOpen, out string singleClose)
@@ -1402,14 +1434,19 @@ namespace Glyssen.RefTextDevUtilities
 			return false;
 		}
 
-		private static string RegexEscapedDoNotCombine
-		{
-			get { return Regex.Escape(Sound.kDoNotCombine) + " "; }
-		}
+		private static string RegexEscapedDoNotCombine => Regex.Escape(Sound.kDoNotCombine) + " ";
+
+		private const string k3Bars = @"\|\|\|";
+		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
+		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ", RegexOptions.Compiled);
+		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);
+		// For splitting, the regular expression is wrapped in parentheses to tell Split method to include the capturing group as one of the strings in the resulting array.
+		// See explanation here: https://stackoverflow.com/questions/27999449/c-sharp-regex-match-vs-split-for-same-string
+		private static readonly Regex s_anyAnnotationForSplittingRegex = new Regex($"({s_anyAnnotationRegex})", RegexOptions.Compiled);
 
 		private static readonly Regex s_doNotCombineRegex = new Regex(RegexEscapedDoNotCombine, RegexOptions.Compiled);
-		private static readonly Regex s_pauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
-		private static readonly Regex s_pauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
+		private static readonly Regex s_pauseRegex = new Regex($"{k3Bars} \\+ ([\\d\\.]*?) SECs {k3Bars}", RegexOptions.Compiled);
+		private static readonly Regex s_pauseMinuteRegex = new Regex($"{k3Bars} \\+ ([\\d\\.]*?) MINUTES? {k3Bars}", RegexOptions.Compiled);
 		private static readonly Regex s_musicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);
 		private static readonly Regex s_musicStartRegex = new Regex("{Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
 		private static readonly Regex s_musicStopAndStartRegex = new Regex("{Music--Ends & New Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);

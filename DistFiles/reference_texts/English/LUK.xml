@@ -2712,9 +2712,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-LUK">
     <verse num="14" />
     <text>He was casting out a demon, and it was mute. It happened, when the demon had gone out, the mute man spoke; and the multitudes marveled.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-LUK">
-    <verse num="15" />
+	<verse num="15" />
     <text>But some of them said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="crowd, some in">

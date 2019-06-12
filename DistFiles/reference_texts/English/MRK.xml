@@ -783,9 +783,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
     <text>When he saw Jesus from afar, he ran and bowed down to him,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-MRK">
-    <verse num="7" />
+	<verse num="7" />
     <text>and crying out with a loud voice, he said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="demons (Legion)/man delivered from Legion of demons" delivery="shrieking">

@@ -2772,9 +2772,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
     <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="narrator-ACT">
-    <verse num="28" />
+	<verse num="28" />
     <text>But Paul cried out,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Paul" delivery="shouting">
