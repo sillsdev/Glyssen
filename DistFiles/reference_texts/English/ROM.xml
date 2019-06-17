@@ -1631,18 +1631,6 @@
     <verse num="23" />
     <text>But he who doubts is damned if he eats, because it isn’t of faith; and whatever is not of faith is sin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-ROM">
-    <verse num="24" />
-    <text>Now to him who is able to establish you according to my Good News and the preaching of Jesus Christ. And this according to the revelation of the mystery which has been kept secret through long ages,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-ROM">
-    <verse num="25" />
-    <text>but now is revealed, and by the Scriptures of the prophets. According to the commandment of the eternal God, it is made known for obedience of faith to all the nations;</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-ROM">
-    <verse num="26" />
-    <text>to the only wise God, through Jesus Christ, to whom be the glory forever! Amen.</text>
-  </block>
   <block style="c" paragraphStart="true" chapter="15" book="ROM" initialStartVerse="0" characterId="BC-ROM">
     <text>15</text>
   </block>
