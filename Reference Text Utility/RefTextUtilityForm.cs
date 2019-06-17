@@ -19,6 +19,7 @@ namespace Glyssen.ReferenceTextUtility
 	{
 		private OutputForm m_outputForm;
 		private ReferenceTextData m_data;
+		private bool m_manualSettingsChangesMade = false;
 		private Stack<RefTextDevUtilities.ReferenceTextUtility.Mode> m_passes = new Stack<RefTextDevUtilities.ReferenceTextUtility.Mode>();
 		private readonly string m_distFilesDir;
 		private static readonly string[] s_createActions = { "Create in Temp Folder", "Create/Overwrite" };
@@ -33,7 +34,6 @@ namespace Glyssen.ReferenceTextUtility
 				m_data = value;
 				if (m_data == null)
 					return;
-				// TODO: Load data grid view
 				foreach (var languageInfo in Data.LanguagesToProcess)
 				{
 					int iOption = 0;
@@ -81,6 +81,7 @@ namespace Glyssen.ReferenceTextUtility
 						m_dataGridRefTexts.Rows[iRow].Cells[colIsoCode.Index].ReadOnly = true;
 
 					m_btnOk.Enabled = true;
+					m_manualSettingsChangesMade = false;
 				}
 				m_lblLoading.Visible = false;
 			}
@@ -331,6 +332,14 @@ namespace Glyssen.ReferenceTextUtility
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = defaultCreateDestination;
 						break;
 					case "Compare to Current":
+						if (languageInfo.IsEnglish)
+						{
+							for (var i = e.RowIndex + 1; i < m_dataGridRefTexts.RowCount; i++)
+							{
+								m_dataGridRefTexts.Rows[i].Cells[colAction.Index].Value = "Skip";
+							}
+						}
+						goto case "Skip";
 					case "Skip":
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = "";
 						break;
@@ -338,6 +347,7 @@ namespace Glyssen.ReferenceTextUtility
 						throw new Exception("Unexpected Action. This can't happen!");
 				}
 				m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].ReadOnly = true;
+				m_manualSettingsChangesMade = true;
 				return;
 			}
 

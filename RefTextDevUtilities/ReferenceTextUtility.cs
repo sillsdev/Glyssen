@@ -459,13 +459,8 @@ namespace Glyssen.RefTextDevUtilities
 							}
 							existingEnglishRefBlock = blocks[iBlock++];
 
-							//if (existingEnglishRefBlock != null)
-							//{
-								while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
-								{
-									existingEnglishRefBlock = blocks[iBlock++];
-								}
-						//	}
+							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
+								existingEnglishRefBlock = blocks[iBlock++];
 						}
 
 						if (referenceTextRow.Verse == "<<")
@@ -624,6 +619,27 @@ namespace Glyssen.RefTextDevUtilities
 									int.Parse(referenceTextRow.Chapter) != existingEnglishRefBlock.ChapterNumber)
 								{
 									WriteOutput($"Chapters do not match. Book: {referenceTextBookId}, Excel: {referenceTextRow.Chapter}, Existing: {existingEnglishRefBlock.ChapterNumber}", true);
+
+									var blocks = existingEnglishRefBook.GetScriptBlocks();
+									if (existingEnglishRefBlock.ChapterNumber > int.Parse(referenceTextRow.Chapter))
+									{
+										do
+										{
+											WriteOutput("   Backing up to earlier existing ref text block.");
+											existingEnglishRefBlock = blocks[iBlock--];
+										} while (existingEnglishRefBlock.ChapterNumber > int.Parse(referenceTextRow.Chapter) ||
+											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
+										WriteOutput($"   Using existing ref text block: {existingEnglishRefBlock}");
+									}
+									else
+									{
+										do
+										{
+											WriteOutput($"   Skipping past existing ref text block: {existingEnglishRefBlock}");
+											existingEnglishRefBlock = blocks[iBlock++];
+										} while (existingEnglishRefBlock.ChapterNumber < int.Parse(referenceTextRow.Chapter) ||
+											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
+									}
 								}
 
 								if (mode != Mode.GenerateEnglish &&
@@ -631,6 +647,27 @@ namespace Glyssen.RefTextDevUtilities
 								{
 									WriteOutput($"Verse numbers do not match. Book: {referenceTextBookId}, Ch: {referenceTextRow.Chapter}, " +
 												$"Excel: {referenceTextRow.Verse}, Existing: {existingEnglishRefBlock.InitialStartVerseNumber}", true);
+
+									var blocks = existingEnglishRefBook.GetScriptBlocks();
+									if (existingEnglishRefBlock.InitialStartVerseNumber > int.Parse(referenceTextRow.Verse))
+									{
+										do
+										{
+											WriteOutput("   Backing up to earlier existing ref text block.");
+											existingEnglishRefBlock = blocks[iBlock--];
+										} while (existingEnglishRefBlock.InitialStartVerseNumber > int.Parse(referenceTextRow.Verse) ||
+											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
+										WriteOutput($"   Using existing ref text block: {existingEnglishRefBlock}");
+									}
+									else
+									{
+										do
+										{
+											WriteOutput($"   Skipping past existing ref text block: {existingEnglishRefBlock}");
+											existingEnglishRefBlock = blocks[iBlock++];
+										} while (existingEnglishRefBlock.InitialStartVerseNumber < int.Parse(referenceTextRow.Verse) ||
+											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
+									}
 								}
 
 								Block newBlock;
@@ -717,7 +754,7 @@ namespace Glyssen.RefTextDevUtilities
 															WriteOutput();
 														}
 
-														var trimmedEnglish = referenceTextRow.English.TrimEnd();
+														var trimmedEnglish = referenceTextRow.English.Replace("\n ", " ").Replace('\n', ' ').TrimEnd();
 														if ((annotation is Pause && !trimmedEnglish.EndsWith(formattedAnnotationForDisplay)) ||
 															(annotation is Sound && !trimmedEnglish.StartsWith(formattedAnnotationForDisplay)))
 														{
@@ -727,7 +764,7 @@ namespace Glyssen.RefTextDevUtilities
 															var bcv = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId),
 																existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber);
 															WriteOutput(
-																$"(warning) Annotation not formatted the same as FCBH: ({bcv.AsString}) {referenceTextRow.English} => {formattedAnnotationForDisplay}");
+																$"(warning) Annotation not formatted the same as FCBH: ({bcv.AsString}) {trimmedEnglish} => {formattedAnnotationForDisplay}");
 															WriteOutput();
 														}
 
