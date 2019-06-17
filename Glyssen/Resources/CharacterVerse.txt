@@ -16804,8 +16804,10 @@ ROM	9	32	narrator-ROM			Quotation
 ROM	9	33	scripture			Quotation	God	
 ROM	10	5	scripture			Quotation	Moses	
 ROM	10	6	scripture			Quotation	Moses	
+ROM	10	6	God		 righteousness which is of faith (God)	Quotation		
 ROM	10	6	narrator-ROM			Interruption		
 ROM	10	7	scripture			Quotation	Moses	
+ROM	10	7	God		 righteousness which is of faith (God)	Quotation		
 ROM	10	7	narrator-ROM			Interruption		
 ROM	10	8	scripture			Quotation	Moses	
 ROM	10	9	narrator-ROM			Hypothetical		
