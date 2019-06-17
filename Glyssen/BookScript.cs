@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,7 @@ namespace Glyssen
 		public string MainTitle { get; set; }
 
 		[XmlAttribute("checkstatusoverridden")]
+		[DefaultValue(false)]
 		public bool CheckStatusOverridden { get; set; }
 
 		[XmlAttribute("ptchecksum")]

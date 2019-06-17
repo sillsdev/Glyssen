@@ -1187,6 +1187,11 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static void WriteAnnotationsFile(List<string> annotationsToOutput)
 		{
+			if (!Directory.Exists(Path.GetDirectoryName(kOutputFileForAnnotations)))
+			{
+				WriteOutput($"Could not write file {kOutputFileForAnnotations}. If annotations have changed, this needs to be run by a developer. ");
+				return;
+			}
 			var sb = new StringBuilder();
 			foreach (string annotation in annotationsToOutput)
 				sb.Append(annotation).Append(Environment.NewLine);
