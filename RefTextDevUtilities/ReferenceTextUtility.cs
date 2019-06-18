@@ -373,6 +373,10 @@ namespace Glyssen.RefTextDevUtilities
 							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 								existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books
 									.Single(b => b.BookId == existingEnglishRefBook.BookId).GetScriptBlocks();
+
+							if (existingRefBlocksForLanguage.Count != existingEnglishRefBook.GetScriptBlocks().Count)
+								WriteOutput($"Existing book of {referenceTextBookId} for {language} has different number of blocks than " +
+									"the existing English reference text.", true);
 							iBlock = 0;
 							chapterLabelForPrevBook = chapterLabel;
 							chapterLabel = null;
@@ -452,7 +456,7 @@ namespace Glyssen.RefTextDevUtilities
 						if (mode != Mode.GenerateEnglish)
 						{
 							var blocks = existingEnglishRefBook.GetScriptBlocks();
-							if (blocks.Count <= iBlock)
+							if (blocks.Count <= iBlock || (existingRefBlocksForLanguage != null && existingRefBlocksForLanguage.Count <= iBlock))
 							{
 								WriteOutput($"Went past end of existing blocks. Skipping {referenceTextRow}");
 								continue;
@@ -598,6 +602,14 @@ namespace Glyssen.RefTextDevUtilities
 							}
 
 							string originalText = referenceTextRow.GetText(language);
+
+							if (originalText == null)
+							{
+								WriteOutput($"No {language} text present for {referenceTextBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse} " +
+									$"corresponding to the English text: {referenceTextRow.English}", true);
+								originalText = string.Empty;
+							}
+
 							var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
 							var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
@@ -626,7 +638,8 @@ namespace Glyssen.RefTextDevUtilities
 										do
 										{
 											WriteOutput("   Backing up to earlier existing ref text block.");
-											existingEnglishRefBlock = blocks[iBlock--];
+											iBlock -= 2; // We already incremented this, so we have to go back 2 to get to the previous one.
+											existingEnglishRefBlock = blocks[iBlock++];
 										} while (existingEnglishRefBlock.ChapterNumber > int.Parse(referenceTextRow.Chapter) ||
 											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
 										WriteOutput($"   Using existing ref text block: {existingEnglishRefBlock}");
@@ -654,7 +667,8 @@ namespace Glyssen.RefTextDevUtilities
 										do
 										{
 											WriteOutput("   Backing up to earlier existing ref text block.");
-											existingEnglishRefBlock = blocks[iBlock--];
+											iBlock -= 2; // We already incremented this, so we have to go back 2 to get to the previous one.
+											existingEnglishRefBlock = blocks[iBlock++];
 										} while (existingEnglishRefBlock.InitialStartVerseNumber > int.Parse(referenceTextRow.Verse) ||
 											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
 										WriteOutput($"   Using existing ref text block: {existingEnglishRefBlock}");
@@ -696,7 +710,7 @@ namespace Glyssen.RefTextDevUtilities
 									if (string.IsNullOrWhiteSpace(split))
 									{
 										if (splits.Length == 1)
-											Debug.Fail("");
+											newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already be reported as error.
 										continue;
 									}
 
