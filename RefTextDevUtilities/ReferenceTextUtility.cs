@@ -1116,19 +1116,9 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				case "Angel": return glyssenCharacterId.StartsWith("angel", StringComparison.OrdinalIgnoreCase) ||
 					glyssenCharacterId == "horses (or their angelic riders) (in vision)";
-				case "Jereboam": return glyssenCharacterId == "Jeroboam";
 				case "Son of Jacob": return glyssenCharacterId == "Joseph's brothers";
 				case "Rehab": return glyssenCharacterId == "Rahab";
-
-				// Glyssen uses the person's name only to refer to the actual historical character, even
-				// if the biblical text refers to the decendents using the name of the ancestor. FCBH is not
-				// consistent in this. For example, their Reuben could refer to Reuben himself, or the
-				// Reubenites, but they also have a Reubenite character label, so we can't unambiguously
-				// say what label our "Reubenite" character maps to.
-				case "Reuben": return glyssenCharacterId == "Reubenites";
-				case "Ephraim": return glyssenCharacterId == "Ephraimites";
-				case "Judah": return glyssenCharacterId == "Judah, men of";
-
+				case "Judean": return glyssenCharacterId == "Judah, men of";
 				case "Woman": return glyssenCharacterId == "Babylon (personified as adulteress)";
 				case "Queen of Babylon": return glyssenCharacterId == "Babylon (personified as adulteress)";
 				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";
@@ -1141,7 +1131,8 @@ namespace Glyssen.RefTextDevUtilities
 				case "Soldier":
 					return glyssenCharacterId.IndexOf("soldier", StringComparison.OrdinalIgnoreCase) >= 0 ||
 						glyssenCharacterId.IndexOf("men", StringComparison.OrdinalIgnoreCase) >= 0 ||
-						glyssenCharacterId.IndexOf("messenger", StringComparison.OrdinalIgnoreCase) >= 0;
+						glyssenCharacterId.IndexOf("messenger", StringComparison.OrdinalIgnoreCase) >= 0 ||
+						glyssenCharacterId == "Judah, men of";
 				case "Heavenly Man":
 					return glyssenCharacterId == "man like bronze with measuring rod (in vision)" ||
 						glyssenCharacterId == "man's voice from the Ulai (in vision)" ||

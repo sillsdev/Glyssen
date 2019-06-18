@@ -4647,10 +4647,10 @@ JDG	11	38	Jephthah			Normal
 JDG	12	1	Ephraimites		Ephraim, men of	Normal		
 JDG	12	2	Jephthah			Normal		
 JDG	12	3	Jephthah			Normal		
-JDG	12	4	Ephraimites			Normal		
-JDG	12	5	Ephraimites		Ephraim, survivor of	Normal		
+JDG	12	4	Ephraimites			Quotation		
+JDG	12	5	Ephraimites		Ephraim, fugitive of	Normal		
 JDG	12	5	Gilead, men of			Normal		
-JDG	12	6	Ephraimites		Ephraim, survivor of	Normal		
+JDG	12	6	Ephraimites		Ephraim, fugitive of	Normal		
 JDG	12	6	Gilead, men of			Normal		
 JDG	13	3	angel of the LORD, the			Normal	Jesus	
 JDG	13	4	angel of the LORD, the			Normal	Jesus	
@@ -6137,15 +6137,15 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	19	18	God		God (the LORD)	Normal		
 1KI	19	20	Elijah			Dialogue		
 1KI	19	20	Elisha			Dialogue		
-1KI	20	2	messengers of Ben-Hadad. king of Aram			Normal		
-1KI	20	3	messengers of Ben-Hadad. king of Aram			Normal		
+1KI	20	2	messengers of Ben-Hadad, king of Aram			Normal		
+1KI	20	3	messengers of Ben-Hadad, king of Aram			Normal		
 1KI	20	4	Ahab, king of Israel			Normal		
-1KI	20	5	messengers of Ben-Hadad. king of Aram			Normal		
-1KI	20	6	messengers of Ben-Hadad. king of Aram			Normal		
+1KI	20	5	messengers of Ben-Hadad, king of Aram			Normal		
+1KI	20	6	messengers of Ben-Hadad, king of Aram			Normal		
 1KI	20	7	Ahab, king of Israel			Normal		
 1KI	20	8	elders/Israelites			Normal		
 1KI	20	9	Ahab, king of Israel			Normal		
-1KI	20	10	messengers of Ben-Hadad. king of Aram			Normal		
+1KI	20	10	messengers of Ben-Hadad, king of Aram			Normal		
 1KI	20	11	Ahab, king of Israel			Normal		
 1KI	20	12	Ben-Hadad, king of Aram			Normal		
 1KI	20	13	prophet of the LORD			Normal		
@@ -6222,7 +6222,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	27	Ahab, king of Israel			Normal		
 1KI	22	28	Micaiah, prophet of the LORD			Normal		
 1KI	22	30	Ahab, king of Israel			Normal		
-1KI	22	31	king of Aram			Normal		
+1KI	22	31	Ben-Hadad, king of Aram		king of Syria (Aram)	Normal		
 1KI	22	32	chariot commanders of Aram	thought		Normal		
 1KI	22	34	Ahab, king of Israel			Normal		
 1KI	22	36	army cry			Normal		
@@ -6886,7 +6886,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	26	Ahab, king of Israel			Normal		
 2CH	18	27	Micaiah, prophet of the LORD			Normal		
 2CH	18	29	Ahab, king of Israel			Normal		
-2CH	18	30	king of Aram	commanding		Normal		
+2CH	18	30	Ben-Hadad, king of Aram	commanding	king of Syria (Aram)	Normal		
 2CH	18	31	chariot commanders of Aram	thought		Normal		
 2CH	18	33	Ahab, king of Israel			Normal		
 2CH	19	2	Jehu, son of Hanani			Normal		
@@ -9075,7 +9075,7 @@ ISA	8	21	Isaiah			Potential
 ISA	8	22	Isaiah			Potential		
 ISA	9	8	Isaiah			Potential		
 ISA	9	9	Isaiah			Potential		
-ISA	9	10	Ephraimites		Ephraim/Samaria, people of	Hypothetical		
+ISA	9	10	Ephraim		Ephraim/Samaria, people of	Hypothetical		
 ISA	9	10	Isaiah			Alternate		
 ISA	9	11	Isaiah			Potential		
 ISA	9	12	Isaiah			Potential		
@@ -10793,7 +10793,9 @@ JER	31	15	God		God (the LORD)	Normal
 JER	31	16	God		God (the LORD)	Normal		
 JER	31	17	God		God (the LORD)	Normal		
 JER	31	18	God		God (the LORD)	Normal		
-JER	31	19	God		God (the LORD)	Normal		
+JER	31	18	Ephraim			Quotation		
+JER	31	19	Ephraim			Quotation		
+JER	31	19	God		God (the LORD)	Alternate		
 JER	31	20	God		God (the LORD)	Normal		
 JER	31	21	God		God (the LORD)	Normal		
 JER	31	21	Jeremiah			Potential		

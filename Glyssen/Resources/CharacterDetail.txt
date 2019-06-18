@@ -108,7 +108,7 @@ Azariah, son of Hoshaiah	1	Male				JER 43:2 & JER 43:3
 Azariah, son of Jehohanan	1	Male			leader in Ephraim	2CH 28:13
 Azariah, son of Oded	1	Male				2CH 15:2 <-(4 more)-> 2CH 15:7
 Baanah	1	Male				2SA 4:8
-Babylon (personified as adulteress)	1	Female	Adult			REV 18:7
+Babylon (personified as adulteress)	1	Female	Adult			ISA 47:7 <-(2 more)-> REV 18:7
 Balaam	1	Male	Adult			NUM 22:8 <-(46 more)-> NUM 24:24
 Balak	1	Male	Adult			NUM 22:5 <-(8 more)-> NUM 24:11
 Barak	1	Male	Adult			JDG 4:8 <-(29 more)-> JDG 5:31
@@ -126,7 +126,7 @@ believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or 
 beloved	1	Female	Adult			SNG 1:2 <-(68 more)-> SNG 8:14
 Belshazzar, king of Babylon	1	Male	Adult			DAN 5:7 <-(3 more)-> DAN 5:16
 Benaiah, son of Jehoiada	1	Male				1KI 1:36 <-(1 more)-> 1KI 2:30
-Ben-Hadad, king of Aram	1	Male				1KI 20:12 <-(8 more)-> 2KI 8:14	Ben Hadad
+Ben-Hadad, king of Aram	1	Male			Ben-Hadad II (aka, Hadadezer or Adad-Idri); Aram = Syria	1KI 20:12 <-(10 more)-> 2CH 18:30	Ben Hadad
 Benjamin	1	Male				
 Benjamite messenger to Eli	1	Male				1SA 4:16 & 1SA 4:17
 Benjamites	-1					JDG 20:32 & JDG 20:39
@@ -225,7 +225,7 @@ crowd, large (witnessed healing of widow's son)	-1		Adult			LUK 7:16
 crowd, many in the	-1		Adult			MAT 20:31 <-(1 more)-> LUK 18:39
 crowd, some in	-1		Adult			LUK 11:15
 cured man, blind from birth	1	Male	Adult			JHN 9:9 <-(11 more)-> JHN 9:38
-Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(5 more)-> EZR 6:5
+Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(6 more)-> ISA 48:16
 Dan	1	Male	Adult			
 Daniel	1	Male	Adult			DAN 1:12 <-(94 more)-> DAN 10:19
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25
@@ -264,7 +264,7 @@ Edom	1	Male				NUM 20:18 <-(1 more)-> MAL 1:4
 Edomites	-1					PSA 137:7
 Eglon, king of Moab	1	Male				JDG 3:19
 Egyptian (slave of Amalekite)	1					1SA 30:13 <-(1 more)-> 1SA 30:15
-Egyptians	-1					EXO 12:33 & EXO 14:25
+Egyptians	-1					EXO 12:33 <-(2 more)-> ISA 45:15
 Egyptians, all the	-1					GEN 47:15 <-(2 more)-> GEN 47:25
 Ehud, Israelite deliverer	1	Male				JDG 3:19 <-(1 more)-> JDG 3:28
 eighty other priests	80	Male				2CH 26:18
@@ -300,8 +300,8 @@ enemies of Israel	-1					PSA 83:4 & PSA 83:12
 enemies of Judah and Benjamin	-1	Male				EZR 4:2
 enemy	1	Female				MIC 7:10
 Enoch	1	Male				JUD 1:14 & JUD 1:15
-Ephraim	-1	PreferMale				ISA 7:6 & HOS 12:8
-Ephraimites	-1					JDG 8:1 <-(4 more)-> ISA 9:10	Ephraimite
+Ephraim	-1	Male			The tribe (collectively personified), not the actual tribal forefather, nor a specific descendent	ISA 7:6 <-(3 more)-> HOS 12:8
+Ephraimites	-1				i.e., specific/individual men of the tribe of Ephraim	JDG 8:1 <-(3 more)-> JDG 12:6	Ephraimite
 Ephron the Hittite	1	Male				GEN 23:11 & GEN 23:15
 Epicurean and Stoic philosophers	-1					ACT 17:19 & ACT 17:20
 Epicurean and Stoic philosophers, interested	-1					ACT 17:32
@@ -312,7 +312,7 @@ Esau	1	Male	Adult			GEN 25:30 <-(12 more)-> GEN 33:15
 Esther, queen	1	Female	Adult			EST 4:11 <-(9 more)-> EST 9:13
 Ethan	1	Male	Adult			
 Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(3 more)-> ACT 8:38
-Ethiopians	-1					ISA 45:14
+Ethiopians	-1					ISA 45:14 & ISA 45:15
 Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25
 every created thing	-1					REV 5:13
 everyone	-1					LUK 4:38 <-(1 more)-> PHP 2:11
@@ -375,7 +375,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5561 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5579 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
@@ -397,7 +397,7 @@ Hananiah, false prophet	1	Male				JER 28:2 <-(2 more)-> JER 28:11
 Hannah	1	Female				1SA 1:11 <-(17 more)-> 1SA 2:10
 Harbona, eunuch attending Xerxes, king	1	Male				EST 7:9
 harvesters	-1	Male				RUT 2:4
-Hazael of Aram	1	Male				2KI 8:9 <-(2 more)-> 2KI 8:14
+Hazael of Aram	1	Male			Annointed King of Aram/Syria by Elijah; assasinated Ben Hadad II about 16 years later	2KI 8:9 <-(2 more)-> 2KI 8:14
 head	1	Neuter				1CO 12:21
 heads of all the families	-1	Male				NEH 8:15
 hearers	-1					ISA 28:9 & ISA 28:10
@@ -441,11 +441,11 @@ invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
 Irijah, captain of the guard of Judah	1	Male				JER 37:13
 Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20
 Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
-Isaiah	1	Male				2KI 19:6 <-(330 more)-> ISA 44:23
+Isaiah	1	Male				2KI 19:6 <-(354 more)-> ISA 51:3
 Ish-Bosheth, son of Saul	1	Male				2SA 3:7
 Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6
 islanders	-1					ISA 41:6
-Israel	-1					NUM 21:17 <-(52 more)-> MAL 1:2	Israelite
+Israel	-1					NUM 21:17 <-(51 more)-> MAL 1:2	Israelite
 Israel, all	-1					1SA 12:4 <-(7 more)-> 2CH 10:16
 Israel, all the tribes	-1	Male				2SA 5:1 & 2SA 5:2
 Israel, leaders of	-1	Male				JOS 9:19 <-(2 more)-> 2CH 12:6
@@ -497,7 +497,7 @@ Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeroboam	1	Male				1KI 12:4 <-(8 more)-> 2CH 10:4
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		MAT 3:15 <-(2104 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		JOS 5:14 <-(2107 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
@@ -545,7 +545,7 @@ Josiah, king of Judah	1	Male				2KI 22:4 <-(12 more)-> 2CH 35:23
 Jotham, son of Gideon (Jerubbaal)	1	Male				JDG 9:7 <-(12 more)-> JDG 9:20
 Judah	1	Male				GEN 37:26 <-(32 more)-> GEN 44:34
 Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:22
-Judah, men of	-1	Male				JDG 1:3 <-(7 more)-> NEH 1:3
+Judah, men of	-1	Male				JDG 1:3 <-(7 more)-> NEH 1:3	Judean
 Judah, people in	-1					NEH 4:10
 Judah, remnant of	-1					JER 42:20
 Judaizers	-1	Male				GAL 6:12
@@ -557,7 +557,6 @@ King Lemuel	1	Male				PRO 31:2 <-(28 more)-> PRO 31:31
 King Lemuel's mother	1	Female				PRO 31:2 <-(28 more)-> PRO 31:31	Mother of King Lemuel (female)
 king	1	Male				PRO 25:7
 king of the Ammonites	1	Male				JDG 11:13
-king of Aram	1	Male				1KI 22:31 & 2CH 18:30
 Shalmaneser, king of Assyria	1	Male				2KI 17:27
 Sennacherib, king of Assyria	1	Male				ISA 10:8 <-(4 more)-> ISA 10:14	King Sennacherib
 king of Babylon	1	Male				ISA 14:13 & ISA 14:14
@@ -692,7 +691,7 @@ messengers from Jephthah	-1	PreferMale				JDG 11:12 <-(12 more)-> JDG 11:27
 messengers Israel sent to Amorite king Sihon	-1	PreferMale				NUM 21:22
 messengers Moses sent to king of Edom	-1	Male				NUM 20:14 <-(3 more)-> NUM 20:19
 messengers of Ahaziah	-1	Male				2KI 1:6 & 2KI 1:8
-messengers of Ben-Hadad. king of Aram	-1	Male				1KI 20:2 <-(3 more)-> 1KI 20:10
+messengers of Ben-Hadad, king of Aram	-1	Male				1KI 20:2 <-(3 more)-> 1KI 20:10
 messengers of Jabesh	-1	Male				1SA 11:9
 messengers of Saul	-1	Male				1SA 11:7
 messengers sent by Jacob	-1	Male				GEN 32:6
@@ -914,7 +913,7 @@ report to king of Assyria	1	Male				2KI 17:26
 report to Sanballat and Tobiah	-1	Male				NEH 4:7 <-(2 more)-> NEH 6:16
 rest of heads of families	-1	Male				EZR 4:3
 Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37
-Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29
+Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29	Reubenite
 Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21
 royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5
@@ -922,7 +921,7 @@ rule given by Paul	1	Male				2TH 3:10
 rulers of people in Jerusalem	-1	Male				ISA 28:15
 rules of the world	1					COL 2:21
 Ruth	1	Female				RUT 1:10 <-(9 more)-> RUT 3:17
-Sabeans	-1					ISA 45:14
+Sabeans	-1					ISA 45:14 & ISA 45:15
 Sadducees	-1	Male				MAT 16:1 <-(19 more)-> ACT 23:8
 sailors on ship to Italy (Rome)	-1	Male				ACT 27:12 <-(2 more)-> ACT 27:39
 sailors on ship to Tarshish	-1	Male				JON 1:5 <-(5 more)-> JON 1:16	Sailor
