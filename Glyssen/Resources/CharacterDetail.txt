@@ -591,7 +591,6 @@ living creature, third	1					REV 4:8 <-(4 more)-> REV 19:4
 lookout	1	Male				ISA 21:8 <-(1 more)-> ISA 21:10
 lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20
 Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20
-lover	1	Male				SNG 1:4 <-(53 more)-> SNG 8:13
 Lydia	1	Female				ACT 16:15
 Macedonian	1	Male				ACT 16:9
 magi (wise men from East)	-1	Male				MAT 2:2
@@ -887,7 +886,7 @@ prophets of Baal	-1					1KI 18:26	Prophet: Baal
 prophets, 400 false	400					1KI 22:6 <-(2 more)-> 2CH 18:11
 prostitute, one	1	Female				1KI 3:17 <-(5 more)-> 1KI 3:26
 prostitute, other	1	Female				1KI 3:22 & 1KI 3:26
-psalmist	-1					
+psalmist	-1						
 Puah (midwife)	1	Female				EXO 1:19
 queen of Babylon	1	Female				DAN 5:10 <-(1 more)-> DAN 5:12
 queen of Sheba	1	Female				1KI 10:6 <-(6 more)-> 2CH 9:8
@@ -1061,7 +1060,7 @@ Tamar, daughter of David	1	Female				2SA 13:12 <-(1 more)-> 2SA 13:16
 Tamar, daughter-in-law of Judah	1	Female				GEN 38:16 <-(1 more)-> GEN 38:18
 Tattenai, governor	1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
 tax collectors	-1	Male				LUK 3:12
-teacher (Preacher)	1	Male				ECC 3:19 <-(1 more)-> ECC 3:21	Solomon
+teacher (Preacher)	1	Male			It is generally accepted that this is King Solomon	ECC 3:19 <-(1 more)-> ECC 3:21	Preacher
 teacher of religious law	1	Male				MAT 8:19 & LUK 9:57
 teachers of religious law	-1	Male				MAT 2:5 <-(49 more)-> ACT 5:40
 temple guards	-1	Male				JHN 7:46

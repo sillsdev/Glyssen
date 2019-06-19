@@ -8690,27 +8690,27 @@ ECC	12	8	narrator-ECC			Quotation
 SNG	1	2	beloved			Potential		
 SNG	1	3	beloved			Potential		
 SNG	1	4	beloved			Potential		
-SNG	1	4	lover			Quotation		
+SNG	1	4	Solomon, king		Solomon (lover)	Quotation		
 SNG	1	4	maidens			Potential		
 SNG	1	4	Needs Review			Potential		
-SNG	1	8	lover			Potential		
+SNG	1	8	Solomon, king		Solomon (lover)	Potential		
 SNG	1	8	maidens			Potential		
 SNG	1	8	Needs Review			Implicit		
-SNG	1	9	lover			Potential		
-SNG	1	10	lover			Potential		
-SNG	1	11	lover			Potential		
+SNG	1	9	Solomon, king		Solomon (lover)	Potential		
+SNG	1	10	Solomon, king		Solomon (lover)	Potential		
+SNG	1	11	Solomon, king		Solomon (lover)	Potential		
 SNG	1	11	maidens			Potential		
 SNG	1	11	Needs Review			Implicit		
 SNG	1	12	beloved			Potential		
 SNG	1	13	beloved			Potential		
 SNG	1	14	beloved			Potential		
-SNG	1	15	lover			Potential		
+SNG	1	15	Solomon, king		Solomon (lover)	Potential		
 SNG	1	16	beloved			Potential		
-SNG	1	17	lover			Potential		
+SNG	1	17	Solomon, king		Solomon (lover)	Potential		
 SNG	1	17	beloved			Potential		
 SNG	1	17	Needs Review			Implicit		
 SNG	2	1	beloved			Potential		
-SNG	2	2	lover			Potential		
+SNG	2	2	Solomon, king		Solomon (lover)	Potential		
 SNG	2	3	beloved			Potential		
 SNG	2	4	beloved			Potential		
 SNG	2	5	beloved			Potential		
@@ -8719,17 +8719,17 @@ SNG	2	7	beloved			Potential
 SNG	2	8	beloved			Potential		
 SNG	2	9	beloved			Potential		
 SNG	2	10	beloved			Potential		
-SNG	2	10	lover			Quotation		
+SNG	2	10	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	11	beloved			Potential		
-SNG	2	11	lover			Quotation		
+SNG	2	11	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	12	beloved			Potential		
-SNG	2	12	lover			Quotation		
+SNG	2	12	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	13	beloved			Potential		
-SNG	2	13	lover			Quotation		
+SNG	2	13	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	14	beloved			Potential		
-SNG	2	14	lover			Quotation		
-SNG	2	15	lover			Quotation		
-SNG	2	15	lover			Potential		
+SNG	2	14	Solomon, king		Solomon (lover)	Quotation		
+SNG	2	15	Solomon, king		Solomon (lover)	Quotation		
+SNG	2	15	Solomon, king		Solomon (lover)	Potential		
 SNG	2	15	beloved			Potential		
 SNG	2	15	maidens			Potential		
 SNG	2	16	beloved			Potential		
@@ -8739,7 +8739,7 @@ SNG	3	2	beloved			Potential
 SNG	3	3	beloved			Potential		
 SNG	3	4	beloved			Potential		
 SNG	3	5	beloved			Potential		
-SNG	3	5	lover			Potential		
+SNG	3	5	Solomon, king		Solomon (lover)	Potential		
 SNG	3	6	beloved			Potential		
 SNG	3	6	maidens			Potential		
 SNG	3	7	beloved			Potential		
@@ -8751,28 +8751,28 @@ SNG	3	9	maidens			Potential
 SNG	3	10	beloved			Potential		
 SNG	3	10	maidens			Potential		
 SNG	3	11	beloved			Potential		
-SNG	4	1	lover			Potential		
-SNG	4	2	lover			Potential		
-SNG	4	3	lover			Potential		
-SNG	4	4	lover			Potential		
-SNG	4	5	lover			Potential		
-SNG	4	6	lover			Potential		
-SNG	4	7	lover			Potential		
-SNG	4	8	lover			Potential		
-SNG	4	9	lover			Potential		
-SNG	4	10	lover			Potential		
-SNG	4	11	lover			Potential		
-SNG	4	12	lover			Potential		
-SNG	4	13	lover			Potential		
-SNG	4	14	lover			Potential		
-SNG	4	15	lover			Potential		
-SNG	4	16	lover			Potential		
+SNG	4	1	Solomon, king		Solomon (lover)	Potential		
+SNG	4	2	Solomon, king		Solomon (lover)	Potential		
+SNG	4	3	Solomon, king		Solomon (lover)	Potential		
+SNG	4	4	Solomon, king		Solomon (lover)	Potential		
+SNG	4	5	Solomon, king		Solomon (lover)	Potential		
+SNG	4	6	Solomon, king		Solomon (lover)	Potential		
+SNG	4	7	Solomon, king		Solomon (lover)	Potential		
+SNG	4	8	Solomon, king		Solomon (lover)	Potential		
+SNG	4	9	Solomon, king		Solomon (lover)	Potential		
+SNG	4	10	Solomon, king		Solomon (lover)	Potential		
+SNG	4	11	Solomon, king		Solomon (lover)	Potential		
+SNG	4	12	Solomon, king		Solomon (lover)	Potential		
+SNG	4	13	Solomon, king		Solomon (lover)	Potential		
+SNG	4	14	Solomon, king		Solomon (lover)	Potential		
+SNG	4	15	Solomon, king		Solomon (lover)	Potential		
+SNG	4	16	Solomon, king		Solomon (lover)	Potential		
 SNG	4	16	beloved			Potential		
-SNG	5	1	lover			Potential		
+SNG	5	1	Solomon, king		Solomon (lover)	Potential		
 SNG	5	1	maidens			Potential		
 SNG	5	1	God			Potential		
 SNG	5	2	beloved			Potential		
-SNG	5	2	lover			Quotation		
+SNG	5	2	Solomon, king		Solomon (lover)	Quotation		
 SNG	5	3	beloved			Potential		
 SNG	5	4	beloved			Potential		
 SNG	5	5	beloved			Potential		
@@ -8790,31 +8790,31 @@ SNG	5	16	beloved			Potential
 SNG	6	1	maidens			Potential		
 SNG	6	2	beloved			Potential		
 SNG	6	3	beloved			Potential		
-SNG	6	4	lover			Potential		
-SNG	6	5	lover			Potential		
-SNG	6	6	lover			Potential		
-SNG	6	7	lover			Potential		
-SNG	6	8	lover			Potential		
-SNG	6	9	lover			Potential		
-SNG	6	10	lover			Potential		
+SNG	6	4	Solomon, king		Solomon (lover)	Potential		
+SNG	6	5	Solomon, king		Solomon (lover)	Potential		
+SNG	6	6	Solomon, king		Solomon (lover)	Potential		
+SNG	6	7	Solomon, king		Solomon (lover)	Potential		
+SNG	6	8	Solomon, king		Solomon (lover)	Potential		
+SNG	6	9	Solomon, king		Solomon (lover)	Potential		
+SNG	6	10	Solomon, king		Solomon (lover)	Potential		
 SNG	6	10	maidens			Potential		
 SNG	6	10	queens and concubines			Quotation		
-SNG	6	11	lover			Potential		
+SNG	6	11	Solomon, king		Solomon (lover)	Potential		
 SNG	6	11	beloved			Potential		
-SNG	6	12	lover			Potential		
+SNG	6	12	Solomon, king		Solomon (lover)	Potential		
 SNG	6	12	beloved			Potential		
-SNG	6	13	lover			Potential		
+SNG	6	13	Solomon, king		Solomon (lover)	Potential		
 SNG	6	13	maidens			Potential		
-SNG	7	1	lover			Potential		
-SNG	7	2	lover			Potential		
-SNG	7	3	lover			Potential		
-SNG	7	4	lover			Potential		
-SNG	7	5	lover			Potential		
-SNG	7	6	lover			Potential		
-SNG	7	7	lover			Potential		
-SNG	7	8	lover			Potential		
+SNG	7	1	Solomon, king		Solomon (lover)	Potential		
+SNG	7	2	Solomon, king		Solomon (lover)	Potential		
+SNG	7	3	Solomon, king		Solomon (lover)	Potential		
+SNG	7	4	Solomon, king		Solomon (lover)	Potential		
+SNG	7	5	Solomon, king		Solomon (lover)	Potential		
+SNG	7	6	Solomon, king		Solomon (lover)	Potential		
+SNG	7	7	Solomon, king		Solomon (lover)	Potential		
+SNG	7	8	Solomon, king		Solomon (lover)	Potential		
 SNG	7	9	beloved			Potential		
-SNG	7	9	lover			Potential		
+SNG	7	9	Solomon, king		Solomon (lover)	Potential		
 SNG	7	10	beloved			Potential		
 SNG	7	11	beloved			Potential		
 SNG	7	12	beloved			Potential		
@@ -8824,7 +8824,7 @@ SNG	8	2	beloved			Potential
 SNG	8	3	beloved			Potential		
 SNG	8	4	beloved			Potential		
 SNG	8	5	beloved			Potential		
-SNG	8	5	lover			Potential		
+SNG	8	5	Solomon, king		Solomon (lover)	Potential		
 SNG	8	5	maidens			Potential		
 SNG	8	6	beloved			Potential		
 SNG	8	7	beloved			Potential		
@@ -8840,7 +8840,7 @@ SNG	8	9	Needs Review			Implicit
 SNG	8	10	beloved			Potential		
 SNG	8	11	beloved			Potential		
 SNG	8	12	beloved			Potential		
-SNG	8	13	lover			Potential		
+SNG	8	13	Solomon, king		Solomon (lover)	Potential		
 SNG	8	14	beloved			Potential		
 ISA	1	2	God		God (the LORD) (in vision)	Normal		
 ISA	1	2	Isaiah			Alternate		
