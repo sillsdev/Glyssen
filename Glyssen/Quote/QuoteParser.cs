@@ -390,8 +390,12 @@ namespace Glyssen.Quote
 								{
 									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
 									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
-									if (characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
-										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator))
+									// Also, if the verse has an implicit character and the only other entry is a Quotation by that same character,
+									// ignore it. (There is a slight chance a stray "he said" could mess us up here, but that's unlikely.)
+									if ((characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
+										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator)) ||
+										characters.Count == 2 && (characters.SingleOrDefault(c => c.QuoteType == QuoteType.Quotation)?.Character ?? "q") ==
+										(characters.SingleOrDefault(c => c.QuoteType == QuoteType.Implicit)?.Character ?? "i"))
 									{
 										m_ignoringNarratorQuotation = true;
 									}

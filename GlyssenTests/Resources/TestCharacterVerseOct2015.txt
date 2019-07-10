@@ -8380,6 +8380,12 @@ ISA	60	21	God		God (the LORD, Savior, Redeemer, Mighty One of Jacob)	Normal
 ISA	60	22	God		God (the LORD, Savior, Redeemer, Mighty One of Jacob)	Normal		
 ISA	61	8	God		God (The Sovereign LORD)	Normal		
 ISA	61	9	God		God (The Sovereign LORD)	Normal		
+ISA	62	1	God		God (the LORD)	Implicit		
+ISA	62	2	God		God (the LORD)	Implicit		
+ISA	62	3	God		God (the LORD)	Implicit		
+ISA	62	4	God		God (the LORD)	Implicit		
+ISA	62	4	God			Quotation		
+ISA	62	5	God		God (the LORD)	Implicit		
 ISA	62	8	God		God (the LORD)	Normal		
 ISA	62	9	God		God (the LORD)	Normal		
 ISA	62	11	God		God (the LORD, Savior)	Normal		

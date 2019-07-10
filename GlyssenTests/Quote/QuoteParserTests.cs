@@ -5460,6 +5460,39 @@ namespace GlyssenTests.Quote
 			Assert.IsFalse(output[2].UserConfirmed);
 		}
 
+		[TestCase("", "", "", "")]
+		[TestCase("«", "»", "", "")]
+		[TestCase("", "", "«", "»")]
+		[TestCase("«", "»", "‹", "›")]
+		public void Parse_QuotedExpressionInImplicitlyAssignedVerse_VerseTextAssignedToImplicitCharacter(string openQuoteMarkForPassageIfAny,
+			string closeQuoteMarkForPassageIfAny, string openQuoteMarkForExpressionIfAny, string closeQuoteMarkForExpressionIfAny)
+		{
+			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
+			var entriesInCvForIsa62V4 = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 62, 4, includeAlternates:true).ToList();
+			Assert.AreEqual(2, entriesInCvForIsa62V4.Count,
+				"Test setup condition not met: ISA 62:4 should have two entries.");
+			Assert.AreEqual("God", entriesInCvForIsa62V4.Single(c => c.QuoteType == QuoteType.Implicit).Character,
+				"Test setup condition not met: God should be the implicit character for ISA 62:4.");
+			Assert.IsNotNull(entriesInCvForIsa62V4.Single(c => c.QuoteType == QuoteType.Quotation),
+				"Test setup condition not met: ISA 62:4 should have a Quotation (i.e., quoted expression or word) entry.");
+			Assert.AreEqual(QuoteType.Implicit, ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 62, 3, finalVerse: 5).Single().QuoteType,
+				"Test setup condition not met: God should be the implicit speaker in ISA 62:3-5.");
+
+			var input = new List<Block>
+			{
+				new Block("p", 62, 3).AddVerse(3, openQuoteMarkForPassageIfAny + "You'll be a crown in God's hand.")
+					.AddVerse(4, $"You shall not be termed {openQuoteMarkForExpressionIfAny}Forsaken{closeQuoteMarkForExpressionIfAny}; neither shall " +
+						$"your land be termed {openQuoteMarkForExpressionIfAny}Desolate{closeQuoteMarkForExpressionIfAny}. But you'll be called " +
+						$"{openQuoteMarkForExpressionIfAny}Hephzibah{closeQuoteMarkForExpressionIfAny}, and your land " +
+						$"{openQuoteMarkForExpressionIfAny}Beulah{closeQuoteMarkForExpressionIfAny}; for God delights in you, and your land shall be married.")
+					.AddVerse(5, "For as a young man marries a virgin, so your sons shall marry you and God will rejoice over you." + closeQuoteMarkForPassageIfAny)
+			};
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("God", output[0].CharacterId);
+		}
+
 		/// <summary>
 		/// This test covers the case where the reference guide and control file assume that God wil speak for a couple verses
 		/// and then the prophet/narrator will take over. But in the project data, the quote is never closed, so God should
