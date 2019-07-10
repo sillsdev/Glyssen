@@ -840,7 +840,7 @@ namespace GlyssenTests
 				Assert.AreEqual("Acoli", project.WritingSystem.Language.Name,
 					"This name should be coming from the \"global\" cache, not from the metadata above - note spelling difference.");
 				Assert.AreEqual("ach", project.WritingSystem.Language.Iso3Code,
-					"If \"ach\" is not found in the global cache, the lnaguage subtag will be considered \"private-use\" and the " +
+					"If \"ach\" is not found in the global cache, the language subtag will be considered \"private-use\" and the " +
 					"ISO code will be null");
 				Assert.AreEqual("ach", project.WritingSystem.Language.Code);
 			}
