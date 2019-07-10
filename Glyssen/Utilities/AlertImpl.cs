@@ -8,7 +8,7 @@ using SIL.Reporting;
 namespace Glyssen.Utilities
 {
     /// <summary>
-    /// Default, platform and implementation-agnostic, implementation for showing alert boxes to a user
+    /// Implementation for showing Paratext alert messages (copied from Paratext with minor changes)
     /// </summary>
     public class AlertImpl : Alert
     {
