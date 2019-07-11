@@ -8922,25 +8922,25 @@ ISA	3	5	God		God (the LORD)	Potential
 ISA	3	5	Isaiah			Potential		
 ISA	3	6	man (hypothetical)			Hypothetical		
 ISA	3	6	God		God (the LORD)	Potential		
-ISA	3	6	Isaiah			Alternate		
+ISA	3	6	Isaiah			Potential		
 ISA	3	7	man's brother (hypothetical)			Hypothetical		
 ISA	3	7	God		God (the LORD)	Potential		
-ISA	3	7	Isaiah			Alternate		
+ISA	3	7	Isaiah			Potential		
 ISA	3	8	God		God (the LORD)	Potential		
-ISA	3	8	Isaiah			Alternate		
+ISA	3	8	Isaiah			Potential		
 ISA	3	9	God		God (the LORD)	Potential		
-ISA	3	9	Isaiah			Alternate		
-ISA	3	10	God			Potential		
+ISA	3	9	Isaiah			Potential		
 ISA	3	10	narrator-ISA			Hypothetical		
-ISA	3	10	Isaiah			Alternate		
+ISA	3	10	God			Potential		
+ISA	3	10	Isaiah			Potential		
 ISA	3	11	God		God (the LORD)	Potential		
-ISA	3	11	Isaiah			Alternate		
+ISA	3	11	Isaiah			Potential		
 ISA	3	12	God		God (the LORD)	Potential		
-ISA	3	12	Isaiah			Alternate		
+ISA	3	12	Isaiah			Potential		
 ISA	3	14	God		God (the LORD)	Normal		
 ISA	3	15	God		God (the LORD)	Normal		
 ISA	3	16	God		God (the LORD)	Normal		
-ISA	3	17	God		God (the LORD)	Normal		
+ISA	3	17	God		God (the LORD)	Implicit		
 ISA	3	18	Isaiah			Potential		
 ISA	3	19	Isaiah			Potential		
 ISA	3	20	Isaiah			Potential		
@@ -9100,14 +9100,11 @@ ISA	10	3	Isaiah			Potential
 ISA	10	4	Isaiah			Potential		
 ISA	10	5	God		God (the LORD)	Implicit		
 ISA	10	6	God		God (the LORD)	Implicit		
-ISA	10	7	God		God (the LORD)	Potential		
-ISA	10	7	Isaiah			Alternate		
+ISA	10	7	God		God (the LORD)	Implicit		
 ISA	10	8	Sennacherib, king of Assyria		king of Assyria	Quotation		
-ISA	10	8	God		God (the LORD)	Alternate		
-ISA	10	8	Isaiah			Alternate		
+ISA	10	8	God		God (the LORD)	Potential		
 ISA	10	9	Sennacherib, king of Assyria		king of Assyria	Implicit		
 ISA	10	9	God		God (the LORD)	Alternate		
-ISA	10	9	Isaiah			Alternate		
 # Should the following two verses be God or Sennecharib?
 ISA	10	10	Sennacherib, king of Assyria		king of Assyria	Implicit		
 ISA	10	10	God		God (the LORD)	Alternate		
