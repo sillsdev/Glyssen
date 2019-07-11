@@ -8,10 +8,12 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext.Data;
 using Paratext.Data.Users;
+using PtxUtils;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
@@ -65,6 +67,7 @@ namespace Glyssen
 			UserInfo userInfo = new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage };
 			bool sldrIsInitialized = false;
 
+			Alert.Implementation = new AlertImpl(); // Do this before calling Initialize, just in case Initilize tries to display an alert.
 			if (ParatextInfo.IsParatextInstalled)
 			{
 				string userName = null;
