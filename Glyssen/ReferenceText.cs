@@ -412,9 +412,28 @@ namespace Glyssen
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
 						{
-							vernBlockInVerseChunk.MatchesReferenceText = false;
-							vernBlockInVerseChunk.ReferenceBlocks =
-								new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+							if (numberOfRefBlocksInVerseChunk - i == 2 && i > 0 &&
+								BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i - 1],
+								refBlockList[indexOfRefVerseStart + i + 1], vernacularVersification))
+							{
+								// This is the special case where the vernacular probably has the narrator announcing the speech
+								// afterwards instead of beforehand (as in the reference text), so we'll assign the "he said" to
+								// the current vernacular block and attach the following reference text block to the preceding
+								// vernacular block.
+								var vernSpeechBlock = vernBlockList[indexOfVernVerseStart + i - 1];
+								var existingReferenceBlocks = new List<Block>(vernSpeechBlock.ReferenceBlocks); // Create a new list. Setting MatchesReferenceText false clears the existing list.
+								existingReferenceBlocks.Add(refBlockList[indexOfRefVerseStart + i + 1]);
+								vernSpeechBlock.MatchesReferenceText = false;
+								vernSpeechBlock.ReferenceBlocks = existingReferenceBlocks;
+
+								vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
+							}
+							else
+							{
+								vernBlockInVerseChunk.MatchesReferenceText = false;
+								vernBlockInVerseChunk.ReferenceBlocks =
+									new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+							}
 							break;
 						}
 						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
@@ -432,6 +451,8 @@ namespace Glyssen
 							for (; j + 1 < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
 							{
 								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
+								if (vernBlockInVerseChunk.MatchesReferenceText)
+									break;
 								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
 								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
@@ -463,8 +484,36 @@ namespace Glyssen
 							}
 							else
 							{
-								vernBlockList[iVernBlock].MatchesReferenceText = false;
-								vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocksList;
+								// nb: In each of the three branches below, we can't just set MatchesReferenceText false and insert remainingRefBlocksList into the
+								// existing ReferenceBlocks list because setting MatchesReferenceText to flase CLEARS the existing list!
+								if (remainingRefBlocksList.Count == 1 && vernBlockList[iVernBlock].MatchesReferenceText &&
+									vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
+								{
+									// See if the immediately following (or preceding???) block is a better match
+									if (vernBlockList.Count > iVernBlock + 1 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
+									{
+										remainingRefBlocksList.Add(vernBlockList[iVernBlock + 1].ReferenceBlocks[0]);
+										vernBlockList[iVernBlock + 1].MatchesReferenceText = false;
+										vernBlockList[iVernBlock + 1].ReferenceBlocks = remainingRefBlocksList;
+										remainingRefBlocksList = null;
+									}
+									// This seemed like a good idea, but I haven't come up with a scenario for it yet.
+									//else if (iVernBlock - 1 >= 0 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
+									//{
+									//	remainingRefBlocksList.Insert(0, vernBlockList[iVernBlock + 1].ReferenceBlocks[0]);
+									//	vernBlockList[iVernBlock - 1].MatchesReferenceText = false;
+									//	vernBlockList[iVernBlock - 1].ReferenceBlocks = remainingRefBlocksList;
+									//	remainingRefBlocksList = null;
+									//}
+								}
+
+								if (remainingRefBlocksList != null)
+								{
+									if (vernBlockList[iVernBlock].MatchesReferenceText)
+										remainingRefBlocksList.Add(vernBlockList[iVernBlock].ReferenceBlocks[0]);
+									vernBlockList[iVernBlock].MatchesReferenceText = false;
+									vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocksList;
+								}
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
