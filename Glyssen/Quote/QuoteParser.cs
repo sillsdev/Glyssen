@@ -394,8 +394,9 @@ namespace Glyssen.Quote
 									// ignore it. (There is a slight chance a stray "he said" could mess us up here, but that's unlikely.)
 									if ((characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
 										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator)) ||
-										characters.Count == 2 && (characters.SingleOrDefault(c => c.QuoteType == QuoteType.Quotation)?.Character ?? "q") ==
-										(characters.SingleOrDefault(c => c.QuoteType == QuoteType.Implicit)?.Character ?? "i"))
+										(characters.Count == 2 && characters.Count(c => c.QuoteType == QuoteType.Implicit) == 1 &&
+										characters.SingleOrDefault(c => c.QuoteType == QuoteType.Quotation)?.Character ==
+										characters.First(c => c.QuoteType == QuoteType.Implicit).Character))
 									{
 										m_ignoringNarratorQuotation = true;
 									}
