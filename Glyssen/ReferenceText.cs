@@ -510,7 +510,7 @@ namespace Glyssen
 								}
 
 								if (remainingRefBlocksList != null)
-									vernBlockList[iVernBlock].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+									vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
