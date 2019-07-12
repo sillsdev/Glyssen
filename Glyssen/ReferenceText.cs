@@ -499,16 +499,18 @@ namespace Glyssen
 										vernBlockList[iVernBlock + 1].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
 										remainingRefBlocksList = null;
 									}
-									// This seemed like a good idea, but I haven't come up with a scenario for it yet.
-									//else if (iVernBlock - 1 >= 0 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
-									//{
-									//	vernBlockList[iVernBlock - 1].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
-									//	remainingRefBlocksList = null;
-									//}
+									else if (iVernBlock > 0 && vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId
+										// This seemed like a good idea, but I haven't come up with a scenario for it yet.
+										// || vernBlockList[iVernBlock - 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId
+										)
+									{
+										vernBlockList[iVernBlock - 1].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
+										remainingRefBlocksList = null;
+									}
 								}
 
 								if (remainingRefBlocksList != null)
-									vernBlockList[iVernBlock].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
+									vernBlockList[iVernBlock].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
