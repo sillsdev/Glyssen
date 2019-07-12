@@ -253,20 +253,30 @@ namespace Glyssen
 		[DefaultValue(-1)]
 		public int SplitId { get; set; }
 
+		/// <summary>
+		/// Don't use in production code. It is intended ONLY for use by the XML serializer!
+		/// To ensure internal consistency, use SetMatchedReferenceBlock, ClearReferenceText,
+		/// SetUnmatchedReferenceBlocks, AppendUnmatchedReferenceBlock, and
+		/// InsertUnmatchedReferenceBlocks methods.
+		/// </summary>
 		[XmlAttribute("matchesReferenceText")]
 		[DefaultValue(false)]
-		public bool MatchesReferenceText
+		public bool MatchesReferenceText_DoNotUse
 		{
 			// m_matchesReferenceText should imply exactly one reference block (and I *so* wish I had modeled it
 			// that way), but if a previous program bug or deserialization issue should put a block into a bad
 			// state, there are lots of places where it could crash, so if there isn't exactly 1, return false.
-			get => m_matchesReferenceText && ReferenceBlocks.Count ==  1;
-			set
-			{
-				m_matchesReferenceText = value;
-				if (!m_matchesReferenceText)
-					ReferenceBlocks.Clear();
-			}
+			get => MatchesReferenceText;
+			set => m_matchesReferenceText = value;
+		}
+
+		public bool MatchesReferenceText => m_matchesReferenceText && ReferenceBlocks.Count ==  1;
+
+		public void ClearReferenceText()
+		{
+			m_matchesReferenceText = false;
+			if (ReferenceBlocks != null) // This is probably always true, but just to be safe.
+				ReferenceBlocks.Clear();
 		}
 
 		public int Length => IsChapterAnnouncement ? GetText(false).Length : BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
@@ -337,9 +347,9 @@ namespace Glyssen
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
 			if (referenceBlock == null)
-				throw new ArgumentNullException("referenceBlock");
+				throw new ArgumentNullException(nameof(referenceBlock));
 			ReferenceBlocks = new List<Block> { referenceBlock };
-			MatchesReferenceText = true;
+			m_matchesReferenceText = true;
 		}
 
 		public void SetMatchedReferenceBlock(int bookNum, ScrVers versification,
@@ -374,6 +384,38 @@ namespace Glyssen
 			SetMatchedReferenceBlock(refBlock);
 
 			return refBlock;
+		}
+
+		public void SetUnmatchedReferenceBlocks(IEnumerable<Block> referenceBlocks)
+		{
+			if (referenceBlocks == null)
+				throw new ArgumentNullException(nameof(referenceBlocks));
+			ReferenceBlocks = referenceBlocks.ToList();
+			m_matchesReferenceText = false;
+		}
+
+		public void AppendUnmatchedReferenceBlock(Block referenceBlock)
+		{
+			if (referenceBlock == null)
+				throw new ArgumentNullException(nameof(referenceBlock));
+			ReferenceBlocks.Add(referenceBlock);
+			m_matchesReferenceText = false;
+		}
+
+		public void AppendUnmatchedReferenceBlocks(IEnumerable<Block> referenceBlocks)
+		{
+			if (referenceBlocks == null)
+				throw new ArgumentNullException(nameof(referenceBlocks));
+			ReferenceBlocks.AddRange(referenceBlocks);
+			m_matchesReferenceText = false;
+		}
+
+		public void InsertUnmatchedReferenceBlocks(int index, IEnumerable<Block> referenceBlocks)
+		{
+			if (referenceBlocks == null)
+				throw new ArgumentNullException(nameof(referenceBlocks));
+			ReferenceBlocks.InsertRange(index, referenceBlocks);
+			m_matchesReferenceText = false;
 		}
 
 		private Block GetEmptyReferenceBlock(IVerse prevVerse)

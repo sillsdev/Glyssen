@@ -135,7 +135,7 @@ namespace Glyssen
 				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
 				modifyClonedBlockAsNeeded = (orig, clone) =>
 				{
-					clone.MatchesReferenceText = false;
+					clone.ClearReferenceText();
 					if (!clone.CharacterIsStandard)
 						clone.CharacterIdInScript = narrator;
 				};
