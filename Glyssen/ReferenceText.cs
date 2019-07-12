@@ -510,7 +510,13 @@ namespace Glyssen
 								}
 
 								if (remainingRefBlocksList != null)
+								{
+									Debug.Assert(!vernBlockList[iVernBlock].MatchesReferenceText, "We're about to replace a matched ref text with some unmatched blocks.");
+									Debug.Assert(!vernBlockList[iVernBlock].ReferenceBlocks.Any() ||
+										vernBlockList[iVernBlock].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(remainingRefBlocksList.Select(r => r.GetText(true))),
+										"We're about to replace one list with another. Check to make sure all ref blocks are accounted for exactly once. Write unit test.");
 									vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
+								}
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
