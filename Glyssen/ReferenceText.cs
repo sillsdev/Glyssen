@@ -412,27 +412,33 @@ namespace Glyssen
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
 						{
-							if (numberOfRefBlocksInVerseChunk - i == 2 && i > 0 &&
-								BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i - 1],
-								refBlockList[indexOfRefVerseStart + i + 1], vernacularVersification))
-							{
-								// This is the special case where the vernacular probably has the narrator announcing the speech
-								// afterwards instead of beforehand (as in the reference text), so we'll assign the "he said" to
-								// the current vernacular block and attach the following reference text block to the preceding
-								// vernacular block.
-								var vernSpeechBlock = vernBlockList[indexOfVernVerseStart + i - 1];
-								var existingReferenceBlocks = new List<Block>(vernSpeechBlock.ReferenceBlocks); // Create a new list. Setting MatchesReferenceText false clears the existing list.
-								existingReferenceBlocks.Add(refBlockList[indexOfRefVerseStart + i + 1]);
-								vernSpeechBlock.MatchesReferenceText = false;
-								vernSpeechBlock.ReferenceBlocks = existingReferenceBlocks;
+							// This is the last vernacular block in the list, but we have more than one ref block to account for.
 
+							if (numberOfRefBlocksInVerseChunk - i == 2 && // Exactly 2 reference blocks remaining to be assigned
+								i > 0 && // There is a preceding vernacular block
+								// The following line could be uncommented to constrain this only to the original intended condition
+								// if we find cases where we are coming in here but shouldn't:
+								//vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+								BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i - 1], // Preceding vern block's character & end ref are compatible
+								refBlockList[indexOfRefVerseStart + i + 1], vernacularVersification)) // with following ref block
+							{
+								// This code was specifically written for PG-794, the case where the vernacular has the narrator announcing
+								// the speech afterwards instead of beforehand (as is typically the case in the reference text). In that
+								// case we want to assign the "he said" reference text to the current vernacular block and attach the
+								// following "he said" reference text block to the preceding vernacular block.
+								// Because we are not explicitly checking to see if this block is a narrator block, this condition can
+								// also be matched in other rare cases (for a somewhat contrived example where the reference
+								// text has a trailing "he said" but the vernacular does not, see unit test
+								// ApplyTo_MultipleSpeakersInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextCopiedIntoBestMatchedVerseBlocks.)
+								// Even in such cases, it seems likely that we would want to attach the following reference text
+								// block to the preceding vernacular block if it is a better match.
+								var precedingVernBlock = vernBlockList[indexOfVernVerseStart + i - 1];
+								precedingVernBlock.AppendUnmatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i + 1]);
 								vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
 							}
 							else
 							{
-								vernBlockInVerseChunk.MatchesReferenceText = false;
-								vernBlockInVerseChunk.ReferenceBlocks =
-									new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+								vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
 							}
 							break;
 						}
@@ -484,36 +490,25 @@ namespace Glyssen
 							}
 							else
 							{
-								// nb: In each of the three branches below, we can't just set MatchesReferenceText false and insert remainingRefBlocksList into the
-								// existing ReferenceBlocks list because setting MatchesReferenceText to flase CLEARS the existing list!
 								if (remainingRefBlocksList.Count == 1 && vernBlockList[iVernBlock].MatchesReferenceText &&
 									vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
 								{
 									// See if the immediately following (or preceding???) block is a better match
 									if (vernBlockList.Count > iVernBlock + 1 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
 									{
-										remainingRefBlocksList.Add(vernBlockList[iVernBlock + 1].ReferenceBlocks[0]);
-										vernBlockList[iVernBlock + 1].MatchesReferenceText = false;
-										vernBlockList[iVernBlock + 1].ReferenceBlocks = remainingRefBlocksList;
+										vernBlockList[iVernBlock + 1].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
 										remainingRefBlocksList = null;
 									}
 									// This seemed like a good idea, but I haven't come up with a scenario for it yet.
 									//else if (iVernBlock - 1 >= 0 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
 									//{
-									//	remainingRefBlocksList.Insert(0, vernBlockList[iVernBlock + 1].ReferenceBlocks[0]);
-									//	vernBlockList[iVernBlock - 1].MatchesReferenceText = false;
-									//	vernBlockList[iVernBlock - 1].ReferenceBlocks = remainingRefBlocksList;
+									//	vernBlockList[iVernBlock - 1].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
 									//	remainingRefBlocksList = null;
 									//}
 								}
 
 								if (remainingRefBlocksList != null)
-								{
-									if (vernBlockList[iVernBlock].MatchesReferenceText)
-										remainingRefBlocksList.Add(vernBlockList[iVernBlock].ReferenceBlocks[0]);
-									vernBlockList[iVernBlock].MatchesReferenceText = false;
-									vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocksList;
-								}
+									vernBlockList[iVernBlock].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
