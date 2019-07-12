@@ -1986,7 +1986,7 @@ namespace GlyssenTests.Dialogs
 			foreach (var block in matchup.OriginalBlocks)
 			{
 				if (block.MatchesReferenceText)
-					block.MatchesReferenceText = false;
+					block.ClearReferenceText();
 				if (block.UserConfirmed)
 				{
 					block.UserConfirmed = false;
