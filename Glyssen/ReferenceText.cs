@@ -493,7 +493,7 @@ namespace Glyssen
 								if (remainingRefBlocksList.Count == 1 && vernBlockList[iVernBlock].MatchesReferenceText &&
 									vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
 								{
-									// See if the immediately following (or preceding???) block is a better match
+									// See if the immediately following or preceding block is a better match
 									if (vernBlockList.Count > iVernBlock + 1 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
 									{
 										vernBlockList[iVernBlock + 1].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
@@ -512,6 +512,9 @@ namespace Glyssen
 								if (remainingRefBlocksList != null)
 								{
 									Debug.Assert(!vernBlockList[iVernBlock].MatchesReferenceText, "We're about to replace a matched ref text with some unmatched blocks.");
+									// It appears that this code block is totally unnecessary. All test pass without it. If this debug assertion ever fails, it
+									// will prove that we need this (or some modified version of it). If that never happens, we should find some way to write tests
+									// and/or conclusively prove it isn't needed. If it does happen, then we definitely want a unit test for the scenario.
 									Debug.Assert(!vernBlockList[iVernBlock].ReferenceBlocks.Any() ||
 										vernBlockList[iVernBlock].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(remainingRefBlocksList.Select(r => r.GetText(true))),
 										"We're about to replace one list with another. Check to make sure all ref blocks are accounted for exactly once. Write unit test.");
