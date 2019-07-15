@@ -926,7 +926,7 @@ namespace Glyssen.RefTextDevUtilities
 						case MatchLikelihood.Mismatch:
 							if (character.Character.Contains("/" + fcbhCharacterLabel) || character.Character.Contains(fcbhCharacterLabel + "/"))
 							{
-								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
+								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>("Different default", bcvRef, fcbhCharacterLabel + $" != {character.ResolvedDefaultCharacter}"));
 								return CharacterVerseData.kAmbiguousCharacter;
 							}
 							characterIdToUse = null;
@@ -981,7 +981,10 @@ namespace Glyssen.RefTextDevUtilities
 						}
 						else
 						{
-							s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
+							if (characters.Skip(1).All(c => c.Character == characters[0].Character) || defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Any(gc => characters.Count(c => c.Character == gc) > 1))
+								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter + " deliveries", bcvRef, fcbhCharacterLabel));
+							else
+								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
 							return CharacterVerseData.kAmbiguousCharacter;
 						}
 					}

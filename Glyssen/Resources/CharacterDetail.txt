@@ -412,7 +412,7 @@ Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(11 more)-> LUK 23:8
 Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16
 Herodias	1	Female				MAT 14:8 & MRK 6:24
 Herodias' daughter	1	Female				MAT 14:8 <-(1 more)-> MRK 6:25
-Hezekiah, king of Judah	1	Male				2KI 18:14 <-(52 more)-> ISA 39:8
+Hezekiah, king of Judah	1	Male				2KI 18:14 <-(52 more)-> ISA 39:8	King Hezekiah
 high priest	1	Male			Not a particular (historical) high priest, but rather an arbitrary (hypothetical) holder of that office	HEB 9:7
 high priest's servant (relative of the man whose ear Peter cut off)	1	Male				MAT 26:73 <-(2 more)-> JHN 18:26
 Hilkiah, high priest	1	Male				2KI 22:8 & 2CH 34:15
@@ -563,7 +563,7 @@ king	1	Male				PRO 25:7
 king of the Ammonites	1	Male				JDG 11:13
 Shalmaneser, king of Assyria	1	Male				2KI 17:27
 Sennacherib, king of Assyria	1	Male				ISA 10:8 <-(4 more)-> ISA 10:14	King Sennacherib
-king of Babylon	1	Male				ISA 14:13 & ISA 14:14
+king of Babylon	1	Male				ISA 14:13 & ISA 14:14	Son of the Morning
 king of Bela	1	Male				GEN 14:4
 king of Jericho	1	Male				JOS 2:3
 king of Nineveh	1	Male				JON 3:7 <-(1 more)-> JON 3:9
@@ -715,7 +715,7 @@ Miriam (young)	1	Female	Child			EXO 2:7
 Moabite officials	-1	Male				NUM 22:14
 Moabite officials, more distinguished	-1	Male				NUM 22:16 & NUM 22:17
 Moabites	-1	Male				NUM 22:4 <-(2 more)-> ISA 16:4
-Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4
+Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4	Daughter of Moab (female)
 mob	-1	PreferMale				ACT 17:6 & ACT 17:7
 molded thing	1					ROM 9:20
 Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14
@@ -1106,7 +1106,7 @@ voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> 
 voices in heaven, loud	-1					REV 11:15
 warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19
 watchman	1	Male				2SA 13:34 <-(2 more)-> ISA 21:12
-watchmen of Israel	-1	Male				ISA 56:12
+watchmen of Israel	-1	Male				ISA 56:12	Watchman
 waves	-1					ISA 51:15
 we (believers)	-1					ROM 8:15
 weakling	1					JOL 3:10
