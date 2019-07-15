@@ -6026,7 +6026,6 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
 
 			Assert.AreEqual(4, output.Count);
-			int i = 1;
 			Assert.IsTrue(output.Skip(1).All(b => "God" == b.CharacterId));
 		}
 

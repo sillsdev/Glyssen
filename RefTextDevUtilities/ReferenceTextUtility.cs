@@ -908,7 +908,7 @@ namespace Glyssen.RefTextDevUtilities
 			//	return knownMatch;
 
 			var bookNum = BCVRef.BookToNumber(bookId);
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum).ToList();
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, includeAlternates:true).ToList();
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
 			switch (characters.Count)
 			{
@@ -917,7 +917,7 @@ namespace Glyssen.RefTextDevUtilities
 					// If the character Id has slashes, the following line gets the default one.
 					var characterIdToUse = character.ResolvedDefaultCharacter;
 
-					switch (IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, characterIdToUse))
+					switch (IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, characterIdToUse, character.Alias))
 					{
 						case MatchLikelihood.Reliable:
 							// Don't bother reporting; these are not interesting
@@ -998,11 +998,11 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static bool IsNarratorOverride(int bookNum, Block block, string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber)
 		{
-			var overrideCharacter = NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English);
-			return (overrideCharacter != null && IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, overrideCharacter) == MatchLikelihood.Reliable);
+			return NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
+				.Any(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
 		}
 
-		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId)
+		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId, string alias = null)
 		{
 			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId) || glyssenCharacterId == CharacterVerseData.kNeedsReview)
 				return MatchLikelihood.Mismatch; // Before we call this, we've already checked to see if the FCBH character is the narrator. Can't auto-map any other character to that.
@@ -1021,8 +1021,9 @@ namespace Glyssen.RefTextDevUtilities
 
 			if (details.ContainsKey(fcbhCharacterLabel))
 			{
-				// Never match to some other existing character ID, except one that just differs by age.
-				if (glyssenCharacterId == fcbhCharacterLabel + " (old)" || glyssenCharacterId == fcbhCharacterLabel + " (dead)")
+				// Never match to some other existing character ID, except one that just differs by age or one that has an exact match on the alias.
+				if (glyssenCharacterId == fcbhCharacterLabel + " (old)" || glyssenCharacterId == fcbhCharacterLabel + " (dead)" ||
+					alias == fcbhCharacterLabel)
 					return MatchLikelihood.Reliable;
 
 				return MatchLikelihood.Mismatch;
@@ -1120,9 +1121,12 @@ namespace Glyssen.RefTextDevUtilities
 				case "Rehab": return glyssenCharacterId == "Rahab";
 				case "Judean": return glyssenCharacterId == "Judah, men of";
 				case "Woman": return glyssenCharacterId == "Babylon (personified as adulteress)";
+				case "Spirit": return glyssenCharacterId == "Holy Spirit, the";
 				case "Queen of Babylon": return glyssenCharacterId == "Babylon (personified as adulteress)";
 				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";
-				case "Zechariah": return glyssenCharacterId == "Zechariah, son of Jehoiada the priest";
+				// FCBH seems insistent on using the same character label for these two different Zechariah's.
+				case "Zechariah": return glyssenCharacterId == "Zechariah, son of Jehoiada the priest" ||
+					glyssenCharacterId == "Zechariah the prophet, son of Berechiah";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");

@@ -6019,13 +6019,14 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	12	4	Jeroboam/Israel, all			Normal		
 1KI	12	5	Rehoboam, king			Normal		
 1KI	12	6	Rehoboam, king			Normal		
-1KI	12	7	elders			Normal		
+1KI	12	7	elders in Shechem		elders	Normal		1KI 12.7;2CH 10.7
 1KI	12	9	Rehoboam, king			Normal		
 1KI	12	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 1KI	12	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
 1KI	12	12	Rehoboam, king			Quotation	narrator-1KI	
 1KI	12	14	Rehoboam, king			Normal		
 1KI	12	16	Israel, all			Normal		
+1KI	12	16	Jeroboam			Alternate		
 1KI	12	23	God		God (the LORD)	Normal		
 1KI	12	24	God		God (the LORD)	Normal		
 1KI	12	26	Jeroboam	thought	Jeroboam, king of Israel	Normal		
@@ -6197,13 +6198,13 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	4	Jehoshaphat, king of Judah			Normal		
 1KI	22	5	Jehoshaphat, king of Judah			Normal		
 1KI	22	6	Ahab, king of Israel			Normal		
-1KI	22	6	prophets, 400 false			Normal		
+1KI	22	6	prophets, 400 false			Normal		1KI 22.6;2CH 18.5
 1KI	22	7	Jehoshaphat, king of Judah			Normal		
 1KI	22	8	Ahab, king of Israel			Normal		
 1KI	22	8	Jehoshaphat, king of Judah			Normal		
 1KI	22	9	Ahab, king of Israel			Normal		
 1KI	22	11	Zedekiah, son of Kenaanah, false prophet			Normal		
-1KI	22	12	prophets, 400 false			Normal		
+1KI	22	12	prophets, 400 false			Normal		1KI 22.12;2CH 18.11
 1KI	22	13	messenger of Ahab, king of Israel			Normal		
 1KI	22	14	Micaiah, prophet of the LORD			Normal		
 1KI	22	15	Ahab, king of Israel			Normal		
@@ -6823,7 +6824,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	4	Jeroboam/Israel, all			Normal	Jeroboam	
 2CH	10	5	Rehoboam, king			Normal		
 2CH	10	6	Rehoboam, king			Normal		
-2CH	10	7	elders			Normal		
+2CH	10	7	elders in Shechem		elders	Normal		1KI 12.7;2CH 10.7
 2CH	10	9	Rehoboam, king			Normal		
 2CH	10	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 2CH	10	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
@@ -6861,13 +6862,13 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	3	Jehoshaphat, king of Judah			Normal		
 2CH	18	4	Jehoshaphat, king of Judah			Normal		
 2CH	18	5	Ahab, king of Israel			Normal		
-2CH	18	5	prophets, 400 false			Normal		
+2CH	18	5	prophets, 400 false			Normal		1KI 22.6;2CH 18.5
 2CH	18	6	Jehoshaphat, king of Judah			Normal		
 2CH	18	7	Ahab, king of Israel			Normal		
 2CH	18	7	Jehoshaphat, king of Judah			Normal		
 2CH	18	8	Ahab, king of Israel			Normal		
 2CH	18	10	Zedekiah, son of Kenaanah, false prophet			Normal		
-2CH	18	11	prophets, 400 false			Normal		
+2CH	18	11	prophets, 400 false			Normal		1KI 22.12;2CH 18.11
 2CH	18	12	messenger			Normal		
 2CH	18	13	Micaiah, prophet of the LORD			Normal		
 2CH	18	14	Ahab, king of Israel			Normal		
@@ -8506,7 +8507,10 @@ PSA	115	2	nations			Quotation
 PSA	118	2	Israel			Hypothetical		
 PSA	118	3	house of Aaron, the			Hypothetical		
 PSA	118	4	those who fear the Lord			Hypothetical		
+PSA	118	15	sound of rejoicing and victory			Hypothetical		
+PSA	118	16	sound of rejoicing and victory			Hypothetical		
 PSA	122	1	worshipers		they (worshipers)	Quotation		
+PSA	126	2	nations			Hypothetical		
 PSA	129	1	narrator-PSA			Quotation		
 PSA	129	1	Israel			Hypothetical		
 PSA	129	2	narrator-PSA			Quotation		
@@ -9277,7 +9281,7 @@ ISA	19	1	God		God (the LORD)	Potential
 ISA	19	2	God		God (the LORD)	Implicit		
 ISA	19	3	God		God (the LORD)	Implicit		
 ISA	19	4	God		God (the LORD)	Normal		
-ISA	19	11	wise men of Pharaoh			Hypothetical		
+ISA	19	11	wise counselors of Pharaoh			Hypothetical		
 ISA	19	25	God		God (the LORD)	Normal		
 ISA	20	2	God		God (the LORD)	Normal		
 ISA	20	3	God		God (the LORD)	Normal		
@@ -9361,7 +9365,7 @@ ISA	28	10	Needs Review			Potential
 ISA	28	10	God		God (the LORD)	Quotation		
 ISA	28	12	God		God (the LORD)	Quotation		
 ISA	28	13	God	mocking	God (the LORD)	Normal		
-ISA	28	15	rulers of people in Jerusalem	boasting		Hypothetical		
+ISA	28	15	scoffers who rule people in Jerusalem	boasting		Hypothetical		
 ISA	28	16	God		God (the LORD)	Normal		
 ISA	28	17	God		God (the LORD)	Normal		
 ISA	28	18	God		God (the LORD)	Potential		
@@ -10066,58 +10070,88 @@ ISA	62	9	God		God (the LORD)	Implicit
 ISA	62	11	God		God (the LORD)	Normal		
 ISA	62	12	God		God (the LORD)	Potential		
 ISA	62	12	narrator-ISA			Quotation		
-ISA	63	1	one with garments stained crimson (Christ?)		one with garments stained crimson	Normal	Jesus	
-ISA	63	3	one with garments stained crimson (Christ?)		one with garments stained crimson	Normal	Jesus	
-ISA	63	4	one with garments stained crimson (Christ?)		one with garments stained crimson	Normal	Jesus	
-ISA	63	5	one with garments stained crimson (Christ?)		one with garments stained crimson	Normal	Jesus	
-ISA	63	6	one with garments stained crimson (Christ?)		one with garments stained crimson	Normal	Jesus	
+ISA	63	1	Isaiah			Potential		
+ISA	63	1	Jesus		Jesus (one with garments stained crimson)	Normal		
+ISA	63	1	God		God (one with dyed garments)	Normal		
+ISA	63	1	Needs Review			Normal		
+ISA	63	2	Isaiah			Potential		
+ISA	63	2	Jesus		Jesus (one with garments stained crimson)	Normal		
+ISA	63	2	God		God (one with dyed garments)	Normal		
+ISA	63	2	Needs Review			Normal		
+ISA	63	3	God		God (one with dyed garments)	Implicit		
+ISA	63	3	Jesus		Jesus (one with garments stained crimson)	Alternate		
+ISA	63	3	Needs Review			Alternate		
+ISA	63	4	God		God (one with dyed garments)	Implicit		
+ISA	63	4	Jesus		Jesus (one with garments stained crimson)	Alternate		
+ISA	63	4	Needs Review			Alternate		
+ISA	63	5	God		God (one with dyed garments)	Implicit		
+ISA	63	5	Jesus		Jesus (one with garments stained crimson)	Alternate		
+ISA	63	5	Needs Review			Alternate		
+ISA	63	6	God		God (one with dyed garments)	Implicit		
+ISA	63	6	Jesus		Jesus (one with garments stained crimson)	Alternate		
+ISA	63	6	Needs Review			Alternate		
+ISA	63	7	Isaiah			Potential		
 ISA	63	8	God		God (the LORD)	Normal		
-ISA	65	1	God		God (the LORD)	Normal		
-ISA	65	2	God		God (the LORD)	Normal		
-ISA	65	3	God		God (the LORD)	Normal		
-ISA	65	4	God		God (the LORD)	Normal		
-ISA	65	5	God		God (the LORD)	Normal		
-ISA	65	6	God		God (the LORD)	Normal		
+ISA	63	11	narrator-ISA			Quotation		
+ISA	63	11	people, God's			Quotation		
+ISA	63	12	narrator-ISA			Quotation		
+ISA	63	12	people, God's			Quotation		
+ISA	63	13	narrator-ISA			Quotation		
+ISA	63	13	people, God's			Quotation		
+ISA	63	14	narrator-ISA			Quotation		
+ISA	63	14	people, God's			Quotation		
+ISA	65	1	God		God (the LORD)	Implicit		
+ISA	65	2	God		God (the LORD)	Implicit		
+ISA	65	3	God		God (the LORD)	Implicit		
+ISA	65	4	God		God (the LORD)	Implicit		
+ISA	65	5	God		God (the LORD)	Implicit		
+ISA	65	6	God		God (the LORD)	Implicit		
 ISA	65	7	God		God (the LORD)	Normal		
 ISA	65	8	God		God (the LORD)	Normal		
-ISA	65	9	God		God (the LORD)	Normal		
-ISA	65	10	God		God (the LORD)	Normal		
-ISA	65	11	God		God (the LORD)	Normal		
-ISA	65	12	God		God (the LORD)	Normal		
+ISA	65	9	God		God (the LORD)	Implicit		
+ISA	65	10	God		God (the LORD)	Implicit		
+ISA	65	11	God		God (the LORD)	Implicit		
+ISA	65	12	God		God (the LORD)	Implicit		
 ISA	65	13	God		God (the LORD)	Normal		
-ISA	65	14	God		God (the LORD)	Normal		
-ISA	65	15	God		God (the LORD)	Normal		
-ISA	65	16	God		God (the LORD)	Normal		
-ISA	65	17	God		God (the LORD)	Normal		
-ISA	65	18	God		God (the LORD)	Normal		
-ISA	65	19	God		God (the LORD)	Normal		
-ISA	65	20	God		God (the LORD)	Normal		
-ISA	65	21	God		God (the LORD)	Normal		
-ISA	65	22	God		God (the LORD)	Normal		
-ISA	65	23	God		God (the LORD)	Normal		
-ISA	65	24	God		God (the LORD)	Normal		
+ISA	65	14	God		God (the LORD)	Implicit		
+ISA	65	15	God		God (the LORD)	Implicit		
+ISA	65	16	God		God (the LORD)	Implicit		
+ISA	65	17	God		God (the LORD)	Implicit		
+ISA	65	18	God		God (the LORD)	Implicit		
+ISA	65	19	God		God (the LORD)	Implicit		
+ISA	65	20	God		God (the LORD)	Implicit		
+ISA	65	21	God		God (the LORD)	Implicit		
+ISA	65	22	God		God (the LORD)	Implicit		
+ISA	65	23	God		God (the LORD)	Implicit		
+ISA	65	24	God		God (the LORD)	Implicit		
 ISA	65	25	God		God (the LORD)	Normal		
 ISA	66	1	God		God (the LORD)	Normal		
 ISA	66	2	God		God (the LORD)	Normal		
-ISA	66	3	God		God (the LORD)	Normal		
-ISA	66	4	God		God (the LORD)	Normal		
+ISA	66	3	God		God (the LORD)	Implicit		
+ISA	66	4	God		God (the LORD)	Implicit		
 ISA	66	5	God		God (the LORD)	Normal		
-ISA	66	6	God		God (the LORD)	Normal		
-ISA	66	7	God		God (the LORD)	Normal		
-ISA	66	8	God		God (the LORD)	Normal		
+ISA	66	5	brothers who hate you			Hypothetical		
+ISA	66	6	God		God (the LORD)	Alternate		
+ISA	66	6	Isaiah			Potential		
+ISA	66	6	Needs Review			Implicit		
+ISA	66	7	God		God (the LORD)	Implicit		
+ISA	66	8	God		God (the LORD)	Implicit		
 ISA	66	9	God		God (the LORD)	Normal		
-ISA	66	10	God		God (the LORD)	Normal		
-ISA	66	11	God		God (the LORD)	Normal		
+ISA	66	10	God		God (the LORD)	Potential		
+ISA	66	11	God		God (the LORD)	Potential		
 ISA	66	12	God		God (the LORD)	Normal		
-ISA	66	13	God		God (the LORD)	Normal		
+ISA	66	13	God		God (the LORD)	Implicit		
+ISA	66	14	God		God (the LORD)	Potential		
+ISA	66	15	God		God (the LORD)	Potential		
+ISA	66	16	God		God (the LORD)	Potential		
 ISA	66	17	God		God (the LORD)	Normal		
-ISA	66	18	God		God (the LORD)	Normal		
-ISA	66	19	God		God (the LORD)	Normal		
+ISA	66	18	God		God (the LORD)	Implicit		
+ISA	66	19	God		God (the LORD)	Implicit		
 ISA	66	20	God		God (the LORD)	Normal		
 ISA	66	21	God		God (the LORD)	Normal		
 ISA	66	22	God		God (the LORD)	Normal		
 ISA	66	23	God		God (the LORD)	Normal		
-ISA	66	24	God		God (the LORD)	Normal		
+ISA	66	24	God		God (the LORD)	Implicit		
 JER	1	5	God		God (the LORD)	Normal		
 JER	1	6	Jeremiah			Potential		
 JER	1	7	God		God (the LORD)	Normal		
@@ -13249,9 +13283,9 @@ ZEC	1	3	God		God (the LORD)	Normal
 ZEC	1	4	God		God (the LORD)	Normal		
 ZEC	1	5	God		God (the LORD)	Normal		
 ZEC	1	6	God		God (the LORD)	Normal		
-ZEC	1	8	Zechariah		Zechariah (in vision)	Normal		
+ZEC	1	8	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Normal		
 ZEC	1	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	9	Zechariah		Zechariah (in vision)	Normal		
+ZEC	1	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Normal		
 ZEC	1	10	man standing among myrtle trees	vision		Normal		
 ZEC	1	11	horses (or their angelic riders) (in vision)			Normal		
 ZEC	1	12	angel of the LORD, the			Normal	Jesus	
@@ -13259,17 +13293,17 @@ ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (in vi
 ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	17	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	18	Zechariah		Zechariah (in vision)	Potential		
+ZEC	1	18	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	19	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	19	Zechariah		Zechariah (in vision)	Potential		
-ZEC	1	20	Zechariah		Zechariah (in vision)	Potential		
+ZEC	1	19	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	20	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	21	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	21	Zechariah			Potential		
+ZEC	1	21	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	1	21	God		God (the LORD)	Normal		
-ZEC	2	1	Zechariah		Zechariah (in vision)	Potential		
+ZEC	2	1	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	2	man with measuring line (in vision)			Normal		
-ZEC	2	2	Zechariah		Zechariah (in vision)	Potential		
-ZEC	2	3	Zechariah		Zechariah (in vision)	Potential		
+ZEC	2	2	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	2	3	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	4	angel, another (in vision)			Normal		
 ZEC	2	5	God		God (the LORD) (in vision)	Normal		
 ZEC	2	6	God		God (the LORD) (in vision)	Normal		
@@ -13280,88 +13314,88 @@ ZEC	2	10	God		God (the LORD) (in vision)	Normal
 ZEC	2	11	God		God (the LORD) (in vision)	Normal		
 ZEC	2	12	God		God (the LORD) (in vision)	Normal		
 ZEC	2	13	God		God (the LORD)(vision	Normal		
-ZEC	3	1	Zechariah		Zechariah (in vision)	Potential		
-ZEC	3	2	Zechariah		Zechariah (in vision)	Potential		
+ZEC	3	1	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	3	2	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	2	God		God (the LORD) (in vision)	Normal		
 ZEC	3	2	angel of the LORD, the			Normal	Jesus	
-ZEC	3	3	Zechariah		Zechariah (in vision)	Potential		
+ZEC	3	3	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	4	angel of the LORD, the			Normal	Jesus	
-ZEC	3	4	Zechariah		Zechariah (in vision)	Potential		
-ZEC	3	5	Zechariah		Zechariah (in vision)	Potential		
-ZEC	3	6	Zechariah		Zechariah (in vision)	Potential		
+ZEC	3	4	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	3	5	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	3	6	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	7	angel of the LORD, the			Normal	Jesus	
 ZEC	3	8	angel of the LORD, the			Normal	Jesus	
 ZEC	3	9	angel of the LORD, the			Normal	Jesus	
 ZEC	3	10	angel of the LORD, the			Normal	Jesus	
-ZEC	4	1	Zechariah			Potential		
+ZEC	4	1	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	2	angel who talked with Zechariah			Potential		
-ZEC	4	2	Zechariah			Potential		
-ZEC	4	3	Zechariah			Potential		
-ZEC	4	4	Zechariah			Potential		
+ZEC	4	2	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	4	3	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	4	4	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	5	angel who talked with Zechariah			Normal		
-ZEC	4	5	Zechariah			Potential		
+ZEC	4	5	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	6	angel who talked with Zechariah			Normal		
 ZEC	4	7	angel who talked with Zechariah			Normal		
-ZEC	4	8	Zechariah			Potential		
+ZEC	4	8	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	9	God		God (the LORD)	Normal		
-ZEC	4	9	Zechariah			Potential		
+ZEC	4	9	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	10	God		God (the LORD)	Normal		
-ZEC	4	10	Zechariah			Potential		
-ZEC	4	11	Zechariah			Potential		
-ZEC	4	12	Zechariah			Potential		
+ZEC	4	10	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	4	11	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	4	12	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	13	angel who talked with Zechariah			Normal		
-ZEC	4	13	Zechariah			Potential		
+ZEC	4	13	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	4	14	angel who talked with Zechariah			Normal		
-ZEC	5	1	Zechariah			Potential		
+ZEC	5	1	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	5	2	angel who talked with Zechariah			Normal		
-ZEC	5	2	Zechariah			Potential		
+ZEC	5	2	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	5	3	angel who talked with Zechariah			Normal		
 ZEC	5	4	angel who talked with Zechariah			Normal		
 ZEC	5	5	angel who talked with Zechariah			Normal		
 ZEC	5	6	angel who talked with Zechariah			Normal		
-ZEC	5	6	Zechariah			Potential		
+ZEC	5	6	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	5	7	angel who talked with Zechariah			Potential		
 ZEC	5	8	angel who talked with Zechariah			Normal		
-ZEC	5	9	Zechariah			Potential		
-ZEC	5	10	Zechariah			Potential		
+ZEC	5	9	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	5	10	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	5	11	angel who talked with Zechariah			Normal		
-ZEC	6	1	Zechariah			Potential		
-ZEC	6	2	Zechariah			Potential		
-ZEC	6	3	Zechariah			Potential		
-ZEC	6	4	Zechariah			Potential		
+ZEC	6	1	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	6	2	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	6	3	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	6	4	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	5	angel who talked with Zechariah			Normal		
 ZEC	6	6	angel who talked with Zechariah			Normal		
 ZEC	6	7	angel who talked with Zechariah			Normal		
-ZEC	6	7	Zechariah			Potential		
+ZEC	6	7	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	8	angel who talked with Zechariah			Normal		
-ZEC	6	9	Zechariah			Potential		
+ZEC	6	9	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	10	God		God (the LORD)	Normal		
-ZEC	6	10	Zechariah			Potential		
+ZEC	6	10	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	11	God		God (the LORD)	Normal		
-ZEC	6	11	Zechariah			Potential		
+ZEC	6	11	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	12	God		God (the LORD)	Normal		
-ZEC	6	12	Zechariah			Potential		
+ZEC	6	12	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	13	God		God (the LORD)	Normal		
-ZEC	6	13	Zechariah			Potential		
+ZEC	6	13	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	14	God		God (the LORD)	Normal		
-ZEC	6	14	Zechariah			Potential		
+ZEC	6	14	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	6	15	God		God (the LORD)	Normal		
-ZEC	6	15	Zechariah			Potential		
+ZEC	6	15	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	7	3	Sharezer/Regem-Melech/men of Bethel			Normal		
-ZEC	7	4	Zechariah			Potential		
-ZEC	7	5-7	Zechariah		Zechariah (the LORD says)	Normal		
+ZEC	7	4	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	7	5-7	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
 ZEC	7	5-7	God			Normal		
-ZEC	7	8	Zechariah			Potential		
-ZEC	7	9-14	Zechariah		Zechariah (the LORD says)	Normal		
+ZEC	7	8	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	7	9-14	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
 ZEC	7	9-14	God			Normal		
-ZEC	8	1	Zechariah			Implicit		
-ZEC	8	2-17	Zechariah		Zechariah (the LORD says)	Normal		
+ZEC	8	1	Zechariah the prophet, son of Berechiah			Implicit		
+ZEC	8	2-17	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
 ZEC	8	2-17	God			Normal		
-ZEC	8	18	Zechariah			Potential		
-ZEC	8	19-23	Zechariah		Zechariah (the LORD says)	Potential		
+ZEC	8	18	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	8	19-23	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Potential		
 ZEC	8	19-23	God			Normal		
-ZEC	9	1-17	Zechariah			Implicit		
-ZEC	10	1-2	Zechariah			Implicit		
+ZEC	9	1-17	Zechariah the prophet, son of Berechiah			Implicit		
+ZEC	10	1-2	Zechariah the prophet, son of Berechiah			Implicit		
 ZEC	10	3	God		God (the LORD)	Potential		
 ZEC	10	4	God		God (the LORD)	Potential		
 ZEC	10	5	God		God (the LORD)	Potential		
@@ -13372,15 +13406,15 @@ ZEC	10	9	God		God (the LORD)	Normal
 ZEC	10	10	God		God (the LORD)	Normal		
 ZEC	10	11	God		God (the LORD)	Normal		
 ZEC	10	12	God		God (the LORD)	Normal		
-ZEC	11	4-6	Zechariah		Zechariah (the LORD says)	Normal		
+ZEC	11	4-6	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
 ZEC	11	4-6	God			Normal		
-ZEC	11	7	Zechariah			Potential		
-ZEC	11	8	Zechariah			Potential		
-ZEC	11	9	Zechariah			Potential		
-ZEC	11	10	Zechariah			Potential		
-ZEC	11	11	Zechariah			Potential		
-ZEC	11	12	Zechariah			Potential		
-ZEC	11	13-17	Zechariah		Zechariah (the LORD says)	Potential		
+ZEC	11	7	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	11	8	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	11	9	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	11	10	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	11	11	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	11	12	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	11	13-17	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Potential		
 ZEC	11	13-17	God			Normal		
 ZEC	12	2-14	God			Normal		
 ZEC	13	1-9	God			Normal		
@@ -14021,7 +14055,7 @@ MAT	20	32	Jesus			Dialogue
 MAT	20	33	blind men, two	begging		Dialogue	Bartimaeus (a blind man)	MAT 20.33;MRK 10.51;LUK 18.41
 MAT	21	2	Jesus			Normal		
 MAT	21	3	Jesus			Normal		
-MAT	21	5	scripture			Quotation	Zechariah	
+MAT	21	5	scripture			Quotation	Zechariah the prophet, son of Berechiah	
 MAT	21	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MAT	21	10	people of Jerusalem		the whole city	Dialogue		
 MAT	21	11	crowd	praising		Dialogue		
@@ -16224,7 +16258,7 @@ JHN	12	7	Jesus			Dialogue
 JHN	12	8	Jesus			Normal		
 JHN	12	10	chief priests	plotting		Indirect		
 JHN	12	13	crowd preparing for Passover Feast	praising	great crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
-JHN	12	15	scripture			Quotation	Zechariah	
+JHN	12	15	scripture			Quotation	Zechariah the prophet, son of Berechiah	
 JHN	12	19	teachers of religious law/Pharisees		Pharisees	Normal		
 JHN	12	21	Greeks	respectful		Dialogue		
 JHN	12	23	Jesus			Dialogue		

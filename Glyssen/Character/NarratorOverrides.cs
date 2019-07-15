@@ -47,18 +47,14 @@ namespace Glyssen.Character
 
 		/// <summary>
 		/// Gets the character to use in the script for a narrator block in the reference range of the given block. Note
-		/// that this code does not bother to check whether the given block is actually a narrator block.
+		/// that this code does not bother to check whether the given block is actually a narrator block. Typically, there
+		/// will only be one override character in the list, but if this is a verse that has an a/b split, then there can be
+		/// two.
 		/// </summary>
-		public static string GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
+		public static IEnumerable<string> GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
 		{
-			var details = GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)?.ToList();
-			switch (details.Count)
-			{
-				case 0: return null;
-				case 1: return details[0].Character;
-				default:
-					throw new NotImplementedException("Handle multiple");
-			}
+			return GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)
+				?.Select(d => d.Character);
 		}
 
 		public static IEnumerable<NarratorOverrideDetail> GetCharacterOverrideDetailsForRefRange(VerseRef startRef, int endVerse)
