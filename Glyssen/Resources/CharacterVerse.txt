@@ -178,10 +178,14 @@ GEN	17	21	God		God (the LORD)	Implicit
 GEN	18	3	Abraham (Abram)			Normal		
 GEN	18	4	Abraham (Abram)			Implicit		
 GEN	18	5	Abraham (Abram)			Normal		
-GEN	18	5	three men (two angels and the LORD)		God (the LORD) (three men)	Normal	angels at Sodom, two	
+GEN	18	5	Needs Review			Normal		
+GEN	18	5	God			Alternate		
+GEN	18	5	angels at Sodom, two/God		three men (two angels, plus Yahweh)	Alternate	angels at Sodom, two	
 GEN	18	6	Abraham (Abram)			Normal		
 GEN	18	9	Abraham (Abram)			Normal		
-GEN	18	9	three men (two angels and the LORD)		God (the LORD) (three men)	Normal	angels at Sodom, two	
+GEN	18	9	Needs Review			Normal		
+GEN	18	9	God			Alternate		
+GEN	18	9	angels at Sodom, two/God		three men (two angels, plus Yahweh)	Alternate	angels at Sodom, two	
 GEN	18	10	God		God (the LORD)	Normal		
 GEN	18	12	Sarah (Sarai) (old)			Normal		
 GEN	18	13	God		God (the LORD)	Normal		
@@ -208,23 +212,23 @@ GEN	18	31	Abraham (Abram)			Normal
 GEN	18	31	God		God (the LORD)	Normal		
 GEN	18	32	Abraham (Abram)			Normal		
 GEN	18	32	God		God (the LORD)	Normal		
-GEN	19	2	angels at Sodom, two		angels appeared like men, two	Normal		
+GEN	19	2	angels at Sodom, two			Normal		
 GEN	19	2	Lot			Normal		
-GEN	19	3	angels at Sodom, two		angels appeared like men, two	Indirect		
+GEN	19	3	angels at Sodom, two			Indirect		
 GEN	19	5	men of Sodom (wicked)			Normal		
 GEN	19	7	Lot			Normal		
 GEN	19	8	Lot			Implicit		
 GEN	19	9	men of Sodom (wicked)			Normal		
-GEN	19	12	angels at Sodom, two		angels appeared like men, two	Normal		
-GEN	19	13	angels at Sodom, two		angels appeared like men, two	Implicit		
+GEN	19	12	angels at Sodom, two			Normal		
+GEN	19	13	angels at Sodom, two			Implicit		
 GEN	19	14	Lot			Normal		
-GEN	19	15	angels at Sodom, two		angels appeared like men, two	Normal		
-GEN	19	17	angels at Sodom, two		angels appeared like men, two	Normal		
+GEN	19	15	angels at Sodom, two			Normal		
+GEN	19	17	angels at Sodom, two			Normal		
 GEN	19	18	Lot			Normal		
 GEN	19	19	Lot			Implicit		
 GEN	19	20	Lot			Implicit		
-GEN	19	21	angels at Sodom, two		angels appeared like men, two	Normal		
-GEN	19	22	angels at Sodom, two		angels appeared like men, two	Normal		
+GEN	19	21	angels at Sodom, two			Normal		
+GEN	19	22	angels at Sodom, two			Normal		
 GEN	19	31	older daughter of Lot			Normal		
 GEN	19	32	older daughter of Lot			Implicit		
 GEN	19	34	older daughter of Lot			Normal		
@@ -322,7 +326,7 @@ GEN	24	49	Abraham's chief servant			Normal
 GEN	24	50	Laban/Bethuel, Rebekah's father			Normal	Laban	
 GEN	24	51	Laban/Bethuel, Rebekah's father			Normal	Laban	
 GEN	24	54	Abraham's chief servant			Normal		
-GEN	24	55	Laban/Rebekah's mother			Normal	Rebekah's mother	
+GEN	24	55	Laban/Rebekah's mother			Normal		
 GEN	24	56	Abraham's chief servant			Normal		
 GEN	24	57	Laban/Rebekah's mother			Normal	Laban	
 GEN	24	58	Laban/Rebekah's mother			Normal	Laban	
@@ -544,10 +548,10 @@ GEN	34	9	Hamor, Hivite ruler			Normal
 GEN	34	10	Hamor, Hivite ruler			Normal		
 GEN	34	11	Shechem, son of Hamor			Normal		
 GEN	34	12	Shechem, son of Hamor			Normal		
-GEN	34	14	Simeon/Levi		Jacob's sons	Normal	Simeon	
-GEN	34	15	Simeon/Levi		Jacob's sons	Normal	Simeon	
-GEN	34	16	Simeon/Levi		Jacob's sons	Normal	Levi	
-GEN	34	17	Simeon/Levi		Jacob's sons	Normal	Levi	
+GEN	34	14	Simeon/Levi		Jacob's sons	Normal		
+GEN	34	15	Simeon/Levi		Jacob's sons	Normal		
+GEN	34	16	Simeon/Levi		Jacob's sons	Normal		
+GEN	34	17	Simeon/Levi		Jacob's sons	Normal		
 GEN	34	21	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Hamor, Hivite ruler	
 GEN	34	22	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Hamor, Hivite ruler	
 GEN	34	23	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Shechem, son of Hamor	
@@ -618,7 +622,7 @@ GEN	39	17	Potiphar's wife			Normal
 GEN	39	18	Potiphar's wife			Normal		
 GEN	39	19	Potiphar's wife			Normal		
 GEN	40	7	Joseph			Normal		
-GEN	40	8	chief cupbearer of Egypt/chief baker of Egypt			Normal	chief cupbearer of Egypt	
+GEN	40	8	chief cupbearer of Egypt/chief baker of Egypt			Normal	chief baker of Egypt	
 GEN	40	8	Joseph			Normal		
 GEN	40	9	chief cupbearer of Egypt			Normal		
 GEN	40	10	chief cupbearer of Egypt			Normal		
@@ -2686,9 +2690,9 @@ NUM	13	33	explorers, ten			Normal
 NUM	14	2	Israelite community	grumbling		Normal		
 NUM	14	3	Israelite community	grumbling		Normal		
 NUM	14	4	Israelite community	grumbling		Normal		
-NUM	14	7	Joshua/Caleb			Normal	Joshua	NUM 14.7; DEU 1.25
-NUM	14	8	Joshua/Caleb			Normal	Joshua	
-NUM	14	9	Joshua/Caleb			Normal	Joshua	
+NUM	14	7	Joshua/Caleb			Normal	Caleb	NUM 14.7; DEU 1.25
+NUM	14	8	Joshua/Caleb			Normal	Caleb	
+NUM	14	9	Joshua/Caleb			Normal	Caleb	
 NUM	14	11	God		God (the LORD)	Normal		
 NUM	14	12	God		God (the LORD)	Normal		
 NUM	14	13	Moses			Normal		

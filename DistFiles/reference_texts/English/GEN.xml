@@ -20,7 +20,9 @@
     <text>«Let there be light,»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-GEN">
-    <text>and there was light. </text>
+    <text>and there was light.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-GEN">
     <verse num="4" />
     <text>God saw the light, and saw that it was good. God divided the light from the darkness.</text>
   </block>
@@ -173,7 +175,9 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-GEN">
     <verse num="5" />
-    <text>No plant of the field was yet in the earth, and no herb of the field had yet sprung up; for God had not caused it to rain on the earth. There was not a man to till the ground, </text>
+    <text>No plant of the field was yet in the earth, and no herb of the field had yet sprung up; for God had not caused it to rain on the earth. There was not a man to till the ground,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-GEN">
     <verse num="6" />
     <text>but a mist went up from the earth, and watered the whole surface of the ground.</text>
   </block>
@@ -273,7 +277,9 @@
     <text>The woman said to the serpent,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="Eve">
-    <text>«Of the fruit of the trees of the garden we may eat, </text>
+    <text>«Of the fruit of the trees of the garden we may eat,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="3" characterId="Eve">
     <verse num="3" />
     <text>but of the fruit of the tree which is in the middle of the garden, God has said, You shall not eat of it, neither shall you touch it, lest you die.»</text>
   </block>
@@ -282,7 +288,9 @@
     <text>The serpent said to the woman,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="serpent">
-    <text>«You won't surely die, </text>
+    <text>«You won't surely die,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="5" characterId="serpent">
     <verse num="5" />
     <text>for God knows that in the day you eat it, your eyes will be opened, and you will be like God, knowing good and evil.»</text>
   </block>
@@ -416,7 +424,9 @@
     <text>Abel also brought some of the firstborn of his flock and of its fat.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-GEN">
-    <text>God respected Abel and his offering, </text>
+    <text>God respected Abel and his offering,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-GEN">
     <verse num="5" />
     <text>but he didn't respect Cain and his offering. Cain was very angry, and the expression on his face fell. </text>
     <verse num="6" />
@@ -671,7 +681,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-GEN">
     <verse num="1" />
-    <text>It happened, when men began to multiply on the surface of the ground, and daughters were born to them, </text>
+    <text>It happened, when men began to multiply on the surface of the ground, and daughters were born to them,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
     <text>that God's sons saw that men's daughters were beautiful, and they took for themselves wives of all that they chose. </text>
     <verse num="3" />
@@ -794,7 +806,9 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-GEN">
     <verse num="8" />
-    <text>Clean animals, animals that are not clean, birds, and everything that creeps on the ground </text>
+    <text>Clean animals, animals that are not clean, birds, and everything that creeps on the ground</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
     <text>went by pairs to Noah into the ship, male and female, as God commanded Noah.</text>
   </block>
@@ -883,13 +897,17 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-GEN">
     <verse num="6" />
-    <text>It happened at the end of forty days, that Noah opened the window of the ship which he had made, </text>
+    <text>It happened at the end of forty days, that Noah opened the window of the ship which he had made,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-GEN">
     <verse num="7" />
     <text>and he sent forth a raven. It went back and forth, until the waters were dried up from the earth.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="8" characterId="narrator-GEN">
     <verse num="8" />
-    <text>He sent forth a dove from him, to see if the waters were abated from the surface of the ground, </text>
+    <text>He sent forth a dove from him, to see if the waters were abated from the surface of the ground,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
     <text>but the dove found no place to rest her foot, and she returned to him into the ship; for the waters were on the surface of the whole earth. He put forth his hand, and took her, and brought her to him into the ship.</text>
   </block>
@@ -1441,7 +1459,9 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-GEN">
     <verse num="3" />
-    <text>He went on his journeys from the South even to Bethel, to the place where his tent had been at the beginning, between Bethel and Ai, </text>
+    <text>He went on his journeys from the South even to Bethel, to the place where his tent had been at the beginning, between Bethel and Ai,</text>
+  </block>
+  <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-GEN">
     <verse num="4" />
     <text>to the place of the altar, which he had made there at the first. There Abram called on the name of God.</text>
   </block>
@@ -1508,7 +1528,9 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-GEN">
     <verse num="1" />
-    <text>It happened in the days of Amraphel, king of Shinar, Arioch, king of Ellasar, Chedorlaomer, king of Elam, and Tidal, king of Goiim, </text>
+    <text>It happened in the days of Amraphel, king of Shinar, Arioch, king of Ellasar, Chedorlaomer, king of Elam, and Tidal, king of Goiim,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
     <text>that they made war with Bera, king of Sodom, and with Birsha, king of Gomorrah, Shinab, king of Admah, and Shemeber, king of Zeboiim, and the king of Bela (the same is Zoar).</text>
   </block>
@@ -1522,7 +1544,9 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="5" characterId="narrator-GEN">
     <verse num="5" />
-    <text>In the fourteenth year Chedorlaomer came, and the kings who were with him, and struck the Rephaim in Ashteroth Karnaim, and the Zuzim in Ham, and the Emim in Shaveh Kiriathaim, </text>
+    <text>In the fourteenth year Chedorlaomer came, and the kings who were with him, and struck the Rephaim in Ashteroth Karnaim, and the Zuzim in Ham, and the Emim in Shaveh Kiriathaim,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="6" characterId="narrator-GEN">
     <verse num="6" />
     <text>and the Horites in their Mount Seir, to Elparan, which is by the wilderness.</text>
   </block>
@@ -1978,7 +2002,7 @@
   <block style="p" chapter="18" initialStartVerse="5" characterId="narrator-GEN">
     <text>They said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="5" characterId="three men (two angels and the LORD)">
+  <block style="p" chapter="18" initialStartVerse="5" characterId="God">
     <text>«Very well, do as you have said.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="6" characterId="narrator-GEN">
@@ -1994,14 +2018,11 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="8" characterId="narrator-GEN">
     <verse num="8" />
-    <text>He took butter, milk, and the calf which he had dressed, and set it before them.</text>
-  </block>
-  <block style="p" chapter="18" initialStartVerse="8" characterId="narrator-GEN">
-    <text>He stood by them under the tree, and they ate. </text>
+    <text>He took butter, milk, and the calf which he had dressed, and set it before them. He stood by them under the tree, and they ate. </text>
     <verse num="9" />
     <text>They asked him,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="9" characterId="three men (two angels and the LORD)">
+  <block style="p" chapter="18" initialStartVerse="9" characterId="God">
     <text>«Where is Sarah, your wife?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="9" characterId="narrator-GEN">
@@ -2391,7 +2412,13 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
-    <text>Abraham said about Sarah his wife, «She is my sister.» Abimelech king of Gerar sent, and took Sarah.</text>
+    <text>Abraham said about Sarah his wife,</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="2" characterId="Abraham (Abram)">
+    <text>«She is my sister.»</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-GEN">
+    <text>Abimelech king of Gerar sent, and took Sarah.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="3" characterId="narrator-GEN">
     <verse num="3" />
@@ -2711,7 +2738,9 @@
     <text>«God will provide himself the lamb for a burnt offering, my son.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="8" characterId="narrator-GEN">
-    <text>So they both went together. </text>
+    <text>So they both went together.</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
     <text>They came to the place which God had told him of. Abraham built the altar there, and laid the wood in order, bound Isaac his son, and laid him on the altar, on the wood.</text>
   </block>
@@ -2747,7 +2776,7 @@
     <verse num="14" />
     <text>Abraham called the name of that place God Will Provide. As it is said to this day,</text>
   </block>
-  <block style="p" chapter="22" initialStartVerse="14" characterId="narrator-GEN">
+  <block style="p" chapter="22" initialStartVerse="14" characterId="Abraham (Abram)">
     <text>«On God's mountain, it will be provided.»</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="15" characterId="narrator-GEN">
@@ -2822,7 +2851,9 @@
     <text>He talked with them, saying,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="8" characterId="Abraham (Abram)">
-    <text>«If it be your mind that I should bury my dead out of my sight, hear me, and entreat for me to Ephron the son of Zohar, </text>
+    <text>«If it be your mind that I should bury my dead out of my sight, hear me, and entreat for me to Ephron the son of Zohar,</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="9" characterId="Abraham (Abram)">
     <verse num="9" />
     <text>that he may give me the cave of Machpelah, which he has, which is in the end of his field. For the full price let him give it to me among you for a possession of a burying-place.»</text>
   </block>
@@ -2881,7 +2912,9 @@
     <text>Abraham said to his servant, the elder of his house, who ruled over all that he had,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="Abraham (Abram)">
-    <text>«Please put your hand under my thigh. </text>
+    <text>«Please put your hand under my thigh.</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="3" characterId="Abraham (Abram)">
     <verse num="3" />
     <text>I will make you swear by God, the God of heaven and the God of the earth, that you shall not take a wife for my son of the daughters of the Canaanites, among whom I live.</text>
   </block>
@@ -3233,7 +3266,9 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="5" characterId="narrator-GEN">
     <verse num="5" />
-    <text>Abraham gave all that he had to Isaac, </text>
+    <text>Abraham gave all that he had to Isaac,</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="6" characterId="narrator-GEN">
     <verse num="6" />
     <text>but to the sons of Abraham's concubines, Abraham gave gifts. He sent them away from Isaac his son, while he yet lived, eastward, to the east country.</text>
   </block>
@@ -3384,7 +3419,9 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>I will multiply your seed as the stars of the sky, and will give to your seed all these lands. In your seed will all the nations of the earth be blessed, </text>
+    <text>I will multiply your seed as the stars of the sky, and will give to your seed all these lands. In your seed will all the nations of the earth be blessed,</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>because Abraham obeyed my voice, and kept my requirements, my commandments, my statutes, and my laws.»</text>
   </block>
@@ -3584,7 +3621,9 @@
     <text>Rebekah spoke to Jacob her son, saying,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="6" characterId="Rebekah">
-    <text>«Behold, I heard your father speak to Esau your brother, saying, </text>
+    <text>«Behold, I heard your father speak to Esau your brother, saying,</text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="7" characterId="Rebekah">
     <verse num="7" />
     <text>Bring me venison, and make me savory food, that I may eat, and bless you before God before my death.'</text>
   </block>
@@ -3857,7 +3896,9 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="3" characterId="Isaac (old)">
     <verse num="3" />
-    <text>May God Almighty bless you, and make you fruitful, and multiply you, that you may be a company of peoples, </text>
+    <text>May God Almighty bless you, and make you fruitful, and multiply you, that you may be a company of peoples,</text>
+  </block>
+  <block style="p" chapter="28" initialStartVerse="4" characterId="Isaac (old)">
     <verse num="4" />
     <text>and give you the blessing of Abraham, to you, and to your seed with you, that you may inherit the land where you travel, which God gave to Abraham.»</text>
   </block>
@@ -4201,7 +4242,9 @@
     <text>«With mighty wrestlings have I wrestled with my sister, and have prevailed.»</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="8" characterId="narrator-GEN">
-    <text>She named him Naphtali. </text>
+    <text>She named him Naphtali.</text>
+  </block>
+  <block style="p" chapter="30" initialStartVerse="9" characterId="narrator-GEN">
     <verse num="9" />
     <text>When Leah saw that she had finished bearing, she took Zilpah, her handmaid, and gave her to Jacob as a wife.</text>
   </block>
@@ -4457,14 +4500,14 @@
     <verse num="14" />
     <text>Rachel and Leah answered him,</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="14" characterId="Rachel/Leah" characterIdOverrideForScript="Leah">
+  <block style="p" chapter="31" initialStartVerse="14" characterId="Rachel/Leah" characterIdOverrideForScript="Rachel">
     <text>«Is there yet any portion or inheritance for us in our father's house?</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="15" characterId="Rachel/Leah" characterIdOverrideForScript="Leah">
+  <block style="p" chapter="31" initialStartVerse="15" characterId="Rachel/Leah" characterIdOverrideForScript="Rachel">
     <verse num="15" />
     <text>Aren't we accounted by him as foreigners? For he has sold us, and has also quite devoured our money.</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="16" characterId="Rachel/Leah" characterIdOverrideForScript="Leah">
+  <block style="p" chapter="31" initialStartVerse="16" characterId="Rachel/Leah" characterIdOverrideForScript="Rachel">
     <verse num="16" />
     <text>For all the riches which God has taken away from our father, that is ours and our children's. Now then, whatever God has said to you, do.»</text>
   </block>
@@ -4554,7 +4597,9 @@
     <text>«Don't let my lord be angry that I can't rise up before you; for I'm having my period.»</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="35" characterId="narrator-GEN">
-    <text>He searched, but didn't find the teraphim. </text>
+    <text>He searched, but didn't find the teraphim.</text>
+  </block>
+  <block style="p" chapter="31" initialStartVerse="36" characterId="narrator-GEN">
     <verse num="36" />
     <text>Jacob was angry, and argued with Laban. Jacob answered Laban,</text>
   </block>
@@ -4668,7 +4713,9 @@
     <text>«This is God's army.»</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="2" characterId="narrator-GEN">
-    <text>He called the name of that place Mahanaim. </text>
+    <text>He called the name of that place Mahanaim.</text>
+  </block>
+  <block style="p" chapter="32" initialStartVerse="3" characterId="narrator-GEN">
     <verse num="3" />
     <text>Jacob sent messengers in front of him to Esau, his brother, to the land of Seir, the field of Edom. </text>
     <verse num="4" />
@@ -4749,7 +4796,9 @@
     <text>He commanded also the second, and the third, and all that followed the herds, saying,</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="19" characterId="Jacob (Israel)">
-    <text>«This is how you shall speak to Esau, when you find him. </text>
+    <text>«This is how you shall speak to Esau, when you find him.</text>
+  </block>
+  <block style="p" chapter="32" initialStartVerse="20" characterId="Jacob (Israel)" delivery="thought">
     <verse num="20" />
     <text>You shall say, Not only that, but behold, your servant, Jacob, is behind us.»</text>
   </block>
@@ -5061,7 +5110,7 @@
     <verse num="22" />
     <text>Only on this condition will the men consent to us to live with us, to become one people, if every male among us is circumcised, as they are circumcised.</text>
   </block>
-  <block style="p" chapter="34" initialStartVerse="23" characterId="Hamor, Hivite ruler/Shechem, son of Hamor" characterIdOverrideForScript="Hamor, Hivite ruler">
+  <block style="p" chapter="34" initialStartVerse="23" characterId="Hamor, Hivite ruler/Shechem, son of Hamor" characterIdOverrideForScript="Shechem, son of Hamor">
     <verse num="23" />
     <text>Won't their livestock and their possessions and all their animals be ours? Only let us give our consent to them, and they will dwell with us.</text>
   </block>
@@ -5886,7 +5935,9 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="16" characterId="narrator-GEN">
     <verse num="16" />
-    <text>She laid up his garment by her, until his master came home. </text>
+    <text>She laid up his garment by her, until his master came home.</text>
+  </block>
+  <block style="p" chapter="39" initialStartVerse="17" characterId="narrator-GEN">
     <verse num="17" />
     <text>She spoke to him according to these words, saying,</text>
   </block>
@@ -5957,7 +6008,7 @@
     <verse num="8" />
     <text>They said to him,</text>
   </block>
-  <block style="p" chapter="40" initialStartVerse="8" characterId="chief cupbearer of Egypt/chief baker of Egypt" characterIdOverrideForScript="chief cupbearer of Egypt">
+  <block style="p" chapter="40" initialStartVerse="8" characterId="chief cupbearer of Egypt/chief baker of Egypt" characterIdOverrideForScript="chief baker of Egypt">
     <text>«We have dreamed a dream, and there is no one who can interpret it.»</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="8" characterId="narrator-GEN">
@@ -6113,9 +6164,7 @@
     <text>Pharaoh spoke to Joseph,</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="17" characterId="Pharaoh (2nd)">
-    <text>«In my dream, behold, I stood on the brink of the river:</text>
-  </block>
-  <block style="p" chapter="41" initialStartVerse="18" characterId="Pharaoh (2nd)">
+    <text>«In my dream, behold, I stood on the brink of the river: </text>
     <verse num="18" />
     <text>and behold, there came up out of the river seven cattle, fat and sleek. They fed in the marsh grass, </text>
     <verse num="19" />
@@ -6506,7 +6555,9 @@
   </block>
   <block style="p" chapter="43" initialStartVerse="1" characterId="narrator-GEN">
     <verse num="1" />
-    <text>The famine was severe in the land. </text>
+    <text>The famine was severe in the land.</text>
+  </block>
+  <block style="p" chapter="43" initialStartVerse="2" characterId="narrator-GEN">
     <verse num="2" />
     <text>It happened, when they had eaten up the grain which they had brought out of Egypt, their father said to them,</text>
   </block>
@@ -6522,7 +6573,9 @@
   </block>
   <block style="p" chapter="43" initialStartVerse="4" characterId="Judah">
     <verse num="4" />
-    <text>If you'll send our brother with us, we'll go down and buy you food, </text>
+    <text>If you'll send our brother with us, we'll go down and buy you food,</text>
+  </block>
+  <block style="p" chapter="43" initialStartVerse="5" characterId="Judah">
     <verse num="5" />
     <text>but if you'll not send him, we'll not go down, for the man said to us, You shall not see my face, unless your brother is with you.»</text>
   </block>
@@ -6644,11 +6697,13 @@
     <verse num="28" />
     <text>They said,</text>
   </block>
-  <block style="p" chapter="43" initialStartVerse="28" characterId="Jacob's sons">
+  <block style="p" chapter="43" initialStartVerse="28" characterId="Jacob's sons (not Simeon, Joseph, or Benjamin)">
     <text>«Your servant, our father, is well. He is still alive.»</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="28" characterId="narrator-GEN">
-    <text>They bowed the head, and did homage. </text>
+    <text>They bowed the head, and did homage.</text>
+  </block>
+  <block style="p" chapter="43" initialStartVerse="29" characterId="narrator-GEN">
     <verse num="29" />
     <text>He lifted up his eyes, and saw Benjamin, his brother, his mother's son, and said,</text>
   </block>
@@ -6725,7 +6780,7 @@
   <block style="p" chapter="44" initialStartVerse="7" characterId="Jacob's sons">
     <text>«Why does my lord speak such words as these? Far be it from your servants that they should do such a thing!</text>
   </block>
-  <block style="p" chapter="44" initialStartVerse="8" characterId="Jacob's sons">
+  <block style="p" chapter="44" initialStartVerse="8" characterId="Jacob's sons (not Simeon, Joseph, or Benjamin)">
     <verse num="8" />
     <text>Behold, the money, which we found in our sacks' mouths, we brought again to you out of the land of Canaan. How then should we steal silver or gold out of your lord's house?</text>
   </block>
@@ -7028,7 +7083,9 @@
   </block>
   <block style="p" chapter="46" initialStartVerse="6" characterId="narrator-GEN">
     <verse num="6" />
-    <text>They took their livestock, and their goods, which they had gotten in the land of Canaan, and came into Egypt--Jacob, and all his seed with him, </text>
+    <text>They took their livestock, and their goods, which they had gotten in the land of Canaan, and came into Egypt--Jacob, and all his seed with him,</text>
+  </block>
+  <block style="p" chapter="46" initialStartVerse="7" characterId="narrator-GEN">
     <verse num="7" />
     <text>his sons, and his sons' sons with him, his daughters, and his sons' daughters, and he brought all his seed with him into Egypt.</text>
   </block>
@@ -7339,7 +7396,9 @@
     <text>Jacob said to Joseph,</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="3" characterId="Jacob (Israel)">
-    <text>«God Almighty appeared to me at Luz in the land of Canaan, and blessed me, </text>
+    <text>«God Almighty appeared to me at Luz in the land of Canaan, and blessed me,</text>
+  </block>
+  <block style="p" chapter="48" initialStartVerse="4" characterId="Jacob (Israel)">
     <verse num="4" />
     <text>and said to me, 'Behold, I will make you fruitful, and multiply you, and I will make of you a company of peoples, and will give this land to your seed after you for an everlasting possession.'</text>
   </block>
@@ -7595,7 +7654,9 @@
     <text>When the days of weeping for him were past, Joseph spoke to the house of Pharaoh, saying,</text>
   </block>
   <block style="p" chapter="50" initialStartVerse="4" characterId="Joseph">
-    <text>«If now I have found favor in your eyes, please speak in the ears of Pharaoh, saying, </text>
+    <text>«If now I have found favor in your eyes, please speak in the ears of Pharaoh, saying,</text>
+  </block>
+  <block style="p" chapter="50" initialStartVerse="5" characterId="Joseph">
     <verse num="5" />
     <text>My father made me swear, saying, «Behold, I am dying. Bury me in my grave which I have dug for myself in the land of Canaan.» Now therefore, please let me go up and bury my father, and I will come again.»</text>
   </block>
@@ -7608,7 +7669,9 @@
   </block>
   <block style="p" chapter="50" initialStartVerse="7" characterId="narrator-GEN">
     <verse num="7" />
-    <text>Joseph went up to bury his father; and with him went up all the servants of Pharaoh, the elders of his house, all the elders of the land of Egypt, </text>
+    <text>Joseph went up to bury his father; and with him went up all the servants of Pharaoh, the elders of his house, all the elders of the land of Egypt,</text>
+  </block>
+  <block style="p" chapter="50" initialStartVerse="8" characterId="narrator-GEN">
     <verse num="8" />
     <text>all the house of Joseph, his brothers, and his father's house. Only their little ones, their flocks, and their herds, they left in the land of Goshen.</text>
   </block>

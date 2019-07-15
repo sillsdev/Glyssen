@@ -172,6 +172,7 @@ namespace Glyssen.RefTextDevUtilities
 			 * 2) Copy the book files files into a real Glyssen project which would not run a quote parse (version matched control file).
 			 * 3) Run the books through Identify Speaking Parts.
 			 * 4) Copy the files to DistFiles/reference_texts/English.
+			 * 5) Remove all userConfirmed="true"> from the book files.
 			 */
 			GenerateEnglish
 		}
@@ -1129,6 +1130,7 @@ namespace Glyssen.RefTextDevUtilities
 					glyssenCharacterId == "Zechariah the prophet, son of Berechiah";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
+				case "Man": return glyssenCharacterId.StartsWith("men");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
 				case "Watchman": return glyssenCharacterId == "lookout";
