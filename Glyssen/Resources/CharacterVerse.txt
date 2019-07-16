@@ -1,4 +1,4 @@
-Control File Version	143
+Control File Version	144
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -10156,12 +10156,13 @@ ISA	66	21	God		God (the LORD)	Normal
 ISA	66	22	God		God (the LORD)	Normal		
 ISA	66	23	God		God (the LORD)	Normal		
 ISA	66	24	God		God (the LORD)	Implicit		
-JER	1	5	God		God (the LORD)	Normal		
-JER	1	6	Jeremiah			Potential		
+JER	1	5	God		God (the LORD)	Implicit		
+JER	1	6	Jeremiah			Quotation		
 JER	1	7	God		God (the LORD)	Normal		
+JER	1	7	Jeremiah			Quotation		
 JER	1	8	God		God (the LORD)	Normal		
 JER	1	9	God		God (the LORD)	Normal		
-JER	1	10	God		God (the LORD)	Normal		
+JER	1	10	God		God (the LORD)	Implicit		
 JER	1	11	God		God (the LORD)	Normal		
 JER	1	11	Jeremiah			Potential		
 JER	1	12	God		God (the LORD)	Normal		
@@ -10169,54 +10170,66 @@ JER	1	13	God		God (the LORD)	Normal
 JER	1	13	Jeremiah			Potential		
 JER	1	14	God		God (the LORD)	Normal		
 JER	1	15	God		God (the LORD)	Normal		
-JER	1	16	God		God (the LORD)	Normal		
-JER	1	17	God		God (the LORD)	Normal		
-JER	1	18	God		God (the LORD)	Normal		
+JER	1	16	God		God (the LORD)	Implicit		
+JER	1	17	God		God (the LORD)	Implicit		
+JER	1	18	God		God (the LORD)	Implicit		
 JER	1	19	God		God (the LORD)	Normal		
 JER	2	2	God		God (the LORD)	Normal		
+JER	2	2	Jeremiah			Potential		
 JER	2	3	God		God (the LORD)	Normal		
+JER	2	4	God		God (the LORD)	Potential		
 JER	2	5	God		God (the LORD)	Normal		
 JER	2	6	God		God (the LORD)	Normal		
-JER	2	7	God		God (the LORD)	Normal		
+JER	2	6	Israel, fathers of	didn't say		Hypothetical		
+JER	2	7	God		God (the LORD)	Implicit		
 JER	2	8	God		God (the LORD)	Normal		
+JER	2	8	priests	didn't say		Hypothetical		
 JER	2	9	God		God (the LORD)	Normal		
-JER	2	10	God		God (the LORD)	Normal		
-JER	2	11	God		God (the LORD)	Normal		
+JER	2	10	God		God (the LORD)	Implicit		
+JER	2	11	God		God (the LORD)	Implicit		
 JER	2	12	God		God (the LORD)	Normal		
-JER	2	13	God		God (the LORD)	Normal		
-JER	2	14	God		God (the LORD)	Normal		
-JER	2	15	God		God (the LORD)	Normal		
-JER	2	16	God		God (the LORD)	Normal		
-JER	2	17	God		God (the LORD)	Normal		
-JER	2	18	God		God (the LORD)	Normal		
+JER	2	13	God		God (the LORD)	Implicit		
+JER	2	14	God		God (the LORD)	Implicit		
+JER	2	15	God		God (the LORD)	Implicit		
+JER	2	16	God		God (the LORD)	Implicit		
+JER	2	17	God		God (the LORD)	Implicit		
+JER	2	18	God		God (the LORD)	Implicit		
 JER	2	19	God		God (the LORD)	Normal		
-JER	2	20	God		God (the LORD)	Normal		
-JER	2	21	God		God (the LORD)	Normal		
+JER	2	20	God		God (the LORD)	Implicit		
+JER	2	21	God		God (the LORD)	Implicit		
 JER	2	22	God		God (the LORD)	Normal		
 JER	2	23	God		God (the LORD)	Normal		
-JER	2	24	God		God (the LORD)	Normal		
-JER	2	25	God		God (the LORD)	Normal		
-JER	2	26	God		God (the LORD)	Normal		
+# Different hypotethical characters could be used here and in the following verses in this chapter and the next,
+# but for easier casting purposes and dramatic effect, it is probably best to use the same voice throughout.
+JER	2	23	you (hypothetical)			Hypothetical		
+JER	2	24	God		God (the LORD)	Implicit		
+JER	2	25	God		God (the LORD)	Implicit		
+JER	2	26	God		God (the LORD)	Implicit		
 JER	2	27	God		God (the LORD)	Normal		
-JER	2	28	God		God (the LORD)	Normal		
+JER	2	27	you (hypothetical)		Israel, with their kings, princes, priests and prophets	Hypothetical		
+JER	2	28	God		God (the LORD)	Implicit		
 JER	2	29	God		God (the LORD)	Normal		
-JER	2	30	God		God (the LORD)	Normal		
+JER	2	30	God		God (the LORD)	Implicit		
 JER	2	31	God		God (the LORD)	Normal		
-JER	2	32	God		God (the LORD)	Normal		
-JER	2	33	God		God (the LORD)	Normal		
-JER	2	34	God		God (the LORD)	Normal		
+JER	2	31	you (hypothetical)		God's people (Israel)	Hypothetical		
+JER	2	32	God		God (the LORD)	Implicit		
+JER	2	33	God		God (the LORD)	Implicit		
+JER	2	34	God		God (the LORD)	Implicit		
 JER	2	35	God		God (the LORD)	Normal		
-JER	2	36	God		God (the LORD)	Normal		
-JER	2	37	God		God (the LORD)	Normal		
+JER	2	35	you (hypothetical)			Hypothetical		
+JER	2	36	God		God (the LORD)	Implicit		
+JER	2	37	God		God (the LORD)	Implicit		
 JER	3	1	God		God (the LORD)	Normal		
-JER	3	2	God		God (the LORD)	Normal		
-JER	3	3	God		God (the LORD)	Normal		
+JER	3	2	God		God (the LORD)	Implicit		
+JER	3	3	God		God (the LORD)	Implicit		
 JER	3	4	God		God (the LORD)	Normal		
+JER	3	4	you (hypothetical)			Hypothetical		
+JER	3	5	you (hypothetical)			Hypothetical		
 JER	3	5	God		God (the LORD)	Normal		
 JER	3	6	God		God (the LORD)	Normal		
-JER	3	7	God		God (the LORD)	Normal		
-JER	3	8	God		God (the LORD)	Normal		
-JER	3	9	God		God (the LORD)	Normal		
+JER	3	7	God		God (the LORD)	Implicit		
+JER	3	8	God		God (the LORD)	Implicit		
+JER	3	9	God		God (the LORD)	Implicit		
 JER	3	10	God		God (the LORD)	Normal		
 JER	3	11	God		God (the LORD)	Normal		
 JER	3	12	God		God (the LORD)	Normal		
@@ -10224,86 +10237,115 @@ JER	3	13	God		God (the LORD)	Normal
 JER	3	14	God		God (the LORD)	Normal		
 JER	3	15	God		God (the LORD)	Normal		
 JER	3	16	God		God (the LORD)	Normal		
-JER	3	17	God		God (the LORD)	Normal		
-JER	3	18	God		God (the LORD)	Normal		
-JER	3	19	God		God (the LORD)	Normal		
+# See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character
+#JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
+JER	3	16	you (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
+JER	3	17	God		God (the LORD)	Implicit		
+# expression: "The throne of God"
+JER	3	17	narrator-JER			Quotation		
+JER	3	18	God		God (the LORD)	Implicit		
+JER	3	19	God		God (the LORD)	Implicit		
+JER	3	19	God		God (the LORD)	Quotation		
+JER	3	19	you (hypothetical)			Hypothetical		
 JER	3	20	God		God (the LORD)	Normal		
 JER	3	21	God		God (the LORD)	Potential		
-JER	3	22	God		God (the LORD)	Normal		
+JER	3	21	Jeremiah			Potential		
+JER	3	21	Israel			Potential		
+JER	3	21	Needs Review			Potential		
+JER	3	22	God		God (the LORD)	Potential		
 JER	3	22	Jeremiah			Potential		
-JER	3	22	people			Normal		
+JER	3	22	Israel			Normal		
+JER	3	22	Needs Review			Potential		
 JER	3	23	Jeremiah			Potential		
-JER	3	23	people			Normal		
+JER	3	23	Israel			Normal		
+JER	3	23	Needs Review			Implicit		
 JER	3	24	Jeremiah			Potential		
-JER	3	24	people			Normal		
+JER	3	24	Israel			Normal		
+JER	3	24	Needs Review			Implicit		
 JER	3	25	Jeremiah			Potential		
-JER	3	25	people			Normal		
+JER	3	25	Israel			Normal		
+JER	3	25	Needs Review			Implicit		
 JER	4	1	God		God (the LORD)	Normal		
 JER	4	2	God		God (the LORD)	Normal		
+JER	4	2	Israel			Hypothetical		
 JER	4	3	God		God (the LORD)	Normal		
-JER	4	4	God		God (the LORD)	Normal		
-JER	4	5	God		God (the LORD)	Normal		
-JER	4	6	God		God (the LORD)	Normal		
+JER	4	4	God		God (the LORD)	Implicit		
+JER	4	5	God	commanding	God (the LORD)	Normal		
+JER	4	5	people of Jerusalem	declaration of alarm		Hypothetical		
+JER	4	5	Jeremiah	declaration of alarm		Hypothetical		
+JER	4	5	Jeremiah	commanding		Potential		
+JER	4	5	Needs Review			Potential		
+JER	4	6	God		God (the LORD)	Implicit		
 JER	4	7	God		God (the LORD)	Potential		
 JER	4	7	Jeremiah			Potential		
-JER	4	8	God		God (the LORD)	Potential		
 JER	4	8	Jeremiah			Potential		
 JER	4	9	God		God (the LORD)	Normal		
-JER	4	10	Jeremiah			Potential		
+JER	4	10	Jeremiah			Quotation		
+JER	4	10	God		God (the LORD)	Quotation		
+JER	4	11	Jeremiah			Potential		
 JER	4	11	God		God (the LORD)	Normal		
-JER	4	12	God		God (the LORD)	Normal		
+JER	4	12	God		God (the LORD)	Implicit		
+JER	4	13	God		God (the LORD)	Potential		
+JER	4	13	Jeremiah			Potential		
 JER	4	13	people of Jerusalem			Hypothetical		
 JER	4	14	God		God (the LORD)	Potential		
 JER	4	15	God		God (the LORD)	Potential		
 JER	4	16	God		God (the LORD)	Normal		
 JER	4	17	God		God (the LORD)	Normal		
-JER	4	18	God		God (the LORD)	Normal		
+JER	4	18	God		God (the LORD)	Implicit		
 JER	4	19	Jeremiah			Potential		
 JER	4	20	Jeremiah			Potential		
 JER	4	21	Jeremiah			Potential		
-JER	4	22	God		God (the LORD)	Normal		
+JER	4	22	God		God (the LORD)	Implicit		
 JER	4	23	Jeremiah			Potential		
 JER	4	24	Jeremiah			Potential		
 JER	4	26	Jeremiah			Potential		
 JER	4	27	God		God (the LORD)	Normal		
-JER	4	28	God		God (the LORD)	Normal		
+JER	4	28	God		God (the LORD)	Implicit		
 JER	4	29	God		God (the LORD)	Potential		
 JER	4	30	God		God (the LORD)	Potential		
 JER	4	31	God		God (the LORD)	Potential		
 JER	4	31	daughter of Zion			Hypothetical		
-JER	5	1	God		God (the LORD)	Normal		
+JER	5	1	God		God (the LORD)	Implicit		
 JER	5	2	God		God (the LORD)	Normal		
-JER	5	3	Jeremiah			Potential		
+JER	5	2	people of Jerusalem			Hypothetical		
 JER	5	4	Jeremiah			Potential		
+JER	5	4	narrator-JER			Quotation		
+JER	5	5	narrator-JER			Quotation		
 JER	5	5	Jeremiah			Potential		
 JER	5	5	God		God (the LORD)	Potential		
 JER	5	6	Jeremiah			Potential		
 JER	5	6	God		God (the LORD)	Potential		
-JER	5	7	God		God (the LORD)	Normal		
-JER	5	8	God		God (the LORD)	Normal		
+JER	5	7	God		God (the LORD)	Implicit		
+JER	5	8	God		God (the LORD)	Implicit		
 JER	5	9	God		God (the LORD)	Normal		
-JER	5	10	God		God (the LORD)	Normal		
+JER	5	10	God		God (the LORD)	Implicit		
 JER	5	11	God		God (the LORD)	Normal		
-JER	5	12	Israel			Quotation		
-JER	5	13	Israel			Quotation		
+JER	5	12	God		God (the LORD)	Potential		
+JER	5	12	Israel/Judah, people in		house of Israel/house of Judah	Quotation		
+# See: https://trello.com/c/aqDV8YfB/47-jer-513-all-but-a-couple-looser-translations-agree-that-this-is-a-continuation-of-the-peoples-words-from-v-12
+JER	5	13	Israel/Judah, people in		house of Israel/house of Judah	Quotation		
 JER	5	14	God		God (the LORD)	Normal		
 JER	5	15	God		God (the LORD)	Normal		
-JER	5	16	God		God (the LORD)	Normal		
-JER	5	17	God		God (the LORD)	Normal		
+JER	5	16	God		God (the LORD)	Implicit		
+JER	5	17	God		God (the LORD)	Implicit		
 JER	5	18	God		God (the LORD)	Normal		
 JER	5	19	God		God (the LORD)	Normal		
-JER	5	20	God		God (the LORD)	Normal		
-JER	5	21	God		God (the LORD)	Normal		
+JER	5	19	you (hypothetical)			Hypothetical		
+JER	5	20	God		God (the LORD)	Implicit		
+JER	5	21	Jeremiah			Normal		
+JER	5	21	God		God (the LORD)	Alternate		
 JER	5	22	God		God (the LORD)	Normal		
-JER	5	23	God		God (the LORD)	Normal		
+JER	5	23	God		God (the LORD)	Implicit		
 JER	5	24	God		God (the LORD)	Normal		
-JER	5	25	God		God (the LORD)	Normal		
-JER	5	26	God		God (the LORD)	Normal		
-JER	5	27	God		God (the LORD)	Normal		
-JER	5	28	God		God (the LORD)	Normal		
+JER	5	24	you (hypothetical)	they do not say in their heart	God's people (Israel)	Hypothetical		
+JER	5	25	God		God (the LORD)	Implicit		
+JER	5	26	God		God (the LORD)	Implicit		
+JER	5	27	God		God (the LORD)	Implicit		
+JER	5	28	God		God (the LORD)	Implicit		
 JER	5	29	God		God (the LORD)	Normal		
-JER	5	30	God		God (the LORD)	Normal		
-JER	5	31	God		God (the LORD)	Normal		
+JER	5	30	God		God (the LORD)	Potential		
+JER	5	31	God		God (the LORD)	Potential		
 JER	6	1	God		God (the LORD)	Normal		
 JER	6	2	God		God (the LORD)	Normal		
 JER	6	3	God		God (the LORD)	Normal		
@@ -10600,14 +10642,14 @@ JER	17	8	God		God (the LORD)	Normal
 JER	17	9	God		God (the LORD)	Normal		
 JER	17	10	God		God (the LORD)	Normal		
 JER	17	11	God		God (the LORD)	Potential		
-JER	17	12	Jeremiah			Implicit		
-JER	17	13	Jeremiah			Implicit		
-JER	17	14	Jeremiah			Implicit		
+JER	17	12	Jeremiah			Potential		
+JER	17	13	Jeremiah			Potential		
+JER	17	14	Jeremiah			Potential		
 JER	17	15	Jeremiah			Potential		
 JER	17	15	Jeremiah's enemies			Quotation		
-JER	17	16	Jeremiah			Implicit		
-JER	17	17	Jeremiah			Implicit		
-JER	17	18	Jeremiah			Implicit		
+JER	17	16	Jeremiah			Potential		
+JER	17	17	Jeremiah			Potential		
+JER	17	18	Jeremiah			Potential		
 JER	17	19	God		God (the LORD)	Normal		
 JER	17	20	God		God (the LORD)	Normal		
 JER	17	21	God		God (the LORD)	Normal		
@@ -10658,20 +10700,22 @@ JER	20	5	Jeremiah			Normal
 JER	20	5	God		God (the LORD)	Normal		
 JER	20	6	Jeremiah			Normal		
 JER	20	6	God		God (the LORD)	Normal		
-JER	20	7	Jeremiah			Implicit		
-JER	20	8	Jeremiah			Implicit		
-JER	20	9	Jeremiah			Implicit		
+JER	20	7	Jeremiah			Potential		
+JER	20	8	Jeremiah			Potential		
+JER	20	8	narrator-JER			Quotation		
+JER	20	9	Jeremiah			Potential		
+JER	20	9	narrator-JER			Quotation		
 JER	20	10	Jeremiah			Potential		
 JER	20	10	Jeremiah's enemies			Hypothetical		
-JER	20	11	Jeremiah			Implicit		
-JER	20	12	Jeremiah			Implicit		
-JER	20	13	Jeremiah			Implicit		
-JER	20	14	Jeremiah			Implicit		
+JER	20	11	Jeremiah			Potential		
+JER	20	12	Jeremiah			Potential		
+JER	20	13	Jeremiah			Potential		
+JER	20	14	Jeremiah			Potential		
 JER	20	15	Jeremiah			Potential		
 JER	20	15	messenger			Quotation		
-JER	20	16	Jeremiah			Implicit		
-JER	20	17	Jeremiah			Implicit		
-JER	20	18	Jeremiah			Implicit		
+JER	20	16	Jeremiah			Potential		
+JER	20	17	Jeremiah			Potential		
+JER	20	18	Jeremiah			Potential		
 JER	21	2	Pashur/Zephaniah, priest			Normal		
 JER	21	3	Jeremiah			Normal		
 JER	21	4	Jeremiah			Normal		
@@ -10792,16 +10836,16 @@ JER	25	13	God		God (the LORD)	Normal
 JER	25	14	God		God (the LORD)	Normal		
 JER	25	15	God		God (the LORD)	Normal		
 JER	25	16	God		God (the LORD)	Normal		
-JER	25	17	Jeremiah			Implicit		
-JER	25	18	Jeremiah			Implicit		
-JER	25	19	Jeremiah			Implicit		
-JER	25	20	Jeremiah			Implicit		
-JER	25	21	Jeremiah			Implicit		
-JER	25	22	Jeremiah			Implicit		
-JER	25	23	Jeremiah			Implicit		
-JER	25	24	Jeremiah			Implicit		
-JER	25	25	Jeremiah			Implicit		
-JER	25	26	Jeremiah			Implicit		
+JER	25	17	Jeremiah			Potential		
+JER	25	18	Jeremiah			Potential		
+JER	25	19	Jeremiah			Potential		
+JER	25	20	Jeremiah			Potential		
+JER	25	21	Jeremiah			Potential		
+JER	25	22	Jeremiah			Potential		
+JER	25	23	Jeremiah			Potential		
+JER	25	24	Jeremiah			Potential		
+JER	25	25	Jeremiah			Potential		
+JER	25	26	Jeremiah			Potential		
 JER	25	27	God		God (the LORD)	Normal		
 JER	25	28	God		God (the LORD)	Normal		
 JER	25	29	God		God (the LORD)	Normal		
@@ -12596,15 +12640,15 @@ DAN	4	16	Nebuchadnezzar, king of Babylon	letter		Implicit
 DAN	4	17	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	18	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	19	Nebuchadnezzar, king of Babylon			Normal		
-DAN	4	19	Daniel			Normal		
-DAN	4	20	Daniel			Normal		
-DAN	4	21	Daniel			Normal		
-DAN	4	22	Daniel			Normal		
-DAN	4	23	Daniel			Normal		
-DAN	4	24	Daniel			Normal		
-DAN	4	25	Daniel			Normal		
-DAN	4	26	Daniel			Normal		
-DAN	4	27	Daniel			Normal		
+DAN	4	19	Daniel		Belteshazzar (Daniel)	Normal		
+DAN	4	20	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	21	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	22	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	23	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	24	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	25	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	26	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	27	Daniel		Belteshazzar (Daniel)	Implicit		
 DAN	4	30	Nebuchadnezzar, king of Babylon			Normal		
 DAN	4	31	God		voice from heaven (God)	Normal		
 DAN	4	32	God		voice from heaven (God)	Normal		
@@ -12612,8 +12656,6 @@ DAN	4	34	Nebuchadnezzar, king of Babylon	letter		Implicit
 DAN	4	35	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	36	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	37	Nebuchadnezzar, king of Babylon	letter		Implicit		
-#This was in the original, but it seems likely to be a mistake to have the narrator cut in for this one verse								
-#DAN	4	35	narrator-DAN			Normal		
 DAN	5	7	Belshazzar, king of Babylon			Normal		
 DAN	5	10	queen of Babylon			Normal		
 DAN	5	11	queen of Babylon			Normal		
@@ -12919,8 +12961,9 @@ HOS	11	10	God		God (the LORD)	Implicit
 HOS	11	11	God		God (the LORD)	Implicit		
 HOS	11	12	God		God (the LORD)	Potential		
 HOS	12	8	Ephraim			Quotation		
-HOS	12	9	God		God (the LORD)	Potential		
-HOS	12	10	God		God (the LORD)	Potential		
+HOS	12	9	God		God (the LORD)	Implicit		
+HOS	12	10	God		God (the LORD)	Implicit		
+# FCBH has God speak all the way through 12:14, which seems probable, but some Bibles that use explicit quotes end them at v. 10.
 HOS	12	11	God		God (the LORD)	Potential		
 HOS	12	12	God		God (the LORD)	Potential		
 HOS	12	13	God		God (the LORD)	Potential		
@@ -12948,7 +12991,7 @@ HOS	14	6	God		God (the LORD)	Implicit
 HOS	14	7	God		God (the LORD)	Implicit		
 HOS	14	8	God		God (the LORD)	Implicit		
 JOL	2	12	God		God (the LORD)	Normal		
-JOL	2	17	Joel saying what the priests should say			Hypothetical		
+JOL	2	17	priests	weeping, pleading		Hypothetical		
 JOL	2	17	nations			Hypothetical		
 JOL	2	19	God		God (the LORD)	Normal		
 JOL	2	20	God		God (the LORD)	Normal		
@@ -13282,48 +13325,75 @@ HAG	2	13	Haggai			Normal
 HAG	2	13	priests			Normal		
 HAG	2	14-19	Haggai			Normal		
 HAG	2	21-23	God		God (the LORD)	Normal		
-ZEC	1	2	God		God (the LORD)	Normal		
+ZEC	1	2	Zechariah the prophet, son of Berechiah			Normal		
+ZEC	1	2	God		God (the LORD)	Alternate		
 ZEC	1	3	God		God (the LORD)	Normal		
+ZEC	1	3	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	1	4	God		God (the LORD)	Normal		
-ZEC	1	5	God		God (the LORD)	Normal		
+ZEC	1	4	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	1	5	God		God (the LORD)	Implicit		
 ZEC	1	6	God		God (the LORD)	Normal		
-ZEC	1	8	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Normal		
+ZEC	1	6	Judah, fathers of		your fathers	Hypothetical		
+ZEC	1	8	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	9	narrator-ZEC			Quotation		
 ZEC	1	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Normal		
+ZEC	1	9	man standing among myrtle trees	vision		Alternate		
+ZEC	1	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	10	man standing among myrtle trees	vision		Normal		
+ZEC	1	11	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	11	horses (or their angelic riders) (in vision)			Normal		
-ZEC	1	12	angel of the LORD, the			Normal	Jesus	
+ZEC	1	12	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	12	angel who talked with Zechariah		angel of the LORD, the	Normal		
+ZEC	1	13	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	14	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	14	Zechariah the prophet, son of Berechiah	proclamation		Normal		
 ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	1	14	God	angry	God (the LORD)	Normal		
+ZEC	1	15	God	angry	God (the LORD)	Implicit		
+ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	1	16	God		God (the LORD)	Normal		
+ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	1	16	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	17	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	1	17	Zechariah the prophet, son of Berechiah	proclamation		Normal		
+ZEC	1	17	God		God (the LORD)	Normal		
+ZEC	1	17	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	18	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	19	narrator-ZEC		Zechariah (in vision)	Quotation		
 ZEC	1	19	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	19	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	20	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	1	21	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	21	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	1	21	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	21	narrator-ZEC			Quotation		
 ZEC	1	21	God		God (the LORD)	Normal		
 ZEC	2	1	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	2	2	man with measuring line (in vision)			Normal		
 ZEC	2	2	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	2	2	narrator-ZEC			Quotation		
+ZEC	2	2	man with measuring line (in vision)			Normal		
+ZEC	2	2	Needs Review			Normal		
+ZEC	2	2	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	2	3	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	2	4	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	4	angel, another (in vision)			Normal		
 ZEC	2	5	God		God (the LORD) (in vision)	Normal		
+ZEC	2	5	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	6	God		God (the LORD) (in vision)	Normal		
-ZEC	2	7	God		God (the LORD) (in vision)	Normal		
+ZEC	2	7	God		God (the LORD) (in vision)	Implicit		
 ZEC	2	8	God		God (the LORD) (in vision)	Normal		
-ZEC	2	9	God		God (the LORD) (in vision)	Normal		
+ZEC	2	9	God		God (the LORD) (in vision)	Implicit		
 ZEC	2	10	God		God (the LORD) (in vision)	Normal		
-ZEC	2	11	God		God (the LORD) (in vision)	Normal		
-ZEC	2	12	God		God (the LORD) (in vision)	Normal		
-ZEC	2	13	God		God (the LORD)(vision	Normal		
+ZEC	2	11	God		God (the LORD) (in vision)	Implicit		
+ZEC	2	12	God		God (the LORD) (in vision)	Implicit		
+ZEC	2	13	God		God (the LORD)(vision	Implicit		
 ZEC	3	1	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	2	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	2	God		God (the LORD) (in vision)	Normal		
-ZEC	3	2	angel of the LORD, the			Normal	Jesus	
+ZEC	3	2	Needs Review			Normal		
+ZEC	3	2	angel of the LORD, the			Alternate	Jesus	
+ZEC	3	2	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	3	3	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	3	4	Needs Review			Normal		
 ZEC	3	4	angel of the LORD, the			Normal	Jesus	
+ZEC	3	4	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
 ZEC	3	4	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	5	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	3	6	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
@@ -13392,8 +13462,9 @@ ZEC	7	5-7	God			Normal
 ZEC	7	8	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	7	9-14	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
 ZEC	7	9-14	God			Normal		
-ZEC	8	1	Zechariah the prophet, son of Berechiah			Implicit		
-ZEC	8	2-17	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
+ZEC	8	2	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	8	2	God		God (the LORD)	Normal		
+ZEC	8	3-17	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Normal		
 ZEC	8	2-17	God			Normal		
 ZEC	8	18	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	8	19-23	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Potential		
