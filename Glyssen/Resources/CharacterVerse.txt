@@ -10242,7 +10242,7 @@ JER	3	16	God		God (the LORD)	Normal
 JER	3	16	you (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
 JER	3	17	God		God (the LORD)	Implicit		
 # expression: "The throne of God"
-JER	3	17	narrator-JER			Quotation		
+JER	3	17	God			Quotation		
 JER	3	18	God		God (the LORD)	Implicit		
 JER	3	19	God		God (the LORD)	Implicit		
 JER	3	19	God		God (the LORD)	Quotation		
@@ -13382,7 +13382,7 @@ ZEC	2	6	God		God (the LORD) (in vision)	Normal
 ZEC	2	6	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	2	6	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	2	6	Needs Review			Normal		
-ZEC	2	7	God		God (the LORD) (in vision)	Implicit		
+ZEC	2	7	God		God (the LORD) (in vision)	Normal		
 ZEC	2	7	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	2	7	Needs Review			Normal		
 # See: https://trello.com/c/woNC42W0/51-zec-28-9-god-vs-angel-of-the-lord
@@ -13632,7 +13632,30 @@ ZEC	12	12	Zechariah the prophet, son of Berechiah			Potential
 ZEC	12	12	God		God (the LORD)	Alternate		
 ZEC	12	13	Zechariah the prophet, son of Berechiah			Potential		
 ZEC	12	13	God		God (the LORD)	Alternate		
-ZEC	13	1-9	God			Normal		
+ZEC	13	1	God		God (the LORD)	Implicit		
+ZEC	13	1	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
+ZEC	13	2	God		God (the LORD)	Normal		
+ZEC	13	2	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	13	3	God		God (the LORD)	Normal		
+ZEC	13	3	father of false prophet/mother of false prophet		father/mother	Hypothetical		
+ZEC	13	3	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
+ZEC	13	4	God		God (the LORD)	Implicit		
+ZEC	13	4	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
+ZEC	13	5	God		God (the LORD)	Normal		
+ZEC	13	5	false prophets	lying	prophet (lying)	Hypothetical		
+ZEC	13	5	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
+ZEC	13	6	God		God (the LORD)	Normal		
+ZEC	13	6	man (hypothetical)	challenging a lie	someone	Hypothetical		
+ZEC	13	6	false prophets	lying	prophet (lying)	Hypothetical		
+ZEC	13	6	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
+ZEC	13	7	God		God (the LORD)	Normal		
+ZEC	13	7	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	13	8	God		God (the LORD)	Normal		
+ZEC	13	8	Zechariah the prophet, son of Berechiah			Potential		
+ZEC	13	9	God			Normal		
+ZEC	13	9	people, God's			Hypothetical		
+ZEC	13	9	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
+ZEC	14	2	God		God (the LORD)	Implicit		
 ZEC	14	20	narrator-ZEC			Potential		
 MAL	1	2	God		God (the LORD)	Normal		
 MAL	1	2	Israel			Normal		
