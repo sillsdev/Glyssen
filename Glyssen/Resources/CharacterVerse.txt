@@ -9441,7 +9441,7 @@ ISA	30	12	God		God (Holy One of Israel)	Normal
 ISA	30	13	God		God (Holy One of Israel)	Implicit		
 ISA	30	14	God		God (Holy One of Israel)	Implicit		
 ISA	30	15	God		God (the LORD)	Normal		
-ISA	30	16	God		God (the LORD)	Potential		
+ISA	30	16	God		God (the LORD)	Normal		
 ISA	30	16	rebels		you (rebellious people)	Quotation		
 ISA	30	17	God		God (the LORD)	Implicit		
 ISA	30	18	Isaiah			Potential		
@@ -10346,43 +10346,45 @@ JER	5	28	God		God (the LORD)	Implicit
 JER	5	29	God		God (the LORD)	Normal		
 JER	5	30	God		God (the LORD)	Potential		
 JER	5	31	God		God (the LORD)	Potential		
-
-
-# Resume thorough review HERE!!!!!!!!!!!!!!!!!!
-
-
-JER	6	1	God		God (the LORD)	Normal		
-JER	6	2	God		God (the LORD)	Normal		
-JER	6	3	God		God (the LORD)	Normal		
+JER	6	1	God		God (the LORD)	Potential		
+JER	6	1	person warning people of Benjamin to flee			Potential		
+JER	6	2	God		God (the LORD)	Implicit		
+JER	6	2	person warning people of Benjamin to flee			Alternate		
+JER	6	3	God		God (the LORD)	Implicit		
+JER	6	3	person warning people of Benjamin to flee			Alternate		
 JER	6	4	God		God saying what invaders will say	Hypothetical		
-JER	6	4	invaders			Hypothetical		
+JER	6	4	invaders		invaders (shepherds)	Hypothetical		
 JER	6	5	God		God saying what invaders will say	Hypothetical		
-JER	6	5	invaders			Hypothetical		
+JER	6	5	invaders		invaders (shepherds)	Hypothetical		
 JER	6	6	God		God (the LORD)	Normal		
-JER	6	7	God		God (the LORD)	Normal		
-JER	6	8	God		God (the LORD)	Normal		
+JER	6	7	God		God (the LORD)	Implicit		
+JER	6	8	God		God (the LORD)	Implicit		
 JER	6	9	God		God (the LORD)	Normal		
 JER	6	10	Jeremiah			Potential		
 JER	6	11	Jeremiah			Potential		
-JER	6	11	God		God (the LORD)	Potential		
+JER	6	11	God		God (the LORD)	Normal		
 JER	6	12	God		God (the LORD)	Normal		
-JER	6	13	God		God (the LORD)	Normal		
+JER	6	13	God		God (the LORD)	Implicit		
 JER	6	14	God		God (the LORD)	Normal		
+JER	6	14	everyone		everyone, from the prophets even to the priests	Hypothetical		
 JER	6	15	God		God (the LORD)	Normal		
 JER	6	16	God		God (the LORD)	Normal		
+JER	6	16	everyone		people unwilling to walk in the good way	Hypothetical		
 JER	6	17	God		God (the LORD)	Normal		
-JER	6	18	God		God (the LORD)	Normal		
-JER	6	19	God		God (the LORD)	Normal		
-JER	6	20	God		God (the LORD)	Normal		
+JER	6	17	watchman			Hypothetical		
+JER	6	17	everyone		people unwilling to listen	Hypothetical		
+JER	6	18	God		God (the LORD)	Implicit		
+JER	6	19	God		God (the LORD)	Implicit		
+JER	6	20	God		God (the LORD)	Implicit		
 JER	6	21	God		God (the LORD)	Normal		
 JER	6	22	God		God (the LORD)	Normal		
-JER	6	23	God		God (the LORD)	Normal		
+JER	6	23	God		God (the LORD)	Implicit		
 JER	6	24	people of Jerusalem			Hypothetical		
 JER	6	25	people of Jerusalem			Hypothetical		
 JER	6	26	people of Jerusalem			Hypothetical		
-JER	6	27	God		God (the LORD)	Normal		
-JER	6	28	God		God (the LORD)	Normal		
-JER	6	29	God		God (the LORD)	Normal		
+JER	6	27	God		God (the LORD)	Implicit		
+JER	6	28	God		God (the LORD)	Implicit		
+JER	6	29	God		God (the LORD)	Implicit		
 JER	6	30	God		God (the LORD)	Normal		
 JER	7	2	God		God (the LORD)	Normal		
 JER	7	3	God		God (the LORD)	Normal		

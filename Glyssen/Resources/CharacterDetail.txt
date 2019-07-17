@@ -59,19 +59,19 @@ angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11
 angel flying directly overhead	1		Adult			REV 14:7
 angel flying directly overhead, second	1		Adult			REV 14:8
 angel flying directly overhead, third	1		Adult			REV 14:9 <-(2 more)-> REV 14:12
-angel of the LORD, the	1	Male	Adult		Default speaker should be Jesus	GEN 16:8 <-(36 more)-> ZEC 3:10
+angel of the LORD, the	1	Male	Adult		Default speaker should be Jesus	GEN 16:8 <-(29 more)-> 2KI 1:15
 angel or messenger (Greek variant: someone speaking to John)	1		Adult			REV 11:1 <-(1 more)-> REV 11:3
 angel over waters	1		Adult			REV 16:5 & REV 16:6
 angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18
 angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11
-angel who talked with Zechariah	1		Adult		Also descibed as "the angel of the LORD" and "man standing among myrtle trees"	ZEC 1:9 <-(23 more)-> ZEC 6:8
+angel who talked with Zechariah	1		Adult		Also descibed as "the angel of the LORD" and "man standing among myrtle trees"	ZEC 1:9 <-(37 more)-> ZEC 6:8
 angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29
-angel, another (in vision)	1		Adult			ZEC 2:4
+angel, another (in vision)	1		Adult			ZEC 2:4 & ZEC 2:5
 angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3
 angel, coming out of temple	1		Adult			REV 14:15
 angel, coming out of temple, another	1		Adult			REV 14:18
 angel, powerful	1		Adult			REV 5:2 <-(3 more)-> REV 18:24
-angels at Sodom, two	2	Male	Adult			GEN 19:2 <-(6 more)-> GEN 19:22
+angels at Sodom, two	2	Male	Adult			GEN 18:5 <-(8 more)-> GEN 19:22
 angels in white, two	2	Male	Adult			MAT 28:5 <-(7 more)-> JHN 20:13
 angels, all the	-1		Adult			REV 7:12
 angels, many	-1		Adult			REV 5:12
@@ -318,7 +318,7 @@ Ethiopians	-1					ISA 45:14 & ISA 45:15
 eunuch	-1					ISA 56:3
 Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25
 every created thing	-1					REV 5:13
-everyone	-1					LUK 4:38 <-(1 more)-> PHP 2:11
+everyone	-1					JER 6:14 <-(4 more)-> PHP 2:11
 everyone in Judean hills who heard	-1					LUK 1:65 & LUK 1:66
 everyone seeing healing of paralyzed man	-1					LUK 5:26
 everyone who saw healing of paralytic	-1					MRK 2:12
@@ -334,7 +334,7 @@ explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33
 eye	1	Neuter				1CO 12:21
 Ezekiel	1	Male				EZK 4:14 <-(14 more)-> EZK 37:10
 Ezra, priest and teacher	1	Male				EZR 5:4 <-(15 more)-> NEH 8:15
-false prophets	-1	Male				JER 14:13 <-(2 more)-> MIC 2:7
+false prophets	-1	Male				JER 14:13 <-(4 more)-> ZEC 13:6
 false teachers	-1					1TI 4:3
 false witnesses	-1					ACT 6:13 & ACT 6:14
 family heads of Gilead	-1	Male				NUM 36:2 <-(1 more)-> NUM 36:4
@@ -380,7 +380,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5617 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5660 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
@@ -450,7 +450,7 @@ Isaiah	1	Male				2KI 19:6 <-(388 more)-> ISA 66:6
 Ish-Bosheth, son of Saul	1	Male				2SA 3:7
 Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6
 islanders	-1					ISA 41:6
-Israel	-1					NUM 21:17 <-(51 more)-> MAL 1:2	Israelite
+Israel	-1					NUM 21:17 <-(57 more)-> MAL 1:2	Israelite
 Israel, all	-1					1SA 12:4 <-(7 more)-> 2CH 10:16
 Israel, all the tribes	-1	Male				2SA 5:1 & 2SA 5:2
 Israel, fathers of	-1	Male				JER 2:6
@@ -498,7 +498,7 @@ Jehudi	1	Male				JER 36:14
 Jephthah	1	Male				JDG 11:7 <-(6 more)-> JDG 12:3
 Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37
 Jephthah's half-brothers	-1	Male				JDG 11:2	Son of Gilead
-Jeremiah	1	Male				JER 1:6 <-(320 more)-> LAM 3:56
+Jeremiah	1	Male				JER 1:6 <-(327 more)-> LAM 3:56
 Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeroboam	1	Male				1KI 12:4 <-(9 more)-> 2CH 10:4
 Jeshua	1	Male				EZR 4:3
@@ -554,7 +554,7 @@ Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:22
 Judah, fathers of	-1	Male				ZEC 1:6
 Judah, leaders of	-1	Male				ZEC 12:5
 Judah, men of	-1	Male				JDG 1:3 <-(7 more)-> NEH 1:3	Judean
-Judah, people in	-1					NEH 4:10
+Judah, people in	-1					NEH 4:10 <-(1 more)-> JER 5:13
 Judah, remnant of	-1					JER 42:20
 Judaizers	-1	Male				GAL 6:12
 Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5
@@ -610,7 +610,7 @@ Malachi	1	Male
 Malta islanders	-1					ACT 28:4 & ACT 28:6
 man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17
 man (Hebrew fighting)	1	Male				EXO 2:14	Hebrew
-man (hypothetical)	1	Male				ISA 3:6 <-(1 more)-> HAB 2:19
+man (hypothetical)	1	Male				ISA 3:6 <-(2 more)-> ZEC 13:6
 man all alone	1	Male				ECC 4:8
 man answered David	1	Male				2SA 11:3
 man delivered from Legion of demons	1	Male			Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.	MAT 8:29 <-(12 more)-> LUK 8:38
@@ -738,7 +738,7 @@ Nahum	1	Male
 Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
-nations	-1	PreferMale				DEU 4:6 <-(8 more)-> MIC 4:11
+nations	-1	PreferMale				DEU 4:6 <-(10 more)-> ZEC 8:23
 Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5
 Neco, king of Egypt	1	Male				2CH 35:21
@@ -802,7 +802,7 @@ passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(197 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
-people	-1					2CH 26:23 <-(31 more)-> 1TH 5:3
+people	-1					2CH 26:23 <-(27 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
 people at coronation of King Joash	-1					2KI 11:12
 people at Jairus' house	-1					MAT 9:24 & LUK 8:53
@@ -815,7 +815,7 @@ people in temple courts, all the	-1					ACT 3:10
 people in the temple	-1					LUK 20:16
 people near Jordan River	-1					LUK 3:15 & JHN 10:41
 people of Decapolis	-1					MRK 7:32 <-(1 more)-> MRK 7:37
-people of Jerusalem	-1					JER 4:13 <-(3 more)-> MAT 21:10
+people of Jerusalem	-1					JER 4:5 <-(5 more)-> MAT 21:10
 people of Jerusalem, some	-1					JHN 7:25 <-(1 more)-> JHN 7:27
 people of Samaria, all the	-1					ACT 8:10
 people of Tyre and Sidon	-1					ACT 12:22
@@ -824,7 +824,7 @@ people who had known Saul	-1					1SA 10:11
 people who saw healing of demon-possessed man who was blind and mute	-1					MAT 12:23
 people, all the	-1					1KI 1:39 <-(12 more)-> LUK 7:29
 people, arrogant wicked	-1					PSA 73:11
-people, God's	-1					ISA 25:9 <-(3 more)-> ISA 63:14
+people, God's	-1					ISA 25:9 <-(4 more)-> ZEC 13:9
 people, hurried	-1					ISA 5:19
 people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10
 people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56
@@ -838,6 +838,7 @@ person claiming to have a pure heart	1	Either				PRO 20:9
 person encouraging Jerusalem	1	PreferMale				ZEP 3:16 & ZEP 3:17
 person near Lazarus' grave who informed Jesus	1					JHN 11:17
 person sacrificing	1					1SA 2:16	Man
+person warning people of Benjamin to flee	1					JER 6:1 <-(1 more)-> JER 6:3	Man
 person who informed Judah	1					GEN 38:24
 person who informed people of Gaza	1					JDG 16:2	Man
 person who informed Rabshakeh	1					2KI 19:9 & ISA 37:9
@@ -883,7 +884,7 @@ pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(4 more)-> DEU 20:4
-priests	-1	Male				DEU 27:9 <-(31 more)-> ACT 4:1
+priests	-1	Male				DEU 27:9 <-(33 more)-> ACT 4:1
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
 proclamation	1	Male				EZR 10:7 & EZR 10:8
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
@@ -1112,7 +1113,7 @@ voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:
 voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> ISA 40:5
 voices in heaven, loud	-1					REV 11:15
 warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19
-watchman	1	Male				2SA 13:34 <-(2 more)-> ISA 21:12
+watchman	1	Male				2SA 13:34 <-(3 more)-> JER 6:17
 watchmen of Israel	-1	Male				ISA 56:12	Watchman
 waves	-1					ISA 51:15
 we (believers)	-1					ROM 8:15
@@ -1150,7 +1151,7 @@ worshipers	-1	Male				PSA 122:1
 worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12
 you (hypothetical Gentile)	1					ROM 11:19
-you (hypothetical)	-1					PRO 3:28 <-(10 more)-> 1PE 1:17
+you (hypothetical)	-1					PRO 3:28 <-(20 more)-> 1PE 1:17
 you (people of Zion, restored)	-1					ISA 14:4 <-(16 more)-> ISA 30:22
 you ought to say	1					JAS 4:15
 young man	1	Male	YoungAdult			NUM 11:27
@@ -1161,7 +1162,7 @@ Zacharias (Zechariah)	1	Male				LUK 1:18 <-(12 more)-> LUK 1:79
 Zalmunna	1	Male				JDG 8:18 & JDG 8:21
 Zebah	1	Male				JDG 8:18 & JDG 8:21
 Zebul, governor of Shechem	1	Male				JDG 9:31 <-(3 more)-> JDG 9:38
-Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:8 <-(108 more)-> ZEC 11:17
+Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(110 more)-> ZEC 13:9
 Zechariah, son of Jehoiada the priest	1	Male				2CH 24:20 & 2CH 24:22
 Zedekiah, king of Judah	1	Male				JER 32:3 <-(11 more)-> JER 38:26
 Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19
@@ -1169,7 +1170,7 @@ Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18
 Zephaniah, priest	1	Male			son of Maaseiah	JER 21:2 & JER 37:3
 Zephaniah, prophet	1	Male			son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hezekiah	
 Zeresh, wife of Haman	1	Female				EST 5:14 & EST 6:13	Wife of Haman (female)
-Zerubbabel	1	Male				EZR 4:3
+Zerubbabel	1	Male				EZR 4:3 & ZEC 4:7
 Ziba, servant of Saul's household	1	Male				2SA 9:2 <-(5 more)-> 2SA 16:4
 Zion	1	PreferFemale				ISA 49:14 & ISA 49:21
 Ziphites	-1	Male				1SA 23:19 <-(2 more)-> PSA 54:0
