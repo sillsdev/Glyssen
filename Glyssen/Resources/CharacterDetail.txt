@@ -64,7 +64,7 @@ angel or messenger (Greek variant: someone speaking to John)	1		Adult			REV 11:1
 angel over waters	1		Adult			REV 16:5 & REV 16:6
 angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18
 angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11
-angel who talked with Zechariah	1		Adult			ZEC 1:9 <-(23 more)-> ZEC 6:8
+angel who talked with Zechariah	1		Adult		Also descibed as "the angel of the LORD" and "man standing among myrtle trees"	ZEC 1:9 <-(23 more)-> ZEC 6:8
 angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29
 angel, another (in vision)	1		Adult			ZEC 2:4
 angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3
@@ -453,7 +453,6 @@ Israel	-1					NUM 21:17 <-(51 more)-> MAL 1:2	Israelite
 Israel, all	-1					1SA 12:4 <-(7 more)-> 2CH 10:16
 Israel, all the tribes	-1	Male				2SA 5:1 & 2SA 5:2
 Israel, fathers of	-1	Male				JER 2:6
-Israel, house of	-1	Male				JER 2:27
 Israel, leaders of	-1	Male				JOS 9:19 <-(2 more)-> 2CH 12:6
 Israel, men of	-1	Male				JOS 9:7 <-(4 more)-> ISA 58:3
 Israelite army commanding officers	-1	Male				NUM 31:49 & NUM 31:50
@@ -552,6 +551,7 @@ Jotham, son of Gideon (Jerubbaal)	1	Male				JDG 9:7 <-(12 more)-> JDG 9:20
 Judah	1	Male				GEN 37:26 <-(32 more)-> GEN 44:34
 Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:22
 Judah, fathers of	-1	Male				ZEC 1:6
+Judah, leaders of	-1	Male				ZEC 12:5
 Judah, men of	-1	Male				JDG 1:3 <-(7 more)-> NEH 1:3	Judean
 Judah, people in	-1					NEH 4:10
 Judah, remnant of	-1					JER 42:20
@@ -625,7 +625,6 @@ man of God from Judah	1	Male				1KI 13:2 <-(5 more)-> 1KI 13:17
 man of lawlessness	1	Male				2TH 2:4
 man possessed by evil spirit	1	Male				MRK 1:24 & LUK 4:34
 man reporting to David	1	Male				2SA 13:30
-man standing among myrtle trees	1	Male				ZEC 1:10
 man who says 'I know him'	1	Male				1JN 2:4
 man who says 'we remain in union with God'	1	Male				1JN 2:6
 man with measuring line (in vision)	1	Male				ZEC 2:2
@@ -737,7 +736,7 @@ Nahum	1	Male
 Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
-nations	-1					DEU 4:6 <-(8 more)-> MIC 4:11
+nations	-1	PreferMale				DEU 4:6 <-(8 more)-> MIC 4:11
 Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5
 Neco, king of Egypt	1	Male				2CH 35:21
