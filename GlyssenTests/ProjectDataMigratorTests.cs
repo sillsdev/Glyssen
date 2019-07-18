@@ -1494,7 +1494,6 @@ namespace GlyssenTests
 						new ScriptText("Text of verse two."),
 					},
 					MultiBlockQuote = MultiBlockQuote.Continuation,
-					MatchesReferenceText = true,
 					SplitId = -1,
 					CharacterId = "Jesus",
 					UserConfirmed = true,

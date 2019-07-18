@@ -726,7 +726,7 @@ namespace Glyssen
 									nextVerse => m_referenceText.IsOkayToSplitAtVerse(nextVerse, Versification, refTextVerseSplitLocations),
 									m_referenceText);
 								foreach (var blockToClear in matchup.OriginalBlocks)
-									blockToClear.MatchesReferenceText = false;
+									blockToClear.ClearReferenceText();
 							}
 						}
 					}
