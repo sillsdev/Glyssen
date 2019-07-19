@@ -309,10 +309,16 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
       <verse num="19" />
-      <text>However God’s firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
+      <text>However God's firm foundation stands, having this seal,</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Но твердое основание Божие стоит, имея печать сию: 'познал Господь Своих'; и: 'да отступит от неправды всякий, исповедующий имя Господа'.</text>
+    <text>Но твердое основание Божие стоит, имея печать сию:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
+      <text>The Lord knows those who are his, and, Let every one who names the name of the Lord depart from unrighteousness.</text>
+    </ReferenceBlocks>
+    <text>'познал Господь Своих'; и: 'да отступит от неправды всякий, исповедующий имя Господа'.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI">

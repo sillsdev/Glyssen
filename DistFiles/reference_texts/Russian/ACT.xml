@@ -536,11 +536,15 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <verse num="34" />
       <text>For David didn’t ascend into the heavens, but he says himself, ‘The Lord said to my Lord, “Sit by my right hand, </text>
+    </ReferenceBlocks>
+    <verse num="34" />
+    <text>Ибо Давид не восшел на небеса; но сам говорит: сказал Господь Господу моему: седи одесную Меня,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="35" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="35" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <verse num="35" />
       <text>until I make your enemies a footstool for your feet.”’</text>
     </ReferenceBlocks>
-    <verse num="34" />
-    <text>Ибо Давид не восшел на небеса; но сам говорит: сказал Господь Господу моему: седи одесную Меня, </text>
     <verse num="35" />
     <text>доколе положу врагов Твоих в подножие ног Твоих.”</text>
   </block>
@@ -962,11 +966,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Peter (Simon)" multiBlockQuote="Start">
-      <text>“You rulers of the people, and elders of Israel, </text>
+      <text>“You rulers of the people, and elders of Israel,</text>
+    </ReferenceBlocks>
+    <text>“начальники народа и старейшины Израильские!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Start">
       <verse num="9" />
       <text>are we being examined today concerning a good deed done to a crippled man? Are you asking by what means this man has been healed?</text>
     </ReferenceBlocks>
-    <text>“начальники народа и старейшины Израильские! </text>
     <verse num="9" />
     <text>Если от нас сегодня требуют ответа в благодеянии человеку немощному, как он исцелен,</text>
   </block>
@@ -5541,16 +5549,12 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ACT">
       <verse num="27" />
-      <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped.</text>
-    </ReferenceBlocks>
-    <verse num="27" />
-    <text>Темничный же страж, пробудившись и увидев, что двери темницы отворены, извлек меч и хотел умертвить себя, думая, что узники убежали.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="narrator-ACT" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="narrator-ACT">
+      <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped. </text>
       <verse num="28" />
       <text>But Paul cried out,</text>
     </ReferenceBlocks>
+    <verse num="27" />
+    <text>Темничный же страж, пробудившись и увидев, что двери темницы отворены, извлек меч и хотел умертвить себя, думая, что узники убежали. </text>
     <verse num="28" />
     <text>Но Павел возгласил громким голосом, говоря:</text>
   </block>
@@ -7125,12 +7129,16 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-ACT">
       <verse num="12" />
-      <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem. </text>
+      <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem.</text>
+    </ReferenceBlocks>
+    <verse num="12" />
+    <text>Когда же мы услышали это, то и мы и тамошние просили, чтобы он не ходил в Иерусалим.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="Paul" delivery="sad" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="Paul" delivery="sad">
       <verse num="13" />
       <text>Then Paul answered,</text>
     </ReferenceBlocks>
-    <verse num="12" />
-    <text>Когда же мы услышали это, то и мы и тамошние просили, чтобы он не ходил в Иерусалим. </text>
     <verse num="13" />
     <text>Но Павел в ответ сказал:</text>
   </block>

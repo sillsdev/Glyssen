@@ -143,10 +143,16 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
       <verse num="17" />
-      <text>For he received from God the Father honor and glory, when the voice came to him from the Majestic Glory, “This is my beloved Son, in whom I am well pleased.”</text>
+      <text>For he received from God the Father honor and glory, when the voice came to him from the Majestic Glory,</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Ибо Он принял от Бога Отца честь и славу, когда от велелепной славы принесся к Нему такой глас: Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
+    <text>Ибо Он принял от Бога Отца честь и славу, когда от велелепной славы принесся к Нему такой глас:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
+      <text>“This is my beloved Son, in whom I am well pleased.”</text>
+    </ReferenceBlocks>
+    <text>Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE">

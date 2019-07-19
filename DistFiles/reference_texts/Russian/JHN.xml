@@ -1678,15 +1678,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="narrator-JHN">
       <verse num="41" />
       <text>Many more believed because of his word.</text>
-    </ReferenceBlocks>
-    <verse num="41" />
-    <text>И еще большее число уверовали по Его слову.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="42" characterId="narrator-JHN" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="42" characterId="narrator-JHN">
       <verse num="42" />
       <text>They said to the woman,</text>
     </ReferenceBlocks>
+    <verse num="41" />
+    <text>И еще большее число уверовали по Его слову. </text>
     <verse num="42" />
     <text>А женщине той говорили:</text>
   </block>
@@ -3497,10 +3493,14 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Pharisees" delivery="angry" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Pharisees" delivery="angry" multiBlockQuote="Start">
       <text>“You aren’t also led astray, are you? </text>
+    </ReferenceBlocks>
+    <text>“неужели и вы прельстились?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Pharisees" delivery="angry" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Pharisees" delivery="angry" multiBlockQuote="Start">
       <verse num="48" />
       <text>Have any of the rulers believed in him, or of the Pharisees?</text>
     </ReferenceBlocks>
-    <text>“неужели и вы прельстились? </text>
     <verse num="48" />
     <text>Уверовал ли в Него кто из начальников, или из фарисеев?</text>
   </block>

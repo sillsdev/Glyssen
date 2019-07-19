@@ -155,7 +155,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
     <verse num="19" />
-    <text>However God’s firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
+    <text>However God's firm foundation stands, having this seal,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
+    <text>The Lord knows those who are his, and, Let every one who names the name of the Lord depart from unrighteousness.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI">
     <verse num="20" />

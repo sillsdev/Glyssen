@@ -302,7 +302,9 @@
     <text>As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
-    <text>“There is no one righteous; no, not one. </text>
+    <text>“There is no one righteous; no, not one.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Start">
     <verse num="11" />
     <text>There is no one who understands. There is no one who seeks after God.</text>
   </block>
@@ -313,18 +315,24 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
     <verse num="13" />
     <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips”; </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture">
     <verse num="14" />
     <text>“whose mouth is full of cursing and bitterness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
     <verse num="15" />
     <text>“Their feet are swift to shed blood. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
     <verse num="16" />
     <text>Destruction and misery are in their ways.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="17" />
     <text>The way of peace, they haven’t known.” </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="18" />
     <text>“There is no fear of God before their eyes.”</text>
   </block>
@@ -435,7 +443,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ROM">
     <verse num="13" />
-    <text>God promised Abraham and his descendants that they would be heirs to the world. This promise was made not because Abraham had obeyed the law, but because he believed in God and had been accepted by him.</text>
+    <text>God promised Abraham and his descendants that they would be heirs to the world. This promise was made not because Abraham had obeyed the law , but because he believed in God and had been accepted by him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ROM">
     <verse num="14" />
@@ -733,7 +741,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-ROM">
     <verse num="13" />
-    <text>Did then that which is good become death to me? May it never be! In order that sin might be recognized as sin, it produced death in me through what was good. That way, throught he commandment, sin might become utterly sinful.</text>
+    <text>Did then that which is good become death to me? May it never be! In order that sin might be recognized as sin, it produced death in me through what was good. That way, through the commandment, sin might become utterly sinful.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-ROM">
     <verse num="14" />

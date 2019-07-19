@@ -269,6 +269,8 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Continuation">
     <verse num="34" />
     <text>For David didn’t ascend into the heavens, but he says himself, ‘The Lord said to my Lord, “Sit by my right hand, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="35" characterId="Peter (Simon)" multiBlockQuote="Continuation">
     <verse num="35" />
     <text>until I make your enemies a footstool for your feet.”’</text>
   </block>
@@ -481,7 +483,9 @@
     <text>Then Peter, filled with the Holy Spirit, said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Peter (Simon)" multiBlockQuote="Start">
-    <text>“You rulers of the people, and elders of Israel, </text>
+    <text>“You rulers of the people, and elders of Israel,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Start">
     <verse num="9" />
     <text>are we being examined today concerning a good deed done to a crippled man? Are you asking by what means this man has been healed?</text>
   </block>
@@ -2771,8 +2775,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
-    <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped.</text>
-	<verse num="28" />
+    <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped. </text>
+    <verse num="28" />
     <text>But Paul cried out,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Paul" delivery="shouting">
@@ -3561,7 +3565,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
-    <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem. </text>
+    <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="Paul" delivery="sad">
     <verse num="13" />
     <text>Then Paul answered,</text>
   </block>

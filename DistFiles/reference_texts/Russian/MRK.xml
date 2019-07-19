@@ -421,7 +421,7 @@
       <text>saying:</text>
     </ReferenceBlocks>
     <verse num="43" />
-    <text>И, посмотрев на него строго, тотчас отослал его </text>
+    <text>И, посмотрев на него строго, тотчас отослал его</text>
     <verse num="44" />
     <text>и сказал ему:</text>
   </block>
@@ -971,21 +971,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="teachers of religious law" delivery="insulting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="teachers of religious law" delivery="insulting">
-      <text>“He has Beelzebul,”</text>
+      <text>“He has Beelzebul,” and, “By the prince of the demons he casts out the demons.”</text>
     </ReferenceBlocks>
-    <text>“что Он имеет в Себе веельзевула”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK">
-      <text>and,</text>
-    </ReferenceBlocks>
-    <text>и</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="teachers of religious law" delivery="insulting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="teachers of religious law" delivery="insulting">
-      <text>“By the prince of the demons he casts out the demons.”</text>
-    </ReferenceBlocks>
-    <text>“что изгоняет бесов силою бесовского князя.”</text>
+    <text>“что Он имеет в Себе веельзевула” и “что изгоняет бесов силою бесовского князя.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-MRK">
@@ -1575,15 +1563,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-MRK">
       <verse num="6" />
       <text>When he saw Jesus from afar, he ran and bowed down to him,</text>
-    </ReferenceBlocks>
-    <verse num="6" />
-    <text>увидев же Иисуса издалека, прибежал и поклонился Ему,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-MRK">
       <verse num="7" />
       <text>and crying out with a loud voice, he said,</text>
     </ReferenceBlocks>
+    <verse num="6" />
+    <text>увидев же Иисуса издалека, прибежал и поклонился Ему,</text>
     <verse num="7" />
     <text>и, вскричав громким голосом, сказал:</text>
   </block>
@@ -1775,15 +1759,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-MRK">
       <verse num="22" />
       <text>Behold, one of the rulers of the synagogue, Jairus by name, came; and seeing him, he fell at his feet,</text>
-    </ReferenceBlocks>
-    <verse num="22" />
-    <text>И вот, приходит один из начальников синагоги, по имени Иаир, и, увидев Его, падает к ногам Его</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-MRK">
       <verse num="23" />
       <text>and begged him much, saying,</text>
     </ReferenceBlocks>
+    <verse num="22" />
+    <text>И вот, приходит один из начальников синагоги, по имени Иаир, и, увидев Его, падает к ногам Его</text>
     <verse num="23" />
     <text>и усильно просит Его, говоря:</text>
   </block>
@@ -1979,15 +1959,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="narrator-MRK">
-      <text>which means, being interpreted,</text>
+      <text>which means, being interpreted, “Little girl, I say to you, get up!”</text>
     </ReferenceBlocks>
-    <text>что значит:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders">
-      <text>“Little girl, I say to you, get up!”</text>
-    </ReferenceBlocks>
-    <text>“девица, тебе говорю, встань.”</text>
+    <text>что значит: “девица, тебе говорю, встань.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="narrator-MRK">
@@ -3023,15 +2997,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-MRK">
-      <text>that is,</text>
+      <text>that is, “Be opened!”</text>
     </ReferenceBlocks>
-    <text>то есть:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders">
-      <text>“Be opened!”</text>
-    </ReferenceBlocks>
-    <text>“отверзись.”</text>
+    <text>то есть: “отверзись.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="narrator-MRK">
@@ -6429,15 +6397,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="51" characterId="narrator-MRK">
       <verse num="51" />
       <text>A certain young man followed him, having a linen cloth thrown around himself, over his naked body. The young men grabbed him,</text>
-    </ReferenceBlocks>
-    <verse num="51" />
-    <text>Один юноша, завернувшись по нагому телу в покрывало, следовал за Ним; и воины схватили его.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="52" characterId="narrator-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="52" characterId="narrator-MRK">
       <verse num="52" />
       <text>but he left the linen cloth, and fled from them naked.</text>
     </ReferenceBlocks>
+    <verse num="51" />
+    <text>Один юноша, завернувшись по нагому телу в покрывало, следовал за Ним; и воины схватили его.</text>
     <verse num="52" />
     <text>Но он, оставив покрывало, нагой убежал от них.</text>
   </block>

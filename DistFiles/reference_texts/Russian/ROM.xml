@@ -604,11 +604,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
-      <text>“There is no one righteous; no, not one. </text>
+      <text>“There is no one righteous; no, not one.</text>
+    </ReferenceBlocks>
+    <text>“нет праведного ни одного;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Start">
       <verse num="11" />
       <text>There is no one who understands. There is no one who seeks after God.</text>
     </ReferenceBlocks>
-    <text>“нет праведного ни одного; </text>
     <verse num="11" />
     <text>нет разумевающего; никто не ищет Бога;</text>
   </block>
@@ -624,11 +628,15 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
       <verse num="13" />
       <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips”; </text>
+    </ReferenceBlocks>
+    <verse num="13" />
+    <text>Гортань их открытый гроб; языком своим обманывают; яд аспидов на губах их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture">
       <verse num="14" />
       <text>“whose mouth is full of cursing and bitterness.”</text>
     </ReferenceBlocks>
-    <verse num="13" />
-    <text>Гортань их—открытый гроб; языком своим обманывают; яд аспидов на губах их. </text>
     <verse num="14" />
     <text>Уста их полны злословия и горечи.”</text>
   </block>
@@ -636,11 +644,15 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
       <verse num="15" />
       <text>“Their feet are swift to shed blood. </text>
+    </ReferenceBlocks>
+    <verse num="15" />
+    <text>“Ноги их быстры на пролитие крови;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
       <verse num="16" />
       <text>Destruction and misery are in their ways.</text>
     </ReferenceBlocks>
-    <verse num="15" />
-    <text>“Ноги их быстры на пролитие крови; </text>
     <verse num="16" />
     <text>разрушение и пагуба на путях их;</text>
   </block>
@@ -648,11 +660,15 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="17" />
       <text>The way of peace, they haven’t known.” </text>
+    </ReferenceBlocks>
+    <verse num="17" />
+    <text>они не знают пути мира.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="18" />
       <text>“There is no fear of God before their eyes.”</text>
     </ReferenceBlocks>
-    <verse num="17" />
-    <text>они не знают пути мира. </text>
     <verse num="18" />
     <text>Нет страха Божия перед глазами их.”</text>
   </block>
@@ -869,10 +885,10 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>God promised Abraham and his descendants that they would be heirs to the world. This promise was made not because Abraham had obeyed the law, but because he believed in God and had been accepted by him.</text>
+      <text>God promised Abraham and his descendants that they would be heirs to the world. This promise was made not because Abraham had obeyed the law , but because he believed in God and had been accepted by him.</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Бог обещал Аврааму и его потомкам, что они будут наследниками мира. Это обещание было сделано не потому, что Авраам повиновался закону, но потому, что он верил в Бога и был принят им.</text>
+    <text>Бог обещал Аврааму и его потомкам, что они будут наследниками мира. Это обещание было сделано не потому, что Авраам повиновался закону , но потому, что он верил в Бога и был принят им.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ROM">
@@ -1465,7 +1481,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>Did then that which is good become death to me? May it never be! In order that sin might be recognized as sin, it produced death in me through what was good. That way, throught he commandment, sin might become utterly sinful.</text>
+      <text>Did then that which is good become death to me? May it never be! In order that sin might be recognized as sin, it produced death in me through what was good. That way, through the commandment, sin might become utterly sinful.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Итак, неужели доброе сделалось мне смертоносным? Никак; но грех, оказывающийся грехом потому, что посредством доброго причиняет мне смерть, так что грех становится крайне грешен посредством заповеди.</text>
@@ -2071,10 +2087,16 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>But indeed, O man, who are you to reply against God? Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
+      <text>But indeed, O man, who are you to reply against God?</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>А ты кто, человек, что споришь с Богом? Изделие скажет ли сделавшему его: 'зачем ты меня так сделал?'</text>
+    <text>А ты кто, человек, что споришь с Богом?</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" chapter="9" initialStartVerse="20" characterId="scripture">
+      <text>Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
+    </ReferenceBlocks>
+    <text>Изделие скажет ли сделавшему его: 'зачем ты меня так сделал?'</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
@@ -2255,20 +2277,38 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>But the righteousness which is of faith says this, “Don’t say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);</text>
+      <text>But the righteousness which is of faith says this,</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>А праведность от веры так говорит: не говори в сердце твоем: кто взойдет на небо? то есть Христа свести.</text>
+    <text>А праведность от веры так говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="God" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="God">
+      <text>“Don’t say in your heart, ‘Who will ascend into heaven?’</text>
+    </ReferenceBlocks>
+    <text>не говори в сердце твоем: кто взойдет на небо?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
+      <text>(that is, to bring Christ down);</text>
+    </ReferenceBlocks>
+    <text>то есть Христа свести.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="God" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="God">
+      <verse num="7" />
+      <text>or, ‘Who will descend into the abyss?’</text>
+    </ReferenceBlocks>
+    <verse num="7" />
+    <text>Или кто сойдет в бездну?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">
-      <verse num="7" />
-      <text>or, ‘Who will descend into the abyss?’ (that is, to bring Christ up from the dead.)” </text>
+      <text>(that is, to bring Christ up from the dead.)”</text>
       <verse num="8" />
       <text>But what does it say?</text>
     </ReferenceBlocks>
-    <verse num="7" />
-    <text>Или кто сойдет в бездну? то есть Христа из мертвых возвести. </text>
+    <text>то есть Христа из мертвых возвести. </text>
     <verse num="8" />
     <text>Но что говорит Писание?</text>
   </block>
@@ -3237,30 +3277,6 @@
     </ReferenceBlocks>
     <verse num="23" />
     <text>А сомневающийся, если ест, осуждается, потому что не по вере; а все, что не по вере, грех.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-ROM" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-ROM">
-      <verse num="24" />
-      <text>Now to him who is able to establish you according to my Good News and the preaching of Jesus Christ. And this according to the revelation of the mystery which has been kept secret through long ages,</text>
-    </ReferenceBlocks>
-    <verse num="24" />
-    <text>Могущему же утвердить вас, по благовествованию моему и проповеди Иисуса Христа, по откровению тайны, о которой от вечных времен было умолчано,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-ROM">
-      <verse num="25" />
-      <text>but now is revealed, and by the Scriptures of the prophets. According to the commandment of the eternal God, it is made known for obedience of faith to all the nations;</text>
-    </ReferenceBlocks>
-    <verse num="25" />
-    <text>но которая ныне явлена, и через писания пророческие, по повелению вечного Бога, возвещена всем народам для покорения их вере,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-ROM" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-ROM">
-      <verse num="26" />
-      <text>to the only wise God, through Jesus Christ, to whom be the glory forever! Amen.</text>
-    </ReferenceBlocks>
-    <verse num="26" />
-    <text>Единому Премудрому Богу, через Иисуса Христа, слава во веки. Аминь.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">

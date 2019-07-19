@@ -32,7 +32,7 @@ namespace Glyssen.RefTextDevUtilities
 		private const string kCharacterHeader = "CHARACTER";
 		private const string kCharacterHeaderAlt = "Char";
 		private const string kEnglishHeader = "ENGLISH";
-		private const string kNewGuideFormattingIgnore = "New Guide"; // The "\nFormatting" part will be truncated
+		private const string kSporadicAddlCharNamesPrefixIgnore = "Sporadic";
 		private const string kPrompts = "Prompts";
 		public const string kTempFolderPrefix = "New";
 
@@ -371,12 +371,15 @@ namespace Glyssen.RefTextDevUtilities
 								existingEnglishRefBook = existingEnglishRefBooks[iBook++];
 
 							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+							{
 								existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books
 									.Single(b => b.BookId == existingEnglishRefBook.BookId).GetScriptBlocks();
 
-							if (existingRefBlocksForLanguage.Count != existingEnglishRefBook.GetScriptBlocks().Count)
-								WriteOutput($"Existing book of {referenceTextBookId} for {language} has different number of blocks than " +
-									"the existing English reference text.", true);
+								if (existingRefBlocksForLanguage.Count != existingEnglishRefBook.GetScriptBlocks().Count)
+									WriteOutput($"Existing book of {referenceTextBookId} for {language} has different number of blocks than " +
+										"the existing English reference text.", true);
+							}
+
 							iBlock = 0;
 							chapterLabelForPrevBook = chapterLabel;
 							chapterLabel = null;
@@ -1047,58 +1050,86 @@ namespace Glyssen.RefTextDevUtilities
 				var cells = worksheet.Cells;
 				var rowData = cells.GroupBy(c => c.Start.Row).ToList();
 				int rowsToSkip = -1;
-				for (int iRow = 0; iRow < rowData.Count; iRow++)
+				int languageHeaderRow = -1;
+				for (int iRow = 0; iRow < rowData.Count && (bookCol == null || languageHeaderRow == -1); iRow++)
 				{
 					var nonNullCellAddresses = rowData[iRow].Where(er => !String.IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
-					var bookAddress = (nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader)) ??
-						nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeaderAlt)))?.Address;
-					if (bookAddress != null)
+					var iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kBookHeader) || cells[a.Address].Value.Equals(kBookHeaderAlt));
+					if (iCol >= 0)
 					{
+						var bookAddress = nonNullCellAddresses[iCol].Address;
 						bookCol = GetColumnFromCellAddress(bookAddress);
-						bool doneProcessingColumns = false;
-						foreach (var excelRange in nonNullCellAddresses.Skip(1))
+					}
+					else
+					{
+						// Language headers can now be in a row BEFORE the other column headers
+						// English is required and must come first!
+						iCol = nonNullCellAddresses.FindIndex(a => cells[a.Address].Value.Equals(kEnglishHeader));
+						if (iCol >= 0)
 						{
-							var value = cells[excelRange.Address].Value?.ToString();
-							if (value == null)
-								continue;
-							var iBreak = value.IndexOfAny(new[] {'\n', '\r'});
-							if (iBreak > 0)
-								value = value.Substring(0, iBreak);
-							var col = GetColumnFromCellAddress(excelRange.Address);
-							switch (value)
-							{
-								case kChapterHeader:
-									chapterCol = col;
-									break;
-								case kVerseHeader:
-									verseCol = col;
-									break;
-								case kCharacterHeader:
-								case kCharacterHeaderAlt:
-									characterCol = col;
-									break;
-								case kEnglishHeader: // English is required and must come first!
-									allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
-									break;
-								case kNewGuideFormattingIgnore:
-									break; // Ignore
-								case kPrompts:
-								case "":
-									if (allLanguages.Any())
+							var englishAddress = nonNullCellAddresses[iCol].Address;
+							allLanguages[NormalizeLanguageColumnHeaderName(kEnglishHeader)] = GetColumnFromCellAddress(englishAddress);
+							languageHeaderRow = iRow;
+						}
+						else
+							continue;
+					}
+
+					bool doneProcessingColumns = false;
+					foreach (var excelRange in nonNullCellAddresses.Skip(iCol + 1))
+					{
+						var value = cells[excelRange.Address].Value?.ToString();
+						if (value == null)
+							continue;
+						var iBreak = value.IndexOfAny(new[] {'\n', '\r'});
+						if (iBreak > 0)
+							value = value.Substring(0, iBreak);
+						var col = GetColumnFromCellAddress(excelRange.Address);
+						switch (value)
+						{
+							case kChapterHeader:
+								chapterCol = col;
+								break;
+							case kVerseHeader:
+								verseCol = col;
+								break;
+							case kCharacterHeader:
+							case kCharacterHeaderAlt:
+								characterCol = col;
+								break;
+							case kEnglishHeader: // English is required and must come first!
+								allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
+								languageHeaderRow = iRow;
+								break;
+							case kPrompts:
+								if (languageHeaderRow != iRow || allLanguages.Any())
+									doneProcessingColumns = true;
+								break;
+							case "":
+								if (allLanguages.Any() && languageHeaderRow == iRow)
+									doneProcessingColumns = true;
+								break;
+							default:
+								if (!value.Any(Char.IsLetter) || value.StartsWith(kSporadicAddlCharNamesPrefixIgnore))
+								{
+									if (allLanguages.Any() && languageHeaderRow == iRow)
 										doneProcessingColumns = true;
-									break;
-								default:
-									if (allLanguages.Any()) // Any other columns before English will be ignored
+								}
+								else
+								{
+									if (allLanguages.Any() && languageHeaderRow == iRow) // Any other columns before English will be ignored
 										allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
-									break;
-							}
-							if (doneProcessingColumns)
+								}
 								break;
 						}
-						rowsToSkip = iRow + 1;
-						break;
+
+						if (doneProcessingColumns)
+							break;
 					}
+
+					rowsToSkip = iRow + 1;
 				}
+
 				if (bookCol == null)
 					WriteOutput($"Book column {kBookHeader} not found!", true);
 				if (chapterCol == null)

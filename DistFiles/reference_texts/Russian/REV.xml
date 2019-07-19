@@ -2780,15 +2780,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
       <text>I saw the woman drunken with the blood of the saints, and with the blood of the martyrs of Jesus. When I saw her, I wondered with great amazement.</text>
-    </ReferenceBlocks>
-    <verse num="6" />
-    <text>Я видел, что жена упоена была кровью святых и кровью свидетелей Иисусовых, и видя ее, дивился удивлением великим.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="narrator-REV">
       <verse num="7" />
       <text>The angel said to me,</text>
     </ReferenceBlocks>
+    <verse num="6" />
+    <text>Я видел, что жена упоена была кровью святых и кровью свидетелей Иисусовых, и видя ее, дивился удивлением великим. </text>
     <verse num="7" />
     <text>И сказал мне Ангел:</text>
   </block>
@@ -3475,7 +3471,7 @@
       <text>They went up over the breadth of the earth, and surrounded the camp of the saints, and the beloved city. Fire came down out of heaven from God, and devoured them.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>И ниспал огонь с неба от Бога и пожрал их; ...</text>
+    <text>И ниспал огонь с неба от Бога и пожрал их;...</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="narrator-REV">
@@ -3869,15 +3865,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
       <text>Now I, John, am the one who heard and saw these things. When I heard and saw, I fell down to worship before the feet of the angel who had shown me these things.</text>
-    </ReferenceBlocks>
-    <verse num="8" />
-    <text>Я, Иоанн, видел и слышал сие. Когда же услышал и увидел, пал к ногам Ангела, показывающего мне сие, чтобы поклониться ему;</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="narrator-REV">
       <verse num="9" />
       <text>He said to me,</text>
     </ReferenceBlocks>
+    <verse num="8" />
+    <text>Я, Иоанн, видел и слышал сие. Когда же услышал и увидел, пал к ногам Ангела, показывающего мне сие, чтобы поклониться ему; </text>
     <verse num="9" />
     <text>но он сказал мне:</text>
   </block>

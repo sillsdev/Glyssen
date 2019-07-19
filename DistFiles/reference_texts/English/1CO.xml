@@ -447,7 +447,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>But those who are outside, God judges. “Put away the wicked man from among yourselves.”</text>
+    <text>But those who are outside, God judges.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
+    <text>“Put away the wicked man from among yourselves.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>6</text>
@@ -1623,7 +1626,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
     <verse num="32" />
-    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised, then “let us eat and drink, for tomorrow we die.”</text>
+    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
+    <text>then let us eat and drink, for tomorrow we die.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />

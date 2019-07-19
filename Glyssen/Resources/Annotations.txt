@@ -1086,7 +1086,7 @@ MRK	14	11	0	<Pause time="2" />
 MRK	14	16	0	<Pause time="2" />
 MRK	14	21	0	<Pause time="1.5" />
 MRK	14	31	0	<Pause time="2" />
-MRK	14	52	0	<Pause time="2" />
+MRK	14	51	0	<Pause time="2" />
 MRK	14	54	0	<Sound startVerse="54" />
 MRK	14	59	0	<Sound soundType="Sfx" startVerse="59" effectName="Men talking" />
 MRK	14	65	0	<Pause time="2" />

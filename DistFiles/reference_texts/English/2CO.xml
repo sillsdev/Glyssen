@@ -970,11 +970,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO">
     <verse num="8" />
-    <text>Concerning this thing, I begged the Lord three times that it might depart from me.</text>
+    <text>Concerning this thing, I begged the Lord three times that it might depart from me. </text>
+    <verse num="9" />
+    <text>He has said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
-    <verse num="9" />
-    <text>He has said to me, “My grace is sufficient for you, for my power is made perfect in weakness.” Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
+    <text>My grace is sufficient for you, for my power is made perfect in weakness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
+    <text>Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
     <verse num="10" />
@@ -1029,7 +1033,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
     <verse num="1" />
-    <text>This is the third time I am coming to you. “At the mouth of two or three witnesses shall every word be established.”</text>
+    <text>This is the third time I am coming to you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
+    <text>At the mouth of two or three witnesses shall every word be established.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">
     <verse num="2" />

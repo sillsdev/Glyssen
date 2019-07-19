@@ -980,10 +980,7 @@
     <text>“Talitha cumi!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="narrator-MRK">
-    <text>which means, being interpreted,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders">
-    <text>“Little girl, I say to you, get up!”</text>
+    <text>which means, being interpreted, “Little girl, I say to you, get up!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="narrator-MRK">
     <verse num="42" />
@@ -1502,10 +1499,7 @@
     <text>“Ephphatha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-MRK">
-    <text>that is,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders">
-    <text>“Be opened!”</text>
+    <text>that is, “Be opened!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />

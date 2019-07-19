@@ -209,7 +209,9 @@
     <text>Therefore, even as the Holy Spirit says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
-    <text>“Today if you will hear his voice, </text>
+    <text>“Today if you will hear his voice,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
     <verse num="8" />
     <text>don’t harden your hearts, as in the rebellion, like as in the day of the trial in the wilderness.</text>
   </block>
@@ -826,21 +828,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
     <verse num="8" />
-    <text>Previously saying,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
-    <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn’t desire, neither had pleasure in them”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
-    <text>(although the law required them to be made), </text>
-    <verse num="9" />
-    <text>then he has said,</text>
+    <text>Previously saying, “Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them”  (although the law required them to be made),</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
-    <text>“Behold, I have come to do your will.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
-    <text>He takes away the first, that he may establish the second.</text>
+    <verse num="9" />
+    <text>then he has said, “Behold, I have come to do your will.” He takes away the first, that he may establish the second.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
     <verse num="10" />

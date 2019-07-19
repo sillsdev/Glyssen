@@ -1747,6 +1747,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Pharisees" delivery="angry" multiBlockQuote="Start">
     <text>“You aren’t also led astray, are you? </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Pharisees" delivery="angry" multiBlockQuote="Start">
     <verse num="48" />
     <text>Have any of the rulers believed in him, or of the Pharisees?</text>
   </block>

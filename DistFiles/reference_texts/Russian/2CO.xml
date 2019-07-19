@@ -1939,18 +1939,26 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO">
       <verse num="8" />
-      <text>Concerning this thing, I begged the Lord three times that it might depart from me.</text>
+      <text>Concerning this thing, I begged the Lord three times that it might depart from me. </text>
+      <verse num="9" />
+      <text>He has said to me,</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Трижды молил я Господа о том, чтобы удалил его от меня.</text>
+    <text>Трижды молил я Господа о том, чтобы удалил его от меня. </text>
+    <verse num="9" />
+    <text>Но Господь сказал мне:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
-      <verse num="9" />
-      <text>He has said to me, “My grace is sufficient for you, for my power is made perfect in weakness.” Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
+      <text>My grace is sufficient for you, for my power is made perfect in weakness.</text>
     </ReferenceBlocks>
-    <verse num="9" />
-    <text>Но Господь сказал мне: 'довольно для тебя благодати Моей, ибо сила Моя совершается в немощи'. И потому я гораздо охотнее буду хвалиться своими немощами, чтобы обитала во мне сила Христова.</text>
+    <text>'довольно для тебя благодати Моей, ибо сила Моя совершается в немощи'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
+      <text>Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
+    </ReferenceBlocks>
+    <text>И потому я гораздо охотнее буду хвалиться своими немощами, чтобы обитала во мне сила Христова.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
@@ -2057,10 +2065,16 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
       <verse num="1" />
-      <text>This is the third time I am coming to you. “At the mouth of two or three witnesses shall every word be established.”</text>
+      <text>This is the third time I am coming to you.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>В третий уже раз иду к вам. При устах двух или трех свидетелей будет твердо всякое слово.</text>
+    <text>В третий уже раз иду к вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
+      <text>At the mouth of two or three witnesses shall every word be established.</text>
+    </ReferenceBlocks>
+    <text>При устах двух или трех свидетелей будет твердо всякое слово.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">

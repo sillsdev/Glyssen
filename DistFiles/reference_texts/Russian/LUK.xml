@@ -442,11 +442,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="46" characterId="Mary, Jesus' mother" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="46" characterId="Mary, Jesus' mother" multiBlockQuote="Start">
-      <text>“My soul magnifies the Lord. </text>
+      <text>“My soul magnifies the Lord.</text>
+    </ReferenceBlocks>
+    <text>“величит душа Моя Господа,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="47" characterId="Mary, Jesus' mother" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="47" characterId="Mary, Jesus' mother" multiBlockQuote="Start">
       <verse num="47" />
       <text>My spirit has rejoiced in God my Savior.</text>
     </ReferenceBlocks>
-    <text>“величит душа Моя Господа, </text>
     <verse num="47" />
     <text>и возрадовался дух Мой о Боге, Спасителе Моем.</text>
   </block>
@@ -501,12 +505,16 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="54" characterId="Mary, Jesus' mother" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="54" characterId="Mary, Jesus' mother" multiBlockQuote="Continuation">
       <verse num="54" />
-      <text>He has given help to Israel, his servant, in remembrance of his mercy, </text>
+      <text>He has given help to Israel, his servant, in remembrance of his mercy,</text>
+    </ReferenceBlocks>
+    <verse num="54" />
+    <text>воспринял Израиля, отрока Своего, воспомянув милость,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="55" characterId="Mary, Jesus' mother" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="55" characterId="Mary, Jesus' mother" multiBlockQuote="Continuation">
       <verse num="55" />
       <text>as he spoke to our fathers, to Abraham and to his offspring forever.”</text>
     </ReferenceBlocks>
-    <verse num="54" />
-    <text>воспринял Израиля, отрока Своего, воспомянув милость, </text>
     <verse num="55" />
     <text>как говорил отцам нашим, к Аврааму и семени его до века.”</text>
   </block>
@@ -681,16 +689,24 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="73" characterId="Zacharias (Zechariah)" delivery="praising" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="73" characterId="Zacharias (Zechariah)" delivery="praising" multiBlockQuote="Continuation">
       <verse num="73" />
-      <text>the oath which he spoke to Abraham, our father, </text>
+      <text>the oath which he spoke to Abraham, our father,</text>
+    </ReferenceBlocks>
+    <verse num="73" />
+    <text>клятву, которою клялся Он Аврааму, отцу нашему, дать нам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="74" characterId="Zacharias (Zechariah)" delivery="praising" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="74" characterId="Zacharias (Zechariah)" delivery="praising" multiBlockQuote="Continuation">
       <verse num="74" />
-      <text>to grant to us that we, being delivered out of the hand of our enemies, should serve him without fear, </text>
+      <text>to grant to us that we, being delivered out of the hand of our enemies, should serve him without fear,</text>
+    </ReferenceBlocks>
+    <verse num="74" />
+    <text>небоязненно, по избавлении от руки врагов наших,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="75" characterId="Zacharias (Zechariah)" delivery="praising" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="75" characterId="Zacharias (Zechariah)" delivery="praising" multiBlockQuote="Continuation">
       <verse num="75" />
       <text>In holiness and righteousness before him all the days of our life.</text>
     </ReferenceBlocks>
-    <verse num="73" />
-    <text>клятву, которою клялся Он Аврааму, отцу нашему, дать нам, </text>
-    <verse num="74" />
-    <text>небоязненно, по избавлении от руки врагов наших, </text>
     <verse num="75" />
     <text>служить Ему в святости и правде пред Ним, во все дни жизни нашей.</text>
   </block>
@@ -991,12 +1007,16 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="Simeon, devout man in Jerusalem" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="Simeon, devout man in Jerusalem" multiBlockQuote="Continuation">
       <verse num="30" />
-      <text>For my eyes have seen your salvation, </text>
+      <text>For my eyes have seen your salvation,</text>
+    </ReferenceBlocks>
+    <verse num="30" />
+    <text>ибо видели очи мои спасение Твое,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="31" characterId="Simeon, devout man in Jerusalem" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="31" characterId="Simeon, devout man in Jerusalem" multiBlockQuote="Continuation">
       <verse num="31" />
       <text>which you have prepared before the face of all peoples;</text>
     </ReferenceBlocks>
-    <verse num="30" />
-    <text>ибо видели очи мои спасение Твое, </text>
     <verse num="31" />
     <text>которое Ты уготовал пред лицем всех народов,</text>
   </block>
@@ -1239,12 +1259,16 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="5" />
-      <text>Every valley will be filled. Every mountain and hill will be brought low. The crooked will become straight, and the rough ways smooth. </text>
+      <text>Every valley will be filled. Every mountain and hill will be brought low. The crooked will become straight, and the rough ways smooth.</text>
+    </ReferenceBlocks>
+    <verse num="5" />
+    <text>всякий дол да наполнится, и всякая гора и холм да понизятся, кривизны выпрямятся и неровные пути сделаются гладкими;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="6" />
       <text>All flesh will see God’s salvation.’”</text>
     </ReferenceBlocks>
-    <verse num="5" />
-    <text>всякий дол да наполнится, и всякая гора и холм да понизятся, кривизны выпрямятся и неровные пути сделаются гладкими; </text>
     <verse num="6" />
     <text>и узрит всякая плоть спасение Божие.”</text>
   </block>
@@ -3086,21 +3110,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising">
-      <text>“A great prophet has arisen among us!”</text>
+      <text>“A great prophet has arisen among us!” and, “God has visited his people!”</text>
     </ReferenceBlocks>
-    <text>“великий пророк восстал между нами,”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK">
-      <text>and,</text>
-    </ReferenceBlocks>
-    <text>и</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising">
-      <text>“God has visited his people!”</text>
-    </ReferenceBlocks>
-    <text>“Бог посетил народ Свой.”</text>
+    <text>“великий пророк восстал между нами,” и “Бог посетил народ Свой.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-LUK">
@@ -5434,16 +5446,12 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-LUK">
       <verse num="14" />
-      <text>He was casting out a demon, and it was mute. It happened, when the demon had gone out, the mute man spoke; and the multitudes marveled.</text>
-    </ReferenceBlocks>
-    <verse num="14" />
-    <text>Однажды изгнал Он беса, который был нем; и когда бес вышел, немой стал говорить; и народ удивился.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-LUK">
+      <text>He was casting out a demon, and it was mute. It happened, when the demon had gone out, the mute man spoke; and the multitudes marveled. </text>
       <verse num="15" />
       <text>But some of them said,</text>
     </ReferenceBlocks>
+    <verse num="14" />
+    <text>Однажды изгнал Он беса, который был нем; и когда бес вышел, немой стал говорить; и народ удивился. </text>
     <verse num="15" />
     <text>Некоторые же из них говорили:</text>
   </block>
@@ -5674,16 +5682,12 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="38" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="38" characterId="narrator-LUK">
       <verse num="38" />
-      <text>When the Pharisee saw it, he marveled that he had not first washed himself before dinner.</text>
-    </ReferenceBlocks>
-    <verse num="38" />
-    <text>Фарисей же удивился, увидев, что Он не умыл рук перед обедом.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-LUK">
+      <text>When the Pharisee saw it, he marveled that he had not first washed himself before dinner. </text>
       <verse num="39" />
       <text>The Lord said to him,</text>
     </ReferenceBlocks>
+    <verse num="38" />
+    <text>Фарисей же удивился, увидев, что Он не умыл рук перед обедом. </text>
     <verse num="39" />
     <text>Но Господь сказал ему:</text>
   </block>
@@ -7400,16 +7404,12 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-LUK">
       <verse num="14" />
-      <text>The Pharisees, who were lovers of money, also heard all these things, and they scoffed at him.</text>
-    </ReferenceBlocks>
-    <verse num="14" />
-    <text>Слышали всё это и фарисеи, которые были сребролюбивы, и они смеялись над Ним.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-LUK">
+      <text>The Pharisees, who were lovers of money, also heard all these things, and they scoffed at him. </text>
       <verse num="15" />
       <text>He said to them,</text>
     </ReferenceBlocks>
+    <verse num="14" />
+    <text>Слышали всё это и фарисеи, которые были сребролюбивы, и они смеялись над Ним. </text>
     <verse num="15" />
     <text>Он сказал им:</text>
   </block>

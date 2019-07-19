@@ -417,11 +417,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
-      <text>“Today if you will hear his voice, </text>
+      <text>“Today if you will hear his voice,</text>
+    </ReferenceBlocks>
+    <text>“ныне, когда услышите глас Его,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
       <verse num="8" />
       <text>don’t harden your hearts, as in the rebellion, like as in the day of the trial in the wilderness.</text>
     </ReferenceBlocks>
-    <text>“ныне, когда услышите глас Его, </text>
     <verse num="8" />
     <text>не ожесточите сердец ваших, как во время ропота, в день искушения в пустыне,</text>
   </block>
@@ -1650,38 +1654,18 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
       <verse num="8" />
-      <text>Previously saying,</text>
+      <text>Previously saying, “Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them”  (although the law required them to be made),</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Сказав прежде,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
-      <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn’t desire, neither had pleasure in them”</text>
-    </ReferenceBlocks>
-    <text>“что 'ни жертвы, ни приношения, ни всесожжений, ни жертвы за грех,”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
-      <text>(although the law required them to be made), </text>
-      <verse num="9" />
-      <text>then he has said,</text>
-    </ReferenceBlocks>
-    <text>—которые приносятся по закону, —Ты не восхотел и не благоизволил', </text>
-    <verse num="9" />
-    <text>потом прибавил:</text>
+    <text>Сказав прежде, “что 'ни жертвы, ни приношения, ни всесожжений, ни жертвы за грех,” которые приносятся по закону, Ты не восхотел и не благоизволил',</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
-      <text>“Behold, I have come to do your will.”</text>
+      <verse num="9" />
+      <text>then he has said, “Behold, I have come to do your will.” He takes away the first, that he may establish the second.</text>
     </ReferenceBlocks>
-    <text>“'вот, иду исполнить волю Твою, Боже'.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
-      <text>He takes away the first, that he may establish the second.</text>
-    </ReferenceBlocks>
-    <text>Отменяет первое, чтобы постановить второе.</text>
+    <verse num="9" />
+    <text>потом прибавил: “'вот, иду исполнить волю Твою, Боже'.” Отменяет первое, чтобы постановить второе.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
