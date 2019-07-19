@@ -1739,6 +1739,94 @@ namespace GlyssenTests
 		#endregion PG-1168
 
 		/// <summary>
+		/// PG-1231
+		/// </summary>
+		[Test]
+		public void ApplyUserDecisions_SplitBlockBeforeMissingVerseNumber_TargetContainsBridgeWithMissingVerseNumber_SplitNotApplied()
+		{
+			const int kChapter = 1;
+			const string kMat1_20a = "Gang hapëko opët le, imbalingum gang ɗakëko gokëɗ, aɗaŋal ar Urün ale komaŝaŋëta gonëkëɗ laŋ. Komare: ";
+			const string kMat1_20b = "<Ŝosef, wuj ar ŝalëk ŝan gañamb an Dafid, koyéŋ imamaɗ Mari ogé asówar arój ɓawo ñaŋëso ñan ɗüɓko Mari ñaŋ fangar Genjëm en Urün le rik haŋ ŝotëko gacëɗ aŋ, mage hal. ";
+			const string kMat1_21a = "Mari omadëme ñaŋëso ñacan. Ñungum imatap Ŝésü. Koto ër uyat or Ŝésü ówum oɗ le gon e oŋ iyi Afeyën ar ɓal e. Gungum ejëmatapal ñaŋëso ñungum Ŝésü ɓawo oɓepeyëne ɓal ɓüróm ɓële oméƴ or ñüdëkëɓe kongol ër ɓiñüŋüla ɓindóɓün laŋ. ";
+			const string kMat1_21b = "Ngër kak reɗëkoma aɗaŋal ar Urün ale Ŝosef. Gang hëñëlakoma mëŝësün, koƴe. ";
+			const string kMat1_23a = "Gen oŝot or gacëɗ or ŝungutuŋ ër mamalange aŝan eŋ, Urün oɗ acasëɗ kabiriŋ alëka iyi ogéye le. Adeɗ: ";
+			const string kMat1_23b = "<Ŝungutuŋ ër mamalange aŝan ocote gacëɗ, omadëme ñaŋëso ñacan ñungum ënmayó Emanuwel. ";
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block> {
+				NewChapterBlock(kChapter, "MAT"),
+				new Block("p", kChapter, 20) { IsParagraphStart = true, CharacterId = narrator }
+					.AddVerse(20, kMat1_20a),
+				// Block break triggered by opening quote
+				new Block("p", kChapter, 20) { IsParagraphStart = false, CharacterId = CharacterVerseData.kUnknownCharacter }
+					.AddText(kMat1_20b)
+					.AddVerse(21, kMat1_21a + kMat1_21b),
+				// The closing quote mark is missing in the text, but the parser would force this block break (and
+				// mark the previous one unknown because no known character from v. 20-21 should still be speaking
+				// in v. 23 (or 22 for that matter).
+				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = narrator }
+					.AddVerse(23, kMat1_23a),
+				// Block break triggered by opening quote. Again, this is unknown because of the missing closer.
+				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = CharacterVerseData.kUnknownCharacter }
+					.AddVerse(23, kMat1_23b + "Koto ër Emanuwel le gon e oŋ iyi Urün oɗ ëng ɓé eene. Gon reɗëko Urün oŋ aŝükélün ar Urün ale añugëɗ. Gang ŝotëko Mari gacëɗ hara mamalangëɗelaŋ aŝan, agé gon reɗëko Urün kabiriŋ alëka ogéye oŋ. ")
+					.AddVerse(24, "Ŝosef gang lügütéko, adiɗ ngër gang reɗëkoma aɗaŋal ar Urün ale le. Komamaɗ Mari. Kogé asówar aróm. \v 25 Kono mënɓarɗelaŋ gañar ëng Ŝosef haŋ fo rëmkoma Mari ñaŋëso ñaŋ le. Gang rëmkoma, Ŝosef amatapëɗ ñaŋëso ñungum Ŝésü."),
+			};
+
+			var target = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			// In the bug report we're simulating here, the user had fixed the missing v. 22 by making
+			// the existing v. 23 into verse bridge for 22-23.
+			target.GetScriptBlocks().Last().BlockElements[2] = new Verse("22-23");
+			var source = new BookScript("MAT", blocks);
+
+			int i = 1;
+			var firstBlockForV20 = source.GetScriptBlocks()[i++];
+			Assert.IsTrue(firstBlockForV20.StartsAtVerseStart);
+			Assert.AreEqual("20", ((Verse)firstBlockForV20.BlockElements[0]).Number);
+			var secondBlockForV20 = source.GetScriptBlocks()[i++];
+
+			var secondBlockForV21 = source.SplitBlock(secondBlockForV20, "21", kMat1_21a.Length, true, narrator, ScrVers.English);
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var origBlockCount = source.GetScriptBlocks().Count;
+			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
+				source.GetIndexOfFirstBlockForVerse(kChapter, 20), ScrVers.English);
+			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
+			MatchUpBlocksAndApplyToSource(matchup);
+			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
+			// This is a split caused by aligning to reference text, not a user split:
+			//var firstBlockForV21 = source.SplitBlock(secondBlockForV20, "20", PortionScript.kSplitAtEndOfVerse, false);
+
+			//firstBlockForV20.SetMatchedReferenceBlock("But when he thought about these things, behold, an angel of the Lord appeared to him in a dream, saying,");
+			//firstBlockForV20.CharacterId = narrator;
+			//firstBlockForV20.UserConfirmed = true;
+			//secondBlockForV20.SetMatchedReferenceBlock("“Joseph, son of David, don’t be afraid to take to yourself Mary, your wife, for that which is conceived in her is of the Holy Spirit.");
+			//secondBlockForV20.CharacterId = "angel";
+			//secondBlockForV20.UserConfirmed = true;
+			//firstBlockForV21.SetMatchedReferenceBlock("She shall bring forth a son. You shall call his name Jesus, for it is he who shall save his people from their sins.”");
+			//firstBlockForV21.CharacterId = "angel";
+			//firstBlockForV21.UserConfirmed = true;
+			//secondBlockForV21.SetMatchedReferenceBlock("he said.");
+			//secondBlockForV21.UserConfirmed = true;
+
+			var v23Thru24Block = source.GetScriptBlocks().Last();
+			var newBlock = source.SplitBlock(v23Thru24Block, "23", kMat1_23b.Length, true, narrator, ScrVers.English);
+			newBlock.UserConfirmed = true;
+
+			var v21Blocks = source.GetBlocksForVerse(1, 21).ToList();
+			Assert.AreEqual(2, v21Blocks.Count);
+			Assert.AreEqual(secondBlockForV21.GetText(true), v21Blocks.Last().GetText(true));
+			Assert.IsNull(source.GetFirstBlockForVerse(1, 22));
+			var v23Blocks = source.GetBlocksForVerse(1, 23).ToList();
+			Assert.AreEqual(3, v23Blocks.Count);
+			Assert.IsTrue(v21Blocks.All(b => b.SplitId == 0));
+			Assert.IsTrue(v23Blocks.Skip(1).All(b => b.SplitId == 1));
+
+			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+		}
+
+		/// <summary>
 		/// PG-1207
 		/// </summary>
 		[Test]

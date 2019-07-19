@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,7 @@ namespace Glyssen
 		public string MainTitle { get; set; }
 
 		[XmlAttribute("checkstatusoverridden")]
+		[DefaultValue(false)]
 		public bool CheckStatusOverridden { get; set; }
 
 		[XmlAttribute("ptchecksum")]
@@ -332,6 +334,7 @@ namespace Glyssen
 				iFirstBlockToExamine = index;
 				if (block.BlockElements.First() is Verse)
 				{
+					//if (block.InitialStartVerseNumber == verse || (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber >= verse))
 					if (block.InitialStartVerseNumber == verse || block.InitialEndVerseNumber >= verse)
 						return iFirstBlockToExamine;
 				}
@@ -355,6 +358,7 @@ namespace Glyssen
 			while (i < m_blocks.Count && m_blocks[i].InitialStartVerseNumber < verse)
 				i++;
 			return i < m_blocks.Count ? i : -1;
+			//return i < m_blocks.Count && m_blocks[i].InitialStartVerseNumber <= verse ? i : -1;
 		}
 
 		/// <summary>
@@ -641,6 +645,8 @@ namespace Glyssen
 			// larger block with matching verse text on either side of the splits, we can still apply them (though
 			// we won't attempt to fully or partially connect it up with the reference text).
 			var blockToSplit = GetFirstBlockForVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
+			//if (blockToSplit == null)
+			//	return false;
 			var indexOfFirstCorrespondingElement = -1;
 			for (int iElem = 0; iElem < blockToSplit.BlockElements.Count; iElem++)
 			{
