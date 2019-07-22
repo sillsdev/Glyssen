@@ -91,8 +91,7 @@ namespace Glyssen
 					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
 				}
 
-				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
-					blockToSplit.MatchesReferenceText = false;
+				blockToSplit.ClearReferenceText();
 			}
 			blockToSplit.SplitId = newBlock.SplitId = GetSplitId(blockToSplit, userSplit);
 

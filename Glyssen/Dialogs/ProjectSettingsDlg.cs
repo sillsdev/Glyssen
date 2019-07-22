@@ -51,9 +51,11 @@ namespace Glyssen.Dialogs
 					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
 					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
 			}
-			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.PageHeader)))
+
+			IReadOnlyList<BookScript> books = model.Project.IncludedBooks.Any() ? model.Project.IncludedBooks : model.Project.Books;
+			if (books.All(book => string.IsNullOrEmpty(book.PageHeader)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.PageHeader);
-			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.MainTitle)))
+			if (books.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;

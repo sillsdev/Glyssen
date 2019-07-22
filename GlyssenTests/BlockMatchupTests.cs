@@ -1433,13 +1433,11 @@ namespace GlyssenTests
 			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);//TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
 			rt.ApplyTo(vernBook, ScrVers.English);
 			vernacularBlocks[1].SetMatchedReferenceBlock(vernJesusSaidBlock.ReferenceBlocks.Single());
-			vernJesusSaidBlock.ReferenceBlocks.Clear();
-			vernJesusSaidBlock.MatchesReferenceText = false;
+			vernJesusSaidBlock.ClearReferenceText();
 			vernacularBlocks[3].ReferenceBlocks.Single().CharacterId = refTextCharacter;
 			vernacularBlocks[5].SetMatchedReferenceBlock("This is some arbitrary reference text.");
 			vernacularBlocks[6].SetMatchedReferenceBlock(vernAndrewSaidBlock.ReferenceBlocks.Single());
-			vernAndrewSaidBlock.ReferenceBlocks.Clear();
-			vernAndrewSaidBlock.MatchesReferenceText = false;
+			vernAndrewSaidBlock.ClearReferenceText();
 			Assert.AreEqual(2, vernacularBlocks.Count(vb => vb.GetReferenceTextAtDepth(0) == ""));
 			var matchup = new BlockMatchup(vernBook, 0, null, i => false, rt);
 			matchup.MatchAllBlocks(ScrVers.English);
