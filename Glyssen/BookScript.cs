@@ -136,12 +136,12 @@ namespace Glyssen
 			{
 				list.Add(m_blocks[0].Clone());
 				var prevBlock = list.Single();
-				prevBlock.MatchesReferenceText = false;
+				prevBlock.ClearReferenceText();
 				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
 				for (var i = 1; i < m_blockCount; i++)
 				{
 					var clonedBlock = m_blocks[i].Clone();
-					clonedBlock.MatchesReferenceText = false;
+					clonedBlock.ClearReferenceText();
 					if (!clonedBlock.CharacterIsStandard)
 						clonedBlock.CharacterId = narrator;
 

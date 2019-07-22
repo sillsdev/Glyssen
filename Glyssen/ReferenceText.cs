@@ -412,9 +412,34 @@ namespace Glyssen
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
 						{
-							vernBlockInVerseChunk.MatchesReferenceText = false;
-							vernBlockInVerseChunk.ReferenceBlocks =
-								new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+							// This is the last vernacular block in the list, but we have more than one ref block to account for.
+
+							if (numberOfRefBlocksInVerseChunk - i == 2 && // Exactly 2 reference blocks remaining to be assigned
+								i > 0 && // There is a preceding vernacular block
+								// The following line could be uncommented to constrain this only to the original intended condition
+								// if we find cases where we are coming in here but shouldn't:
+								//vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+								BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i - 1], // Preceding vern block's character & end ref are compatible
+								refBlockList[indexOfRefVerseStart + i + 1], vernacularVersification)) // with following ref block
+							{
+								// This code was specifically written for PG-794, the case where the vernacular has the narrator announcing
+								// the speech afterwards instead of beforehand (as is typically the case in the reference text). In that
+								// case we want to assign the "he said" reference text to the current vernacular block and attach the
+								// following "he said" reference text block to the preceding vernacular block.
+								// Because we are not explicitly checking to see if this block is a narrator block, this condition can
+								// also be matched in other rare cases (for a somewhat contrived example where the reference
+								// text has a trailing "he said" but the vernacular does not, see unit test
+								// ApplyTo_MultipleSpeakersInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextCopiedIntoBestMatchedVerseBlocks.)
+								// Even in such cases, it seems likely that we would want to attach the following reference text
+								// block to the preceding vernacular block if it is a better match.
+								var precedingVernBlock = vernBlockList[indexOfVernVerseStart + i - 1];
+								precedingVernBlock.AppendUnmatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i + 1]);
+								vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
+							}
+							else
+							{
+								vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+							}
 							break;
 						}
 						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
@@ -432,6 +457,8 @@ namespace Glyssen
 							for (; j + 1 < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
 							{
 								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
+								if (vernBlockInVerseChunk.MatchesReferenceText)
+									break;
 								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
 								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
@@ -463,8 +490,36 @@ namespace Glyssen
 							}
 							else
 							{
-								vernBlockList[iVernBlock].MatchesReferenceText = false;
-								vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocksList;
+								if (remainingRefBlocksList.Count == 1 && vernBlockList[iVernBlock].MatchesReferenceText &&
+									vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
+								{
+									// See if the immediately following or preceding block is a better match
+									if (vernBlockList.Count > iVernBlock + 1 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
+									{
+										vernBlockList[iVernBlock + 1].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+										remainingRefBlocksList = null;
+									}
+									else if (iVernBlock > 0 && vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId
+										// This seemed like a good idea, but I haven't come up with a scenario for it yet.
+										// || vernBlockList[iVernBlock - 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId
+										)
+									{
+										vernBlockList[iVernBlock - 1].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
+										remainingRefBlocksList = null;
+									}
+								}
+
+								if (remainingRefBlocksList != null)
+								{
+									Debug.Assert(!vernBlockList[iVernBlock].MatchesReferenceText, "We're about to replace a matched ref text with some unmatched blocks.");
+									// It appears that this code block is totally unnecessary. All test pass without it. If this debug assertion ever fails, it
+									// will prove that we need this (or some modified version of it). If that never happens, we should find some way to write tests
+									// and/or conclusively prove it isn't needed. If it does happen, then we definitely want a unit test for the scenario.
+									Debug.Assert(!vernBlockList[iVernBlock].ReferenceBlocks.Any() ||
+										vernBlockList[iVernBlock].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(remainingRefBlocksList.Select(r => r.GetText(true))),
+										"We're about to replace one list with another. Check to make sure all ref blocks are accounted for exactly once. Write unit test.");
+									vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
+								}
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
