@@ -600,6 +600,7 @@ lookout	1	Male				ISA 21:8 <-(1 more)-> ISA 21:10
 lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20
 Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20
 Lydia	1	Female				ACT 16:15
+lying words	-1	Male				JER 7:4
 Macedonian	1	Male				ACT 16:9
 magi (wise men from East)	-1	Male				MAT 2:2
 magicians	-1	Male				EXO 8:19
@@ -656,7 +657,7 @@ men from Judea, some	-1	Male				ACT 15:1
 men in Capernaum synagogue	-1	Male				MRK 1:27 & LUK 4:36
 men in mourning, ten of eighty	10	Male				JER 41:8
 men in Nazareth synagogue	-1	Male				MAT 13:54 <-(3 more)-> MRK 6:3
-men of Anathoth	-1	Male				JER 11:21
+men of Anathoth	-1	Male			people who wanted to kill Jeremiah	JER 11:21
 men of Ashdod	-1	Male				1SA 5:7 <-(3 more)-> NEH 6:9
 men of Babel	-1	Male				GEN 11:3 & GEN 11:4
 men of Bethel	-1	Male				2KI 23:17 & ZEC 7:3
@@ -690,6 +691,7 @@ messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22
 messenger to David	1	Male				2SA 15:13
 messenger to king of Jericho	1	Male				JOS 2:2
 messenger to Saul	1	Male				1SA 23:27
+messenger to the king and to the queen mother	1	Male				JER 13:18 & JER 13:19
 messenger, another	1	Male				JOB 1:16	Messenger 2nd
 messenger, Cushite	1	Male				2SA 18:31 & 2SA 18:32	Cushite
 messenger, still another	1					JOB 1:17	Messenger 3rd
@@ -752,6 +754,7 @@ news giver to Joseph	1	Male				GEN 48:1
 news to Pharoah's palace	1					GEN 45:16
 Nicodemus	1	Male				JHN 3:2 <-(2 more)-> JHN 7:51
 Nineveh	-1	Female			The text personifies the city using female pronouns	NAM 2:8 & ZEP 2:15
+no one	-1					JER 8:6
 Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27
 nobles and officials (Jewish)	-1	Male				NEH 2:18 & NEH 5:12
 non-reader	1					ISA 29:12
@@ -829,6 +832,7 @@ people, hurried	-1					ISA 5:19
 people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10
 people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56
 people, other	-1					MRK 6:15 & LUK 9:8
+people, repentant	-1					JER 14:7 <-(1 more)-> JER 14:9
 people, righteous	-1					PSA 52:7 & PSA 92:15
 people, some	-1					MRK 2:18 <-(2 more)-> LUK 13:1
 people, still others	-1					MRK 6:15

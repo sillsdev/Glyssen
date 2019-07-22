@@ -10346,28 +10346,34 @@ JER	5	28	God		God (the LORD)	Implicit
 JER	5	29	God		God (the LORD)	Normal		
 JER	5	30	God		God (the LORD)	Potential		
 JER	5	31	God		God (the LORD)	Potential		
-JER	6	1	God		God (the LORD)	Potential		
-JER	6	1	person warning people of Benjamin to flee			Potential		
+JER	6	1	God		God (the LORD)	Implicit		
+JER	6	1	Jeremiah			Alternate		
+JER	6	1	person warning people of Benjamin to flee			Alternate		
 JER	6	2	God		God (the LORD)	Implicit		
-JER	6	2	person warning people of Benjamin to flee			Alternate		
 JER	6	3	God		God (the LORD)	Implicit		
-JER	6	3	person warning people of Benjamin to flee			Alternate		
-JER	6	4	God		God saying what invaders will say	Hypothetical		
+JER	6	3	Jeremiah			Alternate		
+JER	6	4	God	saying what invaders will say	God (the LORD)	Potential		
 JER	6	4	invaders		invaders (shepherds)	Hypothetical		
-JER	6	5	God		God saying what invaders will say	Hypothetical		
+JER	6	4	Jeremiah			Alternate		
+JER	6	5	God	saying what invaders will say	God (the LORD)	Potential		
 JER	6	5	invaders		invaders (shepherds)	Hypothetical		
+JER	6	5	Jeremiah			Alternate		
 JER	6	6	God		God (the LORD)	Normal		
 JER	6	7	God		God (the LORD)	Implicit		
 JER	6	8	God		God (the LORD)	Implicit		
 JER	6	9	God		God (the LORD)	Normal		
 JER	6	10	Jeremiah			Potential		
+JER	6	10	God		God (the LORD)	Alternate		
 JER	6	11	Jeremiah			Potential		
 JER	6	11	God		God (the LORD)	Normal		
 JER	6	12	God		God (the LORD)	Normal		
 JER	6	13	God		God (the LORD)	Implicit		
+JER	6	13	Jeremiah			Alternate		
 JER	6	14	God		God (the LORD)	Normal		
 JER	6	14	everyone		everyone, from the prophets even to the priests	Hypothetical		
+JER	6	14	Jeremiah			Alternate		
 JER	6	15	God		God (the LORD)	Normal		
+JER	6	15	Jeremiah			Alternate		
 JER	6	16	God		God (the LORD)	Normal		
 JER	6	16	everyone		people unwilling to walk in the good way	Hypothetical		
 JER	6	17	God		God (the LORD)	Normal		
@@ -10387,234 +10393,331 @@ JER	6	28	God		God (the LORD)	Implicit
 JER	6	29	God		God (the LORD)	Implicit		
 JER	6	30	God		God (the LORD)	Normal		
 JER	7	2	God		God (the LORD)	Normal		
+JER	7	2	Jeremiah			Potential		
 JER	7	3	God		God (the LORD)	Normal		
+JER	7	3	lying words			Hypothetical		
 JER	7	4	God		God (the LORD)	Normal		
 JER	7	5	God		God (the LORD)	Normal		
-JER	7	6	God		God (the LORD)	Normal		
-JER	7	7	God		God (the LORD)	Normal		
-JER	7	8	God		God (the LORD)	Normal		
-JER	7	9	God		God (the LORD)	Normal		
+JER	7	6	God		God (the LORD)	Implicit		
+JER	7	7	God		God (the LORD)	Implicit		
+JER	7	8	God		God (the LORD)	Implicit		
+JER	7	9	God		God (the LORD)	Implicit		
 JER	7	10	God		God (the LORD)	Normal		
+JER	7	10	you (hypothetical)			Hypothetical		
 JER	7	11	God		God (the LORD)	Normal		
+JER	7	11	Jeremiah			Potential		
 JER	7	12	God		God (the LORD)	Normal		
-JER	7	13	God		God (the LORD)	Normal		
-JER	7	14	God		God (the LORD)	Normal		
-JER	7	15	God		God (the LORD)	Normal		
-JER	7	16	God		God (the LORD)	Normal		
-JER	7	17	God		God (the LORD)	Normal		
-JER	7	18	God		God (the LORD)	Normal		
+JER	7	13	God		God (the LORD)	Implicit		
+JER	7	14	God		God (the LORD)	Implicit		
+JER	7	15	God		God (the LORD)	Implicit		
+JER	7	16	God		God (the LORD)	Implicit		
+JER	7	17	God		God (the LORD)	Implicit		
+JER	7	18	God		God (the LORD)	Implicit		
 JER	7	19	God		God (the LORD)	Normal		
+JER	7	19	Jeremiah			Potential		
 JER	7	20	God		God (the LORD)	Normal		
+JER	7	20	Jeremiah			Potential		
+JER	7	21	Jeremiah			Potential		
 JER	7	21	God		God (the LORD)	Normal		
-JER	7	22	God		God (the LORD)	Normal		
-JER	7	23	God		God (the LORD)	Normal		
-JER	7	24	God		God (the LORD)	Normal		
-JER	7	25	God		God (the LORD)	Normal		
-JER	7	26	God		God (the LORD)	Normal		
-JER	7	27	God		God (the LORD)	Normal		
-JER	7	28	God		God (the LORD)	Normal		
-JER	7	29	God		God (the LORD)	Normal		
+JER	7	22	God		God (the LORD)	Implicit		
+JER	7	23	God		God (the LORD)	Implicit		
+JER	7	24	God		God (the LORD)	Implicit		
+JER	7	25	God		God (the LORD)	Implicit		
+JER	7	26	God		God (the LORD)	Implicit		
+JER	7	27	God		God (the LORD)	Implicit		
+JER	7	28	Jeremiah			Normal		
+JER	7	28	God		God (the LORD)	Alternate		
+JER	7	29	Jeremiah			Implicit		
+JER	7	29	God		God (the LORD)	Alternate		
 JER	7	30	God		God (the LORD)	Normal		
-JER	7	31	God		God (the LORD)	Normal		
+JER	7	30	Jeremiah			Potential		
+JER	7	31	God		God (the LORD)	Implicit		
+JER	7	31	Jeremiah			Alternate		
 JER	7	32	God		God (the LORD)	Normal		
-JER	7	33	God		God (the LORD)	Normal		
-JER	7	34	God		God (the LORD)	Normal		
+JER	7	32	Jeremiah			Potential		
+JER	7	33	God		God (the LORD)	Implicit		
+JER	7	33	Jeremiah			Alternate		
+JER	7	34	God		God (the LORD)	Implicit		
+JER	7	34	Jeremiah			Alternate		
 JER	8	1	God		God (the LORD)	Normal		
-JER	8	2	God		God (the LORD)	Normal		
+JER	8	1	Jeremiah			Potential		
+JER	8	2	God		God (the LORD)	Implicit		
+JER	8	2	Jeremiah			Alternate		
 JER	8	3	God		God (the LORD)	Normal		
+JER	8	3	Jeremiah			Potential		
 JER	8	4	God		God (the LORD)	Normal		
-JER	8	5	God		God (the LORD)	Normal		
+JER	8	4	Jeremiah			Potential		
+JER	8	5	God		God (the LORD)	Implicit		
+JER	8	5	Jeremiah			Alternate		
 JER	8	6	God		God (the LORD)	Normal		
-JER	8	7	God		God (the LORD)	Normal		
-JER	8	8	God		God (the LORD)	Normal		
-JER	8	9	God		God (the LORD)	Normal		
-JER	8	10	God		God (the LORD)	Normal		
+JER	8	6	no one			Hypothetical		
+JER	8	7	Jeremiah			Potential		
+JER	8	7	God		God (the LORD)	Alternate		
+JER	8	8	Jeremiah			Potential		
+JER	8	8	you (hypothetical)			Hypothetical		
+JER	8	8	God		God (the LORD)	Alternate		
+JER	8	9	Jeremiah			Potential		
+JER	8	9	God		God (the LORD)	Alternate		
+JER	8	10	God		God (the LORD)	Implicit		
+JER	8	10	Jeremiah			Alternate		
 JER	8	11	God		God (the LORD)	Normal		
-JER	8	12	God		God (the LORD)	Potential		
+JER	8	11	everyone		everyone, from the prophets even to the priests	Hypothetical		
+JER	8	12	God		God (the LORD)	Normal		
+JER	8	12	Jeremiah			Potential		
 JER	8	13	God		God (the LORD)	Normal		
-JER	8	14	God		God saying what the people will say	Hypothetical		
-JER	8	14	people			Normal		
-JER	8	15	God		God saying what the people will say	Hypothetical		
-JER	8	15	people			Normal		
-JER	8	16	God		God saying what the people will say	Hypothetical		
-JER	8	16	people			Normal		
+JER	8	13	Jeremiah			Potential		
+JER	8	14	Jeremiah			Potential		
+JER	8	14	God	saying what the people will say	God (the LORD)	Alternate		
+JER	8	14	people			Hypothetical		
+JER	8	15	Jeremiah			Potential		
+JER	8	15	God	saying what the people will say	God (the LORD)	Alternate		
+JER	8	15	people			Hypothetical		
+JER	8	16	Jeremiah			Normal		
+JER	8	16	God	saying what the people will say	God (the LORD)	Normal		
+JER	8	16	people			Hypothetical		
 JER	8	17	God		God (the LORD)	Normal		
+JER	8	17	Jeremiah			Potential		
 JER	8	18	Jeremiah			Potential		
 JER	8	19	Jeremiah			Potential		
 JER	8	19	people			Hypothetical		
 JER	8	19	God		God (the LORD)	Normal		
 JER	8	20	people			Hypothetical		
-JER	8	20	Jeremiah			Hypothetical		
-JER	8	21	Jeremiah			Potential		
-JER	8	22	Jeremiah			Potential		
-JER	9	1	Jeremiah			Potential		
-JER	9	2	Jeremiah			Potential		
+JER	8	20	Jeremiah			Potential		
+JER	8	21	Jeremiah			Implicit		
+JER	8	22	Jeremiah			Implicit		
+JER	9	1	Jeremiah			Implicit		
+JER	9	2	Jeremiah			Implicit		
+JER	9	2	God		God (the LORD)	Alternate		
 JER	9	3	God		God (the LORD)	Normal		
-JER	9	4	God		God (the LORD)	Normal		
-JER	9	5	God		God (the LORD)	Normal		
+JER	9	3	Jeremiah			Potential		
+JER	9	4	God		God (the LORD)	Implicit		
+JER	9	4	Jeremiah			Alternate		
+JER	9	5	God		God (the LORD)	Implicit		
+JER	9	5	Jeremiah			Alternate		
 JER	9	6	God		God (the LORD)	Normal		
+JER	9	6	Jeremiah			Potential		
+JER	9	7	Jeremiah			Potential		
 JER	9	7	God		God (the LORD)	Normal		
-JER	9	8	God		God (the LORD)	Normal		
+JER	9	8	God		God (the LORD)	Implicit		
 JER	9	9	God		God (the LORD)	Normal		
-JER	9	10	God		God (the LORD)	Normal		
-JER	9	11	God		God (the LORD)	Normal		
+JER	9	9	Jeremiah			Potential		
+JER	9	10	God		God (the LORD)	Implicit		
+JER	9	10	Jeremiah			Alternate		
+JER	9	11	God		God (the LORD)	Implicit		
+JER	9	11	Jeremiah			Alternate		
 JER	9	12	Jeremiah			Potential		
 JER	9	12	God			Potential		
 JER	9	13	God		God (the LORD)	Normal		
-JER	9	14	God		God (the LORD)	Normal		
+JER	9	14	God		God (the LORD)	Implicit		
+JER	9	15	Jeremiah			Potential		
 JER	9	15	God		God (the LORD)	Normal		
-JER	9	16	God		God (the LORD)	Normal		
+JER	9	16	God		God (the LORD)	Implicit		
+JER	9	17	Jeremiah			Potential		
 JER	9	17	God		God (the LORD)	Normal		
 JER	9	18	God		God (the LORD)	Normal		
-JER	9	19	God		God (the LORD)	Normal		
+JER	9	18	Jeremiah			Normal		
+JER	9	19	Jeremiah			Potential		
+JER	9	19	God		God (the LORD)	Potential		
+JER	9	19	daughter of Zion	wailing		Hypothetical		
+JER	9	20	Jeremiah			Potential		
 JER	9	20	God		God (the LORD)	Potential		
+JER	9	21	Jeremiah			Potential		
 JER	9	21	God		God (the LORD)	Potential		
+JER	9	22	Jeremiah			Normal		
 JER	9	22	God		God (the LORD)	Normal		
+JER	9	23	Jeremiah			Potential		
 JER	9	23	God		God (the LORD)	Normal		
 JER	9	24	God		God (the LORD)	Normal		
+JER	9	24	Jeremiah			Potential		
 JER	9	25	God		God (the LORD)	Normal		
-JER	9	26	God		God (the LORD)	Normal		
+JER	9	25	Jeremiah			Potential		
+JER	9	26	God		God (the LORD)	Implicit		
+JER	10	1	Jeremiah			Potential		
 JER	10	2	Jeremiah			Potential		
 JER	10	2	God		God (the LORD)	Normal		
-JER	10	3	Jeremiah			Potential		
-JER	10	3	God		God (the LORD)	Normal		
-JER	10	4	Jeremiah			Potential		
-JER	10	4	God		God (the LORD)	Normal		
-JER	10	5	Jeremiah			Potential		
-JER	10	5	God		God (the LORD)	Normal		
+JER	10	3	God		God (the LORD)	Implicit		
+JER	10	3	Jeremiah			Alternate		
+JER	10	4	God		God (the LORD)	Implicit		
+JER	10	4	Jeremiah			Alternate		
+JER	10	5	God		God (the LORD)	Implicit		
+JER	10	5	Jeremiah			Alternate		
 JER	10	6	Jeremiah			Potential		
 JER	10	7	Jeremiah			Potential		
 JER	10	8	Jeremiah			Potential		
 JER	10	9	Jeremiah			Potential		
 JER	10	10	Jeremiah			Potential		
-JER	10	11	Jeremiah			Potential		
 JER	10	11	God		God (the LORD)	Potential		
-JER	10	11	you (hypothetical)			Hypothetical		
-JER	10	12	Jeremiah			Potential		
-JER	10	13	Jeremiah			Potential		
-JER	10	14	Jeremiah			Potential		
-JER	10	15	Jeremiah			Potential		
-JER	10	16	Jeremiah			Potential		
-JER	10	17	Jeremiah			Potential		
-JER	10	17	God		God (the LORD)	Potential		
+JER	10	11	Jeremiah			Normal		
+JER	10	12	Jeremiah			Implicit		
+JER	10	12	God		God (the LORD)	Alternate		
+JER	10	13	Jeremiah			Implicit		
+JER	10	13	God		God (the LORD)	Alternate		
+JER	10	14	Jeremiah			Implicit		
+JER	10	14	God		God (the LORD)	Alternate		
+JER	10	15	Jeremiah			Implicit		
+JER	10	15	God		God (the LORD)	Alternate		
+JER	10	16	Jeremiah			Implicit		
+JER	10	16	God		God (the LORD)	Alternate		
+JER	10	17	Jeremiah			Implicit		
+JER	10	17	God		God (the LORD)	Alternate		
+JER	10	18	Jeremiah			Potential		
 JER	10	18	God		God (the LORD)	Normal		
-JER	10	19	Jeremiah			Potential		
-JER	10	20	Jeremiah			Potential		
-JER	10	21	Jeremiah			Potential		
-JER	10	22	Jeremiah			Potential		
-JER	10	23	Jeremiah	prayer		Potential		
-JER	10	24	Jeremiah	prayer		Potential		
-JER	10	25	Jeremiah	prayer		Potential		
-JER	11	2	God		God (the LORD)	Normal		
-JER	11	3	God		God (the LORD)	Normal		
-JER	11	4	God		God (the LORD)	Normal		
-JER	11	5	Jeremiah			Potential		
+JER	10	19	Jeremiah			Implicit		
+JER	10	20	Jeremiah			Implicit		
+JER	10	21	Jeremiah			Implicit		
+JER	10	22	Jeremiah			Implicit		
+JER	10	23	Jeremiah	prayer		Implicit		
+JER	10	24	Jeremiah	prayer		Implicit		
+JER	10	25	Jeremiah	prayer		Implicit		
+JER	11	2	God		God (the LORD)	Implicit		
+JER	11	3	God		God (the LORD)	Implicit		
+JER	11	4	God		God (the LORD)	Implicit		
+JER	11	4	God			Quotation		
 JER	11	5	God		God (the LORD)	Normal		
+JER	11	5	Jeremiah			Quotation		
+JER	11	6	Jeremiah			Potential		
 JER	11	6	God		God (the LORD)	Normal		
-JER	11	7	God		God (the LORD)	Normal		
-JER	11	8	God		God (the LORD)	Normal		
+JER	11	7	God		God (the LORD)	Implicit		
+JER	11	8	God		God (the LORD)	Implicit		
+JER	11	9	Jeremiah			Potential		
 JER	11	9	God		God (the LORD)	Normal		
-JER	11	10	God		God (the LORD)	Normal		
+JER	11	10	God		God (the LORD)	Implicit		
+JER	11	11	Jeremiah			Potential		
 JER	11	11	God		God (the LORD)	Normal		
-JER	11	12	God		God (the LORD)	Normal		
-JER	11	13	God		God (the LORD)	Normal		
-JER	11	14	God		God (the LORD)	Normal		
-JER	11	15	God		God (the LORD)	Normal		
-JER	11	16	God		God (the LORD)	Normal		
+JER	11	12	God		God (the LORD)	Implicit		
+JER	11	13	God		God (the LORD)	Implicit		
+JER	11	14	God		God (the LORD)	Implicit		
+JER	11	15	God		God (the LORD)	Implicit		
+JER	11	16	Jeremiah			Potential		
+JER	11	17	Jeremiah			Potential		
 JER	11	18	Jeremiah			Potential		
-JER	11	19	Jeremiah's enemies			Normal		
 JER	11	19	Jeremiah			Potential		
+JER	11	19	men of Anathoth		Jeremiah's enemies (men of Anathoth)	Quotation		
 JER	11	20	Jeremiah			Potential		
+JER	11	21	Jeremiah			Potential		
 JER	11	21	God		God (the LORD)	Normal		
-JER	11	21	men of Anathoth			Normal		
+JER	11	21	men of Anathoth			Hypothetical		
+JER	11	22	Jeremiah			Potential		
 JER	11	22	God		God (the LORD)	Normal		
-JER	11	23	God		God (the LORD)	Normal		
+JER	11	23	God		God (the LORD)	Implicit		
 JER	12	1	Jeremiah			Potential		
 JER	12	2	Jeremiah			Potential		
 JER	12	3	Jeremiah			Potential		
-JER	12	4	Jeremiah		Jeremiah quoting the wicked who live in the land	Potential		
-JER	12	5	God		God (the LORD)	Normal		
-JER	12	6	God		God (the LORD)	Normal		
-JER	12	7	God		God (the LORD)	Normal		
-JER	12	8	God		God (the LORD)	Normal		
-JER	12	9	God		God (the LORD)	Normal		
-JER	12	10	God		God (the LORD)	Normal		
-JER	12	11	God		God (the LORD)	Normal		
-JER	12	12	God		God (the LORD)	Normal		
-JER	12	13	God		God (the LORD)	Normal		
+JER	12	4	Jeremiah			Potential		
+JER	12	4	Jeremiah	quoting the wicked who live in the land		Hypothetical		
+JER	12	4	wicked, the			Hypothetical		
+JER	12	5	God		God (the LORD)	Implicit		
+JER	12	6	God		God (the LORD)	Implicit		
+JER	12	7	God		God (the LORD)	Implicit		
+JER	12	8	God		God (the LORD)	Implicit		
+JER	12	9	God		God (the LORD)	Implicit		
+JER	12	10	God		God (the LORD)	Implicit		
+JER	12	11	God		God (the LORD)	Implicit		
+JER	12	12	God		God (the LORD)	Implicit		
+JER	12	13	God		God (the LORD)	Implicit		
+JER	12	14	Jeremiah			Potential		
 JER	12	14	God		God (the LORD)	Normal		
-JER	12	15	God		God (the LORD)	Normal		
-JER	12	16	God		God (the LORD)	Normal		
+JER	12	15	God		God (the LORD)	Implicit		
+JER	12	16	God		God (the LORD)	Implicit		
 JER	12	17	God		God (the LORD)	Normal		
+JER	12	17	Jeremiah			Potential		
 JER	13	1	God		God (the LORD)	Normal		
-JER	13	1	Jeremiah			Potential		
-JER	13	2	Jeremiah			Potential		
-JER	13	3	Jeremiah			Potential		
+JER	13	2	God		God (the LORD)	Indirect		
 JER	13	4	God		God (the LORD)	Normal		
-JER	13	5	Jeremiah			Potential		
 JER	13	6	God		God (the LORD)	Normal		
-JER	13	7	Jeremiah			Potential		
-JER	13	9	God		God (the LORD)	Normal		
-JER	13	10	God		God (the LORD)	Normal		
-JER	13	11	God		God (the LORD)	Normal		
+JER	13	9	God		God (the LORD)	Implicit		
+JER	13	10	God		God (the LORD)	Implicit		
+JER	13	11	God		God (the LORD)	Implicit		
 JER	13	12	God		God (the LORD)	Normal		
+JER	13	12	Jeremiah			Normal		
+JER	13	12	Israel, all/Judah, all		whole house of Israel/whole house of Judah	Hypothetical		
 JER	13	13	God		God (the LORD)	Normal		
+JER	13	13	Jeremiah			Normal		
 JER	13	14	God		God (the LORD)	Normal		
+JER	13	14	Jeremiah			Potential		
 JER	13	15	God		God (the LORD)	Potential		
 JER	13	15	Jeremiah			Potential		
+JER	13	16	God		God (the LORD)	Potential		
 JER	13	16	Jeremiah			Potential		
+JER	13	17	God		God (the LORD)	Potential		
 JER	13	17	Jeremiah			Potential		
-JER	13	18	narrator-JER			Hypothetical		
-JER	13	22	Judah, all			Hypothetical		
-JER	13	24	God		God (the LORD)	Normal		
+JER	13	18	God		God (the LORD)	Potential		
+JER	13	18	Jeremiah			Potential		
+JER	13	18	messenger to the king and to the queen mother			Hypothetical		
+JER	13	19	messenger to the king and to the queen mother			Hypothetical		
+JER	13	22	Judah, all	say in your heart	you (Judah)	Hypothetical		
+JER	13	23	God		God (the LORD)	Potential		
+JER	13	24	God		God (the LORD)	Implicit		
 JER	13	25	God		God (the LORD)	Normal		
-JER	13	26	God		God (the LORD)	Normal		
-JER	13	27	God		God (the LORD)	Normal		
+JER	13	25	Jeremiah			Potential		
+JER	13	26	God		God (the LORD)	Implicit		
+JER	13	27	God		God (the LORD)	Implicit		
+# Review: Should vv. 2-6 default to God or Jeremiah (implicit vs. Alternate)?
 JER	14	2	God		God (the LORD)	Normal		
+JER	14	2	Jeremiah			Normal		
 JER	14	3	God		God (the LORD)	Normal		
+JER	14	3	Jeremiah			Normal		
 JER	14	4	God		God (the LORD)	Normal		
+JER	14	4	Jeremiah			Normal		
 JER	14	5	God		God (the LORD)	Normal		
+JER	14	5	Jeremiah			Normal		
 JER	14	6	God		God (the LORD)	Normal		
-JER	14	7	Jeremiah			Potential		
-JER	14	8	Jeremiah			Potential		
-JER	14	9	Jeremiah			Potential		
+JER	14	6	Jeremiah			Normal		
+JER	14	7	Jeremiah			Implicit		
+JER	14	7	people, repentant			Alternate		
+JER	14	8	Jeremiah			Implicit		
+JER	14	8	people, repentant			Alternate		
+JER	14	9	Jeremiah			Implicit		
+JER	14	9	people, repentant			Alternate		
 JER	14	10	God		God (the LORD)	Normal		
 JER	14	11	God		God (the LORD)	Normal		
-JER	14	12	God		God (the LORD)	Normal		
+JER	14	12	God		God (the LORD)	Implicit		
 JER	14	13	Jeremiah			Potential		
-JER	14	13	false prophets			Quotation		
+JER	14	13	false prophets			Hypothetical		
 JER	14	14	Jeremiah			Potential		
 JER	14	14	God		God (the LORD)	Normal		
 JER	14	15	God		God (the LORD)	Normal		
-JER	14	16	God		God (the LORD)	Normal		
+JER	14	15	false prophets			Hypothetical		
+JER	14	16	God		God (the LORD)	Implicit		
 JER	14	17	God		God (the LORD)	Normal		
-JER	14	18	God		God (the LORD)	Normal		
-JER	14	19	Jeremiah			Potential		
-JER	14	20	Jeremiah			Potential		
-JER	14	21	Jeremiah			Potential		
-JER	14	22	Jeremiah			Potential		
+JER	14	17	Jeremiah			Normal		
+JER	14	18	God		God (the LORD)	Potential		
+JER	14	19	Jeremiah			Implicit		
+JER	14	19	people, repentant			Alternate		
+JER	14	20	Jeremiah			Implicit		
+JER	14	20	people, repentant			Alternate		
+JER	14	21	Jeremiah			Implicit		
+JER	14	21	people, repentant			Alternate		
+JER	14	22	Jeremiah			Implicit		
+JER	14	22	people, repentant			Alternate		
 JER	15	1	God		God (the LORD)	Normal		
-JER	15	1	Jeremiah			Potential		
 JER	15	2	God		God (the LORD)	Normal		
+JER	15	2	people			Hypothetical		
 JER	15	3	God		God (the LORD)	Normal		
-JER	15	4	God		God (the LORD)	Normal		
-JER	15	5	God		God (the LORD)	Normal		
+JER	15	4	God		God (the LORD)	Implicit		
+JER	15	5	God		God (the LORD)	Implicit		
 JER	15	6	God		God (the LORD)	Normal		
-JER	15	7	God		God (the LORD)	Normal		
-JER	15	8	God		God (the LORD)	Normal		
+JER	15	6	Jeremiah			Potential		
+JER	15	7	God		God (the LORD)	Implicit		
+JER	15	8	God		God (the LORD)	Implicit		
 JER	15	9	God		God (the LORD)	Normal		
+JER	15	9	Jeremiah			Potential		
 JER	15	10	Jeremiah			Potential		
 JER	15	11	God		God (the LORD)	Normal		
-JER	15	12	God		God (the LORD)	Normal		
-JER	15	13	God		God (the LORD)	Normal		
-JER	15	14	God		God (the LORD)	Normal		
+JER	15	12	God		God (the LORD)	Implicit		
+JER	15	13	God		God (the LORD)	Implicit		
+JER	15	14	God		God (the LORD)	Implicit		
 JER	15	15	Jeremiah			Potential		
 JER	15	16	Jeremiah			Potential		
 JER	15	17	Jeremiah			Potential		
 JER	15	18	Jeremiah			Potential		
 JER	15	19	God		God (the LORD)	Normal		
 JER	15	20	God		God (the LORD)	Normal		
-JER	15	21	God		God (the LORD)	Normal		
+JER	15	20	Jeremiah			Potential		
+JER	15	21	God		God (the LORD)	Implicit		
+
+# Resume here
+
 JER	16	1	Jeremiah			Potential		
 JER	16	2	God		God (the LORD)	Normal		
 JER	16	3	Jeremiah			Potential		
