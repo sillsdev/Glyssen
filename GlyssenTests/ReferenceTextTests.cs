@@ -3598,6 +3598,54 @@ namespace GlyssenTests
 		}
 		#endregion
 
+		#region PG-1133 (More misalignment between vern and ref)
+		/// <summary>
+		/// This is the text for the MRK 14:70 scenario detailed in PG-1133.
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasQuoteRenderedAsIndirectSpeech_AllTextFromRefTextIsIncluded()
+		{
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var refTextMrk = refText.GetBook("MRK");
+			var refBlocksMrk14V70 = refTextMrk.GetBlocksForVerse(14, 70).ToList();
+			var narrator = CharacterVerseData.GetStandardCharacterId(refTextMrk.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			Assert.AreEqual(4, refBlocksMrk14V70.Count,
+				"Expected pre-condition for test not met. Reference text for MRK 14:70 should be 4 blocks.");
+			Assert.AreEqual(narrator, refBlocksMrk14V70[0].CharacterId,
+				$"Expected pre-condition for test not met. Reference text block 0 for MRK 14:70 should be spoken by \"{narrator}\".");
+			Assert.AreEqual("Peter (Simon)", refBlocksMrk14V70[1].CharacterId,
+				$"Expected pre-condition for test not met. Reference text block 1 for MRK 14:70 should be spoken by \"Peter (Simon)\".");
+			Assert.AreEqual(narrator, refBlocksMrk14V70[2].CharacterId,
+				$"Expected pre-condition for test not met. Reference text block 2 for MRK 14:70 should be spoken by \"{narrator}\".");
+			Assert.AreEqual("high priest's servant (relative of the man whose ear Peter cut off)/those standing near", refBlocksMrk14V70[3].CharacterId,
+				$"Expected pre-condition for test not met. Reference text block 3 for MRK 14:70 should be spoken by \"high priest's servant (relative of the man whose ear Peter cut off)/those standing near\".");
+
+			var vernacularBlocks = new List<Block>
+			{
+				new Block("c", 14)
+				{
+					BookCode = refTextMrk.BookId,
+					CharacterId = CharacterVerseData.GetStandardCharacterId(refTextMrk.BookId, CharacterVerseData.StandardCharacter.BookOrChapter),
+				},
+				CreateNarratorBlockForVerse(70, "Navuzwa Petero yambakana kandi.", false, 14, refTextMrk.BookId)
+			};
+
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Lwinyima hakekeke, avandu vaali ni vasingiyi ho vavoolera Petero, ", refTextMrk.BookId).IsParagraphStart = true;
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Agiligali oveeye mulala kuvo kigira uturaa Galilaya.»");
+			var vernBook = new BookScript(refTextMrk.BookId, vernacularBlocks);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1, m_vernVersification);
+			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(refBlocksMrk14V70[0].GetText(true) + refBlocksMrk14V70[1].GetText(true),
+				String.Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))),
+				$"Vern: {matchup.CorrelatedBlocks[0].GetText(true)}");
+			Assert.AreEqual(refBlocksMrk14V70[2].GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
+				$"Vern: {matchup.CorrelatedBlocks[1].GetText(true)}");
+			Assert.AreEqual(refBlocksMrk14V70[3].GetText(true), matchup.CorrelatedBlocks[2].ReferenceBlocks.Single().GetText(true),
+				$"Vern: {matchup.CorrelatedBlocks[2].GetText(true)}");
+		}
+		#endregion
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{
