@@ -1774,7 +1774,12 @@ namespace GlyssenTests
 			var target = new BookScript("MAT", blocks.Select(b => b.Clone()));
 			// In the bug report we're simulating here, the user had fixed the missing v. 22 by making
 			// the existing v. 23 into verse bridge for 22-23.
-			target.GetScriptBlocks().Last().BlockElements[2] = new Verse("22-23");
+			target.GetScriptBlocks()[3].InitialStartVerseNumber = 22;
+			target.GetScriptBlocks()[3].InitialEndVerseNumber = 23;
+			target.GetScriptBlocks()[3].BlockElements[0] = new Verse("22-23");
+			target.GetScriptBlocks()[4].InitialStartVerseNumber = 22;
+			target.GetScriptBlocks()[4].InitialEndVerseNumber = 23;
+
 			var source = new BookScript("MAT", blocks);
 
 			int i = 1;
@@ -1789,27 +1794,17 @@ namespace GlyssenTests
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
 				source.GetIndexOfFirstBlockForVerse(kChapter, 20), ScrVers.English);
+			matchup.CorrelatedBlocks.Last(b => b.InitialStartVerseNumber == 21).SetMatchedReferenceBlock("he said.");
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
-			// This is a split caused by aligning to reference text, not a user split:
-			//var firstBlockForV21 = source.SplitBlock(secondBlockForV20, "20", PortionScript.kSplitAtEndOfVerse, false);
-
-			//firstBlockForV20.SetMatchedReferenceBlock("But when he thought about these things, behold, an angel of the Lord appeared to him in a dream, saying,");
-			//firstBlockForV20.CharacterId = narrator;
-			//firstBlockForV20.UserConfirmed = true;
-			//secondBlockForV20.SetMatchedReferenceBlock("“Joseph, son of David, don’t be afraid to take to yourself Mary, your wife, for that which is conceived in her is of the Holy Spirit.");
-			//secondBlockForV20.CharacterId = "angel";
-			//secondBlockForV20.UserConfirmed = true;
-			//firstBlockForV21.SetMatchedReferenceBlock("She shall bring forth a son. You shall call his name Jesus, for it is he who shall save his people from their sins.”");
-			//firstBlockForV21.CharacterId = "angel";
-			//firstBlockForV21.UserConfirmed = true;
-			//secondBlockForV21.SetMatchedReferenceBlock("he said.");
-			//secondBlockForV21.UserConfirmed = true;
+			// The setup steps don't exactly mimic real life, so we need to reset this to match actual data condition:
+			source.GetScriptBlocks()[2].SplitId = -1;
 
 			var v23Thru24Block = source.GetScriptBlocks().Last();
 			var newBlock = source.SplitBlock(v23Thru24Block, "23", kMat1_23b.Length, true, narrator, ScrVers.English);
 			newBlock.UserConfirmed = true;
+			v23Thru24Block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
 
 			var v21Blocks = source.GetBlocksForVerse(1, 21).ToList();
 			Assert.AreEqual(2, v21Blocks.Count);
