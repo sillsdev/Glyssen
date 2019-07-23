@@ -180,7 +180,9 @@ namespace Glyssen.RefTextDevUtilities
 			WhitespaceDifferences = 1,
 			QuotationMarkDifferences = 2,
 			Default = QuotationMarkDifferences | WhitespaceDifferences,
-			AllDifferencesExceptAlphaNumericText = 4 | Default,
+			Punctuation = 4,
+			Symbols = 8,
+			AllDifferencesExceptAlphaNumericText = Punctuation | Symbols | Default,
 		}
 
 		public static Ignore DifferencesToIgnore { get; set; }
@@ -1292,40 +1294,57 @@ namespace Glyssen.RefTextDevUtilities
 			var existingStr = existingBlock.GetText(true);
 			var excelStrWithoutAnnotations = s_annotationDelimitedWith3VerticalBarsRegex.Replace(excelStr, "");
 			excelStrWithoutAnnotations = s_annotationInCurlyBracesRegex.Replace(excelStrWithoutAnnotations, "");
+			var excelStrToCompare = excelStrWithoutAnnotations;
 
 			int indexOfFirstDifference = -1;
 
-			if (DifferencesToIgnore == Ignore.AllDifferencesExceptAlphaNumericText)
-			{
-				indexOfFirstDifference = DiffersAtIndex(existingStr.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).ToString(),
-					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).ToString());
-			}
-			else if ((DifferencesToIgnore & Ignore.WhitespaceDifferences) > 0)
-			{
-				indexOfFirstDifference = DiffersAtIndex(existingStr.Where(c => !Char.IsWhiteSpace(c)).ToString(),
-					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c)).ToString());
-			}
-			else
-			{
-				excelStrWithoutAnnotations = excelStrWithoutAnnotations.Trim();
-				excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "  ", " ");
-				excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "\u00A0 ", "\u00A0");
-				excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "\u00A0\u00A0", "\u00A0");
-				//excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "^ ({\\d+})", "$1");
+			if (bookId == "ACT" && existingBlock.ChapterNumber == 9 && existingBlock.InitialStartVerseNumber > 4)
+				Debug.WriteLine("This is the case to look at.");
 
-				string existingStrModified;
-				if ((DifferencesToIgnore & Ignore.QuotationMarkDifferences) > 0)
+			string existingStrToCompare = existingStr;
+			if (DifferencesToIgnore != Ignore.Nothing)
+			{
+				Func<char, bool> predicate = c => true;
+				if ((DifferencesToIgnore & Ignore.WhitespaceDifferences) > 0)
+					predicate = c => !Char.IsWhiteSpace(c);
+				if ((DifferencesToIgnore & Ignore.Punctuation) > 0)
+					predicate = c => !Char.IsPunctuation(c) && predicate(c);
+				else if ((DifferencesToIgnore & Ignore.QuotationMarkDifferences) > 0)
 				{
-					existingStrModified = Regex.Replace(s_removeQuotes.Replace(existingStr, ""), "\u00A0 ", "\u00A0").Trim();
-					excelStrWithoutAnnotations = s_removeQuotes.Replace(excelStrWithoutAnnotations, "").Trim();
-				}
-				else
-				{
-					existingStrModified = existingStr;
-				}
+					//excelStrToCompare = excelStrToCompare.Trim();
+					//excelStrToCompare = Regex.Replace(excelStrToCompare, "  ", " ");
+					//excelStrToCompare = Regex.Replace(excelStrToCompare, "\u00A0 ", "\u00A0");
+					//excelStrToCompare = Regex.Replace(excelStrToCompare, "\u00A0\u00A0", "\u00A0");
+					//excelStrToCompare = Regex.Replace(excelStrToCompare, "^ ({\\d+})", "$1");
 
-				indexOfFirstDifference = DiffersAtIndex(excelStrWithoutAnnotations, existingStrModified);
+					//if ((DifferencesToIgnore & Ignore.QuotationMarkDifferences) > 0)
+					//{
+						existingStrToCompare = Regex.Replace(s_removeQuotes.Replace(existingStr, ""), "\u00A0 ", "\u00A0").Trim();
+						excelStrToCompare = s_removeQuotes.Replace(excelStrToCompare, "").Trim();
+					//}
+					//else
+					//{
+					//	existingStrModified = existingStr;
+					//}
+				}
+				if ((DifferencesToIgnore & Ignore.Symbols) > 0)
+					predicate = c => !Char.IsSymbol(c) && predicate(c);
+
+				existingStrToCompare = string.Concat(existingStrToCompare.Where(c => predicate(c)));
+				excelStrToCompare = string.Concat(excelStrToCompare.Where(c => predicate(c)));
 			}
+
+			//if (DifferencesToIgnore == Ignore.AllDifferencesExceptAlphaNumericText)
+			//{
+			//	indexOfFirstDifference = DiffersAtIndex(string.Concat(existingStr.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c))),
+			//		string.Concat(excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c))));
+			//}
+			//else if ((DifferencesToIgnore & Ignore.WhitespaceDifferences) > 0)
+			//{
+			//	indexOfFirstDifference = DiffersAtIndex(string.Concat(existingStr.Where(c => !Char.IsWhiteSpace(c))),
+			//		string.Concat(excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c))));
+			//}
+			indexOfFirstDifference = DiffersAtIndex(excelStrToCompare, existingStrToCompare);
 			if (indexOfFirstDifference == -1)
 				return true;
 
@@ -1341,7 +1360,7 @@ namespace Glyssen.RefTextDevUtilities
 			WriteOutput($"Difference found in text at {bookId} {existingBlock.ChapterNumber}:{existingBlock.InitialStartVerseNumber} - {lengthComparison}");
 			WriteOutput($"   Existing:   {existingStr}");
 			WriteOutput($"   New:        {excelStr}");
-			WriteOutput($"   Difference: {new string(' ', indexOfFirstDifference)}^");
+			WriteOutput($"   Difference: {new string(' ', indexOfFirstDifference)}^"); // This will be off!
 			// ------------------------------------------
 			// Put a breakpoint here to investigate differences
 			// | | | |

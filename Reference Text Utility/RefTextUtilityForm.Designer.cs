@@ -39,17 +39,24 @@
 			this.m_btnSelectSpreadsheetFile = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.m_dataGridRefTexts = new System.Windows.Forms.DataGridView();
-			this.m_btnOk = new System.Windows.Forms.Button();
-			this.m_btnCancel = new System.Windows.Forms.Button();
-			this.m_lblLoading = new System.Windows.Forms.Label();
 			this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colAction = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.colDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colHeSaidText = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colIsoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_btnOk = new System.Windows.Forms.Button();
+			this.m_btnCancel = new System.Windows.Forms.Button();
+			this.m_lblLoading = new System.Windows.Forms.Label();
+			this.m_grpComparisonSensitivity = new System.Windows.Forms.GroupBox();
+			this.m_lblIgnore = new System.Windows.Forms.Label();
+			this.m_chkWhitespace = new System.Windows.Forms.CheckBox();
+			this.m_chkQuoteMarkDifferences = new System.Windows.Forms.CheckBox();
+			this.m_chkPunctuation = new System.Windows.Forms.CheckBox();
+			this.m_chkSymbols = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridRefTexts)).BeginInit();
+			this.m_grpComparisonSensitivity.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_rdoSourceExcel
@@ -69,6 +76,7 @@
 			// 
 			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox1.Controls.Add(this.m_lblLoading);
 			this.groupBox1.Controls.Add(this.m_lblProject);
 			this.groupBox1.Controls.Add(this.m_btnChooseProject);
 			this.groupBox1.Controls.Add(this.m_rdoSourceExistingProject);
@@ -144,9 +152,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox2.Controls.Add(this.m_dataGridRefTexts);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox2.Location = new System.Drawing.Point(12, 118);
+			this.groupBox2.Location = new System.Drawing.Point(12, 166);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(703, 164);
+			this.groupBox2.Size = new System.Drawing.Size(703, 236);
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Reference Text";
@@ -171,45 +179,9 @@
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_dataGridRefTexts.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_dataGridRefTexts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_dataGridRefTexts.Size = new System.Drawing.Size(690, 136);
+			this.m_dataGridRefTexts.Size = new System.Drawing.Size(690, 178);
 			this.m_dataGridRefTexts.TabIndex = 0;
 			this.m_dataGridRefTexts.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridRefTexts_CellValueChanged);
-			// 
-			// m_btnOk
-			// 
-			this.m_btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.m_btnOk.Enabled = false;
-			this.m_btnOk.Location = new System.Drawing.Point(285, 297);
-			this.m_btnOk.Name = "m_btnOk";
-			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
-			this.m_btnOk.TabIndex = 4;
-			this.m_btnOk.Text = "Process...";
-			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.m_btnProcess_Click);
-			// 
-			// m_btnCancel
-			// 
-			this.m_btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.m_btnCancel.Location = new System.Drawing.Point(367, 297);
-			this.m_btnCancel.Name = "m_btnCancel";
-			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.m_btnCancel.TabIndex = 5;
-			this.m_btnCancel.Text = "Close";
-			this.m_btnCancel.UseVisualStyleBackColor = true;
-			this.m_btnCancel.Click += new System.EventHandler(this.m_btnCancel_Click);
-			// 
-			// m_lblLoading
-			// 
-			this.m_lblLoading.AutoSize = true;
-			this.m_lblLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblLoading.ForeColor = System.Drawing.Color.Blue;
-			this.m_lblLoading.Location = new System.Drawing.Point(271, 120);
-			this.m_lblLoading.Name = "m_lblLoading";
-			this.m_lblLoading.Size = new System.Drawing.Size(71, 15);
-			this.m_lblLoading.TabIndex = 6;
-			this.m_lblLoading.Text = "Loading...";
-			this.m_lblLoading.Visible = false;
 			// 
 			// colName
 			// 
@@ -255,14 +227,126 @@
 			this.colIsoCode.Name = "colIsoCode";
 			this.colIsoCode.Width = 99;
 			// 
+			// m_btnOk
+			// 
+			this.m_btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.m_btnOk.Enabled = false;
+			this.m_btnOk.Location = new System.Drawing.Point(285, 417);
+			this.m_btnOk.Name = "m_btnOk";
+			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
+			this.m_btnOk.TabIndex = 4;
+			this.m_btnOk.Text = "Process...";
+			this.m_btnOk.UseVisualStyleBackColor = true;
+			this.m_btnOk.Click += new System.EventHandler(this.m_btnProcess_Click);
+			// 
+			// m_btnCancel
+			// 
+			this.m_btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.m_btnCancel.Location = new System.Drawing.Point(367, 417);
+			this.m_btnCancel.Name = "m_btnCancel";
+			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
+			this.m_btnCancel.TabIndex = 5;
+			this.m_btnCancel.Text = "Close";
+			this.m_btnCancel.UseVisualStyleBackColor = true;
+			this.m_btnCancel.Click += new System.EventHandler(this.m_btnCancel_Click);
+			// 
+			// m_lblLoading
+			// 
+			this.m_lblLoading.AutoSize = true;
+			this.m_lblLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblLoading.ForeColor = System.Drawing.Color.Blue;
+			this.m_lblLoading.Location = new System.Drawing.Point(626, 21);
+			this.m_lblLoading.Name = "m_lblLoading";
+			this.m_lblLoading.Size = new System.Drawing.Size(71, 15);
+			this.m_lblLoading.TabIndex = 6;
+			this.m_lblLoading.Text = "Loading...";
+			this.m_lblLoading.Visible = false;
+			// 
+			// m_grpComparisonSensitivity
+			// 
+			this.m_grpComparisonSensitivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkSymbols);
+			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkPunctuation);
+			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkQuoteMarkDifferences);
+			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkWhitespace);
+			this.m_grpComparisonSensitivity.Controls.Add(this.m_lblIgnore);
+			this.m_grpComparisonSensitivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+			this.m_grpComparisonSensitivity.Location = new System.Drawing.Point(12, 105);
+			this.m_grpComparisonSensitivity.Name = "m_grpComparisonSensitivity";
+			this.m_grpComparisonSensitivity.Size = new System.Drawing.Size(703, 55);
+			this.m_grpComparisonSensitivity.TabIndex = 6;
+			this.m_grpComparisonSensitivity.TabStop = false;
+			this.m_grpComparisonSensitivity.Text = "Comparison Sensitivity";
+			// 
+			// m_lblIgnore
+			// 
+			this.m_lblIgnore.AutoSize = true;
+			this.m_lblIgnore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_lblIgnore.Location = new System.Drawing.Point(6, 27);
+			this.m_lblIgnore.Name = "m_lblIgnore";
+			this.m_lblIgnore.Size = new System.Drawing.Size(40, 13);
+			this.m_lblIgnore.TabIndex = 0;
+			this.m_lblIgnore.Text = "Ignore:";
+			// 
+			// m_chkWhitespace
+			// 
+			this.m_chkWhitespace.AutoSize = true;
+			this.m_chkWhitespace.Checked = true;
+			this.m_chkWhitespace.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_chkWhitespace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkWhitespace.Location = new System.Drawing.Point(63, 26);
+			this.m_chkWhitespace.Name = "m_chkWhitespace";
+			this.m_chkWhitespace.Size = new System.Drawing.Size(138, 17);
+			this.m_chkWhitespace.TabIndex = 1;
+			this.m_chkWhitespace.Text = "Whitespace differences";
+			this.m_chkWhitespace.UseVisualStyleBackColor = true;
+			// 
+			// m_chkQuoteMarkDifferences
+			// 
+			this.m_chkQuoteMarkDifferences.AutoSize = true;
+			this.m_chkQuoteMarkDifferences.Checked = true;
+			this.m_chkQuoteMarkDifferences.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_chkQuoteMarkDifferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkQuoteMarkDifferences.Location = new System.Drawing.Point(246, 26);
+			this.m_chkQuoteMarkDifferences.Name = "m_chkQuoteMarkDifferences";
+			this.m_chkQuoteMarkDifferences.Size = new System.Drawing.Size(153, 17);
+			this.m_chkQuoteMarkDifferences.TabIndex = 2;
+			this.m_chkQuoteMarkDifferences.Text = "Quotation mark differences";
+			this.m_chkQuoteMarkDifferences.UseVisualStyleBackColor = true;
+			// 
+			// m_chkPunctuation
+			// 
+			this.m_chkPunctuation.AutoSize = true;
+			this.m_chkPunctuation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkPunctuation.Location = new System.Drawing.Point(439, 26);
+			this.m_chkPunctuation.Name = "m_chkPunctuation";
+			this.m_chkPunctuation.Size = new System.Drawing.Size(96, 17);
+			this.m_chkPunctuation.TabIndex = 3;
+			this.m_chkPunctuation.Text = "All punctuation";
+			this.m_chkPunctuation.UseVisualStyleBackColor = true;
+			this.m_chkPunctuation.CheckedChanged += new System.EventHandler(this.m_chkPunctuation_CheckedChanged);
+			// 
+			// m_chkSymbols
+			// 
+			this.m_chkSymbols.AutoSize = true;
+			this.m_chkSymbols.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkSymbols.Location = new System.Drawing.Point(577, 26);
+			this.m_chkSymbols.Name = "m_chkSymbols";
+			this.m_chkSymbols.Size = new System.Drawing.Size(65, 17);
+			this.m_chkSymbols.TabIndex = 4;
+			this.m_chkSymbols.Text = "Symbols";
+			this.m_chkSymbols.UseVisualStyleBackColor = true;
+			// 
 			// RefTextUtilityForm
 			// 
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(727, 333);
-			this.Controls.Add(this.m_lblLoading);
+			this.ClientSize = new System.Drawing.Size(727, 453);
+			this.Controls.Add(this.m_grpComparisonSensitivity);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.groupBox2);
@@ -274,8 +358,9 @@
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridRefTexts)).EndInit();
+			this.m_grpComparisonSensitivity.ResumeLayout(false);
+			this.m_grpComparisonSensitivity.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -298,6 +383,12 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colDestination;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colHeSaidText;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colIsoCode;
+		private System.Windows.Forms.GroupBox m_grpComparisonSensitivity;
+		private System.Windows.Forms.Label m_lblIgnore;
+		private System.Windows.Forms.CheckBox m_chkWhitespace;
+		private System.Windows.Forms.CheckBox m_chkPunctuation;
+		private System.Windows.Forms.CheckBox m_chkQuoteMarkDifferences;
+		private System.Windows.Forms.CheckBox m_chkSymbols;
 	}
 }
 

@@ -269,6 +269,17 @@ namespace Glyssen.ReferenceTextUtility
 				}
 			}
 
+			RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.Nothing;
+
+			if (m_chkPunctuation.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.Punctuation;
+			else if (m_chkQuoteMarkDifferences.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.QuotationMarkDifferences;
+			if (m_chkWhitespace.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.WhitespaceDifferences;
+			if (m_chkSymbols.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.Symbols;
+
 			m_passes.Clear();
 			m_passes.Push(RefTextDevUtilities.ReferenceTextUtility.Mode.Generate);
 			m_passes.Push(RefTextDevUtilities.ReferenceTextUtility.Mode.FindDifferencesBetweenCurrentVersionAndNewText);
@@ -330,15 +341,10 @@ namespace Glyssen.ReferenceTextUtility
 						return;
 					case "Create/Overwrite":
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = defaultCreateDestination;
+						SkipAllOtherLanguagesIfThisRowIsEnglish(e.RowIndex, languageInfo);
 						break;
 					case "Compare to Current":
-						if (languageInfo.IsEnglish)
-						{
-							for (var i = e.RowIndex + 1; i < m_dataGridRefTexts.RowCount; i++)
-							{
-								m_dataGridRefTexts.Rows[i].Cells[colAction.Index].Value = "Skip";
-							}
-						}
+						SkipAllOtherLanguagesIfThisRowIsEnglish(e.RowIndex, languageInfo);
 						goto case "Skip";
 					case "Skip":
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = "";
@@ -392,9 +398,32 @@ namespace Glyssen.ReferenceTextUtility
 			}
 		}
 
+		private void SkipAllOtherLanguagesIfThisRowIsEnglish(int indexOfRowBeingSet, ReferenceTextLanguageInfo languageInfo)
+		{
+			if (languageInfo.IsEnglish)
+			{
+				for (var i = 0; i < m_dataGridRefTexts.RowCount; i++)
+				{
+					if (i != indexOfRowBeingSet)
+						m_dataGridRefTexts.Rows[i].Cells[colAction.Index].Value = "Skip";
+				}
+			}
+		}
+
 		private void m_btnCancel_Click(object sender, EventArgs e)
 		{
 			Close();
+		}
+
+		private void m_chkPunctuation_CheckedChanged(object sender, EventArgs e)
+		{
+			if (m_chkPunctuation.Checked)
+			{
+				m_chkQuoteMarkDifferences.Checked = true;
+				m_chkQuoteMarkDifferences.Enabled = false;
+			}
+			else
+				m_chkQuoteMarkDifferences.Enabled = true;
 		}
 	}
 }
