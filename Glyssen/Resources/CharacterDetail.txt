@@ -500,6 +500,7 @@ Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37
 Jephthah's half-brothers	-1	Male				JDG 11:2	Son of Gilead
 Jeremiah	1	Male				JER 1:6 <-(327 more)-> LAM 3:56
 Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
+Jeremiah's friends (bad)	-1	PreferMale				JER 20:10
 Jeroboam	1	Male				1KI 12:4 <-(9 more)-> 2CH 10:4
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
@@ -627,6 +628,7 @@ man of God from Judah	1	Male				1KI 13:2 <-(5 more)-> 1KI 13:17
 man of lawlessness	1	Male				2TH 2:4
 man possessed by evil spirit	1	Male				MRK 1:24 & LUK 4:34
 man reporting to David	1	Male				2SA 13:30
+man who builds his house by unrighteousness	1	Male				JER 22:14
 man who says 'I know him'	1	Male				1JN 2:4
 man who says 'we remain in union with God'	1	Male				1JN 2:6
 man with measuring line (in vision)	1	Male				ZEC 2:2
@@ -741,6 +743,7 @@ Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
 nations	-1	PreferMale				DEU 4:6 <-(10 more)-> ZEC 8:23
+nations, neighboring (reply)	-1	PreferMale				JER 22:9
 Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5
 Neco, king of Egypt	1	Male				2CH 35:21
@@ -966,6 +969,7 @@ saying about Anakites	1					DEU 9:2
 saying about blind and lame	1					2SA 5:8
 saying about captivity and death by the sword	1				Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52	REV 13:10
 saying about Gentile nations	1					PSA 87:4
+saying about God's deliverance	2					JER 16:14 & JER 16:15
 saying about going beyond what is written	1					1CO 4:6
 saying about idolaters	-1					HOS 13:2
 saying about Nimrod	1					GEN 10:9
