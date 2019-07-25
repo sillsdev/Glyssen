@@ -80,7 +80,7 @@ namespace Glyssen.ReferenceTextUtility
 					if (!String.IsNullOrEmpty(isoCode))
 						m_dataGridRefTexts.Rows[iRow].Cells[colIsoCode.Index].ReadOnly = true;
 
-					m_btnOk.Enabled = true;
+					m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
 					m_manualSettingsChangesMade = false;
 				}
 				m_lblLoading.Visible = false;
@@ -139,7 +139,7 @@ namespace Glyssen.ReferenceTextUtility
 
 		private void LoadExcelSpreadsheet(string path)
 		{
-			m_btnOk.Enabled = false;
+			m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
 			m_dataGridRefTexts.RowCount = 0;
 			m_lblLoading.Visible = true;
 
@@ -194,7 +194,7 @@ namespace Glyssen.ReferenceTextUtility
 							HandleMessageRaised(error.Message, true);
 					}
 				}
-				m_btnOk.Enabled = true;
+				m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
 			}
 			else
 				BackgroundProcessor.RunWorkerAsync();
@@ -224,6 +224,7 @@ namespace Glyssen.ReferenceTextUtility
 					Data = e.Result as ReferenceTextData;
 					if (Data == null)
 						MessageBox.Show(this, $"No error was reported, but no data was loaded from file {m_lblSpreadsheetFilePath.Text}.", "Something bad happened", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					colAction.MinimumWidth = colAction.Width;
 				}
 			}
 		}
@@ -255,7 +256,7 @@ namespace Glyssen.ReferenceTextUtility
 
 		private void m_btnProcess_Click(object sender, EventArgs e)
 		{
-			m_btnOk.Enabled = false;
+			m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
 			lock (this)
 			{
 				if (m_outputForm == null || m_outputForm.IsDisposed)
@@ -392,7 +393,9 @@ namespace Glyssen.ReferenceTextUtility
 						var action = r.Cells[colAction.Index].Value as string;
 						return (!String.IsNullOrWhiteSpace(destValue) || action == "Compare to Current" || action == "Skip") &&
 							(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
-					});
+					}) && 
+						m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Any(r => r.Cells[colAction.Index].Value as string != "Skip");
+					
 					languageInfo.OutputFolder = newValue;
 				}
 			}
@@ -401,12 +404,15 @@ namespace Glyssen.ReferenceTextUtility
 		private void SkipAllOtherLanguagesIfThisRowIsEnglish(int indexOfRowBeingSet, ReferenceTextLanguageInfo languageInfo)
 		{
 			if (languageInfo.IsEnglish)
+				SetRowsToSkip(i => indexOfRowBeingSet != i);
+		}
+
+		private void SetRowsToSkip(Func<int, bool> iff = null)
+		{
+			for (var i = 0; i < m_dataGridRefTexts.RowCount; i++)
 			{
-				for (var i = 0; i < m_dataGridRefTexts.RowCount; i++)
-				{
-					if (i != indexOfRowBeingSet)
-						m_dataGridRefTexts.Rows[i].Cells[colAction.Index].Value = "Skip";
-				}
+				if (iff?.Invoke(i) ?? true)
+					m_dataGridRefTexts.Rows[i].Cells[colAction.Index].Value = "Skip";
 			}
 		}
 
@@ -424,6 +430,11 @@ namespace Glyssen.ReferenceTextUtility
 			}
 			else
 				m_chkQuoteMarkDifferences.Enabled = true;
+		}
+
+		private void m_btnSkipAll_Click(object sender, EventArgs e)
+		{
+			SetRowsToSkip();
 		}
 	}
 }

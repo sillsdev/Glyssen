@@ -16875,6 +16875,8 @@ ROM	16	22	Tertius			Indirect
 1CO	10	23	narrator-1CO			Hypothetical		
 1CO	10	26	scripture			Quotation	David	
 1CO	10	28	anyone			Hypothetical		
+# Some manuscripts have the quote from Psalm 24 inluded in v. 28 as well.
+1CO	10	28	scripture			Potential	David	
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
 1CO	12	3	narrator-1CO			Hypothetical		

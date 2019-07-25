@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RefTextUtilityForm));
 			this.m_rdoSourceExcel = new System.Windows.Forms.RadioButton();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.m_lblLoading = new System.Windows.Forms.Label();
 			this.m_lblProject = new System.Windows.Forms.Label();
 			this.m_btnChooseProject = new System.Windows.Forms.Button();
 			this.m_rdoSourceExistingProject = new System.Windows.Forms.RadioButton();
@@ -46,13 +47,13 @@
 			this.colIsoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
-			this.m_lblLoading = new System.Windows.Forms.Label();
 			this.m_grpComparisonSensitivity = new System.Windows.Forms.GroupBox();
-			this.m_lblIgnore = new System.Windows.Forms.Label();
-			this.m_chkWhitespace = new System.Windows.Forms.CheckBox();
-			this.m_chkQuoteMarkDifferences = new System.Windows.Forms.CheckBox();
-			this.m_chkPunctuation = new System.Windows.Forms.CheckBox();
 			this.m_chkSymbols = new System.Windows.Forms.CheckBox();
+			this.m_chkPunctuation = new System.Windows.Forms.CheckBox();
+			this.m_chkQuoteMarkDifferences = new System.Windows.Forms.CheckBox();
+			this.m_chkWhitespace = new System.Windows.Forms.CheckBox();
+			this.m_lblIgnore = new System.Windows.Forms.Label();
+			this.m_btnSkipAll = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridRefTexts)).BeginInit();
@@ -90,6 +91,18 @@
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Source";
+			// 
+			// m_lblLoading
+			// 
+			this.m_lblLoading.AutoSize = true;
+			this.m_lblLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblLoading.ForeColor = System.Drawing.Color.Blue;
+			this.m_lblLoading.Location = new System.Drawing.Point(626, 21);
+			this.m_lblLoading.Name = "m_lblLoading";
+			this.m_lblLoading.Size = new System.Drawing.Size(71, 15);
+			this.m_lblLoading.TabIndex = 6;
+			this.m_lblLoading.Text = "Loading...";
+			this.m_lblLoading.Visible = false;
 			// 
 			// m_lblProject
 			// 
@@ -150,6 +163,7 @@
 			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox2.Controls.Add(this.m_btnSkipAll);
 			this.groupBox2.Controls.Add(this.m_dataGridRefTexts);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox2.Location = new System.Drawing.Point(12, 166);
@@ -251,18 +265,6 @@
 			this.m_btnCancel.UseVisualStyleBackColor = true;
 			this.m_btnCancel.Click += new System.EventHandler(this.m_btnCancel_Click);
 			// 
-			// m_lblLoading
-			// 
-			this.m_lblLoading.AutoSize = true;
-			this.m_lblLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblLoading.ForeColor = System.Drawing.Color.Blue;
-			this.m_lblLoading.Location = new System.Drawing.Point(626, 21);
-			this.m_lblLoading.Name = "m_lblLoading";
-			this.m_lblLoading.Size = new System.Drawing.Size(71, 15);
-			this.m_lblLoading.TabIndex = 6;
-			this.m_lblLoading.Text = "Loading...";
-			this.m_lblLoading.Visible = false;
-			// 
 			// m_grpComparisonSensitivity
 			// 
 			this.m_grpComparisonSensitivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -280,28 +282,28 @@
 			this.m_grpComparisonSensitivity.TabStop = false;
 			this.m_grpComparisonSensitivity.Text = "Comparison Sensitivity";
 			// 
-			// m_lblIgnore
+			// m_chkSymbols
 			// 
-			this.m_lblIgnore.AutoSize = true;
-			this.m_lblIgnore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_lblIgnore.Location = new System.Drawing.Point(6, 27);
-			this.m_lblIgnore.Name = "m_lblIgnore";
-			this.m_lblIgnore.Size = new System.Drawing.Size(40, 13);
-			this.m_lblIgnore.TabIndex = 0;
-			this.m_lblIgnore.Text = "Ignore:";
+			this.m_chkSymbols.AutoSize = true;
+			this.m_chkSymbols.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkSymbols.Location = new System.Drawing.Point(577, 26);
+			this.m_chkSymbols.Name = "m_chkSymbols";
+			this.m_chkSymbols.Size = new System.Drawing.Size(65, 17);
+			this.m_chkSymbols.TabIndex = 4;
+			this.m_chkSymbols.Text = "Symbols";
+			this.m_chkSymbols.UseVisualStyleBackColor = true;
 			// 
-			// m_chkWhitespace
+			// m_chkPunctuation
 			// 
-			this.m_chkWhitespace.AutoSize = true;
-			this.m_chkWhitespace.Checked = true;
-			this.m_chkWhitespace.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.m_chkWhitespace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkWhitespace.Location = new System.Drawing.Point(63, 26);
-			this.m_chkWhitespace.Name = "m_chkWhitespace";
-			this.m_chkWhitespace.Size = new System.Drawing.Size(138, 17);
-			this.m_chkWhitespace.TabIndex = 1;
-			this.m_chkWhitespace.Text = "Whitespace differences";
-			this.m_chkWhitespace.UseVisualStyleBackColor = true;
+			this.m_chkPunctuation.AutoSize = true;
+			this.m_chkPunctuation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkPunctuation.Location = new System.Drawing.Point(439, 26);
+			this.m_chkPunctuation.Name = "m_chkPunctuation";
+			this.m_chkPunctuation.Size = new System.Drawing.Size(96, 17);
+			this.m_chkPunctuation.TabIndex = 3;
+			this.m_chkPunctuation.Text = "All punctuation";
+			this.m_chkPunctuation.UseVisualStyleBackColor = true;
+			this.m_chkPunctuation.CheckedChanged += new System.EventHandler(this.m_chkPunctuation_CheckedChanged);
 			// 
 			// m_chkQuoteMarkDifferences
 			// 
@@ -316,28 +318,42 @@
 			this.m_chkQuoteMarkDifferences.Text = "Quotation mark differences";
 			this.m_chkQuoteMarkDifferences.UseVisualStyleBackColor = true;
 			// 
-			// m_chkPunctuation
+			// m_chkWhitespace
 			// 
-			this.m_chkPunctuation.AutoSize = true;
-			this.m_chkPunctuation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkPunctuation.Location = new System.Drawing.Point(439, 26);
-			this.m_chkPunctuation.Name = "m_chkPunctuation";
-			this.m_chkPunctuation.Size = new System.Drawing.Size(96, 17);
-			this.m_chkPunctuation.TabIndex = 3;
-			this.m_chkPunctuation.Text = "All punctuation";
-			this.m_chkPunctuation.UseVisualStyleBackColor = true;
-			this.m_chkPunctuation.CheckedChanged += new System.EventHandler(this.m_chkPunctuation_CheckedChanged);
+			this.m_chkWhitespace.AutoSize = true;
+			this.m_chkWhitespace.Checked = true;
+			this.m_chkWhitespace.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_chkWhitespace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkWhitespace.Location = new System.Drawing.Point(63, 26);
+			this.m_chkWhitespace.Name = "m_chkWhitespace";
+			this.m_chkWhitespace.Size = new System.Drawing.Size(138, 17);
+			this.m_chkWhitespace.TabIndex = 1;
+			this.m_chkWhitespace.Text = "Whitespace differences";
+			this.m_chkWhitespace.UseVisualStyleBackColor = true;
 			// 
-			// m_chkSymbols
+			// m_lblIgnore
 			// 
-			this.m_chkSymbols.AutoSize = true;
-			this.m_chkSymbols.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkSymbols.Location = new System.Drawing.Point(577, 26);
-			this.m_chkSymbols.Name = "m_chkSymbols";
-			this.m_chkSymbols.Size = new System.Drawing.Size(65, 17);
-			this.m_chkSymbols.TabIndex = 4;
-			this.m_chkSymbols.Text = "Symbols";
-			this.m_chkSymbols.UseVisualStyleBackColor = true;
+			this.m_lblIgnore.AutoSize = true;
+			this.m_lblIgnore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_lblIgnore.Location = new System.Drawing.Point(6, 27);
+			this.m_lblIgnore.Name = "m_lblIgnore";
+			this.m_lblIgnore.Size = new System.Drawing.Size(40, 13);
+			this.m_lblIgnore.TabIndex = 0;
+			this.m_lblIgnore.Text = "Ignore:";
+			// 
+			// m_btnSkipAll
+			// 
+			this.m_btnSkipAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_btnSkipAll.AutoSize = true;
+			this.m_btnSkipAll.Enabled = false;
+			this.m_btnSkipAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_btnSkipAll.Location = new System.Drawing.Point(9, 207);
+			this.m_btnSkipAll.Name = "m_btnSkipAll";
+			this.m_btnSkipAll.Size = new System.Drawing.Size(132, 23);
+			this.m_btnSkipAll.TabIndex = 1;
+			this.m_btnSkipAll.Text = "Set all languages to skip";
+			this.m_btnSkipAll.UseVisualStyleBackColor = true;
+			this.m_btnSkipAll.Click += new System.EventHandler(this.m_btnSkipAll_Click);
 			// 
 			// RefTextUtilityForm
 			// 
@@ -357,6 +373,7 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridRefTexts)).EndInit();
 			this.m_grpComparisonSensitivity.ResumeLayout(false);
 			this.m_grpComparisonSensitivity.PerformLayout();
@@ -389,6 +406,7 @@
 		private System.Windows.Forms.CheckBox m_chkPunctuation;
 		private System.Windows.Forms.CheckBox m_chkQuoteMarkDifferences;
 		private System.Windows.Forms.CheckBox m_chkSymbols;
+		private System.Windows.Forms.Button m_btnSkipAll;
 	}
 }
 

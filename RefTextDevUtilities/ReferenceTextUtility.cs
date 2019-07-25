@@ -301,7 +301,9 @@ namespace Glyssen.RefTextDevUtilities
 					var language = languageInfo.Name;
 					WriteOutput("Processing " + language + "...");
 
-					if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+					if (languageInfo.IsEnglish)
+						existingReferenceTextForLanguage = s_existingEnglish;
+					else
 					{
 						try
 						{
@@ -309,8 +311,13 @@ namespace Glyssen.RefTextDevUtilities
 						}
 						catch (ArgumentException)
 						{
-							WriteOutput($"No existing reference text for language {language}", languagesToProcess.Count == 1);
-							continue;
+							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+							{
+								WriteOutput($"No existing reference text for language {language}", languagesToProcess.Count == 1);
+								continue;
+							}
+
+							existingReferenceTextForLanguage = null;
 						}
 					}
 
@@ -372,12 +379,12 @@ namespace Glyssen.RefTextDevUtilities
 							else
 								existingEnglishRefBook = existingEnglishRefBooks[iBook++];
 
-							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+							if (existingReferenceTextForLanguage != null)
 							{
 								existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books
-									.Single(b => b.BookId == existingEnglishRefBook.BookId).GetScriptBlocks();
+									.SingleOrDefault(b => b.BookId == existingEnglishRefBook.BookId)?.GetScriptBlocks();
 
-								if (existingRefBlocksForLanguage.Count != existingEnglishRefBook.GetScriptBlocks().Count)
+								if (existingRefBlocksForLanguage?.Count != existingEnglishRefBook.GetScriptBlocks().Count)
 									WriteOutput($"Existing book of {referenceTextBookId} for {language} has different number of blocks than " +
 										"the existing English reference text.", true);
 							}
@@ -455,6 +462,8 @@ namespace Glyssen.RefTextDevUtilities
 							newBlock.BlockElements.Add(new ScriptText(bookName));
 							currentTitleAndChapterLabelInfo.BookTitle = bookName;
 							newBlocks.Add(newBlock);
+
+							prevBook = referenceTextBookId;
 						}
 
 						Block existingEnglishRefBlock = null;
@@ -628,9 +637,10 @@ namespace Glyssen.RefTextDevUtilities
 							modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
 							if (verseNumberFixedText != modifiedText)
 								Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
-
-							if (mode != Mode.FindDifferencesBetweenCurrentVersionAndNewText ||
-								CompareVersions(modifiedText, existingRefBlocksForLanguage[iBlock - 1], referenceTextBookId))
+							var existingRefBlockForLanguage = existingRefBlocksForLanguage?.ElementAt(iBlock - 1);
+							var noChangesWeCareAbout = CompareVersions(modifiedText, existingRefBlockForLanguage,
+								referenceTextBookId);
+							if (mode != Mode.FindDifferencesBetweenCurrentVersionAndNewText || noChangesWeCareAbout)
 							{
 								if (mode != Mode.GenerateEnglish &&
 									int.Parse(referenceTextRow.Chapter) != existingEnglishRefBlock.ChapterNumber)
@@ -689,6 +699,27 @@ namespace Glyssen.RefTextDevUtilities
 									}
 								}
 
+								if (noChangesWeCareAbout)
+								{
+									newBlocks.Add(existingRefBlockForLanguage);
+									foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
+										.Where(s => !string.IsNullOrWhiteSpace(s) && !s_extractVerseNumberRegex.IsMatch(s)))
+									{
+										foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
+										{
+											if (s_anyAnnotationRegex.Match(s).Success)
+											{
+												if (!ConvertTextToUserSpecifiedScriptAnnotationElement(s, out _))
+													AttemptParseOfControlFileAnnotation(mode, s, languageInfo, referenceTextRow, existingEnglishRefBook, existingEnglishRefBlock, annotationsToOutput);
+											}
+											else if (string.IsNullOrWhiteSpace(s.TrimStart()))
+												WriteOutput("No text found between annotations:" + referenceTextRow, true);
+										}
+									}
+
+									continue;
+								}
+
 								Block newBlock;
 								if (mode != Mode.GenerateEnglish)
 								{
@@ -723,11 +754,9 @@ namespace Glyssen.RefTextDevUtilities
 									if (match.Success)
 									{
 										var verseNum = match.Groups[1].Value;
-										var nonAnnotations =
-											newBlock.BlockElements.Where(be => be.GetType() == typeof(Verse) || be.GetType() == typeof(ScriptText));
-										var processingFirstElement = !nonAnnotations.Any();
+										var processingFirstScrElement = newBlock.BlockElements.Select(be => be.GetType()).All(t => t != typeof(Verse) && t != typeof(ScriptText));
 										newBlock.BlockElements.Add(lastElementInBlock = new Verse(verseNum));
-										if (processingFirstElement)
+										if (processingFirstScrElement)
 											newBlock.InitialStartVerseNumber = int.Parse(verseNum);
 										else if (newBlock.InitialStartVerseNumber == int.Parse(verseNum))
 										{
@@ -740,71 +769,17 @@ namespace Glyssen.RefTextDevUtilities
 									}
 									else
 									{
-										var splits2 = s_anyAnnotationForSplittingRegex.Split(split);
-										foreach (var s in splits2)
+										foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
 										{
-											if (string.IsNullOrWhiteSpace(s))
-												continue;
-											var match2 = s_anyAnnotationRegex.Match(s);
-											if (match2.Success)
+											if (s_anyAnnotationRegex.Match(s).Success)
 											{
-												ScriptAnnotation annotation;
-												if (ConvertTextToUserSpecifiedScriptAnnotationElement(s, out annotation))
+												if (ConvertTextToUserSpecifiedScriptAnnotationElement(s, out var annotation))
 												{
 													newBlock.BlockElements.Add(lastElementInBlock = annotation);
 													//Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
 												}
-												else if (ConvertTextToControlScriptAnnotationElement(s, out annotation))
-												{
-													if (mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
-													{
-														var pause = annotation as Pause;
-														var serializedAnnotation = pause != null
-															? XmlSerializationHelper.SerializeToString(pause, true)
-															: XmlSerializationHelper.SerializeToString((Sound) annotation, true);
-
-														var formattedAnnotationForDisplay = annotation.ToDisplay();
-
-														if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) ||
-															string.IsNullOrWhiteSpace(serializedAnnotation))
-														{
-															WriteOutput($"Annotation not formatted correctly (is null or whitespace): {referenceTextRow.English}",
-																true);
-															WriteOutput();
-														}
-
-														var trimmedEnglish = referenceTextRow.English.Replace("\n ", " ").Replace('\n', ' ').TrimEnd();
-														if ((annotation is Pause && !trimmedEnglish.EndsWith(formattedAnnotationForDisplay)) ||
-															(annotation is Sound && !trimmedEnglish.StartsWith(formattedAnnotationForDisplay)))
-														{
-															// Although this is a good check to run for sanity, we can't treat it as an error
-															// because a few of the annotations are actually displayed slightly differently by
-															// FCBH (due to what are insignificant differences like 'before' vs. '@')
-															var bcv = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId),
-																existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber);
-															WriteOutput(
-																$"(warning) Annotation not formatted the same as FCBH: ({bcv.AsString}) {trimmedEnglish} => {formattedAnnotationForDisplay}");
-															WriteOutput();
-														}
-
-														int offset = 0;
-														if ((existingEnglishRefBook.BookId == "MRK" && existingEnglishRefBlock.ChapterNumber == 4 &&
-															existingEnglishRefBlock.InitialVerseNumberOrBridge == "39") ||
-															(existingEnglishRefBook.BookId == "ACT" && existingEnglishRefBlock.ChapterNumber == 10 &&
-															existingEnglishRefBlock.InitialVerseNumberOrBridge == "23"))
-														{
-															offset = -1;
-														}
-
-														annotationsToOutput.Add(existingEnglishRefBook.BookId + "\t" + existingEnglishRefBlock.ChapterNumber +
-																				"\t" +
-																				existingEnglishRefBlock.InitialVerseNumberOrBridge + "\t" + offset + "\t" + serializedAnnotation);
-													}
-												}
 												else
-												{
-													WriteOutput("Could not parse annotation: " + referenceTextRow, true);
-												}
+													AttemptParseOfControlFileAnnotation(mode, s, languageInfo, referenceTextRow, existingEnglishRefBook, existingEnglishRefBlock, annotationsToOutput);
 											}
 											else
 											{
@@ -822,11 +797,10 @@ namespace Glyssen.RefTextDevUtilities
 									newBlock.BlockElements.Add(new ScriptText("…"));
 								var lastScriptText = newBlock.BlockElements.OfType<ScriptText>().Last();
 								lastScriptText.Content = lastScriptText.Content.Trim();
+
 								newBlocks.Add(newBlock);
 							}
 						}
-
-						prevBook = referenceTextBookId;
 					}
 
 					if (mode == Mode.CreateCharacterMapping)
@@ -888,6 +862,61 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			WriteOutput("Done!");
+		}
+
+		private static void AttemptParseOfControlFileAnnotation(Mode mode, string s, ReferenceTextLanguageInfo languageInfo, ReferenceTextRow referenceTextRow, BookScript existingEnglishRefBook, Block existingEnglishRefBlock, List<string> annotationsToOutput)
+		{
+			if (ConvertTextToControlScriptAnnotationElement(s, out var annotation))
+			{
+				if (mode != Mode.GenerateEnglish && languageInfo.IsEnglish)
+				{
+					var pause = annotation as Pause;
+					var serializedAnnotation = pause != null
+						? XmlSerializationHelper.SerializeToString(pause, true)
+						: XmlSerializationHelper.SerializeToString((Sound)annotation, true);
+
+					var formattedAnnotationForDisplay = annotation.ToDisplay();
+
+					if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) ||
+						string.IsNullOrWhiteSpace(serializedAnnotation))
+					{
+						WriteOutput($"Annotation not formatted correctly (is null or whitespace): {referenceTextRow.English}",
+							true);
+						WriteOutput();
+					}
+
+					var trimmedEnglish = referenceTextRow.English.Replace("\n ", " ").Replace('\n', ' ').TrimEnd();
+					if ((annotation is Pause && !trimmedEnglish.EndsWith(formattedAnnotationForDisplay)) ||
+						(annotation is Sound && !trimmedEnglish.StartsWith(formattedAnnotationForDisplay)))
+					{
+						// Although this is a good check to run for sanity, we can't treat it as an error
+						// because a few of the annotations are actually displayed slightly differently by
+						// FCBH (due to what are insignificant differences like 'before' vs. '@')
+						var bcv = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId),
+							existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber);
+						WriteOutput(
+							$"(warning) Annotation not formatted the same as FCBH: ({bcv.AsString}) {trimmedEnglish} \r\n=> {formattedAnnotationForDisplay}");
+						WriteOutput();
+					}
+
+					int offset = 0;
+					if ((existingEnglishRefBook.BookId == "MRK" && existingEnglishRefBlock.ChapterNumber == 4 &&
+							existingEnglishRefBlock.InitialVerseNumberOrBridge == "39") ||
+						(existingEnglishRefBook.BookId == "ACT" && existingEnglishRefBlock.ChapterNumber == 10 &&
+							existingEnglishRefBlock.InitialVerseNumberOrBridge == "23"))
+					{
+						offset = -1;
+					}
+
+					annotationsToOutput.Add(existingEnglishRefBook.BookId + "\t" + existingEnglishRefBlock.ChapterNumber +
+						"\t" +
+						existingEnglishRefBlock.InitialVerseNumberOrBridge + "\t" + offset + "\t" + serializedAnnotation);
+				}
+			}
+			else
+			{
+				WriteOutput("Could not parse annotation: " + referenceTextRow, true);
+			}
 		}
 
 		private static string GetBookIdFromFcbhBookCode(string fcbhBookCode)
@@ -1291,6 +1320,8 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static bool CompareVersions(string excelStr, Block existingBlock, string bookId)
 		{
+			if (existingBlock == null)
+				return false; // This will have already been reported.
 			var existingStr = existingBlock.GetText(true);
 			var excelStrWithoutAnnotations = s_annotationDelimitedWith3VerticalBarsRegex.Replace(excelStr, "");
 			excelStrWithoutAnnotations = s_annotationInCurlyBracesRegex.Replace(excelStrWithoutAnnotations, "");
