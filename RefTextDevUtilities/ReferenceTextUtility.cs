@@ -1329,8 +1329,10 @@ namespace Glyssen.RefTextDevUtilities
 
 			int indexOfFirstDifference = -1;
 
-			if (bookId == "ACT" && existingBlock.ChapterNumber == 9 && existingBlock.InitialStartVerseNumber > 4)
-				Debug.WriteLine("This is the case to look at.");
+			//if (bookId == "ACT" && existingBlock.ChapterNumber == 9 && existingBlock.InitialStartVerseNumber > 4)
+			//	Debug.WriteLine("This is the case to look at.");
+
+			throw new NotImplementedException("Need to deal with modified closure problem and stack overflow. Should set up predictae outside of loop.");
 
 			string existingStrToCompare = existingStr;
 			if (DifferencesToIgnore != Ignore.Nothing)

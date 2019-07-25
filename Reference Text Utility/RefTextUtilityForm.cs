@@ -349,6 +349,7 @@ namespace Glyssen.ReferenceTextUtility
 						goto case "Skip";
 					case "Skip":
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = "";
+						SetStateForValidDestination(e.RowIndex);
 						break;
 					default:
 						throw new Exception("Unexpected Action. This can't happen!");
@@ -385,20 +386,24 @@ namespace Glyssen.ReferenceTextUtility
 				}
 				else
 				{
-					m_dataGridRefTexts.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = m_dataGridRefTexts.DefaultCellStyle.ForeColor;
-					m_btnOk.Enabled = m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().All(r =>
-					{
-						var destinationCellForeColor = r.Cells[e.ColumnIndex].Style.ForeColor;
-						var destValue = r.Cells[e.ColumnIndex].Value as string;
-						var action = r.Cells[colAction.Index].Value as string;
-						return (!String.IsNullOrWhiteSpace(destValue) || action == "Compare to Current" || action == "Skip") &&
-							(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
-					}) && 
-						m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Any(r => r.Cells[colAction.Index].Value as string != "Skip");
-					
+					SetStateForValidDestination(e.RowIndex);
 					languageInfo.OutputFolder = newValue;
 				}
 			}
+		}
+
+		private void SetStateForValidDestination(int iRow)
+		{
+			m_dataGridRefTexts.Rows[iRow].Cells[colDestination.Index].Style.ForeColor = m_dataGridRefTexts.DefaultCellStyle.ForeColor;
+			m_btnOk.Enabled = m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().All(r =>
+				{
+					var destinationCellForeColor = r.Cells[colDestination.Index].Style.ForeColor;
+					var destValue = r.Cells[colDestination.Index].Value as string;
+					var action = r.Cells[colAction.Index].Value as string;
+					return (!String.IsNullOrWhiteSpace(destValue) || action == "Compare to Current" || action == "Skip") &&
+						(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
+				}) &&
+				m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Any(r => r.Cells[colAction.Index].Value as string != "Skip");
 		}
 
 		private void SkipAllOtherLanguagesIfThisRowIsEnglish(int indexOfRowBeingSet, ReferenceTextLanguageInfo languageInfo)
