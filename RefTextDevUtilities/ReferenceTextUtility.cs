@@ -98,6 +98,7 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			ErrorsOccurred |= error;
 			OnMessageRaised?.Invoke(msg, error);
+			//System.Threading.Thread.Sleep(150);
 		}
 
 		private class TitleAndChapterLabelInfo
@@ -292,7 +293,7 @@ namespace Glyssen.RefTextDevUtilities
 			}
 			catch (Exception e)
 			{
-				WriteOutput(e.Message);
+				WriteOutput(e.Message, true);
 				//throw;
 			}
 		}
@@ -314,7 +315,6 @@ namespace Glyssen.RefTextDevUtilities
 
 			var annotationsToOutput = new List<string>();
 
-			ReferenceText existingReferenceTextForLanguage = null;
 			List<ReferenceTextLanguageInfo> languagesToProcess;
 			if (otData != null)
 				languagesToProcess = ntData.LanguagesToProcess.Union(otData.LanguagesToProcess).ToList();
@@ -333,6 +333,7 @@ namespace Glyssen.RefTextDevUtilities
 					var language = languageInfo.Name;
 					WriteOutput("Processing " + language + "...");
 
+					ReferenceText existingReferenceTextForLanguage = null;
 					if (languageInfo.IsEnglish)
 						existingReferenceTextForLanguage = s_existingEnglish;
 					else
@@ -366,10 +367,10 @@ namespace Glyssen.RefTextDevUtilities
 					Directory.CreateDirectory(languageInfo.OutputFolder);
 
 					string prevBook = null;
-					int iBook = 0;
-					int iBlock = 0;
+					bool isFirstBookInTestament = true;
+					int iBlockInExistingEnglishRefBook = 0;
+					int iBlockInExistingRefBookForLanguage = 0;
 					BookScript existingEnglishRefBook = null;
-					string chapterLabel = null;
 					string chapterLabelForPrevBook = null;
 					string justTheWordForChapter = null;
 					List<BookScript> existingEnglishRefBooks = s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= 40).ToList();
@@ -379,460 +380,282 @@ namespace Glyssen.RefTextDevUtilities
 					List<Block> newBlocks = new List<Block>();
 					TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo = null;
 					IReadOnlyList<Block> existingRefBlocksForLanguage = null;
+					int skippingBook = 0;
 
 					GetQuoteMarksForLanguage(language, out var openDoubleQuote, out var closeDoubleQuote, out var openQuoteSingle, out var closeQuoteSingle);
 
-					var referenceTextRowsToProcess = iData == 0
-						? otData.ReferenceTextRows.Where(delegate(ReferenceTextRow r)
-						{
-							return mode == Mode.GenerateEnglish ||
-									existingEnglishRefBooks.Select(b => BCVRef.BookToNumber(b.BookId)).Contains(BCVRef.BookToNumber(GetBookIdFromFcbhBookCode(r.Book)));
-						})
-						: ntData.ReferenceTextRows.Where(delegate(ReferenceTextRow r)
-						{
-							return mode == Mode.GenerateEnglish ||
-									existingEnglishRefBooks.Select(b => BCVRef.BookToNumber(b.BookId)).Contains(BCVRef.BookToNumber(GetBookIdFromFcbhBookCode(r.Book)));
-						});
+					HashSet<int> existingBookNumbersRequired = null;
+					if (mode != Mode.GenerateEnglish && (mode != Mode.Generate || !languageInfo.IsEnglish))
+					{
+						existingBookNumbersRequired = new HashSet<int>((mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText ?
+								existingReferenceTextForLanguage.Books : existingEnglishRefBooks)
+							.Select(e => BCVRef.BookToNumber(e.BookId)));
+					}
+
+					var referenceTextRowsToProcess = iData == 0 ? otData.ReferenceTextRows : ntData.ReferenceTextRows;
 
 					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
 					{
-						var referenceTextBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book);
+						var currBookId = GetBookIdFromFcbhBookCode(referenceTextRow.Book, out int currBookNum);
 
-						if (prevBook != referenceTextBookId)
+						if (skippingBook == currBookNum)
+							continue;
+
+						if (prevBook != currBookId)
 						{
-							if (existingEnglishRefBook != null)
+							if (prevBook != null)
 							{
-								newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks) {PageHeader = chapterLabel});
+								isFirstBookInTestament = false;
+								newBooks.Add(new BookScript(prevBook, newBlocks) {PageHeader = currentTitleAndChapterLabelInfo.ChapterLabel});
 								newBlocks.Clear();
 							}
 
-							if (mode == Mode.GenerateEnglish)
-								existingEnglishRefBook = new BookScript(referenceTextBookId, new Block[10000]);
-							else
-								existingEnglishRefBook = existingEnglishRefBooks[iBook++];
+							if (existingBookNumbersRequired != null && !existingBookNumbersRequired.Contains(currBookNum))
+							{
+								skippingBook = currBookNum;
+								if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+									WriteOutput($"Book {currBookId} cannot be compared because it does not exist in {languageInfo.Name} reference text.", true);
+								continue;
+							}
+
+							skippingBook = 0;
+
+							if (mode != Mode.GenerateEnglish)
+								existingEnglishRefBook = existingEnglishRefBooks.FirstOrDefault(b => b.BookId == currBookId);
 
 							if (existingReferenceTextForLanguage != null)
 							{
 								existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books
-									.SingleOrDefault(b => b.BookId == existingEnglishRefBook.BookId)?.GetScriptBlocks();
-
-								if (existingRefBlocksForLanguage?.Count != existingEnglishRefBook.GetScriptBlocks().Count)
-									WriteOutput($"Existing book of {referenceTextBookId} for {language} has different number of blocks than " +
+									.SingleOrDefault(b => b.BookId == currBookId)?.GetScriptBlocks();
+								
+								if (existingRefBlocksForLanguage?.Count != existingEnglishRefBook?.GetScriptBlocks().Count)
+									WriteOutput($"Existing book of {currBookId} for {language} has different number of blocks than " +
 										"the existing English reference text.", true);
 							}
 
-							iBlock = 0;
-							chapterLabelForPrevBook = chapterLabel;
-							chapterLabel = null;
+							iBlockInExistingEnglishRefBook = 0;
+							iBlockInExistingRefBookForLanguage = 0;
 
-							var newBlock = new Block("mt")
-							{
-								CharacterId =
-									CharacterVerseData.GetStandardCharacterId(existingEnglishRefBook.BookId,
-										CharacterVerseData.StandardCharacter.BookOrChapter),
-							};
-							var bookTitleAndchapter1Announcement = referenceTextRow.GetText(language);
-							var summaryForBook = resultSummary.SingleOrDefault(b => b.BookId == existingEnglishRefBook.BookId);
-							if (summaryForBook == null)
-							{
-								summaryForBook = new BookTitleAndChapterLabelInfo {BookId = existingEnglishRefBook.BookId};
-								resultSummary.Add(summaryForBook);
-							}
+							chapterLabelForPrevBook = currentTitleAndChapterLabelInfo?.ChapterLabel;
+							prevBook = currBookId;
 
-							currentTitleAndChapterLabelInfo = new TitleAndChapterLabelInfo
-							{
-								Language = language,
-								TitleAndChapterOneInfoFromXls = bookTitleAndchapter1Announcement
-							};
-							summaryForBook.Details.Add(currentTitleAndChapterLabelInfo);
-
-							var bookName = bookTitleAndchapter1Announcement.TrimEnd(' ', '1').TrimStart(' ');
-
-							if (!JustGetHalfOfRepeated(ref bookName) && IsSingleChapterBook(referenceTextRow))
-							{
-								var iFirstSpace = bookTitleAndchapter1Announcement.IndexOf(" ", StringComparison.Ordinal);
-								if (iFirstSpace > 0)
-								{
-									var firstWord = bookTitleAndchapter1Announcement.Substring(0, iFirstSpace);
-									var iStartOfChapterAnnouncement = bookTitleAndchapter1Announcement.IndexOf(firstWord,
-										iFirstSpace, StringComparison.Ordinal);
-									if (iStartOfChapterAnnouncement > 0)
-									{
-										bookName = bookTitleAndchapter1Announcement.Substring(0, iStartOfChapterAnnouncement).TrimEnd();
-										chapterLabel = bookTitleAndchapter1Announcement.Substring(iStartOfChapterAnnouncement);
-									}
-								}
-
-								if (chapterLabel == null)
-								{
-									if (justTheWordForChapter != null)
-									{
-										chapterLabel = bookName + " " + justTheWordForChapter;
-										//WriteOutput("Guessing at chapter label: " + chapterLabel);
-									}
-									else
-									{
-										var iLastSpace = bookName.LastIndexOf(' ');
-										if (iLastSpace > 0)
-										{
-											var lastWord = bookName.Substring(iLastSpace + 1);
-											if (bookName.StartsWith(lastWord, StringComparison.Ordinal))
-											{
-												chapterLabel = lastWord;
-												bookName = bookName.Substring(0, iLastSpace);
-											}
-										}
-
-										if (chapterLabel == null)
-											chapterLabel = bookName;
-									}
-								}
-
-								currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
-							}
-
-							newBlock.BlockElements.Add(new ScriptText(bookName));
-							currentTitleAndChapterLabelInfo.BookTitle = bookName;
-							newBlocks.Add(newBlock);
-
-							prevBook = referenceTextBookId;
+							currentTitleAndChapterLabelInfo = ProcessTitleAndInitialChapterLabel(currBookId,
+								referenceTextRow, language, resultSummary, justTheWordForChapter, newBlocks);
 						}
+
+						if (referenceTextRow.Verse == "<<")
+						{
+							ProcessChapterBreak(referenceTextRow, currentTitleAndChapterLabelInfo, language, ref justTheWordForChapter, chapterLabelForPrevBook, isFirstBookInTestament, newBlocks, currBookId);
+							continue;
+						}
+
+						if (mode == Mode.CreateBookTitleAndChapterLabelSummary)
+							continue;
+
+						int currChapter, currVerse;
+						if (!Int32.TryParse(referenceTextRow.Chapter, out currChapter))
+							WriteOutput($"Invalid chapter number in {currBookId}: {referenceTextRow.Chapter}", true);
+						if (!Int32.TryParse(referenceTextRow.Verse, out currVerse))
+							WriteOutput($"Invalid verse number in {currBookId}: {referenceTextRow.Verse}", true);
 
 						Block existingEnglishRefBlock = null;
 						if (mode != Mode.GenerateEnglish)
 						{
 							var blocks = existingEnglishRefBook.GetScriptBlocks();
-							if (blocks.Count <= iBlock || (existingRefBlocksForLanguage != null && existingRefBlocksForLanguage.Count <= iBlock))
+							if (blocks.Count <= iBlockInExistingEnglishRefBook)
 							{
-								WriteOutput($"Went past end of existing blocks. Skipping {referenceTextRow}");
-								continue;
+								if (mode == Mode.Generate && !languageInfo.IsEnglish)
+								{
+									WriteOutput($"Went past end of existing English reference blocks. Skipping {referenceTextRow}");
+									continue;
+								}
+								existingEnglishRefBlock = null;
 							}
-							existingEnglishRefBlock = blocks[iBlock++];
+							else
+								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
 
 							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
-								existingEnglishRefBlock = blocks[iBlock++];
+								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
+
+							// When generating a new English reference text, blocks can be inserted or removed, so we don't
+							// necessarily expect it to align verse-by-verse to the old version.
+							if (mode != Mode.Generate || !languageInfo.IsEnglish)
+							{
+								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
+									ref existingEnglishRefBlock, blocks, "English", ref iBlockInExistingEnglishRefBook);
+							}
 						}
 
-						if (referenceTextRow.Verse == "<<")
+						if (mode == Mode.CreateCharacterMapping)
 						{
-							int chapter = int.Parse(referenceTextRow.Chapter);
-							if (chapter == 2)
-							{
-								currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls = referenceTextRow.GetText(language);
-								var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2');
-								if (justTheWordForChapter == null && chapterLabelForPrevBook != null && iBook == 2)
-								{
-									// We're going to try to find just the word for chapter in case we later hit a single-chapter book that doesn't have it.
-									int istartOfWord = chapterLabelForPrevBook.Length;
-									int i = istartOfWord;
-									int j = chapterLabelForCurrentBook.Length;
-									while (--i > 0 && --j > 0)
-									{
-										if (chapterLabelForPrevBook[i] != chapterLabelForCurrentBook[j])
-											break;
-										if (chapterLabelForPrevBook[i] == ' ')
-											istartOfWord = i + 1;
-									}
+							AddCharacterMappingInfo(existingEnglishRefBlock, referenceTextRow, currBookId, currBookNum,
+								characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
+							continue;
+						}
 
-									if (istartOfWord > 0 && istartOfWord < chapterLabelForPrevBook.Length - 2)
-										justTheWordForChapter = chapterLabelForPrevBook.Substring(istartOfWord);
-								}
+						string originalText = referenceTextRow.GetText(language);
 
-								if (justTheWordForChapter != null)
-									JustGetHalfOfRepeated(ref chapterLabelForCurrentBook, justTheWordForChapter);
+						if (originalText == null)
+						{
+							WriteOutput($"No {language} text present for {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse} " +
+								$"corresponding to the English text: {referenceTextRow.English}", true);
+							originalText = string.Empty;
+						}
 
-								chapterLabel = chapterLabelForCurrentBook;
+						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-								var mainTitleElement = (ScriptText) newBlocks.First().BlockElements[0];
-								var bookName = mainTitleElement.Content;
-								int startOfChapterLabel = bookName.LastIndexOf(chapterLabel, StringComparison.Ordinal);
-								if (startOfChapterLabel == -1)
-								{
-									if (chapterLabel.StartsWith("1 "))
-									{
-										var sb = new StringBuilder(chapterLabel);
-										sb[0] = 'I';
-										startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
-										if (startOfChapterLabel == -1)
-										{
-											sb.Remove(0, 2);
-											startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
-										}
-									}
-									else if (chapterLabel.StartsWith("2 "))
-									{
-										var sb = new StringBuilder(chapterLabel);
-										sb.Insert(1, "nd");
-										startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
-										if (startOfChapterLabel == -1)
-										{
-											sb = new StringBuilder(chapterLabel);
-											sb[0] = 'I';
-											sb.Insert(1, "I");
-											startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
-										}
-									}
-								}
+						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
+						modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText, openDoubleQuote + "\u202F" + openQuoteSingle);
+						modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
+						modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
+						modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
+						modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
+						modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
+						modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
+						modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
+						if (verseNumberFixedText != modifiedText)
+							Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
 
-								if (startOfChapterLabel > 0)
-								{
-									bookName = bookName.Substring(0, startOfChapterLabel).Trim();
-									mainTitleElement.Content = bookName;
-								}
-								else
-								{
-									if (justTheWordForChapter != null)
-									{
-										if (bookName.StartsWith(chapterLabel, StringComparison.Ordinal) && chapterLabel != null &&
-											chapterLabel.Contains(justTheWordForChapter))
-										{
-											bookName = chapterLabel.Substring(0, chapterLabel.IndexOf(justTheWordForChapter, StringComparison.Ordinal))
-												.TrimEnd();
-											mainTitleElement.Content = bookName;
-										}
-										else
-										{
-											chapterLabel = bookName + " " + justTheWordForChapter;
-											//WriteOutput("Book title being left as \"" + bookName + "\" and chapter label set to: " + chapterLabel);
-										}
-									}
-									else if (bookName != chapterLabel)
-										WriteOutput("Could not figure out book title: " + bookName, true);
-								}
-
-								currentTitleAndChapterLabelInfo.BookTitle = bookName;
-								currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
-							}
-
-							var newBlock = new Block("c", chapter)
-							{
-								CharacterId =
-									CharacterVerseData.GetStandardCharacterId(existingEnglishRefBook.BookId,
-										CharacterVerseData.StandardCharacter.BookOrChapter),
-								IsParagraphStart = true,
-								BookCode = existingEnglishRefBook.BookId
-							};
-							newBlock.BlockElements.Add(new ScriptText(referenceTextRow.Chapter));
-							newBlocks.Add(newBlock);
-
-							iBlock--;
+						Block existingRefBlockForLanguage;
+						if (languageInfo.IsEnglish)
+						{
+							existingRefBlockForLanguage = existingEnglishRefBlock;
 						}
 						else
 						{
-							if (mode == Mode.CreateCharacterMapping)
+							if (existingRefBlocksForLanguage?.Count <= iBlockInExistingRefBookForLanguage)
 							{
-								if (!CharacterVerseData.IsCharacterOfType(existingEnglishRefBlock.CharacterId,
-										CharacterVerseData.StandardCharacter.Narrator) || !referenceTextRow.CharacterId.StartsWith("Narr_0"))
+								if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 								{
-									var verse = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId), int.Parse(referenceTextRow.Chapter),
-										int.Parse(referenceTextRow.Verse));
-									characterMappings.Add(new CharacterMapping(existingEnglishRefBlock.CharacterId, referenceTextRow.CharacterId,
-										verse));
-
-									SortedSet<string> fcbhIds;
-									if (glyssenToFcbhIds.TryGetValue(existingEnglishRefBlock.CharacterId, out fcbhIds))
-										fcbhIds.Add(referenceTextRow.CharacterId);
-									else
-										glyssenToFcbhIds.Add(existingEnglishRefBlock.CharacterId,
-											new SortedSet<string> {referenceTextRow.CharacterId});
-
-									SortedSet<string> glyssenIds;
-									if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out glyssenIds))
-										glyssenIds.Add(existingEnglishRefBlock.CharacterId);
-									else
-										fcbhToGlyssenIds.Add(referenceTextRow.CharacterId,
-											new SortedSet<string> {existingEnglishRefBlock.CharacterId});
+									WriteOutput($"Went past end of existing blocks for {languageInfo.Name}. Skipping {referenceTextRow}");
+									continue;
 								}
+								existingRefBlockForLanguage = null;
+							}
+							else
+							{
+								existingRefBlockForLanguage = existingRefBlocksForLanguage[iBlockInExistingRefBookForLanguage++];
+								while (CharacterVerseData.IsCharacterExtraBiblical(existingRefBlockForLanguage.CharacterId))
+									existingRefBlockForLanguage = existingRefBlocksForLanguage[iBlockInExistingRefBookForLanguage++];
+							}
 
+							// If we've gotten out of C/V alignment with the existing reference text, we need to try to
+							// get back in sync.
+							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+							{
+								Debug.Assert(existingRefBlockForLanguage != null);
+								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
+									ref existingRefBlockForLanguage, existingRefBlocksForLanguage,
+									languageInfo.Name, ref iBlockInExistingRefBookForLanguage);
+							}
+						}
+
+						var noChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage,
+							currBookId);
+
+						if (mode != Mode.Generate && mode != Mode.GenerateEnglish)
+							continue;
+
+						if (noChangesWeCareAbout)
+						{
+							newBlocks.Add(existingRefBlockForLanguage);
+							foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
+								.Where(s => !string.IsNullOrWhiteSpace(s) && !s_extractVerseNumberRegex.IsMatch(s)))
+							{
+								foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
+								{
+									if (s_anyAnnotationRegex.Match(s).Success)
+									{
+										if (!ConvertTextToUserSpecifiedScriptAnnotationElement(s, out _))
+											AttemptParseOfControlFileAnnotation(mode, s, languageInfo, currBookId, referenceTextRow, existingEnglishRefBlock, annotationsToOutput);
+									}
+									else if (string.IsNullOrWhiteSpace(s.TrimStart()))
+										WriteOutput("No text found between annotations:" + referenceTextRow, true);
+								}
+							}
+
+							continue;
+						}
+
+						Block newBlock;
+						if (mode != Mode.GenerateEnglish)
+						{
+							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
+								currVerse)
+							{
+								CharacterId = existingEnglishRefBlock.CharacterId,
+								Delivery = existingEnglishRefBlock.Delivery,
+								IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
+								MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote
+							};
+						}
+						else
+						{
+							newBlock = new Block("p", currChapter, currVerse);
+							newBlock.CharacterId =
+								GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, newBlock);
+						}
+
+						BlockElement lastElementInBlock = null;
+						var splits = s_verseNumberMarkupRegex.Split(modifiedText);
+						foreach (var split in splits)
+						{
+							if (string.IsNullOrWhiteSpace(split))
+							{
+								if (splits.Length == 1)
+									newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already be reported as error.
 								continue;
 							}
 
-							string originalText = referenceTextRow.GetText(language);
-
-							if (originalText == null)
+							var match = s_extractVerseNumberRegex.Match(split);
+							if (match.Success)
 							{
-								WriteOutput($"No {language} text present for {referenceTextBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse} " +
-									$"corresponding to the English text: {referenceTextRow.English}", true);
-								originalText = string.Empty;
+								var verseNum = match.Groups[1].Value;
+								var processingFirstScrElement = newBlock.BlockElements.Select(be => be.GetType()).All(t => t != typeof(Verse) && t != typeof(ScriptText));
+								newBlock.BlockElements.Add(lastElementInBlock = new Verse(verseNum));
+								if (processingFirstScrElement)
+									newBlock.InitialStartVerseNumber = int.Parse(verseNum);
+								else if (newBlock.InitialStartVerseNumber == int.Parse(verseNum))
+								{
+									//Console.WriteLine();
+									//Console.WriteLine("Verse number incorrect. Language: {3}, Bk: {0}, Ch: {1}, Vrs: {2}", existingBook.BookId, newBlock.ChapterNumber, newBlock.InitialStartVerseNumber, language);
+									//Console.WriteLine(newBlock.GetText(true));
+									newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerseNum;
+									//Console.WriteLine("Corrected verse number to {0}", newBlock.InitialStartVerseNumber);
+								}
 							}
-
-							var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
-
-							var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
-							modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText, openDoubleQuote + "\u202F" + openQuoteSingle);
-							modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
-							modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
-							modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
-							modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
-							modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
-							modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
-							modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
-							if (verseNumberFixedText != modifiedText)
-								Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
-							var existingRefBlockForLanguage = existingRefBlocksForLanguage?.ElementAt(iBlock - 1);
-							var noChangesWeCareAbout = CompareVersions(modifiedText, existingRefBlockForLanguage,
-								referenceTextBookId);
-							if (mode != Mode.FindDifferencesBetweenCurrentVersionAndNewText || noChangesWeCareAbout)
+							else
 							{
-								if (mode != Mode.GenerateEnglish &&
-									int.Parse(referenceTextRow.Chapter) != existingEnglishRefBlock.ChapterNumber)
+								foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
 								{
-									WriteOutput($"Chapters do not match. Book: {referenceTextBookId}, Excel: {referenceTextRow.Chapter}, Existing: {existingEnglishRefBlock.ChapterNumber}", true);
-
-									var blocks = existingEnglishRefBook.GetScriptBlocks();
-									if (existingEnglishRefBlock.ChapterNumber > int.Parse(referenceTextRow.Chapter))
+									if (s_anyAnnotationRegex.Match(s).Success)
 									{
-										do
+										if (ConvertTextToUserSpecifiedScriptAnnotationElement(s, out var annotation))
 										{
-											WriteOutput("   Backing up to earlier existing ref text block.");
-											iBlock -= 2; // We already incremented this, so we have to go back 2 to get to the previous one.
-											existingEnglishRefBlock = blocks[iBlock++];
-										} while (existingEnglishRefBlock.ChapterNumber > int.Parse(referenceTextRow.Chapter) ||
-											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
-										WriteOutput($"   Using existing ref text block: {existingEnglishRefBlock}");
+											newBlock.BlockElements.Add(lastElementInBlock = annotation);
+											//Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
+										}
+										else
+											AttemptParseOfControlFileAnnotation(mode, s, languageInfo, currBookId, referenceTextRow, existingEnglishRefBlock, annotationsToOutput);
 									}
 									else
 									{
-										do
-										{
-											WriteOutput($"   Skipping past existing ref text block: {existingEnglishRefBlock}");
-											existingEnglishRefBlock = blocks[iBlock++];
-										} while (existingEnglishRefBlock.ChapterNumber < int.Parse(referenceTextRow.Chapter) ||
-											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
+										string text = s.TrimStart();
+										if (string.IsNullOrWhiteSpace(text))
+											WriteOutput("No text found between annotations:" + referenceTextRow, true);
+										else
+											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
 									}
 								}
-
-								if (mode != Mode.GenerateEnglish &&
-									int.Parse(referenceTextRow.Verse) != existingEnglishRefBlock.InitialStartVerseNumber)
-								{
-									WriteOutput($"Verse numbers do not match. Book: {referenceTextBookId}, Ch: {referenceTextRow.Chapter}, " +
-												$"Excel: {referenceTextRow.Verse}, Existing: {existingEnglishRefBlock.InitialStartVerseNumber}", true);
-
-									var blocks = existingEnglishRefBook.GetScriptBlocks();
-									if (existingEnglishRefBlock.InitialStartVerseNumber > int.Parse(referenceTextRow.Verse))
-									{
-										do
-										{
-											WriteOutput("   Backing up to earlier existing ref text block.");
-											iBlock -= 2; // We already incremented this, so we have to go back 2 to get to the previous one.
-											existingEnglishRefBlock = blocks[iBlock++];
-										} while (existingEnglishRefBlock.InitialStartVerseNumber > int.Parse(referenceTextRow.Verse) ||
-											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
-										WriteOutput($"   Using existing ref text block: {existingEnglishRefBlock}");
-									}
-									else
-									{
-										do
-										{
-											WriteOutput($"   Skipping past existing ref text block: {existingEnglishRefBlock}");
-											existingEnglishRefBlock = blocks[iBlock++];
-										} while (existingEnglishRefBlock.InitialStartVerseNumber < int.Parse(referenceTextRow.Verse) ||
-											CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId));
-									}
-								}
-
-								if (noChangesWeCareAbout)
-								{
-									newBlocks.Add(existingRefBlockForLanguage);
-									foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
-										.Where(s => !string.IsNullOrWhiteSpace(s) && !s_extractVerseNumberRegex.IsMatch(s)))
-									{
-										foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
-										{
-											if (s_anyAnnotationRegex.Match(s).Success)
-											{
-												if (!ConvertTextToUserSpecifiedScriptAnnotationElement(s, out _))
-													AttemptParseOfControlFileAnnotation(mode, s, languageInfo, referenceTextRow, existingEnglishRefBook, existingEnglishRefBlock, annotationsToOutput);
-											}
-											else if (string.IsNullOrWhiteSpace(s.TrimStart()))
-												WriteOutput("No text found between annotations:" + referenceTextRow, true);
-										}
-									}
-
-									continue;
-								}
-
-								Block newBlock;
-								if (mode != Mode.GenerateEnglish)
-								{
-									newBlock = new Block(existingEnglishRefBlock.StyleTag, int.Parse(referenceTextRow.Chapter),
-										int.Parse(referenceTextRow.Verse))
-									{
-										CharacterId = existingEnglishRefBlock.CharacterId,
-										Delivery = existingEnglishRefBlock.Delivery,
-										IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
-										MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote
-									};
-								}
-								else
-								{
-									newBlock = new Block("p", int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse));
-									newBlock.CharacterId =
-										GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, referenceTextBookId, newBlock);
-								}
-
-								BlockElement lastElementInBlock = null;
-								var splits = s_verseNumberMarkupRegex.Split(modifiedText);
-								foreach (var split in splits)
-								{
-									if (string.IsNullOrWhiteSpace(split))
-									{
-										if (splits.Length == 1)
-											newBlock.BlockElements.Add(new ScriptText(" ")); // Blank row should have already be reported as error.
-										continue;
-									}
-
-									var match = s_extractVerseNumberRegex.Match(split);
-									if (match.Success)
-									{
-										var verseNum = match.Groups[1].Value;
-										var processingFirstScrElement = newBlock.BlockElements.Select(be => be.GetType()).All(t => t != typeof(Verse) && t != typeof(ScriptText));
-										newBlock.BlockElements.Add(lastElementInBlock = new Verse(verseNum));
-										if (processingFirstScrElement)
-											newBlock.InitialStartVerseNumber = int.Parse(verseNum);
-										else if (newBlock.InitialStartVerseNumber == int.Parse(verseNum))
-										{
-											//Console.WriteLine();
-											//Console.WriteLine("Verse number incorrect. Language: {3}, Bk: {0}, Ch: {1}, Vrs: {2}", existingBook.BookId, newBlock.ChapterNumber, newBlock.InitialStartVerseNumber, language);
-											//Console.WriteLine(newBlock.GetText(true));
-											newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerseNum;
-											//Console.WriteLine("Corrected verse number to {0}", newBlock.InitialStartVerseNumber);
-										}
-									}
-									else
-									{
-										foreach (var s in s_anyAnnotationForSplittingRegex.Split(split).Where(s => !string.IsNullOrWhiteSpace(s)))
-										{
-											if (s_anyAnnotationRegex.Match(s).Success)
-											{
-												if (ConvertTextToUserSpecifiedScriptAnnotationElement(s, out var annotation))
-												{
-													newBlock.BlockElements.Add(lastElementInBlock = annotation);
-													//Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
-												}
-												else
-													AttemptParseOfControlFileAnnotation(mode, s, languageInfo, referenceTextRow, existingEnglishRefBook, existingEnglishRefBlock, annotationsToOutput);
-											}
-											else
-											{
-												string text = s.TrimStart();
-												if (string.IsNullOrWhiteSpace(text))
-													WriteOutput("No text found between annotations:" + referenceTextRow, true);
-												else
-													newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
-											}
-										}
-									}
-								}
-
-								if (lastElementInBlock is Verse)
-									newBlock.BlockElements.Add(new ScriptText("…"));
-								var lastScriptText = newBlock.BlockElements.OfType<ScriptText>().Last();
-								lastScriptText.Content = lastScriptText.Content.Trim();
-
-								newBlocks.Add(newBlock);
 							}
 						}
+
+						if (lastElementInBlock is Verse)
+							newBlock.BlockElements.Add(new ScriptText("…"));
+						var lastScriptText = newBlock.BlockElements.OfType<ScriptText>().Last();
+						lastScriptText.Content = lastScriptText.Content.Trim();
+
+						newBlocks.Add(newBlock);
 					}
 
 					if (mode == Mode.CreateCharacterMapping)
@@ -843,7 +666,7 @@ namespace Glyssen.RefTextDevUtilities
 
 					if (mode == Mode.Generate || mode == Mode.GenerateEnglish)
 					{
-						newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks) {PageHeader = chapterLabel});
+						newBooks.Add(new BookScript(newBlocks[0].BookCode, newBlocks) {PageHeader = currentTitleAndChapterLabelInfo.ChapterLabel});
 
 						foreach (var bookScript in newBooks)
 						{
@@ -896,7 +719,272 @@ namespace Glyssen.RefTextDevUtilities
 			WriteOutput("Done!");
 		}
 
-		private static void AttemptParseOfControlFileAnnotation(Mode mode, string s, ReferenceTextLanguageInfo languageInfo, ReferenceTextRow referenceTextRow, BookScript existingEnglishRefBook, Block existingEnglishRefBlock, List<string> annotationsToOutput)
+		private static void EnsureAlignmentToExistingReferenceText(string currBookId, int currChapter, int currVerse, ref Block existingRefBlock, IReadOnlyList<Block> blocks, string languageName, ref int iBlock)
+		{
+			if (currChapter != existingRefBlock.ChapterNumber)
+			{
+				WriteOutput($"Chapter does not align with existing {languageName} reference text. Book: {currBookId}, " +
+					$"Excel: {currChapter}, Existing: {existingRefBlock.ChapterNumber}", true);
+
+				if (existingRefBlock.ChapterNumber > currChapter)
+				{
+					do
+					{
+						WriteOutput("   Backing up to earlier existing ref text block.");
+						iBlock -= 2; // We already incremented this, so we have to go back 2 to get to the previous one.
+						existingRefBlock = blocks[iBlock++];
+					} while (existingRefBlock.ChapterNumber > currChapter ||
+						CharacterVerseData.IsCharacterExtraBiblical(existingRefBlock.CharacterId));
+				}
+				else
+				{
+					do
+					{
+						WriteOutput($"   Skipping past existing ref text block: {existingRefBlock}");
+						existingRefBlock = blocks[iBlock++];
+					} while (existingRefBlock.ChapterNumber < currChapter ||
+						CharacterVerseData.IsCharacterExtraBiblical(existingRefBlock.CharacterId));
+				}
+
+				WriteOutput($"   Aligned to existing {languageName} ref text block: {existingRefBlock}");
+			}
+
+			if (currVerse != existingRefBlock.InitialStartVerseNumber)
+			{
+				WriteOutput($"Verse number does not align with existing {languageName} reference text. Book: {currBookId}, Ch: {currChapter}, " +
+					$"Excel: {currVerse}, Existing: {existingRefBlock.InitialStartVerseNumber}", true);
+
+				if (existingRefBlock.InitialStartVerseNumber > currVerse)
+				{
+					do
+					{
+						WriteOutput("   Backing up to earlier existing ref text block.");
+						iBlock -= 2; // We already incremented this, so we have to go back 2 to get to the previous one.
+						existingRefBlock = blocks[iBlock++];
+					} while (existingRefBlock.InitialStartVerseNumber > currVerse ||
+						CharacterVerseData.IsCharacterExtraBiblical(existingRefBlock.CharacterId));
+				}
+				else
+				{
+					do
+					{
+						WriteOutput($"   Skipping past existing ref text block: {existingRefBlock}");
+						existingRefBlock = blocks[iBlock++];
+					} while (existingRefBlock.InitialStartVerseNumber < currVerse ||
+						CharacterVerseData.IsCharacterExtraBiblical(existingRefBlock.CharacterId));
+				}
+
+				WriteOutput($"   Aligned to existing {languageName} ref text block: {existingRefBlock}");
+			}
+		}
+
+		private static void AddCharacterMappingInfo(Block existingEnglishRefBlock, ReferenceTextRow referenceTextRow, string currBookId, int currBookNum, List<CharacterMapping> characterMappings, SortedDictionary<string, SortedSet<string>> glyssenToFcbhIds, SortedDictionary<string, SortedSet<string>> fcbhToGlyssenIds)
+		{
+			if (!CharacterVerseData.IsCharacterOfType(existingEnglishRefBlock.CharacterId,
+				CharacterVerseData.StandardCharacter.Narrator) || !referenceTextRow.CharacterId.StartsWith("Narr_0"))
+			{
+				var verse = new BCVRef(currBookNum, int.Parse(referenceTextRow.Chapter),
+					int.Parse(referenceTextRow.Verse));
+				characterMappings.Add(new CharacterMapping(existingEnglishRefBlock.CharacterId, referenceTextRow.CharacterId,
+					verse));
+
+				SortedSet<string> fcbhIds;
+				if (glyssenToFcbhIds.TryGetValue(existingEnglishRefBlock.CharacterId, out fcbhIds))
+					fcbhIds.Add(referenceTextRow.CharacterId);
+				else
+					glyssenToFcbhIds.Add(existingEnglishRefBlock.CharacterId,
+						new SortedSet<string> {referenceTextRow.CharacterId});
+
+				SortedSet<string> glyssenIds;
+				if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out glyssenIds))
+					glyssenIds.Add(existingEnglishRefBlock.CharacterId);
+				else
+					fcbhToGlyssenIds.Add(referenceTextRow.CharacterId,
+						new SortedSet<string> {existingEnglishRefBlock.CharacterId});
+			}
+		}
+
+		private static void ProcessChapterBreak(ReferenceTextRow referenceTextRow, TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo, string language, ref string justTheWordForChapter, string chapterLabelForPrevBook, bool isFirstBookInTestament, List<Block> newBlocks, string currBookId)
+		{
+			int chapter = int.Parse(referenceTextRow.Chapter);
+			if (chapter == 2)
+			{
+				currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls = referenceTextRow.GetText(language);
+				var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2');
+				if (justTheWordForChapter == null && chapterLabelForPrevBook != null && !isFirstBookInTestament)
+				{
+					// We're going to try to find just the word for chapter in case we later hit a single-chapter book that doesn't have it.
+					int iStartOfWord = chapterLabelForPrevBook.Length;
+					int i = iStartOfWord;
+					int j = chapterLabelForCurrentBook.Length;
+					while (--i > 0 && --j > 0)
+					{
+						if (chapterLabelForPrevBook[i] != chapterLabelForCurrentBook[j])
+							break;
+						if (chapterLabelForPrevBook[i] == ' ')
+							iStartOfWord = i + 1;
+					}
+
+					if (iStartOfWord > 0 && iStartOfWord < chapterLabelForPrevBook.Length - 2)
+						justTheWordForChapter = chapterLabelForPrevBook.Substring(iStartOfWord);
+				}
+
+				if (justTheWordForChapter != null)
+					JustGetHalfOfRepeated(ref chapterLabelForCurrentBook, justTheWordForChapter);
+
+				string chapterLabel = chapterLabelForCurrentBook;
+
+				var mainTitleElement = (ScriptText)newBlocks.First().BlockElements[0];
+				var bookName = mainTitleElement.Content;
+				int startOfChapterLabel = bookName.LastIndexOf(chapterLabel, StringComparison.Ordinal);
+				if (startOfChapterLabel == -1)
+				{
+					if (chapterLabel.StartsWith("1 "))
+					{
+						var sb = new StringBuilder(chapterLabel);
+						sb[0] = 'I';
+						startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+						if (startOfChapterLabel == -1)
+						{
+							sb.Remove(0, 2);
+							startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+						}
+					}
+					else if (chapterLabel.StartsWith("2 "))
+					{
+						var sb = new StringBuilder(chapterLabel);
+						sb.Insert(1, "nd");
+						startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+						if (startOfChapterLabel == -1)
+						{
+							sb = new StringBuilder(chapterLabel);
+							sb[0] = 'I';
+							sb.Insert(1, "I");
+							startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+						}
+					}
+				}
+
+				if (startOfChapterLabel > 0)
+				{
+					bookName = bookName.Substring(0, startOfChapterLabel).Trim();
+					mainTitleElement.Content = bookName;
+				}
+				else
+				{
+					if (justTheWordForChapter != null)
+					{
+						if (bookName.StartsWith(chapterLabel, StringComparison.Ordinal) && chapterLabel != null &&
+							chapterLabel.Contains(justTheWordForChapter))
+						{
+							bookName = chapterLabel.Substring(0, chapterLabel.IndexOf(justTheWordForChapter, StringComparison.Ordinal))
+								.TrimEnd();
+							mainTitleElement.Content = bookName;
+						}
+						else
+						{
+							chapterLabel = bookName + " " + justTheWordForChapter;
+							//WriteOutput("Book title being left as \"" + bookName + "\" and chapter label set to: " + chapterLabel);
+						}
+					}
+					else if (bookName != chapterLabel)
+						WriteOutput("Could not figure out book title: " + bookName, true);
+				}
+
+				currentTitleAndChapterLabelInfo.BookTitle = bookName;
+				currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
+			}
+
+			var chapterBlock = new Block("c", chapter)
+			{
+				CharacterId =
+					CharacterVerseData.GetStandardCharacterId(currBookId,
+						CharacterVerseData.StandardCharacter.BookOrChapter),
+				IsParagraphStart = true,
+				BookCode = currBookId
+			};
+			chapterBlock.BlockElements.Add(new ScriptText(referenceTextRow.Chapter));
+			newBlocks.Add(chapterBlock);
+		}
+
+		private static TitleAndChapterLabelInfo ProcessTitleAndInitialChapterLabel(string currBookId, ReferenceTextRow referenceTextRow, string language, List<BookTitleAndChapterLabelInfo> resultSummary, string justTheWordForChapter, List<Block> newBlocks)
+		{
+			TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo;
+			string chapterLabel = null;
+
+			var newBlock = new Block("mt")
+			{
+				BookCode = currBookId,
+				CharacterId = CharacterVerseData.GetStandardCharacterId(currBookId,
+					CharacterVerseData.StandardCharacter.BookOrChapter),
+			};
+			var bookTitleAndChapter1Announcement = referenceTextRow.GetText(language);
+			var summaryForBook = resultSummary.SingleOrDefault(b => b.BookId == currBookId);
+			if (summaryForBook == null)
+			{
+				summaryForBook = new BookTitleAndChapterLabelInfo {BookId = currBookId};
+				resultSummary.Add(summaryForBook);
+			}
+
+			currentTitleAndChapterLabelInfo = new TitleAndChapterLabelInfo
+			{
+				Language = language,
+				TitleAndChapterOneInfoFromXls = bookTitleAndChapter1Announcement
+			};
+			summaryForBook.Details.Add(currentTitleAndChapterLabelInfo);
+
+			var bookName = bookTitleAndChapter1Announcement.TrimEnd(' ', '1').TrimStart(' ');
+
+			if (!JustGetHalfOfRepeated(ref bookName) && IsSingleChapterBook(currBookId))
+			{
+				var iFirstSpace = bookTitleAndChapter1Announcement.IndexOf(" ", StringComparison.Ordinal);
+				if (iFirstSpace > 0)
+				{
+					var firstWord = bookTitleAndChapter1Announcement.Substring(0, iFirstSpace);
+					var iStartOfChapterAnnouncement = bookTitleAndChapter1Announcement.IndexOf(firstWord,
+						iFirstSpace, StringComparison.Ordinal);
+					if (iStartOfChapterAnnouncement > 0)
+					{
+						bookName = bookTitleAndChapter1Announcement.Substring(0, iStartOfChapterAnnouncement).TrimEnd();
+						chapterLabel = bookTitleAndChapter1Announcement.Substring(iStartOfChapterAnnouncement);
+					}
+				}
+
+				if (chapterLabel == null)
+				{
+					if (justTheWordForChapter != null)
+					{
+						chapterLabel = bookName + " " + justTheWordForChapter;
+						//WriteOutput("Guessing at chapter label: " + chapterLabel);
+					}
+					else
+					{
+						var iLastSpace = bookName.LastIndexOf(' ');
+						if (iLastSpace > 0)
+						{
+							var lastWord = bookName.Substring(iLastSpace + 1);
+							if (bookName.StartsWith(lastWord, StringComparison.Ordinal))
+							{
+								chapterLabel = lastWord;
+								bookName = bookName.Substring(0, iLastSpace);
+							}
+						}
+
+						if (chapterLabel == null)
+							chapterLabel = bookName;
+					}
+				}
+
+				currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
+			}
+
+			newBlock.BlockElements.Add(new ScriptText(bookName));
+			currentTitleAndChapterLabelInfo.BookTitle = bookName;
+			newBlocks.Add(newBlock);
+			return currentTitleAndChapterLabelInfo;
+		}
+
+		private static void AttemptParseOfControlFileAnnotation(Mode mode, string s, ReferenceTextLanguageInfo languageInfo, string bookId, ReferenceTextRow referenceTextRow, Block existingEnglishRefBlock, List<string> annotationsToOutput)
 		{
 			if (ConvertTextToControlScriptAnnotationElement(s, out var annotation))
 			{
@@ -924,7 +1012,7 @@ namespace Glyssen.RefTextDevUtilities
 						// Although this is a good check to run for sanity, we can't treat it as an error
 						// because a few of the annotations are actually displayed slightly differently by
 						// FCBH (due to what are insignificant differences like 'before' vs. '@')
-						var bcv = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId),
+						var bcv = new BCVRef(BCVRef.BookToNumber(bookId),
 							existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber);
 						WriteOutput(
 							$"(warning) Annotation not formatted the same as FCBH: ({bcv.AsString}) {trimmedEnglish} \r\n=> {formattedAnnotationForDisplay}");
@@ -932,15 +1020,15 @@ namespace Glyssen.RefTextDevUtilities
 					}
 
 					int offset = 0;
-					if ((existingEnglishRefBook.BookId == "MRK" && existingEnglishRefBlock.ChapterNumber == 4 &&
+					if ((bookId == "MRK" && existingEnglishRefBlock?.ChapterNumber == 4 &&
 							existingEnglishRefBlock.InitialVerseNumberOrBridge == "39") ||
-						(existingEnglishRefBook.BookId == "ACT" && existingEnglishRefBlock.ChapterNumber == 10 &&
+						(bookId == "ACT" && existingEnglishRefBlock?.ChapterNumber == 10 &&
 							existingEnglishRefBlock.InitialVerseNumberOrBridge == "23"))
 					{
 						offset = -1;
 					}
 
-					annotationsToOutput.Add(existingEnglishRefBook.BookId + "\t" + existingEnglishRefBlock.ChapterNumber +
+					annotationsToOutput.Add(bookId + "\t" + existingEnglishRefBlock.ChapterNumber +
 						"\t" +
 						existingEnglishRefBlock.InitialVerseNumberOrBridge + "\t" + offset + "\t" + serializedAnnotation);
 				}
@@ -951,10 +1039,10 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
-		private static string GetBookIdFromFcbhBookCode(string fcbhBookCode)
+		private static string GetBookIdFromFcbhBookCode(string fcbhBookCode, out int bookNum)
 		{
-			var bookId = BCVRef.BookToNumber(fcbhBookCode);
-			if (bookId > 0)
+			bookNum = BCVRef.BookToNumber(fcbhBookCode);
+			if (bookNum > 0)
 				return fcbhBookCode;
 
 			string silBookCode = null;
@@ -984,8 +1072,12 @@ namespace Glyssen.RefTextDevUtilities
 				case "NAH":
 					silBookCode = "NAM";
 					break;
+				default:
+					WriteOutput($"Unexpected Book code: {fcbhBookCode}", true);
+					return fcbhBookCode;
 			}
 
+			bookNum = BCVRef.BookToNumber(silBookCode);
 			return silBookCode;
 		}
 
@@ -1306,9 +1398,9 @@ namespace Glyssen.RefTextDevUtilities
 			File.WriteAllText(kOutputFileForAnnotations, sb.ToString());
 		}
 
-		private static bool IsSingleChapterBook(ReferenceTextRow referenceTextRow)
+		private static bool IsSingleChapterBook(string bookId)
 		{
-			return s_existingEnglish.Versification.GetLastChapter(BCVRef.BookToNumber(referenceTextRow.Book)) == 1;
+			return s_existingEnglish.Versification.GetLastChapter(BCVRef.BookToNumber(bookId)) == 1;
 		}
 
 		private static bool JustGetHalfOfRepeated(ref string stringWithPossibleReduplication, string suffix = null)
@@ -1350,7 +1442,7 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
-		private static bool CompareVersions(string excelStr, Block existingBlock, string bookId)
+		private static bool IsUnchanged(string excelStr, Block existingBlock, string bookId)
 		{
 			if (existingBlock == null)
 				return false; // This will have already been reported.
