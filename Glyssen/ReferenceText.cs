@@ -501,11 +501,12 @@ namespace Glyssen
 										new [] {iVernBlock + 1, iVernBlock - 1};
 									foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
 									{
-										if (vernBlockList[iPreOrPost].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId ||
-											//This seemed like a good idea, but I haven't come up with a scenario for it yet.
+										if (vernBlockList[iPreOrPost].ReferenceBlocks.FirstOrDefault()?.CharacterId == remainingRefBlocksList[0].CharacterId ||
 											vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId)
 										{
-											if (iPreOrPost < iVernBlock) // Pre
+											if (!vernBlockList[iPreOrPost].ReferenceBlocks.Any())
+												vernBlockList[iPreOrPost].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
+											else if (iPreOrPost < iVernBlock) // Pre
 												vernBlockList[iPreOrPost].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
 											else // Post
 												vernBlockList[iPreOrPost].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
@@ -534,7 +535,7 @@ namespace Glyssen
 					}
 				}
 				var indexOfLastVernVerseInVerseChunk = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1;
-				if (vernBlockList[indexOfLastVernVerseInVerseChunk].MatchesReferenceText)
+				if (vernBlockList[indexOfLastVernVerseInVerseChunk].ReferenceBlocks.Any())
 					iVernBlock = indexOfLastVernVerseInVerseChunk;
 			}
 		}

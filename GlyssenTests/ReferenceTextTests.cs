@@ -1309,6 +1309,48 @@ namespace GlyssenTests
 			Assert.IsTrue(result[3].MatchesReferenceText);
 		}
 
+		// PG-1133 (part 4: When attempting to align ref block to preceding block, don't assume that it has reference blocks.)
+		[Test] public void ApplyTo_VernacularPoeticBlocksNotBrokenOutInReferenceTextWithFollowingUnmatchedReferenceBlock_DoesNotCrash()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "ଆୟୁମେପେ, ମାସିଦ ରିମିଲ୍‌ତେଃ ହୁଜୁଃତେନେ; ଅଣ୍ଡଃ ହୁଜୁଃତେନେଃକ ନେଲି'ୟେ।",
+				true, 1, "REV", "q1"));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "ଆଏଃ ସବଃକେନ୍‌କ ଜାକେଡ୍‌ ଆଏଃକ ନେଲ୍‌କିଃତେକ ରାଃ-ଗିରାଙ୍ଗିୟା।")
+				.IsParagraphStart = true;
+			AddBlockForVerseInProgress(vernacularBlocks, vernacularBlocks.Last().CharacterId,
+					"ସାରିତେ ନିନାଦ ନେଲେକାଗେ ହବାୱା, ଆମେନ୍‌!", "m");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "ପ୍ରବୁ ଇସର୍‌ଦଏ କାଜି'ତେନେ, ", true, 1, "REV"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"“ଆଞ୍‌ଗେ ସବେନାଃଞ୍‌ ଉଙ୍କୁଳୁକିଡା, ହୁଜୁଃତିନିଃଦ, ଅଣ୍ଡଃ ଆଞ୍‌ଗେ ସବେନ୍‌କୟେତେ ପେଃୟାନ୍‌ ଇସର୍‌ଦ।”");
+			var vernBook = new BookScript("REV", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "All eyes will see him come. All will mourn. Amen.", true, 1, "REV"));
+			referenceBlocks.Add(CreateBlockForVerse("God", 8, "“I am Alpha and Omega, beginning and end,”", true, 1, "REV"));
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "says the Lord God,", "REV");
+			AddBlockForVerseInProgress(referenceBlocks, "God", "“who is and who was and who is to come, the Almighty.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
+			Assert.IsFalse(result[2].MatchesReferenceText);
+			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
+			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].GetPrimaryReferenceText());
+			Assert.AreEqual(2, result[4].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[4].ReferenceBlocks[1].GetText(true));
+		}
+
 		[Test]
 		public void ApplyTo_VernHasVerse1ButReferenceDoesNot_OtherVersesMatchedCorrectly()
 		{
