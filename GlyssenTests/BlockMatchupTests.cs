@@ -1413,9 +1413,11 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
 			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, origCharacter, "diris Jesuo. Some more stuff. ");
 			vernJesusSaidBlock.MultiBlockQuote = MultiBlockQuote.Start;
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(origCharacter, 3, "This is actually spoken by the narrator but was originally parsed as quoted speech. "));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "“This is actually quoted speech to be spoken " +
+				"by the narrator. Later, we'll set the character ID in keeping with the idea that this was parsed as a " +
+				"continuation of the previous block. "));
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(origCharacter, 4, "And this is the rest of the narrator's mumblings."));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(4, "“And this is the rest of the narrator's quoted mumblings.”"));
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 
 			var narrator = ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks,
@@ -1433,11 +1435,8 @@ namespace GlyssenTests
 			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);//TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
 			rt.ApplyTo(vernBook, ScrVers.English);
 			Assert.AreEqual(1, vernacularBlocks[1].ReferenceBlocks.Count);
-			//vernacularBlocks[1].M = true;
-			//vernacularBlocks[1].SetMatchedReferenceBlock(vernJesusSaidBlock.ReferenceBlocks.Single());
 			Assert.IsFalse(vernJesusSaidBlock.MatchesReferenceText);
 			Assert.IsFalse(vernJesusSaidBlock.ReferenceBlocks.Any());
-			//vernJesusSaidBlock.ClearReferenceText();
 			vernacularBlocks[3].ReferenceBlocks.Single().CharacterId = refTextCharacter;
 			vernacularBlocks[4].SetMatchedReferenceBlock("This is some arbitrary reference text.");
 			vernacularBlocks[5].SetMatchedReferenceBlock("This is some arbitrary reference text.");
@@ -1447,10 +1446,11 @@ namespace GlyssenTests
 			Assert.AreEqual(2, vernacularBlocks.Count(vb => vb.GetReferenceTextAtDepth(0) == ""));
 			var matchup = new BlockMatchup(vernBook, 0, null, i => false, rt);
 			matchup.MatchAllBlocks(ScrVers.English);
-			// Even though we just called MatchAllBlocks, which sets the correlated blocks to have the character ID of their
-			// corresponding reference text, In AssignCharacterDlg.UpdateReferenceTextTabPageDisplay, we reset all the
-			// continuation blocks' character IDs back to match that of their start blocks because we can't let them get out
-			// of sync. So we need to simulate that here as well:
+			// In the above setup, we had blocks 3 & 4 as narrator so they would align to the reference text. MatchAllBlocks
+			// also sets the correlated blocks to have the character ID of their corresponding reference text. But in
+			// AssignCharacterDlg.UpdateReferenceTextTabPageDisplay, we reset all the continuation blocks' character IDs
+			// back to match that of their start blocks because we can't let them get out of sync. So we need to simulate
+			// that here as well:
 			matchup.CorrelatedBlocks[3].SetNonDramaticCharacterId(origCharacter);
 			matchup.CorrelatedBlocks[4].SetNonDramaticCharacterId(origCharacter);
 			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(origCharacter);
