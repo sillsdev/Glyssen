@@ -527,6 +527,46 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Apply_VernVersesInMiddleOfQuoteChainAssignedGoFromUnknownToNarrator_QuoteChainBrokenCorrectly()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(new Block("c", 1)
+				{
+					CharacterId = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.BookOrChapter),
+					BlockElements = new List<BlockElement>(new [] {new ScriptText("1") })
+				});
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(20, "This ", true, 1, "ROM"));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "«opener« has no closer.");
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 21, "This is verse 21. ", true)
+				.AddVerse(22, "This is «verse« 22. ").AddVerse(23, "This is verse 23."));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 24,
+				"The quote remains open in this paragraph. ", true).AddVerse(25, "This is verse 25."));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 26,
+				"The quote remains open in this paragraph as well. ", true).AddVerse(27, "This is verse 27."));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			var vernBook = new BookScript("ROM", vernacularBlocks);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 3, ScrVers.English);
+			
+			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
+
+			matchup.MatchAllBlocks(refText.Versification);
+			matchup.Apply();
+			var resultingBlocks = vernBook.GetScriptBlocks().ToList();
+			Assert.AreEqual(vernacularBlocks.Count + 2, resultingBlocks.Count);
+			Assert.AreEqual(MultiBlockQuote.None, resultingBlocks[2].MultiBlockQuote); // v. 20
+			Assert.AreEqual(MultiBlockQuote.None, resultingBlocks[3].MultiBlockQuote); // v. 21
+			Assert.AreEqual(MultiBlockQuote.None, resultingBlocks[4].MultiBlockQuote); // v. 22
+			Assert.AreEqual(MultiBlockQuote.None, resultingBlocks[5].MultiBlockQuote); // v. 23
+			Assert.AreEqual(MultiBlockQuote.Start, resultingBlocks[6].MultiBlockQuote); // vv. 24-25
+			Assert.AreEqual(MultiBlockQuote.Continuation, resultingBlocks[7].MultiBlockQuote); // vv. 26-27
+		}
+
+		[Test]
 		public void GetInvalidReferenceBlocksAtAnyLevel_PrimaryReferenceBlockEndsWithEmptyVerse_ReturnsLevel1Block()
 		{
 			var vernacularBlocks = new List<Block>();
@@ -1406,18 +1446,16 @@ namespace GlyssenTests
 		[TestCase(CharacterVerseData.kAmbiguousCharacter, null)]
 		[TestCase(CharacterVerseData.kUnknownCharacter, "Andrew")]
 		[TestCase(CharacterVerseData.kAmbiguousCharacter, "Andrew")]
-		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_ContBlocksAlignedToNarratorRefBlocks_HeSaidInsertedIntoEmptyRefTextsAndBlockChainBroken(string origCharacter, string refTextCharacter)
+		public void InsertHeSaidText_EmptyRowsAreStartOfMultiBlockQuote_HeSaidInsertedIntoEmptyRefTextsAndBlockChainBroken(string origCharacter, string refTextCharacter)
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "After these things, Jesus taught them, saying: ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” "));
 			var vernJesusSaidBlock = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, origCharacter, "diris Jesuo. Some more stuff. ");
 			vernJesusSaidBlock.MultiBlockQuote = MultiBlockQuote.Start;
-			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "“This is actually quoted speech to be spoken " +
-				"by the narrator. Later, we'll set the character ID in keeping with the idea that this was parsed as a " +
-				"continuation of the previous block. "));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(origCharacter, 3, "This is a continuation of the quote in the previous block. "));
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
-			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(4, "“And this is the rest of the narrator's quoted mumblings.”"));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(origCharacter, 4, "“And this is the rest of the mumblings."));
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 
 			var narrator = ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks,
@@ -1432,28 +1470,32 @@ namespace GlyssenTests
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);//TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			ReferenceText rt = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			rt.ApplyTo(vernBook, ScrVers.English);
 			Assert.AreEqual(1, vernacularBlocks[1].ReferenceBlocks.Count);
 			Assert.IsFalse(vernJesusSaidBlock.MatchesReferenceText);
 			Assert.IsFalse(vernJesusSaidBlock.ReferenceBlocks.Any());
+			vernacularBlocks[3].SetMatchedReferenceBlock("This is some arbitrary reference text.");
 			vernacularBlocks[3].ReferenceBlocks.Single().CharacterId = refTextCharacter;
+			Assert.IsFalse(vernacularBlocks[4].ReferenceBlocks.Any());
 			vernacularBlocks[4].SetMatchedReferenceBlock("This is some arbitrary reference text.");
-			vernacularBlocks[5].SetMatchedReferenceBlock("This is some arbitrary reference text.");
-			Assert.AreEqual(1, vernacularBlocks[6].ReferenceBlocks.Count);
+			vernacularBlocks[4].ReferenceBlocks.Single().CharacterId = refTextCharacter;
+			Assert.AreEqual(narrator, vernacularBlocks[5].ReferenceBlocks.Single().CharacterId);
+			Assert.AreEqual(narrator, vernacularBlocks[6].ReferenceBlocks.Single().CharacterId);
 			Assert.IsFalse(vernAndrewSaidBlock.MatchesReferenceText);
 			Assert.IsFalse(vernAndrewSaidBlock.ReferenceBlocks.Any());
 			Assert.AreEqual(2, vernacularBlocks.Count(vb => vb.GetReferenceTextAtDepth(0) == ""));
 			var matchup = new BlockMatchup(vernBook, 0, null, i => false, rt);
 			matchup.MatchAllBlocks(ScrVers.English);
-			// In the above setup, we had blocks 3 & 4 as narrator so they would align to the reference text. MatchAllBlocks
-			// also sets the correlated blocks to have the character ID of their corresponding reference text. But in
-			// AssignCharacterDlg.UpdateReferenceTextTabPageDisplay, we reset all the continuation blocks' character IDs
-			// back to match that of their start blocks because we can't let them get out of sync. So we need to simulate
-			// that here as well:
-			matchup.CorrelatedBlocks[3].SetNonDramaticCharacterId(origCharacter);
-			matchup.CorrelatedBlocks[4].SetNonDramaticCharacterId(origCharacter);
-			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(origCharacter);
+			// MatchAllBlocks sets the correlated blocks to have the character ID of their corresponding reference text.
+			// But in AssignCharacterDlg.UpdateReferenceTextTabPageDisplay, we reset all the continuation blocks' character
+			// IDs back to match that of their start blocks because we can't let them get out of sync. So we need to
+			// simulate that here as well:
+			for (int i = 1; i < matchup.CorrelatedBlocks.Count; i++)
+			{
+				if (matchup.CorrelatedBlocks[i].MultiBlockQuote == MultiBlockQuote.Continuation)
+					matchup.CorrelatedBlocks[i].CharacterId = matchup.CorrelatedBlocks[i - 1].CharacterId;
+			}
 			var origBlock3RefText = matchup.CorrelatedBlocks[3].GetPrimaryReferenceText();
 
 			var callbacks = new List<Tuple<int, int, string>>();
@@ -1475,7 +1517,7 @@ namespace GlyssenTests
 			Assert.AreEqual(origBlock3RefText, matchup.CorrelatedBlocks[3].GetPrimaryReferenceText());
 			Assert.AreEqual(refTextCharacter, matchup.CorrelatedBlocks[3].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, matchup.CorrelatedBlocks[3].MultiBlockQuote);
-			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[4].CharacterId);
+			Assert.AreEqual(refTextCharacter, matchup.CorrelatedBlocks[4].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, matchup.CorrelatedBlocks[4].MultiBlockQuote);
 
 			var row7VernBlock = matchup.CorrelatedBlocks[7];
