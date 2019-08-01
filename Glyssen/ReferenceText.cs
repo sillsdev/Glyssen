@@ -37,27 +37,32 @@ namespace Glyssen
 		public static ReferenceText GetReferenceText(IReferenceTextProxy id)
 		{
 			ReferenceText referenceText;
-			if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
-				referenceText.ReloadModifiedBooks();
-			else
+			lock (s_instantiatedReferenceTexts)
 			{
-				referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-				referenceText.LoadBooks();
-				switch (id.Type)
+				if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
+					referenceText.ReloadModifiedBooks();
+				else
 				{
-					case ReferenceTextType.English:
-					//case ReferenceTextType.Azeri:
-					//case ReferenceTextType.French:
-					//case ReferenceTextType.Indonesian:
-					//case ReferenceTextType.Portuguese:
-					case ReferenceTextType.Russian:
-						//case ReferenceTextType.Spanish:
-						//case ReferenceTextType.TokPisin:
-						referenceText.m_vers = ScrVers.English;
-						break;
+					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
+					referenceText.LoadBooks();
+					switch (id.Type)
+					{
+						case ReferenceTextType.English:
+						//case ReferenceTextType.Azeri:
+						//case ReferenceTextType.French:
+						//case ReferenceTextType.Indonesian:
+						//case ReferenceTextType.Portuguese:
+						case ReferenceTextType.Russian:
+							//case ReferenceTextType.Spanish:
+							//case ReferenceTextType.TokPisin:
+							referenceText.m_vers = ScrVers.English;
+							break;
+					}
+
+					s_instantiatedReferenceTexts[id] = referenceText;
 				}
-				s_instantiatedReferenceTexts[id] = referenceText;
 			}
+
 			return referenceText;
 		}
 
@@ -86,21 +91,25 @@ namespace Glyssen
 
 		private void ReloadModifiedBooks()
 		{
-			if (!m_modifiedBooks.Any())
-				return;
-
-			var files = BookScriptFiles;
-			for (int i = 0; i < m_books.Count; i++)
+			lock (m_modifiedBooks)
 			{
-				var bookId = m_books[i].BookId;
-				if (m_modifiedBooks.Contains(bookId))
+				if (!m_modifiedBooks.Any())
+					return;
+
+				var files = BookScriptFiles;
+				for (int i = 0; i < m_books.Count; i++)
 				{
-					var bookScript = TryLoadBook(files, bookId);
-					Debug.Assert(bookScript != null);
-					m_books[i] = bookScript;
+					var bookId = m_books[i].BookId;
+					if (m_modifiedBooks.Contains(bookId))
+					{
+						var bookScript = TryLoadBook(files, bookId);
+						Debug.Assert(bookScript != null);
+						m_books[i] = bookScript;
+					}
 				}
+
+				m_modifiedBooks.Clear();
 			}
-			m_modifiedBooks.Clear();
 		}
 
 		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType, string projectFolder)
@@ -191,19 +200,22 @@ namespace Glyssen
 
 		internal void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification)
 		{
-			ReloadModifiedBooks();
+			lock (m_modifiedBooks)
+			{
+				ReloadModifiedBooks();
 
-			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
 
-			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
-			var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
-			MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
+				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+				var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
+				MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
 
-			if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
-				m_modifiedBooks.Add(referenceBook.BookId);
+				if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
+					m_modifiedBooks.Add(referenceBook.BookId);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification, vernacularBook.SingleVoice);
+				MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification, vernacularBook.SingleVoice);
+			}
 		}
 
 		public bool CanDisplayReferenceTextForBook(BookScript vernacularBook)

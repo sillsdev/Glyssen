@@ -847,7 +847,14 @@ namespace Glyssen
 		{
 			m_blocks.RemoveRange(iStartBlock, count);
 			m_blocks.InsertRange(iStartBlock, replacementBlocks);
-			UpdateFollowingContinuationBlocks(iStartBlock + replacementBlocks.Count - 1);
+			if (iStartBlock > 0 && m_blocks[iStartBlock].MultiBlockQuote != MultiBlockQuote.Continuation &&
+				m_blocks[iStartBlock - 1].MultiBlockQuote == MultiBlockQuote.Start)
+			{
+				m_blocks[iStartBlock - 1].MultiBlockQuote = MultiBlockQuote.None;
+			}
+
+			var iLastInserted = iStartBlock + replacementBlocks.Count - 1;
+			UpdateFollowingContinuationBlocks(iLastInserted);
 			OnBlocksInserted(iStartBlock, replacementBlocks.Count - count);
 		}
 
