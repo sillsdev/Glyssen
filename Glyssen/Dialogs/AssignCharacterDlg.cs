@@ -425,6 +425,8 @@ namespace Glyssen.Dialogs
 					colDelivery.Items.Add(delivery);
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
+				m_dataGridReferenceText.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
 				// BryanW says it will be easier to train people if this column is always visible, even when there is nothing to do.
 				//colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
@@ -1447,16 +1449,13 @@ namespace Glyssen.Dialogs
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
 				var block = matchup.CorrelatedBlocks[e.RowIndex];
 
-				if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) ||
-					(!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
+				var settingPrimaryRefTextWhichCouldBeEnglish = (colPrimary.Visible && e.ColumnIndex == colPrimary.Index) ||
+					(!colPrimary.Visible && e.ColumnIndex == colEnglish.Index);
+				if (settingPrimaryRefTextWhichCouldBeEnglish || e.ColumnIndex == colEnglish.Index)
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					matchup.SetReferenceText(e.RowIndex, newValue, 0);
-				}
-				else if (e.ColumnIndex == colEnglish.Index)
-				{
-					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					matchup.SetReferenceText(e.RowIndex, newValue, 1);
+					matchup.SetReferenceText(e.RowIndex, newValue, settingPrimaryRefTextWhichCouldBeEnglish ? 0 : 1);
+					ResetRowHeight(e.RowIndex);
 				}
 				else
 				{
@@ -1553,6 +1552,59 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		#region Special Row Height calculations
+		private int MinHeightOfCurrentRow => m_dataGridReferenceText.RowTemplate.Height * 3;
+		private int MaxRowHeight { get; set; }
+
+		private void PreventExcessivelyTallRow()
+		{
+			var totalAvailableHeight = m_dataGridReferenceText.ClientSize.Height;
+			// Unless everything just fits, no one row will be allowed to be more than half the total height.
+			var reasonableConstrainedMax = totalAvailableHeight / 2;
+			var minPrefRowHeight = Int32.MaxValue;
+			var rowsAndHeights = new List<Tuple<DataGridViewRow, int>>();
+			foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
+			{
+				var preferredHeight = row.GetPreferredHeight(row.Index, DataGridViewAutoSizeRowMode.AllCells, true);
+				minPrefRowHeight = Math.Min(minPrefRowHeight, preferredHeight);
+				totalAvailableHeight -= preferredHeight;
+				rowsAndHeights.Add(new Tuple<DataGridViewRow, int>(row, preferredHeight));
+			}
+
+			if (minPrefRowHeight < MinHeightOfCurrentRow)
+				totalAvailableHeight -= MinHeightOfCurrentRow - minPrefRowHeight; // To allow for growth of row on CellEnter
+
+			if (totalAvailableHeight >= 0)
+			{
+				// There's enough room for everything - we can go back to auto-sizing if we aren't
+				MaxRowHeight = Math.Max(totalAvailableHeight + minPrefRowHeight, reasonableConstrainedMax);
+				m_dataGridReferenceText.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+			}
+			else
+			{
+				var totalHeightOfRowsThatFitNicely = rowsAndHeights.Sum(r => r.Item2 < reasonableConstrainedMax ? r.Item2 : 0);
+				MaxRowHeight = Math.Max(reasonableConstrainedMax, m_dataGridReferenceText.ClientSize.Height - totalHeightOfRowsThatFitNicely);
+				m_dataGridReferenceText.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+				foreach (var rowHeightInfo in rowsAndHeights)
+					rowHeightInfo.Item1.Height = Math.Min(rowHeightInfo.Item2, MaxRowHeight);
+			}
+		}
+
+		private void m_dataGridReferenceText_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
+		{
+			// If we're in the process of setting up initial row contents and auto-sizing, we don't
+			// want to do this until we've finished.
+			if (m_dataGridReferenceText.AutoSizeRowsMode != DataGridViewAutoSizeRowsMode.None)
+				Application.Idle += CheckRowHeights;
+		}
+
+		private void CheckRowHeights(object sender, EventArgs e)
+		{
+			MaxRowHeight = m_dataGridReferenceText.ClientSize.Height; // set temporary absolute max
+			Application.Idle -= CheckRowHeights;
+			PreventExcessivelyTallRow();
+		}
+
 		private void m_dataGridReferenceText_CellEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
@@ -1562,8 +1614,8 @@ namespace Glyssen.Dialogs
 			{
 				if (m_dataGridReferenceText.CurrentRow != null)
 				{
-					const int kExtraHeightToallowForBordersAndMargin = 3;
-					var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
+					const int kExtraHeightToAllowForBordersAndMargin = 3;
+					var minHeight = MinHeightOfCurrentRow;
 					if (String.IsNullOrEmpty(m_dataGridReferenceText.CurrentCell.Value as string))
 					{
 						var clipboardText = Clipboard.GetText();
@@ -1575,11 +1627,16 @@ namespace Glyssen.Dialogs
 								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
 										clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
 										m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +
-									kExtraHeightToallowForBordersAndMargin;
-								minHeight = Math.Max(minHeight, heightNeeded);
+									kExtraHeightToAllowForBordersAndMargin;
+								// When expanding to allow for clipboard contents (which the user might not actually
+								// intend to paste), limit it to the previously calculated maximum height.
+								// This avoids an ArgumentOutOfRangeException and generally doing something that will
+								// be very surprising to the user.
+								minHeight = Math.Min(Math.Max(minHeight, heightNeeded), MaxRowHeight);
 							}
 						}
 					}
+					
 					if (m_dataGridReferenceText.CurrentRow.Height < minHeight)
 						m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
 				}
@@ -1601,8 +1658,23 @@ namespace Glyssen.Dialogs
 			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
 				return;
 			if (e.RowIndex >= 0 && e.RowIndex < m_dataGridReferenceText.RowCount)
-				m_dataGridReferenceText.Rows[e.RowIndex].MinimumHeight = m_dataGridReferenceText.RowTemplate.MinimumHeight;
+			{
+				var row = m_dataGridReferenceText.Rows[e.RowIndex];
+				row.MinimumHeight = m_dataGridReferenceText.RowTemplate.MinimumHeight;
+			}
 		}
+
+		private void ResetRowHeight(int iRow)
+		{
+			var row = m_dataGridReferenceText.Rows[iRow];
+			row.Height = row.GetPreferredHeight(iRow, DataGridViewAutoSizeRowMode.AllCells, true);
+			if (m_dataGridReferenceText.AutoSizeRowsMode == DataGridViewAutoSizeRowsMode.None &&
+				row.Height > MaxRowHeight)
+			{
+				PreventExcessivelyTallRow();
+			}
+		}
+		#endregion // Special Row Height calculations
 
 		private void HandleMouseEnterButtonThatAffectsEntireGridRow(object sender, EventArgs e)
 		{
