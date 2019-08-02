@@ -984,15 +984,18 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
-			Assert.IsTrue(result[0].ReferenceBlocks.Single().BlockElements.OfType<Sound>().Any());
-			Assert.IsTrue(result[0].MatchesReferenceText);
 
-			// We don't especially care how the remaining vern blocks align to the ref blocks as long as the first one
-			// is not a match, and all of the reference blocks are hooked up (in the correct order) with exactly one vern block.
-			var referenceBlocks = refText.Books.Single(b => b.BookId == vernBook.BookId).GetBlocksForVerse(22, 51).ToList();
-			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
-				.SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
-			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[0].ReferenceBlocks[0].BlockElements.OfType<Sound>().Any());
+			// Even though the verse break in the vernacular forced the reference block for vv. 50-51 to get split,
+			// there is now refined logic that should ensure that the "But Jesus answered, " block that is unaccounted for
+			// in the vernacular will attach to the preceding narrator block. But we still want the user to review it, so
+			// it should not be treated as automatically aligning perfectly, even though in this case it works out.
+			Assert.IsFalse(result[0].MatchesReferenceText);
+			var referenceBlocks = refText.Books.Single(b => b.BookId == vernBook.BookId).GetBlocksForVerse(22, 50, 51).ToList();
+			// Ensure all reference blocks are accounted for
+			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))),
+				Join("", result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Skip(1).All(b => b.MatchesReferenceText));
 		}
 
 		/// <summary>
@@ -1017,6 +1020,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Sound { SoundType = SoundType.Sfx, EffectName = "Man crying out", UserSpecifiesLocation = true });
 			block.AddVerse(51, "But Jesus answered, ");
 			referenceBlocks.Add(block);
+			var origRefBlock0 = block.GetText(true, true);
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Permit them to seize me.”");
 			AddNarratorBlockForVerseInProgress(referenceBlocks,
 				"and he touched his ear, and healed him.", "LUK");
@@ -1029,18 +1033,18 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
 
-			Assert.IsInstanceOf<Sound>(result[0].ReferenceBlocks.Single().BlockElements.Last());
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{50}\u00A0A certain one of them struck the servant of the high priest, and cut off his right ear. {F8 SFX--Man crying out} ", result[0].GetPrimaryReferenceText());
-
-			// We don't especially care how the remaining vern blocks align to the ref blocks as long as the first one
-			// is not a match, and each of the remaining reference blocks is hooked up (in the correct order) to exactly
-			// one vern block in the correct order.
-			Assert.AreEqual(3, result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count());
-			Assert.AreEqual("{51}\u00A0But Jesus answered, ", result.Skip(1).SelectMany(v => v.ReferenceBlocks).First().GetText(true));
-			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Skip(1).Select(r => r.GetText(true))
+			Assert.IsInstanceOf<Sound>(result[0].ReferenceBlocks[0].BlockElements.Last());
+			// Even though the verse break in the vernacular forced the reference block for vv. 50-51 to get split,
+			// there is now refined logic that should ensure that the "But Jesus answered, " block that is unaccounted for
+			// in the vernacular will attach to the preceding narrator block. But we still want the user to review it, so
+			// it should not be treated as automatically aligning perfectly, even though in this case it works out.
+			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.AreEqual(origRefBlock0, Join("", result[0].ReferenceBlocks.Select(rb => rb.GetText(true, true))));
+			// Ensure remaining reference blocks align 1-to-1
+			Assert.AreEqual(referenceBlocks.Count - 1, result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
 				.SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
-			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsTrue(result.Skip(1).All(b => b.MatchesReferenceText));
 		}
 
 		[Test]
@@ -1175,15 +1179,15 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ApplyTo_MultipleSpeakersInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextCopiedIntoBestMatchedVerseBlocks()
+		public void ApplyTo_SingleSpeakerInVerse_SpeakersBeginCorrespondingThenDoNotCorrespond_ReferenceTextCopiedIntoBestMatchedVerseBlocks()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus, ", true));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "Entonces dijo Jesus, ", true, 9));
 			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Porque pateas al gato?” ");
 			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
 
 			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(16, "Then Jesus said, ", true, 9));
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 			AddNarratorBlockForVerseInProgress(referenceBlocks, "thus he spake. ");
 
@@ -1201,6 +1205,130 @@ namespace GlyssenTests
 
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks[1], result[1].ReferenceBlocks.Single());
+		}
+
+		// PG-1133 (part 2: preventing re-ordering of ref blocks in a way that would combine texts for two different speakers)
+		[Test]
+		public void ApplyTo_MultipleSpeakersInVerse_IndirectSpeechInVernDoesNotMatchDirectSpeechInRef_ReferenceTextForSecondSpeakerNotAppendedToFirstSpeaker()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Ndè, Yesu 'ǒ rò. ", true, 9).AddVerse(24, "Fǿrò, ke pòngʉ́e rɨ: "));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“'Ánɨ̀tù 'ɨ̀gǎrò, ddidhò, fǿ rɨ, ngbá kpalí.” ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Ndrǔ ʉ̀ ke ʉ̌. ")
+				.AddVerse(25, "Bíròbírò kʉ̀ ndrǔ-kpàrì rɨ gòtɨ́, Yesu tsùngʉ́e gì nà, le dángʉ́enɨ̀ rønà théchʉ́. ")
+				.AddVerse(26, "Fǿ lò-yɨ̌ ngø̀ lú gblè.");
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(23, "When Jesus saw the crowd, ", true, 9).AddVerse(24, "he said,"));
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Scram. The girl is sleeping.”");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "They mocked him, saying:");
+			AddBlockForVerseInProgress(referenceBlocks, "people at Jairus' house", "“The girl is dead!”");
+			referenceBlocks.Add(CreateNarratorBlockForVerse(25, "But when the crowd was put out, he made her alive.", true, 9));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(26, "The report of this went out into all that land.", true, 9));
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(5, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(referenceBlocks[0], result[0].ReferenceBlocks.Single());
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[1], result[1].ReferenceBlocks.Single());
+			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, result[1].CharacterId);
+			Assert.AreEqual(referenceBlocks[2], result[2].ReferenceBlocks[0]);
+			Assert.AreEqual(referenceBlocks[3], result[2].ReferenceBlocks[1]);
+			Assert.AreEqual(referenceBlocks[4], result[3].ReferenceBlocks.Single());
+			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[5], result[4].ReferenceBlocks.Single());
+			Assert.IsTrue(result[4].MatchesReferenceText);
+		}
+
+		// PG-1133 (part 3: handling missing lead-in "Saying,")
+		[Test]
+		public void ApplyTo_ReferenceTextHasLeadingNarratorBlockNotPresentInVernacular_AddedAsUnmatchedBlockToReferenceBlocksOfPrecedingBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(41, "Ddichʉ́, Farisayó ndɨ̀mà-tsò rò, Yesu tsó 'ɨ̌: ", true, 22));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 42, "“Nɨ̀ ká ddɨ́ Ndrǔ ná ke djò? Ke ká nǎrò sɨ̀ ná gø̀?” ", false, 22));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Fǿrò, kpa ngʉ̀ngʉ́e lò-gòtɨ ke dhò: ");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“Ke kʉ̀ Dawudi nǎrò sɨ̀ ná gø̀.” ");
+			var vernBook = new BookScript("MAT", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(41, "While the Pharisees were together, Jesus asked them, ", true, 22)
+				.AddVerse(42, "saying,"));
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Whose son is the Christ?”");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "They said to him,");
+			AddBlockForVerseInProgress(referenceBlocks, "Pharisees", "“Of David.”");
+
+			var orig = Join("", referenceBlocks.Select(r => r.GetText(true)));
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(4, result.Count);
+			Assert.AreEqual(referenceBlocks.Count + 1, result.SelectMany(v => v.ReferenceBlocks).Count(),
+				"There were 4 original reference blocks, but the one that contained the start of v. 42 " +
+				"gets split up because the vernacular has a block break aligned to that verse break.");
+			Assert.AreEqual(orig,
+				Join("", result.SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))));
+
+			Assert.AreEqual("{41}\u00A0While the Pharisees were together, Jesus asked them, ",
+				result[0].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual("{42}\u00A0saying,",
+				result[0].ReferenceBlocks[1].GetText(true));
+			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsTrue(result[3].MatchesReferenceText);
+		}
+
+		// PG-1133 (part 4: When attempting to align ref block to preceding block, don't assume that it has reference blocks.)
+		[Test] public void ApplyTo_VernacularPoeticBlocksNotBrokenOutInReferenceTextWithFollowingUnmatchedReferenceBlock_DoesNotCrash()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "ଆୟୁମେପେ, ମାସିଦ ରିମିଲ୍‌ତେଃ ହୁଜୁଃତେନେ; ଅଣ୍ଡଃ ହୁଜୁଃତେନେଃକ ନେଲି'ୟେ।",
+				true, 1, "REV", "q1"));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "ଆଏଃ ସବଃକେନ୍‌କ ଜାକେଡ୍‌ ଆଏଃକ ନେଲ୍‌କିଃତେକ ରାଃ-ଗିରାଙ୍ଗିୟା।")
+				.IsParagraphStart = true;
+			AddBlockForVerseInProgress(vernacularBlocks, vernacularBlocks.Last().CharacterId,
+					"ସାରିତେ ନିନାଦ ନେଲେକାଗେ ହବାୱା, ଆମେନ୍‌!", "m");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "ପ୍ରବୁ ଇସର୍‌ଦଏ କାଜି'ତେନେ, ", true, 1, "REV"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter,
+				"“ଆଞ୍‌ଗେ ସବେନାଃଞ୍‌ ଉଙ୍କୁଳୁକିଡା, ହୁଜୁଃତିନିଃଦ, ଅଣ୍ଡଃ ଆଞ୍‌ଗେ ସବେନ୍‌କୟେତେ ପେଃୟାନ୍‌ ଇସର୍‌ଦ।”");
+			var vernBook = new BookScript("REV", vernacularBlocks, m_vernVersification);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "All eyes will see him come. All will mourn. Amen.", true, 1, "REV"));
+			referenceBlocks.Add(CreateBlockForVerse("God", 8, "“I am Alpha and Omega, beginning and end,”", true, 1, "REV"));
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "says the Lord God,", "REV");
+			AddBlockForVerseInProgress(referenceBlocks, "God", "“who is and who was and who is to come, the Almighty.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
+			Assert.IsFalse(result[2].MatchesReferenceText);
+			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
+			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].GetPrimaryReferenceText());
+			Assert.AreEqual(2, result[4].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[4].ReferenceBlocks[1].GetText(true));
 		}
 
 		[Test]
@@ -3632,9 +3760,9 @@ namespace GlyssenTests
 
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Lwinyima hakekeke, avandu vaali ni vasingiyi ho vavoolera Petero, ", refTextMrk.BookId).IsParagraphStart = true;
 			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Agiligali oveeye mulala kuvo kigira uturaa Galilaya.»");
-			var vernBook = new BookScript(refTextMrk.BookId, vernacularBlocks);
+			var vernBook = new BookScript(refTextMrk.BookId, vernacularBlocks, m_vernVersification);
 
-			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1, m_vernVersification);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1);
 			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(refBlocksMrk14V70[0].GetText(true) + refBlocksMrk14V70[1].GetText(true),
 				String.Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))),

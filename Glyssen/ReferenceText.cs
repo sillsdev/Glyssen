@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -38,27 +37,31 @@ namespace Glyssen
 		public static ReferenceText GetReferenceText(IReferenceTextProxy id)
 		{
 			ReferenceText referenceText;
-			if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
-				referenceText.ReloadModifiedBooks();
-			else
+			lock (s_instantiatedReferenceTexts)
 			{
-				referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-				switch (id.Type)
+				if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
+					referenceText.ReloadModifiedBooks();
+				else
 				{
-					case ReferenceTextType.English:
-					//case ReferenceTextType.Azeri:
-					//case ReferenceTextType.French:
-					//case ReferenceTextType.Indonesian:
-					//case ReferenceTextType.Portuguese:
-					case ReferenceTextType.Russian:
-						//case ReferenceTextType.Spanish:
-						//case ReferenceTextType.TokPisin:
-						referenceText.m_vers = ScrVers.English;
-						break;
+					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
+					switch (id.Type)
+					{
+						case ReferenceTextType.English:
+						//case ReferenceTextType.Azeri:
+						//case ReferenceTextType.French:
+						//case ReferenceTextType.Indonesian:
+						//case ReferenceTextType.Portuguese:
+						case ReferenceTextType.Russian:
+							//case ReferenceTextType.Spanish:
+							//case ReferenceTextType.TokPisin:
+							referenceText.m_vers = ScrVers.English;
+							break;
+					}
+					referenceText.LoadBooks();
+					s_instantiatedReferenceTexts[id] = referenceText;
 				}
-				referenceText.LoadBooks();
-				s_instantiatedReferenceTexts[id] = referenceText;
 			}
+
 			return referenceText;
 		}
 
@@ -87,21 +90,25 @@ namespace Glyssen
 
 		private void ReloadModifiedBooks()
 		{
-			if (!m_modifiedBooks.Any())
-				return;
-
-			var files = BookScriptFiles;
-			for (int i = 0; i < m_books.Count; i++)
+			lock (m_modifiedBooks)
 			{
-				var bookId = m_books[i].BookId;
-				if (m_modifiedBooks.Contains(bookId))
+				if (!m_modifiedBooks.Any())
+					return;
+
+				var files = BookScriptFiles;
+				for (int i = 0; i < m_books.Count; i++)
 				{
-					var bookScript = TryLoadBook(files, bookId);
-					Debug.Assert(bookScript != null);
-					m_books[i] = bookScript;
+					var bookId = m_books[i].BookId;
+					if (m_modifiedBooks.Contains(bookId))
+					{
+						var bookScript = TryLoadBook(files, bookId);
+						Debug.Assert(bookScript != null);
+						m_books[i] = bookScript;
+					}
 				}
+
+				m_modifiedBooks.Clear();
 			}
-			m_modifiedBooks.Clear();
 		}
 
 		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType, string projectFolder)
@@ -192,19 +199,22 @@ namespace Glyssen
 
 		internal void ApplyTo(BookScript vernacularBook)
 		{
-			ReloadModifiedBooks();
+			lock (m_modifiedBooks)
+			{
+				ReloadModifiedBooks();
 
-			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
 
-			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
-			var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
-			MakesSplits(vernacularBook, bookNum, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
+				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+				var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
+				MakesSplits(vernacularBook, bookNum, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
 
-			if (MakesSplits(referenceBook, bookNum, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
-				m_modifiedBooks.Add(referenceBook.BookId);
+				if (MakesSplits(referenceBook, bookNum, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
+					m_modifiedBooks.Add(referenceBook.BookId);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularBook.Versification, vernacularBook.SingleVoice);
+				MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularBook.Versification, vernacularBook.SingleVoice);
+			}
 		}
 
 		public bool CanDisplayReferenceTextForBook(BookScript vernacularBook)
@@ -277,6 +287,7 @@ namespace Glyssen
 				}
 
 				var currentVernBlock = vernBlockList[iVernBlock];
+
 				// TODO: This handles the only case I know of (and for which there is a test) where a versification pulls in verses
 				// from the end of the book to an earlier spot, namely Romans 14:24-26 <- Romans 16:25-27. If we ever have this same
 				// kind of behavior that is pulling from somewhere other than the *end* of the book, the logic to reset iRefBlock
@@ -418,13 +429,15 @@ namespace Glyssen
 								// The following line could be uncommented to constrain this only to the original intended condition
 								// if we find cases where we are coming in here but shouldn't:
 								//vernBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator) &&
+								// Can only safely combine reference blocks if they are for the same character:
+								vernBlockList[indexOfVernVerseStart + i - 1].ReferenceBlocks.All(r => r.CharacterId == refBlockList[indexOfRefVerseStart + i + 1].CharacterId) &&
 								BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i - 1], // Preceding vern block's character & end ref are compatible
 								refBlockList[indexOfRefVerseStart + i + 1], vernacularVersification)) // with following ref block
 							{
 								// This code was specifically written for PG-794, the case where the vernacular has the narrator announcing
 								// the speech afterwards instead of beforehand (as is typically the case in the reference text). In that
 								// case we want to assign the "he said" reference text to the current vernacular block and attach the
-								// following "he said" reference text block to the preceding vernacular block.
+								// following reference text block to the preceding vernacular block.
 								// Because we are not explicitly checking to see if this block is a narrator block, this condition can
 								// also be matched in other rare cases (for a somewhat contrived example where the reference
 								// text has a trailing "he said" but the vernacular does not, see unit test
@@ -453,7 +466,7 @@ namespace Glyssen
 						if (numberOfVernBlocksInVerseChunk - i >= 2)
 						{
 							// Look from the bottom up
-							for (; j + 1 < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
+							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
 							{
 								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
@@ -493,31 +506,37 @@ namespace Glyssen
 									vernBlockList[iVernBlock].ReferenceBlocks.Single().CharacterId != remainingRefBlocksList[0].CharacterId)
 								{
 									// See if the immediately following or preceding block is a better match
-									if (vernBlockList.Count > iVernBlock + 1 && vernBlockList[iVernBlock + 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId)
+									var otherIndicesToTry = (i <= iVernBlock) ?
+										new [] {iVernBlock - 1, iVernBlock + 1} :
+										new [] {iVernBlock + 1, iVernBlock - 1};
+									foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
 									{
-										vernBlockList[iVernBlock + 1].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
-										remainingRefBlocksList = null;
-									}
-									else if (iVernBlock > 0 && vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId
-										// This seemed like a good idea, but I haven't come up with a scenario for it yet.
-										// || vernBlockList[iVernBlock - 1].ReferenceBlocks.Single().CharacterId == remainingRefBlocksList[0].CharacterId
-										)
-									{
-										vernBlockList[iVernBlock - 1].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
-										remainingRefBlocksList = null;
+										if (vernBlockList[iPreOrPost].ReferenceBlocks.FirstOrDefault()?.CharacterId == remainingRefBlocksList[0].CharacterId ||
+											vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId)
+										{
+											if (!vernBlockList[iPreOrPost].ReferenceBlocks.Any())
+												vernBlockList[iPreOrPost].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
+											else if (iPreOrPost < iVernBlock) // Pre
+												vernBlockList[iPreOrPost].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
+											else // Post
+												vernBlockList[iPreOrPost].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+											remainingRefBlocksList = null;
+											break;
+										}
 									}
 								}
 
 								if (remainingRefBlocksList != null)
 								{
-									Debug.Assert(!vernBlockList[iVernBlock].MatchesReferenceText, "We're about to replace a matched ref text with some unmatched blocks.");
-									// It appears that this code block is totally unnecessary. All test pass without it. If this debug assertion ever fails, it
-									// will prove that we need this (or some modified version of it). If that never happens, we should find some way to write tests
-									// and/or conclusively prove it isn't needed. If it does happen, then we definitely want a unit test for the scenario.
-									Debug.Assert(!vernBlockList[iVernBlock].ReferenceBlocks.Any() ||
-										vernBlockList[iVernBlock].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(remainingRefBlocksList.Select(r => r.GetText(true))),
-										"We're about to replace one list with another. Check to make sure all ref blocks are accounted for exactly once. Write unit test.");
-									vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
+									if (vernBlockList[iVernBlock].ReferenceBlocks.Any())
+									{
+										if (i < iVernBlock)
+											vernBlockList[iVernBlock].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
+										else
+											vernBlockList[iVernBlock].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
+									}
+									else
+										vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
 								}
 							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
@@ -526,7 +545,7 @@ namespace Glyssen
 					}
 				}
 				var indexOfLastVernVerseInVerseChunk = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1;
-				if (vernBlockList[indexOfLastVernVerseInVerseChunk].MatchesReferenceText)
+				if (vernBlockList[indexOfLastVernVerseInVerseChunk].ReferenceBlocks.Any())
 					iVernBlock = indexOfLastVernVerseInVerseChunk;
 			}
 		}
@@ -536,7 +555,7 @@ namespace Glyssen
 			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
 			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnclear) &&
+				(vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard)) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}
 

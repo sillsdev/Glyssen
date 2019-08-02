@@ -286,7 +286,7 @@ namespace Glyssen
 		{
 			m_versification = versification;
 			int bookNum = BCVRef.BookToNumber(BookId);
-
+			Block prevBlock = null;
 			foreach (var block in CorrelatedBlocks)
 			{
 				if (block.MatchesReferenceText)
@@ -305,6 +305,15 @@ namespace Glyssen
 				{
 					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
 				}
+
+				if (block.CharacterIsStandard && block.MultiBlockQuote != MultiBlockQuote.None)
+				{
+					block.MultiBlockQuote = MultiBlockQuote.None;
+					if (prevBlock?.MultiBlockQuote == MultiBlockQuote.Start)
+						prevBlock.MultiBlockQuote = MultiBlockQuote.None;
+				}
+
+				prevBlock = block;
 			}
 		}
 
