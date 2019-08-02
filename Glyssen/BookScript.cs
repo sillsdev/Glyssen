@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,7 @@ namespace Glyssen
 		public string MainTitle { get; set; }
 
 		[XmlAttribute("checkstatusoverridden")]
+		[DefaultValue(false)]
 		public bool CheckStatusOverridden { get; set; }
 
 		[XmlAttribute("ptchecksum")]
@@ -332,7 +334,7 @@ namespace Glyssen
 				iFirstBlockToExamine = index;
 				if (block.BlockElements.First() is Verse)
 				{
-					if (block.InitialStartVerseNumber == verse || block.InitialEndVerseNumber >= verse)
+					if (block.InitialStartVerseNumber == verse || (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber >= verse))
 						return iFirstBlockToExamine;
 				}
 				if (iFirstBlockToExamine > 0 && m_blocks[iFirstBlockToExamine - 1].LastVerseNum >= verse)
@@ -354,7 +356,7 @@ namespace Glyssen
 			var i = GetIndexOfFirstBlockForVerse(chapter, verse);
 			while (i < m_blocks.Count && m_blocks[i].InitialStartVerseNumber < verse)
 				i++;
-			return i < m_blocks.Count ? i : -1;
+			return i < m_blocks.Count && m_blocks[i].InitialStartVerseNumber <= verse ? i : -1;
 		}
 
 		/// <summary>
@@ -641,6 +643,12 @@ namespace Glyssen
 			// larger block with matching verse text on either side of the splits, we can still apply them (though
 			// we won't attempt to fully or partially connect it up with the reference text).
 			var blockToSplit = GetFirstBlockForVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
+			if (blockToSplit == null)
+			{
+				Debug.Fail("If this happens, examine data condition to see whether there is a logic error and/or a better way to handle it.");
+				return false; // Not sure this can ever happen, but if it does, we can't apply this split.
+			}
+
 			var indexOfFirstCorrespondingElement = -1;
 			for (int iElem = 0; iElem < blockToSplit.BlockElements.Count; iElem++)
 			{
@@ -650,7 +658,9 @@ namespace Glyssen
 					break;
 				}
 			}
-			Debug.Assert(indexOfFirstCorrespondingElement != -1);
+
+			if (indexOfFirstCorrespondingElement == -1)
+				return false; // There may have been a verse numbering change.
 			var indexOfLastCorrespondingElement = indexOfFirstCorrespondingElement + combinedBlockElements.Count -
 				(firstBlockOfSplit.BlockElements[0] is Verse ? 1 : 0);
 			if (indexOfLastCorrespondingElement >= blockToSplit.BlockElements.Count)
@@ -837,7 +847,14 @@ namespace Glyssen
 		{
 			m_blocks.RemoveRange(iStartBlock, count);
 			m_blocks.InsertRange(iStartBlock, replacementBlocks);
-			UpdateFollowingContinuationBlocks(iStartBlock + replacementBlocks.Count - 1);
+			if (iStartBlock > 0 && m_blocks[iStartBlock].MultiBlockQuote != MultiBlockQuote.Continuation &&
+				m_blocks[iStartBlock - 1].MultiBlockQuote == MultiBlockQuote.Start)
+			{
+				m_blocks[iStartBlock - 1].MultiBlockQuote = MultiBlockQuote.None;
+			}
+
+			var iLastInserted = iStartBlock + replacementBlocks.Count - 1;
+			UpdateFollowingContinuationBlocks(iLastInserted);
 			OnBlocksInserted(iStartBlock, replacementBlocks.Count - count);
 		}
 
