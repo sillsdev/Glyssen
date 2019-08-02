@@ -10996,17 +10996,14 @@ JER	23	38	God		God (the LORD)	Normal
 JER	23	38	you (hypothetical)			Hypothetical		
 JER	23	39	God		God (the LORD)	Implicit		
 JER	23	40	God		God (the LORD)	Implicit		
-JER	24	1	Jeremiah			Potential		
-JER	24	2	Jeremiah			Potential		
 JER	24	3	God		God (the LORD)	Normal		
-JER	24	3	Jeremiah			Potential		
-JER	24	4	Jeremiah			Potential		
-JER	24	5	God		God (the LORD)	Normal		
-JER	24	6	God		God (the LORD)	Normal		
-JER	24	7	God		God (the LORD)	Normal		
+JER	24	3	Jeremiah			Normal		
+JER	24	5	God		God (the LORD)	Implicit		
+JER	24	6	God		God (the LORD)	Implicit		
+JER	24	7	God		God (the LORD)	Implicit		
 JER	24	8	God		God (the LORD)	Normal		
-JER	24	9	God		God (the LORD)	Normal		
-JER	24	10	God		God (the LORD)	Normal		
+JER	24	9	God		God (the LORD)	Implicit		
+JER	24	10	God		God (the LORD)	Implicit		
 JER	25	3	Jeremiah			Potential		
 JER	25	4	Jeremiah			Potential		
 JER	25	5	Jeremiah		Jeremiah quoting the prophets	Normal		
@@ -11016,66 +11013,112 @@ JER	25	6	prophets			Quotation
 JER	25	7	God		God (the LORD)	Normal		
 JER	25	8	God		God (the LORD)	Normal		
 JER	25	9	God		God (the LORD)	Normal		
-JER	25	10	God		God (the LORD)	Normal		
-JER	25	11	God		God (the LORD)	Normal		
+JER	25	10	God		God (the LORD)	Implicit		
+JER	25	11	God		God (the LORD)	Implicit		
 JER	25	12	God		God (the LORD)	Normal		
-JER	25	13	God		God (the LORD)	Normal		
-JER	25	14	God		God (the LORD)	Normal		
+JER	25	13	God		God (the LORD)	Implicit		
+JER	25	14	God		God (the LORD)	Implicit		
 JER	25	15	God		God (the LORD)	Normal		
-JER	25	16	God		God (the LORD)	Normal		
-JER	25	17	Jeremiah			Potential		
-JER	25	18	Jeremiah			Potential		
-JER	25	19	Jeremiah			Potential		
-JER	25	20	Jeremiah			Potential		
-JER	25	21	Jeremiah			Potential		
-JER	25	22	Jeremiah			Potential		
-JER	25	23	Jeremiah			Potential		
-JER	25	24	Jeremiah			Potential		
-JER	25	25	Jeremiah			Potential		
-JER	25	26	Jeremiah			Potential		
+JER	25	16	God		God (the LORD)	Implicit		
 JER	25	27	God		God (the LORD)	Normal		
+JER	25	27	Jeremiah			Potential		
 JER	25	28	God		God (the LORD)	Normal		
+JER	25	28	Jeremiah			Potential		
 JER	25	29	God		God (the LORD)	Normal		
+JER	25	29	Jeremiah			Potential		
 JER	25	30	God		God (the LORD)	Normal		
-JER	25	31	God		God (the LORD)	Normal		
+JER	25	30	Jeremiah			Normal		
+JER	25	31	Jeremiah			Normal		
+JER	25	31	God		God (the LORD)	Alternate		
+JER	25	32	Jeremiah			Potential		
 JER	25	32	God		God (the LORD)	Normal		
+JER	25	33	Jeremiah			Potential		
+JER	25	33	God		God (the LORD)	Potential		
+JER	25	34	Jeremiah			Potential		
+JER	25	34	God		God (the LORD)	Potential		
+JER	25	35	Jeremiah			Potential		
+JER	25	35	God		God (the LORD)	Potential		
+JER	25	36	Jeremiah			Potential		
+JER	25	36	God		God (the LORD)	Potential		
+JER	25	37	Jeremiah			Potential		
+JER	25	37	God		God (the LORD)	Potential		
+JER	25	38	Jeremiah			Potential		
+JER	25	38	God		God (the LORD)	Potential		
+JER	26	2	Jeremiah			Potential		
 JER	26	2	God		God (the LORD)	Normal		
-JER	26	3	God		God (the LORD)	Normal		
+JER	26	3	God		God (the LORD)	Implicit		
 JER	26	4	God		God (the LORD)	Normal		
-JER	26	5	God		God (the LORD)	Normal		
-JER	26	6	God		God (the LORD)	Normal		
+JER	26	4	Jeremiah			Potential		
+JER	26	5	God		God (the LORD)	Implicit		
+JER	26	6	God		God (the LORD)	Implicit		
+JER	26	7	Jeremiah			Indirect		
 JER	26	8	priests/Levites		priests/prophets/all the people	Normal		
 JER	26	9	priests/Levites		priests/prophets/all the people	Normal		
 JER	26	11	priests/Levites		priests/prophets	Normal		
 JER	26	12	Jeremiah			Normal		
-JER	26	13	Jeremiah			Normal		
-JER	26	14	Jeremiah			Normal		
-JER	26	15	Jeremiah			Normal		
+JER	26	13	Jeremiah			Implicit		
+JER	26	14	Jeremiah			Implicit		
+JER	26	15	Jeremiah			Implicit		
 JER	26	16	officials/people, all the			Normal		
 JER	26	18	elders of the land			Normal		
-JER	26	19	elders of the land			Normal		
+JER	26	19	elders of the land			Implicit		
+JER	26	20	elders of the land			Potential		
+JER	26	21	elders of the land			Potential		
+JER	26	22	elders of the land			Potential		
+JER	26	23	elders of the land			Potential		
+JER	27	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	2	God		God (the LORD)	Normal		
-JER	27	3	God		God (the LORD)	Normal		
+JER	27	3	God		God (the LORD)	Implicit		
 JER	27	4	God		God (the LORD)	Normal		
-JER	27	5	God		God (the LORD)	Normal		
-JER	27	6	God		God (the LORD)	Normal		
-JER	27	7	God		God (the LORD)	Normal		
+JER	27	4	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	5	God		God (the LORD)	Implicit		
+JER	27	5	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	27	5	messenger			Hypothetical		
+JER	27	6	God		God (the LORD)	Implicit		
+JER	27	6	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	27	6	messenger			Hypothetical		
+JER	27	7	God		God (the LORD)	Implicit		
+JER	27	7	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	27	7	messenger			Hypothetical		
 JER	27	8	God		God (the LORD)	Normal		
-JER	27	9	God		God (the LORD)	Normal		
-JER	27	10	God		God (the LORD)	Normal		
+JER	27	8	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	27	8	messenger			Hypothetical		
+JER	27	9	God		God (the LORD)	Implicit		
+JER	27	9	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	27	9	messenger			Hypothetical		
+JER	27	10	God		God (the LORD)	Implicit		
+JER	27	10	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	27	10	messenger			Hypothetical		
 JER	27	11	God		God (the LORD)	Normal		
-JER	27	12	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	11	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	27	11	messenger			Hypothetical		
+JER	27	12	Jeremiah		Jeremiah (the LORD says)	Quotation		
+JER	27	12	God		God (the LORD)	Alternate		
 JER	27	13	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	13	God		God (the LORD)	Alternate		
+JER	27	14	God		God (the LORD)	Normal		
 JER	27	14	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	14	Needs Review			Normal		
 JER	27	14	false prophets			Quotation		
 JER	27	15	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	15	God		God (the LORD)	Normal		
+JER	27	15	Needs Review			Normal		
 JER	27	16	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	16	God		God (the LORD)	Alternate		
+JER	27	16	false prophets			Quotation		
+JER	27	16	Needs Review			Normal		
 JER	27	17	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	17	God		God (the LORD)	Alternate		
 JER	27	18	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	18	God		God (the LORD)	Alternate		
 JER	27	19	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	10	God		God (the LORD)	Alternate		
 JER	27	20	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	20	God		God (the LORD)	Alternate		
 JER	27	21	Jeremiah		Jeremiah (the LORD says)	Normal		
-JER	27	22	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	21	God		God (the LORD)	Alternate		
+JER	27	22	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	27	22	God		God (the LORD)	Normal		
 JER	28	2	Hananiah, false prophet			Normal		
 JER	28	3	Hananiah, false prophet			Normal		
 JER	28	4	Hananiah, false prophet			Normal		
