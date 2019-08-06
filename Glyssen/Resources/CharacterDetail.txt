@@ -556,6 +556,7 @@ Judah, fathers of	-1	Male				ZEC 1:6
 Judah, leaders of	-1	Male				ZEC 12:5
 Judah, men of	-1	Male				JDG 1:3 <-(7 more)-> NEH 1:3	Judean
 Judah, people in	-1					NEH 4:10 <-(1 more)-> JER 5:13
+Judah, people of	-1					JER 31:23
 Judah, remnant of	-1					JER 42:20
 Judaizers	-1	Male				GAL 6:12
 Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5
@@ -1014,7 +1015,9 @@ Sheba, son of Bicri	1	Male				2SA 20:1
 Shebna	1	Male				2KI 18:26 <-(4 more)-> ISA 37:4
 Shecaniah, son of Jehiel	1	Male				EZR 10:2 <-(1 more)-> EZR 10:4
 Shechem, son of Hamor	1	Male	YoungAdult			GEN 34:4 <-(4 more)-> GEN 34:23
-Shemaiah	1	Male				2CH 12:5 & NEH 6:10
+Shemaiah, prophet	1	Male			prophet during reign of Jeroboam	2CH 12:5	Prophet: Shemaiah
+Shemaiah, son of Delaiah	1	Male			false prophet	NEH 6:10
+Shemaiah the Nehelamite	1	Male			false prophet, enemy of Jeremiah	JER 29:26 & JER 29:27
 Shemeber, king of Zeboiim	1	Male				GEN 14:4
 Shephatiah	1	Male			son of Mattan	JER 38:4
 shepherds at well	-1	Male				GEN 29:4 <-(2 more)-> GEN 29:8	Shepherd

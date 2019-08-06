@@ -6837,7 +6837,8 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	16	Israel, all			Normal		
 2CH	11	3	God		God (the LORD)	Normal		
 2CH	11	4	God		God (the LORD)	Normal		
-2CH	12	5	Shemaiah			Normal		
+2CH	11	4	Shemaiah, prophet			Alternate		
+2CH	12	5	Shemaiah, prophet			Normal		
 2CH	12	6	Israel, leaders of/Rehoboam, king		leaders of Israel and the king (Rehoboam)	Normal		
 2CH	12	7	God		God (the LORD)	Normal		
 2CH	12	8	God		God (the LORD)	Normal		
@@ -7153,7 +7154,7 @@ NEH	6	8	Nehemiah	message		Normal
 NEH	6	9	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab/men of Ashdod		they all (enemies)	Quotation		
 NEH	6	9	Nehemiah	praying		Normal		
 NEH	6	9	Sanballat the Horonite/Geshem the Arab	thinking	enemies of Judah and Benjamin (Sanballat, etc.)	Normal	Sanballat the Horonite	
-NEH	6	10	Shemaiah		Shemaiah, son of Delaiah, false prophet	Normal		
+NEH	6	10	Shemaiah, son of Delaiah		Shemaiah, son of Delaiah, false prophet	Normal		
 NEH	6	11	Nehemiah			Normal		
 NEH	6	14	Nehemiah	praying		Potential		
 NEH	6	16	report to Sanballat and Tobiah			Potential		
@@ -10322,9 +10323,9 @@ JER	5	9	God		God (the LORD)	Normal
 JER	5	10	God		God (the LORD)	Implicit		
 JER	5	11	God		God (the LORD)	Normal		
 JER	5	12	God		God (the LORD)	Potential		
-JER	5	12	Israel/Judah, people in		house of Israel/house of Judah	Quotation		
+JER	5	12	Israel/Judah, people of		house of Israel/house of Judah	Quotation		
 # See: https://trello.com/c/aqDV8YfB/47-jer-513-all-but-a-couple-looser-translations-agree-that-this-is-a-continuation-of-the-peoples-words-from-v-12
-JER	5	13	Israel/Judah, people in		house of Israel/house of Judah	Quotation		
+JER	5	13	Israel/Judah, people of		house of Israel/house of Judah	Quotation		
 JER	5	14	God		God (the LORD)	Normal		
 JER	5	15	God		God (the LORD)	Normal		
 JER	5	16	God		God (the LORD)	Implicit		
@@ -11119,95 +11120,162 @@ JER	27	21	Jeremiah		Jeremiah (the LORD says)	Normal
 JER	27	21	God		God (the LORD)	Alternate		
 JER	27	22	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	27	22	God		God (the LORD)	Normal		
-JER	28	2	Hananiah, false prophet			Normal		
-JER	28	3	Hananiah, false prophet			Normal		
-JER	28	4	Hananiah, false prophet			Normal		
+JER	28	2	Hananiah, false prophet			Implicit		
+JER	28	3	Hananiah, false prophet			Implicit		
+JER	28	4	Hananiah, false prophet			Implicit		
 JER	28	6	Jeremiah			Normal		
-JER	28	7	Jeremiah			Normal		
-JER	28	8	Jeremiah			Normal		
-JER	28	9	Jeremiah			Normal		
+JER	28	7	Jeremiah			Implicit		
+JER	28	8	Jeremiah			Implicit		
+JER	28	9	Jeremiah			Implicit		
 JER	28	11	Hananiah, false prophet			Normal		
 JER	28	13	God		God (the LORD)	Normal		
-JER	28	14	God		God (the LORD)	Normal		
-JER	28	15	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	28	13	Jeremiah			Alternate		
+JER	28	14	God		God (the LORD)	Implicit		
+JER	28	14	Jeremiah			Alternate		
+JER	28	15	Jeremiah			Normal		
 JER	28	16	Jeremiah		Jeremiah (the LORD says)	Normal		
-JER	29	4-28	Jeremiah	letter	Jeremiah (the LORD says)	Potential		
-JER	29	4-28	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Potential		
-JER	29	5-15	God		God (the LORD)	Potential		
-JER	29	16	God		God (the LORD)	Potential		
-JER	29	17-19	God		God (the LORD)	Potential		
-JER	29	20	God		God (the LORD)	Potential		
-JER	29	21-23	God		God (the LORD)	Normal		
-JER	29	24	God		God (the LORD)	Potential		
-JER	29	25-28	God		God (the LORD)	Normal		
+JER	28	16	God		God (the LORD)	Quotation		
+JER	29	4-23	Jeremiah	letter	Jeremiah (the LORD says)	Implicit		
+JER	29	4-23	Elasah, son of Shaphan/Gemariah, son of Hilkiah	letter		Alternate		
+JER	29	4-23	God		God (the LORD)	Alternate		
+JER	29	24	God		God (the LORD)	Implicit		
+JER	29	25	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	29	25	God		God (the LORD)	Normal		
+JER	29	26	Shemaiah the Nehelamite			Quotation		
+JER	29	26	God	quoting Shemaiah's letter	God (the LORD)	Alternate		
+JER	29	26	Zephaniah, priest	reading Shemaiah's letter		Alternate		
+JER	29	27	Shemaiah the Nehelamite			Quotation		
+JER	29	27	God	quoting Shemaiah's letter	God (the LORD)	Alternate		
+JER	29	27	Zephaniah, priest	reading Shemaiah's letter		Alternate		
+JER	29	28	Shemaiah the Nehelamite			Quotation		
+JER	29	28	God	quoting Shemaiah's letter	God (the LORD)	Alternate		
+JER	29	28	Zephaniah, priest	reading Shemaiah's letter		Alternate		
 JER	29	31	God		God (the LORD)	Normal		
+JER	29	31	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	29	32	God		God (the LORD)	Normal		
+JER	29	32	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	30	2	God		God (the LORD)	Normal		
+JER	30	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	30	3	God		God (the LORD)	Normal		
+JER	30	3	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	30	5	God		God (the LORD)	Normal		
-JER	30	6	God		God (the LORD)	Normal		
-JER	30	7	God		God (the LORD)	Normal		
+JER	30	5	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	30	6	God		God (the LORD)	Implicit		
+JER	30	6	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	7	God		God (the LORD)	Implicit		
+JER	30	7	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	30	8	God		God (the LORD)	Normal		
-JER	30	9	God		God (the LORD)	Normal		
+JER	30	8	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	30	9	God		God (the LORD)	Implicit		
+JER	30	9	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	30	10	God		God (the LORD)	Normal		
+JER	30	10	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	30	11	God		God (the LORD)	Normal		
+JER	30	11	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	30	12	God		God (the LORD)	Normal		
-JER	30	13	God		God (the LORD)	Normal		
-JER	30	14	God		God (the LORD)	Normal		
-JER	30	15	God		God (the LORD)	Normal		
-JER	30	16	God		God (the LORD)	Normal		
+JER	30	12	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	30	13	God		God (the LORD)	Implicit		
+JER	30	13	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	14	God		God (the LORD)	Implicit		
+JER	30	14	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	15	God		God (the LORD)	Implicit		
+JER	30	15	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	16	God		God (the LORD)	Implicit		
+JER	30	16	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	30	17	God		God (the LORD)	Normal		
+JER	30	17	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	30	18	God		God (the LORD)	Normal		
-JER	30	19	God		God (the LORD)	Normal		
-JER	30	20	God		God (the LORD)	Normal		
-JER	30	21	God		God (the LORD)	Normal		
-JER	30	22	God		God (the LORD)	Normal		
-JER	30	23	God		God (the LORD)	Normal		
-JER	30	24	God		God (the LORD)	Normal		
+JER	30	18	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	30	19	God		God (the LORD)	Implicit		
+JER	30	19	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	20	God		God (the LORD)	Implicit		
+JER	30	20	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	21	God		God (the LORD)	Implicit		
+JER	30	21	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	22	God		God (the LORD)	Implicit		
+JER	30	22	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	30	23	God		God (the LORD)	Potential		
+JER	30	24	God		God (the LORD)	Potential		
 JER	31	1	God		God (the LORD)	Normal		
+JER	31	1	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	2	God		God (the LORD)	Normal		
-JER	31	3	God		God (the LORD)	Quotation		
-JER	31	4	God		God (the LORD)	Quotation		
-JER	31	5	God		God (the LORD)	Quotation		
-JER	31	6	God		God (the LORD)	Quotation		
+JER	31	2	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	31	3	God		God (the LORD)	Normal		
+JER	31	4	God		God (the LORD)	Implicit		
+JER	31	5	God		God (the LORD)	Implicit		
+JER	31	6	God		God (the LORD)	Normal		
+JER	31	6	watchman		watchman on the hills of Ephraim	Hypothetical		
 JER	31	7	God		God (the LORD)	Normal		
-JER	31	8	God		God (the LORD)	Normal		
-JER	31	9	God		God (the LORD)	Normal		
-JER	31	10	God		God (the LORD)	Normal		
-JER	31	11	God		God (the LORD)	Normal		
-JER	31	12	God		God (the LORD)	Normal		
-JER	31	13	God		God (the LORD)	Normal		
+JER	31	7	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	31	7	you (people of Zion, restored)			Hypothetical		
+JER	31	8	God		God (the LORD)	Implicit		
+JER	31	8	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	31	9	God		God (the LORD)	Implicit		
+JER	31	9	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	31	10	God		God (the LORD)	Potential		
+JER	31	10	nations			Hypothetical		
+JER	31	11	God		God (the LORD)	Potential		
+JER	31	12	God		God (the LORD)	Potential		
+JER	31	13	God		God (the LORD)	Implicit		
+JER	31	13	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	31	14	God		God (the LORD)	Normal		
+JER	31	14	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	31	15	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	15	God		God (the LORD)	Normal		
 JER	31	16	God		God (the LORD)	Normal		
+JER	31	16	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	17	God		God (the LORD)	Normal		
+JER	31	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	18	God		God (the LORD)	Normal		
 JER	31	18	Ephraim			Quotation		
+JER	31	18	God	quoting Ephraim	God (the LORD)	Alternate		
 JER	31	19	Ephraim			Quotation		
-JER	31	19	God		God (the LORD)	Alternate		
+JER	31	19	God	quoting Ephraim	God (the LORD)	Alternate		
 JER	31	20	God		God (the LORD)	Normal		
+JER	31	20	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	21	God		God (the LORD)	Normal		
 JER	31	21	Jeremiah			Potential		
 JER	31	22	God		God (the LORD)	Normal		
 JER	31	22	Jeremiah			Potential		
+JER	31	23	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	23	God		God (the LORD)	Normal		
-JER	31	24	God		God (the LORD)	Normal		
-JER	31	25	God		God (the LORD)	Normal		
+JER	31	23	Judah, people of			Hypothetical		
+JER	31	24	God		God (the LORD)	Implicit		
+JER	31	24	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	31	25	God		God (the LORD)	Implicit		
+JER	31	25	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	31	26	God		God (the LORD)	Potential		
 JER	31	26	Jeremiah			Potential		
+JER	31	26	Judah, people of			Hypothetical		
+JER	31	26	Needs Review			Potential		
 JER	31	27	God		God (the LORD)	Normal		
+JER	31	27	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	28	God		God (the LORD)	Normal		
-JER	31	29	God		God (the LORD)	Normal		
-JER	31	30	God		God (the LORD)	Normal		
+JER	31	28	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	31	29	God		God (the LORD)	Implicit		
+JER	31	29	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	31	30	God		God (the LORD)	Implicit		
+JER	31	30	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	31	31	God		God (the LORD)	Normal		
+JER	31	31	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	32	God		God (the LORD)	Normal		
+JER	31	32	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	33	God		God (the LORD)	Normal		
+JER	31	33	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	34	God		God (the LORD)	Normal		
+JER	31	34	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	31	35	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	35	God		God (the LORD)	Potential		
 JER	31	36	God		God (the LORD)	Normal		
+JER	31	36	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	37	God		God (the LORD)	Normal		
+JER	31	37	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	31	38	God		God (the LORD)	Normal		
-JER	31	39	God		God (the LORD)	Normal		
-JER	31	40	God		God (the LORD)	Normal		
+JER	31	38	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	31	39	God		God (the LORD)	Implicit		
+JER	31	39	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	31	40	God		God (the LORD)	Implicit		
+JER	31	40	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	32	3	Zedekiah, king of Judah			Normal		
 JER	32	4	Zedekiah, king of Judah			Normal		
 JER	32	5	Zedekiah, king of Judah			Normal		
