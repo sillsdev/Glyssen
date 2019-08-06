@@ -14706,6 +14706,7 @@ LUK	9	4	Jesus	instructing		Dialogue
 LUK	9	5	Jesus	instructing		Dialogue		
 LUK	9	7	people			Indirect		
 LUK	9	8	people, other			Indirect		
+LUK	9	8	people, still others			Indirect		
 LUK	9	9	Herod Antipas (the tetrarch)			Normal		
 LUK	9	12	disciples	taking charge	the Twelve (disciples)	Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 LUK	9	13	Andrew	frustrated	the Twelve (disciples)	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
