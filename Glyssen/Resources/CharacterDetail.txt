@@ -532,6 +532,7 @@ Jonathan's armor bearer	1	Male				1SA 14:7	False
 Joram, king of Israel	1	Male				2KI 3:7 <-(16 more)-> 2KI 9:23	False
 Joseph	1	Male				GEN 37:6 <-(84 more)-> EXO 13:19	False
 Joseph of Arimathea	1	Male				MAT 27:58 <-(2 more)-> JHN 19:38	False
+Joseph, the carpenter	1	Male			Jesus' earthly father	MAT 1:19	False
 Joseph, people of	1	Male				JOS 17:14 & JOS 17:16	False
 Joseph's brothers	11	Male			Different from Jacob's sons because it cannot be Joseph	GEN 37:8 <-(6 more)-> GEN 50:18	False
 Joshua	1	Male	Adult			EXO 32:17 <-(65 more)-> JOS 22:8	False
@@ -673,6 +674,7 @@ messenger from guardians of Ahab's children	1	Male				2KI 10:8	False
 messenger of Ahab, king of Israel	1	Male				1KI 22:13	False
 messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22	False
 messenger to David	1	Male				2SA 15:13	False
+messenger to Jesus	1	Male				MAT 4:12	False
 messenger to king of Jericho	1	Male				JOS 2:2	False
 messenger to Saul	1	Male				1SA 23:27	False
 messenger, another	1	Male				JOB 1:16	False
@@ -896,6 +898,7 @@ Rehum, commanding officer	1	Male					False
 relative	1	Male				AMO 6:10	True
 relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13	False
 reply to the slain believers (in heavenly vision)	1					REV 6:11	False
+report about Jesus	-1	PreferMale				MAT 14:13	False
 report concerning Paul	1	PreferMale				GAL 1:23	False
 report to king of Aram	1	Male				2KI 6:13	False
 report to king of Assyria	1	Male				2KI 17:26	False

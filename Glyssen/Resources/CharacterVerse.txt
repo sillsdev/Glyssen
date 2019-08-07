@@ -12985,6 +12985,7 @@ MAL	4	5	God		God (the LORD Almighty)	Normal
 MAL	4	6	God		God (the LORD Almighty)	Normal		
 MAT	1	1	narrator-MAT			Quotation		
 MAT	1	16	narrator-MAT			Quotation		
+MAT	1	19	Joseph, the carpenter	thinking		Potential		
 MAT	1	20	angel		angel of the LORD	Normal		
 MAT	1	21	angel		angel of the LORD	Normal		
 MAT	1	23	narrator-MAT			Quotation		
@@ -13028,6 +13029,7 @@ MAT	4	6	Satan (Devil)			Dialogue
 MAT	4	7	Jesus			Dialogue		
 MAT	4	9	Satan (Devil)			Dialogue		
 MAT	4	10	Jesus	rebuking		Dialogue		
+MAT	4	12	messenger to Jesus	reporting		Indirect		
 MAT	4	15	scripture			Quotation	Isaiah	
 MAT	4	16	scripture			Quotation	Isaiah	
 MAT	4	17	Jesus	preaching		Normal		
@@ -13140,6 +13142,7 @@ MAT	7	24	Jesus	preaching		Normal
 MAT	7	25	Jesus	preaching		Normal		
 MAT	7	26	Jesus	preaching		Normal		
 MAT	7	27	Jesus	preaching		Normal		
+MAT	7	28	crowd			Potential		
 MAT	8	2	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MAT	8	3	Jesus			Dialogue		
 MAT	8	4	Jesus	giving orders		Dialogue		
@@ -13194,6 +13197,7 @@ MAT	9	29	Jesus			Dialogue
 MAT	9	30	Jesus	warning		Dialogue		
 MAT	9	33	crowd after mute healed	amazed		Normal		
 MAT	9	34	Pharisees	accusing		Normal		
+MAT	9	36	Jesus			Potential		
 MAT	9	37	Jesus			Dialogue		
 MAT	9	38	Jesus			Normal		
 MAT	10	1	Jesus			Indirect		
@@ -13237,6 +13241,7 @@ MAT	10	39	Jesus	instructing		Normal
 MAT	10	40	Jesus	instructing		Normal		
 MAT	10	41	Jesus	instructing		Normal		
 MAT	10	42	Jesus	instructing		Normal		
+MAT	11	2	disciples of John the Baptist			Potential		MAT 11.2;LUK 7.18
 MAT	11	3	disciples of John the Baptist	puzzled		Dialogue		MAT 11.3;LUK 7.20
 MAT	11	4	Jesus			Normal		
 MAT	11	5	Jesus			Normal		
@@ -13331,11 +13336,11 @@ MAT	13	21	Jesus			Normal
 MAT	13	22	Jesus			Normal		
 MAT	13	23	Jesus			Normal		
 MAT	13	24	Jesus			Normal		
-MAT	13	25	Jesus			Normal		
-MAT	13	26	Jesus			Normal		
-MAT	13	27	Jesus			Normal		
-MAT	13	28	Jesus			Normal		
-MAT	13	29	Jesus			Normal		
+MAT	13	25	Jesus			Implicit		
+MAT	13	26	Jesus			Implicit		
+MAT	13	27	Jesus			Implicit		
+MAT	13	28	Jesus			Implicit		
+MAT	13	29	Jesus			Implicit		
 MAT	13	30	Jesus			Normal		
 MAT	13	31	Jesus			Normal		
 MAT	13	32	Jesus			Normal		
@@ -13365,11 +13370,16 @@ MAT	13	56	men in Nazareth synagogue	offended		Normal
 MAT	13	57	Jesus			Dialogue		
 MAT	14	2	Herod Antipas (the tetrarch)	fearful		Normal		
 MAT	14	4	John the Baptist	rebuking		Normal		
+MAT	14	5	John the Baptist			Potential		
+MAT	14	5	people			Potential		
 MAT	14	7	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	8	Herodias' daughter			Normal		
 MAT	14	8	Herodias			Indirect		
 MAT	14	9	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	10	Herod Antipas (the tetrarch)			Indirect		
+MAT	14	12	disciples of John the Baptist			Potential		
+MAT	14	13	disciples of John the Baptist			Potential		
+MAT	14	13	report about Jesus			Potential		
 MAT	14	15	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MAT	14	16	Jesus			Dialogue		
 MAT	14	17	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
