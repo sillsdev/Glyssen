@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="ROM" singlevoice="false" pageheader="ROMANS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM">
+  <block style="mt" chapter="0" book="ROM" initialStartVerse="0" characterId="BC-ROM">
     <text>ROMANS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ROM" initialStartVerse="0" characterId="BC-ROM">

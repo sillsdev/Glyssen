@@ -50,6 +50,8 @@ namespace Glyssen.RefTextDevUtilities
 		private static readonly Regex s_singleOpenQuote = new Regex("(<)", RegexOptions.Compiled);
 		private static readonly Regex s_singleCloseQuote = new Regex("(>)", RegexOptions.Compiled);
 		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+: ", RegexOptions.Compiled);
+		private static readonly Regex s_regexDupName = new Regex(@"(([1-3] )?[^\s\n\r]+)[\s\n\r]+\1[\s\n\r]+(?<chapterLabel>[^\s\n\r]*)", RegexOptions.Compiled);
+
 
 		private static Regex s_regexStartQuoteMarks;
 		private static Regex s_regexEndQuoteMarks;
@@ -373,9 +375,9 @@ namespace Glyssen.RefTextDevUtilities
 					BookScript existingEnglishRefBook = null;
 					string chapterLabelForPrevBook = null;
 					string justTheWordForChapter = null;
-					List<BookScript> existingEnglishRefBooks = s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= 40).ToList();
-					if (iData == 0)
-						existingEnglishRefBooks = s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) < 40).ToList();
+					var existingEnglishRefBooks = iData == 0 ?
+						s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) < 40).ToList() :
+						s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= 40).ToList();
 					List<BookScript> newBooks = new List<BookScript>();
 					List<Block> newBlocks = new List<Block>();
 					TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo = null;
@@ -420,8 +422,7 @@ namespace Glyssen.RefTextDevUtilities
 
 							skippingBook = 0;
 
-							if (mode != Mode.GenerateEnglish)
-								existingEnglishRefBook = existingEnglishRefBooks.FirstOrDefault(b => b.BookId == currBookId);
+							existingEnglishRefBook = existingEnglishRefBooks.FirstOrDefault(b => b.BookId == currBookId);
 
 							if (existingReferenceTextForLanguage != null)
 							{
@@ -469,18 +470,21 @@ namespace Glyssen.RefTextDevUtilities
 									WriteOutput($"Went past end of existing English reference blocks. Skipping {referenceTextRow}");
 									continue;
 								}
+
 								existingEnglishRefBlock = null;
 							}
 							else
-								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
-
-							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
-								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
-
-							// When generating a new English reference text, blocks can be inserted or removed, so we don't
-							// necessarily expect it to align verse-by-verse to the old version.
-							if (mode != Mode.Generate || !languageInfo.IsEnglish)
 							{
+								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
+								// We theoretically need to check to make sure we don't go out of range, but in
+								// practice, a book should never end with an extrabiblical block.
+								while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
+									existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
+
+								// When generating a new English reference text, blocks can be inserted or removed, so we don't
+								// necessarily expect it to align verse-by-verse to the old version. However, we want to try
+								// to be as in-sync as possible (and get back in sync as soon as possible) so the
+								// comparison logic has a shot at working.
 								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
 									ref existingEnglishRefBlock, blocks, "English", ref iBlockInExistingEnglishRefBook);
 							}
@@ -578,7 +582,7 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						Block newBlock;
-						if (mode != Mode.GenerateEnglish)
+						if (existingEnglishRefBlock != null)
 						{
 							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
 								currVerse)
@@ -937,17 +941,11 @@ namespace Glyssen.RefTextDevUtilities
 
 			if (!JustGetHalfOfRepeated(ref bookName) && IsSingleChapterBook(currBookId))
 			{
-				var iFirstSpace = bookTitleAndChapter1Announcement.IndexOf(" ", StringComparison.Ordinal);
-				if (iFirstSpace > 0)
+				var match = s_regexDupName.Match(bookName);
+				if (match.Success)
 				{
-					var firstWord = bookTitleAndChapter1Announcement.Substring(0, iFirstSpace);
-					var iStartOfChapterAnnouncement = bookTitleAndChapter1Announcement.IndexOf(firstWord,
-						iFirstSpace, StringComparison.Ordinal);
-					if (iStartOfChapterAnnouncement > 0)
-					{
-						bookName = bookTitleAndChapter1Announcement.Substring(0, iStartOfChapterAnnouncement).TrimEnd();
-						chapterLabel = bookTitleAndChapter1Announcement.Substring(iStartOfChapterAnnouncement);
-					}
+					bookName = match.Result("$1");
+					chapterLabel = match.Result("$1 ${chapterLabel}");
 				}
 
 				if (chapterLabel == null)
@@ -1028,9 +1026,8 @@ namespace Glyssen.RefTextDevUtilities
 						offset = -1;
 					}
 
-					annotationsToOutput.Add(bookId + "\t" + existingEnglishRefBlock.ChapterNumber +
-						"\t" +
-						existingEnglishRefBlock.InitialVerseNumberOrBridge + "\t" + offset + "\t" + serializedAnnotation);
+					annotationsToOutput.Add($"{bookId}\t{referenceTextRow.Chapter}\t" +
+						$"{referenceTextRow.Verse}\t{offset}\t{serializedAnnotation}");
 				}
 			}
 			else

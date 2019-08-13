@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="HEB" singlevoice="false" pageheader="HEBREWS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-HEB">
+  <block style="mt" chapter="0" book="HEB" initialStartVerse="0" characterId="BC-HEB">
     <text>HEBREWS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="HEB" initialStartVerse="0" characterId="BC-HEB">
@@ -500,7 +500,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-HEB">
     <verse num="2" />
-    <text>Abraham divided and gave to Melchizedek a tenth part of all (being first, by interpretation, king of righteousness, and then also king of Salem, which is king of peace.</text>
+    <text>Abraham divided and gave to Melchizedek a tenth part of all, being first, by interpretation, king of righteousness, and then also king of Salem, which is king of peace.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-HEB">
     <verse num="3" />

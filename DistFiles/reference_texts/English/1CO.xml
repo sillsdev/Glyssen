@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1CO" singlevoice="false" pageheader="1 CORINTHIANS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
+  <block style="mt" chapter="0" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>1 CORINTHIANS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1CO" initialStartVerse="0" characterId="BC-1CO">
@@ -970,11 +970,12 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO">
     <verse num="25" />
-    <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience.</text>
+    <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience. </text>
+    <verse num="26" />
+    <text>The scriptures say, for</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
-    <verse num="26" />
-    <text>The scriptures say, “for “the earth is the Lord’s, and its fullness.”</text>
+    <text>“the earth is the Lord’s, and its fullness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
@@ -1599,7 +1600,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
     <text>The last enemy that will be abolished is death.</text>
-	<verse num="27" />
+    <verse num="27" />
     <text>For,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture">

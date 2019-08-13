@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="ACT" singlevoice="false" pageheader="ACTS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ACT">
+  <block style="mt" chapter="0" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>ACTS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ACT" initialStartVerse="0" characterId="BC-ACT">
@@ -1774,7 +1774,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Peter (Simon)" multiBlockQuote="Continuation">
     <verse num="36" />
-    <text>The word which he sent to the children of Israel, preaching good news of peace by Jesus Christ--he is Lord of all—</text>
+    <text>The word which he sent to the children of Israel, preaching good news of peace by Jesus Christ—he is Lord of all—</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Peter (Simon)" multiBlockQuote="Continuation">
     <verse num="37" />

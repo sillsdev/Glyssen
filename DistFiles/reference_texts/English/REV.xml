@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="REV" singlevoice="false" pageheader="REVELATION CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-REV">
+  <block style="mt" chapter="0" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>REVELATION</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="REV" initialStartVerse="0" characterId="BC-REV">
@@ -1481,10 +1481,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>However much she glorified herself, and grew wanton, so much give her of torment and mourning. For she says in her heart,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
-    <text>‘I sit as queen, and am no widow, and will in no way see mourning.’</text>
+    <text>However much she glorified herself, and grew wanton, so much give her of torment and mourning. For she says in her heart, ‘I sit as queen, and am no widow, and will in no way see mourning.’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
