@@ -67,7 +67,10 @@ namespace Glyssen
 			UserInfo userInfo = new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage };
 			bool sldrIsInitialized = false;
 
-			Alert.Implementation = new AlertImpl(); // Do this before calling Initialize, just in case Initilize tries to display an alert.
+			Logger.Init();
+			Trace.Listeners.Add(new LogFileTraceListener());
+
+			Alert.Implementation = new AlertImpl(); // Do this before calling Initialize, just in case Initialize tries to display an alert.
 			if (ParatextInfo.IsParatextInstalled)
 			{
 				string userName = null;
@@ -139,8 +142,6 @@ namespace Glyssen
 			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", userInfo, allowTracking))
 #endif
 			{
-				Logger.Init();
-
 				foreach (var exception in _pendingExceptionsToReportToAnalytics)
 					Analytics.ReportException(exception);
 				_pendingExceptionsToReportToAnalytics.Clear();
