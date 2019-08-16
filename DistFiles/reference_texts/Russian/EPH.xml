@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="EPH" singlevoice="false" pageheader="К Ефесянам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+  <block style="mt" chapter="0" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="EPH" initialStartVerse="0" characterId="BC-EPH">
       <text>EPHESIANS</text>
     </ReferenceBlocks>
     <text>К Ефесянам</text>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
       <verse num="8" />
-      <text>which he made to abound toward us in all wisdom and prudence,</text>
+      <text>which he made to abound toward us in all wisdom and prudence.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>каковую Он в преизбытке даровал нам во всякой премудрости и разумении,</text>
@@ -151,7 +151,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
       <verse num="18" />
-      <text>I pray also that the eyes of your hearts are enlightened, that you may know what is the hope of his calling. and what are the riches of the glory of his inheritance in the saints,</text>
+      <text>I pray also that the eyes of your hearts are enlightened, that you may know what is the hope of his calling, and what are the riches of the glory of his inheritance in the saints,</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>и просветил очи сердца вашего, дабы вы познали, в чем состоит надежда призвания Его, и какое богатство славного наследия Его для святых,</text>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="MRK" singlevoice="false" pageheader="От Марка">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-MRK">
+  <block style="mt" chapter="0" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="MRK" initialStartVerse="0" characterId="BC-MRK">
       <text>MARK</text>
     </ReferenceBlocks>
     <text>От Марка</text>
@@ -539,7 +539,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-MRK">
-      <text>--he said to the paralytic—</text>
+      <text>—he said to the paralytic—</text>
     </ReferenceBlocks>
     <text>—говорит расслабленному:</text>
   </block>

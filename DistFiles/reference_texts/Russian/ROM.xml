@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="ROM" singlevoice="false" pageheader="К Римлянам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM">
+  <block style="mt" chapter="0" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="ROM" initialStartVerse="0" characterId="BC-ROM">
       <text>ROMANS</text>
     </ReferenceBlocks>
     <text>К Римлянамt</text>
@@ -630,7 +630,7 @@
       <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips”; </text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Гортань их открытый гроб; языком своим обманывают; яд аспидов на губах их.</text>
+    <text>“Гортань их открытый гроб; языком своим обманывают; яд аспидов на губах их.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="scripture">
@@ -638,7 +638,7 @@
       <text>“whose mouth is full of cursing and bitterness.”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Уста их полны злословия и горечи.”</text>
+    <text>“Уста их полны злословия и горечи.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
@@ -662,7 +662,7 @@
       <text>The way of peace, they haven’t known.” </text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>они не знают пути мира.</text>
+    <text>они не знают пути мира.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">

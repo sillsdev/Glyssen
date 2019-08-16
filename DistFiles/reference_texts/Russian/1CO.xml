@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1CO" singlevoice="false" pageheader="1-е Коринфянам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
+  <block style="mt" chapter="0" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="1CO" initialStartVerse="0" characterId="BC-1CO">
       <text>1 CORINTHIANS</text>
     </ReferenceBlocks>
     <text>1-е Коринфянам</text>
@@ -1939,7 +1939,9 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO">
       <verse num="25" />
-      <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience.</text>
+      <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience. </text>
+      <verse num="26" />
+      <text>The scriptures say, for</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Все, что продается на торгу, ешьте без всякого исследования, для спокойствия совести; </text>
@@ -1948,8 +1950,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
-      <verse num="26" />
-      <text>The scriptures say, “for “the earth is the Lord’s, and its fullness.”</text>
+      <text>“the earth is the Lord’s, and its fullness.”</text>
     </ReferenceBlocks>
     <text>Господня земля, и что наполняет ее.</text>
   </block>
@@ -3610,7 +3611,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>I ask you that you also be in subjection to leadersa such as these, and to everyone who helps in the work and labors.</text>
+      <text>I ask you that you also be in subjection to leaders such as these, and to everyone who helps in the work and labors.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>будьте и вы почтительны к таковым и ко всякому содействующему и трудящемуся.</text>

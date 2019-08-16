@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="MAT" singlevoice="false" pageheader="От Матфея">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-MAT">
+  <block style="mt" chapter="0" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="MAT" initialStartVerse="0" characterId="BC-MAT">
       <text>MATTHEW</text>
     </ReferenceBlocks>
     <text>От Матфея</text>
@@ -7863,7 +7863,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="13" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="13" characterId="Jesus" delivery="rebuking">
       <verse num="13" />
-      <text>“But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don’t enter in yourselves, neither do you allow those who are entering in to enter.</text>
+      <text>Woe to you, scribes and Pharisees, hypocrites! For you devour widows' houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>“Горе вам, книжники и фарисеи, лицемеры, что затворяете Царство Небесное человекам, ибо сами не входите и хотящих войти не допускаете.</text>
@@ -7871,7 +7871,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
       <verse num="14" />
-      <text>“Woe to you, scribes and Pharisees, hypocrites! For you devour widows’ houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.</text>
+      <text>But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don't enter in yourselves, neither do you allow those who are entering in to enter.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>“Горе вам, книжники и фарисеи, лицемеры, что поедаете домы вдов и лицемерно долго молитесь: за то примете тем большее осуждение.</text>

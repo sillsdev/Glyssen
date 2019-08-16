@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1TI" singlevoice="false" pageheader="1-е Тимофею">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI">
+  <block style="mt" chapter="0" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="1TI" initialStartVerse="0" characterId="BC-1TI">
       <text>1 TIMOTHY</text>
     </ReferenceBlocks>
     <text>1-е Тимофею</text>
