@@ -234,7 +234,10 @@ namespace Glyssen
 			block.CloneReferenceBlocks();
 			if (text == null)
 				text = string.Empty;
-			var newRefBlock = block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
+			var prevRefBlock = (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null;
+			for (int i = 0; i < level && prevRefBlock != null; i++)
+				prevRefBlock = prevRefBlock.ReferenceBlocks.LastOrDefault();
+			var newRefBlock = block.SetMatchedReferenceBlock(text, prevRefBlock);
 			bool foundFollowingPrimaryRefTextVerse = false;
 			bool foundFollowingSecondaryRefTextVerse = false;
 			while (++blockIndex < CorrelatedBlocks.Count)
