@@ -875,6 +875,11 @@ namespace GlyssenTests
 		[Test]
 		public void SetReferenceText_FirstBlock_RefBlockContainsBridge_ReferenceBlockHasStartVerseNumberImpliedByVerseNumberInRefBlock()
 		{
+			// The logic represented here is entirely "fuzzy", but the idea is that since the corresponding vernacular block is a verse
+			// bridge from 1-3, that the reference text is "probably" for that same range. But since it turns out that the reference
+			// text has a 3-4 verse bridge in the middle of it, logically the preceding text can't be for verse 1-3, so they must be
+			// for verses 1-2.
+			
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
