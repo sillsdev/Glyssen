@@ -843,7 +843,7 @@ namespace GlyssenTests
 		[TestCase("\u00A0")]
 		[TestCase(" ")]
 		[TestCase("")]
-		public void SetReferenceText_FirstBlock_VernBlockHasVerseBridgeThatCoversNumberInRefBlock_SpecifiedBlockMatchedWithReferenceBlockHavingStartVerseNumberFromVernBlock(string separator)
+		public void SetReferenceText_FirstBlock_VernBlockHasVerseBridgeThatCoversNumberInRefBlock_SpecifiedBlockMatchedWithReferenceBlockHavingStartVerseNumberImpliedByVerseNumberInRefBlock(string separator)
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
@@ -870,6 +870,65 @@ namespace GlyssenTests
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newRefBlock.InitialEndVerseNumber);
 			Assert.AreEqual(2, newRefBlock.LastVerseNum);
+		}
+
+		[Test]
+		public void SetReferenceText_FirstBlock_RefBlockContainsBridge_ReferenceBlockHasStartVerseNumberImpliedByVerseNumberInRefBlock()
+		{
+			// The logic represented here is entirely "fuzzy", but the idea is that since the corresponding vernacular block is a verse
+			// bridge from 1-3, that the reference text is "probably" for that same range. But since it turns out that the reference
+			// text has a 3-4 verse bridge in the middle of it, logically the preceding text can't be for verse 1-3, so they must be
+			// for verses 1-2.
+			
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
+
+			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Este es versiculo dos y tres.”", "p");
+			block2.SetMatchedReferenceBlock(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two.”", false, 1, "p", 3));
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			var newRefBlock = matchup.SetReferenceText(0, "Then Jesus told them {3-4}that it was actually a verse bridge starting with three.");
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			// Ensure block 1 not changed
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
+
+			Assert.AreEqual("Then Jesus told them {3-4}\u00A0that it was actually a verse bridge starting with three.", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
+			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
+			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(2, newRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual(4, newRefBlock.LastVerseNum);
+		}
+
+		[Test]
+		public void SetReferenceText_FirstBlock_RefBlockContainsAnnotationAndThenBridge_ReferenceBlockHasStartVerseNumberImpliedByVerseNumberInRefBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
+
+			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Este es versiculo dos y tres.”", "p");
+			block2.SetMatchedReferenceBlock(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two.”", false, 1, "p", 3));
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			var newRefBlock = matchup.SetReferenceText(0, "{F8 Music--Ends} {3-4}This is actually a verse bridge starting with three.");
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			// Ensure block 1 not changed
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
+
+			Assert.AreEqual("{F8 Music--Ends} {3-4}\u00A0This is actually a verse bridge starting with three.", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
+			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
+			Assert.AreEqual(3, newRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(4, newRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual(4, newRefBlock.LastVerseNum);
 		}
 
 		[Test]
@@ -1138,6 +1197,36 @@ namespace GlyssenTests
 			Assert.AreEqual(3, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newRefBlock.InitialEndVerseNumber);
 			Assert.AreEqual(4, newRefBlock.LastVerseNum);
+		}
+
+		[TestCase("")]
+		[TestCase("{F8 Music--Ends} ")]
+		public void SetReferenceText_Secondary_AnnotationAndVerseNumberAtStart_VerseNumberNotLost(string annotationText)
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Esigit diluk nen ane yogiseke:", false, 18, "REV", "p", 3));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "angel, another, coming down from heaven",
+				"“O nggok Babel kagarogo ’bigi o! It kota Babel kagarigogo mende ma, en oba dagasinem,");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "angel, another, coming down from heaven",
+				"Kagat nabini, yiluk, akoni, kugi obabut weyak mende inom,");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "angel, another, coming down from heaven",
+				"Sewe nausak dek yiluk mende ta’bokogona inom, kagat laga o,” ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "yiluk yogiseke.");
+			var vernBook = new BookScript("REV", vernacularBlocks);
+			var russianRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var matchup = russianRefText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, russianRefText.Versification);
+			matchup.MatchAllBlocks(null);
+			matchup.SetReferenceText(0, "{2} He cried with a mighty voice, saying,", 1);
+			matchup.SetReferenceText(1, "“Fallen is Babylon! She is a home of demons, spirits and unclean birds!", 1);
+			matchup.SetReferenceText(2, "spirits and unclean birds!", 1);
+			matchup.SetReferenceText(3, annotationText + "{3} All nations had sex and got rich with her.”", 1);
+			var englishRefBlockForVernBlock3 = matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().ReferenceBlocks.Single();
+			if (annotationText.Length > 0)
+				Assert.IsTrue(englishRefBlockForVernBlock3.BlockElements.OfType<Sound>().Single().SoundType == SoundType.Music);
+			Assert.AreEqual("3", englishRefBlockForVernBlock3.BlockElements.OfType<Verse>().Single().Number);
+			Assert.AreEqual("3", englishRefBlockForVernBlock3.InitialVerseNumberOrBridge);
+			Assert.AreEqual("All nations had sex and got rich with her.”",
+				((ScriptText)englishRefBlockForVernBlock3.BlockElements.Last()).Content);
 		}
 
 		[Test]

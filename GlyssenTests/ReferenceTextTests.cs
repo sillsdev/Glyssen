@@ -3851,10 +3851,11 @@ namespace GlyssenTests
 			return AddBlockForVerseInProgress(list, CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.StandardCharacter.Narrator), text);
 		}
 
-		internal static Block CreateNarratorBlockForVerse(int verseNumber, string text, bool paraStart = false, int chapter = 1, string book = "MAT", string styleTag = "p")
+		internal static Block CreateNarratorBlockForVerse(int verseNumber, string text, bool paraStart = false, int chapter = 1,
+			string book = "MAT", string styleTag = "p", int initialEndVerseNumber = 0)
 		{
 			return CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId(book, CharacterVerseData.StandardCharacter.Narrator),
-				verseNumber, text, paraStart, chapter, styleTag);
+				verseNumber, text, paraStart, chapter, styleTag, initialEndVerseNumber);
 		}
 		#endregion
 	}

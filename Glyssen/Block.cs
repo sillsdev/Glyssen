@@ -357,7 +357,8 @@ namespace Glyssen
 		{
 			if (referenceBlocksToJoin == null)
 				referenceBlocksToJoin = ReferenceBlocks;
-			var refBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber, InitialEndVerseNumber);
+			var baseBlock = (referenceBlocksToJoin?.FirstOrDefault() ?? this);
+			var refBlock = new Block(StyleTag, ChapterNumber, baseBlock.InitialStartVerseNumber, baseBlock.InitialEndVerseNumber);
 			refBlock.SetCharacterAndDeliveryInfo(this, bookNum, versification);
 			if (referenceBlocksToJoin.Any())
 				refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
@@ -375,11 +376,15 @@ namespace Glyssen
 			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
 			var refBlock = GetEmptyReferenceBlock(prevVerse);
 			refBlock.ParsePlainText(text);
-			if (!refBlock.StartsAtVerseStart)
+			if (!refBlock.StartsAtVerseStart && prevRefBlock == null && refBlock.InitialEndVerseNumber > 0)
 			{
+				// If we don't have a preceding ref block that can be used to imply the starting verse number/bridge
+				// for this ref block, we at least want to prevent it from looking like it starts at or before the
+				// first verse number it actually contains, so we infer that it starts at the preceding verse. This
+				// is not a common scenario, and it is really somewhat of a guess as to what is actually happening.
 				var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
-				if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse <= refBlock.InitialEndVerseNumber)
-					refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
+				if (firstVerseInRefBlock != null && firstVerseInRefBlock.StartVerse <= refBlock.InitialEndVerseNumber)
+					refBlock.InitialEndVerseNumber = firstVerseInRefBlock.StartVerse - 1;
 			}
 			SetMatchedReferenceBlock(refBlock);
 
@@ -469,6 +474,7 @@ namespace Glyssen
 							if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
 								endVerse = 0;
 							InitialEndVerseNumber = endVerse;
+							prependSpace = "";
 						}
 					}
 					else
@@ -558,7 +564,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return BlockElements.First() is Verse || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
+				return !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
 			}
 		}
 
