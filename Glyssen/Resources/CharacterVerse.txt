@@ -11277,48 +11277,64 @@ JER	31	39	Jeremiah		Jeremiah (the LORD says)	Alternate
 JER	31	40	God		God (the LORD)	Implicit		
 JER	31	40	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	32	3	Zedekiah, king of Judah			Normal		
-JER	32	4	Zedekiah, king of Judah			Normal		
-JER	32	5	Zedekiah, king of Judah			Normal		
+JER	32	4	Zedekiah, king of Judah			Implicit		
+JER	32	5	Zedekiah, king of Judah			Implicit		
 JER	32	6	Jeremiah			Normal		
-JER	32	7	God		God (the LORD)	Normal		
-JER	32	7	Jeremiah			Normal		
-JER	32	8	God		God (the LORD)	Potential		
-JER	32	8	Hanamel (Jeremiah's cousin)			Potential		
+JER	32	7	God		God (the LORD)	Implicit		
+JER	32	7	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	8	Jeremiah			Potential		
+JER	32	8	Hanamel (Jeremiah's cousin)			Quotation		
 JER	32	9	Jeremiah			Potential		
 JER	32	10	Jeremiah			Potential		
 JER	32	11	Jeremiah			Potential		
 JER	32	12	Jeremiah			Potential		
-JER	32	13	Jeremiah			Normal		
+JER	32	13	Jeremiah			Potential		
 JER	32	14	Jeremiah			Normal		
+JER	32	14	God		God (the LORD)	Quotation		
 JER	32	15	Jeremiah			Normal		
-JER	32	16	Jeremiah			Normal		
-JER	32	17	Jeremiah	praying		Normal		
-JER	32	18	Jeremiah	praying		Normal		
-JER	32	19	Jeremiah	praying		Normal		
-JER	32	20	Jeremiah	praying		Normal		
-JER	32	21	Jeremiah	praying		Normal		
-JER	32	22	Jeremiah	praying		Normal		
-JER	32	23	Jeremiah	praying		Normal		
-JER	32	24	Jeremiah	praying		Normal		
-JER	32	25	Jeremiah	praying		Normal		
-JER	32	27	God		God (the LORD)	Normal		
+JER	32	15	God		God (the LORD)	Quotation		
+JER	32	16	Jeremiah			Potential		
+JER	32	17	Jeremiah	praying		Potential		
+JER	32	18	Jeremiah	praying		Potential		
+JER	32	19	Jeremiah	praying		Potential		
+JER	32	20	Jeremiah	praying		Potential		
+JER	32	21	Jeremiah	praying		Potential		
+JER	32	22	Jeremiah	praying		Potential		
+JER	32	23	Jeremiah	praying		Potential		
+JER	32	24	Jeremiah	praying		Potential		
+JER	32	25	Jeremiah	praying		Potential		
+JER	32	27	God		God (the LORD)	Implicit		
+JER	32	27	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	28	Jeremiah			Potential		
 JER	32	28	God		God (the LORD)	Normal		
-JER	32	29	God		God (the LORD)	Normal		
+JER	32	29	God		God (the LORD)	Implicit		
+JER	32	29	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	32	30	God		God (the LORD)	Normal		
-JER	32	31	God		God (the LORD)	Normal		
-JER	32	32	God		God (the LORD)	Normal		
-JER	32	33	God		God (the LORD)	Normal		
-JER	32	34	God		God (the LORD)	Normal		
-JER	32	35	God		God (the LORD)	Normal		
+JER	32	30	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	32	31	God		God (the LORD)	Implicit		
+JER	32	32	God		God (the LORD)	Implicit		
+JER	32	33	God		God (the LORD)	Implicit		
+JER	32	34	God		God (the LORD)	Implicit		
+JER	32	35	God		God (the LORD)	Implicit		
 JER	32	36	God		God (the LORD)	Normal		
-JER	32	37	God		God (the LORD)	Normal		
-JER	32	38	God		God (the LORD)	Normal		
-JER	32	39	God		God (the LORD)	Normal		
-JER	32	40	God		God (the LORD)	Normal		
-JER	32	41	God		God (the LORD)	Normal		
+JER	32	36	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	32	36	you (hypothetical)			Hypothetical		
+JER	32	37	God		God (the LORD)	Implicit		
+JER	32	37	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	38	God		God (the LORD)	Implicit		
+JER	32	38	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	39	God		God (the LORD)	Implicit		
+JER	32	39	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	40	God		God (the LORD)	Implicit		
+JER	32	40	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	41	God		God (the LORD)	Implicit		
+JER	32	41	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	32	42	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	32	42	God		God (the LORD)	Normal		
-JER	32	43	God		God (the LORD)	Normal		
+JER	32	43	God		God (the LORD)	Implicit		
+JER	32	43	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	32	44	God		God (the LORD)	Normal		
+JER	32	44	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	2	God		God (the LORD)	Normal		
 JER	33	3	God		God (the LORD)	Normal		
 JER	33	4	God		God (the LORD)	Normal		
