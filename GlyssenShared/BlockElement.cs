@@ -216,7 +216,7 @@ namespace Glyssen.Shared
 		private const string kMusic = "Music";
 		private const string kSfx = "SFX";
 		public const int kNonSpecificStartOrStop = -999;
-		public const string kRegexForUserLocatedSounds = @"((\u00A0| )*\{F8 (?<musicOrSfx>(" + kSfx + ")|(" + kMusic + "))" + kDetailSeparatorDisplayString + @"(?<effectDetails>.*)\})";
+		public const string kRegexForUserLocatedSounds = @"((\u00A0| )*\{F8 (?<musicOrSfx>(" + kSfx + ")|(" + kMusic + "))" + kDetailSeparatorDisplayString + @"(?<effectDetails>[^\{\}]*)\})";
 
 		[XmlAttribute("soundType")]
 		[DefaultValue(SoundType.Music)]
