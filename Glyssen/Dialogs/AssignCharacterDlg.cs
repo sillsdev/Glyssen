@@ -870,9 +870,9 @@ namespace Glyssen.Dialogs
 
 		/// <summary>
 		/// If the block view has focus and is in the browser mode, it will eat the keystrokes, so we need to ensure
-		/// they post to this window so we can do the accelartor-key thing.
+		/// they post to this window so we can do the accelerator-key thing.
 		/// </summary>
-		/// <remarks>This is invoked because we implement IMessagFilter and call Application.AddMessageFilter(this)</remarks>
+		/// <remarks>This is invoked because we implement IMessageFilter and call Application.AddMessageFilter(this)</remarks>
 		public bool PreFilterMessage(ref Message m)
 		{
 			const int WM_KEYDOWN = 0x100;

@@ -3200,6 +3200,25 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetBooksWithBlocksConnectedToReferenceText_ExtraBlockAtEndOfBook_ExtraBlocksNotAlignedtoreferenceText()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19,
+				"“Tell everybody everywhere about me and get them to follow me,” ", true, 28, "p", 21));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Jesus.");
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+
+			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
+
+			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsFalse(result[1].ReferenceBlocks.Any());
+		}
+
+		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_BadIndex_ThrowsArgumentOutOfRangeException()
 		{
 			var vernBook = new BookScript("MAT", new List<Block>(0), m_vernVersification);

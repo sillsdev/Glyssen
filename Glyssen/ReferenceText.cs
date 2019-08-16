@@ -278,25 +278,40 @@ namespace Glyssen
 
 			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count; iVernBlock++, iRefBlock++)
 			{
-				if (iRefBlock >= refBlockList.Count && iRefBlockMemory < 0)
-				{
-					// We still have more vernacular verses to consider. Most likely, this is an
-					// additional alternate ending (in Mark). It's not very efficient, but we'll just
-					// start back at the beginning of the reference text block collection.
-					iRefBlock = 0;
-				}
-
 				var currentVernBlock = vernBlockList[iVernBlock];
 
-				// TODO: This handles the only case I know of (and for which there is a test) where a versification pulls in verses
-				// from the end of the book to an earlier spot, namely Romans 14:24-26 <- Romans 16:25-27. If we ever have this same
-				// kind of behavior that is pulling from somewhere other than the *end* of the book, the logic to reset iRefBlock
-				// based on iRefBlockMemory will need to be moved/added elsewhere.
-				if (iRefBlockMemory >= 0 && iRefBlock >= refBlockList.Count)
+				if (iRefBlock >= refBlockList.Count)
 				{
-					iRefBlock = iRefBlockMemory;
-					iRefBlockMemory = -1;
+					if (iRefBlockMemory < 0)
+					{
+						Debug.Assert(iVernBlock > 0);
+						if (currentVernBlock.LastVerseNum == vernBlockList[iVernBlock - 1].LastVerseNum)
+						{
+							// Either this is a section head, in which case we don't care until we get to the
+							// next actual Scripture block; or the vernacular happens to have more blocks in the
+							// last verse at the end of the book, in which case they will just go unmatched.
+							continue;
+						}
+
+						// We still have more vernacular verses to consider. Most likely, this is an
+						// additional alternate ending (in Mark).
+						if (bookId != "MRK")
+							Logger.WriteMinorEvent("Reference text matching went off end of ref block list for " +
+								$"vern block {currentVernBlock}");
+						iRefBlock = refBook.GetIndexOfFirstBlockForVerse(currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber);
+					}
+					else
+					{
+						// This handles the only case I know of (and for which there is a test) where a versification pulls in verses
+						// from the end of the book to an earlier spot, namely Romans 14:24-26 <- Romans 16:25-27. If we ever have this same
+						// kind of behavior that is pulling from somewhere other than the *end* of the book, the logic to reset iRefBlock
+						// based on iRefBlockMemory will need to be moved/added elsewhere.
+						iRefBlock = iRefBlockMemory;
+						iRefBlockMemory = -1;
+					}
 				}
+
+
 				var currentRefBlock = refBlockList[iRefBlock];
 				var vernInitStartVerse = currentVernBlock.StartRef(bookNum, vernacularVersification);
 				var refInitStartVerse = currentRefBlock.StartRef(bookNum, Versification);
@@ -344,7 +359,7 @@ namespace Glyssen
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
 							continue;
 						}
-						goto case CharacterVerseData.StandardCharacter.ExtraBiblical;
+						goto case CharacterVerseData.StandardCharacter.ExtraBiblical; // Book title
 					case CharacterVerseData.StandardCharacter.ExtraBiblical:
 						if (type == CharacterVerseData.GetStandardCharacterType(currentRefBlock.CharacterId))
 						{
