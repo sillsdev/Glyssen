@@ -116,7 +116,7 @@
 		Ultimately, it would be better not to have a dependency on a project
 		which itself contains tests. Let's move the test scaffolding in SIL.DblBundle.Tests
 		into a separate test scaffolding dll -->
-		<CreateItem Include="$(RootDir)/output/$(Configuration)/*Tests.dll" Exclude="$(RootDir)/output/$(Configuration)/SIL.DblBundle.Tests.dll">
+		<CreateItem Include="$(RootDir)\output\$(Configuration)\*Tests.dll" Exclude="$(RootDir)\output\$(Configuration)\SIL.DblBundle.Tests.dll">
 			<Output ItemName="TestAssemblies" TaskParameter="Include" />
 		</CreateItem>
 		<NUnitTeamCity
