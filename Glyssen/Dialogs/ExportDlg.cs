@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -30,7 +31,7 @@ namespace Glyssen.Dialogs
 				HideControlsThatRequireVoiceActors();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_lblFileName.Text = m_viewModel.FullFileName;
 

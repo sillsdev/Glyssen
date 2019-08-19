@@ -1258,7 +1258,7 @@ namespace Glyssen
 		private static Project LoadExistingProject(string projectFilePath)
 		{
 			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
-			var isWritable = !FileUtils.IsFileLocked(projectFilePath);
+			var isWritable = !FileHelper.IsLocked(projectFilePath);
 			if (!isWritable)
 			{
 				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg",

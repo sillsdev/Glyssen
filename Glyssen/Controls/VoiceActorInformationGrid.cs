@@ -8,6 +8,7 @@ using DesktopAnalytics;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Reporting;
 
@@ -68,7 +69,7 @@ namespace Glyssen.Controls
 			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
 				"Distinguished actor to play minor character role.");
 
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void HandleStringsLocalized()
