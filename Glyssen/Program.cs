@@ -225,15 +225,15 @@ namespace Glyssen
 			Analytics.ReportException(e.Exception);
 		}
 
-		public static LocalizationManager LocalizationManager { get; private set; }
+		public static ILocalizationManager PrimaryLocalizationManager { get; private set; }
 
 		private static void SetUpLocalization()
 		{
-			string installedStringFileFolder = FileLocator.GetDirectoryDistributedWithApplication("localization");
+			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string targetTmxFilePath = Path.Combine(GlyssenInfo.kCompany, GlyssenInfo.kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager = LocalizationManager.Create(desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
+			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))
@@ -248,7 +248,7 @@ namespace Glyssen
 						}
 
 			var uiLanguage = LocalizationManager.UILanguageId;
-			LocalizationManager.Create(uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
+			LocalizationManager.Create(TranslationMemory.Tmx, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
 		}

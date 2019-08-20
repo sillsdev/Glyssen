@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Glyssen.Properties;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Scripture;
 
@@ -20,7 +21,7 @@ namespace Glyssen.Character
 			set
 			{
 				s_tabDelimitedCharacterVerseData = value;
-				s_singleton = null;
+				s_singleton?.Dispose();
 			}
 		}
 
@@ -30,7 +31,13 @@ namespace Glyssen.Character
 			if (TabDelimitedCharacterVerseData == null)
 				TabDelimitedCharacterVerseData = Resources.CharacterVerseData;
 			LoadAll();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+		}
+
+		private void Dispose()
+		{
+			LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+			s_singleton = null;
 		}
 
 		public static ControlCharacterVerseData Singleton

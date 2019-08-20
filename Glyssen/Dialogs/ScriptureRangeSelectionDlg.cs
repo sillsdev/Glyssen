@@ -12,6 +12,7 @@ using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;
 using SIL.Reporting;
@@ -50,7 +51,7 @@ namespace Glyssen.Dialogs
 			Initialize();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void HandleStringsLocalized()

@@ -20,6 +20,7 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -99,7 +100,7 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
