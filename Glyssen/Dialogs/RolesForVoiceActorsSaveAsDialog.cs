@@ -5,6 +5,7 @@ using DesktopAnalytics;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
@@ -21,7 +22,7 @@ namespace Glyssen.Dialogs
 		public RolesForVoiceActorsSaveAsDialog(ProjectExporter projectExporter)
 		{
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_projectExporter = projectExporter;
 
