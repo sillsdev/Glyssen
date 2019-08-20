@@ -1,4 +1,5 @@
 ﻿using L10NSharp.UI;
+using L10NSharp.TMXUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -20,7 +21,7 @@ namespace Glyssen.Dialogs
 				if (components != null)
 					components.Dispose();
 				m_project.AnalysisCompleted -= HandleAnalysisCompleted;
-				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
 				if (m_navigatorViewModel != null)
 					m_navigatorViewModel.CurrentBlockChanged -= HandleCurrentBlockChanged;
 			}

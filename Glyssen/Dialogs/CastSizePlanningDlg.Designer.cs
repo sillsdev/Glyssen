@@ -1,4 +1,4 @@
-﻿using Glyssen.Bundle;
+﻿using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -18,7 +18,8 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
-				LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+
 				if (m_viewModel != null)
 				{
 					m_viewModel.MaleNarratorsValueChanged -= m_viewModel_MaleNarratorsValueChanged;
