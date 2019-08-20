@@ -90,6 +90,7 @@ Arioch	1	Male	Adult			DAN 2:25
 army cry	-1	Male	Adult			1KI 22:36
 army officer, one of	1	Male	Adult			2KI 9:11
 army officers	-1	Male	Adult			2KI 9:12 <-(5 more)-> JER 42:6
+Aroer, inhabitant of	-1	Male	Adult			JER 48:19
 arrogant men	-1	Male	Adult			JER 43:2 & JER 43:3
 Artaxerxes, king of Persia	1	Male	Adult			EZR 4:17 <-(24 more)-> NEH 5:14
 Asa, king of Judah	1	Male	Adult			1KI 15:19 <-(2 more)-> 2CH 16:3
@@ -409,6 +410,7 @@ hearers	-1					ISA 28:9 & ISA 28:10
 herald	1	Male				DAN 3:4 <-(1 more)-> DAN 3:6
 herdsman	1	Male				GEN 26:20
 herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36
+Heshbon, people of	-1	Male				JER 48:2
 Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(11 more)-> LUK 23:8
 Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16
 Herodias	1	Female				MAT 14:8 & MRK 6:24
@@ -502,6 +504,7 @@ Jeremiah	1	Male				JER 1:6 <-(327 more)-> LAM 3:56
 Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeremiah's friends (bad)	-1	PreferMale				JER 20:10
 Jeroboam	1	Male				1KI 12:4 <-(9 more)-> 2CH 10:4
+Jerusalem (personified)	1	Male				JER 50:34 & JER 50:35
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
 Jesus	1	Male	Adult	Y		JOS 5:14 <-(2113 more)-> REV 22:20
@@ -750,6 +753,7 @@ Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5
 Neco, king of Egypt	1	Male				2CH 35:21
 Nehemiah	1	Male				NEH 1:2 <-(46 more)-> NEH 13:31
+neighboring nations around Moab	-1					JER 48:17
 neighbors and relatives of Elizabeth and Zacharias (Zechariah)	-1	Either				LUK 1:58 <-(2 more)-> LUK 1:62
 neighbors of man blind from birth	-1					JHN 9:8 <-(1 more)-> JHN 9:12
 neighbors of man blind from birth, others	-1					JHN 9:9

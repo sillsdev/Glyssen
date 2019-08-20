@@ -11531,23 +11531,23 @@ JER	42	5	Johanan/army officers/people, all the		all the army officers, including
 JER	42	6	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Implicit	Johanan	
 JER	42	9	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	42	10	God		God (the LORD)	Implicit		
-JER	42	10	Jeremiah		(the LORD says)	Alternate		
+JER	42	10	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	42	11	God		God (the LORD)	Normal		
-JER	42	11	Jeremiah		(the LORD says)	Normal		
+JER	42	11	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	42	12	God		God (the LORD)	Implicit		
-JER	42	12	Jeremiah		(the LORD says)	Alternate		
+JER	42	12	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	42	13	God		God (the LORD)	Implicit		
-JER	42	13	Jeremiah		(the LORD says)	Alternate		
+JER	42	13	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	42	13	Judah, remnant of			Hypothetical		
 JER	42	14	God		God (the LORD)	Implicit		
-JER	42	14	Jeremiah		(the LORD says)	Alternate		
+JER	42	14	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	42	14	Judah, remnant of			Hypothetical		
-JER	42	15	Jeremiah		(the LORD says)	Normal		
+JER	42	15	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	42	15	God		God (the LORD)	Normal		
 JER	42	16	God		God (the LORD)	Implicit		
-JER	42	16	Jeremiah		(the LORD says)	Alternate		
+JER	42	16	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	42	17	God		God (the LORD)	Implicit		
-JER	42	17	Jeremiah		(the LORD says)	Alternate		
+JER	42	17	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	42	18	Jeremiah			Normal		
 JER	42	18	God		God (the LORD)	Normal		
 JER	42	19	Jeremiah			Normal		
@@ -11556,307 +11556,420 @@ JER	42	20	Judah, remnant of			Quotation
 JER	42	21	Jeremiah			Normal		
 JER	42	22	Jeremiah			Normal		
 JER	43	2	Azariah, son of Hoshaiah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Normal		
-JER	43	3	Azariah, son of Hoshaiah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Normal		
-JER	43	9	God		God (the LORD)	Normal		
+JER	43	3	Azariah, son of Hoshaiah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Implicit		
+JER	43	9	God		God (the LORD)	Implicit		
 JER	43	10	God		God (the LORD)	Normal		
-JER	43	11	God		God (the LORD)	Normal		
-JER	43	12	God		God (the LORD)	Normal		
-JER	43	13	God		God (the LORD)	Normal		
+JER	43	10	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	43	11	God		God (the LORD)	Implicit		
+JER	43	11	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	43	12	God		God (the LORD)	Implicit		
+JER	43	12	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	43	13	God		God (the LORD)	Implicit		
+JER	43	13	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	44	2	God		God (the LORD)	Normal		
-JER	44	3	God		God (the LORD)	Normal		
+JER	44	3	God		God (the LORD)	Implicit		
+JER	44	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	44	4	God		God (the LORD)	Normal		
-JER	44	5	God		God (the LORD)	Normal		
-JER	44	6	God		God (the LORD)	Normal		
+JER	44	4	prophets			Quotation		
+JER	44	4	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	5	God		God (the LORD)	Implicit		
+JER	44	5	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	6	God		God (the LORD)	Implicit		
+JER	44	6	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	7	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	44	7	God		God (the LORD)	Normal		
-JER	44	8	God		God (the LORD)	Normal		
-JER	44	9	God		God (the LORD)	Normal		
-JER	44	10	God		God (the LORD)	Normal		
+JER	44	8	God		God (the LORD)	Implicit		
+JER	44	8	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	9	God		God (the LORD)	Implicit		
+JER	44	9	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	10	God		God (the LORD)	Implicit		
+JER	44	10	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	11	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	44	11	God		God (the LORD)	Normal		
-JER	44	12	God		God (the LORD)	Normal		
-JER	44	13	God		God (the LORD)	Normal		
-JER	44	14	God		God (the LORD)	Normal		
-JER	44	16	idolaters from Judah (men)			Normal		
-JER	44	17	idolaters from Judah (men)			Normal		
-JER	44	18	idolaters from Judah (men)			Normal		
+JER	44	12	God		God (the LORD)	Implicit		
+JER	44	12	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	13	God		God (the LORD)	Implicit		
+JER	44	13	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	14	God		God (the LORD)	Implicit		
+JER	44	14	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	16	idolaters from Judah (men)/idolaters from Judah (women)			Implicit	idolaters from Judah (men)	
+JER	44	17	idolaters from Judah (men)/idolaters from Judah (women)			Implicit	idolaters from Judah (men)	
+JER	44	18	idolaters from Judah (men)/idolaters from Judah (women)			Implicit	idolaters from Judah (men)	
 JER	44	19	idolaters from Judah (women)			Normal		
-JER	44	21	Jeremiah			Normal		
-JER	44	22	Jeremiah			Normal		
-JER	44	23	Jeremiah			Normal		
+JER	44	21	Jeremiah			Implicit		
+JER	44	22	Jeremiah			Implicit		
+JER	44	23	Jeremiah			Implicit		
 JER	44	24	Jeremiah			Normal		
 JER	44	25	Jeremiah			Normal		
 JER	44	25	God		God (the LORD)	Normal		
+JER	44	25	idolaters from Judah (men)			Quotation		
 JER	44	26	Jeremiah			Normal		
 JER	44	26	God		God (the LORD)	Normal		
-JER	44	27	Jeremiah			Normal		
-JER	44	27	God		God (the LORD)	Normal		
-JER	44	28	Jeremiah			Normal		
-JER	44	28	God		God (the LORD)	Normal		
+JER	44	27	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	27	God		God (the LORD)	Implicit		
+JER	44	28	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	44	28	God		God (the LORD)	Implicit		
 JER	44	29	Jeremiah			Normal		
 JER	44	29	God		God (the LORD)	Normal		
 JER	44	30	Jeremiah			Normal		
 JER	44	30	God		God (the LORD)	Normal		
 JER	45	2	Jeremiah			Normal		
-JER	45	3	Jeremiah			Normal		
-JER	45	4	Jeremiah			Normal		
-JER	45	5	Jeremiah			Normal		
+JER	45	3	God		God (the LORD)	Implicit		
+JER	45	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	45	4	God		God (the LORD)	Normal		
+JER	45	4	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	45	5	God		God (the LORD)	Normal		
+JER	45	5	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	46	2	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	46	2	God		God (the LORD)	Potential		
-JER	46	3	God		God (the LORD)	Normal		
-JER	46	4	God		God (the LORD)	Normal		
+JER	46	3	God		God (the LORD)	Implicit		
+JER	46	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	46	4	God		God (the LORD)	Implicit		
+JER	46	4	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	46	5	God		God (the LORD)	Normal		
-JER	46	6	God		God (the LORD)	Normal		
-JER	46	7	God		God (the LORD)	Normal		
-JER	46	8	God		God (the LORD)	Normal		
-JER	46	9	God		God (the LORD)	Normal		
-JER	46	10	God		God (the LORD)	Normal		
-JER	46	11	God		God (the LORD)	Normal		
-JER	46	12	God		God (the LORD)	Normal		
+JER	46	5	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	6	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	6	God		God (the LORD)	Alternate		
+JER	46	7	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	7	God		God (the LORD)	Alternate		
+JER	46	8	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	46	8	God		God (the LORD)	Alternate		
+JER	46	8	Egyptians		Egypt	Hypothetical		
+JER	46	9	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	9	God		God (the LORD)	Alternate		
+JER	46	10	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	10	God		God (the LORD)	Alternate		
+JER	46	11	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	11	God		God (the LORD)	Alternate		
+JER	46	12	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	12	God		God (the LORD)	Alternate		
 JER	46	14	God		God (the LORD)	Normal		
-JER	46	15	God		God (the LORD)	Normal		
-JER	46	16	God		God (the LORD)	Normal		
-JER	46	17	God		God (the LORD)	Normal		
+JER	46	14	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	46	15	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	15	God		God (the LORD)	Alternate		
+JER	46	16	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	46	16	God		God (the LORD)	Alternate		
+JER	46	16	Egyptians			Hypothetical		
+JER	46	17	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	17	God		God (the LORD)	Alternate		
 JER	46	18	God		God (the LORD)	Normal		
-JER	46	19	God		God (the LORD)	Normal		
-JER	46	20	God		God (the LORD)	Normal		
-JER	46	21	God		God (the LORD)	Normal		
-JER	46	22	God		God (the LORD)	Normal		
+JER	46	18	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	19	God		God (the LORD)	Implicit		
+JER	46	19	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	46	20	God		God (the LORD)	Implicit		
+JER	46	20	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	46	21	God		God (the LORD)	Implicit		
+JER	46	21	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	46	22	God		God (the LORD)	Implicit		
+JER	46	22	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	46	23	God		God (the LORD)	Normal		
-JER	46	24	God		God (the LORD)	Normal		
+JER	46	23	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	24	God		God (the LORD)	Implicit		
+JER	46	24	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	46	25	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	46	25	God		God (the LORD)	Normal		
 JER	46	26	God		God (the LORD)	Normal		
-JER	46	27	God		God (the LORD)	Normal		
-JER	46	28	God		God (the LORD)	Normal		
+JER	46	26	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	46	27	God		God (the LORD)	Implicit		
+JER	46	27	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	46	28	God		God (the LORD)	Implicit		
+JER	46	28	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	47	2	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	47	2	God		God (the LORD)	Normal		
-JER	47	3	God		God (the LORD)	Normal		
-JER	47	4	God		God (the LORD)	Normal		
-JER	47	5	God		God (the LORD)	Normal		
-JER	47	6	God		God (the LORD)	Normal		
-JER	47	7	God		God (the LORD)	Normal		
+JER	47	3	God		God (the LORD)	Implicit		
+JER	47	4	God		God (the LORD)	Implicit		
+JER	47	5	God		God (the LORD)	Implicit		
+JER	47	6	God		God (the LORD)	Implicit		
+JER	47	7	God		God (the LORD)	Implicit		
+JER	48	1	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	48	1	God		God (the LORD)	Normal		
 JER	48	2	God		God (the LORD)	Normal		
-JER	48	3	God		God (the LORD)	Normal		
-JER	48	4	God		God (the LORD)	Normal		
-JER	48	5	God		God (the LORD)	Normal		
-JER	48	6	God		God (the LORD)	Normal		
-JER	48	7	God		God (the LORD)	Normal		
-JER	48	8	God		God (the LORD)	Normal		
-JER	48	9	God		God (the LORD)	Normal		
-JER	48	10	God		God (the LORD)	Normal		
-JER	48	11	God		God (the LORD)	Normal		
+JER	48	2	Heshbon, people of			Normal		
+JER	48	3	God		God (the LORD)	Implicit		
+JER	48	4	God		God (the LORD)	Implicit		
+JER	48	5	God		God (the LORD)	Implicit		
+JER	48	6	God		God (the LORD)	Implicit		
+JER	48	7	God		God (the LORD)	Implicit		
+JER	48	8	God		God (the LORD)	Implicit		
+JER	48	9	God		God (the LORD)	Implicit		
+JER	48	10	God		God (the LORD)	Implicit		
+JER	48	11	God		God (the LORD)	Implicit		
 JER	48	12	God		God (the LORD)	Normal		
-JER	48	13	God		God (the LORD)	Normal		
+JER	48	12	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	13	God		God (the LORD)	Implicit		
 JER	48	14	God		God (the LORD)	Normal		
+JER	48	14	Moabites			Hypothetical		
 JER	48	15	God		God (the LORD)	Normal		
-JER	48	16	God		God (the LORD)	Normal		
+JER	48	15	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	16	God		God (the LORD)	Implicit		
 JER	48	17	God		God (the LORD)	Normal		
-JER	48	18	God		God (the LORD)	Normal		
+JER	48	17	neighboring nations around Moab			Hypothetical		
+JER	48	18	God		God (the LORD)	Implicit		
 JER	48	19	God		God (the LORD)	Normal		
-JER	48	20	God		God (the LORD)	Normal		
-JER	48	21	God		God (the LORD)	Normal		
-JER	48	22	God		God (the LORD)	Normal		
-JER	48	23	God		God (the LORD)	Normal		
-JER	48	24	God		God (the LORD)	Normal		
+JER	48	19	Aroer, inhabitant of			Hypothetical		
+JER	48	20	God		God (the LORD)	Implicit		
+JER	48	21	God		God (the LORD)	Implicit		
+JER	48	22	God		God (the LORD)	Implicit		
+JER	48	23	God		God (the LORD)	Implicit		
+JER	48	24	God		God (the LORD)	Implicit		
 JER	48	25	God		God (the LORD)	Normal		
-JER	48	26	God		God (the LORD)	Normal		
-JER	48	27	God		God (the LORD)	Normal		
-JER	48	28	God		God (the LORD)	Normal		
-JER	48	29	God		God (the LORD)	Normal		
+JER	48	25	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	26	God		God (the LORD)	Implicit		
+JER	48	27	God		God (the LORD)	Implicit		
+JER	48	28	God		God (the LORD)	Implicit		
+JER	48	29	God		God (the LORD)	Implicit		
 JER	48	30	God		God (the LORD)	Normal		
-JER	48	31	God		God (the LORD)	Normal		
-JER	48	32	God		God (the LORD)	Normal		
-JER	48	33	God		God (the LORD)	Normal		
-JER	48	34	God		God (the LORD)	Normal		
+JER	48	30	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	31	God		God (the LORD)	Implicit		
+JER	48	32	God		God (the LORD)	Implicit		
+JER	48	33	God		God (the LORD)	Implicit		
+JER	48	34	God		God (the LORD)	Implicit		
 JER	48	35	God		God (the LORD)	Normal		
-JER	48	36	God		God (the LORD)	Normal		
-JER	48	37	God		God (the LORD)	Normal		
+JER	48	35	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	36	God		God (the LORD)	Implicit		
+JER	48	37	God		God (the LORD)	Implicit		
 JER	48	38	God		God (the LORD)	Normal		
-JER	48	39	God		God (the LORD)	Normal		
-JER	48	40	God		God (the LORD)	Normal		
-JER	48	41	God		God (the LORD)	Normal		
-JER	48	42	God		God (the LORD)	Normal		
+JER	48	38	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	39	God		God (the LORD)	Implicit		
+JER	48	40	God		God (the LORD)	Implicit		
+JER	48	41	God		God (the LORD)	Implicit		
+JER	48	42	God		God (the LORD)	Implicit		
 JER	48	43	God		God (the LORD)	Normal		
+JER	48	43	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	48	44	God		God (the LORD)	Normal		
-JER	48	45	God		God (the LORD)	Normal		
-JER	48	46	God		God (the LORD)	Normal		
+JER	48	44	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	48	45	God		God (the LORD)	Implicit		
+JER	48	46	God		God (the LORD)	Implicit		
 JER	48	47	God		God (the LORD)	Normal		
+JER	48	47	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	1	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	1	God		God (the LORD)	Normal		
 JER	49	2	God		God (the LORD)	Normal		
-JER	49	3	God		God (the LORD)	Normal		
-JER	49	4	God		God (the LORD)	Normal		
+JER	49	2	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	3	God		God (the LORD)	Implicit		
+JER	49	4	God		God (the LORD)	Implicit		
 JER	49	5	God		God (the LORD)	Normal		
+JER	49	5	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	6	God		God (the LORD)	Normal		
+JER	49	6	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	7	God		God (the LORD)	Normal		
-JER	49	8	God		God (the LORD)	Normal		
-JER	49	9	God		God (the LORD)	Normal		
-JER	49	10	God		God (the LORD)	Normal		
-JER	49	11	God		God (the LORD)	Normal		
+JER	49	7	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	8	God		God (the LORD)	Implicit		
+JER	49	9	God		God (the LORD)	Implicit		
+JER	49	10	God		God (the LORD)	Implicit		
+JER	49	11	God		God (the LORD)	Implicit		
+JER	49	12	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	12	God		God (the LORD)	Normal		
 JER	49	13	God		God (the LORD)	Normal		
+JER	49	13	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	14	God		God (the LORD)	Normal		
-JER	49	15	God		God (the LORD)	Normal		
+JER	49	14	ambassador			Hypothetical		
+JER	49	15	God		God (the LORD)	Implicit		
 JER	49	16	God		God (the LORD)	Normal		
-JER	49	17	God		God (the LORD)	Normal		
+JER	49	16	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	17	God		God (the LORD)	Implicit		
 JER	49	18	God		God (the LORD)	Normal		
-JER	49	19	God		God (the LORD)	Normal		
+JER	49	18	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	19	God		God (the LORD)	Implicit		
+JER	49	20	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	20	God		God (the LORD)	Normal		
+JER	49	21	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	21	God		God (the LORD)	Normal		
+JER	49	22	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	22	God		God (the LORD)	Normal		
 JER	49	23	God		God (the LORD)	Normal		
-JER	49	24	God		God (the LORD)	Normal		
-JER	49	25	God		God (the LORD)	Normal		
+JER	49	24	God		God (the LORD)	Implicit		
+JER	49	25	God		God (the LORD)	Implicit		
 JER	49	26	God		God (the LORD)	Normal		
-JER	49	27	God		God (the LORD)	Normal		
+JER	49	26	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	27	God		God (the LORD)	Implicit		
 JER	49	28	God		God (the LORD)	Normal		
-JER	49	29	God		God (the LORD)	Normal		
+JER	49	28	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	29	God		God (the LORD)	Implicit		
 JER	49	30	God		God (the LORD)	Normal		
+JER	49	30	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	31	God		God (the LORD)	Normal		
+JER	49	31	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	32	God		God (the LORD)	Normal		
-JER	49	33	God		God (the LORD)	Normal		
+JER	49	32	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	49	33	God		God (the LORD)	Implicit		
+JER	49	33	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	49	35	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	49	35	God		God (the LORD)	Normal		
-JER	49	36	God		God (the LORD)	Normal		
+JER	49	36	God		God (the LORD)	Implicit		
 JER	49	37	God		God (the LORD)	Normal		
+JER	49	37	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	38	God		God (the LORD)	Normal		
+JER	49	38	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	49	39	God		God (the LORD)	Normal		
+JER	49	39	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	2	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	50	2	God		God (the LORD)	Normal		
-JER	50	2	Jeremiah			Normal		
-JER	50	3	God		God (the LORD)	Normal		
-JER	50	3	Jeremiah			Normal		
+JER	50	3	God		God (the LORD)	Implicit		
+JER	50	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	4	God		God (the LORD)	Normal		
-JER	50	4	Jeremiah			Normal		
+JER	50	4	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	50	5	God		God (the LORD)	Normal		
-JER	50	5	Jeremiah			Normal		
-JER	50	6	God		God (the LORD)	Normal		
-JER	50	6	Jeremiah			Normal		
+JER	50	5	Israel, men of/Judah, people of		children of Israel/children of Judah	Hypothetical		
+JER	50	5	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	6	God		God (the LORD)	Implicit		
+JER	50	6	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	7	God		God (the LORD)	Normal		
-JER	50	7	Jeremiah			Normal		
-JER	50	8	God		God (the LORD)	Normal		
-JER	50	8	Jeremiah			Normal		
-JER	50	9	God		God (the LORD)	Normal		
-JER	50	9	Jeremiah			Normal		
+JER	50	7	enemies of Israel		adversaries of God's people	Hypothetical		
+JER	50	7	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	8	God		God (the LORD)	Implicit		
+JER	50	8	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	9	God		God (the LORD)	Implicit		
+JER	50	9	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	10	God		God (the LORD)	Normal		
-JER	50	10	Jeremiah			Normal		
-JER	50	11	God		God (the LORD)	Normal		
-JER	50	11	Jeremiah			Normal		
-JER	50	12	God		God (the LORD)	Normal		
-JER	50	12	Jeremiah			Normal		
-JER	50	13	God		God (the LORD)	Normal		
-JER	50	13	Jeremiah			Normal		
-JER	50	14	God		God (the LORD)	Normal		
-JER	50	14	Jeremiah			Normal		
-JER	50	15	God		God (the LORD)	Normal		
-JER	50	15	Jeremiah			Normal		
-JER	50	16	God		God (the LORD)	Normal		
-JER	50	16	Jeremiah			Normal		
-JER	50	17	God		God (the LORD)	Normal		
-JER	50	17	Jeremiah			Normal		
+JER	50	10	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	11	God		God (the LORD)	Implicit		
+JER	50	11	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	12	God		God (the LORD)	Implicit		
+JER	50	12	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	13	God		God (the LORD)	Implicit		
+JER	50	13	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	14	God		God (the LORD)	Implicit		
+JER	50	14	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	15	God		God (the LORD)	Implicit		
+JER	50	15	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	16	God		God (the LORD)	Implicit		
+JER	50	16	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	17	God		God (the LORD)	Implicit		
+JER	50	17	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	18	God		God (the LORD)	Normal		
-JER	50	18	Jeremiah			Normal		
-JER	50	19	God		God (the LORD)	Normal		
-JER	50	19	Jeremiah			Normal		
+JER	50	18	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	19	God		God (the LORD)	Implicit		
+JER	50	19	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	20	God		God (the LORD)	Normal		
-JER	50	20	Jeremiah			Normal		
+JER	50	20	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	50	21	God		God (the LORD)	Normal		
-JER	50	21	Jeremiah			Normal		
-JER	50	22	God		God (the LORD)	Normal		
-JER	50	22	Jeremiah			Normal		
-JER	50	23	God		God (the LORD)	Normal		
-JER	50	23	Jeremiah			Normal		
-JER	50	24	God		God (the LORD)	Normal		
-JER	50	24	Jeremiah			Normal		
-JER	50	25	God		God (the LORD)	Normal		
-JER	50	25	Jeremiah			Normal		
-JER	50	26	God		God (the LORD)	Normal		
-JER	50	26	Jeremiah			Normal		
-JER	50	27	God		God (the LORD)	Normal		
-JER	50	27	Jeremiah			Normal		
-JER	50	28	God		God (the LORD)	Normal		
-JER	50	28	Jeremiah			Normal		
-JER	50	29	God		God (the LORD)	Normal		
-JER	50	29	Jeremiah			Normal		
+JER	50	21	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	22	God		God (the LORD)	Implicit		
+JER	50	22	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	23	God		God (the LORD)	Implicit		
+JER	50	23	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	24	God		God (the LORD)	Implicit		
+JER	50	24	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	25	God		God (the LORD)	Potential		
+JER	50	25	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	26	God		God (the LORD)	Potential		
+JER	50	26	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	27	God		God (the LORD)	Potential		
+JER	50	27	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	28	God		God (the LORD)	Potential		
+JER	50	28	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	29	God		God (the LORD)	Potential		
+JER	50	29	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	50	30	God		God (the LORD)	Normal		
-JER	50	30	Jeremiah			Normal		
+JER	50	30	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	50	31	God		God (the LORD)	Normal		
-JER	50	31	Jeremiah			Normal		
-JER	50	32	God		God (the LORD)	Normal		
-JER	50	32	Jeremiah			Normal		
+JER	50	31	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	32	God		God (the LORD)	Implicit		
+JER	50	32	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	33	God		God (the LORD)	Normal		
-JER	50	33	Jeremiah			Normal		
-JER	50	34	God		God (the LORD)	Normal		
-JER	50	34	Jeremiah			Normal		
+JER	50	33	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	34	God		God (the LORD)	Alternate		
+JER	50	34	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	50	35	God		God (the LORD)	Normal		
-JER	50	35	Jeremiah			Normal		
-JER	50	36	God		God (the LORD)	Normal		
-JER	50	36	Jeremiah			Normal		
-JER	50	37	God		God (the LORD)	Normal		
-JER	50	37	Jeremiah			Normal		
-JER	50	38	God		God (the LORD)	Normal		
-JER	50	38	Jeremiah			Normal		
-JER	50	39	God		God (the LORD)	Normal		
-JER	50	39	Jeremiah			Normal		
+JER	50	35	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	36	God		God (the LORD)	Implicit		
+JER	50	36	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	37	God		God (the LORD)	Implicit		
+JER	50	37	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	38	God		God (the LORD)	Implicit		
+JER	50	38	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	39	God		God (the LORD)	Implicit		
+JER	50	39	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	50	40	God		God (the LORD)	Normal		
-JER	50	40	Jeremiah			Normal		
-JER	50	41	God		God (the LORD)	Normal		
-JER	50	41	Jeremiah			Normal		
-JER	50	42	God		God (the LORD)	Normal		
-JER	50	42	Jeremiah			Normal		
-JER	50	43	God		God (the LORD)	Normal		
-JER	50	43	Jeremiah			Normal		
-JER	50	44	God		God (the LORD)	Normal		
-JER	50	44	Jeremiah			Normal		
+JER	50	40	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	41	God		God (the LORD)	Implicit		
+JER	50	41	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	42	God		God (the LORD)	Implicit		
+JER	50	42	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	43	God		God (the LORD)	Implicit		
+JER	50	43	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	44	God		God (the LORD)	Implicit		
+JER	50	44	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	50	45	God		God (the LORD)	Potential		
+JER	50	45	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	50	46	God		God (the LORD)	Potential		
+JER	50	46	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	1	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	1	God		God (the LORD)	Normal		
-JER	51	2	God		God (the LORD)	Normal		
-JER	51	3	God		God (the LORD)	Normal		
-JER	51	4	God		God (the LORD)	Normal		
-JER	51	5	God		God (the LORD)	Normal		
-JER	51	6	God		God (the LORD)	Normal		
-JER	51	7	God		God (the LORD)	Normal		
-JER	51	8	God		God (the LORD)	Normal		
-JER	51	9	God		God (the LORD)	Normal		
-JER	51	10	God		God (the LORD)	Normal		
-JER	51	11	God		God (the LORD)	Normal		
-JER	51	12	God		God (the LORD)	Normal		
-JER	51	13	God		God (the LORD)	Normal		
+JER	51	2	God		God (the LORD)	Implicit		
+JER	51	3	God		God (the LORD)	Implicit		
+JER	51	4	God		God (the LORD)	Implicit		
+JER	51	5	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	5	God		God (the LORD)	Potential		
+JER	51	6	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	6	God		God (the LORD)	Potential		
+JER	51	7	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	7	God		God (the LORD)	Potential		
+JER	51	8	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	8	God		God (the LORD)	Potential		
+JER	51	9	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	10	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	11	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	12	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	13	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	14	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	14	God		God (the LORD)	Normal		
-JER	51	15	God		God (the LORD)	Normal		
-JER	51	16	God		God (the LORD)	Normal		
-JER	51	17	God		God (the LORD)	Normal		
-JER	51	18	God		God (the LORD)	Normal		
-JER	51	19	God		God (the LORD)	Normal		
-JER	51	20	God		God (the LORD)	Normal		
-JER	51	21	God		God (the LORD)	Normal		
-JER	51	22	God		God (the LORD)	Normal		
-JER	51	23	God		God (the LORD)	Normal		
+JER	51	20	God		God (the LORD)	Implicit		
+JER	51	21	God		God (the LORD)	Implicit		
+JER	51	22	God		God (the LORD)	Implicit		
+JER	51	23	God		God (the LORD)	Implicit		
 JER	51	24	God		God (the LORD)	Normal		
+JER	51	24	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	25	God		God (the LORD)	Normal		
+JER	51	25	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	26	God		God (the LORD)	Normal		
-JER	51	27	God		God (the LORD)	Normal		
-JER	51	28	God		God (the LORD)	Normal		
-JER	51	29	God		God (the LORD)	Normal		
-JER	51	30	God		God (the LORD)	Normal		
-JER	51	31	God		God (the LORD)	Normal		
-JER	51	32	God		God (the LORD)	Normal		
+JER	51	26	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	27	God		God (the LORD)	Potential		
+JER	51	27	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	28	God		God (the LORD)	Potential		
+JER	51	28	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	33	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	33	God		God (the LORD)	Normal		
-JER	51	34	God		God (the LORD)	Normal		
+JER	51	34	Jerusalem (personified)			Hypothetical		
+JER	51	34	God		God (the LORD)	Alternate		
+JER	51	35	Jerusalem (personified)			Hypothetical		
 JER	51	35	God		God (the LORD)	Normal		
+JER	51	35	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	36	God		God (the LORD)	Normal		
-JER	51	37	God		God (the LORD)	Normal		
-JER	51	38	God		God (the LORD)	Normal		
+JER	51	37	God		God (the LORD)	Implicit		
+JER	51	37	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	51	38	God		God (the LORD)	Implicit		
+JER	51	38	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	51	39	God		God (the LORD)	Normal		
-JER	51	40	God		God (the LORD)	Normal		
-JER	51	41	God		God (the LORD)	Normal		
-JER	51	42	God		God (the LORD)	Normal		
-JER	51	43	God		God (the LORD)	Normal		
-JER	51	44	God		God (the LORD)	Normal		
-JER	51	45	God		God (the LORD)	Normal		
-JER	51	46	God		God (the LORD)	Normal		
-JER	51	47	God		God (the LORD)	Normal		
+JER	51	39	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	40	God		God (the LORD)	Implicit		
+JER	51	41	God		God (the LORD)	Implicit		
+JER	51	42	God		God (the LORD)	Implicit		
+JER	51	43	God		God (the LORD)	Implicit		
+JER	51	44	God		God (the LORD)	Implicit		
+JER	51	47	God		God (the LORD)	Implicit		
 JER	51	48	God		God (the LORD)	Normal		
-JER	51	49	God		God (the LORD)	Normal		
-JER	51	50	God		God (the LORD)	Normal		
-JER	51	51	God		God (the LORD)	Normal		
+JER	51	48	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	49	God		God (the LORD)	Potential		
+JER	51	49	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	50	God		God (the LORD)	Potential		
+JER	51	50	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	52	God		God (the LORD)	Normal		
+JER	51	52	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	53	God		God (the LORD)	Normal		
-JER	51	54	God		God (the LORD)	Normal		
-JER	51	55	God		God (the LORD)	Normal		
-JER	51	56	God		God (the LORD)	Normal		
+JER	51	53	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	54	God		God (the LORD)	Potential		
+JER	51	54	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	55	God		God (the LORD)	Potential		
+JER	51	55	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	51	56	God		God (the LORD)	Potential		
+JER	51	56	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	57	God		God (the LORD)	Normal		
+JER	51	57	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	58	God		God (the LORD)	Normal		
+JER	51	58	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	51	61	Jeremiah			Normal		
 JER	51	62	Seraiah			Hypothetical		
 JER	51	62	Jeremiah			Normal		
