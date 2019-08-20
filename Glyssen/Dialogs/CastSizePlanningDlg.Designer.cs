@@ -18,7 +18,7 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
-				LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
+				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
 
 				if (m_viewModel != null)
 				{
