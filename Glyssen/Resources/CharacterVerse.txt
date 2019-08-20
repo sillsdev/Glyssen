@@ -11512,7 +11512,7 @@ JER	39	16	Jeremiah		Jeremiah (the LORD says)	Normal
 JER	39	17	God		God (the LORD)	Normal		
 JER	39	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	39	18	God		God (the LORD)	Normal		
-JER	39	17	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	39	18	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	40	2	Nebuzaradan			Normal		
 JER	40	3	Nebuzaradan			Implicit		
 JER	40	4	Nebuzaradan			Implicit		
