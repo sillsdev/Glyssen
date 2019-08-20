@@ -326,6 +326,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="icudt56.dll"/>
       <ComponentRef Id="icuin56.dll"/>
       <ComponentRef Id="icuuc56.dll"/>
+	  <ComponentRef Id="System.Runtime.InteropServices.RuntimeInformation.dll"/>
+	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
 	  <ComponentRef Id="DotNetZip.dll"/>
