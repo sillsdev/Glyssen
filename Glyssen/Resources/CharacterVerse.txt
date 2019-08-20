@@ -11335,146 +11335,219 @@ JER	32	43	God		God (the LORD)	Implicit
 JER	32	43	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	32	44	God		God (the LORD)	Normal		
 JER	32	44	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	33	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	33	2	God		God (the LORD)	Normal		
-JER	33	3	God		God (the LORD)	Normal		
-JER	33	4	God		God (the LORD)	Normal		
-JER	33	5	God		God (the LORD)	Normal		
-JER	33	6	God		God (the LORD)	Normal		
-JER	33	7	God		God (the LORD)	Normal		
-JER	33	8	God		God (the LORD)	Normal		
-JER	33	9	God		God (the LORD)	Normal		
+JER	33	3	God		God (the LORD)	Implicit		
+JER	33	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	4	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	33	4	God		God (the LORD)	Alternate		
+JER	33	5	God		God (the LORD)	Implicit		
+JER	33	5	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	6	God		God (the LORD)	Implicit		
+JER	33	6	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	7	God		God (the LORD)	Implicit		
+JER	33	7	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	8	God		God (the LORD)	Implicit		
+JER	33	8	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	9	God		God (the LORD)	Implicit		
+JER	33	9	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	10	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	10	God		God (the LORD)	Normal		
+JER	33	10	you (hypothetical)			Hypothetical		
 JER	33	11	God		God (the LORD)	Normal		
+JER	33	11	voice of joy and gladness			Hypothetical		
+JER	33	11	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	33	12	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	12	God		God (the LORD)	Normal		
 JER	33	13	God		God (the LORD)	Normal		
+JER	33	13	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	14	God		God (the LORD)	Normal		
-JER	33	15	God		God (the LORD)	Normal		
-JER	33	16	God		God (the LORD)	Normal		
+JER	33	14	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	33	15	God		God (the LORD)	Implicit		
+JER	33	15	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	16	God		God (the LORD)	Implicit		
+JER	33	16	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	17	God		God (the LORD)	Normal		
-JER	33	18	God		God (the LORD)	Normal		
+JER	33	18	God		God (the LORD)	Implicit		
+JER	33	18	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	20	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	20	God		God (the LORD)	Normal		
-JER	33	21	God		God (the LORD)	Normal		
-JER	33	22	God		God (the LORD)	Normal		
-JER	33	24	God		God (the LORD)	Normal		
+JER	33	21	God		God (the LORD)	Implicit		
+JER	33	21	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	22	God		God (the LORD)	Implicit		
+JER	33	22	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	24	God		God (the LORD)	Implicit		
+JER	33	24	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	33	25	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	33	25	God		God (the LORD)	Normal		
-JER	33	26	God		God (the LORD)	Normal		
+JER	33	26	God		God (the LORD)	Implicit		
+JER	33	26	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	34	2	God		God (the LORD)	Normal		
+JER	34	3	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	34	3	God		God (the LORD)	Normal		
+JER	34	4	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	34	4	God		God (the LORD)	Normal		
 JER	34	5	God		God (the LORD)	Normal		
-JER	34	9	God		God (the LORD)	Indirect		
+JER	34	5	mourners	lamenting		Hypothetical		
+JER	34	5	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	34	8	Zedekiah, king of Judah			Indirect		
+JER	34	9	Zedekiah, king of Judah			Indirect		
 JER	34	10	officials/people			Indirect		
+JER	34	13	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	34	13	God		God (the LORD)	Normal		
-JER	34	14	God		God (the LORD)	Normal		
-JER	34	15	God		God (the LORD)	Normal		
-JER	34	16	God		God (the LORD)	Normal		
+JER	34	14	God		God (the LORD)	Implicit		
+JER	34	14	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	15	God		God (the LORD)	Implicit		
+JER	34	15	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	16	God		God (the LORD)	Implicit		
+JER	34	16	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	34	17	God		God (the LORD)	Normal		
-JER	34	18	God		God (the LORD)	Normal		
-JER	34	19	God		God (the LORD)	Normal		
-JER	34	20	God		God (the LORD)	Normal		
-JER	34	21	God		God (the LORD)	Normal		
+JER	34	18	God		God (the LORD)	Implicit		
+JER	34	18	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	19	God		God (the LORD)	Implicit		
+JER	34	19	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	20	God		God (the LORD)	Implicit		
+JER	34	20	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	34	21	God		God (the LORD)	Implicit		
+JER	34	21	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	34	22	God		God (the LORD)	Normal		
-JER	35	2	God		God (the LORD)	Normal		
-JER	35	5	Jeremiah			Normal		
+JER	34	22	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	35	2	God		God (the LORD)	Implicit		
+JER	35	5	Jeremiah			Quotation		
 JER	35	6	Recabite family, men of			Normal		
-JER	35	7	Recabite family, men of			Normal		
-JER	35	8	Recabite family, men of			Normal		
-JER	35	9	Recabite family, men of			Normal		
-JER	35	10	Recabite family, men of			Normal		
-JER	35	11	Recabite family, men of			Normal		
+JER	35	7	Recabite family, men of			Implicit		
+JER	35	8	Recabite family, men of			Implicit		
+JER	35	9	Recabite family, men of			Implicit		
+JER	35	10	Recabite family, men of			Implicit		
+JER	35	11	Recabite family, men of			Implicit		
+JER	35	13	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	35	13	God		God (the LORD)	Normal		
-JER	35	14	God		God (the LORD)	Normal		
+JER	35	14	God		God (the LORD)	Implicit		
+JER	35	14	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	35	15	God		God (the LORD)	Normal		
-JER	35	16	God		God (the LORD)	Normal		
+JER	35	15	prophets			Quotation		
+JER	35	16	God		God (the LORD)	Implicit		
+JER	35	16	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	35	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	35	17	God		God (the LORD)	Normal		
 JER	35	18	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	35	19	Jeremiah		Jeremiah (the LORD says)	Normal		
-JER	36	2	God		God (the LORD)	Normal		
-JER	36	3	God		God (the LORD)	Normal		
+JER	35	19	God		God (the LORD)	Normal		
+JER	36	2	God		God (the LORD)	Implicit		
+JER	36	3	God		God (the LORD)	Implicit		
 JER	36	5	Jeremiah			Normal		
-JER	36	6	Jeremiah			Normal		
-JER	36	7	Jeremiah			Normal		
+JER	36	6	Jeremiah			Implicit		
+JER	36	7	Jeremiah			Implicit		
 JER	36	14	Jehudi			Normal		
 JER	36	15	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	16	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	17	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	18	Baruch			Normal		
 JER	36	19	Elishama/Delaiah/Elnathan/Gemariah, son of Shaphan/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
-JER	36	28	God		God (the LORD)	Normal		
+JER	36	25	Elnathan/Delaiah/Gemariah, son of Shaphan		Elnathan/Delaiah/Gemariah	Indirect		
+JER	36	26	Zedekiah, king of Judah			Indirect		
+JER	36	28	God		God (the LORD)	Implicit		
 JER	36	29	God		God (the LORD)	Normal		
+JER	36	29	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	36	30	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	36	30	God		God (the LORD)	Normal		
-JER	36	31	God		God (the LORD)	Normal		
+JER	36	31	God		God (the LORD)	Implicit		
+JER	36	31	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	37	3	Jehucal/Zephaniah, priest			Normal		
+JER	37	3	Zedekiah, king of Judah			Alternate		
+JER	37	7	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	37	7	God		God (the LORD)	Normal		
-JER	37	8	God		God (the LORD)	Normal		
+JER	37	8	God		God (the LORD)	Implicit		
+JER	37	8	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	37	9	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	37	9	Zedekiah, king of Judah			Hypothetical		
 JER	37	9	God		God (the LORD)	Normal		
-JER	37	10	God		God (the LORD)	Normal		
+JER	37	10	God		God (the LORD)	Implicit		
+JER	37	10	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	37	13	Irijah, captain of the guard of Judah			Normal		
 JER	37	14	Jeremiah			Normal		
 JER	37	17	Jeremiah			Normal		
 JER	37	17	Zedekiah, king of Judah			Normal		
 JER	37	18	Jeremiah			Normal		
-JER	37	19	Jeremiah			Normal		
-JER	37	20	Jeremiah			Normal		
+JER	37	19	Jeremiah			Implicit		
+JER	37	20	Jeremiah			Implicit		
 JER	37	21	Zedekiah, king of Judah			Indirect		
 JER	38	2	Jeremiah		Jeremiah (the LORD says)	Normal		
-JER	38	3	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	38	2	God		God (the LORD)	Normal		
+JER	38	3	Jeremiah		Jeremiah (the LORD says)	Potential		
+JER	38	3	God		God (the LORD)	Normal		
 JER	38	4	Shephatiah/Gedaliah, son of Pashur/Jehucal/Pashur		officials (Shephatiah, Gedaliah, Jehucal, and Pashur)	Normal		
 JER	38	5	Zedekiah, king of Judah			Normal		
-JER	38	9	Ebed-Melech (official of king of Judea)			Normal		
+JER	38	9	Ebed-Melech (official of king of Judea)			Implicit		
 JER	38	10	Zedekiah, king of Judah			Normal		
 JER	38	12	Ebed-Melech (official of king of Judea)			Normal		
 JER	38	14	Zedekiah, king of Judah			Normal		
 JER	38	15	Jeremiah			Normal		
-JER	38	16	Zedekiah, king of Judah			Normal		
+JER	38	16	Zedekiah, king of Judah	secret oath		Normal		
 JER	38	17	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	38	17	God		God (the LORD)	Normal		
+JER	38	18	God		God (the LORD)	Normal		
 JER	38	18	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	38	19	Zedekiah, king of Judah			Normal		
 JER	38	20	Jeremiah			Normal		
-JER	38	21	Jeremiah			Normal		
-JER	38	22	Jeremiah			Normal		
-JER	38	23	Jeremiah			Normal		
+JER	38	21	Jeremiah			Implicit		
+JER	38	22	God		God (the LORD)	Implicit		
+JER	38	22	Jeremiah		Jeremiah (the LORD says)	Alternate		
+JER	38	22	women, remnant of the king of Judah's house			Hypothetical		
+JER	38	23	God		God (the LORD)	Implicit		
+JER	38	23	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	38	24	Zedekiah, king of Judah			Normal		
-JER	38	25	Zedekiah, king of Judah			Normal		
+JER	38	25	Zedekiah, king of Judah			Implicit		
+JER	38	25	Shephatiah/Gedaliah, son of Pashur/Jehucal/Pashur		officials (Shephatiah, Gedaliah, Jehucal, and Pashur)	Hypothetical		
 JER	38	26	Zedekiah, king of Judah			Normal		
+JER	38	27	Jeremiah		Jeremiah (the LORD says)	Indirect		
 JER	39	12	Nebuchadnezzar, king of Babylon			Normal		
-JER	39	12	Nebuzaradan			Normal		
+JER	39	14	Nebuzaradan			Indirect		
+JER	39	14	officers of king of Babylon		Nebushazban/Rabsaris/Nergal Sharezer/Rabmag/all the chief officers of the king of Babylon	Indirect		
 JER	39	16	God		God (the LORD)	Normal		
+JER	39	16	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	39	17	God		God (the LORD)	Normal		
+JER	39	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	39	18	God		God (the LORD)	Normal		
+JER	39	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	40	2	Nebuzaradan			Normal		
-JER	40	3	Nebuzaradan			Normal		
-JER	40	4	Nebuzaradan			Normal		
+JER	40	3	Nebuzaradan			Implicit		
+JER	40	4	Nebuzaradan			Implicit		
 JER	40	5	Nebuzaradan			Normal		
 JER	40	9	Gedaliah, governor of Judah			Normal		
-JER	40	10	Gedaliah, governor of Judah			Normal		
+JER	40	10	Gedaliah, governor of Judah			Implicit		
 JER	40	14	Johanan/army officers			Normal	Johanan	
 JER	40	15	Johanan			Normal		
 JER	40	16	Gedaliah, governor of Judah			Normal		
 JER	41	6	Ishmael, son of Nethaniah (murderer)			Normal		
 JER	41	8	men in mourning, ten of eighty			Normal		
 JER	42	2	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
-JER	42	3	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
+JER	42	3	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Implicit	Johanan	
 JER	42	4	Jeremiah			Normal		
 JER	42	5	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
-JER	42	6	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
-JER	42	9	Jeremiah			Normal		
-JER	42	10	Jeremiah			Normal		
-JER	42	10	God		God (the LORD)	Normal		
-JER	42	11	Jeremiah			Normal		
+JER	42	6	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Implicit	Johanan	
+JER	42	9	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	42	10	God		God (the LORD)	Implicit		
+JER	42	10	Jeremiah		(the LORD says)	Alternate		
 JER	42	11	God		God (the LORD)	Normal		
-JER	42	12	Jeremiah			Normal		
-JER	42	12	God		God (the LORD)	Normal		
-JER	42	13	Jeremiah			Normal		
-JER	42	13	God		God (the LORD)	Normal		
-JER	42	14	Jeremiah			Normal		
-JER	42	14	God		God (the LORD)	Normal		
-JER	42	15	Jeremiah			Normal		
+JER	42	11	Jeremiah		(the LORD says)	Normal		
+JER	42	12	God		God (the LORD)	Implicit		
+JER	42	12	Jeremiah		(the LORD says)	Alternate		
+JER	42	13	God		God (the LORD)	Implicit		
+JER	42	13	Jeremiah		(the LORD says)	Alternate		
+JER	42	13	Judah, remnant of			Hypothetical		
+JER	42	14	God		God (the LORD)	Implicit		
+JER	42	14	Jeremiah		(the LORD says)	Alternate		
+JER	42	14	Judah, remnant of			Hypothetical		
+JER	42	15	Jeremiah		(the LORD says)	Normal		
 JER	42	15	God		God (the LORD)	Normal		
-JER	42	16	Jeremiah			Normal		
-JER	42	16	God		God (the LORD)	Normal		
-JER	42	17	Jeremiah			Normal		
-JER	42	17	God		God (the LORD)	Normal		
+JER	42	16	God		God (the LORD)	Implicit		
+JER	42	16	Jeremiah		(the LORD says)	Alternate		
+JER	42	17	God		God (the LORD)	Implicit		
+JER	42	17	Jeremiah		(the LORD says)	Alternate		
 JER	42	18	Jeremiah			Normal		
 JER	42	18	God		God (the LORD)	Normal		
 JER	42	19	Jeremiah			Normal		

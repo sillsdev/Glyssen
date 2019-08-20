@@ -260,7 +260,7 @@ drunkard	1	Male				PRO 23:35
 each one	1					2CO 9:7
 eagle crying with loud voice	1	PreferMale				REV 8:13
 ear	1	Neuter				1CO 12:16
-Ebed-Melech (official of king of Judea)	1	Male				JER 38:9 & JER 38:12
+Ebed-Melech (official of king of Judea)	1	Male			Ethiopian eunuch	JER 38:9 & JER 38:12
 Edom	1	Male				NUM 20:18 <-(1 more)-> MAL 1:4
 Edomites	-1					PSA 137:7
 Eglon, king of Moab	1	Male				JDG 3:19
@@ -732,6 +732,7 @@ Moses	1	Male				EXO 2:13 <-(1183 more)-> NEH 8:15
 mother of cured man, blind from birth	1	Female				
 mother of false prophet	1	Female				ZEC 13:3
 mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21
+mourners	-1					JER 34:5
 multitude from all nations, tribes, peoples, languages	-1					REV 7:10
 musicians	-1					PSA 87:7
 Naaman	1	Male				2KI 5:4 <-(6 more)-> 2KI 5:23
@@ -770,6 +771,7 @@ officer of King Joram of Israel	1	Male				2KI 7:13
 officer of king of Israel, on whose arm the king leaned	1	Male				2KI 7:2 & 2KI 7:19
 officers	-1	Male				DEU 20:5 <-(3 more)-> ACT 5:23
 officers of king of Aram	-1	Male				2KI 6:12
+officers of king of Babylon	-1	Male				JER 39:14
 officers of magistrates	-1	Male				ACT 16:35
 officers of temple guard	-1	Male				LUK 22:5
 official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52
@@ -1121,6 +1123,7 @@ voice in heaven	13					REV 7:5 <-(4 more)-> REV 13:10
 voice in heaven, loud	1					REV 12:10 <-(1 more)-> REV 12:12
 voice of great crowd in heaven, loud	-1					REV 19:1 <-(1 more)-> REV 19:3
 voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:6 <-(1 more)-> REV 19:8
+voice of joy and gladness	1	Male				JER 33:11
 voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> ISA 40:5
 voices in heaven, loud	-1					REV 11:15
 warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19
@@ -1157,6 +1160,7 @@ woman, wise	1	Female				2SA 20:16 <-(4 more)-> 2SA 20:22
 women of Bethlehem	-1	Female				RUT 1:19 <-(2 more)-> RUT 4:17
 women who oppress the poor	-1	Female				AMO 4:1	Woman of Bashan (female)
 women, dancing	-1	Female				1SA 18:7
+women, remnant of the king of Judah's house	7	Female				JER 38:22
 women, seven	7	Female				ISA 4:1
 worshipers	-1	Male				PSA 122:1
 worshipers of the beast	-1					REV 13:4
