@@ -1,4 +1,5 @@
 ﻿using L10NSharp.UI;
+using L10NSharp.TMXUtils;
 
 namespace Glyssen.Controls
 {
@@ -17,7 +18,7 @@ namespace Glyssen.Controls
 		{
 			if (disposing && (components != null))
 			{
-				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+				LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
 				if (ParentForm != null)
 					ParentForm.Closing -= ParentForm_Closing;
 				components.Dispose();

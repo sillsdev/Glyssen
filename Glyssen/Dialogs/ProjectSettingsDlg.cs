@@ -11,6 +11,7 @@ using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
@@ -58,7 +59,7 @@ namespace Glyssen.Dialogs
 			if (books.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 			ProjectSettingsViewModel = model;
 			HandleStringsLocalized();
 		}
@@ -352,7 +353,16 @@ namespace Glyssen.Dialogs
 					DialogResult = DialogResult.None;
 					return;
 				}
-				DirectoryUtilities.DeleteDirectoryRobust(Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName));
+
+				var existingProjectPath = Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName);
+				if (!RobustIO.DeleteDirectoryAndContents(existingProjectPath))
+				{
+					var failedMsg = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed",
+							"{0} was unable to delete all of the files in {1}. You can try to clean this up manually and then re-attempt saving these changes."),
+						ProductName, existingProjectPath);
+					MessageBox.Show(this, failedMsg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					return;
+				}
 			}
 
             m_model.RecordingProjectName = RecordingProjectName;

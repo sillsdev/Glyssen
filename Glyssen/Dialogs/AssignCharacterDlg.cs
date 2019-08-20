@@ -20,6 +20,7 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -99,7 +100,7 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
@@ -1814,12 +1815,12 @@ namespace Glyssen.Dialogs
 			if (!m_dataGridReferenceText.IsCurrentCellInEditMode)
 				m_dataGridReferenceText.BeginEdit(false);
 			var editingCtrl = (DataGridViewTextBoxEditingControl)m_dataGridReferenceText.EditingControl;
-			editingCtrl.Click -= HandleClickToSplitText; // ensure we don't double-subscribe
-			editingCtrl.Click += HandleClickToSplitText;
-			editingCtrl.HandleDestroyed -= HandleClickToSplitText;
+			editingCtrl.Click -= HandleClickToSplitRefText; // ensure we don't double-subscribe
+			editingCtrl.Click += HandleClickToSplitRefText;
+			editingCtrl.HandleDestroyed -= HandleClickToSplitRefText;
 		}
 
-		private void HandleClickToSplitText(object sender, EventArgs eventArgs)
+		private void HandleClickToSplitRefText(object sender, EventArgs eventArgs)
 		{
 			var editingCtrl = (DataGridViewTextBoxEditingControl)sender;
 			if (editingCtrl.SelectionStart <= 0 || editingCtrl.SelectionStart >= editingCtrl.TextLength || editingCtrl.SelectionLength > 0)
@@ -1828,7 +1829,7 @@ namespace Glyssen.Dialogs
 					"To split the reference text, click the location where it is to be split. Do not attempt to make a text selection " +
 					"or click at the very start or end of the text. You will need to select the {0} command again to enable splitting now.");
 				MessageBox.Show(this, String.Format(msgFmt, m_ContextMenuItemSplitText.Text), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-				editingCtrl.Click -= HandleClickToSplitText;
+				editingCtrl.Click -= HandleClickToSplitRefText;
 				return;
 			}
 			var currCell = m_dataGridReferenceText.CurrentCell;
@@ -1847,7 +1848,7 @@ namespace Glyssen.Dialogs
 			}
 			m_dataGridReferenceText.CurrentCell = destCell;
 			if (GetSplitTextDestination() == null)
-				editingCtrl.Click -= HandleClickToSplitText;
+				editingCtrl.Click -= HandleClickToSplitRefText;
 		}
 
 		private DataGridViewCell GetSplitTextDestination()

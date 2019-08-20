@@ -26,6 +26,7 @@ using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
+using L10NSharp.TMXUtils;
 using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
@@ -58,7 +59,7 @@ namespace Glyssen
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 
 			m_lastExportLocationLink.Text = Empty;
 
@@ -824,7 +825,7 @@ namespace Glyssen
 			{
 				var item = m_uiLanguageMenu.DropDownItems.Add(lang.NativeName);
 				item.Tag = lang;
-				string languageId = ((CultureInfo)item.Tag).IetfLanguageTag;
+				string languageId = ((L10NCultureInfo)item.Tag).IetfLanguageTag;
 				item.Click += ((a, b) =>
 				{
 					Analytics.Track("SetUiLanguage", new Dictionary<string, string> {{"uiLanguage", languageId}, {"reapplyLocalizations", "true"}});
@@ -833,11 +834,11 @@ namespace Glyssen
 					LocalizationManager.SetUILanguage(languageId, true);
 					Settings.Default.UserInterfaceLanguage = languageId;
 					item.Select();
-					m_uiLanguageMenu.Text = ((CultureInfo)item.Tag).NativeName;
+					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
 				});
 				if (languageId == Settings.Default.UserInterfaceLanguage)
 				{
-					m_uiLanguageMenu.Text = ((CultureInfo)item.Tag).NativeName;
+					m_uiLanguageMenu.Text = ((L10NCultureInfo)item.Tag).NativeName;
 				}
 			}
 
@@ -846,7 +847,7 @@ namespace Glyssen
 				"More...", "Last item in menu of UI languages"));
 			menu.Click += ((a, b) =>
 			{
-				Program.LocalizationManager.ShowLocalizationDialogBox(false);
+				Program.PrimaryLocalizationManager.ShowLocalizationDialogBox(false);
 				SetupUiLanguageMenu();
 			});
 		}
