@@ -881,13 +881,13 @@ namespace GlyssenTests
 			// for verses 1-2.
 			
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
 
 			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Este es versiculo dos y tres.”", "p");
 			block2.SetMatchedReferenceBlock(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two.”", false, 1, "p", 3));
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
@@ -908,13 +908,13 @@ namespace GlyssenTests
 		public void SetReferenceText_FirstBlock_RefBlockContainsAnnotationAndThenBridge_ReferenceBlockHasStartVerseNumberImpliedByVerseNumberInRefBlock()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
 			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
 
 			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Este es versiculo dos y tres.”", "p");
 			block2.SetMatchedReferenceBlock(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two.”", false, 1, "p", 3));
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
@@ -1212,9 +1212,9 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "angel, another, coming down from heaven",
 				"Sewe nausak dek yiluk mende ta’bokogona inom, kagat laga o,” ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "yiluk yogiseke.");
-			var vernBook = new BookScript("REV", vernacularBlocks);
 			var russianRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
-			var matchup = russianRefText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, russianRefText.Versification);
+			var vernBook = new BookScript("REV", vernacularBlocks, russianRefText.Versification);
+			var matchup = russianRefText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			matchup.MatchAllBlocks(null);
 			matchup.SetReferenceText(0, "{2} He cried with a mighty voice, saying,", 1);
 			matchup.SetReferenceText(1, "“Fallen is Babylon! She is a home of demons, spirits and unclean birds!", 1);

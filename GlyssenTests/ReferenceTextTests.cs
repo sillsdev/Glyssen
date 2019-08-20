@@ -3211,7 +3211,7 @@ namespace GlyssenTests
 
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 
-			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
+			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
 			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
 			Assert.IsFalse(result[1].MatchesReferenceText);
