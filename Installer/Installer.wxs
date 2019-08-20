@@ -234,6 +234,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="icuuc56.dll" Name="icuuc56.dll" KeyPath="yes" Source="..\output\release\icuuc56.dll" />
           </Component>
 
+          <Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="{D60F4F8D-4072-4476-A66C-DDF663206CFE}">
+            <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" Name="System.Runtime.InteropServices.RuntimeInformation.dll" KeyPath="yes" Source="..\output\release\System.Runtime.InteropServices.RuntimeInformation.dll" />
+          </Component>
+
+          <Component Id="System.ValueTuple.dll" Guid="{F9E2AC5A-447B-46AC-96ED-A3F5B27E6559}">
+            <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
+          </Component>
+
           <Component Id="ParatextData.dll" Guid="{64b44ac8-6ebd-4b0f-a0ec-27d4f289af34}">
             <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" />
           </Component>
@@ -318,6 +326,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="icudt56.dll"/>
       <ComponentRef Id="icuin56.dll"/>
       <ComponentRef Id="icuuc56.dll"/>
+	  <ComponentRef Id="System.Runtime.InteropServices.RuntimeInformation.dll"/>
+	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
 	  <ComponentRef Id="DotNetZip.dll"/>

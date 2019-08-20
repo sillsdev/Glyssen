@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using L10NSharp.TMXUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -15,10 +15,12 @@ namespace Glyssen.Dialogs
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
-			L10NSharp.UI.LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
-			if (disposing && (components != null))
+			if (disposing)
 			{
-				components.Dispose();
+				L10NSharp.UI.LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+
+				if (components != null)
+					components.Dispose();
 			}
 			base.Dispose(disposing);
 		}

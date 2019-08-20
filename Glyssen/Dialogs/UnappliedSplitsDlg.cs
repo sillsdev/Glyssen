@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Glyssen.Utilities;
+﻿using Glyssen.Utilities;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL.Scripture;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Glyssen.Dialogs
 {
@@ -29,7 +26,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 
 			m_browser.Disposed += Browser_Disposed;
 		}

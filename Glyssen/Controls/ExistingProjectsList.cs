@@ -9,6 +9,7 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using Paratext.Data;
 using SIL.DblBundle;
@@ -40,7 +41,7 @@ namespace Glyssen.Controls
 		public ExistingProjectsList()
 		{
 			InitializeComponent();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 			HandleStringsLocalized();
 		}
 

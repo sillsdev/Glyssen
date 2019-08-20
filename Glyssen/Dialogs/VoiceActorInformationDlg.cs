@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Windows.Forms;
 using Glyssen.Controls;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -29,7 +29,7 @@ namespace Glyssen.Dialogs
 				m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
