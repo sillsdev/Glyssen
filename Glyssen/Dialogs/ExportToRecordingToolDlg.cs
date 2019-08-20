@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Glyssen.Shared;
 using L10NSharp;
+using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -17,7 +18,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void ExportToRecordingToolDlg_Load(object sender, EventArgs e)

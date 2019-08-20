@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Glyssen.Controls;
-using SIL.Windows.Forms.Widgets.BetterGrid;
+using L10NSharp.TMXUtils;
 
 namespace Glyssen.Dialogs
 {
@@ -18,12 +17,14 @@ namespace Glyssen.Dialogs
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
-			if (disposing && (components != null))
+			if (disposing)
 			{
-				L10NSharp.UI.LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+				L10NSharp.UI.LocalizeItemDlg<TMXDocument>.StringsLocalized -= HandleStringsLocalized;
+
 				if (m_hyperlinkFont != null)
 					m_hyperlinkFont.Dispose();
-				components.Dispose();
+				if (components != null)
+					components.Dispose();
 			}
 			base.Dispose(disposing);
 		}
