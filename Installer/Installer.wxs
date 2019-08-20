@@ -236,7 +236,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
           <Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="{D60F4F8D-4072-4476-A66C-DDF663206CFE}">
             <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" Name="System.Runtime.InteropServices.RuntimeInformation.dll" KeyPath="yes" Source="..\output\release\System.Runtime.InteropServices.RuntimeInformation.dll" />
-          </Component
+          </Component>
 
           <Component Id="System.ValueTuple.dll" Guid="{F9E2AC5A-447B-46AC-96ED-A3F5B27E6559}">
             <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
