@@ -521,10 +521,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>--because they said,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="teachers of religious law" delivery="insulting">
-    <text>“He has an unclean spirit.”</text>
+    <text>--because they said, “He has an unclean spirit.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1072,7 +1069,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
-    <text>King Herod heard this, for his name had become known, and he said,</text>
+    <text>King Herod heard this, for his name had become known, and some said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="people, some" delivery="excited">
     <text>“John the Baptizer has risen from the dead, and therefore these powers are at work in him.”</text>
@@ -3328,13 +3325,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
     <verse num="72" />
-    <text>The rooster crowed the second time. Peter remembered the word, how that Jesus said to him,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="Jesus">
-    <text>“Before the rooster crows twice, you will deny me three times.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
-    <text>When he thought about that, he wept.</text>
+    <text>The rooster crowed the second time. Peter remembered the word, how that Jesus said to him, “Before the rooster crows twice, you will deny me three times.”  When he thought about that, he wept.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>15</text>
@@ -3524,10 +3515,7 @@
     <text>“Eloi, Eloi, lama sabachthani?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-MRK">
-    <text>which is, being interpreted,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus">
-    <text>“My God, my God, why have you forsaken me?”</text>
+    <text>which is, being interpreted, “My God, my God, why have you forsaken me?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />

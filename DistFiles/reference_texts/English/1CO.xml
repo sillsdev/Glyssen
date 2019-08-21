@@ -517,7 +517,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Or don’t you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
+    <text>Or don’t you know that he who is joined to a prostitute is one body? For he says,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
+    <text>The two will become one flesh.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -983,7 +986,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
-    <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience. For “the earth is the Lord’s, and all its fullness.”</text>
+    <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />

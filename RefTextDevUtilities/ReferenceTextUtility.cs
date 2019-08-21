@@ -587,7 +587,9 @@ namespace Glyssen.RefTextDevUtilities
 							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
 								currVerse)
 							{
-								CharacterId = existingEnglishRefBlock.CharacterId,
+								CharacterId = languageInfo.IsEnglish ?
+									GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock) :
+									existingEnglishRefBlock.CharacterId,
 								Delivery = existingEnglishRefBlock.Delivery,
 								IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
 								MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote

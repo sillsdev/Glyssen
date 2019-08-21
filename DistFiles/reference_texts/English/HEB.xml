@@ -237,12 +237,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
     <verse num="14" />
-    <text>For we have become partakers of Christ, if we hold fast the beginning of our confidence firm to the end: </text>
-    <verse num="15" />
-    <text>while it is said,</text>
+    <text>For we have become partakers of Christ, if we hold fast the beginning of our confidence firm to the end:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
-    <text>“Today if you will hear his voice, don’t harden your hearts, as in the rebellion.”</text>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>while it is said, “Today if you will hear his voice, don't harden your hearts, as in the rebellion.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
     <verse num="16" />
@@ -273,27 +272,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
     <verse num="3" />
-    <text>For we who have believed do enter into that rest, even as he has said,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
-    <text>“As I swore in my wrath, they will not enter into my rest”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
-    <text>although the works were finished from the foundation of the world.</text>
+    <text>For we who have believed do enter into that rest, even as he has said, “As I swore in my wrath, they will not enter into my rest”  although the works were finished from the foundation of the world.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB">
     <verse num="4" />
-    <text>For he has said this somewhere about the seventh day,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="scripture">
-    <text>“God rested on the seventh day from all his works”</text>
+    <text>For he has said this somewhere about the seventh day, “God rested on the seventh day from all his works”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB">
     <verse num="5" />
-    <text>and in this place again,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="scripture">
-    <text>“They will not enter into my rest.”</text>
+    <text>and in this place again, “They will not enter into my rest.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
     <verse num="6" />
@@ -301,10 +288,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB">
     <verse num="7" />
-    <text>God again defines a certain day, today, saying through David so long a time afterward (just as has been said),</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
-    <text>“Today if you will hear his voice, don’t harden your hearts.”</text>
+    <text>God again defines a certain day, today, saying through David so long a time afterward (just as has been said), “Today if you will hear his voice, don't harden your hearts.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">
     <verse num="8" />

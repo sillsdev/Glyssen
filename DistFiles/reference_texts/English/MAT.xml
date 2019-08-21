@@ -5146,10 +5146,7 @@
     <text>“Eli, Eli, lama sabachthani?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="46" characterId="narrator-MAT">
-    <text>That is,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="46" characterId="Jesus" delivery="deeply distressed">
-    <text>“My God, my God, why have you forsaken me?”</text>
+    <text>That is, “My God, my God, why have you forsaken me?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="47" characterId="narrator-MAT">
     <verse num="47" />

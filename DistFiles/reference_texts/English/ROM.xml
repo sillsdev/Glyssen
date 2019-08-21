@@ -1517,11 +1517,18 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-ROM">
     <verse num="8" />
-    <text>Owe no one anything, except to love one another; for he who loves his neighbor has fulfilled the law.</text>
+    <text>Owe no one anything, except to love one another; for he who loves his neighbor has fulfilled the law. </text>
+    <verse num="9" />
+    <text>For the commandments,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="scripture">
+    <text>“You shall not commit adultery, You shall not murder, You shall not steal, You shall not give false testimony, You shall not covet,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-ROM">
-    <verse num="9" />
-    <text>For the commandments, “You shall not commit adultery,” “You shall not murder,” “You shall not steal,” “You shall not give false testimony,” “You shall not covet,” and whatever other commandments there are, are all summed up in this saying, namely, “You shall love your neighbor as yourself.”</text>
+    <text>and whatever other commandments there are, are all summed up in this saying, namely,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="scripture">
+    <text>“You shall love your neighbor as yourself.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
     <verse num="10" />

@@ -13952,7 +13952,8 @@ MRK	3	26	Jesus			Normal
 MRK	3	27	Jesus			Normal		
 MRK	3	28	Jesus			Normal		
 MRK	3	29	Jesus			Normal		
-MRK	3	30	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Normal		
+MRK	3	30	narrator-MRK			Quotation		
+MRK	3	30	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Quotation		
 MRK	3	31	Jesus' family			Indirect		
 MRK	3	32	crowd	announcing		Dialogue		MAT 12.47;MRK 3.32;LUK 8.20
 MRK	3	33	Jesus	questioning		Dialogue		
@@ -14379,7 +14380,8 @@ MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		*diffe
 MRK	14	70	Peter (Simon)	denial, stronger		Dialogue		
 MRK	14	70	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
-MRK	14	72	Jesus			Normal		
+MRK	14	72	narrator-MRK			Quotation		
+MRK	14	72	Jesus			Quotation		
 MRK	15	2	Jesus			Dialogue		
 MRK	15	2	Pilate	to Jesus		Dialogue		
 MRK	15	3	chief priests	accusing		Indirect		
@@ -14467,6 +14469,7 @@ LUK	1	59	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indire
 LUK	1	60	Elizabeth			Dialogue		
 LUK	1	61	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Dialogue		
 LUK	1	62	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indirect		
+LUK	1	62	narrator-LUK			Quotation		
 LUK	1	63	narrator-LUK			Quotation		
 LUK	1	64	Zacharias (Zechariah)			Indirect		
 LUK	1	65	everyone in Judean hills who heard			Indirect		
@@ -15523,7 +15526,8 @@ JHN	6	37	Jesus			Normal
 JHN	6	38	Jesus			Normal		
 JHN	6	39	Jesus			Normal		
 JHN	6	40	Jesus			Normal		
-JHN	6	41	Jesus			Normal		
+JHN	6	41	Jesus			Quotation		
+JHN	6	41	narrator-JHN			Quotation		
 JHN	6	42	Jews, the	grumbling		Normal		
 JHN	6	43	Jesus			Dialogue		
 JHN	6	44	Jesus			Normal		
@@ -17009,6 +17013,7 @@ HEB	3	10	scripture			Quotation
 HEB	3	11	scripture			Quotation		
 HEB	3	13	narrator-HEB			Quotation		
 HEB	3	15	scripture			Quotation		
+HEB	3	15	narrator-HEB			Quotation		
 HEB	3	18	scripture			Quotation	God	
 HEB	4	3	scripture			Quotation	God	
 HEB	4	4	scripture			Quotation	God	
@@ -17261,6 +17266,7 @@ REV	16	16	narrator-REV			Quotation
 REV	16	17	God		voice out of temple, from throne	Normal		
 REV	17	1	angel (one of the seven)			Normal		
 REV	17	2	angel (one of the seven)			Normal		
+REV	17	5	narrator-REV			Quotation		
 REV	17	5	inscription on forehead of Babylon			Potential		
 REV	17	7	angel (one of the seven)			Normal		
 REV	17	8	angel (one of the seven)			Normal		
