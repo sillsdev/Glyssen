@@ -726,7 +726,7 @@
     <verse num="24" />
     <text>Now when the high priest, the captain of the temple, and the chief priests heard these words, they were very perplexed about them and wondered:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="captain of the temple guard/chief priests">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests">
     <text>“What will happen now?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-ACT">
@@ -3567,7 +3567,7 @@
     <verse num="12" />
     <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="Paul" delivery="sad">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="narrator-ACT" delivery="sad">
     <verse num="13" />
     <text>Then Paul answered,</text>
   </block>

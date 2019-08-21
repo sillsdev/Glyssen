@@ -1085,7 +1085,7 @@
     <verse num="14" />
     <text>He deceives my own people who dwell on the earth because of the signs he was granted to do in front of the beast; saying to those who dwell on the earth:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast from out of the earth">
     <text>“Make an image to the beast who was wounded by the sword and lived.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV">
@@ -1546,7 +1546,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="weeping">
     <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
     <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
   </block>

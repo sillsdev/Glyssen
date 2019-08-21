@@ -449,8 +449,8 @@
     <verse num="13" />
     <text>But those who are outside, God judges.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
-    <text>“Put away the wicked man from among yourselves.”</text>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="scripture">
+    <text>Put away the wicked man from among yourselves.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>6</text>
@@ -977,7 +977,7 @@
     <verse num="26" />
     <text>The scriptures say, for</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture">
     <text>“the earth is the Lord’s, and its fullness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
@@ -1632,7 +1632,7 @@
     <verse num="32" />
     <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="scripture">
     <text>then let us eat and drink, for tomorrow we die.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">

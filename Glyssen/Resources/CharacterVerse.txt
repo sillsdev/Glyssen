@@ -16850,7 +16850,7 @@ ROM	15	10	scripture			Quotation	Moses
 ROM	15	11	scripture			Quotation	psalmist	
 ROM	15	12	scripture			Quotation	Isaiah	
 ROM	15	21	scripture			Quotation	Isaiah	
-ROM	16	22	Tertius			Indirect		
+ROM	16	22	Tertius			Potential		
 1CO	1	12	follower of Apollos	boasting		Hypothetical		
 1CO	1	12	follower of Cephas (Peter)	boasting		Hypothetical		
 1CO	1	12	follower of Paul	boasting		Hypothetical		

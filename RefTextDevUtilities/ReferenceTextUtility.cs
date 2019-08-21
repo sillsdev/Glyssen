@@ -554,8 +554,22 @@ namespace Glyssen.RefTextDevUtilities
 							}
 						}
 
-						var noChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage,
-							currBookId);
+						// REVIEW: When changes from PG-1162 are merged, this logic should be reviewed. It can
+						// almost certainly be simplified to remove the Clone. But other changes may also be needed.
+						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock.Clone());
+						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
+							existingRefBlockForLanguage.CharacterId.Split('/').Contains(characterIdBasedOnExcelEntry) ||
+							characterIdBasedOnExcelEntry == "Good Priest" && ControlCharacterVerseData.Singleton.GetCharacters(currBookNum, existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber, existingEnglishRefBlock.InitialEndVerseNumber, existingEnglishRefBlock.LastVerseNum).Any(cv => cv.DefaultCharacter == characterIdBasedOnExcelEntry))
+							characterIdBasedOnExcelEntry = existingRefBlockForLanguage.CharacterId;
+						var characterIdChanged = existingRefBlockForLanguage.CharacterId != characterIdBasedOnExcelEntry;
+						if (characterIdChanged)
+						{
+							WriteOutput($"Character change at {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse}");
+							WriteOutput($"   From {existingRefBlockForLanguage.CharacterId} ==> {characterIdBasedOnExcelEntry}");
+						}
+
+						var noChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId) &&
+							!characterIdChanged;
 
 						if (mode != Mode.Generate && mode != Mode.GenerateEnglish)
 							continue;
@@ -587,9 +601,7 @@ namespace Glyssen.RefTextDevUtilities
 							newBlock = new Block(existingEnglishRefBlock.StyleTag, currChapter,
 								currVerse)
 							{
-								CharacterId = languageInfo.IsEnglish ?
-									GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock) :
-									existingEnglishRefBlock.CharacterId,
+								CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId,
 								Delivery = existingEnglishRefBlock.Delivery,
 								IsParagraphStart = existingEnglishRefBlock.IsParagraphStart,
 								MultiBlockQuote = existingEnglishRefBlock.MultiBlockQuote
@@ -1084,7 +1096,7 @@ namespace Glyssen.RefTextDevUtilities
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
-
+			
 			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*)-FX\\d+", "$1");
 			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*) \\(female\\)", "$1");
 			fcbhCharacterLabel = Regex.Replace(fcbhCharacterLabel, "(.*) #\\d+", "$1");

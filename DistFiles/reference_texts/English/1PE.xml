@@ -210,9 +210,9 @@
     <verse num="21" />
     <text>For to this you were called, because Christ also suffered for us, leaving you an example, that you should follow his steps,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
     <verse num="22" />
-    <text>who did not sin, “neither was deceit found in his mouth.”</text>
+    <text>“who did not sin, neither was deceit found in his mouth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
     <verse num="23" />
@@ -389,9 +389,9 @@
     <verse num="17" />
     <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don’t obey the Good News of God?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
-    <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
+    <text>If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
     <verse num="19" />

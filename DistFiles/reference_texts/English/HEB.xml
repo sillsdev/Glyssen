@@ -814,7 +814,7 @@
     <verse num="8" />
     <text>Previously saying, “Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them”  (although the law required them to be made),</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
     <verse num="9" />
     <text>then he has said, “Behold, I have come to do your will.” He takes away the first, that he may establish the second.</text>
   </block>
@@ -1247,7 +1247,7 @@
     <verse num="28" />
     <text>Therefore, receiving a Kingdom that can’t be shaken, let us have grace, through which we serve God acceptably, with reverence and awe,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-HEB">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="scripture">
     <verse num="29" />
     <text>for our God is a consuming fire.</text>
   </block>

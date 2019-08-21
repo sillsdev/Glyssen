@@ -794,7 +794,7 @@
     <verse num="16" />
     <text>We hope to preach the Good News even to the parts beyond you, not to boast in what someone else has already done.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
     <verse num="17" />
     <text>But “he who boasts, let him boast in the Lord.”</text>
   </block>
@@ -974,8 +974,8 @@
     <verse num="9" />
     <text>He has said to me,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
-    <text>My grace is sufficient for you, for my power is made perfect in weakness.</text>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus">
+    <text>“My grace is sufficient for you, for my power is made perfect in weakness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
     <text>Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
@@ -1035,8 +1035,8 @@
     <verse num="1" />
     <text>This is the third time I am coming to you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
-    <text>At the mouth of two or three witnesses shall every word be established.</text>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="scripture">
+    <text>“At the mouth of two or three witnesses shall every word be established.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">
     <verse num="2" />

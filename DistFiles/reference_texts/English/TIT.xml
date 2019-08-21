@@ -54,7 +54,7 @@
     <verse num="12" />
     <text>One of them, a prophet of their own, said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-TIT">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="Cretan prophet">
     <text>“Cretans are always liars, evil beasts, and idle gluttons.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-TIT">

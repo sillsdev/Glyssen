@@ -1884,7 +1884,7 @@
     <verse num="21" />
     <text>Timothy, my fellow worker, greets you, as do Lucius, Jason, and Sosipater, my relatives.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ROM">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="Tertius">
     <verse num="22" />
     <text>I, Tertius, who write the letter, greet you in the Lord.</text>
   </block>
