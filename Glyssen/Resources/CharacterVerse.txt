@@ -11976,38 +11976,62 @@ JER	51	62	Jeremiah			Normal
 JER	51	63	Jeremiah			Normal		
 JER	51	64	Jeremiah			Normal		
 JER	51	64	Seraiah			Hypothetical		
-LAM	1	9	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	11	daughter of Zion			Normal		
-LAM	1	12	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	13	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	14	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	15	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	16	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	18	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	19	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	20	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	21	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	1	22	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	2	12	children of Zion (Jerusalem)			Normal		
-LAM	2	15	passers by			Normal		
-LAM	2	16	enemies of God		enemies (scoffing)	Normal		
-LAM	2	20	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	2	21	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	2	22	daughter of Zion		daughter of Zion (Jerusalem)	Normal		
-LAM	3	18	Jeremiah			Normal		
-LAM	3	24	Jeremiah			Normal		
-LAM	3	42	Jeremiah			Normal		
-LAM	3	43	Jeremiah			Normal		
-LAM	3	44	Jeremiah			Normal		
-LAM	3	45	Jeremiah			Normal		
-LAM	3	46	Jeremiah			Normal		
-LAM	3	47	Jeremiah			Normal		
-LAM	3	56	Jeremiah			Normal		
-LAM	3	57	God		God (the LORD)	Normal		
+LAM	1	9	daughter of Zion		daughter of Zion (Jerusalem)	Potential		
+LAM	1	10	God		you (God)	Indirect		
+LAM	1	11	daughter of Zion			Potential		
+LAM	1	12	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	13	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	14	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	15	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	16	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+# A loose translation (e.g., GNT) could turn the first part of v. 17 into direct speech
+LAM	1	17	daughter of Zion			Potential		
+LAM	1	17	God		God (the LORD)	Indirect		
+LAM	1	18	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	19	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	20	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	21	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	1	22	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	2	12	children of Zion (Jerusalem)			Hypothetical		
+LAM	2	15	passers by			Hypothetical		
+LAM	2	16	enemies of God		enemies (scoffing)	Hypothetical		
+LAM	2	18	daughter of Zion		daughter of Zion (Jerusalem)	Potential		
+LAM	2	18	Needs Review			Potential		
+LAM	2	20	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	2	21	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	2	22	daughter of Zion		daughter of Zion (Jerusalem)	Implicit		
+LAM	3	18	narrator-LAM			Quotation		
+LAM	3	24	narrator-LAM			Quotation		
+LAM	3	42	Jeremiah			Potential		
+LAM	3	43	Jeremiah			Potential		
+LAM	3	44	Jeremiah			Potential		
+LAM	3	45	Jeremiah			Potential		
+LAM	3	46	Jeremiah			Potential		
+LAM	3	47	Jeremiah			Potential		
+LAM	3	48	Jeremiah			Potential		
+LAM	3	49	Jeremiah			Potential		
+LAM	3	50	Jeremiah			Potential		
+LAM	3	51	Jeremiah			Potential		
+LAM	3	52	Jeremiah			Potential		
+LAM	3	53	Jeremiah			Potential		
+LAM	3	54	Jeremiah			Potential		
+LAM	3	55	Jeremiah			Potential		
+LAM	3	56	Jeremiah			Potential		
+LAM	3	57	Jeremiah			Potential		
+LAM	3	57	God		God (the LORD)	Quotation		
+LAM	3	58	Jeremiah			Potential		
+LAM	3	59	Jeremiah			Potential		
+LAM	3	60	Jeremiah			Potential		
+LAM	3	61	Jeremiah			Potential		
+LAM	3	62	Jeremiah			Potential		
+LAM	3	63	Jeremiah			Potential		
+LAM	3	64	Jeremiah			Potential		
+LAM	3	65	Jeremiah			Potential		
+LAM	3	66	Jeremiah			Potential		
 LAM	4	4	children of Zion (Jerusalem)			Indirect		
 LAM	4	15	men			Quotation		
 LAM	4	15	nations		people among the nations	Quotation		
-LAM	4	15	prophets/priests			Normal		
+LAM	4	20	narrator-LAM			Quotation		
 EZK	2	1	God		God (voice of one speaking, in vision)	Normal		
 EZK	2	3	God		God (voice of one speaking (in vision)	Normal		
 EZK	2	4	God		God (voice of one speaking, in vision)	Normal		
