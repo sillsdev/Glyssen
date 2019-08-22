@@ -1380,8 +1380,6 @@ namespace GlyssenTests
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			englishRefText.ApplyTo(origSource, ScrVers.English);
 			var sourceBlocksChunkedOut = origSource.GetScriptBlocks();
-			// ICO 15:3 has a paragraph break, so we need to match up the second half of the verse
-			sourceBlocksChunkedOut.Single(b => b.IsScripture && !b.MatchesReferenceText).SetMatchedReferenceBlock("Blah blah");
 			var narrator = CharacterVerseData.GetStandardCharacterId(origSource.BookId, CharacterVerseData.StandardCharacter.Narrator);
 			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut);
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
