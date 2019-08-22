@@ -558,9 +558,9 @@ namespace Glyssen.RefTextDevUtilities
 						// almost certainly be simplified to remove the Clone. But other changes may also be needed.
 						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock.Clone());
 						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
-							existingRefBlockForLanguage.CharacterId.Split('/').Contains(characterIdBasedOnExcelEntry) ||
+							existingEnglishRefBlock.CharacterId.Split('/').Contains(characterIdBasedOnExcelEntry) ||
 							characterIdBasedOnExcelEntry == "Good Priest" && ControlCharacterVerseData.Singleton.GetCharacters(currBookNum, existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber, existingEnglishRefBlock.InitialEndVerseNumber, existingEnglishRefBlock.LastVerseNum).Any(cv => cv.DefaultCharacter == characterIdBasedOnExcelEntry))
-							characterIdBasedOnExcelEntry = existingRefBlockForLanguage.CharacterId;
+							characterIdBasedOnExcelEntry = existingEnglishRefBlock.CharacterId;
 						var characterIdChanged = existingRefBlockForLanguage.CharacterId != characterIdBasedOnExcelEntry;
 						if (characterIdChanged)
 						{
