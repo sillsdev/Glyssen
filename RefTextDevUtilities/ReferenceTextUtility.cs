@@ -556,27 +556,36 @@ namespace Glyssen.RefTextDevUtilities
 
 						// REVIEW: When changes from PG-1162 are merged, this logic should be reviewed. It can
 						// almost certainly be simplified to remove the Clone. But other changes may also be needed.
+						var existingCharacterId = existingEnglishRefBlock.CharacterId;
 						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock.Clone());
 						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
-							existingEnglishRefBlock.CharacterId.Split('/').Contains(characterIdBasedOnExcelEntry) ||
-							characterIdBasedOnExcelEntry == "Good Priest" && ControlCharacterVerseData.Singleton.GetCharacters(currBookNum, existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber, existingEnglishRefBlock.InitialEndVerseNumber, existingEnglishRefBlock.LastVerseNum).Any(cv => cv.DefaultCharacter == characterIdBasedOnExcelEntry))
-							characterIdBasedOnExcelEntry = existingEnglishRefBlock.CharacterId;
-						var characterIdChanged = existingRefBlockForLanguage.CharacterId != characterIdBasedOnExcelEntry;
+							existingCharacterId.Split('/').Contains(characterIdBasedOnExcelEntry) ||
+							((characterIdBasedOnExcelEntry == "Good Priest" || characterIdBasedOnExcelEntry == "John") &&
+								GetAllCharacters(currBookNum, existingEnglishRefBlock).Any(cv => cv.Character == existingCharacterId)))
+						{
+							characterIdBasedOnExcelEntry = existingCharacterId;
+						}
+						var characterIdChanged = existingCharacterId != characterIdBasedOnExcelEntry;
 						if (characterIdChanged)
 						{
 							WriteOutput($"Character change at {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse}");
-							WriteOutput($"   From {existingRefBlockForLanguage.CharacterId} ==> {characterIdBasedOnExcelEntry}");
+							WriteOutput($"   From {existingCharacterId} ==> {characterIdBasedOnExcelEntry}");
 						}
 
-						var noChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId) &&
-							!characterIdChanged;
+						var noTextChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId);
 
 						if (mode != Mode.Generate && mode != Mode.GenerateEnglish)
 							continue;
 
-						if (noChangesWeCareAbout)
+						if (noTextChangesWeCareAbout)
 						{
-							newBlocks.Add(existingRefBlockForLanguage);
+							var blockToAdd = existingRefBlockForLanguage;
+							if (characterIdChanged)
+							{
+								blockToAdd = blockToAdd.Clone();
+								blockToAdd.CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
+							}
+							newBlocks.Add(blockToAdd);
 							foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
 								.Where(s => !string.IsNullOrWhiteSpace(s) && !s_extractVerseNumberRegex.IsMatch(s)))
 							{
@@ -1092,6 +1101,11 @@ namespace Glyssen.RefTextDevUtilities
 			return silBookCode;
 		}
 
+		private static IEnumerable<CharacterVerse> GetAllCharacters(int bookNum, Block block)
+		{
+			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum);
+		}
+
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
@@ -1108,7 +1122,7 @@ namespace Glyssen.RefTextDevUtilities
 			//	return knownMatch;
 
 			var bookNum = BCVRef.BookToNumber(bookId);
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum);
+			var characters = GetAllCharacters(bookNum, block);
 			var charactersCount = characters.Count();
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
 			if (charactersCount == 1)

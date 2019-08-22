@@ -1394,7 +1394,7 @@ namespace GlyssenTests
 			firstBlockforV27.SetNonDramaticCharacterId(CharacterVerse.kScriptureCharacter);
 			firstBlockforV27.UserConfirmed = true;
 
-			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit - 1];
+			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit];
 			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
 			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter, ScrVers.English).UserConfirmed = true;
 

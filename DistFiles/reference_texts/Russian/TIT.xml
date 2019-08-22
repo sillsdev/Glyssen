@@ -109,7 +109,7 @@
     <text>Из них же самих один стихотворец сказал:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-TIT" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-TIT">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="Cretan prophet">
       <text>“Cretans are always liars, evil beasts, and idle gluttons.”</text>
     </ReferenceBlocks>
     <text>'Критяне всегда лжецы, злые звери, утробы ленивые'.</text>

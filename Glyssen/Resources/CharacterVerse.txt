@@ -16809,10 +16809,10 @@ ROM	9	32	narrator-ROM			Quotation
 ROM	9	33	scripture			Quotation	God	
 ROM	10	5	scripture			Quotation	Moses	
 ROM	10	6	scripture			Quotation	Moses	
-ROM	10	6	God		 righteousness which is of faith (God)	Quotation		
+ROM	10	6	God		righteousness which is of faith (God)	Quotation		
 ROM	10	6	narrator-ROM			Interruption		
 ROM	10	7	scripture			Quotation	Moses	
-ROM	10	7	God		 righteousness which is of faith (God)	Quotation		
+ROM	10	7	God		righteousness which is of faith (God)	Quotation		
 ROM	10	7	narrator-ROM			Interruption		
 ROM	10	8	scripture			Quotation	Moses	
 ROM	10	9	narrator-ROM			Hypothetical		
@@ -17307,6 +17307,9 @@ REV	18	18	voice from heaven, another			Normal
 REV	18	19	sea captains, seafarers, sailors	weeping		Normal		
 REV	18	19	voice from heaven, another			Normal		
 REV	18	20	voice from heaven, another			Normal		
+# Though it seems a bit out of character for the sea captain to speak v. 20, that's the way it is in the
+# ESV and ISV and FCBH says this is the most common way they see it in the vernacular.
+REV	18	20	sea captains, seafarers, sailors			Normal		
 REV	18	21	angel, powerful			Normal		
 REV	18	22	angel, powerful			Normal		
 REV	18	23	angel, powerful			Normal		
