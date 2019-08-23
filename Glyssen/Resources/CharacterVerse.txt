@@ -14086,15 +14086,33 @@ MIC	7	3	leaders/judge (corrupt)			Hypothetical
 MIC	7	9	God		God (the LORD)	Hypothetical		
 MIC	7	10	enemy (female)			Hypothetical		
 MIC	7	15	God		God (the LORD)	Potential		
+NAM	1	1-11	Nahum			Potential		
+NAM	1	12	Nahum		Nahum (the LORD says)	Potential		
 NAM	1	12	God		God (the LORD)	Normal		
-NAM	1	13	God		God (the LORD)	Normal		
+NAM	1	13	God		God (the LORD)	Implicit		
+NAM	1	13	Nahum		Nahum (the LORD says)	Alternate		
+NAM	1	14	Nahum			Potential		
 NAM	1	14	God		God (the LORD)	Normal		
-NAM	2	8	slave girls			Normal		
-NAM	2	8	Nineveh			Normal		
+NAM	1	15	God		God (the LORD)	Potential		
+NAM	1	15	herald			Hypothetical		
+NAM	2	1-7	Nahum			Potential		
+NAM	2	7	slave girls			Indirect		
+NAM	2	8	Nahum			Potential		
+NAM	2	8	slave girls			Hypothetical		
+NAM	2	8	Nineveh			Hypothetical		
+NAM	2	8	Needs Review			Potential		
+NAM	2	9	soldiers			Hypothetical		
+NAM	2	9-12	Nahum			Potential		
 NAM	2	13	God		God (the LORD)	Normal		
+NAM	2	13	Nahum		Nahum (the LORD says)	Potential		
+NAM	3	1-4	Nahum			Potential		
 NAM	3	5	God		God (the LORD)	Normal		
+NAM	3	5	Nahum		Nahum (the LORD says)	Potential		
 NAM	3	6	God		God (the LORD)	Normal		
 NAM	3	7	God		God (the LORD)	Normal		
+NAM	3	7	people who see Nineveh's destruction			Hypothetical		
+NAM	3	8-19	Nahum			Potential		
+NAM	3	8-19	God		God (the LORD)	Potential		
 HAB	1	2	Habakkuk	crying		Hypothetical		
 HAB	2	2	God		God (the LORD)	Normal		
 HAB	2	3	God		God (the LORD)	Normal		

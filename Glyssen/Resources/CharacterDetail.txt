@@ -382,7 +382,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5752 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5765 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
@@ -409,7 +409,7 @@ Hazael of Aram	1	Male			Annointed King of Aram/Syria by Elijah; assasinated Ben 
 head	1	Neuter				1CO 12:21
 heads of all the families	-1	Male				NEH 8:15
 hearers	-1					ISA 28:9 & ISA 28:10
-herald	1	Male				DAN 3:4 <-(1 more)-> DAN 3:6
+herald	1	Male				DAN 3:4 <-(2 more)-> NAM 1:15
 herdsman	1	Male				GEN 26:20
 herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36
 Heshbon, people of	-1	Male				JER 48:2
@@ -746,7 +746,7 @@ Naaman's servants	-1	Male				2KI 5:4 & 2KI 5:13
 Nabal	1	Male				1SA 25:10 & 1SA 25:11
 Naboth	1	Male				1KI 21:3 & 1KI 21:4
 Nahash the Ammonite	1	Male				1SA 11:2
-Nahum	1	Male				
+Nahum	1	Male				NAM 1:1 <-(42 more)-> NAM 3:19
 Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
@@ -839,6 +839,7 @@ people of Tyre and Sidon	-1					ACT 12:22
 people praying at John Mark's mother's house	-1					ACT 12:15
 people who had known Saul	-1					1SA 10:11
 people who saw healing of demon-possessed man who was blind and mute	-1					MAT 12:23
+people who see Nineveh's destruction	-1					NAM 3:7
 people, all the	-1					1KI 1:39 <-(12 more)-> LUK 7:29
 people, arrogant wicked	-1					PSA 73:11
 people, God's	-1					ISA 25:9 <-(4 more)-> ZEC 13:9
@@ -1057,10 +1058,10 @@ sinners	-1					PRO 1:11 <-(4 more)-> AMO 9:10
 Sisera	1	Male				JDG 4:19 & JDG 4:20
 sisters of beloved	-1	Female				SNG 8:8 & SNG 8:9
 slave drivers, Egyptian	-1	Male	Adult			EXO 5:10 <-(2 more)-> EXO 5:14
-slave girls	-1	Female				NAM 2:8	Slave Girl (female)
+slave girls	-1	Female				NAM 2:7 & NAM 2:8	Slave Girl (female)
 sluggard	1	Male	Adult			PRO 22:13 & PRO 26:13
 soldier at the cross	1	Male	Adult			LUK 23:37
-soldiers	-1	Male	Adult			JHN 18:5 <-(2 more)-> ACT 27:42
+soldiers	-1	Male	Adult			NAM 2:9 <-(3 more)-> ACT 27:42
 soldiers, Assyrian	-1	Male	Adult			ISA 10:29
 soldiers, Roman	-1	Male	Adult			MAT 27:29 <-(5 more)-> JHN 19:24
 soldiers, some (near Jordan River)	-1	Male	Adult			LUK 3:14
