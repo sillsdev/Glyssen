@@ -79,6 +79,17 @@ namespace ControlDataIntegrityTests
 		}
 
 		[Test]
+		public void DataIntegrity_ValidBookId()
+		{
+			foreach (var bookId in NarratorOverrides.NarratorOverridesByBookId.Keys)
+			{
+				var bookNum = BCVRef.BookToNumber(bookId);
+				Assert.IsTrue(bookNum >= 1, $"Invalid book ID: {bookId}");
+				Assert.IsTrue(bookNum <= 66, $"Non-canonical book ID: {bookId}");
+			}
+		}
+
+		[Test]
 		public void DataIntegrity_NoOverlappingRanges()
 		{
 			var overridesByBook = new Dictionary<string, SortedDictionary<int, NarratorOverrides.NarratorOverrideDetail>>();
