@@ -888,8 +888,8 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchPossessiveWithApostropheS = new Regex(@"(?<possessor>.+)? of (?<possessee>.+)", RegexOptions.Compiled);
 		static readonly Regex s_matchPossessiveWithOf = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenProperNameWithQualifiers = new Regex(@"^(?<name>([A-Z](\w|-)+))((, )|( \()).+", RegexOptions.Compiled);
-		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
-		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-)+))", RegexOptions.Compiled);
+		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
+		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
@@ -981,7 +981,8 @@ namespace Glyssen.RefTextDevUtilities
 						}
 						else
 						{
-							if (characters.Skip(1).All(c => c.Character == characters[0].Character) || defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Any(gc => characters.Count(c => c.Character == gc) > 1))
+							if (characters.Skip(1).All(c => c.Character == characters[0].Character) && characters.Select(c => c.Delivery).Distinct().Count() > 1 ||
+								defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Any(gc => characters.Where(c => c.Character == gc).Select(c => c.Delivery).Distinct().Count() > 1))
 								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter + " deliveries", bcvRef, fcbhCharacterLabel));
 							else
 								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
@@ -1035,7 +1036,7 @@ namespace Glyssen.RefTextDevUtilities
 
 			var characterIdToUseToLower = glyssenCharacterId.ToLowerInvariant();
 			var fcbhCharacterToLower = fcbhCharacterLabel.ToLowerInvariant();
-			if (characterIdToUseToLower.StartsWith(fcbhCharacterToLower) ||
+			if ((characterIdToUseToLower.StartsWith(fcbhCharacterToLower) && !characterIdToUseToLower.Contains("'s")) ||
 				fcbhCharacterToLower.StartsWith(characterIdToUseToLower) ||
 				s_matchWithoutParentheses.Match(characterIdToUseToLower).Value == s_matchWithoutParentheses.Match(fcbhCharacterToLower).Value ||
 				characterIdToUseToLower.Replace("the ", string.Empty) == fcbhCharacterToLower)
@@ -1125,6 +1126,7 @@ namespace Glyssen.RefTextDevUtilities
 				case "Rehab": return glyssenCharacterId == "Rahab";
 				case "Judean": return glyssenCharacterId == "Judah, men of";
 				case "Woman": return glyssenCharacterId == "Babylon (personified as adulteress)";
+				case "Brother of Ahaziah": return glyssenCharacterId == "relatives of Ahaziah, king of Judah";
 				case "Spirit": return glyssenCharacterId == "Holy Spirit, the";
 				case "Queen of Babylon": return glyssenCharacterId == "Babylon (personified as adulteress)";
 				case "Gehazi": return glyssenCharacterId == "Elisha's messenger";

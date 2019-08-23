@@ -11062,7 +11062,7 @@ JER	26	14	Jeremiah			Implicit
 JER	26	15	Jeremiah			Implicit		
 JER	26	16	officials/people, all the			Normal		
 JER	26	18	elders of the land			Normal		
-JER	26	18	Micah			Quotation		
+JER	26	18	Micah, prophet			Quotation		
 JER	26	19	elders of the land			Implicit		
 JER	26	20	elders of the land			Potential		
 JER	26	21	elders of the land			Potential		
@@ -13893,10 +13893,10 @@ MIC	1	6	God		God (the LORD)	Normal
 MIC	1	7	God		God (the LORD)	Normal		
 MIC	2	3	God		God (the LORD)	Normal		
 MIC	2	4	God		God (the LORD)	Normal		
-MIC	2	6	Micah			Normal		
+MIC	2	6	Micah, prophet			Normal		
 MIC	2	6	false prophets			Quotation		
 MIC	2	7	God		God (the LORD)	Potential		
-MIC	2	7	Micah			Potential		
+MIC	2	7	Micah, prophet			Potential		
 MIC	2	7	false prophets			Hypothetical		
 MIC	2	8	God		God (the LORD)	Implicit		
 MIC	2	9	God		God (the LORD)	Implicit		
@@ -13904,14 +13904,14 @@ MIC	2	10	God		God (the LORD)	Implicit
 MIC	2	11	God		God (the LORD)	Normal		
 MIC	2	12	God		God (the LORD)	Implicit		
 MIC	2	13	God		God (the LORD)	Potential		
-MIC	3	1	Micah			Normal		
-MIC	3	2	Micah			Normal		
-MIC	3	3	Micah			Normal		
-MIC	3	4	Micah			Normal		
+MIC	3	1	Micah, prophet			Normal		
+MIC	3	2	Micah, prophet			Normal		
+MIC	3	3	Micah, prophet			Normal		
+MIC	3	4	Micah, prophet			Normal		
 MIC	3	5	God		God (the LORD)	Normal		
 MIC	3	6	God		God (the LORD)	Normal		
 MIC	3	7	God		God (the LORD)	Normal		
-MIC	3	8	Micah			Potential		
+MIC	3	8	Micah, prophet			Potential		
 MIC	3	11	leaders/priests/prophets			Normal		
 MIC	4	2	nations		nations, many	Hypothetical		
 MIC	4	6	God		God (the LORD)	Normal		

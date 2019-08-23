@@ -713,7 +713,7 @@ messengers sent by Jacob	-1	Male				GEN 32:6
 messengers to Jezebel	-1	Male				1KI 21:14	Scoundrel
 messengers to Joab	-1	PreferMale				2SA 3:23
 messengers to Saul	-1	PreferMale				1SA 14:33
-Micah	1	Male			prophet from Moresheth-Gath	JER 26:18 <-(6 more)-> MIC 3:8
+Micah, prophet	1	Male			from Moresheth-Gath	JER 26:18 <-(6 more)-> MIC 3:8
 Micah of Ephraim	1	Male				JDG 17:2 <-(3 more)-> JDG 18:24
 Micah's mother	1	Female				JDG 17:2 & JDG 17:3
 Micaiah, prophet of the LORD	1	Male				1KI 22:14 <-(18 more)-> 2CH 18:27
