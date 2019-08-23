@@ -852,7 +852,7 @@ person claiming to have a pure heart	1	Either				PRO 20:9
 person encouraging Jerusalem	1	PreferMale				ZEP 3:16 & ZEP 3:17
 person near Lazarus' grave who informed Jesus	1					JHN 11:17
 person sacrificing	1					1SA 2:16	Man
-person warning people of Benjamin to flee	1					JER 6:1	Man
+person warning people of Benjamin to flee	1					JER 6:1
 person who informed Judah	1					GEN 38:24
 person who informed people of Gaza	1					JDG 16:2	Man
 person who informed Rabshakeh	1					2KI 19:9 & ISA 37:9
@@ -911,7 +911,7 @@ prophets of Baal	-1					1KI 18:26	Prophet: Baal
 prophets, 400 false	400					1KI 22:6 <-(2 more)-> 2CH 18:11	Prophet (false)
 prostitute, one	1	Female				1KI 3:17 <-(5 more)-> 1KI 3:26
 prostitute, other	1	Female				1KI 3:22 & 1KI 3:26
-psalmist	-1						
+psalmist	-1					
 Puah (midwife)	1	Female				EXO 1:19
 queen of Babylon	1	Female				DAN 5:10 <-(1 more)-> DAN 5:12
 queen of Sheba	1	Female				1KI 10:6 <-(6 more)-> 2CH 9:8
