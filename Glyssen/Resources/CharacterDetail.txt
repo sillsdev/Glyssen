@@ -333,7 +333,7 @@ expert in religious law	1	Male				MRK 12:28 <-(5 more)-> LUK 10:37
 experts in religious law, one of the	1	Male				LUK 11:45
 explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33
 eye	1	Neuter				1CO 12:21
-Ezekiel	1	Male				EZK 3:27 <-(65 more)-> EZK 37:10
+Ezekiel	1	Male				EZK 3:27 <-(148 more)-> EZK 37:10
 Ezra, priest and teacher	1	Male				EZR 5:4 <-(15 more)-> NEH 8:15
 false prophets	-1	Male				JER 14:13 <-(11 more)-> ZEC 13:6
 false teachers	-1					1TI 4:3
@@ -605,7 +605,7 @@ lookout	1	Male				ISA 21:8 <-(1 more)-> ISA 21:10
 lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20
 Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20
 Lydia	1	Female				ACT 16:15
-lying words	-1	Male				JER 7:3
+lying words	-1	Male				JER 7:4
 Macedonian	1	Male				ACT 16:9
 magi (wise men from East)	-1	Male				MAT 2:2
 magicians	-1	Male				EXO 8:19
@@ -713,7 +713,8 @@ messengers sent by Jacob	-1	Male				GEN 32:6
 messengers to Jezebel	-1	Male				1KI 21:14	Scoundrel
 messengers to Joab	-1	PreferMale				2SA 3:23
 messengers to Saul	-1	PreferMale				1SA 14:33
-Micah	1	Male				JDG 17:2 <-(10 more)-> MIC 3:8
+Micah	1	Male			prophet from Moresheth-Gath	JER 26:18 <-(6 more)-> MIC 3:8
+Micah of Ephraim	1	Male				JDG 17:2 <-(3 more)-> JDG 18:24
 Micah's mother	1	Female				JDG 17:2 & JDG 17:3
 Micaiah, prophet of the LORD	1	Male				1KI 22:14 <-(18 more)-> 2CH 18:27
 Michael, archangel	1	Male				JUD 1:9

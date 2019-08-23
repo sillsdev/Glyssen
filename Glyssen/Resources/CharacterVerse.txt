@@ -4724,13 +4724,13 @@ JDG	16	25	Philistines			Normal
 JDG	16	26	Samson			Normal		
 JDG	16	28	Samson			Normal		
 JDG	16	30	Samson			Normal		
-JDG	17	2	Micah			Normal		
+JDG	17	2	Micah of Ephraim			Normal		
 JDG	17	2	Micah's mother			Normal		
 JDG	17	3	Micah's mother			Normal		
 JDG	17	9	Levite, young, from Bethlehem			Normal		
-JDG	17	9	Micah			Normal		
-JDG	17	10	Micah			Normal		
-JDG	17	13	Micah			Normal		
+JDG	17	9	Micah of Ephraim			Normal		
+JDG	17	10	Micah of Ephraim			Normal		
+JDG	17	13	Micah of Ephraim			Normal		
 JDG	18	2	Danites			Normal		
 JDG	18	3	warriors from Zorah and Eshtaol, five			Normal		
 JDG	18	4	Levite, young, from Bethlehem			Normal		
@@ -4743,7 +4743,7 @@ JDG	18	14	warriors from Zorah and Eshtaol, five			Normal
 JDG	18	18	Levite, young, from Bethlehem			Normal		
 JDG	18	19	warriors from Zorah and Eshtaol, five			Normal		
 JDG	18	23	Danites			Normal		
-JDG	18	24	Micah			Normal		
+JDG	18	24	Micah of Ephraim			Normal		
 JDG	18	25	Danites			Normal		
 JDG	19	5	father of concubine			Normal		
 JDG	19	6	father of concubine			Normal		
@@ -10396,7 +10396,7 @@ JER	6	30	God		God (the LORD)	Normal
 JER	7	2	God		God (the LORD)	Normal		
 JER	7	2	Jeremiah			Potential		
 JER	7	3	God		God (the LORD)	Normal		
-JER	7	3	lying words			Hypothetical		
+JER	7	4	lying words			Hypothetical		
 JER	7	4	God		God (the LORD)	Normal		
 JER	7	5	God		God (the LORD)	Normal		
 JER	7	6	God		God (the LORD)	Implicit		
@@ -11062,6 +11062,7 @@ JER	26	14	Jeremiah			Implicit
 JER	26	15	Jeremiah			Implicit		
 JER	26	16	officials/people, all the			Normal		
 JER	26	18	elders of the land			Normal		
+JER	26	18	Micah			Quotation		
 JER	26	19	elders of the land			Implicit		
 JER	26	20	elders of the land			Potential		
 JER	26	21	elders of the land			Potential		
