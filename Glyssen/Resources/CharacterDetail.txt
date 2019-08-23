@@ -106,7 +106,7 @@ authorities, Philippi	-1	Male	Adult			ACT 16:22 & ACT 16:23
 Azariah the chief priest (during reign of Hezekiah)	1	Male			from the family of Zadok	2CH 31:10
 Azariah the priest (during reign of Uzziah)	1	Male				2CH 26:18
 Azariah, son of Hoshaiah	1	Male				JER 43:2 & JER 43:3
-Azariah, son of Jehohanan	1	Male			leader in Ephraim	2CH 28:13
+Azariah, son of Jehohanan	1	Male			leader in Ephraim	2CH 28:13	Leader
 Azariah, son of Oded	1	Male				2CH 15:2 <-(4 more)-> 2CH 15:7
 Baanah	1	Male				2SA 4:8
 Babylon (personified as adulteress)	1	Female	Adult			ISA 47:7 <-(2 more)-> REV 18:7
@@ -301,7 +301,7 @@ Elymas	1	Male			magician	ACT 13:8
 enemies of God	-1					PSA 74:8 & LAM 2:16
 enemies of Israel	-1					PSA 83:4 <-(1 more)-> JER 50:7
 enemies of Judah and Benjamin	-1	Male				EZR 4:2
-enemy	1	Female				MIC 7:10
+enemy (female)	1	Female				MIC 7:10
 Enoch	1	Male				JUD 1:14 & JUD 1:15
 Ephraim	-1	Male			The tribe (collectively personified), not the actual tribal forefather, nor a specific descendent	ISA 7:6 <-(3 more)-> HOS 12:8
 Ephraimites	-1				i.e., specific/individual men of the tribe of Ephraim	JDG 8:1 <-(3 more)-> JDG 12:6	Ephraimite
@@ -383,6 +383,7 @@ Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
 God	1	Male		Y		GEN 1:3 <-(5705 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
+Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
 great company of heavenly host	-1		Adult			LUK 2:14
@@ -752,7 +753,7 @@ nations	-1	PreferMale				DEU 4:6 <-(12 more)-> ZEC 8:23
 nations, neighboring (reply)	-1	PreferMale				JER 22:9
 Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(37 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:14 <-(3 more)-> JER 40:5
-Neco, king of Egypt	1	Male				2CH 35:21
+Neco, king of Egypt	1	Male				2CH 35:21	Ambassador
 Nehemiah	1	Male				NEH 1:2 <-(46 more)-> NEH 13:31
 neighboring nations around Moab	-1					JER 48:17
 neighbors and relatives of Elizabeth and Zacharias (Zechariah)	-1	Either				LUK 1:58 <-(2 more)-> LUK 1:62
@@ -768,6 +769,7 @@ no one	-1					JER 8:6 & JER 22:18
 Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27
 nobles and officials (Jewish)	-1	Male				NEH 2:18 & NEH 5:12
 non-reader	1					ISA 29:12
+oarsmen, mariners, pilots of the sea	-1		Adult			EZK 27:32
 Obadiah, manager of Ahab's palace	1	Male				1KI 18:7 <-(5 more)-> 1KI 18:14
 Obadiah, prophet	1	Male				
 Oded, prophet of the Lord	1	Male				2CH 28:9 <-(1 more)-> 2CH 28:11
@@ -877,6 +879,7 @@ Pharaoh (2nd)	1	Male				GEN 41:15 <-(22 more)-> GEN 50:6
 Pharaoh (2nd)'s men	-1	Male				GEN 41:43
 Pharaoh (3rd)	1	Male				EXO 1:9 <-(28 more)-> EXO 14:5
 Pharaoh (6th)	1	Male				1KI 11:22
+Pharaoh (Apries)	1	Male			aka, Pharaoh Hophra (see JER 44:30)	EZE 29:3
 Pharaoh's daughter	1	Female				EXO 2:6 <-(2 more)-> EXO 2:10
 Pharaoh's officials	-1	Male				EXO 10:7 & EXO 14:5
 Pharisee (expert in religious law)	1	Male				MAT 22:36 & LUK 13:31
@@ -900,6 +903,7 @@ poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(4 more)-> DEU 20:4
 priests	-1	Male				DEU 27:9 <-(32 more)-> ACT 4:1
+prince of Tyre	1	Male				EZE 28:2 & EZE 28:9
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
 proclamation	1	Male				EZR 10:7 & EZR 10:8
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
@@ -997,6 +1001,7 @@ scripture	-1					2CH 25:4 <-(228 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19
 second person to accuse Peter (man)	1	Male				LUK 22:58
+Seir (personified)	1	Male				EZK 25:8 & EZK 35:10	Mount Seir
 Seraiah	1	Male				JER 51:62 & JER 51:64
 seraph, one of the	1	Male				ISA 6:7
 seraphs	-1	Male				ISA 6:3
@@ -1122,6 +1127,7 @@ voice (God?)	1	Male				ISA 40:6 <-(1 more)-> ISA 40:8
 voice in reply (Isaiah?)	1	Male				ISA 40:6
 voice from altar	1	Male				REV 9:14
 voice from among living creatures	1	Male				REV 6:6
+voice from heaven (angel?)	1	Male			Possibly an angel (not identified)	DAN 4:31 & DAN 4:32	Angel
 voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:4 <-(2 more)-> REV 14:13
 voice from heaven, another	1	Male				REV 18:4 <-(15 more)-> REV 18:20
 voice from temple	1					REV 16:1

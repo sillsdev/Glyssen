@@ -106,7 +106,7 @@ namespace Glyssen.Character
 				if (value != "FALSE" && value != String.Empty && !Enum.TryParse(value, out quoteType))
 				{
 					throw new InvalidDataException(
-						$"items[{kiQuoteType}] has a value of {value}, which is not a valid {typeof(QuoteType).Name}");
+						$"{items[0]} {items[1]}:{items[2]}, {items[3]} - items[{kiQuoteType}] has a value of {value}, which is not a valid {typeof(QuoteType).Name}.");
 				}
 			}
 
