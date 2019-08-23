@@ -382,7 +382,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5772 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5780 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
@@ -677,7 +677,7 @@ men of Gennesaret	-1	Male				MAT 14:35
 men of Jabesh	-1	Male				1SA 11:1 & 1SA 11:10
 men of Jericho	-1	Male				2KI 2:19
 men of Sodom (wicked)	-1	Male				GEN 19:5 & GEN 19:9	Sodomite
-men who are settled on their dregs	-1	Male				ZEP 1:12
+men who are complacent	-1	Male				ZEP 1:12
 men who have gone astray	-1	Male				2TI 2:18
 men with leprosy, four	4	Male				2KI 7:3 <-(2 more)-> 2KI 7:10
 men, large force of	-1	Male				2CH 32:4
@@ -1198,7 +1198,7 @@ Zedekiah, king of Judah	1	Male				JER 32:3 <-(16 more)-> JER 38:26
 Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19
 Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18:23	Zedekiah son of Chenaanah
 Zephaniah, priest	1	Male			son of Maaseiah	JER 21:2 <-(3 more)-> JER 37:3
-Zephaniah, prophet	1	Male			son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hezekiah	
+Zephaniah, prophet	1	Male			son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hezekiah	ZEP 1:2 <-(20 more)-> ZEP 3:20
 Zeresh, wife of Haman	1	Female				EST 5:14 & EST 6:13	Wife of Haman (female)
 Zerubbabel	1	Male				EZR 4:3 & ZEC 4:7
 Ziba, servant of Saul's household	1	Male				2SA 9:2 <-(5 more)-> 2SA 16:4

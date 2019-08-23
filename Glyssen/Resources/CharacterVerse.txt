@@ -14161,46 +14161,74 @@ HAB	2	19	God		God (the LORD)	Potential
 HAB	2	19	man (hypothetical)			Hypothetical		
 HAB	2	19	Habakkuk			Alternate		
 HAB	2	20	God		God (the LORD)	Normal		
-ZEP	1	2	God		God (the LORD)	Implicit		
-ZEP	1	3	God		God (the LORD)	Implicit		
+ZEP	1	2	God		God (the LORD)	Normal		
+ZEP	1	2	Zephaniah, prophet		Zephaniah (the LORD says)	Potential		
+ZEP	1	3	God		God (the LORD)	Normal		
+ZEP	1	3	Zephaniah, prophet		Zephaniah (the LORD says)	Potential		
 ZEP	1	4	God		God (the LORD)	Implicit		
+ZEP	1	4	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	1	5	God		God (the LORD)	Implicit		
+ZEP	1	5	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	1	6	God		God (the LORD)	Implicit		
+ZEP	1	6	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	1	7	God		God (the LORD)	Implicit		
+ZEP	1	7	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	1	8	God		God (the LORD)	Implicit		
+ZEP	1	8	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	1	9	God		God (the LORD)	Implicit		
-ZEP	1	10	God		God (the LORD)	Potential		
+ZEP	1	9	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
+ZEP	1	10	God		God (the LORD)	Normal		
+ZEP	1	10	Zephaniah, prophet		Zephaniah (the LORD says)	Potential		
 ZEP	1	11	God		God (the LORD)	Implicit		
 ZEP	1	12	God		God (the LORD)	Potential		
-ZEP	1	12	men who are settled on their dregs	thinking (saying in their hearts)		Hypothetical		
+ZEP	1	12	men who are complacent	thinking (saying in their hearts)		Hypothetical		
 ZEP	1	13	God		God (the LORD)	Implicit		
-ZEP	1	14	God		God (the LORD)	Implicit		
-ZEP	1	15	God		God (the LORD)	Implicit		
-ZEP	1	16	God		God (the LORD)	Implicit		
-ZEP	1	17	God		God (the LORD)	Implicit		
-ZEP	1	18	God		God (the LORD)	Implicit		
+ZEP	1	14	God		God (the LORD)	Potential		
+ZEP	1	15	God		God (the LORD)	Potential		
+ZEP	1	16	God		God (the LORD)	Potential		
+ZEP	1	17	God		God (the LORD)	Normal		
+ZEP	1	18	God		God (the LORD)	Normal		
 ZEP	2	5	God		God (the LORD)	Potential		
-ZEP	2	8	God		God (the LORD)	Implicit		
+ZEP	2	8	God		God (the LORD)	Normal		
 ZEP	2	9	God		God (the LORD)	Normal		
-ZEP	2	12	God		God (the LORD)	Potential		
+ZEP	2	9	Zephaniah, prophet		Zephaniah (the LORD says)	Potential		
+ZEP	2	10	Zephaniah, prophet			Alternate		
+ZEP	2	10	God		God (the LORD)	Potential		
+ZEP	2	11	Zephaniah, prophet			Alternate		
+ZEP	2	11	God		God (the LORD)	Potential		
+ZEP	2	12	God		God (the LORD)	Implicit		
+ZEP	2	12	Zephaniah, prophet			Alternate		
+ZEP	2	13	Zephaniah, prophet			Alternate		
+ZEP	2	13	God		God (the LORD)	Potential		
+ZEP	2	14	Zephaniah, prophet			Alternate		
+ZEP	2	14	God		God (the LORD)	Potential		
+ZEP	2	15	Zephaniah, prophet			Alternate		
+ZEP	2	15	God		God (the LORD)	Potential		
 ZEP	2	15	Nineveh		Nineveh, the city of revelry	Hypothetical		
-ZEP	3	6	God		God (the LORD)	Implicit		
+ZEP	3	6	God		God (the LORD)	Normal		
 ZEP	3	7	God		God (the LORD)	Implicit		
 ZEP	3	8	God		God (the LORD)	Normal		
+ZEP	3	8	Zephaniah, prophet		Zephaniah (the LORD says)	Potential		
 ZEP	3	9	God		God (the LORD)	Implicit		
 ZEP	3	10	God		God (the LORD)	Implicit		
 ZEP	3	11	God		God (the LORD)	Implicit		
 ZEP	3	12	God		God (the LORD)	Implicit		
-ZEP	3	13	God		God (the LORD)	Implicit		
-ZEP	3	16	God		God (the LORD)	Quotation		
-ZEP	3	16	narrator-ZEP			Hypothetical		
+ZEP	3	13	God		God (the LORD)	Normal		
+ZEP	3	14	Zephaniah, prophet			Potential		
+ZEP	3	14	God		God (the LORD)	Potential		
+ZEP	3	15	Zephaniah, prophet			Potential		
+ZEP	3	15	God		God (the LORD)	Potential		
+ZEP	3	16	God		God (the LORD)	Potential		
+ZEP	3	16	God	encouraging	God (the LORD)	Hypothetical		
 ZEP	3	16	person encouraging Jerusalem			Hypothetical		
-ZEP	3	17	God		God (the LORD)	Potential		
-ZEP	3	17	narrator-ZEP			Hypothetical		
+ZEP	3	17	God	encouraging	God (the LORD)	Hypothetical		
 ZEP	3	17	person encouraging Jerusalem			Hypothetical		
 ZEP	3	18	God		God (the LORD)	Implicit		
+ZEP	3	18	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	3	19	God		God (the LORD)	Implicit		
+ZEP	3	19	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	3	20	God		God (the LORD)	Normal		
+ZEP	3	20	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 HAG	1	2	Haggai			Normal		
 HAG	1	2	God		God (the LORD)	Normal		
 HAG	1	4	Haggai			Normal		
