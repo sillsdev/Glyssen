@@ -434,6 +434,19 @@ namespace GlyssenTests
 			Assert.AreEqual(2, result.Count);
 		}
 
+		[TestCase(ScrVersType.Original)]
+		[TestCase(ScrVersType.RussianOrthodox)]
+		public void GetCloneWithJoinedBlocks_VariousVersifications_VersificationCloned(ScrVersType versType)
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark", "MRK"));
+			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, new ScrVers(versType));
+			var clone = bookScript.GetCloneWithJoinedBlocks(false);
+			Assert.AreEqual(versType, clone.Versification.Type);
+		}
+
 		[TestCase(" ")]
 		[TestCase("")]
 		public void GetCloneWithJoinedBlocks_VernacularContainsQBlocks_VernacularBlocksBySameSpeakerCombined(string trailingWhitespace)
@@ -456,7 +469,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual("«This is line 1, This is line 2, This is line 3, This is line 4.»",
 				result[1].GetText(true));
@@ -485,7 +498,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual("«This is line 1, This is line 2,", result[1].GetText(true).TrimEnd());
 			Assert.AreEqual("{2}\u00A0This is line 3, This is line 4.»", result[2].GetText(true));
@@ -513,7 +526,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Peter said, 'This is line 1, 'This is line 2, 'This is line 3, 'This is line 4, ",
 				result[0].GetText(true));
@@ -545,7 +558,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(block);
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 			Assert.AreEqual("rt0", result[0].GetPrimaryReferenceText());
@@ -571,7 +584,7 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation +
@@ -993,7 +1006,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetScriptBlocks_JoiningAndApplyingNarratorOverrides_AdjacentSentencesInSameParagraphAndVerse_BlocksCombinedWithOverrideCharacter()
+		public void GetCloneWithJoinedBlocks_ApplyingNarratorOverrides_AdjacentSentencesInSameParagraphAndVerse_BlocksCombinedWithOverrideCharacter()
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
 			var blocks = new List<Block>
@@ -1029,7 +1042,7 @@ namespace GlyssenTests
 		[TestCase(".", "p", "{1} This is not empty.", " ", "{1}\u00A0This is not empty.")]
 		[TestCase("?", "li", " ", "{1} Neither is this.", "{1}\u00A0Neither is this.")]
 		[TestCase("!", "q1", "{1}", "The other block's ref text was just a verse number.", "{1}\u00A0The other block's ref text was just a verse number.")]
-		public void GetScriptBlocks_JoiningWithBlankReferenceTexts_AdjacentSentencesInSameParagraphAndVerse_BlocksCombined(string vernBlock1EndingPunctuation,
+		public void GetCloneWithJoinedBlocks_WithBlankReferenceTexts_AdjacentSentencesInSameParagraphAndVerse_BlocksCombined(string vernBlock1EndingPunctuation,
 			string styleTag, string block1RefText, string block2RefText, string expectedCombinedRefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -1046,7 +1059,7 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
@@ -1056,7 +1069,7 @@ namespace GlyssenTests
 		[TestCase(";", "p", "{1} This is not empty, ", "okay?", "{1}\u00A0This is not empty, okay?")]
 		[TestCase(",", "pi2", "This is just another way", " to say that.", "This is just another way to say that.")]
 		[TestCase("", "q1", "{1}My soul will rejoice. Yes, it will sing;", "Because it is happy!", "{1}\u00A0My soul will rejoice. Yes, it will sing; Because it is happy!")]
-		public void GetScriptBlocks_JoiningWithReferenceTextsInSameVerseAndSentence_BlocksCombined(string vernBlock1EndingPunctuation,
+		public void GetCloneWithJoinedBlocks_WithReferenceTextsInSameVerseAndSentence_BlocksCombined(string vernBlock1EndingPunctuation,
 			string block2StyleTag, string block1RefText, string block2RefText, string expectedCombinedRefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -1074,7 +1087,7 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
@@ -1086,7 +1099,7 @@ namespace GlyssenTests
 		[TestCase("!", "q1", "{F8 SFX--Whatever}", "This is not empty...")]
 		[TestCase("!", "pi1", "This is fine", "and\u2026dandy.")]
 		[TestCase("?", "q2", "{1}\u00A0Freaky,", "isn't it?")]
-		public void GetScriptBlocks_JoiningWithReferenceTexts_VernBlockEndsInSentenceEndingPunctuation_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+		public void GetCloneWithJoinedBlocks_WithReferenceTexts_VernBlockEndsInSentenceEndingPunctuation_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
 			string block1RefText, string block2RefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -1106,7 +1119,7 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual(origRefText1, result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(origRefText2, result[1].GetPrimaryReferenceText());
@@ -1118,7 +1131,7 @@ namespace GlyssenTests
 		[TestCase("", "p", "This is not empty.", " ")]
 		[TestCase(";", "pi1", "This is fine", "and\u2026dandy.")]
 		[TestCase(" - ", "q2", "{1}\u00A0Freaky,", "isn't it?")]
-		public void GetScriptBlocks_JoiningWithReferenceTexts_BlockBHasVerseNumber_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+		public void GetCloneWithJoinedBlocks_WithReferenceTexts_BlockBHasVerseNumber_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
 			string block1RefText, string block2RefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -1139,27 +1152,23 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual(origRefText1, result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(origRefText2, result[1].GetPrimaryReferenceText());
 		}
 
 		[Test]
-		public void GetScriptBlocks_JoiningWithReferenceTexts_SingleVoice_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
+		public void GetCloneWithJoinedBlocks_SingleVoiceWithReferenceTexts_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			var jude = testProject.IncludedBooks.Single();
 			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			foreach (var block in jude.GetScriptBlocks())
-			{
-				if (block.CharacterIsUnclear)
-					block.CharacterId = "Paul";
 				block.SetMatchedReferenceBlock("blah");
-			}
 			jude.SingleVoice = true;
 
-			var result = jude.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = jude.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(countOfOrigParagraphs, result.Count);
 			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
 			Assert.IsFalse(result.Any(b => b.MatchesReferenceText));
@@ -1186,7 +1195,7 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();;
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
@@ -3991,11 +4000,27 @@ namespace GlyssenTests
 		}
 		#endregion
 
-			#region Private Helper methods
+		#region Private Helper methods
+		/// <summary>
+		/// Options to tell GetTestBlocks when/whether to explicitly assign the known narrator
+		/// override character to direct-speech block(s) for the verses where he might speak.
+		/// </summary>
 		public enum TextExplicitOverrides
 		{
+			/// <summary>
+			/// All known verses in each narrator-override range should have a block explicitly
+			/// spoken by the override character. (This effectively suppresses the override behavior.)
+			/// </summary>
 			All,
+			/// <summary>
+			/// Some (roughly half) of the known verses in each narrator-override range should have
+			/// a block explicitly spoken by the override character.
+			/// </summary>
 			Some,
+			/// <summary>
+			/// No blocks in any narrator-override range should have their character IDs explicitly
+			/// assigned to the override character.
+			/// </summary>
 			None,
 		}
 
@@ -4005,6 +4030,14 @@ namespace GlyssenTests
 			return new BookScript(bookId, GetTestBlocks(scrVers, bookId, option, missingVerseOffset), scrVers);
 		}
 
+		/// <summary>
+		/// Gets a "dummy" book with blocks covering all (or all but one, if <paramref name="missingVerseOffset"/> is specified)
+		/// verses in all chapters. Some may be (very big) verse bridges. Details of what the blocks will look like and which
+		/// character will be assigned depends on the chapter, what narrator overrides exist for the book, and the
+		/// <paramref name="option"/> specified. This doesn't make for the most readable test setup, but it does make it easy to
+		/// run lots of different iterations of tests over a variety of scenarios. To really understand it, the easiest thing is
+		/// probably to set a break point and examine the blocks that get returned.
+		/// </summary>
 		private List<Block> GetTestBlocks(ScrVers scrVers, string bookId, TextExplicitOverrides option, int missingVerseOffset = -1)
 		{
 			var bookNum = BCVRef.BookToNumber(bookId);
@@ -4075,7 +4108,7 @@ namespace GlyssenTests
 			return blocks;
 		}
 
-			private Block NewTitleBlock(string text, string bookCodeToSetCharacterId)
+		private Block NewTitleBlock(string text, string bookCodeToSetCharacterId)
 		{
 			var block = new Block("mt");
 			block.IsParagraphStart = true;

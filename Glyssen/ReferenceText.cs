@@ -44,19 +44,6 @@ namespace Glyssen
 				else
 				{
 					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-					switch (id.Type)
-					{
-						case ReferenceTextType.English:
-						//case ReferenceTextType.Azeri:
-						//case ReferenceTextType.French:
-						//case ReferenceTextType.Indonesian:
-						//case ReferenceTextType.Portuguese:
-						case ReferenceTextType.Russian:
-							//case ReferenceTextType.Spanish:
-							//case ReferenceTextType.TokPisin:
-							referenceText.m_vers = ScrVers.English;
-							break;
-					}
 					referenceText.LoadBooks();
 					s_instantiatedReferenceTexts[id] = referenceText;
 				}
@@ -119,8 +106,16 @@ namespace Glyssen
 
 			GetBookName = bookId => GetBook(bookId)?.PageHeader;
 
-			if (m_referenceTextType == ReferenceTextType.Custom)
-				SetVersification();
+			switch (Type)
+			{
+				case ReferenceTextType.English:
+				case ReferenceTextType.Russian:
+					m_vers = ScrVers.English;
+					break;
+				default:
+					SetVersification();
+					break;
+			}
 		}
 
 		protected virtual void SetVersification()
@@ -132,7 +127,7 @@ namespace Glyssen
 			}
 			else
 			{
-				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versisfication.");
+				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versification.");
 				m_vers = ScrVers.English;
 			}
 		}
@@ -174,7 +169,12 @@ namespace Glyssen
 		/// correspond to this reference text (in which case, the books and blocks returned are copies, so
 		/// that the project itself is not modified).
 		/// </summary>
-		public IEnumerable<BookScript> GetBooksWithBlocksConnectedToReferenceText(Project project, bool applyNarratorOverrides)
+		/// <param name="project">The project</param>
+		/// <param name="applyNarratorOverrides">A value indicating whether to apply the narrator
+		/// overrides. This will take a bit more processing and can be safely forgone if caller just
+		/// wants to collect statistical information about assignments/alignments. But for any use in
+		/// "phase 2" where the effective character is needed, this should be true.</param>
+		public IEnumerable<BookScript> GetBooksWithBlocksConnectedToReferenceText(Project project, bool applyNarratorOverrides = true)
 		{
 			foreach (var book in project.IncludedBooks)
 			{

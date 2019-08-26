@@ -24,19 +24,22 @@ namespace DevTools
 
 		private static void PopulateReferences(List<CharacterDetailLine> lines)
 		{
-			//ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
-			Dictionary<string, List<BCVRef>> dictionaryWithHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().SelectMany(cv =>
-				{
-					return cv.Character.Split('/').Select(c => new Tuple<string, Glyssen.Character.CharacterVerse>(c, cv));
-				})
+			// ENHANCE: Get info from NarratorOverrides as well. The information there
+			// would not currently allow us to indicate exactly how many occurrences
+			// there are because it is done using ranges and we do not necessarily
+			// expect that every verse in the range could/would be assigned to that
+			// character. Perhaps we could tack on something like:
+			// ; Also used as narrator override in PSA, JER, EZK.
+			// But how useful would that information really be?
+
+			Dictionary<string, List<BCVRef>> dictionaryOfCharactersToReferences =
+				ControlCharacterVerseData.Singleton.GetAllQuoteInfo().SelectMany(cv => cv.Character.Split('/')
+				.Select(c => new Tuple<string, Glyssen.Character.CharacterVerse>(c, cv)))
 				.GroupBy(t => t.Item1, t => t.Item2).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
-			//ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
-			//Dictionary<string, List<BCVRef>> dictionaryWithoutHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
-			//Dictionary<string, List<BCVRef>> dictionaryOfDefaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.DefaultCharacter).ToDictionary(dc => dc.Key, cv => cv.Select(c => c.BcvRef).ToList());
 
 			foreach (var line in lines)
 			{
-				if (dictionaryWithHypotheticals.TryGetValue(line.CharacterId, out var bcvRefs))
+				if (dictionaryOfCharactersToReferences.TryGetValue(line.CharacterId, out var bcvRefs))
 				{
 					switch (bcvRefs.Count)
 					{
@@ -52,12 +55,6 @@ namespace DevTools
 							line.ReferenceComment = bcvRefs.Min() + " <-(" + (bcvRefs.Count - 2) + " more)-> " + bcvRefs.Max();
 							break;
 					}
-
-					//if (!dictionaryWithoutHypotheticals.TryGetValue(line.CharacterId, out bcvRefs) &&
-					//    !dictionaryOfDefaultCharacters.TryGetValue(line.CharacterId, out bcvRefs))
-					//{
-					//	line.HypotheticalOnly = true;
-					//}
 				}
 			}
 		}
@@ -75,7 +72,6 @@ namespace DevTools
 
 			var lineWithReferenceComment = match.Result("${precedingPart}") + line.ReferenceComment + match.Result("${followingPart}");
 			return lineWithReferenceComment;
-			//return $"{lineWithReferenceComment}\t{line.HypotheticalOnly}";
 		}
 
 		private static void WriteFile(string fileText)
@@ -109,7 +105,6 @@ namespace DevTools
 			public string CharacterId { get; set; }
 			public string CurrentLine { get; set; }
 			public string ReferenceComment { get; set; }
-//			public bool HypotheticalOnly { get; set; }
 		}
 
 		public static void GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit()

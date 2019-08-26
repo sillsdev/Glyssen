@@ -24,7 +24,7 @@ namespace Glyssen.Rules
 		{
 			m_strictlyAdhereToNarratorPreferences = strictlyAdhereToNarratorPreferences;
 			m_referenceText = project.ReferenceText;
-			m_booksToConsider = m_referenceText.GetBooksWithBlocksConnectedToReferenceText(project, true).ToList();
+			m_booksToConsider = m_referenceText.GetBooksWithBlocksConnectedToReferenceText(project).ToList();
 
 			var dramatizationPreferences = project.DramatizationPreferences;
 			m_narrationByAuthor = project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor;

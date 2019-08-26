@@ -19,6 +19,12 @@ namespace Glyssen.Character
 		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
 
+		/// <summary>
+		/// Gets a single character/delivery object that represents the one known character expected to be the
+		/// exclusive (implicit) speaker over the entire reference range represented by the given parameters.
+		/// If there are conflicting implicit characters or an implicit character covers only part of the range,
+		/// the returned object will be a "Needs Review" character.
+		/// </summary>
 		ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null);
 	}
 

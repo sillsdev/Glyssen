@@ -17,6 +17,12 @@ namespace Glyssen.Quote
 			m_referenceText = referenceText;
 		}
 
+		/// <summary>
+		/// Gets all known (potential and/or expected) characters for the given reference range. If any of
+		/// them are Hypothetical, those characters will only be included if the reference text contains a
+		/// block actually assigned to that hypothetical character. Otherwise, the hypothetical character
+		/// will be treated as a narrator "quotation."
+		/// </summary>
 		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false)
 		{
 			return m_cvInfo.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification, includeAlternates)

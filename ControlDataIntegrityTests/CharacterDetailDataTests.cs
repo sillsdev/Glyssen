@@ -135,9 +135,9 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_ReferenceCommentFieldIsValid()
 		{
 			var bogusReferenceComment = CharacterDetailData.Singleton.GetAll()
-				.Where(d => d.FirstReference.BBCCCVVV > d.LastReference.BBCCCVVV).ToList();
+				.Where(d => d.FirstReference?.BBCCCVVV > d.LastReference?.BBCCCVVV).ToList();
 			Assert.IsFalse(bogusReferenceComment.Any(),
-				"Invaid ReferenceComment in Character-Detail data:" +
+				"ReferenceComment in Character-Detail data has references out of canonical order:" +
 				Environment.NewLine +
 				bogusReferenceComment.Select(d => $"{d.CharacterId}: {d.ReferenceComment}").OnePerLineWithIndent());
 		}

@@ -278,7 +278,12 @@ namespace Glyssen.RefTextDevUtilities
 			s_characterDetailsWithUnmatchedFCBHCharacterLabel = CharacterDetailData.Singleton.GetDictionary()
 				.Where(kvp =>
 				{
-					if (kvp.Value.DefaultFCBHCharacter == null)
+					// If the "ReferenceComment" field is blank (which would result in FirstReference and
+					// LastReference coming back as null), we can't check to see whether it is actually included.
+					// This will only occur if a new character is added and the dev tool is not run to populate
+					// the ReferenceComment field, or if this a character that is only used as a narrator
+					// override (see ENHANCE comment in CharacterDetailProcessing.PopulateReferences).
+					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment))
 						return false;
 					if (otData == null && kvp.Value.LastReference.BBCCCVVV < 40000000)
 						return false;
@@ -885,8 +890,8 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchWithoutParentheses = new Regex("[^(]*", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenKing = new Regex(@"(?<name>(\w|-)+),? king of .+", RegexOptions.Compiled);
 		static readonly Regex s_matchFcbhKing = new Regex(@"^(King )?(?<name>[A-Z](\w|-)+)( I{1,3})?", RegexOptions.Compiled);
-		static readonly Regex s_matchPossessiveWithApostropheS = new Regex(@"(?<possessor>.+)? of (?<possessee>.+)", RegexOptions.Compiled);
-		static readonly Regex s_matchPossessiveWithOf = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
+		static readonly Regex s_matchPossessiveWithOf = new Regex(@"(?<possessor>.+)? of (?<possessee>.+)", RegexOptions.Compiled);
+		static readonly Regex s_matchPossessiveWithApostropheS = new Regex(@"((?<possessee>.+)'s (?<possessor>.+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenProperNameWithQualifiers = new Regex(@"^(?<name>([A-Z](\w|-)+))((, )|( \()).+", RegexOptions.Compiled);
 		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
@@ -1017,7 +1022,12 @@ namespace Glyssen.RefTextDevUtilities
 
 			var details = CharacterDetailData.Singleton.GetDictionary();
 			// REVIEW: Do we want to store in our control files the exact character name from FCBH (e.g., Man #1)
-			// or the stripped down version (e.g., Man)
+			// or the stripped down version (e.g., Man). So far, it's only being used here for matching, so
+			// there's no real need to have the exact name. Where the exact name would be potentially useful
+			// would be if we used it in the export to eliminate the need for Nitro, but then we'll need to also
+			// be able to add a column to the the C-V control file to override the default since these are not
+			// 1-to-1. Unless we do that, there's probably no motivation to tracks the full FCBH label, because
+			// they might tend to change over time.
 			if (details[glyssenCharacterId].DefaultFCBHCharacter == fcbhCharacterLabelSansNumber)
 			{
 				s_characterDetailsWithUnmatchedFCBHCharacterLabel.Remove(glyssenCharacterId);
@@ -1070,10 +1080,10 @@ namespace Glyssen.RefTextDevUtilities
 					return MatchLikelihood.Reliable;
 			}
 
-			var glyssenPossessive = s_matchPossessiveWithApostropheS.Match(characterIdToUseToLower);
+			var glyssenPossessive = s_matchPossessiveWithOf.Match(characterIdToUseToLower);
 			if (glyssenPossessive.Success)
 			{
-				var fcbhPossessive = s_matchPossessiveWithOf.Match(fcbhCharacterToLower);
+				var fcbhPossessive = s_matchPossessiveWithApostropheS.Match(fcbhCharacterToLower);
 				if (fcbhPossessive.Success &&
 					glyssenPossessive.Result("${possessor}").StartsWith(fcbhPossessive.Result("${possessor}")) &&
 					glyssenPossessive.Result("${possessee}").StartsWith(fcbhPossessive.Result("${possessee}")))
@@ -1081,10 +1091,10 @@ namespace Glyssen.RefTextDevUtilities
 			}
 			else
 			{
-				var fcbhPossessive = s_matchPossessiveWithApostropheS.Match(fcbhCharacterToLower);
+				var fcbhPossessive = s_matchPossessiveWithOf.Match(fcbhCharacterToLower);
 				if (fcbhPossessive.Success)
 				{
-					glyssenPossessive = s_matchPossessiveWithOf.Match(characterIdToUseToLower);
+					glyssenPossessive = s_matchPossessiveWithApostropheS.Match(characterIdToUseToLower);
 					if (glyssenPossessive.Success &&
 						glyssenPossessive.Result("${possessor}").StartsWith(fcbhPossessive.Result("${possessor}")) &&
 						glyssenPossessive.Result("${possessee}").StartsWith(fcbhPossessive.Result("${possessee}")))

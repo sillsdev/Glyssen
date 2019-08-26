@@ -116,15 +116,6 @@ namespace Glyssen.Character
 			var defaultCharacter = (items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null;
 			var parallelPassageInfo = (items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null;
 
-			//if (ReadHypotheticalAsNarrator && quoteType == QuoteType.Hypothetical)
-			//{
-			//	characterId = GetStandardCharacterId(BCVRef.NumberToBookCode(bcvRef.Book), StandardCharacter.Narrator);
-			//	delivery = string.Empty;
-			//	alias = string.Empty;
-			//	quoteType = QuoteType.Quotation;
-			//	defaultCharacter = string.Empty;
-			//	parallelPassageInfo = string.Empty;
-			//}
 			return new CharacterVerse(bcvRef, characterId, delivery, alias, false, quoteType, defaultCharacter, parallelPassageInfo);
 		}
 

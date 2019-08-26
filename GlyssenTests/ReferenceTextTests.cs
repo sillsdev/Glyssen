@@ -2564,7 +2564,7 @@ namespace GlyssenTests
 
 		[TestCase(true)]
 		[TestCase(false)]
-		public void GetBooksWithBlocksConnectedToReferenceText_EnglishVersification_FactoryOverridesAppliedIfRequested(bool applyNarratorOverrides)
+		public void GetBooksWithBlocksConnectedToReferenceText_EnglishVersification_NarratorOverridesAppliedIfRequested(bool applyNarratorOverrides)
 		{
 			// This test is based on the NarratorOverrides.xml control file having the following contents:
 			//< Override startChapter = "68" endChapter = "70" character = "David" />
@@ -2575,6 +2575,8 @@ namespace GlyssenTests
 			//< Override startChapter = "82" startVerse = "8" endChapter = "83" character = "Asaph" />
 			//< Override startChapter = "84" endChapter = "85" character = "sons of Korah" />
 
+			// SETUP
+			// =====
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PSA_NoData);
 			var psalms = testProject.Books[0];
 			var vernacularBlocks = new List<Block>();
@@ -2642,14 +2644,20 @@ namespace GlyssenTests
 
 			psalms.Blocks = vernacularBlocks;
 
+			// SUT
+			// ===
 			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
+			// VERIFY BLOCKS WITH EXPLICITLY SET OVERRIDES
+			// ===========================================
 			var theBlockSpokenByMike = result.Single(b => b.CharacterIdInScript == "Mike");
 			var theBlockSpokenByFred = result.Single(b => b.CharacterIdInScript == "Fred");
 			Assert.AreEqual(theBlockSpokenByMike.CharacterId, theBlockSpokenByFred.CharacterId);
 			Assert.AreEqual(theBlockSpokenByMike.InitialStartVerseNumber, theBlockSpokenByFred.InitialStartVerseNumber);
 
+			// VERIFY OVERRIDES (OR NOT) FOR NARRATOR BLOCKS
+			// =============================================
 			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
 
 			Assert.IsTrue(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
@@ -2699,6 +2707,8 @@ namespace GlyssenTests
 				Assert.IsTrue(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId));
 			}
 
+			// VERIFY BLOCK DETAILS (CH 71)
+			// ============================
 			var i = 0;
 			var block = resultBlocksExcludingDirectSpeech[i++];
 
@@ -2721,6 +2731,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 72)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 72;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -2747,6 +2759,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{20}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 73)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 73;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -2773,6 +2787,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 74)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 74;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -2799,6 +2815,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 82)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 82;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -2830,6 +2848,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 84)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 84;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -2861,7 +2881,7 @@ namespace GlyssenTests
 
 		[TestCase(true)]
 		[TestCase(false)]
-		public void GetBooksWithBlocksConnectedToReferenceText_RussianOrthoVersification_FactoryOverridesAppliedIfRequested(bool applyNarratorOverrides)
+		public void GetBooksWithBlocksConnectedToReferenceText_RussianOrthoVersification_NarratorOverridesAppliedIfRequested(bool applyNarratorOverrides)
 		{
 			// This test is based on the NarratorOverrides.xml control file having the following contents:
 			//<Override startChapter = "68" endChapter = "70" character = "David" />
@@ -2873,6 +2893,8 @@ namespace GlyssenTests
 			//<Override startChapter = "82" startVerse = "8" endChapter = "83" character = "Asaph" />
 			//<Override startChapter = "84" endChapter = "85" character = "sons of Korah" />
 
+			// SETUP
+			// =====
 			var testProject = TestProject.CreateTestProject(Resources.RussianOrthodoxVersification, TestProject.TestBook.PSA_NoData);
 			var psalms = testProject.Books[0];
 			var vernacularBlocks = new List<Block>();
@@ -2941,14 +2963,20 @@ namespace GlyssenTests
 
 			psalms.Blocks = vernacularBlocks;
 
+			// SUT
+			// ===
 			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides).Single().GetScriptBlocks();
 
+			// VERIFY BLOCKS WITH EXPLICITLY SET OVERRIDES
+			// ===========================================
 			var theBlockSpokenByMike = result.Single(b => b.CharacterIdInScript == "Mike");
 			var theBlockSpokenByFred = result.Single(b => b.CharacterIdInScript == "Fred");
 			Assert.AreEqual(theBlockSpokenByMike.CharacterId, theBlockSpokenByFred.CharacterId);
 			Assert.AreEqual(theBlockSpokenByMike.InitialStartVerseNumber, theBlockSpokenByFred.InitialStartVerseNumber);
 
+			// VERIFY OVERRIDES (OR NOT) FOR NARRATOR BLOCKS
+			// =============================================
 			var resultBlocksExcludingDirectSpeech = result.Where(b => b != theBlockSpokenByMike && b != theBlockSpokenByFred).ToList();
 
 			Assert.IsTrue(resultBlocksExcludingDirectSpeech.All(b => b.IsChapterAnnouncement ^ (b.CharacterId == psalms.NarratorCharacterId || b.CharacterId == "Mike/Fred")));
@@ -2995,6 +3023,8 @@ namespace GlyssenTests
 				Assert.IsTrue(narratorBlocks.All(b => b.CharacterIdInScript == psalms.NarratorCharacterId));
 			}
 
+			// VERIFY BLOCK DETAILS (CH 71)
+			// ============================
 			var i = 0;
 			var block = resultBlocksExcludingDirectSpeech[i++];
 
@@ -3017,6 +3047,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{24}\u00A0Езикът ми, тъй също, ще приказва за правдата Ти всеки ден, Защото се посрамиха - защото се смутиха - ония, които искат зло за мене.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 72)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 72 + chapterNumAdjustment;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -3037,6 +3069,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{20}\u00A0Свършиха се молитвите на Иесевия син Давида.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 73)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 73 + chapterNumAdjustment;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -3057,6 +3091,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{28}\u00A0Но за мене е добре да се приближа при Бога; Тебе, Господи Иеова, направих прибежището си, За да възгласявам всичките Твои дела.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 74)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 74 + chapterNumAdjustment;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -3077,6 +3113,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{23}\u00A0Не забравяй гласа на противниците Си; Размирството на ония, които се повдигат против Тебе, постоянно се умножава.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 82)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 82 + chapterNumAdjustment;
 			Assert.AreEqual(chapter, block.ChapterNumber);
@@ -3102,6 +3140,8 @@ namespace GlyssenTests
 			Assert.AreEqual("q1", block.StyleTag);
 			Assert.AreEqual("{8}\u00A0Стани, Боже, съди земята; Защото Ти имаш наследство всред всичките народи.", block.GetText(true));
 
+			// VERIFY BLOCK DETAILS (CH 84)
+			// ============================
 			block = resultBlocksExcludingDirectSpeech[i++];
 			chapter = 84 + chapterNumAdjustment;
 			Assert.AreEqual(chapter, block.ChapterNumber);

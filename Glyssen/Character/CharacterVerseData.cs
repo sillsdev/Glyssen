@@ -14,7 +14,7 @@ namespace Glyssen.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
-		/// <summary>Represents a quote whose character has not been set because not quote was expected at this location</summary>
+		/// <summary>Represents a quote whose character has not been set because no quote was expected at this location</summary>
 		public const string kUnexpectedCharacter = "Unknown";
 		/// <summary>Represents a quote where the user needs to disambiguate between multiple potential characters</summary>
 		public const string kAmbiguousCharacter = "Ambiguous";
@@ -255,6 +255,12 @@ namespace Glyssen.Character
 			return result.Union(interruption);
 		}
 
+		/// <summary>
+		/// Gets a single character/delivery object that represents the one known character expected to be the
+		/// exclusive (implicit) speaker over the entire reference range represented by the given parameters.
+		/// If there are conflicting implicit characters or an implicit character covers only part of the range,
+		/// the returned object will be a "Needs Review" character.
+		/// </summary>
 		public virtual ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
 		{
 			if (versification == null)
@@ -274,7 +280,7 @@ namespace Glyssen.Character
 				var cvNextVerse = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
 				// Unless all verses in the range have the same implicit character, we cannot say that there is an
 				// implicit character for this range. Note that there is the slight possibility that the delivery may vary
-				// from one verse to the next, butit doesn't seem worth it to fail to find the implict character just
+				// from one verse to the next, but it doesn't seem worth it to fail to find the implicit character just
 				// because of that. Especially since the delivery info is only of minor usefulness.
 				if (cvNextVerse?.Character != implicitCv.Character)
 					return NeedsReviewCharacter.Singleton;

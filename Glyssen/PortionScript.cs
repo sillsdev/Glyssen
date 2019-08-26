@@ -12,7 +12,7 @@ namespace Glyssen
 	public class PortionScript
 	{
 		public const int kSplitAtEndOfVerse = -999;
-		protected string m_id;
+		private string m_id;
 		protected List<Block> m_blocks;
 
 		public PortionScript(PortionScript parent, IEnumerable<Block> blocks) : this(parent.BookId, blocks, parent.Versification)

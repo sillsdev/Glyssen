@@ -46,7 +46,7 @@ namespace Glyssen.Character
 			get
 			{
 				if (string.IsNullOrEmpty(ReferenceComment))
-					return new BCVRef(1, 1, 1);
+					return null;
 				var m = s_regexFirstScriptureRef.Match(ReferenceComment);
 				if (m.Success)
 					return new BCVRef(BCVRef.BookToNumber(m.Result("${bookId}")), int.Parse(m.Result("${chapter}")), int.Parse(m.Result("${verse}")));
@@ -59,11 +59,7 @@ namespace Glyssen.Character
 			get
 			{
 				if (string.IsNullOrEmpty(ReferenceComment))
-				{
-					var lastBook = ScrVers.English.GetLastBook();
-					var lastChapter = ScrVers.English.GetLastChapter(lastBook);
-					return new BCVRef(lastBook, lastChapter, ScrVers.English.GetLastVerse(lastBook, lastChapter));
-				}
+					return null;
 				var m = s_regexLastScriptureRef.Match(ReferenceComment);
 				if (m.Success)
 					return new BCVRef(BCVRef.BookToNumber(m.Result("${bookId}")), int.Parse(m.Result("${chapter}")), int.Parse(m.Result("${verse}")));

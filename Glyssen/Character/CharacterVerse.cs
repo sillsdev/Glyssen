@@ -73,7 +73,7 @@ namespace Glyssen.Character
 		/// the narrator, a "Quotation" can also be a place where quotation marks are likely to be used
 		/// for something other than speech (e.g., a translation, a foreign phrase, a title, or a literal
 		/// name). For dramatic effect, it might sometimes be appropriate to have the person being
-		/// quoted or commanded to speak actually speak the words (especially it is a command to say
+		/// quoted or commanded to speak actually speak the words (especially if it is a command to say
 		/// something immediately (e.g., when God tells Moses or a prophet to say something). This quote
 		/// type is used any place where the reference text dramatizes this kind of second-level speech.
 		/// See also, <seealso cref="Alternate"/>
@@ -98,10 +98,10 @@ namespace Glyssen.Character
 		/// indicates past speech, this quote type is used to distinguish between the character presumed to be
 		/// the preferred speaker and an alternate speaker who could legitimately speak the same lines but is
 		/// not expected to (based on the decision reflected by the reference text). Hence, Glyssen will
-		/// automatically assign the quoted text to the preferred chatacter and never to the alternate, but the
+		/// automatically assign the quoted text to the preferred character and never to the alternate, but the
 		/// alternate will be listed as an option in Identify Speaking Parts, in case the scripter wants to
 		/// choose that character instead. This makes it possible to avoid ambiguity for the vast number of
-		/// passages where there is a single well-defined quote and the ambiguity is mearly a dramatization
+		/// passages where there is a single well-defined quote and the ambiguity is merely a dramatization
 		/// decision. (Basically, the effect is the same as using <seealso cref="Hypothetical"/>, except without
 		/// the performance hit to look in the reference text to see whether the alternate character is used.
 		/// This type can also be used when there is a potential quote that spills over into a subsequent verse
