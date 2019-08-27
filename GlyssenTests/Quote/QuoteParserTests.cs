@@ -5497,7 +5497,7 @@ namespace GlyssenTests.Quote
 		/// This test covers the case where the reference guide and control file assume that God wil speak for a couple verses
 		/// and then the prophet/narrator will take over. But in the project data, the quote is never closed, so God should
 		/// continue to speak in the script. The control file can accommodate this by listing God as an Alternate for the
-		/// following verses. This test ensures that will we normally ignore Alternates when doing automatic block assignments,
+		/// following verses. This test ensures that while we normally ignore Alternates when doing automatic block assignments,
 		/// we do properly take them into consideration when a quote is not closed.
 		/// </summary>
 		[Test]
@@ -5702,7 +5702,7 @@ namespace GlyssenTests.Quote
 		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithoutScriptureQuote_PoetryParagraphsCombinedWithPreceding()
 		{
 			var input = new List<Block>();
-			input.Add(new Block("c", 8, 0) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
+			input.Add(new Block("c", 8) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
 			input.Add(new Block("p", 8, 34) { IsParagraphStart = true }.AddVerse(34, "Lë naʼ nayúj lu guich rulabëʼ, rna cni:"));
 			input.Add(new Block("q", 8, 34) { IsParagraphStart = true }.AddText("Ca böʼcuʼ zxílaʼdauʼ,"));
 			input.Add(new Block("q", 8, 34) { IsParagraphStart = true }.AddText("Gulachë́ʼë Lëʼ quië ludöddëʼ"));
@@ -5738,7 +5738,7 @@ namespace GlyssenTests.Quote
 		public void Parse_PoetryNarratorBlockFollowsNormalParagraphInVerseWithScriptureQuote_PoetryParasNotCombinedWithNormalPara()
 		{
 			var input = new List<Block>();
-			input.Add(new Block("c", 8, 0) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
+			input.Add(new Block("c", 8) { IsParagraphStart = true, BookCode = "ACT" }.AddText("8"));
 			input.Add(new Block("p", 8, 32) { IsParagraphStart = true }.AddVerse(32, "Lë naʼ nayúj lu guich rulabëʼ, rna cni:"));
 			input.Add(new Block("q", 8, 32) { IsParagraphStart = true }.AddText("Ca böʼcuʼ zxílaʼdauʼ,"));
 			input.Add(new Block("q", 8, 32) { IsParagraphStart = true }.AddText("Gulachë́ʼë Lëʼ quië ludöddëʼ"));
@@ -5835,14 +5835,14 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithMultipleLeadingAndSingleTrailingNarratorVerse_BlockSplitToAppliImplicitInfo()
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithMultipleLeadingAndSingleTrailingNarratorVerse_BlockSplitToApplyImplicitInfo()
 		{
 			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
 			var block1 = new Block("p", 8, 30) { IsParagraphStart = true }.AddVerse(30, "Moses sprinkled the men with oil. ")
 				.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
 				.AddVerse(32, "Burn the leftovers. ")
 				.AddVerse(33, "Stay seven days until you are consecrated. ")
-				.AddVerse(34, "This is how the Lord will make atomnement. ")
+				.AddVerse(34, "This is how the Lord will make atonement. ")
 				.AddVerse(35, "Staying there night and day will keep you from dying. ")
 				.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1 };
@@ -5866,12 +5866,12 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithLeadingAndTrailingNarratorVerses_BlockSplitToAppliImplicitInfo()
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseNotMarkedAsImplicit_SingleParagraphWithLeadingAndTrailingNarratorVerses_BlockSplitToApplyImplicitInfo()
 		{
 			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
 			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
 				.AddVerse(32, "Burn the leftovers. ").AddVerse(33, "Stay seven days until you are consecrated. ")
-				.AddVerse(34, "This is how the Lord will make atomnement. ").AddVerse(35, "Staying there night and day will keep you from dying. ")
+				.AddVerse(34, "This is how the Lord will make atonement. ").AddVerse(35, "Staying there night and day will keep you from dying. ")
 				.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
@@ -5900,7 +5900,7 @@ namespace GlyssenTests.Quote
 			var block1 = new Block("p", 8, 31) {IsParagraphStart = true}.AddVerse(31, "And Moses told Aaron and sons,");
 			var block2 = new Block("p", 8, 31) {IsParagraphStart = true}.AddText("Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
 				.AddVerse(32, "Burn the leftovers. ").AddVerse(33, "Stay seven days until you are consecrated. ")
-				.AddVerse(34, "This is how the Lord will make atomnement. ").AddVerse(35, "Staying there night and day will keep you from dying. ");
+				.AddVerse(34, "This is how the Lord will make atonement. ").AddVerse(35, "Staying there night and day will keep you from dying. ");
 			var block3 = new Block("q1", 8, 36) {IsParagraphStart = true}.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> {chapter, block1, block2, block3 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
@@ -5934,7 +5934,7 @@ namespace GlyssenTests.Quote
 				.AddVerse(32, "Burn the leftovers», so he said.");
 			var block2 = new Block("p", 8, 33) { IsParagraphStart = true }
 				.AddVerse(33, "Moses continued: «Stay seven days until you are consecrated. ")
-				.AddVerse(34, "This is how the Lord will make atomnement. ")
+				.AddVerse(34, "This is how the Lord will make atonement. ")
 				.AddVerse(35, "Staying there night and day will keep you from dying,» said he.");
 			var block3 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2, block3 };
@@ -5960,7 +5960,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("{33}\u00A0Moses continued: ", outBlock.GetText(true));
 			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
 			outBlock = output[i++];
-			Assert.AreEqual("«Stay seven days until you are consecrated. {34}\u00A0This is how the Lord will make atomnement. {35}\u00A0Staying there night and day will keep you from dying,» ", outBlock.GetText(true));
+			Assert.AreEqual("«Stay seven days until you are consecrated. {34}\u00A0This is how the Lord will make atonement. {35}\u00A0Staying there night and day will keep you from dying,» ", outBlock.GetText(true));
 			Assert.AreEqual("Moses", outBlock.CharacterId);
 			outBlock = output[i++];
 			Assert.AreEqual(35, outBlock.InitialStartVerseNumber);
@@ -5974,14 +5974,13 @@ namespace GlyssenTests.Quote
 		[Test]
 		public void Parse_ImplicitQuoteHasExplicitQuotationMarksAndExtraHeSaidsWeirdAndComplex_ExplicitQuoteMarkedAsImplicitSpeakerAndHeSaidMarkedAsNeedsReview()
 		{
-
 			var chapter = new Block("c", 8) { CharacterId = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.BookOrChapter) }.AddText("8");
 			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }
 				.AddVerse(31, "And Moses told Aaron and sons, «Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
 				.AddVerse("32-33", "Stay seven days next to the burning leftovers until you are consecrated.»");
 			var block2 = new Block("p", 8, 32, 33) { IsParagraphStart = true }
 				.AddText("Having thus commanded, ")
-				.AddVerse(34, "Moses told them how to make atomnement, saying: ")
+				.AddVerse(34, "Moses told them how to make atonement, saying: ")
 				.AddVerse(35, "«Stay there night and day to keep you from dying.»");
 			var block3 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2, block3 };
@@ -6001,7 +6000,7 @@ namespace GlyssenTests.Quote
 			outBlock = output[i++];
 			Assert.AreEqual(32, outBlock.InitialStartVerseNumber);
 			Assert.AreEqual(33, outBlock.InitialEndVerseNumber);
-			Assert.AreEqual("Having thus commanded, {34}\u00A0Moses told them how to make atomnement, saying: ", outBlock.GetText(true));
+			Assert.AreEqual("Having thus commanded, {34}\u00A0Moses told them how to make atonement, saying: ", outBlock.GetText(true));
 			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
 			outBlock = output[i++];
 			Assert.AreEqual(35, outBlock.InitialStartVerseNumber);
@@ -6038,7 +6037,7 @@ namespace GlyssenTests.Quote
 				.AddVerse(31, "And Moses told Aaron and sons, «Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it. ")
 				.AddVerse(32, "Burn the leftovers», so he said. ")
 				.AddVerse(33, "Moses continued: «Stay seven days until you are consecrated. ")
-				.AddVerse(34, "This is how the Lord will make atomnement. ")
+				.AddVerse(34, "This is how the Lord will make atonement. ")
 				.AddVerse(35, "Staying there night and day will keep you from dying,» said he.");
 			var block2 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2 };
@@ -6060,7 +6059,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("so he said. {33}\u00A0Moses continued: ", outBlock.GetText(true));
 			Assert.AreEqual(CharacterVerseData.kNeedsReview, outBlock.CharacterId);
 			outBlock = output[i++];
-			Assert.AreEqual("«Stay seven days until you are consecrated. {34}\u00A0This is how the Lord will make atomnement. {35}\u00A0Staying there night and day will keep you from dying,» ", outBlock.GetText(true));
+			Assert.AreEqual("«Stay seven days until you are consecrated. {34}\u00A0This is how the Lord will make atonement. {35}\u00A0Staying there night and day will keep you from dying,» ", outBlock.GetText(true));
 			Assert.AreEqual("Moses", outBlock.CharacterId);
 			outBlock = output[i++];
 			Assert.AreEqual(35, outBlock.InitialStartVerseNumber);
@@ -6078,7 +6077,7 @@ namespace GlyssenTests.Quote
 			var block1 = new Block("p", 8, 31) { IsParagraphStart = true }.AddVerse(31, "And Moses told Aaron and sons, Boil the meat by the tabernacle and eat it with bread, as I commanded: Ya'll eat it.");
 			var block2 = new Block("q1", 8, 32) { IsParagraphStart = true }.AddVerse(32, "Burn the leftovers.");
 			var block3 = new Block("q2", 8, 33) { IsParagraphStart = true }.AddVerse(33, "Stay seven days until you are consecrated.");
-			var block4 = new Block("q1", 8, 34) { IsParagraphStart = true }.AddVerse(34, "This is how the Lord will make atomnement.");
+			var block4 = new Block("q1", 8, 34) { IsParagraphStart = true }.AddVerse(34, "This is how the Lord will make atonement.");
 			var block5 = new Block("q2", 8, 35) { IsParagraphStart = true }.AddVerse(35, "Staying there night and day will keep you from dying.");
 			var block6 = new Block("q1", 8, 36) { IsParagraphStart = true }.AddVerse(36, "So that's what Aaron and the boys did.");
 			var input = new List<Block> { chapter, block1, block2, block3, block4, block5, block6 };
@@ -6102,7 +6101,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Moses", block.CharacterId);
 
 			block = output[i++];
-			Assert.AreEqual("{34}\u00A0This is how the Lord will make atomnement.", block.GetText(true));
+			Assert.AreEqual("{34}\u00A0This is how the Lord will make atonement.", block.GetText(true));
 			Assert.AreEqual("Moses", block.CharacterId);
 
 			block = output[i++];
@@ -6121,7 +6120,7 @@ namespace GlyssenTests.Quote
 			var block1 = new Block("p", 8, 31, 32) {IsParagraphStart = true}
 				.AddVerse("31-32", "Boil the meat by the tabernacle and eat it with bread, burning the leftovers as commanded, Moses told Aaron and his sons. ")
 				.AddVerse(33, "Stay seven days until you are consecrated. ")
-				.AddVerse(34, "This is how the Lord will make atomnement. ")
+				.AddVerse(34, "This is how the Lord will make atonement. ")
 				.AddVerse("35-36", "So that's what Aaron and the boys did because Moses said, Staying there night and day will keep you from dying.");
 			var input = new List<Block> { chapter, block1 };
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
