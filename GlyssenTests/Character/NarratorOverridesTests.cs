@@ -71,8 +71,11 @@ namespace GlyssenTests.Character
 				NarratorOverrides.GetCharacterOverrideDetailsForRefRange(ezra7_27, 27).Single().Character);
 		}
 
+		//<Override startChapter="42" character="sons of Korah"/>
 		[TestCase("PSA", 42, 4, ExpectedResult = "sons of Korah")]
+		//<Override startChapter="7" startVerse="27" endChapter="9" character="Ezra, priest and teacher"/>
 		[TestCase("EZR", 9, 5, ExpectedResult = "Ezra, priest and teacher")]
+		//<Override startChapter="12" startVerse="31" endVerse="42" character="Nehemiah"/>
 		[TestCase("NEH", 12, 38, ExpectedResult = "Nehemiah")]
 		public string GetCharacterOverrideDetailsForRefRange_MidVerseInSingleChapterOverride_ReturnsCorrectOverrideCharacter(string bookId, int chapter, int verse)
 		{
@@ -80,10 +83,14 @@ namespace GlyssenTests.Character
 			return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character;
 		}
 
+		//<Override startChapter="3" endChapter="32" character="David"/>
+		[TestCase("PSA", 4, 2, ExpectedResult = "David")]
 		[TestCase("PSA", 31, -1, ExpectedResult = "David")]
+		//<Override startChapter="7" startVerse="27" endChapter="9" character="Ezra, priest and teacher"/>
 		[TestCase("EZR", 8, 1, ExpectedResult = "Ezra, priest and teacher")]
 		[TestCase("EZR", 8, -1, ExpectedResult = "Ezra, priest and teacher")]
-		public string GetCharacterOverrideDetailsForRefRange_VerseInMidChapterInMultiChapterOverride_ReturnsCorrectOverrideCharacter(string bookId, int chapter, int verse)
+		[TestCase("EZR", 8, 27, ExpectedResult = "Ezra, priest and teacher")]
+		public string GetCharacterOverrideDetailsForRefRange_VerseInMiddleChapterInMultiChapterOverride_ReturnsCorrectOverrideCharacter(string bookId, int chapter, int verse)
 		{
 			var bookNum = BCVRef.BookToNumber(bookId);
 			if (verse == -1)
@@ -92,8 +99,11 @@ namespace GlyssenTests.Character
 			return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character;
 		}
 
+		//<Override startChapter="3" endChapter="32" character="David"/>
 		[TestCase("PSA", 31, 1, -1, ExpectedResult = "David")]
+		//<Override startChapter="7" startVerse="27" endChapter="9" character="Ezra, priest and teacher"/>
 		[TestCase("EZR", 8, 1, -1, ExpectedResult = "Ezra, priest and teacher")]
+		//<Override startChapter="12" startVerse="31" endVerse="42" character="Nehemiah"/>
 		[TestCase("NEH", 12, 31, 42, ExpectedResult = "Nehemiah")]
 		public string GetCharacterOverrideDetailsForRefRange_RangeWithinOverride_ReturnsCorrectOverrideCharacter(string bookId, int chapter, int startVerse, int endVerse)
 		{
@@ -104,7 +114,9 @@ namespace GlyssenTests.Character
 			return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(startRef, endVerse).Single().Character;
 		}
 
+		//<Override startChapter="7" startVerse="27" endChapter="9" character="Ezra, priest and teacher"/>
 		[TestCase("EZR", 7, 26, 28)]
+		//<Override startChapter="4" endChapter="7" endVerse="5" character="Nehemiah"/>
 		[TestCase("NEH", 7, 5, 6)]
 		public void GetCharacterOverrideDetailsForRefRange_RangeOnlyPartiallyWithinOverride_ReturnsEmpty(string bookId, int chapter, int startVerse, int endVerse)
 		{
@@ -149,13 +161,13 @@ namespace GlyssenTests.Character
 
 		[TestCase("PSA", 32, 1)] // Should map to PSA 33:1
 		[TestCase("PSA", 32, -1)] // Should map to last verse in PSA 33
-		public void GetCharacterOverrideDetailsForRefRange_VulgateVersificationChapterInsideOfOverrideRangeBeforeMappingToEnglish_MapsToReturnEmpty(string bookId, int chapter, int verse)
+		public void GetCharacterOverrideDetailsForRefRange_VulgateVersificationChapterInsideOfOverrideRangeBeforeMappingToEnglish_MapsToReturnCorrectOverrideCharacter(string bookId, int chapter, int verse)
 		{
 			var bookNum = BCVRef.BookToNumber(bookId);
 			if (verse == -1)
 				verse = ScrVers.Vulgate.GetLastVerse(bookNum, chapter);
 			var verseRef = new VerseRef(new BCVRef(bookNum, chapter, verse), ScrVers.Vulgate);
-			Assert.IsTrue(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character == "psalmist");
+			Assert.AreEqual("psalmist", NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character);
 		}
 	}
 }

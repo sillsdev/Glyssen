@@ -761,7 +761,7 @@ namespace Glyssen
 				Debug.Assert(existingProject.Books.Any());
 				if (existingProject.ProjectState != ProjectState.FullyInitialized)
 				{
-					// We need to acknowlege that the quote parse has already happened (albeit with
+					// We need to acknowledge that the quote parse has already happened (albeit with
 					// some older version of the parser). This not only might (hypothetically) tell
 					// us not to do it again (although there's currently no logic that would attempt
 					// that), but more importantly, it tells the data migration code that this project
