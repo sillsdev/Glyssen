@@ -13298,46 +13298,56 @@ DAN	2	8	Nebuchadnezzar, king of Babylon			Normal
 DAN	2	9	Nebuchadnezzar, king of Babylon			Normal		
 DAN	2	10	astrologers			Normal		
 DAN	2	11	astrologers			Normal		
+DAN	2	12	Nebuchadnezzar, king of Babylon			Indirect		
 DAN	2	15	Daniel			Normal		
+DAN	2	16	Daniel			Indirect		
+DAN	2	17	Daniel			Potential		
+DAN	2	18	Daniel			Indirect		
 DAN	2	20	Daniel			Normal		
-DAN	2	21	Daniel			Normal		
-DAN	2	22	Daniel			Normal		
-DAN	2	23	Daniel			Normal		
+DAN	2	21	Daniel			Implicit		
+DAN	2	22	Daniel			Implicit		
+DAN	2	23	Daniel			Implicit		
 DAN	2	24	Daniel			Normal		
 DAN	2	25	Arioch			Normal		
 DAN	2	26	Nebuchadnezzar, king of Babylon			Normal		
 DAN	2	27	Daniel			Normal		
-DAN	2	28	Daniel			Normal		
-DAN	2	29	Daniel			Normal		
-DAN	2	30	Daniel			Normal		
-DAN	2	31	Daniel			Normal		
-DAN	2	32	Daniel			Normal		
-DAN	2	33	Daniel			Normal		
-DAN	2	34	Daniel			Normal		
-DAN	2	35	Daniel			Normal		
-DAN	2	36	Daniel			Normal		
-DAN	2	37	Daniel			Normal		
-DAN	2	38	Daniel			Normal		
-DAN	2	39	Daniel			Normal		
-DAN	2	40	Daniel			Normal		
-DAN	2	41	Daniel			Normal		
-DAN	2	42	Daniel			Normal		
-DAN	2	43	Daniel			Normal		
-DAN	2	44	Daniel			Normal		
-DAN	2	45	Daniel			Normal		
+DAN	2	28	Daniel			Implicit		
+DAN	2	29	Daniel			Implicit		
+DAN	2	30	Daniel			Implicit		
+DAN	2	31	Daniel			Implicit		
+DAN	2	32	Daniel			Implicit		
+DAN	2	33	Daniel			Implicit		
+DAN	2	34	Daniel			Implicit		
+DAN	2	35	Daniel			Implicit		
+DAN	2	36	Daniel			Implicit		
+DAN	2	37	Daniel			Implicit		
+DAN	2	38	Daniel			Implicit		
+DAN	2	39	Daniel			Implicit		
+DAN	2	40	Daniel			Implicit		
+DAN	2	41	Daniel			Implicit		
+DAN	2	42	Daniel			Implicit		
+DAN	2	43	Daniel			Implicit		
+DAN	2	44	Daniel			Implicit		
+DAN	2	45	Daniel			Implicit		
 DAN	2	47	Nebuchadnezzar, king of Babylon			Normal		
+DAN	2	48	Nebuchadnezzar, king of Babylon			Potential		
+DAN	2	49	Daniel	requesting		Indirect		
+DAN	3	2	Nebuchadnezzar, king of Babylon			Potential		
 DAN	3	4	herald			Normal		
 DAN	3	5	herald			Normal		
 DAN	3	6	herald			Normal		
 DAN	3	9	astrologers			Normal		
-DAN	3	10	astrologers			Normal		
-DAN	3	11	astrologers			Normal		
-DAN	3	12	astrologers			Normal		
+DAN	3	10	astrologers			Implicit		
+DAN	3	11	astrologers			Implicit		
+DAN	3	12	astrologers			Implicit		
+DAN	3	13	Nebuchadnezzar, king of Babylon	commanding		Indirect		
 DAN	3	14	Nebuchadnezzar, king of Babylon			Normal		
 DAN	3	15	Nebuchadnezzar, king of Babylon			Normal		
 DAN	3	16	Shadrach/Meshach/Abednego			Normal		
 DAN	3	17	Shadrach/Meshach/Abednego			Normal		
 DAN	3	18	Shadrach/Meshach/Abednego			Normal		
+DAN	3	19	Nebuchadnezzar, king of Babylon	commanding		Indirect		
+DAN	3	20	Nebuchadnezzar, king of Babylon	commanding		Indirect		
 DAN	3	24	advisers to king			Normal		
 DAN	3	24	Nebuchadnezzar, king of Babylon			Normal		
 DAN	3	25	Nebuchadnezzar, king of Babylon			Normal		
@@ -13358,49 +13368,77 @@ DAN	4	11	Nebuchadnezzar, king of Babylon	letter		Implicit
 DAN	4	12	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	13	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	14	Nebuchadnezzar, king of Babylon	letter		Implicit		
+# Verses 14-33 seem to break out of the letter and switch into 3rd-person narration mode, but presumably the
+# whole account was included in Nebuchadnezzar's letter, so the control file includes Alternate and Potential
+# entries to allow for the whole account to be related as a single letter. See CJB for an example of a Bible
+# that wraps quotes around everything from v. 1b to the end of the chapter (though even then you might not
+# choose to dramatize it that way).
+DAN	4	14	holy one (in vision)		a watcher and a holy one	Alternate		
 DAN	4	15	Nebuchadnezzar, king of Babylon	letter		Implicit		
+DAN	4	15	holy one (in vision)		a watcher and a holy one	Alternate		
 DAN	4	16	Nebuchadnezzar, king of Babylon	letter		Implicit		
+DAN	4	16	holy one (in vision)		a watcher and a holy one	Alternate		
 DAN	4	17	Nebuchadnezzar, king of Babylon	letter		Implicit		
+DAN	4	17	holy one (in vision)		a watcher and a holy one	Alternate		
 DAN	4	18	Nebuchadnezzar, king of Babylon	letter		Implicit		
+DAN	4	19	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	19	Nebuchadnezzar, king of Babylon			Normal		
-DAN	4	19	Daniel		Belteshazzar (Daniel)	Normal		
+DAN	4	19	Daniel	anxious	Belteshazzar (Daniel)	Normal		
 DAN	4	20	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	20	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	21	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	21	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	22	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	22	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	23	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	23	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	24	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	24	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	25	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	25	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	26	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	26	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	27	Daniel		Belteshazzar (Daniel)	Implicit		
+DAN	4	27	Nebuchadnezzar, king of Babylon	letter		Alternate		
+DAN	4	28	Nebuchadnezzar, king of Babylon	letter		Potential		
+DAN	4	29	Nebuchadnezzar, king of Babylon	letter		Potential		
 DAN	4	30	Nebuchadnezzar, king of Babylon			Normal		
+DAN	4	30	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	31	voice from heaven (angel?)			Normal		
 DAN	4	31	God		voice from heaven (God?)	Normal		
+DAN	4	31	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	32	voice from heaven (angel?)			Normal		
 DAN	4	32	God		voice from heaven (God?)	Normal		
+DAN	4	32	Nebuchadnezzar, king of Babylon	letter		Alternate		
+DAN	4	33	Nebuchadnezzar, king of Babylon	letter		Potential		
 DAN	4	34	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	35	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	36	Nebuchadnezzar, king of Babylon	letter		Implicit		
 DAN	4	37	Nebuchadnezzar, king of Babylon	letter		Implicit		
-DAN	5	7	Belshazzar, king of Babylon			Normal		
-DAN	5	10	queen of Babylon			Normal		
-DAN	5	11	queen of Babylon			Normal		
-DAN	5	12	queen of Babylon			Normal		
+DAN	5	2	Belshazzar, king of Babylon	commanding		Indirect		
+DAN	5	4	Belshazzar, king of Babylon/officials of Belshazzar/wives and concubines of Belshazzar	praising (probably drunk)	Belshazzar, his lords, his wives and his concubines	Indirect		
+DAN	5	7	Belshazzar, king of Babylon	commanding loudly (probably drunk)		Indirect		
+DAN	5	7	Belshazzar, king of Babylon	frightened (probably drunk)		Normal		
+DAN	5	10	queen of Babylon		queen (Belshazzar's mother)	Normal		
+DAN	5	11	queen of Babylon		queen (Belshazzar's mother)	Normal		
+DAN	5	12	queen of Babylon		queen (Belshazzar's mother)	Normal		
 DAN	5	13	Belshazzar, king of Babylon			Normal		
-DAN	5	14	Belshazzar, king of Babylon			Normal		
-DAN	5	15	Belshazzar, king of Babylon			Normal		
-DAN	5	16	Belshazzar, king of Babylon			Normal		
+DAN	5	14	Belshazzar, king of Babylon			Implicit		
+DAN	5	15	Belshazzar, king of Babylon			Implicit		
+DAN	5	16	Belshazzar, king of Babylon			Implicit		
 DAN	5	17	Daniel			Normal		
-DAN	5	18	Daniel			Normal		
-DAN	5	19	Daniel			Normal		
-DAN	5	20	Daniel			Normal		
-DAN	5	21	Daniel			Normal		
-DAN	5	22	Daniel			Normal		
-DAN	5	23	Daniel			Normal		
-DAN	5	24	Daniel			Normal		
-DAN	5	25	Daniel			Normal		
-DAN	5	26	Daniel			Normal		
-DAN	5	27	Daniel			Normal		
-DAN	5	28	Daniel			Normal		
+DAN	5	18	Daniel			Implicit		
+DAN	5	19	Daniel			Implicit		
+DAN	5	20	Daniel			Implicit		
+DAN	5	21	Daniel			Implicit		
+DAN	5	22	Daniel			Implicit		
+DAN	5	23	Daniel			Implicit		
+DAN	5	24	Daniel			Implicit		
+DAN	5	25	Daniel			Implicit		
+DAN	5	26	Daniel			Implicit		
+DAN	5	27	Daniel			Implicit		
+DAN	5	28	Daniel			Implicit		
+DAN	5	29	Belshazzar, king of Babylon	commanding		Indirect		
 DAN	6	5	satraps			Normal		
 DAN	6	6	satraps/three administrators			Normal	satraps	
 DAN	6	7	satraps/three administrators			Normal	satraps	
@@ -13410,12 +13448,14 @@ DAN	6	12	satraps/three administrators			Normal	satraps
 DAN	6	13	satraps/three administrators			Normal	satraps	
 DAN	6	15	satraps/three administrators			Normal	satraps	
 DAN	6	16	Darius, king of Medes and Persians			Normal		
-DAN	6	20	Darius, king of Medes and Persians			Normal		
+DAN	6	20	Darius, king of Medes and Persians	calling out in anguish		Normal		
 DAN	6	21	Daniel			Normal		
 DAN	6	22	Daniel			Normal		
+DAN	6	23	Darius, king of Medes and Persians	commanding (happily)		Indirect		
+DAN	6	24	Darius, king of Medes and Persians	commanding		Indirect		
 DAN	6	25	Darius, king of Medes and Persians	letter		Normal		
-DAN	6	26	Darius, king of Medes and Persians	letter		Normal		
-DAN	6	27	Darius, king of Medes and Persians	letter		Normal		
+DAN	6	26	Darius, king of Medes and Persians	letter		Implicit		
+DAN	6	27	Darius, king of Medes and Persians	letter		Implicit		
 DAN	7	2	Daniel	vision		Normal		
 DAN	7	3	Daniel	vision		Normal		
 DAN	7	4	Daniel	vision		Normal		
@@ -13455,13 +13495,13 @@ DAN	8	14	holy one (in vision)			Normal
 DAN	8	16	man's voice from the Ulai (in vision)			Normal		
 DAN	8	17	Gabriel			Normal		
 DAN	8	19	Gabriel			Normal		
-DAN	8	20	Gabriel			Normal		
-DAN	8	21	Gabriel			Normal		
-DAN	8	22	Gabriel			Normal		
-DAN	8	23	Gabriel			Normal		
-DAN	8	24	Gabriel			Normal		
-DAN	8	25	Gabriel			Normal		
-DAN	8	26	Gabriel			Normal		
+DAN	8	20	Gabriel			Implicit		
+DAN	8	21	Gabriel			Implicit		
+DAN	8	22	Gabriel			Implicit		
+DAN	8	23	Gabriel			Implicit		
+DAN	8	24	Gabriel			Implicit		
+DAN	8	25	Gabriel			Implicit		
+DAN	8	26	Gabriel			Implicit		
 DAN	9	4	Daniel	pleading		Normal		
 DAN	9	5	Daniel	pleading		Normal		
 DAN	9	6	Daniel	pleading		Normal		
@@ -13479,71 +13519,71 @@ DAN	9	17	Daniel	pleading		Normal
 DAN	9	18	Daniel	pleading		Normal		
 DAN	9	19	Daniel	pleading		Normal		
 DAN	9	22	Gabriel			Normal		
-DAN	9	23	Gabriel			Normal		
-DAN	9	24	Gabriel			Normal		
-DAN	9	25	Gabriel			Normal		
-DAN	9	26	Gabriel			Normal		
-DAN	9	27	Gabriel			Normal		
-DAN	10	11	one who looked like a man			Normal		
-DAN	10	12	one who looked like a man			Normal		
-DAN	10	13	one who looked like a man			Normal		
-DAN	10	14	one who looked like a man			Normal		
+DAN	9	23	Gabriel			Implicit		
+DAN	9	24	Gabriel			Implicit		
+DAN	9	25	Gabriel			Implicit		
+DAN	9	26	Gabriel			Implicit		
+DAN	9	27	Gabriel			Implicit		
+DAN	10	11	man in linen above river			Normal		
+DAN	10	12	man in linen above river			Normal		
+DAN	10	13	man in linen above river			Normal		
+DAN	10	14	man in linen above river			Normal		
 DAN	10	16	Daniel			Normal		
 DAN	10	17	Daniel			Normal		
 DAN	10	19	Daniel			Normal		
-DAN	10	19	one who looked like a man			Normal		
-DAN	10	20	one who looked like a man			Normal		
-DAN	10	21	one who looked like a man			Normal		
-DAN	11	1	one who looked like a man			Normal		
-DAN	11	2	one who looked like a man			Normal		
-DAN	11	3	one who looked like a man			Normal		
-DAN	11	4	one who looked like a man			Normal		
-DAN	11	5	one who looked like a man			Normal		
-DAN	11	6	one who looked like a man			Normal		
-DAN	11	7	one who looked like a man			Normal		
-DAN	11	8	one who looked like a man			Normal		
-DAN	11	9	one who looked like a man			Normal		
-DAN	11	10	one who looked like a man			Normal		
-DAN	11	11	one who looked like a man			Normal		
-DAN	11	12	one who looked like a man			Normal		
-DAN	11	13	one who looked like a man			Normal		
-DAN	11	14	one who looked like a man			Normal		
-DAN	11	15	one who looked like a man			Normal		
-DAN	11	16	one who looked like a man			Normal		
-DAN	11	17	one who looked like a man			Normal		
-DAN	11	18	one who looked like a man			Normal		
-DAN	11	19	one who looked like a man			Normal		
-DAN	11	20	one who looked like a man			Normal		
-DAN	11	21	one who looked like a man			Normal		
-DAN	11	22	one who looked like a man			Normal		
-DAN	11	23	one who looked like a man			Normal		
-DAN	11	24	one who looked like a man			Normal		
-DAN	11	25	one who looked like a man			Normal		
-DAN	11	26	one who looked like a man			Normal		
-DAN	11	27	one who looked like a man			Normal		
-DAN	11	28	one who looked like a man			Normal		
-DAN	11	29	one who looked like a man			Normal		
-DAN	11	30	one who looked like a man			Normal		
-DAN	11	31	one who looked like a man			Normal		
-DAN	11	32	one who looked like a man			Normal		
-DAN	11	33	one who looked like a man			Normal		
-DAN	11	34	one who looked like a man			Normal		
-DAN	11	35	one who looked like a man			Normal		
-DAN	11	36	one who looked like a man			Normal		
-DAN	11	37	one who looked like a man			Normal		
-DAN	11	38	one who looked like a man			Normal		
-DAN	11	39	one who looked like a man			Normal		
-DAN	11	40	one who looked like a man			Normal		
-DAN	11	41	one who looked like a man			Normal		
-DAN	11	42	one who looked like a man			Normal		
-DAN	11	43	one who looked like a man			Normal		
-DAN	11	44	one who looked like a man			Normal		
-DAN	11	45	one who looked like a man			Normal		
-DAN	12	1	one who looked like a man			Normal		
-DAN	12	2	one who looked like a man			Normal		
-DAN	12	3	one who looked like a man			Normal		
-DAN	12	4	one who looked like a man			Normal		
-DAN	12	6	one other who looked like a man			Normal		
+DAN	10	19	man in linen above river			Normal		
+DAN	10	20	man in linen above river			Normal		
+DAN	10	21	man in linen above river			Implicit		
+DAN	11	1	man in linen above river			Implicit		
+DAN	11	2	man in linen above river			Implicit		
+DAN	11	3	man in linen above river			Implicit		
+DAN	11	4	man in linen above river			Implicit		
+DAN	11	5	man in linen above river			Implicit		
+DAN	11	6	man in linen above river			Implicit		
+DAN	11	7	man in linen above river			Implicit		
+DAN	11	8	man in linen above river			Implicit		
+DAN	11	9	man in linen above river			Implicit		
+DAN	11	10	man in linen above river			Implicit		
+DAN	11	11	man in linen above river			Implicit		
+DAN	11	12	man in linen above river			Implicit		
+DAN	11	13	man in linen above river			Implicit		
+DAN	11	14	man in linen above river			Implicit		
+DAN	11	15	man in linen above river			Implicit		
+DAN	11	16	man in linen above river			Implicit		
+DAN	11	17	man in linen above river			Implicit		
+DAN	11	18	man in linen above river			Implicit		
+DAN	11	19	man in linen above river			Implicit		
+DAN	11	20	man in linen above river			Implicit		
+DAN	11	21	man in linen above river			Implicit		
+DAN	11	22	man in linen above river			Implicit		
+DAN	11	23	man in linen above river			Implicit		
+DAN	11	24	man in linen above river			Implicit		
+DAN	11	25	man in linen above river			Implicit		
+DAN	11	26	man in linen above river			Implicit		
+DAN	11	27	man in linen above river			Implicit		
+DAN	11	28	man in linen above river			Implicit		
+DAN	11	29	man in linen above river			Implicit		
+DAN	11	30	man in linen above river			Implicit		
+DAN	11	31	man in linen above river			Implicit		
+DAN	11	32	man in linen above river			Implicit		
+DAN	11	33	man in linen above river			Implicit		
+DAN	11	34	man in linen above river			Implicit		
+DAN	11	35	man in linen above river			Implicit		
+DAN	11	36	man in linen above river			Implicit		
+DAN	11	37	man in linen above river			Implicit		
+DAN	11	38	man in linen above river			Implicit		
+DAN	11	39	man in linen above river			Implicit		
+DAN	11	40	man in linen above river			Implicit		
+DAN	11	41	man in linen above river			Implicit		
+DAN	11	42	man in linen above river			Implicit		
+DAN	11	43	man in linen above river			Implicit		
+DAN	11	44	man in linen above river			Implicit		
+DAN	11	45	man in linen above river			Implicit		
+DAN	12	1	man in linen above river			Implicit		
+DAN	12	2	man in linen above river			Implicit		
+DAN	12	3	man in linen above river			Implicit		
+DAN	12	4	man in linen above river			Implicit		
+DAN	12	6	one of the others who stood on the river bank			Normal		
 DAN	12	7	man in linen above river			Indirect		
 DAN	12	9	man in linen above river			Normal		
 DAN	12	10	man in linen above river			Normal		
