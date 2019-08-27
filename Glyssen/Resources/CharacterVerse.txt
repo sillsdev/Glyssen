@@ -14617,34 +14617,37 @@ ZEC	13	9	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alte
 ZEC	14	2	God		God (the LORD)	Implicit		
 ZEC	14	20	narrator-ZEC			Potential		
 MAL	1	2	God		God (the LORD)	Normal		
-MAL	1	2	Israel			Normal		
+MAL	1	2	Israel			Hypothetical		
 MAL	1	3	God		God (the LORD)	Normal		
 MAL	1	4	Edom			Hypothetical		
 MAL	1	4	God		God (the LORD)	Normal		
 MAL	1	5	God		God (the LORD)	Normal		
+MAL	1	5	you (hypothetical)			Hypothetical		
 MAL	1	6	God		God (the LORD)	Normal		
-MAL	1	6	priests			Normal		
+MAL	1	6	priests			Hypothetical		
 MAL	1	7	God		God (the LORD)	Normal		
-MAL	1	7	priests			Normal		
+MAL	1	7	priests			Hypothetical		
 MAL	1	8	God		God (the LORD)	Normal		
 MAL	1	9	God		God (the LORD)	Normal		
 MAL	1	10	God		God (the LORD)	Normal		
 MAL	1	11	God		God (the LORD)	Normal		
 MAL	1	12	God		God (the LORD)	Normal		
+MAL	1	12	priests			Hypothetical		
 MAL	1	13	God		God (the LORD)	Normal		
+MAL	1	13	priests			Hypothetical		
 MAL	1	14	God		God (the LORD)	Normal		
-MAL	2	1	God		God (the LORD)	Normal		
+MAL	2	1	God		God (the LORD)	Potential		
 MAL	2	2	God		God (the LORD)	Normal		
 MAL	2	3	God		God (the LORD)	Normal		
 MAL	2	4	God		God (the LORD)	Normal		
-MAL	2	5	God		God (the LORD)	Normal		
-MAL	2	6	God		God (the LORD)	Normal		
-MAL	2	7	God		God (the LORD)	Normal		
+MAL	2	5	God		God (the LORD)	Implicit		
+MAL	2	6	God		God (the LORD)	Implicit		
+MAL	2	7	God		God (the LORD)	Implicit		
 MAL	2	8	God		God (the LORD)	Normal		
 MAL	2	9	God		God (the LORD)	Normal		
-MAL	2	14	people			Hypothetical		
+MAL	2	14	people		you (people of Judah)	Hypothetical		
 MAL	2	16	God		God (the LORD)	Normal		
-MAL	2	17	people			Hypothetical		
+MAL	2	17	people		you (people of Judah)	Hypothetical		
 MAL	3	1	God		God (the LORD)	Normal		
 MAL	3	2	God		God (the LORD)	Potential		
 MAL	3	3	God		God (the LORD)	Potential		
@@ -14652,22 +14655,27 @@ MAL	3	4	God		God (the LORD)	Potential
 MAL	3	5	God		God (the LORD)	Normal		
 MAL	3	6	God		God (the LORD)	Normal		
 MAL	3	7	God		God (the LORD)	Normal		
+MAL	3	7	people		you (people of Judah)	Hypothetical		
 MAL	3	8	God		God (the LORD)	Normal		
+MAL	3	8	people		you (people of Judah)	Hypothetical		
 MAL	3	9	God		God (the LORD)	Normal		
 MAL	3	10	God		God (the LORD)	Normal		
 MAL	3	11	God		God (the LORD)	Normal		
 MAL	3	12	God		God (the LORD)	Normal		
 MAL	3	13	God		God (the LORD)	Normal		
+MAL	3	13	people		you (people of Judah)	Hypothetical		
 MAL	3	14	God		God (the LORD)	Normal		
-MAL	3	15	God		God (the LORD)	Normal		
+MAL	3	14	people		you (people of Judah)	Hypothetical		
+MAL	3	15	people		you (people of Judah)	Hypothetical		
+MAL	3	15	God		God (the LORD)	Alternate		
 MAL	3	17	God		God (the LORD)	Normal		
 MAL	3	18	God		God (the LORD)	Normal		
 MAL	4	1	God		God (the LORD)	Normal		
-MAL	4	2	God		God (the LORD)	Normal		
+MAL	4	2	God		God (the LORD)	Implicit		
 MAL	4	3	God		God (the LORD)	Normal		
-MAL	4	4	God		God (the LORD)	Normal		
-MAL	4	5	God		God (the LORD)	Normal		
-MAL	4	6	God		God (the LORD)	Normal		
+MAL	4	4	God		God (the LORD)	Implicit		
+MAL	4	5	God		God (the LORD)	Implicit		
+MAL	4	6	God		God (the LORD)	Implicit		
 MAT	1	1	narrator-MAT			Quotation		
 MAT	1	16	narrator-MAT			Quotation		
 MAT	1	20	angel		angel of the Lord	Normal		

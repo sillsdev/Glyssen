@@ -819,7 +819,7 @@ passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(197 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
-people	-1					2CH 26:23 <-(31 more)-> 1TH 5:3
+people	-1					2CH 26:23 <-(36 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
 people at coronation of King Joash	-1					2KI 11:12
 people at Jairus' house	-1					MAT 9:24 & LUK 8:53
@@ -904,7 +904,7 @@ pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(4 more)-> DEU 20:4
-priests	-1	Male				DEU 27:9 <-(32 more)-> ACT 4:1
+priests	-1	Male				DEU 27:9 <-(34 more)-> ACT 4:1
 prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
 proclamation	1	Male				EZR 10:7 & EZR 10:8
@@ -1182,7 +1182,7 @@ worshipers	-1	Male				PSA 122:1
 worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12
 you (hypothetical Gentile)	1					ROM 11:19
-you (hypothetical)	-1					PRO 3:28 <-(31 more)-> 1PE 1:17
+you (hypothetical)	-1					PRO 3:28 <-(32 more)-> 1PE 1:17
 you (people of Zion, restored)	-1					ISA 14:4 <-(17 more)-> JER 31:7
 you ought to say	1					JAS 4:15
 young man	1	Male	YoungAdult			NUM 11:27
