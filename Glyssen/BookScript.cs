@@ -117,7 +117,6 @@ namespace Glyssen
 
 		public BookScript GetCloneWithJoinedBlocks(bool applyNarratorOverrides)
 		{
-			// REVIEW: Need to make sure Versification gets copied over
 			BookScript clonedBook = (BookScript)MemberwiseClone();
 
 			EnsureBlockCount();
@@ -210,6 +209,7 @@ namespace Glyssen
 
 		private void AddOverrideInfo(NarratorOverrides.NarratorOverrideDetail info)
 		{
+			// STEP 1: Find the first block (if any) to which this override applies
 			var firstChapter = info.StartChapter;
 			int iBlock = GetIndexOfFirstBlockForVerse(firstChapter, info.StartVerse);
 			while (iBlock == -1 && ++firstChapter <= info.EndChapter)
@@ -248,6 +248,23 @@ namespace Glyssen
 				}
 			}
 
+			// STEP 2: Based on the characters used in the block(s) that pertain to this override, determine whether to apply it.
+			// Details: There are three kinds of blocks that can be found within a range covered by an override:
+			// 1) narrator block
+			// 2) block explicitly attributed to the override character
+			// 3) block explicitly attributed to some other character
+			// In a really simple world, we would just override all the narrator blocks and leave the others alone. But
+			// that's not the kind of world we live in. We need to correctly deal with the special case where a
+			// vernacular translation uses explicit quotes around the author's "self-quoted" material and has an actual
+			// narrator chime in with an occasional he-said. In that scenario, we wouldn't want those he-saids to get
+			// automatically assigned to the implicit speaking character. To attempt to prevent this, the logic below
+			// says that if any verse (present in the text) of the entire passage/chapter to override is entirely
+			// assigned to the narrator (regardless of how many blocks represent the verse), then the override is
+			// applied (to any narrator blocks in the range). Two special cases:
+			// A) We never look at more than one chapter at a time, so if an override covers multiple chapters, this
+			//    logic will treat each chapter (or portion thereof) as if it were a distinct override.
+			// B) For overrides that apply to only part of a verse, if any included block is explicitly assigned to
+			//    the override character, then the override will not be applied to any block.
 			bool applyOverride = false;
 			var narratorBlocksInRange = new List<Block>();
 			int blocksFoundAtEndVerse = 0;
@@ -268,7 +285,7 @@ namespace Glyssen
 					if (lastVerseNum == info.EndVerse)
 					{
 						blocksFoundAtEndVerse++;
-						if (info.EndBlock > 0 && blocksFoundAtEndVerse > info.EndBlock)
+						if (info.EndBlock > 0 && blocksFoundAtEndVerse > info.NumberOfBlocksIncludedInEndVerse)
 							break;
 					}
 				}
@@ -286,6 +303,8 @@ namespace Glyssen
 					{
 						if (currentLastVerseNum < block.InitialStartVerseNumber && currentVerseBlocksAllNarrator)
 						{
+							// All blocks for the previous verse -- the last verse in the previous (i.e., "current") block --
+							// were assigned to the narrator.
 							applyOverride = true;
 							continue;
 						}
@@ -294,12 +313,15 @@ namespace Glyssen
 					}
 					continue;
 				}
-				if (applyOverride)
-					continue;
+				if (applyOverride) // Once this is true, all we need to do is collect the rest of the narrator blocks in range.
+					continue; // Remaining logic in loop just checks additional edge-case conditions that indicate we found a narrator-only verse.
 
 				if (currentLastVerseNum != block.LastVerseNum)
 				{
-					if (currentVerseBlocksAllNarrator || (currentLastVerseNum == -1 && block.CoversMoreThanOneVerse))
+					// If this (narrator) block represents the final block for the previous (i.e., "current") verse AND
+					if (currentVerseBlocksAllNarrator || // all the previous blocks for the verse were also narrator blocks; OR
+						(currentLastVerseNum == -1 &&    // this is the 1st block in range (i.e., no previous blocks for this
+						block.CoversMoreThanOneVerse))   // verse need be considered)
 					{
 						applyOverride = true;
 						continue;
@@ -308,7 +330,8 @@ namespace Glyssen
 					currentVerseBlocksAllNarrator = true;
 				}
 
-				if (block.BlockElements.OfType<Verse>().Count() >= 2)
+				// If this (narrator) block contains a whole verse, then we have a narrator-only verse.
+				if (block.BlockElements.OfType<Verse>().Skip(1).Any()) // This is a presumably more efficient equivalent to ...Count() >= 2
 					applyOverride = true;
 			}
 			applyOverride |= currentVerseBlocksAllNarrator;

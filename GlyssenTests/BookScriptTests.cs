@@ -642,9 +642,8 @@ namespace GlyssenTests
 					}
 					for (int v = startVerse; v <= endVerse; v++)
 					{
-						if (c == 72 && v == 1)
-							Assert.True(testBook.GetBlocksForVerse(c, v).All(b => testBook.GetCharacterIdInScript(b) == expectedCharacter),
-								$"Unexpected character in {bookId} {c}:{v} (expected: {expectedCharacter})");
+						Assert.True(testBook.GetBlocksForVerse(c, v).All(b => testBook.GetCharacterIdInScript(b) == expectedCharacter),
+							$"Unexpected character in {bookId} {c}:{v} (expected: {expectedCharacter})");
 					}
 				}
 			}
@@ -874,6 +873,89 @@ namespace GlyssenTests
 			Assert.IsTrue(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 1).All(b => bookOfPsalms.GetCharacterIdInScript(b) == narrator));
 			Assert.IsTrue(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 2).All(b => bookOfPsalms.GetCharacterIdInScript(b) == "Solomon, king"));
 		}
+
+		#region Test GetCharacterIdInScript for override covering two blocks in a single verse
+		/// <summary>
+		/// Helper method for the tests in this region
+		/// </summary>
+		private BookScript GetSngChapter1Verse4(string characterC1V4B3, string characterC1V4B4)
+		{
+			// <Override startChapter="1" startVerse="4" startBlock="3" endVerse="4" endBlock="4" character="maidens"/>
+			const string bookId = "SNG";
+			// Ensure that the current overrides are still what they were when this test was written:
+			var sngOverrides = NarratorOverrides.GetNarratorOverridesForBook(bookId).ToList();
+			var overrideCharacter = sngOverrides.Single(o => o.StartChapter == 1 && o.StartVerse == 4 &&
+				o.StartBlock == 3 && o.EndVerse == 4 && o.EndBlock == 4).Character;
+			Assert.AreEqual("maidens", overrideCharacter);
+
+			var narrator = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, bookId),
+				new Block("q1", 1, 4) {CharacterId = "Solomon, king"}.AddVerse(4, "You are sweet!"),
+				new Block("q1", 1, 4) {CharacterId = narrator}.AddText("Then the maidens said:"),
+				new Block("q1", 1, 4) {CharacterId = characterC1V4B3}.AddText("You are one amazing guy."),
+				new Block("q1", 1, 4) {CharacterId = characterC1V4B4}.AddText("And that ain't no lie!"),
+				new Block("q1", 1, 4) {CharacterId = narrator}.AddText("So spake they."),
+			};
+			var bookOfSongs = new BookScript(bookId, blocks, ScrVers.English);
+			return bookOfSongs;
+		}
+
+		[TestCase("narrator-SNG", "narrator-SNG")]
+		[TestCase("beloved", "maidens")]
+		[TestCase("maidens", "Solomon, king")]
+		[TestCase("maidens", "maidens")]
+		[TestCase("beloved", "Solomon, king")]
+		public void GetCharacterIdInScript_OverrideTwoBlocksInVerse_NeitherBlockExplicitlyAssignedToOverrideCharacter_GetsOverrideCharacterForNarratorBlocksInCoveredRange(
+			string characterC1V4B3, string characterC1V4B4)
+		{
+			// SETUP
+			// <Override startChapter="1" startVerse="4" startBlock="3" endVerse="4" endBlock="4" character="maidens"/>
+			var bookOfSongs = GetSngChapter1Verse4(characterC1V4B3, characterC1V4B4);
+			var narrator = bookOfSongs.NarratorCharacterId;
+			var sngScriptBlocks = bookOfSongs.GetScriptBlocks();
+			Assert.AreEqual(characterC1V4B3, sngScriptBlocks[3].CharacterId, "Ensure test setup was correct");
+			Assert.AreEqual(characterC1V4B4, sngScriptBlocks[4].CharacterId, "Ensure test setup was correct");
+
+			// Verify preceding blocks
+			Assert.AreEqual("Solomon, king", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]));
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]));
+
+			// SUT: Covered narrator block(s) should get overridden
+			if (sngScriptBlocks[3].CharacterId == narrator)
+				Assert.AreEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[3]));
+			if (sngScriptBlocks[4].CharacterId == narrator)
+				Assert.AreEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4]));
+			
+			// Verify following block
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]));
+		}
+
+		[TestCase("narrator-SNG", "maidens")]
+		[TestCase("maidens", "narrator-SNG")]
+		public void GetCharacterIdInScript_OverrideCoversTwoBlocksInVerse_OneBlockExplicitlyAssignedToOverrideCharacter_OverrideNotApplied(
+			string characterC1V4B3, string characterC1V4B4)
+		{
+			// SETUP
+			// <Override startChapter="1" startVerse="4" startBlock="3" endVerse="4" endBlock="4" character="maidens"/>
+			var bookOfSongs = GetSngChapter1Verse4(characterC1V4B3, characterC1V4B4);
+			var sngScriptBlocks = bookOfSongs.GetScriptBlocks();
+			Assert.AreEqual(characterC1V4B3, sngScriptBlocks[3].CharacterId, "Ensure test setup was correct");
+			Assert.AreEqual(characterC1V4B4, sngScriptBlocks[4].CharacterId, "Ensure test setup was correct");
+
+			// Verify preceding blocks
+			Assert.AreEqual("Solomon, king", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]));
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]));
+
+			// SUT: Neither of these two covered blocks should get overridden
+			Assert.AreEqual(sngScriptBlocks[3].CharacterId, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[3]));
+			Assert.AreEqual(sngScriptBlocks[4].CharacterId, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4]));
+
+			// Verify following block
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]));
+		}
+		#endregion
 
 		[Test]
 		public void GetCharacterIdInScript_OverrideChangeFromBlock1ToBlock2_GetsCorrectOverrideCharacterForEachBlock()

@@ -159,14 +159,15 @@ namespace GlyssenTests.Character
 			return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character;
 		}
 
-		[TestCase("PSA", 32, 1)] // Should map to PSA 33:1
-		[TestCase("PSA", 32, -1)] // Should map to last verse in PSA 33
-		public void GetCharacterOverrideDetailsForRefRange_VulgateVersificationChapterInsideOfOverrideRangeBeforeMappingToEnglish_MapsToReturnCorrectOverrideCharacter(string bookId, int chapter, int verse)
+		[TestCase(1)] // PSA 32:1 in Vulgate maps to PSA 33:1 in English
+		[TestCase(-1)] // PSA 32:22 in Vulgate maps to PSA 33:22 in English
+		public void GetCharacterOverrideDetailsForRefRange_VulgateVersificationChapterInsideOfOverrideRangeBeforeMappingToEnglish_MapsToReturnCorrectOverrideCharacter(int verse)
 		{
-			var bookNum = BCVRef.BookToNumber(bookId);
+			const int kChapter = 32;
+			var bookNum = BCVRef.BookToNumber("PSA");
 			if (verse == -1)
-				verse = ScrVers.Vulgate.GetLastVerse(bookNum, chapter);
-			var verseRef = new VerseRef(new BCVRef(bookNum, chapter, verse), ScrVers.Vulgate);
+				verse = ScrVers.Vulgate.GetLastVerse(bookNum, kChapter);
+			var verseRef = new VerseRef(new BCVRef(bookNum, kChapter, verse), ScrVers.Vulgate);
 			Assert.AreEqual("psalmist", NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character);
 		}
 	}

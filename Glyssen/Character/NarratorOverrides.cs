@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using Glyssen.Properties;
 using SIL.Scripture;
 using SIL.Xml;
+using static System.Int32;
 
 namespace Glyssen.Character
 {
@@ -145,6 +146,11 @@ namespace Glyssen.Character
 
 			[XmlAttribute("character")]
 			public string Character { get; set; }
+
+			public bool StartsAndEndsInSameVerse => StartChapter == EndChapter && StartVerse == EndVerse;
+
+			public int NumberOfBlocksIncludedInEndVerse => EndBlock == 0 ? MaxValue :
+				EndBlock - (StartsAndEndsInSameVerse && StartBlock > 0 ? StartBlock - 1 : 0);
 
 			private string StartBlockAsSegmentLetter(bool suppressSegmentA = true)
 			{
