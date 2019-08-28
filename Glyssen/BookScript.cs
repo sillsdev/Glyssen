@@ -955,9 +955,10 @@ namespace Glyssen
 			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count;
 			if (numUniqueCharacterDeliveries > 1)
 			{
-				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnexpectedCharacter };
-				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1 || // More than one real character => Ambiguous
-					(numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))) // Only values are Ambiguous and Unique => Ambiguous
+				// First check to see if we need to set all these blocks to Ambiguous.
+				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnexpectedCharacter /* "Unknown" */};
+				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1 || // More than one "real" character
+					(numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))) // Only values are Ambiguous and Unknown
 				{
 					foreach (Block block in multiBlockQuote)
 					{

@@ -342,6 +342,14 @@ namespace Glyssen
 
 		public bool ContainsVerseNumber => BlockElements.OfType<Verse>().Any();
 
+		/// <summary>
+		/// Since the name of this property leaves some amount of vaguery, to be precise, it
+		/// indicates whether the block represents any verse other than the verse/bridge it starts
+		/// with. So it will return false if the block begins with a bridge and has no other
+		/// subsequent verses. However, it does not guarantee that it completely covers any full
+		/// verse, so it will return true if the block begins with the end of one verse and ends
+		/// with the beginning of the following verse.
+		/// </summary>
 		public bool CoversMoreThanOneVerse => BlockElements.Skip(1).Any(e => e is Verse);
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
