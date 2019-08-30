@@ -144,6 +144,8 @@ namespace Glyssen.Dialogs
 		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
 		{
 			Debug.Assert(!String.IsNullOrEmpty(characterId));
+			// REVIEW: Probably not strictly necessary, but shouldn't we really add one per verse if this block
+			// covers multiple verses? See block.AllVerses and AddRecordsToProjectCharacterVerseData.
 			m_pendingCharacterVerseAdditions.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
 				characterId,
 				delivery == null ? Delivery.Normal.Text : delivery.Text,
@@ -215,7 +217,7 @@ namespace Glyssen.Dialogs
 		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
-				block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification));
+				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification:Versification));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
@@ -224,7 +226,7 @@ namespace Glyssen.Dialogs
 			return GetUniqueCharacters(false);
 		}
 
-		public void PopulateCurrentCharactersForCurrentReferenceTextMatchup()
+		private void PopulateCurrentCharactersForCurrentReferenceTextMatchup()
 		{
 			m_currentCharacters = new HashSet<CharacterVerse>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
@@ -409,7 +411,7 @@ namespace Glyssen.Dialogs
 		private void SetCharacterAndDelivery(Block block, Character selectedCharacter, Delivery selectedDelivery)
 		{
 			if (CharacterVerseData.IsCharacterUnclear(selectedCharacter.CharacterId))
-				throw new ArgumentException("Character cannot be confirmed as ambiguous or unknown.", "selectedCharacter");
+				throw new ArgumentException("Character cannot be confirmed as ambiguous or unknown.", nameof(selectedCharacter));
 			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
 			if (!selectedCharacter.IsNarrator && !block.IsQuote)
 				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
@@ -422,7 +424,7 @@ namespace Glyssen.Dialogs
 				});
 
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
-				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
+				AddRecordsToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
 
 			SetCharacter(block, selectedCharacter);
 
@@ -490,14 +492,13 @@ namespace Glyssen.Dialogs
 			for (int i = CurrentReferenceTextMatchup.IndexOfStartBlockInBook; i < iLastBlockInMatchup || (i < blocks.Count && blocks[i].IsContinuationOfPreviousBlockQuote); i++)
 			{
 				var block = blocks[i];
-				if (IsBlockAssignedToUnknownCharacterDeliveryPair(block))
+				var verses = GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(block).ToArray();
+				if (verses.Any())
 				{
-					Debug.Assert(block.CharacterId != null);
-					Debug.Assert(block.CharacterId != "");
-					AddRecordToProjectCharacterVerseData(block,
+					AddRecordsToProjectCharacterVerseData(block,
 						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
 						string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
-							GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
+							GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery), verses);
 				}
 			}
 
@@ -521,6 +522,18 @@ namespace Glyssen.Dialogs
 			}
 			return !GetUniqueCharacterVerseObjectsForBlock(block).Any(cv => cv.Character == block.CharacterId &&
 				((cv.Delivery ?? "") == (block.Delivery ?? "")));
+		}
+
+		public IEnumerable<IVerse> GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(Block block)
+		{
+			if (block.CharacterIsStandard)
+			{
+				Debug.Assert(block.Delivery == null);
+				return new Verse[0];
+			}
+			return block.AllVerses.Where(verse => !m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
+				block.ChapterNumber, verse.StartVerse, verse.EndVerse, versification: Versification)
+				.Any(cv => cv.Character == block.CharacterId && cv.Delivery == (block.Delivery ?? "")));
 		}
 
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
@@ -550,22 +563,24 @@ namespace Glyssen.Dialogs
 			// merely split off by the reference text.
 		}
 
-		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
+		private void AddRecordsToProjectCharacterVerseData(Block block, Character character, Delivery delivery, IEnumerable<IVerse> verses = null)
 		{
-			CharacterDetail detail;
-			if (m_pendingCharacterDetails.TryGetValue(character.CharacterId, out detail))
+			if (m_pendingCharacterDetails.TryGetValue(character.CharacterId, out var detail))
 			{
 				m_project.AddProjectCharacterDetail(detail);
 				m_project.SaveProjectCharacterDetailData();
 				m_pendingCharacterDetails.Remove(detail.CharacterId);
 			}
 
-			var reference = new BCVRef(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV);
-			var lastVerse = block.LastVerseNum;
-			do
+			if (verses == null)
+				verses = block.AllVerses;
+
+			foreach (var verseNum in verses.SelectMany(v => v.AllVerseNumbers))
 			{
+				var verseRef = new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, verseNum, Versification);
+				verseRef.ChangeVersification(ScrVers.English);
 				var cv = new CharacterVerse(
-					reference,
+					new BCVRef(verseRef.BBBCCCVVV), 
 					character.IsNarrator
 						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)
 						: character.CharacterId,
@@ -573,8 +588,7 @@ namespace Glyssen.Dialogs
 					character.Alias,
 					character.ProjectSpecific || delivery.ProjectSpecific);
 				m_projectCharacterVerseData.Add(cv);
-				reference.Verse++;
-			} while (reference.Verse <= lastVerse);
+			}
 
 			m_project.SaveProjectCharacterVerseData();
 		}

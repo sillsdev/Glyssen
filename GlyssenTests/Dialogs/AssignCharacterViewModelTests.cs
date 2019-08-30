@@ -312,6 +312,57 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithoutMatchAndSubsequentVerseWithMatch_ReturnsFalse()
+		{
+			var block = new Block("p", 14, 1) { CharacterId = "chief priests/teachers of religious law/elders" }
+				.AddText("“Let us arrest Jesus secretly and kill him, ")
+				.AddVerse(2, "but not during the festival,” ");
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithMatchAndSubsequentVerseWithoutMatch_ReturnsFalse()
+		{
+			var block = new Block("p", 14, 32) { CharacterId = "Jesus" }
+				.AddText("“Sit here while I pray. ")
+				.AddVerse(33, "Peter, James and John, You three come along with me.” ");
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void GetVersesInBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithoutMatchAndSubsequentVerseWithMatch_ReturnsFirstVerse()
+		{
+			var block = new Block("p", 14, 1) { CharacterId = "chief priests/teachers of religious law/elders" }
+				.AddText("“Let us arrest Jesus secretly and kill him, ")
+				.AddVerse(2, "but not during the festival,” ");
+			Assert.AreEqual(1, m_model.GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(block).Single().StartVerse);
+		}
+
+		[Test]
+		public void GetVersesInBlockAssignedToUnknownCharacterDeliveryPair_BlockHasTwoVersesWithNormalAndIndirectMatch_ReturnsNothing()
+		{
+			var block = new Block("p", 14, 32) { CharacterId = "Jesus" }
+				.AddText("“Sit here while I pray. ")
+				.AddVerse(33, "Peter, James and John, You three come along with me.” ");
+			Assert.IsFalse(m_model.GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(block).Any());
+		}
+
+		[Test]
+		public void GetVersesInBlockAssignedToUnknownCharacterDeliveryPair_BlockHasLeadingVersesWithMatchAndSubsequentVersesWithoutMatch_ReturnsSubsequentVerses()
+		{
+			var block = new Block("p", 12, 38) {CharacterId = "Jesus"}
+				.AddText("“Watch out for the teachers. ")
+				.AddVerse(39, "They like the most important seats. ")
+				.AddVerse(40, "They devour widows’ houses ,")
+				.AddVerse(41, "Now let's sit and watch people give their money. See how the rich people give a lot. ")
+				.AddVerse(42, "Now see how this poor widow is putting in two small coins.”");
+			var results = m_model.GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(block).ToList();
+			Assert.AreEqual(2, results.Count);
+			Assert.AreEqual(41, results[0].StartVerse);
+			Assert.AreEqual(42, results[1].StartVerse);
+		}
+
+		[Test]
 		public void SetMode_AlternateBetweenModes_AssignedBlockCountDoesNotGrowContinuously()
 		{
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
@@ -1379,12 +1430,21 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void GetCharacterToSelectForCurrentBlock_NarratorBlockWithVersesThatHaveOtherExpectedCharacters_ReturnsNarrator()
+		{
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003010))); // This block has verses 7-11
+			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			Assert.IsTrue(characters.Count > 1, "Test setup: expected conditions not met");
+			Assert.AreEqual(AssignCharacterViewModel.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
+		}
+
+		[Test]
 		public void GetCharacterToSelectForCurrentBlock_Narrator_ReturnsGenericNarratorCharacter()
 		{
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003010)));
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041001039)));
 			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
-			Assert.AreEqual(1, characters.Count);
-			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual(1, characters.Count, "Test setup: expected conditions not met");
+			Assert.IsTrue(characters[0].IsNarrator, "Test setup: expected conditions not met");
 			Assert.AreEqual(AssignCharacterViewModel.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
 		}
 
