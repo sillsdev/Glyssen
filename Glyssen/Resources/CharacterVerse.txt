@@ -13838,7 +13838,7 @@ MAT	26	71	servant girl, another			Dialogue		*different speakers;MAT 26.71;MRK 14
 MAT	26	72	Peter (Simon)	denial, stronger		Dialogue		
 MAT	26	73	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MAT	26	74	Peter (Simon)	denial, strongest		Dialogue		
-MAT	26	75	Jesus			Normal		
+MAT	26	75	Jesus			Quotation		
 MAT	27	4	chief priests/elders	impatient		Dialogue		
 MAT	27	4	Judas Iscariot	remorse		Dialogue		
 MAT	27	6	chief priests	disdain		Normal		
@@ -15823,7 +15823,7 @@ JHN	13	24	Peter (Simon)	stage whisper		Normal
 JHN	13	25	John	sad	John (disciple whom Jesus loved)	Dialogue		
 JHN	13	26	Jesus			Dialogue		
 JHN	13	27	Jesus	giving orders		Dialogue		
-JHN	13	29	Jesus			Quotation		
+JHN	13	29	narrator-JHN			Quotation		
 JHN	13	29	disciples			Indirect		
 JHN	13	31	Jesus			Dialogue		
 JHN	13	32	Jesus			Normal		
