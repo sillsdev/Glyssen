@@ -136,6 +136,29 @@ namespace Glyssen.Character
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
 		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
+		/// <summary>
+		/// A single character ID which could/should be used in the script.
+		/// </summary>
+		/// <remarks>
+		/// In many cases this is set in the control file, but is not actually used. (It is informational,
+		/// historical, or possibly for some future feature.) <seealso cref="ResolvedDefaultCharacter"/>
+		/// Examples of other uses:
+		/// <list type="number">
+		/// <item><description>character is "Good Priest" (FCBH concept)</description></item>
+		/// <item><description>to translate from generic groups (i.e., "parents" or "disciples", "people in high
+		/// priest's courtyard") to specific individuals ("father", "mother", "Thomas", etc.)</description></item>
+		/// <item><description>to indicate a guess as to who the real "voice from heaven" is</description></item>
+		/// <item><description>to translate possible OT theophanies to Jesus</description></item>
+		/// <item><description>entries in JHN 21:7 and JHN 21:17 that sit alongside the "correct" entry that
+		/// basically tell the user to have the narrator read it</description></item>
+		/// <item><description>In GEN 28:6, there's an entry to attempt to say that a quotation by Isaac
+		/// should be read by the narrator (even though FCBH expects Isaac to say it)</description></item>
+		/// <item><description>Some places where we have a narrator Quotation (e.g., PRO 30:8), we note that it
+		/// should be read by Agur, but now this is actually handled by narrator overrides</description></item>
+		/// <item><description>dream => angel</description></item>
+		/// </list>
+		/// Probably most of theses should be handled differently...
+		/// </remarks>
 		public string DefaultCharacter { get; }
 		public string LocalizedCharacter
 		{
@@ -155,9 +178,12 @@ namespace Glyssen.Character
 				return m_localizedAlias;
 			}
 		}
-		// This property returns the Default character to use if this object's Character property represents
-		// multiple character IDs. Otherwise, it just returns the Character (the DefaultCharacter is ignored
-		// in this case).
+
+		/// <summary>
+		/// This property returns the Default character to use if this object's Character property represents
+		/// multiple character IDs. Otherwise, it just returns the Character (the <see cref="DefaultCharacter"/>
+		/// is ignored in this case).
+		/// </summary>
 		public string ResolvedDefaultCharacter
 		{
 			get

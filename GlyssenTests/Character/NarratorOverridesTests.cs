@@ -159,6 +159,8 @@ namespace GlyssenTests.Character
 			return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, verse).Single().Character;
 		}
 
+		// <Override startChapter="3" endChapter="32" character="David"/>
+		// <Override startChapter="33" character="psalmist"/>
 		[TestCase(1)] // PSA 32:1 in Vulgate maps to PSA 33:1 in English
 		[TestCase(-1)] // PSA 32:22 in Vulgate maps to PSA 33:22 in English
 		public void GetCharacterOverrideDetailsForRefRange_VulgateVersificationChapterInsideOfOverrideRangeBeforeMappingToEnglish_MapsToReturnCorrectOverrideCharacter(int verse)

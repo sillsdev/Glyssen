@@ -11105,14 +11105,26 @@ AMO	5	3	God		God (the Sovereign LORD says)	Normal
 AMO	5	4	God		God (the LORD)	Normal		
 AMO	5	5	God		God (the LORD)	Normal		
 AMO	5	16	God		God (the LORD, the LORD God Almighty)	Normal		
-AMO	5	17	God		God (the LORD, the LORD God Almighty)	Normal		
-AMO	5	21	God		God (the LORD God Almighty)	Normal		
-AMO	5	22	God		God (the LORD God Almighty)	Normal		
-AMO	5	23	God		God (the LORD God Almighty)	Normal		
-AMO	5	24	God		God (the LORD God Almighty)	Normal		
-AMO	5	25	God		God (the LORD God Almighty)	Normal		
-AMO	5	26	God		God (the LORD God Almighty)	Normal		
-AMO	5	27	God		God (the LORD God Almighty)	Normal		
+AMO	5	17	God		God (the LORD)	Normal		
+AMO	5	17	Amos		Amos (the LORD says)	Potential		
+AMO	5	18	God		God (the LORD)	Potential		
+AMO	5	19	God		God (the LORD)	Potential		
+AMO	5	20	God	challenging	God (the LORD)	Potential		
+AMO	5	20	God	rhetorical question	God (the LORD)	Potential		
+AMO	5	21	God		God (the LORD)	Implicit		
+AMO	5	21	Amos		Amos (the LORD says)	Alternate		
+AMO	5	22	God		God (the LORD)	Implicit		
+AMO	5	22	Amos		Amos (the LORD says)	Alternate		
+AMO	5	23	God		God (the LORD)	Implicit		
+AMO	5	23	Amos		Amos (the LORD says)	Alternate		
+AMO	5	24	God		God (the LORD)	Implicit		
+AMO	5	24	Amos		Amos (the LORD says)	Alternate		
+AMO	5	25	God		God (the LORD)	Implicit		
+AMO	5	25	Amos		Amos (the LORD says)	Alternate		
+AMO	5	26	God		God (the LORD)	Implicit		
+AMO	5	26	Amos		Amos (the LORD says)	Alternate		
+AMO	5	27	God		God (the LORD)	Normal		
+AMO	5	27	Amos		Amos (the LORD says)	Potential		
 AMO	6	8	God		God (the Sovereign LORD, the LORD God Almighty)	Normal		
 AMO	6	10	relative			Hypothetical		
 AMO	6	10	someone hiding			Hypothetical		

@@ -149,6 +149,17 @@ namespace Glyssen.Character
 
 			public bool StartsAndEndsInSameVerse => StartChapter == EndChapter && StartVerse == EndVerse;
 
+			/// <summary>
+			/// For this override's <see cref="EndVerse"/>, the maximum number of blocks (starting with the
+			/// first one for the verse) to override. If no <see cref="EndBlock"/> is specified, then this
+			/// property returns <see cref="MaxValue"/> since any narrator blocks that cover the verse should
+			/// be overridden. If <see cref="EndBlock"/> is specified, then this typically property returns
+			/// <see cref="EndBlock"/>. However, there is a special case when this is an override for a limited
+			/// range of blocks within a single verse. For example, if the override starts at block 2 (the third
+			/// block) of verse 6:9 and ends at block 4 (the fifth block), then it includes 3 blocks (the 3rd, 4th
+			/// and 5th blocks). Of course, if the target language only has four blocks for verse 6:9, then the
+			/// actual number of blocks that will be overridden is 2, assuming they are both narrator blocks.
+			/// </summary>
 			public int NumberOfBlocksIncludedInEndVerse => EndBlock == 0 ? MaxValue :
 				EndBlock - (StartsAndEndsInSameVerse && StartBlock > 0 ? StartBlock - 1 : 0);
 

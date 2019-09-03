@@ -5925,6 +5925,29 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_ImplicitQuoteBeginsWithPartialVerseAndWholeVersesNotMarkedAsImplicit_LeadingVersesParagraph_ImplicitCharacterInfoSet()
+		{
+			var chapter = new Block("c", 5) {CharacterId = CharacterVerseData.GetStandardCharacterId("AMO", CharacterVerseData.StandardCharacter.BookOrChapter)}.AddText("8");
+			var block1 = new Block("p", 5, 18) {IsParagraphStart = true}.AddVerse(18, "The Lord says: ");
+			var block2 = new Block("p", 5, 18) {IsParagraphStart = true}
+				.AddText("Woe to you who want the day of the Lord! It is dark, ")
+				.AddVerse(19, "as if a man fled from a lion and get killed by a bear or serpent. ")
+				.AddVerse(20, "Isn't that right? Dark not light. ")
+				.AddVerse(21, "I detest your feats and gatherings. ")
+				.AddVerse(22, "Don't even get me started on your burnt offerings! ")
+				.AddVerse(23, "You call that noise worship music!? If you want me to listen,")
+				.AddVerse(24, "Start pursuing justice and righteousness.");
+			var input = new List<Block> {chapter, block1, block2};
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "AMO", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, output[2].CharacterId);
+			Assert.AreEqual(18, output[2].InitialStartVerseNumber);
+			Assert.AreEqual(20, output[2].LastVerseNum);
+		}
+
+		[Test]
 		public void Parse_ImplicitQuoteHasExplicitQuotationMarksAndExtraHeSaidsInSeparateBlocks_ExplicitQuoteMarkedAsImplicitSpeakerAndHeSaidMarkedAsNeedsReview()
 		{
 			 
