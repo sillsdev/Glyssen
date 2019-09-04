@@ -314,25 +314,62 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithoutMatchAndSubsequentVerseWithMatch_ReturnsFalse()
 		{
-			var block = new Block("p", 14, 1) { CharacterId = "chief priests/teachers of religious law/elders" }
+			Assert.IsNull(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 1, 1, 
+				versification:m_testProject.Versification).SingleOrDefault(), "Test setup conditions not met");
+			var cvMrk14V2 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 2, 2,
+				versification: m_testProject.Versification).Single();
+			Assert.AreEqual("chief priests/teachers of religious law/elders", cvMrk14V2.Character,
+				"Test setup conditions not met");
+
+			var block = new Block("p", 14, 1) { CharacterId = cvMrk14V2.Character }
 				.AddText("“Let us arrest Jesus secretly and kill him, ")
 				.AddVerse(2, "but not during the festival,” ");
 			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
 		}
 
 		[Test]
-		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithMatchAndSubsequentVerseWithoutMatch_ReturnsFalse()
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithNormalMatchAndSubsequentVerseWithIndirectMatch_ReturnsFalse()
 		{
-			var block = new Block("p", 14, 32) { CharacterId = "Jesus" }
+			var cvMrk14V32 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 32, 32,
+				versification: m_testProject.Versification).Single();
+			Assert.AreEqual("Jesus", cvMrk14V32.Character, "Test setup conditions not met");
+			Assert.AreEqual(QuoteType.Normal, cvMrk14V32.QuoteType, "Test setup conditions not met");
+			Assert.AreEqual(QuoteType.Indirect, ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 33, 33,
+				versification: m_testProject.Versification).Single(cv => cv.Character == cvMrk14V32.Character).QuoteType,
+				"Test setup conditions not met");
+
+			var block = new Block("p", 14, 32) { CharacterId = cvMrk14V32.Character }
 				.AddText("“Sit here while I pray. ")
 				.AddVerse(33, "Peter, James and John, You three come along with me.” ");
 			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
 		}
 
 		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithMatchAndSubsequentVerseWithoutMatch_ReturnsFalse()
+		{
+			var cvMrk14V25 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 25, 25,
+				versification: m_testProject.Versification).Single();
+			Assert.AreEqual("Jesus", cvMrk14V25.Character, "Test setup conditions not met");
+			Assert.IsNull(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 26, 26,
+				versification: m_testProject.Versification).SingleOrDefault(), "Test setup conditions not met");
+
+			var block = new Block("p", 14, 25) { CharacterId = cvMrk14V25.Character }
+				.AddText("“This is all I can say, ")
+				.AddVerse(26, "because I am not supposed to talk in this verse.” ");
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
 		public void GetVersesInBlockAssignedToUnknownCharacterDeliveryPair_BlockHasFirstVerseWithoutMatchAndSubsequentVerseWithMatch_ReturnsFirstVerse()
 		{
-			var block = new Block("p", 14, 1) { CharacterId = "chief priests/teachers of religious law/elders" }
+			Assert.IsNull(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 1, 1,
+				versification: m_testProject.Versification).SingleOrDefault(), "Test setup conditions not met");
+			var cvMrk14V2 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 2, 2,
+				versification: m_testProject.Versification).Single();
+			Assert.AreEqual("chief priests/teachers of religious law/elders", cvMrk14V2.Character,
+				"Test setup conditions not met");
+
+			var block = new Block("p", 14, 1) { CharacterId = cvMrk14V2.Character }
 				.AddText("“Let us arrest Jesus secretly and kill him, ")
 				.AddVerse(2, "but not during the festival,” ");
 			Assert.AreEqual(1, m_model.GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(block).Single().StartVerse);
@@ -341,6 +378,14 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetVersesInBlockAssignedToUnknownCharacterDeliveryPair_BlockHasTwoVersesWithNormalAndIndirectMatch_ReturnsNothing()
 		{
+			var cvMrk14V32 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 32, 32,
+				versification: m_testProject.Versification).Single();
+			Assert.AreEqual("Jesus", cvMrk14V32.Character, "Test setup conditions not met");
+			Assert.AreEqual(QuoteType.Normal, cvMrk14V32.QuoteType, "Test setup conditions not met");
+			Assert.AreEqual(QuoteType.Indirect, ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 14, 33, 33,
+					versification: m_testProject.Versification).Single(cv => cv.Character == cvMrk14V32.Character).QuoteType,
+				"Test setup conditions not met");
+
 			var block = new Block("p", 14, 32) { CharacterId = "Jesus" }
 				.AddText("“Sit here while I pray. ")
 				.AddVerse(33, "Peter, James and John, You three come along with me.” ");
@@ -350,6 +395,18 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetVersesInBlockAssignedToUnknownCharacterDeliveryPair_BlockHasLeadingVersesWithMatchAndSubsequentVersesWithoutMatch_ReturnsSubsequentVerses()
 		{
+			var cvMrk12V38 = ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 12, 38, 38,
+				versification: m_testProject.Versification).Single();
+			Assert.AreEqual("Jesus", cvMrk12V38.Character, "Test setup conditions not met");
+			Assert.AreEqual(cvMrk12V38.Character, ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 12, 39, 39,
+				versification: m_testProject.Versification).Single().Character);
+			Assert.AreEqual(cvMrk12V38.Character, ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 12, 40, 40,
+				versification: m_testProject.Versification).Single().Character);
+			Assert.IsNull(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 12, 41, 41,
+				versification: m_testProject.Versification).SingleOrDefault(), "Test setup conditions not met");
+			Assert.IsNull(ControlCharacterVerseData.Singleton.GetCharacters(m_model.CurrentBookNumber, 12, 42, 42,
+				versification: m_testProject.Versification).SingleOrDefault(), "Test setup conditions not met");
+
 			var block = new Block("p", 12, 38) {CharacterId = "Jesus"}
 				.AddText("“Watch out for the teachers. ")
 				.AddVerse(39, "They like the most important seats. ")
