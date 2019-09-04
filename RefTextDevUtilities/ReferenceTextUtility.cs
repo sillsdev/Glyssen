@@ -517,6 +517,8 @@ namespace Glyssen.RefTextDevUtilities
 						modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
 						modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
 						modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
+						if (languageInfo.IsEnglish) // REVIEW: Do we want to enforce this for all languages?
+							modifiedText = modifiedText.Replace("  ", " ");
 						if (verseNumberFixedText != modifiedText)
 							Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
 

@@ -4875,13 +4875,7 @@
     <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     <text>crowed. </text>
     <verse num="75" />
-    <text>Peter remembered the word which Jesus had said to him,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="Jesus">
-    <text>“Before the rooster crows, you will deny me three times.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT">
-    <text>He went out and wept bitterly.</text>
+    <text>Peter remembered the word which Jesus had said to him, “Before the rooster crows, you will deny me three times.” He went out and wept bitterly.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>27</text>

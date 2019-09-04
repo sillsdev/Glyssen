@@ -1,4 +1,4 @@
-Control File Version	141
+Control File Version	142
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -13997,7 +13997,13 @@ MRK	4	40	Jesus	questioning		Dialogue
 MRK	4	41	disciples	awe		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
 MRK	5	7	demons (Legion)/man delivered from Legion of demons	shrieking	demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-MRK	5	8	Jesus			Normal		
+# Jesus' speech in v. 8 is technically a "Quotation" because Jesus is not saying this at this point in the story.
+# (It is related out of chronological order.) Some translations put this in parentheses. It could also easily be
+# turned into indirect speech, as is the case in Luke's account. However, we don't want to automatically force the
+# quotation to be spoken by the narrator (as we sometimes do elsewhere) because there is the possibility that a
+# translation team could reorder (e.g., using a bridge) this material to make it "live" speech.
+MRK	5	8	Jesus			Normal		MRK 5.8; LUK 8.29
+MRK	5	8	narrator-MRK			Quotation		
 MRK	5	9	Jesus	questioning		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
 MRK	5	9	demons (Legion)/man delivered from Legion of demons			Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
@@ -14678,7 +14684,7 @@ LUK	8	25	disciples	amazed		Dialogue		MAT 8.27; LUK 8:25
 LUK	8	25	Jesus	questioning		Dialogue		
 LUK	8	27	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Indirect		
 LUK	8	28	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-LUK	8	29	Jesus			Indirect		
+LUK	8	29	Jesus			Indirect		MRK 5.8; LUK 8.29
 LUK	8	30	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	30	Jesus	questioning		Dialogue		
 LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion) man	Indirect		
@@ -15264,7 +15270,8 @@ LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	Dialog
 LUK	22	58	Peter (Simon)	denial, stronger		Dialogue		
 LUK	22	59	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	another (person in the courtyard)	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 LUK	22	60	Peter (Simon)	denial, strongest		Dialogue		
-LUK	22	61	Jesus			Normal		
+LUK	22	61	Jesus			Quotation	narrator-LUK	
+LUK	22	61	narrator-LUK			Quotation		
 LUK	22	64	guards at high priests' house	mocking		Dialogue		
 LUK	22	67	council of elders/chief priests/teachers of religious law	demanding		Dialogue		
 LUK	22	67	Jesus			Dialogue		
@@ -15959,7 +15966,8 @@ JHN	18	6	Jesus			Quotation
 JHN	18	7	Jesus	questioning		Dialogue		
 JHN	18	7	soldiers/officials from chief priests and Pharisees	afraid		Dialogue		
 JHN	18	8	Jesus			Dialogue		
-JHN	18	9	Jesus			Quotation		
+JHN	18	9	Jesus			Quotation	narrator-JHN	
+JHN	18	9	narrator-JHN			Quotation		
 JHN	18	11	Jesus			Dialogue		
 JHN	18	14	Caiaphas, the high priest			Indirect		
 JHN	18	16	John		the other disciple (John)	Indirect		
@@ -17016,6 +17024,7 @@ HEB	3	13	narrator-HEB			Quotation
 HEB	3	15	scripture			Quotation		
 HEB	3	15	narrator-HEB			Quotation		
 HEB	3	18	scripture			Quotation	God	
+HEB	3	18	narrator-HEB			Quotation		
 HEB	4	3	scripture			Quotation	God	
 HEB	4	4	scripture			Quotation	God	
 HEB	4	5	scripture			Quotation	God	
