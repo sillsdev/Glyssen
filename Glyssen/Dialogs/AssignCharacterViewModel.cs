@@ -144,8 +144,11 @@ namespace Glyssen.Dialogs
 		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
 		{
 			Debug.Assert(!String.IsNullOrEmpty(characterId));
-			// REVIEW: Probably not strictly necessary, but shouldn't we really add one per verse if this block
-			// covers multiple verses? See block.AllVerses and AddRecordsToProjectCharacterVerseData.
+			// TODO: Probably not strictly necessary, but we should really add one per verse if this block
+			// covers multiple verses. See block.AllVerses and AddRecordsToProjectCharacterVerseData. Note
+			// that this will also require some re-working of GetUniqueCharacterVerseObjectsForBlock because
+			// in some code paths, this method currently only gets called if that method can't find a match,
+			// but it doesn't require the character to be in the control file for every verse.
 			m_pendingCharacterVerseAdditions.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
 				characterId,
 				delivery == null ? Delivery.Normal.Text : delivery.Text,
