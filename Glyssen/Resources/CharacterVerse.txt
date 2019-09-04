@@ -15559,6 +15559,7 @@ MAT	27	32	soldiers, Roman	giving orders		Indirect
 MAT	27	33	narrator-MAT			Quotation		
 MAT	27	35	scripture			Quotation	David	
 MAT	27	37	sign on the cross			Quotation		
+MAT	27	39	passers by	mocking		Potential		
 MAT	27	40	passers by	mocking		Dialogue		
 MAT	27	42	chief priests/teachers of religious law/elders	sneering		Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
 MAT	27	43	chief priests/teachers of religious law/elders	sneering		Dialogue		
