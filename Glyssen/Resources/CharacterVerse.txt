@@ -13799,35 +13799,62 @@ JOL	3	19	God		God (the LORD)	Potential
 JOL	3	20	God		God (the LORD)	Potential		
 JOL	3	21	God		God (the LORD)	Normal		
 AMO	1	2	Amos			Normal		
+AMO	1	3	Amos		Amos (the LORD says)	Alternate		
 AMO	1	3	God		God (the LORD)	Normal		
-AMO	1	4	God		God (the LORD)	Normal		
+AMO	1	4	God		God (the LORD)	Implicit		
+AMO	1	4	Amos		Amos (the LORD says)	Alternate		
 AMO	1	5	God		God (the LORD)	Normal		
+AMO	1	5	Amos		Amos (the LORD says)	Potential		
+AMO	1	6	Amos		Amos (the LORD says)	Alternate		
 AMO	1	6	God		God (the LORD)	Normal		
-AMO	1	7	God		God (the LORD)	Normal		
+AMO	1	7	God		God (the LORD)	Implicit		
+AMO	1	7	Amos		Amos (the LORD says)	Alternate		
 AMO	1	8	God		God (the LORD)	Normal		
+AMO	1	8	Amos		Amos (the LORD says)	Potential		
+AMO	1	9	Amos		Amos (the LORD says)	Alternate		
 AMO	1	9	God		God (the LORD)	Normal		
-AMO	1	10	God		God (the LORD)	Normal		
+AMO	1	10	God		God (the LORD)	Implicit		
+AMO	1	10	Amos		Amos (the LORD says)	Alternate		
+AMO	1	11	Amos		Amos (the LORD says)	Alternate		
 AMO	1	11	God		God (the LORD)	Normal		
-AMO	1	12	God		God (the LORD)	Normal		
+AMO	1	12	God		God (the LORD)	Implicit		
+AMO	1	12	Amos		Amos (the LORD says)	Alternate		
+AMO	1	13	Amos		Amos (the LORD says)	Alternate		
 AMO	1	13	God		God (the LORD)	Normal		
-AMO	1	14	God		God (the LORD)	Normal		
+AMO	1	14	God		God (the LORD)	Implicit		
+AMO	1	14	Amos		Amos (the LORD says)	Alternate		
 AMO	1	15	God		God (the LORD)	Normal		
+AMO	1	15	Amos		Amos (the LORD says)	Potential		
+AMO	2	1	Amos		Amos (the LORD says)	Alternate		
 AMO	2	1	God		God (the LORD)	Normal		
-AMO	2	2	God		God (the LORD)	Normal		
+AMO	2	2	God		God (the LORD)	Implicit		
+AMO	2	2	Amos		Amos (the LORD says)	Alternate		
 AMO	2	3	God		God (the LORD)	Normal		
+AMO	2	3	Amos		Amos (the LORD says)	Potential		
+AMO	2	4	Amos		Amos (the LORD says)	Alternate		
 AMO	2	4	God		God (the LORD)	Normal		
-AMO	2	5	God		God (the LORD)	Normal		
+AMO	2	5	God		God (the LORD)	Implicit		
+AMO	2	5	Amos		Amos (the LORD says)	Alternate		
+AMO	2	6	Amos		Amos (the LORD says)	Alternate		
 AMO	2	6	God		God (the LORD)	Normal		
-AMO	2	7	God		God (the LORD)	Normal		
-AMO	2	8	God		God (the LORD)	Normal		
-AMO	2	9	God		God (the LORD)	Normal		
-AMO	2	10	God		God (the LORD)	Normal		
+AMO	2	7	God		God (the LORD)	Implicit		
+AMO	2	7	Amos		Amos (the LORD says)	Alternate		
+AMO	2	8	God		God (the LORD)	Implicit		
+AMO	2	8	Amos		Amos (the LORD says)	Alternate		
+AMO	2	9	God		God (the LORD)	Implicit		
+AMO	2	9	Amos		Amos (the LORD says)	Alternate		
+AMO	2	10	God		God (the LORD)	Implicit		
+AMO	2	10	Amos		Amos (the LORD says)	Alternate		
 AMO	2	11	God		God (the LORD)	Normal		
-AMO	2	12	God		God (the LORD)	Normal		
-AMO	2	13	God		God (the LORD)	Normal		
-AMO	2	14	God		God (the LORD)	Normal		
-AMO	2	15	God		God (the LORD)	Normal		
+AMO	2	11	Amos		Amos (the LORD says)	Potential		
+AMO	2	12	God		God (the LORD)	Implicit		
+AMO	2	12	Israel		you (Israel)	Hypothetical		
+AMO	2	13	God		God (the LORD)	Implicit		
+AMO	2	14	God		God (the LORD)	Implicit		
+AMO	2	15	God		God (the LORD)	Implicit		
 AMO	2	16	God		God (the LORD)	Normal		
+AMO	2	16	Amos		Amos (the LORD says)	Potential		
+AMO	3	1	Amos			Potential		
 AMO	3	1	God		God (the LORD)	Potential		
 AMO	3	2	God		God (the LORD)	Implicit		
 AMO	3	3	God		God (the LORD)	Potential		
@@ -13837,26 +13864,51 @@ AMO	3	6	God		God (the LORD)	Potential
 AMO	3	7	God		God (the LORD)	Potential		
 AMO	3	8	God		God (the LORD)	Potential		
 AMO	3	9	God		God (the LORD)	Normal		
+AMO	3	9	Amos			Normal		
 AMO	3	10	God		God (the LORD)	Normal		
+AMO	3	10	Amos		Amos (the LORD says)	Potential		
+AMO	3	11	Amos		Amos (the LORD says)	Alternate		
 AMO	3	11	God		God (the LORD)	Normal		
+AMO	3	12	Amos		Amos (the LORD says)	Alternate		
 AMO	3	12	God		God (the LORD)	Normal		
 AMO	3	13	God		God (the LORD)	Normal		
-AMO	3	14	God		God (the LORD)	Normal		
+AMO	3	13	Amos		Amos (the LORD says)	Potential		
+AMO	3	14	God		God (the LORD)	Implicit		
+AMO	3	14	Amos		Amos (the LORD says)	Alternate		
 AMO	3	15	God		God (the LORD)	Normal		
-AMO	4	1	women who oppress the poor			Hypothetical		
+AMO	3	15	Amos		Amos (the LORD says)	Potential		
+AMO	4	1	Amos			Potential		
+AMO	4	1	women who oppress the poor ("cows of Bashan")			Hypothetical		
+AMO	4	2	Amos		Amos (the LORD says)	Alternate		
 AMO	4	2	God		God (the LORD)	Normal		
 AMO	4	3	God		God (the LORD)	Normal		
-AMO	4	4	God		God (the LORD)	Normal		
+AMO	4	3	Amos		Amos (the LORD says)	Potential		
+AMO	4	4	God		God (the LORD)	Implicit		
+AMO	4	4	Amos		Amos (the LORD says)	Alternate		
 AMO	4	5	God		God (the LORD)	Normal		
+AMO	4	5	Amos		Amos (the LORD says)	Potential		
 AMO	4	6	God		God (the LORD)	Normal		
-AMO	4	7	God		God (the LORD)	Normal		
+AMO	4	6	Amos		Amos (the LORD says)	Potential		
+AMO	4	7	God		God (the LORD)	Implicit		
+AMO	4	7	Amos		Amos (the LORD says)	Alternate		
 AMO	4	8	God		God (the LORD)	Normal		
+AMO	4	8	Amos		Amos (the LORD says)	Potential		
 AMO	4	9	God		God (the LORD)	Normal		
+AMO	4	9	Amos		Amos (the LORD says)	Potential		
 AMO	4	10	God		God (the LORD)	Normal		
+AMO	4	10	Amos		Amos (the LORD says)	Potential		
+AMO	4	11	Amos		Amos (the LORD says)	Alternate		
 AMO	4	11	God		God (the LORD)	Normal		
+AMO	4	12	Amos		Amos (the LORD says)	Alternate		
 AMO	4	12	God		God (the LORD)	Normal		
+AMO	4	13	God		God (the LORD)	Potential		
+AMO	5	1	Amos			Potential		
+AMO	5	1	God		God (the LORD)	Alternate		
 AMO	5	2	Amos	lament		Normal		
+AMO	5	2	God	lament	God (the LORD)	Alternate		
+AMO	5	3	Amos		Amos (the LORD says)	Alternate		
 AMO	5	3	God		God (the LORD)	Normal		
+AMO	5	4	Amos		Amos (the LORD says)	Alternate		
 AMO	5	4	God		God (the LORD)	Normal		
 AMO	5	5	God		God (the LORD)	Normal		
 AMO	5	6	God		God (the LORD)	Potential		
@@ -13868,8 +13920,14 @@ AMO	5	11	God		God (the LORD)	Potential
 AMO	5	12	God		God (the LORD)	Potential		
 AMO	5	13	God		God (the LORD)	Potential		
 AMO	5	14	God		God (the LORD)	Potential		
+# Quote type could be Indirect, Hypothetical, or Quotation. However, if it were Hypothetical
+# and the surrounding text were not in quotes but this claim was in quotes, then just the
+# claim would get set automatically to be spoken by God, and that would be an incorrect parse.
+AMO	5	14	Israel			Indirect		
 AMO	5	15	God		God (the LORD)	Potential		
+AMO	5	16	Amos		Amos (the LORD says)	Alternate		
 AMO	5	16	God		God (the LORD)	Normal		
+AMO	5	16	Israel	wailing		Hypothetical		
 AMO	5	17	God		God (the LORD)	Normal		
 AMO	5	17	Amos		Amos (the LORD says)	Potential		
 AMO	5	18	God		God (the LORD)	Potential		
@@ -13889,60 +13947,91 @@ AMO	5	26	God		God (the LORD)	Implicit
 AMO	5	26	Amos		Amos (the LORD says)	Alternate		
 AMO	5	27	God		God (the LORD)	Normal		
 AMO	5	27	Amos		Amos (the LORD says)	Potential		
+AMO	6	1-7	God		God (the LORD)	Potential		
 AMO	6	8	God		God (the LORD)	Normal		
+AMO	6	8	Amos		Amos (the LORD says)	Alternate		
+AMO	6	9	God		God (the LORD)	Potential		
+AMO	6	10	God		God (the LORD)	Potential		
 AMO	6	10	relative			Hypothetical		
 AMO	6	10	someone hiding			Hypothetical		
-AMO	6	13	conquerors of Lo Debar			Hypothetical		
+AMO	6	11	God		God (the LORD)	Potential		
+AMO	6	12	God		God (the LORD)	Potential		
+AMO	6	13	God		God (the LORD)	Potential		
+AMO	6	13	conquerors of Lo Debar		conquerors of "Lo Debar" (or "a thing of nothing")	Hypothetical		
 AMO	6	14	God		God (the LORD)	Normal		
-AMO	7	2	Amos			Normal		
+AMO	6	14	Amos		Amos (the LORD says)	Potential		
+AMO	7	2	Amos			Quotation		
 AMO	7	3	God		God (the LORD)	Normal		
-AMO	7	5	Amos			Normal		
+AMO	7	3	Amos		Amos (the LORD says)	Alternate		
+AMO	7	4	God		God (the LORD)	Potential		
+AMO	7	5	Amos			Quotation		
 AMO	7	6	God		God (the LORD)	Normal		
-AMO	7	8	Amos			Normal		
-AMO	7	8	God		God (the LORD)	Normal		
-AMO	7	9	God		God (the LORD)	Normal		
+AMO	7	6	Amos		Amos (the LORD says)	Alternate		
+AMO	7	8	Amos			Quotation		
+AMO	7	8	God		God (the LORD)	Dialogue		
+AMO	7	9	God		God (the LORD)	Dialogue		
 AMO	7	10	Amaziah, priest of Bethel			Normal		
 AMO	7	11	Amaziah, priest of Bethel			Normal		
-AMO	7	12	Amaziah, priest of Bethel			Normal		
-AMO	7	13	Amaziah, priest of Bethel			Normal		
-AMO	7	14	Amos			Normal		
-AMO	7	15	Amos			Normal		
+AMO	7	12	Amaziah, priest of Bethel			Dialogue		
+AMO	7	13	Amaziah, priest of Bethel			Dialogue		
+AMO	7	14	Amos			Dialogue		
+AMO	7	15	Amos			Dialogue		
 AMO	7	15	God		God (the LORD)	Quotation		
-AMO	7	16	Amos			Normal		
-AMO	7	16	Amaziah, priest of Bethel			Quotation		
-AMO	7	16	God		God (the LORD)	Potential		
-AMO	7	17	Amos			Potential		
+AMO	7	16	Amos			Dialogue		
+AMO	7	16	God		God (the LORD)	Normal		
+AMO	7	17	Amos		Amos (the LORD says)	Normal		
 AMO	7	17	God		God (the LORD)	Normal		
-AMO	8	2	Amos			Normal		
-AMO	8	2	God		God (the LORD)	Normal		
+AMO	8	2	Amos			Quotation		
+AMO	8	2	God		God (the LORD)	Dialogue		
 AMO	8	3	God		God (the LORD)	Normal		
+AMO	8	3	Amos		Amos (the LORD says)	Potential		
 AMO	8	4	God		God (the LORD)	Potential		
 AMO	8	5	oppressors of poor			Hypothetical		
 AMO	8	5	God		God (the LORD)	Potential		
 AMO	8	6	oppressors of poor			Hypothetical		
 AMO	8	6	God		God (the LORD)	Potential		
 AMO	8	7	God		God (the LORD)	Normal		
-AMO	8	8	God		God (the LORD)	Normal		
+AMO	8	7	Amos		Amos (the LORD says)	Alternate		
+AMO	8	8	God		God (the LORD)	Implicit		
+AMO	8	8	Amos		Amos (the LORD says)	Alternate		
 AMO	8	9	God		God (the LORD)	Normal		
-AMO	8	10	God		God (the LORD)	Normal		
+AMO	8	9	Amos		Amos (the LORD says)	Potential		
+AMO	8	10	God		God (the LORD)	Implicit		
+AMO	8	10	Amos		Amos (the LORD says)	Alternate		
 AMO	8	11	God		God (the LORD)	Normal		
-AMO	8	12	God		God (the LORD)	Normal		
-AMO	8	13	God		God (the LORD)	Normal		
+AMO	8	11	Amos		Amos (the LORD says)	Potential		
+AMO	8	12	God		God (the LORD)	Implicit		
+AMO	8	12	Amos		Amos (the LORD says)	Alternate		
+AMO	8	13	God		God (the LORD)	Implicit		
+AMO	8	13	Amos		Amos (the LORD says)	Alternate		
 AMO	8	14	God		God (the LORD)	Normal		
+AMO	8	14	virgin/young man		beautiful virgins/young men	Hypothetical		
+AMO	8	14	Amos		Amos (the LORD says)	Alternate		
 AMO	9	1	God		God (the LORD)	Normal		
-AMO	9	2	God		God (the LORD)	Normal		
-AMO	9	3	God		God (the LORD)	Normal		
-AMO	9	4	God		God (the LORD)	Normal		
+AMO	9	2	God		God (the LORD)	Implicit		
+AMO	9	3	God		God (the LORD)	Implicit		
+AMO	9	4	God		God (the LORD)	Implicit		
+AMO	9	5	God		God (the LORD)	Potential		
+AMO	9	6	God		God (the LORD)	Potential		
 AMO	9	7	God		God (the LORD)	Normal		
+AMO	9	7	Amos		Amos (the LORD says)	Potential		
 AMO	9	8	God		God (the LORD)	Normal		
-AMO	9	9	God		God (the LORD)	Normal		
+AMO	9	8	Amos		Amos (the LORD says)	Potential		
+AMO	9	9	God		God (the LORD)	Implicit		
+AMO	9	9	Amos		Amos (the LORD says)	Alternate		
 AMO	9	10	God		God (the LORD)	Normal		
 AMO	9	10	sinners		sinners among God's people	Hypothetical		
-AMO	9	11	God		God (the LORD)	Normal		
+AMO	9	10	Amos		Amos (the LORD says)	Alternate		
+AMO	9	11	God		God (the LORD)	Implicit		
+AMO	9	11	Amos		Amos (the LORD says)	Alternate		
 AMO	9	12	God		God (the LORD)	Normal		
+AMO	9	12	Amos		Amos (the LORD says)	Potential		
 AMO	9	13	God		God (the LORD)	Normal		
-AMO	9	14	God		God (the LORD)	Normal		
+AMO	9	13	Amos		Amos (the LORD says)	Potential		
+AMO	9	14	God		God (the LORD)	Implicit		
+AMO	9	14	Amos		Amos (the LORD says)	Alternate		
 AMO	9	15	God		God (the LORD)	Normal		
+AMO	9	15	Amos		Amos (the LORD says)	Potential		
 OBA	1	1	ambassador			Alternate		
 OBA	1	1	God		God (the LORD)	Potential		
 OBA	1	2	God		God (the LORD)	Implicit		
