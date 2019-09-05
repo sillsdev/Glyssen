@@ -13596,33 +13596,50 @@ HOS	1	5	God		God (the LORD)	Normal
 HOS	1	6	God		God (the LORD)	Normal		
 HOS	1	7	God		God (the LORD)	Normal		
 HOS	1	9	God		God (the LORD)	Normal		
-HOS	1	10	God		God (the LORD)	Normal		
-HOS	1	11	God		God (the LORD)	Normal		
+HOS	1	10	God		God (the LORD)	Potential		
+HOS	1	10	narrator-HOS			Quotation		
+HOS	1	11	God		God (the LORD)	Potential		
 HOS	2	1	God		God (the LORD)	Normal		
-HOS	2	2	God		God (the LORD)	Normal		
-HOS	2	3	God		God (the LORD)	Normal		
-HOS	2	4	God		God (the LORD)	Normal		
+HOS	2	1	narrator-HOS			Quotation		
+HOS	2	2	God		God (the LORD)	Implicit		
+HOS	2	3	God		God (the LORD)	Implicit		
+HOS	2	4	God		God (the LORD)	Implicit		
 HOS	2	5	God		God (the LORD)	Normal		
-HOS	2	6	God		God (the LORD)	Normal		
+HOS	2	5	prostitute (symbolic of Israel)			Hypothetical		
+HOS	2	6	God		God (the LORD)	Implicit		
 HOS	2	7	God		God (the LORD)	Normal		
-HOS	2	8	God		God (the LORD)	Normal		
-HOS	2	9	God		God (the LORD)	Normal		
-HOS	2	10	God		God (the LORD)	Normal		
-HOS	2	11	God		God (the LORD)	Normal		
+HOS	2	7	prostitute (symbolic of Israel)			Hypothetical		
+HOS	2	8	God		God (the LORD)	Implicit		
+HOS	2	9	God		God (the LORD)	Implicit		
+HOS	2	10	God		God (the LORD)	Implicit		
+HOS	2	11	God		God (the LORD)	Implicit		
 HOS	2	12	God		God (the LORD)	Normal		
+HOS	2	12	prostitute (symbolic of Israel)			Hypothetical		
 HOS	2	13	God		God (the LORD)	Normal		
-HOS	2	14	God		God (the LORD)	Normal		
-HOS	2	15	God		God (the LORD)	Normal		
+HOS	2	13	Amos		Amos (the LORD says)	Potential		
+HOS	2	14	God		God (the LORD)	Implicit		
+HOS	2	14	Amos		Amos (the LORD says)	Alternate		
+HOS	2	15	God		God (the LORD)	Implicit		
+HOS	2	15	Amos		Amos (the LORD says)	Alternate		
 HOS	2	16	God		God (the LORD)	Normal		
-HOS	2	17	God		God (the LORD)	Normal		
-HOS	2	18	God		God (the LORD)	Normal		
-HOS	2	19	God		God (the LORD)	Normal		
-HOS	2	20	God		God (the LORD)	Normal		
+HOS	2	16	Amos		Amos (the LORD says)	Potential		
+HOS	2	17	God		God (the LORD)	Implicit		
+HOS	2	17	Amos		Amos (the LORD says)	Alternate		
+HOS	2	18	God		God (the LORD)	Implicit		
+HOS	2	18	Amos		Amos (the LORD says)	Alternate		
+HOS	2	19	God		God (the LORD)	Implicit		
+HOS	2	19	Amos		Amos (the LORD says)	Alternate		
+HOS	2	20	God		God (the LORD)	Implicit		
+HOS	2	20	Amos		Amos (the LORD says)	Alternate		
 HOS	2	21	God		God (the LORD)	Normal		
-HOS	2	22	God		God (the LORD)	Normal		
+HOS	2	21	Amos		Amos (the LORD says)	Potential		
+HOS	2	22	God		God (the LORD)	Implicit		
+HOS	2	22	Amos		Amos (the LORD says)	Alternate		
 HOS	2	23	God		God (the LORD)	Normal		
+HOS	2	23	God			Quotation		
+HOS	2	23	people, God's			Hypothetical		
 HOS	3	1	God		God (the LORD)	Normal		
-HOS	3	3	Hosea			Normal		
+HOS	3	3	Hosea			Quotation		
 HOS	4	1	Hosea			Normal		
 HOS	4	1	God		God (the LORD)	Normal		
 HOS	4	2	God		God (the LORD)	Implicit		
