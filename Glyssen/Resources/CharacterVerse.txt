@@ -13656,6 +13656,11 @@ HOS	4	12	God		God (the LORD)	Implicit
 HOS	4	13	God		God (the LORD)	Implicit		
 HOS	4	14	God		God (the LORD)	Implicit		
 HOS	4	15	God		God (the LORD)	Implicit		
+# The quoted text in v.15 could be treated as a Hypothetical quote instead, but since it is not
+# dramatized in the reference text and it is sommething God is saying not to say -- as opposed
+# to something He is explicitly accusing them of saying -- we can just note it as a self-quote
+# and it won't interfere with the treatment of this discourse as implicitly spoken by God.
+HOS	4	15	God			Quotation		
 HOS	4	16	God		God (the LORD)	Implicit		
 HOS	4	17	God		God (the LORD)	Implicit		
 HOS	4	18	God		God (the LORD)	Implicit		
@@ -13722,8 +13727,8 @@ HOS	9	16	God		God (the LORD)	Implicit
 HOS	10	3	Israel			Hypothetical		
 HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		God (the LORD)	Potential		
-HOS	10	10	God		God (the LORD)	Potential		
-HOS	10	11	God		God (the LORD)	Potential		
+HOS	10	10	God		God (the LORD)	Implicit		
+HOS	10	11	God		God (the LORD)	Implicit		
 HOS	10	12	God		God (the LORD)	Potential		
 HOS	10	13	God		God (the LORD)	Potential		
 HOS	10	14	God		God (the LORD)	Potential		
@@ -13737,9 +13742,7 @@ HOS	11	6	God		God (the LORD)	Implicit
 HOS	11	7	God		God (the LORD)	Implicit		
 HOS	11	8	God		God (the LORD)	Implicit		
 HOS	11	9	God		God (the LORD)	Implicit		
-HOS	11	10	God		God (the LORD)	Implicit		
-# If there are no explicit quotes in the text, the "says God" at the end of v. 11 will be included in the implicit quote.
-# (This can be manually split out if needed to match the reference text.)
+HOS	11	10	God		God (the LORD)	Normal		
 HOS	11	11	God		God (the LORD)	Implicit		
 HOS	11	12	God		God (the LORD)	Potential		
 HOS	12	8	Ephraim			Quotation		
@@ -13750,8 +13753,13 @@ HOS	12	11	God		God (the LORD)	Potential
 HOS	12	12	God		God (the LORD)	Potential		
 HOS	12	13	God		God (the LORD)	Potential		
 HOS	12	14	God		God (the LORD)	Potential		
+HOS	13	1	God		God (the LORD)	Potential		
+HOS	13	2	God		God (the LORD)	Potential		
 #It is confusing if those speaking are the idolaters or if they are speaking of the idolaters
 HOS	13	2	saying about idolaters			Quotation		
+HOS	13	2	Ephraim		idolaters of Ephraim	Quotation		
+HOS	13	2	Needs Review			Quotation		
+HOS	13	3	God		God (the LORD)	Potential		
 HOS	13	4	God		God (the LORD)	Implicit		
 HOS	13	5	God		God (the LORD)	Implicit		
 HOS	13	6	God		God (the LORD)	Implicit		
@@ -13765,6 +13773,8 @@ HOS	13	13	God		God (the LORD)	Implicit
 HOS	13	14	God		God (the LORD)	Implicit		
 HOS	13	15	God		God (the LORD)	Implicit		
 HOS	13	16	God		God (the LORD)	Implicit		
+HOS	14	1	God		God (the LORD)	Potential		
+HOS	14	2	God		God (the LORD)	Potential		
 HOS	14	2	Israel			Hypothetical		
 HOS	14	3	Israel			Hypothetical		
 HOS	14	4	God		God (the LORD)	Implicit		
