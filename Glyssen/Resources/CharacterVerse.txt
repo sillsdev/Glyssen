@@ -9116,26 +9116,31 @@ ISA	10	3	Isaiah			Potential
 ISA	10	4	Isaiah			Potential		
 ISA	10	5	God		God (the LORD)	Implicit		
 ISA	10	6	God		God (the LORD)	Implicit		
-ISA	10	7	God		God (the LORD)	Implicit		
+ISA	10	7	God		God (the LORD)	Potential		
 ISA	10	8	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	8	God		God (the LORD)	Potential		
-ISA	10	9	Sennacherib, king of Assyria		king of Assyria	Implicit		
-ISA	10	9	God		God (the LORD)	Alternate		
-# Should the following two verses be God or Sennecharib?
-ISA	10	10	Sennacherib, king of Assyria		king of Assyria	Implicit		
-ISA	10	10	God		God (the LORD)	Alternate		
-ISA	10	10	Isaiah			Alternate		
-ISA	10	10	Needs Review			Alternate		
-ISA	10	11	Sennacherib, king of Assyria		king of Assyria	Implicit		
-ISA	10	11	God		God (the LORD)	Alternate		
-ISA	10	11	Isaiah			Alternate		
-ISA	10	11	Needs Review			Alternate		
+ISA	10	8	Isaiah			Potential		
+ISA	10	9	Sennacherib, king of Assyria		king of Assyria	Quotation		
+ISA	10	9	Isaiah			Potential		
+ISA	10	9	God		God (the LORD)	Potential		
+ISA	10	10	Sennacherib, king of Assyria		king of Assyria	Quotation		
+ISA	10	10	God		God (the LORD)	Potential		
+ISA	10	10	Isaiah			Potential		
+ISA	10	10	Needs Review			Normal		
+ISA	10	11	Sennacherib, king of Assyria		king of Assyria	Quotation		
+ISA	10	11	God		God (the LORD)	Potential		
+ISA	10	11	Isaiah			Potential		
+ISA	10	11	Needs Review			Normal		
 ISA	10	12	Needs Review			Implicit		
 ISA	10	12	Isaiah			Potential		
-ISA	10	12	God		God (the LORD)	Quotation		
+ISA	10	12	God		God (the LORD)	Potential		
+ISA	10	13	Needs Review			Implicit		
 ISA	10	13	God		God (the LORD)	Potential		
+ISA	10	13	Isaiah			Potential		
 ISA	10	13	Sennacherib, king of Assyria		king of Assyria	Quotation		
-ISA	10	14	Sennacherib, king of Assyria		king of Assyria	Implicit		
+ISA	10	14	Sennacherib, king of Assyria		king of Assyria	Quotation		
+ISA	10	14	God		God (the LORD)	Potential		
+ISA	10	14	Isaiah			Potential		
 ISA	10	14	God		God (the LORD)	Alternate		
 ISA	10	15	Isaiah			Potential		
 ISA	10	16	Isaiah			Potential		
@@ -9185,6 +9190,8 @@ ISA	12	6	Isaiah			Alternate
 ISA	13	2	Isaiah			Potential		
 ISA	13	2	God		God (the LORD)	Alternate		
 ISA	13	3	God		God (the LORD)	Implicit		
+# This is unlikely, but some translations (e.g., CEV) may turn v. 3 into 3rd-person.
+ISA	13	3	Isaiah			Alternate		
 ISA	13	4	Isaiah			Potential		
 ISA	13	4	God		God (the LORD)	Alternate		
 ISA	13	5	Isaiah			Potential		
@@ -9270,16 +9277,22 @@ ISA	14	24	God		God (the LORD)	Normal
 ISA	14	25	God		God (the LORD)	Implicit		
 ISA	14	26	God		God (the LORD)	Potential		
 ISA	14	27	God		God (the LORD)	Potential		
-ISA	14	29	God		God (the LORD)	Potential		
-ISA	14	30	God		God (the LORD)	Potential		
-ISA	14	31	God		God (the LORD)	Potential		
+ISA	14	29	God		God (the LORD)	Implicit		
+ISA	14	29	Isaiah			Alternate		
+ISA	14	30	God		God (the LORD)	Implicit		
+ISA	14	30	Isaiah			Alternate		
+ISA	14	31	God		God (the LORD)	Implicit		
+ISA	14	31	Isaiah			Alternate		
+ISA	14	32	Needs Review			Implicit		
+ISA	14	32	God		God (the LORD)	Alternate		
+ISA	14	32	Isaiah			Alternate		
 ISA	14	32	answer from Israel			Hypothetical		
 ISA	16	3	Moabites			Hypothetical		
 ISA	16	3	Moabitesses (female)			Hypothetical		
-ISA	16	3	Needs Review			Hypothetical		
+ISA	16	3	Needs Review			Implicit		
 ISA	16	4	Moabites			Hypothetical		
 ISA	16	4	Moabitesses (female)			Hypothetical		
-ISA	16	4	Needs Review			Hypothetical		
+ISA	16	4	Needs Review			Implicit		
 ISA	16	14	God		God (the LORD)	Normal		
 ISA	17	1	God		God (the LORD)	Normal		
 ISA	17	2	God		God (the LORD)	Implicit		
@@ -9385,9 +9398,9 @@ ISA	28	19	God		God (the LORD)	Potential
 ISA	28	20	God		God (the LORD)	Potential		
 ISA	28	20	saying about  short bed and narrow blanket	ironic		Hypothetical		
 ISA	28	20	Needs Review			Potential		
-ISA	29	1	God		God (the LORD)	Potential		
-ISA	29	2	God		God (the LORD)	Potential		
-ISA	29	3	God		God (the LORD)	Potential		
+ISA	29	1	God		God (the LORD)	Implicit		
+ISA	29	2	God		God (the LORD)	Implicit		
+ISA	29	3	God		God (the LORD)	Implicit		
 ISA	29	4	God		God (the LORD)	Potential		
 ISA	29	4	Isaiah			Potential		
 ISA	29	4	Needs Review			Implicit		
@@ -9481,9 +9494,9 @@ ISA	32	16	Isaiah			Potential
 ISA	32	16	God		God (the LORD)	Alternate		
 ISA	32	17	Isaiah			Potential		
 ISA	32	17	God		God (the LORD)	Alternate		
-ISA	32	18	God		God (the LORD)	Potential		
+ISA	32	18	God		God (the LORD)	Implicit		
 ISA	32	18	Isaiah			Alternate		
-ISA	32	19	God		God (the LORD)	Potential		
+ISA	32	19	God		God (the LORD)	Implicit		
 ISA	32	19	Isaiah			Alternate		
 ISA	33	10	God		God (the LORD)	Normal		
 ISA	33	11	God		God (the LORD)	Implicit		
@@ -9492,7 +9505,8 @@ ISA	33	13	God		God (the LORD)	Implicit
 ISA	33	14	sinners			Hypothetical		
 ISA	33	18	you (hypothetical)	thinking		Hypothetical		
 ISA	33	24	narrator-ISA			Hypothetical		
-ISA	34	5	God		God (the LORD)	Potential		
+ISA	34	5	God		God (the LORD)	Implicit		
+ISA	34	5	Isaiah			Alternate		
 ISA	35	4	you (hypothetical)			Hypothetical		
 ISA	36	4	Rabshakeh			Normal		2KI 18:19; 2CH 32:10; ISA 36:4
 ISA	36	5	Rabshakeh			Implicit		2KI 18:20; ISA 36:5
@@ -9619,44 +9633,49 @@ ISA	40	8	Needs Review			Alternate
 ISA	40	9	one who brings good news			Hypothetical		
 ISA	40	25	God		God (the Holy One)	Normal		
 ISA	40	27	Israel		Jacob (Israel)	Hypothetical		
-ISA	41	1	God		God (the LORD)	Potential		
-ISA	41	2	God		God (the LORD)	Potential		
-ISA	41	3	God		God (the LORD)	Potential		
-ISA	41	4	God		God (the LORD)	Potential		
-ISA	41	5	God		God (the LORD)	Potential		
-ISA	41	6	God		God (the LORD)	Potential		
+ISA	41	1	God		God (the LORD)	Implicit		
+ISA	41	2	God		God (the LORD)	Implicit		
+ISA	41	3	God		God (the LORD)	Implicit		
+ISA	41	4	God		God (the LORD)	Implicit		
+ISA	41	5	God		God (the LORD)	Implicit		
+ISA	41	6	God		God (the LORD)	Implicit		
 ISA	41	6	islanders		everyone (islanders or foreigners)	Hypothetical		
-ISA	41	7	God		God (the LORD)	Potential		
+ISA	41	7	God		God (the LORD)	Implicit		
 ISA	41	7	craftsman			Hypothetical		
-ISA	41	8	God		God (the LORD)	Potential		
-ISA	41	9	God		God (the LORD)	Potential		
-ISA	41	10	God		God (the LORD)	Potential		
-ISA	41	11	God		God (the LORD)	Potential		
-ISA	41	12	God		God (the LORD)	Potential		
+ISA	41	8	God		God (the LORD)	Implicit		
+ISA	41	9	God		God (the LORD)	Implicit		
+ISA	41	10	God		God (the LORD)	Implicit		
+ISA	41	11	God		God (the LORD)	Implicit		
+ISA	41	12	God		God (the LORD)	Implicit		
+ISA	41	13	God		God (the LORD)	Implicit		
 ISA	41	13	God		God (the LORD)	Quotation		
+ISA	41	14	God		God (the LORD)	Implicit		
 ISA	41	14	God		God (the LORD)	Quotation		
-ISA	41	15	God		God (the LORD)	Potential		
-ISA	41	16	God		God (the LORD)	Potential		
-ISA	41	17	God		God (the LORD)	Potential		
-ISA	41	18	God		God (the LORD)	Potential		
-ISA	41	19	God		God (the LORD)	Potential		
-ISA	41	20	God		God (the LORD)	Potential		
+ISA	41	15	God		God (the LORD)	Implicit		
+ISA	41	16	God		God (the LORD)	Implicit		
+ISA	41	17	God		God (the LORD)	Implicit		
+ISA	41	18	God		God (the LORD)	Implicit		
+ISA	41	19	God		God (the LORD)	Implicit		
+ISA	41	20	God		God (the LORD)	Implicit		
 ISA	41	21	God		God (the LORD)	Normal		
-ISA	41	22	God		God (the LORD)	Potential		
-ISA	41	23	God		God (the LORD)	Potential		
-ISA	41	24	God		God (the LORD)	Potential		
-ISA	41	25	God		God (the LORD)	Potential		
-ISA	41	26	God		God (the LORD)	Quotation		
+ISA	41	22	God		God (the LORD)	Implicit		
+ISA	41	23	God		God (the LORD)	Implicit		
+ISA	41	24	God		God (the LORD)	Implicit		
+ISA	41	25	God		God (the LORD)	Implicit		
+ISA	41	26	Needs Review			Implicit		
+ISA	41	26	God		God (the LORD)	Alternate		
 ISA	41	26	Isaiah			Alternate		
+ISA	41	27	God		God (the LORD)	Implicit		
 ISA	41	27	God		God (the LORD)	Quotation		
-ISA	41	28	God		God (the LORD)	Potential		
+ISA	41	28	God		God (the LORD)	Implicit		
 ISA	41	28	Isaiah			Alternate		
-ISA	41	29	God		God (the LORD)	Potential		
+ISA	41	29	God		God (the LORD)	Implicit		
 ISA	41	29	Isaiah			Alternate		
-ISA	42	1	God		God (the LORD)	Potential		
-ISA	42	2	God		God (the LORD)	Potential		
-ISA	42	3	God		God (the LORD)	Potential		
-ISA	42	4	God		God (the LORD)	Potential		
+ISA	42	1	God		God (the LORD)	Implicit		
+ISA	42	2	God		God (the LORD)	Implicit		
+ISA	42	3	God		God (the LORD)	Implicit		
+ISA	42	4	God		God (the LORD)	Implicit		
+ISA	42	5	God		God (the LORD)	Potential		
 ISA	42	6	God		God (the LORD)	Implicit		
 ISA	42	7	God		God (the LORD)	Implicit		
 ISA	42	8	God		God (the LORD)	Implicit		
