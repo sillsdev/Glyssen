@@ -12547,258 +12547,433 @@ EZK	17	22	Ezekiel		Ezekiel (the LORD says)	Potential
 EZK	17	22	God		God (the LORD)	Normal		
 EZK	17	23	God		God (the LORD)	Implicit		
 EZK	17	24	God		God (the LORD)	Implicit		
-EZK	18	2	God		God (the LORD)	Normal		
+EZK	18	2	God		God (the LORD)	Implicit		
+EZK	18	2	saying (proverb) about sour grapes			Hypothetical		
 EZK	18	3	God		God (the LORD)	Normal		
-EZK	18	4	God		God (the LORD)	Normal		
-EZK	18	5	God		God (the LORD)	Normal		
-EZK	18	6	God		God (the LORD)	Normal		
-EZK	18	7	God		God (the LORD)	Normal		
-EZK	18	8	God		God (the LORD)	Normal		
+EZK	18	3	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	18	4	God		God (the LORD)	Implicit		
+EZK	18	5	God		God (the LORD)	Implicit		
+EZK	18	6	God		God (the LORD)	Implicit		
+EZK	18	7	God		God (the LORD)	Implicit		
+EZK	18	8	God		God (the LORD)	Implicit		
 EZK	18	9	God		God (the LORD)	Normal		
-EZK	18	10	God		God (the LORD)	Normal		
-EZK	18	11	God		God (the LORD)	Normal		
-EZK	18	12	God		God (the LORD)	Normal		
-EZK	18	13	God		God (the LORD)	Normal		
-EZK	18	14	God		God (the LORD)	Normal		
-EZK	18	15	God		God (the LORD)	Normal		
-EZK	18	16	God		God (the LORD)	Normal		
-EZK	18	17	God		God (the LORD)	Normal		
-EZK	18	18	God		God (the LORD)	Normal		
+EZK	18	9	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	18	10	God		God (the LORD)	Implicit		
+EZK	18	11	God		God (the LORD)	Implicit		
+EZK	18	12	God		God (the LORD)	Implicit		
+EZK	18	13	God		God (the LORD)	Implicit		
+EZK	18	14	God		God (the LORD)	Implicit		
+EZK	18	15	God		God (the LORD)	Implicit		
+EZK	18	16	God		God (the LORD)	Implicit		
+EZK	18	17	God		God (the LORD)	Implicit		
+EZK	18	18	God		God (the LORD)	Implicit		
 EZK	18	19	God		God (the LORD)	Normal		
-EZK	18	20	God		God (the LORD)	Normal		
-EZK	18	21	God		God (the LORD)	Normal		
-EZK	18	22	God		God (the LORD)	Normal		
+EZK	18	19	you (hypothetical)			Hypothetical		
+EZK	18	20	God		God (the LORD)	Implicit		
+EZK	18	21	God		God (the LORD)	Implicit		
+EZK	18	22	God		God (the LORD)	Implicit		
 EZK	18	23	God		God (the LORD)	Normal		
-EZK	18	24	God		God (the LORD)	Normal		
+EZK	18	23	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	18	24	God		God (the LORD)	Implicit		
 EZK	18	25	God		God (the LORD)	Normal		
+EZK	18	25	you (hypothetical)			Hypothetical		
+EZK	18	25	Israel		you (Israel - see v. 29)	Hypothetical		
 EZK	18	26	God		God (the LORD)	Normal		
 EZK	18	27	God		God (the LORD)	Normal		
 EZK	18	28	God		God (the LORD)	Normal		
 EZK	18	29	God		God (the LORD)	Normal		
 EZK	18	29	Israel		house of Israel	Hypothetical		
 EZK	18	30	God		God (the LORD)	Normal		
-EZK	18	31	God		God (the LORD)	Normal		
+EZK	18	30	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	18	31	God		God (the LORD)	Implicit		
 EZK	18	32	God		God (the LORD)	Normal		
-EZK	19	1	God	lament	God (the LORD)	Normal		
-EZK	19	2	God	lament	God (the LORD)	Normal		
-EZK	19	3	God	lament	God (the LORD)	Normal		
-EZK	19	4	God	lament	God (the LORD)	Normal		
-EZK	19	5	God	lament	God (the LORD)	Normal		
-EZK	19	6	God	lament	God (the LORD)	Normal		
-EZK	19	7	God	lament	God (the LORD)	Normal		
-EZK	19	8	God	lament	God (the LORD)	Normal		
-EZK	19	9	God	lament	God (the LORD)	Normal		
-EZK	19	10	God	lament	God (the LORD)	Normal		
-EZK	19	11	God	lament	God (the LORD)	Normal		
-EZK	19	12	God	lament	God (the LORD)	Normal		
-EZK	19	13	God	lament	God (the LORD)	Normal		
-EZK	19	14	God	lament	God (the LORD)	Normal		
+EZK	18	32	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	19	1	God	lament	God (the LORD)	Implicit		
+EZK	19	2	God	lament	God (the LORD)	Alternate		
+EZK	19	2	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	3	God	lament	God (the LORD)	Alternate		
+EZK	19	3	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	4	God	lament	God (the LORD)	Alternate		
+EZK	19	4	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	5	God	lament	God (the LORD)	Alternate		
+EZK	19	5	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	6	God	lament	God (the LORD)	Alternate		
+EZK	19	6	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	7	God	lament	God (the LORD)	Alternate		
+EZK	19	7	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	8	God	lament	God (the LORD)	Alternate		
+EZK	19	8	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	9	God	lament	God (the LORD)	Alternate		
+EZK	19	9	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	10	God	lament	God (the LORD)	Alternate		
+EZK	19	10	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	11	God	lament	God (the LORD)	Alternate		
+EZK	19	11	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	12	God	lament	God (the LORD)	Alternate		
+EZK	19	12	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	13	God	lament	God (the LORD)	Alternate		
+EZK	19	13	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	14	God	lament	God (the LORD)	Potential		
+EZK	19	14	God	instructing	God (the LORD)	Potential		
+EZK	19	14	Ezekiel	lament	Ezekiel (the LORD says)	Potential		
+EZK	19	14	Ezekiel	instructing	Ezekiel (the LORD says)	Potential		
+EZK	19	14	Needs Review			Implicit		
 EZK	20	3	God		God (the LORD)	Normal		
-EZK	20	4	God		God (the LORD)	Normal		
+EZK	20	3	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	4	God		God (the LORD)	Implicit		
+EZK	20	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	5	God		God (the LORD)	Normal		
-EZK	20	6	God		God (the LORD)	Normal		
-EZK	20	7	God		God (the LORD)	Normal		
-EZK	20	8	God		God (the LORD)	Normal		
-EZK	20	9	God		God (the LORD)	Normal		
-EZK	20	10	God		God (the LORD)	Normal		
-EZK	20	11	God		God (the LORD)	Normal		
-EZK	20	12	God		God (the LORD)	Normal		
-EZK	20	13	God		God (the LORD)	Normal		
-EZK	20	14	God		God (the LORD)	Normal		
-EZK	20	15	God		God (the LORD)	Normal		
-EZK	20	16	God		God (the LORD)	Normal		
-EZK	20	17	God		God (the LORD)	Normal		
-EZK	20	18	God		God (the LORD)	Normal		
-EZK	20	19	God		God (the LORD)	Normal		
-EZK	20	20	God		God (the LORD)	Normal		
-EZK	20	21	God		God (the LORD)	Normal		
-EZK	20	22	God		God (the LORD)	Normal		
-EZK	20	23	God		God (the LORD)	Normal		
-EZK	20	24	God		God (the LORD)	Normal		
-EZK	20	25	God		God (the LORD)	Normal		
-EZK	20	26	God		God (the LORD)	Normal		
+EZK	20	5	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	6	God		God (the LORD)	Implicit		
+EZK	20	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	7	God		God (the LORD)	Implicit		
+EZK	20	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	8	God		God (the LORD)	Implicit		
+EZK	20	8	God		God (the LORD)	Quotation		
+EZK	20	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	9	God		God (the LORD)	Implicit		
+EZK	20	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	10	God		God (the LORD)	Implicit		
+EZK	20	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	11	God		God (the LORD)	Implicit		
+EZK	20	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	12	God		God (the LORD)	Implicit		
+EZK	20	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	13	God		God (the LORD)	Implicit		
+EZK	20	13	God		God (the LORD)	Quotation		
+EZK	20	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	14	God		God (the LORD)	Implicit		
+EZK	20	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	15	God		God (the LORD)	Implicit		
+EZK	20	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	16	God		God (the LORD)	Implicit		
+EZK	20	16	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	17	God		God (the LORD)	Implicit		
+EZK	20	17	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	18	God		God (the LORD)	Implicit		
+EZK	20	18	God		God (the LORD)	Quotation		
+EZK	20	18	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	19	God		God (the LORD)	Implicit		
+EZK	20	19	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	20	God		God (the LORD)	Implicit		
+EZK	20	20	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	21	God		God (the LORD)	Implicit		
+EZK	20	21	God		God (the LORD)	Quotation		
+EZK	20	21	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	22	God		God (the LORD)	Implicit		
+EZK	20	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	23	God		God (the LORD)	Implicit		
+EZK	20	23	God		God (the LORD)	Quotation		
+EZK	20	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	24	God		God (the LORD)	Implicit		
+EZK	20	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	25	God		God (the LORD)	Implicit		
+EZK	20	25	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	26	God		God (the LORD)	Implicit		
+EZK	20	26	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	27	God		God (the LORD)	Normal		
-EZK	20	28	God		God (the LORD)	Normal		
-EZK	20	29	God		God (the LORD)	Normal		
+EZK	20	27	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	28	God		God (the LORD)	Implicit		
+EZK	20	28	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	29	God		God (the LORD)	Implicit		
+EZK	20	29	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	30	God		God (the LORD)	Normal		
+EZK	20	30	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	20	31	God		God (the LORD)	Normal		
+EZK	20	31	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	20	32	God		God (the LORD)	Normal		
 EZK	20	32	you (hypothetical)			Hypothetical		
 EZK	20	33	God		God (the LORD)	Normal		
-EZK	20	34	God		God (the LORD)	Normal		
-EZK	20	35	God		God (the LORD)	Normal		
+EZK	20	33	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	34	God		God (the LORD)	Implicit		
+EZK	20	34	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	35	God		God (the LORD)	Implicit		
+EZK	20	35	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	36	God		God (the LORD)	Normal		
-EZK	20	37	God		God (the LORD)	Normal		
-EZK	20	38	God		God (the LORD)	Normal		
+EZK	20	36	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	37	God		God (the LORD)	Implicit		
+EZK	20	37	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	38	God		God (the LORD)	Implicit		
+EZK	20	38	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	39	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	20	39	God		God (the LORD)	Normal		
 EZK	20	40	God		God (the LORD)	Normal		
-EZK	20	41	God		God (the LORD)	Normal		
-EZK	20	42	God		God (the LORD)	Normal		
-EZK	20	43	God		God (the LORD)	Normal		
+EZK	20	40	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	41	God		God (the LORD)	Implicit		
+EZK	20	41	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	42	God		God (the LORD)	Implicit		
+EZK	20	42	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	20	43	God		God (the LORD)	Implicit		
+EZK	20	43	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	44	God		God (the LORD)	Normal		
-EZK	20	46	God		God (the LORD)	Normal		
+EZK	20	44	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	20	46	God		God (the LORD)	Implicit		
 EZK	20	47	God		God (the LORD)	Normal		
+EZK	20	47	Ezekiel		Ezekiel (the LORD says)	Normal		
 EZK	20	48	God		God (the LORD)	Normal		
-EZK	20	49	Ezekiel			Normal		
-EZK	21	2	God		God (the LORD)	Normal		
+EZK	20	49	narrator-EZK			Quotation		
+EZK	20	49	Israel		they	Hypothetical		
+EZK	21	2	God		God (the LORD)	Implicit		
 EZK	21	3	God		God (the LORD)	Normal		
-EZK	21	4	God		God (the LORD)	Normal		
-EZK	21	5	God		God (the LORD)	Normal		
-EZK	21	6	God		God (the LORD)	Normal		
+EZK	21	3	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	21	4	God		God (the LORD)	Implicit		
+EZK	21	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	5	God		God (the LORD)	Implicit		
+EZK	21	5	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	6	God		God (the LORD)	Implicit		
 EZK	21	7	God		God (the LORD)	Normal		
+EZK	21	7	Israel		they	Hypothetical		
+EZK	21	7	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	21	9	God		God (the LORD)	Normal		
-EZK	21	10	God		God (the LORD)	Normal		
-EZK	21	11	God		God (the LORD)	Normal		
-EZK	21	12	God		God (the LORD)	Normal		
+EZK	21	9	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	21	10	God		God (the LORD)	Implicit		
+EZK	21	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	11	God		God (the LORD)	Implicit		
+EZK	21	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	12	God		God (the LORD)	Implicit		
+EZK	21	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	21	13	God		God (the LORD)	Normal		
-EZK	21	14	God		God (the LORD)	Normal		
-EZK	21	15	God		God (the LORD)	Normal		
-EZK	21	16	God		God (the LORD)	Normal		
-EZK	21	17	God		God (the LORD)	Normal		
-EZK	21	19	God		God (the LORD)	Normal		
-EZK	21	20	God		God (the LORD)	Normal		
-EZK	21	21	God		God (the LORD)	Normal		
-EZK	21	22	God		God (the LORD)	Normal		
-EZK	21	23	God		God (the LORD)	Normal		
+EZK	21	13	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	21	14	God		God (the LORD)	Implicit		
+EZK	21	15	God		God (the LORD)	Implicit		
+EZK	21	16	God		God (the LORD)	Implicit		
+EZK	21	17	God		God (the LORD)	Implicit		
+EZK	21	19	God		God (the LORD)	Implicit		
+EZK	21	20	God		God (the LORD)	Implicit		
+EZK	21	21	God		God (the LORD)	Implicit		
+EZK	21	22	God		God (the LORD)	Implicit		
+EZK	21	23	God		God (the LORD)	Implicit		
+EZK	21	24	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	21	24	God		God (the LORD)	Normal		
-EZK	21	25	God		God (the LORD)	Normal		
+EZK	21	25	God		God (the LORD)	Implicit		
+EZK	21	25	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	26	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	21	26	God		God (the LORD)	Normal		
-EZK	21	27	God		God (the LORD)	Normal		
+EZK	21	27	God		God (the LORD)	Implicit		
+EZK	21	27	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	21	28	God		God (the LORD)	Normal		
-EZK	21	29	God		God (the LORD)	Normal		
-EZK	21	30	God		God (the LORD)	Normal		
-EZK	21	31	God		God (the LORD)	Normal		
-EZK	21	32	God		God (the LORD)	Normal		
-EZK	22	2	God		God (the LORD)	Normal		
+EZK	21	28	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	21	29	God		God (the LORD)	Implicit		
+EZK	21	29	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	30	God		God (the LORD)	Implicit		
+EZK	21	30	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	31	God		God (the LORD)	Implicit		
+EZK	21	31	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	21	32	God		God (the LORD)	Implicit		
+EZK	21	32	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	2	God		God (the LORD)	Implicit		
 EZK	22	3	God		God (the LORD)	Normal		
-EZK	22	4	God		God (the LORD)	Normal		
-EZK	22	5	God		God (the LORD)	Normal		
-EZK	22	6	God		God (the LORD)	Normal		
-EZK	22	7	God		God (the LORD)	Normal		
-EZK	22	8	God		God (the LORD)	Normal		
-EZK	22	9	God		God (the LORD)	Normal		
-EZK	22	10	God		God (the LORD)	Normal		
-EZK	22	11	God		God (the LORD)	Normal		
+EZK	22	3	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	22	4	God		God (the LORD)	Implicit		
+EZK	22	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	5	God		God (the LORD)	Implicit		
+EZK	22	5	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	6	God		God (the LORD)	Implicit		
+EZK	22	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	7	God		God (the LORD)	Implicit		
+EZK	22	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	8	God		God (the LORD)	Implicit		
+EZK	22	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	9	God		God (the LORD)	Implicit		
+EZK	22	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	10	God		God (the LORD)	Implicit		
+EZK	22	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	11	God		God (the LORD)	Implicit		
+EZK	22	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	22	12	God		God (the LORD)	Normal		
-EZK	22	13	God		God (the LORD)	Normal		
-EZK	22	14	God		God (the LORD)	Normal		
-EZK	22	15	God		God (the LORD)	Normal		
-EZK	22	16	God		God (the LORD)	Normal		
-EZK	22	18	God		God (the LORD)	Normal		
+EZK	22	12	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	22	13	God		God (the LORD)	Implicit		
+EZK	22	14	God		God (the LORD)	Implicit		
+EZK	22	15	God		God (the LORD)	Implicit		
+EZK	22	16	God		God (the LORD)	Implicit		
+EZK	22	18	God		God (the LORD)	Implicit		
+EZK	22	19	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	22	19	God		God (the LORD)	Normal		
-EZK	22	20	God		God (the LORD)	Normal		
-EZK	22	21	God		God (the LORD)	Normal		
-EZK	22	22	God		God (the LORD)	Normal		
+EZK	22	20	God		God (the LORD)	Implicit		
+EZK	22	20	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	21	God		God (the LORD)	Implicit		
+EZK	22	21	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	22	God		God (the LORD)	Implicit		
+EZK	22	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	22	24	God		God (the LORD)	Normal		
-EZK	22	25	God		God (the LORD)	Normal		
-EZK	22	26	God		God (the LORD)	Normal		
-EZK	22	27	God		God (the LORD)	Normal		
-EZK	22	28	God		God (the LORD)	Normal		
-EZK	22	29	God		God (the LORD)	Normal		
-EZK	22	30	God		God (the LORD)	Normal		
+EZK	22	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	25	God		God (the LORD)	Implicit		
+EZK	22	25	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	26	God		God (the LORD)	Implicit		
+EZK	22	26	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	27	God		God (the LORD)	Implicit		
+EZK	22	27	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	28	God		God (the LORD)	Implicit		
+EZK	22	28	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	28	false prophets			Hypothetical		
+EZK	22	29	God		God (the LORD)	Implicit		
+EZK	22	29	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	22	30	God		God (the LORD)	Implicit		
+EZK	22	30	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	22	31	God		God (the LORD)	Normal		
-EZK	23	2	God		God (the LORD)	Normal		
-EZK	23	3	God		God (the LORD)	Normal		
-EZK	23	4	God		God (the LORD)	Normal		
-EZK	23	5	God		God (the LORD)	Normal		
-EZK	23	6	God		God (the LORD)	Normal		
-EZK	23	7	God		God (the LORD)	Normal		
-EZK	23	8	God		God (the LORD)	Normal		
-EZK	23	9	God		God (the LORD)	Normal		
-EZK	23	10	God		God (the LORD)	Normal		
-EZK	23	11	God		God (the LORD)	Normal		
-EZK	23	12	God		God (the LORD)	Normal		
-EZK	23	13	God		God (the LORD)	Normal		
-EZK	23	14	God		God (the LORD)	Normal		
-EZK	23	15	God		God (the LORD)	Normal		
-EZK	23	16	God		God (the LORD)	Normal		
-EZK	23	17	God		God (the LORD)	Normal		
-EZK	23	18	God		God (the LORD)	Normal		
-EZK	23	19	God		God (the LORD)	Normal		
-EZK	23	20	God		God (the LORD)	Normal		
-EZK	23	21	God		God (the LORD)	Normal		
+EZK	23	2	God		God (the LORD)	Implicit		
+EZK	23	3	God		God (the LORD)	Implicit		
+EZK	23	4	God		God (the LORD)	Implicit		
+EZK	23	5	God		God (the LORD)	Implicit		
+EZK	23	6	God		God (the LORD)	Implicit		
+EZK	23	7	God		God (the LORD)	Implicit		
+EZK	23	8	God		God (the LORD)	Implicit		
+EZK	23	9	God		God (the LORD)	Implicit		
+EZK	23	10	God		God (the LORD)	Implicit		
+EZK	23	11	God		God (the LORD)	Implicit		
+EZK	23	12	God		God (the LORD)	Implicit		
+EZK	23	13	God		God (the LORD)	Implicit		
+EZK	23	14	God		God (the LORD)	Implicit		
+EZK	23	15	God		God (the LORD)	Implicit		
+EZK	23	16	God		God (the LORD)	Implicit		
+EZK	23	17	God		God (the LORD)	Implicit		
+EZK	23	18	God		God (the LORD)	Implicit		
+EZK	23	19	God		God (the LORD)	Implicit		
+EZK	23	20	God		God (the LORD)	Implicit		
+EZK	23	21	God		God (the LORD)	Implicit		
 EZK	23	22	God		God (the LORD)	Normal		
-EZK	23	23	God		God (the LORD)	Normal		
-EZK	23	24	God		God (the LORD)	Normal		
-EZK	23	25	God		God (the LORD)	Normal		
-EZK	23	26	God		God (the LORD)	Normal		
-EZK	23	27	God		God (the LORD)	Normal		
+EZK	23	22	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	23	23	God		God (the LORD)	Implicit		
+EZK	23	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	24	God		God (the LORD)	Implicit		
+EZK	23	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	25	God		God (the LORD)	Implicit		
+EZK	23	25	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	26	God		God (the LORD)	Implicit		
+EZK	23	26	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	27	God		God (the LORD)	Implicit		
+EZK	23	27	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	28	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	23	28	God		God (the LORD)	Normal		
-EZK	23	29	God		God (the LORD)	Normal		
-EZK	23	30	God		God (the LORD)	Normal		
-EZK	23	31	God		God (the LORD)	Normal		
+EZK	23	29	God		God (the LORD)	Implicit		
+EZK	23	29	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	30	God		God (the LORD)	Implicit		
+EZK	23	30	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	31	God		God (the LORD)	Implicit		
+EZK	23	31	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	23	32	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	23	32	God		God (the LORD)	Normal		
-EZK	23	33	God		God (the LORD)	Normal		
+EZK	23	33	God		God (the LORD)	Implicit		
+EZK	23	33	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	23	34	God		God (the LORD)	Normal		
+EZK	23	34	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	23	35	God		God (the LORD)	Normal		
 EZK	23	36	God		God (the LORD)	Normal		
-EZK	23	37	God		God (the LORD)	Normal		
-EZK	23	38	God		God (the LORD)	Normal		
-EZK	23	39	God		God (the LORD)	Normal		
-EZK	23	40	God		God (the LORD)	Normal		
-EZK	23	41	God		God (the LORD)	Normal		
-EZK	23	42	God		God (the LORD)	Normal		
-EZK	23	43	God		God (the LORD)	Normal		
-EZK	23	44	God		God (the LORD)	Normal		
-EZK	23	45	God		God (the LORD)	Normal		
+EZK	23	37	God		God (the LORD)	Implicit		
+EZK	23	38	God		God (the LORD)	Implicit		
+EZK	23	39	God		God (the LORD)	Implicit		
+EZK	23	40	God		God (the LORD)	Implicit		
+EZK	23	41	God		God (the LORD)	Implicit		
+EZK	23	42	God		God (the LORD)	Implicit		
+EZK	23	43	God		God (the LORD)	Implicit		
+EZK	23	44	God		God (the LORD)	Implicit		
+EZK	23	45	God		God (the LORD)	Implicit		
 EZK	23	46	God		God (the LORD)	Normal		
-EZK	23	47	God		God (the LORD)	Normal		
-EZK	23	48	God		God (the LORD)	Normal		
-EZK	23	49	God		God (the LORD)	Normal		
-EZK	24	2	God		God (the LORD)	Normal		
+EZK	23	47	God		God (the LORD)	Implicit		
+EZK	23	48	God		God (the LORD)	Implicit		
+EZK	23	49	God		God (the LORD)	Implicit		
+EZK	24	2	God		God (the LORD)	Implicit		
 EZK	24	3	God		God (the LORD)	Normal		
-EZK	24	4	God		God (the LORD)	Normal		
-EZK	24	5	God		God (the LORD)	Normal		
+EZK	24	3	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	24	4	God		God (the LORD)	Implicit		
+EZK	24	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	5	God		God (the LORD)	Implicit		
+EZK	24	5	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	24	6	God		God (the LORD)	Normal		
-EZK	24	7	God		God (the LORD)	Normal		
-EZK	24	8	God		God (the LORD)	Normal		
+EZK	24	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	7	God		God (the LORD)	Implicit		
+EZK	24	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	8	God		God (the LORD)	Implicit		
+EZK	24	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	24	9	God		God (the LORD)	Normal		
-EZK	24	10	God		God (the LORD)	Normal		
-EZK	24	11	God		God (the LORD)	Normal		
-EZK	24	12	God		God (the LORD)	Normal		
-EZK	24	13	God		God (the LORD)	Normal		
+EZK	24	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	10	God		God (the LORD)	Implicit		
+EZK	24	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	11	God		God (the LORD)	Implicit		
+EZK	24	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	12	God		God (the LORD)	Implicit		
+EZK	24	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	13	God		God (the LORD)	Implicit		
+EZK	24	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	24	14	God		God (the LORD)	Normal		
-EZK	24	16	God		God (the LORD)	Normal		
-EZK	24	17	God		God (the LORD)	Normal		
+EZK	24	14	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	24	16	God		God (the LORD)	Implicit		
+EZK	24	17	God		God (the LORD)	Implicit		
 EZK	24	19	people			Normal		
-#Verses 20-27 need to be sorted out. Is this to be spoken by Ezekiel or God?								
-EZK	24	20-27	Ezekiel			Normal		
-EZK	24	20-27	God		God (the LORD)	Normal		
-EZK	25	2	God		God (the LORD)	Normal		
+EZK	24	20	Ezekiel			Quotation		
+EZK	24	21	Ezekiel			Normal		
+EZK	24	21	God		God (the LORD)	Normal		
+EZK	24	22	God		God (the LORD)	Implicit		
+EZK	24	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	23	God		God (the LORD)	Implicit		
+EZK	24	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	24	God		God (the LORD)	Implicit		
+EZK	24	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	24	25	God		God (the LORD)	Implicit		
+EZK	24	26	God		God (the LORD)	Implicit		
+EZK	24	27	God		God (the LORD)	Implicit		
+EZK	25	2	God		God (the LORD)	Implicit		
 EZK	25	3	God		God (the LORD)	Normal		
-EZK	25	4	God		God (the LORD)	Normal		
-EZK	25	5	God		God (the LORD)	Normal		
+EZK	25	3	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	25	3	Ammonites			Hypothetical		
+EZK	25	4	God		God (the LORD)	Implicit		
+EZK	25	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	25	5	God		God (the LORD)	Implicit		
+EZK	25	5	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	25	6	God		God (the LORD)	Normal		
-EZK	25	7	God		God (the LORD)	Normal		
+EZK	25	7	God		God (the LORD)	Implicit		
+EZK	25	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	25	8	Moabites/Seir (personified)		Moab and Seir	Hypothetical		
 EZK	25	8	God		God (the LORD)	Normal		
-EZK	25	9	God		God (the LORD)	Normal		
-EZK	25	10	God		God (the LORD)	Normal		
-EZK	25	11	God		God (the LORD)	Normal		
+EZK	25	9	God		God (the LORD)	Implicit		
+EZK	25	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	25	10	God		God (the LORD)	Implicit		
+EZK	25	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	25	11	God		God (the LORD)	Implicit		
+EZK	25	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	25	12	God		God (the LORD)	Normal		
 EZK	25	13	God		God (the LORD)	Normal		
 EZK	25	14	God		God (the LORD)	Normal		
+EZK	25	14	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	25	15	God		God (the LORD)	Normal		
+EZK	25	16	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	25	16	God		God (the LORD)	Normal		
-EZK	25	17	God		God (the LORD)	Normal		
-EZK	26	2	God	prophecy	God (the LORD)	Normal		
-EZK	26	3	God	prophecy	God (the LORD)	Normal		
-EZK	26	4	God	prophecy	God (the LORD)	Normal		
-EZK	26	5	God	prophecy	God (the LORD)	Normal		
-EZK	26	6	God	prophecy	God (the LORD)	Normal		
-EZK	26	7	God	prophecy	God (the LORD)	Normal		
-EZK	26	8	God	prophecy	God (the LORD)	Normal		
-EZK	26	9	God	prophecy	God (the LORD)	Normal		
-EZK	26	10	God	prophecy	God (the LORD)	Normal		
-EZK	26	11	God	prophecy	God (the LORD)	Normal		
-EZK	26	12	God	prophecy	God (the LORD)	Normal		
-EZK	26	13	God	prophecy	God (the LORD)	Normal		
-EZK	26	14	God	prophecy	God (the LORD)	Normal		
-EZK	26	15	God	prophecy	God (the LORD)	Normal		
-EZK	26	16	God	prophecy	God (the LORD)	Normal		
+EZK	25	17	God		God (the LORD)	Implicit		
+EZK	25	17	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	2	God		God (the LORD)	Normal		
+EZK	26	2	Tyre (personified)			Hypothetical		
+EZK	26	3	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	26	3	God		God (the LORD)	Normal		
+EZK	26	4	God		God (the LORD)	Implicit		
+EZK	26	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	5	God		God (the LORD)	Normal		
+EZK	26	5	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	26	6	God		God (the LORD)	Implicit		
+EZK	26	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	7	God		God (the LORD)	Normal		
+EZK	26	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	8	God		God (the LORD)	Implicit		
+EZK	26	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	9	God		God (the LORD)	Implicit		
+EZK	26	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	10	God		God (the LORD)	Implicit		
+EZK	26	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	11	God		God (the LORD)	Implicit		
+EZK	26	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	12	God		God (the LORD)	Implicit		
+EZK	26	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	13	God		God (the LORD)	Implicit		
+EZK	26	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	14	God		God (the LORD)	Normal		
+EZK	26	14	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	26	15	God		God (the LORD)	Normal		
+EZK	26	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	26	16	God		God (the LORD)	Implicit		
 EZK	26	17	God	prophecy	God (the LORD)	Normal		
 EZK	26	17	God	lament	God (the LORD)	Normal		
-EZK	26	18	God	lament	God (the LORD)	Normal		
+EZK	26	17	princes of the sea	lament		Hypothetical		
+EZK	26	18	God	lament	God (the LORD)	Implicit		
+EZK	26	18	princes of the sea	lament		Hypothetical		
 EZK	26	19	God	prophecy	God (the LORD)	Normal		
 EZK	26	20	God	prophecy	God (the LORD)	Normal		
 EZK	26	21	God	prophecy	God (the LORD)	Normal		

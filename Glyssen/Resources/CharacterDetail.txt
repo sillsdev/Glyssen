@@ -48,6 +48,7 @@ Amaziah, king of Judah	1	Male	Adult			2KI 14:8 <-(2 more)-> 2CH 25:17
 Amaziah, priest of Bethel	1	Male	Adult			AMO 7:10 <-(2 more)-> AMO 7:13
 ambassador	-1	Male	Adult			ISA 18:2 <-(1 more)-> OBA 1:1
 Ammonite nobles	-1	Male	Adult			2SA 10:3 & 1CH 19:3	Noble
+Ammonites	-1	Male	Adult			EZK 25:3	
 Amnon, son of David	1	Male	Adult			2SA 13:4 <-(5 more)-> 2SA 13:17
 Amos	1	Male	Adult			AMO 1:2 <-(87 more)-> AMO 9:15
 Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder			JHN 18:19 <-(9 more)-> ACT 23:2
@@ -906,6 +907,7 @@ Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
 priest	-1	Male				NUM 5:19 <-(4 more)-> DEU 20:4
 priests	-1	Male				DEU 27:9 <-(34 more)-> ACT 4:1
 prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
+princes of the sea	-1	Male				EZK 26:17 & EZK 26:18
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
 proclamation	1	Male				EZR 10:7 & EZR 10:8
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
@@ -990,6 +992,7 @@ saying about idolaters	-1					HOS 13:2
 saying about Nimrod	1					GEN 10:9
 saying about Saul	1					1SA 10:12 & 1SA 19:24
 saying about seer	1					1SA 9:9
+saying (proverb) about sour grapes	1					EZK 18:2
 saying about sow	1					2PE 2:22
 saying about  short bed and narrow blanket	1					ISA 28:20
 saying about what controls you	1					2PE 2:19
@@ -1122,6 +1125,7 @@ Tobiah the Ammonite official	1	Male				NEH 2:19 <-(3 more)-> NEH 6:9
 townsmen of Ophrah	-1	Male				JDG 6:29 <-(1 more)-> JDG 6:32
 troublemakers	-1	Male				1SA 10:27
 twenty-four elders	24	Male				REV 4:11 <-(4 more)-> REV 19:4
+Tyre (personified)	-1	Male				EZK 26:2
 unbeliever who comes under conviction	1					1CO 14:25
 unbelievers	-1					1TH 4:12
 Uriah	1	Male				2SA 11:11
