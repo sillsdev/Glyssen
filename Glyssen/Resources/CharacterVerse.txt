@@ -13489,30 +13489,46 @@ EZK	36	38	Ezekiel		Ezekiel (the LORD says)	Alternate
 EZK	37	3	Ezekiel			Normal		
 EZK	37	3	God		God (the LORD) (in vision)	Normal		
 EZK	37	4	God		God (the LORD) (in vision)	Normal		
+EZK	37	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	5	Ezekiel		Ezekiel (the LORD says)	Normal		
 EZK	37	5	God		God (the LORD) (in vision)	Normal		
-EZK	37	6	God		God (the LORD) (in vision)	Normal		
-EZK	37	7	Ezekiel			Indirect		
-EZK	37	8	Ezekiel			Indirect		
+EZK	37	6	God		God (the LORD) (in vision)	Implicit		
+EZK	37	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	7	Ezekiel			Potential		
 EZK	37	9	God		God (the LORD) (in vision)	Normal		
-EZK	37	10	Ezekiel			Indirect		
+EZK	37	9	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	37	10	Ezekiel			Potential		
 EZK	37	11	God		God (the LORD) (in vision)	Normal		
-EZK	37	11	Israel	lament	whole hose of Israel	Hypothetical		
+EZK	37	11	Israel	lament	whole house of Israel	Hypothetical		
 EZK	37	12	God		God (the LORD) (in vision)	Normal		
-EZK	37	13	God		God (the LORD) (in vision)	Normal		
+EZK	37	12	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	37	13	God		God (the LORD) (in vision)	Implicit		
 EZK	37	14	God		God (the LORD) (in vision)	Normal		
-EZK	37	16	God		God (the LORD)	Normal		
-EZK	37	17	God		God (the LORD)	Normal		
-EZK	37	18	God		God (the LORD)	Normal		
+EZK	37	14	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	37	16	God		God (the LORD)	Implicit		
+EZK	37	16	God		writing on sticks (spoken by God)	Quotation		
+EZK	37	17	God		God (the LORD)	Implicit		
+EZK	37	18	God		God (the LORD)	Implicit		
+EZK	37	18	Israel		whole house of Israel	Hypothetical		
 EZK	37	19	God		God (the LORD)	Normal		
-EZK	37	20	God		God (the LORD)	Normal		
+EZK	37	19	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	37	20	God		God (the LORD)	Implicit		
 EZK	37	21	God		God (the LORD)	Normal		
-EZK	37	22	God		God (the LORD)	Normal		
-EZK	37	23	God		God (the LORD)	Normal		
-EZK	37	24	God		God (the LORD)	Normal		
-EZK	37	25	God		God (the LORD)	Normal		
-EZK	37	26	God		God (the LORD)	Normal		
-EZK	37	27	God		God (the LORD)	Normal		
-EZK	37	28	God		God (the LORD)	Normal		
+EZK	37	21	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	37	22	God		God (the LORD)	Implicit		
+EZK	37	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	23	God		God (the LORD)	Implicit		
+EZK	37	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	24	God		God (the LORD)	Implicit		
+EZK	37	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	25	God		God (the LORD)	Implicit		
+EZK	37	25	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	26	God		God (the LORD)	Implicit		
+EZK	37	26	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	27	God		God (the LORD)	Implicit		
+EZK	37	27	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	37	28	God		God (the LORD)	Implicit		
+EZK	37	28	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	2	God		God (the LORD)	Normal		
 EZK	38	3	God		God (the LORD)	Normal		
 EZK	38	4	God		God (the LORD)	Normal		
