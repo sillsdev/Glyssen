@@ -1886,7 +1886,7 @@ namespace Glyssen.Dialogs
 
 		private void m_dataGridReferenceText_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			if (e.Button == MouseButtons.Right)
+			if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex > 0)
 				m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex];
 		}
 
