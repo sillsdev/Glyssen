@@ -13529,30 +13529,51 @@ EZK	37	27	God		God (the LORD)	Implicit
 EZK	37	27	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	37	28	God		God (the LORD)	Implicit		
 EZK	37	28	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	38	2	God		God (the LORD)	Normal		
+EZK	38	2	God		God (the LORD)	Implicit		
 EZK	38	3	God		God (the LORD)	Normal		
-EZK	38	4	God		God (the LORD)	Normal		
-EZK	38	5	God		God (the LORD)	Normal		
-EZK	38	6	God		God (the LORD)	Normal		
-EZK	38	7	God		God (the LORD)	Normal		
-EZK	38	8	God		God (the LORD)	Normal		
-EZK	38	9	God		God (the LORD)	Normal		
+EZK	38	3	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	38	4	God		God (the LORD)	Implicit		
+EZK	38	4	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	5	God		God (the LORD)	Implicit		
+EZK	38	5	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	6	God		God (the LORD)	Implicit		
+EZK	38	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	7	God		God (the LORD)	Implicit		
+EZK	38	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	8	God		God (the LORD)	Implicit		
+EZK	38	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	9	God		God (the LORD)	Implicit		
+EZK	38	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	10	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	10	God		God (the LORD)	Normal		
 EZK	38	11	God		God (the LORD)	Normal		
 EZK	38	11	Gog			Hypothetical		
-EZK	38	12	Gog			Hypothetical		
-EZK	38	12	God		God (the LORD)	Normal		
+EZK	38	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	12	Gog	plotting evil		Hypothetical		
+EZK	38	12	God	plotting evil	God (the LORD)	Normal		
+EZK	38	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	13	God		God (the LORD)	Normal		
+EZK	38	13	Sheba, Dedan, and the merchants of Tarshish			Hypothetical		
+EZK	38	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	14	God		God (the LORD)	Normal		
-EZK	38	15	God		God (the LORD)	Normal		
-EZK	38	16	God		God (the LORD)	Normal		
+EZK	38	14	Ezekiel		Ezekiel (the LORD says)	Normal		
+EZK	38	15	God		God (the LORD)	Implicit		
+EZK	38	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	16	God		God (the LORD)	Implicit		
+EZK	38	16	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	17	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	17	God		God (the LORD)	Normal		
 EZK	38	18	God		God (the LORD)	Normal		
+EZK	38	18	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	38	19	God		God (the LORD)	Normal		
-EZK	38	20	God		God (the LORD)	Normal		
+EZK	38	20	God		God (the LORD)	Implicit		
+EZK	38	20	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	21	God		God (the LORD)	Normal		
-EZK	38	22	God		God (the LORD)	Normal		
-EZK	38	23	God		God (the LORD)	Normal		
+EZK	38	21	Ezekiel		Ezekiel (the LORD says)	Potential		
+EZK	38	22	God		God (the LORD)	Implicit		
+EZK	38	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
+EZK	38	23	God		God (the LORD)	Implicit		
+EZK	38	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	1	God		God (the LORD)	Normal		
 EZK	39	2	God		God (the LORD)	Normal		
 EZK	39	3	God		God (the LORD)	Normal		

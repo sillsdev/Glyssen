@@ -335,7 +335,7 @@ expert in religious law	1	Male				MRK 12:28 <-(5 more)-> LUK 10:37
 experts in religious law, one of the	1	Male				LUK 11:45
 explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33
 eye	1	Neuter				1CO 12:21
-Ezekiel	1	Male				EZK 3:27 <-(538 more)-> EZK 37:28
+Ezekiel	1	Male				EZK 3:27 <-(558 more)-> EZK 38:23
 Ezra, priest and teacher	1	Male				EZR 5:4 <-(15 more)-> NEH 8:15
 false prophets	-1	Male				JER 14:13 <-(15 more)-> ZEC 13:6
 false teachers	-1					1TI 4:3
@@ -1030,6 +1030,7 @@ seventy-two	72	Male				LUK 10:17
 Shadrach	1	Male			original Hebrew name: Hananiah	DAN 3:16 <-(1 more)-> DAN 3:18
 Shaphan, secretary	1	Male				2KI 22:9 <-(3 more)-> 2CH 34:18
 Sharezer	1	Male				ZEC 7:3
+Sheba, Dedan, and the merchants of Tarshish	-1	Male				EZK 38:13
 Sheba, son of Bicri	1	Male				2SA 20:1
 Shebna	1	Male				2KI 18:26 <-(4 more)-> ISA 37:4
 Shecaniah, son of Jehiel	1	Male				EZR 10:2 <-(1 more)-> EZR 10:4
