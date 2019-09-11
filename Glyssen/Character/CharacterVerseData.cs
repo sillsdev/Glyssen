@@ -314,15 +314,16 @@ namespace Glyssen.Character
 		public void LoadData(string tabDelimitedCharacterVerseData)
 		{
 			var data = new HashSet<CharacterVerse>();
-			int lineNumber = 0;
-			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
+			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
+				.Select((contents, number) => new { Contents = contents, Number = number }))
 			{
-				if (line.Length == 0 || line[0] == '#')
-					continue;
-				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
-				IList<CharacterVerse> cvs = ProcessLine(items, lineNumber++);
-				if (cvs != null)
-					data.AddRange(cvs);
+				if (line.Contents.Length != 0 && line.Contents[0] != '#')
+				{
+					string[] items = line.Contents.Split(new[] {"\t"}, StringSplitOptions.None);
+					IList<CharacterVerse> cvs = ProcessLine(items, line.Number);
+					if (cvs != null)
+						data.AddRange(cvs);
+				}
 			}
 			m_data = data;
 			ResetCaches();
@@ -333,13 +334,13 @@ namespace Glyssen.Character
 			var list = new List<CharacterVerse>();
 
 			if (items.Length < kiQuoteType)
-				throw new ApplicationException("Bad format in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
+				throw new ApplicationException($"Bad format in CharacterVerse control file! Line #: {lineNumber + 1}; Line contents: {string.Join("\t", items)}");
 			if (items.Length > kMaxItems)
-				throw new ApplicationException("Incorrect number of fields in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
+				throw new ApplicationException($"Incorrect number of fields in CharacterVerse control file! Line #: {lineNumber + 1}; Line contents: {string.Join("\t", items)}");
 
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
-				Debug.Assert(false, string.Format("Invalid chapter number ({0}) on line {1}: {2}", items[1], lineNumber, items[0]));
+				Debug.Assert(false, $"Invalid chapter number ({items[1]}) on line {lineNumber + 1}: {items[0]}");
 			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
 				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 

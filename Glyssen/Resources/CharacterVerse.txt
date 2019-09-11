@@ -14466,8 +14466,7 @@ LUK	1	55	Mary, Jesus' mother			Normal
 LUK	1	58	neighbors and relatives of Elizabeth and Zacharias (Zechariah)	rejoicing		Potential		
 # There is a potential speaking part in v. 59 because some translations will render this using direct
 # speech instead of indirect. Something like:
-# The neighbors and relatives of Elizabeth and Zachariah said, “He should be called ‘Zachariah’ like
-his father.”
+# The neighbors and relatives of Elizabeth and Zachariah said, “He should be called ‘Zachariah’ like his father.”
 # Of course, if only the name “Zachariah” is in quotes, it should just be spoken by the narrator, but
 # the quote parser isn’t smart enough to automatically distinguish between those two cases.
 LUK	1	59	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indirect		
