@@ -12,6 +12,7 @@ using SIL.Xml;
 using GlyssenTests.Properties;
 using Rhino.Mocks;
 using SIL.IO;
+using static Glyssen.Character.CharacterVerseData;
 
 namespace GlyssenTests
 {
@@ -359,6 +360,75 @@ namespace GlyssenTests
 			Assert.AreEqual("{4}\u00A0First {F8 SFX--Whatever} English, second.", thisBlock.ReferenceBlocks.Single().GetPrimaryReferenceText().Replace("  ", " "));
 			Assert.AreEqual(4, thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements.Count);
 			Assert.AreEqual("Whatever", ((Sound)thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements[2]).EffectName);
+		}
+
+		[TestCase(StandardCharacter.BookOrChapter, "mt")]
+		[TestCase(StandardCharacter.Intro, "ip")]
+		[TestCase(StandardCharacter.ExtraBiblical, "s")]
+		public void AllVerses_ExtraBiblical_Empty(StandardCharacter type, string styleTag)
+		{
+			var block = new Block(styleTag) {BookCode = "MAT", CharacterId = GetStandardCharacterId("MAT", type)};
+			Assert.IsFalse(block.AllVerses.Any());
+		}
+
+		[TestCase(1, 3, "1-3")]
+		[TestCase(5, 0, "5")]
+		public void AllVerses_VerseAtStart_ReturnsStartVerse(int start, int end, string verseNumString)
+		{
+			var block = new Block("p", 1, start, end) { BookCode = "MAT", CharacterId = "Jesus" }.AddVerse(verseNumString);
+			var result = block.AllVerses.Single();
+			Assert.AreEqual(start, result.StartVerse);
+			Assert.AreEqual(end, result.LastVerseOfBridge);
+		}
+
+		[TestCase(2, 3)]
+		[TestCase(100, 0)]
+		public void AllVerses_NoVerse_ReturnsVerseRepresentingInitialVerseStartAndEnd(int start, int end)
+		{
+			var block = new Block("p", 1, start, end)
+			{
+				BookCode = "MAT",
+				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator)
+			}.AddText();
+			var result = block.AllVerses.Single();
+			Assert.AreEqual(start, result.StartVerse);
+			Assert.AreEqual(end, result.LastVerseOfBridge);
+		}
+
+		[Test]
+		public void AllVerses_MultipleVersesIncludingStart_ReturnsAllVerses()
+		{
+			var block = new Block("p", 1, 3)
+			{
+				BookCode = "MAT",
+				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator)
+			}.AddVerse(3).AddVerse(4).AddVerse("5-6").AddVerse("7-9");
+			var result = block.AllVerses.ToList();
+			Assert.AreEqual(4, result.Count);
+			Assert.AreEqual(3, result[0].StartVerse);
+			Assert.AreEqual(0, result[0].LastVerseOfBridge);
+			Assert.AreEqual(4, result[1].StartVerse);
+			Assert.AreEqual(0, result[1].LastVerseOfBridge);
+			Assert.AreEqual(5, result[2].StartVerse);
+			Assert.AreEqual(6, result[2].LastVerseOfBridge);
+			Assert.AreEqual(7, result[3].StartVerse);
+			Assert.AreEqual(9, result[3].LastVerseOfBridge);
+		}
+
+		[Test]
+		public void AllVerses_DoesNotStartWithVerseNum_HasMidBlockVerse_ReturnsStartAndMidBlockVerses()
+		{
+			var block = new Block("p", 1, 3)
+			{
+				BookCode = "MAT",
+				CharacterId = GetStandardCharacterId("MAT", StandardCharacter.Narrator)
+			}.AddText("Second half of verse 3").AddVerse(4);
+			var result = block.AllVerses.ToList();
+			Assert.AreEqual(2, result.Count);
+			Assert.AreEqual(3, result[0].StartVerse);
+			Assert.AreEqual(0, result[0].LastVerseOfBridge);
+			Assert.AreEqual(4, result[1].StartVerse);
+			Assert.AreEqual(0, result[1].LastVerseOfBridge);
 		}
 
 		[Test]

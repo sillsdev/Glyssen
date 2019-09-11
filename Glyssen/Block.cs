@@ -201,6 +201,8 @@ namespace Glyssen
 			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
 			/// </summary>
 			public int LastVerseOfBridge { get; private set; }
+
+			public IEnumerable<int> AllVerseNumbers => this.GetAllVerseNumbers();
 		}
 
 		public int LastVerseNum => LastVerse.EndVerse;
@@ -563,6 +565,24 @@ namespace Glyssen
 			get
 			{
 				return !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
+			}
+		}
+
+		/// <summary>
+		/// Gets the <see cref="Verse"/> objects covered by this block. This may be single
+		/// verses or bridges. Note that the initial and final verses may not be entirely contained
+		/// within this block.
+		/// </summary>
+		public IEnumerable<IVerse> AllVerses
+		{
+			get
+			{
+				if (IsScripture)
+				{
+					yield return BlockElements.First() as IVerse ?? new Verse(InitialVerseNumberOrBridge);
+					foreach (var subsequentVerse in BlockElements.Skip(1).OfType<Verse>())
+						yield return subsequentVerse;
+				}
 			}
 		}
 

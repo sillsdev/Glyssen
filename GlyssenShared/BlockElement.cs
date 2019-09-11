@@ -99,6 +99,21 @@ namespace Glyssen.Shared
 		/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
 		/// </summary>
 		int LastVerseOfBridge { get; }
+
+		/// <summary>
+		/// All verse numbers from StartVerse to EndVerse as integers. 
+		/// TODO: When we move to C# 8.0, we can use a default implementation instead of the extension method in the class below
+		/// </summary>
+		IEnumerable<int> AllVerseNumbers { get; }
+	}
+
+	public static class IVerseExtensions
+	{
+		public static IEnumerable<int> GetAllVerseNumbers(this IVerse verse)
+		{
+			for (var v = verse.StartVerse; v <= verse.EndVerse; v++)
+					yield return v;
+		}
 	}
 
 	public class Verse : BlockElement, IVerse
@@ -146,6 +161,8 @@ namespace Glyssen.Shared
 				return endVerse == startVerse ? 0 : endVerse;
 			}
 		}
+
+		public IEnumerable<int> AllVerseNumbers => this.GetAllVerseNumbers();
 	}
 
 	[XmlInclude(typeof(Pause))]
