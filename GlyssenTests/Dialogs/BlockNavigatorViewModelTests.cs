@@ -1340,7 +1340,7 @@ namespace GlyssenTests.Dialogs
 
 		/// <summary>
 		/// PG-1261: This test indirectly tests the IsRelevant method, which should determine that the vernacular
-		/// block at the end of Mark 15 is NOT relevant because it has an additional verse not in the reference text.
+		/// block at the end of Mark 15 IS relevant because it has an additional verse not in the reference text.
 		/// </summary>
 		[Test]
 		public void IsRelevant_VernBlockHasUnexpectedVerseNotInReferenceText_ReturnsFalse()
