@@ -647,7 +647,7 @@ namespace Glyssen.Quote
 		private ICharacterDeliveryInfo GetMatchingCharacter(Block newBlock, ICharacterDeliveryInfo subsequentImplicitCv)
 		{
 			ICharacterDeliveryInfo leadInCharacter = null;
-			// There will almost ever be one entry with a matching character name. But if there are two, we
+			// There will almost ever be only one entry with a matching character name. But if there are two, we
 			// want the one whose delivery matches, if any.
 			foreach (var character in m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, newBlock.LastVerseNum,
 				versification: m_versification).Where(cv => cv.Character == subsequentImplicitCv.Character))

@@ -153,7 +153,7 @@ namespace Glyssen.Character
 			/// For this override's <see cref="EndVerse"/>, the maximum number of blocks (starting with the
 			/// first one for the verse) to override. If no <see cref="EndBlock"/> is specified, then this
 			/// property returns <see cref="MaxValue"/> since any narrator blocks that cover the verse should
-			/// be overridden. If <see cref="EndBlock"/> is specified, then this typically property returns
+			/// be overridden. If <see cref="EndBlock"/> is specified, then this property typically returns
 			/// <see cref="EndBlock"/>. However, there is a special case when this is an override for a limited
 			/// range of blocks within a single verse. For example, if the override starts at block 2 (the third
 			/// block) of verse 6:9 and ends at block 4 (the fifth block), then it includes 3 blocks (the 3rd, 4th
