@@ -1281,4 +1281,73 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 		}
 	}
+
+	/// <summary>
+	/// PG-1261: This test fixture doctors up the data to test for a very specific case.
+	/// The "real" place where the bug occurred was in Rev 12:18 (due to a textual variant), but since
+	/// we can now fix the reference text to deal with cases where the vernacular follows that variant,
+	/// this fixture sets up a "dummy" scenario at the end of MRK 15.
+	/// </summary>
+	[TestFixture]
+	class BlockNavigatorViewModelTestsWithExtraVerseInVernacular
+	{
+		private Project m_testProject;
+		private BlockNavigatorViewModel m_model;
+		private VerseRef m_targetReference;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			var mark = m_testProject.IncludedBooks.Single();
+			var bookNum = mark.BookNumber;
+			var lastBlockInChapter = m_testProject.IncludedBooks.Single().Blocks.First(b =>
+				b.ChapterNumber == 15 &&
+				b.LastVerseNum == ScrVers.English.GetLastVerse(bookNum, b.ChapterNumber) &&
+				b.StartsAtVerseStart &&
+				b.AllVerses.Skip(1).Any() && 
+				b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			// We have to manually split the block to separate the initial verses which already don't match
+			// the reference text from the last two verse, which are just plain narrator verses in both the
+			// Vernacular and the English reference text.
+			lastBlockInChapter = mark.SplitBlock(lastBlockInChapter,
+				((Verse)(lastBlockInChapter.AllVerses.Reverse().ElementAt(2))).Number,
+				BookScript.kSplitAtEndOfVerse, true,
+				lastBlockInChapter.CharacterId,
+				m_testProject.Versification);
+			m_targetReference = new VerseRef(bookNum, lastBlockInChapter.ChapterNumber, lastBlockInChapter.InitialStartVerseNumber);
+			var tempModel = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
+			tempModel.AttemptRefBlockMatchup = true;
+			Assert.IsTrue(tempModel.TryLoadBlock(m_targetReference));
+			Assert.IsFalse(tempModel.IsCurrentBlockRelevant, "Before adding the extra verse, this block should not be relevant.");
+
+			// Finally, we add the extra verse (not in the reference text)
+			var extraVerseNum = lastBlockInChapter.LastVerseNum + 1;
+			lastBlockInChapter.AddVerse(extraVerseNum, "This verse will not have a corresponding verse in the reference text.");
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		/// <summary>
+		/// PG-1261: This test indirectly tests the IsRelevant method, which should determine that the vernacular
+		/// block at the end of Mark 15 IS relevant because it has an additional verse not in the reference text.
+		/// </summary>
+		[Test]
+		public void IsRelevant_VernBlockHasUnexpectedVerseNotInReferenceText_ReturnsFalse()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.IsTrue(m_model.TryLoadBlock(m_targetReference));
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+		}
+	}
 }

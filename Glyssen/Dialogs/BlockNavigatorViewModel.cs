@@ -1059,7 +1059,7 @@ namespace Glyssen.Dialogs
 					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex);
 
 				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear) ||
-					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.AllScriptureBlocksMatch);
+					(lastMatchup.CorrelatedBlocks.Count > 1 && !lastMatchup.AllScriptureBlocksMatch);
 			}
 			if (block.IsContinuationOfPreviousBlockQuote)
 				return false;
