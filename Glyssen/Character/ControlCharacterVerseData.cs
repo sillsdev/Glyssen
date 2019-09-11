@@ -99,7 +99,7 @@ namespace Glyssen.Character
 
 		protected override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
-			if (lineNumber == 0)
+			if (lineNumber == 1) // Using 1-based index because this is reported in error messages
 			{
 				ProcessFirstLine(items);
 				return null;

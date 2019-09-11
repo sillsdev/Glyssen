@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
@@ -315,7 +314,7 @@ namespace Glyssen.Character
 		{
 			var data = new HashSet<CharacterVerse>();
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
-				.Select((contents, number) => new { Contents = contents, Number = number }))
+				.Select((contents, number) => new { Contents = contents, Number = number + 1 }))
 			{
 				if (line.Contents.Length != 0 && line.Contents[0] != '#')
 				{
@@ -329,18 +328,26 @@ namespace Glyssen.Character
 			ResetCaches();
 		}
 
+		/// <summary>
+		/// Gets a list of <see cref="CharacterVerse"/> objects built from the details contained in
+		/// <paramref name="items"/>. Typically the list will contain a single item, but if the
+		/// verse reference represents a range of verses, then there will be one per verse.
+		/// </summary>
+		/// <param name="items">field values from the line (tab-delimited in file)</param>
+		/// <param name="lineNumber">1-based line number (used only for error reporting)</param>
+		/// <exception cref="ApplicationException">Bad data (incorrect number of fields, etc.)</exception>
 		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
 			var list = new List<CharacterVerse>();
 
 			if (items.Length < kiQuoteType)
-				throw new ApplicationException($"Bad format in CharacterVerse control file! Line #: {lineNumber + 1}; Line contents: {string.Join("\t", items)}");
+				throw new ApplicationException($"Bad format in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");
 			if (items.Length > kMaxItems)
-				throw new ApplicationException($"Incorrect number of fields in CharacterVerse control file! Line #: {lineNumber + 1}; Line contents: {string.Join("\t", items)}");
+				throw new ApplicationException($"Incorrect number of fields in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");
 
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
-				Debug.Assert(false, $"Invalid chapter number ({items[1]}) on line {lineNumber + 1}: {items[0]}");
+				throw new ApplicationException($"Invalid chapter number ({items[1]}) on line {lineNumber}: {items[0]}");
 			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
 				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 
