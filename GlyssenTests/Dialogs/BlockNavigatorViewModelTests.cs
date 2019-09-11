@@ -1312,9 +1312,8 @@ namespace GlyssenTests.Dialogs
 			// Vernacular and the English reference text.
 			lastBlockInChapter = mark.SplitBlock(lastBlockInChapter,
 				((Verse)(lastBlockInChapter.AllVerses.Reverse().ElementAt(2))).Number,
-				BookScript.kSplitAtEndOfVerse, true,
-				lastBlockInChapter.CharacterId,
-				m_testProject.Versification);
+				PortionScript.kSplitAtEndOfVerse, true,
+				lastBlockInChapter.CharacterId);
 			m_targetReference = new VerseRef(bookNum, lastBlockInChapter.ChapterNumber, lastBlockInChapter.InitialStartVerseNumber);
 			var tempModel = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
 			tempModel.AttemptRefBlockMatchup = true;
