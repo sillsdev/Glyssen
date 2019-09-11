@@ -14186,25 +14186,25 @@ HOS	2	11	God		God (the LORD)	Implicit
 HOS	2	12	God		God (the LORD)	Normal		
 HOS	2	12	prostitute (symbolic of Israel)			Hypothetical		
 HOS	2	13	God		God (the LORD)	Normal		
-HOS	2	13	Amos		Amos (the LORD says)	Potential		
+HOS	2	13	Hosea		Hosea (the LORD says)	Potential		
 HOS	2	14	God		God (the LORD)	Implicit		
-HOS	2	14	Amos		Amos (the LORD says)	Alternate		
+HOS	2	14	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	15	God		God (the LORD)	Implicit		
-HOS	2	15	Amos		Amos (the LORD says)	Alternate		
+HOS	2	15	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	16	God		God (the LORD)	Normal		
-HOS	2	16	Amos		Amos (the LORD says)	Potential		
+HOS	2	16	Hosea		Hosea (the LORD says)	Potential		
 HOS	2	17	God		God (the LORD)	Implicit		
-HOS	2	17	Amos		Amos (the LORD says)	Alternate		
+HOS	2	17	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	18	God		God (the LORD)	Implicit		
-HOS	2	18	Amos		Amos (the LORD says)	Alternate		
+HOS	2	18	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	19	God		God (the LORD)	Implicit		
-HOS	2	19	Amos		Amos (the LORD says)	Alternate		
+HOS	2	19	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	20	God		God (the LORD)	Implicit		
-HOS	2	20	Amos		Amos (the LORD says)	Alternate		
+HOS	2	20	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	21	God		God (the LORD)	Normal		
-HOS	2	21	Amos		Amos (the LORD says)	Potential		
+HOS	2	21	Hosea		Hosea (the LORD says)	Potential		
 HOS	2	22	God		God (the LORD)	Implicit		
-HOS	2	22	Amos		Amos (the LORD says)	Alternate		
+HOS	2	22	Hosea		Hosea (the LORD says)	Alternate		
 HOS	2	23	God		God (the LORD)	Normal		
 HOS	2	23	God			Quotation		
 HOS	2	23	people, God's			Hypothetical		
