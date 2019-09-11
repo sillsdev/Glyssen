@@ -274,6 +274,9 @@ namespace ControlDataIntegrityTests
 				var otherEntries = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(alternate.BookCode),
 						alternate.Chapter, alternate.Verse, versification: ScrVers.English)
 					.Where(c => acceptablePrimaryQuoteTypes.Contains(c.QuoteType));
+				Assert.IsFalse(otherEntries.Any(c => c.Character == alternate.Character && c.Delivery == alternate.Delivery),
+					$"Alternate used for a {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}, " +
+					"but that character also has another quote type in that verse!");
 				Assert.IsTrue(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-")),
 					$"Character-verse file contains an Alternate quote for {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}" +
 					", but there is no primary character.");

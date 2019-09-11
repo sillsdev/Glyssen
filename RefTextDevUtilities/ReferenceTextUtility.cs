@@ -898,9 +898,6 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
 		{
-			//if (bookId == "EZR" && block.ChapterNumber == 9)
-			//	Debug.WriteLine("Here");
-
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 
@@ -908,13 +905,11 @@ namespace Glyssen.RefTextDevUtilities
 			var fcbhCharacterLabelSansNumber = fcbhCharacterLabel = s_stripNumericSuffixes.Replace(fcbhCharacterLabel, "$1");
 			fcbhCharacterLabel = s_stripFemaleSuffix.Replace(fcbhCharacterLabel, "$1");
 
-			//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
-			//	return characterId;
-			//if (TryGetKnownNameMatch(characterId, out var knownMatch))
-			//	return knownMatch;
-
 			var bookNum = BCVRef.BookToNumber(bookId);
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, includeAlternates:true).ToList();
+			var implicitChar = characters.SingleOrDefault(c => c.QuoteType == QuoteType.Implicit);
+			if (implicitChar != null)
+				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
 			switch (characters.Count)
 			{
@@ -971,28 +966,34 @@ namespace Glyssen.RefTextDevUtilities
 					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, string>(c.ResolvedDefaultCharacter, c.Character)).ToList();
 					try
 					{
-						return defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Single(glyssenCharId => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, glyssenCharId) == MatchLikelihood.Reliable);
+						var single = defaultCharactersAndFullCharacterIds.Select(c => c.Item1).SingleOrDefault(glyssenCharId => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, glyssenCharId) == MatchLikelihood.Reliable);
+						if (single != null)
+							return single;
+						if (IsNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber))
+							return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
 					}
-					catch
+					catch (InvalidOperationException)
 					{
-						var altMatch = defaultCharactersAndFullCharacterIds.Where(t => t.Item1 != t.Item2).Select(c =>
-							new Tuple<string, string>(c.Item2.SplitCharacterId().Skip(1).FirstOrDefault(alt =>
-							alt.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)), c.Item2)).FirstOrDefault();
-						if (altMatch?.Item1 != null)
-						{
-							s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, altMatch.Item1, bcvRef, altMatch.Item2));
-							s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabel} => {altMatch.Item1} -- {bcvRef}");
-							return altMatch.Item1;
-						}
+						// There were multiple - probably multiple deliveries
+					}
+
+					var altMatch = defaultCharactersAndFullCharacterIds.Where(t => t.Item1 != t.Item2).Select(c =>
+						new Tuple<string, string>(c.Item2.SplitCharacterId().Skip(1).FirstOrDefault(alt =>
+						alt.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)), c.Item2)).FirstOrDefault();
+					if (altMatch?.Item1 != null)
+					{
+						s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, altMatch.Item1, bcvRef, altMatch.Item2));
+						s_characterIdsMatchedByControlFileStr.Add($"{fcbhCharacterLabel} => {altMatch.Item1} -- {bcvRef}");
+						return altMatch.Item1;
+					}
+					else
+					{
+						if (characters.Skip(1).All(c => c.Character == characters[0].Character) && characters.Select(c => c.Delivery).Distinct().Count() > 1 ||
+							defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Any(gc => characters.Where(c => c.Character == gc).Select(c => c.Delivery).Distinct().Count() > 1))
+							s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter + " deliveries", bcvRef, fcbhCharacterLabel));
 						else
-						{
-							if (characters.Skip(1).All(c => c.Character == characters[0].Character) && characters.Select(c => c.Delivery).Distinct().Count() > 1 ||
-								defaultCharactersAndFullCharacterIds.Select(c => c.Item1).Any(gc => characters.Where(c => c.Character == gc).Select(c => c.Delivery).Distinct().Count() > 1))
-								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter + " deliveries", bcvRef, fcbhCharacterLabel));
-							else
-								s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
-							return CharacterVerseData.kAmbiguousCharacter;
-						}
+							s_unmatchedCharacterIds.Add(new Tuple<string, BCVRef, string>(CharacterVerseData.kAmbiguousCharacter, bcvRef, fcbhCharacterLabel));
+						return CharacterVerseData.kAmbiguousCharacter;
 					}
 			}
 		}
