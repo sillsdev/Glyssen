@@ -911,6 +911,7 @@ namespace Glyssen.RefTextDevUtilities
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
+			string overrideChar;
 			switch (characters.Count)
 			{
 				case 1:
@@ -932,9 +933,9 @@ namespace Glyssen.RefTextDevUtilities
 							characterIdToUse = null;
 							break;
 						default:
-
-							if (IsNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber))
-								return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+							overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+							if (overrideChar != null)
+								return overrideChar;
 
 							if (characterIdToUse != character.Character)
 							{
@@ -950,10 +951,16 @@ namespace Glyssen.RefTextDevUtilities
 					}
 					if (characterIdToUse == null)
 						goto case 0;
+					if (characterIdToUse != character.Character)
+					{
+						block.CharacterIdOverrideForScript = characterIdToUse;
+						return character.Character;
+					}
 					return characterIdToUse;
 				case 0:
-					if (IsNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber))
-						return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+					overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+					if (overrideChar != null)
+						return overrideChar;
 
 					//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
 					//	return characterId;
@@ -966,11 +973,17 @@ namespace Glyssen.RefTextDevUtilities
 					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, string>(c.ResolvedDefaultCharacter, c.Character)).ToList();
 					try
 					{
-						var single = defaultCharactersAndFullCharacterIds.Select(c => c.Item1).SingleOrDefault(glyssenCharId => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, glyssenCharId) == MatchLikelihood.Reliable);
+						var single = defaultCharactersAndFullCharacterIds.SingleOrDefault(c => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, c.Item1) == MatchLikelihood.Reliable);
 						if (single != null)
-							return single;
-						if (IsNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber))
-							return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+						{
+							if (single.Item2 != single.Item1)
+								block.CharacterIdOverrideForScript = single.Item1;
+							return single.Item2;
+						}
+
+						overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+						if (overrideChar != null)
+							return overrideChar;
 					}
 					catch (InvalidOperationException)
 					{
@@ -1007,10 +1020,10 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
-		private static bool IsNarratorOverride(int bookNum, Block block, string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber)
+		private static string GetMatchingNarratorOverride(int bookNum, Block block, string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber)
 		{
-			return NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
-				.Any(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
+ 			return NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
+				.FirstOrDefault(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
 		}
 
 		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId, string alias = null)

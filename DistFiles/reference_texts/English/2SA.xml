@@ -1111,7 +1111,9 @@
     <text>David said to him,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="David">
-    <text>«Don't be afraid of him; for I will surely show you kindness for Jonathan your father's sake, and will restore to you all the land of Saul your father. You shall eat bread at my table continually.» </text>
+    <text>«Don't be afraid of him; for I will surely show you kindness for Jonathan your father's sake, and will restore to you all the land of Saul your father. You shall eat bread at my table continually.»</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-2SA">
     <verse num="8" />
     <text>He did obeisance, and said,</text>
   </block>
@@ -1273,7 +1275,9 @@
     <text>«Send me Uriah the Hittite.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-2SA">
-    <text>Joab sent Uriah to David. </text>
+    <text>Joab sent Uriah to David.</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-2SA">
     <verse num="7" />
     <text>When Uriah was come to him, David asked of him how Joab did, and how the people fared, and how the war prospered. </text>
     <verse num="8" />
@@ -1393,7 +1397,9 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="Nathan">
     <verse num="2" />
-    <text>The rich man had very many flocks and herds, </text>
+    <text>The rich man had very many flocks and herds,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="3" characterId="Nathan">
     <verse num="3" />
     <text>but the poor man had nothing, except one little ewe lamb, which he had bought and raised. It grew up together with him, and with his children. It ate of his own food, drank of his own cup, and lay in his bosom, and was to him like a daughter.</text>
   </block>
@@ -2214,7 +2220,7 @@
     <text>The king said to Ziba,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="David">
-    <text>What do you mean by these?</text>
+    <text>«What do you mean by these?»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="narrator-2SA">
     <text>Ziba said,</text>
@@ -3285,7 +3291,9 @@
     <text>and he said,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="2" characterId="David">
-    <text>«God is my rock, my fortress, and my deliverer, even mine; </text>
+    <text>«God is my rock, my fortress, and my deliverer, even mine;</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="3" characterId="David">
     <verse num="3" />
     <text>God, my rock, in him I will take refuge; my shield, and the horn of my salvation, my high tower, and my refuge. My savior, you save me from violence.</text>
   </block>
@@ -3490,7 +3498,9 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="3" characterId="David">
     <verse num="3" />
-    <text>The God of Israel said, the Rock of Israel spoke to me, 'One who rules over men righteously, who rules in the fear of God, </text>
+    <text>The God of Israel said, the Rock of Israel spoke to me, 'One who rules over men righteously, who rules in the fear of God,</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="4" characterId="David">
     <verse num="4" />
     <text>shall be as the light of the morning, when the sun rises, a morning without clouds, when the tender grass springs out of the earth, through clear shining after rain.'</text>
   </block>
@@ -3500,7 +3510,9 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="6" characterId="David">
     <verse num="6" />
-    <text>But all of the ungodly shall be as thorns to be thrust away, because they can't be taken with the hand, </text>
+    <text>But all of the ungodly shall be as thorns to be thrust away, because they can't be taken with the hand,</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="7" characterId="David">
     <verse num="7" />
     <text>But the man who touches them must be armed with iron and the staff of a spear. They shall be utterly burned with fire in their place.</text>
   </block>
@@ -3643,7 +3655,9 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="6" characterId="narrator-2SA">
     <verse num="6" />
-    <text>then they came to Gilead, and to the land of Tahtim Hodshi; and they came to Dan Jaan, and around to Sidon, </text>
+    <text>then they came to Gilead, and to the land of Tahtim Hodshi; and they came to Dan Jaan, and around to Sidon,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="7" characterId="narrator-2SA">
     <verse num="7" />
     <text>and came to the stronghold of Tyre, and to all the cities of the Hivites, and of the Canaanites; and they went out to the south of Judah, at Beersheba.</text>
   </block>

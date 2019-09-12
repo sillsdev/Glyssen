@@ -8,9 +8,13 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>Now it happened in the days of Ahasuerus (this is Ahasuerus who reigned from India even to Ethiopia, over one hundred twenty-seven provinces), </text>
+    <text>Now it happened in the days of Ahasuerus (this is Ahasuerus who reigned from India even to Ethiopia, over one hundred twenty-seven provinces),</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
-    <text>that in those days, when the King Ahasuerus sat on the throne of his kingdom, which was in Shushan the palace, </text>
+    <text>that in those days, when the King Ahasuerus sat on the throne of his kingdom, which was in Shushan the palace,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-EST">
     <verse num="3" />
     <text>in the third year of his reign, he made a feast for all his princes and his servants; the power of Persia and Media, the nobles and princes of the provinces, being before him.</text>
   </block>
@@ -116,7 +120,9 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
-    <text>There was a certain Jew in the citadel of Susa, whose name was Mordecai, the son of Jair, the son of Shimei, the son of Kish, a Benjamite, </text>
+    <text>There was a certain Jew in the citadel of Susa, whose name was Mordecai, the son of Jair, the son of Shimei, the son of Kish, a Benjamite,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
     <text>who had been carried away from Jerusalem with the captives who had been carried away with Jeconiah king of Judah, whom Nebuchadnezzar the king of Babylon had carried away.</text>
   </block>
@@ -320,7 +326,9 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
-    <text>Then Esther asked them to answer Mordecai, </text>
+    <text>Then Esther asked them to answer Mordecai,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="16" characterId="Esther, queen">
     <verse num="16" />
     <text>Go, gather together all the Jews who are present in Shushan, and fast for me, and neither eat nor drink three days, night or day. I and my maidens will also fast the same way. Then I will go in to the king, which is against the law; and if I perish, I perish.</text>
   </block>
@@ -469,7 +477,9 @@
     <text>Haman said to the king,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="Haman, highest noble to Xerxes, king">
-    <text>«For the man whom the king delights to honor, </text>
+    <text>«For the man whom the king delights to honor,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="8" characterId="Haman, highest noble to Xerxes, king">
     <verse num="8" />
     <text>let royal clothing be brought which the king uses to wear, and the horse that the king rides on, and on the head of which a crown royal is set.</text>
   </block>
@@ -653,7 +663,9 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>Now in the twelfth month, which is the month Adar, on the thirteenth day of the month, when the king's commandment and his decree drew near to be put in execution, on the day that the enemies of the Jews hoped to conquer them, (but it was turned out the opposite happened, that the Jews conquered those who hated them), </text>
+    <text>Now in the twelfth month, which is the month Adar, on the thirteenth day of the month, when the king's commandment and his decree drew near to be put in execution, on the day that the enemies of the Jews hoped to conquer them, (but it was turned out the opposite happened, that the Jews conquered those who hated them),</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
     <text>the Jews gathered themselves together in their cities throughout all the provinces of the King Ahasuerus, to lay hands on those who wanted to harm them. No one could withstand them, because the fear of them had fallen on all the people.</text>
   </block>
@@ -675,9 +687,13 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
-    <text>They killed Parshandatha, Dalphon, Aspatha, </text>
+    <text>They killed Parshandatha, Dalphon, Aspatha,</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-EST">
     <verse num="8" />
-    <text>Poratha, Adalia, Aridatha, </text>
+    <text>Poratha, Adalia, Aridatha,</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
     <text>Parmashta, Arisai, Aridai, and Vaizatha, </text>
     <verse num="10" />

@@ -8,11 +8,17 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>Adam, Seth, Enosh, </text>
+    <text>Adam, Seth, Enosh,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>Kenan, Mahalalel, Jared, </text>
+    <text>Kenan, Mahalalel, Jared,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>Enoch, Methuselah, Lamech, </text>
+    <text>Enoch, Methuselah, Lamech,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
     <text>Noah, Shem, Ham, and Japheth.</text>
   </block>
@@ -191,7 +197,9 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>These are the sons of Israel: Reuben, Simeon, Levi, and Judah, Issachar, and Zebulun, </text>
+    <text>These are the sons of Israel: Reuben, Simeon, Levi, and Judah, Issachar, and Zebulun,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
     <text>Dan, Joseph, and Benjamin, Naphtali, Gad, and Asher.</text>
   </block>
@@ -414,9 +422,13 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>and Ibhar, and Elishama, and Eliphelet, </text>
+    <text>and Ibhar, and Elishama, and Eliphelet,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>and Nogah, and Nepheg, and Japhia, </text>
+    <text>and Nogah, and Nepheg, and Japhia,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
     <text>and Elishama, and Eliada, and Eliphelet, nine.</text>
   </block>
@@ -663,15 +675,21 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>The sons of Joel: Shemaiah his son, Gog his son, Shimei his son, </text>
+    <text>The sons of Joel: Shemaiah his son, Gog his son, Shimei his son,</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>Micah his son, Reaiah his son, Baal his son, </text>
+    <text>Micah his son, Reaiah his son, Baal his son,</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
     <text>Beerah his son, whom Tilgath Pilneser king of Assyria carried away captive: he was prince of the Reubenites.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>His brothers by their families, when the genealogy of their generations was reckoned: the chief, Jeiel, and Zechariah, </text>
+    <text>His brothers by their families, when the genealogy of their generations was reckoned: the chief, Jeiel, and Zechariah,</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
     <text>and Bela the son of Azaz, the son of Shema, the son of Joel, who lived in Aroer, even to Nebo and Baal Meon:</text>
   </block>
@@ -764,15 +782,25 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>Eleazar became the father of Phinehas, Phinehas became the father of Abishua, </text>
+    <text>Eleazar became the father of Phinehas, Phinehas became the father of Abishua,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>and Abishua became the father of Bukki, and Bukki became the father of Uzzi, </text>
+    <text>and Abishua became the father of Bukki, and Bukki became the father of Uzzi,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>and Uzzi became the father of Zerahiah, and Zerahiah became the father of Meraioth, </text>
+    <text>and Uzzi became the father of Zerahiah, and Zerahiah became the father of Meraioth,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>Meraioth became the father of Amariah, and Amariah became the father of Ahitub, </text>
+    <text>Meraioth became the father of Amariah, and Amariah became the father of Ahitub,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
-    <text>and Ahitub became the father of Zadok, and Zadok became the father of Ahimaaz, </text>
+    <text>and Ahitub became the father of Zadok, and Zadok became the father of Ahimaaz,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
     <text>and Ahimaaz became the father of Azariah, and Azariah became the father of Johanan, </text>
     <verse num="10" />
@@ -1154,15 +1182,21 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>Benjamin became the father of Bela his firstborn, Ashbel the second, and Aharah the third, </text>
+    <text>Benjamin became the father of Bela his firstborn, Ashbel the second, and Aharah the third,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
     <text>Nohah the fourth, and Rapha the fifth.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>Bela had sons: Addar, and Gera, and Abihud, </text>
+    <text>Bela had sons: Addar, and Gera, and Abihud,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>and Abishua, and Naaman, and Ahoah, </text>
+    <text>and Abishua, and Naaman, and Ahoah,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
     <text>and Gera, and Shephuphan, and Huram.</text>
   </block>
@@ -1305,7 +1339,9 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>Of the sons of Benjamin: Sallu the son of Meshullam, the son of Hodaviah, the son of Hassenuah, </text>
+    <text>Of the sons of Benjamin: Sallu the son of Meshullam, the son of Hodaviah, the son of Hassenuah,</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
     <text>and Ibneiah the son of Jeroham, and Elah the son of Uzzi, the son of Michri, and Meshullam the son of Shephatiah, the son of Reuel, the son of Ibnijah;</text>
   </block>
@@ -1540,7 +1576,9 @@
     <text>«Whoever strikes the Jebusites first shall be chief and captain.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-1CH">
-    <text>Joab the son of Zeruiah went up first, and was made chief. </text>
+    <text>Joab the son of Zeruiah went up first, and was made chief.</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
     <text>David lived in the stronghold; therefore they called it the city of David.</text>
   </block>
@@ -1680,13 +1718,21 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>The chief was Ahiezer; then Joash, the sons of Shemaah the Gibeathite, and Jeziel, and Pelet, the sons of Azmaveth, and Beracah, and Jehu the Anathothite, </text>
+    <text>The chief was Ahiezer; then Joash, the sons of Shemaah the Gibeathite, and Jeziel, and Pelet, the sons of Azmaveth, and Beracah, and Jehu the Anathothite,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>and Ishmaiah the Gibeonite, a mighty man among the thirty, and over the thirty, and Jeremiah, and Jahaziel, and Johanan, and Jozabad the Gederathite, </text>
+    <text>and Ishmaiah the Gibeonite, a mighty man among the thirty, and over the thirty, and Jeremiah, and Jahaziel, and Johanan, and Jozabad the Gederathite,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>Eluzai, and Jerimoth, and Bealiah, and Shemariah, and Shephatiah the Haruphite, </text>
+    <text>Eluzai, and Jerimoth, and Bealiah, and Shemariah, and Shephatiah the Haruphite,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>Elkanah, and Isshiah, and Azarel, and Joezer, and Jashobeam, the Korahites, </text>
+    <text>Elkanah, and Isshiah, and Azarel, and Joezer, and Jashobeam, the Korahites,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
     <text>and Joelah, and Zebadiah, the sons of Jeroham of Gedor.</text>
   </block>
@@ -1900,11 +1946,17 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>These are the names of the children whom he had in Jerusalem: Shammua, and Shobab, Nathan, and Solomon, </text>
+    <text>These are the names of the children whom he had in Jerusalem: Shammua, and Shobab, Nathan, and Solomon,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>and Ibhar, and Elishua, and Elpelet, </text>
+    <text>and Ibhar, and Elishua, and Elpelet,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>and Nogah, and Nepheg, and Japhia, </text>
+    <text>and Nogah, and Nepheg, and Japhia,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
     <text>and Elishama, and Beeliada, and Eliphelet.</text>
   </block>
@@ -2224,10 +2276,9 @@
     <text>All the people said,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="36" characterId="people, all the">
-    <text>«Amen,»</text>
+    <text>«Amen, and praise God.»</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="36" characterId="narrator-1CH">
-    <text>and praised God. </text>
+  <block style="p" chapter="16" initialStartVerse="37" characterId="narrator-1CH">
     <verse num="37" />
     <text>So he left there, before the ark of the covenant of God, Asaph and his brothers, to minister before the ark continually, as every day's work required;</text>
   </block>
@@ -2952,9 +3003,13 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>Now the first lot came forth to Jehoiarib, the second to Jedaiah, </text>
+    <text>Now the first lot came forth to Jehoiarib, the second to Jedaiah,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
-    <text>the third to Harim, the fourth to Seorim, </text>
+    <text>the third to Harim, the fourth to Seorim,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
     <text>the fifth to Malchijah, the sixth to Mijamin, </text>
     <verse num="10" />
@@ -3164,13 +3219,17 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>Meshelemiah had sons: Zechariah the firstborn, Jediael the second, Zebadiah the third, Jathniel the fourth, </text>
+    <text>Meshelemiah had sons: Zechariah the firstborn, Jediael the second, Zebadiah the third, Jathniel the fourth,</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
     <text>Elam the fifth, Jehohanan the sixth, Eliehoenai the seventh.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>Obed-Edom had sons: Shemaiah the firstborn, Jehozabad the second, Joah the third, and Sacar the fourth, and Nethanel the fifth, </text>
+    <text>Obed-Edom had sons: Shemaiah the firstborn, Jehozabad the second, Joah the third, and Sacar the fourth, and Nethanel the fifth,</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
     <text>Ammiel the sixth, Issachar the seventh, Peullethai the eighth; for God blessed him.</text>
   </block>
@@ -3529,7 +3588,9 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="3" characterId="David">
     <verse num="3" />
-    <text>In addition, because I have set my affection on the house of my God, since I have a treasure of my own of gold and silver, I give it to the house of my God, over and above all that I have prepared for the holy house, </text>
+    <text>In addition, because I have set my affection on the house of my God, since I have a treasure of my own of gold and silver, I give it to the house of my God, over and above all that I have prepared for the holy house,</text>
+  </block>
+  <block style="p" chapter="29" initialStartVerse="4" characterId="David">
     <verse num="4" />
     <text>even three thousand talents of gold, of the gold of Ophir, and seven thousand talents of refined silver, with which to overlay the walls of the houses;</text>
   </block>

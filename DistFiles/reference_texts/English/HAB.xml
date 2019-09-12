@@ -10,15 +10,15 @@
     <verse num="1" />
     <text>The oracle which Habakkuk the prophet saw.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="Habakkuk" delivery="crying">
     <verse num="2" />
     <text>God, how long will I cry, and you will not hear? I cry out to you «Violence!» and will you not save?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="Habakkuk" delivery="complaining">
     <verse num="3" />
     <text>Why do you show me iniquity, and look at perversity? For destruction and violence are before me. There is strife, and contention rises up.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="Habakkuk" delivery="complaining">
     <verse num="4" />
     <text>Therefore the law is paralyzed, and justice never goes forth; for the wicked surround the righteous; therefore justice goes forth perverted.</text>
   </block>
@@ -50,27 +50,27 @@
     <verse num="11" />
     <text>Then he sweeps by like the wind, and goes on. He is indeed guilty, whose strength is his god.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="Habakkuk" delivery="complaining">
     <verse num="12" />
     <text>Aren't you from everlasting, God my God, my Holy One? We will not die. God, you have appointed him for judgment. You, Rock, have established him to punish.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="Habakkuk" delivery="complaining">
     <verse num="13" />
     <text>You who have purer eyes than to see evil, and who cannot look on perversity, why do you tolerate those who deal treacherously, and keep silent when the wicked swallows up the man who is more righteous than he, the creeping things, that have no ruler over them?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="Habakkuk" delivery="complaining">
     <verse num="14" />
     <text>and make men like the fish of the sea, like the creeping things, that have no ruler over them?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="15" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="15" characterId="Habakkuk" delivery="complaining">
     <verse num="15" />
     <text>He takes up all of them with the hook. He catches them in his net, and gathers them in his dragnet. Therefore he rejoices and is glad.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="16" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="16" characterId="Habakkuk" delivery="complaining">
     <verse num="16" />
     <text>Therefore he sacrifices to his net, and burns incense to his dragnet, because by them his life is luxurious, and his food is good.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="Habakkuk">
+  <block style="p" chapter="1" initialStartVerse="17" characterId="Habakkuk" delivery="complaining">
     <verse num="17" />
     <text>Will he therefore continually empty his net, and kill the nations without mercy?</text>
   </block>
@@ -100,7 +100,10 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Won't all these take up a parable against him, and a taunting proverb against him, and say, 'Woe to him who increases that which is not his, and who enriches himself by extortion! How long?'</text>
+    <text>Won't all these take up a parable against him, and a taunting proverb against him, and say,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="6" characterId="people" delivery="taunting proverb">
+    <text>Woe to him who increases that which is not his, and who enriches himself by extortion! How long?'</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -126,33 +129,43 @@
     <verse num="12" />
     <text>Woe to him who builds a town with blood, and establishes a city by iniquity!</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="God">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="Habakkuk">
     <verse num="13" />
     <text>Behold, isn't it of God of Armies that the peoples labor for the fire, and the nations weary themselves for vanity?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="God">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="Habakkuk">
     <verse num="14" />
     <text>For the earth will be filled with the knowledge of the glory of God, as the waters cover the sea.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="God">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="Habakkuk">
     <verse num="15" />
     <text>Woe to him who gives his neighbor drink, pouring your inflaming wine until they are drunk, so that you may gaze at their naked bodies!</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="God">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="Habakkuk">
     <verse num="16" />
     <text>You are filled with shame, and not glory. You will also drink, and be exposed! The cup of God's right hand will come around to you, and disgrace will cover your glory.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="God">
+  <block style="p" chapter="2" initialStartVerse="17" characterId="Habakkuk">
     <verse num="17" />
     <text>For the violence done to Lebanon will overwhelm you, and the destruction of the animals, which made them afraid; because of men's blood, and for the violence done to the land, to every city and to those who dwell in them.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="God">
+  <block style="p" chapter="2" initialStartVerse="18" characterId="Habakkuk">
     <verse num="18" />
-    <text>What value does the engraved image have, that its maker has engraved it; the molten image, even the teacher of lies, that he who fashions its form trusts in it, to make mute idols?</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="19" characterId="God">
+    <text>What value does the engraved image have, that its maker has engraved it; the molten image, even the teacher of lies, that he who fashions its form trusts in it, to make mute idols? </text>
     <verse num="19" />
-    <text>Woe to him who says to the wood, 'Awake!' or to the mute stone, 'Arise!' Shall this teach? Behold, it is overlaid with gold and silver, and there is no breath at all in its midst.</text>
+    <text>Woe to him who says to the wood,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="19" characterId="man (hypothetical)">
+    <text>'Awake!'</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="19" characterId="Habakkuk">
+    <text>or to the mute stone,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="19" characterId="man (hypothetical)">
+    <text>'Arise!'</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="19" characterId="Habakkuk">
+    <text>Shall this teach? Behold, it is overlaid with gold and silver, and there is no breath at all in its midst.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="God">
     <verse num="20" />
@@ -171,17 +184,13 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="Habakkuk">
     <verse num="3" />
-    <text>God came from Teman, the Holy One from Mount Paran.</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-HAB">
-    <text>Selah</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="3" characterId="Habakkuk">
-    <text>His glory covered the heavens, and his praise filled the earth.</text>
+    <text>God came from Teman, the Holy One from Mount Paran. Selah  His glory covered the heavens, and his praise filled the earth.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Habakkuk">
     <verse num="4" />
-    <text>His splendor is like the sunrise. Rays shine from his hand, where his power is hidden. </text>
+    <text>His splendor is like the sunrise. Rays shine from his hand, where his power is hidden.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="5" characterId="Habakkuk">
     <verse num="5" />
     <text>Plague went before him, and pestilence followed his feet.</text>
   </block>
@@ -241,7 +250,7 @@
     <verse num="19" />
     <text>God, the Lord, is my strength. He makes my feet like deer's feet, and enables me to go in high places.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-HAB">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="Habakkuk">
     <text>For the music director, on my stringed instruments.</text>
   </block>
   <UnappliedSplits />

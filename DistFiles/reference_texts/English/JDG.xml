@@ -28,7 +28,9 @@
     <text>«Come up with me into my lot, that we may fight against the Canaanites; and I likewise will go with you into your lot.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-JDG">
-    <text>So Simeon went with him. </text>
+    <text>So Simeon went with him.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
     <text>Judah went up; and God delivered the Canaanites and the Perizzites into their hand: and they struck of them in Bezek ten thousand men.</text>
   </block>
@@ -46,7 +48,9 @@
     <text>«Seventy kings, having their thumbs and their great toes cut off, gathered [their food] under my table: as I have done, so God has requited me.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JDG">
-    <text>They brought him to Jerusalem, and he died there. </text>
+    <text>They brought him to Jerusalem, and he died there.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
     <text>The children of Judah fought against Jerusalem, and took it, and struck it with the edge of the sword, and set the city on fire.</text>
   </block>
@@ -181,7 +185,9 @@
     <text>The angel of God came up from Gilgal to Bochim. He said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="angel of the LORD, the">
-    <text>«I made you to go up out of Egypt, and have brought you to the land which I swore to your fathers; and I said, 'I will never break my covenant with you: </text>
+    <text>«I made you to go up out of Egypt, and have brought you to the land which I swore to your fathers; and I said, 'I will never break my covenant with you:</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="2" characterId="angel of the LORD, the">
     <verse num="2" />
     <text>and you shall make no covenant with the inhabitants of this land; you shall break down their altars.' But you have not listened to my voice: why have you done this?</text>
   </block>
@@ -553,121 +559,121 @@
     <verse num="1" />
     <text>Then Deborah and Barak the son of Abinoam sang on that day, saying,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="2" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="2" />
     <text>Because the leaders took the lead in Israel, because the people offered themselves willingly, be blessed, God!</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="3" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="3" />
     <text>Hear, you kings! Give ear, you princes! I, [even] I, will sing to God. I will sing praise to God, the God of Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="4" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="4" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="4" />
     <text>God, when you went forth out of Seir, when you marched out of the field of Edom, the earth trembled, the sky also dropped. Yes, the clouds dropped water.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="5" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="5" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="5" />
     <text>The mountains quaked at the presence of God, even Sinai, at the presence of God, the God of Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="6" />
     <text>In the days of Shamgar the son of Anath, in the days of Jael, the highways were unoccupied. The travelers walked through byways.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="7" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="7" />
     <text>The rulers ceased in Israel. They ceased until I, Deborah, arose; Until I arose a mother in Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="8" />
     <text>They chose new gods. Then war was in the gates. Was there a shield or spear seen among forty thousand in Israel?</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="9" />
     <text>My heart is toward the governors of Israel, who offered themselves willingly among the people. Bless God!</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="10" />
     <text>Tell [of it], you who ride on white donkeys, you who sit on rich carpets, and you who walk by the way.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="11" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="11" />
     <text>Far from the noise of archers, in the places of drawing water, there they will rehearse the righteous acts of God, [Even] the righteous acts of his rule in Israel. Then the people of God went down to the gates.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="12" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="12" />
     <text>'Awake, awake, Deborah! Awake, awake, utter a song! Arise, Barak, and lead away your captives, you son of Abinoam.'</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="13" />
     <text>Then a remnant of the nobles [and] the people came down. God came down for me against the mighty.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="14" />
     <text>Those whose root is in Amalek came out of Ephraim, after you, Benjamin, among your peoples. Governors come down out of Machir. Those who handle the marshal's staff came out of Zebulun.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="15" />
     <text>The princes of Issachar were with Deborah. As was Issachar, so was Barak. They rushed into the valley at his feet. By the watercourses of Reuben, there were great resolves of heart.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="16" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="16" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="16" />
     <text>Why did you sit among the sheepfolds, To hear the whistling for the flocks? At the watercourses of Reuben There were great searchings of heart.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="17" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="17" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="17" />
     <text>Gilead lived beyond the Jordan. Why did Dan remain in ships? Asher sat still at the haven of the sea, and lived by his creeks.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="18" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="18" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="18" />
     <text>Zebulun was a people that jeopardized their lives to the deaths; Naphtali also, on the high places of the field.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="19" />
     <text>The kings came and fought, then the kings of Canaan fought at Taanach by the waters of Megiddo. They took no plunder of silver.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="20" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="20" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="20" />
     <text>From the sky the stars fought. From their courses, they fought against Sisera.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="21" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="21" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="21" />
     <text>The river Kishon swept them away, that ancient river, the river Kishon. My soul, march on with strength.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="22" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="22" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="22" />
     <text>Then the horse hoofs stamped because of the prancings, the prancings of their strong ones.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="23" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="23" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="23" />
     <text>Curse Meroz,' said the angel of God. 'Curse bitterly its inhabitants, because they didn't come to help God, to help God against the mighty.'</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="24" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="24" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="24" />
     <text>Jael shall be blessed above women, the wife of Heber the Kenite; blessed shall she be above women in the tent.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="25" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="25" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="25" />
     <text>He asked for water. She gave him milk. She brought him butter in a lordly dish.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="26" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="26" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="26" />
     <text>She put her hand to the tent peg, and her right hand to the workmen's hammer. With the hammer she struck Sisera. She struck through his head. Yes, she pierced and struck through his temples.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="27" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="27" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="27" />
     <text>At her feet he bowed, he fell, he lay. At her feet he bowed, he fell. Where he bowed, there he fell down dead.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="28" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="28" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="28" />
     <text>Through the window she looked out, and cried: Sisera's mother looked through the lattice. 'Why is his chariot so long in coming? Why do the wheels of his chariots wait?'</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="29" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="29" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="29" />
     <text>Her wise ladies answered her, Yes, she returned answer to herself, </text>
     <verse num="30" />
     <text>'Have they not found, have they not divided the spoil? A lady, two ladies to every man; to Sisera a spoil of dyed garments, a spoil of dyed garments embroidered, of dyed garments embroidered on both sides, on the necks of the spoil?'</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="31" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah">
+  <block style="p" chapter="5" initialStartVerse="31" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
     <verse num="31" />
     <text>So let all your enemies perish, God, but let those who love him be as the sun when it rises forth in its strength.</text>
   </block>
@@ -771,7 +777,7 @@
   <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-JDG">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="18" characterId="God">
+  <block style="p" chapter="6" initialStartVerse="18" characterId="angel of the LORD, the">
     <text>«I will wait until you come back.»</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-JDG">
@@ -1444,7 +1450,10 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="47" characterId="narrator-JDG">
     <verse num="47" />
-    <text>It was told Abimelech that all the men of the tower of Shechem were gathered together.</text>
+    <text>It was told Abimelech that</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="47" characterId="messenger to Abimelech">
+    <text>all the men of the tower of Shechem were gathered together.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="48" characterId="narrator-JDG">
     <verse num="48" />
@@ -1652,7 +1661,7 @@
     <verse num="13" />
     <text>The king of the children of Ammon answered to the messengers of Jephthah,</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="13" characterId="king of Ammonites">
+  <block style="p" chapter="11" initialStartVerse="13" characterId="king of the Ammonites">
     <text>«Because Israel took away my land, when he came up out of Egypt, from the Arnon even to the Jabbok, and to the Jordan: now therefore restore those [lands] again peaceably.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="14" characterId="narrator-JDG">
@@ -1831,7 +1840,13 @@
     <text>«Now say Shibboleth;»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-JDG">
-    <text>and he said Sibboleth; for he couldn't manage to pronounce it right: then they laid hold of him, and killed him at the fords of the Jordan. At that time, forty-two thousand of Ephraim fell.</text>
+    <text>and he said</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="6" characterId="Ephraimites">
+    <text>Sibboleth;</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-JDG">
+    <text>for he couldn't manage to pronounce it right: then they laid hold of him, and killed him at the fords of the Jordan. At that time, forty-two thousand of Ephraim fell.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-JDG">
     <verse num="7" />
@@ -2505,7 +2520,7 @@
     <verse num="2" />
     <text>He said to his mother,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="2" characterId="Micah">
+  <block style="p" chapter="17" initialStartVerse="2" characterId="Micah of Ephraim">
     <text>«The eleven hundred [pieces] of silver that were taken from you, about which you uttered a curse, and also spoke it in my ears, behold, the silver is with me; I took it.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="narrator-JDG">
@@ -2543,7 +2558,7 @@
     <verse num="9" />
     <text>Micah said to him,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="9" characterId="Micah">
+  <block style="p" chapter="17" initialStartVerse="9" characterId="Micah of Ephraim">
     <text>«Where did you come from?»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="9" characterId="narrator-JDG">
@@ -2556,7 +2571,7 @@
     <verse num="10" />
     <text>Micah said to him,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="10" characterId="Micah">
+  <block style="p" chapter="17" initialStartVerse="10" characterId="Micah of Ephraim">
     <text>«Dwell with me, and be to me a father and a priest, and I will give you ten [pieces] of silver per year, a suit of clothing, and your food.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="10" characterId="narrator-JDG">
@@ -2570,7 +2585,7 @@
     <verse num="13" />
     <text>Then Micah said,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="13" characterId="Micah">
+  <block style="p" chapter="17" initialStartVerse="13" characterId="Micah of Ephraim">
     <text>«Now know I that God will do good to me, since I have a Levite to my priest.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="JDG" initialStartVerse="0" characterId="BC-JDG">
@@ -2708,7 +2723,7 @@
     <verse num="24" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="24" characterId="Micah">
+  <block style="p" chapter="18" initialStartVerse="24" characterId="Micah of Ephraim">
     <text>«You have taken away my gods which I made, and the priest, and have gone away, and what more do I have? How then do you say to me, What ails you?»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="narrator-JDG">
