@@ -24,7 +24,7 @@ Adam	1	Male	Adult			GEN 2:23 <-(1 more)-> GEN 3:12
 Adoni-Bezek	1	Male	Adult			JDG 1:7
 Adonijah, son of David	1	Male	Adult			1KI 1:5 <-(5 more)-> 1KI 2:17
 Adoni-Zedek, king of Jerusalem	1	Male	Adult			JOS 10:4
-advisers to king	-1	Male	Adult			DAN 3:24
+advisers to king	-1	Male	Adult			DAN 3:24	Chaldean
 Agabus the prophet	1	Male	Adult			ACT 11:28 & ACT 21:11
 Agag, king of the Amalekites	1	Male	Adult			1SA 15:32
 Agur	1	Male	Adult			PRO 30:1 & PRO 30:2
@@ -438,7 +438,7 @@ house of Aaron, the	-1	Male				PSA 118:3
 Huldah, prophetess	1	Female				2KI 22:15 <-(10 more)-> 2CH 34:28
 husband accusing wife	1		Adult			DEU 22:14
 husband of excellent wife	-1		Adult			PRO 31:29
-husband of Shunammite	1	Male				2KI 4:19 & 2KI 4:23
+husband of Shunammite	1	Male				2KI 4:19 & 2KI 4:23	Father
 Hushai, David's friend	1	Male				2SA 16:16 <-(10 more)-> 2SA 17:16
 hymn, early creedal	1	PreferMale				1TI 3:16
 idolaters from Judah (men)	-1	Male				JER 44:16 <-(2 more)-> JER 44:25
@@ -694,7 +694,7 @@ message from Tamar, daughter-in-law of Judah	1	PreferFemale				GEN 38:25
 message to Saul	1	Male				1SA 19:19
 messenger	-1					2CH 18:12 <-(10 more)-> JER 27:11
 messenger from battle to David	1	Male				2SA 11:23 & 2SA 11:24
-messenger from guardians of Ahab's children	1	Male				2KI 10:8
+messenger from guardians of Ahab's children	1	Male				2KI 10:8	Messenger
 messenger of Ahab, king of Israel	1	Male				1KI 22:13
 messenger to Abimelech	1	Male				JDG 9:47
 messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22
@@ -951,7 +951,7 @@ Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37
 Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29	Reubenite
 Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15
 rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21
-royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5
+royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5	Scribe
 rumbling sound	1	Male				EZK 3:12	Angel
 rule given by Paul	1	Male				2TH 3:10
 rules of the world	1					COL 2:21
@@ -1083,7 +1083,7 @@ someone in Jerusalem	1					ISA 22:13
 son (child) in Israel (hypothetical)	1	Male	Child			DEU 6:20
 son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21
 son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11 & LEV 24:23
-son of Shunammite	1	Male	Child			2KI 4:19
+son of Shunammite	1	Male	Child			2KI 4:19	Boy
 son of widow	1	Male				2KI 4:6
 song about the prostitute	1	Either				ISA 23:16
 song of the prostitute	1	Female				ISA 23:16
@@ -1185,7 +1185,7 @@ women of Bethlehem	-1	Female				RUT 1:19 <-(2 more)-> RUT 4:17
 women who oppress the poor ("cows of Bashan")	-1	Female				AMO 4:1	Woman of Bashan (female)
 women, dancing	-1	Female				1SA 18:7
 women, remnant of the king of Judah's house	7	Female				JER 38:22
-women, seven	7	Female				ISA 4:1
+women, seven	7	Female				ISA 4:1	Daughter of Zion (female)
 worshipers	-1	Male				PSA 122:1
 worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12

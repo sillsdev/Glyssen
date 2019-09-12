@@ -1150,6 +1150,7 @@ namespace Glyssen.RefTextDevUtilities
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
 				case "Watchman": return glyssenCharacterId == "lookout";
+				case "Prophet": return glyssenCharacterId == "false prophet";
 				case "Soldier":
 					return glyssenCharacterId.IndexOf("soldier", StringComparison.OrdinalIgnoreCase) >= 0 ||
 						glyssenCharacterId.IndexOf("men", StringComparison.OrdinalIgnoreCase) >= 0 ||
