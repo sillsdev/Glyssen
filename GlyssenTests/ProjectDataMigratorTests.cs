@@ -952,6 +952,44 @@ namespace GlyssenTests
 			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
 		}
 
+		/// <summary>
+		/// This test is mainly designed to verify that the migrator doesn't clear all the explicitly set Character IDs
+		/// for a reference text in "narrator" blocks. We don't want to require the the C-V control file to have a
+		/// "Potential" quote for all the places where we really wouldn't expect there to be explicit quotes in the text.
+		/// </summary>
+		[Test]
+		public void MigrateDeprecatedCharacterIds_BlocksExplicitlyAssignedToNarratorOverrideCharacter_CharacterIdNotChanged()
+		{
+			const string kObadiahTheProphet = "Obadiah, prophet";
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var bookScript = testProject.IncludedBooks.Single();
+			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
+			Assert.AreEqual(1, overrideOba.StartChapter, "Test setup conditions not met!");
+			Assert.AreEqual(1, overrideOba.EndChapter, "Test setup conditions not met!");
+			Assert.AreEqual(kObadiahTheProphet, overrideOba.Character, "Test setup conditions not met!");
+			Assert.IsTrue(overrideOba.StartVerse <= 19, "Test setup conditions not met!");
+			Assert.IsTrue(overrideOba.EndVerse == 21, "Test setup conditions not met!");
+
+			var explicitObadiahBlocks = new HashSet<Block>();
+			for (int i = 19; i < 21; i++)
+			{
+				foreach (var block in bookScript.GetBlocksForVerse(1, i))
+				{
+					block.CharacterId = kObadiahTheProphet;
+					explicitObadiahBlocks.Add(block);
+				}
+			}
+			Assert.IsTrue(explicitObadiahBlocks.Any(), "Test setup conditions not met!");
+
+			//SUT
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			foreach (var block in explicitObadiahBlocks)
+				Assert.AreEqual(kObadiahTheProphet, block.CharacterId);
+		}
+
 		[Test]
 		public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasNoExplicitDefault_FirstCharacterIsUsed()
 		{
@@ -975,7 +1013,7 @@ namespace GlyssenTests
 			Assert.IsTrue(demonSpeakingInMrk59.UserConfirmed);
 		}
 
-		// The only place in the NT where this is likely to have occurred wwas John 11:34, but we don't have John test data, and it didn't seem worth it.
+		// The only place in the NT where this is likely to have occurred was John 11:34, but we don't have John test data, and it didn't seem worth it.
 		//[Test]
 		//public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasExplicitDefault_ExplicitDefaultCharacterIsUsed()
 		//{

@@ -266,7 +266,11 @@ namespace Glyssen
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
 									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
 								else
+								{
+									if (NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, project.Versification).Any(c => c == block.CharacterId))
+										continue;
 									block.SetCharacterAndDelivery(characters);
+								}
 								numberOfChangesMade++;
 							}
 						}
