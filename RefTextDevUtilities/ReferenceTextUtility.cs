@@ -953,7 +953,15 @@ namespace Glyssen.RefTextDevUtilities
 						goto case 0;
 					if (characterIdToUse != character.Character)
 					{
-						block.CharacterIdOverrideForScript = characterIdToUse;
+						// EXPLANATION OF WHEN TO SET CharacterIdOverrideForScript
+						// We want to set the default explicitly only if it would not get set correctly based on current
+						// program logic and the current value in the C-V control file. This avoids hard-wiring into
+						// the reference text something that we might want to change later in the control file. But it
+						// also means that there could be a later change to the control file that inadvertently causes
+						// Glyssen to produce results that are out of step with the director's guide. In general, these
+						// two things should be kept in sync, but there are a few places where they currently are not.
+						if (character.DefaultCharacter != characterIdToUse || !character.Character.Contains(characterIdToUse))
+							block.CharacterIdOverrideForScript = characterIdToUse;
 						return character.Character;
 					}
 					return characterIdToUse;
@@ -970,15 +978,19 @@ namespace Glyssen.RefTextDevUtilities
 				default:
 					if (characters.Any(c => c.Character == CharacterVerseData.kNeedsReview) && ForceRefTextToNeedsReview(fcbhCharacterLabel, bookId, block.ChapterNumber, block.InitialStartVerseNumber))
 						return CharacterVerseData.kNeedsReview;
-					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, string>(c.ResolvedDefaultCharacter, c.Character)).ToList();
+					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, CharacterVerse>(c.ResolvedDefaultCharacter, c)).ToList();
 					try
 					{
 						var single = defaultCharactersAndFullCharacterIds.SingleOrDefault(c => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, c.Item1) == MatchLikelihood.Reliable);
 						if (single != null)
 						{
-							if (single.Item2 != single.Item1)
+							// See above "EXPLANATION OF WHEN TO SET CharacterIdOverrideForScript"
+							if (single.Item2.Character != single.Item1 &&
+								(single.Item2.DefaultCharacter != single.Item1 || !single.Item2.Character.Contains(single.Item1)))
+							{
 								block.CharacterIdOverrideForScript = single.Item1;
-							return single.Item2;
+							}
+							return single.Item2.Character;
 						}
 
 						overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
@@ -990,9 +1002,9 @@ namespace Glyssen.RefTextDevUtilities
 						// There were multiple - probably multiple deliveries
 					}
 
-					var altMatch = defaultCharactersAndFullCharacterIds.Where(t => t.Item1 != t.Item2).Select(c =>
-						new Tuple<string, string>(c.Item2.SplitCharacterId().Skip(1).FirstOrDefault(alt =>
-						alt.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)), c.Item2)).FirstOrDefault();
+					var altMatch = defaultCharactersAndFullCharacterIds.Where(t => t.Item1 != t.Item2.Character).Select(c =>
+						new Tuple<string, string>(c.Item2.Character.SplitCharacterId().Skip(1).FirstOrDefault(alt =>
+						alt.Equals(fcbhCharacterLabel, StringComparison.OrdinalIgnoreCase)), c.Item2.Character)).FirstOrDefault();
 					if (altMatch?.Item1 != null)
 					{
 						s_characterIdsMatchedByControlFile.Add(new Tuple<string, string, BCVRef, string>(fcbhCharacterLabel, altMatch.Item1, bcvRef, altMatch.Item2));
@@ -1022,7 +1034,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static string GetMatchingNarratorOverride(int bookNum, Block block, string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber)
 		{
- 			return NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
+			return NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
 				.FirstOrDefault(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
 		}
 
@@ -1065,6 +1077,8 @@ namespace Glyssen.RefTextDevUtilities
 				s_matchWithoutParentheses.Match(characterIdToUseToLower).Value == s_matchWithoutParentheses.Match(fcbhCharacterToLower).Value ||
 				characterIdToUseToLower.Replace("the ", string.Empty) == fcbhCharacterToLower)
 			{
+				if (fcbhCharacterToLower == "man")
+					return MatchLikelihood.Possible;
 				return MatchLikelihood.Reliable;
 			}
 

@@ -261,14 +261,14 @@
     <verse num="23" />
     <text>He said to them,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="Eli (very old)">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="Eli">
     <text>«Why do you do such things? for I hear of your evil dealings from all this people.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="24" characterId="Eli (very old)">
+  <block style="p" chapter="2" initialStartVerse="24" characterId="Eli">
     <verse num="24" />
     <text>No, my sons; for it is no good report that I hear: you make God's people disobey.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="25" characterId="Eli (very old)">
+  <block style="p" chapter="2" initialStartVerse="25" characterId="Eli">
     <verse num="25" />
     <text>If one man sin against another, God shall judge him; but if a man sin against God, who shall entreat for him?»</text>
   </block>
@@ -331,7 +331,9 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
-    <text>It happened at that time, when Eli was laid down in his place (now his eyes had begun to grow dim, so that he could not see), </text>
+    <text>It happened at that time, when Eli was laid down in his place (now his eyes had begun to grow dim, so that he could not see),</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
     <text>and the lamp of God hadn't yet gone out, and Samuel had laid down [to sleep], in the temple of God, where the ark of God was;</text>
   </block>
@@ -352,7 +354,7 @@
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-1SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="Eli (very old)">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="Eli">
     <text>«I didn't call; lie down again.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-1SA">
@@ -372,7 +374,7 @@
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-1SA">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="Eli (very old)">
+  <block style="p" chapter="3" initialStartVerse="6" characterId="Eli">
     <text>«I didn't call, my son; lie down again.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-1SA">
@@ -391,7 +393,7 @@
     <verse num="9" />
     <text>Therefore Eli said to Samuel,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="Eli (very old)">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="Eli">
     <text>«Go, lie down: and it shall be, if he calls you, that you shall say, 'Speak, God; for your servant hears.'»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-1SA">
@@ -433,7 +435,7 @@
     <verse num="16" />
     <text>Then Eli called Samuel, and said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="16" characterId="Eli (very old)">
+  <block style="p" chapter="3" initialStartVerse="16" characterId="Eli">
     <text>«Samuel, my son!»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-1SA">
@@ -446,14 +448,14 @@
     <verse num="17" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="17" characterId="Eli (very old)">
+  <block style="p" chapter="3" initialStartVerse="17" characterId="Eli">
     <text>«What is the thing that [God] has spoken to you? Please don't hide it from me. God do so to you, and more also, if you hide anything from me of all the things that he spoke to you.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-1SA">
     <verse num="18" />
     <text>Samuel told him every bit, and hid nothing from him. He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="Eli (very old)">
+  <block style="p" chapter="3" initialStartVerse="18" characterId="Eli">
     <text>«It is God. Let him do what seems good to him.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-1SA">
@@ -541,7 +543,7 @@
     <verse num="14" />
     <text>When Eli heard the noise of the crying, he said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Eli (very old)">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="Eli">
     <text>«What does the noise of this tumult mean?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-1SA">
@@ -557,7 +559,7 @@
   <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-1SA">
     <text>He said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="Eli (very old)">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="Eli">
     <text>«How did the matter go, my son?»</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-1SA">
@@ -636,7 +638,7 @@
     <verse num="8" />
     <text>They sent therefore and gathered all the lords of the Philistines to them, and said,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="men of Ashdod">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="Philistine rulers">
     <text>«What shall we do with the ark of the God of Israel?»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-1SA">
@@ -1040,7 +1042,7 @@
     <verse num="11" />
     <text>As they went up the ascent to the city, they found young maidens going out to draw water, and said to them,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="Saul/Saul's servant" characterIdOverrideForScript="Saul">
+  <block style="p" chapter="9" initialStartVerse="11" characterId="Saul/Saul's servant">
     <text>«Is the seer here?»</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-1SA">
@@ -1329,7 +1331,9 @@
     <text>«What ails the people that they weep?»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="5" characterId="narrator-1SA">
-    <text>They told him the words of the men of Jabesh. </text>
+    <text>They told him the words of the men of Jabesh.</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
     <text>The Spirit of God came mightily on Saul when he heard those words, and his anger was kindled greatly.</text>
   </block>
@@ -1349,7 +1353,7 @@
     <verse num="9" />
     <text>They said to the messengers who came,</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="9" characterId="Saul/Israel, men of" characterIdOverrideForScript="Saul">
+  <block style="p" chapter="11" initialStartVerse="9" characterId="Saul/Israel, men of">
     <text>«Thus you shall tell the men of Jabesh Gilead, 'Tomorrow, by the time the sun is hot, you shall have deliverance.'»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="9" characterId="narrator-1SA">
@@ -1517,7 +1521,9 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="1" characterId="narrator-1SA">
     <verse num="1" />
-    <text>Saul was [forty] years old when he began to reign; and when he had reigned two years over Israel, </text>
+    <text>Saul was [forty] years old when he began to reign; and when he had reigned two years over Israel,</text>
+  </block>
+  <block style="p" chapter="13" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
     <text>Saul chose him three thousand men of Israel, of which two thousand were with Saul in Michmash and in the Mount of Bethel, and one thousand were with Jonathan in Gibeah of Benjamin: and the rest of the people he sent every man to his tent.</text>
   </block>
@@ -1773,10 +1779,9 @@
     <text>Then one of the people answered, and said,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="Israelite soldier in Saul's army">
-    <text>«Your father directly commanded the people with an oath, saying, 'Cursed is the man who eats food this day.'»</text>
+    <text>«Your father directly commanded the people with an oath, saying, 'Cursed is the man who eats food this day.'» The people were faint.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="28" characterId="narrator-1SA">
-    <text>The people were faint. </text>
+  <block style="p" chapter="14" initialStartVerse="29" characterId="narrator-1SA">
     <verse num="29" />
     <text>Then Jonathan said,</text>
   </block>
@@ -1916,7 +1921,9 @@
     <text>«Shall Jonathan die, who has worked this great salvation in Israel? Far from it! As God lives, there shall not one hair of his head fall to the ground; for he has worked with God this day!»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="45" characterId="narrator-1SA">
-    <text>So the people rescued Jonathan, that he didn't die. </text>
+    <text>So the people rescued Jonathan, that he didn't die.</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="46" characterId="narrator-1SA">
     <verse num="46" />
     <text>Then Saul went up from following the Philistines; and the Philistines went to their own place.</text>
   </block>
@@ -1976,7 +1983,9 @@
     <text>«Go, depart, go down from among the Amalekites, lest I destroy you with them; for you showed kindness to all the children of Israel, when they came up out of Egypt.»</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="6" characterId="narrator-1SA">
-    <text>So the Kenites departed from among the Amalekites. </text>
+    <text>So the Kenites departed from among the Amalekites.</text>
+  </block>
+  <block style="p" chapter="15" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
     <text>Saul struck the Amalekites, from Havilah as you go to Shur, that is before Egypt.</text>
   </block>
@@ -2284,7 +2293,7 @@
     <verse num="19" />
     <text>Therefore Saul sent messengers to Jesse, and said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="19" characterId="Saul's messengers to Jesse">
+  <block style="p" chapter="16" initialStartVerse="19" characterId="Saul">
     <text>«Send me David your son, who is with the sheep.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="narrator-1SA">
@@ -2299,7 +2308,7 @@
     <verse num="22" />
     <text>Saul sent to Jesse, saying,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="22" characterId="Saul's messengers to Jesse">
+  <block style="p" chapter="16" initialStartVerse="22" characterId="Saul">
     <text>«Please let David stand before me; for he has found favor in my sight.»</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="23" characterId="narrator-1SA">
@@ -3261,7 +3270,9 @@
     <text>Saul said to his servants who stood about him,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="7" characterId="Saul">
-    <text>«Hear now, you Benjamites! Will the son of Jesse give everyone of you fields and vineyards, will he make you all captains of thousands and captains of hundreds, </text>
+    <text>«Hear now, you Benjamites! Will the son of Jesse give everyone of you fields and vineyards, will he make you all captains of thousands and captains of hundreds,</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="8" characterId="Saul">
     <verse num="8" />
     <text>that all of you have conspired against me, and there is none who discloses to me when my son makes a treaty with the son of Jesse, and there is none of you who is sorry for me, or discloses to me that my son has stirred up my servant against me, to lie in wait, as at this day?»</text>
   </block>
@@ -3402,7 +3413,13 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
-    <text>It was told Saul that David had come to Keilah. Saul said,</text>
+    <text>It was told Saul that</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="7" characterId="messenger to Saul">
+    <text>David had come to Keilah.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="7" characterId="narrator-1SA">
+    <text>Saul said,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="7" characterId="Saul">
     <text>«God has delivered him into my hand; for he is shut in, by entering into a town that has gates and bars.»</text>
@@ -3861,7 +3878,9 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>Saul encamped in the hill of Hachilah, which is before the desert, by the way. But David stayed in the wilderness, and he saw that Saul came after him into the wilderness. </text>
+    <text>Saul encamped in the hill of Hachilah, which is before the desert, by the way. But David stayed in the wilderness, and he saw that Saul came after him into the wilderness.</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
     <text>David therefore sent out spies, and understood that Saul had certainly come.</text>
   </block>
@@ -4325,7 +4344,9 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="1" characterId="narrator-1SA">
     <verse num="1" />
-    <text>It happened, when David and his men were come to Ziklag on the third day, that the Amalekites had made a raid on the South, and on Ziklag, and had struck Ziklag, and burned it with fire, </text>
+    <text>It happened, when David and his men were come to Ziklag on the third day, that the Amalekites had made a raid on the South, and on Ziklag, and had struck Ziklag, and burned it with fire,</text>
+  </block>
+  <block style="p" chapter="30" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
     <text>and had taken captive the women and all who were therein, both small and great. They didn't kill any, but carried them off, and went their way.</text>
   </block>

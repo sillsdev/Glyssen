@@ -4984,7 +4984,8 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	9	6	servant of Saul			Normal		
 1SA	9	7	Saul			Normal		
 1SA	9	8	servant of Saul			Normal		
-1SA	9	9	saying about seer			Quotation		
+1SA	9	9	saying about seer			Hypothetical		
+1SA	9	9	narrator-1SA			Quotation		
 1SA	9	10	Saul			Normal		
 1SA	9	11	Saul/Saul's servant			Normal	Saul	
 1SA	9	12	young women (maidens)			Normal		
@@ -5146,8 +5147,10 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	16	18	Saul's servant			Normal		
 1SA	16	19	Saul's messengers to Jesse			Normal		
 1SA	16	19	Saul		Saul (via messenger)	Quotation		
+1SA	16	19	Needs Review			Normal		
 1SA	16	22	Saul's messengers to Jesse			Normal		
 1SA	16	22	Saul		Saul (via messenger)	Quotation		
+1SA	16	22	Needs Review			Normal		
 1SA	17	8	Goliath, Philistine champion			Normal		
 1SA	17	9	Goliath, Philistine champion			Normal		
 1SA	17	10	Goliath, Philistine champion			Normal		
@@ -9400,7 +9403,7 @@ ISA	28	17	God		God (the LORD)	Normal
 ISA	28	18	God		God (the LORD)	Potential		
 ISA	28	19	God		God (the LORD)	Potential		
 ISA	28	20	God		God (the LORD)	Potential		
-ISA	28	20	saying about  short bed and narrow blanket	ironic		Hypothetical		
+ISA	28	20	saying about short bed and narrow blanket	ironic		Hypothetical		
 ISA	28	20	Needs Review			Potential		
 ISA	29	1	God		God (the LORD)	Implicit		
 ISA	29	2	God		God (the LORD)	Implicit		
