@@ -39,7 +39,9 @@
     <text>«Why have you done so?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-1KI">
-    <text>and he was also a very handsome man; and he was born after Absalom. </text>
+    <text>and he was also a very handsome man; and he was born after Absalom.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
     <text>He conferred with Joab the son of Zeruiah, and with Abiathar the priest: and they following Adonijah helped him.</text>
   </block>
@@ -285,7 +287,9 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="David (old)" delivery="very old">
     <verse num="2" />
-    <text>I am going the way of all the earth. You be strong therefore, and show yourself a man; </text>
+    <text>I am going the way of all the earth. You be strong therefore, and show yourself a man;</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="3" characterId="David (old)" delivery="very old">
     <verse num="3" />
     <text>and keep the instruction of God your God, to walk in his ways, to keep his statutes, his commandments, his ordinances, and his testimonies, according to that which is written in the law of Moses, that you may prosper in all that you do, and wherever you turn yourself.</text>
   </block>
@@ -851,7 +855,9 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>Hiram king of Tyre sent his servants to Solomon; for he had heard that they had anointed him king in the place of his father: for Hiram was ever a lover of David. </text>
+    <text>Hiram king of Tyre sent his servants to Solomon; for he had heard that they had anointed him king in the place of his father: for Hiram was ever a lover of David.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
     <text>Solomon sent to Hiram, saying,</text>
   </block>
@@ -1554,7 +1560,9 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>It happened, when Solomon had finished the building of the house of God, and the king's house, and all Solomon's desire which he was pleased to do, </text>
+    <text>It happened, when Solomon had finished the building of the house of God, and the king's house, and all Solomon's desire which he was pleased to do,</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
     <text>that God appeared to Solomon the second time, as he had appeared to him at Gibeon. </text>
     <verse num="3" />
@@ -1678,7 +1686,9 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
-    <text>When the queen of Sheba had seen all the wisdom of Solomon, and the house that he had built, </text>
+    <text>When the queen of Sheba had seen all the wisdom of Solomon, and the house that he had built,</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="5" characterId="narrator-1KI">
     <verse num="5" />
     <text>and the food of his table, and the sitting of his servants, and the attendance of his ministers, and their clothing, and his cup bearers, and his ascent by which he went up to the house of God; there was no more spirit in her. </text>
     <verse num="6" />
@@ -1792,7 +1802,9 @@
     <text>«You shall not go among them, neither shall they come among you; for surely they will turn away your heart after their gods.»</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-1KI">
-    <text>Solomon joined to these in love. </text>
+    <text>Solomon joined to these in love.</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-1KI">
     <verse num="3" />
     <text>He had seven hundred wives, princesses, and three hundred concubines; and his wives turned away his heart.</text>
   </block>
@@ -1917,38 +1929,38 @@
     <verse num="31" />
     <text>He said to Jeroboam,</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="31" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="31" characterId="Ahijah the prophet">
     <text>«Take ten pieces; for thus says God, the God of Israel, 'Behold, I will tear the kingdom out of the hand of Solomon, and will give ten tribes to you</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="32" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="32" characterId="Ahijah the prophet">
     <verse num="32" />
     <text>(but he shall have one tribe, for my servant David's sake and for Jerusalem's sake, the city which I have chosen out of all the tribes of Israel);</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="33" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="33" characterId="Ahijah the prophet">
     <verse num="33" />
     <text>because that they have forsaken me, and have worshiped Ashtoreth the goddess of the Sidonians, Chemosh the god of Moab, and Milcom the god of the children of Ammon. They have not walked in my ways, to do that which is right in my eyes, and [to keep] my statutes and my ordinances, as David his father did.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="34" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="34" characterId="Ahijah the prophet">
     <verse num="34" />
     <text>However I will not take the whole kingdom out of his hand; but I will make him prince all the days of his life, for David my servant's sake whom I chose, who kept my commandments and my statutes;</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="35" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="35" characterId="Ahijah the prophet">
     <verse num="35" />
     <text>but I will take the kingdom out of his son's hand, and will give it to you, even ten tribes.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="36" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="36" characterId="Ahijah the prophet">
     <verse num="36" />
     <text>To his son will I give one tribe, that David my servant may have a lamp always before me in Jerusalem, the city which I have chosen me to put my name there.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="37" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="37" characterId="Ahijah the prophet">
     <verse num="37" />
     <text>I will take you, and you shall reign according to all that your soul desires, and shall be king over Israel.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="38" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="38" characterId="Ahijah the prophet">
     <verse num="38" />
     <text>It shall be, if you will listen to all that I command you, and will walk in my ways, and do that which is right in my eyes, to keep my statutes and my commandments, as David my servant did; that I will be with you, and will build you a sure house, as I built for David, and will give Israel to you.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="39" characterId="Ahijah the prophet" delivery="word of the LORD">
+  <block style="p" chapter="11" initialStartVerse="39" characterId="Ahijah the prophet">
     <verse num="39" />
     <text>I will for this afflict the seed of David, but not forever.'</text>
   </block>
@@ -1977,11 +1989,17 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
-    <text>It happened, when Jeroboam the son of Nebat heard of it (for he was yet in Egypt, where he had fled from the presence of king Solomon, and Jeroboam lived in Egypt, </text>
+    <text>It happened, when Jeroboam the son of Nebat heard of it (for he was yet in Egypt, where he had fled from the presence of king Solomon, and Jeroboam lived in Egypt,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-1KI">
     <verse num="3" />
-    <text>and they sent and called him), that Jeroboam and all the assembly of Israel came, and spoke to Rehoboam, saying, </text>
+    <text>and they sent and called him), that Jeroboam and all the assembly of Israel came, and spoke to Rehoboam, saying,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="4" characterId="Jeroboam/Israel, all">
     <verse num="4" />
-    <text>Your father made our yoke grievous: now therefore make you the grievous service of your father, and his heavy yoke which he put on us, lighter, and we will serve you. </text>
+    <text>Your father made our yoke grievous: now therefore make you the grievous service of your father, and his heavy yoke which he put on us, lighter, and we will serve you.</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-1KI">
     <verse num="5" />
     <text>He said to them,</text>
   </block>
@@ -2000,7 +2018,7 @@
     <verse num="7" />
     <text>They spoke to him, saying,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="7" characterId="elders">
+  <block style="p" chapter="12" initialStartVerse="7" characterId="elders in Shechem">
     <text>«If you will be a servant to this people this day, and will serve them, and answer them, and speak good words to them, then they will be your servants forever.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="8" characterId="narrator-1KI">
@@ -2047,7 +2065,7 @@
     <verse num="16" />
     <text>When all Israel saw that the king didn't listen to them, the people answered the king, saying,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="16" characterId="Israel, all">
+  <block style="p" chapter="12" initialStartVerse="16" characterId="Jeroboam">
     <text>«What portion have we in David? Neither do we have an inheritance in the son of Jesse. To your tents, Israel! Now see to your own house, David.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="16" characterId="narrator-1KI">
@@ -2127,7 +2145,7 @@
     <verse num="2" />
     <text>He cried against the altar by the word of God, and said,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="2" characterId="man of God from Judah" delivery="word of the LORD">
+  <block style="p" chapter="13" initialStartVerse="2" characterId="man of God from Judah">
     <text>«Altar, altar, thus says God: 'Behold, a son shall be born to the house of David, Josiah by name. On you he shall sacrifice the priests of the high places who burn incense on you, and they will burn men's bones on you.'»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-1KI">
@@ -2185,7 +2203,7 @@
     <verse num="12" />
     <text>Their father said to them,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="12" characterId="prophet in Bethel">
+  <block style="p" chapter="13" initialStartVerse="12" characterId="old prophet in Bethel">
     <text>«Which way did he go?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-1KI">
@@ -2193,7 +2211,7 @@
     <verse num="13" />
     <text>He said to his sons,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="13" characterId="prophet in Bethel">
+  <block style="p" chapter="13" initialStartVerse="13" characterId="old prophet in Bethel">
     <text>«Saddle the donkey for me.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-1KI">
@@ -2201,7 +2219,7 @@
     <verse num="14" />
     <text>He went after the man of God, and found him sitting under an oak. He said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="prophet in Bethel" delivery="deceitful">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="old prophet in Bethel" delivery="deceitful">
     <text>«Are you the man of God who came from Judah?»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-1KI">
@@ -2214,7 +2232,7 @@
     <verse num="15" />
     <text>Then he said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="15" characterId="prophet in Bethel" delivery="deceitful">
+  <block style="p" chapter="13" initialStartVerse="15" characterId="old prophet in Bethel" delivery="deceitful">
     <text>«Come home with me, and eat bread.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-1KI">
@@ -2232,7 +2250,7 @@
     <verse num="18" />
     <text>He said to him,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="18" characterId="prophet in Bethel" delivery="deceitful">
+  <block style="p" chapter="13" initialStartVerse="18" characterId="old prophet in Bethel" delivery="deceitful">
     <text>«I also am a prophet as you are; and an angel spoke to me by the word of God, saying, 'Bring him back with you into your house, that he may eat bread and drink water.'»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-1KI">
@@ -2246,7 +2264,7 @@
     <verse num="21" />
     <text>and he cried to the man of God who came from Judah, saying,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="21" characterId="prophet in Bethel" delivery="word of the LORD">
+  <block style="p" chapter="13" initialStartVerse="21" characterId="old prophet in Bethel">
     <text>«Thus says God, 'Because you have been disobedient to the mouth of God, and have not kept the commandment which God your God commanded you, </text>
     <verse num="22" />
     <text>but came back, and have eaten bread and drunk water in the place of which he said to you, «Eat no bread, and drink no water;» your body shall not come to the tomb of your fathers.'»</text>
@@ -2267,14 +2285,14 @@
     <verse num="26" />
     <text>When the prophet who brought him back from the way heard of it, he said,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="26" characterId="prophet in Bethel">
+  <block style="p" chapter="13" initialStartVerse="26" characterId="old prophet in Bethel">
     <text>«It is the man of God who was disobedient to the mouth of God. Therefore God has delivered him to the lion, which has mauled him and slain him, according to the word of God, which he spoke to him.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-1KI">
     <verse num="27" />
     <text>He spoke to his sons, saying,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="27" characterId="prophet in Bethel">
+  <block style="p" chapter="13" initialStartVerse="27" characterId="old prophet in Bethel">
     <text>«Saddle the donkey for me.»</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-1KI">
@@ -2297,10 +2315,10 @@
     <verse num="31" />
     <text>It happened, after he had buried him, that he spoke to his sons, saying,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="31" characterId="prophet in Bethel">
+  <block style="p" chapter="13" initialStartVerse="31" characterId="old prophet in Bethel">
     <text>«When I am dead, then bury me in the tomb in which the man of God is buried. Lay my bones beside his bones.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="32" characterId="prophet in Bethel">
+  <block style="p" chapter="13" initialStartVerse="32" characterId="old prophet in Bethel">
     <verse num="32" />
     <text>For the saying which he cried by the word of God against the altar in Bethel, and against all the houses of the high places which are in the cities of Samaria, will surely happen.»</text>
   </block>
@@ -2346,9 +2364,13 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="Ahijah the prophet">
     <verse num="7" />
-    <text>Go, tell Jeroboam, 'Thus says God, the God of Israel: «Because I exalted you from among the people, and made you prince over my people Israel, </text>
+    <text>Go, tell Jeroboam, 'Thus says God, the God of Israel: «Because I exalted you from among the people, and made you prince over my people Israel,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="8" characterId="Ahijah the prophet">
     <verse num="8" />
-    <text>and tore the kingdom away from the house of David, and gave it you; and yet you have not been as my servant David, who kept my commandments, and who followed me with all his heart, to do that only which was right in my eyes, </text>
+    <text>and tore the kingdom away from the house of David, and gave it you; and yet you have not been as my servant David, who kept my commandments, and who followed me with all his heart, to do that only which was right in my eyes,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="9" characterId="Ahijah the prophet">
     <verse num="9" />
     <text>but have done evil above all who were before you, and have gone and made you other gods, and molten images, to provoke me to anger, and have cast me behind your back:</text>
   </block>
@@ -2746,7 +2768,9 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
-    <text>It happened after a while, that the brook dried up, because there was no rain in the land. </text>
+    <text>It happened after a while, that the brook dried up, because there was no rain in the land.</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="8" characterId="narrator-1KI">
     <verse num="8" />
     <text>The word of God came to him, saying,</text>
   </block>
@@ -3268,7 +3292,7 @@
     <verse num="2" />
     <text>He sent messengers to Ahab king of Israel, into the city, and said to him,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="2" characterId="messengers of Ben-Hadad. king of Aram">
+  <block style="p" chapter="20" initialStartVerse="2" characterId="messengers of Ben-Hadad, king of Aram">
     <text>«Thus says Ben Hadad, </text>
     <verse num="3" />
     <text>Your silver and your gold is mine. Your wives also and your children, even the best, are mine.'»</text>
@@ -3284,10 +3308,10 @@
     <verse num="5" />
     <text>The messengers came again, and said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="5" characterId="messengers of Ben-Hadad. king of Aram">
+  <block style="p" chapter="20" initialStartVerse="5" characterId="messengers of Ben-Hadad, king of Aram">
     <text>«Ben Hadad says, 'I sent indeed to you, saying, «You shall deliver me your silver, and your gold, and your wives, and your children;</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="6" characterId="messengers of Ben-Hadad. king of Aram">
+  <block style="p" chapter="20" initialStartVerse="6" characterId="messengers of Ben-Hadad, king of Aram">
     <verse num="6" />
     <text>but I will send my servants to you tomorrow about this time, and they shall search your house, and the houses of your servants; and it shall be, that whatever is pleasant in your eyes, they shall put it in their hand, and take it away.»</text>
   </block>
@@ -3302,7 +3326,7 @@
     <verse num="8" />
     <text>All the elders and all the people said to him,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="8" characterId="elders/Israelites" characterIdOverrideForScript="elders">
+  <block style="p" chapter="20" initialStartVerse="8" characterId="elders/Israelites">
     <text>«Don't listen, neither consent.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="9" characterId="narrator-1KI">
@@ -3317,7 +3341,7 @@
     <verse num="10" />
     <text>Ben Hadad sent to him, and said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="10" characterId="messengers of Ben-Hadad. king of Aram">
+  <block style="p" chapter="20" initialStartVerse="10" characterId="messengers of Ben-Hadad, king of Aram">
     <text>«The gods do so to me, and more also, if the dust of Samaria shall suffice for handfuls for all the people who follow me.»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="11" characterId="narrator-1KI">
@@ -3669,19 +3693,19 @@
   <block style="p" chapter="21" initialStartVerse="20" characterId="Elijah">
     <text>«I have found you, because you have sold yourself to do that which is evil in the sight of God.</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="21" characterId="Elijah" delivery="word of the LORD">
+  <block style="p" chapter="21" initialStartVerse="21" characterId="Elijah">
     <verse num="21" />
     <text>Behold, I will bring evil on you, and will utterly sweep you away and will cut off from Ahab everyone who urinates against a wall, and him who is shut up and him who is left at large in Israel.</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="22" characterId="Elijah" delivery="word of the LORD">
+  <block style="p" chapter="21" initialStartVerse="22" characterId="Elijah">
     <verse num="22" />
     <text>I will make your house like the house of Jeroboam the son of Nebat, and like the house of Baasha the son of Ahijah for the provocation with which you have provoked me to anger, and have made Israel to sin.»</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="23" characterId="Elijah" delivery="word of the LORD">
+  <block style="p" chapter="21" initialStartVerse="23" characterId="Elijah">
     <verse num="23" />
     <text>God also spoke of Jezebel, saying, «The dogs shall eat Jezebel by the rampart of Jezreel.</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="24" characterId="Elijah" delivery="word of the LORD">
+  <block style="p" chapter="21" initialStartVerse="24" characterId="Elijah">
     <verse num="24" />
     <text>The dogs will eat he who dies of Ahab in the city; and the birds of the sky will eat he who dies in the field.»</text>
   </block>
@@ -3710,7 +3734,9 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>They continued three years without war between Syria and Israel. </text>
+    <text>They continued three years without war between Syria and Israel.</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
     <text>It happened in the third year, that Jehoshaphat the king of Judah came down to the king of Israel. </text>
     <verse num="3" />
@@ -3922,7 +3948,7 @@
     <verse num="31" />
     <text>Now the king of Syria had commanded the thirty-two captains of his chariots, saying,</text>
   </block>
-  <block style="p" chapter="22" initialStartVerse="31" characterId="king of Aram">
+  <block style="p" chapter="22" initialStartVerse="31" characterId="Ben-Hadad, king of Aram">
     <text>Fight neither with small nor great, except only with the king of Israel.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="32" characterId="narrator-1KI">

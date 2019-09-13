@@ -952,18 +952,7 @@ namespace Glyssen.RefTextDevUtilities
 					if (characterIdToUse == null)
 						goto case 0;
 					if (characterIdToUse != character.Character)
-					{
-						// EXPLANATION OF WHEN TO SET CharacterIdOverrideForScript
-						// We want to set the default explicitly only if it would not get set correctly based on current
-						// program logic and the current value in the C-V control file. This avoids hard-wiring into
-						// the reference text something that we might want to change later in the control file. But it
-						// also means that there could be a later change to the control file that inadvertently causes
-						// Glyssen to produce results that are out of step with the director's guide. In general, these
-						// two things should be kept in sync, but there are a few places where they currently are not.
-						if (character.DefaultCharacter != characterIdToUse || !character.Character.Contains(characterIdToUse))
-							block.CharacterIdOverrideForScript = characterIdToUse;
 						return character.Character;
-					}
 					return characterIdToUse;
 				case 0:
 					overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
@@ -983,15 +972,7 @@ namespace Glyssen.RefTextDevUtilities
 					{
 						var single = defaultCharactersAndFullCharacterIds.SingleOrDefault(c => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, c.Item1) == MatchLikelihood.Reliable);
 						if (single != null)
-						{
-							// See above "EXPLANATION OF WHEN TO SET CharacterIdOverrideForScript"
-							if (single.Item2.Character != single.Item1 &&
-								(single.Item2.DefaultCharacter != single.Item1 || !single.Item2.Character.Contains(single.Item1)))
-							{
-								block.CharacterIdOverrideForScript = single.Item1;
-							}
 							return single.Item2.Character;
-						}
 
 						overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
 						if (overrideChar != null)

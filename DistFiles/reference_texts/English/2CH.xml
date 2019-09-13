@@ -117,7 +117,9 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="Solomon, king" delivery="sent message">
     <verse num="8" />
-    <text>Send me also cedar trees, fir trees, and algum trees, out of Lebanon; for I know that your servants know how to cut timber in Lebanon: and behold, my servants shall be with your servants, </text>
+    <text>Send me also cedar trees, fir trees, and algum trees, out of Lebanon; for I know that your servants know how to cut timber in Lebanon: and behold, my servants shall be with your servants,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="9" characterId="Solomon, king" delivery="sent message">
     <verse num="9" />
     <text>even to prepare me timber in abundance; for the house which I am about to build shall be great and wonderful.</text>
   </block>
@@ -401,7 +403,9 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="Solomon, king">
-    <text>«Blessed be God, the God of Israel, who spoke with his mouth to David my father, and has with his hands fulfilled it, saying, </text>
+    <text>«Blessed be God, the God of Israel, who spoke with his mouth to David my father, and has with his hands fulfilled it, saying,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="5" characterId="Solomon, king">
     <verse num="5" />
     <text>'Since the day that I brought forth my people out of the land of Egypt, I chose no city out of all the tribes of Israel to build a house in, that my name might be there; neither chose I any man to be prince over my people Israel:</text>
   </block>
@@ -584,7 +588,7 @@
     <verse num="6" />
     <text>The priests stood, according to their positions; the Levites also with instruments of music of God, which David the king had made to give thanks to God, when David praised by their ministry, saying</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="6" characterId="priests/Levites" characterIdOverrideForScript="priests">
+  <block style="p" chapter="7" initialStartVerse="6" characterId="Needs Review">
     <text>«For his loving kindness endures for ever.»</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-2CH">
@@ -660,13 +664,17 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-2CH">
     <verse num="1" />
-    <text>It happened at the end of twenty years, in which Solomon had built the house of God, and his own house, </text>
+    <text>It happened at the end of twenty years, in which Solomon had built the house of God, and his own house,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-2CH">
     <verse num="2" />
     <text>that the cities which Huram had given to Solomon, Solomon built them, and caused the children of Israel to dwell there.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
-    <text>Solomon went to Hamath Zobah, and prevailed against it. </text>
+    <text>Solomon went to Hamath Zobah, and prevailed against it.</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-2CH">
     <verse num="4" />
     <text>He built Tadmor in the wilderness, and all the storage cities, which he built in Hamath.</text>
   </block>
@@ -740,7 +748,9 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
-    <text>When the queen of Sheba had seen the wisdom of Solomon, and the house that he had built, </text>
+    <text>When the queen of Sheba had seen the wisdom of Solomon, and the house that he had built,</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-2CH">
     <verse num="4" />
     <text>and the food of his table, and the sitting of his servants, and the attendance of his ministers, and their clothing, his cup bearers also, and their clothing, and his ascent by which he went up to the house of God; there was no more spirit in her. </text>
     <verse num="5" />
@@ -866,7 +876,7 @@
     <verse num="3" />
     <text>They sent and called him; and Jeroboam and all Israel came, and they spoke to Rehoboam, saying,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="4" characterId="Jeroboam/Israel, all" characterIdOverrideForScript="Jeroboam">
+  <block style="p" chapter="10" initialStartVerse="4" characterId="Jeroboam/Israel, all">
     <verse num="4" />
     <text>Your father made our yoke grievous: now therefore make you the grievous service of your father, and his heavy yoke which he put on us, lighter, and we will serve you.</text>
   </block>
@@ -889,7 +899,7 @@
     <verse num="7" />
     <text>They spoke to him, saying,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="7" characterId="elders">
+  <block style="p" chapter="10" initialStartVerse="7" characterId="elders in Shechem">
     <text>«If you are kind to this people, and please them, and speak good words to them, then they will be your servants forever.»</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="narrator-2CH">
@@ -978,11 +988,17 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-2CH">
     <verse num="6" />
-    <text>He built Bethlehem, and Etam, and Tekoa, </text>
+    <text>He built Bethlehem, and Etam, and Tekoa,</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-2CH">
     <verse num="7" />
-    <text>Beth Zur, and Soco, and Adullam, </text>
+    <text>Beth Zur, and Soco, and Adullam,</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="8" characterId="narrator-2CH">
     <verse num="8" />
-    <text>and Gath, and Mareshah, and Ziph, </text>
+    <text>and Gath, and Mareshah, and Ziph,</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="9" characterId="narrator-2CH">
     <verse num="9" />
     <text>and Adoraim, and Lachish, and Azekah, </text>
     <verse num="10" />
@@ -1049,7 +1065,9 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="narrator-2CH">
     <verse num="2" />
-    <text>It happened in the fifth year of king Rehoboam, that Shishak king of Egypt came up against Jerusalem, because they had trespassed against God, </text>
+    <text>It happened in the fifth year of king Rehoboam, that Shishak king of Egypt came up against Jerusalem, because they had trespassed against God,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
     <text>with twelve hundred chariots, and sixty thousand horsemen. The people were without number who came with him out of Egypt: the Lubim, the Sukkiim, and the Ethiopians.</text>
   </block>
@@ -1061,14 +1079,14 @@
     <verse num="5" />
     <text>Now Shemaiah the prophet came to Rehoboam, and to the princes of Judah, who were gathered together to Jerusalem because of Shishak, and said to them,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="5" characterId="Shemaiah">
+  <block style="p" chapter="12" initialStartVerse="5" characterId="Shemaiah, prophet">
     <text>«Thus says God, 'You have forsaken me, therefore have I also left you in the hand of Shishak.'»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="narrator-2CH">
     <verse num="6" />
     <text>Then the princes of Israel and the king humbled themselves; and they said,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="6" characterId="Israel, leaders of/Rehoboam, king" characterIdOverrideForScript="Israel, leaders of">
+  <block style="p" chapter="12" initialStartVerse="6" characterId="Israel, leaders of/Rehoboam, king">
     <text>«God is righteous.»</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-2CH">
@@ -1221,7 +1239,9 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
-    <text>for he took away the foreign altars, and the high places, and broke down the pillars, and cut down the Asherim, </text>
+    <text>for he took away the foreign altars, and the high places, and broke down the pillars, and cut down the Asherim,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-2CH">
     <verse num="4" />
     <text>and commanded Judah to seek God, the God of their fathers, and to do the law and the commandment.</text>
   </block>
@@ -1239,7 +1259,9 @@
     <text>«Let us build these cities, and make walls around them, with towers, gates, and bars. The land is yet before us, because we have sought God our God; we have sought him, and he has given us rest on every side.»</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="narrator-2CH">
-    <text>So they built and prospered. </text>
+    <text>So they built and prospered.</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="8" characterId="narrator-2CH">
     <verse num="8" />
     <text>Asa had an army that bore bucklers and spears, out of Judah three hundred thousand; and out of Benjamin, that bore shields and drew bows, two hundred eighty thousand: all these were mighty men of valor.</text>
   </block>
@@ -1427,7 +1449,9 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
-    <text>God was with Jehoshaphat, because he walked in the first ways of his father David, and didn't seek the Baals, </text>
+    <text>God was with Jehoshaphat, because he walked in the first ways of his father David, and didn't seek the Baals,</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="4" characterId="narrator-2CH">
     <verse num="4" />
     <text>but sought to the God of his father, and walked in his commandments, and not after the doings of Israel.</text>
   </block>
@@ -1701,7 +1725,7 @@
     <verse num="30" />
     <text>Now the king of Syria had commanded the captains of his chariots, saying,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="30" characterId="king of Aram" delivery="commanding">
+  <block style="p" chapter="18" initialStartVerse="30" characterId="Ben-Hadad, king of Aram" delivery="commanding">
     <text>«Fight neither with small nor great, except only with the king of Israel.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="31" characterId="narrator-2CH">
@@ -1794,7 +1818,9 @@
     <text>«A great multitude is coming against you from beyond the sea from Syria. Behold, they are in Hazazon Tamar»</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-2CH">
-    <text>(that is, En Gedi). </text>
+    <text>(that is, En Gedi).</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
     <text>Jehoshaphat was alarmed, and set himself to seek to God. He proclaimed a fast throughout all Judah.</text>
   </block>
@@ -1817,7 +1843,9 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="8" characterId="Jehoshaphat, king of Judah" delivery="praying">
     <verse num="8" />
-    <text>They lived in it, and have built you a sanctuary in it for your name, saying, </text>
+    <text>They lived in it, and have built you a sanctuary in it for your name, saying,</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="9" characterId="Jehoshaphat, king of Judah" delivery="praying">
     <verse num="9" />
     <text>'If evil comes on us--the sword, judgment, pestilence, or famine--we will stand before this house, and before you, (for your name is in this house), and cry to you in our affliction, and you will hear and save.'</text>
   </block>
@@ -2137,7 +2165,7 @@
     <verse num="11" />
     <text>Then they brought out the king's son, and put the crown on him, and [gave him] the testimony, and made him king: and Jehoiada and his sons anointed him; and they said,</text>
   </block>
-  <block style="p" chapter="23" initialStartVerse="11" characterId="Jehoiada the priest/Jehoiada's sons" characterIdOverrideForScript="Jehoiada the priest">
+  <block style="p" chapter="23" initialStartVerse="11" characterId="Jehoiada the priest/Jehoiada's sons">
     <text>«Long live the king!»</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="12" characterId="narrator-2CH">
@@ -2535,7 +2563,7 @@
     <verse num="18" />
     <text>and they resisted Uzziah the king, and said to him,</text>
   </block>
-  <block style="p" chapter="26" initialStartVerse="18" characterId="Azariah the priest (during reign of Uzziah)/eighty other priests" characterIdOverrideForScript="Azariah the priest (during reign of Uzziah)" delivery="courageous">
+  <block style="p" chapter="26" initialStartVerse="18" characterId="Azariah the priest (during reign of Uzziah)/eighty other priests" delivery="courageous">
     <text>«It isn't for you, Uzziah, to burn incense to God, but for the priests the sons of Aaron, who are consecrated to burn incense. Go out of the sanctuary; for you have trespassed; neither shall it be for your honor from God.»</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="19" characterId="narrator-2CH">
@@ -2659,7 +2687,7 @@
     <verse num="13" />
     <text>and said to them,</text>
   </block>
-  <block style="p" chapter="28" initialStartVerse="13" characterId="Azariah, son of Jehohanan/Berekiah/Jehizkiah/Amasa" characterIdOverrideForScript="Azariah, son of Jehohanan">
+  <block style="p" chapter="28" initialStartVerse="13" characterId="Azariah, son of Jehohanan/Berekiah/Jehizkiah/Amasa">
     <text>«You shall not bring in the captives here: for you purpose that which will bring on us a trespass against God, to add to our sins and to our trespass; for our trespass is great, and there is fierce wrath against Israel.»</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="14" characterId="narrator-2CH">
@@ -2798,10 +2826,10 @@
     <verse num="18" />
     <text>Then they went in to Hezekiah the king within [the palace], and said,</text>
   </block>
-  <block style="p" chapter="29" initialStartVerse="18" characterId="priests/Levites" characterIdOverrideForScript="priests">
+  <block style="p" chapter="29" initialStartVerse="18" characterId="priests/Levites">
     <text>«We have cleansed all the house of God, and the altar of burnt offering, with all its vessels, and the table of show bread, with all its vessels.</text>
   </block>
-  <block style="p" chapter="29" initialStartVerse="19" characterId="priests/Levites" characterIdOverrideForScript="priests">
+  <block style="p" chapter="29" initialStartVerse="19" characterId="priests/Levites">
     <verse num="19" />
     <text>Moreover all the vessels, which king Ahaz in his reign did cast away when he trespassed, have we prepared and sanctified; and behold, they are before the altar of God.»</text>
   </block>
@@ -3089,7 +3117,9 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="2" characterId="narrator-2CH">
     <verse num="2" />
-    <text>When Hezekiah saw that Sennacherib was come, and that he was purposed to fight against Jerusalem, </text>
+    <text>When Hezekiah saw that Sennacherib was come, and that he was purposed to fight against Jerusalem,</text>
+  </block>
+  <block style="p" chapter="32" initialStartVerse="3" characterId="narrator-2CH">
     <verse num="3" />
     <text>he took counsel with his princes and his mighty men to stop the waters of the springs which were outside of the city; and they helped him.</text>
   </block>
@@ -3122,26 +3152,26 @@
     <verse num="10" />
     <text>Thus says Sennacherib king of Assyria,</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="10" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="10" characterId="Rabshakeh">
     <text>«In whom do you trust, that you remain under siege in Jerusalem?</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="11" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="11" characterId="Rabshakeh">
     <verse num="11" />
     <text>Doesn't Hezekiah persuade you, to give you over to die by famine and by thirst, saying, 'God our God will deliver us out of the hand of the king of Assyria?'</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="12" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="12" characterId="Rabshakeh">
     <verse num="12" />
     <text>Hasn't the same Hezekiah taken away his high places and his altars, and commanded Judah and Jerusalem, saying, 'You shall worship before one altar, and on it you shall burn incense?'</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="13" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="13" characterId="Rabshakeh">
     <verse num="13" />
     <text>Don't you know what I and my fathers have done to all the peoples of the lands? Were the gods of the nations of the lands in any way able to deliver their land out of my hand?</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="14" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="14" characterId="Rabshakeh">
     <verse num="14" />
     <text>Who was there among all the gods of those nations which my fathers utterly destroyed, that could deliver his people out of my hand, that your God should be able to deliver you out of my hand?</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="15" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="15" characterId="Rabshakeh">
     <verse num="15" />
     <text>Now therefore don't let Hezekiah deceive you, nor persuade you in this way, neither believe him; for no god of any nation or kingdom was able to deliver his people out of my hand, and out of the hand of my fathers. How much less will your God deliver you out of my hand?»</text>
   </block>
@@ -3153,7 +3183,7 @@
     <verse num="17" />
     <text>He also wrote letters insulting God, the God of Israel, and to speak against him, saying,</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="17" characterId="Sennacherib's officers">
+  <block style="p" chapter="32" initialStartVerse="17" characterId="Sennacherib, king of Assyria" delivery="letter">
     <text>«As the gods of the nations of the lands, which have not delivered their people out of my hand, so shall the God of Hezekiah not deliver his people out of my hand.»</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="18" characterId="narrator-2CH">

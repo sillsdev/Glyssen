@@ -4405,14 +4405,14 @@ JOS	22	17	Phineas the priest/chiefs of 10 tribes			Normal	Phineas the priest
 JOS	22	18	Phineas the priest/chiefs of 10 tribes			Normal	Phineas the priest	
 JOS	22	19	Phineas the priest/chiefs of 10 tribes			Normal	Phineas the priest	
 JOS	22	20	Phineas the priest/chiefs of 10 tribes			Normal	Phineas the priest	
-JOS	22	22	Reubenites/Gadites/half-tribe of Manasseh			Normal	Reuben	
-JOS	22	23	Reubenites/Gadites/half-tribe of Manasseh			Normal	Reuben	
-JOS	22	24	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
-JOS	22	25	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
-JOS	22	26	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
-JOS	22	27	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
-JOS	22	28	Reubenites/Gadites/half-tribe of Manasseh			Normal	half-tribe of Manasseh	
-JOS	22	29	Reubenites/Gadites/half-tribe of Manasseh			Normal	half-tribe of Manasseh	
+JOS	22	22	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	23	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	24	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	25	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	26	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	27	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	28	Reubenites/Gadites/half-tribe of Manasseh			Normal		
+JOS	22	29	Reubenites/Gadites/half-tribe of Manasseh			Normal		
 JOS	22	31	Phineas the priest			Normal		
 JOS	22	32	Phineas the priest/chiefs of 10 tribes		Phineas the priest/leaders	Indirect	Phineas the priest	
 JOS	22	34	narrator-JOS			Quotation		
@@ -6826,6 +6826,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	6	42	Solomon, king			Normal		
 2CH	7	3	Israel	worshiping God		Normal		
 2CH	7	6	priests/Levites			Normal		
+2CH	7	6	David			Quotation		
+2CH	7	6	narrator-2CH			Quotation		
+2CH	7	6	Needs Review			Normal		
 2CH	7	12	God		God (the LORD) (in vision)	Normal		
 2CH	7	13	God		God (the LORD) (in vision)	Normal		
 2CH	7	14	God		God (the LORD) (in vision)	Normal		
@@ -6920,6 +6923,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	19	10	Jehoshaphat, king of Judah			Normal		
 2CH	19	11	Jehoshaphat, king of Judah			Normal		
 2CH	20	2	men, some			Normal		
+2CH	20	2	narrator-2CH			Interruption		
 2CH	20	6	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	7	Jehoshaphat, king of Judah	praying		Normal		
 2CH	20	8	Jehoshaphat, king of Judah	praying		Normal		
@@ -6953,6 +6957,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	24	22	Zechariah, son of Jehoiada the priest			Normal		
 2CH	25	4	scripture		scripture (law of Moses)	Quotation	Moses	
 2CH	25	4	God			Quotation		
+2CH	25	4	Needs Review			Normal		
 2CH	25	7	man of God (prophet to Amaziah)			Normal		
 2CH	25	8	man of God (prophet to Amaziah)			Normal		
 2CH	25	9	Amaziah, king of Judah			Normal		
@@ -7131,7 +7136,7 @@ NEH	2	7	Nehemiah			Normal
 NEH	2	8	Nehemiah			Normal		
 NEH	2	9	Artaxerxes, king of Persia			Potential		
 NEH	2	17	Nehemiah			Normal		
-NEH	2	18	Jews, the/priests/nobles and officials (Jewish)			Normal		
+NEH	2	18	Jews, the/priests/nobles and officials (Jewish)			Normal	nobles and officials (Jewish)	
 NEH	2	19	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab	mocking		Normal	Sanballat the Horonite	
 NEH	2	20	Nehemiah			Normal		
 NEH	4	1	Sanballat the Horonite	mocking	Sanballat	Potential		
@@ -7149,6 +7154,7 @@ NEH	4	10	Judah, people in			Normal
 NEH	4	11	Sanballat the Horonite	threatening		Normal		
 NEH	4	11	Tobiah the Ammonite official	threatening		Alternate		
 NEH	4	11	enemies of Judah and Benjamin	threatening	adversaries (Arabians, Ammonites, Ashdodites, etc.)	Alternate		
+NEH	4	11	Needs Review			Normal		
 NEH	4	12	Jews, the	desperate		Normal		
 NEH	4	14	Nehemiah			Normal		
 NEH	4	15	report to Sanballat and Tobiah			Potential		
@@ -7234,17 +7240,17 @@ NEH	9	35	Levites	praying		Normal
 NEH	9	36	Levites	praying		Normal		
 NEH	9	37	Levites	praying		Normal		
 NEH	9	38	Levites			Normal		
-NEH	10	29	priests/Levites/people			Indirect		
-NEH	10	30	priests/Levites/people			Indirect		
-NEH	10	31	priests/Levites/people			Indirect		
-NEH	10	32	priests/Levites/people			Indirect		
-NEH	10	33	priests/Levites/people			Indirect		
-NEH	10	34	priests/Levites/people			Indirect		
-NEH	10	35	priests/Levites/people			Indirect		
-NEH	10	36	priests/Levites/people			Indirect		
-NEH	10	37	priests/Levites/people			Indirect		
-NEH	10	38	priests/Levites/people			Indirect		
-NEH	10	39	priests/Levites/people			Indirect		
+NEH	10	29	priests/Levites/people			Indirect	Levites	
+NEH	10	30	priests/Levites/people			Indirect	Levites	
+NEH	10	31	priests/Levites/people			Indirect	Levites	
+NEH	10	32	priests/Levites/people			Indirect	Levites	
+NEH	10	33	priests/Levites/people			Indirect	Levites	
+NEH	10	34	priests/Levites/people			Indirect	Levites	
+NEH	10	35	priests/Levites/people			Indirect	Levites	
+NEH	10	36	priests/Levites/people			Indirect	Levites	
+NEH	10	37	priests/Levites/people			Indirect	Levites	
+NEH	10	38	priests/Levites/people			Indirect	Levites	
+NEH	10	39	priests/Levites/people			Indirect	Levites	
 # The following line is under review. The obvious switch to first-person happens in v. 31.
 NEH	13	1	scripture			Indirect		
 NEH	13	11	Nehemiah			Normal		

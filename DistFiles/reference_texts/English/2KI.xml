@@ -204,7 +204,9 @@
     <text>«As God lives, and as your soul lives, I will not leave you.»</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-2KI">
-    <text>They both went on. </text>
+    <text>They both went on.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-2KI">
     <verse num="7" />
     <text>Fifty men of the sons of the prophets went, and stood opposite them at a distance; and they both stood by the Jordan.</text>
   </block>
@@ -379,13 +381,13 @@
     <verse num="8" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="Joram, king of Israel">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="Jehoshaphat, king of Judah" delivery="questioning">
     <text>«Which way shall we go up?»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-2KI">
     <text>He answered,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="Jehoshaphat, king of Judah" delivery="questioning">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="Joram, king of Israel">
     <text>«The way of the wilderness of Edom.»</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-2KI">
@@ -837,7 +839,7 @@
     <verse num="4" />
     <text>Someone went in, and told his lord, saying,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="4" characterId="Naaman">
+  <block style="p" chapter="5" initialStartVerse="4" characterId="Needs Review">
     <text>«The maiden who is from the land of Israel said this.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-2KI">
@@ -875,7 +877,7 @@
     <verse num="10" />
     <text>Elisha sent a messenger to him, saying,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="Elisha's messenger">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="Gehazi">
     <text>«Go and wash in the Jordan seven times, and your flesh shall come again to you, and you shall be clean.»</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-2KI">
@@ -1280,7 +1282,7 @@
     <verse num="6" />
     <text>For the Lord had made the army of the Syrians to hear a noise of chariots, and a noise of horses, even the noise of a great army: and they said one to another,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-2KI">
+  <block style="p" chapter="7" initialStartVerse="6" characterId="Aramean soldiers">
     <text>Behold, the king of Israel has hired against us the kings of the Hittites, and the kings of the Egyptians, to come on us.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-2KI">
@@ -1575,22 +1577,22 @@
     <verse num="6" />
     <text>He arose, and went into the house. Then he poured the oil on his head, and said to him,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="company of the prophets, one of (the LORD says) (young man)">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="company of the prophets, one of (young man)">
     <text>«Thus says God, the God of Israel, 'I have anointed you king over the people of God, even over Israel.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="7" characterId="company of the prophets, one of (the LORD says) (young man)">
+  <block style="p" chapter="9" initialStartVerse="7" characterId="company of the prophets, one of (young man)">
     <verse num="7" />
     <text>You shall strike the house of Ahab your master, that I may avenge the blood of my servants the prophets, and the blood of all the servants of God, at the hand of Jezebel.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="8" characterId="company of the prophets, one of (the LORD says) (young man)">
+  <block style="p" chapter="9" initialStartVerse="8" characterId="company of the prophets, one of (young man)">
     <verse num="8" />
     <text>For the whole house of Ahab shall perish. I will cut off from Ahab everyone who urinates against a wall, both him who is shut up and him who is left at large in Israel.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="9" characterId="company of the prophets, one of (the LORD says) (young man)">
+  <block style="p" chapter="9" initialStartVerse="9" characterId="company of the prophets, one of (young man)">
     <verse num="9" />
     <text>I will make the house of Ahab like the house of Jeroboam the son of Nebat, and like the house of Baasha the son of Ahijah.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="10" characterId="company of the prophets, one of (the LORD says) (young man)">
+  <block style="p" chapter="9" initialStartVerse="10" characterId="company of the prophets, one of (young man)">
     <verse num="10" />
     <text>The dogs will eat Jezebel on the plot of ground of Jezreel, and there shall be none to bury her.'»</text>
   </block>
@@ -2151,7 +2153,9 @@
     <text>Jehoash said to the priests,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="4" characterId="Joash, king of Judah">
-    <text>«All the money of the holy things that is brought into the house of God, in current money, the money of the persons for whom each man is rated, and all the money that it comes into any man's heart to bring into the house of God, </text>
+    <text>«All the money of the holy things that is brought into the house of God, in current money, the money of the persons for whom each man is rated, and all the money that it comes into any man's heart to bring into the house of God,</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="5" characterId="Joash, king of Judah">
     <verse num="5" />
     <text>let the priests take it to them, every man from his acquaintance; and they shall repair the breaches of the house, wherever any breach shall be found.»</text>
   </block>
@@ -2767,7 +2771,9 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="narrator-2KI">
     <verse num="7" />
-    <text>It was so, because the children of Israel had sinned against God their God, who brought them up out of the land of Egypt from under the hand of Pharaoh king of Egypt, and had feared other gods, </text>
+    <text>It was so, because the children of Israel had sinned against God their God, who brought them up out of the land of Egypt from under the hand of Pharaoh king of Egypt, and had feared other gods,</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="8" characterId="narrator-2KI">
     <verse num="8" />
     <text>and walked in the statutes of the nations, whom God cast out from before the children of Israel, and of the kings of Israel, which they made.</text>
   </block>
@@ -2850,7 +2856,7 @@
     <verse num="27" />
     <text>Then the king of Assyria commanded, saying,</text>
   </block>
-  <block style="p" chapter="17" initialStartVerse="27" characterId="king of Assyria">
+  <block style="p" chapter="17" initialStartVerse="27" characterId="Shalmaneser, king of Assyria">
     <text>«Carry there one of the priests whom you brought from there; and let them go and dwell there, and let him teach them the law of the god of the land.»</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="28" characterId="narrator-2KI">
@@ -3022,7 +3028,7 @@
     <verse num="26" />
     <text>Then Eliakim the son of Hilkiah, and Shebnah, and Joah, said to Rabshakeh,</text>
   </block>
-  <block style="p" chapter="18" initialStartVerse="26" characterId="Eliakim/Shebna/Joah" characterIdOverrideForScript="Eliakim">
+  <block style="p" chapter="18" initialStartVerse="26" characterId="Eliakim/Shebna/Joah">
     <text>«Please speak to your servants in the Syrian language; for we understand it. Don't speak with us in the Jews' language, in the hearing of the people who are on the wall.»</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="27" characterId="narrator-2KI">
@@ -3091,10 +3097,10 @@
     <verse num="3" />
     <text>They said to him,</text>
   </block>
-  <block style="p" chapter="19" initialStartVerse="3" characterId="Eliakim/Shebna/chief priests" characterIdOverrideForScript="Eliakim">
+  <block style="p" chapter="19" initialStartVerse="3" characterId="Eliakim/Shebna/chief priests">
     <text>«Thus says Hezekiah, 'This day is a day of trouble, of rebuke, and of rejection; for the children have come to the point of birth, and there is no strength to deliver them.</text>
   </block>
-  <block style="p" chapter="19" initialStartVerse="4" characterId="Eliakim/Shebna/chief priests" characterIdOverrideForScript="Eliakim">
+  <block style="p" chapter="19" initialStartVerse="4" characterId="Eliakim/Shebna/chief priests">
     <verse num="4" />
     <text>It may be God your God will hear all the words of Rabshakeh, whom the king of Assyria his master has sent to defy the living God, and will rebuke the words which God your God has heard. Therefore lift up your prayer for the remnant that is left.'»</text>
   </block>
@@ -3258,7 +3264,9 @@
     <text>Remember now, God, I beg you, how I have walked before you in truth and with a perfect heart, and have done that which is good in your sight.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="3" characterId="narrator-2KI">
-    <text>Hezekiah wept bitterly. </text>
+    <text>Hezekiah wept bitterly.</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="4" characterId="narrator-2KI">
     <verse num="4" />
     <text>It happened, before Isaiah had gone out into the middle part of the city, that the word of God came to him, saying,</text>
   </block>
@@ -3501,7 +3509,9 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="Josiah, king of Judah">
     <verse num="5" />
-    <text>Let them deliver it into the hand of the workmen who have the oversight of the house of God; and let them give it to the workmen who are in the house of God, to repair the breaches of the house, </text>
+    <text>Let them deliver it into the hand of the workmen who have the oversight of the house of God; and let them give it to the workmen who are in the house of God, to repair the breaches of the house,</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="6" characterId="Josiah, king of Judah">
     <verse num="6" />
     <text>to the carpenters, and to the builders, and to the masons, and for buying timber and cut stone to repair the house.</text>
   </block>
@@ -3753,7 +3763,9 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="3" characterId="narrator-2KI">
     <verse num="3" />
-    <text>Surely at the commandment of God came this on Judah, to remove them out of his sight, for the sins of Manasseh, according to all that he did, </text>
+    <text>Surely at the commandment of God came this on Judah, to remove them out of his sight, for the sins of Manasseh, according to all that he did,</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="4" characterId="narrator-2KI">
     <verse num="4" />
     <text>and also for the innocent blood that he shed; for he filled Jerusalem with innocent blood: and God would not pardon.</text>
   </block>
