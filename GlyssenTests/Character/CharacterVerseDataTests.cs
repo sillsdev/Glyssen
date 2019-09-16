@@ -46,7 +46,7 @@ namespace GlyssenTests.Character
 		public void GetCharacters_One()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 15, 20).ToList();
-			Assert.AreEqual(1, characters.Count());
+			Assert.AreEqual(1, characters.Count);
 			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
 		}
 
@@ -78,15 +78,32 @@ namespace GlyssenTests.Character
 			Assert.AreEqual("believers, circumcised", character.Character);
 		}
 
-		[Test]
-		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification()
+		[TestCase(false)]
+		[TestCase(true)]
+		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification(bool includeNarratorOverrides)
 		{
 			// Psalm 37:16-17 in Russian Orthodox => Psalm 38:15-16 in English
 			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 38, 15, 16,
-				versification: ScrVers.English).Single();
-			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, 16, 17,
-				versification:ScrVers.RussianOrthodox).Single();
-			Assert.AreEqual(expected.Character, character.Character);
+				versification: ScrVers.English, includeNarratorOverrides: includeNarratorOverrides);
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, 16, 17,
+				versification:ScrVers.RussianOrthodox, includeNarratorOverrides: includeNarratorOverrides).ToList();
+			Assert.IsTrue(expected.SequenceEqual(characters));
+		}
+
+		[TestCase(2)]
+		[TestCase(0)]
+		[TestCase(3)]
+		public void GetCharacters_RussianOrthodoxIncludeNarratorOverrides_FindsCharacterAfterChangingVersification(int endVerse)
+		{
+			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 41, 2, endVerse,
+				versification: ScrVers.RussianOrthodox, includeNarratorOverrides: true).Single();
+
+			// Psalm 41:2 in Russian Orthodox => Psalm 42:1 in English
+			if (endVerse > 0)
+				endVerse--;
+			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 42, 1, endVerse,
+				versification: ScrVers.English, includeNarratorOverrides: true).Single();
+			Assert.AreEqual(expected, character);
 		}
 
 		[Test]

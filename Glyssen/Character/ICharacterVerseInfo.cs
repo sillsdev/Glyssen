@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SIL.ObjectModel;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -6,8 +7,12 @@ namespace Glyssen.Character
 	public interface ICharacterDeliveryInfo
 	{
 		string Character { get; }
+		string LocalizedCharacter { get; }
 		string Delivery { get; }
 		string DefaultCharacter { get; }
+		string Alias { get; }
+		string LocalizedAlias { get; }
+		bool ProjectSpecific { get; }
 	}
 
 	public interface ICharacterVerseRepository
@@ -17,7 +22,7 @@ namespace Glyssen.Character
 		/// characters known to speak in ALL the verses will be included in the returned set.
 		/// </summary>
 		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false);
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false);
 
 		/// <summary>
 		/// Gets a single character/delivery object that represents the one known character expected to be the
@@ -34,12 +39,12 @@ namespace Glyssen.Character
 
 		IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId);
 
-		IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries();
+		IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries();
 
-		IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode);
+		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode);
 
-		IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode, int chapter);
+		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter);
 
-		IEnumerable<string> GetUniqueDeliveries();
+		ISet<string> GetUniqueDeliveries();
 	}
 }

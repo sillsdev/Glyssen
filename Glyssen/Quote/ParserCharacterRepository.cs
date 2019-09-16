@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using SIL.Scripture;
@@ -23,9 +24,13 @@ namespace Glyssen.Quote
 		/// block actually assigned to that hypothetical character. Otherwise, the hypothetical character
 		/// will be treated as a narrator "quotation."
 		/// </summary>
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false)
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false)
 		{
-			return m_cvInfo.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification, includeAlternates)
+			Debug.Assert(!includeNarratorOverrides, "Can't think of any valid reason the quote parser should ever want to consider" +
+				"narrator overrides. These should be applied only after user has done disambiguation.");
+			return m_cvInfo.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification,
+					includeAlternates, includeNarratorOverrides)
 				.Select(cv => cv.QuoteType != QuoteType.Hypothetical ||
 					m_referenceText.GetBook(bookId)?.GetBlocksForVerse(chapter,
 							initialStartVerse, finalVerse > 0 ? finalVerse : (initialEndVerse > 0 ? initialEndVerse : initialStartVerse))

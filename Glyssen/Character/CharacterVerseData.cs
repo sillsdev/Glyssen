@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.Extensions;
+using SIL.ObjectModel;
 using SIL.Scripture;
 using static System.String;
 
@@ -183,13 +184,14 @@ namespace Glyssen.Character
 
 		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
-		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
+		private readonly IEqualityComparer<ICharacterDeliveryInfo> m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
-		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
-		private IEnumerable<string> m_uniqueDeliveries;
+		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterAndDeliveries;
+		private ISet<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false)
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false)
 		{
 			if (versification == null)
 				versification = ScrVers.English;
@@ -199,7 +201,19 @@ namespace Glyssen.Character
 			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
 			verseRef.ChangeVersification(ScrVers.English);
 
-			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
+			if (initialEndVerse == 0)
+				initialEndVerse = initialStartVerse;
+
+			List<string> overrideCharacters = null;
+			if (includeNarratorOverrides)
+			{
+				overrideCharacters = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef,
+					(finalVerse == 0 ? initialEndVerse : finalVerse))?.Select(o => o.Character).ToList();
+				if (overrideCharacters != null && !overrideCharacters.Any())
+					overrideCharacters = null;
+			}
+
+			if (initialStartVerse == initialEndVerse)
 			{
 				result = m_lookup[verseRef.BBBCCCVVV].ToList();
 			}
@@ -217,6 +231,11 @@ namespace Glyssen.Character
 			}
 			if (!includeAlternates)
 				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate).ToList();
+			if (overrideCharacters != null)
+			{
+				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))
+					result.Add(new CharacterVerse(new BCVRef(verseRef.BBBCCCVVV), character, Empty, null, false, QuoteType.Potential));
+			}
 			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
 
@@ -242,6 +261,8 @@ namespace Glyssen.Character
 					else
 					{
 						nextResult.RemoveAll(c => !result.Contains(c, m_characterDeliveryEqualityComparer));
+						if (overrideCharacters != null && !nextResult.Any(cv => overrideCharacters.Contains(cv.Character) && cv.Delivery == Empty))
+							nextResult.AddRange(result.Where(cv => overrideCharacters.Contains(cv.Character) && cv.Delivery == Empty));
 						if (nextResult.Count == 1)
 						{
 							result = nextResult;
@@ -310,22 +331,37 @@ namespace Glyssen.Character
 			return m_data.Any();
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries()
+		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries()
 		{
-			return m_uniqueCharacterAndDeliveries ?? (m_uniqueCharacterAndDeliveries = new SortedSet<CharacterVerse>(m_data, new CharacterDeliveryComparer()));
+			if (m_uniqueCharacterAndDeliveries == null)
+			{
+				var set = new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryEqualityComparer);
+				set.AddRange(NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides).Select(o => o.Character)
+					.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+				m_uniqueCharacterAndDeliveries = new ReadOnlySet<ICharacterDeliveryInfo>(set);
+			}
+
+			return m_uniqueCharacterAndDeliveries;
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode)
 		{
-			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode), new CharacterDeliveryComparer());
+			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
+			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
+				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
 		{
-			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), new CharacterDeliveryComparer());
+			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), m_characterDeliveryEqualityComparer);
+			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode)
+				.Where(o => o.StartChapter <= chapter && o.EndChapter >= chapter)
+				.Select(o => o.Character).Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
 		}
 
-		public IEnumerable<string> GetUniqueDeliveries()
+		public ISet<string> GetUniqueDeliveries()
 		{
 			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !IsNullOrEmpty(d))));
 		}
@@ -403,8 +439,13 @@ namespace Glyssen.Character
 			public static NeedsReviewCharacter Singleton { get; }
 
 			public string Character => kNeedsReview;
+			public string LocalizedCharacter =>
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CharacterNeedsReview", "Needs Review");
 			public string Delivery => Empty;
 			public string DefaultCharacter => null;
+			public string Alias => null;
+			public string LocalizedAlias => null;
+			public bool ProjectSpecific => false;
 
 			static NeedsReviewCharacter()
 			{

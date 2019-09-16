@@ -2387,4 +2387,126 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_indicesOfChangedBlocks.Any());
 		}
 	}
+
+	[TestFixture]
+	internal class AssignCharacterViewModelObaTests
+	{
+		private Project m_testProject;
+		private AssignCharacterViewModel m_model;
+		private int m_bookNum;
+		const string kObadiahTheProphet = "Obadiah, prophet";
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			m_model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.AllScripture, m_testProject.Status.AssignCharacterBlock);
+			m_model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
+
+			var bookScript = m_testProject.IncludedBooks.Single();
+			m_bookNum = bookScript.BookNumber;
+			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, 1, 18).Single().Character,
+				"Test setup conditions not met!");
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
+			Assert.AreEqual(1, overrideOba.StartChapter, "Test setup conditions not met!");
+			Assert.AreEqual(1, overrideOba.EndChapter, "Test setup conditions not met!");
+			Assert.AreEqual(kObadiahTheProphet, overrideOba.Character, "Test setup conditions not met!");
+			Assert.AreEqual(1, overrideOba.StartVerse, "Test setup conditions not met!");
+			Assert.AreEqual(2, overrideOba.StartBlock, "Test setup conditions not met!");
+			Assert.AreEqual(21, overrideOba.EndVerse, "Test setup conditions not met!");
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			m_testProject = null;
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GetUniqueCharacters_InBlockWithNarratorOverride_ResultIncludesOverrideCharacter()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 18)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharacters().ToList();
+
+			// Verify
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("God", result[0].CharacterId, "God is first because the list is alphabetical (with narrator last)");
+			Assert.AreEqual(kObadiahTheProphet, result[1].CharacterId);
+			Assert.AreEqual("narrator (OBA)", result[2].LocalizedDisplay);
+		}
+
+		[Test]
+		public void GetUniqueCharactersForCurrentReference_InBlockWithNarratorOverride_ResultIncludesOverrideCharacter()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 18)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharactersForCurrentReference().ToList();
+
+			// Verify
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("narrator (OBA)", result[0].LocalizedDisplay, "GetUniqueCharactersForCurrentReference should always put the narrator first.");
+			Assert.AreEqual("God", result[1].CharacterId, "God is second because remaining items in the list are alphabetical");
+			Assert.AreEqual(kObadiahTheProphet, result[2].CharacterId);
+		}
+
+		[Test]
+		public void GetUniqueCharacters_MatchingFilterInVerseWithNarratorOverride_ResultStartsWithMatchingCharactersIncludingOverrideCharacter()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 1)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharacters("Obad").ToList();
+
+			// Verify
+			Assert.AreEqual(4, result.Count);
+			Assert.IsTrue(result[0].CharacterId.StartsWith("Obadiah"), "The first match happens to be from a different book. " +
+				"List of matches is alphabetic");
+			Assert.AreEqual(kObadiahTheProphet, result[1].CharacterId);
+			Assert.AreEqual("God", result[2].CharacterId, "God is second because he is a Normal character in OBA 1:1");
+			Assert.AreEqual("narrator (OBA)", result[3].LocalizedDisplay, "GetUniqueCharacters should always include" +
+				"the narrator at the end, if not already in the list.");
+		}
+
+		[Test]
+		public void GetUniqueCharacters_NonMatchingFilterInBlockWithNarratorOverride_ResultIncludesOverrideCharacterAtEnd()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 1)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharacters("Holy S").ToList();
+
+			// Verify
+			Assert.IsTrue(result.Count >= 4);
+			var iStartOfNonMatching = result.Count -3;
+			Assert.AreEqual("God", result[iStartOfNonMatching].CharacterId, "God should be first non-match because this part " +
+				"of list is alphabetical.");
+			Assert.AreEqual(kObadiahTheProphet, result[iStartOfNonMatching + 1].CharacterId, $"{kObadiahTheProphet} should be " +
+				$"second non-match because this part of list is alphabetical.");
+			Assert.AreEqual("narrator (OBA)", result[iStartOfNonMatching + 2].LocalizedDisplay, "GetUniqueCharacters should always include" +
+				"the narrator at the end, if not already in the list.");
+		}
+	}
 }

@@ -247,7 +247,7 @@ namespace Glyssen
 					{
 						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
 						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-							block.InitialEndVerseNumber, block.LastVerseNum).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+							block.InitialEndVerseNumber, block.LastVerseNum, includeNarratorOverrides: true).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
 							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
@@ -260,17 +260,14 @@ namespace Glyssen
 						}
 						else
 						{
-							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, includeAlternates: true).ToList();
+							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+								block.LastVerseNum, includeAlternates: true, includeNarratorOverrides: true).ToList();
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
 									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
 								else
-								{
-									if (NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, project.Versification).Any(c => c == block.CharacterId))
-										continue;
 									block.SetCharacterAndDelivery(characters);
-								}
 								numberOfChangesMade++;
 							}
 						}

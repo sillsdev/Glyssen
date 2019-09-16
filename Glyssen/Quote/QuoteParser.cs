@@ -1175,12 +1175,7 @@ namespace Glyssen.Quote
 				}
 			}
 
-			private static readonly IEqualityComparer<CharacterDelivery> s_characterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
-
-			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer
-			{
-				get { return s_characterDeliveryComparerInstance; }
-			}
+			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer { get; } = new CharacterDeliveryEqualityComparer();
 		}
 		#endregion
 

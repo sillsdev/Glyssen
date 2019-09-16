@@ -239,7 +239,7 @@ namespace Glyssen.Character
 			return Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
 		}
 
-		private string GetLocalizedIndividualCharacterString(string character)
+		internal static string GetLocalizedIndividualCharacterString(string character)
 		{
 			return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + character, character);
 		}
@@ -289,6 +289,23 @@ namespace Glyssen.Character
 		#endregion
 	}
 
+	public class NarratorOverrideCharacter : ICharacterDeliveryInfo
+	{
+		public string Character { get; }
+		public string LocalizedCharacter { get; }
+		public string Delivery => null;
+		public string DefaultCharacter => null;
+		public string Alias => null;
+		public string LocalizedAlias => null;
+		public bool ProjectSpecific => false;
+
+		public NarratorOverrideCharacter(string character)
+		{
+			Character = character;
+			LocalizedCharacter = CharacterVerse.GetLocalizedIndividualCharacterString(character);
+		}
+	}
+
 	public static class CharacterStringExtensions
 	{
 		private static readonly char[] s_multiCharacterIdSeparators;
@@ -332,7 +349,7 @@ namespace Glyssen.Character
 			if (x == null || y == null)
 				return false;
 
-			return x.Character.Equals(y.Character) && x.Delivery.Equals(y.Delivery);
+			return x.Character.Equals(y.Character) && x.Delivery == y.Delivery;
 		}
 
 		public int GetHashCode(ICharacterDeliveryInfo obj)
@@ -359,9 +376,9 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterDeliveryComparer : IComparer<CharacterVerse>
+	public class CharacterDeliveryComparer : IComparer<ICharacterDeliveryInfo>
 	{
-		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
+		int IComparer<ICharacterDeliveryInfo>.Compare(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
 		{
 			int result = Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
 			if (result != 0)

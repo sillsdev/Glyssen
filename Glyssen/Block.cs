@@ -842,11 +842,11 @@ namespace Glyssen
 			else
 			{
 				// Might all represent the same Character/Delivery. Need to check.
-				var set = new SortedSet<CharacterVerse>(characterList, new CharacterDeliveryComparer());
-				if (set.Count == 1)
+				var distinctCharacterDeliveryList = characterList.Distinct(new CharacterDeliveryEqualityComparer()).ToList();
+				if (distinctCharacterDeliveryList.Count == 1)
 				{
 					SetCharacterIdAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
-					Delivery = set.First().Delivery;
+					Delivery = distinctCharacterDeliveryList.First().Delivery;
 				}
 				else
 				{

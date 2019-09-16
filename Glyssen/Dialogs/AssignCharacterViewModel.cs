@@ -22,7 +22,7 @@ namespace Glyssen.Dialogs
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
 		private readonly HashSet<CharacterVerse> m_pendingCharacterVerseAdditions = new HashSet<CharacterVerse>();
-		private HashSet<CharacterVerse> m_currentCharacters;
+		private ISet<ICharacterDeliveryInfo> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
@@ -220,7 +220,8 @@ namespace Glyssen.Dialogs
 		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
-				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification, includeAlternates:true));
+				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification,
+				includeAlternates:true, includeNarratorOverrides:true));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
@@ -231,7 +232,7 @@ namespace Glyssen.Dialogs
 
 		private void PopulateCurrentCharactersForCurrentReferenceTextMatchup()
 		{
-			m_currentCharacters = new HashSet<CharacterVerse>();
+			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
 			m_currentCharacters.UnionWith(m_pendingCharacterVerseAdditions);
@@ -239,7 +240,7 @@ namespace Glyssen.Dialogs
 
 		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
 		{
-			m_currentCharacters = GetUniqueCharacterVerseObjectsForCurrentReference();
+			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(GetUniqueCharacterVerseObjectsForCurrentReference());
 			return GetUniqueCharacters(expandIfNone);
 		}
 
@@ -295,15 +296,14 @@ namespace Glyssen.Dialogs
 
 			if (string.IsNullOrWhiteSpace(filterText))
 			{
-				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
+				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
 			}
 			else
 			{
-				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries());
-
 				filterText = filterText.Trim();
-				m_currentCharacters.RemoveWhere(c => !c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
-					(c.LocalizedAlias == null || !c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase)));
+				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries()
+					.Where(c => c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
+						(c.LocalizedAlias != null && c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase))));
 			}
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(

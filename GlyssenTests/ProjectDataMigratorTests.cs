@@ -970,7 +970,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, overrideOba.EndChapter, "Test setup conditions not met!");
 			Assert.AreEqual(kObadiahTheProphet, overrideOba.Character, "Test setup conditions not met!");
 			Assert.IsTrue(overrideOba.StartVerse <= 19, "Test setup conditions not met!");
-			Assert.IsTrue(overrideOba.EndVerse == 21, "Test setup conditions not met!");
+			Assert.AreEqual(21, overrideOba.EndVerse, "Test setup conditions not met!");
 
 			var explicitObadiahBlocks = new HashSet<Block>();
 			for (int i = 19; i < 21; i++)
