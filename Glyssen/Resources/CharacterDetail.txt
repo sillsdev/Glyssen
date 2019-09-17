@@ -6,8 +6,7 @@ Aaron	1	Male	Adult			EXO 5:1 <-(16 more)-> NUM 16:22
 Abednego	1	Male	Adult		original Hebrew name: Azariah	DAN 3:16 <-(1 more)-> DAN 3:18
 Abigail	1	Female	Adult			1SA 25:19 <-(8 more)-> 1SA 25:41
 Abijah, king of Judah	1	Male	Adult			2CH 13:4 <-(7 more)-> 2CH 13:12
-Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 <-(8 more)-> GEN 21:29
-Abimelech, king of the Philistines (in Gerar)	1	Male	Adult			GEN 26:9 <-(4 more)-> GEN 26:29
+Abimelech, king of the Philistines (in Gerar)	1	Male	Adult			GEN 20:4 <-(14 more)-> GEN 26:29
 Abimelech, son of Gideon (Jerubbaal)	1	Male	Adult			JDG 9:2 <-(1 more)-> JDG 9:54
 Abiram	1	Male	Adult		son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
 Abishai, Joab's brother	1	Male	Adult			1SA 26:6 <-(2 more)-> 2SA 19:21
@@ -238,7 +237,7 @@ Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(15 more)-> DAN 6:27
 Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
 daughter of Zion	1	Female				JER 4:31 <-(17 more)-> LAM 2:22
 daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	Daughter of Zelophehad (female)
-David	1	Male	Adult			1SA 17:26 <-(399 more)-> PRO 4:9
+David	1	Male	Adult			1SA 17:26 <-(400 more)-> PRO 4:9
 David (old)	1	Male	Elder			1KI 1:16 <-(14 more)-> 1KI 2:9
 David's enemies	-1	Male				PSA 3:2 <-(12 more)-> PSA 71:11
 David's men	-1	Male				1SA 23:3 <-(2 more)-> 2SA 21:17

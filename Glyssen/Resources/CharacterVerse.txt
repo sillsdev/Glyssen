@@ -234,17 +234,17 @@ GEN	19	32	older daughter of Lot			Implicit
 GEN	19	34	older daughter of Lot			Normal		
 GEN	20	2	Abraham (Abram)			Normal		
 GEN	20	3	God		God (the LORD) (in vision)	Normal		
-GEN	20	4	Abimelech, king of Gerar			Normal		
-GEN	20	5	Abimelech, king of Gerar			Normal		
+GEN	20	4	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	5	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	20	6	God		God (the LORD) (in vision)	Normal		
 GEN	20	7	God		God (the LORD) (in vision)	Normal		
-GEN	20	9	Abimelech, king of Gerar			Normal		
-GEN	20	10	Abimelech, king of Gerar			Normal		
+GEN	20	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	20	11	Abraham (Abram)			Normal		
 GEN	20	12	Abraham (Abram)			Normal		
 GEN	20	13	Abraham (Abram)			Normal		
-GEN	20	15	Abimelech, king of Gerar			Normal		
-GEN	20	16	Abimelech, king of Gerar			Normal		
+GEN	20	15	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	16	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	21	6	Sarah (Sarai) (old)			Normal		
 GEN	21	7	Sarah (Sarai) (old)			Normal		
 GEN	21	10	Sarah (Sarai) (old)			Normal		
@@ -253,11 +253,11 @@ GEN	21	13	God		God (the LORD)	Normal
 GEN	21	16	Hagar, Sarai's maid			Normal		
 GEN	21	17	angel of the LORD, the		angel of God	Normal	Jesus	
 GEN	21	18	angel of the LORD, the		angel of God	Normal	Jesus	
-GEN	21	22	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
-GEN	21	23	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
+GEN	21	22	Abimelech, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
+GEN	21	23	Abimelech, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
 GEN	21	24	Abraham (Abram)			Normal		
-GEN	21	26	Abimelech, king of Gerar		Abimelech	Normal		
-GEN	21	29	Abimelech, king of Gerar		Abimelech	Normal		
+GEN	21	26	Abimelech, king of the Philistines (in Gerar)		Abimelech	Normal		
+GEN	21	29	Abimelech, king of the Philistines (in Gerar)		Abimelech	Normal		
 GEN	21	30	Abraham (Abram)			Normal		
 GEN	22	1	Abraham (Abram)			Normal		
 GEN	22	1	God		God (the LORD)	Normal		
