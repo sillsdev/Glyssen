@@ -45,7 +45,7 @@
     <verse num="8" />
     <text>Then they asked him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="sailors on ship to Tarshish">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="captain of ship to Tarshish">
     <text>«Tell us, please, for whose cause this evil is on us. What is your occupation? Where do you come from? What is your country? Of what people are you?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-JON">
@@ -59,7 +59,7 @@
     <verse num="10" />
     <text>Then were the men exceedingly afraid, and said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="sailors on ship to Tarshish">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="captain of ship to Tarshish" delivery="fearful">
     <text>«What is this that you have done?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JON">
@@ -67,7 +67,7 @@
     <verse num="11" />
     <text>Then they said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="sailors on ship to Tarshish">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="captain of ship to Tarshish">
     <text>«What shall we do to you, that the sea may be calm to us?»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-JON">
@@ -84,7 +84,7 @@
     <verse num="14" />
     <text>Therefore they cried to God, and said,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="sailors on ship to Tarshish">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="captain of ship to Tarshish" delivery="praying">
     <text>«We beg you, God, we beg you, don't let us die for this man's life, and don't lay on us innocent blood; for you, God, have done as it pleased you.»</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-JON">

@@ -12996,7 +12996,7 @@ EZK	26	20	God	prophecy	God (the LORD)	Implicit
 EZK	26	20	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	26	21	God	prophecy	God (the LORD)	Normal		
 EZK	26	21	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	27	2	God		God (the LORD)	Implicit		
+EZK	27	2	God	commanding	God (the LORD)	Implicit		
 EZK	27	3	God	commanding	God (the LORD)	Normal		
 EZK	27	3	Ezekiel	lament	Ezekiel (the LORD says)	Normal		
 EZK	27	3	God	lament	God (the LORD)	Normal		
@@ -14676,6 +14676,7 @@ JON	1	8	captain of ship to Tarshish			Normal
 JON	1	9	Jonah			Normal		
 JON	1	10	sailors on ship to Tarshish	fearful	sailors	Normal		
 JON	1	10	captain of ship to Tarshish	fearful		Normal		
+JON	1	10	Jonah			Indirect		
 JON	1	11	sailors on ship to Tarshish		sailors	Normal		
 JON	1	11	captain of ship to Tarshish			Normal		
 JON	1	12	Jonah			Normal		
@@ -14965,8 +14966,10 @@ ZEP	3	15	God		God (the LORD)	Potential
 ZEP	3	16	God		God (the LORD)	Potential		
 ZEP	3	16	God	encouraging	God (the LORD)	Hypothetical		
 ZEP	3	16	person encouraging Jerusalem			Hypothetical		
+ZEP	3	16	Needs Review			Normal		
 ZEP	3	17	God	encouraging	God (the LORD)	Hypothetical		
 ZEP	3	17	person encouraging Jerusalem			Hypothetical		
+ZEP	3	17	Needs Review			Normal		
 ZEP	3	18	God		God (the LORD)	Implicit		
 ZEP	3	18	Zephaniah, prophet		Zephaniah (the LORD says)	Alternate		
 ZEP	3	19	God		God (the LORD)	Implicit		

@@ -10,191 +10,221 @@
     <verse num="1" />
     <text>An oracle about Nineveh. The book of the vision of Nahum the Elkoshite.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="Nahum">
     <verse num="2" />
     <text>God is a jealous God and avenges. God avenges and is full of wrath. God takes vengeance on his adversaries, and he maintains wrath against his enemies.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="Nahum">
     <verse num="3" />
     <text>God is slow to anger, and great in power, and will by no means leave the guilty unpunished. God has his way in the whirlwind and in the storm, and the clouds are the dust of his feet.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="Nahum">
     <verse num="4" />
     <text>He rebukes the sea, and makes it dry, and dries up all the rivers. Bashan languishes, and Carmel; and the flower of Lebanon languishes.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="Nahum">
     <verse num="5" />
     <text>The mountains quake before him, and the hills melt away. The earth trembles at his presence, yes, the world, and all who dwell in it.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="Nahum">
     <verse num="6" />
     <text>Who can stand before his indignation? Who can endure the fierceness of his anger? His wrath is poured out like fire, and the rocks are broken apart by him.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="Nahum">
     <verse num="7" />
     <text>God is good, a stronghold in the day of trouble; and he knows those who take refuge in him.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="Nahum">
     <verse num="8" />
     <text>But with an overflowing flood, he will make a full end of her place, and will pursue his enemies into darkness.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="Nahum">
     <verse num="9" />
     <text>What do you plot against God? He will make a full end. Affliction won't rise up the second time.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="Nahum">
     <verse num="10" />
     <text>For entangled like thorns, and drunken as with their drink, they are consumed utterly like dry stubble.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="Nahum">
     <verse num="11" />
     <text>There is one gone forth out of you, who devises evil against God, who counsels wickedness.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="Nahum">
     <verse num="12" />
-    <text>Thus says God: «Though they be in full strength, and likewise many, even so they will be cut down, and he shall pass away. Though I have afflicted you, I will afflict you no more.</text>
+    <text>Thus says God:</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="God">
+    <text>«Though they be in full strength, and likewise many, even so they will be cut down, and he shall pass away. Though I have afflicted you, I will afflict you no more.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>Now will I break his yoke from off you, and will burst your bonds apart.»</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="Nahum">
     <verse num="14" />
-    <text>God has commanded concerning you: «No more descendants will bear your name. Out of the house of your gods, will I cut off the engraved image and the molten image. I will make your grave, for you are vile.»</text>
+    <text>God has commanded concerning you:</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-NAM">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="God">
+    <text>«No more descendants will bear your name. Out of the house of your gods, will I cut off the engraved image and the molten image. I will make your grave, for you are vile.»</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>Behold, on the mountains the feet of him who brings good news, who publishes peace! Keep your feasts, Judah! Perform your vows, for the wicked one will no more pass through you. He is utterly cut off.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="NAM" initialStartVerse="0" characterId="BC-NAM">
     <text>2</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="Nahum">
     <verse num="1" />
     <text>He who dashes in pieces has come up against you. Keep the fortress! Watch the way! Strengthen your waist! Fortify your power mightily!</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Nahum">
     <verse num="2" />
     <text>For God restores the excellency of Jacob, as the excellency of Israel; for the destroyers have destroyed them, and ruined their vine branches.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="Nahum">
     <verse num="3" />
     <text>The shield of his mighty men is made red. The valiant men are in scarlet. The chariots flash with steel in the day of his preparation, and the pine spears are brandished.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="Nahum">
     <verse num="4" />
     <text>The chariots rage in the streets. They rush back and forth in the broad ways. Their appearance is like torches. They run like the lightnings.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="Nahum">
     <verse num="5" />
     <text>He summons his picked troops. They stumble on their way. They dash to its wall, and the protective shield is put in place.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="Nahum">
     <verse num="6" />
     <text>The gates of the rivers are opened, and the palace is dissolved.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="Nahum">
     <verse num="7" />
     <text>It is decreed: she is uncovered, she is carried away; and her handmaids moan as with the voice of doves, beating on their breasts.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="Nahum">
     <verse num="8" />
-    <text>But Nineveh has been from of old like a pool of water, yet they flee away. «Stop! Stop!» they cry, but no one looks back.</text>
+    <text>But Nineveh has been from of old like a pool of water, yet they flee away.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="slave girls">
+    <text>«Stop! Stop!»</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="8" characterId="Nahum">
+    <text>they cry, but no one looks back. </text>
     <verse num="9" />
     <text>Take the spoil of silver. Take the spoil of gold, for there is no end of the store, the glory of all goodly furniture.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="10" characterId="Nahum">
     <verse num="10" />
     <text>She is empty, void, and waste. The heart melts, the knees knock together, their bodies and faces have grown pale.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="Nahum">
     <verse num="11" />
     <text>Where is the den of the lions, and the feeding place of the young lions, where the lion and the lioness walked, the lion's cubs, and no one made them afraid?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="12" characterId="Nahum">
     <verse num="12" />
     <text>The lion tore in pieces enough for his cubs, and strangled for his lionesses, and filled his caves with the kill, and his dens with prey.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-NAM">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Behold, I am against you, says God of Armies, «and I will burn her chariots in the smoke, and the sword will devour your young lions; and I will cut off your prey from the earth, and the voice of your messengers will no longer be heard.»</text>
+    <text>Behold, I am against you,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="13" characterId="Nahum">
+    <text>says God of Armies,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="13" characterId="God">
+    <text>«and I will burn her chariots in the smoke, and the sword will devour your young lions; and I will cut off your prey from the earth, and the voice of your messengers will no longer be heard.»</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="NAM" initialStartVerse="0" characterId="BC-NAM">
     <text>3</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="1" characterId="Nahum">
     <verse num="1" />
     <text>Woe to the bloody city! It is all full of lies and robbery. The prey doesn't depart.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="2" characterId="Nahum">
     <verse num="2" />
-    <text>The noise of the whip, the noise of the rattling of wheels, prancing horses, and bounding chariots, </text>
+    <text>The noise of the whip, the noise of the rattling of wheels, prancing horses, and bounding chariots,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="3" characterId="Nahum">
     <verse num="3" />
     <text>the horseman mounting, and the flashing sword, the glittering spear, and a multitude of slain, and a great heap of corpses, and there is no end of the bodies. They stumble on their bodies,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="Nahum">
     <verse num="4" />
     <text>because of the multitude of the prostitution of the alluring prostitute, the mistress of witchcraft, who sells nations through her prostitution, and families through her witchcraft.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>Behold, I am against you, says God of Armies, «and I will lift your skirts over your face. I will show the nations your nakedness, and the kingdoms your shame.</text>
+    <text>Behold, I am against you,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="Nahum">
+    <text>says God of Armies,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="5" characterId="God">
+    <text>«and I will lift your skirts over your face. I will show the nations your nakedness, and the kingdoms your shame.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>I will throw abominable filth on you, and make you vile, and will set you a spectacle.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>It will happen that all those who look at you will flee from you, and say, 'Nineveh is laid waste! Who will mourn for her?' Where will I seek comforters for you?»</text>
+    <text>It will happen that all those who look at you will flee from you, and say,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="people who see Nineveh's destruction">
+    <text>'Nineveh is laid waste! Who will mourn for her?'</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="7" characterId="God">
+    <text>Where will I seek comforters for you?»</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="8" characterId="Nahum">
     <verse num="8" />
     <text>Are you better than No-Amon, who was situated among the rivers, who had the waters around her; whose rampart was the sea, and her wall was of the sea?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="Nahum">
     <verse num="9" />
     <text>Cush and Egypt were her boundless strength. Put and Libya were her helpers.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="10" characterId="Nahum">
     <verse num="10" />
     <text>Yet was she carried away. She went into captivity. Her young children also were dashed in pieces at the head of all the streets, and they cast lots for her honorable men, and all her great men were bound in chains.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="11" characterId="Nahum">
     <verse num="11" />
     <text>You also will be drunken. You will be hidden. You also will seek a stronghold because of the enemy.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="12" characterId="Nahum">
     <verse num="12" />
     <text>All your fortresses will be like fig trees with the first-ripe figs: if they are shaken, they fall into the mouth of the eater.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="13" characterId="Nahum">
     <verse num="13" />
     <text>Behold, your troops in your midst are women. The gates of your land are set wide open to your enemies. The fire has devoured your bars.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="14" characterId="Nahum">
     <verse num="14" />
     <text>Draw water for the siege. Strengthen your fortresses. Go into the clay, and tread the mortar. Make the brick kiln strong.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="15" characterId="Nahum">
     <verse num="15" />
     <text>There the fire will devour you. The sword will cut you off. It will devour you like the grasshopper. Multiply like grasshoppers. Multiply like the locust.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="16" characterId="Nahum">
     <verse num="16" />
     <text>You have increased your merchants more than the stars of the skies. The grasshopper strips, and flees away.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="17" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="17" characterId="Nahum">
     <verse num="17" />
     <text>Your guards are like the locusts, and your officials like the swarms of locusts, which settle on the walls on a cold day, but when the sun appears, they flee away, and their place is not known where they are.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="18" characterId="Nahum">
     <verse num="18" />
     <text>Your shepherds slumber, king of Assyria. Your nobles lie down. Your people are scattered on the mountains, and there is no one to gather them.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-NAM">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="Nahum">
     <verse num="19" />
     <text>There is no healing your wound, for your injury is fatal. All who hear the report of you clap their hands over you; for who hasn't felt your endless cruelty?</text>
   </block>

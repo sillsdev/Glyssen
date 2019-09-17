@@ -543,7 +543,7 @@ John	1	Male				MAT 17:10 <-(34 more)-> GAL 2:10
 John the Baptist	1	Male				MAT 3:2 <-(46 more)-> JHN 3:36
 John, Alexander, and other men of the high priest's family	-1	Male				ACT 4:7 <-(4 more)-> ACT 4:18
 Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35
-Jonah	1	Male				JON 1:9 <-(13 more)-> JON 4:9
+Jonah	1	Male				JON 1:9 <-(14 more)-> JON 4:9
 Jonathan	1	Male				1SA 14:1 <-(35 more)-> 1SA 23:17
 Jonathan, son of Abiathar	1	Male				2SA 17:21 <-(5 more)-> 1KI 1:48	Jonathan the Priest
 Jonathan's armor bearer	1	Male				1SA 14:7	Armor-bearer
