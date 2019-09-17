@@ -13984,7 +13984,7 @@ DAN	4	27	Daniel		Belteshazzar (Daniel)	Implicit
 DAN	4	27	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	28	Nebuchadnezzar, king of Babylon	letter		Potential		
 DAN	4	29	Nebuchadnezzar, king of Babylon	letter		Potential		
-DAN	4	30	Nebuchadnezzar, king of Babylon			Normal		
+DAN	4	30	Nebuchadnezzar, king of Babylon	boasting		Normal		
 DAN	4	30	Nebuchadnezzar, king of Babylon	letter		Alternate		
 DAN	4	31	voice from heaven (angel?)			Normal		
 DAN	4	31	God		voice from heaven (God?)	Normal		
