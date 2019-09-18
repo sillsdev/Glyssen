@@ -918,6 +918,57 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void MigrateDeprecatedCharacterIds_StandardCharacterIdPreviouslyAddedAsProjectSpecific_ProjectSpecificCharacterIdRemoved()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			// The following setup steps simulate a condition where the user had to add (and use) a character ID that was not
+			// present in the control files, but has subsequently been added.
+			var soulsBlockInRev610 = testProject.IncludedBooks.Single().GetBlocksForVerse(6, 10).First(b => !b.CharacterIsStandard);
+			var projectSpecificDetail = new CharacterDetail
+				{
+					CharacterId = "we have to add it with an unknown id to avoid an exception, but then we can trick the system by renaming it",
+					Age = CharacterAge.Adult,
+					Gender = CharacterGender.PreferMale,
+				};
+			testProject.AddProjectCharacterDetail(projectSpecificDetail);
+			projectSpecificDetail.CharacterId = soulsBlockInRev610.CharacterId;
+			// The following line works fine today but could theoretically fail if we ever tighten up the control to
+			// prevent adding a project-specific CV that is identical to one in the control CV file.
+			testProject.ProjectCharacterVerseData.Add(ControlCharacterVerseData.Singleton.GetCharacters(66, 6, 10)
+				.Single(cv => cv.Character == soulsBlockInRev610.CharacterId));
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(projectSpecificDetail.CharacterId, soulsBlockInRev610.CharacterId, "The block itself should not have changed.");
+			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any(), "The only entry in ProjectCharacterVerseData should have been removed.");
+			Assert.IsTrue(testProject.AllCharacterDetailDictionary.ContainsKey(soulsBlockInRev610.CharacterId),
+				"The only entry in ProjectCharacterDetail should have been removed. This call should throw an exception if the key is " +
+				"present in both.");
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_BlockAssignedToDefaultCharacter_AssignmentChangedToGroup()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetScriptBlocks().First(b => b.CharacterIdOverrideForScript != null);
+
+			var origCharacterId = block.CharacterId;
+			var origCharacterIdForScript = block.CharacterIdOverrideForScript;
+			// The following setup steps simulate a condition where the character ID (in the control file, and therefore also
+			// set for the block) was a simple, single character
+			// In the current version of the control file (represented by the *orig* values above), it has been turned into
+			// a multiple-character id (i.e., with slashes).
+			block.CharacterId = block.CharacterIdOverrideForScript;
+			block.CharacterIdOverrideForScript = null;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(origCharacterId, block.CharacterId);
+			Assert.AreEqual(origCharacterIdForScript, block.CharacterIdOverrideForScript);
+		}
+
+		[Test]
 		public void MigrateDeprecatedCharacterIds_FirstVerseInQuoteIsUnexpectedForCharacter_CharacterIdNotSetToUnknown()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);

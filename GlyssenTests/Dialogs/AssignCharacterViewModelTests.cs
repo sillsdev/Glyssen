@@ -1855,13 +1855,15 @@ namespace GlyssenTests.Dialogs
 
 			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
 
-			Assert.AreEqual(1, reloadedProject.ProjectCharacterVerseData.GetCharacters(41, chapter, startVerse, startVerse)
+			var cvData = new CombinedCharacterVerseData(reloadedProject);
+
+			Assert.AreEqual(1, cvData.GetCharacters(41, chapter, startVerse, startVerse)
 				.Count(cv => cv.Character == charChrist && cv.Delivery == (delivery?? "")),
 				$"Character ID \"{charChrist}\"{(delivery != null ? " (" + delivery + ")" : "")} missing from " +
 				$"ProjectCharacterVerseData for verse {startVerse}");
 
 			for (int verse = firstVerseNumFollowingSetBlock; verse < lastVerseNumOfBlockFollowingMatchup; verse++)
-				Assert.AreEqual(1, reloadedProject.ProjectCharacterVerseData.GetCharacters(41, chapter, verse, verse)
+				Assert.AreEqual(1, cvData.GetCharacters(41, chapter, verse, verse)
 						.Count(cv => cv.Character == charChrist && cv.Delivery == ""),
 					$"Character ID \"{charChrist}\" missing from ProjectCharacterVerseData for verse {verse}");
 

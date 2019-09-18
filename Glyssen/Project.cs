@@ -73,7 +73,7 @@ namespace Glyssen
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
 		private CharacterGroupList m_characterGroupList;
-		private ISet<CharacterDetail> ProjectCharacterDetail { get; set; }
+		private ISet<CharacterDetail> ProjectCharacterDetail { get; }
 		private bool m_projectFileIsWritable = true;
 		private ReferenceText m_referenceText;
 
@@ -452,14 +452,30 @@ namespace Glyssen
 					return CharacterDetailData.Singleton.GetDictionary();
 				Dictionary<string, CharacterDetail> characterDetails =
 					new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
+				// If the following line throws an exception because the key is already present, there is
+				// either a bug in ProjectDataMigrator.MigrateDeprecatedCharacterIds, or this property is
+				// being accessed prematurely, before the migration has happened.
 				characterDetails.AddRange(ProjectCharacterDetail.ToDictionary(k => k.CharacterId));
 				return characterDetails;
 			}
 		}
 
+		public bool IsProjectSpecificCharacter(string character)
+		{
+			return ProjectCharacterDetail.Any(d => d.CharacterId == character);
+		}
+
 		public void AddProjectCharacterDetail(CharacterDetail characterDetail)
 		{
+			if (CharacterDetailData.Singleton.GetDictionary().ContainsKey(characterDetail.CharacterId))
+				throw new ArgumentException($"The built-in character detail collection already contains character {characterDetail.CharacterId}.");
 			ProjectCharacterDetail.Add(characterDetail);
+		}
+
+		public bool RemoveProjectCharacterDetail(string character)
+		{
+			var itemToRemove = ProjectCharacterDetail.SingleOrDefault(d => d.CharacterId == character);
+			return itemToRemove != null && ProjectCharacterDetail.Remove(itemToRemove);
 		}
 
 		public void UpdateSettings(ProjectSettingsViewModel model)

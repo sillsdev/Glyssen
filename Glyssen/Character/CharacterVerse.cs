@@ -178,7 +178,7 @@ namespace Glyssen.Character
 				return m_localizedAlias;
 			}
 		}
-
+		
 		/// <summary>
 		/// This property returns the Default character to use if this object's Character property represents
 		/// multiple character IDs. Otherwise, it just returns the Character (the <see cref="DefaultCharacter"/>
@@ -192,6 +192,7 @@ namespace Glyssen.Character
 				return ids.Length == 1 ? Character : (!IsNullOrEmpty(DefaultCharacter) ? DefaultCharacter : ids[0]);
 			}
 		}
+
 		public string ParallelPassageReferences { get; }
 		public bool ProjectSpecific { get; }
 

@@ -224,7 +224,7 @@ namespace Glyssen
 		internal static int MigrateDeprecatedCharacterIds(Project project)
 		{
 			var cvInfo = new CombinedCharacterVerseData(project);
-			var characterDetailDictionary = project.AllCharacterDetailDictionary;
+			var characterDetailDictionary = CharacterDetailData.Singleton.GetDictionary();
 			int numberOfChangesMade = 0; // For testing
 
 			foreach (BookScript book in project.Books)
@@ -245,11 +245,12 @@ namespace Glyssen
 					}
 					else
 					{
-						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+						var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+						var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
 						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 							block.InitialEndVerseNumber, block.LastVerseNum, includeNarratorOverrides: true).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
-							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
+							// PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
 							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
@@ -267,8 +268,26 @@ namespace Glyssen
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
 									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
 								else
-									block.SetCharacterAndDelivery(characters);
+								{
+									CharacterVerse match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
+										c.Delivery == (block.Delivery ?? ""));
+									if (match != null)
+									{
+										block.CharacterId = match.Character;
+										block.CharacterIdInScript = match.ResolvedDefaultCharacter;
+									}
+									else
+										block.SetCharacterAndDelivery(characters);
+								}
+
 								numberOfChangesMade++;
+							}
+							else if (knownFactoryCharacter)
+							{
+								project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+									block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+								if (project.RemoveProjectCharacterDetail(block.CharacterId))
+									numberOfChangesMade++;
 							}
 						}
 					}
