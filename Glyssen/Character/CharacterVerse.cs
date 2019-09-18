@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Character
 {
@@ -126,6 +127,20 @@ namespace Glyssen.Character
 				return m_localizedAlias;
 			}
 		}
+		/// <summary>
+		/// This property returns the Default character to use if this object's Character property represents
+		/// multiple character IDs. Otherwise, it just returns the Character (the <see cref="DefaultCharacter"/>
+		/// is ignored in this case).
+		/// </summary>
+		public string ResolvedDefaultCharacter
+		{
+			get
+			{
+				var ids = Character.SplitCharacterId(2);
+				return ids.Length == 1 ? Character : (!IsNullOrEmpty(DefaultCharacter) ? DefaultCharacter : ids[0]);
+			}
+		}
+
 		public string ParallelPassageReferences { get; }
 		public bool ProjectSpecific { get; }
 
