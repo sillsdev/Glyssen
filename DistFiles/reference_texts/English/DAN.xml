@@ -598,7 +598,7 @@
     <verse num="30" />
     <text>The king spoke and said,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="30" characterId="Nebuchadnezzar, king of Babylon">
+  <block style="p" chapter="4" initialStartVerse="30" characterId="Nebuchadnezzar, king of Babylon" delivery="boasting">
     <text>Is not this great Babylon, which I have built for the royal dwelling place, by the might of my power and for the glory of my majesty?</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="31" characterId="narrator-DAN">
