@@ -10816,7 +10816,7 @@ JER	17	11	God		God (the LORD)	Potential
 JER	17	13	Jeremiah			Potential		
 JER	17	14	Jeremiah			Potential		
 JER	17	15	Jeremiah			Potential		
-JER	17	15	Jeremiah's enemies			Quotation		
+JER	17	15	Jeremiah's enemies	mocking		Quotation		
 JER	17	16	Jeremiah			Potential		
 JER	17	17	Jeremiah			Potential		
 JER	17	18	Jeremiah			Potential		
@@ -10918,6 +10918,7 @@ JER	21	12	Jeremiah			Normal
 JER	21	12	God		God (the LORD)	Normal		
 JER	21	13	Jeremiah			Normal		
 JER	21	13	God		God (the LORD)	Normal		
+JER	21	13	inhabitant of valley	arrogantly		Hypothetical		
 JER	21	14	Jeremiah			Normal		
 JER	21	14	God		God (the LORD)	Normal		
 JER	22	1	Jeremiah			Potential		
@@ -11023,7 +11024,7 @@ JER	23	31	false prophets			Hypothetical
 JER	23	32	God		God (the LORD)	Normal		
 JER	23	32	Jeremiah			Potential		
 JER	23	33	God		God (the LORD)	Normal		
-JER	23	33	false prophets			Hypothetical		
+JER	23	33	people/false prophets/priest		this people, the prophet, or a priest	Hypothetical	false prophets	
 JER	23	33	Jeremiah			Normal		
 JER	23	34	God		God (the LORD)	Normal		
 JER	23	34	false prophets			Hypothetical		

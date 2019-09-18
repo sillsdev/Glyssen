@@ -445,6 +445,7 @@ idolaters from Judah (women)	-1	Female				JER 44:16 <-(2 more)-> JER 44:19
 immoral woman	1	Female				PRO 7:14 <-(6 more)-> PRO 30:20
 informer	-1	PreferMale				JDG 15:6 <-(11 more)-> ACT 21:31
 inhabitants of Egyptian and Ethiopian coastlands	-1	Male				ISA 20:6
+inhabitant of valley	-1	PreferMale				JER 21:13
 inscription on forehead of Babylon	1	PreferFemale				REV 17:5
 invaders	-1	Male				JER 6:4 & JER 6:5
 invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
@@ -819,7 +820,7 @@ passers by	-1					LAM 2:15 <-(3 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(197 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
-people	-1					2CH 26:23 <-(36 more)-> 1TH 5:3
+people	-1					2CH 26:23 <-(37 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
 people at coronation of King Joash	-1					2KI 11:12
 people at Jairus' house	-1					MAT 9:24 & LUK 8:53
@@ -903,7 +904,7 @@ Pilate's wife	1	Female				MAT 27:19
 pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	Tree
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
 Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
-priest	-1	Male				NUM 5:19 <-(4 more)-> DEU 20:4
+priest	-1	Male				NUM 5:19 <-(5 more)-> JER 23:33
 priests	-1	Male				DEU 27:9 <-(35 more)-> ACT 4:1
 prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
 princes of the sea	-1	Male				EZK 26:17 & EZK 26:18
