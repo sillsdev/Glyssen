@@ -751,7 +751,7 @@ Nahum	1	Male				NAM 1:12 <-(16 more)-> NAM 3:19
 Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
-nations	-1	PreferMale				DEU 4:6 <-(13 more)-> ZEC 8:23
+nations	-1	PreferMale				DEU 4:6 <-(14 more)-> ZEC 8:23
 nations, neighboring (reply)	-1	PreferMale				JER 22:9
 Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(58 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:14 <-(3 more)-> JER 40:5
@@ -808,7 +808,6 @@ onlookers	-1					ISA 14:16 & ISA 14:17
 oppressors of poor	-1					AMO 8:5 & AMO 8:6
 Orpah	1	Female				RUT 1:10
 other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
-others	-1					ISA 43:9
 others (testing Jesus)	-1					LUK 11:16
 others who would not believe	-1	Male				ACT 28:24 & ACT 28:25
 owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33

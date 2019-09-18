@@ -9723,7 +9723,7 @@ ISA	43	8	Isaiah			Potential
 ISA	43	8	God		God (the LORD)	Alternate		
 ISA	43	9	Isaiah			Potential		
 ISA	43	9	God		God (the LORD)	Alternate		
-ISA	43	9	others			Hypothetical		
+ISA	43	9	nations			Hypothetical		
 ISA	43	10	God		God (the LORD)	Normal		
 ISA	43	11	God		God (the LORD)	Implicit		
 ISA	43	12	God		God (the LORD)	Normal		
