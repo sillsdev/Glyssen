@@ -12,7 +12,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="Habakkuk" delivery="crying">
     <verse num="2" />
-    <text>God, how long will I cry, and you will not hear? I cry out to you «Violence!» and will you not save?</text>
+    <text>God, how long will I cry, and you will not hear? I cry out to you “Violence!” and will you not save?</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="Habakkuk" delivery="complaining">
     <verse num="3" />
@@ -84,7 +84,7 @@
     <text>God answered me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="God">
-    <text>«Write the vision, and make it plain on tablets, that he who runs may read it.</text>
+    <text>“Write the vision, and make it plain on tablets, that he who runs may read it.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -169,7 +169,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>But God is in his holy temple. Let all the earth be silent before him!»</text>
+    <text>But God is in his holy temple. Let all the earth be silent before him!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="HAB" initialStartVerse="0" characterId="BC-HAB">
     <text>3</text>

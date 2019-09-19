@@ -15,11 +15,11 @@
     <text>Hear, heavens, and listen, earth; for God has spoken:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
-    <text>«I have nourished and brought up children, and they have rebelled against me.</text>
+    <text>“I have nourished and brought up children, and they have rebelled against me.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>The ox knows his owner, and the donkey his master's crib; but Israel doesn't know, my people don't consider.»</text>
+    <text>The ox knows his owner, and the donkey his master's crib; but Israel doesn't know, my people don't consider.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
@@ -54,7 +54,7 @@
     <text>What are the multitude of your sacrifices to me?, says God.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="God">
-    <text>«I have had enough of the burnt offerings of rams, and the fat of fed animals. I don't delight in the blood of bulls, or of lambs, or of male goats.</text>
+    <text>“I have had enough of the burnt offerings of rams, and the fat of fed animals. I don't delight in the blood of bulls, or of lambs, or of male goats.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -78,17 +78,17 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>Learn to do well. Seek justice. Relieve the oppressed. Judge the fatherless. Plead for the widow.»</text>
+    <text>Learn to do well. Seek justice. Relieve the oppressed. Judge the fatherless. Plead for the widow.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Come now, and let us reason together, says God: «Though your sins be as scarlet, they shall be as white as snow. Though they be red like crimson, they shall be as wool.</text>
+    <text>Come now, and let us reason together, says God: “Though your sins be as scarlet, they shall be as white as snow. Though they be red like crimson, they shall be as wool.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="God">
     <verse num="19" />
     <text>If you are willing and obedient, you shall eat the good of the land; </text>
     <verse num="20" />
-    <text>but if you refuse and rebel, you shall be devoured with the sword; for the mouth of God has spoken it.»</text>
+    <text>but if you refuse and rebel, you shall be devoured with the sword; for the mouth of God has spoken it.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="Isaiah">
     <verse num="21" />
@@ -107,7 +107,7 @@
     <text>Therefore the Lord, God of Armies, the Mighty One of Israel, says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="24" characterId="God">
-    <text>«Ah, I will get relief from my adversaries, and avenge myself of my enemies; </text>
+    <text>“Ah, I will get relief from my adversaries, and avenge myself of my enemies; </text>
     <verse num="25" />
     <text>and I will turn my hand on you, thoroughly purge away your dross, and will take away all your tin.</text>
   </block>
@@ -131,7 +131,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="31" characterId="God">
     <verse num="31" />
-    <text>The strong will be like tinder, and his work like a spark. They will both burn together, and no one will quench them.»</text>
+    <text>The strong will be like tinder, and his work like a spark. They will both burn together, and no one will quench them.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>2</text>
@@ -149,7 +149,7 @@
     <text>Many peoples shall go and say,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="peoples, many">
-    <text>«Come, let's go up to the mountain of God, to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.»</text>
+    <text>“Come, let's go up to the mountain of God, to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="Isaiah">
     <text>For out of Zion the law shall go forth, and the word of God from Jerusalem.</text>
@@ -250,14 +250,14 @@
     <text>Indeed a man shall take hold of his brother in the house of his father, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="man (hypothetical)">
-    <text>«You have clothing, you be our ruler, and let this ruin be under your hand.»</text>
+    <text>“You have clothing, you be our ruler, and let this ruin be under your hand.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="Isaiah">
     <verse num="7" />
     <text>In that day he will cry out, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="man's brother (hypothetical)">
-    <text>«I will not be a healer; for in my house is neither bread nor clothing. You shall not make me ruler of the people.»</text>
+    <text>“I will not be a healer; for in my house is neither bread nor clothing. You shall not make me ruler of the people.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
@@ -267,7 +267,7 @@
     <verse num="9" />
     <text>The look of their faces testify against them. They parade their sin like Sodom. They don't hide it. Woe to their soul! For they have brought disaster upon themselves. </text>
     <verse num="10" />
-    <text>Tell the righteous «Good!»</text>
+    <text>Tell the righteous “Good!”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="Isaiah">
     <text>For they shall eat the fruit of their deeds.</text>
@@ -287,9 +287,9 @@
     <text>God will enter into judgment with the elders of his people, and their leaders:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="God">
-    <text>«It is you who have eaten up the vineyard. The spoil of the poor is in your houses. </text>
+    <text>“It is you who have eaten up the vineyard. The spoil of the poor is in your houses. </text>
     <verse num="15" />
-    <text>What do you mean that you crush my people, and grind the face of the poor?»</text>
+    <text>What do you mean that you crush my people, and grind the face of the poor?”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="Isaiah">
     <text>says the Lord, God of Armies. </text>
@@ -297,11 +297,11 @@
     <text>Moreover God said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="God">
-    <text>«Because the daughters of Zion are haughty, and walk with outstretched necks and flirting eyes, walking to trip as they go, jingling ornaments on their feet;</text>
+    <text>“Because the daughters of Zion are haughty, and walk with outstretched necks and flirting eyes, walking to trip as they go, jingling ornaments on their feet;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>therefore the Lord brings sores on the crown of the head of the women of Zion, and God will make their scalps bald.»</text>
+    <text>therefore the Lord brings sores on the crown of the head of the women of Zion, and God will make their scalps bald.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="Isaiah">
     <verse num="18" />
@@ -335,7 +335,7 @@
     <text>Seven women shall take hold of one man in that day, saying,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="1" characterId="women, seven">
-    <text>«We will eat our own bread, and wear our own clothing: only let us be called by your name. Take away our reproach.»</text>
+    <text>“We will eat our own bread, and wear our own clothing: only let us be called by your name. Take away our reproach.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="Isaiah">
     <verse num="2" />
@@ -397,11 +397,11 @@
     <text>In my ears, God of Armies says:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="God">
-    <text>«Surely many houses will be desolate, even great and beautiful, unoccupied.</text>
+    <text>“Surely many houses will be desolate, even great and beautiful, unoccupied.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>For ten acres of vineyard shall yield one bath, and a homer of seed shall yield an ephah.»</text>
+    <text>For ten acres of vineyard shall yield one bath, and a homer of seed shall yield an ephah.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="Isaiah">
     <verse num="11" />
@@ -438,7 +438,7 @@
     <text>Who say,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="19" characterId="people, hurried">
-    <text>«Let him make speed, let him hasten his work, that we may see it; and let the counsel of the Holy One of Israel draw near and come, that we may know it!»</text>
+    <text>“Let him make speed, let him hasten his work, that we may see it; and let the counsel of the Holy One of Israel draw near and come, that we may know it!”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="20" characterId="Isaiah">
     <verse num="20" />
@@ -496,7 +496,7 @@
     <text>One called to another, and said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="seraphs">
-    <text>«Holy, holy, holy, is God of Armies! The whole earth is full of his glory!»</text>
+    <text>“Holy, holy, holy, is God of Armies! The whole earth is full of his glory!”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
@@ -505,7 +505,7 @@
     <text>Then I said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="Isaiah">
-    <text>«Woe is me! For I am undone, because I am a man of unclean lips, and I dwell in the midst of a people of unclean lips: for my eyes have seen the King, God of Armies!»</text>
+    <text>“Woe is me! For I am undone, because I am a man of unclean lips, and I dwell in the midst of a people of unclean lips: for my eyes have seen the King, God of Armies!”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
@@ -514,39 +514,39 @@
     <text>He touched my mouth with it, and said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="seraph, one of the">
-    <text>«Behold, this has touched your lips; and your iniquity is taken away, and your sin forgiven.»</text>
+    <text>“Behold, this has touched your lips; and your iniquity is taken away, and your sin forgiven.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
     <text>I heard the Lord's voice, saying,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="God">
-    <text>«Whom shall I send, and who will go for us?»</text>
+    <text>“Whom shall I send, and who will go for us?”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="Isaiah">
-    <text>Then I said, «Here I am. Send me!» </text>
+    <text>Then I said, “Here I am. Send me!” </text>
     <verse num="9" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="God">
-    <text>«Go, and tell this people, 'You hear indeed, but don't understand; and you see indeed, but don't perceive.'</text>
+    <text>“Go, and tell this people, 'You hear indeed, but don't understand; and you see indeed, but don't perceive.'</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Make the heart of this people fat. Make their ears heavy, and shut their eyes; lest they see with their eyes, and hear with their ears, and understand with their heart, and turn again, and be healed.»</text>
+    <text>Make the heart of this people fat. Make their ears heavy, and shut their eyes; lest they see with their eyes, and hear with their ears, and understand with their heart, and turn again, and be healed.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="Isaiah">
     <verse num="11" />
-    <text>Then I said, «Lord, how long?» He answered,</text>
+    <text>Then I said, “Lord, how long?” He answered,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="God">
-    <text>«Until cities are waste without inhabitant, and houses without man, and the land becomes utterly waste, </text>
+    <text>“Until cities are waste without inhabitant, and houses without man, and the land becomes utterly waste, </text>
     <verse num="12" />
     <text>And God has removed men far away, and the forsaken places are many in the midst of the land.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>If there is a tenth left in it, that also will in turn be consumed: as a terebinth, and as an oak, whose stock remains when they are felled; so the holy seed is its stock.»</text>
+    <text>If there is a tenth left in it, that also will in turn be consumed: as a terebinth, and as an oak, whose stock remains when they are felled; so the holy seed is its stock.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>7</text>
@@ -558,7 +558,7 @@
     <text>It was told the house of David, saying,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="messenger">
-    <text>«Syria is allied with Ephraim.»</text>
+    <text>“Syria is allied with Ephraim.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-ISA">
     <text>His heart trembled, and the heart of his people, as the trees of the forest tremble with the wind. </text>
@@ -566,7 +566,7 @@
     <text>Then God said to Isaiah,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="God">
-    <text>«Go out now to meet Ahaz, you, and Shearjashub your son, at the end of the conduit of the upper pool, on the highway of the fuller's field. </text>
+    <text>“Go out now to meet Ahaz, you, and Shearjashub your son, at the end of the conduit of the upper pool, on the highway of the fuller's field. </text>
     <verse num="4" />
     <text>Tell him,</text>
   </block>
@@ -586,7 +586,7 @@
     <text>This is what the Lord God says:</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="God">
-    <text>«It shall not stand, neither shall it happen.»</text>
+    <text>“It shall not stand, neither shall it happen.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -594,7 +594,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>and the head of Ephraim is Samaria, and the head of Samaria is Remaliah's son. If you will not believe, surely you shall not be established.'»</text>
+    <text>and the head of Ephraim is Samaria, and the head of Samaria is Remaliah's son. If you will not believe, surely you shall not be established.'”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-ISA">
     <verse num="10" />
@@ -609,14 +609,14 @@
     <text>But Ahaz said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="Ahaz, king of Judah">
-    <text>«I will not ask, neither will I tempt God.»</text>
+    <text>“I will not ask, neither will I tempt God.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="narrator-ISA">
     <verse num="13" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="Isaiah">
-    <text>«Listen now, house of David. Is it not enough for you to try the patience of men, that you will try the patience of my God also?</text>
+    <text>“Listen now, house of David. Is it not enough for you to try the patience of men, that you will try the patience of my God also?</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
@@ -664,7 +664,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="25" characterId="Isaiah">
     <verse num="25" />
-    <text>All the hills that were cultivated with the hoe, you shall not come there for fear of briers and thorns; but it shall be for the sending forth of oxen, and for the treading of sheep.»</text>
+    <text>All the hills that were cultivated with the hoe, you shall not come there for fear of briers and thorns; but it shall be for the sending forth of oxen, and for the treading of sheep.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>8</text>
@@ -674,22 +674,22 @@
     <text>God said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="God">
-    <text>«Take a large tablet, and write on it with a man's pen, 'For Maher Shalal Hash Baz;'</text>
+    <text>“Take a large tablet, and write on it with a man's pen, 'For Maher Shalal Hash Baz;'</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>and I will take for myself faithful witnesses to testify: Uriah the priest, and Zechariah the son of Jeberechiah.»</text>
+    <text>and I will take for myself faithful witnesses to testify: Uriah the priest, and Zechariah the son of Jeberechiah.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="Isaiah">
     <verse num="3" />
     <text>I went to the prophetess, and she conceived, and bore a son. Then God said to me,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="God">
-    <text>«Call his name 'Maher Shalal Hash Baz.'</text>
+    <text>“Call his name 'Maher Shalal Hash Baz.'</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>For before the child knows how to say, 'My father,' and, 'My mother,' the riches of Damascus and the spoil of Samaria will be carried away by the king of Assyria.»</text>
+    <text>For before the child knows how to say, 'My father,' and, 'My mother,' the riches of Damascus and the spoil of Samaria will be carried away by the king of Assyria.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
@@ -748,7 +748,7 @@
     <text>When they tell you,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="19" characterId="someone">
-    <text>«Consult with those who have familiar spirits and with the wizards, who chirp and who mutter:»</text>
+    <text>“Consult with those who have familiar spirits and with the wizards, who chirp and who mutter:”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="19" characterId="Isaiah">
     <text>shouldn't a people consult with their God? Should they consult the dead on behalf of the living?</text>
@@ -880,11 +880,11 @@
     <text>For he says,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="God">
-    <text>«Aren't all of my princes kings?</text>
+    <text>“Aren't all of my princes kings?</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>Isn't Calno like Carchemish? Isn't Hamath like Arpad? Isn't Samaria like Damascus?»</text>
+    <text>Isn't Calno like Carchemish? Isn't Hamath like Arpad? Isn't Samaria like Damascus?”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -904,11 +904,11 @@
     <text>For he has said,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="Sennacherib, king of Assyria">
-    <text>«By the strength of my hand I have done it, and by my wisdom; for I have understanding: and I have removed the boundaries of the peoples, and have robbed their treasures. Like a valiant man I have brought down their rulers.</text>
+    <text>“By the strength of my hand I have done it, and by my wisdom; for I have understanding: and I have removed the boundaries of the peoples, and have robbed their treasures. Like a valiant man I have brought down their rulers.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="Sennacherib, king of Assyria">
     <verse num="14" />
-    <text>My hand has found the riches of the peoples like a nest, and like one gathers eggs that are abandoned, have I gathered all the earth. There was no one who moved their wing, or that opened their mouth, or chirped.»</text>
+    <text>My hand has found the riches of the peoples like a nest, and like one gathers eggs that are abandoned, have I gathered all the earth. There was no one who moved their wing, or that opened their mouth, or chirped.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="Isaiah">
     <verse num="15" />
@@ -949,11 +949,11 @@
     <text>Therefore the Lord, God of Armies, says</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="24" characterId="God">
-    <text>«My people who dwell in Zion, don't be afraid of the Assyrian, though he strike you with the rod, and lift up his staff against you, as Egypt did.</text>
+    <text>“My people who dwell in Zion, don't be afraid of the Assyrian, though he strike you with the rod, and lift up his staff against you, as Egypt did.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>For yet a very little while, and the indignation against you will be accomplished, and my anger will be directed to his destruction.»</text>
+    <text>For yet a very little while, and the indignation against you will be accomplished, and my anger will be directed to his destruction.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="26" characterId="Isaiah">
     <verse num="26" />
@@ -1066,11 +1066,11 @@
     <text>In that day you will say,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="1" characterId="Israel">
-    <text>«I will give thanks to you, God; for though you were angry with me, your anger has turned away and you comfort me.</text>
+    <text>“I will give thanks to you, God; for though you were angry with me, your anger has turned away and you comfort me.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="Israel">
     <verse num="2" />
-    <text>Behold, God is my salvation. I will trust, and will not be afraid; for Yah, God, is my strength and song; and he has become my salvation.»</text>
+    <text>Behold, God is my salvation. I will trust, and will not be afraid; for Yah, God, is my strength and song; and he has become my salvation.”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="Isaiah">
     <verse num="3" />
@@ -1079,7 +1079,7 @@
     <text>In that day you will say,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="4" characterId="Israel">
-    <text>«Give thanks to God! Call on his name. Declare his doings among the peoples. Proclaim that his name is exalted!</text>
+    <text>“Give thanks to God! Call on his name. Declare his doings among the peoples. Proclaim that his name is exalted!</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="Israel">
     <verse num="5" />
@@ -1087,7 +1087,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="6" characterId="Israel">
     <verse num="6" />
-    <text>Cry aloud and shout, you inhabitant of Zion; for the Holy One of Israel is great in the midst of you!»</text>
+    <text>Cry aloud and shout, you inhabitant of Zion; for the Holy One of Israel is great in the midst of you!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>13</text>
@@ -1198,7 +1198,7 @@
     <text>that you will take up this parable against the king of Babylon, and say,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="you (people of Zion, restored)">
-    <text>«How the oppressor has ceased! The golden city has ceased!»</text>
+    <text>“How the oppressor has ceased! The golden city has ceased!”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
@@ -1215,7 +1215,7 @@
     <text>Yes, the fir trees rejoice with you, with the cedars of Lebanon, saying,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="8" characterId="pine trees and cedars of Lebanon">
-    <text>«Since you are humbled, no lumberjack has come up against us.»</text>
+    <text>“Since you are humbled, no lumberjack has come up against us.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="9" characterId="Isaiah">
     <verse num="9" />
@@ -1226,7 +1226,7 @@
     <text>They all will answer and ask you,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="kings over the nations">
-    <text>«Have you also become as weak as we are? Have you become like us?»</text>
+    <text>“Have you also become as weak as we are? Have you become like us?”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="Isaiah">
     <verse num="11" />
@@ -1239,11 +1239,11 @@
     <text>You said in your heart,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="king of Babylon">
-    <text>«I will ascend into heaven! I will exalt my throne above the stars of God! I will sit on the mountain of assembly, in the far north!</text>
+    <text>“I will ascend into heaven! I will exalt my throne above the stars of God! I will sit on the mountain of assembly, in the far north!</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="king of Babylon">
     <verse num="14" />
-    <text>I will ascend above the heights of the clouds! I will make myself like the Most High!»</text>
+    <text>I will ascend above the heights of the clouds! I will make myself like the Most High!”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="15" characterId="Isaiah">
     <verse num="15" />
@@ -1252,11 +1252,11 @@
     <text>Those who see you will stare at you. They will ponder you, saying,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="onlookers">
-    <text>«Is this the man who made the earth to tremble, who shook kingdoms;</text>
+    <text>“Is this the man who made the earth to tremble, who shook kingdoms;</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="17" characterId="onlookers">
     <verse num="17" />
-    <text>who made the world like a wilderness, and overthrew its cities; who didn't release his prisoners to their home?»</text>
+    <text>who made the world like a wilderness, and overthrew its cities; who didn't release his prisoners to their home?”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="Isaiah">
     <verse num="18" />
@@ -1277,7 +1277,7 @@
     <text>says God.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="22" characterId="God">
-    <text>I will rise up against them, says God of Armies, «and cut off from Babylon name and remnant, and son and son's son,»</text>
+    <text>I will rise up against them, says God of Armies, “and cut off from Babylon name and remnant, and son and son's son,”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -1288,7 +1288,7 @@
     <text>God of Armies has sworn, saying,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="24" characterId="God">
-    <text>«Surely, as I have thought, so shall it happen; and as I have purposed, so shall it stand:</text>
+    <text>“Surely, as I have thought, so shall it happen; and as I have purposed, so shall it stand:</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="25" characterId="God">
     <verse num="25" />
@@ -1300,7 +1300,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="27" characterId="Isaiah">
     <verse num="27" />
-    <text>For God of Armies has planned, and who can stop it? His hand is stretched out, and who can turn it back?»</text>
+    <text>For God of Armies has planned, and who can stop it? His hand is stretched out, and who can turn it back?”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="narrator-ISA">
     <verse num="28" />
@@ -1419,7 +1419,7 @@
     <text>But now God has spoken, saying,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="14" characterId="God">
-    <text>«Within three years, as a worker bound by contract would count them, the glory of Moab shall be brought into contempt, with all his great multitude; and the remnant will be very small and feeble.»</text>
+    <text>“Within three years, as a worker bound by contract would count them, the glory of Moab shall be brought into contempt, with all his great multitude; and the remnant will be very small and feeble.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>17</text>
@@ -1429,7 +1429,7 @@
     <text>The burden of Damascus:</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="1" characterId="God">
-    <text>«Behold, Damascus is taken away from being a city, and it will be a ruinous heap.</text>
+    <text>“Behold, Damascus is taken away from being a city, and it will be a ruinous heap.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -1437,7 +1437,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>The fortress shall cease from Ephraim, and the kingdom from Damascus, and the remnant of Syria. They will be as the glory of the children of Israel,»</text>
+    <text>The fortress shall cease from Ephraim, and the kingdom from Damascus, and the remnant of Syria. They will be as the glory of the children of Israel,”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="Isaiah">
     <text>says God of Armies.</text>
@@ -1499,7 +1499,7 @@
     <text>that sends ambassadors by the sea, even in vessels of papyrus on the waters, saying,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="2" characterId="ambassador sent by sea">
-    <text>«Go, you swift messengers, to a nation tall and smooth, to a people awesome from their beginning onward, a nation that measures out and treads down, whose land the rivers divide!»</text>
+    <text>“Go, you swift messengers, to a nation tall and smooth, to a people awesome from their beginning onward, a nation that measures out and treads down, whose land the rivers divide!”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="3" characterId="Isaiah">
     <verse num="3" />
@@ -1508,7 +1508,7 @@
     <text>For God said to me,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="4" characterId="God">
-    <text>«I will be still, and I will see in my dwelling place, like clear heat in sunshine, like a cloud of dew in the heat of harvest.»</text>
+    <text>“I will be still, and I will see in my dwelling place, like clear heat in sunshine, like a cloud of dew in the heat of harvest.”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
@@ -1530,7 +1530,7 @@
     <text>The burden of Egypt:</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="1" characterId="Isaiah">
-    <text>«Behold, God rides on a swift cloud, and comes to Egypt. The idols of Egypt will tremble at his presence; and the heart of Egypt will melt in its midst.</text>
+    <text>“Behold, God rides on a swift cloud, and comes to Egypt. The idols of Egypt will tremble at his presence; and the heart of Egypt will melt in its midst.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -1542,7 +1542,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>I will give over the Egyptians into the hand of a cruel lord. A fierce king will rule over them,»</text>
+    <text>I will give over the Egyptians into the hand of a cruel lord. A fierce king will rule over them,”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="Isaiah">
     <text>says the Lord, God of Armies.</text>
@@ -1574,7 +1574,7 @@
     <text>The princes of Zoan are utterly foolish. The counsel of the wisest counselors of Pharaoh has become stupid. How do you say to Pharaoh,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="11" characterId="wise counselors of Pharaoh">
-    <text>«I am the son of the wise, the son of ancient kings?»</text>
+    <text>“I am the son of the wise, the son of ancient kings?”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="12" characterId="Isaiah">
     <verse num="12" />
@@ -1602,7 +1602,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="18" characterId="Isaiah">
     <verse num="18" />
-    <text>In that day, there will be five cities in the land of Egypt that speak the language of Canaan, and swear to God of Armies. One will be called «The city of destruction.»</text>
+    <text>In that day, there will be five cities in the land of Egypt that speak the language of Canaan, and swear to God of Armies. One will be called “The city of destruction.”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="19" characterId="Isaiah">
     <verse num="19" />
@@ -1631,7 +1631,7 @@
     <text>because God of Armies has blessed them, saying,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="25" characterId="God">
-    <text>«Blessed be Egypt my people, Assyria the work of my hands, and Israel my inheritance.»</text>
+    <text>“Blessed be Egypt my people, Assyria the work of my hands, and Israel my inheritance.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>20</text>
@@ -1643,7 +1643,7 @@
     <text>at that time God spoke by Isaiah the son of Amoz, saying,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="God">
-    <text>«Go, and loosen the sackcloth from off your waist, and take your shoes from off your feet.»</text>
+    <text>“Go, and loosen the sackcloth from off your waist, and take your shoes from off your feet.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-ISA">
     <text>He did so, walking naked and barefoot. </text>
@@ -1651,7 +1651,7 @@
     <text>God said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="3" characterId="God">
-    <text>«As my servant Isaiah has walked naked and barefoot three years for a sign and a wonder concerning Egypt and concerning Ethiopia,</text>
+    <text>“As my servant Isaiah has walked naked and barefoot three years for a sign and a wonder concerning Egypt and concerning Ethiopia,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -1664,7 +1664,7 @@
     <text>The inhabitants of this coast land will say in that day,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="6" characterId="inhabitants of Egyptian and Ethiopian coastlands">
-    <text>Behold, this is our expectation, where we fled for help to be delivered from the king of Assyria. And we, how will we escape?'»</text>
+    <text>Behold, this is our expectation, where we fled for help to be delivered from the king of Assyria. And we, how will we escape?'”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>21</text>
@@ -1696,25 +1696,25 @@
     <text>For the Lord said to me,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="6" characterId="God">
-    <text>«Go, set a watchman. Let him declare what he sees.</text>
+    <text>“Go, set a watchman. Let him declare what he sees.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>When he sees a troop, horsemen in pairs, a troop of donkeys, a troop of camels, he shall listen diligently with great attentiveness.»</text>
+    <text>When he sees a troop, horsemen in pairs, a troop of donkeys, a troop of camels, he shall listen diligently with great attentiveness.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
     <text>He cried like a lion:</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="8" characterId="lookout">
-    <text>«Lord, I stand continually on the watchtower in the daytime, and every night I stay at my post. </text>
+    <text>“Lord, I stand continually on the watchtower in the daytime, and every night I stay at my post. </text>
     <verse num="9" />
-    <text>Behold, here comes a troop of men, horsemen in pairs.»</text>
+    <text>Behold, here comes a troop of men, horsemen in pairs.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="9" characterId="lookout">
-    <text>«Fallen, fallen is Babylon; and all the engraved images of her gods are broken to the ground. </text>
+    <text>“Fallen, fallen is Babylon; and all the engraved images of her gods are broken to the ground. </text>
     <verse num="10" />
-    <text>You are my threshing, and the grain of my floor!»</text>
+    <text>You are my threshing, and the grain of my floor!”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="10" characterId="Isaiah">
     <text>That which I have heard from God of Armies, the God of Israel, I have declared to you.</text>
@@ -1727,14 +1727,14 @@
     <text>One calls to me out of Seir,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="someone from Seir">
-    <text>«Watchman, what of the night? Watchman, what of the night?»</text>
+    <text>“Watchman, what of the night? Watchman, what of the night?”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="12" characterId="Isaiah">
     <verse num="12" />
     <text>The watchman said,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="12" characterId="watchman">
-    <text>«The morning comes, and also the night. If you will inquire, inquire. Come back again.»</text>
+    <text>“The morning comes, and also the night. If you will inquire, inquire. Come back again.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="13" characterId="narrator-ISA">
     <verse num="13" />
@@ -1752,12 +1752,12 @@
     <text>For the Lord said to me,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="16" characterId="God">
-    <text>«Within a year, as a worker bound by contract would count it, all the glory of Kedar will fail, </text>
+    <text>“Within a year, as a worker bound by contract would count it, all the glory of Kedar will fail, </text>
     <verse num="17" />
     <text>and the residue of the number of the archers, the mighty men of the children of Kedar, will be few;</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="17" characterId="Isaiah">
-    <text>for God, the God of Israel, has spoken it.»</text>
+    <text>for God, the God of Israel, has spoken it.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>22</text>
@@ -1779,11 +1779,11 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
-    <text>Therefore I said, «Look away from me. I will weep bitterly. Don't labor to comfort me for the destruction of the daughter of my people.</text>
+    <text>Therefore I said, “Look away from me. I will weep bitterly. Don't labor to comfort me for the destruction of the daughter of my people.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
-    <text>For it is a day of confusion, and of treading down, and of perplexity, from the Lord, God of Armies, in the valley of vision; a breaking down of the walls, and a crying to the mountains.»</text>
+    <text>For it is a day of confusion, and of treading down, and of perplexity, from the Lord, God of Armies, in the valley of vision; a breaking down of the walls, and a crying to the mountains.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
@@ -1818,14 +1818,14 @@
     <text>and behold, joy and gladness, killing cattle and killing sheep, eating flesh and drinking wine:</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="13" characterId="someone in Jerusalem">
-    <text>«Let us eat and drink, for tomorrow we will die.»</text>
+    <text>“Let us eat and drink, for tomorrow we will die.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
     <text>God of Armies revealed himself in my ears,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="God">
-    <text>«Surely this iniquity will not be forgiven you until you die,»</text>
+    <text>“Surely this iniquity will not be forgiven you until you die,”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="Isaiah">
     <text>says the Lord, God of Armies. </text>
@@ -1833,11 +1833,11 @@
     <text>Thus says the Lord, God of Armies,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="15" characterId="God">
-    <text>«Go, get yourself to this treasurer, even to Shebna, who is over the house, and say,</text>
+    <text>“Go, get yourself to this treasurer, even to Shebna, who is over the house, and say,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="16" characterId="Isaiah">
     <verse num="16" />
-    <text>What are you doing here? Who has you here, that you have dug out a tomb here?' Cutting himself out a tomb on high, chiseling a habitation for himself in the rock!»</text>
+    <text>What are you doing here? Who has you here, that you have dug out a tomb here?' Cutting himself out a tomb on high, chiseling a habitation for himself in the rock!”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="17" characterId="Isaiah">
     <verse num="17" />
@@ -1873,7 +1873,7 @@
     <text>says God of Armies,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="25" characterId="God">
-    <text>«the nail that was fastened in a sure place will give way. It will be cut down, and fall. The burden that was on it will be cut off, for God has spoken it.»</text>
+    <text>“the nail that was fastened in a sure place will give way. It will be cut down, and fall. The burden that was on it will be cut off, for God has spoken it.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>23</text>
@@ -1898,7 +1898,7 @@
     <text>Be ashamed, Sidon; for the sea has spoken, the stronghold of the sea, saying,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="4" characterId="sea">
-    <text>«I have not travailed, nor brought forth, neither have I nourished young men, nor brought up virgins.»</text>
+    <text>“I have not travailed, nor brought forth, neither have I nourished young men, nor brought up virgins.”</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
@@ -1931,7 +1931,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="12" characterId="God">
-    <text>«You shall rejoice no more, you oppressed virgin daughter of Sidon. Arise, pass over to Kittim. Even there you will have no rest.»</text>
+    <text>“You shall rejoice no more, you oppressed virgin daughter of Sidon. Arise, pass over to Kittim. Even there you will have no rest.”</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="13" characterId="Isaiah">
     <verse num="13" />
@@ -2024,7 +2024,7 @@
     <text>Glory to the righteous!</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="16" characterId="Isaiah">
-    <text>But I said, «I pine away! I pine away! woe is me!»</text>
+    <text>But I said, “I pine away! I pine away! woe is me!”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="16" characterId="Isaiah">
     <text>The treacherous have dealt treacherously. Yes, the treacherous have dealt very treacherously.</text>
@@ -2097,7 +2097,7 @@
     <text>It shall be said in that day,</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="9" characterId="people, God's">
-    <text>«Behold, this is our God! We have waited for him, and he will save us! This is God! We have waited for him. We will be glad and rejoice in his salvation!»</text>
+    <text>“Behold, this is our God! We have waited for him, and he will save us! This is God! We have waited for him. We will be glad and rejoice in his salvation!”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="10" characterId="Isaiah">
     <verse num="10" />
@@ -2119,7 +2119,7 @@
     <text>In that day, this song will be sung in the land of Judah:</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="1" characterId="singers in Judah">
-    <text>«We have a strong city. God appoints salvation for walls and bulwarks.</text>
+    <text>“We have a strong city. God appoints salvation for walls and bulwarks.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="2" characterId="singers in Judah">
     <verse num="2" />
@@ -2139,7 +2139,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="6" characterId="singers in Judah">
     <verse num="6" />
-    <text>The foot shall tread it down; Even the feet of the poor, and the steps of the needy.»</text>
+    <text>The foot shall tread it down; Even the feet of the poor, and the steps of the needy.”</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="7" characterId="Isaiah">
     <verse num="7" />
@@ -2211,7 +2211,7 @@
     <text>In that day, sing to her,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="2" characterId="God">
-    <text>«A pleasant vineyard!</text>
+    <text>“A pleasant vineyard!</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -2223,7 +2223,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>Or else let him take hold of my strength, that he may make peace with me. Let him make peace with me.»</text>
+    <text>Or else let him take hold of my strength, that he may make peace with me. Let him make peace with me.”</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
@@ -2307,7 +2307,7 @@
     <text>to whom he said,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="12" characterId="God">
-    <text>«This is the resting place. Give rest to weary;» and «This is the refreshing;»</text>
+    <text>“This is the resting place. Give rest to weary;” and “This is the refreshing;”</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="12" characterId="Isaiah">
     <text>yet they would not hear. </text>
@@ -2331,7 +2331,7 @@
     <text>Therefore thus says the Lord God,</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="16" characterId="God">
-    <text>«Behold, I lay in Zion for a foundation a stone, a tried stone, a precious cornerstone of a sure foundation. He who believes shall not act hastily.</text>
+    <text>“Behold, I lay in Zion for a foundation a stone, a tried stone, a precious cornerstone of a sure foundation. He who believes shall not act hastily.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="17" characterId="God">
     <verse num="17" />
@@ -2343,7 +2343,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>As often as it passes through, it will seize you; for morning by morning it will pass through, by day and by night; and it will be nothing but terror to understand the message.»</text>
+    <text>As often as it passes through, it will seize you; for morning by morning it will pass through, by day and by night; and it will be nothing but terror to understand the message.”</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="20" characterId="God">
     <verse num="20" />
@@ -2428,28 +2428,28 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="11" characterId="Isaiah">
     <verse num="11" />
-    <text>All vision has become to you like the words of a book that is sealed, which men deliver to one who is educated, saying, «Read this, please;» and he says, «I can't, for it is sealed:»</text>
+    <text>All vision has become to you like the words of a book that is sealed, which men deliver to one who is educated, saying, “Read this, please;” and he says, “I can't, for it is sealed:”</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="12" characterId="Isaiah">
     <verse num="12" />
-    <text>and the book is delivered to one who is not educated, saying, «Read this, please;» and he says, «I can't read.» </text>
+    <text>and the book is delivered to one who is not educated, saying, “Read this, please;” and he says, “I can't read.” </text>
     <verse num="13" />
     <text>The Lord said,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="13" characterId="God">
-    <text>«Because this people draws near with their mouth and with their lips to honor me, but they have removed their heart far from me, and their fear of me is a commandment of men which has been taught;</text>
+    <text>“Because this people draws near with their mouth and with their lips to honor me, but they have removed their heart far from me, and their fear of me is a commandment of men which has been taught;</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>therefore, behold, I will proceed to do a marvelous work among this people, even a marvelous work and a wonder; and the wisdom of their wise men will perish, and the understanding of their prudent men will be hidden.»</text>
+    <text>therefore, behold, I will proceed to do a marvelous work among this people, even a marvelous work and a wonder; and the wisdom of their wise men will perish, and the understanding of their prudent men will be hidden.”</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="15" characterId="Isaiah">
     <verse num="15" />
-    <text>Woe to those who deeply hide their counsel from God, and whose works are in the dark, and who say, «Who sees us?» and «Who knows us?»</text>
+    <text>Woe to those who deeply hide their counsel from God, and whose works are in the dark, and who say, “Who sees us?” and “Who knows us?”</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="16" characterId="Isaiah">
     <verse num="16" />
-    <text>You turn things upside down! Should the potter be thought to be like clay; that the thing made should say about him who made it, «He didn't make me;» or the thing formed say of him who formed it, «He has no understanding?»</text>
+    <text>You turn things upside down! Should the potter be thought to be like clay; that the thing made should say about him who made it, “He didn't make me;” or the thing formed say of him who formed it, “He has no understanding?”</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="17" characterId="Isaiah">
     <verse num="17" />
@@ -2476,7 +2476,7 @@
     <text>Therefore thus says God, who redeemed Abraham, concerning the house of Jacob:</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="22" characterId="God">
-    <text>«Jacob shall no longer be ashamed, neither shall his face grow pale.</text>
+    <text>“Jacob shall no longer be ashamed, neither shall his face grow pale.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -2484,7 +2484,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>They also who err in spirit will come to understanding, and those who grumble will receive instruction.»</text>
+    <text>They also who err in spirit will come to understanding, and those who grumble will receive instruction.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="30" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>30</text>
@@ -2497,7 +2497,7 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="1" characterId="God">
-    <text>«who take counsel, but not from me; and who make an alliance, but not with my Spirit, that they may add sin to sin,</text>
+    <text>“who take counsel, but not from me; and who make an alliance, but not with my Spirit, that they may add sin to sin,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -2513,7 +2513,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>They shall all be ashamed because of a people that can't profit them, that are not a help nor profit, but a shame, and also a reproach.»</text>
+    <text>They shall all be ashamed because of a people that can't profit them, that are not a help nor profit, but a shame, and also a reproach.”</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="6" characterId="narrator-ISA">
     <verse num="6" />
@@ -2537,24 +2537,24 @@
     <text>who tell the seers,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="10" characterId="rebels">
-    <text>«Don't see!»</text>
+    <text>“Don't see!”</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="10" characterId="Isaiah">
     <text>and to the prophets,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="10" characterId="rebels">
-    <text>«Don't prophesy to us right things. Tell us pleasant things. Prophesy deceits.</text>
+    <text>“Don't prophesy to us right things. Tell us pleasant things. Prophesy deceits.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="11" characterId="rebels">
     <verse num="11" />
-    <text>Get out of the way. Turn aside from the path. Cause the Holy One of Israel to cease from before us.»</text>
+    <text>Get out of the way. Turn aside from the path. Cause the Holy One of Israel to cease from before us.”</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="12" characterId="Isaiah">
     <verse num="12" />
     <text>Therefore thus says the Holy One of Israel,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="12" characterId="God">
-    <text>«Because you despise this word, and trust in oppression and perverseness, and rely on it;</text>
+    <text>“Because you despise this word, and trust in oppression and perverseness, and rely on it;</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -2562,16 +2562,16 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>He will break it as a potter's vessel is broken, breaking it in pieces without sparing, so that there won't be found among the broken piece a piece good enough to take fire from the hearth, or to dip up water out of the cistern.»</text>
+    <text>He will break it as a potter's vessel is broken, breaking it in pieces without sparing, so that there won't be found among the broken piece a piece good enough to take fire from the hearth, or to dip up water out of the cistern.”</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="15" characterId="Isaiah">
     <verse num="15" />
     <text>For thus said the Lord God, the Holy One of Israel,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="15" characterId="God">
-    <text>«You will be saved in returning and rest. Your strength will be in quietness and in confidence.» You refused, </text>
+    <text>“You will be saved in returning and rest. Your strength will be in quietness and in confidence.” You refused, </text>
     <verse num="16" />
-    <text>but you said, «No, for we will flee on horses;» therefore you will flee; and, «We will ride on the swift;» therefore those who pursue you will be swift.</text>
+    <text>but you said, “No, for we will flee on horses;” therefore you will flee; and, “We will ride on the swift;” therefore those who pursue you will be swift.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="17" characterId="God">
     <verse num="17" />
@@ -2594,11 +2594,11 @@
     <text>and when you turn to the right hand, and when you turn to the left, your ears will hear a voice behind you, saying,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="21" characterId="God">
-    <text>«This is the way. Walk in it.»</text>
+    <text>“This is the way. Walk in it.”</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="22" characterId="Isaiah">
     <verse num="22" />
-    <text>You shall defile the overlaying of your engraved images of silver, and the plating of your molten images of gold. You shall cast them away as an unclean thing. You shall tell it, «Go away!»</text>
+    <text>You shall defile the overlaying of your engraved images of silver, and the plating of your molten images of gold. You shall cast them away as an unclean thing. You shall tell it, “Go away!”</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="23" characterId="Isaiah">
     <verse num="23" />
@@ -2662,11 +2662,11 @@
     <text>For thus says God to me,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="4" characterId="God">
-    <text>«As the lion and the young lion growling over his prey, if a multitude of shepherds is called together against him, will not be dismayed at their voice, nor abase himself for the noise of them, so God of Armies will come down to fight on Mount Zion and on its heights.</text>
+    <text>“As the lion and the young lion growling over his prey, if a multitude of shepherds is called together against him, will not be dismayed at their voice, nor abase himself for the noise of them, so God of Armies will come down to fight on Mount Zion and on its heights.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>As birds hovering, so God of Armies will protect Jerusalem. He will protect and deliver it. He will pass over and preserve it.»</text>
+    <text>As birds hovering, so God of Armies will protect Jerusalem. He will protect and deliver it. He will pass over and preserve it.”</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
@@ -2813,7 +2813,7 @@
     <text>says God;</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="10" characterId="God">
-    <text>«Now I will lift myself up. Now I will be exalted. </text>
+    <text>“Now I will lift myself up. Now I will be exalted. </text>
     <verse num="11" />
     <text>You will conceive chaff. You will bring forth stubble. Your breath is a fire that will devour you.</text>
   </block>
@@ -2821,7 +2821,7 @@
     <verse num="12" />
     <text>The peoples will be like the burning of lime, like thorns that are cut down and burned in the fire. </text>
     <verse num="13" />
-    <text>Hear, you who are far off, what I have done; and, you who are near, acknowledge my might.»</text>
+    <text>Hear, you who are far off, what I have done; and, you who are near, acknowledge my might.”</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
@@ -2865,7 +2865,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="24" characterId="Isaiah">
     <verse num="24" />
-    <text>The inhabitant won't say, «I am sick.» The people who dwell therein will be forgiven their iniquity.</text>
+    <text>The inhabitant won't say, “I am sick.” The people who dwell therein will be forgiven their iniquity.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="34" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>34</text>
@@ -2956,7 +2956,7 @@
     <text>Tell those who have a fearful heart,</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="4" characterId="you (hypothetical)">
-    <text>«Be strong. Don't be afraid. Behold, your God will come with vengeance, God's retribution. He will come and save you.</text>
+    <text>“Be strong. Don't be afraid. Behold, your God will come with vengeance, God's retribution. He will come and save you.</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
@@ -2980,7 +2980,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="10" characterId="Isaiah">
     <verse num="10" />
-    <text>The God's ransomed ones will return, and come with singing to Zion; and everlasting joy will be on their heads. They will obtain gladness and joy, and sorrow and sighing will flee away.»</text>
+    <text>The God's ransomed ones will return, and come with singing to Zion; and everlasting joy will be on their heads. They will obtain gladness and joy, and sorrow and sighing will flee away.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="36" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>36</text>
@@ -3000,7 +3000,7 @@
     <text>Rabshakeh said to them,</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="4" characterId="Rabshakeh">
-    <text>«Now tell Hezekiah, 'Thus says the great king, the king of Assyria, «What confidence is this in which you trust?</text>
+    <text>“Now tell Hezekiah, 'Thus says the great king, the king of Assyria, “What confidence is this in which you trust?</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="5" characterId="Rabshakeh">
     <verse num="5" />
@@ -3012,7 +3012,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="7" characterId="Rabshakeh">
     <verse num="7" />
-    <text>But if you tell me, 'We trust in God our God,' isn't that he whose high places and whose altars Hezekiah has taken away, and has said to Judah and to Jerusalem, 'You shall worship before this altar?'»</text>
+    <text>But if you tell me, 'We trust in God our God,' isn't that he whose high places and whose altars Hezekiah has taken away, and has said to Judah and to Jerusalem, 'You shall worship before this altar?'”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="8" characterId="Rabshakeh">
     <verse num="8" />
@@ -3024,28 +3024,28 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="10" characterId="Rabshakeh">
     <verse num="10" />
-    <text>Have I come up now without God against this land to destroy it? God said to me, «Go up against this land, and destroy it.»</text>
+    <text>Have I come up now without God against this land to destroy it? God said to me, “Go up against this land, and destroy it.”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="11" characterId="narrator-ISA">
     <verse num="11" />
     <text>Then Eliakim, Shebna and Joah said to Rabshakeh,</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="11" characterId="Eliakim/Shebna/Joah">
-    <text>«Please speak to your servants in Aramaic, for we understand it; and don't speak to us in the Jews' language in the hearing of the people who are on the wall.»</text>
+    <text>“Please speak to your servants in Aramaic, for we understand it; and don't speak to us in the Jews' language in the hearing of the people who are on the wall.”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="12" characterId="narrator-ISA">
     <verse num="12" />
     <text>But Rabshakeh said,</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="12" characterId="Rabshakeh">
-    <text>«Has my master sent me only to your master and to you, to speak these words, and not to the men who sit on the wall, who will eat their own dung and drink their own urine with you?»</text>
+    <text>“Has my master sent me only to your master and to you, to speak these words, and not to the men who sit on the wall, who will eat their own dung and drink their own urine with you?”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="13" characterId="narrator-ISA">
     <verse num="13" />
     <text>Then Rabshakeh stood, and called out with a loud voice in the Jews' language, and said,</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="13" characterId="Rabshakeh">
-    <text>«Hear the words of the great king, the king of Assyria!</text>
+    <text>“Hear the words of the great king, the king of Assyria!</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="14" characterId="Rabshakeh">
     <verse num="14" />
@@ -3053,7 +3053,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="15" characterId="Rabshakeh">
     <verse num="15" />
-    <text>Don't let Hezekiah make you trust in God, saying, «God will surely deliver us. This city won't be given into the hand of the king of Assyria.»</text>
+    <text>Don't let Hezekiah make you trust in God, saying, “God will surely deliver us. This city won't be given into the hand of the king of Assyria.”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="16" characterId="Rabshakeh">
     <verse num="16" />
@@ -3065,7 +3065,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="18" characterId="Rabshakeh">
     <verse num="18" />
-    <text>Beware lest Hezekiah persuade you, saying, «God will deliver us.» Have any of the gods of the nations delivered their lands from the hand of the king of Assyria?</text>
+    <text>Beware lest Hezekiah persuade you, saying, “God will deliver us.” Have any of the gods of the nations delivered their lands from the hand of the king of Assyria?</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="19" characterId="Rabshakeh">
     <verse num="19" />
@@ -3073,14 +3073,14 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="20" characterId="Rabshakeh">
     <verse num="20" />
-    <text>Who are they among all the gods of these countries that have delivered their country out of my hand, that God should deliver Jerusalem out of my hand?'»</text>
+    <text>Who are they among all the gods of these countries that have delivered their country out of my hand, that God should deliver Jerusalem out of my hand?'”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="21" characterId="narrator-ISA">
     <verse num="21" />
     <text>But they remained silent, and said nothing in reply, for the king's commandment was,</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="21" characterId="Hezekiah, king of Judah">
-    <text>«Don't answer him.»</text>
+    <text>“Don't answer him.”</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="22" characterId="narrator-ISA">
     <verse num="22" />
@@ -3100,11 +3100,11 @@
     <text>They said to him,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="3" characterId="Eliakim/Shebna/chief priests">
-    <text>«Thus says Hezekiah, 'This day is a day of trouble, and of rebuke, and of rejection; for the children have come to the birth, and there is no strength to bring forth.</text>
+    <text>“Thus says Hezekiah, 'This day is a day of trouble, and of rebuke, and of rejection; for the children have come to the birth, and there is no strength to bring forth.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="4" characterId="Eliakim/Shebna/chief priests">
     <verse num="4" />
-    <text>It may be God your God will hear the words of Rabshakeh, whom the king of Assyria his master has sent to defy the living God, and will rebuke the words which God your God has heard. Therefore lift up your prayer for the remnant that is left.'»</text>
+    <text>It may be God your God will hear the words of Rabshakeh, whom the king of Assyria his master has sent to defy the living God, and will rebuke the words which God your God has heard. Therefore lift up your prayer for the remnant that is left.'”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="5" characterId="narrator-ISA">
     <verse num="5" />
@@ -3113,11 +3113,11 @@
     <text>Isaiah said to them,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="6" characterId="Isaiah">
-    <text>«Tell your master, 'Thus says God, «Don't be afraid of the words that you have heard, with which the servants of the king of Assyria have blasphemed me.</text>
+    <text>“Tell your master, 'Thus says God, “Don't be afraid of the words that you have heard, with which the servants of the king of Assyria have blasphemed me.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="7" characterId="Isaiah">
     <verse num="7" />
-    <text>Behold, I will put a spirit in him and he will hear news, and will return to his own land. I will cause him to fall by the sword in his own land.»</text>
+    <text>Behold, I will put a spirit in him and he will hear news, and will return to his own land. I will cause him to fall by the sword in his own land.”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="8" characterId="narrator-ISA">
     <verse num="8" />
@@ -3128,14 +3128,14 @@
     <text>He heard news concerning Tirhakah king of Ethiopia,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="9" characterId="person who informed Rabshakeh">
-    <text>«He has come out to fight against you.»</text>
+    <text>“He has come out to fight against you.”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="9" characterId="narrator-ISA">
     <text>When he heard it, he sent messengers to Hezekiah, saying,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="10" characterId="Rabshakeh">
     <verse num="10" />
-    <text>Thus you shall speak to Hezekiah king of Judah, saying, 'Don't let your God in whom you trust deceive you, saying, Jerusalem won't be given into the hand of the king of Assyria.»</text>
+    <text>Thus you shall speak to Hezekiah king of Judah, saying, 'Don't let your God in whom you trust deceive you, saying, Jerusalem won't be given into the hand of the king of Assyria.”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="11" characterId="Rabshakeh">
     <verse num="11" />
@@ -3147,7 +3147,7 @@
   </block>
   <block style="p" chapter="37" initialStartVerse="13" characterId="Rabshakeh">
     <verse num="13" />
-    <text>Where is the king of Hamath, and the king of Arpad, and the king of the city of Sepharvaim, of Hena, and Ivvah?'»</text>
+    <text>Where is the king of Hamath, and the king of Arpad, and the king of the city of Sepharvaim, of Hena, and Ivvah?'”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="14" characterId="narrator-ISA">
     <verse num="14" />
@@ -3178,7 +3178,7 @@
     <text>Then Isaiah the son of Amoz sent to Hezekiah, saying,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="21" characterId="Isaiah">
-    <text>«Thus says God, the God of Israel,  'Because you have prayed to me against Sennacherib king of Assyria, </text>
+    <text>“Thus says God, the God of Israel,  'Because you have prayed to me against Sennacherib king of Assyria, </text>
     <verse num="22" />
     <text>this is the word which God has spoken concerning him. The virgin daughter of Zion has despised you and ridiculed you. The daughter of Jerusalem has shaken her head at you.</text>
   </block>
@@ -3191,11 +3191,11 @@
     <text>By your servants, have you defied the Lord, and have said,</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="24" characterId="Rabshakeh">
-    <text>«With the multitude of my chariots I have come up to the height of the mountains, to the innermost parts of Lebanon. I will cut down its tall cedars and its choice fir trees. I will enter into its farthest height, the forest of its fruitful field.</text>
+    <text>“With the multitude of my chariots I have come up to the height of the mountains, to the innermost parts of Lebanon. I will cut down its tall cedars and its choice fir trees. I will enter into its farthest height, the forest of its fruitful field.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="25" characterId="Rabshakeh">
     <verse num="25" />
-    <text>I have dug and drunk water, and with the sole of my feet I will dry up all the rivers of Egypt.»</text>
+    <text>I have dug and drunk water, and with the sole of my feet I will dry up all the rivers of Egypt.”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="26" characterId="God">
     <verse num="26" />
@@ -3236,7 +3236,7 @@
     <verse num="34" />
     <text>By the way that he came, by the same he shall return, and he shall not come to this city,' says God. </text>
     <verse num="35" />
-    <text>For I will defend this city to save it, for my own sake, and for my servant David's sake.'»</text>
+    <text>For I will defend this city to save it, for my own sake, and for my servant David's sake.'”</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="36" characterId="narrator-ISA">
     <verse num="36" />
@@ -3258,7 +3258,7 @@
     <text>In those days was Hezekiah sick and near death. Isaiah the prophet, the son of Amoz, came to him, and said to him,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="1" characterId="Isaiah">
-    <text>«Thus says God, 'Set your house in order, for you will die, and not live.'»</text>
+    <text>“Thus says God, 'Set your house in order, for you will die, and not live.'”</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="2" characterId="narrator-ISA">
     <verse num="2" />
@@ -3267,7 +3267,7 @@
     <text>and said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="3" characterId="Hezekiah, king of Judah">
-    <text>«Remember now, God, I beg you, how I have walked before you in truth and with a perfect heart, and have done that which is good in your sight.»</text>
+    <text>“Remember now, God, I beg you, how I have walked before you in truth and with a perfect heart, and have done that which is good in your sight.”</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="3" characterId="narrator-ISA">
     <text>Hezekiah wept bitterly.</text>
@@ -3293,7 +3293,7 @@
     <text>Behold, I will cause the shadow on the sundial, which has gone down on the sundial of Ahaz with the sun, to return backward ten steps.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="8" characterId="narrator-ISA">
-    <text>So the sun returned ten steps on the sundial on which it had gone down.»</text>
+    <text>So the sun returned ten steps on the sundial on which it had gone down.”</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="9" characterId="narrator-ISA">
     <verse num="9" />
@@ -3301,11 +3301,11 @@
   </block>
   <block style="p" chapter="38" initialStartVerse="10" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="10" />
-    <text>I said, «In the middle of my life I go into the gates of Sheol. I am deprived of the residue of my years.»</text>
+    <text>I said, “In the middle of my life I go into the gates of Sheol. I am deprived of the residue of my years.”</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="11" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="11" />
-    <text>I said, «I won't see Yah, Yah in the land of the living. I will see man no more with the inhabitants of the world.</text>
+    <text>I said, “I won't see Yah, Yah in the land of the living. I will see man no more with the inhabitants of the world.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="12" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="12" />
@@ -3317,7 +3317,7 @@
   </block>
   <block style="p" chapter="38" initialStartVerse="14" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="14" />
-    <text>I chattered like a swallow or a crane. I moaned like a dove. My eyes weaken looking upward. Lord, I am oppressed. Be my security.»</text>
+    <text>I chattered like a swallow or a crane. I moaned like a dove. My eyes weaken looking upward. Lord, I am oppressed. Be my security.”</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="15" characterId="Hezekiah, king of Judah" delivery="writing">
     <verse num="15" />
@@ -3348,14 +3348,14 @@
     <text>Now Isaiah had said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="21" characterId="Isaiah">
-    <text>«Let them take a cake of figs, and lay it for a poultice on the boil, and he shall recover.»</text>
+    <text>“Let them take a cake of figs, and lay it for a poultice on the boil, and he shall recover.”</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="22" characterId="narrator-ISA">
     <verse num="22" />
     <text>Hezekiah also had said,</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="22" characterId="Hezekiah, king of Judah">
-    <text>«What is the sign that I will go up to the house of God?»</text>
+    <text>“What is the sign that I will go up to the house of God?”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="39" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>39</text>
@@ -3373,33 +3373,33 @@
     <text>Then Isaiah the prophet came to king Hezekiah, and asked him,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="3" characterId="Isaiah">
-    <text>«What did these men say? Where did they come from to you?»</text>
+    <text>“What did these men say? Where did they come from to you?”</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="3" characterId="narrator-ISA">
     <text>Hezekiah said,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="3" characterId="Hezekiah, king of Judah">
-    <text>«They have come from a country far from me, even from Babylon.»</text>
+    <text>“They have come from a country far from me, even from Babylon.”</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="4" characterId="narrator-ISA">
     <verse num="4" />
     <text>Then he asked,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="4" characterId="Isaiah">
-    <text>«What have they seen in your house?»</text>
+    <text>“What have they seen in your house?”</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="4" characterId="narrator-ISA">
     <text>Hezekiah answered,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="4" characterId="Hezekiah, king of Judah">
-    <text>«They have seen all that is in my house. There is nothing among my treasures that I have not shown them.»</text>
+    <text>“They have seen all that is in my house. There is nothing among my treasures that I have not shown them.”</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="5" characterId="narrator-ISA">
     <verse num="5" />
     <text>Then Isaiah said to Hezekiah,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="5" characterId="Isaiah">
-    <text>«Hear the word of God of Armies:</text>
+    <text>“Hear the word of God of Armies:</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
@@ -3407,20 +3407,20 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="7" characterId="Isaiah">
     <verse num="7" />
-    <text>They will take away your sons who will issue from you, whom you shall father, and they will be eunuchs in the king of Babylon's palace.'»</text>
+    <text>They will take away your sons who will issue from you, whom you shall father, and they will be eunuchs in the king of Babylon's palace.'”</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="8" characterId="narrator-ISA">
     <verse num="8" />
     <text>Then Hezekiah said to Isaiah,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="8" characterId="Hezekiah, king of Judah" delivery="response to Isaiah">
-    <text>«God's word which you have spoken is good.»</text>
+    <text>“God's word which you have spoken is good.”</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="8" characterId="narrator-ISA">
     <text>He said moreover,</text>
   </block>
   <block style="p" chapter="39" initialStartVerse="8" characterId="Hezekiah, king of Judah" delivery="thought">
-    <text>«For there will be peace and truth in my days.»</text>
+    <text>“For there will be peace and truth in my days.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="40" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>40</text>
@@ -3436,7 +3436,7 @@
     <text>The voice of one who calls out,</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="3" characterId="voice of one calling (preparing way for Christ)">
-    <text>«Prepare the way of God in the wilderness! Make a level highway in the desert for our God.</text>
+    <text>“Prepare the way of God in the wilderness! Make a level highway in the desert for our God.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="4" characterId="voice of one calling (preparing way for Christ)">
     <verse num="4" />
@@ -3444,23 +3444,23 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="5" characterId="voice of one calling (preparing way for Christ)">
     <verse num="5" />
-    <text>The glory of God shall be revealed, and all flesh shall see it together; for the mouth of God has spoken it.»</text>
+    <text>The glory of God shall be revealed, and all flesh shall see it together; for the mouth of God has spoken it.”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
     <text>The voice of one saying,</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="6" characterId="voice (God?)">
-    <text>«Cry!»</text>
+    <text>“Cry!”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="6" characterId="Isaiah">
     <text>One said,</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="6" characterId="voice in reply (Isaiah?)">
-    <text>«What shall I cry?»</text>
+    <text>“What shall I cry?”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="6" characterId="voice (God?)">
-    <text>«All flesh is like grass, and all its glory is like the flower of the field.</text>
+    <text>“All flesh is like grass, and all its glory is like the flower of the field.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="7" characterId="voice (God?)">
     <verse num="7" />
@@ -3468,14 +3468,14 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="8" characterId="voice (God?)">
     <verse num="8" />
-    <text>The grass withers, the flower fades; but the word of our God stands forever.»</text>
+    <text>The grass withers, the flower fades; but the word of our God stands forever.”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="9" characterId="Isaiah">
     <verse num="9" />
     <text>You who tell good news to Zion, go up on a high mountain. You who tell good news to Jerusalem, lift up your voice with strength. Lift it up. Don't be afraid. Say to the cities of Judah,</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="9" characterId="one who brings good news">
-    <text>«Behold, your God!»</text>
+    <text>“Behold, your God!”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="10" characterId="Isaiah">
     <verse num="10" />
@@ -3551,7 +3551,7 @@
     <text>Why do you say, Jacob, and speak, Israel,</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="27" characterId="Israel">
-    <text>«My way is hidden from God, and the justice due me is disregarded by my God?»</text>
+    <text>“My way is hidden from God, and the justice due me is disregarded by my God?”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="28" characterId="Isaiah">
     <verse num="28" />
@@ -3592,11 +3592,11 @@
   </block>
   <block style="p" chapter="41" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Everyone helps his neighbor. They say to their brothers, «Be strong!»</text>
+    <text>Everyone helps his neighbor. They say to their brothers, “Be strong!”</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>So the carpenter encourages the goldsmith. He who smoothes with the hammer encourages him who strikes the anvil, saying of the soldering, «It is good;» and he fastens it with nails, that it might not totter.</text>
+    <text>So the carpenter encourages the goldsmith. He who smoothes with the hammer encourages him who strikes the anvil, saying of the soldering, “It is good;” and he fastens it with nails, that it might not totter.</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -3624,7 +3624,7 @@
   </block>
   <block style="p" chapter="41" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>Don't be afraid, you worm Jacob, and you men of Israel. I will help you, says God, «and your Redeemer is the Holy One of Israel.</text>
+    <text>Don't be afraid, you worm Jacob, and you men of Israel. I will help you, says God, “and your Redeemer is the Holy One of Israel.</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -3650,13 +3650,13 @@
   </block>
   <block style="p" chapter="41" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>Produce your cause,»</text>
+    <text>Produce your cause,”</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="21" characterId="narrator-ISA">
     <text>says God.</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="21" characterId="God">
-    <text>«Bring forth your strong reasons,»</text>
+    <text>“Bring forth your strong reasons,”</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="21" characterId="narrator-ISA">
     <text>says the King of Jacob.</text>
@@ -3730,7 +3730,7 @@
   </block>
   <block style="p" chapter="42" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>Behold, the former things have happened, and I declare new things. I tell you about them before they come up.»</text>
+    <text>Behold, the former things have happened, and I declare new things. I tell you about them before they come up.”</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="10" characterId="Isaiah">
     <verse num="10" />
@@ -3804,7 +3804,7 @@
     <text>But now thus says God who created you, Jacob, and he who formed you, Israel:</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="1" characterId="God">
-    <text>«Don't be afraid, for I have redeemed you. I have called you by your name. You are mine.</text>
+    <text>“Don't be afraid, for I have redeemed you. I have called you by your name. You are mine.</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -3828,7 +3828,7 @@
   </block>
   <block style="p" chapter="43" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>everyone who is called by my name, and whom I have created for my glory, whom I have formed, yes, whom I have made.'»</text>
+    <text>everyone who is called by my name, and whom I have created for my glory, whom I have formed, yes, whom I have made.'”</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
@@ -3839,7 +3839,7 @@
     <text>Let all the nations be gathered together, and let the peoples be assembled. Who among them can declare this, and show us former things? Let them bring their witnesses, that they may be justified; or let them hear, and say,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="9" characterId="nations">
-    <text>«That is true.»</text>
+    <text>“That is true.”</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -3849,30 +3849,30 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="10" characterId="God">
-    <text>«With my servant whom I have chosen; that you may know and believe me, and understand that I am he. Before me there was no God formed, neither will there be after me. </text>
+    <text>“With my servant whom I have chosen; that you may know and believe me, and understand that I am he. Before me there was no God formed, neither will there be after me. </text>
     <verse num="11" />
     <text>I myself am God; and besides me there is no savior.</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>I have declared, I have saved, and I have shown; and there was no strange god among you. Therefore you are my witnesses,»</text>
+    <text>I have declared, I have saved, and I have shown; and there was no strange god among you. Therefore you are my witnesses,”</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="12" characterId="Isaiah">
     <text>says God,</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="12" characterId="God">
-    <text>«and I am God. </text>
+    <text>“and I am God. </text>
     <verse num="13" />
-    <text>Yes, since the day was I am he; and there is no one who can deliver out of my hand. I will work, and who can hinder it?»</text>
+    <text>Yes, since the day was I am he; and there is no one who can deliver out of my hand. I will work, and who can hinder it?”</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
     <text>Thus says God, your Redeemer, the Holy One of Israel:</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="14" characterId="God">
-    <text>«For your sake, I have sent to Babylon, and I will bring all of them down as fugitives, even the Chaldeans, in the ships of their rejoicing. </text>
+    <text>“For your sake, I have sent to Babylon, and I will bring all of them down as fugitives, even the Chaldeans, in the ships of their rejoicing. </text>
     <verse num="15" />
-    <text>I am God, your Holy One, the Creator of Israel, your King.»</text>
+    <text>I am God, your Holy One, the Creator of Israel, your King.”</text>
   </block>
   <block style="p" chapter="43" initialStartVerse="16" characterId="Isaiah">
     <verse num="16" />
@@ -3936,7 +3936,7 @@
     <text>This is what God who made you, and formed you from the womb, who will help you says:</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="2" characterId="God">
-    <text>«Don't be afraid, Jacob my servant; and you, Jeshurun, whom I have chosen.</text>
+    <text>“Don't be afraid, Jacob my servant; and you, Jeshurun, whom I have chosen.</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -3948,14 +3948,14 @@
   </block>
   <block style="p" chapter="44" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>One will say, 'I am God's;' and another will be called by the name of Jacob; and another will write with his hand 'to God,' and honor the name of Israel.»</text>
+    <text>One will say, 'I am God's;' and another will be called by the name of Jacob; and another will write with his hand 'to God,' and honor the name of Israel.”</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="6" characterId="Isaiah">
     <verse num="6" />
     <text>This is what God, the King of Israel, and his Redeemer, God of Armies, says:</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="6" characterId="God">
-    <text>«I am the first, and I am the last; and besides me there is no God.</text>
+    <text>“I am the first, and I am the last; and besides me there is no God.</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -3963,7 +3963,7 @@
   </block>
   <block style="p" chapter="44" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Don't fear, neither be afraid. Haven't I declared it to you long ago, and shown it? You are my witnesses. Is there a God besides me? Indeed, there is not. I don't know any other Rock.»</text>
+    <text>Don't fear, neither be afraid. Haven't I declared it to you long ago, and shown it? You are my witnesses. Is there a God besides me? Indeed, there is not. I don't know any other Rock.”</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="9" characterId="Isaiah">
     <verse num="9" />
@@ -3998,14 +3998,14 @@
     <text>He burns part of it in the fire. With part of it, he eats meat. He roasts a roast, and is satisfied. Yes, he warms himself, and says,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="16" characterId="craftsman">
-    <text>«Aha! I am warm. I have seen the fire.»</text>
+    <text>“Aha! I am warm. I have seen the fire.”</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="17" characterId="Isaiah">
     <verse num="17" />
     <text>The rest of it he makes into a god, even his engraved image. He bows down to it and worships, and prays to it, and says,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="17" characterId="craftsman">
-    <text>«Deliver me; for you are my god!»</text>
+    <text>“Deliver me; for you are my god!”</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="18" characterId="Isaiah">
     <verse num="18" />
@@ -4016,14 +4016,14 @@
     <text>No one thinks, neither is there knowledge nor understanding to say,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="19" characterId="craftsman">
-    <text>«I have burned part of it in the fire. Yes, I have also baked bread on its coals. I have roasted meat and eaten it. Shall I make the rest of it into an abomination? Shall I bow down to a tree trunk?»</text>
+    <text>“I have burned part of it in the fire. Yes, I have also baked bread on its coals. I have roasted meat and eaten it. Shall I make the rest of it into an abomination? Shall I bow down to a tree trunk?”</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="20" characterId="Isaiah">
     <verse num="20" />
     <text>He feeds on ashes. A deceived heart has turned him aside; and he can't deliver his soul, nor say,</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="20" characterId="craftsman">
-    <text>«Isn't there a lie in my right hand?»</text>
+    <text>“Isn't there a lie in my right hand?”</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -4042,7 +4042,7 @@
     <text>Thus says God, your Redeemer, and he who formed you from the womb:</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="24" characterId="God">
-    <text>«I am God, who makes all things; who alone stretches out the heavens; who spreads out the earth by myself;</text>
+    <text>“I am God, who makes all things; who alone stretches out the heavens; who spreads out the earth by myself;</text>
   </block>
   <block style="p" chapter="44" initialStartVerse="25" characterId="God">
     <verse num="25" />
@@ -4058,7 +4058,7 @@
   </block>
   <block style="p" chapter="44" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>Who says of Cyrus, 'He is my shepherd, and shall perform all my pleasure,' even saying of Jerusalem, 'She will be built;' and of the temple, 'Your foundation will be laid.'»</text>
+    <text>Who says of Cyrus, 'He is my shepherd, and shall perform all my pleasure,' even saying of Jerusalem, 'She will be built;' and of the temple, 'Your foundation will be laid.'”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="45" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>45</text>
@@ -4108,7 +4108,7 @@
     <text>Thus says God, the Holy One of Israel, and his Maker:</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="11" characterId="God">
-    <text>«You ask me about the things that are to come, concerning my sons, and you command me concerning the work of my hands!</text>
+    <text>“You ask me about the things that are to come, concerning my sons, and you command me concerning the work of my hands!</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -4116,21 +4116,21 @@
   </block>
   <block style="p" chapter="45" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>I have raised him up in righteousness, and I will make straight all his ways. He shall build my city, and he shall let my exiles go free, not for price nor reward,» says God of Armies.</text>
+    <text>I have raised him up in righteousness, and I will make straight all his ways. He shall build my city, and he shall let my exiles go free, not for price nor reward,” says God of Armies.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
     <text>Thus says God:</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="14" characterId="God">
-    <text>«The labor of Egypt, and the merchandise of Ethiopia, and the Sabeans, men of stature, shall come over to you, and they shall be yours. They will go after you. They shall come over in chains; and they will bow down to you. They will make supplication to you:</text>
+    <text>“The labor of Egypt, and the merchandise of Ethiopia, and the Sabeans, men of stature, shall come over to you, and they shall be yours. They will go after you. They shall come over in chains; and they will bow down to you. They will make supplication to you:</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="14" characterId="Egyptians/Ethiopians/Sabeans" characterIdOverrideForScript="Egyptians">
     <text>'Surely God is in you; and there is no one else. There is no other god.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="15" characterId="Isaiah">
     <verse num="15" />
-    <text>Most certainly you are a God who has hidden yourself, God of Israel, the Savior.'» </text>
+    <text>Most certainly you are a God who has hidden yourself, God of Israel, the Savior.'” </text>
   </block>
   <block style="p" chapter="45" initialStartVerse="16" characterId="Isaiah">
     <verse num="16" />
@@ -4145,7 +4145,7 @@
     <text>For thus says God who created the heavens, the God who formed the earth and made it, who established it and didn't create it a waste, who formed it to be inhabited:</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="18" characterId="God">
-    <text>«I am God; and there is no other. </text>
+    <text>“I am God; and there is no other. </text>
     <verse num="19" />
     <text>I have not spoken in secret, in a place of the land of darkness. I didn't say to the seed of Jacob, 'Seek me in vain.' I, God, speak righteousness. I declare things that are right.</text>
   </block>
@@ -4167,7 +4167,7 @@
   </block>
   <block style="p" chapter="45" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>They will say of me, 'There is righteousness and strength only in God.'»</text>
+    <text>They will say of me, 'There is righteousness and strength only in God.'”</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="24" characterId="Isaiah">
     <text>Even to him shall men come; and all those who were incensed against him shall be disappointed.</text>
@@ -4244,7 +4244,7 @@
   </block>
   <block style="p" chapter="47" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Your nakedness will be uncovered, yes, your shame will be seen: I will take vengeance, and will spare no man.»</text>
+    <text>Your nakedness will be uncovered, yes, your shame will be seen: I will take vengeance, and will spare no man.”</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
@@ -4335,7 +4335,7 @@
   </block>
   <block style="p" chapter="48" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>You have heard it; see all this; and you, will you not declare it? «I have shown you new things from this time, even hidden things, which you have not known.</text>
+    <text>You have heard it; see all this; and you, will you not declare it? “I have shown you new things from this time, even hidden things, which you have not known.</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -4408,13 +4408,13 @@
   </block>
   <block style="p" chapter="48" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>«There is no peace,»</text>
+    <text>“There is no peace,”</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="22" characterId="Isaiah">
     <text>says God,</text>
   </block>
   <block style="p" chapter="48" initialStartVerse="22" characterId="God">
-    <text>«for the wicked.»</text>
+    <text>“for the wicked.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="49" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>49</text>
@@ -4430,11 +4430,11 @@
     <text>and he said to me,</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="3" characterId="God">
-    <text>«You are my servant; Israel, in whom I will be glorified.»</text>
+    <text>“You are my servant; Israel, in whom I will be glorified.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
-    <text>But I said, «I have labored in vain, I have spent my strength for nothing and vanity; yet surely the justice [due] to me is with God, and my reward with my God.»</text>
+    <text>But I said, “I have labored in vain, I have spent my strength for nothing and vanity; yet surely the justice [due] to me is with God, and my reward with my God.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
@@ -4443,23 +4443,23 @@
     <text>Indeed, he says,</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="6" characterId="God">
-    <text>«It is too light a thing that you should be my servant to raise up the tribes of Jacob, and to restore the preserved of Israel: I will also give you for a light to the nations, that you may be my salvation to the end of the earth.»</text>
+    <text>“It is too light a thing that you should be my servant to raise up the tribes of Jacob, and to restore the preserved of Israel: I will also give you for a light to the nations, that you may be my salvation to the end of the earth.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="7" characterId="Isaiah">
     <verse num="7" />
     <text>Thus says God, the Redeemer of Israel, [and] his Holy One, to him whom man despises, to him whom the nation abhors, to a servant of rulers:</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="7" characterId="God">
-    <text>«Kings shall see and arise; princes, and they shall worship; because of God who is faithful, [even] the Holy One of Israel, who has chosen you.»</text>
+    <text>“Kings shall see and arise; princes, and they shall worship; because of God who is faithful, [even] the Holy One of Israel, who has chosen you.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
     <text>Thus says God,</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="8" characterId="God">
-    <text>«In an acceptable time have I answered you, and in a day of salvation have I helped you; and I will preserve you, and give you for a covenant of the people, to raise up the land, to make them inherit the desolate heritage: </text>
+    <text>“In an acceptable time have I answered you, and in a day of salvation have I helped you; and I will preserve you, and give you for a covenant of the people, to raise up the land, to make them inherit the desolate heritage: </text>
     <verse num="9" />
-    <text>saying to those who are bound, 'Come out!'; to those who are in darkness, 'Show yourselves!' «They shall feed in the ways, and on all bare heights shall be their pasture.</text>
+    <text>saying to those who are bound, 'Come out!'; to those who are in darkness, 'Show yourselves!' “They shall feed in the ways, and on all bare heights shall be their pasture.</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -4471,7 +4471,7 @@
   </block>
   <block style="p" chapter="49" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Behold, these shall come from far; and behold, these from the north and from the west; and these from the land of Sinim.»</text>
+    <text>Behold, these shall come from far; and behold, these from the north and from the west; and these from the land of Sinim.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="13" characterId="Isaiah">
     <verse num="13" />
@@ -4480,7 +4480,7 @@
     <text>But Zion said,</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="14" characterId="Zion">
-    <text>«God has forsaken me, and the Lord has forgotten me.»</text>
+    <text>“God has forsaken me, and the Lord has forgotten me.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -4502,7 +4502,7 @@
     <text>says God, </text>
   </block>
   <block style="p" chapter="49" initialStartVerse="18" characterId="God">
-    <text>«you shall surely clothe yourself with them all as with an ornament, and dress yourself with them, like a bride.</text>
+    <text>“you shall surely clothe yourself with them all as with an ornament, and dress yourself with them, like a bride.</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -4524,11 +4524,11 @@
     <text>Thus says the Lord God,</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="22" characterId="God">
-    <text>«Behold, I will lift up my hand to the nations, and set up my banner to the peoples; and they shall bring your sons in their bosom, and your daughters shall be carried on their shoulders.</text>
+    <text>“Behold, I will lift up my hand to the nations, and set up my banner to the peoples; and they shall bring your sons in their bosom, and your daughters shall be carried on their shoulders.</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>Kings shall be your nursing fathers, and their queens your nursing mothers: they shall bow down to you with their faces to the earth, and lick the dust of your feet; and you shall know that I am God; and those who wait for me shall not be disappointed.»</text>
+    <text>Kings shall be your nursing fathers, and their queens your nursing mothers: they shall bow down to you with their faces to the earth, and lick the dust of your feet; and you shall know that I am God; and those who wait for me shall not be disappointed.”</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="24" characterId="Isaiah">
     <verse num="24" />
@@ -4537,11 +4537,11 @@
     <text>But thus says God,</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="25" characterId="God">
-    <text>«Even the captives of the mighty shall be taken away, and the prey of the terrible shall be delivered; for I will contend with him who contends with you, and I will save your children.</text>
+    <text>“Even the captives of the mighty shall be taken away, and the prey of the terrible shall be delivered; for I will contend with him who contends with you, and I will save your children.</text>
   </block>
   <block style="p" chapter="49" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>I will feed those who oppress you with their own flesh; and they shall be drunken with their own blood, as with sweet wine: and all flesh shall know that I, God, am your Savior, and your Redeemer, the Mighty One of Jacob.»</text>
+    <text>I will feed those who oppress you with their own flesh; and they shall be drunken with their own blood, as with sweet wine: and all flesh shall know that I, God, am your Savior, and your Redeemer, the Mighty One of Jacob.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="50" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>50</text>
@@ -4551,7 +4551,7 @@
     <text>Thus says God,</text>
   </block>
   <block style="p" chapter="50" initialStartVerse="1" characterId="God">
-    <text>«Where is the bill of your mother's divorce, with which I have put her away? or which of my creditors is it to whom I have sold you? Behold, for your iniquities were you sold, and for your transgressions was your mother put away.</text>
+    <text>“Where is the bill of your mother's divorce, with which I have put her away? or which of my creditors is it to whom I have sold you? Behold, for your iniquities were you sold, and for your transgressions was your mother put away.</text>
   </block>
   <block style="p" chapter="50" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -4559,7 +4559,7 @@
   </block>
   <block style="p" chapter="50" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>I clothe the heavens with blackness, and I make sackcloth their covering.»</text>
+    <text>I clothe the heavens with blackness, and I make sackcloth their covering.”</text>
   </block>
   <block style="p" chapter="50" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
@@ -4683,11 +4683,11 @@
     <text>Thus says your Lord God, and your God who pleads the cause of his people,</text>
   </block>
   <block style="p" chapter="51" initialStartVerse="22" characterId="God">
-    <text>«Behold, I have taken out of your hand the cup of staggering, even the bowl of the cup of my wrath; you shall no more drink it again:</text>
+    <text>“Behold, I have taken out of your hand the cup of staggering, even the bowl of the cup of my wrath; you shall no more drink it again:</text>
   </block>
   <block style="p" chapter="51" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>and I will put it into the hand of those who afflict you, who have said to your soul, 'Bow down, that we may walk over you;' and you have laid your back as the ground, and as the street, to those who walk over.»</text>
+    <text>and I will put it into the hand of those who afflict you, who have said to your soul, 'Bow down, that we may walk over you;' and you have laid your back as the ground, and as the street, to those who walk over.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="52" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>52</text>
@@ -4703,14 +4703,14 @@
     <text>For thus says God,</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="3" characterId="God">
-    <text>«You were sold for nothing; and you shall be redeemed without money.»</text>
+    <text>“You were sold for nothing; and you shall be redeemed without money.”</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
     <text>For thus says the Lord God,</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="4" characterId="God">
-    <text>«My people went down at the first into Egypt to live there: and the Assyrian has oppressed them without cause. </text>
+    <text>“My people went down at the first into Egypt to live there: and the Assyrian has oppressed them without cause. </text>
     <verse num="5" />
     <text>Now therefore, what do I do here,</text>
   </block>
@@ -4718,21 +4718,21 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="5" characterId="God">
-    <text>«seeing that my people are taken away for nothing? those who rule over them mock,»</text>
+    <text>“seeing that my people are taken away for nothing? those who rule over them mock,”</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="5" characterId="Isaiah">
     <text>says God,</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="5" characterId="God">
-    <text>«and my name continually all the day is blasphemed.</text>
+    <text>“and my name continually all the day is blasphemed.</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Therefore my people shall know my name: therefore [they shall know] in that day that I am he who does speak; behold, it is I.»</text>
+    <text>Therefore my people shall know my name: therefore [they shall know] in that day that I am he who does speak; behold, it is I.”</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="7" characterId="Isaiah">
     <verse num="7" />
-    <text>How beautiful on the mountains are the feet of him who brings good news, who publishes peace, who brings good news of good, who publishes salvation, who says to Zion, «Your God reigns!»</text>
+    <text>How beautiful on the mountains are the feet of him who brings good news, who publishes peace, who brings good news of good, who publishes salvation, who says to Zion, “Your God reigns!”</text>
   </block>
   <block style="p" chapter="52" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
@@ -4841,7 +4841,7 @@
     <verse num="5" />
     <text>For your Maker is your husband; God of Armies is his name: and the Holy One of Israel is your Redeemer; the God of the whole earth shall he be called. </text>
     <verse num="6" />
-    <text>For God has called you as a wife forsaken and grieved in spirit, even a wife of youth, when she is cast off,»</text>
+    <text>For God has called you as a wife forsaken and grieved in spirit, even a wife of youth, when she is cast off,”</text>
   </block>
   <block style="p" chapter="54" initialStartVerse="6" characterId="Isaiah">
     <text>says your God.</text>
@@ -4892,7 +4892,7 @@
   </block>
   <block style="p" chapter="54" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>No weapon that is formed against you will prevail; and you will condemn every tongue that rises against you in judgment. This is the heritage of the servants of God, and their righteousness which is of me,»</text>
+    <text>No weapon that is formed against you will prevail; and you will condemn every tongue that rises against you in judgment. This is the heritage of the servants of God, and their righteousness which is of me,”</text>
   </block>
   <block style="p" chapter="54" initialStartVerse="17" characterId="Isaiah">
     <text>says God.</text>
@@ -4930,14 +4930,14 @@
   </block>
   <block style="p" chapter="55" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>«For my thoughts are not your thoughts, neither are your ways my ways,»</text>
+    <text>“For my thoughts are not your thoughts, neither are your ways my ways,”</text>
   </block>
   <block style="p" chapter="55" initialStartVerse="8" characterId="Isaiah">
     <text>says God.</text>
   </block>
   <block style="p" chapter="55" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>«For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.</text>
+    <text>“For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.</text>
   </block>
   <block style="p" chapter="55" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -4953,7 +4953,7 @@
   </block>
   <block style="p" chapter="55" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Instead of the thorn shall come up the fir tree; and instead of the brier shall come up the myrtle tree: and it shall be to God for a name, for an everlasting sign that shall not be cut off.»</text>
+    <text>Instead of the thorn shall come up the fir tree; and instead of the brier shall come up the myrtle tree: and it shall be to God for a name, for an everlasting sign that shall not be cut off.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="56" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>56</text>
@@ -4963,31 +4963,31 @@
     <text>Thus says God,</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="1" characterId="God">
-    <text>«Keep justice, and do righteousness; for my salvation is near to come, and my righteousness to be revealed.</text>
+    <text>“Keep justice, and do righteousness; for my salvation is near to come, and my righteousness to be revealed.</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Blessed is the man who does this, and the son of man who holds it fast; who keeps the Sabbath from profaning it, and keeps his hand from doing any evil.»</text>
+    <text>Blessed is the man who does this, and the son of man who holds it fast; who keeps the Sabbath from profaning it, and keeps his hand from doing any evil.”</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="3" characterId="Isaiah">
     <verse num="3" />
     <text>Neither let the foreigner, who has joined himself to God, speak, saying,</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="3" characterId="foreigner who has joined himself to the Lord">
-    <text>«God will surely separate me from his people;»</text>
+    <text>“God will surely separate me from his people;”</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="3" characterId="Isaiah">
     <text>neither let the eunuch say,</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="3" characterId="eunuch">
-    <text>«Behold, I am a dry tree.»</text>
+    <text>“Behold, I am a dry tree.”</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="4" characterId="Isaiah">
     <verse num="4" />
     <text>For thus says God,</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="4" characterId="God">
-    <text>«To the eunuchs who keep my Sabbaths, and choose the things that please me, and hold fast my covenant:</text>
+    <text>“To the eunuchs who keep my Sabbaths, and choose the things that please me, and hold fast my covenant:</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -4999,14 +4999,14 @@
   </block>
   <block style="p" chapter="56" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>even them will I bring to my holy mountain, and make them joyful in my house of prayer: their burnt offerings and their sacrifices shall be accepted on my altar; for my house shall be called a house of prayer for all peoples.»</text>
+    <text>even them will I bring to my holy mountain, and make them joyful in my house of prayer: their burnt offerings and their sacrifices shall be accepted on my altar; for my house shall be called a house of prayer for all peoples.”</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
     <text>The Lord God, who gathers the outcasts of Israel, says,</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="8" characterId="God">
-    <text>«Yet will I gather [others] to him, besides his own who are gathered.»</text>
+    <text>“Yet will I gather [others] to him, besides his own who are gathered.”</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="9" characterId="Isaiah">
     <verse num="9" />
@@ -5023,7 +5023,7 @@
     <text>Come, [say they],</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="12" characterId="watchmen of Israel">
-    <text>«I will get wine, and we will fill ourselves with strong drink; and tomorrow shall be as this day, [a day] great beyond measure.»</text>
+    <text>“I will get wine, and we will fill ourselves with strong drink; and tomorrow shall be as this day, [a day] great beyond measure.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="57" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>57</text>
@@ -5038,7 +5038,7 @@
   </block>
   <block style="p" chapter="57" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>«But draw near here, you sons of the sorceress, the seed of the adulterer and the prostitute.</text>
+    <text>“But draw near here, you sons of the sorceress, the seed of the adulterer and the prostitute.</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -5070,7 +5070,7 @@
   </block>
   <block style="p" chapter="57" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>«Whom have you dreaded and feared, so that you lie, and have not remembered me, nor laid it to your heart? Haven't I held my peace even of long time, and you don't fear me?</text>
+    <text>“Whom have you dreaded and feared, so that you lie, and have not remembered me, nor laid it to your heart? Haven't I held my peace even of long time, and you don't fear me?</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -5078,21 +5078,21 @@
   </block>
   <block style="p" chapter="57" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>When you cry, let those who you have gathered deliver you; but the wind shall take them, a breath shall carry them all away: but he who takes refuge in me shall possess the land, and shall inherit my holy mountain.»</text>
+    <text>When you cry, let those who you have gathered deliver you; but the wind shall take them, a breath shall carry them all away: but he who takes refuge in me shall possess the land, and shall inherit my holy mountain.”</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
     <text>He will say,</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="14" characterId="man (hypothetical)">
-    <text>«Cast up, cast up, prepare the way, take up the stumbling-block out of the way of my people.»</text>
+    <text>“Cast up, cast up, prepare the way, take up the stumbling-block out of the way of my people.”</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="15" characterId="Isaiah">
     <verse num="15" />
     <text>For thus says the high and lofty One who inhabits eternity, whose name is Holy:</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="15" characterId="God">
-    <text>«I dwell in the high and holy place, with him also who is of a contrite and humble spirit, to revive the spirit of the humble, and to revive the heart of the contrite.</text>
+    <text>“I dwell in the high and holy place, with him also who is of a contrite and humble spirit, to revive the spirit of the humble, and to revive the heart of the contrite.</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="16" characterId="God">
     <verse num="16" />
@@ -5106,13 +5106,13 @@
     <verse num="18" />
     <text>I have seen his ways, and will heal him: I will lead him also, and restore comforts to him and to his mourners. </text>
     <verse num="19" />
-    <text>I create the fruit of the lips: Peace, peace, to him who is far off and to him who is near,» says God; «and I will heal them.»</text>
+    <text>I create the fruit of the lips: Peace, peace, to him who is far off and to him who is near,” says God; “and I will heal them.”</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="20" characterId="God">
     <verse num="20" />
     <text>But the wicked are like the troubled sea; for it can't rest, and its waters cast up mire and dirt. </text>
     <verse num="21" />
-    <text>There is no peace, says my God, «for the wicked.»</text>
+    <text>There is no peace, says my God, “for the wicked.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="58" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>58</text>
@@ -5270,13 +5270,13 @@
     <text>says God.</text>
   </block>
   <block style="p" chapter="59" initialStartVerse="21" characterId="God">
-    <text>«My Spirit who is on you, and my words which I have put in your mouth, shall not depart out of your mouth, nor out of the mouth of your seed, nor out of the mouth of your seed's seed,»</text>
+    <text>“My Spirit who is on you, and my words which I have put in your mouth, shall not depart out of your mouth, nor out of the mouth of your seed, nor out of the mouth of your seed's seed,”</text>
   </block>
   <block style="p" chapter="59" initialStartVerse="21" characterId="Isaiah">
     <text>says God,</text>
   </block>
   <block style="p" chapter="59" initialStartVerse="21" characterId="God">
-    <text>«from henceforth and forever.»</text>
+    <text>“from henceforth and forever.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="60" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>60</text>
@@ -5367,7 +5367,7 @@
   </block>
   <block style="p" chapter="60" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>The little one shall become a thousand, and the small one a strong nation; I, God, will hasten it in its time.»</text>
+    <text>The little one shall become a thousand, and the small one a strong nation; I, God, will hasten it in its time.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="61" book="ISA" initialStartVerse="0" characterId="BC-ISA">
     <text>61</text>
@@ -5453,11 +5453,11 @@
     <text>God has sworn by his right hand, and by the arm of his strength,</text>
   </block>
   <block style="p" chapter="62" initialStartVerse="8" characterId="God">
-    <text>«Surely I will no more give your grain to be food for your enemies; and foreigners shall not drink your new wine, for which you have labored:</text>
+    <text>“Surely I will no more give your grain to be food for your enemies; and foreigners shall not drink your new wine, for which you have labored:</text>
   </block>
   <block style="p" chapter="62" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>but those who have garnered it shall eat it, and praise God; and those who have gathered it shall drink it in the courts of my sanctuary.»</text>
+    <text>but those who have garnered it shall eat it, and praise God; and those who have gathered it shall drink it in the courts of my sanctuary.”</text>
   </block>
   <block style="p" chapter="62" initialStartVerse="10" characterId="Isaiah">
     <verse num="10" />
@@ -5468,7 +5468,7 @@
     <text>Behold, God has proclaimed to the end of the earth,</text>
   </block>
   <block style="p" chapter="62" initialStartVerse="11" characterId="God">
-    <text>«Say to the daughter of Zion, 'Behold, your salvation comes. Behold, his reward is with him, and his recompense before him.'»</text>
+    <text>“Say to the daughter of Zion, 'Behold, your salvation comes. Behold, his reward is with him, and his recompense before him.'”</text>
   </block>
   <block style="p" chapter="62" initialStartVerse="12" characterId="Isaiah">
     <verse num="12" />
@@ -5482,7 +5482,7 @@
     <text>Who is this who comes from Edom, with dyed garments from Bozrah? this who is glorious in his clothing, marching in the greatness of his strength?</text>
   </block>
   <block style="p" chapter="63" initialStartVerse="1" characterId="God">
-    <text>«It is I who speak in righteousness, mighty to save.»</text>
+    <text>“It is I who speak in righteousness, mighty to save.”</text>
   </block>
   <block style="p" chapter="63" initialStartVerse="2" characterId="Isaiah">
     <verse num="2" />
@@ -5511,7 +5511,7 @@
     <text>For he said,</text>
   </block>
   <block style="p" chapter="63" initialStartVerse="8" characterId="God">
-    <text>«Surely, they are my people, children who will not deal falsely:»</text>
+    <text>“Surely, they are my people, children who will not deal falsely:”</text>
   </block>
   <block style="p" chapter="63" initialStartVerse="8" characterId="Isaiah">
     <text>so he was their Savior.</text>
@@ -5640,20 +5640,20 @@
   </block>
   <block style="p" chapter="65" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>your own iniquities, and the iniquities of your fathers together,»</text>
+    <text>your own iniquities, and the iniquities of your fathers together,”</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="7" characterId="Isaiah">
     <text>says God,</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="7" characterId="God">
-    <text>«who have burned incense on the mountains, and blasphemed me on the hills; therefore will I first measure their work into their bosom.»</text>
+    <text>“who have burned incense on the mountains, and blasphemed me on the hills; therefore will I first measure their work into their bosom.”</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="8" characterId="Isaiah">
     <verse num="8" />
     <text>Thus says God,</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="8" characterId="God">
-    <text>«As the new wine is found in the cluster, and one says, 'Don't destroy it, for a blessing is in it:' so will I do for my servants' sake, that I may not destroy them all.</text>
+    <text>“As the new wine is found in the cluster, and one says, 'Don't destroy it, for a blessing is in it:' so will I do for my servants' sake, that I may not destroy them all.</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -5676,7 +5676,7 @@
     <text>Therefore thus says the Lord God,</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="13" characterId="God">
-    <text>«Behold, my servants shall eat, but you shall be hungry; behold, my servants shall drink, but you shall be thirsty; behold, my servants shall rejoice, but you shall be disappointed;</text>
+    <text>“Behold, my servants shall eat, but you shall be hungry; behold, my servants shall drink, but you shall be thirsty; behold, my servants shall rejoice, but you shall be disappointed;</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -5724,7 +5724,7 @@
   </block>
   <block style="p" chapter="65" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>The wolf and the lamb shall feed together, and the lion shall eat straw like the ox; and dust shall be the serpent's food. They shall not hurt nor destroy in all my holy mountain,»</text>
+    <text>The wolf and the lamb shall feed together, and the lion shall eat straw like the ox; and dust shall be the serpent's food. They shall not hurt nor destroy in all my holy mountain,”</text>
   </block>
   <block style="p" chapter="65" initialStartVerse="25" characterId="Isaiah">
     <text>says God.</text>
@@ -5737,17 +5737,17 @@
     <text>Thus says God,</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="1" characterId="God">
-    <text>«Heaven is my throne, and the earth is my footstool: what kind of house will you build to me? and what place shall be my rest?</text>
+    <text>“Heaven is my throne, and the earth is my footstool: what kind of house will you build to me? and what place shall be my rest?</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>For all these things has my hand made, and [so] all these things came to be,»</text>
+    <text>For all these things has my hand made, and [so] all these things came to be,”</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="2" characterId="Isaiah">
     <text>says God:</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="2" characterId="God">
-    <text>«but to this man will I look, even to him who is poor and of a contrite spirit, and who trembles at my word.</text>
+    <text>“but to this man will I look, even to him who is poor and of a contrite spirit, and who trembles at my word.</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -5755,14 +5755,14 @@
   </block>
   <block style="p" chapter="66" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>I also will choose their delusions, and will bring their fears on them; because when I called, none did answer; when I spoke, they did not hear: but they did that which was evil in my eyes, and chose that in which I didn't delight.»</text>
+    <text>I also will choose their delusions, and will bring their fears on them; because when I called, none did answer; when I spoke, they did not hear: but they did that which was evil in my eyes, and chose that in which I didn't delight.”</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="5" characterId="Isaiah">
     <verse num="5" />
     <text>Hear the word of God, you who tremble at his word:</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="5" characterId="God">
-    <text>«Your brothers who hate you, who cast you out for my name's sake, have said,</text>
+    <text>“Your brothers who hate you, who cast you out for my name's sake, have said,</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="5" characterId="brothers who hate you">
     <text>'Let God be glorified, that we may see your joy;'</text>
@@ -5790,7 +5790,7 @@
     <text>says God:</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="9" characterId="God">
-    <text>«shall I who cause to bring forth shut [the womb]?»</text>
+    <text>“shall I who cause to bring forth shut [the womb]?”</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="9" characterId="Isaiah">
     <text>says your God.</text>
@@ -5808,11 +5808,11 @@
     <text>For thus says God,</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="12" characterId="God">
-    <text>«Behold, I will extend peace to her like a river, and the glory of the nations like an overflowing stream: and you will nurse. You will be carried on her side, and will be dandled on her knees.</text>
+    <text>“Behold, I will extend peace to her like a river, and the glory of the nations like an overflowing stream: and you will nurse. You will be carried on her side, and will be dandled on her knees.</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>As one whom his mother comforts, so will I comfort you; and you will be comforted in Jerusalem.»</text>
+    <text>As one whom his mother comforts, so will I comfort you; and you will be comforted in Jerusalem.”</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="14" characterId="Isaiah">
     <verse num="14" />
@@ -5853,7 +5853,7 @@
   </block>
   <block style="p" chapter="66" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>Of them also will I take for priests [and] for Levites,»</text>
+    <text>Of them also will I take for priests [and] for Levites,”</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="21" characterId="Isaiah">
     <text>says God.</text>
@@ -5866,11 +5866,11 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="22" characterId="God">
-    <text>«so your seed and your name shall remain.</text>
+    <text>“so your seed and your name shall remain.</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>It shall happen, that from one new moon to another, and from one Sabbath to another, all flesh will come to worship before me,»</text>
+    <text>It shall happen, that from one new moon to another, and from one Sabbath to another, all flesh will come to worship before me,”</text>
   </block>
   <block style="p" chapter="66" initialStartVerse="23" characterId="Isaiah">
     <text>says God.</text>

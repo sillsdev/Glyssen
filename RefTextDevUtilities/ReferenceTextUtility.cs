@@ -47,10 +47,10 @@ namespace Glyssen.RefTextDevUtilities
 		private static readonly Regex s_singleDoubleOpenQuote = new Regex("(< <<)", RegexOptions.Compiled);
 		private static readonly Regex s_doubleSingleCloseQuote = new Regex("(>> >)", RegexOptions.Compiled);
 		private static readonly Regex s_singleDoubleCloseQuote = new Regex("((> >>)|(>>>))", RegexOptions.Compiled);
-		private static readonly Regex s_doubleOpenQuote = new Regex("(<<)", RegexOptions.Compiled);
-		private static readonly Regex s_doubleCloseQuote = new Regex("(>>)", RegexOptions.Compiled);
-		private static readonly Regex s_singleOpenQuote = new Regex("(<)", RegexOptions.Compiled);
-		private static readonly Regex s_singleCloseQuote = new Regex("(>)", RegexOptions.Compiled);
+		private static readonly Regex s_doubleOpenQuote = new Regex("((<<)|«)", RegexOptions.Compiled);
+		private static readonly Regex s_doubleCloseQuote = new Regex("((>>)|(»))", RegexOptions.Compiled);
+		private static readonly Regex s_singleOpenQuote = new Regex("(<|‹)", RegexOptions.Compiled);
+		private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
 		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+: ", RegexOptions.Compiled);
 
 		private static Regex s_regexStartQuoteMarks;

@@ -39,9 +39,9 @@
     <text>This is what God of Armies says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="God">
-    <text>«Consider your ways. </text>
+    <text>“Consider your ways. </text>
     <verse num="8" />
-    <text>Go up to the mountain, bring wood, and build the house. I will take pleasure in it, and I will be glorified,»</text>
+    <text>Go up to the mountain, bring wood, and build the house. I will take pleasure in it, and I will be glorified,”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="Haggai">
     <text>says God.</text>
@@ -54,7 +54,7 @@
     <text>says God of Armies,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
-    <text>«Because of my house that lies waste, while each of you is busy with his own house.</text>
+    <text>“Because of my house that lies waste, while each of you is busy with his own house.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -62,7 +62,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>I called for a drought on the land, on the mountains, on the grain, on the new wine, on the oil, on that which the ground brings forth, on men, on livestock, and on all the labor of the hands.»</text>
+    <text>I called for a drought on the land, on the mountains, on the grain, on the new wine, on the oil, on that which the ground brings forth, on men, on livestock, and on all the labor of the hands.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-HAG">
     <verse num="12" />
@@ -73,7 +73,7 @@
     <text>Then Haggai, God's messenger, spoke God's message to the people, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="God">
-    <text>«I am with you,»</text>
+    <text>“I am with you,”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="Haggai">
     <text>says God.</text>
@@ -175,27 +175,27 @@
     <text>The priests answered,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="priests">
-    <text>«No.».</text>
+    <text>“No.”.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-HAG">
     <verse num="13" />
     <text>Then Haggai said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="Haggai">
-    <text>«If one who is unclean by reason of a dead body touch any of these, will it be unclean?»</text>
+    <text>“If one who is unclean by reason of a dead body touch any of these, will it be unclean?”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-HAG">
     <text>The priests answered,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="priests">
-    <text>«It will be unclean.»</text>
+    <text>“It will be unclean.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-HAG">
     <verse num="14" />
     <text>Then Haggai answered,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="God">
-    <text>«'So is this people, and so is this nation before me,'</text>
+    <text>“'So is this people, and so is this nation before me,'</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="Haggai">
     <text>says God;</text>
@@ -224,7 +224,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>Is the seed yet in the barn? Yes, the vine, the fig tree, the pomegranate, and the olive tree haven't brought forth. From this day will I bless you.'»</text>
+    <text>Is the seed yet in the barn? Yes, the vine, the fig tree, the pomegranate, and the olive tree haven't brought forth. From this day will I bless you.'”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-HAG">
     <verse num="20" />

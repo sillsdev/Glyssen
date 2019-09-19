@@ -351,7 +351,7 @@
     <text>They sang one to another in praising and giving thanks to God,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="priests/Levites" characterIdOverrideForScript="priests" delivery="singing">
-    <text>«For he is good, for his loving kindness endures forever toward Israel.»</text>
+    <text>“For he is good, for his loving kindness endures forever toward Israel.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-EZR">
     <text>All the people shouted with a great shout, when they praised God, because the foundation of the house of God was laid.</text>
@@ -376,14 +376,14 @@
     <text>then they drew near to Zerubbabel, and to the heads of fathers' [houses], and said to them,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="enemies of Judah and Benjamin">
-    <text>«Let us build with you; for we seek your God, as you do; and we sacrifice to him since the days of Esar Haddon king of Assyria, who brought us up here.»</text>
+    <text>“Let us build with you; for we seek your God, as you do; and we sacrifice to him since the days of Esar Haddon king of Assyria, who brought us up here.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-EZR">
     <verse num="3" />
     <text>But Zerubbabel, and Jeshua, and the rest of the heads of fathers' [houses] of Israel, said to them,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="Zerubbabel/Jeshua/rest of heads of families" characterIdOverrideForScript="Zerubbabel">
-    <text>«You have nothing to do with us in building a house to our God; but we ourselves together will build to God, the God of Israel, as king Cyrus the king of Persia has commanded us.»</text>
+    <text>“You have nothing to do with us in building a house to our God; but we ourselves together will build to God, the God of Israel, as king Cyrus the king of Persia has commanded us.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
@@ -487,7 +487,7 @@
     <text>At the same time came to them Tattenai, the governor beyond the River, and Shetharbozenai, and their companions, and said thus to them,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor">
-    <text>«Who gave you a decree to build this house, and to finish this wall?»</text>
+    <text>“Who gave you a decree to build this house, and to finish this wall?”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
@@ -512,7 +512,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
     <verse num="9" />
-    <text>Then we asked those elders, and said to them thus, «Who gave you a decree to build this house, and to finish this wall?»</text>
+    <text>Then we asked those elders, and said to them thus, “Who gave you a decree to build this house, and to finish this wall?”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
     <verse num="10" />
@@ -523,7 +523,7 @@
     <text>Thus they returned us answer, saying,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
-    <text>«We are the servants of the God of heaven and earth, and are building the house that was built these many years ago, which a great king of Israel built and finished.</text>
+    <text>“We are the servants of the God of heaven and earth, and are building the house that was built these many years ago, which a great king of Israel built and finished.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
     <verse num="12" />
@@ -547,7 +547,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="17" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
     <verse num="17" />
-    <text>Now therefore, if it seem good to the king, let there be search made in the king's treasure house, which is there at Babylon, whether it be so, that a decree was made of Cyrus the king to build this house of God at Jerusalem; and let the king send his pleasure to us concerning this matter.»</text>
+    <text>Now therefore, if it seem good to the king, let there be search made in the king's treasure house, which is there at Babylon, whether it be so, that a decree was made of Cyrus the king to build this house of God at Jerusalem; and let the king send his pleasure to us concerning this matter.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="EZR" initialStartVerse="0" characterId="BC-EZR">
     <text>6</text>
@@ -831,7 +831,7 @@
     <text>For I was ashamed to ask of the king a band of soldiers and horsemen to help us against the enemy in the way, because we had spoken to the king, saying,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="22" characterId="Ezra, priest and teacher">
-    <text>«The hand of our God is on all those who seek him, for good; but his power and his wrath is against all those who forsake him.»</text>
+    <text>“The hand of our God is on all those who seek him, for good; but his power and his wrath is against all those who forsake him.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="23" characterId="Ezra, priest and teacher">
     <verse num="23" />
@@ -854,11 +854,11 @@
     <text>I said to them,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="28" characterId="Ezra, priest and teacher">
-    <text>«You are holy to God, and the vessels are holy; and the silver and the gold are a freewill offering to God, the God of your fathers.</text>
+    <text>“You are holy to God, and the vessels are holy; and the silver and the gold are a freewill offering to God, the God of your fathers.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="29" characterId="Ezra, priest and teacher">
     <verse num="29" />
-    <text>Watch, and keep them, until you weigh them before the chiefs of the priests and the Levites, and the princes of the fathers' [houses] of Israel, at Jerusalem, in the rooms of the house of God.»</text>
+    <text>Watch, and keep them, until you weigh them before the chiefs of the priests and the Levites, and the princes of the fathers' [houses] of Israel, at Jerusalem, in the rooms of the house of God.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="30" characterId="Ezra, priest and teacher">
     <verse num="30" />
@@ -896,11 +896,11 @@
     <text>Now when these things were done, the princes drew near to me, saying,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="leaders">
-    <text>«The people of Israel, and the priests and the Levites, have not separated themselves from the peoples of the lands, [doing] according to their abominations, even of the Canaanites, the Hittites, the Perizzites, the Jebusites, the Ammonites, the Moabites, the Egyptians, and the Amorites.</text>
+    <text>“The people of Israel, and the priests and the Levites, have not separated themselves from the peoples of the lands, [doing] according to their abominations, even of the Canaanites, the Hittites, the Perizzites, the Jebusites, the Ammonites, the Moabites, the Egyptians, and the Amorites.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="leaders">
     <verse num="2" />
-    <text>For they have taken of their daughters for themselves and for their sons, so that the holy seed have mixed themselves with the peoples of the lands. Yes, the hand of the princes and rulers has been chief in this trespass.»</text>
+    <text>For they have taken of their daughters for themselves and for their sons, so that the holy seed have mixed themselves with the peoples of the lands. Yes, the hand of the princes and rulers has been chief in this trespass.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="Ezra, priest and teacher">
     <verse num="3" />
@@ -917,7 +917,7 @@
     <text>and I said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
-    <text>«My God, I am ashamed and blush to lift up my face to you, my God; for our iniquities have increased over our head, and our guiltiness has grown up to the heavens.</text>
+    <text>“My God, I am ashamed and blush to lift up my face to you, my God; for our iniquities have increased over our head, and our guiltiness has grown up to the heavens.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
     <verse num="7" />
@@ -949,7 +949,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="15" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
     <verse num="15" />
-    <text>God, the God of Israel, you are righteous; for we are left a remnant that has escaped, as it is this day. Behold, we are before you in our guiltiness; for none can stand before you because of this.»</text>
+    <text>God, the God of Israel, you are righteous; for we are left a remnant that has escaped, as it is this day. Behold, we are before you in our guiltiness; for none can stand before you because of this.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="EZR" initialStartVerse="0" characterId="BC-EZR">
     <text>10</text>
@@ -963,7 +963,7 @@
     <text>Shecaniah the son of Jehiel, one of the sons of Elam, answered Ezra,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="2" characterId="Shecaniah, son of Jehiel" delivery="suggesting solution">
-    <text>«We have trespassed against our God, and have married foreign women of the peoples of the land. Yet now there is hope for Israel concerning this thing.</text>
+    <text>“We have trespassed against our God, and have married foreign women of the peoples of the land. Yet now there is hope for Israel concerning this thing.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="Shecaniah, son of Jehiel" delivery="suggesting solution">
     <verse num="3" />
@@ -971,7 +971,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="Shecaniah, son of Jehiel" delivery="suggesting solution">
     <verse num="4" />
-    <text>Arise; for the matter belongs to you, and we are with you. Be courageous, and do it.»</text>
+    <text>Arise; for the matter belongs to you, and we are with you. Be courageous, and do it.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
@@ -998,18 +998,18 @@
     <text>Ezra the priest stood up, and said to them,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="10" characterId="Ezra, priest and teacher">
-    <text>«You have trespassed, and have married foreign women, to increase the guilt of Israel.</text>
+    <text>“You have trespassed, and have married foreign women, to increase the guilt of Israel.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="11" characterId="Ezra, priest and teacher">
     <verse num="11" />
-    <text>Now therefore make confession to God, the God of your fathers, and do his pleasure; and separate yourselves from the peoples of the land, and from the foreign women.»</text>
+    <text>Now therefore make confession to God, the God of your fathers, and do his pleasure; and separate yourselves from the peoples of the land, and from the foreign women.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="narrator-EZR">
     <verse num="12" />
     <text>Then all the assembly answered with a loud voice,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="assembly, whole">
-    <text>«As you have said concerning us, so must we do.</text>
+    <text>“As you have said concerning us, so must we do.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="assembly, whole">
     <verse num="13" />
@@ -1017,7 +1017,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="assembly, whole">
     <verse num="14" />
-    <text>Let now our princes be appointed for all the assembly, and let all those who are in our cities who have married foreign women come at appointed times, and with them the elders of every city, and its judges, until the fierce wrath of our God be turned from us, until this matter is resolved.»</text>
+    <text>Let now our princes be appointed for all the assembly, and let all those who are in our cities who have married foreign women come at appointed times, and with them the elders of every city, and its judges, until the fierce wrath of our God be turned from us, until this matter is resolved.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-EZR">
     <verse num="15" />

@@ -18,7 +18,7 @@
     <text>says the Preacher;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="teacher (Preacher)">
-    <text>«Vanity of vanities, all is vanity.»</text>
+    <text>“Vanity of vanities, all is vanity.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="teacher (Preacher)">
     <verse num="3" />
@@ -50,7 +50,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="teacher (Preacher)">
     <verse num="10" />
-    <text>Is there a thing of which it may be said, «Behold, this is new?» It has been long ago, in the ages which were before us.</text>
+    <text>Is there a thing of which it may be said, “Behold, this is new?” It has been long ago, in the ages which were before us.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="teacher (Preacher)">
     <verse num="11" />
@@ -75,7 +75,7 @@
     <text>I said to myself,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="teacher (Preacher)">
-    <text>«Behold, I have obtained for myself great wisdom above all who were before me in Jerusalem. Yes, my heart has had great experience of wisdom and knowledge.»</text>
+    <text>“Behold, I have obtained for myself great wisdom above all who were before me in Jerusalem. Yes, my heart has had great experience of wisdom and knowledge.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="teacher (Preacher)">
     <verse num="17" />
@@ -90,11 +90,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="teacher (Preacher)">
     <verse num="1" />
-    <text>I said in my heart, «Come now, I will test you with mirth: therefore enjoy pleasure;» and behold, this also was vanity.</text>
+    <text>I said in my heart, “Come now, I will test you with mirth: therefore enjoy pleasure;” and behold, this also was vanity.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="teacher (Preacher)">
     <verse num="2" />
-    <text>I said of laughter, «It is foolishness;» and of mirth, «What does it accomplish?»</text>
+    <text>I said of laughter, “It is foolishness;” and of mirth, “What does it accomplish?”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="teacher (Preacher)">
     <verse num="3" />
@@ -146,7 +146,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="teacher (Preacher)">
     <verse num="15" />
-    <text>Then I said in my heart, «As it happens to the fool, so will it happen even to me; and why was I then more wise?» Then I said in my heart that this also is vanity.</text>
+    <text>Then I said in my heart, “As it happens to the fool, so will it happen even to me; and why was I then more wise?” Then I said in my heart that this also is vanity.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="teacher (Preacher)">
     <verse num="16" />
@@ -258,11 +258,11 @@
     <text>I said in my heart,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="teacher (Preacher)">
-    <text>«God will judge the righteous and the wicked; for there is a time there for every purpose and for every work.»</text>
+    <text>“God will judge the righteous and the wicked; for there is a time there for every purpose and for every work.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="teacher (Preacher)">
     <verse num="18" />
-    <text>I said in my heart, «As for the sons of men, God tests them, so that they may see that they themselves are like animals.</text>
+    <text>I said in my heart, “As for the sons of men, God tests them, so that they may see that they themselves are like animals.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="teacher (Preacher)">
     <verse num="19" />
@@ -274,7 +274,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="teacher (Preacher)">
     <verse num="21" />
-    <text>Who knows the spirit of man, whether it goes upward, and the spirit of the animal, whether it goes downward to the earth?»</text>
+    <text>Who knows the spirit of man, whether it goes upward, and the spirit of the animal, whether it goes downward to the earth?”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="22" characterId="teacher (Preacher)">
     <verse num="22" />
@@ -316,7 +316,7 @@
     <text>There is one who is alone, and he has neither son nor brother. There is no end to all of his labor, neither are his eyes satisfied with wealth.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="man all alone">
-    <text>«For whom then, do I labor, and deprive my soul of enjoyment?»</text>
+    <text>“For whom then, do I labor, and deprive my soul of enjoyment?”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="teacher (Preacher)">
     <text>This also is vanity. Yes, it is a miserable business.</text>
@@ -524,7 +524,7 @@
     <verse num="9" />
     <text>Don't be hasty in your spirit to be angry, for anger rests in the bosom of fools. </text>
     <verse num="10" />
-    <text>Don't say, «Why were the former days better than these?»</text>
+    <text>Don't say, “Why were the former days better than these?”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="teacher (Preacher)">
     <text>For you do not ask wisely about this.</text>
@@ -577,7 +577,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="23" characterId="teacher (Preacher)">
     <verse num="23" />
-    <text>All this have I proved in wisdom. I said, «I will be wise;» but it was far from me. </text>
+    <text>All this have I proved in wisdom. I said, “I will be wise;” but it was far from me. </text>
     <verse num="24" />
     <text>That which is, is far off and exceedingly deep. Who can find it out?</text>
   </block>
@@ -591,7 +591,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="27" characterId="teacher (Preacher)">
     <verse num="27" />
-    <text>Behold, I have found this, says the Preacher, «one to another, to find out the scheme;</text>
+    <text>Behold, I have found this, says the Preacher, “one to another, to find out the scheme;</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="28" characterId="teacher (Preacher)">
     <verse num="28" />
@@ -599,7 +599,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="29" characterId="teacher (Preacher)">
     <verse num="29" />
-    <text>Behold, this only have I found: that God made man upright; but they search for many schemes.»</text>
+    <text>Behold, this only have I found: that God made man upright; but they search for many schemes.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="ECC" initialStartVerse="0" characterId="BC-ECC">
     <text>8</text>
@@ -610,7 +610,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="teacher (Preacher)">
     <verse num="2" />
-    <text>I say, «Keep the king's command!» because of the oath to God.</text>
+    <text>I say, “Keep the king's command!” because of the oath to God.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="teacher (Preacher)">
     <verse num="3" />
@@ -618,7 +618,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="teacher (Preacher)">
     <verse num="4" />
-    <text>for the king's word is supreme. Who can say to him, «What are you doing?»</text>
+    <text>for the king's word is supreme. Who can say to him, “What are you doing?”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="teacher (Preacher)">
     <verse num="5" />
@@ -733,7 +733,7 @@
     <verse num="15" />
     <text>Now a poor wise man was found in it, and he by his wisdom delivered the city; yet no man remembered that same poor man. </text>
     <verse num="16" />
-    <text>Then I said, «Wisdom is better than strength.» Nevertheless the poor man's wisdom is despised, and his words are not heard.</text>
+    <text>Then I said, “Wisdom is better than strength.” Nevertheless the poor man's wisdom is despised, and his words are not heard.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="17" characterId="teacher (Preacher)">
     <verse num="17" />
@@ -874,7 +874,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="1" characterId="teacher (Preacher)">
     <verse num="1" />
-    <text>Remember also your Creator in the days of your youth, before the evil days come, and the years draw near, when you will say, «I have no pleasure in them;»</text>
+    <text>Remember also your Creator in the days of your youth, before the evil days come, and the years draw near, when you will say, “I have no pleasure in them;”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="teacher (Preacher)">
     <verse num="2" />
@@ -908,7 +908,7 @@
     <text>says the Preacher.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="8" characterId="teacher (Preacher)">
-    <text>«All is vanity!»</text>
+    <text>“All is vanity!”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="narrator-ECC">
     <verse num="9" />

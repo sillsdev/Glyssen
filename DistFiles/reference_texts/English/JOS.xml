@@ -40,7 +40,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>Haven't I commanded you? Be strong and courageous. Don't be afraid, neither be dismayed: for God your God is with you wherever you go.»</text>
+    <text>Haven't I commanded you? Be strong and courageous. Don't be afraid, neither be dismayed: for God your God is with you wherever you go.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JOS">
     <verse num="10" />
@@ -71,7 +71,7 @@
     <text>They answered Joshua, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="Reubenites">
-    <text>«All that you have commanded us we will do, and wherever you send us we will go.</text>
+    <text>“All that you have commanded us we will do, and wherever you send us we will go.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="Reubenites">
     <verse num="17" />
@@ -79,7 +79,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="Reubenites">
     <verse num="18" />
-    <text>Whoever rebels against your commandment, and doesn't listen to your words in all that you command him, he shall be put to death. Only be strong and courageous.»</text>
+    <text>Whoever rebels against your commandment, and doesn't listen to your words in all that you command him, he shall be put to death. Only be strong and courageous.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JOS" initialStartVerse="0" characterId="BC-JOS">
     <text>2</text>
@@ -89,7 +89,7 @@
     <text>Joshua the son of Nun secretly sent two men out of Shittim as spies, saying,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="Joshua">
-    <text>«Go, view the land, including Jericho.»</text>
+    <text>“Go, view the land, including Jericho.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-JOS">
     <text>They went and came into the house of a prostitute whose name was Rahab, and slept there. </text>
@@ -97,25 +97,25 @@
     <text>The king of Jericho was told,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="messenger to king of Jericho">
-    <text>«Behold, men of the children of Israel came in here tonight to spy out the land.»</text>
+    <text>“Behold, men of the children of Israel came in here tonight to spy out the land.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-JOS">
     <verse num="3" />
     <text>The king of Jericho sent to Rahab, saying,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="king of Jericho">
-    <text>«Bring out the men who have come to you, who have entered into your house; for they have come to spy out all the land.»</text>
+    <text>“Bring out the men who have come to you, who have entered into your house; for they have come to spy out all the land.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-JOS">
     <verse num="4" />
     <text>The woman took the two men and hid them. Then she said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Rahab">
-    <text>«Yes, the men came to me, but I didn't know where they came from.</text>
+    <text>“Yes, the men came to me, but I didn't know where they came from.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="Rahab">
     <verse num="5" />
-    <text>It happened about the time of the shutting of the gate, when it was dark, that the men went out. Where the men went, I don't know. Pursue them quickly; for you will overtake them.»</text>
+    <text>It happened about the time of the shutting of the gate, when it was dark, that the men went out. Where the men went, I don't know. Pursue them quickly; for you will overtake them.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-JOS">
     <verse num="6" />
@@ -132,7 +132,7 @@
     <text>and she said to the men,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="Rahab">
-    <text>«I know that God has given you the land, and that the fear of you has fallen on us, and that all the inhabitants of the land melt away before you.</text>
+    <text>“I know that God has given you the land, and that the fear of you has fallen on us, and that all the inhabitants of the land melt away before you.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="Rahab">
     <verse num="10" />
@@ -146,14 +146,14 @@
     <verse num="12" />
     <text>Now therefore, please swear to me by God, since I have dealt kindly with you, that you also will deal kindly with my father's house, and give me a true token; </text>
     <verse num="13" />
-    <text>and that you will save alive my father, my mother, my brothers, and my sisters, and all that they have, and will deliver our lives from death.»</text>
+    <text>and that you will save alive my father, my mother, my brothers, and my sisters, and all that they have, and will deliver our lives from death.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-JOS">
     <verse num="14" />
     <text>The men said to her,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="Israelite spies from Joshua, two men">
-    <text>«Our life for yours, if you don't talk about this business of ours; and it shall be, when God gives us the land, that we will deal kindly and truly with you.»</text>
+    <text>“Our life for yours, if you don't talk about this business of ours; and it shall be, when God gives us the land, that we will deal kindly and truly with you.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-JOS">
     <verse num="15" />
@@ -162,14 +162,14 @@
     <text>She said to them,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="Rahab">
-    <text>«Go to the mountain, lest the pursuers find you; and hide yourselves there three days, until the pursuers have returned. Afterward, you may go your way.»</text>
+    <text>“Go to the mountain, lest the pursuers find you; and hide yourselves there three days, until the pursuers have returned. Afterward, you may go your way.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-JOS">
     <verse num="17" />
     <text>The men said to her,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="Israelite spies from Joshua, two men">
-    <text>«We will be guiltless of this your oath which you have made us to swear.</text>
+    <text>“We will be guiltless of this your oath which you have made us to swear.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="Israelite spies from Joshua, two men">
     <verse num="18" />
@@ -181,14 +181,14 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="Israelite spies from Joshua, two men">
     <verse num="20" />
-    <text>But if you talk about this business of ours, then we shall be guiltless of your oath which you have made us to swear.»</text>
+    <text>But if you talk about this business of ours, then we shall be guiltless of your oath which you have made us to swear.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-JOS">
     <verse num="21" />
     <text>She said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="Rahab">
-    <text>«According to your words, so be it.»</text>
+    <text>“According to your words, so be it.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-JOS">
     <text>She sent them away, and they departed. She tied the scarlet line in the window.</text>
@@ -204,7 +204,7 @@
     <text>They said to Joshua,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="24" characterId="Israelite spies from Joshua, two men">
-    <text>«Truly God has delivered into our hands all the land. Moreover, all the inhabitants of the land melt away before us.»</text>
+    <text>“Truly God has delivered into our hands all the land. Moreover, all the inhabitants of the land melt away before us.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JOS" initialStartVerse="0" characterId="BC-JOS">
     <text>3</text>
@@ -220,25 +220,25 @@
     <text>and they commanded the people, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="Israelite officers">
-    <text>«When you see the ark of the covenant of God your God, and the priests the Levites bearing it, then you shall move from your place, and follow it.</text>
+    <text>“When you see the ark of the covenant of God your God, and the priests the Levites bearing it, then you shall move from your place, and follow it.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Israelite officers">
     <verse num="4" />
-    <text>Yet there shall be a space between you and it, about two thousand cubits by measure. Don't come near to it, that you may know the way by which you must go; for you have not passed this way before.»</text>
+    <text>Yet there shall be a space between you and it, about two thousand cubits by measure. Don't come near to it, that you may know the way by which you must go; for you have not passed this way before.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-JOS">
     <verse num="5" />
     <text>Joshua said to the people,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="Joshua">
-    <text>«Sanctify yourselves; for tomorrow God will do wonders among you.»</text>
+    <text>“Sanctify yourselves; for tomorrow God will do wonders among you.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-JOS">
     <verse num="6" />
     <text>Joshua spoke to the priests, saying,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="Joshua">
-    <text>«Take up the ark of the covenant, and pass over before the people.»</text>
+    <text>“Take up the ark of the covenant, and pass over before the people.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-JOS">
     <text>They took up the ark of the covenant, and went before the people. </text>
@@ -246,25 +246,25 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="God">
-    <text>«Today I will begin to magnify you in the sight of all Israel, that they may know that as I was with Moses, so I will be with you.</text>
+    <text>“Today I will begin to magnify you in the sight of all Israel, that they may know that as I was with Moses, so I will be with you.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>You shall command the priests who bear the ark of the covenant, saying, When you come to the brink of the waters of the Jordan, you shall stand still in the Jordan.»</text>
+    <text>You shall command the priests who bear the ark of the covenant, saying, When you come to the brink of the waters of the Jordan, you shall stand still in the Jordan.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
     <text>Joshua said to the children of Israel,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Joshua">
-    <text>«Come here, and hear the words of God your God.»</text>
+    <text>“Come here, and hear the words of God your God.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-JOS">
     <verse num="10" />
     <text>Joshua said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="Joshua">
-    <text>«Hereby you shall know that the living God is among you, and that he will without fail drive the Canaanite, and the Hittite, and the Hivite, and the Perizzite, and the Girgashite, and the Amorite, and the Jebusite out from before you.</text>
+    <text>“Hereby you shall know that the living God is among you, and that he will without fail drive the Canaanite, and the Hittite, and the Hivite, and the Perizzite, and the Girgashite, and the Amorite, and the Jebusite out from before you.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="Joshua">
     <verse num="11" />
@@ -276,7 +276,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="Joshua">
     <verse num="13" />
-    <text>It shall come to pass, when the soles of the feet of the priests who bear the ark of God, the Lord of all the earth, rest in the waters of the Jordan, that the waters of the Jordan will be cut off, even the waters that come down from above; and they shall stand in one heap.»</text>
+    <text>It shall come to pass, when the soles of the feet of the priests who bear the ark of God, the Lord of all the earth, rest in the waters of the Jordan, that the waters of the Jordan will be cut off, even the waters that come down from above; and they shall stand in one heap.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-JOS">
     <verse num="14" />
@@ -310,13 +310,13 @@
     <text>Joshua said to them,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="Joshua">
-    <text>«Pass over before the ark of God your God into the middle of the Jordan, and each of you pick up a stone and put it on your shoulder, according to the number of the tribes of the children of Israel; </text>
+    <text>“Pass over before the ark of God your God into the middle of the Jordan, and each of you pick up a stone and put it on your shoulder, according to the number of the tribes of the children of Israel; </text>
     <verse num="6" />
     <text>that this may be a sign among you, that when your children ask in time to come, saying, 'What do you mean by these stones?'</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="Joshua">
     <verse num="7" />
-    <text>then you shall tell them, Because the waters of the Jordan were cut off before the ark of the covenant of God. When it passed over the Jordan, the waters of the Jordan were cut off. These stones shall be for a memorial to the children of Israel forever.»</text>
+    <text>then you shall tell them, Because the waters of the Jordan were cut off before the ark of the covenant of God. When it passed over the Jordan, the waters of the Jordan were cut off. These stones shall be for a memorial to the children of Israel forever.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-JOS">
     <verse num="8" />
@@ -359,7 +359,7 @@
     <text>Joshua therefore commanded the priests, saying,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="Joshua">
-    <text>«Come up out of the Jordan!»</text>
+    <text>“Come up out of the Jordan!”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-JOS">
     <verse num="18" />
@@ -376,7 +376,7 @@
     <text>He spoke to the children of Israel, saying,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="21" characterId="Joshua">
-    <text>«When your children ask their fathers in time to come, saying, 'What do these stones mean?'</text>
+    <text>“When your children ask their fathers in time to come, saying, 'What do these stones mean?'</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="Joshua">
     <verse num="22" />
@@ -388,7 +388,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="24" characterId="Joshua">
     <verse num="24" />
-    <text>that all the peoples of the earth may know the hand of God, that it is mighty; that you may fear God your God forever.»</text>
+    <text>that all the peoples of the earth may know the hand of God, that it is mighty; that you may fear God your God forever.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="JOS" initialStartVerse="0" characterId="BC-JOS">
     <text>5</text>
@@ -400,7 +400,7 @@
     <text>At that time, God said to Joshua,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="God">
-    <text>«Make flint knives, and circumcise again the children of Israel the second time.»</text>
+    <text>“Make flint knives, and circumcise again the children of Israel the second time.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-JOS">
     <verse num="3" />
@@ -429,7 +429,7 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="God">
-    <text>«Today I have rolled away the reproach of Egypt from off you.»</text>
+    <text>“Today I have rolled away the reproach of Egypt from off you.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-JOS">
     <text>Therefore the name of that place was called Gilgal, to this day.</text>
@@ -451,27 +451,27 @@
     <text>It happened, when Joshua was by Jericho, that he lifted up his eyes and looked, and behold, a man stood in front of him with his sword drawn in his hand. Joshua went to him, and said to him,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="Joshua">
-    <text>«Are you for us, or for our adversaries?»</text>
+    <text>“Are you for us, or for our adversaries?”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-JOS">
     <verse num="14" />
     <text>He said,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="commander of the LORD's army">
-    <text>«No; but I have come now as commander of God's army.»</text>
+    <text>“No; but I have come now as commander of God's army.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-JOS">
     <text>Joshua fell on his face to the earth, and worshipped, and said to him,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="Joshua">
-    <text>«What does my lord say to his servant?»</text>
+    <text>“What does my lord say to his servant?”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-JOS">
     <verse num="15" />
     <text>The prince of God's army said to Joshua,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="commander of the LORD's army">
-    <text>«Take your shoes off of your feet; for the place on which you stand is holy.»</text>
+    <text>“Take your shoes off of your feet; for the place on which you stand is holy.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-JOS">
     <text>Joshua did so.</text>
@@ -486,7 +486,7 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="God">
-    <text>«Behold, I have given Jericho into your hand, with its king and the mighty men of valor.</text>
+    <text>“Behold, I have given Jericho into your hand, with its king and the mighty men of valor.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -498,21 +498,21 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>It shall be that when they make a long blast with the ram's horn, and when you hear the sound of the trumpet, all the people shall shout with a great shout; and the wall of the city shall fall down flat, and the people shall go up every man straight before him.»</text>
+    <text>It shall be that when they make a long blast with the ram's horn, and when you hear the sound of the trumpet, all the people shall shout with a great shout; and the wall of the city shall fall down flat, and the people shall go up every man straight before him.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-JOS">
     <verse num="6" />
     <text>Joshua the son of Nun called the priests, and said to them,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="Joshua">
-    <text>«Take up the ark of the covenant, and let seven priests bear seven trumpets of rams' horns before the ark of God.»</text>
+    <text>“Take up the ark of the covenant, and let seven priests bear seven trumpets of rams' horns before the ark of God.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-JOS">
     <verse num="7" />
     <text>They said to the people,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="Joshua">
-    <text>«Advance! March around the city, and let the armed men pass on before God's ark.»</text>
+    <text>“Advance! March around the city, and let the armed men pass on before God's ark.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-JOS">
     <verse num="8" />
@@ -525,7 +525,7 @@
     <text>Joshua commanded the people, saying,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Joshua">
-    <text>«You shall not shout, nor let your voice be heard, neither shall any word proceed out of your mouth, until the day I tell you to shout. Then you shall shout.»</text>
+    <text>“You shall not shout, nor let your voice be heard, neither shall any word proceed out of your mouth, until the day I tell you to shout. Then you shall shout.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-JOS">
     <verse num="11" />
@@ -552,7 +552,7 @@
     <text>It happened at the seventh time, when the priests blew the trumpets, Joshua said to the people,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="16" characterId="Joshua">
-    <text>«Shout, for God has given you the city!</text>
+    <text>“Shout, for God has given you the city!</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="17" characterId="Joshua">
     <verse num="17" />
@@ -564,7 +564,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="Joshua">
     <verse num="19" />
-    <text>But all the silver, and gold, and vessels of brass and iron, are holy to God. They shall come into God's treasury.»</text>
+    <text>But all the silver, and gold, and vessels of brass and iron, are holy to God. They shall come into God's treasury.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="20" characterId="narrator-JOS">
     <verse num="20" />
@@ -579,7 +579,7 @@
     <text>Joshua said to the two men who had spied out the land,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="22" characterId="Joshua">
-    <text>«Go into the prostitute's house, and bring out from there the woman and all that she has, as you swore to her.»</text>
+    <text>“Go into the prostitute's house, and bring out from there the woman and all that she has, as you swore to her.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="23" characterId="narrator-JOS">
     <verse num="23" />
@@ -598,7 +598,7 @@
     <text>Joshua commanded them with an oath at that time, saying,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="26" characterId="Joshua">
-    <text>«Cursed is the man before God, who rises up and builds this city Jericho. With the loss of his firstborn shall he lay its foundation, and with the loss of his youngest son shall he set up its gates.»</text>
+    <text>“Cursed is the man before God, who rises up and builds this city Jericho. With the loss of his firstborn shall he lay its foundation, and with the loss of his youngest son shall he set up its gates.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="27" characterId="narrator-JOS">
     <verse num="27" />
@@ -616,7 +616,7 @@
     <text>Joshua sent men from Jericho to Ai, which is beside Beth Aven, on the east side of Bethel, and spoke to them, saying,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="Joshua">
-    <text>«Go up and spy out the land.»</text>
+    <text>“Go up and spy out the land.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-JOS">
     <text>The men went up and spied out Ai. </text>
@@ -624,7 +624,7 @@
     <text>They returned to Joshua, and said to him,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="Israelite spies Joshua sent to Ai">
-    <text>«Don't let all the people go up; but let about two or three thousand men go up and strike Ai. Don't make all the people to toil there, for there are only a few of them.»</text>
+    <text>“Don't let all the people go up; but let about two or three thousand men go up and strike Ai. Don't make all the people to toil there, for there are only a few of them.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-JOS">
     <verse num="4" />
@@ -641,7 +641,7 @@
     <text>Joshua said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="Joshua">
-    <text>«Alas, Lord God, why have you brought this people over the Jordan at all, to deliver us into the hand of the Amorites, to cause us to perish? I wish that we had been content and lived beyond the Jordan!</text>
+    <text>“Alas, Lord God, why have you brought this people over the Jordan at all, to deliver us into the hand of the Amorites, to cause us to perish? I wish that we had been content and lived beyond the Jordan!</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="Joshua">
     <verse num="8" />
@@ -649,14 +649,14 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="Joshua">
     <verse num="9" />
-    <text>For the Canaanites and all the inhabitants of the land will hear of it, and will surround us, and cut off our name from the earth. What will you do for your great name?»</text>
+    <text>For the Canaanites and all the inhabitants of the land will hear of it, and will surround us, and cut off our name from the earth. What will you do for your great name?”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-JOS">
     <verse num="10" />
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="God">
-    <text>«Get up! Why are you fallen on your face like that?</text>
+    <text>“Get up! Why are you fallen on your face like that?</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -668,7 +668,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Get up! Sanctify the people, and say, 'Sanctify yourselves for tomorrow, for God, the God of Israel, says, There is a devoted thing in the midst of you, Israel. You cannot stand before your enemies until you take away the devoted thing from among you.»</text>
+    <text>Get up! Sanctify the people, and say, 'Sanctify yourselves for tomorrow, for God, the God of Israel, says, There is a devoted thing in the midst of you, Israel. You cannot stand before your enemies until you take away the devoted thing from among you.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -693,18 +693,18 @@
     <text>Joshua said to Achan,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="19" characterId="Joshua">
-    <text>«My son, please give glory to God, the God of Israel, and make confession to him. Tell me now what you have done! Don't hide it from me!»</text>
+    <text>“My son, please give glory to God, the God of Israel, and make confession to him. Tell me now what you have done! Don't hide it from me!”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="20" characterId="narrator-JOS">
     <verse num="20" />
     <text>Achan answered Joshua, and said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="20" characterId="Achan">
-    <text>«I have truly sinned against God, the God of Israel, and this is what I have done.</text>
+    <text>“I have truly sinned against God, the God of Israel, and this is what I have done.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="Achan">
     <verse num="21" />
-    <text>When I saw among the spoil a beautiful Babylonian robe, two hundred shekels of silver, and a wedge of gold weighing fifty shekels, then I coveted them and took them. Behold, they are hidden in the ground in the middle of my tent, with the silver under it.»</text>
+    <text>When I saw among the spoil a beautiful Babylonian robe, two hundred shekels of silver, and a wedge of gold weighing fifty shekels, then I coveted them and took them. Behold, they are hidden in the ground in the middle of my tent, with the silver under it.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="22" characterId="narrator-JOS">
     <verse num="22" />
@@ -721,7 +721,7 @@
     <text>Joshua said,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="25" characterId="Joshua">
-    <text>«Why have you troubled us? God will trouble you this day.»</text>
+    <text>“Why have you troubled us? God will trouble you this day.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="25" characterId="narrator-JOS">
     <text>All Israel stoned him with stones, and they burned them with fire and stoned them with stones.</text>
@@ -738,11 +738,11 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="God">
-    <text>«Don't be afraid, neither be dismayed. Take all the people of war with you, and arise, go up to Ai. Behold, I have given into your hand the king of Ai, with his people, his city, and his land.</text>
+    <text>“Don't be afraid, neither be dismayed. Take all the people of war with you, and arise, go up to Ai. Behold, I have given into your hand the king of Ai, with his people, his city, and his land.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>You shall do to Ai and her king as you did to Jericho and her king, except its spoil and its livestock, you shall take for a plunder for yourselves. Set an ambush for the city behind it.»</text>
+    <text>You shall do to Ai and her king as you did to Jericho and her king, except its spoil and its livestock, you shall take for a plunder for yourselves. Set an ambush for the city behind it.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-JOS">
     <verse num="3" />
@@ -751,7 +751,7 @@
     <text>He commanded them, saying,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="Joshua">
-    <text>«Behold, you shall lie in ambush against the city, behind the city. Don't go very far from the city, but all of you be ready.</text>
+    <text>“Behold, you shall lie in ambush against the city, behind the city. Don't go very far from the city, but all of you be ready.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="Joshua">
     <verse num="5" />
@@ -765,7 +765,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="8" characterId="Joshua">
     <verse num="8" />
-    <text>It shall be, when you have seized on the city, that you shall set the city on fire. You shall do this according to the word of God. Behold, I have commanded you.»</text>
+    <text>It shall be, when you have seized on the city, that you shall set the city on fire. You shall do this according to the word of God. Behold, I have commanded you.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
@@ -806,7 +806,7 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="18" characterId="God">
-    <text>«Stretch out the javelin that is in your hand toward Ai, for I will give it into your hand.»</text>
+    <text>“Stretch out the javelin that is in your hand toward Ai, for I will give it into your hand.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="18" characterId="narrator-JOS">
     <text>Joshua stretched out the javelin that was in his hand toward the city.</text>
@@ -901,40 +901,40 @@
     <text>They went to Joshua to the camp at Gilgal, and said to him, and to the men of Israel,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="Gibeonites">
-    <text>«We have come from a far country. Now therefore make a covenant with us.»</text>
+    <text>“We have come from a far country. Now therefore make a covenant with us.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-JOS">
     <verse num="7" />
     <text>The men of Israel said to the Hivites,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="Israel, men of">
-    <text>«What if you live among us. How could we make a covenant with you?»</text>
+    <text>“What if you live among us. How could we make a covenant with you?”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-JOS">
     <verse num="8" />
     <text>They said to Joshua,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="Gibeonites">
-    <text>«We are your servants.»</text>
+    <text>“We are your servants.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-JOS">
     <text>Joshua said to them,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="Joshua">
-    <text>«Who are you? Where do you come from?»</text>
+    <text>“Who are you? Where do you come from?”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
     <text>They said to him,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="Gibeonites">
-    <text>«Your servants have come from a very far country because of the name of God your God; for we have heard of his fame, all that he did in Egypt, </text>
+    <text>“Your servants have come from a very far country because of the name of God your God; for we have heard of his fame, all that he did in Egypt, </text>
     <verse num="10" />
     <text>and all that he did to the two kings of the Amorites who were beyond the Jordan, to Sihon king of Heshbon and to Og king of Bashan, who was at Ashtaroth.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="Gibeonites">
     <verse num="11" />
-    <text>Our elders and all the inhabitants of our country spoke to us, saying, 'Take provision in your hand for the journey, and go to meet them, and tell them, «We are your servants. Now make a covenant with us.»</text>
+    <text>Our elders and all the inhabitants of our country spoke to us, saying, 'Take provision in your hand for the journey, and go to meet them, and tell them, “We are your servants. Now make a covenant with us.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="Gibeonites">
     <verse num="12" />
@@ -942,7 +942,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="Gibeonites">
     <verse num="13" />
-    <text>These wineskins, which we filled, were new; and behold, they are torn. These our garments and our shoes have become old because of the very long journey.»</text>
+    <text>These wineskins, which we filled, were new; and behold, they are torn. These our garments and our shoes have become old because of the very long journey.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-JOS">
     <verse num="14" />
@@ -967,40 +967,40 @@
     <text>But all the princes said to all the congregation,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="Israel, leaders of">
-    <text>«We have sworn to them by God, the God of Israel: now therefore we may not touch them.</text>
+    <text>“We have sworn to them by God, the God of Israel: now therefore we may not touch them.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="Israel, leaders of">
     <verse num="20" />
-    <text>This we will do to them, and let them live; lest wrath be on us, because of the oath which we swore to them.»</text>
+    <text>This we will do to them, and let them live; lest wrath be on us, because of the oath which we swore to them.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="21" characterId="narrator-JOS">
     <verse num="21" />
     <text>The princes said to them,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="21" characterId="Israel, leaders of">
-    <text>«Let them live, so they became wood cutters and drawers of water for all the congregation, as the princes had spoken to them.»</text>
+    <text>“Let them live, so they became wood cutters and drawers of water for all the congregation, as the princes had spoken to them.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="22" characterId="narrator-JOS">
     <verse num="22" />
     <text>Joshua called for them, and he spoke to them, saying,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="22" characterId="Joshua">
-    <text>«Why have you deceived us, saying, 'We are very far from you,' when you live among us?</text>
+    <text>“Why have you deceived us, saying, 'We are very far from you,' when you live among us?</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="23" characterId="Joshua">
     <verse num="23" />
-    <text>Now therefore you are cursed, and some of you will never fail to be bondservants, both wood cutters and drawers of water for the house of my God.»</text>
+    <text>Now therefore you are cursed, and some of you will never fail to be bondservants, both wood cutters and drawers of water for the house of my God.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="narrator-JOS">
     <verse num="24" />
     <text>They answered Joshua, and said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="Gibeonites">
-    <text>«Because your servants were certainly told how God your God commanded his servant Moses to give you all the land, and to destroy all the inhabitants of the land from before you. Therefore we were very afraid for our lives because of you, and have done this thing.</text>
+    <text>“Because your servants were certainly told how God your God commanded his servant Moses to give you all the land, and to destroy all the inhabitants of the land from before you. Therefore we were very afraid for our lives because of you, and have done this thing.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="25" characterId="Gibeonites">
     <verse num="25" />
-    <text>Now, behold, we are in your hand. Do to us as it seems good and right to you to do.»</text>
+    <text>Now, behold, we are in your hand. Do to us as it seems good and right to you to do.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="26" characterId="narrator-JOS">
     <verse num="26" />
@@ -1038,7 +1038,7 @@
     <text>The men of Gibeon sent to Joshua to the camp to Gilgal, saying,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="6" characterId="Gibeonites">
-    <text>«Don't abandon your servants! Come up to us quickly, and save us, and help us; for all the kings of the Amorites that dwell in the hill country have gathered together against us.»</text>
+    <text>“Don't abandon your servants! Come up to us quickly, and save us, and help us; for all the kings of the Amorites that dwell in the hill country have gathered together against us.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="narrator-JOS">
     <verse num="7" />
@@ -1047,7 +1047,7 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="God">
-    <text>«Don't fear them, for I have delivered them into your hands. Not a man of them will stand before you.»</text>
+    <text>“Don't fear them, for I have delivered them into your hands. Not a man of them will stand before you.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
@@ -1066,7 +1066,7 @@
     <text>Then Joshua spoke to God in the day when God delivered up the Amorites before the children of Israel; and he said in the sight of Israel,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="Joshua">
-    <text>«Sun, stand still on Gibeon! You, moon, stop in the valley of Aijalon!»</text>
+    <text>“Sun, stand still on Gibeon! You, moon, stop in the valley of Aijalon!”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-JOS">
     <verse num="13" />
@@ -1087,18 +1087,18 @@
     <text>Joshua was told, saying,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="17" characterId="person who told Joshua where the kings were hiding">
-    <text>«The five kings are found, hidden in the cave at Makkedah.»</text>
+    <text>“The five kings are found, hidden in the cave at Makkedah.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="18" characterId="narrator-JOS">
     <verse num="18" />
     <text>Joshua said,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="18" characterId="Joshua">
-    <text>«Roll large stones to the mouth of the cave, and set men by it to guard them;</text>
+    <text>“Roll large stones to the mouth of the cave, and set men by it to guard them;</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="19" characterId="Joshua">
     <verse num="19" />
-    <text>but don't stay. Pursue your enemies, and them from the rear. Don't allow them to enter into their cities; for God your God has delivered them into your hand.»</text>
+    <text>but don't stay. Pursue your enemies, and them from the rear. Don't allow them to enter into their cities; for God your God has delivered them into your hand.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="20" characterId="narrator-JOS">
     <verse num="20" />
@@ -1109,7 +1109,7 @@
     <text>Then Joshua said,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="22" characterId="Joshua">
-    <text>«Open the mouth of the cave, and bring those five kings out of the cave to me.»</text>
+    <text>“Open the mouth of the cave, and bring those five kings out of the cave to me.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="23" characterId="narrator-JOS">
     <verse num="23" />
@@ -1120,7 +1120,7 @@
     <text>It happened, when they brought those kings out to Joshua, that Joshua called for all the men of Israel, and said to the chiefs of the men of war who went with him,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="24" characterId="Joshua">
-    <text>«Come near, put your feet on the necks of these kings.»</text>
+    <text>“Come near, put your feet on the necks of these kings.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="24" characterId="narrator-JOS">
     <text>They came near, and put their feet on their necks. </text>
@@ -1128,7 +1128,7 @@
     <text>Joshua said to them,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="25" characterId="Joshua">
-    <text>«Don't be afraid, nor be dismayed. Be strong and courageous, for God will do this to all your enemies against whom you fight.»</text>
+    <text>“Don't be afraid, nor be dismayed. Be strong and courageous, for God will do this to all your enemies against whom you fight.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="26" characterId="narrator-JOS">
     <verse num="26" />
@@ -1224,7 +1224,7 @@
     <text>God said to Joshua,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="God">
-    <text>«Don't be afraid because of them; for tomorrow at this time, I will deliver them up all slain before Israel. You shall hamstring their horses and burn their chariots with fire.»</text>
+    <text>“Don't be afraid because of them; for tomorrow at this time, I will deliver them up all slain before Israel. You shall hamstring their horses and burn their chariots with fire.”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-JOS">
     <verse num="7" />
@@ -1399,7 +1399,7 @@
     <text>Now Joshua was old and well advanced in years. God said to him,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="1" characterId="God">
-    <text>«You are old and advanced in years, and there remains yet very much land to be possessed.</text>
+    <text>“You are old and advanced in years, and there remains yet very much land to be possessed.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -1543,7 +1543,7 @@
     <text>Then the children of Judah drew near to Joshua in Gilgal. Caleb the son of Jephunneh the Kenizzite said to him,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="Caleb">
-    <text>«You know the thing that God spoke to Moses the man of God concerning me and concerning you in Kadesh Barnea.</text>
+    <text>“You know the thing that God spoke to Moses the man of God concerning me and concerning you in Kadesh Barnea.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="Caleb">
     <verse num="7" />
@@ -1645,7 +1645,7 @@
     <text>Caleb said,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="16" characterId="Caleb">
-    <text>«He who strikes Kiriath Sepher, and takes it, to him will I give Achsah my daughter as wife.»</text>
+    <text>“He who strikes Kiriath Sepher, and takes it, to him will I give Achsah my daughter as wife.”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="17" characterId="narrator-JOS">
     <verse num="17" />
@@ -1656,14 +1656,14 @@
     <text>It happened, when she came, that she had him ask her father fore a field. She got off of her donkey, and Caleb said,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="18" characterId="Caleb">
-    <text>«What do you want?»</text>
+    <text>“What do you want?”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="narrator-JOS">
     <verse num="19" />
     <text>She said,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="Achsah, Caleb's daughter">
-    <text>«Give me a blessing. Because you have set me in the land of the South, give me also springs of water.»</text>
+    <text>“Give me a blessing. Because you have set me in the land of the South, give me also springs of water.”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="narrator-JOS">
     <text>He gave her the upper springs and the lower springs.</text>
@@ -1843,7 +1843,7 @@
     <text>They came near before Eleazar the priest, and before Joshua the son of Nun, and before the princes, saying,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="daughters of Zelophehad">
-    <text>«God commanded Moses to give us an inheritance among our brothers.»</text>
+    <text>“God commanded Moses to give us an inheritance among our brothers.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="narrator-JOS">
     <text>Therefore according to the commandment of God he gave them an inheritance among the brothers of their father.</text>
@@ -1889,32 +1889,32 @@
     <text>The children of Joseph spoke to Joshua, saying,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="14" characterId="Joseph, people of">
-    <text>«Why have you given me just one lot and one part for an inheritance, since I am a great people, because God has blessed me so far?»</text>
+    <text>“Why have you given me just one lot and one part for an inheritance, since I am a great people, because God has blessed me so far?”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="narrator-JOS">
     <verse num="15" />
     <text>Joshua said to them,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="Joshua">
-    <text>«If you are a great people, go up to the forest, and clear land for yourself there in the land of the Perizzites and of the Rephaim; since the hill country of Ephraim is too narrow for you.»</text>
+    <text>“If you are a great people, go up to the forest, and clear land for yourself there in the land of the Perizzites and of the Rephaim; since the hill country of Ephraim is too narrow for you.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="narrator-JOS">
     <verse num="16" />
     <text>The children of Joseph said,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="Joseph, people of">
-    <text>«The hill country is not enough for us. All the Canaanites who dwell in the land of the valley have chariots of iron, both those who are in Beth Shean and its towns, and those who are in the valley of Jezreel.»</text>
+    <text>“The hill country is not enough for us. All the Canaanites who dwell in the land of the valley have chariots of iron, both those who are in Beth Shean and its towns, and those who are in the valley of Jezreel.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="17" characterId="narrator-JOS">
     <verse num="17" />
     <text>Joshua spoke to the house of Joseph, even to Ephraim and to Manasseh, saying,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="17" characterId="Joshua">
-    <text>«You are a great people, and have great power. You shall not have one lot only;</text>
+    <text>“You are a great people, and have great power. You shall not have one lot only;</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="18" characterId="Joshua">
     <verse num="18" />
-    <text>but the hill country shall be yours. Although it is a forest, you shall cut it down, and it's farthest extent shall be yours; for you shall drive out the Canaanites, though they have chariots of iron, and though they are strong.»</text>
+    <text>but the hill country shall be yours. Although it is a forest, you shall cut it down, and it's farthest extent shall be yours; for you shall drive out the Canaanites, though they have chariots of iron, and though they are strong.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="JOS" initialStartVerse="0" characterId="BC-JOS">
     <text>18</text>
@@ -1930,7 +1930,7 @@
     <text>Joshua said to the children of Israel,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="3" characterId="Joshua">
-    <text>«How long will you neglect to go in to possess the land, which God, the God of your fathers, has given you?</text>
+    <text>“How long will you neglect to go in to possess the land, which God, the God of your fathers, has given you?</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="4" characterId="Joshua">
     <verse num="4" />
@@ -1946,14 +1946,14 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="7" characterId="Joshua">
     <verse num="7" />
-    <text>For the Levites have no portion among you; for the priesthood of God is their inheritance. Gad, Reuben, and the half-tribe of Manasseh have received their inheritance beyond the Jordan eastward, which Moses the servant of God gave them.»</text>
+    <text>For the Levites have no portion among you; for the priesthood of God is their inheritance. Gad, Reuben, and the half-tribe of Manasseh have received their inheritance beyond the Jordan eastward, which Moses the servant of God gave them.”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="8" characterId="narrator-JOS">
     <verse num="8" />
     <text>The men arose and went. Joshua commanded those who went to survey the land, saying,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="8" characterId="Joshua">
-    <text>«Go walk through the land, survey it, and come again to me. I will cast lots for you here before God in Shiloh.»</text>
+    <text>“Go walk through the land, survey it, and come again to me. I will cast lots for you here before God in Shiloh.”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
@@ -2243,7 +2243,7 @@
     <text>They spoke to them at Shiloh in the land of Canaan, saying,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="2" characterId="Levites, family heads of">
-    <text>«God commanded Moses to give us cities to dwell in, with their suburbs for our livestock.»</text>
+    <text>“God commanded Moses to give us cities to dwell in, with their suburbs for our livestock.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="narrator-JOS">
     <verse num="3" />
@@ -2403,7 +2403,7 @@
     <text>and said to them,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="2" characterId="Joshua">
-    <text>«You have kept all that Moses the servant of God commanded you, and have listened to my voice in all that I commanded you.</text>
+    <text>“You have kept all that Moses the servant of God commanded you, and have listened to my voice in all that I commanded you.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="3" characterId="Joshua">
     <verse num="3" />
@@ -2415,7 +2415,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="Joshua">
     <verse num="5" />
-    <text>Only take diligent heed to do the commandment and the law which Moses the servant of God commanded you, to love God your God, to walk in all his ways, to keep his commandments, to hold fast to him, and to serve him with all your heart and with all your soul.»</text>
+    <text>Only take diligent heed to do the commandment and the law which Moses the servant of God commanded you, to love God your God, to walk in all his ways, to keep his commandments, to hold fast to him, and to serve him with all your heart and with all your soul.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="6" characterId="narrator-JOS">
     <verse num="6" />
@@ -2428,7 +2428,7 @@
     <text>and spoke to them, saying,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="8" characterId="Joshua">
-    <text>«Return with much wealth to your tents, with very much livestock, with silver, with gold, with brass, with iron, and with very much clothing. Divide the spoil of your enemies with your brothers.»</text>
+    <text>“Return with much wealth to your tents, with very much livestock, with silver, with gold, with brass, with iron, and with very much clothing. Divide the spoil of your enemies with your brothers.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="9" characterId="narrator-JOS">
     <verse num="9" />
@@ -2443,7 +2443,7 @@
     <text>The children of Israel heard this,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="11" characterId="person who informed the sons of Israel">
-    <text>«Behold, the children of Reuben and the children of Gad and the half-tribe of Manasseh have built an altar in the forefront of the land of Canaan, in the region about the Jordan, on the side that pertains to the children of Israel.»</text>
+    <text>“Behold, the children of Reuben and the children of Gad and the half-tribe of Manasseh have built an altar in the forefront of the land of Canaan, in the region about the Jordan, on the side that pertains to the children of Israel.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="12" characterId="narrator-JOS">
     <verse num="12" />
@@ -2489,11 +2489,11 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="24" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="Gadites">
     <verse num="24" />
-    <text>If we have not out of concern done this, and for a reason, saying, 'In time to come your children might speak to our children, saying, «What have you to do with God, the God of Israel?</text>
+    <text>If we have not out of concern done this, and for a reason, saying, 'In time to come your children might speak to our children, saying, “What have you to do with God, the God of Israel?</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="25" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="Gadites">
     <verse num="25" />
-    <text>For God has made the Jordan a border between us and you, you children of Reuben and children of Gad. You have no portion in God.» So your children might make our children cease from fearing God.</text>
+    <text>For God has made the Jordan a border between us and you, you children of Reuben and children of Gad. You have no portion in God.” So your children might make our children cease from fearing God.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="26" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="Gadites">
     <verse num="26" />
@@ -2505,7 +2505,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="28" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="half-tribe of Manasseh">
     <verse num="28" />
-    <text>Therefore we said, 'It shall be, when they tell us or our generations this in time to come, that we shall say, «Behold the pattern of the altar of God, which our fathers made, not for burnt offering, nor for sacrifice; but it is a witness between us and you.»</text>
+    <text>Therefore we said, 'It shall be, when they tell us or our generations this in time to come, that we shall say, “Behold the pattern of the altar of God, which our fathers made, not for burnt offering, nor for sacrifice; but it is a witness between us and you.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="29" characterId="Reubenites/Gadites/half-tribe of Manasseh" characterIdOverrideForScript="half-tribe of Manasseh">
     <verse num="29" />
@@ -2520,7 +2520,7 @@
     <text>Phinehas the son of Eleazar the priest said to the children of Reuben, to the children of Gad, and to the children of Manasseh,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="31" characterId="Phineas the priest">
-    <text>«Today we know that God is in the midst of us, because you have not committed this trespass against God. Now you have delivered the children of Israel out of the hand of God.»</text>
+    <text>“Today we know that God is in the midst of us, because you have not committed this trespass against God. Now you have delivered the children of Israel out of the hand of God.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="32" characterId="narrator-JOS">
     <verse num="32" />
@@ -2544,7 +2544,7 @@
     <text>that Joshua called for all Israel, for their elders and for their heads, and for their judges and for their officers, and said to them,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="2" characterId="Joshua (old)">
-    <text>«I am old and well advanced in years.</text>
+    <text>“I am old and well advanced in years.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="3" characterId="Joshua (old)">
     <verse num="3" />
@@ -2598,7 +2598,7 @@
     <verse num="15" />
     <text>It shall happen that as all the good things have come on you of which God your God spoke to you, so God will bring on you all the evil things, until he has destroyed you from off this good land which God your God has given you, </text>
     <verse num="16" />
-    <text>when you disobey the covenant of God your God, which he commanded you, and go and serve other gods, and bow down yourselves to them. Then the anger of God will be kindled against you, and you will perish quickly from off the good land which he has given to you.»</text>
+    <text>when you disobey the covenant of God your God, which he commanded you, and go and serve other gods, and bow down yourselves to them. Then the anger of God will be kindled against you, and you will perish quickly from off the good land which he has given to you.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="JOS" initialStartVerse="0" characterId="BC-JOS">
     <text>24</text>
@@ -2612,7 +2612,7 @@
     <text>Joshua said to all the people,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="Joshua (old)">
-    <text>«Thus says God, the God of Israel, 'Your fathers lived of old time beyond the River, even Terah, the father of Abraham, and the father of Nahor: and they served other gods.</text>
+    <text>“Thus says God, the God of Israel, 'Your fathers lived of old time beyond the River, even Terah, the father of Abraham, and the father of Nahor: and they served other gods.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="3" characterId="Joshua (old)">
     <verse num="3" />
@@ -2664,14 +2664,14 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="15" characterId="Joshua (old)">
     <verse num="15" />
-    <text>If it seems evil to you to serve God, choose this day whom you will serve; whether the gods which your fathers served that were beyond the River, or the gods of the Amorites, in whose land you dwell: but as for me and my house, we will serve God.»</text>
+    <text>If it seems evil to you to serve God, choose this day whom you will serve; whether the gods which your fathers served that were beyond the River, or the gods of the Amorites, in whose land you dwell: but as for me and my house, we will serve God.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="16" characterId="narrator-JOS">
     <verse num="16" />
     <text>The people answered,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="16" characterId="Israelites">
-    <text>«Far be it from us that we should forsake God, to serve other gods;</text>
+    <text>“Far be it from us that we should forsake God, to serve other gods;</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="17" characterId="Israelites">
     <verse num="17" />
@@ -2679,38 +2679,38 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="18" characterId="Israelites">
     <verse num="18" />
-    <text>God drove out from before us all the peoples, even the Amorites who lived in the land. Therefore we also will serve God; for he is our God.»</text>
+    <text>God drove out from before us all the peoples, even the Amorites who lived in the land. Therefore we also will serve God; for he is our God.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="narrator-JOS">
     <verse num="19" />
     <text>Joshua said to the people,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="Joshua (old)">
-    <text>«You can't serve God; for he is a holy God. He is a jealous God. He will not forgive your disobedience nor your sins.</text>
+    <text>“You can't serve God; for he is a holy God. He is a jealous God. He will not forgive your disobedience nor your sins.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="20" characterId="Joshua (old)">
     <verse num="20" />
-    <text>If you forsake God, and serve foreign gods, then he will turn and do you evil, and consume you, after he has done you good.»</text>
+    <text>If you forsake God, and serve foreign gods, then he will turn and do you evil, and consume you, after he has done you good.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="narrator-JOS">
     <verse num="21" />
     <text>The people said to Joshua,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="Israelites">
-    <text>«No; but we will serve God.»</text>
+    <text>“No; but we will serve God.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="narrator-JOS">
     <verse num="22" />
     <text>Joshua said to the people,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="Joshua (old)">
-    <text>«You are witnesses against yourselves that you have chosen God yourselves, to serve him.»</text>
+    <text>“You are witnesses against yourselves that you have chosen God yourselves, to serve him.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="narrator-JOS">
     <text>They said,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="Israelites">
-    <text>«We are witnesses.»</text>
+    <text>“We are witnesses.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="Joshua (old)">
     <verse num="23" />
@@ -2721,7 +2721,7 @@
     <text>The people said to Joshua,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="Israelites">
-    <text>«We will serve God our God, and we will listen to his voice.»</text>
+    <text>“We will serve God our God, and we will listen to his voice.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="25" characterId="narrator-JOS">
     <verse num="25" />
@@ -2736,7 +2736,7 @@
     <text>Joshua said to all the people,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="27" characterId="Joshua (old)">
-    <text>«Behold, this stone shall be a witness against us; for it has heard all the words of God which he spoke to us. It shall be therefore a witness against you, lest you deny your God.»</text>
+    <text>“Behold, this stone shall be a witness against us; for it has heard all the words of God which he spoke to us. It shall be therefore a witness against you, lest you deny your God.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="28" characterId="narrator-JOS">
     <verse num="28" />
