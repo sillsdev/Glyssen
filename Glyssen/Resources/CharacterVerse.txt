@@ -14516,7 +14516,7 @@ AMO	5	1	Amos			Potential
 AMO	5	1	God		God (the LORD)	Alternate		
 AMO	5	2	Amos	lament		Normal		
 AMO	5	2	God	lament	God (the LORD)	Alternate		
-AMO	5	3	Amos		Amos (the LORD says)	Alternate		
+AMO	5	3	Amos	lament	Amos (the LORD says)	Alternate		
 AMO	5	3	God		God (the LORD)	Normal		
 AMO	5	4	Amos		Amos (the LORD says)	Alternate		
 AMO	5	4	God		God (the LORD)	Normal		

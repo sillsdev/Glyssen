@@ -560,43 +560,43 @@
     <verse num="2" />
     <text>There was found at Achmetha, in the palace that is in the province of Media, a scroll, and therein was thus written for a record:</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="royal record">
     <verse num="3" />
     <text>In the first year of Cyrus the king, Cyrus the king made a decree: Concerning the house of God at Jerusalem, let the house be built, the place where they offer sacrifices, and let its foundations be strongly laid; its height sixty cubits, and its breadth sixty cubits;</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="4" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="4" characterId="royal record">
     <verse num="4" />
     <text>with three courses of great stones, and a course of new timber: and let the expenses be given out of the king's house.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="5" characterId="royal record">
     <verse num="5" />
     <text>Also let the gold and silver vessels of the house of God, which Nebuchadnezzar took forth out of the temple which is at Jerusalem, and brought to Babylon, be restored, and brought again to the temple which is at Jerusalem, everyone to its place; and you shall put them in the house of God.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="6" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="6" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="6" />
     <text>Now therefore, Tattenai, governor beyond the River, Shetharbozenai, and your companions the Apharsachites, who are beyond the River, you must stay far from there.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="7" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="7" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="7" />
     <text>Leave the work of this house of God alone; let the governor of the Jews and the elders of the Jews build this house of God in its place.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="8" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="8" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="8" />
     <text>Moreover I make a decree what you shall do to these elders of the Jews for the building of this house of God: that of the king's goods, even of the tribute beyond the River, expenses be given with all diligence to these men, that they be not hindered.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="9" />
     <text>That which they have need of, both young bulls, and rams, and lambs, for burnt offerings to the God of heaven; [also] wheat, salt, wine, and oil, according to the word of the priests who are at Jerusalem, let it be given them day by day without fail;</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="10" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="10" />
     <text>that they may offer sacrifices of pleasant aroma to the God of heaven, and pray for the life of the king, and of his sons.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="11" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="11" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="11" />
     <text>Also I have made a decree, that whoever shall alter this word, let a beam be pulled out from his house, and let him be lifted up and fastened thereon; and let his house be made a dunghill for this:</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="Darius, king" delivery="decree">
+  <block style="p" chapter="6" initialStartVerse="12" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="12" />
     <text>and the God who has caused his name to dwell there overthrow all kings and peoples who shall put forth their hand to alter [the same], to destroy this house of God which is at Jerusalem. I Darius have made a decree; let it be done with all diligence.</text>
   </block>
@@ -876,15 +876,15 @@
     <verse num="33" />
     <text>On the fourth day the silver and the gold and the vessels were weighed in the house of our God into the hand of Meremoth the son of Uriah the priest; and with him was Eleazar the son of Phinehas; and with them was Jozabad the son of Jeshua, and Noadiah the son of Binnui, the Levite;</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="34" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="8" initialStartVerse="34" characterId="Ezra, priest and teacher">
     <verse num="34" />
     <text>the whole by number and by weight: and all the weight was written at that time.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="35" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="8" initialStartVerse="35" characterId="Ezra, priest and teacher">
     <verse num="35" />
     <text>The children of the captivity, who had come out of exile, offered burnt offerings to the God of Israel, twelve bulls for all Israel, ninety-six rams, seventy-seven lambs, and twelve male goats for a sin offering: all this was a burnt offering to God.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="36" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="8" initialStartVerse="36" characterId="Ezra, priest and teacher">
     <verse num="36" />
     <text>They delivered the king's commissions to the king's satraps, and to the governors beyond the River: and they furthered the people and the house of God.</text>
   </block>
