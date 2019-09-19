@@ -267,7 +267,20 @@ namespace Glyssen
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
-									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+								{
+									// Note: For normal projects, if we get here, we will almost certainly be changing the delivery.
+									// However, this is not the case when processing the reference text project using Glyssen after
+									// generating it from the Director's Guide because we get here repeatedly for blocks assigned to
+									// multiple-character IDs because we intentionally do not set the CharacterIdOverrideForScript,
+									// preferring rather to leave it up to the program to assign the then-current default to the
+									// vernacular block at the time the matchup is applied.
+									var onlyKnownDelivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+									if ((block.Delivery ?? "") != onlyKnownDelivery)
+									{
+										block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+										numberOfChangesMade++;
+									}
+								}
 								else
 								{
 									CharacterVerse match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
@@ -279,9 +292,8 @@ namespace Glyssen
 									}
 									else
 										block.SetCharacterAndDelivery(characters);
+									numberOfChangesMade++;
 								}
-
-								numberOfChangesMade++;
 							}
 							else if (knownFactoryCharacter)
 							{
