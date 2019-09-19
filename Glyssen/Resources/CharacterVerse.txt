@@ -17299,11 +17299,11 @@ REV	17	18	angel (one of the seven)			Normal
 REV	18	2	angel, another, coming down from heaven	shouting		Normal		
 REV	18	3	angel, another, coming down from heaven	shouting		Normal		
 REV	18	4	voice from heaven, another			Normal		
-REV	18	5	voice from heaven, another			Normal		
-REV	18	6	voice from heaven, another			Normal		
+REV	18	5	voice from heaven, another			Implicit		
+REV	18	6	voice from heaven, another			Implicit		
 REV	18	7	Babylon		queen (personification of Babylon)	Hypothetical		
-REV	18	7	voice from heaven, another			Normal		
-REV	18	8	voice from heaven, another			Normal		
+REV	18	7	voice from heaven, another			Implicit		
+REV	18	8	voice from heaven, another			Implicit		
 REV	18	9	voice from heaven, another			Normal		
 REV	18	10	kings of the earth	weeping		Normal		
 REV	18	10	voice from heaven, another			Normal		
