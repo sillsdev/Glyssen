@@ -2431,10 +2431,10 @@
     <verse num="4" />
     <text>Now Abimelech had not come near her. He said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="4" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="20" initialStartVerse="4" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“Lord, will you kill even a righteous nation?</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="5" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="20" initialStartVerse="5" characterId="Abimelech, king of the Philistines (in Gerar)">
     <verse num="5" />
     <text>Didn't he tell me, 'She is my sister?' She, even she herself, said, 'He is my brother.' In the integrity of my heart and the innocence of my hands have I done this.”</text>
   </block>
@@ -2457,14 +2457,14 @@
     <verse num="9" />
     <text>Then Abimelech called Abraham, and said to him,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="9" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="20" initialStartVerse="9" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“What have you done to us? How have I sinned against you, that you have brought on me and on my kingdom a great sin? You have done deeds to me that ought not to be done!”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="10" characterId="narrator-GEN">
     <verse num="10" />
     <text>Abimelech said to Abraham,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="10" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="20" initialStartVerse="10" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“What did you see, that you have done this thing?”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="11" characterId="narrator-GEN">
@@ -2488,14 +2488,14 @@
     <verse num="15" />
     <text>Abimelech said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="15" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="20" initialStartVerse="15" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“Behold, my land is before you. Dwell where it pleases you.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="16" characterId="narrator-GEN">
     <verse num="16" />
     <text>To Sarah he said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="16" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="20" initialStartVerse="16" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“Behold, I have given your brother a thousand pieces of silver. Behold, it is for you a covering of the eyes to all that are with you. In front of all you are vindicated.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="17" characterId="narrator-GEN">
@@ -2612,10 +2612,10 @@
     <verse num="22" />
     <text>It happened at that time, that Abimelech and Phicol the captain of his army spoke to Abraham, saying,</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="22" characterId="Abimelech, king of Gerar/Phicol" characterIdOverrideForScript="Abimelech, king of Gerar">
+  <block style="p" chapter="21" initialStartVerse="22" characterId="Abimelech, king of the Philistines (in Gerar)/Phicol">
     <text>“God is with you in all that you do.</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="23" characterId="Abimelech, king of Gerar/Phicol" characterIdOverrideForScript="Abimelech, king of Gerar">
+  <block style="p" chapter="21" initialStartVerse="23" characterId="Abimelech, king of the Philistines (in Gerar)/Phicol">
     <verse num="23" />
     <text>Now, therefore, swear to me here by God that you will not deal falsely with me, nor with my son, nor with my son's son. But according to the kindness that I have done to you, you shall do to me, and to the land in which you have lived as a foreigner.”</text>
   </block>
@@ -2632,7 +2632,7 @@
     <verse num="26" />
     <text>Abimelech said,</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="26" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="21" initialStartVerse="26" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“I don't know who has done this thing. Neither did you tell me, neither did I hear of it, until today.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="27" characterId="narrator-GEN">
@@ -2645,7 +2645,7 @@
     <verse num="29" />
     <text>Abimelech said to Abraham,</text>
   </block>
-  <block style="p" chapter="21" initialStartVerse="29" characterId="Abimelech, king of Gerar">
+  <block style="p" chapter="21" initialStartVerse="29" characterId="Abimelech, king of the Philistines (in Gerar)">
     <text>“What do these seven ewe lambs which you have set by themselves mean?”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="30" characterId="narrator-GEN">
