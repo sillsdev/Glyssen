@@ -13,6 +13,7 @@ using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.Reporting;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen
 {
@@ -46,12 +47,13 @@ namespace Glyssen
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
 			// The above call to lock bookScripts probably fixes the problem!!! :-) We hope...
 			foreach (var bookScript in bookScripts)
-				if (bookScript == null || bookScript.BookId == null)
+				if (bookScript?.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
-					var nonNullBookScriptsStr = string.Join(";", nonNullBookScripts);
+					var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
-					throw new ApplicationException(string.Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
+					throw new ApplicationException($"{initialMessage} Number of BookScripts: {bookScripts.Count}. " +
+						$"BookScripts which are NOT null: {nonNullBookScriptsStr}");
 				}
 
 			try
@@ -76,7 +78,7 @@ namespace Glyssen
 			Logger.WriteEvent("Creating bookScript ({0})", m_bookId);
 			var bookScript = new BookScript(m_bookId, Parse())
 			{
-				SingleVoice = BookMetadata.DefaultToSingleVoice(m_bookId, out SingleVoiceReason reason),
+				SingleVoice = BookMetadata.DefaultToSingleVoice(m_bookId, out _),
 				PageHeader = PageHeader,
 				MainTitle = MainTitle
 			};
@@ -170,10 +172,13 @@ namespace Glyssen
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}
-									RemoveEmptyTrailingVerse(block);
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
-									m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
-									m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
+									if (!HandleVerseBridgeInSeparateVerseFields(block, ref verseNumStr))
+									{
+										RemoveEmptyTrailingVerse(block);
+										m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
+										m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
+									}
 									if (!block.BlockElements.Any() ||
 										(block.BlockElements.Count == 1 && block.StartsWithScriptTextElementContainingOnlyPunctuation))
 									{
@@ -221,6 +226,28 @@ namespace Glyssen
 					blocks.Add(block);
 			}
 			return blocks;
+		}
+
+		private bool HandleVerseBridgeInSeparateVerseFields(Block block, ref string verseNumStr)
+		{
+			var iLastElem = block.BlockElements.Count - 1;
+			if (iLastElem >= 1 && m_currentStartVerse == m_currentEndVerse)
+			{
+				if ((block.BlockElements[iLastElem] as ScriptText)?.Content?.Trim() == "-")
+				{
+					var existingVerseNum = (block.BlockElements[iLastElem - 1] as Verse)?.Number;
+					if (existingVerseNum == m_currentStartVerse.ToString() &&
+						Compare(verseNumStr, existingVerseNum, StringComparison.Ordinal) > 0)
+					{
+						block.BlockElements.RemoveRange(iLastElem - 1, 2);
+						m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
+						verseNumStr = existingVerseNum + "-" + verseNumStr;
+						return true;
+					}
+				}
+			}
+
+			return false;
 		}
 
 		/// <summary>
@@ -284,8 +311,9 @@ namespace Glyssen
 				case "\u3015": punctToTrim = '\u3014'; break;
 				default: return;
 			}
-			var finalScriptText = block.BlockElements.LastOrDefault() as ScriptText;
-			if (finalScriptText != null && finalScriptText.Content.TrimEnd().Last() == punctToTrim)
+
+			if (block.BlockElements.LastOrDefault() is ScriptText finalScriptText &&
+				finalScriptText.Content.TrimEnd().Last() == punctToTrim)
 			{
 				finalScriptText.Content = finalScriptText.Content.TrimEnd().TrimEnd(punctToTrim);
 				if (finalScriptText.Content.All(char.IsWhiteSpace))
@@ -319,8 +347,7 @@ namespace Glyssen
 			else
 				chapterText = usxChapter.ChapterNumber;
 
-			int chapterNum;
-			if (Int32.TryParse(usxChapter.ChapterNumber, out chapterNum))
+			if (Int32.TryParse(usxChapter.ChapterNumber, out var chapterNum))
 				m_currentChapter = chapterNum;
 			else
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
