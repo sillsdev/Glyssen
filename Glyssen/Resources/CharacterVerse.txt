@@ -1023,6 +1023,10 @@ EXO	9	27	Pharaoh (3rd)		Pharaoh	Normal
 EXO	9	28	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	9	29	Moses			Normal		
 EXO	9	30	Moses			Normal		
+# Almost all translators agree that vv. 31-32 are commentary by the narrator, but at least one project
+# continues the quote and has Moses speak these words to Pharaoh.
+EXO	9	31	Moses			Potential		
+EXO	9	32	Moses			Potential		
 EXO	10	1	God		God (the LORD)	Normal		
 EXO	10	2	God		God (the LORD)	Normal		
 EXO	10	3	Moses/Aaron			Normal	Aaron	
@@ -9319,7 +9323,29 @@ ISA	19	1	God		God (the LORD)	Potential
 ISA	19	2	God		God (the LORD)	Implicit		
 ISA	19	3	God		God (the LORD)	Implicit		
 ISA	19	4	God		God (the LORD)	Normal		
+ISA	19	5	God		God (the LORD)	Potential		
+ISA	19	5	Isaiah			Potential		
+ISA	19	6	God		God (the LORD)	Potential		
+ISA	19	6	Isaiah			Potential		
+ISA	19	7	God		God (the LORD)	Potential		
+ISA	19	7	Isaiah			Potential		
+ISA	19	8	God		God (the LORD)	Potential		
+ISA	19	8	Isaiah			Potential		
+ISA	19	9	God		God (the LORD)	Potential		
+ISA	19	9	Isaiah			Potential		
+ISA	19	10	God		God (the LORD)	Potential		
+ISA	19	10	Isaiah			Potential		
 ISA	19	11	wise counselors of Pharaoh			Hypothetical		
+ISA	19	11	God		God (the LORD)	Potential		
+ISA	19	11	Isaiah			Potential		
+ISA	19	12	God		God (the LORD)	Potential		
+ISA	19	12	Isaiah			Potential		
+ISA	19	13	God		God (the LORD)	Potential		
+ISA	19	13	Isaiah			Potential		
+ISA	19	14	God		God (the LORD)	Potential		
+ISA	19	14	Isaiah			Potential		
+ISA	19	15	God		God (the LORD)	Potential		
+ISA	19	15	Isaiah			Potential		
 ISA	19	25	God		God (the LORD)	Normal		
 ISA	20	2	God		God (the LORD)	Normal		
 ISA	20	3	God		God (the LORD)	Normal		
@@ -9327,7 +9353,12 @@ ISA	20	4	God		God (the LORD)	Implicit
 ISA	20	5	God		God (the LORD)	Implicit		
 ISA	20	6	God		God (the LORD)	Normal		
 ISA	20	6	inhabitants of Egyptian and Ethiopian coastlands			Hypothetical		
+ISA	21	1	Isaiah			Potential		
+ISA	21	2	Isaiah			Potential		
 ISA	21	2	God		God (the LORD) (in vision)	Potential		
+ISA	21	3	Isaiah			Potential		
+ISA	21	4	Isaiah			Potential		
+ISA	21	5	Isaiah			Potential		
 ISA	21	6	God		God (the LORD)	Normal		
 ISA	21	7	God		God (the LORD)	Implicit		
 ISA	21	8	lookout			Normal		
@@ -13563,7 +13594,7 @@ EZK	38	11	God		God (the LORD)	Normal
 EZK	38	11	Gog			Hypothetical		
 EZK	38	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	12	Gog	plotting evil		Hypothetical		
-EZK	38	12	God	plotting evil	God (the LORD)	Normal		
+EZK	38	12	God		God (the LORD)	Normal		
 EZK	38	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	38	13	God		God (the LORD)	Normal		
 EZK	38	13	Sheba, Dedan, and the merchants of Tarshish			Hypothetical		
@@ -14301,13 +14332,21 @@ HOS	8	11	God		God (the LORD)	Implicit
 HOS	8	12	God		God (the LORD)	Implicit		
 HOS	8	13	God		God (the LORD)	Implicit		
 HOS	8	14	God		God (the LORD)	Implicit		
+HOS	9	1-9	Hosea			Potential		
 HOS	9	10	God		God (the LORD)	Implicit		
 HOS	9	11	God		God (the LORD)	Implicit		
 HOS	9	12	God		God (the LORD)	Implicit		
 HOS	9	13	God		God (the LORD)	Implicit		
+HOS	9	14	Hosea			Potential		
 HOS	9	15	God		God (the LORD)	Implicit		
 HOS	9	16	God		God (the LORD)	Implicit		
+HOS	9	17	Hosea			Potential		
+HOS	9	1	Hosea			Potential		
+HOS	9	2	Hosea			Potential		
+HOS	9	3	Hosea			Potential		
 HOS	10	3	Israel			Hypothetical		
+HOS	9	4-7	Hosea			Potential		
+HOS	9	8	Hosea			Potential		
 HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		God (the LORD)	Potential		
 HOS	10	10	God		God (the LORD)	Implicit		
