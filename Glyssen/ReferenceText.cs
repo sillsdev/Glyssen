@@ -529,7 +529,7 @@ namespace Glyssen
 									foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
 									{
 										if (vernBlockList[iPreOrPost].ReferenceBlocks.FirstOrDefault()?.CharacterId == remainingRefBlocksList[0].CharacterId ||
-											vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId)
+											vernBlockList[iPreOrPost].CharacterId == vernBlockList[iVernBlock].CharacterId)
 										{
 											if (!vernBlockList[iPreOrPost].ReferenceBlocks.Any())
 												vernBlockList[iPreOrPost].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
