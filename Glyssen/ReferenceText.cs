@@ -480,17 +480,22 @@ namespace Glyssen
 							iVernBlock++;
 
 						int j = 0;
+						var iLastVernBlockMatchedFromBottomUp = -1;
 						if (numberOfVernBlocksInVerseChunk - i >= 2)
 						{
 							// Look from the bottom up
 							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
 							{
-								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
+								var iCurrVernBottomUp = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1;
+								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
 									break;
 								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
 								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
+								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
+								}
 								else
 									break;
 							}
@@ -547,7 +552,7 @@ namespace Glyssen
 								{
 									if (vernBlockList[iVernBlock].ReferenceBlocks.Any())
 									{
-										if (i < iVernBlock)
+										if (i < iVernBlock || i == iLastVernBlockMatchedFromBottomUp)
 											vernBlockList[iVernBlock].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
 										else
 											vernBlockList[iVernBlock].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
