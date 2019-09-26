@@ -17313,6 +17313,9 @@ REV	18	18	voice from heaven, another			Normal
 REV	18	19	sea captains, seafarers, sailors	weeping		Normal		
 REV	18	19	voice from heaven, another			Normal		
 REV	18	20	voice from heaven, another			Normal		
+# Though it seems a bit out of character for the sea captain to speak v. 20, that's the way it is in the
+# ESV and ISV and FCBH says this is the most common way they see it in the vernacular.
+REV	18	20	sea captains, seafarers, sailors			Normal		
 REV	18	21	angel, powerful			Normal		
 REV	18	22	angel, powerful			Normal		
 REV	18	23	angel, powerful			Normal		
