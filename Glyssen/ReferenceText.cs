@@ -552,6 +552,17 @@ namespace Glyssen
 								{
 									if (vernBlockList[iVernBlock].ReferenceBlocks.Any())
 									{
+										// After matching things up as best we could from the top down and the bottom up, we
+										// ran out of suitable "holes" in the vernacular. Since our "target" vernacular block
+										// already has a reference block, we either need to prepend or append any other
+										// unmatched ref blocks. We don't want to change the order of the ref blocks, so we
+										// have to be careful. The variable i represents where we got to in our (top-down)
+										// matching, so generally if we didn't get all the way down to our target block, we
+										// insert the remaining ref blocks before and if we got past it, then we append to
+										// the end. But if we attached the reference block to our target block in the bottom-
+										// up matching, then the remaining blocks are actually *before* the existing matched
+										// block, so we need to insert. Really, iLastVernBlockMatchedFromBottomUp could just
+										// be a Boolean flag: fMatchedTargetVernBlockDuringBottomUpMatching.
 										if (i < iVernBlock || i == iLastVernBlockMatchedFromBottomUp)
 											vernBlockList[iVernBlock].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
 										else
