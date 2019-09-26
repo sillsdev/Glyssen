@@ -11,3 +11,4 @@
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/PredefinedNamingRules/=LocalConstants/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="k" Suffix="" Style="AaBb"&gt;&lt;ExtraRule Prefix="" Suffix="" Style="aaBb" /&gt;&lt;/Policy&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Glyssen/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Matchup/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=migrator/@EntryIndexedValue">True</s:Boolean>

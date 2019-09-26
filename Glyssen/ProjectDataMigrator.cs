@@ -226,7 +226,7 @@ namespace Glyssen
 		internal static int MigrateDeprecatedCharacterIds(Project project)
 		{
 			var cvInfo = new CombinedCharacterVerseData(project);
-			var characterDetailDictionary = project.AllCharacterDetailDictionary;
+			var characterDetailDictionary = CharacterDetailData.Singleton.GetDictionary();
 			int numberOfChangesMade = 0; // For testing
 
 			foreach (BookScript book in project.Books)
@@ -247,11 +247,12 @@ namespace Glyssen
 					}
 					else
 					{
-						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+						var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+						var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
 						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 							block.InitialEndVerseNumber, block.LastVerseNum).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
-							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
+							// PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
 							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
@@ -266,10 +267,40 @@ namespace Glyssen
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
-									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+								{
+									// Note: For normal projects, if we get here, we will almost certainly be changing the delivery.
+									// However, this is not the case when processing the reference text project using Glyssen after
+									// generating it from the Director's Guide because we get here repeatedly for blocks assigned to
+									// multiple-character IDs because we intentionally do not set the CharacterIdOverrideForScript,
+									// preferring rather to leave it up to the program to assign the then-current default to the
+									// vernacular block at the time the matchup is applied.
+									var onlyKnownDelivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+									if ((block.Delivery ?? "") != onlyKnownDelivery)
+									{
+										block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+										numberOfChangesMade++;
+									}
+								}
 								else
-									block.SetCharacterAndDelivery(characters);
-								numberOfChangesMade++;
+								{
+									CharacterVerse match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
+										c.Delivery == (block.Delivery ?? ""));
+									if (match != null)
+									{
+										block.CharacterId = match.Character;
+										block.CharacterIdInScript = match.ResolvedDefaultCharacter;
+									}
+									else
+										block.SetCharacterAndDelivery(characters);
+									numberOfChangesMade++;
+								}
+							}
+							else if (knownFactoryCharacter)
+							{
+								project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+									block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+								if (project.RemoveProjectCharacterDetail(block.CharacterId))
+									numberOfChangesMade++;
 							}
 						}
 					}
