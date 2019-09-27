@@ -3224,11 +3224,11 @@ namespace GlyssenTests
 			Assert.AreEqual(narrator, refBlocksMrk14V70[0].CharacterId,
 				$"Expected pre-condition for test not met. Reference text block 0 for MRK 14:70 should be spoken by \"{narrator}\".");
 			Assert.AreEqual("Peter (Simon)", refBlocksMrk14V70[1].CharacterId,
-				$"Expected pre-condition for test not met. Reference text block 1 for MRK 14:70 should be spoken by \"Peter (Simon)\".");
+				"Expected pre-condition for test not met. Reference text block 1 for MRK 14:70 should be spoken by \"Peter (Simon)\".");
 			Assert.AreEqual(narrator, refBlocksMrk14V70[2].CharacterId,
 				$"Expected pre-condition for test not met. Reference text block 2 for MRK 14:70 should be spoken by \"{narrator}\".");
 			Assert.AreEqual("high priest's servant (relative of the man whose ear Peter cut off)/those standing near", refBlocksMrk14V70[3].CharacterId,
-				$"Expected pre-condition for test not met. Reference text block 3 for MRK 14:70 should be spoken by \"high priest's servant (relative of the man whose ear Peter cut off)/those standing near\".");
+				"Expected pre-condition for test not met. Reference text block 3 for MRK 14:70 should be spoken by \"high priest's servant (relative of the man whose ear Peter cut off)/those standing near\".");
 
 			var vernacularBlocks = new List<Block>
 			{
@@ -3255,6 +3255,45 @@ namespace GlyssenTests
 				$"Vern: {matchup.CorrelatedBlocks[2].GetText(true)}");
 		}
 		#endregion
+
+		/// <summary>
+		/// PG-1264
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_RefTextVerseStartsWithDirectSpeechButIsIndirectInVern_MatchedByAligningVerseNumbers()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Sarvia-machi-Joab, Rey-David Absalónʼgi-nue-binsaed magar daksad. ", true, 14, "2SA")
+				.AddVerse(2, "Degisoggu, Joab ome-emar-binsaed-gaed imaksad. We-ome, Tecoa-neggweburginedid. Joab a-omega sogded:"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Joab", "—An bega, dule-mor-yoleged yoo. Dikasursur dule, be san-sao.");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Agi, geb Joab, Rey-Davidʼse barmisad. A-iduale sunmaknai, Rey-Davidʼga sunmakdapoe. ", true, 14, "2SA")
+				.AddVerse(4, "Ome-Tecoa-neggweburgined Rey-David-asabin gwisgunonigua, dulluu-napase imaksad. Davidʼga sogded:"));
+			AddBlockForVerseInProgress(vernacularBlocks, "woman from Tekoa", "—¡Rey, be an-bendake!");
+			var vernBook = new BookScript("2SA", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now Joab perceived that the king's heart was toward Absalom.", true, 14, "2SA"));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "Joab sent to Tekoa, fetched a woman, and said,", false, 14, "2SA"));
+			AddBlockForVerseInProgress(referenceBlocks, "Joab", "«Put on mourning clothes, and be as a woman who has mourned a long time.");
+			referenceBlocks.Add(CreateBlockForVerse("Joab", 3, "Go in to the king, and speak thus.»", false, 14));
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "So Joab put the words in her mouth. ", "2SA")
+				.AddVerse(4, "When the woman spoke to the king, she fell on her face to the ground, saying,");
+			referenceBlocks.Last().BookCode = "2SA";
+			AddBlockForVerseInProgress(referenceBlocks, "woman from Tekoa", "«Help, O king!»");
+
+			var expected = Join("", referenceBlocks.Skip(3).Take(2).Select(r => r.GetText(true)));
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2, m_vernVersification);
+
+			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
+			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+			Assert.IsTrue(matchup.CorrelatedBlocks[1].MatchesReferenceText);
+			Assert.AreEqual(expected,
+				Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))));
+			Assert.AreEqual(referenceBlocks.Last().GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true));
+		}
 
 		#region private helper methods
 		internal static Block CreateBlockForVerse(string characterId, int initialStartVerseNumber, string text, bool paraStart = false,
