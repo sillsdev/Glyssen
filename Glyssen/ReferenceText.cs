@@ -478,17 +478,22 @@ namespace Glyssen
 							iVernBlock++;
 
 						int j = 0;
+						var iLastVernBlockMatchedFromBottomUp = -1;
 						if (numberOfVernBlocksInVerseChunk - i >= 2)
 						{
 							// Look from the bottom up
 							for (; j < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
 							{
-								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
+								var iCurrVernBottomUp = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1;
+								vernBlockInVerseChunk = vernBlockList[iCurrVernBottomUp];
 								if (vernBlockInVerseChunk.MatchesReferenceText)
 									break;
 								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
 								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
+								{
 									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+									iLastVernBlockMatchedFromBottomUp = iCurrVernBottomUp;
+								}
 								else
 									break;
 							}
@@ -527,7 +532,7 @@ namespace Glyssen
 									foreach (var iPreOrPost in otherIndicesToTry.Where(o => vernBlockList.Count > o && o >= 0))
 									{
 										if (vernBlockList[iPreOrPost].ReferenceBlocks.FirstOrDefault()?.CharacterId == remainingRefBlocksList[0].CharacterId ||
-											vernBlockList[iVernBlock - 1].CharacterId == vernBlockList[iVernBlock].CharacterId)
+											vernBlockList[iPreOrPost].CharacterId == vernBlockList[iVernBlock].CharacterId)
 										{
 											if (!vernBlockList[iPreOrPost].ReferenceBlocks.Any())
 												vernBlockList[iPreOrPost].SetUnmatchedReferenceBlocks(remainingRefBlocksList);
@@ -545,7 +550,18 @@ namespace Glyssen
 								{
 									if (vernBlockList[iVernBlock].ReferenceBlocks.Any())
 									{
-										if (i < iVernBlock)
+										// After matching things up as best we could from the top down and the bottom up, we
+										// ran out of suitable "holes" in the vernacular. Since our "target" vernacular block
+										// already has a reference block, we either need to prepend or append any other
+										// unmatched ref blocks. We don't want to change the order of the ref blocks, so we
+										// have to be careful. The variable i represents where we got to in our (top-down)
+										// matching, so generally if we didn't get all the way down to our target block, we
+										// insert the remaining ref blocks before and if we got past it, then we append to
+										// the end. But if we attached the reference block to our target block in the bottom-
+										// up matching, then the remaining blocks are actually *before* the existing matched
+										// block, so we need to insert. Really, iLastVernBlockMatchedFromBottomUp could just
+										// be a Boolean flag: fMatchedTargetVernBlockDuringBottomUpMatching.
+										if (i < iVernBlock || i == iLastVernBlockMatchedFromBottomUp)
 											vernBlockList[iVernBlock].InsertUnmatchedReferenceBlocks(0, remainingRefBlocksList);
 										else
 											vernBlockList[iVernBlock].AppendUnmatchedReferenceBlocks(remainingRefBlocksList);
