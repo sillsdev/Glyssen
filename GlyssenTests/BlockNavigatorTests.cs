@@ -19,12 +19,12 @@ namespace GlyssenTests
 			var blockA = new Block("ip");
 			var blockB = new Block("p", 1, 1);
 			var blockC = new Block("p", 2, 7);
-			var bookScriptA = new BookScript("LUK", new List<Block> { blockA, blockB, blockC });
+			var bookScriptA = new BookScript("LUK", new List<Block> { blockA, blockB, blockC }, ScrVers.English);
 			var blockD = new Block("ip");
 			var blockE = new Block("p", 1, 1);
 			var blockF = new Block("p", 5, 7);
 			var blockG = new Block("p", 5, 7);
-			var bookScriptB = new BookScript("ROM", new List<Block> { blockD, blockE, blockF, blockG });
+			var bookScriptB = new BookScript("ROM", new List<Block> { blockD, blockE, blockF, blockG }, ScrVers.English);
 			m_books = new List<BookScript> { bookScriptA, bookScriptB };
 
 			m_navigator = new BlockNavigator(m_books);
@@ -34,7 +34,7 @@ namespace GlyssenTests
 			var blockJ = new Block("p", 1, 1) { MultiBlockQuote = MultiBlockQuote.Continuation };
 			var blockK = new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation };
 			var blockL = new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.None };
-			var bookScriptJud = new BookScript("JUD", new List<Block> { blockH, blockI, blockJ, blockK, blockL });
+			var bookScriptJud = new BookScript("JUD", new List<Block> { blockH, blockI, blockJ, blockK, blockL }, ScrVers.English);
 			var bookList = new List<BookScript> { bookScriptJud };
 
 			m_navigatorForMultiBlockTests = new BlockNavigator(bookList);

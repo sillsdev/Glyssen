@@ -70,7 +70,7 @@ namespace Glyssen
 				{
 					MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(project.Books);
 					CleanUpMultiBlockQuotesAssignedToNarrator(project.Books);
-					ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(project.Books, project.Versification);
+					ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(project.Books);
 				}
 				MigrateDeprecatedCharacterIds(project);
 
@@ -192,9 +192,7 @@ namespace Glyssen
 		internal static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
-				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter ||
-				block.CharacterIsStandard) &&
-				block.CharacterIdOverrideForScript != null)))
+				(block.CharacterIsUnclear || block.CharacterIsStandard) && block.CharacterIdOverrideForScript != null)))
 			{
 				block.CharacterIdInScript = null;
 				if (!block.CharacterIsStandard)
@@ -234,7 +232,7 @@ namespace Glyssen
 				int bookNum = BCVRef.BookToNumber(book.BookId);
 
 				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-					block.CharacterId != CharacterVerseData.kUnknownCharacter &&
+					block.CharacterId != CharacterVerseData.kUnexpectedCharacter &&
 					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
 				{
 					if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
@@ -250,20 +248,21 @@ namespace Glyssen
 						var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
 						var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
 						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-							block.InitialEndVerseNumber, block.LastVerseNum).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+							block.InitialEndVerseNumber, block.LastVerseNum, includeNarratorOverrides: true).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
 							// PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
 							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
 							block.UserConfirmed = false;
-							block.CharacterId = CharacterVerseData.kUnknownCharacter;
+							block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 							block.CharacterIdInScript = null;
 							numberOfChangesMade++;
 						}
 						else
 						{
-							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum).ToList();
+							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+								block.LastVerseNum, includeAlternates: true, includeNarratorOverrides: true).ToList();
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
@@ -373,17 +372,17 @@ namespace Glyssen
 		}
 
 		//internal for testing
-		internal static void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(IReadOnlyList<BookScript> books, ScrVers scrVers)
+		internal static void ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
 			{
 				Block prevBlock = null;
 				foreach (var block in book.GetScriptBlocks())
 				{
-					if (block.MatchesReferenceText && block.CharacterIsUnclear())
-						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, scrVers);
-					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear())
-						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, scrVers);
+					if (block.MatchesReferenceText && block.CharacterIsUnclear)
+						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), book.BookNumber, book.Versification);
+					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear)
+						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, book.Versification);
 					prevBlock = block;
 				}
 			}

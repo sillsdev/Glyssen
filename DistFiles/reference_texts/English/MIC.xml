@@ -10,459 +10,487 @@
     <verse num="1" />
     <text>The word of God that came to Micah the Morashtite in the days of Jotham, Ahaz, and Hezekiah, kings of Judah, which he saw concerning Samaria and Jerusalem.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="Micah, prophet">
     <verse num="2" />
     <text>Hear, you peoples, all of you. Listen, O earth, and all that is therein: and let the Lord God be witness against you, the Lord from his holy temple.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="Micah, prophet">
     <verse num="3" />
     <text>For, behold, God comes forth out of his place, and will come down and tread on the high places of the earth.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="Micah, prophet">
     <verse num="4" />
     <text>The mountains melt under him, and the valleys split apart, like wax before the fire, like waters that are poured down a steep place.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="Micah, prophet">
     <verse num="5" />
     <text>All this is for the disobedience of Jacob, and for the sins of the house of Israel. What is the disobedience of Jacob? Isn't it Samaria? And what are the high places of Judah? Aren't they Jerusalem?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>Therefore I will make Samaria like a rubble heap of the field, like places for planting vineyards; and I will pour down its stones into the valley, and I will uncover its foundations.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>All her idols will be beaten to pieces, and all her temple gifts will be burned with fire, and all her images I will destroy; for of the hire of a prostitute has she gathered them, and to the hire of a prostitute shall they return.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="Micah, prophet">
     <verse num="8" />
     <text>For this I will lament and wail; I will go stripped and naked; I will howl like the jackals, and moan like the daughters of owls.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="Micah, prophet">
     <verse num="9" />
     <text>For her wounds are incurable; for it has come even to Judah. It reaches to the gate of my people, even to Jerusalem.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="Micah, prophet">
     <verse num="10" />
     <text>Don't tell it in Gath. Don't weep at all. At Beth Ophrah I have rolled myself in the dust.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="Micah, prophet">
     <verse num="11" />
     <text>Pass on, inhabitant of Shaphir, in nakedness and shame. The inhabitant of Zaanan won't come out. The wailing of Beth Ezel will take from you his protection.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="Micah, prophet">
     <verse num="12" />
     <text>For the inhabitant of Maroth waits anxiously for good, because evil has come down from God to the gate of Jerusalem.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="Micah, prophet">
     <verse num="13" />
     <text>Harness the chariot to the swift steed, inhabitant of Lachish. She was the beginning of sin to the daughter of Zion; For the transgressions of Israel were found in you.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="Micah, prophet">
     <verse num="14" />
     <text>Therefore you will give a parting gift to Moresheth Gath. The houses of Achzib will be a deceitful thing to the kings of Israel.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="15" characterId="Micah, prophet">
     <verse num="15" />
     <text>I will yet bring to you, inhabitant of Mareshah. He who is the glory of Israel will come to Adullam.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-MIC">
+  <block style="p" chapter="1" initialStartVerse="16" characterId="Micah, prophet">
     <verse num="16" />
     <text>Shave your heads, and cut off your hair for the children of your delight. Enlarge your baldness like the vulture; for they have gone into captivity from you!</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>2</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="Micah, prophet">
     <verse num="1" />
     <text>Woe to those who devise iniquity and work evil on their beds! When the morning is light, they practice it, because it is in the power of their hand.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="Micah, prophet">
     <verse num="2" />
-    <text>They covet fields, and seize them; and houses, and take them away: and they oppress a man and his house, even a man and his heritage.</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-MIC">
+    <text>They covet fields, and seize them; and houses, and take them away: and they oppress a man and his house, even a man and his heritage. </text>
     <verse num="3" />
-    <text>Therefore thus says God: «Behold, I am planning against these people a disaster, from which you will not remove your necks, neither will you walk haughtily; for it is an evil time.</text>
+    <text>Therefore thus says God:</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="God">
+    <text>“Behold, I am planning against these people a disaster, from which you will not remove your necks, neither will you walk haughtily; for it is an evil time.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>In that day they will take up a parable against you, and lament with a doleful lamentation, saying,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-MIC">
-    <text>We are utterly ruined! My people's possession is divided up. Indeed he takes it from me and assigns our fields to traitors!'»</text>
+  <block style="p" chapter="2" initialStartVerse="4" characterId="people" delivery="lament">
+    <text>We are utterly ruined! My people's possession is divided up. Indeed he takes it from me and assigns our fields to traitors!'”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="Micah, prophet">
     <verse num="5" />
     <text>Therefore you will have no one who divides the land by lot in the assembly of God.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="2" book="MIC" initialStartVerse="6" characterId="false prophets">
     <verse num="6" />
-    <text>Don't prophesy!</text>
+    <text>“Don't prophesy!”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-MIC">
-    <text>They prophesy.</text>
+  <block style="p" chapter="2" initialStartVerse="6" characterId="Micah, prophet">
+    <text>—they prophesy—</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-MIC">
-    <text>«Don't prophesy about these things. Disgrace won't overtake us.»</text>
+  <block style="p" chapter="2" initialStartVerse="6" characterId="false prophets">
+    <text>“Don't prophesy about these things. Disgrace won't overtake us.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="Micah, prophet">
     <verse num="7" />
-    <text>Shall it be said, O house of Jacob: «Is the Spirit of God angry? Are these his doings? Don't my words do good to him who walks blamelessly?»</text>
+    <text>Shall it be said, O house of Jacob: “Is the Spirit of God angry? Are these his doings?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="God">
+    <text>Don't my words do good to him who walks blamelessly?”</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>But lately my people have risen up as an enemy. You strip the robe and clothing from those who pass by without a care, returning from battle.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>You drive the women of my people out from their pleasant houses; from their young children you take away my blessing forever.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Arise, and depart! For this is not your resting place, because of uncleanness that destroys, even with a grievous destruction.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>If a man walking in a spirit of falsehood lies: «I will prophesy to you of wine and of strong drink;» he would be the prophet of this people.</text>
+    <text>If a man walking in a spirit of falsehood lies: “I will prophesy to you of wine and of strong drink;” he would be the prophet of this people.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>I will surely assemble, Jacob, all of you; I will surely gather the remnant of Israel; I will put them together as the sheep of Bozrah, as a flock in the midst of their pasture; they will swarm with people.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-MIC">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>He who breaks open the way goes up before them. They break through the gate, and go out. And their king passes on before them, with God at their head.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>3</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="1" characterId="Micah, prophet">
     <verse num="1" />
-    <text>I said, «Please listen, you heads of Jacob, and rulers of the house of Israel: Isn't it for you to know justice?</text>
+    <text>I said, “Please listen, you heads of Jacob, and rulers of the house of Israel: Isn't it for you to know justice?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="2" characterId="Micah, prophet">
     <verse num="2" />
     <text>You who hate the good, and love the evil; who tear off their skin, and their flesh from off their bones;</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="3" characterId="Micah, prophet">
     <verse num="3" />
     <text>who also eat the flesh of my people, and flay their skin from off them, and break their bones, and chop them in pieces, as for the pot, and as flesh within the caldron.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="Micah, prophet">
     <verse num="4" />
-    <text>Then they will cry to God, but he will not answer them. Yes, he will hide his face from them at that time, because they made their deeds evil.»</text>
+    <text>Then they will cry to God, but he will not answer them. Yes, he will hide his face from them at that time, because they made their deeds evil.”</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="Micah, prophet">
     <verse num="5" />
-    <text>Thus says God concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, «Peace!» and whoever doesn't provide for their mouths, they prepare war against him:</text>
+    <text>Thus says God</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="God">
+    <text>concerning the prophets who lead my people astray; for those who feed their teeth, they proclaim, “Peace!” and whoever doesn't provide for their mouths, they prepare war against him:</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>Therefore night is over you, with no vision, and it is dark to you, that you may not divine; and the sun will go down on the prophets, and the day will be black over them.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>The seers shall be disappointed, and the diviners confounded. Yes, they shall all cover their lips; for there is no answer from God.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="Micah, prophet">
     <verse num="8" />
     <text>But as for me, I am full of power by the Spirit of God, and of judgment, and of might, to declare to Jacob his disobedience, and to Israel his sin.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="Micah, prophet">
     <verse num="9" />
     <text>Please listen to this, you heads of the house of Jacob, and rulers of the house of Israel, who abhor justice, and pervert all equity.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="10" characterId="Micah, prophet">
     <verse num="10" />
     <text>They build up Zion with blood, and Jerusalem with iniquity.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="11" characterId="Micah, prophet">
     <verse num="11" />
-    <text>Her leaders judge for bribes, and her priests teach for a price, and her prophets of it tell fortunes for money: yet they lean on God, and say, «Isn't God in the midst of us? No disaster will come on us.»</text>
+    <text>Her leaders judge for bribes, and her priests teach for a price, and her prophets of it tell fortunes for money: yet they lean on God, and say,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="3" initialStartVerse="11" characterId="leaders/priests/false prophets">
+    <text>“Isn't God in the midst of us? No disaster will come on us.”</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="12" characterId="Micah, prophet">
     <verse num="12" />
     <text>Therefore Zion for your sake will be plowed like a field, and Jerusalem will become heaps of rubble, and the mountain of the temple like the high places of a forest.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>4</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="1" characterId="Micah, prophet">
     <verse num="1" />
     <text>But in the latter days, it will happen that the mountain of God's temple will be established on the top of the mountains, and it will be exalted above the hills; and peoples will stream to it. </text>
     <verse num="2" />
     <text>Many nations will go and say,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-MIC">
-    <text>«Come, and let us go up to the mountain of God, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.»</text>
+  <block style="p" chapter="4" initialStartVerse="2" characterId="nations">
+    <text>“Come, and let us go up to the mountain of God, and to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="Micah, prophet">
     <text>For out of Zion will go forth the law, and the word of God from Jerusalem;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="3" characterId="Micah, prophet">
     <verse num="3" />
     <text>and he will judge between many peoples, and will decide concerning strong nations afar off. They will beat their swords into plowshares, and their spears into pruning hooks. Nation will not lift up sword against nation, neither will they learn war any more.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="Micah, prophet">
     <verse num="4" />
     <text>But they will sit every man under his vine and under his fig tree; and no one will make them afraid: For the mouth of God of Armies has spoken.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="5" characterId="Micah, prophet">
     <verse num="5" />
     <text>Indeed all the nations may walk in the name of their gods; but we will walk in the name of God our God forever and ever.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>In that day, says God, «I will assemble that which is lame, and I will gather that which is driven away, and that which I have afflicted;</text>
+    <text>In that day,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="Micah, prophet">
+    <text>says God,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="6" characterId="God">
+    <text>“I will assemble that which is lame, and I will gather that which is driven away, and that which I have afflicted;</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>and I will make that which was lame a remnant, and that which was cast far off a strong nation: and God will reign over them on Mount Zion from then on, even forever.»</text>
+    <text>and I will make that which was lame a remnant, and that which was cast far off a strong nation: and God will reign over them on Mount Zion from then on, even forever.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>You, tower of the flock, the hill of the daughter of Zion, to you it will come, yes, the former dominion will come, the kingdom of the daughter of Jerusalem.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="9" characterId="Micah, prophet">
     <verse num="9" />
     <text>Now why do you cry out aloud? Is there no king in you? Has your counselor perished, that pains have taken hold of you as of a woman in travail?</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="10" characterId="Micah, prophet">
     <verse num="10" />
     <text>Be in pain, and labor to bring forth, daughter of Zion, like a woman in travail; for now you will go forth out of the city, and will dwell in the field, and will come even to Babylon. There you will be rescued. There God will redeem you from the hand of your enemies.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="11" characterId="Micah, prophet">
     <verse num="11" />
     <text>Now many nations have assembled against you, that say,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-MIC">
-    <text>«Let her be defiled, and let our eye gloat over Zion.»</text>
+  <block style="p" chapter="4" initialStartVerse="11" characterId="nations">
+    <text>“Let her be defiled, and let our eye gloat over Zion.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="12" characterId="Micah, prophet">
     <verse num="12" />
     <text>But they don't know the thoughts of God, neither do they understand his counsel; for he has gathered them like the sheaves to the threshing floor.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-MIC">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>Arise and thresh, daughter of Zion; for I will make your horn iron, and I will make your hoofs brass; and you will beat in pieces many peoples: and I will devote their gain to God, and their substance to the Lord of the whole earth.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>5</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="1" characterId="Micah, prophet">
     <verse num="1" />
     <text>Now you shall gather yourself in troops, daughter of troops. He has laid siege against us. They will strike the judge of Israel with a rod on the cheek.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="2" characterId="Micah, prophet">
     <verse num="2" />
     <text>But you, Bethlehem Ephrathah, being small among the clans of Judah, out of you one will come forth to me that is to be ruler in Israel; whose goings forth are from of old, from everlasting.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="3" characterId="Micah, prophet">
     <verse num="3" />
     <text>Therefore he will abandon them until the time that she who is in labor gives birth. Then the rest of his brothers will return to the children of Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="4" characterId="Micah, prophet">
     <verse num="4" />
     <text>He shall stand, and shall shepherd in the strength of God, in the majesty of the name of God his God: and they will live, for then he will be great to the ends of the earth.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="5" characterId="Micah, prophet">
     <verse num="5" />
     <text>He will be our peace when Assyria invades our land, and when he marches through our fortresses, then we will raise against him seven shepherds, and eight leaders of men.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="Micah, prophet">
     <verse num="6" />
     <text>They will rule the land of Assyria with the sword, and the land of Nimrod in its gates. He will deliver us from the Assyrian, when he invades our land, and when he marches within our border.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="7" characterId="Micah, prophet">
     <verse num="7" />
     <text>The remnant of Jacob will be in the midst of many peoples, like dew from God, like showers on the grass, that don't wait for man, nor wait for the sons of men.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="Micah, prophet">
     <verse num="8" />
     <text>The remnant of Jacob will be among the nations, in the midst of many peoples, like a lion among the animals of the forest, like a young lion among the flocks of sheep; who, if he goes through, treads down and tears in pieces, and there is no one to deliver.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="Micah, prophet">
     <verse num="9" />
     <text>Let your hand be lifted up above your adversaries, and let all of your enemies be cut off.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>It will happen in that day, says God, «That I will cut off your horses out of the midst of you, and will destroy your chariots.</text>
+    <text>It will happen in that day,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="Micah, prophet">
+    <text>says God,</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="10" characterId="God">
+    <text>“That I will cut off your horses out of the midst of you, and will destroy your chariots.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>I will cut off the cities of your land, and will tear down all your strongholds.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>I will destroy witchcraft from your hand; and you shall have no soothsayers.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>I will cut off your engraved images and your pillars out of your midst; and you shall no more worship the work of your hands.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>I will uproot your Asherim out of your midst; and I will destroy your cities.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-MIC">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>I will execute vengeance in anger, and wrath on the nations that didn't listen.»</text>
+    <text>I will execute vengeance in anger, and wrath on the nations that didn't listen.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>6</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="1" characterId="Micah, prophet">
     <verse num="1" />
-    <text>Listen now to what God says: «Arise, plead your case before the mountains, and let the hills hear what you have to say.</text>
+    <text>Listen now to what God says:</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="1" characterId="God">
+    <text>“Arise, plead your case before the mountains, and let the hills hear what you have to say.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>Hear, you mountains, God's controversy, and you enduring foundations of the earth; for God has a controversy with his people, and he will contend with Israel.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>My people, what have I done to you? How have I burdened you? Answer me!</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>For I brought you up out of the land of Egypt, and redeemed you out of the house of bondage. I sent before you Moses, Aaron, and Miriam.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>My people, remember now what Balak king of Moab devised, and what Balaam the son of Beor answered him from Shittim to Gilgal, that you may know the righteous acts of God.»</text>
+    <text>My people, remember now what Balak king of Moab devised, and what Balaam the son of Beor answered him from Shittim to Gilgal, that you may know the righteous acts of God.”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="6" characterId="Micah, prophet">
     <verse num="6" />
     <text>How shall I come before God, and bow myself before the exalted God? Shall I come before him with burnt offerings, with calves a year old?</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="7" characterId="Micah, prophet">
     <verse num="7" />
     <text>Will God be pleased with thousands of rams? With tens of thousands of rivers of oil? Shall I give my firstborn for my disobedience? The fruit of my body for the sin of my soul?</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="8" characterId="Micah, prophet">
     <verse num="8" />
     <text>He has shown you, O man, what is good. What does God require of you, but to act justly, to love mercy, and to walk humbly with your God?</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="Micah, prophet">
     <verse num="9" />
-    <text>God's voice calls to the city, and wisdom sees your name: «Listen to the rod, and he who appointed it.</text>
+    <text>God's voice calls to the city, and wisdom sees your name:</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="God">
+    <text>“Listen to the rod, and he who appointed it.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Are there yet treasures of wickedness in the house of the wicked, and a short ephah that is accursed?</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Shall I be pure with dishonest scales, and with a bag of deceitful weights?</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>Her rich men are full of violence, her inhabitants speak lies, and their tongue is deceitful in their speech.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>Therefore I also have struck you with a grievous wound. I have made you desolate because of your sins.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>You shall eat, but not be satisfied. Your humiliation will be in your midst. You will store up, but not save; and that which you save I will give up to the sword.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="15" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>You will sow, but won't reap. You will tread the olives, but won't anoint yourself with oil; and crush grapes, but won't drink the wine.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="16" characterId="narrator-MIC">
+  <block style="p" chapter="6" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>For the statutes of Omri are kept, and all the works of the house of Ahab. You walk in their counsels, that I may make you a ruin, and her inhabitants a hissing; And you will bear the reproach of my people.»</text>
+    <text>For the statutes of Omri are kept, and all the works of the house of Ahab. You walk in their counsels, that I may make you a ruin, and her inhabitants a hissing; And you will bear the reproach of my people.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MIC" initialStartVerse="0" characterId="BC-MIC">
     <text>7</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="1" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="1" characterId="Micah, prophet">
     <verse num="1" />
     <text>Misery is mine! Indeed, I am like one who gathers the summer fruits, as gleanings of the vineyard: There is no cluster of grapes to eat. My soul desires to eat the early fig.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="2" characterId="Micah, prophet">
     <verse num="2" />
     <text>The godly man has perished out of the earth, and there is no one upright among men. They all lie in wait for blood; every man hunts his brother with a net.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="3" characterId="Micah, prophet">
     <verse num="3" />
     <text>Their hands are on that which is evil to do it diligently. The ruler and judge ask for a bribe; and the powerful man dictates the evil desire of his soul. Thus they conspire together.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="4" characterId="Micah, prophet">
     <verse num="4" />
     <text>The best of them is like a brier. The most upright is worse than a thorn hedge. The day of your watchmen, even your visitation, has come; now is the time of their confusion.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="5" characterId="Micah, prophet">
     <verse num="5" />
     <text>Don't trust in a neighbor. Don't put confidence in a friend. With the woman lying in your embrace, be careful of the words of your mouth!</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="6" characterId="Micah, prophet">
     <verse num="6" />
     <text>For the son dishonors the father, the daughter rises up against her mother, the daughter-in-law against her mother-in-law; a man's enemies are the men of his own house.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="7" characterId="Micah, prophet">
     <verse num="7" />
     <text>But as for me, I will look to God. I will wait for the God of my salvation. My God will hear me.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="8" characterId="Micah, prophet">
     <verse num="8" />
     <text>Don't rejoice against me, my enemy. When I fall, I will arise. When I sit in darkness, God will be a light to me.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="9" characterId="Micah, prophet">
     <verse num="9" />
     <text>I will bear the indignation of God, because I have sinned against him, until he pleads my case, and executes judgment for me. He will bring me forth to the light. I will see his righteousness.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="10" characterId="Micah, prophet">
     <verse num="10" />
     <text>Then my enemy will see it, and shame will cover her who said to me,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="10" characterId="enemy (female)">
     <text>where is God your God?</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="10" characterId="Micah, prophet">
     <text>Then my enemy will see me and will cover her shame. Now she will be trodden down like the mire of the streets.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="11" characterId="Micah, prophet">
     <verse num="11" />
     <text>A day to build your walls-- In that day, he will extend your boundary.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="12" characterId="Micah, prophet">
     <verse num="12" />
     <text>In that day they will come to you from Assyria and the cities of Egypt, and from Egypt even to the River, and from sea to sea, and mountain to mountain.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="13" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="13" characterId="Micah, prophet">
     <verse num="13" />
     <text>Yet the land will be desolate because of those who dwell therein, for the fruit of their doings.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="14" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="14" characterId="Micah, prophet">
     <verse num="14" />
     <text>Shepherd your people with your staff, the flock of your heritage, who dwell by themselves in a forest, in the midst of fertile pasture land, let them feed; in Bashan and Gilead, as in the days of old.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="15" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>As in the days of your coming forth out of the land of Egypt, I will show them marvelous things.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="16" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="16" characterId="Micah, prophet">
     <verse num="16" />
     <text>The nations will see and be ashamed of all their might. They will lay their hand on their mouth. Their ears will be deaf.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="17" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="17" characterId="Micah, prophet">
     <verse num="17" />
     <text>They will lick the dust like a serpent. Like crawling things of the earth they shall come trembling out of their dens. They will come with fear to God our God, and will be afraid because of you.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="18" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="18" characterId="Micah, prophet">
     <verse num="18" />
     <text>Who is a God like you, who pardons iniquity, and passes over the disobedience of the remnant of his heritage? He doesn't retain his anger forever, because he delights in loving kindness.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="19" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="19" characterId="Micah, prophet">
     <verse num="19" />
     <text>He will again have compassion on us. He will tread our iniquities under foot; and you will cast all their sins into the depths of the sea.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="20" characterId="narrator-MIC">
+  <block style="p" chapter="7" initialStartVerse="20" characterId="Micah, prophet">
     <verse num="20" />
     <text>You will give truth to Jacob, and mercy to Abraham, as you have sworn to our fathers from the days of old.</text>
   </block>

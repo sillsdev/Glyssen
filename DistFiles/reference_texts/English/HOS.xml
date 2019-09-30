@@ -14,8 +14,8 @@
     <verse num="2" />
     <text>When God spoke at first by Hosea, God said to Hosea,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-HOS">
-    <text>«Go, take for yourself a wife of prostitution and children of unfaithfulness; for the land commits great adultery, forsaking God.»</text>
+  <block style="p" chapter="1" initialStartVerse="2" characterId="God">
+    <text>“Go, take for yourself a wife of prostitution and children of unfaithfulness; for the land commits great adultery, forsaking God.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-HOS">
     <verse num="3" />
@@ -23,23 +23,23 @@
     <verse num="4" />
     <text>God said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-HOS">
-    <text>«Call his name Jezreel; for yet a little while, and I will avenge the blood of Jezreel on the house of Jehu, and will cause the kingdom of the house of Israel to cease.</text>
+  <block style="p" chapter="1" initialStartVerse="4" characterId="God">
+    <text>“Call his name Jezreel; for yet a little while, and I will avenge the blood of Jezreel on the house of Jehu, and will cause the kingdom of the house of Israel to cease.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>It will happen in that day that I will break the bow of Israel in the valley of Jezreel.»</text>
+    <text>It will happen in that day that I will break the bow of Israel in the valley of Jezreel.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-HOS">
     <verse num="6" />
     <text>She conceived again, and bore a daughter. Then he said to him,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-HOS">
-    <text>«Call her name Lo-Ruhamah; for I will no longer have mercy on the house of Israel, that I should in any way pardon them.</text>
+  <block style="p" chapter="1" initialStartVerse="6" characterId="God">
+    <text>“Call her name Lo-Ruhamah; for I will no longer have mercy on the house of Israel, that I should in any way pardon them.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>But I will have mercy on the house of Judah, and will save them by God their God, and will not save them by bow, sword, battle, horses, or horsemen.»</text>
+    <text>But I will have mercy on the house of Judah, and will save them by God their God, and will not save them by bow, sword, battle, horses, or horsemen.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-HOS">
     <verse num="8" />
@@ -47,796 +47,828 @@
     <verse num="9" />
     <text>He said,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-HOS">
-    <text>«Call his name Lo-Ammi; for you are not my people, and I will not be yours.</text>
+  <block style="p" chapter="1" initialStartVerse="9" characterId="God">
+    <text>“Call his name Lo-Ammi; for you are not my people, and I will not be yours.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Yet the number of the children of Israel will be as the sand of the sea, which can't be measured nor numbered; and it will come to pass that, in the place where it was said to them, 'You are not my people,' they will be called 'sons of the living God.'</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>The children of Judah and the children of Israel will be gathered together, and they will appoint themselves one head, and will go up from the land; for great will be the day of Jezreel.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>2</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="God">
     <verse num="1" />
     <text>Say to your brothers, 'My people!' and to your sisters, 'My loved one!'</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>Contend with your mother! Contend, for she is not my wife, neither am I her husband; and let her put away her prostitution from her face, and her adulteries from between her breasts;</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>Lest I strip her naked, and make her bare as in the day that she was born, and make her like a wilderness, and set her like a dry land, and kill her with thirst.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>Indeed, on her children I will have no mercy; for they are children of unfaithfulness;</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>For their mother has played the prostitute. She who conceived them has done shamefully; for she said, 'I will go after my lovers, who give me my bread and my water, my wool and my flax, my oil and my drink.'</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>Therefore, behold, I will hedge up your way with thorns, and I will build a wall against her, that she can't find her way.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>She will follow after her lovers, but she won't overtake them; and she will seek them, but won't find them. Then she will say, 'I will go and return to my first husband; for then was it better with me than now.'</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>For she did not know that I gave her the grain, the new wine, and the oil, and multiplied to her silver and gold, which they used for Baal.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>Therefore I will take back my grain in its time, and my new wine in its season, and will pluck away my wool and my flax which should have covered her nakedness.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Now I will uncover her lewdness in the sight of her lovers, and no one will deliver her out of my hand.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>I will also cause all her celebrations to cease: her feasts, her new moons, her Sabbaths, and all her solemn assemblies.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>I will lay waste her vines and her fig trees, about which she has said, 'These are my wages that my lovers have given me; and I will make them a forest,' and the animals of the field shall eat them.</text>
+    <text>I will lay waste her vines and her fig trees, about which she has said, 'These are my wages that my lovers have given me;' and I will make them a forest, and the animals of the field shall eat them.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>I will visit on her the days of the Baals, to which she burned incense, when she decked herself with her earrings and her jewels, and went after her lovers, and forgot me, says God.</text>
+    <text>I will visit on her the days of the Baals, to which she burned incense, when she decked herself with her earrings and her jewels, and went after her lovers, and forgot me,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="Hosea">
+    <text>says God.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>Therefore, behold, I will allure her, and bring her into the wilderness, and speak tenderly to her.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>I will give her vineyards from there, and the valley of Achor for a door of hope; and she will respond there, as in the days of her youth, and as in the day when she came up out of the land of Egypt.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>It will be in that day, says God, «that you will call me 'my husband,' and no longer call me 'my master.'</text>
+    <text>It will be in that day,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="Hosea">
+    <text>says God,</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="16" characterId="God">
+    <text>“that you will call me 'my husband,' and no longer call me 'my master.'</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="17" characterId="God">
     <verse num="17" />
     <text>For I will take away the names of the Baals out of her mouth, and they will no longer be mentioned by name.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="18" characterId="God">
     <verse num="18" />
     <text>In that day I will make a covenant for them with the animals of the field, and with the birds of the sky, and with the creeping things of the ground. I will break the bow, the sword, and the battle out of the land, and will make them lie down safely.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="19" characterId="God">
     <verse num="19" />
     <text>I will betroth you to me forever. Yes, I will betroth you to me in righteousness, in justice, in loving kindness, and in compassion.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>I will even betroth you to me in faithfulness; and you shall know God.</text>
+    <text>I will even betroth you to me in faithfulness; and you shall know God. </text>
+    <verse num="21" />
+    <text>It will happen in that day, I will respond,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="21" characterId="Hosea">
     <text>says God,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-HOS">
-    <verse num="21" />
-    <text>It will happen in that day, I will respond, I will respond to the heavens, and they will respond to the earth;</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="21" characterId="God">
+    <text>I will respond to the heavens, and they will respond to the earth; </text>
     <verse num="22" />
     <text>and the earth will respond to the grain, and the new wine, and the oil; and they will respond to Jezreel.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-HOS">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>I will sow her to me in the earth; and I will have mercy on her who had not obtained mercy; and I will tell those who were not my people, 'You are my people;' and they will say, 'My God!'»</text>
+    <text>I will sow her to me in the earth; and I will have mercy on her who had not obtained mercy; and I will tell those who were not my people, 'You are my people;' and they will say, 'My God!'”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>3</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="3" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>God said to me,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-HOS">
-    <text>«Go again, love a woman loved by another, and an adulteress, even as God loves the children of Israel, though they turn to other gods, and love cakes of raisins.»</text>
+  <block style="p" chapter="3" initialStartVerse="1" characterId="God">
+    <text>“Go again, love a woman loved by another, and an adulteress, even as God loves the children of Israel, though they turn to other gods, and love cakes of raisins.”</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="3" initialStartVerse="2" characterId="Hosea">
     <verse num="2" />
-    <text>So I bought her for myself for fifteen pieces of silver and a homer and a half of barley. </text>
-    <verse num="3" />
-    <text>I said to her, «You shall stay with me many days. You shall not play the prostitute, and you shall not be with any other man. I will also be so toward you.»</text>
+    <text>So I bought her for myself for fifteen pieces of silver and a homer and a half of barley.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="3" initialStartVerse="3" characterId="Hosea">
+    <verse num="3" />
+    <text>I said to her, “You shall stay with me many days. You shall not play the prostitute, and you shall not be with any other man. I will also be so toward you.”</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="4" characterId="Hosea">
     <verse num="4" />
     <text>For the children of Israel shall live many days without king, and without prince, and without sacrifice, and without sacred stone, and without ephod or idols.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="Hosea">
     <verse num="5" />
     <text>Afterward the children of Israel shall return, and seek God their God, and David their king, and shall come with trembling to God and to his blessings in the last days.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>4</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>Hear the word of God, you children of Israel; for God has a charge against the inhabitants of the land:</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-HOS">
-    <text>«Indeed there is no truth, nor goodness, nor knowledge of God in the land.</text>
+  <block style="p" chapter="4" initialStartVerse="1" characterId="God">
+    <text>“Indeed there is no truth, nor goodness, nor knowledge of God in the land.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>There is cursing, lying, murder, stealing, and committing adultery; they break boundaries, and bloodshed causes bloodshed.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>Therefore the land will mourn, and everyone who dwells therein will waste away. all living things in her, even the animals of the field and the birds of the sky; yes, the fish of the sea also die.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>Yet let no man bring a charge, neither let any man accuse; For your people are like those who bring charges against a priest.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>You will stumble in the day, and the prophet will also stumble with you in the night; and I will destroy your mother.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>My people are destroyed for lack of knowledge. Because you have rejected knowledge, I will also reject you, that you may be no priest to me. Because you have forgotten your God's law, I will also forget your children.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>As they were multiplied, so they sinned against me. I will change their glory into shame.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>They feed on the sin of my people, and set their heart on their iniquity. </text>
+    <text>They feed on the sin of my people, and set their heart on their iniquity.</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>It will be, like people, like priest; and I will punish them for their ways, and will repay them for their deeds.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>They will eat, and not have enough. They will play the prostitute, and will not increase; because they have abandoned giving to God.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Prostitution, wine, and new wine take away understanding.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>My people consult with their wooden idol, and answer to a stick of wood. Indeed the spirit of prostitution has led them astray, and they have been unfaithful to their God.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>They sacrifice on the tops of the mountains, and burn incense on the hills, under oaks and poplars and terebinths, because its shade is good. Therefore your daughters play the prostitute, and your brides commit adultery.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>I will not punish your daughters when they play the prostitute, nor your brides when they commit adultery; because the men consort with prostitutes, and they sacrifice with the shrine prostitutes; so the people without understanding will come to ruin.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>Though you, Israel, play the prostitute, yet don't let Judah offend; and don't come to Gilgal, neither go up to Beth Aven, nor swear, 'As God lives.'</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="God">
     <verse num="16" />
     <text>For Israel has behaved extremely stubbornly, like a stubborn heifer. Then how will God feed them like a lamb in a meadow. </text>
     <verse num="17" />
     <text>Ephraim is joined to idols. Leave him alone!</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="18" characterId="God">
     <verse num="18" />
     <text>Their drink has become sour. They play the prostitute continually. Her rulers dearly love their shameful way.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-HOS">
+  <block style="p" chapter="4" initialStartVerse="19" characterId="God">
     <verse num="19" />
     <text>The wind has wrapped her up in its wings; and they shall be disappointed because of their sacrifices.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>5</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="1" characterId="God">
     <verse num="1" />
     <text>Listen to this, you priests! Listen, house of Israel, and give ear, house of the king! For the judgment is against you; for you have been a snare at Mizpah, and a net spread on Tabor.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>The rebels are deep in slaughter; but I discipline all of them.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>I know Ephraim, and Israel is not hidden from me; for now, Ephraim, you have played the prostitute. Israel is defiled.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>Their deeds won't allow them to turn to their God; for the spirit of prostitution is within them, and they don't know God.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>The pride of Israel testifies to his face. Therefore Israel and Ephraim will stumble in their iniquity. Judah also will stumble with them.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>They will go with their flocks and with their herds to seek God; but they won't find him. He has withdrawn himself from them.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>They are unfaithful to God; for they have borne illegitimate children. Now the new moon will devour them with their fields.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Blow the cornet in Gibeah, and the trumpet in Ramah! Sound a battle cry at Beth Aven, behind you, Benjamin!</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>Ephraim will become a desolation in the day of rebuke. Among the tribes of Israel, I have made known that which will surely be.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>The princes of Judah are like those who remove a landmark. I will pour out my wrath on them like water.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Ephraim is oppressed, he is crushed in judgment; Because he is intent in his pursuit of idols. </text>
     <verse num="12" />
     <text>Therefore I am to Ephraim like a moth, and to the house of Judah like rottenness.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>When Ephraim saw his sickness, and Judah his wound, Then Ephraim went to Assyria, and sent to king Jareb: but he is not able to heal you, neither will he cure you of your wound.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>For I will be to Ephraim like a lion, and like a young lion to the house of Judah. I myself will tear in pieces and go away. I will carry off, and there will be no one to deliver.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>I will go and return to my place, until they acknowledge their offense, and seek my face. In their affliction they will seek me earnestly.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>6</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>Come, and let us return to God; for he has torn us to pieces, and he will heal us; he has injured us, and he will bind up our wounds.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="2" characterId="Hosea">
     <verse num="2" />
     <text>After two days he will revive us. On the third day he will raise us up, and we will live before him.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="Hosea">
     <verse num="3" />
     <text>Let us acknowledge God. Let us press on to know God. As surely as the sun rises, God will appear. He will come to us like the rain, like the spring rain that waters the earth.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>Ephraim, what shall I do to you? Judah, what shall I do to you? For your love is like a morning cloud, and like the dew that disappears early.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>Therefore I have cut them to pieces with the prophets; I killed them with the words of my mouth. Your judgments are like a flash of lightning.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>For I desire mercy, and not sacrifice; and the knowledge of God more than burnt offerings.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>But they, like Adam, have broken the covenant. They were unfaithful to me, there. </text>
+    <text>But they, like Adam, have broken the covenant. They were unfaithful to me, there.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Gilead is a city of those who work iniquity; it is stained with blood.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>As gangs of robbers wait to ambush a man, so the company of priests murder in the way toward Shechem, committing shameful crimes.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>In the house of Israel I have seen a horrible thing. There is prostitution in Ephraim. Israel is defiled.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="6" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Also, Judah, there is a harvest appointed for you, when I restore the fortunes of my people.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>7</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="1" characterId="God">
     <verse num="1" />
     <text>When I would heal Israel, then the iniquity of Ephraim is uncovered, also the wickedness of Samaria; for they commit falsehood, and the thief enters in, and the gang of robbers ravages outside.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>They don't consider in their hearts that I remember all their wickedness. Now their own deeds have engulfed them. They are before my face.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>They make the king glad with their wickedness, and the princes with their lies.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>They are all adulterers. They are burning like an oven that the baker stops stirring, from the kneading of the dough, until it is leavened.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>On the day of our king, the princes made themselves sick with the heat of wine. He joined his hand with mockers.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>For they have prepared their heart like an oven, while they lie in wait. Their baker sleeps all the night. In the morning it burns as a flaming fire.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>They are all hot as an oven, and devour their judges. All their kings have fallen. There is no one among them who calls to me.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Ephraim, he mixes himself among the nations. Ephraim is a pancake not turned over.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>Strangers have devoured his strength, and he doesn't realize it. Indeed, gray hairs are here and there on him, and he doesn't realize it.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>The pride of Israel testifies to his face; yet they haven't returned to God their God, nor sought him, for all this.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Ephraim is like an easily deceived dove, without understanding. They call to Egypt. They go to Assyria.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>When they go, I will spread my net on them. I will bring them down like the birds of the sky. I will chastise them, as their congregation has heard.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>Woe to them! For they have wandered from me. Destruction to them! For they have trespassed against me. Though I would redeem them, yet they have spoken lies against me.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>They haven't cried to me with their heart, but they howl on their beds. They assemble themselves for grain and new wine. They turn away from me.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>Though I have taught and strengthened their arms, yet they plot evil against me.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="16" characterId="narrator-HOS">
+  <block style="p" chapter="7" initialStartVerse="16" characterId="God">
     <verse num="16" />
     <text>They return, but not to the Most High. They are like a faulty bow. Their princes will fall by the sword for the rage of their tongue. This will be their derision in the land of Egypt.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>8</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="1" characterId="God">
     <verse num="1" />
     <text>Put the trumpet to your lips! Something like an eagle is over God's house, because they have broken my covenant, and rebelled against my law.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>They cry to me, 'My God, we Israel acknowledge you!' </text>
+    <text>They cry to me, 'My God, we Israel acknowledge you!'</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>Israel has cast off that which is good. The enemy will pursue him.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>They have set up kings, but not by me. They have made princes, and I didn't approve. Of their silver and their gold they have made themselves idols, that they may be cut off.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>Let Samaria throw out his calf idol! My anger burns against them! How long will it be until they are capable of purity?</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>For this is even from Israel! The workman made it, and it is no God; indeed, the calf of Samaria shall be broken in pieces.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>For they sow the wind, and they will reap the whirlwind. He has no standing grain. The stalk will yield no head. If it does yield, strangers will swallow it up.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Israel is swallowed up. Now they are among the nations like a worthless thing.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>For they have gone up to Assyria, like a wild donkey wandering alone. Ephraim has hired lovers for himself.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>But although they sold themselves among the nations, I will now gather them; and they begin to waste away because of the oppression of the king of mighty ones.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Because Ephraim has multiplied altars for sinning, they became for him altars for sinning.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>I wrote for him the many things of my law; but they were regarded as a strange thing.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>As for the sacrifices of my offerings, they sacrifice flesh and eat it; But God doesn't accept them. Now he will remember their iniquity, and punish their sins. They will return to Egypt.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="8" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>For Israel has forgotten his Maker and built palaces; and Judah has multiplied fortified cities; but I will send a fire on his cities, and it will devour its fortresses.»</text>
+    <text>For Israel has forgotten his Maker and built palaces; and Judah has multiplied fortified cities; but I will send a fire on his cities, and it will devour its fortresses.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>9</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>Don't rejoice, Israel, to jubilation like the nations; for you were unfaithful to your God. You love the wages of a prostitute at every grain threshing floor.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="2" characterId="Hosea">
     <verse num="2" />
     <text>The threshing floor and the winepress won't feed them, and the new wine will fail her.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="3" characterId="Hosea">
     <verse num="3" />
     <text>They won't dwell in God's land; but Ephraim will return to Egypt, and they will eat unclean food in Assyria.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="4" characterId="Hosea">
     <verse num="4" />
     <text>They won't pour out wine offerings to God, neither will they be pleasing to him. Their sacrifices will be to them like the bread of mourners; all who eat of it will be polluted; for their bread will be for their appetite. It will not come into the house of God.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="5" characterId="Hosea">
     <verse num="5" />
     <text>What will you do in the day of solemn assembly, and in the day of the feast of God?</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="Hosea">
     <verse num="6" />
     <text>For, behold, they have gone away from destruction. Egypt will gather them up. Memphis will bury them. Nettles will possess their pleasant things of silver. Thorns will be in their tents.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="7" characterId="Hosea">
     <verse num="7" />
     <text>The days of visitation have come. The days of reckoning have come. Israel will consider the prophet to be a fool, and the man who is inspired to be insane, because of the abundance of your sins, and because your hostility is great.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="8" characterId="Hosea">
     <verse num="8" />
     <text>A prophet watches over Ephraim with my God. A fowler's snare is on all of his paths, and hostility in the house of his God.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="9" characterId="Hosea">
     <verse num="9" />
     <text>They have deeply corrupted themselves, as in the days of Gibeah. He will remember their iniquity. He will punish them for their sins.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>I found Israel like grapes in the wilderness. I saw your fathers as the first ripe in the fig tree at its first season; but they came to Baal Peor, and consecrated themselves to the shameful thing, and became abominable like that which they loved.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>As for Ephraim, their glory will fly away like a bird. There will be no birth, none with child, and no conception.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>Though they bring up their children, yet I will bereave them, so that not a man shall be left. Indeed, woe also to them when I depart from them!</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>I have seen Ephraim, like Tyre, planted in a pleasant place; but Ephraim will bring out his children to the murderer.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="14" characterId="Hosea">
     <verse num="14" />
     <text>Give them--God what will you give? Give them a miscarrying womb and dry breasts.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>All their wickedness is in Gilgal; for there I hated them. Because of the wickedness of their deeds I will drive them out of my house! I will love them no more. All their princes are rebels.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="16" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="16" characterId="God">
     <verse num="16" />
     <text>Ephraim is struck. Their root has dried up. They will bear no fruit. Even though they bring forth, yet I will kill the beloved ones of their womb.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="17" characterId="narrator-HOS">
+  <block style="p" chapter="9" initialStartVerse="17" characterId="Hosea">
     <verse num="17" />
     <text>My God will cast them away, because they did not listen to him; and they will be wanderers among the nations.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>10</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>Israel is a luxuriant vine that puts forth his fruit. According to the abundance of his fruit he has multiplied his altars. As their land has prospered, they have adorned their sacred stones.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="2" characterId="Hosea">
     <verse num="2" />
     <text>Their heart is divided. Now they will be found guilty. He will demolish their altars. He will destroy their sacred stones. </text>
     <verse num="3" />
     <text>Surely now they will say,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="3" characterId="narrator-HOS">
-    <text>«We have no king; for we don't fear God; and the king, what can he do for us?»</text>
+  <block style="p" chapter="10" initialStartVerse="3" characterId="Israel">
+    <text>“We have no king; for we don't fear God; and the king, what can he do for us?”</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="4" characterId="Hosea">
     <verse num="4" />
     <text>They make promises, swearing falsely in making covenants. Therefore judgment springs up like poisonous weeds in the furrows of the field.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="5" characterId="Hosea">
     <verse num="5" />
     <text>The inhabitants of Samaria will be in terror for the calves of Beth Aven; for its people will mourn over it, Along with its priests who rejoiced over it, for its glory, because it has departed from it.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="6" characterId="Hosea">
     <verse num="6" />
     <text>It also will be carried to Assyria for a present to a great king. Ephraim will receive shame, and Israel will be ashamed of his own counsel.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="7" characterId="Hosea">
     <verse num="7" />
     <text>Samaria and her king float away, like a twig on the water.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="8" characterId="Hosea">
     <verse num="8" />
-    <text>The high places also of Aven, the sin of Israel, will be destroyed. The thorn and the thistle will come up on their altars. They will tell the mountains, «Cover us!» and the hills, «Fall on us!»</text>
+    <text>The high places also of Aven, the sin of Israel, will be destroyed. The thorn and the thistle will come up on their altars. They will tell the mountains,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="8" characterId="Israel">
+    <text>“Cover us!”</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="8" characterId="Hosea">
+    <text>and the hills,</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="8" characterId="Israel">
+    <text>“Fall on us!”</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>Israel, you have sinned from the days of Gibeah. There they remained. The battle against the children of iniquity doesn't overtake them in Gibeah.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>When it is my desire, I will chastise them; and the nations will be gathered against them, when they are bound to their two transgressions.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>Ephraim is a trained heifer that loves to thresh; so I will put a yoke on her beautiful neck. I will set a rider on Ephraim. Judah will plow. Jacob will break his clods.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>Sow to yourselves in righteousness, reap according to kindness. Break up your fallow ground; for it is time to seek God, until he comes and rains righteousness on you.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>You have plowed wickedness. You have reaped iniquity. You have eaten the fruit of lies, for you trusted in your way, in the multitude of your mighty men.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>Therefore a battle roar will arise among your people, and all your fortresses will be destroyed, as Shalman destroyed Beth Arbel in the day of battle. The mother was dashed in pieces with her children.</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="10" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>So Bethel will do to you because of your great wickedness. At daybreak the king of Israel will be destroyed.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>11</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="1" characterId="God">
     <verse num="1" />
     <text>When Israel was a child, then I loved him, and called my son out of Egypt.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>They called to them, so they went from them. They sacrificed to the Baals, and burned incense to engraved images.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>Yet I taught Ephraim to walk. I took them by his arms; but they didn't know that I healed them.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>I drew them with cords of a man, with ties of love; and I was to them like those who lift up the yoke on their necks; and I bent down to him and I fed him.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>They won't return into the land of Egypt; but the Assyrian will be their king, because they refused to repent.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>The sword will fall on their cities, and will destroy the bars of their gates, and will put an end to their plans.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>My people are determined to turn from me. Though they call to the Most High, he certainly won't exalt them.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>How can I give you up, Ephraim? How can I hand you over, Israel? How can I make you like Admah? How can I make you like Zeboiim? My heart is turned within me, my compassion is aroused.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>I will not execute the fierceness of my anger. I will not return to destroy Ephraim: for I am God, and not man; the Holy One in the midst of you; and I will not come in wrath.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>They will walk after God, who will roar like a lion; for he will roar, and the children will come trembling from the west.</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>They will come trembling like a bird out of Egypt, and like a dove out of the land of Assyria; and I will settle them in their houses,» says God.</text>
+    <text>They will come trembling like a bird out of Egypt, and like a dove out of the land of Assyria; and I will settle them in their houses,”</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="11" initialStartVerse="11" characterId="Hosea">
+    <text>says God.</text>
+  </block>
+  <block style="p" chapter="11" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>Ephraim surrounds me with falsehood, and the house of Israel with deceit. Judah still strays from God, and is unfaithful to the Holy One.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>12</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>Ephraim feeds on wind, and chases the east wind. He continually multiplies lies and desolation. They make a covenant with Assyria, and oil is carried into Egypt.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="2" characterId="Hosea">
     <verse num="2" />
     <text>God also has a controversy with Judah, and will punish Jacob according to his ways; according to his deeds he will repay him.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="3" characterId="Hosea">
     <verse num="3" />
     <text>In the womb he took his brother by the heel; and in his manhood he contended with God.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="4" characterId="Hosea">
     <verse num="4" />
     <text>Indeed, he struggled with the angel, and prevailed; he wept, and made supplication to him. He found him at Bethel, and there he spoke with us,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="5" characterId="Hosea">
     <verse num="5" />
-    <text>even God, the God of Armies; God is his name of renown! </text>
+    <text>even God, the God of Armies; God is his name of renown!</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="6" characterId="Hosea">
     <verse num="6" />
     <text>Therefore turn to your God. Keep kindness and justice, and wait continually for your God.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="7" characterId="Hosea">
     <verse num="7" />
     <text>A merchant has dishonest scales in his hand. He loves to defraud. </text>
     <verse num="8" />
     <text>Ephraim said,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="8" characterId="narrator-HOS">
-    <text>«Surely I have become rich, I have found myself wealth. In all my wealth they won't find in me any iniquity that is sin.»</text>
+  <block style="p" chapter="12" initialStartVerse="8" characterId="Ephraim">
+    <text>“Surely I have become rich, I have found myself wealth. In all my wealth they won't find in me any iniquity that is sin.”</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>But I am God your God from the land of Egypt. I will yet again make you dwell in tents, as in the days of the solemn feast.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>I have also spoken to the prophets, and I have multiplied visions; and by the ministry of the prophets I have used parables.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>If Gilead is wicked, surely they are worthless. In Gilgal they sacrifice bulls. Indeed, their altars are like heaps in the furrows of the field.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>Jacob fled into the country of Aram, and Israel served to get a wife, and for a wife he tended flocks and herds.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>By a prophet God brought Israel up out of Egypt, and by a prophet he was preserved.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="12" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>Ephraim has bitterly provoked anger. Therefore his blood will be left on him, and his Lord will repay his contempt.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>13</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>When Ephraim spoke, there was trembling. He exalted himself in Israel, but when he became guilty in Baal, he died.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="2" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="2" characterId="Hosea">
     <verse num="2" />
-    <text>Now they sin more and more, and have made themselves molten images of their silver, even idols according to their own understanding, all of them the work of the craftsmen. They say of them, 'They offer human sacrifice and kiss the calves.'</text>
+    <text>Now they sin more and more, and have made themselves molten images of their silver, even idols according to their own understanding, all of them the work of the craftsmen. They say of them, '</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="2" characterId="Ambiguous">
+    <text>'They offer human sacrifice and kiss the calves.'</text>
+  </block>
+  <block style="p" chapter="13" initialStartVerse="3" characterId="Hosea">
     <verse num="3" />
     <text>Therefore they will be like the morning mist, and like the dew that passes away early, like the chaff that is driven with the whirlwind out of the threshing floor, and like the smoke out of the chimney.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Yet I am God your God from the land of Egypt; and you shall acknowledge no god but me, and besides me there is no savior. </text>
+    <text>Yet I am God your God from the land of Egypt; and you shall acknowledge no god but me, and besides me there is no savior.</text>
+  </block>
+  <block style="p" chapter="13" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>I knew you in the wilderness, in the land of great drought.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>According to their pasture, so were they filled; they were filled, and their heart was exalted. Therefore they have forgotten me.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>Therefore I am like a lion to them. Like a leopard, I will lurk by the path.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>I will meet them like a bear that is bereaved of her cubs, and will tear the covering of their heart. There I will devour them like a lioness. The wild animal will tear them.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>You are destroyed, Israel, because you are against me, against your help.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Where is your king now, that he may save you in all your cities? And your judges, of whom you said, 'Give me a king and princes?'</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>I have given you a king in my anger, and have taken him away in my wrath.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>The guilt of Ephraim is stored up. His sin is stored up.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="13" characterId="God">
     <verse num="13" />
     <text>The sorrows of a travailing woman will come on him. He is an unwise son; for when it is time, he doesn't come to the opening of the womb.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>I will ransom them from the power of Sheol. I will redeem them from death! Death, where are your plagues? Sheol, where is your destruction?</text>
+    <text>I will ransom them from the power of Sheol. I will redeem them from death! Death, where are your plagues? Sheol, where is your destruction? Compassion will be hidden from my eyes.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-HOS">
-    <text>«Compassion will be hidden from my eyes.</text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="15" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>Though he is fruitful among his brothers, an east wind will come, the breath of God coming up from the wilderness; and his spring will become dry, and his fountain will be dried up. He will plunder the storehouse of treasure.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-HOS">
+  <block style="p" chapter="13" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>Samaria will bear her guilt; for she has rebelled against her God. They will fall by the sword. Their infants will be dashed in pieces, and their pregnant women will be ripped open.»</text>
+    <text>Samaria will bear her guilt; for she has rebelled against her God. They will fall by the sword. Their infants will be dashed in pieces, and their pregnant women will be ripped open.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="HOS" initialStartVerse="0" characterId="BC-HOS">
     <text>14</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="1" characterId="Hosea">
     <verse num="1" />
     <text>Israel, return to God your God; for you have fallen because of your sin. </text>
     <verse num="2" />
     <text>Take words with you, and return to God. Tell him,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="2" characterId="narrator-HOS">
-    <text>«Forgive all our sins, and accept that which is good: so we offer our lips like bulls.</text>
+  <block style="p" chapter="14" initialStartVerse="2" characterId="Israel">
+    <text>“Forgive all our sins, and accept that which is good: so we offer our lips like bulls.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="3" characterId="Israel">
     <verse num="3" />
-    <text>Assyria can't save us. We won't ride on horses; neither will we say any more to the work of our hands, 'Our gods!' for in you the fatherless finds mercy.»</text>
+    <text>Assyria can't save us. We won't ride on horses; neither will we say any more to the work of our hands, 'Our gods!' for in you the fatherless finds mercy.”</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>I will heal their waywardness. I will love them freely; for my anger is turned away from him.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="5" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>I will be like the dew to Israel. He will blossom like the lily, and send down his roots like Lebanon.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="6" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>His branches will spread, and his beauty will be like the olive tree, and his fragrance like Lebanon.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="7" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>Men will dwell in his shade. They will revive like the grain, and blossom like the vine. Their fragrance will be like the wine of Lebanon.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="8" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Ephraim, what have I to do any more with idols? I answer, and will take care of him. I am like a green fir tree; from me your fruit is found.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="9" characterId="narrator-HOS">
+  <block style="p" chapter="14" initialStartVerse="9" characterId="Hosea">
     <verse num="9" />
     <text>Who is wise, that he may understand these things? Who is prudent, that he may know them? For the ways of God are right, and the righteous walk in them; But the rebellious stumble in them.</text>
   </block>

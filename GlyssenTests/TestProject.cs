@@ -27,6 +27,7 @@ namespace GlyssenTests
 		{
 			JOS,
 			RUT,
+			PSA_NoData,
 			OBA, // This is a playground book, currently useful for verse bridges and verse segments
 			MAT, // This is derived from Kuna (cuk), not Acholi
 			MRK,
@@ -68,6 +69,11 @@ namespace GlyssenTests
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)
 		{
+			return CreateTestProject(null, booksToInclude);
+		}
+
+		public static Project CreateTestProject(string versificationInfo, params TestBook[] booksToInclude)
+		{
 			m_errorDuringProjectCreation = null;
 
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
@@ -91,7 +97,7 @@ namespace GlyssenTests
 				var sampleWs = new WritingSystemDefinition();
 				sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT) || booksToInclude.Contains(TestBook.MAT)).AllLevels);
 
-				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
+				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs, versificationInfo);
 
 				// Wait for quote parse to finish
 				while (project.ProjectState != ProjectState.FullyInitialized && m_errorDuringProjectCreation == null)
@@ -168,6 +174,12 @@ namespace GlyssenTests
 					book.LongName = "Ruth";
 					book.ShortName = "Ruth";
 					xmlDocument.LoadXml(Properties.Resources.TestRUT);
+					break;
+				case TestBook.PSA_NoData:
+					book.Code = "PSA";
+					book.LongName = "The Book of Psalms";
+					book.ShortName = "Psalms";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.OBA:
 					book.Code = "OBA";

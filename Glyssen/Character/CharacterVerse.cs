@@ -19,7 +19,7 @@ namespace Glyssen.Character
 		Normal,
 
 		/// <summary>
-		/// Used for speech in passages that are know to be spoken by a particular character
+		/// Used for speech in passages that are known to be spoken by a particular character
 		/// and can be assigned as such even if no punctuation is present to indicate the spoken
 		/// discourse. (In some translations, quotation marks may be omitted in text marked as
 		/// poetry or in long speeches, especially where the speeches contain other nested quotations
@@ -67,11 +67,16 @@ namespace Glyssen.Character
 		Hypothetical,
 
 		/// <summary>
-		/// Quotations of actual past speech or written words, proverbs, etc. Typically, these can be
-		/// read by the narrator, though in some cases it may be useful to use another voice and/or
-		/// special sound effects. When spoken by the narrator, a "Quotation" can also be a place where
-		/// quotation marks are likely to be used for something other than speech (e.g., a translation,
-		/// a foreign phrase, a title, or a literal name).
+		/// Quotations of actual past speech or written words, proverbs, etc. OR something a person or
+		/// group is commanded to speak. Typically, these can be read by the narrator, though in some
+		/// cases it may be useful to use another voice and/or special sound effects. When spoken by
+		/// the narrator, a "Quotation" can also be a place where quotation marks are likely to be used
+		/// for something other than speech (e.g., a translation, a foreign phrase, a title, or a literal
+		/// name). For dramatic effect, it might sometimes be appropriate to have the person being
+		/// quoted or commanded to speak actually speak the words (especially if it is a command to say
+		/// something immediately (e.g., when God tells Moses or a prophet to say something). This quote
+		/// type is used any place where the reference text dramatizes this kind of second-level speech.
+		/// See also, <seealso cref="Alternate"/>
 		/// </summary>
 		Quotation,
 
@@ -85,9 +90,32 @@ namespace Glyssen.Character
 		/// will always be marked as ambiguous so the user has a chance to evaluate them and decide what to do.
 		/// </summary>
 		Interruption,
+
+		/// <summary>
+		/// Used to indicate a possible alternate speaker for dramatization purposes. This is normally used in
+		/// prophetic works or other places where speech is attributed to both the original speaker and the
+		/// prophet, spokesperson, or announcer. As opposed to <seealso cref="Quotation"/>, which normally
+		/// indicates past speech, this quote type is used to distinguish between the character presumed to be
+		/// the preferred speaker and an alternate speaker who could legitimately speak the same lines but is
+		/// not expected to (based on the decision reflected by the reference text). Hence, Glyssen will
+		/// automatically assign the quoted text to the preferred character and never to the alternate, but the
+		/// alternate will be listed as an option in Identify Speaking Parts, in case the scripter wants to
+		/// choose that character instead. This makes it possible to avoid ambiguity for the vast number of
+		/// passages where there is a single well-defined quote and the ambiguity is merely a dramatization
+		/// decision. (Basically, the effect is the same as using <seealso cref="Hypothetical"/>, except without
+		/// the performance hit to look in the reference text to see whether the alternate character is used.
+		/// This type can also be used when there is a potential quote that spills over into a subsequent verse
+		/// that has an actual expected quote. Some translations (e.g., ISV) wrap virtually the entire text in
+		/// quotes to indicate that the prophet is speaking all the text. In these cases, the actual quote may
+		/// be second level. For translations that do not do this, we don't want the prophet to accidentally be
+		/// considered as a candidate for the quoted text (which would result in an ambiguity). By using the
+		/// Alternate quote type, we ensure that it will only be considered for an on-going quote that was
+		/// opened in a previous verse.
+		/// </summary>
+		Alternate,
 	}
 
-	public class CharacterVerse
+	public class CharacterVerse : ICharacterDeliveryInfo
 	{
 		public const string kScriptureCharacter = "scripture";
 		internal const string kMultiCharacterIdSeparator = "/";
@@ -106,8 +134,31 @@ namespace Glyssen.Character
 		public string Alias { get; }
 		public QuoteType QuoteType { get; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
-		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || IsScriptureQuotation;
+		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
+		/// <summary>
+		/// A single character ID which could/should be used in the script.
+		/// </summary>
+		/// <remarks>
+		/// In many cases this is set in the control file, but is not actually used. (It is informational,
+		/// historical, or possibly for some future feature.) <seealso cref="ResolvedDefaultCharacter"/>
+		/// Examples of other uses:
+		/// <list type="number">
+		/// <item><description>character is "Good Priest" (FCBH concept)</description></item>
+		/// <item><description>to translate from generic groups (i.e., "parents" or "disciples", "people in high
+		/// priest's courtyard") to specific individuals ("father", "mother", "Thomas", etc.)</description></item>
+		/// <item><description>to indicate a guess as to who the real "voice from heaven" is</description></item>
+		/// <item><description>to translate possible OT theophanies to Jesus</description></item>
+		/// <item><description>entries in JHN 21:7 and JHN 21:17 that sit alongside the "correct" entry that
+		/// basically tell the user to have the narrator read it</description></item>
+		/// <item><description>In GEN 28:6, there's an entry to attempt to say that a quotation by Isaac
+		/// should be read by the narrator (even though FCBH expects Isaac to say it)</description></item>
+		/// <item><description>Some places where we have a narrator Quotation (e.g., PRO 30:8), we note that it
+		/// should be read by Agur, but now this is actually handled by narrator overrides</description></item>
+		/// <item><description>dream => angel</description></item>
+		/// </list>
+		/// Probably most of theses should be handled differently...
+		/// </remarks>
 		public string DefaultCharacter { get; }
 		public string LocalizedCharacter
 		{
@@ -127,6 +178,7 @@ namespace Glyssen.Character
 				return m_localizedAlias;
 			}
 		}
+		
 		/// <summary>
 		/// This property returns the Default character to use if this object's Character property represents
 		/// multiple character IDs. Otherwise, it just returns the Character (the <see cref="DefaultCharacter"/>
@@ -164,7 +216,7 @@ namespace Glyssen.Character
 
 		public string ToStringWithDelivery()
 		{
-			if (string.IsNullOrEmpty(Delivery))
+			if (IsNullOrEmpty(Delivery))
 				return Character;
 			return $"{Character} [{Delivery}]";
 		}
@@ -177,7 +229,7 @@ namespace Glyssen.Character
 		private void Localize()
 		{
 			m_localizedCharacter = GetLocalizedCharacterString(Character);
-			m_localizedAlias = string.IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias);
+			m_localizedAlias = IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias);
 			m_localized = true;
 		}
 
@@ -185,10 +237,10 @@ namespace Glyssen.Character
 		// each individual is localized separately.
 		private string GetLocalizedCharacterString(string character)
 		{
-			return String.Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
+			return Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
 		}
 
-		private string GetLocalizedIndividualCharacterString(string character)
+		internal static string GetLocalizedIndividualCharacterString(string character)
 		{
 			return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + character, character);
 		}
@@ -197,9 +249,9 @@ namespace Glyssen.Character
 		protected bool Equals(CharacterVerse other)
 		{
 			return Equals(BcvRef, other.BcvRef) &&
-				string.Equals(Character, other.Character) &&
-				string.Equals(Delivery, other.Delivery) &&
-				string.Equals(Alias, other.Alias) &&
+				String.Equals(Character, other.Character) &&
+				String.Equals(Delivery, other.Delivery) &&
+				String.Equals(Alias, other.Alias) &&
 				QuoteType == other.QuoteType;
 		}
 
@@ -238,6 +290,23 @@ namespace Glyssen.Character
 		#endregion
 	}
 
+	public class NarratorOverrideCharacter : ICharacterDeliveryInfo
+	{
+		public string Character { get; }
+		public string LocalizedCharacter { get; }
+		public string Delivery => null;
+		public string DefaultCharacter => null;
+		public string Alias => null;
+		public string LocalizedAlias => null;
+		public bool ProjectSpecific => false;
+
+		public NarratorOverrideCharacter(string character)
+		{
+			Character = character;
+			LocalizedCharacter = CharacterVerse.GetLocalizedIndividualCharacterString(character);
+		}
+	}
+
 	public static class CharacterStringExtensions
 	{
 		private static readonly char[] s_multiCharacterIdSeparators;
@@ -272,14 +341,19 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterDeliveryEqualityComparer : IEqualityComparer<CharacterVerse>
+	public class CharacterDeliveryEqualityComparer : IEqualityComparer<ICharacterDeliveryInfo>
 	{
-		public bool Equals(CharacterVerse x, CharacterVerse y)
+		public bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
 		{
-			return x.Character.Equals(y.Character) && x.Delivery.Equals(y.Delivery);
+			if (x == null && y == null)
+				return true;
+			if (x == null || y == null)
+				return false;
+
+			return x.Character.Equals(y.Character) && x.Delivery == y.Delivery;
 		}
 
-		public int GetHashCode(CharacterVerse obj)
+		public int GetHashCode(ICharacterDeliveryInfo obj)
 		{
 			unchecked
 			{
@@ -303,14 +377,14 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterDeliveryComparer : IComparer<CharacterVerse>
+	public class CharacterDeliveryComparer : IComparer<ICharacterDeliveryInfo>
 	{
-		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
+		int IComparer<ICharacterDeliveryInfo>.Compare(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
 		{
-			int result = String.Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
+			int result = Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
 			if (result != 0)
 				return result;
-			result = String.Compare(x.Delivery, y.Delivery, StringComparison.InvariantCultureIgnoreCase);
+			result = Compare(x.Delivery, y.Delivery, StringComparison.InvariantCultureIgnoreCase);
 			if (result != 0)
 				return result;
 			return 0;
