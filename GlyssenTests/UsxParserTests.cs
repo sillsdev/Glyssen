@@ -745,14 +745,17 @@ namespace GlyssenTests
 				"Verse 4 text</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(2, blocks.Count, "Should only have chapter number block and v. 4 block. " +
+				"Empty verse bridge block should have been discarded.");
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			Assert.AreEqual(1, blocks[0].ChapterNumber);
 			Assert.AreEqual(4, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[1].InitialEndVerseNumber);
 			Assert.AreEqual("{4}\u00A0Verse 4 text", blocks[1].GetText(true));
 		}
 
 		[TestCase("-", 3)]
-		[TestCase(" - ", 2)]
+		[TestCase("-", 2)]
 		public void Parse_VerseConsistsOfDashButFollowingVerseLessThanOrEqualToPrevNumber_DiscardedAsEmptyVerse(string dash, int followingVerseNum)
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +

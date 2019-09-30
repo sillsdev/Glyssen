@@ -228,6 +228,21 @@ namespace Glyssen
 			return blocks;
 		}
 
+		/// <summary>
+		/// If the existing block begins with a verse number, followed by "verse text" that consists
+		/// merely of a single dash, and we are now processing another (higher) verse number, the
+		/// block is doctored up to interpret this as verse bridge. Although it is not clear whether
+		/// this has ever been considered valid USFM, it has been done in real projects. Since Paratext
+		/// does not currently (as of 9.0 beta) flag this as a missing verse, handling the data this
+		/// way allows Glyssen to interpret it as it was probably intended and not treat it as a missing
+		/// verse.
+		/// </summary>
+		/// <example>For example, if USFM looks like this: \v 1 - \v 2 Text of the two verses.
+		/// Then in the USXParser, we will have a block with {1} - and a subsequent verse number 2.
+		/// This method will produce a block with the verse bridge {1-2} (and, as yet, no verse text
+		/// element).</example>
+		/// <returns><c>true</c> if a mal-formed verse range is turned into a valid verse bridge,
+		/// </returns>
 		private bool HandleVerseBridgeInSeparateVerseFields(Block block, ref string verseNumStr)
 		{
 			var iLastElem = block.BlockElements.Count - 1;
