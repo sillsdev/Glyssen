@@ -46,7 +46,7 @@ namespace GlyssenTests.Character
 		public void GetCharacters_One()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 15, 20).ToList();
-			Assert.AreEqual(1, characters.Count());
+			Assert.AreEqual(1, characters.Count);
 			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
 		}
 
@@ -78,15 +78,32 @@ namespace GlyssenTests.Character
 			Assert.AreEqual("believers, circumcised", character.Character);
 		}
 
-		[Test]
-		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification()
+		[TestCase(false)]
+		[TestCase(true)]
+		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification(bool includeNarratorOverrides)
 		{
 			// Psalm 37:16-17 in Russian Orthodox => Psalm 38:15-16 in English
 			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 38, 15, 16,
-				versification: ScrVers.English).Single();
-			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, 16, 17,
-				versification:ScrVers.RussianOrthodox).Single();
-			Assert.AreEqual(expected.Character, character.Character);
+				versification: ScrVers.English, includeNarratorOverrides: includeNarratorOverrides);
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 37, 16, 17,
+				versification:ScrVers.RussianOrthodox, includeNarratorOverrides: includeNarratorOverrides).ToList();
+			Assert.IsTrue(expected.SequenceEqual(characters));
+		}
+
+		[TestCase(2)]
+		[TestCase(0)]
+		[TestCase(3)]
+		public void GetCharacters_RussianOrthodoxIncludeNarratorOverrides_FindsCharacterAfterChangingVersification(int endVerse)
+		{
+			var character = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 41, 2, endVerse,
+				versification: ScrVers.RussianOrthodox, includeNarratorOverrides: true).Single();
+
+			// Psalm 41:2 in Russian Orthodox => Psalm 42:1 in English
+			if (endVerse > 0)
+				endVerse--;
+			var expected = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber("PSA"), 42, 1, endVerse,
+				versification: ScrVers.English, includeNarratorOverrides: true).Single();
+			Assert.AreEqual(expected, character);
 		}
 
 		[Test]
@@ -172,7 +189,6 @@ namespace GlyssenTests.Character
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
-			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
@@ -221,11 +237,15 @@ namespace GlyssenTests.Character
 			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("ACT")][8].Contains(37));
 		}
 
+		// Note: We didn't used to consider Implicit as expected, but now that we're marking more things as implicit (so we can
+		// take advantage of the improved logic in the quote parser for implicit quotes), it seems better to regard them as
+		// expected. They really are expected, and most languages that regularly use quotation marks will have them for most
+		// implicit passages.
 		[Test]
-		public void ExpectedQuotes_Implicit_IsNotExpected()
+		public void ExpectedQuotes_Implicit_IsExpected()
 		{
-			// Every line in the control file for LEV 1 is Implicit		
-			Assert.False(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
+			// Every line in the control file for LEV 1 is Implicit.
+			Assert.True(ControlCharacterVerseData.Singleton.ExpectedQuotes[BCVRef.BookToNumber("LEV")].ContainsKey(1));
 		}
 	}
 }

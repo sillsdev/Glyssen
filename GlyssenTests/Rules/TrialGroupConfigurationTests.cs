@@ -910,7 +910,7 @@ namespace GlyssenTests.Rules
 				[idPaul] = charactersSpokenByPaul,
 				[idPeter] = charactersSpokenByPeter
 			};
-			foreach (var bookNarrator in m_testProject.IncludedBooks.Select(b => GetNarratorId(b.BookId)))
+			foreach (var bookNarrator in m_testProject.IncludedBookIds.Select(GetNarratorId))
 			{
 				if (!m_keyStrokesByCharId.ContainsKey(bookNarrator))
 					m_keyStrokesByCharId[bookNarrator] = defaultCharcCount;

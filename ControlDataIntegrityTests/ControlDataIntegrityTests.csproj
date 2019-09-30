@@ -92,6 +92,7 @@
     <Compile Include="CharacterDetailDataTests.cs" />
     <Compile Include="CharacterVerseDataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NarratorOverridesTests.cs" />
     <Compile Include="RelatedCharacterDataTests.cs" />
   </ItemGroup>
   <ItemGroup>

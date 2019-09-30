@@ -201,7 +201,7 @@
 			<Book>HEB</Book>
 		</Books>
 	</Author>
-	<!--In their styandard 11-person cast, FCBH does not have James narrate his own book, so even though it
+	<!--In their standard 11-person cast, FCBH does not have James narrate his own book, so even though it
 	    does not pose any logical problems or make a funny sounding recording, we do not count JAS when
 		determining the default number of narrators needed. -->
 	<Author name="James" combineAuthorAndNarrator="true" doNotCombineByDefault="true">

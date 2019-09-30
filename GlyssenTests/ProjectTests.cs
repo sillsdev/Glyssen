@@ -293,7 +293,7 @@ namespace GlyssenTests
 
 				var book = testProject.IncludedBooks.First();
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1, testProject.Versification);
+					book.GetScriptBlocks().Count - 1);
 
 				foreach (var block in matchup.CorrelatedBlocks)
 				{
@@ -365,7 +365,7 @@ namespace GlyssenTests
 
 				var book = testProject.IncludedBooks.First();
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1, testProject.Versification);
+					book.GetScriptBlocks().Count - 1);
 
 				foreach (var block in matchup.CorrelatedBlocks)
 				{
@@ -433,7 +433,7 @@ namespace GlyssenTests
 
 				var book = testProject.IncludedBooks.First();
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
-					book.GetScriptBlocks().Count - 1, testProject.Versification);
+					book.GetScriptBlocks().Count - 1);
 
 				foreach (var block in matchup.CorrelatedBlocks)
 				{
@@ -1081,7 +1081,7 @@ namespace GlyssenTests
 
 			// Case where the vern blocks match 1-for-1 to the English reference text
 			var mark8V5 = blocks.IndexOf(b => b.ChapterNumber == 8 && b.InitialStartVerseNumber == 5);
-			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark8V5, testProject.Versification);
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark8V5);
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			matchup.MatchAllBlocks(null);
@@ -1096,7 +1096,7 @@ namespace GlyssenTests
 			var englishRefBlocks = testProject.ReferenceText.Books.Single(b => b.BookId == "MRK").GetScriptBlocks();
 			var mark9V9EnglishRefText = englishRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
 			Assert.AreEqual(9, englishRefBlocks[mark9V9EnglishRefText + 1].InitialStartVerseNumber);
-			matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark9V9, testProject.Versification);
+			matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark9V9);
 			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			var expectedEnglishRefTextForMark9V9 = englishRefBlocks[mark9V9EnglishRefText].GetText(true) + " " +
@@ -1149,7 +1149,7 @@ namespace GlyssenTests
 			var blocks = mark.GetScriptBlocks();
 
 			var mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
-			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41, testProject.Versification);
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41);
 			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(40, matchup.CorrelatedBlocks[0].InitialStartVerseNumber);
 			Assert.AreEqual(41, matchup.CorrelatedBlocks[1].InitialStartVerseNumber);

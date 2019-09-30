@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using SIL.Scripture;
+using static System.String;
 
 namespace DevTools
 {
 	class CharacterDetailProcessing
 	{
 		private const char kTab = '\t';
-		private static readonly Regex s_findTabsRegex = new Regex("\t", RegexOptions.Compiled);
+		private static readonly Regex s_regexContentBeforeAndAfterReference = new Regex(@"(?<precedingPart>([^\t]*\t){6})[^\t]*(?<followingPart>.*)", RegexOptions.Compiled);
 
 		public static void GenerateReferences()
 		{
@@ -24,15 +24,22 @@ namespace DevTools
 
 		private static void PopulateReferences(List<CharacterDetailLine> lines)
 		{
-			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
-			Dictionary<string, List<BCVRef>> dictionaryWithHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
-			ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
-			Dictionary<string, List<BCVRef>> dictionaryWithoutHypotheticals = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
-			Dictionary<string, List<BCVRef>> dictionaryOfDefaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.DefaultCharacter).ToDictionary(dc => dc.Key, cv => cv.Select(c => c.BcvRef).ToList());
+			// ENHANCE: Get info from NarratorOverrides as well. The information there
+			// would not currently allow us to indicate exactly how many occurrences
+			// there are because it is done using ranges and we do not necessarily
+			// expect that every verse in the range could/would be assigned to that
+			// character. Perhaps we could tack on something like:
+			// ; Also used as narrator override in PSA, JER, EZK.
+			// But how useful would that information really be?
+
+			Dictionary<string, List<BCVRef>> dictionaryOfCharactersToReferences =
+				ControlCharacterVerseData.Singleton.GetAllQuoteInfo().SelectMany(cv => cv.Character.Split('/')
+				.Select(c => new Tuple<string, Glyssen.Character.CharacterVerse>(c, cv)))
+				.GroupBy(t => t.Item1, t => t.Item2).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
 
 			foreach (var line in lines)
 			{
-				if (dictionaryWithHypotheticals.TryGetValue(line.CharacterId, out var bcvRefs))
+				if (dictionaryOfCharactersToReferences.TryGetValue(line.CharacterId, out var bcvRefs))
 				{
 					switch (bcvRefs.Count)
 					{
@@ -48,39 +55,30 @@ namespace DevTools
 							line.ReferenceComment = bcvRefs.Min() + " <-(" + (bcvRefs.Count - 2) + " more)-> " + bcvRefs.Max();
 							break;
 					}
-
-					if (!dictionaryWithoutHypotheticals.TryGetValue(line.CharacterId, out bcvRefs) &&
-					    !dictionaryOfDefaultCharacters.TryGetValue(line.CharacterId, out bcvRefs))
-					{
-						line.HypotheticalOnly = true;
-					}
 				}
 			}
 		}
 
 		private static string Stringify(List<CharacterDetailLine> lines)
 		{
-			StringBuilder sb = new StringBuilder();
-			foreach (var line in lines)
-				sb.Append(GetNewLine(line)).Append(Environment.NewLine);
-			return sb.ToString();
+			return Join(Environment.NewLine, lines.Select(GetNewLine));
 		}
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			// Just making sure...
-			if (s_findTabsRegex.Matches(line.CurrentLine).Count != 7)
-				throw new ArgumentException();
+			var match = s_regexContentBeforeAndAfterReference.Match(line.CurrentLine);
+			if (!match.Success)
+				throw new ArgumentException($"Invalid input: {line.CurrentLine}", nameof(line));
 
-			var match = Regex.Match(line.CurrentLine, @"\t[^\t]*\t", RegexOptions.RightToLeft);
-			var lineWithReferenceComment = line.CurrentLine.Substring(0, match.Index + 1) + line.ReferenceComment;
-
-			return $"{lineWithReferenceComment}\t{line.HypotheticalOnly}";
+			var lineWithReferenceComment = match.Result("${precedingPart}") + line.ReferenceComment + match.Result("${followingPart}");
+			return lineWithReferenceComment;
 		}
 
 		private static void WriteFile(string fileText)
 		{
-			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference Comment\tHypothetical Only" + Environment.NewLine + fileText;
+			// Note: Keeping the "Status" column around in case we want to bring it back, but it is currently always empty and
+			// always ignored in Glyssen.
+			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference\tFCBH Character" + Environment.NewLine + fileText;
 			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
 		}
 
@@ -107,7 +105,6 @@ namespace DevTools
 			public string CharacterId { get; set; }
 			public string CurrentLine { get; set; }
 			public string ReferenceComment { get; set; }
-			public bool HypotheticalOnly { get; set; }
 		}
 
 		public static void GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit()

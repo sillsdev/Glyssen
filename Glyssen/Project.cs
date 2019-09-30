@@ -187,14 +187,14 @@ namespace Glyssen
 		/// Used only for sample project and in tests.
 		/// </summary>
 		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet,
-			WritingSystemDefinition ws)
+			WritingSystemDefinition ws, string versificationInfo = null)
 			: this(metadata, ws: ws)
 		{
-			ParseAndSetBooks(books, stylesheet);
-
 			Directory.CreateDirectory(ProjectFolder);
-			RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
+			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? Resources.EnglishVersification);
 			m_vers = LoadVersification(VersificationFilePath);
+
+			ParseAndSetBooks(books, stylesheet);
 		}
 
 		private bool HasVersificationFile => RobustFile.Exists(VersificationFilePath);
@@ -421,6 +421,8 @@ namespace Glyssen
 				}
 			}
 		}
+
+		public IEnumerable<string> IncludedBookIds => IncludedBooks.Select(b => b.BookId);
 
 		public IReadOnlyList<BookScript> IncludedBooks
 		{
@@ -1314,7 +1316,7 @@ namespace Glyssen
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			ProjectUtilities.ForEachBookFileInProject(projectDir,
-				(bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
+				(bookId, fileName) => project.m_books.Add(BookScript.Deserialize(fileName, project.Versification)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects
@@ -1398,7 +1400,7 @@ namespace Glyssen
 			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification,
+				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books,
 					m_projectMetadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 
 				UpdateControlFileVersion();
@@ -1429,7 +1431,7 @@ namespace Glyssen
 				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
 				if (sourceBookScript != null)
 				{
-					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification, ReferenceText);
+					targetBookScript.ApplyUserDecisions(sourceBookScript, ReferenceText);
 				}
 			}
 			Analyze();
@@ -1495,6 +1497,8 @@ namespace Glyssen
 
 		private void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
+			if (Versification == null)
+				throw new NullReferenceException("What!!!");
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 			var usxWorker = new BackgroundWorker {WorkerReportsProgress = true};
 			usxWorker.DoWork += UsxWorker_DoWork;
@@ -1531,8 +1535,9 @@ namespace Glyssen
 
 			var bookScripts = (List<BookScript>) e.Result;
 
-			// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 			foreach (var bookScript in bookScripts)
+			{
+				// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 				if (bookScript == null || bookScript.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
@@ -1541,6 +1546,9 @@ namespace Glyssen
 					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage,
 						bookScripts.Count, nonNullBookScriptsStr));
 				}
+
+				bookScript.Initialize(Versification);
+			}
 
 			if (m_books.Any())
 			{
@@ -1741,7 +1749,7 @@ namespace Glyssen
 			if (RobustFile.Exists(path))
 			{
 				Exception error;
-				var bookScript = XmlSerializationHelper.DeserializeFromFile<BookScript>(GetBookDataFilePath(bookId), out error);
+				var bookScript = BookScript.Deserialize(GetBookDataFilePath(bookId), Versification, out error);
 				if (error != null)
 					ErrorReport.ReportNonFatalException(error);
 				return bookScript;
@@ -2323,24 +2331,22 @@ namespace Glyssen
 			foreach (var book in IncludedBooks)
 			{
 				var bookDistributionScoreStats = new Dictionary<string, DistributionScoreBookStats>();
-				var narratorToUseForSingleVoiceBook = (book.SingleVoice) ?
-					CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) :
-					null;
+				var narratorToUseForSingleVoiceBook = book.SingleVoice ? book.NarratorCharacterId : null;
 
 				string prevCharacter = null;
-				foreach (var block in book.GetScriptBlocks( /*true*/))
-					// The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
+				foreach (var block in book.GetScriptBlocks())
 				{
 					string character;
 					if (narratorToUseForSingleVoiceBook != null)
 						character = narratorToUseForSingleVoiceBook;
 					else
 					{
-						character = block.CharacterIdInScript;
+						if (block.CharacterIsUnclear)
+							continue; // REVIEW: Should we throw an exception if this happens (in production code)?
+						character = book.GetCharacterIdInScript(block);
 
-						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
-						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
-							continue;
+						if (character == CharacterVerseData.kNeedsReview)
+							continue; // The "Needs Review" character should never be added to a group.
 
 						if (character == null)
 						{
@@ -2530,9 +2536,8 @@ namespace Glyssen
 			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
 			{
 				var bookId = bookidBlocksPair.Key;
-				var blocks =
-					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, Versification).Parse().ToList();
-				var parsedBook = new BookScript(bookId, blocks);
+				var blocks = new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, Versification).Parse().ToList();
+				var parsedBook = new BookScript(bookId, blocks, Versification);
 				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
 			});
 
@@ -2578,11 +2583,9 @@ namespace Glyssen
 					{
 						ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 					}
-					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					{
-						block.SetCharacterIdAndCharacterIdInScript(
-							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
-							Versification);
+						block.SetNonDramaticCharacterId(book.NarratorCharacterId);
 						block.UserConfirmed = true;
 					}
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
@@ -2612,11 +2615,8 @@ namespace Glyssen
 				ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 
 #if DEBUG
-				foreach (var block in book.GetScriptBlocks())
-				{
-					if (block.CharacterIsUnclear())
-						Debug.Fail("Failed to disambiguate");
-				}
+				if (book.GetScriptBlocks().Any(block => block.CharacterIsUnclear))
+					Debug.Fail("Failed to disambiguate");
 #endif
 			}
 		}

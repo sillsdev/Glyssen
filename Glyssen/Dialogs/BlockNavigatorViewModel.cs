@@ -60,7 +60,7 @@ namespace Glyssen.Dialogs
 
 			m_navigator = new BlockNavigator(m_project.IncludedBooks);
 
-			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
+			m_includedBooks = project.IncludedBookIds;
 			Versification = project.Versification;
 
 			if (settingsViewModel != null)
@@ -170,7 +170,7 @@ namespace Glyssen.Dialogs
 					m_currentRelevantIndex >= 0 &&
 					m_currentRelevantIndex < RelevantBlockCount - 1 &&
 					m_relevantBookBlockIndices[m_currentRelevantIndex].BookIndex == m_relevantBookBlockIndices.Last().BookIndex &&
-					m_relevantBookBlockIndices.Skip(m_currentRelevantIndex + 1).All(i => m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks(false)[i.BlockIndex])))
+					m_relevantBookBlockIndices.Skip(m_currentRelevantIndex + 1).All(i => m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks()[i.BlockIndex])))
 				{
 					return RelevantBlockCount;
 				}
@@ -563,7 +563,7 @@ namespace Glyssen.Dialogs
 		public VerseRef GetBlockVerseRef(Block block = null, ScrVers targetVersification = null)
 		{
 			block = block ?? BlockAccessor.CurrentBlock;
-			var verseRef =  new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber, Versification);
+			var verseRef =  block.StartRef(BCVRef.BookToNumber(CurrentBookId), Versification);
 			if (targetVersification != null)
 				verseRef.ChangeVersification(targetVersification);
 			return verseRef;
@@ -745,7 +745,7 @@ namespace Glyssen.Dialogs
 			for (int i = m_currentRelevantIndex - 1; i >= 0; i--)
 			{
 				if (m_relevantBookBlockIndices[i].BookIndex != m_relevantBookBlockIndices[m_currentRelevantIndex].BookIndex ||
-					!m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks(false)[m_relevantBookBlockIndices[i].BlockIndex]))
+					!m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks()[m_relevantBookBlockIndices[i].BlockIndex]))
 				{
 					return i;
 				}
@@ -761,7 +761,7 @@ namespace Glyssen.Dialogs
 				{
 					if (m_relevantBookBlockIndices[i].BookIndex != m_relevantBookBlockIndices[m_currentRelevantIndex].BookIndex ||
 						!m_currentRefBlockMatchups.OriginalBlocks.Contains(
-							CurrentBook.GetScriptBlocks(false)[m_relevantBookBlockIndices[i].BlockIndex]))
+							CurrentBook.GetScriptBlocks()[m_relevantBookBlockIndices[i].BlockIndex]))
 					{
 						return i;
 					}
@@ -828,7 +828,7 @@ namespace Glyssen.Dialogs
 				$"{CurrentBook.BookId} {CurrentBlock.ChapterNumber}:{CurrentBlock.InitialStartVerseNumber}");
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				CurrentBlockIndexInBook, m_project.Versification, BlockAccessor.GetIndices().MultiBlockCount);
+				CurrentBlockIndexInBook, BlockAccessor.GetIndices().MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
 				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
@@ -1064,9 +1064,9 @@ namespace Glyssen.Dialogs
 					return false;
 
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
+					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex);
 
-				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
+				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear) ||
 					(lastMatchup.CorrelatedBlocks.Count > 1 && !lastMatchup.AllScriptureBlocksMatch);
 			}
 			if (block.IsContinuationOfPreviousBlockQuote)
@@ -1127,6 +1127,8 @@ namespace Glyssen.Dialogs
 				return block.IsScripture;
 			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
 				return block.IsQuote;
+			if ((Mode & BlocksToDisplay.NeedsReview) > 0)
+				return block.CharacterIdInScript == CharacterVerseData.kNeedsReview;
 			return false;
 		}
 
@@ -1144,7 +1146,7 @@ namespace Glyssen.Dialogs
 			if (CurrentBookIsSingleVoice)
 				return false;
 
-			return (block.UserConfirmed || block.CharacterIsUnclear());
+			return (block.UserConfirmed || block.CharacterIsUnclear);
 		}
 
 		internal bool CurrentBlockHasMissingExpectedQuote(IEnumerable<BCVRef> versesWithPotentialMissingQuote)

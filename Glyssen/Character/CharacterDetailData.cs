@@ -31,10 +31,7 @@ namespace Glyssen.Character
 			LoadData(TabDelimitedCharacterDetailData);
 		}
 
-		public static CharacterDetailData Singleton
-		{
-			get { return s_singleton ?? (s_singleton = new CharacterDetailData()); }
-		}
+		public static CharacterDetailData Singleton => s_singleton ?? (s_singleton = new CharacterDetailData());
 
 		public static bool CharacterIsMale(string characterId, bool treatEitherAsMale = true)
 		{
@@ -77,13 +74,14 @@ namespace Glyssen.Character
 				if (detail != null)
 					list.Add(detail);
 			}
-			list.AddRange(GetStandardCharacters());
+			AddStandardCharacters(list);
+			AddPsalmistsForPsalm119(list);
+
 			m_data = list;
 		}
 
-		private IEnumerable<CharacterDetail> GetStandardCharacters()
+		private void AddStandardCharacters(List<CharacterDetail> list)
 		{
-			var list = new List<CharacterDetail>();
 			for (int booknum = 1; booknum <= BCVRef.LastBook; booknum++)
 			{
 				string bookCode = BCVRef.NumberToBookCode(booknum);
@@ -92,7 +90,7 @@ namespace Glyssen.Character
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Narrator),
 					Gender = CharacterGender.Neuter,
 					StandardCharacterType = CharacterVerseData.StandardCharacter.Narrator,
-					Status = true
+					//Status = true
 				});
 				list.Add(new CharacterDetail
 				{
@@ -113,23 +111,46 @@ namespace Glyssen.Character
 					StandardCharacterType = CharacterVerseData.StandardCharacter.Intro
 				});
 			}
-			return list;
 		}
+
+		private void AddPsalmistsForPsalm119(List<CharacterDetail> list)
+		{
+			list.AddRange(HebrewLetters.Select(h => new CharacterDetail
+			{
+				CharacterId = $"psalmist ({h})",
+				Gender = CharacterGender.Neuter
+			}));
+		}
+
+		public static IEnumerable<string> HebrewLetters => new[]
+		{
+			"Aleph",
+			"Beth",
+			"Gimel",
+			"Daleth",
+			"He",
+			"Waw",
+			"Zayin",
+			"Chet",
+			"Tet",
+			"Yod",
+			"Kaf",
+			"Lamed",
+			"Mem",
+			"Nun",
+			"Samekh",
+			"Ayin",
+			"Pe",
+			"Tsadi",
+			"Qof",
+			"Resh",
+			"Sin and Shin",
+			"Tav"
+		};
 
 		private CharacterDetail ProcessLine(string[] items, int lineNumber)
 		{
 			if (lineNumber == 0)
-				return null;
-
-			// In an ideal world, we would probably like to keep "hypothetical-only" characters
-			// around so we can show them in the add character lists.
-			// But
-			// 1) They already don't show up there before this change.
-			// 2) I'm currently just trying to fix a crash which occurs when the user adds a
-			//    "hypothetical-only" character (PG-1104). And it doesn't feel worth it to go
-			//    for the ideal world quite yet.
-			var hypotheticalOnly = items.Length >= 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase);
-			if (ControlCharacterVerseData.ReadHypotheticalAsNarrator && hypotheticalOnly)
 				return null;
 
 			CharacterGender gender;
@@ -144,8 +165,10 @@ namespace Glyssen.Character
 				MaxSpeakers = Int32.Parse(items[1]),
 				Gender = gender,
 				Age = age,
-				Status = items[4].Equals("Y", StringComparison.OrdinalIgnoreCase) || items[4].Equals("True", StringComparison.OrdinalIgnoreCase),
-				Comment = items[5]
+				//Status = items[4].Equals("Y", StringComparison.OrdinalIgnoreCase) || items[4].Equals("True", StringComparison.OrdinalIgnoreCase),
+				Comment = items[5],
+				ReferenceComment = items.Length >= 7 ? items[6] : null,
+				DefaultFCBHCharacter = items.Length >= 8 ? items[7] : null
 			};
 		}
 	}
