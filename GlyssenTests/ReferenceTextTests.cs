@@ -45,7 +45,7 @@ namespace GlyssenTests
 			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
-		[TestCase(ReferenceTextType.English, 65)] // All but SNG currently
+		[TestCase(ReferenceTextType.English, 66)] // Whole Bible
 		//[TestCase(ReferenceTextType.Azeri)]
 		//[TestCase(ReferenceTextType.French)]
 		//[TestCase(ReferenceTextType.Indonesian)]
