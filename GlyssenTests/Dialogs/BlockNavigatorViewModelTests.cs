@@ -923,9 +923,10 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
 			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 
 			m_model.TryLoadBlock(m_model.GetBlockVerseRef());
-			Assert.IsTrue(m_model.CurrentBlockDisplayIndex > 0);
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 		}
 
 		[Test]
