@@ -157,7 +157,8 @@ namespace Glyssen.Dialogs
 				return actualCount + adjustment;
 			}
 		}
-		public int RelevantBlockCount { get { return m_relevantBookBlockIndices.Count; } }
+		public int RelevantBlockCount => m_relevantBookBlockIndices.Count;
+
 		public int CurrentBlockDisplayIndex
 		{
 			get
@@ -893,12 +894,12 @@ namespace Glyssen.Dialogs
 			if (insertionIndex < 0)
 			{
 				var indicesOfFirstBlock = BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
-				insertionIndex = GetIndexOfClosestRelevantBlock(m_relevantBookBlockIndices, indicesOfFirstBlock, false, 0, m_relevantBookBlockIndices.Count - 1);
-				if (insertionIndex == -1)
-					insertionIndex = m_relevantBookBlockIndices.Count;
+				insertionIndex = GetIndexOfClosestRelevantBlock(m_relevantBookBlockIndices, indicesOfFirstBlock, false, 0, RelevantBlockCount - 1);
+				if (insertionIndex < 0)
+					insertionIndex = RelevantBlockCount;
 			}
-			else if (insertionIndex > m_relevantBookBlockIndices.Count) // PG-823: We just removed multiple relevant blocks, such that the insertion index is out of range.
-				insertionIndex = m_relevantBookBlockIndices.Count;
+			else if (insertionIndex > RelevantBlockCount) // PG-823: We just removed multiple relevant blocks, such that the insertion index is out of range.
+				insertionIndex = RelevantBlockCount;
 
 			var origRelevantBlockCount = RelevantBlockCount;
 
@@ -934,6 +935,13 @@ namespace Glyssen.Dialogs
 			{
 				var currentBookIndex = BlockAccessor.GetIndices().BookIndex;
 				var startIndex = insertionIndex + RelevantBlockCount - origRelevantBlockCount;
+				// PG-1263: Could not figure out what went wrong, so I'm adding this check to try to analyze the
+				// individual pieces if this ever happens again.
+				if (startIndex < 0)
+					throw new IndexOutOfRangeException($"Start index should never be negative. " +
+						$"{nameof(insertionIndex)} = {insertionIndex}; " +
+						$"{nameof(RelevantBlockCount)} = {RelevantBlockCount}; " +
+						$"{nameof(origRelevantBlockCount)} = {origRelevantBlockCount}; ");
 				if (m_currentRelevantIndex >= 0 && BlockAccessor.GetIndices().IsMultiBlock)
 				{
 					// Since this "relevant passage" is a multi-block matchup (as opposed to a single block), rather than incrementing the

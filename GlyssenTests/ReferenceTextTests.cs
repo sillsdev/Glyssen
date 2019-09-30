@@ -3846,7 +3846,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "Agi, geb Joab, Rey-Davidʼse barmisad. A-iduale sunmaknai, Rey-Davidʼga sunmakdapoe. ", true, 14, "2SA")
 				.AddVerse(4, "Ome-Tecoa-neggweburgined Rey-David-asabin gwisgunonigua, dulluu-napase imaksad. Davidʼga sogded:"));
 			AddBlockForVerseInProgress(vernacularBlocks, "woman from Tekoa", "—¡Rey, be an-bendake!");
-			var vernBook = new BookScript("2SA", vernacularBlocks);
+			var vernBook = new BookScript("2SA", vernacularBlocks, m_vernVersification);
 
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now Joab perceived that the king's heart was toward Absalom.", true, 14, "2SA"));
@@ -3862,7 +3862,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2, m_vernVersification);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2);
 
 			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
 			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
