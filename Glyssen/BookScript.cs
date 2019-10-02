@@ -12,6 +12,7 @@ using Glyssen.Shared;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
+using SIL.Xml;
 using static System.Char;
 using static System.String;
 
@@ -21,34 +22,34 @@ namespace Glyssen
 	public class BookScript : PortionScript, IScrBook
 	{
 		private Dictionary<int, int> m_chapterStartBlockIndices;
+		private Dictionary<Block, string> m_narratorOverrides;
 		private List<List<Block>> m_unappliedSplitBlocks = new List<List<Block>>();
 		private ScrStylesheetAdapter m_styleSheet;
 		private int m_blockCount;
 
-		private BookScript() : base(null, null)
+		private BookScript() : base(null, null, null)
 		{
 			// Needed for deserialization
 		}
 
-		public BookScript(string bookId, IEnumerable<Block> blocks) : base(bookId, blocks)
+		public BookScript(string bookId, IEnumerable<Block> blocks, ScrVers versification) : base(bookId, blocks, versification)
 		{
 			OnBlocksReset();
-			BookNumber = BCVRef.BookToNumber(bookId);
 		}
 
-		[XmlAttribute("id")]
-		public string BookId
+		public static BookScript Deserialize(string fileName, ScrVers versification, out Exception error)
 		{
-			get { return Id; }
-			set
-			{
-				m_id = value;
-				BookNumber = BCVRef.BookToNumber(m_id);
-			}
+			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName, out error);
+			newBook.Initialize(versification);
+			return newBook;
 		}
 
-		[XmlIgnore]
-		public int BookNumber { get; private set; }
+		public static BookScript Deserialize(string fileName, ScrVers versification)
+		{
+			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName);
+			newBook.Initialize(versification);
+			return newBook;
+		}
 
 		[XmlAttribute("singlevoice")]
 		public bool SingleVoice { get; set; }
@@ -59,8 +60,8 @@ namespace Glyssen
 		[XmlAttribute("maintitle")]
 		public string MainTitle { get; set; }
 
-		[XmlAttribute("checkstatusoverridden")]
 		[DefaultValue(false)]
+		[XmlAttribute("checkstatusoverridden")]
 		public bool CheckStatusOverridden { get; set; }
 
 		[XmlAttribute("ptchecksum")]
@@ -81,15 +82,9 @@ namespace Glyssen
 			}
 		}
 
-		public Block this[int i]
-		{
-			get { return m_blocks[i]; }
-		}
+		public Block this[int i] => m_blocks[i];
 
-		public bool HasScriptBlocks
-		{
-			get { return m_blocks.Any(); }
-		}
+		public bool HasScriptBlocks => m_blocks.Any();
 
 		/// <summary>
 		/// Don't use this getter in production code. It is intended ONLY for use by the XML serializer!
@@ -99,103 +94,249 @@ namespace Glyssen
 		[XmlArrayItem("Split")]
 		public List<List<Block>> UnappliedBlockSplits_DoNotUse
 		{
-			get { return m_unappliedSplitBlocks; }
-			set { m_unappliedSplitBlocks = value; }
+			get => m_unappliedSplitBlocks;
+			set => m_unappliedSplitBlocks = value;
 		}
 
-		public System.Collections.Generic.IReadOnlyList<IEnumerable<Block>> UnappliedSplits
-		{
-			get { return m_unappliedSplitBlocks; }
-		}
+		public System.Collections.Generic.IReadOnlyList<IEnumerable<Block>> UnappliedSplits => m_unappliedSplitBlocks;
 
-		public BookScript Clone(bool join)
+		// This method is currently only used for testing
+		internal BookScript Clone()
 		{
-			BookScript newBook = (BookScript) MemberwiseClone();
-			newBook.Blocks = new List<Block>(GetScriptBlocks(join).Select(b => b.Clone()));
+			BookScript newBook = (BookScript)MemberwiseClone();
+			newBook.Blocks = new List<Block>(GetScriptBlocks().Select(b => b.Clone()));
 			newBook.m_unappliedSplitBlocks = new List<List<Block>>(m_unappliedSplitBlocks.Select(l => l.Select(b => b.Clone()).ToList()));
 			return newBook;
 		}
 
-		public override System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks()
+		public override IReadOnlyList<Block> GetScriptBlocks()
 		{
 			EnsureBlockCount();
 			return base.GetScriptBlocks();
 		}
 
-		public System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks(bool join)
+		public BookScript GetCloneWithJoinedBlocks(bool applyNarratorOverrides)
 		{
-			if (!join)
-				return GetScriptBlocks();
+			BookScript clonedBook = (BookScript)MemberwiseClone();
 
 			EnsureBlockCount();
 
-			if (!join || m_blockCount == 0)
-				return m_blocks;
+			var list = clonedBook.Blocks = new List<Block>(m_blockCount);
 
-			var list = new List<Block>(m_blockCount);
+			if (m_blockCount == 0)
+				return clonedBook;
+
+			Action<Block, Block> modifyClonedBlockAsNeeded = null;
+			Func<Block, Block, bool> shouldCombine;
 
 			if (SingleVoice)
 			{
-				list.Add(m_blocks[0].Clone());
-				var prevBlock = list.Single();
-				prevBlock.ClearReferenceText();
 				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
-				for (var i = 1; i < m_blockCount; i++)
+				modifyClonedBlockAsNeeded = (orig, clone) =>
 				{
-					var clonedBlock = m_blocks[i].Clone();
-					clonedBlock.ClearReferenceText();
-					if (!clonedBlock.CharacterIsStandard)
-						clonedBlock.CharacterId = narrator;
-
-					if (!clonedBlock.IsParagraphStart || (clonedBlock.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) // && clonedBlock.CharacterId == prevBlock.CharacterId)
-						prevBlock.CombineWith(clonedBlock);
-					else
-					{
-						list.Add(clonedBlock);
-						prevBlock = clonedBlock;
-					}
-				}
+					clone.ClearReferenceText();
+					if (!clone.CharacterIsStandard)
+						clone.CharacterIdInScript = narrator;
+				};
+				shouldCombine = (curr, prev) => !curr.IsParagraphStart || (curr.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false)));
 			}
 			else
 			{
-				list.Add(m_blocks[0]);
 				if (m_styleSheet == null)
 					m_styleSheet = SfmLoader.GetUsfmStylesheet();
 
-				for (var i = 1; i < m_blockCount; i++)
+				if (applyNarratorOverrides)
 				{
-					var block = m_blocks[i];
-					var prevBlock = list.Last();
+					modifyClonedBlockAsNeeded =
+						(orig, clone) =>
+						{
+							clone.CharacterIdInScript = GetCharacterIdInScript(orig);
+						};
+				}
 
-					if (block.MatchesReferenceText == prevBlock.MatchesReferenceText &&
-						block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
+				shouldCombine = (curr, prev) =>
+				{
+					if (curr.MatchesReferenceText == prev.MatchesReferenceText &&
+						curr.CharacterIdInScript == prev.CharacterIdInScript && (curr.Delivery ?? Empty) == (prev.Delivery ?? Empty))
 					{
-						bool combine = false;
-						if (block.MatchesReferenceText)
+						if (curr.MatchesReferenceText)
 						{
-							combine = block.ReferenceBlocks.Single().StartsWithEllipsis ||
-							((!block.IsParagraphStart || (block.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) &&
-								!block.ContainsVerseNumber &&
-								((!block.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
-										!CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false))) ||
-									block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
-									prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
+							return curr.ReferenceBlocks.Single().StartsWithEllipsis ||
+							((!curr.IsParagraphStart || (curr.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false)))) &&
+								!curr.ContainsVerseNumber &&
+								((!curr.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
+										!CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false))) ||
+									curr.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
+									prev.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
 						}
-						else if (!block.StartsAtVerseStart)
+						if (!curr.StartsAtVerseStart)
 						{
-							var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
-							combine = !block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)));
-						}
-						if (combine)
-						{
-							list[list.Count - 1] = Block.CombineBlocks(prevBlock, block);
-							continue;
+							var style = (StyleAdapter)m_styleSheet.GetStyle(curr.StyleTag);
+							return !curr.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false)));
 						}
 					}
-					list.Add(block);
+					return false;
+				};
+			}
+
+			var currBlock = m_blocks[0].Clone();
+			modifyClonedBlockAsNeeded?.Invoke(m_blocks[0], currBlock);
+			list.Add(currBlock);
+			for (var i = 1; i < m_blockCount; i++)
+			{
+				var prevBlock = list.Last();
+				currBlock = m_blocks[i].Clone();
+				modifyClonedBlockAsNeeded?.Invoke(m_blocks[i], currBlock);
+				if (shouldCombine(currBlock, prevBlock))
+					prevBlock.CombineWith(currBlock);
+				else
+					list.Add(currBlock);
+			}
+
+			return clonedBook;
+		}
+
+		internal string GetCharacterIdInScript(Block block)
+		{
+			if (block.CharacterIdOverrideForScript != null)
+				return block.CharacterIdOverrideForScript;
+
+			if (m_narratorOverrides == null)
+				PopulateEffectiveNarratorOverrides();
+			return m_narratorOverrides.TryGetValue(block, out string characterOverride) ?
+				characterOverride : block.CharacterId;
+		}
+
+		private void AddOverrideInfo(NarratorOverrides.NarratorOverrideDetail info)
+		{
+			// STEP 1: Find the first block (if any) to which this override applies
+			var firstChapter = info.StartChapter;
+			int iBlock = GetIndexOfFirstBlockForVerse(firstChapter, info.StartVerse);
+			while (iBlock == -1 && ++firstChapter <= info.EndChapter)
+				iBlock = GetIndexOfFirstBlockForVerse(firstChapter, 1);
+			if (iBlock == -1)
+				return; // No existing blocks are covered by this override
+
+			if (m_blocks[iBlock].ChapterNumber == info.StartChapter)
+			{
+				if (m_blocks[iBlock].LastVerseNum < info.StartVerse)
+				{
+					var offsetToNextChapter = m_blocks.Skip(iBlock).IndexOf(b => b.ChapterNumber > info.StartChapter);
+					if (offsetToNextChapter == -1)
+						return; // All the blocks in this chapter are before the override starts and there are no more blocks beyond this chapter.
+					iBlock += offsetToNextChapter;
+				}
+				else if (info.StartBlock > 1)
+				{
+					var lastVerseNumInBlock = m_blocks[iBlock].LastVerseNum;
+					if (lastVerseNumInBlock == info.StartVerse || (lastVerseNumInBlock < info.StartVerse && lastVerseNumInBlock >= info.StartVerse))
+					{
+						// Skip ahead to get to correct start block.
+						for (int i = 1; i < info.StartBlock; i++)
+						{
+							var block = m_blocks[++iBlock];
+							if (!block.IsScripture)
+							{
+								// Unlikely, but if this happens, we don't want to count it as one of the blocks to skip.
+								i--;
+								continue;
+							}
+							if (block.InitialStartVerseNumber > info.StartVerse && block.InitialEndVerseNumber > info.StartVerse)
+								break;
+						}
+					}
 				}
 			}
-			return list;
+
+			// STEP 2: Based on the characters used in the block(s) that pertain to this override, determine whether to apply it.
+			// Details: There are three kinds of blocks that can be found within a range covered by an override:
+			// 1) narrator block
+			// 2) block explicitly attributed to the override character
+			// 3) block explicitly attributed to some other character
+			// In a really simple world, we would just override all the narrator blocks and leave the others alone. But
+			// that's not the kind of world we live in. We need to correctly deal with the special case where a
+			// vernacular translation uses explicit quotes around the author's "self-quoted" material and has an actual
+			// narrator chime in with an occasional he-said. In that scenario, we wouldn't want those he-saids to get
+			// automatically assigned to the implicit speaking character. To attempt to prevent this, the logic below
+			// says that if any verse (present in the text) of the entire passage/chapter to override is entirely
+			// assigned to the narrator (regardless of how many blocks represent the verse), then the override is
+			// applied (to any narrator blocks in the range). Two special cases:
+			// A) We never look at more than one chapter at a time, so if an override covers multiple chapters, this
+			//    logic will treat each chapter (or portion thereof) as if it were a distinct override.
+			// B) For overrides that apply to only part of a verse, if any included block is explicitly assigned to
+			//    the override character, then the override will not be applied to any block.
+			bool applyOverride = false;
+			var narratorBlocksInRange = new List<Block>();
+			int blocksFoundAtEndVerse = 0;
+			int currentLastVerseNum = -1;
+			bool currentVerseBlocksAllNarrator = false;
+
+			for (int i = iBlock; i < m_blockCount; i++)
+			{
+				var block = m_blocks[i];
+
+				if (block.ChapterNumber > info.EndChapter)
+					break;
+				if (block.ChapterNumber == info.EndChapter)
+				{
+					var lastVerseNum = block.LastVerseNum;
+					if (lastVerseNum > info.EndVerse)
+						break;
+					if (lastVerseNum == info.EndVerse)
+					{
+						blocksFoundAtEndVerse++;
+						if (info.EndBlock > 0 && blocksFoundAtEndVerse > info.NumberOfBlocksIncludedInEndVerse)
+							break;
+					}
+				}
+
+				if (block.InitialStartVerseNumber > 0 && block.CharacterId == NarratorCharacterId)
+				{
+					// A block at verse 0 (in the Psalms) is a Hebrew Title line. We do not support overriding those.
+					// Style tag "qa" is an acrostic header. These also do not get overridden.
+					if (block.StyleTag != "qa")
+						narratorBlocksInRange.Add(block);
+				}
+				else
+				{
+					if (!applyOverride)
+					{
+						if (currentLastVerseNum < block.InitialStartVerseNumber && currentVerseBlocksAllNarrator)
+						{
+							// All blocks for the previous verse -- the last verse in the previous (i.e., "current") block --
+							// were assigned to the narrator.
+							applyOverride = true;
+							continue;
+						}
+						currentLastVerseNum = block.LastVerseNum;
+						currentVerseBlocksAllNarrator = false;
+					}
+					continue;
+				}
+				if (applyOverride) // Once this is true, all we need to do is collect the rest of the narrator blocks in range.
+					continue; // Remaining logic in loop just checks additional edge-case conditions that indicate we found a narrator-only verse.
+
+				if (currentLastVerseNum != block.LastVerseNum)
+				{
+					// If this (narrator) block represents the final block for the previous (i.e., "current") verse AND
+					if (currentVerseBlocksAllNarrator || // all the previous blocks for the verse were also narrator blocks; OR
+						(currentLastVerseNum == -1 &&    // this is the 1st block in range (i.e., no previous blocks for this
+						block.CoversMoreThanOneVerse))   // verse need be considered)
+					{
+						applyOverride = true;
+						continue;
+					}
+					currentLastVerseNum = block.LastVerseNum;
+					currentVerseBlocksAllNarrator = true;
+				}
+
+				// If this (narrator) block contains a whole verse, then we have a narrator-only verse.
+				if (block.BlockElements.OfType<Verse>().Skip(1).Any()) // This is a presumably more efficient equivalent to ...Count() >= 2
+					applyOverride = true;
+			}
+			applyOverride |= currentVerseBlocksAllNarrator;
+			if (applyOverride)
+				m_narratorOverrides.AddRange(narratorBlocksInRange.Select(b => new KeyValuePair<Block, string>(b, info.Character)));
 		}
 
 		public string GetVerseText(int chapter, int verse)
@@ -238,6 +379,7 @@ namespace Glyssen
 		private void OnBlocksReset()
 		{
 			m_chapterStartBlockIndices = new Dictionary<int, int>();
+			m_narratorOverrides = null;
 			m_blockCount = m_blocks.Count;
 		}
 
@@ -373,7 +515,15 @@ namespace Glyssen
 					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript, ScrVers versification = null, ReferenceText referenceTextToReapply = null)
+		private void PopulateEffectiveNarratorOverrides()
+		{
+			m_narratorOverrides = new Dictionary<Block, string>();
+
+			foreach (var info in NarratorOverrides.GetNarratorOverridesForBook(BookId, Versification))
+				AddOverrideInfo(info);
+		}
+
+		public void ApplyUserDecisions(BookScript sourceBookScript, ReferenceText referenceTextToReapply = null)
 		{
 			var blockComparer = new SplitBlockComparer();
 
@@ -385,15 +535,15 @@ namespace Glyssen
 
 			ApplyUserSplits(sourceBookScript, blockComparer);
 			if (referenceTextToReapply != null)
-				ApplyReferenceBlockMatches(sourceBookScript, versification, referenceTextToReapply, blockComparer);
-			ApplyUserAssignments(sourceBookScript, versification);
-			CleanUpMultiBlockQuotes(versification);
+				ApplyReferenceBlockMatches(sourceBookScript, referenceTextToReapply, blockComparer);
+			ApplyUserAssignments(sourceBookScript);
+			CleanUpMultiBlockQuotes();
 		}
 
-		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ScrVers versification,
-			ReferenceText referenceTextToReapply, SplitBlockComparer blockComparer)
+		private void ApplyReferenceBlockMatches(BookScript sourceBookScript, ReferenceText referenceTextToReapply,
+			SplitBlockComparer blockComparer)
 		{
-			var sourceBlocks = sourceBookScript.GetScriptBlocks(false);
+			var sourceBlocks = sourceBookScript.GetScriptBlocks();
 			for (int iSrc = 0; iSrc < sourceBlocks.Count; iSrc++)
 			{
 				var sourceBlock = sourceBlocks[iSrc];
@@ -418,8 +568,7 @@ namespace Glyssen
 					}
 					continue;
 				}
-				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock,
-					versification);
+				var targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock);
 				var targetMatchupInitialVerse = targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber;
 				if (targetMatchupInitialVerse < m_blocks[iTargetBlock].InitialStartVerseNumber)
 					continue; // Oops, we ended up going backwards into the target
@@ -436,9 +585,8 @@ namespace Glyssen
 						var verseToSplitAfter = m_blocks[iTargetBlock].BlockElements.OfType<Verse>()
 							.TakeWhile(v => v.Number != verseToSplitBefore.Number).LastOrDefault()?.Number ??
 							m_blocks[iTargetBlock].InitialVerseNumberOrBridge;
-						SplitBlock(m_blocks[iTargetBlock++], verseToSplitAfter, kSplitAtEndOfVerse, false, null, versification);
-						targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock,
-							versification);
+						SplitBlock(m_blocks[iTargetBlock++], verseToSplitAfter, kSplitAtEndOfVerse, false);
+						targetMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(this, iTargetBlock);
 						targetMatchupInitialVerse = targetMatchup.CorrelatedBlocks[0].InitialStartVerseNumber;
 						Debug.Assert(targetMatchupInitialVerse == m_blocks[iTargetBlock].InitialStartVerseNumber &&
 							targetMatchupInitialVerse == sourceBlock.InitialStartVerseNumber);
@@ -449,7 +597,7 @@ namespace Glyssen
 				else if (!sourceBlocks.Skip(iSrc).Take(targetMatchup.CorrelatedBlocks.Count).SequenceEqual(targetMatchup.CorrelatedBlocks, blockComparer))
 					continue;
 				var sourceMatchup = referenceTextToReapply.GetBlocksForVerseMatchedToReferenceText(sourceBookScript, iSrc,
-					versification, (uint)targetMatchup.CorrelatedBlocks.Count, false);
+					(uint)targetMatchup.CorrelatedBlocks.Count, false);
 				if (sourceMatchup.CountOfBlocksAddedBySplitting != 0)
 				{
 					Debug.Fail("Something unexpected happened. Logic above should guarantee that unsplit source matched split target.");
@@ -471,21 +619,20 @@ namespace Glyssen
 					{
 						targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
 						targetBlock.CloneReferenceBlocks();
-						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, versification);
+						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, Versification);
 						targetBlock.SplitId = sourceBlock.SplitId;
 						targetBlock.MultiBlockQuote = sourceBlock.MultiBlockQuote;
 						targetBlock.UserConfirmed = sourceBlock.UserConfirmed;
 					}
 				}
-				targetMatchup.Apply(versification);
+				targetMatchup.Apply(Versification);
 			}
 		}
 
-		private void ApplyUserAssignments(BookScript sourceBookScript, ScrVers versification)
+		private void ApplyUserAssignments(BookScript sourceBookScript)
 		{
 			var comparer = new BlockElementContentsComparer();
 			int iTarget = 0;
-			var bookNum = BCVRef.BookToNumber(sourceBookScript.BookId);
 			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
 			{
 				if (iTarget == m_blocks.Count)
@@ -509,12 +656,9 @@ namespace Glyssen
 						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
 					{
 						if (sourceBlock.CharacterIdOverrideForScript == null)
-							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, bookNum, versification);
+							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, sourceBookScript.BookNumber, Versification);
 						else
-						{
-							m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
-							m_blocks[iTarget].CharacterIdOverrideForScript = sourceBlock.CharacterIdOverrideForScript;
-						}
+							m_blocks[iTarget].SetCharacterInfo(sourceBlock);
 						m_blocks[iTarget].Delivery = sourceBlock.Delivery;
 						if (sourceBlock.MatchesReferenceText && !m_blocks[iTarget].MatchesReferenceText)
 						{
@@ -693,7 +837,7 @@ namespace Glyssen
 						return true;
 					// The "normal" rules for a user break were thus not enforced. In order to be able to re-apply this split,
 					// tell it we're reapplying splits, so it skips that check.
-					SplitBeforeBlock(iBlock, currentSplit.SplitId, true, currentSplit.CharacterId, null, true);
+					SplitBeforeBlock(iBlock, currentSplit.SplitId, true, currentSplit.CharacterId, true);
 					chipOffTheOldBlock = blockToSplit;
 				}
 				else
@@ -701,7 +845,7 @@ namespace Glyssen
 					chipOffTheOldBlock = helper.SplitBlockBasedOn(currentSplit);
 					chipOffTheOldBlock.CharacterId = currentSplit.CharacterId;
 				}
-				chipOffTheOldBlock.CharacterIdOverrideForScript = currentSplit.CharacterIdOverrideForScript;
+				chipOffTheOldBlock.CharacterIdInScript = currentSplit.CharacterIdOverrideForScript;
 				chipOffTheOldBlock.Delivery = currentSplit.Delivery;
 			}
 
@@ -770,14 +914,14 @@ namespace Glyssen
 			}
 		}
 
-		public void CleanUpMultiBlockQuotes(ScrVers versification)
+		public void CleanUpMultiBlockQuotes()
 		{
-			var model = new BlockNavigatorViewModel(new[] { this }.ToReadOnlyList(), versification);
+			var model = new BlockNavigatorViewModel(new[] { this }.ToReadOnlyList(), Versification);
 			foreach (IEnumerable<Block> multiBlock in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
 				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block)))
 			{
-				ProcessAssignmentForMultiBlockQuote(BCVRef.BookToNumber(BookId), multiBlock.ToList(), versification);
+				ProcessAssignmentForMultiBlockQuote(BCVRef.BookToNumber(BookId), multiBlock.ToList(), Versification);
 			}
 		}
 
@@ -811,35 +955,27 @@ namespace Glyssen
 			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count;
 			if (numUniqueCharacterDeliveries > 1)
 			{
-				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnknownCharacter };
-				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1)
+				// First check to see if we need to set all these blocks to Ambiguous.
+				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnexpectedCharacter /* "Unknown" */};
+				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1 || // More than one "real" character
+					(numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))) // Only values are Ambiguous and Unknown
 				{
-					// More than one real character. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
-				}
-				else if (numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))
-				{
-					// Only values are Ambiguous and Unique. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
+					foreach (Block block in multiBlockQuote)
+					{
+						block.SetNonDramaticCharacterId(CharacterVerseData.kAmbiguousCharacter);
+						block.UserConfirmed = false;
+					}
 				}
 				else if (numUniqueCharacterDeliveries <= numUniqueCharacters)
 				{
 					// Only one real character (and delivery). Set to that character (and delivery).
-					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnknownCharacter);
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, realCharacter.Character, realCharacter.Delivery, versification);
+					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnexpectedCharacter);
+					foreach (Block block in multiBlockQuote)
+					{
+						block.SetCharacterIdAndCharacterIdInScript(realCharacter.Character, bookNum, versification);
+						block.Delivery = realCharacter.Delivery;
+					}
 				}
-			}
-		}
-
-		private static void SetCharacterAndDeliveryForMultipleBlocks(int bookNum, IEnumerable<Block> blocks, string character, string delivery, ScrVers versification)
-		{
-			foreach (Block block in blocks)
-			{
-				block.SetCharacterIdAndCharacterIdInScript(character, bookNum, versification);
-				block.Delivery = delivery;
-
-				if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
-					block.UserConfirmed = false;
 			}
 		}
 
@@ -895,11 +1031,9 @@ namespace Glyssen
 							$"{baseBlock.ToString(true, BookId)}");
 					do
 					{
-						m_blocks[iNextBlock].CharacterId = baseBlock.CharacterId;
-						// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks
-						// outside the matchup (probably not).
-						// m_blocks[blockIndexFollowingReplacement].Delivery = lastReplacementBlock.Delivery;
-						m_blocks[iNextBlock].CharacterIdOverrideForScript = baseBlock.CharacterIdOverrideForScript;
+						m_blocks[iNextBlock].SetCharacterInfo(baseBlock);
+						// REVIEW: We need to think about whether the delivery should automatically flow through the continuation blocks.
+						// m_blocks[iNextBlock].Delivery = baseBlock.Delivery;
 					} while (++iNextBlock < m_blocks.Count && m_blocks[iNextBlock].IsContinuationOfPreviousBlockQuote);
 				}
 			}

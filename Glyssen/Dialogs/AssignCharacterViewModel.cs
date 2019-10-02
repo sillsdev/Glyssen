@@ -22,7 +22,7 @@ namespace Glyssen.Dialogs
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
 		private readonly HashSet<CharacterVerse> m_pendingCharacterVerseAdditions = new HashSet<CharacterVerse>();
-		private HashSet<CharacterVerse> m_currentCharacters;
+		private ISet<ICharacterDeliveryInfo> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
@@ -220,7 +220,8 @@ namespace Glyssen.Dialogs
 		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
-				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification:Versification));
+				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification,
+				includeAlternates:true, includeNarratorOverrides:true));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
@@ -231,7 +232,7 @@ namespace Glyssen.Dialogs
 
 		private void PopulateCurrentCharactersForCurrentReferenceTextMatchup()
 		{
-			m_currentCharacters = new HashSet<CharacterVerse>();
+			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
 			m_currentCharacters.UnionWith(m_pendingCharacterVerseAdditions);
@@ -239,7 +240,7 @@ namespace Glyssen.Dialogs
 
 		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
 		{
-			m_currentCharacters = GetUniqueCharacterVerseObjectsForCurrentReference();
+			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(GetUniqueCharacterVerseObjectsForCurrentReference());
 			return GetUniqueCharacters(expandIfNone);
 		}
 
@@ -257,7 +258,7 @@ namespace Glyssen.Dialogs
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
 				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification))
+						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification, includeAlternates:true))
 				{
 					m_currentCharacters.Add(character);
 				}
@@ -274,7 +275,7 @@ namespace Glyssen.Dialogs
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
 					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification))
+						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification, includeAlternates: true))
 					{
 						m_currentCharacters.Add(character);
 					}
@@ -295,15 +296,14 @@ namespace Glyssen.Dialogs
 
 			if (string.IsNullOrWhiteSpace(filterText))
 			{
-				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
+				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
 			}
 			else
 			{
-				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries());
-
 				filterText = filterText.Trim();
-				m_currentCharacters.RemoveWhere(c => !c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
-					(c.LocalizedAlias == null || !c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase)));
+				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries()
+					.Where(c => c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
+						(c.LocalizedAlias != null && c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase))));
 			}
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(
@@ -393,7 +393,7 @@ namespace Glyssen.Dialogs
 				return false; // Can't change these.
 
 			if (newCharacter == null)
-				return !(currentBlock.CharacterIsUnclear() || currentBlock.CharacterId == null);
+				return !(currentBlock.CharacterIsUnclear || currentBlock.CharacterId == null);
 			if (newCharacter.IsNarrator)
 			{
 				if (!currentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
@@ -446,7 +446,7 @@ namespace Glyssen.Dialogs
 			else
 				block.SetCharacterIdAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
 					m_project.Versification);
-			block.UserConfirmed = !block.CharacterIsUnclear();
+			block.UserConfirmed = !block.CharacterIsUnclear;
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
@@ -475,7 +475,7 @@ namespace Glyssen.Dialogs
 			int numberOfBlocksCompleted = 0;
 			if (DoingAssignmentTask)
 			{
-				numberOfBlocksCompleted = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
+				numberOfBlocksCompleted = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear);
 			}
 			else if (DoingAlignmentTask)
 			{
@@ -626,7 +626,7 @@ namespace Glyssen.Dialogs
 				if (currentBlock.CharacterId != firstCharacterId)
 				{
 					if (string.IsNullOrEmpty(firstCharacterId))
-						currentBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+						currentBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 					else
 					{
 						Debug.Assert(currentBlock.CharacterIdOverrideForScript == null && firstCharacterId.SplitCharacterId().Length == 1,
@@ -647,7 +647,7 @@ namespace Glyssen.Dialogs
 
 						var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
 						var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
-							blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
+							blockSplitData.CharacterOffsetToSplit, true, characterId);
 						if (!string.IsNullOrEmpty(characterId))
 							AddPendingProjectCharacterVerseDataIfNeeded(chipOffTheOldBlock, characterId);
 
@@ -765,7 +765,7 @@ namespace Glyssen.Dialogs
 					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
 					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
 					default:
-						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
+						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);
 						characterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
@@ -941,7 +941,7 @@ namespace Glyssen.Dialogs
 		{
 			if (CurrentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 				return Character.Narrator;
-			if (CurrentBlock.CharacterIsUnclear())
+			if (CurrentBlock.CharacterIsUnclear)
 			{
 				if (!CurrentBlock.ContainsVerseNumber)
 				{

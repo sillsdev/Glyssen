@@ -137,11 +137,11 @@
     <Compile Include="BlockElementTests.cs" />
     <Compile Include="BlockMatchupTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
+    <Compile Include="Character\NarratorOverridesTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
     <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
     <Compile Include="BlockTests.cs" />
-    <Compile Include="BookMetadataTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />
     <Compile Include="Bundle\GlyssenBundleTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
@@ -257,6 +257,7 @@
     <Content Include="icu64\icudt54.dll" />
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
+    <None Include="Resources\RussianOrthodoxVersification.txt" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />

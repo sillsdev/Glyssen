@@ -53,10 +53,10 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			m_viewModel.SetUiStrings(
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"),
+				CharacterVerseData.StandardCharacterNameFormatNarrator,
+				CharacterVerseData.StandardCharacterNameFormatBookOrChapter,
+				CharacterVerseData.StandardCharacterNameFormatIntroduction,
+				CharacterVerseData.StandardCharacterNameFormatSectionHead,
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
 			if (m_toolStripComboBoxFilter.Items.Count == m_indexOfFirstFilterItemRemoved)
@@ -273,25 +273,24 @@ namespace Glyssen.Dialogs
 			var mode = m_viewModel.Mode;
 			Logger.WriteEvent("Initial filter in Identify Speaking Parts dialog: " + mode);
 
-			if (mode == BlocksToDisplay.NotYetAssigned)
-				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if (mode == BlocksToDisplay.NotAssignedAutomatically)
-				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 2;
-			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 3;
-			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 4;
-			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 5;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 6;
-			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 7;
-			else
-				// ReSharper disable once NotResolvedInText
-				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+			// Note: although the BlocksToDisplay enumeration is a "Flags" enumeration, in
+			// practice, the UI only allows for the mode to be set to specific values
+			// (including certain named combinations), so for the purpose of re-selecting
+			// the correct filter, we can check for the known valid enumerations.
+			switch (mode)
+			{
+				case BlocksToDisplay.NotYetAssigned: m_toolStripComboBoxFilter.SelectedIndex = 0; break;
+				case BlocksToDisplay.NotAssignedAutomatically: m_toolStripComboBoxFilter.SelectedIndex = 1; break;
+				case BlocksToDisplay.MissingExpectedQuote: m_toolStripComboBoxFilter.SelectedIndex = 2; break;
+				case BlocksToDisplay.MoreQuotesThanExpectedSpeakers: m_toolStripComboBoxFilter.SelectedIndex = 3; break;
+				case BlocksToDisplay.AllExpectedQuotes: m_toolStripComboBoxFilter.SelectedIndex = 4; break;
+				case BlocksToDisplay.AllQuotes: m_toolStripComboBoxFilter.SelectedIndex = 5; break;
+				case BlocksToDisplay.AllScripture: m_toolStripComboBoxFilter.SelectedIndex = 6; break;
+				case BlocksToDisplay.NeedsReview: m_toolStripComboBoxFilter.SelectedIndex = 7; break;
+				case BlocksToDisplay.NotAlignedToReferenceText: m_toolStripComboBoxFilter.SelectedIndex = 8; break;
+				default:
+					throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+			}
 		}
 
 		private void BlocksViewerVisibleChanged(object sender, EventArgs args)
@@ -392,7 +391,7 @@ namespace Glyssen.Dialogs
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
 			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
 					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
-				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnknownCharacter))
+				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnexpectedCharacter))
 			{
 				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
@@ -420,7 +419,7 @@ namespace Glyssen.Dialogs
 					colCharacter.Items.Add(character);
 
 				colCharacter.ReadOnly = colCharacter.Items.Count == 1 &&
-					!m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
+					!m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear);
 
 				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
@@ -430,7 +429,7 @@ namespace Glyssen.Dialogs
 
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
 				// BryanW says it will be easier to train people if this column is always visible, even when there is nothing to do.
-				//colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
+				//colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear);
 				colDelivery.Visible = colDelivery.Items.Count > 1;
 				var primaryColumnIndex = colPrimary.Visible ? colPrimary.Index : colEnglish.Index;
 
@@ -501,7 +500,7 @@ namespace Glyssen.Dialogs
 
 		private void SetCharacterCellValue(DataGridViewRow row, Block correlatedBlock)
 		{
-			string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
+			string characterId = correlatedBlock.CharacterIsUnclear ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
 				correlatedBlock.CharacterId;
 
 			if (CharacterVerseData.IsCharacterStandard(characterId))
@@ -1074,6 +1073,9 @@ namespace Glyssen.Dialogs
 						mode = BlocksToDisplay.AllQuotes;
 						break;
 					case 7:
+						mode = BlocksToDisplay.NeedsReview;
+						break;
+					case 8:
 						mode = BlocksToDisplay.NotAlignedToReferenceText;
 						break;
 					default:

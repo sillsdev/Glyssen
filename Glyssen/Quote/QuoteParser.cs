@@ -22,7 +22,7 @@ namespace Glyssen.Quote
 	{
 		public static void ParseProject(Project project, BackgroundWorker projectWorker)
 		{
-			var cvInfo = new CombinedCharacterVerseData(project);
+			var cvInfo = new ParserCharacterRepository(new CombinedCharacterVerseData(project), project.ReferenceText);
 
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
@@ -52,7 +52,7 @@ namespace Glyssen.Quote
 			Block.InitializeInterruptionRegEx(quoteSystem.QuotationDashMarker != null && quoteSystem.QuotationDashMarker.Any(c => c == '\u2014' || c == '\u2015'));
 		}
 
-		private readonly ICharacterVerseInfo m_cvInfo;
+		private readonly ICharacterVerseRepository m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
@@ -74,7 +74,7 @@ namespace Glyssen.Quote
 		private bool m_ignoringNarratorQuotation;
 		#endregion
 
-		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
+		public QuoteParser(ICharacterVerseRepository cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
 		{
 			m_cvInfo = cvInfo;
 			m_bookId = bookId;
@@ -245,14 +245,14 @@ namespace Glyssen.Quote
 							if (m_possibleCharactersForCurrentQuote.Any())
 							{
 								m_possibleCharactersForCurrentQuote = m_possibleCharactersForCurrentQuote.Intersect(
-									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse, verseElement.EndVerse, versification: m_versification).Select(cv => cv.Character)).ToList();
+									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse, verseElement.EndVerse, versification: m_versification, includeAlternates:true).Select(cv => cv.Character)).ToList();
 
 								if (!m_possibleCharactersForCurrentQuote.Any())
 								{
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+										multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 										multiBlock.Delivery = null;
 									}
 									m_currentMultiBlockQuote.Clear();
@@ -390,8 +390,13 @@ namespace Glyssen.Quote
 								{
 									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
 									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
-									if (characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
-										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator))
+									// Also, if the verse has an implicit character and the only other entry is a Quotation by that same character,
+									// ignore it. (There is a slight chance a stray "he said" could mess us up here, but that's unlikely.)
+									if ((characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
+										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator)) ||
+										(characters.Count == 2 && characters.Count(c => c.QuoteType == QuoteType.Implicit) == 1 &&
+										characters.SingleOrDefault(c => c.QuoteType == QuoteType.Quotation)?.Character ==
+										characters.First(c => c.QuoteType == QuoteType.Implicit).Character))
 									{
 										m_ignoringNarratorQuotation = true;
 									}
@@ -467,7 +472,7 @@ namespace Glyssen.Quote
 				foreach (var multiBlock in m_currentMultiBlockQuote)
 				{
 					multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-					multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+					multiBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 					multiBlock.Delivery = null;
 				}
 			}
@@ -476,7 +481,196 @@ namespace Glyssen.Quote
 				// In case the last set of blocks were a multi-block quote
 				ProcessMultiBlock();
 			}
+			SetImplicitCharacters();
 			return m_outputBlocks;
+		}
+
+		/// <summary>
+		/// After doing all the "normal" parsing logic, this methods takes a final pass to see if there are any
+		/// narrator blocks (i.e., no explicit quote markup was detected) for verses that are known to be spoken
+		/// by a particular character.
+		/// </summary>
+		/// <remarks>
+		/// If the logic here seems unnecessarily complicated, it's because it has special handling to deal with
+		/// blocks that contain leading and/or trailing verses or partial verses that are not part of the passage
+		/// known implicitly to be spoken entirely by the specified character. In that case:
+		/// * If the leading or trailing verse is already split such that part of the verse is included in the
+		/// paragraph(s) with the implicit verses, we assume that the paragraph break(s) correspond to start/end
+		/// of the quote, and mark the paragraph(s) containing the implicit verse and partial verse(s) as being
+		/// spoken by the expected character.
+		/// * Otherwise, regardless of the number of leading or trailing verses in the paragraph, we split the
+		/// block to isolate the verses known to contain the implicit speech, so that block can be marked as
+		/// spoken by the known character. If the control file indicates that the same character also speaks in
+		/// the preceding or following verse, we mark those split-off blocks as ambiguous.
+		/// Note: The control file needs to take a fairly conservative approach to marking a verse as
+		/// <see cref="Glyssen.Character.QuoteType.Implicit"/>. Verses that are not part of an ongoing discourse
+		/// and may reasonably be re-worded to turn direct speech into indirect speech should not be marked as
+		/// implicit.
+		/// </remarks>
+		private void SetImplicitCharacters()
+		{
+			var prevBlockWasOriginallyNarratorCharacter = false;
+			var comparer = new CharacterDeliveryEqualityComparer();
+			for (int i = 0; i < m_outputBlocks.Count; i++)
+			{
+				var block = m_outputBlocks[i];
+				if (block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
+				{
+					var initialImplicitCv = m_cvInfo.GetImplicitCharacter(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+						 m_versification);
+					var subsequentImplicitCv = initialImplicitCv; // These can be (and very often will be) null
+
+					// See if there is a verse/bridge in the block where we have a change in implicit character (which
+					// could be going from one implicit character to another or, more likely, going from having one to
+					// not having one, or vice versa).
+					int iElem;
+					for (iElem = 1; iElem < block.BlockElements.Count; iElem++)
+					{
+						if (block.BlockElements[iElem] is Verse verse)
+						{
+							subsequentImplicitCv = m_cvInfo.GetImplicitCharacter(m_bookNum, block.ChapterNumber, verse.StartVerse,
+								verse.EndVerse, m_versification);
+							if (!comparer.Equals(initialImplicitCv, subsequentImplicitCv))
+								break;
+						}
+					}
+					if (!comparer.Equals(initialImplicitCv, subsequentImplicitCv))
+					{
+						// Split this block
+						var newBlock = new Block(block.StyleTag, block.ChapterNumber,
+							block.InitialStartVerseNumber, block.InitialEndVerseNumber)
+						{
+							BlockElements = block.BlockElements.Take(iElem).ToList(),
+						};
+						m_outputBlocks.Insert(i, newBlock);
+						// Decide how to assign the newly split-off (preceding) block. There are four possibilities.
+						ICharacterDeliveryInfo leadInCharacter;
+						if (subsequentImplicitCv != null &&
+							(leadInCharacter = GetMatchingCharacter(newBlock, subsequentImplicitCv)) != null)
+						{
+							if (newBlock.ContainsVerseNumber)
+							{
+								// 1) Whole verse(s). Not a likely lead-in, though still possible. User should have a look.
+								newBlock.CharacterId = CharacterVerseData.kNeedsReview;
+							}
+							else
+							{
+								// 2) Most interesting case: this is a partial-verse block, that could
+								// reasonably be the same character. (Long discourses often begin with a verse
+								// that starts off with an intro statement by the narrator.)
+								newBlock.SetCharacterIdAndCharacterIdInScript(leadInCharacter.Character, m_bookNum, m_versification);
+								newBlock.Delivery = leadInCharacter.Delivery;
+							}
+						}
+						else
+						{
+							if (initialImplicitCv != null)
+							{
+								// 3) Two different back-to-back implicit blocks. Not common outside of prophecy/poetry.
+								newBlock.SetCharacterIdAndCharacterIdInScript(initialImplicitCv.Character, m_bookNum, m_versification);
+								newBlock.Delivery = initialImplicitCv.Delivery;
+							}
+							else // 4) Just leave it as narrator.
+								newBlock.CharacterId = block.CharacterId; // i.e., Narrator
+						}
+						var startVerse = (Verse)block.BlockElements[iElem];
+						block.InitialStartVerseNumber = startVerse.StartVerse;
+						block.InitialEndVerseNumber = startVerse.EndVerse;
+						block.BlockElements = block.BlockElements.Skip(iElem).ToList();
+						// Since we inserted a block into the list, the remainder of the original block is now at 1 + 1, so
+						// it will get processed next time around.
+					}
+					else if (initialImplicitCv != null)
+					{
+						// Deal with the "tail" (anything in the block following the verses known to be spoken
+						// by the implicit character).
+
+						// In case you're wondering about the final check in these two expressions, in the C-V
+						// control file, if we have a self-quote (i.e., same character) in a verse that is implicitly
+						// expected to be spoken 100% by a particular character, then we ignore the fact that the
+						// adjacent block got assigned as an explicit quote. This keeps us from unnecessarily marking
+						// a block for review just because there were no first-level quotes around it (in which case
+						// the first-level quotes will be around the embedded self-quote). See ISA 51:16, for an example.
+						var prevBlockForThisSameVerseWasSetToCorrectCharacterDueToExplicitlyMarkedQuotes =
+							!prevBlockWasOriginallyNarratorCharacter && i > 0 &&
+							m_outputBlocks[i - 1].LastVerse.StartVerse == block.InitialStartVerseNumber &&
+							m_outputBlocks[i - 1].CharacterId == initialImplicitCv.Character &&
+							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+								block.InitialEndVerseNumber, versification:m_versification).Any(cv => cv.QuoteType == QuoteType.Quotation);
+						var nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes =
+							i + 1 < m_outputBlocks.Count &&
+							m_outputBlocks[i + 1].InitialStartVerseNumber == block.LastVerse.StartVerse &&
+							m_outputBlocks[i + 1].CharacterId == initialImplicitCv.Character &&
+							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, m_outputBlocks[i + 1].InitialStartVerseNumber,
+									m_outputBlocks[i + 1].InitialEndVerseNumber, versification: m_versification)
+								.Any(cv => cv.QuoteType == QuoteType.Quotation);
+
+						bool needsReview;
+						if (block.BlockElements.OfType<Verse>().Skip(1).Any())
+						{
+							// This is similar to the "he said" check below but deals with the more extreme/weird case where this
+							// block has multiple intervening verses that were all supposed to be assigned implicitly. If *both*
+							// the preceding block and following block cover the start/end verses for this block, something fishy
+							// is probably going on (e.g., maybe something we expected to be rendered as direct speech is being
+							// rendered indirectly).
+							needsReview = prevBlockForThisSameVerseWasSetToCorrectCharacterDueToExplicitlyMarkedQuotes &&
+								nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes;
+						}
+						else
+						{
+							// Check for a possible unexpected "He said" block and mark it as Needs Review.
+							needsReview = prevBlockForThisSameVerseWasSetToCorrectCharacterDueToExplicitlyMarkedQuotes ||
+								nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes;
+						}
+
+						if (needsReview)
+						{
+							block.CharacterId = CharacterVerseData.kNeedsReview;
+						}
+						else
+						{
+							block.SetNonDramaticCharacterId(initialImplicitCv.Character);
+							block.UseDefaultForMultipleChoiceCharacter(() => initialImplicitCv);
+							block.Delivery = initialImplicitCv.Delivery;
+						}
+					}
+
+					prevBlockWasOriginallyNarratorCharacter = true;
+				}
+				else
+				{
+					prevBlockWasOriginallyNarratorCharacter = false;
+				}
+			}
+		}
+
+		private ICharacterDeliveryInfo GetMatchingCharacter(Block newBlock, ICharacterDeliveryInfo subsequentImplicitCv)
+		{
+			ICharacterDeliveryInfo leadInCharacter = null;
+			// There will almost always be only one entry with a matching character name. But if there are two, we
+			// want the one whose delivery matches, if any.
+			foreach (var character in m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, newBlock.LastVerseNum,
+				versification: m_versification).Where(cv => cv.Character == subsequentImplicitCv.Character))
+			{
+				if (leadInCharacter == null)
+					leadInCharacter = character;
+				else if (leadInCharacter.Delivery == subsequentImplicitCv.Delivery)
+					break;
+				else if (character.Delivery == subsequentImplicitCv.Delivery)
+				{
+					return character;
+				}
+				else
+				{
+					// Technically, there could be more than two, so there might yet be one whose
+					// delivery matches, but that's extremely unlikely and not worth further complexity.
+					// What we really want to do is return an object representing the correct character
+					// but an ambiguous delivery, but we have no such notion.
+					return CharacterVerseData.NeedsReviewCharacter.Singleton;
+				}
+			}
+
+			return leadInCharacter;
 		}
 
 		private bool AtOpeningFirstLevelQuoteThatSeemsToBeMoreThanJustAnExpression(string content, int pos)
@@ -685,7 +879,7 @@ namespace Glyssen.Quote
 			Block blockFollowingInterruption = null;
 			if (characterUnknown)
 			{
-				m_workingBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+				m_workingBlock.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 				m_workingBlock.Delivery = null;
 			}
 			else
@@ -706,10 +900,33 @@ namespace Glyssen.Quote
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 					var characterVerseDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
-						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).ToList();
+						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification,
+						// The quote parser generally ignores alternate characters, but if it is trying to resolve
+						// a multi-block quote, we want to include them in case an alternate is the one being
+						// continued from a previous block. (This can happen if the translators used explicit
+						// quotes that disagree with FCBH's idea of who is speaking, especially in poetic or
+						// prophetic material.)
+						m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation).ToList();
 					if (characterVerseDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
 					{
 						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
+					}
+					if (m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation)
+					{
+						var prevQuoteBlock = m_outputBlocks.Last();
+						if (!prevQuoteBlock.CharacterIsUnclear)
+						{
+							// Generally, we should be able to pretty much assume that since this is a continuation
+							// of the previous block's quote, we have the same character and delivery. But there's a
+							// slight chance the delivery could change. And an even slighter chance we could have two
+							// possible deliveries left after removing any other characters from this list. So we'll
+							// be conservative and just prune the list down by character.
+							characterVerseDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
+							Debug.Assert(characterVerseDetails.Any(),
+								"We are in the middle of a quote and we have no speakers left who were possible when this quote " +
+								"opened. The logic for m_possibleCharactersForCurrentQuote should have kept us from running off " +
+								"the rails like this.");
+						}
 					}
 					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				}
@@ -794,7 +1011,7 @@ namespace Glyssen.Quote
 
 			Block blockFollowingLastInterruption = null;
 
-			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
+			var blocks = new PortionScript(bookId, new[] {m_workingBlock}, m_versification);
 			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
 			if (originalQuoteBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 				ProcessMultiBlock();
@@ -812,8 +1029,7 @@ namespace Glyssen.Quote
 					startCharIndex = 1;
 					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
 					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote && nextInterruption == null ? MultiBlockQuote.Start : MultiBlockQuote.None;
-					blockFollowingLastInterruption.CharacterId = originalQuoteBlock.CharacterId;
-					blockFollowingLastInterruption.CharacterIdOverrideForScript = originalQuoteBlock.CharacterIdOverrideForScript;
+					blockFollowingLastInterruption.SetCharacterInfo(originalQuoteBlock);
 					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
 				}
 				else
@@ -959,12 +1175,7 @@ namespace Glyssen.Quote
 				}
 			}
 
-			private static readonly IEqualityComparer<CharacterDelivery> s_characterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
-
-			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer
-			{
-				get { return s_characterDeliveryComparerInstance; }
-			}
+			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer { get; } = new CharacterDeliveryEqualityComparer();
 		}
 		#endregion
 

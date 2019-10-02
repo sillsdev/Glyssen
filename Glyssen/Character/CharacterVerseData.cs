@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.Extensions;
+using SIL.ObjectModel;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
-		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
-		public const string kUnknownCharacter = "Unknown";
-		/// <summary>
-		/// Blocks represents a quote whose character has not been set.
-		/// Used when the user needs to disambiguate between multiple potential characters.
-		/// </summary>
+		/// <summary>Represents a quote whose character has not been set because no quote was expected at this location</summary>
+		public const string kUnexpectedCharacter = "Unknown";
+		/// <summary>Represents a quote where the user needs to disambiguate between multiple potential characters</summary>
 		public const string kAmbiguousCharacter = "Ambiguous";
+		/// <summary>Special character ID that the user can use for a quote that needs further review (by a vernacular speaker, advisor, etc.)</summary>
+		public const string kNeedsReview = "Needs Review";
 
 		public const int kiMinRequiredFields = 5;
 		protected const int kiQuoteType = kiMinRequiredFields + 1;
@@ -37,7 +40,7 @@ namespace Glyssen.Character
 
 		public static StandardCharacter GetStandardCharacterType(string characterId)
 		{
-			if (string.IsNullOrEmpty(characterId))
+			if (IsNullOrEmpty(characterId))
 				return StandardCharacter.NonStandard;
 
 			var i = characterId.IndexOf("-", StringComparison.Ordinal);
@@ -57,7 +60,7 @@ namespace Glyssen.Character
 
 		public static bool IsCharacterUnclear(string characterId)
 		{
-			return characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter;
+			return characterId == kAmbiguousCharacter || characterId == kUnexpectedCharacter;
 		}
 
 		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)
@@ -68,6 +71,18 @@ namespace Glyssen.Character
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
 			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+		}
+
+		public static bool TryGetBookIdFromNarratorCharacterId(string characterId, out string bookId)
+		{
+			var match = s_narratorRegex.Match(characterId);
+			if (!match.Success)
+			{
+				bookId = null;
+				return false;
+			}
+			bookId = match.Result("${bookId}");
+			return true;
 		}
 
 		public static bool IsCharacterStandard(string characterId)
@@ -94,50 +109,37 @@ namespace Glyssen.Character
 				IsCharacterOfType(characterId, StandardCharacter.Intro);
 		}
 
+		public static string StandardCharacterNameFormatNarrator = LocalizationManager.GetString("CharacterName.Standard.Fmt.Narrator", "narrator ({0})");
+		public static string StandardCharacterNameFormatIntroduction = LocalizationManager.GetString("CharacterName.Standard.Fmt.Introduction", "introduction ({0})");
+		public static string StandardCharacterNameFormatSectionHead = LocalizationManager.GetString("CharacterName.Standard.Fmt.SectionHead", "section head ({0})");
+		public static string StandardCharacterNameFormatBookOrChapter = LocalizationManager.GetString("CharacterName.Standard.Fmt.BookOrChapter", "book title or chapter ({0})");
+
 		public static string GetCharacterNameForUi(string characterId)
 		{
-			string localizedCharacterId;
-
-			switch (GetStandardCharacterType(characterId))
-			{
-				case StandardCharacter.Narrator:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				case StandardCharacter.Intro:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", kIntroductionAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				case StandardCharacter.ExtraBiblical:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", kSectionHeadAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				case StandardCharacter.BookOrChapter:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
-					break;
-				default:
-					localizedCharacterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
-					break;
-			}
-			if (!SingletonLocalizedCharacterIdToCharacterIdDictionary.ContainsKey(localizedCharacterId))
-				SingletonLocalizedCharacterIdToCharacterIdDictionary.Add(localizedCharacterId, characterId);
+			var standardCharacterType = GetStandardCharacterType(characterId);
+			string localizedCharacterId = standardCharacterType == StandardCharacter.NonStandard ?
+				LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId) :
+				GetStandardCharacterNameForUi(standardCharacterType, GetBookCodeFromStandardCharacterId(characterId));
+			SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId] = characterId;
 
 			return localizedCharacterId;
 		}
 
-		public static string GetStandardCharacterIdAsEnglish(string standardCharacterId)
+		private static string GetStandardCharacterNameFormatForUi(StandardCharacter standardCharacter)
 		{
-			switch (GetStandardCharacterType(standardCharacterId))
+			switch (standardCharacter)
 			{
-				case StandardCharacter.Narrator:
-					return String.Format(kNarratorAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.Intro:
-					return String.Format(kIntroductionAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.ExtraBiblical:
-					return String.Format(kSectionHeadAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
-				case StandardCharacter.BookOrChapter:
-					return String.Format(kBookChapterAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
+				case StandardCharacter.Narrator: return StandardCharacterNameFormatNarrator;
+				case StandardCharacter.Intro: return StandardCharacterNameFormatIntroduction;
+				case StandardCharacter.ExtraBiblical: return StandardCharacterNameFormatSectionHead;
+				case StandardCharacter.BookOrChapter: return StandardCharacterNameFormatBookOrChapter;
 				default:
-					throw new ArgumentException("The provided character ID is not a standard character.", "standardCharacterId");
+					throw new InvalidEnumArgumentException($"{nameof(standardCharacter)} must be a standard character type!");
 			}
 		}
+
+		public static string GetStandardCharacterNameForUi(StandardCharacter standardCharacter, string bookId) =>
+			Format(GetStandardCharacterNameFormatForUi(standardCharacter), bookId);
 
 		public static Dictionary<string, string> SingletonLocalizedCharacterIdToCharacterIdDictionary
 		{
@@ -171,51 +173,68 @@ namespace Glyssen.Character
 			}
 		}
 
-		/// <summary>Character ID prefix for material to be read by narrator</summary>
+		/// <summary>Character ID prefix for material to be read by narrator (not for UI)</summary>
 		protected const string kNarratorPrefix = "narrator-";
-		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
+		/// <summary>Character ID prefix for book titles or chapter breaks (not for UI)</summary>
 		protected const string kBookOrChapterPrefix = "BC-";
-		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
+		/// <summary>Character ID prefix for extra-biblical material (i.e., section heads) (not for UI)</summary>
 		protected const string kExtraBiblicalPrefix = "extra-";
-		/// <summary>Character ID prefix for intro material</summary>
+		/// <summary>Character ID prefix for intro material (not for UI)</summary>
 		protected const string kIntroPrefix = "intro-";
 
-		private const string kNarratorAsEnglishCharacterName = "narrator ({0})";
-		private const string kIntroductionAsEnglishCharacterName = "introduction ({0})";
-		private const string kSectionHeadAsEnglishCharacterName = "section head ({0})";
-		private const string kBookChapterAsEnglishCharacterName = "book title or chapter ({0})";
+		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
-		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
+		private readonly IEqualityComparer<ICharacterDeliveryInfo> m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
-		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
-		private IEnumerable<string> m_uniqueDeliveries;
+		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterAndDeliveries;
+		private ISet<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false)
 		{
 			if (versification == null)
 				versification = ScrVers.English;
 
-			IEnumerable<CharacterVerse> result;
+			List<CharacterVerse> result;
 
 			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
 			verseRef.ChangeVersification(ScrVers.English);
 
-			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
+			if (initialEndVerse == 0)
+				initialEndVerse = initialStartVerse;
+
+			List<string> overrideCharacters = null;
+			if (includeNarratorOverrides)
 			{
-				result = m_lookup[verseRef.BBBCCCVVV];
+				overrideCharacters = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef,
+					(finalVerse == 0 ? initialEndVerse : finalVerse))?.Select(o => o.Character).ToList();
+				if (overrideCharacters != null && !overrideCharacters.Any())
+					overrideCharacters = null;
+			}
+
+			if (initialStartVerse == initialEndVerse)
+			{
+				result = m_lookup[verseRef.BBBCCCVVV].ToList();
 			}
 			else
 			{
 				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
 				initialEndRef.ChangeVersification(ScrVers.English);
-				result = Enumerable.Empty<CharacterVerse>();
+				result = new List<CharacterVerse>();
 				do
 				{
-					result = result.Union(m_lookup[verseRef.BBBCCCVVV]);
+					result = result.Union(m_lookup[verseRef.BBBCCCVVV]).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
+			}
+			if (!includeAlternates)
+				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate).ToList();
+			if (overrideCharacters != null)
+			{
+				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))
+					result.Add(new CharacterVerse(new BCVRef(verseRef.BBBCCCVVV), character, Empty, null, false, QuoteType.Potential));
 			}
 			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
@@ -226,9 +245,10 @@ namespace Glyssen.Character
 			var finalVerseRef = new VerseRef(bookId, chapter, finalVerse, versification);
 			finalVerseRef.ChangeVersification(ScrVers.English);
 			verseRef.NextVerse();
+			// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 			while (verseRef <= finalVerseRef)
 			{
-				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
+				var nextResult = m_lookup[verseRef.BBBCCCVVV].ToList();
 				if (nextResult.Any())
 				{
 					if (!interruption.Any())
@@ -240,10 +260,12 @@ namespace Glyssen.Character
 					}
 					else
 					{
-						var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
-						if (intersection.Count() == 1)
+						nextResult.RemoveAll(c => !result.Contains(c, m_characterDeliveryEqualityComparer));
+						if (overrideCharacters != null && !nextResult.Any(cv => overrideCharacters.Contains(cv.Character) && cv.Delivery == Empty))
+							nextResult.AddRange(result.Where(cv => overrideCharacters.Contains(cv.Character) && cv.Delivery == Empty));
+						if (nextResult.Count == 1)
 						{
-							result = intersection;
+							result = nextResult;
 							break;
 						}
 					}
@@ -251,6 +273,41 @@ namespace Glyssen.Character
 				verseRef.NextVerse();
 			}
 			return result.Union(interruption);
+		}
+
+		/// <summary>
+		/// Gets a single character/delivery object that represents the one known character expected to be the
+		/// exclusive (implicit) speaker over the entire reference range represented by the given parameters.
+		/// If there are conflicting implicit characters or an implicit character covers only part of the range,
+		/// the returned object will be a "Needs Review" character.
+		/// </summary>
+		public virtual ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
+		{
+			if (versification == null)
+				versification = ScrVers.English;
+
+			var verseRef = new VerseRef(bookId, chapter, startVerse, versification);
+			verseRef.ChangeVersification(ScrVers.English);
+			var implicitCv = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+
+			if (endVerse == 0 || startVerse == endVerse || implicitCv == null)
+				return implicitCv;
+
+			var initialEndRef = new VerseRef(bookId, chapter, endVerse, versification);
+			initialEndRef.ChangeVersification(ScrVers.English);
+			do
+			{
+				var cvNextVerse = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+				// Unless all verses in the range have the same implicit character, we cannot say that there is an
+				// implicit character for this range. Note that there is the slight possibility that the delivery may vary
+				// from one verse to the next, but it doesn't seem worth it to fail to find the implicit character just
+				// because of that. Especially since the delivery info is only of minor usefulness.
+				if (cvNextVerse?.Character != implicitCv.Character)
+					return NeedsReviewCharacter.Singleton;
+				verseRef.NextVerse();
+				// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
+			} while (verseRef <= initialEndRef);
+			return implicitCv;
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
@@ -274,24 +331,39 @@ namespace Glyssen.Character
 			return m_data.Any();
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries()
+		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries()
 		{
-			return m_uniqueCharacterAndDeliveries ?? (m_uniqueCharacterAndDeliveries = new SortedSet<CharacterVerse>(m_data, new CharacterDeliveryComparer()));
+			if (m_uniqueCharacterAndDeliveries == null)
+			{
+				var set = new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryEqualityComparer);
+				set.AddRange(NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides).Select(o => o.Character)
+					.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+				m_uniqueCharacterAndDeliveries = new ReadOnlySet<ICharacterDeliveryInfo>(set);
+			}
+
+			return m_uniqueCharacterAndDeliveries;
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode)
 		{
-			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode), new CharacterDeliveryComparer());
+			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
+			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
+				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
 		{
-			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), new CharacterDeliveryComparer());
+			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), m_characterDeliveryEqualityComparer);
+			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode)
+				.Where(o => o.StartChapter <= chapter && o.EndChapter >= chapter)
+				.Select(o => o.Character).Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
 		}
 
-		public IEnumerable<string> GetUniqueDeliveries()
+		public ISet<string> GetUniqueDeliveries()
 		{
-			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !string.IsNullOrEmpty(d))));
+			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !IsNullOrEmpty(d))));
 		}
 
 		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
@@ -360,6 +432,29 @@ namespace Glyssen.Character
 		{
 			foreach (CharacterVerse cv in GetAllQuoteInfo())
 				cv.ResetLocalization();
+		}
+
+		public class NeedsReviewCharacter : ICharacterDeliveryInfo
+		{
+			public static NeedsReviewCharacter Singleton { get; }
+
+			public string Character => kNeedsReview;
+			public string LocalizedCharacter =>
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CharacterNeedsReview", "Needs Review");
+			public string Delivery => Empty;
+			public string DefaultCharacter => null;
+			public string Alias => null;
+			public string LocalizedAlias => null;
+			public bool ProjectSpecific => false;
+
+			static NeedsReviewCharacter()
+			{
+				Singleton = new NeedsReviewCharacter();
+			}
+
+			private NeedsReviewCharacter()
+			{
+			}
 		}
 	}
 }

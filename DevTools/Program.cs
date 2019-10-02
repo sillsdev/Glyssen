@@ -14,7 +14,7 @@ namespace DevTools
 			Console.WriteLine("1) Use Paratext key terms to attempt localization of character IDs");
 			Console.WriteLine("2) Remove verse bridges from control file (currently removes comments)");
 			Console.WriteLine("3) Generate comparison file against FCBH template");
-			Console.WriteLine("4) Update CharacterDetail file (make references and hypothetical-only correspond to CharacterVerse file)");
+			Console.WriteLine("4) Update CharacterDetail file (make references correspond to CharacterVerse file)");
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");
@@ -24,7 +24,7 @@ namespace DevTools
 			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
 			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine("13) Generate reference text book title and chapter label summary");
-			Console.WriteLine("14) Create new English reference text (see comments in the Mode enum in ReferenceTextUtility)");
+			Console.WriteLine("14) Create new English reference text (see comments in the Mode enum in ReferenceTextUtility). May append OT or NT.");
 
 			string selection = Console.ReadLine();
 			string outputType = "errors";
@@ -66,7 +66,18 @@ namespace DevTools
 						waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
 						break;
 					case "14":
-						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.GenerateEnglish);
+					case "14NT":
+					case "14OT":
+						var testamentStr = selection.Replace("14", String.Empty);
+						ReferenceTextUtility.Testament testament;
+						switch (testamentStr)
+						{
+							case "NT": testament = ReferenceTextUtility.Testament.NT; break;
+							case "OT": testament = ReferenceTextUtility.Testament.OT; break;
+							default: testament = ReferenceTextUtility.Testament.WholeBible; break;
+						}
+						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.GenerateEnglish, null, testament);
+						outputType = "output";
 						waitForUserToSeeOutput = true;
 						break;
 				}
@@ -79,7 +90,7 @@ namespace DevTools
 
 			if (waitForUserToSeeOutput)
 			{
-				Console.WriteLine($"Review {outputType} above, then press any key to close.");
+				Console.WriteLine($"Review {outputType} above, then press Enter to close.");
 				Console.ReadLine();
 			}
 		}

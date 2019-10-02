@@ -43,7 +43,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetVerseText_NoBlocks_ReturnsEmptyString()
 		{
-			var bookScript = new BookScript("MRK", new List<Block>());
+			var bookScript = new BookScript("MRK", new List<Block>(), ScrVers.English);
 			Assert.AreEqual(String.Empty, bookScript.GetVerseText(1, 1));
 		}
 
@@ -57,7 +57,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(3, "This is it!"));
 			mrkBlocks.Add(NewSingleVersePara(4));
 			mrkBlocks.Add(NewSingleVersePara(5));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 3));
 		}
 
@@ -69,7 +69,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2, "This is it!").AddVerse(3).AddVerse(4).AddVerse(5));
 			mrkBlocks.Add(NewSingleVersePara(6));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 2));
 		}
 
@@ -81,7 +81,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3).AddVerse(4, "This is it!").AddVerse(5));
 			mrkBlocks.Add(NewSingleVersePara(6));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 4));
 		}
 
@@ -92,7 +92,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewChapterBlock(1));
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3).AddVerse(4, "This is it!").AddVerse(5));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 4));
 		}
 
@@ -108,7 +108,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3));
 			mrkBlocks.Add(NewSingleVersePara(4).AddVerse(5, "This is it!").AddVerse(6));
 			mrkBlocks.Add(NewSingleVersePara(7).AddVerse(8));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(2, 5));
 		}
 
@@ -124,7 +124,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3));
 			mrkBlocks.Add(NewSingleVersePara(4).AddVerse(5).AddVerse(6));
 			mrkBlocks.Add(NewSingleVersePara(7).AddVerse(8));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 7));
 		}
 
@@ -136,7 +136,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3).AddVerse("4-6", "This is it!"));
 			mrkBlocks.Add(NewSingleVersePara(7));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 5));
 		}
 
@@ -151,7 +151,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewPara("q1", "This is more of it."));
 			mrkBlocks.Add(NewPara("q2", "This is the rest of it."));
 			mrkBlocks.Add(NewSingleVersePara(4));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual("This is it!" + Environment.NewLine + "This is more of it." + Environment.NewLine + "This is the rest of it.", bookScript.GetVerseText(1, 3));
 		}
 		#endregion
@@ -160,7 +160,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetFirstBlockForVerse_NoBlocks_ReturnsNull()
 		{
-			var bookScript = new BookScript("MRK", new List<Block>());
+			var bookScript = new BookScript("MRK", new List<Block>(), ScrVers.English);
 			Assert.IsNull(bookScript.GetFirstBlockForVerse(1, 1));
 		}
 
@@ -174,7 +174,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(3, "This is it!"));
 			mrkBlocks.Add(NewSingleVersePara(4));
 			mrkBlocks.Add(NewSingleVersePara(5));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var block = bookScript.GetFirstBlockForVerse(1, 3);
 			Assert.AreEqual("{3}\u00A0This is it!", block.GetText(true));
 		}
@@ -187,7 +187,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2, "This is it!").AddVerse(3).AddVerse(4).AddVerse(5));
 			mrkBlocks.Add(NewSingleVersePara(6));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var block = bookScript.GetFirstBlockForVerse(1, 2);
 			Assert.IsTrue(block.GetText(true).StartsWith("{2}\u00A0This is it!{3}\u00A0"));
 		}
@@ -200,7 +200,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3).AddVerse(4, "This is it!").AddVerse(5));
 			mrkBlocks.Add(NewSingleVersePara(6));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var block = bookScript.GetFirstBlockForVerse(1, 4);
 			Assert.IsTrue(block.GetText(true).Contains("{4}\u00A0This is it!{5}\u00A0"));
 		}
@@ -212,7 +212,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewChapterBlock(1));
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3).AddVerse(4, "This is it!").AddVerse(5));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var block = bookScript.GetFirstBlockForVerse(1, 4);
 			Assert.AreEqual(mrkBlocks.Last(), block);
 		}
@@ -229,7 +229,7 @@ namespace GlyssenTests
 			var blockToFind = NewVerseBridgePara(4, 5, "This is it.");
 			matBlocks.Add(blockToFind);
 			matBlocks.Add(NewSingleVersePara(6));
-			var bookScript = new BookScript("MAT", matBlocks);
+			var bookScript = new BookScript("MAT", matBlocks, ScrVers.English);
 			Assert.AreEqual(blockToFind.GetText(true), bookScript.GetFirstBlockForVerse(7, verseToFind).GetText(true));
 		}
 
@@ -247,7 +247,7 @@ namespace GlyssenTests
 			m_curSetupVerseEnd = 6;
 			mrkBlocks.Add(NewBlock("This is another paragraph for the bridge"));
 			mrkBlocks.Add(NewSingleVersePara(7));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(blockToFind.GetText(true), bookScript.GetFirstBlockForVerse(1, verseToFind).GetText(true));
 		}
 
@@ -263,7 +263,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3));
 			mrkBlocks.Add(NewSingleVersePara(4).AddVerse(5, "This is it!").AddVerse(6));
 			mrkBlocks.Add(NewSingleVersePara(7).AddVerse(8));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var block = bookScript.GetFirstBlockForVerse(2, 5);
 			Assert.IsTrue(block.GetText(true).Contains("{5}\u00A0This is it!{6}\u00A0"));
 		}
@@ -276,7 +276,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3).AddVerse("4-6", "This is it!"));
 			mrkBlocks.Add(NewSingleVersePara(7));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var block = bookScript.GetFirstBlockForVerse(1, 5);
 			Assert.IsTrue(block.GetText(true).EndsWith("{4-6}\u00A0This is it!"));
 		}
@@ -295,7 +295,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("This is the rest of it."));
 			mrkBlocks.Add(block);
 			mrkBlocks.Add(NewSingleVersePara(4));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var firstBlockForVerse1_3 = bookScript.GetFirstBlockForVerse(1, 3);
 			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("{3}\u00A0This is it!"));
 		}
@@ -311,7 +311,7 @@ namespace GlyssenTests
 			Block expected;
 			mrkBlocks.Add(expected = NewVerseBridgePara(74, 75));
 			mrkBlocks.Add(NewSingleVersePara(76));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
 			Assert.AreEqual(1, list.Count);
 			Assert.AreEqual(expected, list[0]);
@@ -328,7 +328,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewPara("q1", "more"));
 			mrkBlocks.Add(NewPara("q2", "even more"));
 			mrkBlocks.Add(NewSingleVersePara(76));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
 			Assert.AreEqual(3, list.Count);
 			Assert.AreEqual(expected, list[0]);
@@ -345,7 +345,7 @@ namespace GlyssenTests
 			revBlocks.Add(NewPara("q1", "more"));
 			revBlocks.Add(NewPara("q2", "even more"));
 			revBlocks.Add(NewSingleVersePara(4));
-			var bookScript = new BookScript("REV", revBlocks);
+			var bookScript = new BookScript("REV", revBlocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(15, 3).ToList();
 			Assert.AreEqual(3, list.Count);
 			Assert.AreEqual(expected, list[0]);
@@ -364,7 +364,7 @@ namespace GlyssenTests
 			blocks.Add(NewBlock("“Ka iye ki cwinyi ducu ci itwero.” "));
 			blocks.Add(NewBlock("En odok iye ni, "));
 			blocks.Add(NewBlock("“An aye Yecu Kricito, ni en Wod pa Lubaŋa.”] "));
-			var bookScript = new BookScript("ACT", blocks);
+			var bookScript = new BookScript("ACT", blocks, ScrVers.English);
 			var list = bookScript.GetBlocksForVerse(8, 37).ToList();
 			Assert.AreEqual(4, list.Count);
 			Assert.AreEqual(expected, list[0]);
@@ -380,13 +380,13 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2));
 			mrkBlocks.Add(NewSingleVersePara(3));
-			var bookScript = new BookScript("MRK", mrkBlocks);
-			Assert.IsTrue(bookScript.GetScriptBlocks(false).SequenceEqual(mrkBlocks));
+			var bookScript = new BookScript("MRK", mrkBlocks, null);
+			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks)); // Same as above but proves that false is the default
 		}
 
 		[Test]
-		public void GetScriptBlocks_Joining_ConsecutiveNarratorBlocksInTheSameParagraph_ResultsIncludeJoinedBlocks()
+		public void GetCloneWithJoinedBlocks_ConsecutiveNarratorBlocksInTheSameParagraph_ResultsIncludeJoinedBlocks()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
@@ -409,8 +409,8 @@ namespace GlyssenTests
 			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(block);
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
-			var result = bookScript.GetScriptBlocks(true);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			var result = bookScript.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.IsTrue(result[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(result[1].IsParagraphStart);
 			var textOfFirstVerseBlock = result[1].GetText(true);
@@ -423,20 +423,33 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetScriptBlocks_Joining_ConsecutiveBcBlocksInDifferentParagraphs_ResultsNotJoined()
+		public void GetCloneWithJoinedBlocks_ConsecutiveBcBlocksInDifferentParagraphs_ResultsNotJoined()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark", "MRK"));
-			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
-			var result = bookScript.GetScriptBlocks(true);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			var result = bookScript.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
+		}
+
+		[TestCase(ScrVersType.Original)]
+		[TestCase(ScrVersType.RussianOrthodox)]
+		public void GetCloneWithJoinedBlocks_VariousVersifications_VersificationCloned(ScrVersType versType)
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark", "MRK"));
+			mrkBlocks.Add(NewChapterBlock(1, "MRK"));
+
+			var bookScript = new BookScript("MRK", mrkBlocks, new ScrVers(versType));
+			var clone = bookScript.GetCloneWithJoinedBlocks(false);
+			Assert.AreEqual(versType, clone.Versification.Type);
 		}
 
 		[TestCase(" ")]
 		[TestCase("")]
-		public void GetScriptBlocks_Joining_VernacularContainsQBlocks_VernacularBlocksBySameSpeakerCombined(string trailingWhitespace)
+		public void GetCloneWithJoinedBlocks_VernacularContainsQBlocks_VernacularBlocksBySameSpeakerCombined(string trailingWhitespace)
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Peter said, ");
@@ -454,9 +467,9 @@ namespace GlyssenTests
 			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
 			block.BlockElements.Add(new ScriptText("This is line 4.»"));
 			vernacularBlocks.Add(block);
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual("«This is line 1, This is line 2, This is line 3, This is line 4.»",
 				result[1].GetText(true));
@@ -464,7 +477,7 @@ namespace GlyssenTests
 
 		[TestCase(" ")]
 		[TestCase("")]
-		public void GetScriptBlocks_Joining_VernacularContainsQBlocks_VernacularBlocksForDifferentVersesNotCombined(string trailingWhitespace)
+		public void GetCloneWithJoinedBlocks_VernacularContainsQBlocks_VernacularBlocksForDifferentVersesNotCombined(string trailingWhitespace)
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Peter said, ");
@@ -483,16 +496,16 @@ namespace GlyssenTests
 			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
 			block.BlockElements.Add(new ScriptText("This is line 4.»"));
 			vernacularBlocks.Add(block);
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual("«This is line 1, This is line 2,", result[1].GetText(true).TrimEnd());
 			Assert.AreEqual("{2}\u00A0This is line 3, This is line 4.»", result[2].GetText(true));
 		}
 
 		[Test]
-		public void GetScriptBlocks_Joining_VernacularContainsQBlocksIntroducedByPBlock_AllVernacularBlocksCombined()
+		public void GetCloneWithJoinedBlocks_VernacularContainsQBlocksIntroducedByPBlock_AllVernacularBlocksCombined()
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			var vernacularBlocks = new List<Block>();
@@ -511,16 +524,16 @@ namespace GlyssenTests
 			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = narrator };
 			block.BlockElements.Add(new ScriptText("'This is line 4, "));
 			vernacularBlocks.Add(block);
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Peter said, 'This is line 1, 'This is line 2, 'This is line 3, 'This is line 4, ",
 				result[0].GetText(true));
 		}
 
 		[Test]
-		public void GetScriptBlocks_Joining_VernacularContainsQBlocksWithReferenceTextBlocks_VernacularBlocksCombined()
+		public void GetCloneWithJoinedBlocks_VernacularContainsQBlocksWithReferenceTextBlocks_VernacularBlocksCombined()
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "John said, ");
@@ -543,9 +556,9 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("'This is line 4, "));
 			block.SetMatchedReferenceBlock(NewBlock("rt4"));
 			vernacularBlocks.Add(block);
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 			Assert.AreEqual("rt0", result[0].GetPrimaryReferenceText());
@@ -556,7 +569,7 @@ namespace GlyssenTests
 		[TestCase(".", "\u2026")]
 		[TestCase(",", "...")]
 		[TestCase(",", "\u2026")]
-		public void GetScriptBlocks_Joining_PrimaryReferenceTextStartsWithElipsesBeforeVerse_BlocksCombined(string vernBlock1EndingPunctuation, string ellipsis)
+		public void GetCloneWithJoinedBlocks_PrimaryReferenceTextStartsWithElipsesBeforeVerse_BlocksCombined(string vernBlock1EndingPunctuation, string ellipsis)
 		{
 			var vernacularBlocks = new List<Block>();
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
@@ -569,9 +582,9 @@ namespace GlyssenTests
 			block.SetMatchedReferenceBlock(ellipsis + "{2} Abraham was first.");
 			vernacularBlocks.Add(block);
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation +
@@ -579,10 +592,539 @@ namespace GlyssenTests
 			Assert.AreEqual("{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first.", result[0].GetPrimaryReferenceText());
 		}
 
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.All, -1, ExpectedResult = "narrator-PSA")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.All, -1, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.All, 1, ExpectedResult = "narrator-PSA")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.All, 1, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.None, -1, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PSA", 82, 1, TextExplicitOverrides.Some, -1, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.None, -1, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.RussianOrthodox, "PSA", 81, 1, TextExplicitOverrides.Some, -1, ExpectedResult = "Asaph")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.All, -1, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.English, "PRO", 30, 2, TextExplicitOverrides.All, 0, ExpectedResult = "narrator-PRO")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.All, -1, ExpectedResult = "narrator-SNG")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.All, 1, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.All, 1, ExpectedResult = "narrator-SNG")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.None, -1, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.English, "PRO", 17, 14, TextExplicitOverrides.Some, -1, ExpectedResult = "Solomon, king")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.None, -1, ExpectedResult = "beloved")]
+		[TestCase(ScrVersType.Vulgate, "SNG", 1, 2, TextExplicitOverrides.Some, -1, ExpectedResult = "beloved")]
+		[TestCase(ScrVersType.English, "NEH", 13, 6, TextExplicitOverrides.All, -1, ExpectedResult = "narrator-NEH")]
+		[TestCase(ScrVersType.English, "NEH", 13, 31, TextExplicitOverrides.None, -1, ExpectedResult = "Nehemiah")]
+		public string GetCharacterIdInScript_ResultDependsOnWhetherBlocksAlreadyHaveCharacterSpeakingExplicitlyInAllVersesInOverride(
+			ScrVersType versType, string bookId, int chapter, int verse, TextExplicitOverrides option, int missingVerseOffset)
+		{
+			var testBook = GetTestBook(versType, bookId, option, missingVerseOffset);
+			var bookNum = testBook.BookNumber;
+			var block = testBook.GetFirstBlockForVerse(chapter, verse);
+			if (option == TextExplicitOverrides.None || option == TextExplicitOverrides.Some)
+			{
+				var vref = new VerseRef(bookNum, chapter, verse, testBook.Versification);
+				vref.ChangeVersification(ScrVers.English);
+				var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(vref, vref.VerseNum).Single();
+				var overrideStartRef = new VerseRef(bookNum, overrideInfo.StartChapter, overrideInfo.StartVerse);
+				overrideStartRef.ChangeVersification(testBook.Versification);
+				var overrideEndRef = new VerseRef(bookNum, overrideInfo.EndChapter, overrideInfo.EndVerse);
+				overrideEndRef.ChangeVersification(testBook.Versification);
+				for (var c = overrideStartRef.ChapterNum; c <= overrideEndRef.ChapterNum; c++)
+				{
+					var startVerse = (c == overrideStartRef.ChapterNum) ? overrideStartRef.VerseNum : 1;
+					var endVerse = (c == overrideEndRef.ChapterNum) ? overrideEndRef.VerseNum : testBook.Versification.GetLastVerse(bookNum, c);
+					var expectedCharacter = overrideInfo.Character;
+					if (startVerse == 1 && bookId == "PSA" && versType == ScrVersType.RussianOrthodox)
+					{
+						// If this verse 1 is actually the Hebrew subtitle (verse "0" in the English numbering system),
+						// then it's a special case and we don't want it to get overridden.
+						var psalmVerse1Ref = new VerseRef(bookNum, c, 1, testBook.Versification);
+						psalmVerse1Ref.ChangeVersification(ScrVers.English);
+						if (psalmVerse1Ref.VerseNum == 0)
+							expectedCharacter = testBook.NarratorCharacterId;
+					}
+					for (int v = startVerse; v <= endVerse; v++)
+					{
+						Assert.True(testBook.GetBlocksForVerse(c, v).All(b => testBook.GetCharacterIdInScript(b) == expectedCharacter),
+							$"Unexpected character in {bookId} {c}:{v} (expected: {expectedCharacter})");
+					}
+				}
+			}
+			return testBook.GetCharacterIdInScript(block);
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2InPreviousChapter_GetsOverrideCharacter()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, "NEH"),
+				new Block("p", 2, 1) {CharacterId = narrator}
+					.AddVerse(1, "During Nisan, in the 20th year of Artaxerxes, I gave him his wine. I'd not been sad in his presence. ")
+					.AddVerse(2, "he said,"),
+				new Block("p", 2, 2) {CharacterId = "Artaxerxes, king of Persia"}.AddText("«What's wrong? This is sorrow of heart.»"),
+				new Block("p", 2, 2) {CharacterId = narrator}.AddText("So I freaked.").AddVerse(3, "I replied:"),
+				new Block("p", 2, 3) {CharacterId = "Nehemiah"}.AddText("«Don't die! Why shouldn't I be sad, when my fathers' city is a hot mess?»"),
+				new Block("p", 2, 4) {CharacterId = narrator}.AddVerse(4, "So the king's like,"),
+				new Block("p", 2, 4) {CharacterId = "Artaxerxes, king of Persia"}.AddText("«What do you want me to do about it?»"),
+				new Block("p", 2, 4) {CharacterId = narrator}.AddText("So I prayed.").AddVerse(5, "I retorted,"),
+				new Block("p", 2, 5) {CharacterId = "Nehemiah"}.AddText("«If it ain't too much trouble, let me go fix it.»"),
+				new Block("p", 2, 6) {CharacterId = narrator}.AddVerse(6, "What with the queeny-poo being right there, the king's goes,"),
+				new Block("p", 2, 6) {CharacterId = "Artaxerxes, king of Persia"}.AddText("«Are you going to be gone like forever?»"),
+				new Block("p", 2, 6) {CharacterId = narrator}.AddText("So he was cool with my plan.").AddVerse(7, "And then I go:"),
+				new Block("p", 2, 7) {CharacterId = "Nehemiah"}.AddText("«Don't forget to write!")
+					.AddVerse(8, "And tell Asaph to make sure I can get my hands on some decent timber.»"),
+				new Block("p", 2, 8) {CharacterId = narrator}.AddText("And that's basically how it went down, thanks to God's help."),
+				new Block("p", 2, 9) {CharacterId = narrator}
+					.AddVerse(9, "I came to the guys beyond the river and gave them the letters. The king had sent along a whole army.")
+					.AddVerse(10, "But, oh boy, were Sanballat and Tobiah ticked!")
+			};
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+			foreach (var block in bookOfNehemiah.GetScriptBlocks().Where(b => b.CharacterId == narrator))
+			{
+				Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(block), block.ToString(true, "NEH"));
+			}
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_NarratorBlockInOverrideRangeCoversMultipleVerses_GetsOverrideCharacter()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, "NEH"),
+				new Block("p", 2, 2) {CharacterId = "Artaxerxes, king of Persia"}.AddVerse(2, "«What's wrong? This is sorrow of heart.»"),
+				new Block("p", 2, 2) {CharacterId = narrator}.AddText("So I freaked.").AddVerse(3, "I replied:"),
+				new Block("p", 2, 3) {CharacterId = "Nehemiah"}.AddText("«Don't die! Why shouldn't I be sad, when my fathers' city is a hot mess?»"),
+				new Block("p", 2, 4) {CharacterId = narrator}.AddVerse(4, "So the king's like,"),
+				new Block("p", 2, 4) {CharacterId = "Artaxerxes, king of Persia"}.AddText("«What do you want me to do about it?»"),
+				new Block("p", 2, 4) {CharacterId = narrator}.AddText("So I prayed.").AddVerse(5, "I retorted,"),
+				new Block("p", 2, 5) {CharacterId = "Nehemiah"}.AddText("«If it ain't too much trouble, let me go fix it.»"),
+				new Block("p", 2, 6) {CharacterId = narrator}.AddVerse(6, "What with the queeny-poo being right there, the king's goes,"),
+				new Block("p", 2, 6) {CharacterId = "Artaxerxes, king of Persia"}.AddText("«Are you going to be gone like forever?»"),
+				new Block("p", 2, 6) {CharacterId = narrator}.AddText("So he was cool with my plan.").AddVerse(7, "And then I go:"),
+				new Block("p", 2, 7) {CharacterId = "Nehemiah"}.AddText("«Don't forget to write!")
+					.AddVerse(8, "And tell Asaph to make sure I can get my hands on some decent timber.»"),
+				new Block("p", 2, 8) {CharacterId = narrator}.AddText("And that's basically how it went down, thanks to God's help.")
+					.AddVerse(9, "I came to the guys beyond the river and gave them the letters. The king had sent along a whole army.")
+					.AddVerse(10, "But, oh boy, were Sanballat and Tobiah ticked!")
+			};
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+			foreach (var block in bookOfNehemiah.GetScriptBlocks().Where(b => b.CharacterId == narrator))
+			{
+				Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(block), block.ToString(true, "NEH"));
+			}
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerseNoVersesWhollyAssignedToNarrator_OverrideNotApplied()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "NEH"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse(1, "The writings of Nehemiah bar Hacaliah."),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was the month Chislev, in the twentieth year of King A."),
+				new Block("p", 1, 1) {CharacterId = "Nehemiah"}.AddText("I was in Shushan the palace, when along came,"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddVerse(2, "Hanani, one of my brothers. I asked him,"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddText("«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "They replied to Nehemiah,"),
+				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»"),
+				new Block("p", 1, 4) {CharacterId = "Nehemiah"}.AddVerse(4, "When I got the news, I cried for days on end, fasting and praying."),
+
+			};
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[0]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[1]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[2]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[3]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[4]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[5]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[6]));
+			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[7]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[8]));
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetCharacterIdInScript_OverrideRangeStartsInBlock2OfVerseWhichIsWhollyAssignedToNarrator_GetsOverrideCharacterButNotForBlock1(bool extraWeirdSectionHead)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "NEH"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse(1, "The writings of Nehemiah bar Hacaliah."),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was Chislev 20 and I was in Shushan the palace.")
+					.AddVerse(2, "Hanani came. I asked him,"),
+				new Block("p", 1, 2) {CharacterId = "Nehemiah"}.AddText("«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "And he's like,"),
+				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»")
+
+			};
+			if (extraWeirdSectionHead)
+			{
+				blocks.Insert(2, new Block("s", 2, 10)
+						{ CharacterId = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.ExtraBiblical) }
+					.AddText("Why is there a section head here?"));
+			}
+			int i = 0;
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			if (extraWeirdSectionHead)
+			{
+				Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			}
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual("Nehemiah", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+			Assert.AreEqual("Hanani", bookOfNehemiah.GetCharacterIdInScript(bookOfNehemiah.GetScriptBlocks()[i++]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideRangeFromCh1V2ThruEndOfCh2_GetsOverrideCharacterForNarratorBlockCh2V1And2()
+		{
+			// <Override startChapter="1" startVerse="2" endChapter="2" character="Habakkuk"/>
+			var bookId = "HAB";
+			// Ensure that the current overrides are still what they were when this test was written:
+			var habOverrides = NarratorOverrides.GetNarratorOverridesForBook(bookId).ToList();
+			var overrideCharacter = habOverrides.Single(o => o.StartChapter == 1 && o.StartVerse == 2 &&
+				o.EndChapter == 2 && o.EndVerse >= 3 && o.EndBlock == 0).Character;
+
+			var narrator = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, bookId),
+				new Block("p", 2, 1) {CharacterId = narrator}.AddVerse(1, "I will stand watch on the ramparts to see what he will tell me and what I will answer concerning my complaint. ")
+					.AddVerse(2, "God answered me,"),
+				new Block("p", 2, 2) {CharacterId = "God"}.AddText("«Write the vision on tablets, that he who runs may read it."),
+				new Block("p", 2, 3) {CharacterId = "God"}.AddVerse(3, "Wait for the vision's fulfillment! It will come without delay.»")
+
+			};
+			var bookOfHabakkuk = new BookScript(bookId, blocks, ScrVers.English);
+			var habScriptBlocks = bookOfHabakkuk.GetScriptBlocks();
+			var chapterBlock = habScriptBlocks[0];
+			Assert.AreEqual(chapterBlock.CharacterId, bookOfHabakkuk.GetCharacterIdInScript(chapterBlock));
+			Assert.AreEqual(overrideCharacter, bookOfHabakkuk.GetCharacterIdInScript(habScriptBlocks[1]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(habScriptBlocks[2]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(habScriptBlocks[3]));
+		}
+
+		[TestCase("Agur")]
+		[TestCase("Some other character that can't really happen")]
+		public void GetCharacterIdInScript_BlockHasCharacterIdInScriptSet_GetsExistingOverrideCharacter(string overrideCharacter)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(30, "PRO"),
+				new Block("p", 30, 8) {CharacterId = narrator, CharacterIdOverrideForScript = overrideCharacter}
+					.AddVerse(1, "Don't let me lie or steal or do something stupid."),
+			};
+			var bookOfProverbs = new BookScript("PRO", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfProverbs.GetCharacterIdInScript(bookOfProverbs.GetScriptBlocks()[0]));
+			Assert.AreEqual(overrideCharacter, bookOfProverbs.GetCharacterIdInScript(bookOfProverbs.GetScriptBlocks()[1]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_AcrosticHeading_HeadingNotOverridden()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(119, "PSA"),
+				new Block("q1", 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(8, "I will keep thy statutes;"),
+				new Block("q2", 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddText("This language doesn't use periods in poetry"),
+				new Block("qa", 119, 8) {IsParagraphStart = true, CharacterId = narrator}.AddText("Beth"),
+				new Block("q1", 119, 9) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(9, "How shall a pipsqueak cleanse his way?"),
+			};
+
+			var bookOfPsalms = new BookScript("PSA", blocks, ScrVers.English);
+
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[0]));
+			Assert.AreEqual("psalmist (Aleph)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[1]));
+			Assert.AreEqual("psalmist (Aleph)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[2]));
+			Assert.AreEqual(narrator, bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[3]));
+			Assert.AreEqual("psalmist (Beth)", bookOfPsalms.GetCharacterIdInScript(bookOfPsalms.GetScriptBlocks()[4]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_NoBlocksExistForVersesInStartChapterButBlocksDoExistForSubsequentChapter_OverrideApplied()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "PRO"),
+				new Block("q1", 1, 1) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(1, "The proverbs of Solomon bar David, king of Israel:"),
+				new Block("q1", 1, 7) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(7, "The fear of the Lord is the start of knowledge,"),
+				new Block("q2", 1, 7) {IsParagraphStart = true, CharacterId = narrator}.AddText("but fools loathe wisdom and instruction."),
+				NewChapterBlock(2, "PRO"),
+				new Block("q1", 2, 1) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(1, "My son, if you adopt my words"),
+				new Block("q2", 2, 1) {IsParagraphStart = true, CharacterId = narrator}.AddText("and store up my commands within you,"),
+				new Block("q1", 2, 2) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(2, "tuning your auditory faculties to wisdom"),
+				new Block("q2", 2, 2) {IsParagraphStart = true, CharacterId = narrator}.AddText("and sticking your heart to understanding—"),
+			};
+
+			var bookOfPsalms = new BookScript("PRO", blocks, ScrVers.English);
+
+			Assert.IsTrue(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 1).All(b => bookOfPsalms.GetCharacterIdInScript(b) == narrator));
+			Assert.IsTrue(bookOfPsalms.GetScriptBlocks().Where(b => !b.IsChapterAnnouncement && b.ChapterNumber == 2).All(b => bookOfPsalms.GetCharacterIdInScript(b) == "Solomon, king"));
+		}
+
+		#region Test GetCharacterIdInScript for override covering two blocks in a single verse
+		/// <summary>
+		/// Helper method for the tests in this region
+		/// </summary>
+		private BookScript GetSngChapter1Verse4(string characterC1V4B3, string characterC1V4B4)
+		{
+			// <Override startChapter="1" startVerse="4" startBlock="3" endVerse="4" endBlock="4" character="maidens"/>
+			const string bookId = "SNG";
+			// Ensure that the current overrides are still what they were when this test was written:
+			var sngOverrides = NarratorOverrides.GetNarratorOverridesForBook(bookId).ToList();
+			var overrideCharacter = sngOverrides.Single(o => o.StartChapter == 1 && o.StartVerse == 4 &&
+				o.StartBlock == 3 && o.EndVerse == 4 && o.EndBlock == 4).Character;
+			Assert.AreEqual("maidens", overrideCharacter);
+
+			var narrator = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, bookId),
+				new Block("q1", 1, 4) {CharacterId = "Solomon, king"}.AddVerse(4, "You are sweet!"),
+				new Block("q1", 1, 4) {CharacterId = narrator}.AddText("Then the maidens said:"),
+				new Block("q1", 1, 4) {CharacterId = characterC1V4B3}.AddText("You are one amazing guy."),
+				new Block("q1", 1, 4) {CharacterId = characterC1V4B4}.AddText("And that ain't no lie!"),
+				new Block("q1", 1, 4) {CharacterId = narrator}.AddText("So spake they."),
+			};
+			var bookOfSongs = new BookScript(bookId, blocks, ScrVers.English);
+			return bookOfSongs;
+		}
+
+		[TestCase("narrator-SNG", "narrator-SNG")]
+		[TestCase("beloved", "maidens")]
+		[TestCase("maidens", "Solomon, king")]
+		[TestCase("maidens", "maidens")]
+		[TestCase("beloved", "Solomon, king")]
+		public void GetCharacterIdInScript_OverrideTwoBlocksInVerse_NeitherBlockExplicitlyAssignedToOverrideCharacter_GetsOverrideCharacterForNarratorBlocksInCoveredRange(
+			string characterC1V4B3, string characterC1V4B4)
+		{
+			// SETUP
+			// <Override startChapter="1" startVerse="4" startBlock="3" endVerse="4" endBlock="4" character="maidens"/>
+			var bookOfSongs = GetSngChapter1Verse4(characterC1V4B3, characterC1V4B4);
+			var narrator = bookOfSongs.NarratorCharacterId;
+			var sngScriptBlocks = bookOfSongs.GetScriptBlocks();
+			Assert.AreEqual(characterC1V4B3, sngScriptBlocks[3].CharacterId, "Ensure test setup was correct");
+			Assert.AreEqual(characterC1V4B4, sngScriptBlocks[4].CharacterId, "Ensure test setup was correct");
+
+			// Verify preceding blocks
+			Assert.AreEqual("Solomon, king", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]));
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]));
+
+			// SUT: Covered narrator block(s) should get overridden
+			if (sngScriptBlocks[3].CharacterId == narrator)
+				Assert.AreEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[3]));
+			if (sngScriptBlocks[4].CharacterId == narrator)
+				Assert.AreEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4]));
+			
+			// Verify following block
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]));
+		}
+
+		[TestCase("narrator-SNG", "maidens")]
+		[TestCase("maidens", "narrator-SNG")]
+		public void GetCharacterIdInScript_OverrideCoversTwoBlocksInVerse_OneBlockExplicitlyAssignedToOverrideCharacter_OverrideNotApplied(
+			string characterC1V4B3, string characterC1V4B4)
+		{
+			// SETUP
+			// <Override startChapter="1" startVerse="4" startBlock="3" endVerse="4" endBlock="4" character="maidens"/>
+			var bookOfSongs = GetSngChapter1Verse4(characterC1V4B3, characterC1V4B4);
+			var sngScriptBlocks = bookOfSongs.GetScriptBlocks();
+			Assert.AreEqual(characterC1V4B3, sngScriptBlocks[3].CharacterId, "Ensure test setup was correct");
+			Assert.AreEqual(characterC1V4B4, sngScriptBlocks[4].CharacterId, "Ensure test setup was correct");
+
+			// Verify preceding blocks
+			Assert.AreEqual("Solomon, king", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]));
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]));
+
+			// SUT: Neither of these two covered blocks should get overridden
+			Assert.AreEqual(sngScriptBlocks[3].CharacterId, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[3]));
+			Assert.AreEqual(sngScriptBlocks[4].CharacterId, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4]));
+
+			// Verify following block
+			Assert.AreNotEqual("maidens", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]));
+		}
+		#endregion
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideChangeFromBlock1ToBlock2_GetsCorrectOverrideCharacterForEachBlock()
+		{
+			// <Override startChapter="2" startVerse="3" endVerse="10" endBlock="1" character="beloved"/>
+			// <Override startChapter="2" startVerse="10" startBlock="2" endVerse="15" character="Solomon, king"/>
+			const string bookId = "SNG";
+			// Ensure that the current overrides are still what they were when this test was written:
+			var sngOverrides = NarratorOverrides.GetNarratorOverridesForBook(bookId).ToList();
+			var overrideCharacter1 = sngOverrides.Single(o => o.EndChapter == 2 && o.EndVerse == 10 && o.EndBlock == 1).Character;
+			var overrideCharacter2 = sngOverrides.Single(o => o.StartChapter == 2 && o.StartVerse == 10 && o.StartBlock == 2).Character;
+			Assert.AreNotEqual(overrideCharacter1, overrideCharacter2);
+			Assert.IsFalse(sngOverrides.Any(o => o.StartChapter == 7 && o.StartVerse == 9));
+
+			var narrator = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, bookId),
+				new Block("p", 2, 3) {CharacterId = narrator}.AddVerse(3, "I am a beloved person, because my king says: "),
+				new Block("p", 2, 3) {CharacterId = "Solomon, king"}.AddText("You are sweet!").AddVerse(4).AddVerse(5).AddVerse(6),
+				new Block("p", 2, 6) {CharacterId = narrator}.AddText("Thus he spoke.").AddVerse(7, "He also said:"),
+				new Block("p", 2, 7) {CharacterId = "Solomon, king"}.AddText("Start of God's speech in v. 7...").AddVerse(8),
+				new Block("p", 2, 9) {CharacterId = narrator}.AddVerse(9).AddVerse(10),
+				new Block("p", 2, 10) {CharacterId = narrator}.AddText("Part II of v. 10")
+			};
+			var bookOfSongs = new BookScript(bookId, blocks, ScrVers.English);
+			var sngScriptBlocks = bookOfSongs.GetScriptBlocks();
+			Assert.AreEqual(blocks[0].CharacterId, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[0]));
+			Assert.AreEqual(overrideCharacter1, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[1]));
+			Assert.AreEqual("Solomon, king", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[2]));
+			Assert.AreEqual(overrideCharacter1, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[3]));
+			Assert.AreEqual("Solomon, king", bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[4]));
+			Assert.AreEqual(overrideCharacter1, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[5]));
+			Assert.AreEqual(overrideCharacter2, bookOfSongs.GetCharacterIdInScript(sngScriptBlocks[6]));
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetCharacterIdInScript_OverrideRangeEndsInBlock1OfVerse_AllVersesHaveExplicitAssignment_NoOverrideApplied(bool extraWeirdSectionHead)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(2, "HAB"),
+				new Block("p", 2, 10) {CharacterId = narrator}.AddVerse(10, "God said:"),
+				new Block("p", 2, 10) {CharacterId = "God"}.AddText("This is important").AddVerse(11).AddVerse(12).AddVerse(13).AddVerse(14),
+				new Block("p", 2, 14) {CharacterId = narrator}.AddText("Thus he spoke.").AddVerse(15, "Again he said:"),
+				new Block("p", 2, 15) {CharacterId = "God"}.AddText("Start of God's speech in v. 15...").AddVerse(16),
+				new Block("p", 2, 17) {CharacterId = "God"}.AddVerse(17).AddVerse(18).AddVerse(19),
+				new Block("p", 2, 19) {CharacterId = narrator}.AddText("Part II of v. 19")
+			};
+			if (extraWeirdSectionHead)
+			{
+				blocks.Insert(2, new Block("s", 2, 10)
+					{ CharacterId = CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.ExtraBiblical)}
+					.AddText("Why is there a section head here?"));
+			}
+
+			int i = 0;
+			var bookOfHabakkuk = new BookScript("HAB", blocks, ScrVers.English);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.BookOrChapter),
+				bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			if (extraWeirdSectionHead)
+			{
+				Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.ExtraBiblical),
+					bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			}
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual("God", bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+			Assert.AreEqual(narrator, bookOfHabakkuk.GetCharacterIdInScript(bookOfHabakkuk.GetScriptBlocks()[i++]));
+		}
+
+		[Test]
+		public void GetCharacterIdInScript_OverrideSpecifiesStartAndEndBlock_ReturnValueDependsOnBlock()
+		{
+			// <Override startChapter="6" startVerse="13" endVerse="13" endBlock="2" character="maidens"/>
+			// <Override startChapter="6" startVerse="13" startBlock="3" endChapter="7" endVerse="9" endBlock="1" character="Solomon, king"/>
+			// Note: No override for 7:9b or 7:9c
+			// <Override startChapter="7" startVerse="10" endChapter="8" endVerse="4" character="beloved"/>
+			const string bookId = "SNG";
+			// Ensure that the current overrides are still what they were when this test was written:
+			var sngOverrides = NarratorOverrides.GetNarratorOverridesForBook(bookId).ToList();
+			var overrideCharacter = sngOverrides.Single(o => o.StartChapter == 6 && o.StartVerse == 13 && o.StartBlock == 3 &&
+				o.EndChapter == 7 && o.EndVerse == 9 && o.EndBlock == 1).Character;
+			var precedingOverrideCharacter = sngOverrides.Single(o => o.EndChapter == 6 && o.EndVerse == 13 && o.EndBlock == 2).Character;
+			Assert.AreNotEqual(overrideCharacter, precedingOverrideCharacter);
+			Assert.IsFalse(sngOverrides.Any(o => o.StartChapter == 7 && o.StartVerse == 9));
+
+			var testBlocks = GetTestBlocks(ScrVers.English, bookId, TextExplicitOverrides.None);
+			var iBlockFor6_13 = testBlocks.IndexOf(b => b.ChapterNumber == 6 && b.BlockElements.OfType<Verse>().LastOrDefault()?.Number == "13");
+			Assert.AreEqual(7, testBlocks[iBlockFor6_13 + 1].ChapterNumber, "Test set-up sanity check");
+			testBlocks.Insert(iBlockFor6_13 + 1, new Block("q2", 6, 13, 13)
+			{
+				CharacterId = testBlocks[iBlockFor6_13].CharacterId,
+				BlockElements = new List<BlockElement>(new [] {new ScriptText("return, return, that we may look upon you.") })
+			});
+			testBlocks.Insert(iBlockFor6_13 + 2, new Block("q1", 6, 13, 13)
+			{
+				CharacterId = testBlocks[iBlockFor6_13].CharacterId,
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("Why should you look upon the Shulammite,") })
+			});
+			testBlocks.Insert(iBlockFor6_13 + 3, new Block("q2", 6, 13, 13)
+			{
+				CharacterId = testBlocks[iBlockFor6_13].CharacterId,
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("as upon a dance before two armies?") })
+			});
+			var iBlockFor7_9 = testBlocks.IndexOf(b => b.ChapterNumber == 7 && b.BlockElements.OfType<Verse>().FirstOrDefault()?.Number == "9");
+			Assert.AreEqual(10, testBlocks[iBlockFor7_9 + 1].InitialStartVerseNumber, "Test set-up sanity check");
+			testBlocks.Insert(iBlockFor7_9 + 1, new Block("q1", 7, 9, 9)
+			{
+				CharacterId = testBlocks[iBlockFor7_9].CharacterId,
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("It goes down smoothly for my beloved,") })
+			});
+			testBlocks.Insert(iBlockFor7_9 + 2, new Block("q2", 7, 9, 9)
+			{
+				CharacterId = testBlocks[iBlockFor7_9].CharacterId,
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("gliding over lips and teeth.") })
+			});
+			var testBook = new BookScript(bookId, testBlocks, ScrVers.English);
+			Assert.AreEqual(precedingOverrideCharacter, testBook.GetCharacterIdInScript(testBook[iBlockFor6_13]));
+			Assert.AreEqual(precedingOverrideCharacter, testBook.GetCharacterIdInScript(testBook[iBlockFor6_13 + 1]));
+			Assert.AreEqual(overrideCharacter, testBook.GetCharacterIdInScript(testBook[iBlockFor6_13 + 2]));
+			Assert.AreEqual(overrideCharacter, testBook.GetCharacterIdInScript(testBook[iBlockFor6_13 + 3]));
+			Assert.AreEqual(overrideCharacter, testBook.GetCharacterIdInScript(testBook[iBlockFor7_9]));
+			Assert.AreEqual(testBook.NarratorCharacterId, testBook.GetCharacterIdInScript(testBook[iBlockFor7_9 + 1]));
+			Assert.AreEqual(testBook.NarratorCharacterId, testBook.GetCharacterIdInScript(testBook[iBlockFor7_9 + 2]));
+		}
+
+		[Test]
+		public void GetCloneWithJoinedBlocks_ApplyingNarratorOverrides_AdjacentSentencesInSameParagraphAndVerse_BlocksCombinedWithOverrideCharacter()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator);
+			var blocks = new List<Block>
+			{
+				NewChapterBlock(1, "NEH"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse(1, "The writings of Nehemiah bar Hacaliah:"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddText("It was the month Chislev, in the twentieth year of King Arty;"),
+				new Block("q", 1, 1) {CharacterId = narrator}.AddText("I was in Shushan the palace, when along came"),
+				new Block("p", 1, 2) {CharacterId = narrator}.AddVerse(2, "Hanani, one of my brothers. I asked him,"),
+				new Block("q", 1, 2) {CharacterId = "Nehemiah"}.AddText("«How are the Jews who avoided capture in Jerusalem?»"),
+				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse(3, "He said,"),
+				new Block("p", 1, 3) {CharacterId = "Hanani"}.AddText("«The remnant are in great affliction. Jerusalem is a hot mess!»"),
+				new Block("p", 1, 4) {CharacterId = narrator}.AddVerse(4, "When I got the news, I cried for days on end, fasting and praying."),
+
+			};
+			var bookOfNehemiah = new BookScript("NEH", blocks, ScrVers.English);
+
+			var result = bookOfNehemiah.GetCloneWithJoinedBlocks(true).GetScriptBlocks();
+			Assert.AreEqual(7, result.Count);
+
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.BookOrChapter), result[0].CharacterIdInScript);
+			Assert.AreEqual(narrator, result[1].CharacterIdInScript);
+			Assert.AreEqual("Nehemiah", result[2].CharacterIdInScript);
+			Assert.AreEqual("It was the month Chislev, in the twentieth year of King Arty; I was in Shushan the palace, when along came", result[2].GetText(true));
+			Assert.AreEqual("Nehemiah", result[3].CharacterIdInScript);
+			Assert.AreEqual("{2}\u00A0Hanani, one of my brothers. I asked him, «How are the Jews who avoided capture in Jerusalem?»", result[3].GetText(true));
+			Assert.AreEqual("Nehemiah", result[4].CharacterIdInScript);
+			Assert.AreEqual("{3}\u00A0He said,", result[4].GetText(true));
+			Assert.AreEqual("Hanani", result[5].CharacterIdInScript);
+			Assert.AreEqual("Nehemiah", result[6].CharacterIdInScript);
+		}
+
 		[TestCase(".", "p", "{1} This is not empty.", " ", "{1}\u00A0This is not empty.")]
 		[TestCase("?", "li", " ", "{1} Neither is this.", "{1}\u00A0Neither is this.")]
 		[TestCase("!", "q1", "{1}", "The other block's ref text was just a verse number.", "{1}\u00A0The other block's ref text was just a verse number.")]
-		public void GetScriptBlocks_JoiningWithBlankReferenceTexts_AdjacentSentencesInSameParagraphAndVerse_BlocksCombined(string vernBlock1EndingPunctuation,
+		public void GetCloneWithJoinedBlocks_WithBlankReferenceTexts_AdjacentSentencesInSameParagraphAndVerse_BlocksCombined(string vernBlock1EndingPunctuation,
 			string styleTag, string block1RefText, string block2RefText, string expectedCombinedRefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -597,9 +1139,9 @@ namespace GlyssenTests
 			block.SetMatchedReferenceBlock(block2RefText);
 			vernacularBlocks.Add(block);
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
@@ -609,7 +1151,7 @@ namespace GlyssenTests
 		[TestCase(";", "p", "{1} This is not empty, ", "okay?", "{1}\u00A0This is not empty, okay?")]
 		[TestCase(",", "pi2", "This is just another way", " to say that.", "This is just another way to say that.")]
 		[TestCase("", "q1", "{1}My soul will rejoice. Yes, it will sing;", "Because it is happy!", "{1}\u00A0My soul will rejoice. Yes, it will sing; Because it is happy!")]
-		public void GetScriptBlocks_JoiningWithReferenceTextsInSameVerseAndSentence_BlocksCombined(string vernBlock1EndingPunctuation,
+		public void GetCloneWithJoinedBlocks_WithReferenceTextsInSameVerseAndSentence_BlocksCombined(string vernBlock1EndingPunctuation,
 			string block2StyleTag, string block1RefText, string block2RefText, string expectedCombinedRefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -625,9 +1167,9 @@ namespace GlyssenTests
 			block.SetMatchedReferenceBlock(block2RefText);
 			vernacularBlocks.Add(block);
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
@@ -639,7 +1181,7 @@ namespace GlyssenTests
 		[TestCase("!", "q1", "{F8 SFX--Whatever}", "This is not empty...")]
 		[TestCase("!", "pi1", "This is fine", "and\u2026dandy.")]
 		[TestCase("?", "q2", "{1}\u00A0Freaky,", "isn't it?")]
-		public void GetScriptBlocks_JoiningWithReferenceTexts_VernBlockEndsInSentenceEndingPunctuation_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+		public void GetCloneWithJoinedBlocks_WithReferenceTexts_VernBlockEndsInSentenceEndingPunctuation_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
 			string block1RefText, string block2RefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -657,9 +1199,9 @@ namespace GlyssenTests
 			var origRefText2 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual(origRefText1, result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(origRefText2, result[1].GetPrimaryReferenceText());
@@ -671,7 +1213,7 @@ namespace GlyssenTests
 		[TestCase("", "p", "This is not empty.", " ")]
 		[TestCase(";", "pi1", "This is fine", "and\u2026dandy.")]
 		[TestCase(" - ", "q2", "{1}\u00A0Freaky,", "isn't it?")]
-		public void GetScriptBlocks_JoiningWithReferenceTexts_BlockBHasVerseNumber_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+		public void GetCloneWithJoinedBlocks_WithReferenceTexts_BlockBHasVerseNumber_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
 			string block1RefText, string block2RefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -690,29 +1232,25 @@ namespace GlyssenTests
 			var origRefText2 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual(origRefText1, result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(origRefText2, result[1].GetPrimaryReferenceText());
 		}
 
 		[Test]
-		public void GetScriptBlocks_JoiningWithReferenceTexts_SingleVoice_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
+		public void GetCloneWithJoinedBlocks_SingleVoiceWithReferenceTexts_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			var jude = testProject.IncludedBooks.Single();
 			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			foreach (var block in jude.GetScriptBlocks())
-			{
-				if (block.CharacterIsUnclear())
-					block.CharacterId = "Paul";
 				block.SetMatchedReferenceBlock("blah");
-			}
 			jude.SingleVoice = true;
 
-			var result = jude.GetScriptBlocks(true);
+			var result = jude.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(countOfOrigParagraphs, result.Count);
 			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
 			Assert.IsFalse(result.Any(b => b.MatchesReferenceText));
@@ -722,7 +1260,7 @@ namespace GlyssenTests
 		[TestCase(" - ", "p", "{1}   ", "Part 2", "{1}\u00A0Part 2")]
 		[TestCase(",", "pi1", "{1} Part 1.", " ", "{1}\u00A0Part 1.")]
 		[TestCase(",", "m", "Part 1", "", "Part 1")]
-		public void GetScriptBlocks_Joining_PrimaryReferenceTextIsBlank_BlocksCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+		public void GetCloneWithJoinedBlocks_PrimaryReferenceTextIsBlank_BlocksCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
 			string block1RefText, string block2RefText, string expectedCombinedRefText)
 		{
 			var vernacularBlocks = new List<Block>();
@@ -737,9 +1275,9 @@ namespace GlyssenTests
 			block.SetMatchedReferenceBlock(block2RefText);
 			vernacularBlocks.Add(block);
 
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
-			var result = vernBook.GetScriptBlocks(true);
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
@@ -756,7 +1294,7 @@ namespace GlyssenTests
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
 			Assert.IsFalse(target.GetScriptBlocks().Any(b => b.UserConfirmed));
-			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.kUnknownCharacter));
+			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.kUnexpectedCharacter));
 			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
@@ -769,7 +1307,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -805,7 +1343,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					if (i % 2 == 0)
 					{
@@ -828,7 +1366,7 @@ namespace GlyssenTests
 				{
 					if (i % 2 == 0)
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsNull(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -854,7 +1392,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -867,7 +1405,7 @@ namespace GlyssenTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -888,7 +1426,7 @@ namespace GlyssenTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -913,7 +1451,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript(false, true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -926,7 +1464,7 @@ namespace GlyssenTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -947,7 +1485,7 @@ namespace GlyssenTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnknownCharacter);
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -972,7 +1510,7 @@ namespace GlyssenTests
 			var source = CreateStandardMarkScript(true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -984,7 +1522,7 @@ namespace GlyssenTests
 			var quoteBlockIndices = new List<int>();
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (target[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					quoteBlockIndices.Add(i);
 					if (i % 2 != 0)
@@ -1005,7 +1543,7 @@ namespace GlyssenTests
 				{
 					if (i % 2 != 0)
 					{
-						Assert.AreEqual(CharacterVerseData.kUnknownCharacter, target[i].CharacterId);
+						Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, target[i].CharacterId);
 						Assert.Null(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -1032,7 +1570,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Thomas/James";
 					Assert.AreEqual(source[i].CharacterId, source[i].CharacterIdInScript, "CharacterId setter should not set CharacterInScript to default character");
@@ -1062,7 +1600,7 @@ namespace GlyssenTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+				if (source[i].CharacterId == CharacterVerseData.kUnexpectedCharacter)
 				{
 					source[i].CharacterId = "Thomas/James";
 					source[i].CharacterIdInScript = "James";
@@ -1094,7 +1632,7 @@ namespace GlyssenTests
 			{
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
-					if (source[i].CharacterIsUnclear())
+					if (source[i].CharacterIsUnclear)
 						source[i].CharacterId = "Jesus";
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (i < 20)
@@ -1111,7 +1649,7 @@ namespace GlyssenTests
 			{
 				if (userConfirmedCharacterBlockIndices.Contains(i))
 				{
-					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsFalse(target[i].CharacterIsUnclear);
 					Assert.IsTrue(target[i].UserConfirmed);
 					Assert.IsTrue(target[i].MatchesReferenceText);
 					Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
@@ -1136,7 +1674,7 @@ namespace GlyssenTests
 			{
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
-					if (source[i].CharacterIsUnclear())
+					if (source[i].CharacterIsUnclear)
 						source[i].CharacterId = "Jesus";
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (userConfirmedCharacterBlockIndices.Count >= 2)
@@ -1156,7 +1694,7 @@ namespace GlyssenTests
 			{
 				if (userConfirmedCharacterBlockIndices.Contains(i))
 				{
-					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsFalse(target[i].CharacterIsUnclear);
 					Assert.IsTrue(target[i].UserConfirmed);
 					if (i == userConfirmedCharacterBlockIndices[0])
 					{
@@ -1208,12 +1746,12 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyUserDecisions_SplitBlockInChunkAlignedToReferenceText_TextChanged_SplitNotAppliedAndNoException()
 		{
-			var source = CreateStandard1CorinthiansScript();
+			var source = CreateStandard1CorinthiansScript(ScrVers.English);
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(15, 26), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(15, 26));
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
@@ -1221,13 +1759,13 @@ namespace GlyssenTests
 			var blockToSplit = source.GetIndexOfFirstBlockForVerse(15, 26);
 			source.SplitBlock(source.GetScriptBlocks()[blockToSplit], "26", 14);
 
-			var target = CreateStandard1CorinthiansScript();
+			var target = CreateStandard1CorinthiansScript(ScrVers.English);
 			var scriptTextForV26 = target.GetScriptBlocks().First(b => b.ChapterNumber == 15 && b.InitialStartVerseNumber <= 26 && b.LastVerseNum >= 26).BlockElements
 				.SkipWhile(e => !(e is Verse) || ((Verse)e).Number != "26").OfType<ScriptText>().First();
 			scriptTextForV26.Content = scriptTextForV26.Content.Replace('a', 'q');
 			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingUserDecisions = target.GetScriptBlocks();
 			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits, targetBlocksAfterApplyingUserDecisions.Count);
 			Assert.IsFalse(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingUserDecisions, new BlockComparer()));
@@ -1247,12 +1785,12 @@ namespace GlyssenTests
 		public void ApplyUserDecisions_UnalignedSplitBlockInChunkPreviouslyAlignedToReferenceText_TextUnchanged_ManualSplitAndRefTextAlignmentsApplied(int verseNum,
 			int splitPos, string fullVerseText)
 		{
-			var source = CreateStandard1CorinthiansScript();
+			var source = CreateStandard1CorinthiansScript(ScrVers.English);
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(15, verseNum), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(15, verseNum));
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 
 			MatchUpBlocksAndApplyToSource(matchup);
@@ -1261,9 +1799,9 @@ namespace GlyssenTests
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, verseNum);
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], verseNum.ToString(), splitPos);
 
-			var target = CreateStandard1CorinthiansScript();
+			var target = CreateStandard1CorinthiansScript(ScrVers.English);
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 
 			var comparer = new BlockComparer();
@@ -1285,12 +1823,12 @@ namespace GlyssenTests
 			// Verse 2: "Laos i do parhiteanmuna gabe malua. "
 			const int kVerseNumToSplit = 2;
 			const int kSplitPos = 7;
-			var source = CreateStandard1CorinthiansScript();
+			var source = CreateStandard1CorinthiansScript(ScrVers.English);
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(15, kVerseNumToSplit), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(15, kVerseNumToSplit));
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 
 			MatchUpBlocksAndApplyToSource(matchup);
@@ -1299,14 +1837,14 @@ namespace GlyssenTests
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, kVerseNumToSplit);
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], kVerseNumToSplit.ToString(), kSplitPos);
 
-			var target = CreateStandard1CorinthiansScript();
+			var target = CreateStandard1CorinthiansScript(ScrVers.English);
 
 			var iChangedBlock = source.GetIndexOfFirstBlockForVerse(15, verseToChange);
 			var textToChange = (ScriptText)target.GetFirstBlockForVerse(15, verseToChange).BlockElements
 				.SkipWhile(be => !(be is Verse) || ((Verse)be).StartVerse != verseToChange).Skip(1).First();
 			textToChange.Content = "Then this wobbly frog bounced under her chimney and correspondingly fried a spoon to my top ear molecule.";
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 
 			var comparer = new BlockComparer();
@@ -1334,7 +1872,7 @@ namespace GlyssenTests
 		public void ApplyUserDecisions_MatchupWithUserSplitSubsequentlyAlignedToReferenceText_TextUnchanged_SplitAndAlignmentsApplied(int verseNum,
 			int splitPos, string fullVerseText)
 		{
-			var source = CreateStandard1CorinthiansScript();
+			var source = CreateStandard1CorinthiansScript(ScrVers.English);
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
@@ -1342,7 +1880,7 @@ namespace GlyssenTests
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], verseNum.ToString(), splitPos);
 
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(15, verseNum), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(15, verseNum));
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			foreach (var block in matchup.CorrelatedBlocks.SkipWhile(b => b.ChapterNumber < 15 || b.InitialStartVerseNumber < verseNum).Skip(1).TakeWhile(b => b.SplitId == 0 || b.IsContinuationOfPreviousBlockQuote))
 			{
@@ -1353,9 +1891,9 @@ namespace GlyssenTests
 			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText + 1, source.GetScriptBlocks().Count);
 
-			var target = CreateStandard1CorinthiansScript();
+			var target = CreateStandard1CorinthiansScript(ScrVers.English);
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.IsTrue(source.GetScriptBlocks().SequenceEqual(targetBlocksAfterApplyingSplit, new BlockComparer()));
 
@@ -1375,37 +1913,36 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyUserDecisions_AllSourceBlocksAlignedToReferenceTextWithManualSplitInMiddleOfVerse_TextUnchanged_SplitAppliedAndAllBlocksAligned()
 		{
-			var origSource = CreateStandard1CorinthiansScript();
+			var origSource = CreateStandard1CorinthiansScript(ScrVers.English);
 			var origBlockCount = origSource.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			englishRefText.ApplyTo(origSource, ScrVers.English);
+			englishRefText.ApplyTo(origSource);
 			var sourceBlocksChunkedOut = origSource.GetScriptBlocks();
-			var narrator = CharacterVerseData.GetStandardCharacterId(origSource.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut);
+			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut, origSource.Versification);
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
 			var firstBlockforV27 = source.GetScriptBlocks()[iBlockToSplit];
 			var v27SplitPos = 44;
-			source.SplitBlock(firstBlockforV27, "27", v27SplitPos, true, narrator, ScrVers.English);
+			source.SplitBlock(firstBlockforV27, "27", v27SplitPos, true, origSource.NarratorCharacterId);
 
 			firstBlockforV27.SetNonDramaticCharacterId(CharacterVerse.kScriptureCharacter);
 			firstBlockforV27.UserConfirmed = true;
 
 			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit];
 			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
-			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter, ScrVers.English).UserConfirmed = true;
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter).UserConfirmed = true;
 
-			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
+			foreach (var sb in source.GetScriptBlocks().Where(b => b.CharacterIsUnclear))
 			{
 				sb.MultiBlockQuote = MultiBlockQuote.None;
-				sb.SetNonDramaticCharacterId(narrator);
+				sb.SetNonDramaticCharacterId(origSource.NarratorCharacterId);
 			}
 
-			var target = CreateStandard1CorinthiansScript();
+			var target = CreateStandard1CorinthiansScript(origSource.Versification);
 			var countOfSourceBlocks = source.GetScriptBlocks().Count;
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.AreEqual(countOfSourceBlocks, source.GetScriptBlocks().Count, "Sanity check");
 			Assert.AreEqual(countOfSourceBlocks, targetBlocksAfterApplyingSplit.Count);
@@ -1417,7 +1954,7 @@ namespace GlyssenTests
 			Assert.AreEqual(CharacterVerse.kScriptureCharacter, targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 1].CharacterId);
 			Assert.AreEqual(k1Co15V27Text.Substring(v27SplitPos),
 				targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].GetText(true));
-			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].CharacterId == narrator);
+			Assert.IsTrue(targetBlocksAfterApplyingSplit[iBlockEndingInV26 + 2].CharacterId == origSource.NarratorCharacterId);
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
@@ -1431,16 +1968,16 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyUserDecisions_SplitBetweenTwoVersesChunkedOutByReferenceTextAndInMiddleOfSecondVerse_TextUnchanged_SplitsApplied()
 		{
-			var source = CreateStandard1CorinthiansScript();
+			var source = CreateStandard1CorinthiansScript(ScrVers.English);
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var blockForV26 = source.GetScriptBlocks()[source.GetIndexOfFirstBlockForVerse(15, 26)];
-			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter, ScrVers.English)
+			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter)
 				.UserConfirmed = true;
 
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(15, 26), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(15, 26));
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origBlockCount + countOfSplitsFromApplyingReferenceText + 1, source.GetScriptBlocks().Count);
@@ -1450,12 +1987,12 @@ namespace GlyssenTests
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(15, 27);
 			var v27SplitPos = 44;
 			source.SplitBlock(source.GetScriptBlocks()[iBlockToSplit], "27", v27SplitPos, true,
-				CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator), ScrVers.English);
+				source.NarratorCharacterId);
 
-			var target = CreateStandard1CorinthiansScript();
+			var target = CreateStandard1CorinthiansScript(ScrVers.English);
 			var countOfSourceBlocks = source.GetScriptBlocks().Count;
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.AreEqual(countOfSourceBlocks, targetBlocksAfterApplyingSplit.Count);
 			var blockWithVerse26 = targetBlocksAfterApplyingSplit.Single(b => b.ChapterNumber == 15 && b.LastVerseNum == 26);
@@ -1493,12 +2030,13 @@ namespace GlyssenTests
 			const int kSplitPos4 = 138;
 			var origLengthOfVerse31 = blocks.Last().BlockElements.OfType<ScriptText>().ElementAt(1).Content.Length;
 
-			var source = new BookScript("MAT", blocks);
-			var target = source.Clone(false);
+			var source = new BookScript("MAT", blocks, ScrVers.English);
+			var target = source.Clone();
+			Assert.AreEqual(ScrVers.English, target.Versification);
 
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			englishRefText.ApplyTo(source, ScrVers.English);
+			englishRefText.ApplyTo(source);
 			var sourceBlocksChunkedOut = source.GetScriptBlocks();
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
@@ -1511,21 +2049,21 @@ namespace GlyssenTests
 			var iBlockToSplit = source.GetIndexOfFirstBlockForVerse(kChapter, 31);
 			Assert.AreEqual(2, iBlockToSplit);
 			var blockToSplit = source.GetScriptBlocks()[iBlockToSplit];
-			var narrator = CharacterVerseData.GetStandardCharacterId(source.BookId, CharacterVerseData.StandardCharacter.Narrator);
+			var narrator = source.NarratorCharacterId;
 
-			var split4 = source.SplitBlock(blockToSplit, "31", kSplitPos4, true, "Jesus", ScrVers.English);
+			var split4 = source.SplitBlock(blockToSplit, "31", kSplitPos4, true, "Jesus");
 			split4.SetMatchedReferenceBlock("“Most certainly I tell you that the tax collectors and the prostitutes are entering into the Kingdom of God before you.");
 			split4.UserConfirmed = true;
 
-			var split3 = source.SplitBlock(blockToSplit, "31", kSplitPos3, true, narrator, ScrVers.English);
+			var split3 = source.SplitBlock(blockToSplit, "31", kSplitPos3, true, narrator);
 			split3.SetMatchedReferenceBlock("Jesus said to them,");
 			split3.UserConfirmed = true;
 
-			var split2 = source.SplitBlock(blockToSplit, "31", kSplitPos2, true, "chief priests/elders", ScrVers.English);
+			var split2 = source.SplitBlock(blockToSplit, "31", kSplitPos2, true, "chief priests/elders");
 			split2.SetMatchedReferenceBlock("“The first.”");
 			split2.UserConfirmed = true;
 
-			var split1 = source.SplitBlock(blockToSplit, "31", kSplitPos1, true, narrator, ScrVers.English);
+			var split1 = source.SplitBlock(blockToSplit, "31", kSplitPos1, true, narrator);
 			split1.SetMatchedReferenceBlock("They said to him,");
 			split1.UserConfirmed = true;
 
@@ -1547,7 +2085,7 @@ namespace GlyssenTests
 			Assert.AreEqual(split2.SplitId, blockToSplit.SplitId);
 			Assert.AreEqual(split1.SplitId, blockToSplit.SplitId);
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.AreEqual(source.GetScriptBlocks().Count, targetBlocksAfterApplyingSplit.Count,
 				"There were 4 explicit user splits, dividing v. 31 into 5 parts, plus the preceding verse and the following verse " +
@@ -1621,12 +2159,12 @@ namespace GlyssenTests
 			var origLengthOfVerse26 = blocks[1].BlockElements.OfType<ScriptText>().ElementAt(1).Content.Length;
 			blocks[1].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 
-			var source = new BookScript("MRK", blocks);
-			var target = source.Clone(false);
+			var source = new BookScript("MRK", blocks, ScrVers.English);
+			var target = source.Clone();
 
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			englishRefText.ApplyTo(source, ScrVers.English);
+			englishRefText.ApplyTo(source);
 			var sourceBlocksChunkedOut = source.GetScriptBlocks();
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
@@ -1634,7 +2172,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, iBlockToSplit);
 			var blockToSplit = source.GetScriptBlocks()[iBlockToSplit];
 
-			var split = source.SplitBlock(blockToSplit, "26", kSplitPos, true, "Jesus", ScrVers.English);
+			var split = source.SplitBlock(blockToSplit, "26", kSplitPos, true, "Jesus");
 			split.SetMatchedReferenceBlock("“Don't enter into the village, nor tell anyone in the village.”");
 			split.Delivery = "giving orders";
 			split.UserConfirmed = true;
@@ -1649,7 +2187,7 @@ namespace GlyssenTests
 
 			var countOfTargetBlocksBeforeApplyingSplits = target.GetScriptBlocks().Count;
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			var targetBlocksAfterApplyingSplit = target.GetScriptBlocks();
 			Assert.AreEqual(countOfTargetBlocksBeforeApplyingSplits + 2, targetBlocksAfterApplyingSplit.Count,
 				"One explicit break in verse 26, plus one implicit one between v.25 and v. 26");
@@ -1689,10 +2227,10 @@ namespace GlyssenTests
 					.AddVerse("5", "That was a nice thing to say.") };
 
 			var origSourceBlockCount = sourceBlocks.Count;
-			var source = new BookScript("MAT", sourceBlocks);
+			var source = new BookScript("MAT", sourceBlocks, ScrVers.English);
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(1, verseToMatchUp), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(1, verseToMatchUp));
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			MatchUpBlocksAndApplyToSource(matchup);
 			Assert.AreEqual(origSourceBlockCount + countOfSplitsFromApplyingReferenceText, source.GetScriptBlocks().Count);
@@ -1708,9 +2246,9 @@ namespace GlyssenTests
 				new Block("m", kChapter, 1) { IsParagraphStart = true, CharacterId = narrator }
 					.AddText("Now we're back to prose. That was a nice thing to say.") };
 
-			var target = new BookScript("MAT", targetBlocks.Select(b => b.Clone()));
+			var target = new BookScript("MAT", targetBlocks.Select(b => b.Clone()), ScrVers.English);
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			Assert.IsTrue(targetBlocks.SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 
 			Assert.IsNotNull(target.UnappliedSplits);
@@ -1726,7 +2264,7 @@ namespace GlyssenTests
 		{
 			matchup.MatchAllBlocks(ScrVers.English);
 			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear() ||
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear ||
 				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))
 			{
 				block.SetNonDramaticCharacterId(narrator);
@@ -1755,7 +2293,7 @@ namespace GlyssenTests
 				new Block("p", kChapter, 20) { IsParagraphStart = true, CharacterId = narrator }
 					.AddVerse(20, kMat1_20a),
 				// Block break triggered by opening quote
-				new Block("p", kChapter, 20) { IsParagraphStart = false, CharacterId = CharacterVerseData.kUnknownCharacter }
+				new Block("p", kChapter, 20) { IsParagraphStart = false, CharacterId = CharacterVerseData.kUnexpectedCharacter }
 					.AddText(kMat1_20b)
 					.AddVerse(21, kMat1_21a + kMat1_21b),
 				// The closing quote mark is missing in the text, but the parser would force this block break (and
@@ -1764,12 +2302,12 @@ namespace GlyssenTests
 				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = narrator }
 					.AddVerse(23, kMat1_23a),
 				// Block break triggered by opening quote. Again, this is unknown because of the missing closer.
-				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = CharacterVerseData.kUnknownCharacter }
+				new Block("p", kChapter, 23) { IsParagraphStart = false, CharacterId = CharacterVerseData.kUnexpectedCharacter }
 					.AddVerse(23, kMat1_23b + "Koto ër Emanuwel le gon e oŋ iyi Urün oɗ ëng ɓé eene. Gon reɗëko Urün oŋ aŝükélün ar Urün ale añugëɗ. Gang ŝotëko Mari gacëɗ hara mamalangëɗelaŋ aŝan, agé gon reɗëko Urün kabiriŋ alëka ogéye oŋ. ")
 					.AddVerse(24, "Ŝosef gang lügütéko, adiɗ ngër gang reɗëkoma aɗaŋal ar Urün ale le. Komamaɗ Mari. Kogé asówar aróm. \v 25 Kono mënɓarɗelaŋ gañar ëng Ŝosef haŋ fo rëmkoma Mari ñaŋëso ñaŋ le. Gang rëmkoma, Ŝosef amatapëɗ ñaŋëso ñungum Ŝésü."),
 			};
 
-			var target = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			var target = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
 			// In the bug report we're simulating here, the user had fixed the missing v. 22 by making
 			// the existing v. 23 into verse bridge for 22-23.
 			target.GetScriptBlocks()[3].InitialStartVerseNumber = 22;
@@ -1778,7 +2316,7 @@ namespace GlyssenTests
 			target.GetScriptBlocks()[4].InitialStartVerseNumber = 22;
 			target.GetScriptBlocks()[4].InitialEndVerseNumber = 23;
 
-			var source = new BookScript("MAT", blocks);
+			var source = new BookScript("MAT", blocks, ScrVers.English);
 
 			int i = 1;
 			var firstBlockForV20 = source.GetScriptBlocks()[i++];
@@ -1786,12 +2324,12 @@ namespace GlyssenTests
 			Assert.AreEqual("20", ((Verse)firstBlockForV20.BlockElements[0]).Number);
 			var secondBlockForV20 = source.GetScriptBlocks()[i++];
 
-			var secondBlockForV21 = source.SplitBlock(secondBlockForV20, "21", kMat1_21a.Length, true, narrator, ScrVers.English);
+			var secondBlockForV21 = source.SplitBlock(secondBlockForV20, "21", kMat1_21a.Length, true, narrator);
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var origBlockCount = source.GetScriptBlocks().Count;
 			var matchup = englishRefText.GetBlocksForVerseMatchedToReferenceText(source,
-				source.GetIndexOfFirstBlockForVerse(kChapter, 20), ScrVers.English);
+				source.GetIndexOfFirstBlockForVerse(kChapter, 20));
 			matchup.CorrelatedBlocks.Last(b => b.InitialStartVerseNumber == 21).SetMatchedReferenceBlock("he said.");
 			var countOfSplitsFromApplyingReferenceText = matchup.CountOfBlocksAddedBySplitting;
 			MatchUpBlocksAndApplyToSource(matchup);
@@ -1800,7 +2338,7 @@ namespace GlyssenTests
 			source.GetScriptBlocks()[2].SplitId = -1;
 
 			var v23Thru24Block = source.GetScriptBlocks().Last();
-			var newBlock = source.SplitBlock(v23Thru24Block, "23", kMat1_23b.Length, true, narrator, ScrVers.English);
+			var newBlock = source.SplitBlock(v23Thru24Block, "23", kMat1_23b.Length, true, narrator);
 			newBlock.UserConfirmed = true;
 			v23Thru24Block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
 
@@ -1813,7 +2351,7 @@ namespace GlyssenTests
 			Assert.IsTrue(v21Blocks.All(b => b.SplitId == 0));
 			Assert.IsTrue(v23Blocks.Skip(1).All(b => b.SplitId == 1));
 
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
@@ -1837,13 +2375,13 @@ namespace GlyssenTests
 					.AddText(" <<Où est le roi des Juifs qui vient de naître? Nous avons vu son étoile se lever à l'est, et nous sommes venus l'adorer.>>")
 			};
 
-			var source = new BookScript("MAT", blocks);
+			var source = new BookScript("MAT", blocks, ScrVers.English);
 			source[1].SetMatchedReferenceBlock("When Jesus was born in Bethlehem, Judea in the days of Herod, eastern wise men came to Jerusalem.");
 
-			var target = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			var target = new BookScript("MAT", blocks.Select(b => b.Clone()), source.Versification);
 
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			target.ApplyUserDecisions(source, ScrVers.English, englishRefText);
+			target.ApplyUserDecisions(source, englishRefText);
 			Assert.IsTrue(blocks.SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
 
 			Assert.IsNotNull(target.UnappliedSplits);
@@ -2328,7 +2866,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			mrkBlocks.Add(NewSingleVersePara(2));
 			mrkBlocks.Add(NewSingleVersePara(3));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(NewSingleVersePara(5, "Split here, dude."), "5", 11));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
@@ -2342,7 +2880,7 @@ namespace GlyssenTests
 			var blockForVerse2 = NewSingleVersePara(2, "It doesn't matter what this is.");
 			mrkBlocks.Add(blockForVerse2);
 			mrkBlocks.Add(NewSingleVersePara(3));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(blockForVerse2, "3", 11));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
@@ -2356,7 +2894,7 @@ namespace GlyssenTests
 			var blockForVerse2 = NewSingleVersePara(2, "Short.");
 			mrkBlocks.Add(blockForVerse2);
 			mrkBlocks.Add(NewSingleVersePara(3));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.Throws<ArgumentOutOfRangeException>(() => bookScript.SplitBlock(blockForVerse2, "2", 400));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
@@ -2370,7 +2908,7 @@ namespace GlyssenTests
 			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
 			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -2390,8 +2928,8 @@ namespace GlyssenTests
 			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
 			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
-			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "Jesus", ScrVers.English);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "Jesus");
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
@@ -2413,8 +2951,8 @@ namespace GlyssenTests
 			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
 			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, they told that synagogue ruler: Don't be afraid; just believe.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
-			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "James/John", ScrVers.English);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "James/John");
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
@@ -2437,8 +2975,8 @@ namespace GlyssenTests
 				//            012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
 				.AddVerse(10, "So they kept the matter to themselves, questioning: What does rising from the dead mean?");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
-			var newBlock = bookScript.SplitBlock(blockToSplit, "10", 52, true, "Peter (Simon)/James/John", m_testVersification);
+			var bookScript = new BookScript("MRK", mrkBlocks, m_testVersification);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "10", 52, true, "Peter (Simon)/James/John");
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
@@ -2462,7 +3000,7 @@ namespace GlyssenTests
 			blockToSplit.AddVerse("37-38", "This is the text of following verses. ");
 			blockToSplit.AddVerse("39", "This is the text of final verse. ");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -2484,7 +3022,7 @@ namespace GlyssenTests
 			blockToSplit.AddVerse("37-38", "This is the text of following verses. ");
 			blockToSplit.AddVerse("39", "This is the text of final verse. ");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 88);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -2507,7 +3045,7 @@ namespace GlyssenTests
 			blockToSplit.AddVerse("36", "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
 			blockToSplit.AddVerse("37", "This is the final verse. ");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -2530,7 +3068,7 @@ namespace GlyssenTests
 			blockToSplit.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
 			blockToSplit.AddVerse("38", "This is the final verse. ");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36-37", 128);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -2550,7 +3088,7 @@ namespace GlyssenTests
 			var splitBeforeBlock = NewSingleVersePara(2);
 			mrkBlocks.Add(splitBeforeBlock);
 			mrkBlocks.Add(NewSingleVersePara(3));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(splitBeforeBlock, null, 0));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
@@ -2564,7 +3102,7 @@ namespace GlyssenTests
 			var splitAfterBlock = NewSingleVersePara(2, "Verse text");
 			mrkBlocks.Add(splitAfterBlock);
 			mrkBlocks.Add(NewSingleVersePara(3));
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(splitAfterBlock, "2", "Verse text".Length));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
@@ -2577,7 +3115,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			var blockToSplit = NewSingleVersePara(2, "Verse text").AddVerse("3-4").AddVerse(5);
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", BookScript.kSplitAtEndOfVerse);
 			Assert.AreEqual(3, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(4, newBlock.InitialEndVerseNumber);
@@ -2597,7 +3135,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(1));
 			var blockToSplit = NewSingleVersePara(2, "Verse text").AddVerse("3-4").AddVerse(5);
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", "Verse text".Length);
 			Assert.AreEqual(3, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(4, newBlock.InitialEndVerseNumber);
@@ -2623,7 +3161,7 @@ namespace GlyssenTests
 			var block4 = NewSingleVersePara(38).AddVerse(39);
 			block4.MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(block4);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
 			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
 			var blocks = bookScript.GetScriptBlocks();
@@ -2650,7 +3188,7 @@ namespace GlyssenTests
 			var block4 = NewSingleVersePara(38).AddVerse(39);
 			block4.MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(block4);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
 			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitAfter, "2-34", blockToSplitAfter.BlockElements.OfType<ScriptText>().Last().Content.Length));
 			var blocks = bookScript.GetScriptBlocks();
@@ -2679,7 +3217,7 @@ namespace GlyssenTests
 			var block5 = NewSingleVersePara(38).AddVerse(39);
 			block5.MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(block5);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(5, bookScript.GetScriptBlocks().Count);
 			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
 			var blocks = bookScript.GetScriptBlocks();
@@ -2706,7 +3244,7 @@ namespace GlyssenTests
 			blockToSplitBefore.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
 			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(blockToSplitBefore);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
 			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
 			var blocks = bookScript.GetScriptBlocks();
@@ -2729,7 +3267,7 @@ namespace GlyssenTests
 			blockToSplitBefore.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
 			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(blockToSplitBefore);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
 			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
 			var blocks = bookScript.GetScriptBlocks();
@@ -2754,7 +3292,7 @@ namespace GlyssenTests
 			continuationBlock.MultiBlockQuote = continuingStatus;
 			mrkBlocks.Add(continuationBlock);
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "1", 8);
 
 			Assert.AreEqual(MultiBlockQuote.None, blockToSplit.MultiBlockQuote);
@@ -2782,7 +3320,7 @@ namespace GlyssenTests
 			nextContinuationBlock.MultiBlockQuote = continuingStatus2;
 			mrkBlocks.Add(nextContinuationBlock);
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 8);
 
 			Assert.AreEqual(continuingStatus1, blockToSplit.MultiBlockQuote);
@@ -2808,7 +3346,7 @@ namespace GlyssenTests
 			noneBlock.MultiBlockQuote = MultiBlockQuote.None;
 			mrkBlocks.Add(noneBlock);
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 8);
 
 			Assert.AreEqual(continuingStatus, blockToSplit.MultiBlockQuote);
@@ -2824,10 +3362,10 @@ namespace GlyssenTests
 			blockToSplit.CharacterId = "Bill";
 			blockToSplit.UserConfirmed = true;
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
 			Assert.AreEqual("Bill", blockToSplit.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, newBlock.CharacterId);
 			Assert.IsTrue(blockToSplit.UserConfirmed);
 			Assert.IsFalse(newBlock.UserConfirmed);
 		}
@@ -2842,7 +3380,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewChapterBlock(2));
 			var block2 = NewSingleVersePara(1).AddVerse("1", "A verse in a subsequent chapter");
 			mrkBlocks.Add(block2);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
 
 			// Call GetFirstBlockForVerse on a chapter after the block we are splitting.
@@ -2865,7 +3403,7 @@ namespace GlyssenTests
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
@@ -2891,7 +3429,7 @@ namespace GlyssenTests
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
@@ -2914,7 +3452,7 @@ namespace GlyssenTests
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			blockToSplit.SplitId = 3;
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
@@ -2937,7 +3475,7 @@ namespace GlyssenTests
 			var blockToSplitBefore = NewSingleVersePara(36, "After Split");
 			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(blockToSplitBefore);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			bookScript.SplitBlock(blockToSplitBefore, null, 0);
 
@@ -2959,7 +3497,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(blockToSplit);
 			blockToSplit.SetMatchedReferenceBlock("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
 			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.", blockToSplit.GetPrimaryReferenceText());
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 64);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -2989,7 +3527,7 @@ namespace GlyssenTests
 				}
 			};
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			// SUT
 			bookScript.SplitBlock(blockToSplit, "2", 5);
@@ -3007,7 +3545,7 @@ namespace GlyssenTests
 			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
 			blockToSplit.BlockElements.Add(new ScriptText("Blah."));
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
 			Assert.AreEqual(2, bookScript.GetScriptBlocks().Count);
 		}
@@ -3020,7 +3558,7 @@ namespace GlyssenTests
 			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
 			blockToSplit.AddVerse(1, "Blah blah blah.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
 			Assert.AreEqual(2, bookScript.GetScriptBlocks().Count);
 		}
@@ -3036,7 +3574,7 @@ namespace GlyssenTests
 			var followingBlock = new Block("p", m_curSetupChapter, 2) { IsParagraphStart = true };
 			followingBlock.AddVerse(2, "Whatever.");
 			mrkBlocks.Add(followingBlock);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
 			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
 		}
@@ -3052,7 +3590,7 @@ namespace GlyssenTests
 			var blockToSplit = NewPara("p", "This is the remainder of the verse bridge in the block to split. ");
 			blockToSplit.AddVerse("3", "This is the text of the following verse.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(4, blocks.Count);
@@ -3074,7 +3612,7 @@ namespace GlyssenTests
 				.AddVerse("2b", "This is the rest of verse two. ")
 				.AddVerse("3", "This is the text of the following verse.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
@@ -3099,7 +3637,7 @@ namespace GlyssenTests
 				.AddVerse("2b", "This is the rest of verse two. ")
 				.AddVerse("3", "This is the text of the following verse.");
 			mrkBlocks.Add(followingBlock);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
 			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
 		}
@@ -3116,7 +3654,7 @@ namespace GlyssenTests
 				.AddVerse("2b", "This is the rest of verse two. ")
 				.AddVerse("3", "This is the text of the following verse.");
 			mrkBlocks.Add(blockToSplit);
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(4, blocks.Count);
@@ -3149,7 +3687,7 @@ namespace GlyssenTests
 			englishRefBlock.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
 			spanishRefBlock.SetMatchedReferenceBlock(englishRefBlock);
 
-			var bookScript = new BookScript("REV", blocks);
+			var bookScript = new BookScript("REV", blocks, ScrVers.English);
 			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 10));
 			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
 			var origSplitBlock = bookScript.GetScriptBlocks()[1];
@@ -3194,9 +3732,9 @@ namespace GlyssenTests
 			block.MultiBlockQuote = MultiBlockQuote.None;
 			mrkBlocks.Add(block);
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
-			bookScript.CleanUpMultiBlockQuotes(ScrVers.English);
+			bookScript.CleanUpMultiBlockQuotes();
 			var result = bookScript.GetScriptBlocks();
 
 			Assert.AreEqual(3, result.Count);
@@ -3235,9 +3773,9 @@ namespace GlyssenTests
 			block.UserConfirmed = true;
 			mrkBlocks.Add(block);
 
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
-			bookScript.CleanUpMultiBlockQuotes(ScrVers.English);
+			bookScript.CleanUpMultiBlockQuotes();
 			var result = bookScript.GetScriptBlocks();
 
 			Assert.AreEqual(3, result.Count);
@@ -3269,7 +3807,7 @@ namespace GlyssenTests
 			var origLastBlockText = mrkBlocks.Last().GetText(true);
 			mrkBlocks.Last().CharacterId = "blind man";
 			mrkBlocks.Last().MultiBlockQuote = followingBlockMultiBlockQuoteType;
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			var replacementBlocks = new List<Block>();
 			replacementBlocks.Add(NewSingleVersePara(1, "This is the new text."));
@@ -3323,7 +3861,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(verse3Block);
 			mrkBlocks.Last().CharacterId = "blind man";
 			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			var replacementBlocks = new List<Block>();
 			replacementBlocks.Add(NewSingleVersePara(1, "This is the new text."));
@@ -3358,7 +3896,7 @@ namespace GlyssenTests
 			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(NewBlock("thus spake he forthwith."));
 			mrkBlocks.Last().CharacterId = narrator;
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			var replacementBlocks = new List<Block>();
 			MultiBlockQuote firstReplacementBlockMultiBlockQuoteType;
@@ -3377,12 +3915,12 @@ namespace GlyssenTests
 			replacementBlocks.Last().MultiBlockQuote = firstReplacementBlockMultiBlockQuoteType;
 			replacementBlocks.Last().CharacterId = characterOfFirstReplacementBlock;
 			if (finalReplacementBlockMultiBlockQuoteType == MultiBlockQuote.Continuation)
-				replacementBlocks.Last().CharacterIdOverrideForScript = "Walter";
+				replacementBlocks.Last().CharacterIdInScript = "Walter";
 			replacementBlocks.Last().SetMatchedReferenceBlock("{2} Reference text for v2.");
 			replacementBlocks.Add(NewBlock("This is the new text, spoken by the neighbors."));
 			replacementBlocks.Last().MultiBlockQuote = finalReplacementBlockMultiBlockQuoteType;
 			replacementBlocks.Last().CharacterId = "neighbors";
-			replacementBlocks.Last().CharacterIdOverrideForScript = "Walter";
+			replacementBlocks.Last().CharacterIdInScript = "Walter";
 			replacementBlocks.Last().SetMatchedReferenceBlock("More reference text for v2.");
 
 			bookScript.ReplaceBlocks(2, 1, replacementBlocks);
@@ -3438,7 +3976,7 @@ namespace GlyssenTests
 			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(NewBlock("thus spake he forthwith."));
 			mrkBlocks.Last().CharacterId = narrator;
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			var replacementBlocks = new List<Block>();
 			replacementBlocks.Add(NewSingleVersePara(2, "I can't see anything!"));
@@ -3500,7 +4038,7 @@ namespace GlyssenTests
 			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
 			mrkBlocks.Add(NewSingleVersePara(4, "thus spake he forthwith."));
 			mrkBlocks.Last().CharacterId = narrator;
-			var bookScript = new BookScript("MRK", mrkBlocks);
+			var bookScript = new BookScript("MRK", mrkBlocks, ScrVers.English);
 
 			var replacementBlocks = new List<Block>();
 			replacementBlocks.Add(NewSingleVersePara(2, "I can't see anything!"));
@@ -3542,8 +4080,115 @@ namespace GlyssenTests
 		}
 		#endregion
 
-			#region Private Helper methods
-			private Block NewTitleBlock(string text, string bookCodeToSetCharacterId)
+		#region Private Helper methods
+		/// <summary>
+		/// Options to tell GetTestBlocks when/whether to explicitly assign the known narrator
+		/// override character to direct-speech block(s) for the verses where he might speak.
+		/// </summary>
+		public enum TextExplicitOverrides
+		{
+			/// <summary>
+			/// All known verses in each narrator-override range should have a block explicitly
+			/// spoken by the override character. (This effectively suppresses the override behavior.)
+			/// </summary>
+			All,
+			/// <summary>
+			/// Some (roughly half) of the known verses in each narrator-override range should have
+			/// a block explicitly spoken by the override character.
+			/// </summary>
+			Some,
+			/// <summary>
+			/// No blocks in any narrator-override range should have their character IDs explicitly
+			/// assigned to the override character.
+			/// </summary>
+			None,
+		}
+
+		private BookScript GetTestBook(ScrVersType versType, string bookId, TextExplicitOverrides option, int missingVerseOffset = -1)
+		{
+			var scrVers = new ScrVers(versType);
+			return new BookScript(bookId, GetTestBlocks(scrVers, bookId, option, missingVerseOffset), scrVers);
+		}
+
+		/// <summary>
+		/// Gets a "dummy" book with blocks covering all (or all but one, if <paramref name="missingVerseOffset"/> is specified)
+		/// verses in all chapters. Some may be (very big) verse bridges. Details of what the blocks will look like and which
+		/// character will be assigned depends on the chapter, what narrator overrides exist for the book, and the
+		/// <paramref name="option"/> specified. This doesn't make for the most readable test setup, but it does make it easy to
+		/// run lots of different iterations of tests over a variety of scenarios. To really understand it, the easiest thing is
+		/// probably to set a break point and examine the blocks that get returned.
+		/// </summary>
+		private List<Block> GetTestBlocks(ScrVers scrVers, string bookId, TextExplicitOverrides option, int missingVerseOffset = -1)
+		{
+			var bookNum = BCVRef.BookToNumber(bookId);
+
+			List<Block> blocks;
+			var narrator = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+			blocks = new List<Block>();
+			for (int c = 1; c <= scrVers.GetLastChapter(bookNum); c++)
+			{
+				var refOfFirstVerse = scrVers.FirstIncludedVerse(bookNum, c);
+				if (refOfFirstVerse == null)
+					continue;
+				blocks.Add(NewChapterBlock(c, bookId));
+				var lastVerseInChapter = scrVers.GetLastVerse(bookNum, c);
+				var firstVerse = ((VerseRef)refOfFirstVerse).VerseNum;
+				for (int v = firstVerse; v <= lastVerseInChapter; v++)
+				{
+					var block = new Block("p", c, v, v);
+					if (option == TextExplicitOverrides.None || option == TextExplicitOverrides.Some && (v % 2 == 0))
+					{
+						block.CharacterId = narrator;
+					}
+					else
+					{
+						var verseRef = new VerseRef(bookNum, c, v, scrVers);
+						var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, v)?.FirstOrDefault();
+						if (overrideInfo != null)
+						{
+							if (c == overrideInfo.StartChapter && v == overrideInfo.StartVerse + (missingVerseOffset == 0 ? 1 :0) &&
+								(option == TextExplicitOverrides.All))
+							{
+								block.IsParagraphStart = true;
+								block.CharacterId = narrator;
+								block.BlockElements.Add(new Verse(v.ToString()));
+								block.BlockElements.Add(new ScriptText("Then the override character said: "));
+								blocks.Add(block);
+								block = new Block("p", c, v, v) { CharacterId = overrideInfo.Character };
+								block.BlockElements.Add(new ScriptText("The first thing I want to say is... "));
+								blocks.Add(block);
+								continue;
+							}
+							if (missingVerseOffset >= 0 && (c == overrideInfo.StartChapter && v == overrideInfo.StartVerse + missingVerseOffset ||
+								c > overrideInfo.StartChapter && v == 1 + missingVerseOffset))
+							{
+								continue; // This is the one verse in this chapter for this override that we'll omit
+							}
+							if (c % 3 != 1 && v > 2)
+							{
+								var lastVerseToCombine = lastVerseInChapter - 2;
+								if (overrideInfo.EndChapter == c && overrideInfo.EndVerse - 1 < lastVerseToCombine)
+									lastVerseToCombine = overrideInfo.EndVerse - 1;
+								while (v < lastVerseToCombine)
+								{
+									block.BlockElements.Add(new Verse(v++.ToString()));
+									block.BlockElements.Add(new ScriptText("Multi-verse para."));
+								}
+							}
+							block.CharacterId = overrideInfo.Character ?? narrator;
+						}
+						else
+							block.CharacterId = narrator;
+					}
+					block.BlockElements.Add(new Verse(v.ToString()));
+					block.BlockElements.Add(new ScriptText("Blah."));
+					blocks.Add(block);
+				}
+			}
+			return blocks;
+		}
+
+		private Block NewTitleBlock(string text, string bookCodeToSetCharacterId)
 		{
 			var block = new Block("mt");
 			block.IsParagraphStart = true;
@@ -3610,7 +4255,7 @@ namespace GlyssenTests
 
 		private BookScript CreateStandardMarkScript(bool includeExtraVersesInChapter1 = false, bool includeBookTitle = false)
 		{
-			return new BookScript("MRK", GetStandardMarkScriptBlocks(includeExtraVersesInChapter1, includeBookTitle));
+			return new BookScript("MRK", GetStandardMarkScriptBlocks(includeExtraVersesInChapter1, includeBookTitle), m_testVersification);
 		}
 
 		private IList<Block> GetStandardMarkScriptBlocks(bool includeExtraVersesInChapter1 = false, bool includeBookTitle = false)
@@ -3673,9 +4318,9 @@ namespace GlyssenTests
 			return mrkBlocks;
 		}
 
-		private BookScript CreateStandard1CorinthiansScript()
+		private BookScript CreateStandard1CorinthiansScript(ScrVers versification)
 		{
-			return new BookScript("1CO", GetStandard1CorinthiansScriptBlocks());
+			return new BookScript("1CO", GetStandard1CorinthiansScriptBlocks(), versification);
 		}
 
 		private const string k1Co15V1Text = "Alai naeng ma pabotohononku tu. ";
@@ -3752,6 +4397,7 @@ namespace GlyssenTests
 			var serializedBookScript = XmlSerializationHelper.SerializeToString(newBookScript);
 
 			var deserializedBookScript = XmlSerializationHelper.DeserializeFromString<BookScript>(serializedBookScript);
+			deserializedBookScript.Initialize(newBookScript.Versification); // Not really necessary for this test, but to avoid possible future errors or confusion.
 			Assert.IsTrue(newBookScript.UnappliedSplits.SequenceEqual(deserializedBookScript.UnappliedSplits, new BlockListComparer()));
 		}
 
@@ -3786,7 +4432,7 @@ namespace GlyssenTests
 			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			blocks.Add(NewSingleVersePara(1, "Principio del evangelio de Jesucristo, el Hijo de Dios. (chapter 2) ")
 				.AddVerse(2, "Como está escrito en el profeta Isaías: (chapter 2) "));
-			var orig = new BookScript("MRK", blocks);
+			var orig = new BookScript("MRK", blocks, ScrVers.English);
 
 			orig.MainTitle = "Main Title";
 			orig.PageHeader = "Page Header";
@@ -3798,9 +4444,7 @@ namespace GlyssenTests
 			var origMark1_4Blocks = orig.GetBlocksForVerse(1, 4).ToList(); // Populates orig.m_chapterStartBlockIndices
 			var origMark2_1Blocks = orig.GetBlocksForVerse(2, 1).ToList();
 
-			// for the single voice case, we don't want to join blocks, because it re-combines them into paragraphs and prevents
-			// block-by-block comparison.
-			var clone = orig.Clone(!singleVoice);
+			var clone = orig.Clone(); 
 			Assert.AreEqual("Main Title", clone.MainTitle);
 			Assert.AreEqual("Page Header", clone.PageHeader);
 			Assert.AreEqual("MRK", clone.BookId);

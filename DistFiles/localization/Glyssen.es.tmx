@@ -218,6 +218,24 @@
         <seg>Abraham (Abram)</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Abraham's chief servant">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abraham's chief servant</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>el criado principal de Abraham</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Absalom's men">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Absalom's men</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>los hombres de Absalón</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Absalom, son of David">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -629,7 +647,7 @@
         <seg>Azariah the chief priest (during reign of Hezekiah)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Azarías ***the*** ***chief*** sacerdote ***(during*** ***reign*** ***of*** Ezequías)</seg>
+        <seg>Azarías el sacerdote principal (durante el reino de Ezequías)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Azariah the priest">
@@ -647,7 +665,7 @@
         <seg>Azariah the priest (during reign of Uzziah)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Azarías ***the*** sacerdote ***(during*** ***reign*** ***of*** Ozías)</seg>
+        <seg>Azarías el sacerdote (durante el reino de Ozías)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Azariah, Johanan and all the arrogant men">
@@ -782,7 +800,7 @@
         <seg>Barzillai (old)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Barzilai ***(old)***</seg>
+        <seg>Barzilai (anciano)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Bathsheba">
@@ -1280,15 +1298,6 @@
         <seg>Eliseo (anciano)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Elisha (the LORD says)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Elisha (the LORD says)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Eliseo (dice el Señor)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Elisha's servant">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1478,13 +1487,13 @@
         <seg>Hezequiel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Ezekiel (in vision of God)">
+    <tu tuid="CharacterName.Ezekiel (in vision)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Ezekiel (in vision of God)</seg>
+        <seg>Ezekiel (in vision)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Ezequiel (en una visión de Dios)</seg>
+        <seg>Hezequiel (en una visión)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ezra">
@@ -1665,6 +1674,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Guemarías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gemariah, son of Hilkiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gemariah, son of Hilkiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guemarías, hijo de Hilquías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gemariah, son of Shaphan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gemariah, son of Shaphan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guemarías, hijo de Safán</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Gentiles">
@@ -2069,7 +2096,7 @@
         <seg>Ishmael, son of Nethaniah (murderer)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Ismael, hijo de Netanías ***(murderer)***</seg>
+        <seg>Ismael, hijo de Netanías (asesino)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israel">
@@ -2423,24 +2450,6 @@
         <seg>Jeremías (dice el Señor)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jeremiah (word of the LORD came)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah (word of the LORD came)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jeremías (vino palabra de Jehová)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jeremiah (word of the LORD)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah (word of the LORD)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jeremías (palabra del Señor)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jeremiah quoting the prophets">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2504,15 +2513,6 @@
         <seg>Jesús</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jesus (Lord God Almighty)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus (Lord God Almighty)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jesús ***(Lord*** ***God*** todopoderoso)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jesus (child)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2520,6 +2520,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Jesús (niño)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús (en una visión)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus (the Lord)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus (the Lord)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús (el Señor)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jesus in 2 John">
@@ -2882,6 +2900,15 @@
         <seg>la gente de Judá</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Judah, remnant of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah, remnant of</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>remanente de Judá</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Judas Iscariot">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3095,7 +3122,7 @@
         <seg>Mephibosheth, son of Jonathan</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Mefi-bóset, ***son*** ***of*** Jonatán</seg>
+        <seg>Mefi-bóset, hijo de Jonatán</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Micah">
@@ -3303,6 +3330,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Nehemías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nehemiah (with Ezra and Levites) - see v. 10">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nehemiah (with Ezra and Levites) - see v. 10</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nehemías (con Esdras y los levitas) - véase v. 10</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Nicodemus">
@@ -3836,6 +3872,15 @@
         <seg>Saulo (Pablo)</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Saul (via messenger)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Saul (via messenger)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Saulo (a través de un mensajero)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Saul's servant">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3852,6 +3897,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>tío de Saúl</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Seraiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Seraiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seraías</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Shaphan, secretary">
@@ -4052,6 +4106,33 @@
         <seg>Salomón, rey</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Standard.Fmt.BookOrChapter">
+      <prop type="x-nolongerused">true</prop>
+      <tuv xml:lang="en">
+        <seg>book title or chapter ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>título de libro o número de capítulo ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Standard.Fmt.Introduction">
+      <prop type="x-nolongerused">true</prop>
+      <tuv xml:lang="en">
+        <seg>introduction ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>introducción ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Standard.Fmt.SectionHead">
+      <prop type="x-nolongerused">true</prop>
+      <tuv xml:lang="en">
+        <seg>section head ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>encabezado de sección ({0})</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Stephen">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4214,6 +4295,15 @@
         <seg>Zacarías</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Zechariah (in vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah (in vision)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Zacarías (en una visión)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Zechariah (the LORD says)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4358,6 +4448,42 @@
         <seg>un judío</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.a man (father of demon-possessed boy)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>a man (father of demon-possessed boy)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>padre del niño endemoniado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.advisers to king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>advisers to king</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>consejeros del rey</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.all the elders">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>all the elders</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>todos los ancianos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.all the people">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>all the people</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>todo el pueblo</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.altar">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4374,6 +4500,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>ángel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angel (of the LORD)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel (of the LORD)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ángel (del SEÑOR)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel (one of the seven)">
@@ -4394,13 +4529,22 @@
         <seg>ángel de Dios</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.angel of the Lord">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel of the Lord</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ángel del Señor</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.angel of the LORD, the">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>angel of the LORD, the</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel del Señor</seg>
+        <seg>el ángel del SEÑOR</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel who talked with Zechariah">
@@ -4412,10 +4556,10 @@
         <seg>ángel que habló con Zacarías</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel who talked with Zechariah (vision)">
+    <tu tuid="CharacterName.angel who talked with Zechariah (in vision)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>angel who talked with Zechariah (vision)</seg>
+        <seg>angel who talked with Zechariah (in vision)</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>ángel que habló con Zacarías (en una visión)</seg>
@@ -4430,13 +4574,13 @@
         <seg>ángel que luchó con Jacob</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel, another (vision)">
+    <tu tuid="CharacterName.angel, another (in vision)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>angel, another (vision)</seg>
+        <seg>angel, another (in vision)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel, another (vision)</seg>
+        <seg>ángel, another (en una vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel, another, coming down from heaven">
@@ -6698,6 +6842,15 @@
         <seg>mujeres de Belén</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.worshipers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>worshipers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>adorador</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.young man">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -7591,14 +7744,6 @@
         <seg>Alinea el texto de referencia con cada fila de color.</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.AssignCharacterDlg.BookChapterCharacter">
-      <tuv xml:lang="en">
-        <seg>book title or chapter ({0})</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>título de libro o número de capítulo ({0})</seg>
-      </tuv>
-    </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock">
       <tuv xml:lang="en">
         <seg>The character cannot be changed for this block because it is in the middle of a quote. To change this, select the block that begins this quote (in verse {0}). If this quote block needs to be split up so that different characters can be assigned, use the Split command.</seg>
@@ -7629,14 +7774,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Estilo de elocución</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.AssignCharacterDlg.ExtraCharacter">
-      <tuv xml:lang="en">
-        <seg>section head ({0})</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>encabezado de sección ({0})</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[0]">
@@ -7705,6 +7842,15 @@
     <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[7]">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
+        <seg>Needs review</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Necesita revisión</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.FilterOptions[8]">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
         <seg>Verses not aligned with reference text</seg>
       </tuv>
       <tuv xml:lang="es">
@@ -7734,14 +7880,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Insertar “el Dijo”</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.AssignCharacterDlg.IntroCharacter">
-      <tuv xml:lang="en">
-        <seg>introduction ({0})</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>introducción ({0})</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.InvalidSplitTextAction">
@@ -10021,31 +10159,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Anular todos</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption">
-      <tuv xml:lang="en">
-        <seg>Are you sure?</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>¿Está seguro?</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1">
-      <tuv xml:lang="en">
-        <seg>You have selected to record the following books with multiple voice actors. Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books:</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Usted ha seleccionado los siguientes libros para grabarlos con dobladores múltiples. Glyssen puede ayudarle a hacer esto, pero posiblemente no obtendrá los resultados deseados sin intervención manual debido a la complejidad de estos libros:</seg>
-      </tuv>
-    </tu>
-    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2">
-      <note>Param is the "No" button label (in a message box)</note>
-      <tuv xml:lang="en">
-        <seg>Are you sure? If you select {0}, the script for the above books will be prepared for recording by a single narrator, rather than for multiple voice actors.</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>¿Está seguro? Si selecciona {0}, el guion para estos libros tendrá un sólo narrador en vez de dobladores múltiples.</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks">

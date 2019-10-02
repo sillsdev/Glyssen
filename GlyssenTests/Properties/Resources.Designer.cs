@@ -177,6 +177,25 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;Russian Orthodox&quot;
+        ///# Version=1.3
+        ///#
+        ///# This is the versification used by the Orthodox (or &quot;non-canonical&quot;) edition of the Russian Synodal Bible
+        ///# Initial version provided by Peter_Kirk@sil.org
+        ///# Corrected 27/May/2003 by matjaz.crnivec@drustvo-svds.si:
+        ///#   Number of vss: 2CH 37; PSA 114; ISA 3; REV 12; 2ES (whole book added),
+        ///#   Mappings: LEV 14; 1KI 22; 1CH 12; 2CH 37; NEH 7; PSA 114; ISA 3; 2CO 11; REV 13; 2ES 7; 10
+        ///#
+        ///# modifications by Studge 26/June/2009
+        ///# amended by HAB April 2 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RussianOrthodoxVersification {
+            get {
+                return ResourceManager.GetString("RussianOrthodoxVersification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] spanish {
@@ -586,13 +605,14 @@ namespace GlyssenTests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.5&quot;&gt;
-        ///  &lt;book code=&quot;MAT&quot; style=&quot;id&quot;&gt;MOM Hans Doyapo 10/23/2008 12:20 AM&lt;/book&gt;
-        ///  &lt;para style=&quot;h&quot;&gt;MATIOO&lt;/para&gt;
-        ///  &lt;para style=&quot;mt1&quot;&gt;MATIOO&lt;/para&gt;
+        ///  &lt;book code=&quot;OBA&quot; style=&quot;id&quot;&gt;O&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;O&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;O&lt;/para&gt;
         ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
         ///  &lt;para style=&quot;p&quot;&gt;
-        ///    &lt;verse number=&quot;1&quot; style=&quot;v&quot; /&gt;Verse 1 text. &lt;verse number=&quot;2-6a&quot; style=&quot;v&quot; /&gt;Verses 2-6a text. &lt;verse number=&quot;6b-11&quot; style=&quot;v&quot; /&gt;Verses 6b-11 text. &lt;verse number=&quot;12-16&quot; style=&quot;v&quot; /&gt;Verses 12-16 text. &lt;verse number=&quot;17&quot; style=&quot;v&quot; /&gt;Verse 17 text.
-        ///  [rest of string was truncated]&quot;;.
+        ///    &lt;verse number=&quot;1&quot; style=&quot;v&quot; /&gt;Verse 1 text. &lt;verse number=&quot;2-6a&quot; style=&quot;v&quot; /&gt;Verses 2-6a text. &lt;verse number=&quot;6b-11&quot; style=&quot;v&quot; /&gt;Verses 6b-11 text. &lt;verse number=&quot;12-16&quot; style=&quot;v&quot; /&gt;Verses 12-16 text. &lt;verse number=&quot;17&quot; style=&quot;v&quot; /&gt;Verse 17 text. &lt;/para&gt;
+        ///  &lt;para style=&quot;p&quot;&gt;
+        ///    &lt;verse number [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TestOBAwithInterestingVerseNums {
             get {

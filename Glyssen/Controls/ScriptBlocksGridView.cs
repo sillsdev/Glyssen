@@ -119,7 +119,7 @@ namespace Glyssen.Controls
 						if (correspondingOrigBlock != null)
 						{
 							if (Columns[e.ColumnIndex].Name == "colCharacter")
-								e.Value = correspondingOrigBlock.CharacterIsUnclear() ? "" : correspondingOrigBlock.CharacterId;
+								e.Value = correspondingOrigBlock.CharacterIsUnclear ? "" : correspondingOrigBlock.CharacterId;
 							else
 								e.Value = correspondingOrigBlock.Delivery;
 							return;

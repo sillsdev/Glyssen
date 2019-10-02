@@ -45,20 +45,6 @@ namespace Glyssen
 				{
 					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
 					referenceText.LoadBooks();
-					switch (id.Type)
-					{
-						case ReferenceTextType.English:
-						//case ReferenceTextType.Azeri:
-						//case ReferenceTextType.French:
-						//case ReferenceTextType.Indonesian:
-						//case ReferenceTextType.Portuguese:
-						case ReferenceTextType.Russian:
-							//case ReferenceTextType.Spanish:
-							//case ReferenceTextType.TokPisin:
-							referenceText.m_vers = ScrVers.English;
-							break;
-					}
-
 					s_instantiatedReferenceTexts[id] = referenceText;
 				}
 			}
@@ -71,10 +57,10 @@ namespace Glyssen
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
 			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
-			return fileName != null ? XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName) : null;
+			return fileName != null ? BookScript.Deserialize(fileName, Versification) : null;
 		}
 
-		private string[] BookScriptFiles { get { return Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension); } }
+		private string[] BookScriptFiles => Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension);
 
 		private void LoadBooks()
 		{
@@ -120,8 +106,16 @@ namespace Glyssen
 
 			GetBookName = bookId => GetBook(bookId)?.PageHeader;
 
-			if (m_referenceTextType == ReferenceTextType.Custom)
-				SetVersification();
+			switch (Type)
+			{
+				case ReferenceTextType.English:
+				case ReferenceTextType.Russian:
+					m_vers = ScrVers.English;
+					break;
+				default:
+					SetVersification();
+					break;
+			}
 		}
 
 		protected virtual void SetVersification()
@@ -133,7 +127,7 @@ namespace Glyssen
 			}
 			else
 			{
-				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versisfication.");
+				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versification.");
 				m_vers = ScrVers.English;
 			}
 		}
@@ -175,7 +169,12 @@ namespace Glyssen
 		/// correspond to this reference text (in which case, the books and blocks returned are copies, so
 		/// that the project itself is not modified).
 		/// </summary>
-		public IEnumerable<BookScript> GetBooksWithBlocksConnectedToReferenceText(Project project)
+		/// <param name="project">The project</param>
+		/// <param name="applyNarratorOverrides">A value indicating whether to apply the narrator
+		/// overrides. This will take a bit more processing and can be safely forgone if caller just
+		/// wants to collect statistical information about assignments/alignments. But for any use in
+		/// "phase 2" where the effective character is needed, this should be true.</param>
+		public IEnumerable<BookScript> GetBooksWithBlocksConnectedToReferenceText(Project project, bool applyNarratorOverrides = true)
 		{
 			foreach (var book in project.IncludedBooks)
 			{
@@ -186,8 +185,8 @@ namespace Glyssen
 					yield return book;
 				else
 				{
-					var clone = book.Clone(true);
-					ApplyTo(clone, project.Versification);
+					var clone = book.GetCloneWithJoinedBlocks(applyNarratorOverrides);
+					ApplyTo(clone);
 					yield return clone;
 				}
 			}
@@ -198,7 +197,7 @@ namespace Glyssen
 			return Books.Any(b => b.BookId == bookId);
 		}
 
-		internal void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification)
+		internal void ApplyTo(BookScript vernacularBook)
 		{
 			lock (m_modifiedBooks)
 			{
@@ -209,12 +208,12 @@ namespace Glyssen
 
 				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
 				var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
-				MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
+				MakesSplits(vernacularBook, bookNum, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
 
-				if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
+				if (MakesSplits(referenceBook, bookNum, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
 					m_modifiedBooks.Add(referenceBook.BookId);
 
-				MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification, vernacularBook.SingleVoice);
+				MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularBook.Versification, vernacularBook.SingleVoice);
 			}
 		}
 
@@ -229,7 +228,7 @@ namespace Glyssen
 			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
 		}
 
-		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification,
+		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock,
 			uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
@@ -243,16 +242,16 @@ namespace Glyssen
 
 			Action<PortionScript> splitBlocks = allowSplitting ? portion =>
 			{
-				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
+				MakesSplits(portion, bookNum, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
 			} : (Action < PortionScript >)null;
 
 			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
-			nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularVersification, verseSplitLocationsBasedOnRef),
+			nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularBook.Versification, verseSplitLocationsBasedOnRef),
 			this, predeterminedBlockCount);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{
-				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularVersification);
+				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularBook.Versification);
 			}
 			return matchup;
 		}
@@ -314,8 +313,8 @@ namespace Glyssen
 
 
 				var currentRefBlock = refBlockList[iRefBlock];
-				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
-				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, Versification);
+				var vernInitStartVerse = currentVernBlock.StartRef(bookNum, vernacularVersification);
+				var refInitStartVerse = currentRefBlock.StartRef(bookNum, Versification);
 
 				var type = CharacterVerseData.GetStandardCharacterType(currentVernBlock.CharacterId);
 				switch (type)
@@ -323,7 +322,7 @@ namespace Glyssen
 					case CharacterVerseData.StandardCharacter.BookOrChapter:
 						if (currentVernBlock.IsChapterAnnouncement)
 						{
-							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
+							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber) { CharacterId = currentVernBlock.CharacterId };
 							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
 
 							if (HasSecondaryReferenceText)
@@ -339,7 +338,7 @@ namespace Glyssen
 									while (i < refBlockList.Count)
 									{
 										var workingRefBlock = refBlockList[i];
-										var workingRefInitStartVerse = new VerseRef(bookNum, workingRefBlock.ChapterNumber, workingRefBlock.InitialStartVerseNumber, Versification);
+										var workingRefInitStartVerse = workingRefBlock.StartRef(bookNum, Versification);
 
 										var compareResult = workingRefInitStartVerse.CompareTo(vernInitStartVerse);
 
@@ -358,8 +357,9 @@ namespace Glyssen
 							}
 
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
-							if (currentRefBlock.IsChapterAnnouncement)
-								continue;
+							if (!currentRefBlock.IsChapterAnnouncement && currentRefBlock.ChapterNumber == currentVernBlock.ChapterNumber)
+								iRefBlock--;
+							continue;
 						}
 						goto case CharacterVerseData.StandardCharacter.ExtraBiblical; // Book title
 					case CharacterVerseData.StandardCharacter.ExtraBiblical:
@@ -389,7 +389,7 @@ namespace Glyssen
 					if (iRefBlock == refBlockList.Count)
 						return; // couldn't find a ref block to use at all.
 					currentRefBlock = refBlockList[iRefBlock];
-					refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, vernacularVersification);
+					refInitStartVerse = currentRefBlock.StartRef(bookNum, vernacularVersification);
 				}
 
 				var indexOfVernVerseStart = iVernBlock;
@@ -411,7 +411,7 @@ namespace Glyssen
 				if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk > 1)
 				{
 					var lastRefBlockInVerseChunk = refBlockList[iRefBlock];
-					var refVerse = new VerseRef(bookNum, lastRefBlockInVerseChunk.ChapterNumber, lastRefBlockInVerseChunk.InitialStartVerseNumber, Versification);
+					var refVerse = lastRefBlockInVerseChunk.StartRef(bookNum, Versification);
 					if (lastVernVerseFound.CompareTo(refVerse) == 0 && lastVernVerseFound.BBBCCCVVV < refVerse.BBBCCCVVV)
 					{
 						// A versification difference has us pulling a verse from later in the text, so we need to get out and look beyond our current
@@ -585,17 +585,17 @@ namespace Glyssen
 
 		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
-			var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
-			var refInitStartVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification);
+			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
+			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				(vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear() && !refBlock.CharacterIsStandard)) &&
+				(vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard)) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}
 
 		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
-			var lastVernVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerseNum, vernacularVersification);
-			var lastRefVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.LastVerseNum, Versification);
+			var lastVernVerse = vernBlock.EndRef(bookNum, vernacularVersification);
+			var lastRefVerse = refBlock.EndRef(bookNum, Versification);
 			return lastVernVerse.CompareTo(lastRefVerse) == 0;
 		}
 
@@ -622,8 +622,8 @@ namespace Glyssen
 
 			public VerseSplitLocation(int bookNum, Block prevBlock, Block splitStartBlock, ScrVers versification)
 			{
-				m_after = new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerseNum, versification);
-				m_before = new VerseRef(bookNum, splitStartBlock.ChapterNumber, splitStartBlock.InitialStartVerseNumber, versification);
+				m_after = prevBlock.EndRef(bookNum, versification);
+				m_before = splitStartBlock.StartRef(bookNum, versification);
 			}
 
 			public static implicit operator VerseRef(VerseSplitLocation location)
@@ -655,7 +655,7 @@ namespace Glyssen
 		/// Split blocks in the given book to match verse split locations
 		/// </summary>
 		/// <returns>A value indicating whether any splits were made</returns>
-		private static bool MakesSplits(PortionScript blocksToSplit, int bookNum, ScrVers versification,
+		private static bool MakesSplits(PortionScript blocksToSplit, int bookNum,
 			List<VerseSplitLocation> verseSplitLocations, string descriptionOfProjectBeingSplit,
 			string descriptionOfProjectUsedToDetermineSplitLocations, bool preventSplittingBlocksAlreadyMatchedToRefText = false)
 		{
@@ -669,11 +669,11 @@ namespace Glyssen
 			{
 				var block = blocks[index];
 				var initStartVerse = new VerseRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-					versification);
+					blocksToSplit.Versification);
 				VerseRef initEndVerse;
 				if (block.InitialEndVerseNumber != 0)
 					initEndVerse = new VerseRef(bookNum, block.ChapterNumber, block.InitialEndVerseNumber,
-						versification);
+						blocksToSplit.Versification);
 				else
 					initEndVerse = initStartVerse;
 
@@ -684,14 +684,14 @@ namespace Glyssen
 					verseToSplitAfter = verseSplitLocations[++iSplit];
 				}
 
-				var lastVerse = new VerseRef(bookNum, block.ChapterNumber, block.LastVerseNum, versification);
+				var lastVerse = block.EndRef(bookNum, blocksToSplit.Versification);
 				if (lastVerse < verseToSplitAfter)
 					continue;
 
 				if (initEndVerse.CompareTo(lastVerse) != 0 && lastVerse >= verseSplitLocations[iSplit].Before)
 				{
 					bool invalidSplitLocation = false;
-					verseToSplitAfter.ChangeVersification(versification);
+					verseToSplitAfter.ChangeVersification(blocksToSplit.Versification);
 					if (preventSplittingBlocksAlreadyMatchedToRefText && block.MatchesReferenceText)
 						invalidSplitLocation = blocksToSplit.GetVerseStringToUseForSplittingBlock(block, verseToSplitAfter.VerseNum) == null;
 					else if (blocksToSplit.TrySplitBlockAtEndOfVerse(block, verseToSplitAfter.VerseNum))
@@ -707,7 +707,7 @@ namespace Glyssen
 							ErrorReport.NotifyUserOfProblem(
 								"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Chapter: {3}; Verse: {4}; Block: {5}",
 								descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
-								blocksToSplit.Id, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
+								blocksToSplit.BookId, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
 						}
 #endif
 						if (iSplit == verseSplitLocations.Count - 1)

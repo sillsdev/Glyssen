@@ -152,7 +152,9 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>He shall offer of the sacrifice of peace offerings an offering made by fire to God; the fat that covers the innards, and all the fat that is on the innards, </text>
+    <text>He shall offer of the sacrifice of peace offerings an offering made by fire to God; the fat that covers the innards, and all the fat that is on the innards,</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>and the two kidneys, and the fat that is on them, which is by the loins, and the cover on the liver, with the kidneys, he shall take away.</text>
   </block>
@@ -202,7 +204,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>It shall be a perpetual statute throughout your generations in all your dwellings, that you shall eat neither fat nor blood.»</text>
+    <text>It shall be a perpetual statute throughout your generations in all your dwellings, that you shall eat neither fat nor blood.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="LEV" initialStartVerse="0" characterId="BC-LEV">
     <text>4</text>
@@ -237,7 +239,9 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>He shall take all the fat of the bull of the sin offering off of it; the fat that covers the innards, and all the fat that is on the innards, </text>
+    <text>He shall take all the fat of the bull of the sin offering off of it; the fat that covers the innards, and all the fat that is on the innards,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>and the two kidneys, and the fat that is on them, which is by the loins, and the cover on the liver, with the kidneys, he shall take away, </text>
     <verse num="10" />
@@ -418,7 +422,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>It is a trespass offering. He is certainly guilty before God.»</text>
+    <text>It is a trespass offering. He is certainly guilty before God.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="LEV" initialStartVerse="0" characterId="BC-LEV">
     <text>6</text>
@@ -429,13 +433,17 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>If anyone sins, and commits a trespass against God, and deals falsely with his neighbor in a matter of deposit, or of bargain, or of robbery, or has oppressed his neighbor, </text>
+    <text>If anyone sins, and commits a trespass against God, and deals falsely with his neighbor in a matter of deposit, or of bargain, or of robbery, or has oppressed his neighbor,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>or has found that which was lost, and dealt falsely therein, and swearing to a lie; in any of all these things that a man does, sinning therein;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>then it shall be, if he has sinned, and is guilty, he shall restore that which he took by robbery, or the thing which he has gotten by oppression, or the deposit which was committed to him, or the lost thing which he found, </text>
+    <text>then it shall be, if he has sinned, and is guilty, he shall restore that which he took by robbery, or the thing which he has gotten by oppression, or the deposit which was committed to him, or the lost thing which he found,</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>or any thing about which he has sworn falsely; he shall restore it even in full, and shall add a fifth part more to it. To him to whom it belongs he shall give it, in the day of his being found guilty.</text>
   </block>
@@ -489,7 +497,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Every male among the children of Aaron shall eat of it, as their portion forever throughout your generations, from the offerings of God made by fire. Whoever touches them shall be holy.»</text>
+    <text>Every male among the children of Aaron shall eat of it, as their portion forever throughout your generations, from the offerings of God made by fire. Whoever touches them shall be holy.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-LEV">
     <verse num="19" />
@@ -552,7 +560,9 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>He shall offer all of its fat: the fat tail, and the fat that covers the innards, </text>
+    <text>He shall offer all of its fat: the fat tail, and the fat that covers the innards,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>and the two kidneys, and the fat that is on them, which is by the loins, and the cover on the liver, with the kidneys, shall he take away;</text>
   </block>
@@ -622,7 +632,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>When anyone touches any unclean thing, the uncleanness of man, or an unclean animal, or any unclean abomination, and eats some of the flesh of the sacrifice of peace offerings, which belong to God, that soul shall be cut off from his people.»</text>
+    <text>When anyone touches any unclean thing, the uncleanness of man, or an unclean animal, or any unclean abomination, and eats some of the flesh of the sacrifice of peace offerings, which belong to God, that soul shall be cut off from his people.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="22" characterId="narrator-LEV">
     <verse num="22" />
@@ -701,7 +711,9 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Take Aaron and his sons with him, and the garments, and the anointing oil, and the bull of the sin offering, and the two rams, and the basket of unleavened bread; </text>
+    <text>Take Aaron and his sons with him, and the garments, and the anointing oil, and the bull of the sin offering, and the two rams, and the basket of unleavened bread;</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>and assemble all the congregation at the door of the Tent of Meeting.</text>
   </block>
@@ -712,7 +724,7 @@
     <text>Moses said to the congregation,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="Moses">
-    <text>«This is the thing which God has commanded to be done.»</text>
+    <text>“This is the thing which God has commanded to be done.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-LEV">
     <verse num="6" />
@@ -817,7 +829,7 @@
     <text>Moses said to Aaron and to his sons,</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="31" characterId="Moses">
-    <text>«Boil the flesh at the door of the Tent of Meeting, and there eat it and the bread that is in the basket of consecration, as I commanded, saying, 'Aaron and his sons shall eat it.'</text>
+    <text>“Boil the flesh at the door of the Tent of Meeting, and there eat it and the bread that is in the basket of consecration, as I commanded, saying, 'Aaron and his sons shall eat it.'</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="32" characterId="Moses">
     <verse num="32" />
@@ -833,7 +845,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="35" characterId="Moses">
     <verse num="35" />
-    <text>You shall stay at the door of the Tent of Meeting day and night seven days, and keep God's command, that you don't die: for so I am commanded.»</text>
+    <text>You shall stay at the door of the Tent of Meeting day and night seven days, and keep God's command, that you don't die: for so I am commanded.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="36" characterId="narrator-LEV">
     <verse num="36" />
@@ -849,7 +861,7 @@
     <text>and he said to Aaron,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="Moses">
-    <text>«Take a calf from the herd for a sin offering, and a ram for a burnt offering, without blemish, and offer them before God.</text>
+    <text>“Take a calf from the herd for a sin offering, and a ram for a burnt offering, without blemish, and offer them before God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
@@ -857,7 +869,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>and a bull and a ram for peace offerings, to sacrifice before God; and a meal offering mixed with oil: for today God appears to you.»</text>
+    <text>and a bull and a ram for peace offerings, to sacrifice before God; and a meal offering mixed with oil: for today God appears to you.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-LEV">
     <verse num="5" />
@@ -866,14 +878,14 @@
     <text>Moses said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="Moses">
-    <text>«This is the thing which God commanded that you should do: and the glory of God shall appear to you.»</text>
+    <text>“This is the thing which God commanded that you should do: and the glory of God shall appear to you.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-LEV">
     <verse num="7" />
     <text>Moses said to Aaron,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="Moses">
-    <text>«Draw near to the altar, and offer your sin offering, and your burnt offering, and make atonement for yourself, and for the people; and offer the offering of the people, and make atonement for them; as God commanded.»</text>
+    <text>“Draw near to the altar, and offer your sin offering, and your burnt offering, and make atonement for yourself, and for the people; and offer the offering of the people, and make atonement for them; as God commanded.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-LEV">
     <verse num="8" />
@@ -953,7 +965,7 @@
     <text>Then Moses said to Aaron,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="Moses">
-    <text>«This is what God spoke of, saying, I will show myself holy to those who come near me, and before all the people I will be glorified.»</text>
+    <text>“This is what God spoke of, saying, I will show myself holy to those who come near me, and before all the people I will be glorified.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="narrator-LEV">
     <text>Aaron held his peace. </text>
@@ -961,7 +973,7 @@
     <text>Moses called Mishael and Elzaphan, the sons of Uzziel the uncle of Aaron, and said to them,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="Moses">
-    <text>«Draw near, carry your brothers from before the sanctuary out of the camp.»</text>
+    <text>“Draw near, carry your brothers from before the sanctuary out of the camp.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="5" characterId="narrator-LEV">
     <verse num="5" />
@@ -970,14 +982,16 @@
     <text>Moses said to Aaron, and to Eleazar and to Ithamar, his sons,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="6" characterId="Moses">
-    <text>«Don't let the hair of your heads go loose, neither tear your clothes; that you don't die, and that he not be angry with all the congregation: but let your brothers, the whole house of Israel, bewail the burning which God has kindled.</text>
+    <text>“Don't let the hair of your heads go loose, neither tear your clothes; that you don't die, and that he not be angry with all the congregation: but let your brothers, the whole house of Israel, bewail the burning which God has kindled.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>You shall not go out from the door of the Tent of Meeting, lest you die; for the anointing oil of God is on you.»</text>
+    <text>You shall not go out from the door of the Tent of Meeting, lest you die; for the anointing oil of God is on you.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="narrator-LEV">
-    <text>They did according to the word of Moses. </text>
+    <text>They did according to the word of Moses.</text>
+  </block>
+  <block style="p" chapter="10" initialStartVerse="8" characterId="narrator-LEV">
     <verse num="8" />
     <text>God spoke to Aaron, saying,</text>
   </block>
@@ -996,7 +1010,7 @@
     <text>Moses spoke to Aaron, and to Eleazar and to Ithamar, his sons who were left,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="Moses">
-    <text>«Take the meal offering that remains of the offerings of God made by fire, and eat it without yeast beside the altar; for it is most holy;</text>
+    <text>“Take the meal offering that remains of the offerings of God made by fire, and eat it without yeast beside the altar; for it is most holy;</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
@@ -1008,7 +1022,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>The heaved thigh and the waved breast they shall bring with the offerings made by fire of the fat, to wave it for a wave offering before God: and it shall be yours, and your sons' with you, as a portion forever; as God has commanded.»</text>
+    <text>The heaved thigh and the waved breast they shall bring with the offerings made by fire of the fat, to wave it for a wave offering before God: and it shall be yours, and your sons' with you, as a portion forever; as God has commanded.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="16" characterId="narrator-LEV">
     <verse num="16" />
@@ -1027,7 +1041,7 @@
     <text>Aaron spoke to Moses,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="19" characterId="Aaron">
-    <text>«Behold, this day they have offered their sin offering and their burnt offering before God; and such things as these have happened to me: and if I had eaten the sin offering today, would it have been pleasing in the sight of God?»</text>
+    <text>“Behold, this day they have offered their sin offering and their burnt offering before God; and such things as these have happened to me: and if I had eaten the sin offering today, would it have been pleasing in the sight of God?”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="20" characterId="narrator-LEV">
     <verse num="20" />
@@ -1238,11 +1252,11 @@
     <text>and he shall offer it before God, and make atonement for her; and she shall be cleansed from the fountain of her blood.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="God">
-    <text>«'This is the law for her who bears, whether a male or a female.</text>
+    <text>“'This is the law for her who bears, whether a male or a female.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>If she cannot afford a lamb, then she shall take two turtledoves, or two young pigeons; the one for a burnt offering, and the other for a sin offering: and the priest shall make atonement for her, and she shall be clean.»</text>
+    <text>If she cannot afford a lamb, then she shall take two turtledoves, or two young pigeons; the one for a burnt offering, and the other for a sin offering: and the priest shall make atonement for her, and she shall be clean.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="LEV" initialStartVerse="0" characterId="BC-LEV">
     <text>13</text>
@@ -1474,9 +1488,13 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>This shall be the law of the leper in the day of his cleansing. He shall be brought to the priest, </text>
+    <text>This shall be the law of the leper in the day of his cleansing. He shall be brought to the priest,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>and the priest shall go forth out of the camp. The priest shall examine him, and behold, if the plague of leprosy is healed in the leper, </text>
+    <text>and the priest shall go forth out of the camp. The priest shall examine him, and behold, if the plague of leprosy is healed in the leper,</text>
+  </block>
+  <block style="p" chapter="14" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>then the priest shall command them to take for him who is to be cleansed two living clean birds, and cedar wood, and scarlet, and hyssop.</text>
   </block>
@@ -1662,7 +1680,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="53" characterId="God">
     <verse num="53" />
-    <text>but he shall let the living bird go out of the city into the open field. So shall he make atonement for the house; and it shall be clean.»</text>
+    <text>but he shall let the living bird go out of the city into the open field. So shall he make atonement for the house; and it shall be clean.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="54" characterId="narrator-LEV">
     <verse num="54" />
@@ -1799,7 +1817,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="31" characterId="God">
     <verse num="31" />
-    <text>Thus you shall separate the children of Israel from their uncleanness, so they will not die in their uncleanness, when they defile my tabernacle that is in their midst.»</text>
+    <text>Thus you shall separate the children of Israel from their uncleanness, so they will not die in their uncleanness, when they defile my tabernacle that is in their midst.”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="32" characterId="narrator-LEV">
     <verse num="32" />
@@ -1819,7 +1837,7 @@
     <text>and God said to Moses,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="God">
-    <text>«Tell Aaron your brother, not to come at all times into the Most Holy Place within the veil, before the mercy seat which is on the ark; lest he die: for I will appear in the cloud on the mercy seat.</text>
+    <text>“Tell Aaron your brother, not to come at all times into the Most Holy Place within the veil, before the mercy seat which is on the ark; lest he die: for I will appear in the cloud on the mercy seat.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -1947,7 +1965,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="34" characterId="God">
     <verse num="34" />
-    <text>This shall be an everlasting statute for you, to make atonement for the children of Israel once in the year because of all their sins.»</text>
+    <text>This shall be an everlasting statute for you, to make atonement for the children of Israel once in the year because of all their sins.”</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="34" characterId="narrator-LEV">
     <text>It was done as God commanded Moses.</text>
@@ -1961,9 +1979,13 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Speak to Aaron, and to his sons, and to all the children of Israel, and say to them: 'This is the thing which God has commanded, </text>
+    <text>Speak to Aaron, and to his sons, and to all the children of Israel, and say to them: 'This is the thing which God has commanded,</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Whatever man there is of the house of Israel, who kills a bull, or lamb, or goat, in the camp, or who kills it outside the camp, </text>
+    <text>Whatever man there is of the house of Israel, who kills a bull, or lamb, or goat, in the camp, or who kills it outside the camp,</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>and hasn't brought it to the door of the Tent of Meeting, to offer it as an offering to God before the tabernacle of God: blood shall be imputed to that man. He has shed blood; and that man shall be cut off from among his people.</text>
   </block>
@@ -1981,7 +2003,9 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>You shall say to them, 'Any man there is of the house of Israel, or of the strangers who live as foreigners among them, who offers a burnt offering or sacrifice, </text>
+    <text>You shall say to them, 'Any man there is of the house of Israel, or of the strangers who live as foreigners among them, who offers a burnt offering or sacrifice,</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>and doesn't bring it to the door of the Tent of Meeting, to sacrifice it to God; that man shall be cut off from his people.</text>
   </block>
@@ -1995,7 +2019,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Therefore I have said to the children of Israel, No person among you shall eat blood, neither shall any stranger who lives as a foreigner among you eat blood.»</text>
+    <text>Therefore I have said to the children of Israel, No person among you shall eat blood, neither shall any stranger who lives as a foreigner among you eat blood.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -2003,7 +2027,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>For as to the life of all flesh, its blood is with its life: therefore I said to the children of Israel, You shall not eat the blood of any kind of flesh; for the life of all flesh is its blood. Whoever eats it shall be cut off.»</text>
+    <text>For as to the life of all flesh, its blood is with its life: therefore I said to the children of Israel, You shall not eat the blood of any kind of flesh; for the life of all flesh is its blood. Whoever eats it shall be cut off.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -2182,7 +2206,7 @@
     <text>You shall not steal.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="11" characterId="God">
-    <text>«'You shall not lie. «'You shall not deceive one another.</text>
+    <text>“'You shall not lie. “'You shall not deceive one another.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -2190,7 +2214,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>You shall not oppress your neighbor, nor rob him. «'The wages of a hired servant shall not remain with you all night until the morning.</text>
+    <text>You shall not oppress your neighbor, nor rob him. “'The wages of a hired servant shall not remain with you all night until the morning.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -2214,7 +2238,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>You shall keep my statutes. 'You shall not crossbreed different kinds of animals. «'you shall not sow your field with two kinds of seed; «'neither shall there come upon on you a garment made of two kinds of material.</text>
+    <text>You shall keep my statutes. 'You shall not crossbreed different kinds of animals. “'you shall not sow your field with two kinds of seed; “'neither shall there come upon on you a garment made of two kinds of material.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="20" characterId="God">
     <verse num="20" />
@@ -2286,7 +2310,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="37" characterId="God">
     <verse num="37" />
-    <text>You shall observe all my statutes, and all my ordinances, and do them. I am God.»</text>
+    <text>You shall observe all my statutes, and all my ordinances, and do them. I am God.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="LEV" initialStartVerse="0" characterId="BC-LEV">
     <text>20</text>
@@ -2305,7 +2329,9 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>If the people of the land all hide their eyes from that person, when he gives of his seed to Molech, and don't put him to death; </text>
+    <text>If the people of the land all hide their eyes from that person, when he gives of his seed to Molech, and don't put him to death;</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>then I will set my face against that man, and against his family, and will cut him off, and all who play the prostitute after him, to play the prostitute with Molech, from among their people.</text>
   </block>
@@ -2383,7 +2409,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>But I have said to you, «You shall inherit their land, and I will give it to you to possess it, a land flowing with milk and honey.» I am God your God, who has separated you from the peoples.</text>
+    <text>But I have said to you, “You shall inherit their land, and I will give it to you to possess it, a land flowing with milk and honey.” I am God your God, who has separated you from the peoples.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="25" characterId="God">
     <verse num="25" />
@@ -2395,7 +2421,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>A man or a woman that is a medium, or is a wizard, shall surely be put to death: they shall stone them with stones; their blood shall be upon them.»</text>
+    <text>A man or a woman that is a medium, or is a wizard, shall surely be put to death: they shall stone them with stones; their blood shall be upon them.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="LEV" initialStartVerse="0" characterId="BC-LEV">
     <text>21</text>
@@ -2405,9 +2431,13 @@
     <text>God said to Moses,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="1" characterId="God">
-    <text>«Speak to the priests, the sons of Aaron, and say to them, 'A priest shall not defile himself for the dead among his people; </text>
+    <text>“Speak to the priests, the sons of Aaron, and say to them, 'A priest shall not defile himself for the dead among his people;</text>
+  </block>
+  <block style="p" chapter="21" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>except for his relatives that are near to him: for his mother, for his father, for his son, for his daughter, for his brother, </text>
+    <text>except for his relatives that are near to him: for his mother, for his father, for his son, for his daughter, for his brother,</text>
+  </block>
+  <block style="p" chapter="21" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>and for his virgin sister who is near to him, who has had no husband; for her he may defile himself.</text>
   </block>
@@ -2512,7 +2542,9 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>or whoever touches any creeping thing, whereby he may be made unclean, or a man of whom he may take uncleanness, whatever uncleanness he has; </text>
+    <text>or whoever touches any creeping thing, whereby he may be made unclean, or a man of whom he may take uncleanness, whatever uncleanness he has;</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>the person that touches any such shall be unclean until the evening, and shall not eat of the holy things, unless he bathe his body in water.</text>
   </block>
@@ -2552,7 +2584,7 @@
     <verse num="15" />
     <text>The priests shall not profane the holy things of the children of Israel, which they offer to God, </text>
     <verse num="16" />
-    <text>and so cause them to bear the iniquity that brings guilt, when they eat their holy things: for I am God who sanctifies them.»</text>
+    <text>and so cause them to bear the iniquity that brings guilt, when they eat their holy things: for I am God who sanctifies them.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="17" characterId="narrator-LEV">
     <verse num="17" />
@@ -2832,7 +2864,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>It shall be for Aaron and his sons; and they shall eat it in a holy place: for it is most holy to him of the offerings of God made by fire by a perpetual statute.»</text>
+    <text>It shall be for Aaron and his sons; and they shall eat it in a holy place: for it is most holy to him of the offerings of God made by fire by a perpetual statute.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="10" characterId="narrator-LEV">
     <verse num="10" />
@@ -2880,7 +2912,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>You shall have one kind of law, for the foreigner as well as the native-born: for I am God your God.»</text>
+    <text>You shall have one kind of law, for the foreigner as well as the native-born: for I am God your God.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="narrator-LEV">
     <verse num="23" />
@@ -2967,7 +2999,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="20" characterId="God">
     <verse num="20" />
-    <text>If you said, What shall we eat the seventh year? Behold, we shall not sow, nor gather in our increase;»</text>
+    <text>If you said, What shall we eat the seventh year? Behold, we shall not sow, nor gather in our increase;”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="21" characterId="God">
     <verse num="21" />
@@ -3120,7 +3152,9 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>If you walk in my statutes, and keep my commandments, and do them; </text>
+    <text>If you walk in my statutes, and keep my commandments, and do them;</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>then I will give you your rains in their season, and the land shall yield its increase, and the trees of the field shall yield their fruit.</text>
   </block>
@@ -3276,7 +3310,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="45" characterId="God">
     <verse num="45" />
-    <text>but I will for their sake remember the covenant of their ancestors, whom I brought forth out of the land of Egypt in the sight of the nations, that I might be their God. I am God.»</text>
+    <text>but I will for their sake remember the covenant of their ancestors, whom I brought forth out of the land of Egypt in the sight of the nations, that I might be their God. I am God.”</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="46" characterId="narrator-LEV">
     <verse num="46" />

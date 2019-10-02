@@ -213,13 +213,13 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-JHN">
     <text>They said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John the Baptist" delivery="curious">
     <text>“Rabbi”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-JHN">
     <text>(which is to say, being interpreted, Teacher),</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John the Baptist" delivery="curious">
     <text>“where are you staying?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="39" characterId="narrator-JHN">
@@ -3893,7 +3893,7 @@
     <verse num="5" />
     <text>They answered him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="soldiers/officials from chief priests/Pharisees" delivery="rowdy">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="soldiers/officials from chief priests and Pharisees" delivery="rowdy">
     <text>“Jesus of Nazareth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="narrator-JHN">
@@ -3917,7 +3917,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="narrator-JHN">
     <text>They said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="soldiers/officials from chief priests/Pharisees" delivery="afraid">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="soldiers/officials from chief priests and Pharisees" delivery="afraid">
     <text>“Jesus of Nazareth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="narrator-JHN">

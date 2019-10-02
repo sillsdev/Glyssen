@@ -783,20 +783,19 @@ namespace Glyssen
 		{
 			var export = true;
 			string dlgMessage = null;
-			string dlgTitle = null;
+			bool scriptIncomplete = false;
 			if (exporter.IncludeVoiceActors)
 			{
 				if (!m_project.IsVoiceActorAssignmentsComplete)
 				{
 					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
 						"One or more character groups have no voice actor assigned. Are you sure you want to export an incomplete script?");
-					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
+					scriptIncomplete = true;
 				}
 				else if (!m_project.EveryAssignedGroupHasACharacter)
 				{
 					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
 						"One or more character groups have no characters in them. Are you sure you want to export a script?");
-					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
 				}
 			}
 			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
@@ -804,11 +803,22 @@ namespace Glyssen
 				dlgMessage = Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
 						"Character assignment is {0} complete. Are you sure you want to export a script?", "Parameter is a percentage."),
 					MathUtilities.FormattedPercent(m_project.ProjectAnalysis.UserPercentAssigned, 1, 3));
-				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
+				scriptIncomplete = true;
+			}
+			else if (m_project.ProjectAnalysis.NeedsReviewBlocks > 0)
+			{
+				dlgMessage = BlocksNeedReviewMessage + " " + UseNeedsReviewFilterHint + Environment.NewLine +
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.BlocksNeedReviewMessage",
+					"Any block marked for review will not be assigned to a voice actor in the script until an actual biblical " +
+					"character is specified. Are you sure you want to export the script now?");
 			}
 
 			if (dlgMessage != null)
 			{
+				string dlgTitle = scriptIncomplete ?
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?"):
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
+
 				dlgMessage += Environment.NewLine +
 					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
 						"(Note: You can export the script again as many times as you want.)");
@@ -989,8 +999,32 @@ namespace Glyssen
 				dlg.ShowDialog();
 		}
 
+		private string BlocksNeedReviewMessage =>
+			(m_project.ProjectAnalysis.NeedsReviewBlocks > 1 ?
+			Format(LocalizationManager.GetString("MainForm.BlocksNeedReviewMessage",
+			"There are {0} blocks in this project that need review before finalizing the script.")) :
+			LocalizationManager.GetString("MainForm.OneBlockNeedReviewMessage",
+				"There is one block in this project that needs review before finalizing the script."));
+
+		private string UseNeedsReviewFilterHint =>
+			LocalizationManager.GetString("MainForm.UseNeedsReviewFilterHint",
+			"(You can use the \"Needs review\" filter in Identify Speaking Parts to see which blocks still need attention.)")
+			;
+
 		private void AssignVoiceActors_Click(object sender, EventArgs e)
 		{
+			if (m_project.ProjectAnalysis.NeedsReviewBlocks > 0)
+			{
+				var msg = LocalizationManager.GetString("Project.BlocksNeedReviewBeforeAssigning",
+					"You can work on voice actor assignments now, but any block marked for review will not be assigned to a " +
+					"character group until an actual biblical character is specified. Therefore, character groups and actor " +
+					"assignments to those groups will be tentative until you complete this work in Identify Speaking Parts. ");
+				if (MessageBox.Show(this, BlocksNeedReviewMessage + Environment.NewLine + msg + Environment.NewLine +
+					UseNeedsReviewFilterHint, ProductName, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
+				{
+					return;
+				}
+			}
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 
