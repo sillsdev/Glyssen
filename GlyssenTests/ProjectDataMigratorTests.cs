@@ -50,7 +50,7 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
@@ -99,7 +99,7 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
@@ -139,7 +139,7 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
@@ -188,7 +188,7 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript("MAT", new List<Block> {block1, block2, block3});
+			var book = new BookScript("MAT", new List<Block> {block1, block2, block3}, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
@@ -250,7 +250,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript("MAT", new List<Block> {block1, block2, block3, block4});
+			var book = new BookScript("MAT", new List<Block> {block1, block2, block3, block4}, ScrVers.English);
 
 		var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
@@ -323,7 +323,7 @@ namespace GlyssenTests
 			var block4Original = block4.Clone();
 			var block5Original = block5.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4, block5 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4, block5 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
@@ -354,7 +354,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -379,7 +379,7 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -401,7 +401,7 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -428,7 +428,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -456,7 +456,7 @@ namespace GlyssenTests
 			var block3Original = block3.Clone();
 			var block4Original = block4.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3, block4 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -480,7 +480,7 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -500,7 +500,7 @@ namespace GlyssenTests
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -522,7 +522,7 @@ namespace GlyssenTests
 			var block2Original = block2.Clone();
 			var block3Original = block3.Clone();
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2, block3 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
 
@@ -555,7 +555,7 @@ namespace GlyssenTests
 			blocks.Add(CreateTestBlock(7, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 
-			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
 			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.CleanUpMultiBlockQuotesAssignedToNarrator(books);
@@ -577,18 +577,18 @@ namespace GlyssenTests
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.None));
-			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "Panicky" });
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Start));
 			blocks.Last().CharacterId = "Jesus";
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.Continuation));
 			blocks.Last().CharacterId = CharacterVerseData.kAmbiguousCharacter;
-			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdOverrideForScript = "Kelsy" });
+			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil/Kelsy", CharacterIdInScript = "Kelsy" });
 
-			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
 			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
+			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books);
 
 			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
 			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
@@ -609,22 +609,22 @@ namespace GlyssenTests
 			blocks.Add(CreateTestBlock(1, MultiBlockQuote.None));
 			blocks.Last().SetNonDramaticCharacterId(narrator);
 			blocks.Add(CreateTestBlock(2, MultiBlockQuote.Start));
-			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "panicky" }
 				.AddVerse(2, "This is the start of verse two."));
-			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnknownCharacter }
+			blocks.Add(new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation, CharacterId = CharacterVerseData.kUnexpectedCharacter }
 				.AddText("Esto es el resto de ello."));
 			blocks.Last().SetMatchedReferenceBlock(new Block("p", 1, 2) { CharacterId = "Phil", Delivery = "calmer" }
 				.AddText("This is the rest of it."));
 			blocks.Add(CreateTestBlock(3, MultiBlockQuote.Continuation));
-			blocks.Last().CharacterId = CharacterVerseData.kUnknownCharacter;
+			blocks.Last().CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			blocks.Add(CreateTestBlock(4, MultiBlockQuote.None));
 			blocks.Last().CharacterId = "the people";
 
-			var book = new BookScript("MAT", blocks.Select(b => b.Clone()));
+			var book = new BookScript("MAT", blocks.Select(b => b.Clone()), ScrVers.English);
 			Assert.IsFalse(blocks.SequenceEqual(book.Blocks), "Sanity check: blocks should have been cloned.");
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books, ScrVers.English);
+			ProjectDataMigrator.ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(books);
 
 			Assert.IsTrue(blocks.SequenceEqual(book.Blocks, new SplitBlockComparer()), "Block content should not have changed!");
 			Assert.AreEqual(narrator, book.GetScriptBlocks()[0].CharacterId);
@@ -643,7 +643,7 @@ namespace GlyssenTests
 		{
 			var block1 = CreateTestBlock("Andrew");
 			var block2 = CreateTestBlock("Peter");
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
@@ -654,7 +654,7 @@ namespace GlyssenTests
 		}
 
 		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnknownCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
 		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
@@ -669,7 +669,7 @@ namespace GlyssenTests
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 
 			Assert.True(block1.UserConfirmed);
@@ -689,9 +689,9 @@ namespace GlyssenTests
 		public void MigrateInvalidCharacterIdForScriptData_ValidDataWithMultipleCharacterIds_Unchanged()
 		{
 			var block1 = CreateTestBlock("Andrew/James");
-			block1.CharacterIdOverrideForScript = "James";
+			block1.CharacterIdInScript = "James";
 			var block2 = CreateTestBlock("Peter");
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
@@ -718,7 +718,7 @@ namespace GlyssenTests
 			Assert.AreEqual(narratorMat, block2.CharacterId);
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 
-			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var book = new BookScript("MAT", new List<Block> { block1, block2 }, ScrVers.English);
 			var books = new List<BookScript> { book };
 
 			Assert.False(block1.UserConfirmed);
@@ -852,13 +852,13 @@ namespace GlyssenTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var blockInRev43 = testProject.IncludedBooks.Single().GetBlocksForVerse(4, 3).First();
 			blockInRev43.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
-			blockInRev43.CharacterIdOverrideForScript = "angels, all, the";
+			blockInRev43.CharacterIdInScript = "angels, all, the";
 			Assert.AreEqual("angels, all, the", blockInRev43.CharacterIdInScript);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterIdInScript);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, blockInRev43.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, blockInRev43.CharacterIdInScript);
 		}
 
 		[Test]
@@ -868,13 +868,35 @@ namespace GlyssenTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var blockInRev13V10 = testProject.IncludedBooks.Single().GetBlocksForVerse(13, 10).First();
 			blockInRev13V10.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
-			blockInRev13V10.CharacterIdOverrideForScript = "angels, all, the";
+			blockInRev13V10.CharacterIdInScript = "angels, all, the";
 			Assert.AreEqual("angels, all, the", blockInRev13V10.CharacterIdInScript);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_NormalQuoteChangedToAlternate_CharacterIdUnchanged()
+		{
+			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8).Any(cv => cv.Character == "God"),
+				"Test setup condition not met: God should not be returned as a character when includeAlternates is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8, includeAlternates:true).Any(cv => cv.Character == "God"),
+				"Test setup condition not met: God should be returned as a character when includeAlternates is true.");
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var stringRepresentationOfQuoteBlocksInRevC1V8 = new List<string>(2);
+			foreach (var block in testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote))
+			{
+				block.SetNonDramaticCharacterId("God");
+				stringRepresentationOfQuoteBlocksInRevC1V8.Add(block.ToString(true, "REV"));
+			}
+			Assert.That(stringRepresentationOfQuoteBlocksInRevC1V8.Any(),
+				"Test setup condition not met: There should be a direct quote in Rev 1:8");
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.IsTrue(stringRepresentationOfQuoteBlocksInRevC1V8.SequenceEqual(
+				testProject.IncludedBooks.Single().GetBlocksForVerse(1, 8).Where(b => b.IsQuote).Select(b => b.ToString(true, "REV"))));
 		}
 
 		/// <summary>
@@ -891,7 +913,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, unexpectedPeterInRev711.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, unexpectedPeterInRev711.CharacterId);
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
 		}
 
@@ -981,6 +1003,44 @@ namespace GlyssenTests
 			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
 		}
 
+		/// <summary>
+		/// This test is mainly designed to verify that the migrator doesn't clear all the explicitly set Character IDs
+		/// for a reference text in "narrator" blocks. We don't want to require the the C-V control file to have a
+		/// "Potential" quote for all the places where we really wouldn't expect there to be explicit quotes in the text.
+		/// </summary>
+		[Test]
+		public void MigrateDeprecatedCharacterIds_BlocksExplicitlyAssignedToNarratorOverrideCharacter_CharacterIdNotChanged()
+		{
+			const string kObadiahTheProphet = "Obadiah, prophet";
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var bookScript = testProject.IncludedBooks.Single();
+			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
+			Assert.AreEqual(1, overrideOba.StartChapter, "Test setup conditions not met!");
+			Assert.AreEqual(1, overrideOba.EndChapter, "Test setup conditions not met!");
+			Assert.AreEqual(kObadiahTheProphet, overrideOba.Character, "Test setup conditions not met!");
+			Assert.IsTrue(overrideOba.StartVerse <= 19, "Test setup conditions not met!");
+			Assert.AreEqual(21, overrideOba.EndVerse, "Test setup conditions not met!");
+
+			var explicitObadiahBlocks = new HashSet<Block>();
+			for (int i = 19; i < 21; i++)
+			{
+				foreach (var block in bookScript.GetBlocksForVerse(1, i))
+				{
+					block.CharacterId = kObadiahTheProphet;
+					explicitObadiahBlocks.Add(block);
+				}
+			}
+			Assert.IsTrue(explicitObadiahBlocks.Any(), "Test setup conditions not met!");
+
+			//SUT
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			foreach (var block in explicitObadiahBlocks)
+				Assert.AreEqual(kObadiahTheProphet, block.CharacterId);
+		}
+
 		[Test]
 		public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasNoExplicitDefault_FirstCharacterIsUsed()
 		{
@@ -991,7 +1051,7 @@ namespace GlyssenTests
 			jesusSpeakingInMrk59.UserConfirmed = true;
 			var demonSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(3);
 			demonSpeakingInMrk59.CharacterId = "demons (Legion)/man delivered from Legion of demons";
-			demonSpeakingInMrk59.CharacterIdOverrideForScript = null;
+			demonSpeakingInMrk59.CharacterIdInScript = null;
 			demonSpeakingInMrk59.UserConfirmed = true;
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
@@ -1004,7 +1064,7 @@ namespace GlyssenTests
 			Assert.IsTrue(demonSpeakingInMrk59.UserConfirmed);
 		}
 
-		// The only place in the NT where this is likely to have occurred wwas John 11:34, but we don't have John test data, and it didn't seem worth it.
+		// The only place in the NT where this is likely to have occurred was John 11:34, but we don't have John test data, and it didn't seem worth it.
 		//[Test]
 		//public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasExplicitDefault_ExplicitDefaultCharacterIsUsed()
 		//{
@@ -1015,7 +1075,7 @@ namespace GlyssenTests
 		//	jesusSpeakingInJhn1134.UserConfirmed = true;
 		//	var marySpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(3);
 		//	marySpeakingInJhn1134.CharacterId = "Jews, the/Mary, sister of Martha/Martha";
-		//	marySpeakingInJhn1134.CharacterIdOverrideForScript = null;
+		//	marySpeakingInJhn1134.CharacterIdInScript = null;
 		//	marySpeakingInJhn1134.UserConfirmed = true;
 
 		//	Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
@@ -1050,7 +1110,8 @@ namespace GlyssenTests
 					CreateTestBlock(4, MultiBlockQuote.None),
 					CreateChapterBlock("GEN", 5, chapterStyleTag),
 					CreateTestBlock(1, MultiBlockQuote.None),
-				}
+				},
+				ScrVers.English
 			);
 			var matthew = new BookScript("MAT",
 				new List<Block>
@@ -1078,7 +1139,8 @@ namespace GlyssenTests
 					CreateTestBlock(1, MultiBlockQuote.None),
 					CreateTestBlock(2, MultiBlockQuote.None),
 					CreateTestBlock(3, MultiBlockQuote.None),
-				}
+				},
+				ScrVers.English
 			);
 
 			var books = new List<BookScript> { genesis, matthew };
@@ -1145,7 +1207,7 @@ namespace GlyssenTests
 
 			var origBlocks = blocks.Select(b => b.Clone()).ToList();
 
-			var book = new BookScript("MAT", blocks);
+			var book = new BookScript("MAT", blocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
@@ -1267,7 +1329,7 @@ namespace GlyssenTests
 
 				origBlocks.Add(blocks.Select(b => b.Clone()).ToList());
 
-				books.Add(new BookScript(bookId, blocks));
+				books.Add(new BookScript(bookId, blocks, ScrVers.English));
 
 			} while (books.Count < books.Capacity);
 
@@ -1375,7 +1437,7 @@ namespace GlyssenTests
 
 			var origBlocks = blocks.Select(b => b.Clone()).ToList();
 
-			var book = new BookScript("MAT", blocks);
+			var book = new BookScript("MAT", blocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
@@ -1434,7 +1496,7 @@ namespace GlyssenTests
 
 			var origBlocks = blocks.Select(b => b.Clone()).ToList();
 
-			var book = new BookScript("MAT", blocks);
+			var book = new BookScript("MAT", blocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
@@ -1494,7 +1556,7 @@ namespace GlyssenTests
 
 			var origBlocks = blocks.Select(b => b.Clone()).ToList();
 
-			var book = new BookScript("MAT", blocks);
+			var book = new BookScript("MAT", blocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 
@@ -1566,7 +1628,7 @@ namespace GlyssenTests
 
 			var origBlocks = blocks.Select(b => b.Clone()).ToList();
 
-			var book = new BookScript("MAT", blocks);
+			var book = new BookScript("MAT", blocks, ScrVers.English);
 			var books = new List<BookScript> { book };
 			ProjectDataMigrator.MigrateNonContiguousUserSplitsSeparatedByReferenceTextAlignmentSplits(books);
 

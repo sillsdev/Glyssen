@@ -52,7 +52,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void LoadNextRelevantBlock_DataHasSomeContinuationBlocksNeedingAssignment_ContinuationBlocksNeverGetLoaded()
 		{
-			Assert.IsTrue(m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Any(b => b.CharacterIsUnclear() && b.MultiBlockQuote == MultiBlockQuote.Continuation),
+			Assert.IsTrue(m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Any(b => b.CharacterIsUnclear && b.MultiBlockQuote == MultiBlockQuote.Continuation),
 				"Test data does not have the required characteristics. Need at least one unassigned block that is a continuation of a quote from earlier paragraph.");
 
 			do
@@ -484,7 +484,7 @@ namespace GlyssenTests.Dialogs
 				if (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation)
 				{
 					var quoteStart = i - 1;
-					if (blocks[quoteStart].CharacterIsUnclear())
+					if (blocks[quoteStart].CharacterIsUnclear)
 						break;
 					do
 					{
@@ -509,7 +509,7 @@ namespace GlyssenTests.Dialogs
 				if (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation)
 				{
 					var quoteStart = i - 1;
-					if (!blocks[quoteStart].CharacterIsUnclear())
+					if (!blocks[quoteStart].CharacterIsUnclear)
 						break;
 					do
 					{
@@ -685,7 +685,7 @@ namespace GlyssenTests.Dialogs
 			blockC.BlockElements.Add(new ScriptText("Verse 3-4"));
 			var blockD = new Block("p", 1, 3, 4) { MultiBlockQuote = MultiBlockQuote.None };
 			blockD.BlockElements.Add(new ScriptText("Jesus said"));
-			var bookScriptJud = new BookScript("JUD", new List<Block> { blockA, blockB, blockC, blockD });
+			var bookScriptJud = new BookScript("JUD", new List<Block> { blockA, blockB, blockC, blockD }, ScrVers.English);
 			var bookList = new List<BookScript> { bookScriptJud };
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 3), new BCVRef(65, 1, 4)};
@@ -713,7 +713,7 @@ namespace GlyssenTests.Dialogs
 
 			var blockC = new Block("p", 1, 1, 2) {MultiBlockQuote = MultiBlockQuote.Start};
 			blockC.BlockElements.Add(new ScriptText("'This is the quote'"));
-			var bookScriptJud = new BookScript("JUD", new List<Block> {blockA, blockB, blockC});
+			var bookScriptJud = new BookScript("JUD", new List<Block> {blockA, blockB, blockC}, ScrVers.English);
 			var bookList = new List<BookScript> {bookScriptJud};
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 1), new BCVRef(65, 1, 2)};
@@ -923,9 +923,10 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
 			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 
 			m_model.TryLoadBlock(m_model.GetBlockVerseRef());
-			Assert.IsTrue(m_model.CurrentBlockDisplayIndex > 0);
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 		}
 
 		[Test]
@@ -1163,7 +1164,7 @@ namespace GlyssenTests.Dialogs
 
 			Assert.IsTrue(m_model.CurrentBlockDisplayIndex >= m_model.RelevantBlockCount);
 			matchup.MatchAllBlocks(m_testProject.Versification);
-			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear()))
+			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear))
 				block.SetCharacterIdAndCharacterIdInScript("Paul", m_model.CurrentBookNumber, m_testProject.Versification);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 			m_model.ApplyCurrentReferenceTextMatchup();
@@ -1213,7 +1214,7 @@ namespace GlyssenTests.Dialogs
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 			var blockToMatchFilter = m_testProject.IncludedBooks.First().GetScriptBlocks().First(b => b.UserConfirmed);
 			blockToMatchFilter.UserConfirmed = false;
-			blockToMatchFilter.CharacterId = CharacterVerseData.kUnknownCharacter;
+			blockToMatchFilter.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 
 			// Create model and initialize state
 			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
@@ -1312,9 +1313,8 @@ namespace GlyssenTests.Dialogs
 			// Vernacular and the English reference text.
 			lastBlockInChapter = mark.SplitBlock(lastBlockInChapter,
 				((Verse)(lastBlockInChapter.AllVerses.Reverse().ElementAt(2))).Number,
-				BookScript.kSplitAtEndOfVerse, true,
-				lastBlockInChapter.CharacterId,
-				m_testProject.Versification);
+				PortionScript.kSplitAtEndOfVerse, true,
+				lastBlockInChapter.CharacterId);
 			m_targetReference = new VerseRef(bookNum, lastBlockInChapter.ChapterNumber, lastBlockInChapter.InitialStartVerseNumber);
 			var tempModel = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
 			tempModel.AttemptRefBlockMatchup = true;

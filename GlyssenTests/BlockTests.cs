@@ -841,7 +841,7 @@ namespace GlyssenTests
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
 			block.SetCharacterAndDelivery(new CharacterVerse[0]);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, block.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
 
@@ -1045,7 +1045,7 @@ namespace GlyssenTests
 		}
 
 		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
-		[TestCase(CharacterVerseData.kUnknownCharacter)]
+		[TestCase(CharacterVerseData.kUnexpectedCharacter)]
 		public void SetCharacterAndCharacterIdInScript_CharacterIdSetUnclear_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block = new Block("p", 40, 8);

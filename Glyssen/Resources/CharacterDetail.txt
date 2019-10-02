@@ -1,1147 +1,1219 @@
-#Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment	Hypothetical Only
-2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John		False
-250 Israelite leaders	250	Male	Adult				False
-a Jew	1	Male	Adult				False
-Aaron	1	Male	Adult			EXO 32:2 <-(6 more)-> NUM 12:12	False
-Abednego	1	Male	Adult		original Hebrew name: Azariah		False
-Abigail	1	Female	Adult			1SA 25:19 <-(8 more)-> 1SA 25:41	False
-Abijah, king of Judah	1	Male	Adult			2CH 13:4 <-(7 more)-> 2CH 13:12	False
-Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 <-(6 more)-> GEN 21:29	False
-Abimelech, king of the Philistines (in Gerar)	1	Male	Adult			GEN 26:9 <-(4 more)-> GEN 26:29	False
-Abimelech, son of Gideon (Jerubbaal)	1	Male	Adult			JDG 9:2 <-(1 more)-> JDG 9:54	False
-Abiram	1	Male	Adult		son of Eliab (Reubenite)		False
-Abishai, Joab's brother	1	Male	Adult			1SA 26:6 <-(2 more)-> 2SA 19:21	False
-Abner, commander of Saul's army	1	Male	Adult			1SA 17:55 <-(13 more)-> 2SA 3:21	False
-Abraham (Abram)	1	Male	Adult			GEN 12:11 <-(48 more)-> GEN 24:8	False
-Abraham's chief servant	1	Male	Adult			GEN 24:5 <-(25 more)-> GEN 24:65	False
-Absalom, son of David	1	Male	Adult			2SA 13:20 <-(14 more)-> 2SA 18:18	False
-Absalom's men	-1	Male	Adult			2SA 17:20	False
-Absalom's secret messengers	-1	Male	Adult			2SA 15:10	False
-Achan	1	Male	Adult			JOS 7:20 & JOS 7:21	False
-Achish, king of Gath	1	Male	Adult			1SA 21:14 <-(9 more)-> 1SA 29:10	False
-Achsah, Caleb's daughter	1	Female	Adult			JOS 15:19 <-(1 more)-> JDG 1:15	False
-Adam	1	Male	Adult			GEN 2:23 <-(1 more)-> GEN 3:12	False
-Adoni-Bezek	1	Male	Adult			JDG 1:7	False
-Adonijah, son of David	1	Male	Adult			1KI 1:5 <-(5 more)-> 1KI 2:17	False
-Adoni-Zedek, king of Jerusalem	1	Male	Adult			JOS 10:4	False
-advisers to king	-1	Male	Adult			DAN 3:24	False
-Agabus the prophet	1	Male	Adult			ACT 11:28 & ACT 21:11	False
-Agag, king of the Amalekites	1	Male	Adult			1SA 15:32	False
-Agur	1	Male	Adult			PRO 30:1 <-(31 more)-> PRO 30:33	False
-Ahab, king of Israel	1	Male	Adult			1KI 18:5 <-(36 more)-> 2CH 18:33	False
-Ahaz, king of Judah	1	Male	Adult			2KI 16:7 <-(2 more)-> ISA 7:12	False
-Ahaziah, king of Israel	1	Male	Adult			1KI 22:49 <-(3 more)-> 2KI 1:8	False
-Ahijah the priest	1	Male	Adult			1SA 14:36	False
-Ahijah the prophet	1	Male	Adult			1KI 11:31 <-(18 more)-> 1KI 14:16	False
-Ahimaaz (messenger)	1	Male	Adult			2SA 18:19 <-(3 more)-> 2SA 18:29	False
-Ahimelech the priest (son of Ahitub)	1	Male	Adult			1SA 21:1 <-(4 more)-> 1SA 22:15	False
-Ahithophel	1	Male	Adult			2SA 16:21 <-(2 more)-> 2SA 17:3	False
-all in Nazareth synagogue	-1		Adult			LUK 4:22	False
-all in temple	-1		Adult			PSA 29:9	False
-all seeking God	-1		Adult			PSA 40:16	False
-all the elders	-1	Male	Elder		elders of the church in Jerusalem		False
-all who heard (in synagogues)	-1		Adult			ACT 9:21	False
-altar	1	PreferMale	Adult			REV 16:7	False
-Amasa	1	Male	Adult		leader in Ephraim		False
-Amasai, chief of thirty	1	Male	Adult			1CH 12:18	False
-Amaziah, king of Judah	1	Male	Adult			2KI 14:8 <-(2 more)-> 2CH 25:17	False
-Amaziah, priest of Bethel	1	Male	Adult			AMO 7:10 <-(2 more)-> AMO 7:13	False
-Ammonite nobles	-1	Male	Adult			2SA 10:3 & 1CH 19:3	False
-Amnon, son of David	1	Male	Adult			2SA 13:4 <-(5 more)-> 2SA 13:17	False
-Amos	1	Male	Adult			AMO 1:2 <-(8 more)-> AMO 8:2	False
-Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder			JHN 18:19 <-(2 more)-> ACT 23:2	False
-Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17	False
-Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5	False
-Andrew	1	Male	Adult			MAT 14:17 <-(3 more)-> JHN 6:9	False
-angel	-1	Male	Adult			1KI 19:5 <-(16 more)-> ACT 12:8	False
-angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11	False
-angel flying directly overhead	1		Adult			REV 14:7	False
-angel flying directly overhead, second	1		Adult			REV 14:8	False
-angel flying directly overhead, third	1		Adult			REV 14:9 <-(2 more)-> REV 14:12	False
-angel of the LORD, the	1	Male	Adult		Default speaker should be Jesus	GEN 16:8 <-(35 more)-> ZEC 3:10	False
-angel or messenger (Greek variant: someone speaking to John)	1		Adult			REV 11:1 <-(1 more)-> REV 11:3	False
-angel over waters	1		Adult			REV 16:5 & REV 16:6	False
-angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18	False
-angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11	False
-angel who talked with Zechariah	1		Adult			ZEC 1:9 <-(23 more)-> ZEC 6:8	False
-angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29	False
-angel, another (vision)	1		Adult			ZEC 2:4	False
-angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3	False
-angel, coming out of temple	1		Adult			REV 14:15	False
-angel, coming out of temple, another	1		Adult			REV 14:18	False
-angel, powerful	1		Adult			REV 5:2 <-(3 more)-> REV 18:24	False
-angels at Sodom, two	2	Male	Adult			GEN 19:2 <-(6 more)-> GEN 19:22	False
-angels in white, two	2	Male	Adult			MAT 28:5 <-(7 more)-> JHN 20:13	False
-angels, all the	-1		Adult			REV 7:12	False
-angels, many	-1		Adult			REV 5:12	False
-Anna, prophetess	1	Female	Elder			LUK 2:38	False
-another disciple of John the Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)		False
-another holy one (in vision)	1		Adult			DAN 8:13	False
-answer from Israel	1		Adult			ISA 14:32	True
-anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11	True
-anyone with complaint for king	1		Adult			2SA 15:2	False
-Apollos	1	Male	Adult			ACT 18:28	False
-apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(8 more)-> JUD 1:18	False
-apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 15:22	False
-Aramean soldiers	-1	Male	Adult			2KI 7:6	False
-Araunah, the Jebusite	1	Male	Adult			2SA 24:21 <-(2 more)-> 1CH 21:23	False
-Arioch	1	Male	Adult			DAN 2:25	False
-army cry	-1	Male	Adult			1KI 22:36	False
-army officer, one of	1	Male	Adult			2KI 9:11	False
-army officers	-1	Male	Adult			2KI 9:12 & 2KI 9:13	False
-arrogant men	-1	Male	Adult				False
-Artaxerxes, king of Persia	1	Male	Adult			EZR 4:17 <-(22 more)-> NEH 2:6	False
-Asa, king of Judah	1	Male	Adult			1KI 15:19 <-(2 more)-> 2CH 16:3	False
-Asahel, brother of Joab	1	Male	Adult			2SA 2:20	False
-Asaph	1	Male	Adult			PSA 77:7 <-(2 more)-> PSA 77:10	False
-assembly, whole	-1		Adult			EZR 10:12 <-(2 more)-> NEH 5:13	False
-astrologers	-1	Male	Adult			DAN 2:4 <-(6 more)-> DAN 3:12	False
-Athaliah, mother of Ahaziah (Queen)	1	Female	Adult			2KI 11:14 & 2CH 23:13	False
-attendants to Xerxes, king	-1	Male	Adult			EST 2:2 <-(3 more)-> EST 6:5	False
-attendents of Phineas' wife	-1	Female	Adult			1SA 4:20	False
-authorities, governing	-1	Male	Adult			ROM 13:3	False
-authorities, Philippi	-1	Male	Adult			ACT 16:22 & ACT 16:23	False
-Azariah the chief priest (during reign of Hezekiah)	1	Male			from the family of Zadok	2CH 31:10	False
-Azariah the priest (during reign of Uzziah)	1	Male					False
-Azariah, son of Hoshaiah	1	Male					False
-Azariah, son of Jehohanan	1	Male			leader in Ephraim		False
-Azariah, son of Oded	1	Male				2CH 15:2 <-(4 more)-> 2CH 15:7	False
-Baanah	1	Male					False
-Babylon	1		Adult			REV 18:7	False
-Balaam	1	Male	Adult			NUM 22:8 <-(46 more)-> NUM 24:24	False
-Balak	1	Male	Adult			NUM 22:5 <-(8 more)-> NUM 24:11	False
-Barak	1	Male	Adult			JDG 4:8	False
-Barnabas	1	Male	Adult			ACT 9:27 <-(1 more)-> ACT 15:37	False
-Bartimaeus (a blind man)	1	Male	Adult			MRK 10:46 <-(8 more)-> LUK 18:43	False
-Baruch	1	Male	Adult			JER 36:18	False
-Barzillai	1	Male	Adult		Gileadite		False
-Barzillai (old)	1	Male	Elder		Gileadite	2SA 19:34 <-(2 more)-> 2SA 19:37	False
-Bathsheba	1	Female	Adult			2SA 11:5 <-(11 more)-> 1KI 2:21	False
-beast from out of the earth	1		Adult			REV 13:14	False
-believers who came with Peter	-1	Male	Adult			ACT 10:45	False
-believers who were Pharisees	-1	Male	Adult			ACT 15:5	False
-believers, circumcised (in Jerusalem)	-1	Male	Adult			ACT 11:3 & ACT 11:18	False
-believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or one of the other eleven disciples	ACT 1:24 & ACT 1:25	False
-beloved	1	Female	Adult			SNG 1:2 <-(68 more)-> SNG 8:14	False
-Belshazzar, king of Babylon	1	Male	Adult			DAN 5:7 <-(3 more)-> DAN 5:16	False
-Benaiah, son of Jehoiada	1	Male				1KI 1:36 <-(1 more)-> 1KI 2:30	False
-Ben-Hadad, king of Aram	1	Male				1KI 20:12 <-(8 more)-> 2KI 8:14	False
-Benjamin	1	Male					False
-Benjamite messenger to Eli	1	Male				1SA 4:16 & 1SA 4:17	False
-Benjamites	-1					JDG 20:32 & JDG 20:39	False
-Bera, king of Sodom	1	Male				GEN 14:21	False
-Berekiah	1	Male			leader in Ephraim		False
-Bernice	1	Female					False
-Beth Shemesh, men of	-1	Male				1SA 6:20	False
-Beth Shemesh, messenger from	1	PreferMale				1SA 6:21	False
-Bethlehem, elders of	-1	Male	Elder			1SA 16:4	False
-Bethuel, Rebekah's father	1	Male	Adult				False
-Bildad the Shuhite	1	Male				JOB 8:2 <-(44 more)-> JOB 25:6	False
-Birsha, king of Gomorrah	1	Male					False
-blind man	1	Male	Adult			MRK 8:24	False
-blind men, two	2	Male	Adult			MAT 9:27 <-(3 more)-> MAT 20:33	False
-Boaz	1	Male	Adult			RUT 2:4 <-(21 more)-> RUT 4:10	False
-Book of the Wars of the LORD	1	PreferMale	Adult			NUM 21:14 & NUM 21:15	False
-boys	-1	Male	Child			2KI 2:23	False
-bride, the (referring to the Church)	-1	PreferFemale	Adult				False
-brother-in-law of widow	1	Male	Adult			DEU 25:8	True
-brothers at Antioch	-1	Male	Adult			ACT 15:33 & ACT 15:40	False
-brothers at Ephesus	-1	Male	Adult			ACT 18:27	False
-brothers at Lystra and Iconium	-1	Male	Adult			ACT 16:2	False
-brothers at Puteoli	-1	Male	Adult			ACT 28:14	False
-brothers at Rome	-1	Male	Adult			ACT 28:15	False
-brothers at Thessalonica	-1	Male	Adult			ACT 17:10	False
-brothers of beloved	-1	Male	Adult			SNG 8:8 & SNG 8:9	False
-buyer	1	Either	Adult			PRO 20:14	True
-bystanders at Calvary, some	-1		Adult			MAT 27:47 & MRK 15:35	False
-bystanders at Calvary, the rest	-1		Adult			MAT 27:49	False
-Caesar Augustus	1	Male	Adult			LUK 2:1	False
-Caiaphas, the high priest	1	Male	Adult			MAT 26:62 <-(10 more)-> JHN 18:14	False
-Cain	1	Male	Adult			GEN 4:8 <-(2 more)-> GEN 4:14	False
-Caleb	1	Male	Adult			NUM 13:30 <-(10 more)-> JDG 1:14	False
-Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28	False
-Canaanites	-1		Adult			GEN 50:11	False
-captain of ship to Italy (Rome)	1	Male	Adult				False
-captain of ship to Tarshish	1	Male	Adult			JON 1:6	False
-captain of the temple guard	1	Male	Adult				False
-captain, first	1	Male	Adult			2KI 1:9	False
-captain, second	1	Male	Adult			2KI 1:11	False
-captain, third	1	Male	Adult			2KI 1:13 & 2KI 1:14	False
-captors, our	-1		Adult			PSA 137:3	False
-centurion at crucifixion	1	Male	Adult			MAT 27:54 <-(1 more)-> LUK 23:47	False
-centurion at Paul's flogging	1	Male	Adult			ACT 22:26	False
-centurion on ship with Paul	1	Male	Adult			ACT 27:43	False
-centurion summoned by Pilate	1	Male	Adult			MRK 15:45	False
-centurion with great faith	1	Male	Adult			MAT 8:6 <-(4 more)-> LUK 7:8	False
-centurion, one of the	1	Male	Adult			ACT 23:18	False
-chariot commanders of Aram	-1	Male	Adult			1KI 22:32 & 2CH 18:31	False
-chief baker of Egypt	1	Male	Adult			GEN 40:16 & GEN 40:17	False
-chief cupbearer of Egypt	1	Male	Adult			GEN 40:9 <-(6 more)-> GEN 41:13	False
-chief official	1	Male				DAN 1:10	False
-chief priests	-1	Male				MAT 27:6 <-(6 more)-> JHN 19:21	False
-chiefs of 10 tribes	10	Male			not Reuben, Gad, half tribe of Manasseh		False
-children	-1		Child			MAT 21:15	False
-children of excellent wife	-1		Child			PRO 31:28	False
-children of Zion (Jerusalem)	-1		Child			LAM 2:12 & LAM 4:4	False
-citizens of Shechem	-1		Adult			JDG 9:3	False
-city clerk of Ephesus	1	Male	Adult			ACT 19:35 <-(5 more)-> ACT 19:41	False
-Claudius	1	Male	Adult			ACT 18:2	False
-Cleopas	1	Male	Adult			LUK 24:18	False
-Cleopas' companion (on road to Emmaus)	1	Either	Adult				False
-collectors of temple tax	-1	Male	Adult			MAT 17:24	False
-commander of Roman troops in Jerusalem	1	Male	Adult			ACT 21:33 <-(17 more)-> ACT 23:30	False
-commander of the LORD's army	1	Male	Adult		Default character should be Jesus	JOS 5:14 & JOS 5:15	False
-company of the prophets	-1		Adult			2KI 4:40 <-(3 more)-> 2KI 6:5	False
-company of the prophets (Bethel)	-1		Adult			2KI 2:3	False
-company of the prophets (Jericho)	-1		Adult			2KI 2:5 <-(1 more)-> 2KI 2:16	False
-company of the prophets, one of (the LORD says) (young man)	1	Male	YoungAdult			2KI 9:6 <-(3 more)-> 2KI 9:10	False
-company of the prophets, one of (young man)	1	Male	YoungAdult			2KI 9:5	False
-conquerors of beast, image & his name	-1		Adult			REV 15:3 & REV 15:4	False
-conquerors of Lo Debar	-1	Male	Adult			AMO 6:13	True
-Cornelius	1	Male	Adult			ACT 10:4 <-(4 more)-> ACT 10:48	False
-council of elders	-1	Male	Elder				False
-craftsman	1	Male	Adult			EXO 36:5 <-(4 more)-> ISA 44:20	False
-craftsmen and workmen	-1	Male	Adult			ACT 19:28 <-(1 more)-> ACT 19:34	False
-Cretan prophet	1	Male				TIT 1:12	False
-criminal on cross, insulting	1	Male	Adult			LUK 23:39	False
-criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42	False
-crippled man	1	Male	Adult			ACT 3:3 & ACT 3:5	False
-crowd	-1		Adult			MAT 9:8 <-(16 more)-> ACT 21:36	False
-crowd after mute healed	-1		Adult			MAT 9:33	False
-crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31	False
-crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN 7:41	False
-crowd at Festival of Tabernacles in Jerusalem, some	-1		Adult			JHN 7:12 & JHN 7:40	False
-crowd at Festival of Tabernacles in Jerusalem, still others	-1		Adult			JHN 7:41 & JHN 7:42	False
-crowd at Festival of Tabernacles in Jerusalem, the	-1		Adult			JHN 7:20	False
-crowd at Jericho	-1		Adult			MAT 20:30 <-(3 more)-> LUK 19:11	False
-crowd before Pilate	-1		Adult			MAT 27:21 <-(7 more)-> LUK 23:21	False
-crowd in Jerusalem	-1		Adult			ACT 22:22 & ACT 22:24	False
-crowd in Jerusalem on Pentecost	-1		Adult			ACT 2:37	False
-crowd in Lystra	-1		Adult			ACT 14:11	False
-crowd near sea of Galilee	-1		Adult			MAT 15:31	False
-crowd preparing for Passover Feast	-1		Adult			MAT 21:9 <-(5 more)-> JHN 12:34	False
-crowd preparing for Passover Feast, others	-1		Adult			JHN 12:29	False
-crowd, large (witnessed healing of widow's son)	-1		Adult			LUK 7:16	False
-crowd, many in the	-1		Adult			MAT 20:31 <-(1 more)-> LUK 18:39	False
-crowd, some in	-1		Adult			LUK 11:15	False
-cured man, blind from birth	1	Male	Adult			JHN 9:9 <-(11 more)-> JHN 9:38	False
-Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(2 more)-> EZR 1:4	False
-Dan	1	Male	Adult				False
-Daniel	1	Male	Adult			DAN 1:12 <-(94 more)-> DAN 10:19	False
-Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25	False
-Darius, king	1	Male	Adult			EZR 6:2 <-(9 more)-> EZR 6:12	False
-Darius, king of Medes and Persians	1	Male	Adult			DAN 6:12 <-(4 more)-> DAN 6:27	False
-Dathan	1	Male			son of Eliab (Reubenite)		False
-daughter of Zion	1	Female				JER 4:31 <-(14 more)-> LAM 2:22	False
-daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	False
-David	1	Male	Adult			1SA 17:26 <-(427 more)-> PRO 4:9	False
-David (old)	1	Male	Elder			1KI 1:16 <-(14 more)-> 1KI 2:9	False
-David's enemies	-1	Male				PSA 3:2 <-(13 more)-> PSA 71:11	False
-David's men	-1	Male				1SA 23:3 <-(2 more)-> 2SA 21:17	False
-David's supporters	-1					PSA 35:27	False
-Deborah	1	Female			prophetess	JDG 4:6 <-(2 more)-> JDG 4:14	False
-Delaiah	1	Male			son of Shemaiah		False
-Delilah	1	Female				JDG 16:6 <-(7 more)-> JDG 16:20	False
-Demetrius the silversmith	1	Male				ACT 19:25 <-(1 more)-> ACT 19:27	False
-demons (Legion)	-1	Male					False
-demons coming out of people	-1					LUK 4:41	False
-disciple who wanted to bury his father	1	Male				MAT 8:21 & LUK 9:59	False
-disciples	11	Male				MAT 8:25 <-(76 more)-> ACT 21:4	False
-disciples (but not Thomas)	10	Male				JHN 20:25	False
-disciples in Ephesus, some	-1					ACT 19:2 & ACT 19:3	False
-disciples of John the Baptist	-1	Male				MAT 9:14 <-(1 more)-> LUK 7:20	False
-disciples, some	-1					LUK 21:5	False
-disciples, two men (from Joppa)	2	Male				ACT 9:38	False
-Doeg the Edomite	1	Male				1SA 22:9 <-(1 more)-> PSA 52:0	False
-donkey (female)	1	Female				NUM 22:28 & NUM 22:30	False
-dream	1	Male				MAT 2:12 & MAT 2:22	False
-dreamers	-1	Either				JUD 1:8	False
-drunkard	1	Male				PRO 23:35	True
-each one	1					2CO 9:7	True
-eagle crying with loud voice	1	PreferMale				REV 8:13	False
-ear	1	Neuter				1CO 12:16	True
-Ebed-Melech (official of king of Judea)	1	Male				JER 38:9 & JER 38:12	False
-Edom	1	Male				NUM 20:18 <-(1 more)-> MAL 1:4	False
-Edomites	-1					PSA 137:7	False
-Eglon, king of Moab	1	Male				JDG 3:19	False
-Egyptian (slave of Amalekite)	1					1SA 30:13 <-(1 more)-> 1SA 30:15	False
-Egyptians	-1					EXO 12:33 & EXO 14:25	False
-Egyptians, all the	-1					GEN 47:15 <-(2 more)-> GEN 47:25	False
-Ehud, Israelite deliverer	1	Male				JDG 3:19 <-(1 more)-> JDG 3:28	False
-eighty other priests	80	Male					False
-Ekron, people of	-1					1SA 5:10 & 1SA 5:11	False
-elders	-1	Male	Elder			RUT 4:11 <-(2 more)-> 2CH 10:7	False
-elders of Israel	-1	Male	Elder			1SA 4:3 <-(1 more)-> 1SA 8:6	False
-elders of Jabesh	-1	Male	Elder			1SA 11:3	False
-elders of the Jews	-1	Male	Elder			LUK 7:4 & LUK 7:5	False
-elders of the land	-1	Male	Elder			JER 26:18 & JER 26:19	False
-elders of the town	-1	Male	Elder			DEU 21:7 <-(1 more)-> DEU 25:8	False
-elders, Ephesian	-1	Male	Elder			ACT 20:38	False
-elders, one of the	1	Male	Elder			REV 5:5 <-(4 more)-> REV 7:17	False
-Eleazar the priest, son of Aaron	1	Male	Adult			NUM 31:21 <-(2 more)-> NUM 31:24	False
-Eleven	11	Male	Adult		This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.		False
-Eli	1	Male	Adult			1SA 1:14 <-(1 more)-> 1SA 2:20	False
-Eli (very old)	1	Male	Elder			1SA 2:23 <-(9 more)-> 1SA 4:16	False
-Eliab, David's brother	1	Male				1SA 17:28	False
-Eliakim	1	Male					False
-Eliezer, prophet of the Lord	1	Male				2CH 20:37	False
-Elihu, son of Barakel	1	Male				JOB 32:6 <-(155 more)-> JOB 37:24	False
-Elijah	1	Male				1KI 17:1 <-(48 more)-> JAS 5:17	False
-Eliphaz the Temanite	1	Male				JOB 4:2 <-(108 more)-> JOB 22:30	False
-Elisha	1	Male	Adult			1KI 19:20 <-(66 more)-> 2KI 9:3	False
-Elisha (old)	1	Male	Elder			2KI 13:15 <-(3 more)-> 2KI 13:19	False
-Elishama	1	Male			scribe		False
-Elisha's messenger	1					2KI 5:10	False
-Elizabeth	1	Female	Elder			LUK 1:25 <-(4 more)-> LUK 1:60	False
-Elkanah	1	Male				1SA 1:8 & 1SA 1:23	False
-Elnathan	1	Male			son of Achbor		False
-Elymas	1	Male			magician	ACT 13:8	False
-enemies of God	-1					PSA 74:8 & LAM 2:16	False
-enemies of Israel	-1					PSA 83:4 & PSA 83:12	False
-enemies of Judah and Benjamin	-1	Male				EZR 4:2	False
-enemy	1	Female				MIC 7:10	True
-Enoch	1	Male				JUD 1:14 & JUD 1:15	False
-Ephraim	-1	PreferMale				HOS 12:8	False
-Ephraimites	-1					JDG 8:1 <-(4 more)-> ISA 9:10	False
-Ephron the Hittite	1	Male				GEN 23:11 & GEN 23:15	False
-Epicurean and Stoic philosophers	-1					ACT 17:19 & ACT 17:20	False
-Epicurean and Stoic philosophers, interested	-1					ACT 17:32	False
-Epicurean and Stoic philosophers, other	-1					ACT 17:18	False
-Epicurean and Stoic philosophers, sneering	-1					ACT 17:32	False
-Epicurean and Stoic philosophers, some	-1					ACT 17:18	False
-Esau	1	Male	Adult			GEN 25:30 <-(12 more)-> GEN 33:15	False
-Esther, queen	1	Female	Adult			EST 4:11 <-(9 more)-> EST 9:13	False
-Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(3 more)-> ACT 8:38	False
-Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25	False
-every created thing	-1					REV 5:13	False
-everyone	-1					LUK 4:38 <-(1 more)-> PHP 2:11	False
-everyone in Judean hills who heard	-1					LUK 1:65 & LUK 1:66	False
-everyone seeing healing of paralyzed man	-1					LUK 5:26	False
-everyone who saw healing of paralytic	-1					MRK 2:12	False
-everyone who witnessed healing of boy	-1					LUK 9:43	False
-evil men and troublemakers	-1	Male				1SA 30:22	False
-evil spirit in possessed man	1	Male				ACT 19:15	False
-evil spirits	-1					MRK 3:11	False
-exiles	-1					ISA 48:20	True
-expert in religious law	1	Male				MRK 12:28 <-(5 more)-> LUK 10:37	False
-experts in religious law, one of the	1	Male				LUK 11:45	False
-explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33	False
-eye	1	Neuter				1CO 12:21	True
-Ezekiel	1	Male				EZK 4:14 <-(14 more)-> EZK 37:10	False
-Ezra, priest and teacher	1	Male				EZR 5:4 <-(55 more)-> EZR 10:11	False
-false prophets	-1	Male				JER 14:13 <-(1 more)-> MIC 2:7	False
-false teachers	-1					1TI 4:3	True
-false witnesses	-1					ACT 6:13 & ACT 6:14	False
-family heads of Gilead	-1	Male				NUM 36:2 <-(1 more)-> NUM 36:4	False
-father of accused daughter	1	Male				DEU 22:16 & DEU 22:17	True
-father of concubine	1	Male				JDG 19:5 <-(2 more)-> JDG 19:9	False
-father of cured man, blind from birth	1	Male					False
-father of demon-possessed boy	1	Male				MAT 17:15 <-(8 more)-> LUK 9:40	False
-Felix, governor of Judea	1	Male				ACT 23:34 <-(3 more)-> ACT 24:25	False
-Festus, governor of Judea	1	Male				ACT 25:4 <-(18 more)-> ACT 26:24	False
-figure like that of a man (in vision of God)	1	Male			Default character should be Jesus	EZK 8:5 <-(8 more)-> EZK 9:1	False
-flatterers	-1					PSA 12:4	False
-follower of Apollos	1					1CO 1:12 & 1CO 3:4	True
-follower of Cephas (Peter)	1					1CO 1:12	True
-follower of Christ	1					1CO 1:12	True
-follower of Paul	1					1CO 1:12 & 1CO 3:4	True
-followers of Jesus	-1					LUK 22:49	False
-Folly	-1	Female				PRO 9:16 & PRO 9:17	False
-fool	1					PSA 14:1 & PSA 53:1	False
-foot	1	Neuter				1CO 12:15	True
-foreman	1	Male				RUT 2:6 & RUT 2:7	False
-fortune telling slave girl	1	Female	YoungAdult			ACT 16:17	False
-friends of Haman	-1	PreferMale					False
-Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37	False
-Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37	False
-Gad the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12	False
-Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(2 more)-> LUK 8:37	False
-Gadites	-1	Male					False
-Gallio, proconsul of Achaia	1	Male				ACT 18:14 & ACT 18:15	False
-Gamaliel	1	Male				ACT 5:34 <-(4 more)-> ACT 5:39	False
-Gaza, people of (wicked)	-1					JDG 16:2	False
-Gedaliah, governor of Judah	1	Male			son of Ahikam, son of Shaphan	2KI 25:24 <-(2 more)-> JER 40:16	False
-Gedaliah, son of Pashur	1	Male					False
-Gehazi	1	Male				2KI 4:14 <-(6 more)-> 2KI 8:5	False
-Gemariah	1	Male			son of Shaphan		False
-Gentiles	-1					ACT 13:48	False
-Gentiles, Jews, and leaders at Iconium	-1					ACT 14:5	False
-Geshem the Arab	1	Male					False
-Gibeonites	-1	Male				JOS 9:6 <-(11 more)-> 2SA 21:6	False
-Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24	False
-Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	False
-Gilead, leaders of	-1	Male				JDG 10:18	False
-Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	False
-God	1	Male		Y		GEN 1:3 <-(5382 more)-> REV 21:8	False
-Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44	False
-Good Priest	1	Male			Many quotes resolve to this pseudo-character by default		False
-great company of heavenly host	-1		Adult			LUK 2:14	False
-Grecian Jews	-1	Either				ACT 6:1	False
-Greeks	-1	Male				JHN 12:21	False
-guards at high priests' house	-1	Male	Adult			LUK 22:64	False
-Habakkuk	1	Male				HAB 1:2 <-(28 more)-> HAB 3:19	False
-Hadad the Edomite	1	Male				1KI 11:21 & 1KI 11:22	False
-Hagar, Sarai's maid	1	Female				GEN 16:8 <-(1 more)-> GEN 21:16	False
-Haggai	1	Male				HAG 1:2 <-(15 more)-> HAG 2:19	False
-half-tribe of Manasseh	-1	Male					False
-Haman, highest noble to Xerxes, king	1	Male				EST 3:8 <-(7 more)-> EST 6:11	False
-Hamor, Hivite ruler	1	Male				GEN 34:8 <-(1 more)-> GEN 34:10	False
-Hanamel (Jeremiah's cousin)	1	Male				JER 32:8	False
-Hanani the seer	1	Male			father of Jehu	2CH 16:7 <-(1 more)-> 2CH 16:9	False
-Hanani, brother of Nehemiah	1	Male					False
-Hananiah, false prophet	1	Male				JER 28:2 <-(2 more)-> JER 28:11	False
-Hannah	1	Female				1SA 1:11 <-(17 more)-> 1SA 2:10	False
-Harbona, eunuch attending Xerxes, king	1	Male				EST 7:9	False
-harvesters	-1	Male				RUT 2:4	False
-Hazael of Aram	1	Male				2KI 8:9 <-(2 more)-> 2KI 8:14	False
-head	1	Neuter				1CO 12:21	True
-heads of all the families	-1	Male					False
-hearers	-1					ISA 28:9 & ISA 28:10	False
-herald	1	Male				DAN 3:4 <-(1 more)-> DAN 3:6	False
-herdsman	1	Male				GEN 26:20	False
-herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36	False
-Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(11 more)-> LUK 23:8	False
-Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16	False
-Herodias	1	Female				MAT 14:8 & MRK 6:24	False
-Herodias' daughter	1	Female				MAT 14:8 <-(1 more)-> MRK 6:25	False
-Hezekiah, king of Judah	1	Male				2KI 18:14 <-(50 more)-> ISA 39:8	False
-high priest	1	Male			Not a particular (historical) high priest, but rather an arbitrary (hypothetical) holder of that office	HEB 9:7	False
-high priest's servant (relative of the man whose ear Peter cut off)	1	Male				JHN 18:26	False
-Hilkiah, high priest	1	Male				2KI 22:8 & 2CH 34:15	False
-him who hears	1	Male				REV 22:17	False
-Hirah, the Adullamite	1	Male				GEN 38:21 & GEN 38:22	False
-Hiram, king of Tyre	1	Male				1KI 5:7 <-(8 more)-> 2CH 2:16	False
-Hittites	-1	Male				GEN 23:6	False
-Hobab, Moses brother-in-law	1	Male				NUM 10:30	False
-holy one (in vision)	1	Male				DAN 8:14	False
-Holy Spirit, the	1	Male		Y		LUK 2:26 <-(5 more)-> REV 14:13	False
-horseman, first	1	Male				2KI 9:18	False
-horseman, second	1	Male				2KI 9:19	False
-horses (in vision)	-1	PreferMale				ZEC 1:11	False
-Hosea	1	Male				HOS 3:3	False
-house of Aaron, the	-1	Male				PSA 118:3	True
-Huldah, prophetess	1	Female				2KI 22:15 <-(10 more)-> 2CH 34:28	False
-husband accusing wife	1		Adult			DEU 22:14	True
-husband of excellent wife	-1		Adult			PRO 31:29	True
-husband of Shunammite	1	Male				2KI 4:19 & 2KI 4:23	False
-Hushai, David's friend	1	Male				2SA 16:16 <-(10 more)-> 2SA 17:16	False
-hymn, early creedal	1	PreferMale				1TI 3:16	False
-idolaters from Judah (men)	-1	Male				JER 44:16 <-(1 more)-> JER 44:18	False
-idolaters from Judah (women)	-1	Female				JER 44:19	False
-immoral woman	1	Female				PRO 7:14 <-(5 more)-> PRO 7:20	False
-informer	-1	PreferMale				JDG 15:6 <-(9 more)-> ACT 21:31	False
-inscription on forehead of Babylon	1	PreferFemale				REV 17:5	False
-invaders	-1	Male				JER 6:4 & JER 6:5	True
-invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15	False
-Irijah, captain of the guard of Judah	1	Male				JER 37:13	False
-Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20	False
-Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6	False
-Isaiah	1	Male				2KI 19:6 <-(111 more)-> ISA 44:23	False
-Ish-Bosheth, son of Saul	1	Male				2SA 3:7	False
-Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6	False
-islanders	-1					ISA 41:6	False
-Israel	-1					NUM 21:17 <-(51 more)-> MAL 1:2	False
-Israel, all	-1					1SA 12:4 <-(5 more)-> 2CH 10:16	False
-Israel, all the tribes	-1	Male				2SA 5:1 & 2SA 5:2	False
-Israel, leaders of	-1	Male				JOS 9:19 <-(1 more)-> JOS 9:21	False
-Israel, men of	-1	Male				JOS 9:7 <-(1 more)-> 2SA 19:43	False
-Israelite army commanding officers	-1	Male				NUM 31:49 & NUM 31:50	False
-Israelite assembly	-1	Male				JDG 21:10 & JDG 21:11	False
-Israelite assembly, elders of	-1	Male	Elder			JDG 21:16 <-(5 more)-> JDG 21:22	False
-Israelite community	-1					NUM 14:2 <-(4 more)-> PSA 78:20	False
-Israelite fighting men	-1	Male				JDG 7:20	False
-Israelite foremen	-1	Male				EXO 5:15 <-(1 more)-> EXO 5:21	False
-Israelite officers	-1	Male				JOS 3:3 & JOS 3:4	False
-Israelite soldier in Saul's army	1	Male				1SA 14:28	False
-Israelite spies from house of Joseph	-1	Male				JDG 1:24	False
-Israelite spies from Joshua, two men	2	Male				JOS 2:14 <-(4 more)-> JOS 2:24	False
-Israelite spies Joshua sent to Ai	-1	Male	Adult			JOS 7:3	False
-Israelites	-1					EXO 14:11 <-(57 more)-> 1SA 11:12	False
-Israelites (excluding Benjamites)	-1	Male				JDG 20:23 & JDG 20:28	False
-Israelites (soldiers)	-1	Male				1SA 14:36 <-(2 more)-> 1SA 17:25	False
-Israelites, some	-1	Male				NUM 9:7	False
-Ittai	1	Male				2SA 15:21	False
-Jabez	1	Male				1CH 4:10	False
-Jabez's mother	1	Female				1CH 4:9	False
-Jacob (Israel)	1	Male				GEN 25:31 <-(142 more)-> GEN 49:32	False
-Jacob's son (one who discovered his silver in his sack)	1	Male			Not Simeon, Joseph, or Benjamin	GEN 42:28	False
-Jacob's sons	10	Male			Not Joseph or Banjamin	GEN 37:19 <-(11 more)-> GEN 44:9	False
-Jacob's sons (not Simeon, Joseph, or Benjamin)	9	Male				GEN 42:28 <-(9 more)-> GEN 43:22	False
-Jael	1	Female				JDG 4:18 & JDG 4:22	False
-Jahaziel (Spirit of the Lord on)	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17	False
-jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36	False
-Jairus (synagogue leader)	1	Male				MAT 9:18 <-(1 more)-> LUK 8:41	False
-James, the disciple	1	Male			Do not confuse with James (the brother of Jesus and author of the book of James)		False
-James	1	Male			The brother of Jesus and author of the book of James	ACT 15:13 <-(7 more)-> ACT 15:21	False
-Jebusites	-1	Male				2SA 5:6 <-(1 more)-> 1CH 11:5	False
-Jehizkiah	1	Male			leader in Ephraim		False
-Jehoash, king of Israel	1	Male				2KI 13:14 <-(3 more)-> 2CH 25:19	False
-Jehoiada the priest	1	Male				2KI 11:5 <-(9 more)-> 2CH 23:14	False
-Jehoiada's sons	-1	Male					False
-Jehonadab, son of Recab	1	Male				2KI 10:15	False
-Jehoshaphat, king of Judah	1	Male				1KI 22:4 <-(23 more)-> 2CH 20:20	False
-Jehu, son of Hanani	1	Male				2CH 19:2 & 2CH 19:3	False
-Jehu, son of Nimshi	1	Male				2KI 9:5 <-(30 more)-> 2KI 10:25	False
-Jehucal	1	Male			son of Shelemiah		False
-Jehudi	1	Male				JER 36:14	False
-Jephthah	1	Male				JDG 11:7 <-(6 more)-> JDG 12:3	False
-Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37	False
-Jephthah's half-brothers	-1	Male				JDG 11:2	False
-Jeremiah	1	Male				JER 1:6 <-(278 more)-> LAM 3:56	False
-Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10	False
-Jeroboam	1	Male				1KI 12:26 <-(6 more)-> 1KI 14:3	False
-Jeshua	1	Male					False
-Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19	False
-Jesus	1	Male	Adult	Y		MAT 3:15 <-(2104 more)-> REV 22:20	False
-Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49	False
-Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4	False
-Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31	False
-Jethro (Reuel), Moses' father-in-law	1	Male				EXO 2:18 <-(12 more)-> EXO 18:23	False
-Jewish leaders	-1	Male					False
-Jews from Asia	-1					ACT 21:28	False
-Jews of Berea	-1				noble	ACT 17:11	False
-Jews of Cyrene, Alexandria, Cilicia & Asia	-1					ACT 6:11	False
-Jews who had been with Mary and Martha	-1					JHN 11:31 & JHN 11:36	False
-Jews who had been with Mary and Martha, some	-1					JHN 11:37	False
-Jews who had believed Jesus	-1					JHN 8:33 <-(1 more)-> JHN 8:41	False
-Jews, God-fearing from every nation	-1					ACT 2:7 <-(4 more)-> ACT 2:12	False
-Jews, God-fearing from every nation, some	-1					ACT 2:13	False
-Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22	False
-Jews, many	-1					JHN 10:20	False
-Jews, more than forty in conspiracy	-1	Male				ACT 23:14 & ACT 23:15	False
-Jews, other	-1					JHN 10:21	False
-Jews, the	-1	Male				EZR 5:4 <-(40 more)-> ROM 3:5	False
-Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31	False
-Joab	1	Male				2SA 2:14 <-(34 more)-> 1CH 21:3	False
-Joab's men, one of	1	Male				2SA 20:11	False
-Joah	1	Male					False
-Joash, father of Gideon (Jerubbaal)	1	Male				JDG 6:31 & JDG 6:32	False
-Joash, king of Judah	1	Male				2KI 12:4 <-(3 more)-> 2CH 24:6	False
-Job	1	Male				JOB 1:5 <-(509 more)-> JOB 42:6	False
-Job's wife	1	Female				JOB 2:9	False
-Joel saying what the priests should say	1	Male				JOL 2:17	True
-Johanan	1	Male			son of Kareah	JER 40:15	False
-John	1	Male				MRK 9:38 <-(5 more)-> JHN 21:20	False
-John the Baptist	1	Male				MAT 3:2 <-(46 more)-> JHN 3:36	False
-John, Alexander, and other men of the high priest's family	-1	Male					False
-Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35	False
-Jonah	1	Male				JON 1:9 <-(13 more)-> JON 4:9	False
-Jonathan	1	Male				1SA 14:1 <-(35 more)-> 1SA 23:17	False
-Jonathan, son of Abiathar	1	Male				1KI 1:43 <-(4 more)-> 1KI 1:48	False
-Jonathan's armor bearer	1	Male				1SA 14:7	False
-Joram, king of Israel	1	Male				2KI 3:7 <-(16 more)-> 2KI 9:23	False
-Joseph	1	Male				GEN 37:6 <-(84 more)-> EXO 13:19	False
-Joseph of Arimathea	1	Male				MAT 27:58 <-(2 more)-> JHN 19:38	False
-Joseph, the carpenter	1	Male			Jesus' earthly father	MAT 1:19	False
-Joseph, people of	1	Male				JOS 17:14 & JOS 17:16	False
-Joseph's brothers	11	Male			Different from Jacob's sons because it cannot be Joseph	GEN 37:8 <-(6 more)-> GEN 50:18	False
-Joshua	1	Male	Adult			EXO 32:17 <-(65 more)-> JOS 22:8	False
-Joshua (old)	1	Male	Elder			JOS 23:2 <-(32 more)-> JOS 24:27	False
-Josiah, king of Judah	1	Male				2KI 22:4 <-(12 more)-> 2CH 35:23	False
-Jotham, son of Gideon (Jerubbaal)	1	Male				JDG 9:7 <-(12 more)-> JDG 9:20	False
-Judah	1	Male				GEN 37:26 <-(32 more)-> GEN 44:34	False
-Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:22	True
-Judah, men of	-1	Male				JDG 1:3 <-(6 more)-> 2SA 19:42	False
-Judah, people in	-1					NEH 4:10	False
-Judaizers	-1	Male				GAL 6:12	False
-Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5	False
-Judas, apostle (not Judas Iscariot)	1	Male				JHN 14:22	False
-judge who says the wicked are innocent	1	Male				PRO 24:24	True
-King Herod Agrippa II	1	Male				ACT 12:19 <-(3 more)-> ACT 26:32	False
-King Lemuel	1	Male					False
-King Lemuel's mother	1	Female					False
-king	1	Male				PRO 25:7	True
-king of Ammonites	1	Male				JDG 11:13	False
-king of Aram	1	Male				1KI 22:31 & 2CH 18:30	False
-king of Assyria	1	Male				2KI 17:27 <-(1 more)-> ISA 10:14	False
-king of Babylon	1	Male				ISA 14:13 & ISA 14:14	False
-king of Bela	1	Male					False
-king of Jericho	1	Male				JOS 2:3	False
-king of Nineveh	1	Male				JON 3:7 <-(1 more)-> JON 3:9	False
-kings of the earth	-1	Male				PSA 2:3 & REV 18:10	False
-kings over the nations	-1	Male				ISA 14:10	True
-kings, princes, generals, rich, powerful, slave and free	-1	Male				REV 6:16 & REV 6:17	False
-kinsman-redeemer	1	Male				RUT 4:4 <-(1 more)-> RUT 4:8	False
-Kish, father of Saul	1	Male				1SA 9:3	False
-Korah	1	Male			son of Izhar, son of Kohath, son of Levi		False
-Laban	1	Male				GEN 24:31 <-(23 more)-> GEN 31:53	False
-Laban's sons	-1	Male				GEN 31:1	False
-Lamech (descendent of Cain)	1	Male				GEN 4:23 & GEN 4:24	False
-Lamech (descendent of Seth)	1	Male				GEN 5:29	False
-leaders	-1	Male				EZR 9:1 & EZR 9:2	False
-Leah	1	Female				GEN 29:32 <-(8 more)-> GEN 30:20	False
-leper	1	Male				MAT 8:2 <-(1 more)-> LUK 5:12	False
-leper, thankful Samaritan	1	Male				LUK 17:15 & LUK 17:16	False
-lepers, ten	10	Male				LUK 17:13	False
-letter from apostles and elders	1	PreferMale				ACT 15:23 <-(5 more)-> ACT 15:29	False
-Levi	1	Male					False
-Levite husband of concubine	1	Male				JDG 19:12 <-(7 more)-> JDG 20:7	False
-Levite, young, from Bethlehem	1	Male	YoungAdult			JDG 17:9 <-(2 more)-> JDG 18:18	False
-Levites	-1	Male				NEH 8:11 <-(34 more)-> NEH 9:38	False
-Levites, family heads of	-1	Male				JOS 21:2	False
-living creature, first	1					REV 6:1	False
-living creature, fourth	1					REV 6:7	False
-living creature, second	1					REV 6:3	False
-living creature, third	1					REV 6:5	False
-lookout	1	Male				ISA 21:8 & ISA 21:9	False
-lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20	False
-Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20	False
-lover	1	Male				SNG 1:8 <-(53 more)-> SNG 8:13	False
-Lydia	1	Female				ACT 16:15	False
-Macedonian	1	Male				ACT 16:9	False
-magi (wise men from East)	-1	Male				MAT 2:2	False
-magicians	-1	Male				EXO 8:19	False
-magistrates, chief	-1	Male				ACT 16:39	False
-maidens	-1	Female	YoungAdult			SNG 1:4 <-(15 more)-> SNG 8:7	False
-Makir	1	Male			son of Ammiel from Lo Debar		False
-Malta islanders	-1					ACT 28:4 & ACT 28:6	False
-man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17	False
-man (Hebrew fighting)	1	Male				EXO 2:14	False
-man (hypothetical)	1	Male				ISA 3:6	True
-man all alone	1	Male				ECC 4:8	False
-man answered David	1	Male				2SA 11:3	False
-man delivered from Legion of demons	1	Male			Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.	MRK 5:18 <-(1 more)-> LUK 8:38	False
-man escaped from Jerusalem	1	Male				EZK 33:21	False
-man from Saul's camp (young)	1	Male	YoungAdult			2SA 1:3 <-(6 more)-> 2SA 1:13	False
-man in linen above river	1	Male				DAN 12:7 <-(4 more)-> DAN 12:13	False
-man in linen with writing kit (in vision)	1	Male				EZK 9:11	False
-man like bronze with measuring rod (vision of God)	1	Male				EZK 40:4 <-(13 more)-> EZK 47:12	False
-man of Gibeah	1	Male				1SA 10:12	False
-man of God (prophet to Amaziah)	1	Male				2CH 25:7 <-(1 more)-> 2CH 25:9	False
-man of God (prophet to Eli)	1	Male				1SA 2:27 <-(8 more)-> 1SA 2:36	False
-man of God from Judah	1	Male				1KI 13:2 <-(5 more)-> 1KI 13:17	False
-man of lawlessness	1	Male				2TH 2:4	False
-man possessed by evil spirit	1	Male				MRK 1:24 & LUK 4:34	False
-man reporting to David	1	Male				2SA 13:30	False
-man standing among myrtle trees	1	Male				ZEC 1:10	False
-man who says 'I know him'	1	Male				1JN 2:4	True
-man who says 'we remain in union with God'	1	Male				1JN 2:6	True
-man with measuring line (vision)	1	Male				ZEC 2:2	False
-man with sponge	1	Male				MRK 15:36	False
-man, still another	1	Male				LUK 9:61	False
-man, wicked	1	Male				PSA 10:6 <-(1 more)-> PSA 10:13	True
-Manoah, father of Samson	1	Male				JDG 13:8 <-(4 more)-> JDG 13:22	False
-Manoah's wife, mother of Samson	1	Female				JDG 13:6 <-(2 more)-> JDG 13:23	False
-man's brother (hypothetical)	1	Male				ISA 3:7	True
-man's voice from the Ulai (in vision)	1	Male				DAN 8:16	False
-many in crowd	-1					MRK 9:26	False
-many Samaritans	-1					JHN 4:40 & JHN 4:42	False
-Martha	1	Female				LUK 10:40 <-(5 more)-> JHN 11:39	False
-Mary Magdalene	1	Female				MRK 16:10 <-(5 more)-> JHN 20:18	False
-Mary mother of James	1	Female					False
-Mary, Jesus' mother	1	Female				LUK 1:29 <-(15 more)-> JHN 2:5	False
-Mary, sister of Martha	1	Female				JHN 11:32	False
-master of the banquet	1	Male				JHN 2:10	False
-Melchizedek, king of Salem (priest of God Most High)	1	Male				GEN 14:19 <-(1 more)-> HEB 7:1	False
-Memucan, noble advisor to Xerxes, king	1	Male				EST 1:16 <-(3 more)-> EST 1:20	False
-men	-1	Male				PSA 58:11 & LAM 4:15	False
-men (soldiers) standing near David	-1	Male				1SA 17:27	False
-men appointed to sing and praise	-1	Male				2CH 20:21	False
-men dressed in white, two (angels)	2	Male	Adult			ACT 1:11	False
-men from Cornelius	3	Male				ACT 10:17 <-(1 more)-> ACT 10:22	False
-men from Jairus' house	-1	Male				MRK 5:35 & LUK 8:49	False
-men from Judea, some	-1	Male				ACT 15:1	False
-men in Capernaum synagogue	-1	Male				MRK 1:27 & LUK 4:36	False
-men in mourning, ten of eighty	10	Male				JER 41:8	False
-men in Nazareth synagogue	-1	Male				MAT 13:54 <-(3 more)-> MRK 6:3	False
-men of Anathoth	-1	Male				JER 11:21	False
-men of Ashdod	-1	Male				1SA 5:7 & 1SA 5:8	False
-men of Babel	-1	Male				GEN 11:3 & GEN 11:4	False
-men of Bethel	-1	Male				2KI 23:17	False
-men of David	-1	Male				2SA 18:3	False
-men of David, one	1	Male				2SA 18:10 <-(1 more)-> 2SA 18:13	False
-men of Enaim	-1	Male				GEN 38:21	False
-men of Gerar	-1	Male				GEN 26:7	False
-men of Gennesaret	-1	Male				MAT 14:35	False
-men of Jabesh	-1	Male				1SA 11:1 & 1SA 11:10	False
-men of Jericho	-1	Male				2KI 2:19	False
-men of Sodom (wicked)	-1	Male				GEN 19:5 & GEN 19:9	False
-men who have gone astray	-1	Male				2TI 2:18	False
-men with leprosy, four	4	Male				2KI 7:3 <-(2 more)-> 2KI 7:10	False
-men, large force of	-1	Male				2CH 32:4	False
-men, many	-1	Male				PSA 4:6	False
-men, other	-1	Male					False
-men, some	-1	Male				2CH 20:2 & 2CH 22:9	False
-men, still others	-1	Male					False
-Mephibosheth, son of Jonathan	1	Male				2SA 9:6 <-(4 more)-> 2SA 19:30	False
-merchants of the earth	-1	PreferMale				REV 18:14 <-(2 more)-> REV 18:17	False
-Meshach	1	Male			original Hebrew name: Mishael		False
-message from Tamar, daughter-in-law of Judah	1	PreferFemale				GEN 38:25	False
-message to Saul	1	Male				1SA 19:19	False
-messenger	-1					2CH 18:12 <-(3 more)-> JER 20:15	False
-messenger from battle to David	1	Male				2SA 11:23 & 2SA 11:24	False
-messenger from guardians of Ahab's children	1	Male				2KI 10:8	False
-messenger of Ahab, king of Israel	1	Male				1KI 22:13	False
-messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22	False
-messenger to David	1	Male				2SA 15:13	False
-messenger to Jesus	1	Male				MAT 4:12	False
-messenger to king of Jericho	1	Male				JOS 2:2	False
-messenger to Saul	1	Male				1SA 23:27	False
-messenger, another	1	Male				JOB 1:16	False
-messenger, Cushite	1	Male				2SA 18:31 & 2SA 18:32	False
-messenger, still another	1					JOB 1:17	False
-messenger, yet another	1					JOB 1:18 & JOB 1:19	False
-messengers from Jephthah	-1	PreferMale				JDG 11:12 <-(12 more)-> JDG 11:27	False
-messengers Israel sent to Amorite king Sihon	-1	PreferMale				NUM 21:22	False
-messengers Moses sent to king of Edom	-1	Male				NUM 20:14 <-(3 more)-> NUM 20:19	False
-messengers of Ahaziah	-1	Male				2KI 1:6 & 2KI 1:8	False
-messengers of Ben-Hadad. king of Aram	-1	Male				1KI 20:2 <-(3 more)-> 1KI 20:10	False
-messengers of Jabesh	-1	Male				1SA 11:9	False
-messengers of Saul	-1	Male				1SA 11:7	False
-messengers sent by Jacob	-1	Male				GEN 32:6	False
-messengers to Jezebel	-1	Male				1KI 21:14	False
-messengers to Joab	-1	PreferMale				2SA 3:23	False
-messengers to Saul	-1	PreferMale				1SA 14:33	False
-Micah	1	Male				JDG 17:2 <-(10 more)-> MIC 3:8	False
-Micah's mother	1	Female				JDG 17:2 & JDG 17:3	False
-Micaiah, prophet of the LORD	1	Male				1KI 22:14 <-(18 more)-> 2CH 18:27	False
-Michael, archangel	1	Male				JUD 1:9	False
-Michal, David's wife	1	Female				1SA 19:11 <-(2 more)-> 2SA 6:20	False
-Midianite soldier who had a dream	1	Male				JDG 7:13	False
-Midianite soldier who interprets dream	1	Male				JDG 7:14	False
-midwife of Rachel	1	Female				GEN 35:17	False
-midwife of Tamar, daughter-in-law of Judah	1	Female				GEN 38:28 & GEN 38:29	False
-Miriam	1	Female	Adult			EXO 15:21	False
-Miriam (young)	1	Female	Child			EXO 2:7	False
-Moabite officials	-1	Male				NUM 22:14	False
-Moabite officials, more distinguished	-1	Male				NUM 22:16 & NUM 22:17	False
-Moabites	-1	Male				NUM 22:4 <-(2 more)-> ISA 16:4	False
-Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4	True
-mob	-1	PreferMale				ACT 17:6 & ACT 17:7	False
-molded thing	1					ROM 9:20	True
-Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14	False
-Moses	1	Male				EXO 2:13 <-(1144 more)-> DEU 33:29	False
-mother of cured man, blind from birth	1	Female					False
-mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21	False
-multitude from all nations, tribes, peoples, languages	-1					REV 7:10	False
-musicians	-1					PSA 87:7	False
-Naaman	1	Male				2KI 5:4 <-(6 more)-> 2KI 5:23	False
-Naaman's servants	-1	Male				2KI 5:13	False
-Nabal	1	Male				1SA 25:10 & 1SA 25:11	False
-Naboth	1	Male				1KI 21:3 & 1KI 21:4	False
-Nahash the Ammonite	1	Male				1SA 11:2	False
-Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18	False
-Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2	False
-Nathanael	1	Male				JHN 1:46 <-(1 more)-> JHN 1:49	False
-nations	-1					DEU 4:6 <-(7 more)-> MIC 4:11	False
-Nebuchadnezzar, king of Babylon	1	Male				DAN 2:3 <-(36 more)-> DAN 4:37	False
-Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5	False
-Neco, king of Egypt	1	Male				2CH 35:21	False
-Nehemiah	1	Male				NEH 1:5 <-(34 more)-> NEH 13:27	False
-neighbors and relatives of Elizabeth and Zacharias (Zechariah)	-1	Either				LUK 1:58 <-(2 more)-> LUK 1:62	False
-neighbors of man blind from birth	-1					JHN 9:8 <-(1 more)-> JHN 9:12	False
-neighbors of man blind from birth, others	-1					JHN 9:9	False
-neighbors of man blind from birth, some	-1					JHN 9:9	False
-news giver to Jacob	1	Male				GEN 48:2	False
-news giver to Joseph	1	Male				GEN 48:1	False
-news to Pharoah's palace	1					GEN 45:16	False
-Nicodemus	1	Male				JHN 3:2 <-(2 more)-> JHN 7:51	False
-Nineveh	-1	Female			The text personifies the city using female pronouns	NAM 2:8 & ZEP 2:15	False
-Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27	False
-nobles and officials (Jewish)	-1	Male				NEH 5:12	False
-non-reader	1					ISA 29:12	False
-Obadiah, manager of Ahab's palace	1	Male				1KI 18:7 <-(5 more)-> 1KI 18:14	False
-Oded, prophet of the Lord	1	Male				2CH 28:9 <-(1 more)-> 2CH 28:11	False
-officer of King Jehoshaphat of Israel	1	Male				2KI 3:11	False
-officer of King Joram of Israel	1	Male				2KI 7:13	False
-officer of king of Israel, on whose arm the king leaned	1	Male				2KI 7:2 & 2KI 7:19	False
-officers	-1	Male				DEU 20:5 <-(3 more)-> ACT 5:23	False
-officers of king of Aram	-1	Male				2KI 6:12	False
-officers of magistrates	-1	Male				ACT 16:35	False
-officers of temple guard	-1	Male					False
-official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52	False
-officials	-1	Male					False
-officials from chief priests and Pharisees	-1	Male					False
-officials of Ben-Hadad, king of Aram	-1	Male				1KI 20:23 <-(4 more)-> 1KI 20:33	False
-officials of David	-1	Male				2SA 15:15	False
-officials of high priest, one of the	1	Male				JHN 18:22	False
-officials of Samaria	-1	Male				2KI 10:4 & 2KI 10:5	False
-officials of Succoth	-1	Male				JDG 8:6	False
-officials of Trans-Euphrates	-1	Male					False
-officials, Ephesus (friends of Paul)	-1	Male				ACT 19:31	False
-officials, royal, to Xerxes, king	-1	Male				EST 3:3	False
-old man in Gibeah	1	Male	Elder			JDG 19:17 <-(2 more)-> JDG 19:24	False
-older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34	False
-On	1	Male			son of Peleth (Reubenite)		False
-one at table of Pharisee (expert in religious law)	1	Male				LUK 14:15	False
-one of you	-1					ROM 9:19 & JAS 2:16	True
-one other who looked like a man	1	Male				DAN 12:6	False
-one who allowed Paul to live by himself	-1	Male				ACT 28:16	False
-one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7	True
-one who looked like a man	1	Male				DAN 10:11 <-(54 more)-> DAN 12:4	False
-one with garments stained crimson (Christ?)	1	Male			Default character should be Jesus	ISA 63:1 <-(3 more)-> ISA 63:6	False
-onlookers	-1					ISA 14:16 & ISA 14:17	True
-oppressors of poor	-1					AMO 8:5 & AMO 8:6	True
-Orpah	1	Female					False
-other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49	False
-others	-1					ISA 43:9	True
-others (testing Jesus)	-1					LUK 11:16	False
-others who would not believe	-1	Male				ACT 28:24 & ACT 28:25	False
-owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33	False
-owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21	False
-parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(1 more)-> JHN 9:23	False
-parents of rebellious son	2	Either				DEU 21:20	True
-Pashur	1	Male			son of Malkijah		False
-passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30	False
-Paul	1	Male				ACT 9:1 <-(189 more)-> 1TH 5:27	False
-Paul's traveling companions, Luke and	-1					ACT 21:14	False
-people	-1					2CH 26:23 <-(18 more)-> 1TH 5:3	False
-people at cistern	-1					1SA 19:22	False
-people at coronation of King Joash	-1					2KI 11:12	False
-people at Jairus' house	-1					MAT 9:24 & LUK 8:53	False
-people in Capernaum	-1					MRK 1:30 & MRK 2:1	False
-people in crowd by Sea of Galilee	-1					JHN 6:14 <-(3 more)-> JHN 6:34	False
-people in high priest's courtyard	-1	Either			Group consisted of at least a servant girl and a man	JHN 18:25	False
-people in Jericho, all the	-1					LUK 19:7	False
-people in Pisidian Antioch synagogue	-1					ACT 13:42	False
-people in temple courts, all the	-1					ACT 3:10	False
-people in the temple	-1					LUK 20:16	False
-people near Jordan River	-1					LUK 3:15 & JHN 10:41	False
-people of Decapolis	-1					MRK 7:32 <-(1 more)-> MRK 7:37	False
-people of Jerusalem	-1					JER 4:13 <-(3 more)-> MAT 21:10	False
-people of Jerusalem, some	-1					JHN 7:25 <-(1 more)-> JHN 7:27	False
-people of Samaria, all the	-1					ACT 8:10	False
-people of Tyre and Sidon	-1					ACT 12:22	False
-people praying at John Mark's mother's house	-1					ACT 12:15	False
-people who had known Saul	-1					1SA 10:11	False
-people who saw healing of demon-possessed man who was blind and mute	-1					MAT 12:23	False
-people, all the	-1					1KI 1:39 <-(6 more)-> LUK 7:29	False
-people, arrogant wicked	-1					PSA 73:11	False
-people, God's	-1					ISA 25:9	True
-people, hurried	-1					ISA 5:19	True
-people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10	False
-people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56	False
-people, other	-1					MRK 6:15 & LUK 9:8	False
-people, righteous	-1					PSA 52:7 & PSA 92:15	False
-people, some	-1					MRK 2:18 <-(2 more)-> LUK 13:1	False
-people, still others	-1					MRK 6:15	False
-peoples, many	-1					ISA 2:3	True
-person asking someone to read a sealed book	1	Male				ISA 29:11 & ISA 29:12	True
-person claiming to have a pure heart	1	Either				PRO 20:9	True
-person near Lazarus' grave who informed Jesus	1					JHN 11:17	False
-person sacrificing	1					1SA 2:16	False
-person who informed Judah	1					GEN 38:24	False
-person who informed people of Gaza	1					JDG 16:2	False
-person who informed Rabshakeh	1					2KI 19:9 & ISA 37:9	False
-person who informed Solomon	1					1KI 2:29	False
-person who informed the sons of Israel	1					JOS 22:11	False
-person who informed Tamar, daughter-in-law of Judah	1					GEN 38:13	False
-person who informed townsmen of Ophrah	1					JDG 6:29	False
-person who told David about Philistines	1					1SA 23:1	False
-person who told David about Obed-Edom	1					2SA 6:12	False
-person who told David of Nathan's arrival	1	Male				1KI 1:23	False
-person who told Joshua where the kings were hiding	1	Male				JOS 10:17	False
-person who told king of Aram of Elisha's arrival	1	Male				2KI 8:7	False
-person who told Samuel where Saul was	1	Male				1SA 15:12	False
-person who told Saul where David was	1	Male				1SA 24:1	False
-person who told Shimei where his servants were	1	Male				1KI 2:39	False
-person who told the guards and priests where the apostles were	1	Male				ACT 5:25	False
-person without the gift of tongues	1					1CO 14:16	True
-Peter (Simon)	1	Male				MAT 14:28 <-(160 more)-> ACT 15:11	False
-Pharaoh (1st)	1	Male				GEN 12:18 & GEN 12:19	False
-Pharaoh (2nd)	1	Male				GEN 41:15 <-(22 more)-> GEN 50:6	False
-Pharaoh (2nd)'s men	-1	Male				GEN 41:43	False
-Pharaoh (3rd)	1	Male				EXO 1:9 <-(27 more)-> EXO 12:32	False
-Pharaoh (6th)	1	Male				1KI 11:22	False
-Pharaoh's daughter	1	Female				EXO 2:6 <-(2 more)-> EXO 2:10	False
-Pharaoh's officials	-1	Male				EXO 10:7	False
-Pharisee (expert in religious law)	1	Male				MAT 22:36 & LUK 13:31	False
-Pharisee (Simon)	1	Male				LUK 7:39 <-(1 more)-> LUK 7:43	False
-Pharisees	-1	Male				MAT 9:11 <-(14 more)-> ACT 23:9	False
-Pharisees, other	-1	Male				LUK 11:37 & JHN 9:16	False
-Pharisees, some	-1	Male				MAT 12:2 <-(8 more)-> JHN 9:40	False
-Phicol	1	Male					False
-Philip the apostle	1	Male				MRK 6:37 <-(3 more)-> JHN 14:8	False
-Philip the evangelist	1	Male				ACT 8:30 <-(2 more)-> ACT 8:40	False
-Philistine commanders	-1	Male				1SA 29:3 <-(1 more)-> 1SA 29:5	False
-Philistine priests and fortune tellers	-1	Male				1SA 6:3 <-(5 more)-> 1SA 6:9	False
-Philistine rulers	-1	Male				JDG 16:5 <-(2 more)-> 1CH 12:19	False
-Philistines	-1	Male				JDG 15:6 <-(11 more)-> 1SA 14:12	False
-Phineas the priest	1	Male				JOS 22:31	False
-Phineas' wife (daughter-in-law of Eli)	1	Female				1SA 4:21 & 1SA 4:22	False
-Pilate	1	Male				MAT 27:11 <-(42 more)-> JHN 19:22	False
-Pilate's wife	1	Female				MAT 27:19	False
-pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	True
-poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30	False
-Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19	False
-priest	1	Male				DEU 20:3 & DEU 20:4	True
-priests	-1	Male				HAG 2:12 <-(2 more)-> MAL 1:7	False
-proclaimers of God's word	-1					PSA 68:12 & PSA 68:13	False
-proclamation	1	Male				EZR 10:7 & EZR 10:8	False
-prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10	False
-prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	False
-prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16	False
-prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42	False
-prophets	-1						False
-prophets (speaking the word of the LORD)	-1					2KI 21:11 <-(3 more)-> 2KI 21:15	False
-prophets and teachers at Antioch	-1	Male				ACT 13:3	False
-prophets of Baal	-1					1KI 18:26	False
-prophets, 400 false	400					1KI 22:6 <-(2 more)-> 2CH 18:11	False
-prostitute, one	1	Female				1KI 3:17 <-(5 more)-> 1KI 3:26	False
-prostitute, other	1	Female				1KI 3:22 & 1KI 3:26	False
-psalmist	-1						False
-Puah (midwife)	1	Female					False
-queen of Babylon	1	Female				DAN 5:10 <-(1 more)-> DAN 5:12	False
-queen of Sheba	1	Female				1KI 10:6 <-(6 more)-> 2CH 9:8	False
-Rabshakeh	1	Male				2KI 18:19 <-(38 more)-> ISA 37:13	False
-Rachel	1	Female				GEN 30:1 <-(7 more)-> GEN 31:35	False
-Rahab	1	Female				JOS 2:4 <-(7 more)-> JOS 2:21	False
-reader	1					ISA 29:11	True
-Rebekah	1	Female				GEN 24:18 <-(17 more)-> GEN 27:46	False
-Rebekah's mother	1	Female					False
-rebels	-1	PreferMale				ISA 30:10 & ISA 30:11	True
-Recab	1	Male					False
-Recabite family, men of	-1	Male				JER 35:6 <-(4 more)-> JER 35:11	False
-Regem-Melech	1	Male					False
-Rehoboam, king	1	Male				1KI 12:5 <-(8 more)-> 2CH 10:14	False
-Rehum, commanding officer	1	Male					False
-relative	1	Male				AMO 6:10	True
-relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13	False
-reply to the slain believers (in heavenly vision)	1					REV 6:11	False
-report about Jesus	-1	PreferMale				MAT 14:13	False
-report concerning Paul	1	PreferMale				GAL 1:23	False
-report to king of Aram	1	Male				2KI 6:13	False
-report to king of Assyria	1	Male				2KI 17:26	False
-rest of heads of families	-1	Male					False
-Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37	False
-Reubenites	-1	Male					False
-Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15	False
-rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21	False
-rule given by Paul	1	Male				2TH 3:10	False
-rulers of people in Jerusalem	-1	Male				ISA 28:15	True
-rules of the world	1					COL 2:21	True
-Ruth	1	Female				RUT 1:16 <-(8 more)-> RUT 3:17	False
-Sadducees	-1	Male				MAT 22:24 <-(17 more)-> ACT 23:8	False
-sailors on ship to Italy (Rome)	-1	Male				ACT 27:27	False
-sailors on ship to Tarshish	-1	Male				JON 1:7 <-(3 more)-> JON 1:14	False
-Salome	1	Female					False
-Samson	1	Male				JDG 14:2 <-(20 more)-> JDG 16:30	False
-Samson's 30 Philistine companions	30	Male				JDG 14:13 <-(1 more)-> JDG 14:18	False
-Samson's father-in-law	1	Male				JDG 15:2	False
-Samson's Philistine wife	1	Female				JDG 14:16	False
-Samuel	1	Male	Adult			1SA 7:3 <-(75 more)-> 1SA 16:11	False
-Samuel (boy)	1	Male	Child			1SA 3:4 <-(4 more)-> 1SA 3:16	False
-Samuel (dead)	1	Male	Elder			1SA 28:15 <-(3 more)-> 1SA 28:19	False
-Sanballat the Horonite	1	Male				NEH 4:2 <-(1 more)-> NEH 6:7	False
-Sanhedrin	-1	Male					False
-Sapphira, wife of Ananias of Jerusalem	1	Female				ACT 5:8	False
-Sarah (Sarai)	1	Female	Adult			GEN 16:2 & GEN 16:5	False
-Sarah (Sarai) (old)	1	Female	Elder			GEN 18:12 <-(3 more)-> GEN 21:10	False
-Satan (Devil)	1	Male				JOB 1:7 <-(14 more)-> LUK 4:11	False
-satraps	-1	Male				DAN 6:5	False
-Saul	1	Male				1SA 9:5 <-(86 more)-> 1CH 10:4	False
-Saul's announcement	1	Male				1SA 13:4	False
-Saul's attendants	-1	Male				1SA 16:15 <-(1 more)-> 1SA 28:7	False
-Saul's messengers to Jesse	-1	Male				1SA 16:19 & 1SA 16:22	False
-Saul's servant	1	Male				1SA 16:18 & 1SA 18:24	False
-Saul's uncle	1	Male				1SA 10:14 & 1SA 10:15	False
-saying (lie about disciples stealing Jesus' body)	1	Male				MAT 28:15	False
-saying (proverb)	1					GEN 22:14	False
-saying about Anakites	1					DEU 9:2	False
-saying about blind and lame	1					2SA 5:8	False
-saying about captivity and death by the sword	1				Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52	REV 13:10	False
-saying about Gentile nations	1					PSA 87:4	True
-saying about going beyond what is written	1					1CO 4:6	False
-saying about idolaters	-1					HOS 13:2	False
-saying about Nimrod	1					GEN 10:9	False
-saying about Saul	1					1SA 10:12 & 1SA 19:24	False
-saying about seer	1					1SA 9:9	False
-saying about sow	1					2PE 2:22	False
-saying about what controls you	1					2PE 2:19	False
-saying about yeast	1					1CO 5:6 & GAL 5:9	False
-saying about Zion	1					PSA 87:5	True
-saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13	False
-scoffers	-1	PreferMale				2PE 3:4	True
-scoundrels	-1	Male				1KI 21:13	False
-scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17	False
-scripture	-1					2CH 25:4 <-(226 more)-> REV 19:15	False
-sea	1	Neuter				ISA 23:4	True
-sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19	False
-second person to accuse Peter (man)	1	Male				LUK 22:58	False
-Sennacherib's officers	-1	Male				2CH 32:10 <-(8 more)-> 2CH 32:19	False
-seraph, one of the	1	Male				ISA 6:7	False
-seraphs	-1	Male				ISA 6:3	False
-serpent	1	Male			Gen 3 - text uses masculine pronouns	GEN 3:1 <-(1 more)-> GEN 3:5	False
-servant girl at high priest's courtyard	1	Female				MAT 26:69 <-(3 more)-> JHN 18:17	False
-servant girl, another	1	Female				MAT 26:71	False
-servant of concubine's husband	1	Male				JDG 19:11	False
-servant of Elijah	1	Male				1KI 18:43 & 1KI 18:44	False
-servant of Naaman's wife (young girl)	1	Female	Child			2KI 5:3	False
-servant of Nabal	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 25:14 <-(2 more)-> 1SA 25:17	False
-servant of priest	1	Male				1SA 2:15 & 1SA 2:16	False
-servant of Saul	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 9:6 & 1SA 9:8	False
-servants of Achish, king of Gath	-1	Male				1SA 21:11	False
-servants of David	-1	Male				1SA 25:40 <-(3 more)-> 1KI 1:2	False
-servants of Eglon, king of Moab	-1	Male				JDG 3:24	False
-servants of Isaac	-1	Male				GEN 26:32	False
-servants of royal official (father)	-1	Male				JHN 4:51 & JHN 4:52	False
-seven sons of Sceva	7	Male				ACT 19:13	False
-seventy-two	72	Male				LUK 10:17	False
-Shadrach	1	Male			original Hebrew name: Hananiah		False
-Shaphan, secretary	1	Male				2KI 22:9 <-(3 more)-> 2CH 34:18	False
-Sharezer	1	Male					False
-Sheba, son of Bicri	1	Male				2SA 20:1	False
-Shebna	1	Male					False
-Shecaniah, son of Jehiel	1	Male				EZR 10:2 <-(1 more)-> EZR 10:4	False
-Shechem, son of Hamor	1	Male	YoungAdult			GEN 34:4 <-(1 more)-> GEN 34:12	False
-Shemaiah	1	Male				2CH 12:5 & NEH 6:10	False
-Shemeber, king of Zeboiim	1	Male					False
-Shephatiah	1	Male			son of Mattan		False
-shepherds at well	-1	Male				GEN 29:4 <-(2 more)-> GEN 29:8	False
-shepherds outside Bethlehem	-1					LUK 2:15	False
-Shethar-Bozenai	1	Male					False
-Shimei	1	Male				2SA 16:7 <-(3 more)-> 1KI 2:38	False
-Shimshai, secretary	1	Male					False
-Shinab, king of Admah	1	Male					False
-Shiphrah (midwife)	1	Female					False
-Shobi	1	Male			son of Nahash from Rabbah of the Ammonites		False
-Shua (Judah's wife)	1	Female				GEN 38:3 <-(1 more)-> GEN 38:5	False
-Shunammite woman	1	Female			well-to-do	2KI 4:9 <-(8 more)-> 2KI 4:30	False
-sign on the cross	1	PreferMale				MAT 27:37 <-(2 more)-> JHN 19:19	False
-Silas	1	Male				ACT 15:34	False
-Simeon	1	Male					False
-Simeon, devout man in Jerusalem	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35	False
-Simon, sorcerer	1	Male				ACT 8:9 <-(1 more)-> ACT 8:24	False
-singers	-1	Male				1CH 16:41	False
-singers from the ends of the earth	-1					ISA 24:16	True
-singers, and relatives	-1	Male				2CH 5:13	False
-sinners	-1					PRO 1:11 <-(3 more)-> ISA 33:14	False
-Sisera	1	Male				JDG 4:19 & JDG 4:20	False
-slave drivers, Egyptian	-1	Male	Adult			EXO 5:10 <-(2 more)-> EXO 5:14	False
-slave girls	-1	Female				NAM 2:8	False
-sluggard	1	Male	Adult			PRO 22:13 & PRO 26:13	True
-soldier at the cross	1	Male	Adult			LUK 23:37	False
-soldiers	-1	Male	Adult			ACT 12:18 & ACT 27:42	False
-soldiers, Assyrian	-1	Male	Adult			ISA 10:29	True
-soldiers, Roman	-1	Male	Adult			MAT 27:29 <-(5 more)-> JHN 19:24	False
-soldiers, some (near Jordan River)	-1	Male	Adult			LUK 3:14	False
-Solomon, king	1	Male				1KI 1:52 <-(124 more)-> 2CH 8:11	False
-some convinced by Paul	-1	Male				ACT 28:24	False
-some people (quoted by Paul)	-1					2CO 10:10	False
-someone	-1					ECC 1:10 <-(6 more)-> JAS 4:13	False
-someone (hypothetical argument)	-1					PSA 11:1 <-(3 more)-> 2CO 12:16	True
-someone from Seir	1	PreferMale				ISA 21:11	False
-someone hiding	1	Male				AMO 6:10	True
-someone in crowd	1	Male				LUK 12:13	False
-someone in Jerusalem	1					ISA 22:13	True
-son (child) in Israel (hypothetical)	1	Male	Child			DEU 6:20	True
-son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21	False
-son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11	False
-son of Shunammite	1	Male	Child			2KI 4:19	False
-son of widow	1	Male				2KI 4:6	False
-song of the prostitute	1	Female				ISA 23:16	False
-sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14	True
-sons of Korah	-1	Male					False
-sons of prophet in Bethel	-1	Male				1KI 13:30	False
-souls of those killed for word of God	-1					REV 6:10	False
-spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(7 more)-> LUK 20:24	False
-Stephen	1	Male				ACT 7:2 <-(53 more)-> ACT 7:60	False
-steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10	False
-stingy man	1	Male				PRO 23:7	True
-synagogue ruler	1	Male				LUK 13:14	False
-synagogue rulers in Pisidian Antioch	-1	Male				ACT 13:15	False
-Tamar, daughter of David	1	Female				2SA 13:12 <-(1 more)-> 2SA 13:16	False
-Tamar, daughter-in-law of Judah	1	Female				GEN 38:16 <-(1 more)-> GEN 38:18	False
-Tattenai, governor	1	Male					False
-tax collectors	-1	Male				LUK 3:12	False
-teacher (Preacher)	1	Male				ECC 1:2 <-(225 more)-> ECC 12:14	False
-teacher of religious law	1	Male				MAT 8:19 & LUK 9:57	False
-teachers of religious law	-1	Male				MAT 9:3 <-(3 more)-> LUK 20:39	False
-temple guards	-1	Male				JHN 7:46	False
-Tertius	1	Male				ROM 16:22	False
-Tertullus, lawyer	1	Male				ACT 24:2 <-(5 more)-> ACT 24:8	False
-Thomas	1	Male				JHN 11:16 <-(2 more)-> JHN 20:28	False
-those hiding from the LORD	-1					ISA 29:15	True
-those standing near	-1	Male			accusers of Peter in courtyard		False
-those standing near Paul in Sanhedrin	-1	Male				ACT 23:4	False
-those who call on God	-1					ROM 10:14	True
-those who fear the Lord	-1					PSA 118:4	True
-those who heard	-1					HEB 12:19	False
-those who seek God	-1					PSA 70:4	False
-those with the Eleven	-1	Either					False
-three administrators	3	Male					False
-three men (two angels and the LORD)	3	Male				GEN 18:5 & GEN 18:9	False
-Titus	1	Male				2CO 8:17	False
-Tobiah the Ammonite official	1	Male				NEH 4:3	False
-townsmen of Ophrah	-1	Male				JDG 6:29 <-(1 more)-> JDG 6:32	False
-troublemakers	-1	Male				1SA 10:27	False
-twenty-four elders	24	Male				REV 4:11 <-(1 more)-> REV 11:18	False
-unbeliever who comes under conviction	1					1CO 14:25	True
-unbelievers	-1					1TH 4:12	False
-Uriah	1	Male				2SA 11:11	False
-voice (God?)	1	PreferMale				ISA 40:6 <-(1 more)-> ISA 40:8	False
-voice behind you	1	PreferMale				ISA 30:21	False
-voice from altar	1	Male				REV 9:14	False
-voice from among living creatures	1	Male				REV 6:6	False
-voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:4 <-(2 more)-> REV 14:13	False
-voice from heaven, another	1	Male				REV 18:4 <-(15 more)-> REV 18:20	False
-voice from temple	1					REV 16:1	False
-voice from throne	1	Male				REV 19:5 <-(1 more)-> REV 21:4	False
-voice in heaven	13					REV 7:5 <-(4 more)-> REV 13:10	False
-voice in heaven, loud	1					REV 12:10 <-(1 more)-> REV 12:12	False
-voice of great crowd in heaven, loud	-1					REV 19:1 <-(1 more)-> REV 19:3	False
-voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:6 <-(1 more)-> REV 19:8	False
-voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> ISA 40:5	False
-voice of one speaking (in vision of God)	1	Male				EZK 2:1 <-(15 more)-> EZK 3:11	False
-voices in heaven, loud	-1					REV 11:15	False
-warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19	False
-watchman	1	Male				2SA 13:34 <-(2 more)-> ISA 21:12	False
-watchmen of Israel	-1	Male				ISA 56:12	False
-we (believers)	-1					ROM 8:15	False
-weakling	1					JOL 3:10	True
-what is formed	1					ISA 29:16	True
-whoever has doubts	1					ROM 14:23	False
-whole earth	-1					REV 13:3	False
-wicked men of Gibeah	-1	Male				JDG 19:22	False
-wicked, the	-1					PSA 94:7 & PSA 141:7	False
-widow	1	Female				DEU 25:7 & DEU 25:9	True
-widow (from company of prophets)	1	Female				2KI 4:1 <-(1 more)-> 2KI 4:6	False
-widow at Zarephath	1	Female				1KI 17:12 <-(1 more)-> 1KI 17:24	False
-Wisdom	1	Female				PRO 1:22 <-(52 more)-> PRO 9:12	False
-wise men of Pharaoh	-1	Male				ISA 19:11	True
-witnesses, false	-1	Male				MAT 26:61 & MRK 14:58	False
-wives	-1	Female					False
-wives, other	-1	Female					False
-wives, still others	-1	Female					False
-woman from Tekoa	1	Female				2SA 14:4 <-(13 more)-> 2SA 14:20	False
-woman in Bahurim	1	Female				2SA 17:20	False
-woman in crowd	1	Female				LUK 11:27	False
-woman in famine	1	Female				2KI 6:26 <-(1 more)-> 2KI 6:29	False
-woman medium	1	Female				1SA 28:9 <-(5 more)-> 1SA 28:22	False
-woman who could not straighten up	1	Female				LUK 13:13	False
-woman, bleeding for twelve years	1	Female				MAT 9:21 <-(2 more)-> LUK 8:47	False
-woman, caught in adultery	1	Female				JHN 8:11	False
-woman, Samaritan	1	Female				JHN 4:9 <-(8 more)-> JHN 4:39	False
-woman, wise	1	Female				2SA 20:16 <-(4 more)-> 2SA 20:22	False
-women of Bethlehem	-1	Female				RUT 1:19 <-(2 more)-> RUT 4:17	False
-women who oppress the poor	-1	Female				AMO 4:1	True
-women, dancing	-1	Female				1SA 18:7	False
-women, seven	7	Female				ISA 4:1	True
-worshipers of the beast	-1					REV 13:4	False
-Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12	False
-you (hypothetical Gentile)	1					ROM 11:19	True
-you (hypothetical)	-1					PRO 3:28 <-(9 more)-> 1PE 1:17	True
-you (people of Zion, restored)	-1					ISA 14:4 <-(17 more)-> ISA 30:22	True
-you (rebellious people)	-1					ISA 30:16	False
-you ought to say	1					JAS 4:15	True
-young man	1	Male	YoungAdult			NUM 11:27	False
-young men (advisors of Rehoboam)	-1	Male	YoungAdult			1KI 12:10 <-(2 more)-> 2CH 10:11	False
-young women (maidens)	-1	Female	YoungAdult			1SA 9:12 & 1SA 9:13	False
-Zaccheaus	1	Male				LUK 19:8	False
-Zacharias (Zechariah)	1	Male				LUK 1:18 <-(12 more)-> LUK 1:79	False
-Zalmunna	1	Male					False
-Zebah	1	Male					False
-Zebul, governor of Shechem	1	Male				JDG 9:31 <-(3 more)-> JDG 9:38	False
-Zechariah	1	Male				ZEC 1:8 <-(131 more)-> ZEC 13:9	False
-Zechariah, son of Jehoiada the priest	1	Male				2CH 24:20 & 2CH 24:22	False
-Zedekiah, king of Judah	1	Male				JER 32:3 <-(11 more)-> JER 38:26	False
-Zedekiah, son of Hananiah	1	Male					False
-Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18:23	False
-Zephaniah, priest	1	Male			son of Maaseiah		False
-Zeresh, wife of Haman	1	Female					False
-Zerubbabel	1	Male					False
-Ziba, servant of Saul's household	1	Male				2SA 9:2 <-(5 more)-> 2SA 16:4	False
-Zion	1					ISA 49:14 & ISA 49:15	False
-Ziphites	-1	Male				1SA 23:19 <-(2 more)-> PSA 54:0	False
-Zipporah, Moses' wife	1	Female				EXO 2:19 <-(1 more)-> EXO 4:26	False
-Zophar the Naamathite	1	Male				JOB 11:2 <-(45 more)-> JOB 20:29	False
+#Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
+2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 & JHN 21:5
+250 Israelite leaders	250	Male	Adult			NUM 16:3
+a Jew	1	Male	Adult			JHN 3:26
+Aaron	1	Male	Adult			EXO 5:1 <-(16 more)-> NUM 16:22
+Abednego	1	Male	Adult		original Hebrew name: Azariah	DAN 3:16 <-(1 more)-> DAN 3:18
+Abigail	1	Female	Adult			1SA 25:19 <-(8 more)-> 1SA 25:41
+Abijah, king of Judah	1	Male	Adult			2CH 13:4 <-(7 more)-> 2CH 13:12
+Abimelech, king of the Philistines (in Gerar)	1	Male	Adult			GEN 20:4 <-(14 more)-> GEN 26:29
+Abimelech, son of Gideon (Jerubbaal)	1	Male	Adult			JDG 9:2 <-(1 more)-> JDG 9:54
+Abiram	1	Male	Adult		son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
+Abishai, Joab's brother	1	Male	Adult			1SA 26:6 <-(2 more)-> 2SA 19:21
+Abner, commander of Saul's army	1	Male	Adult			1SA 17:55 <-(13 more)-> 2SA 3:21
+Abraham (Abram)	1	Male	Adult			GEN 12:11 <-(48 more)-> GEN 24:8
+Abraham's chief servant	1	Male	Adult			GEN 24:5 <-(25 more)-> GEN 24:65	Servant of Abraham
+Absalom, son of David	1	Male	Adult			2SA 13:20 <-(15 more)-> 2SA 18:18
+Absalom's men	-1	Male	Adult			2SA 17:20	Servant of Absalom
+Absalom's secret messengers	-1	Male	Adult			2SA 15:10
+Achan	1	Male	Adult			JOS 7:20 & JOS 7:21
+Achish, king of Gath	1	Male	Adult			1SA 21:14 <-(9 more)-> 1SA 29:10
+Achsah, Caleb's daughter	1	Female	Adult			JOS 15:19 <-(1 more)-> JDG 1:15	Acsah (female)
+Adam	1	Male	Adult			GEN 2:23 <-(1 more)-> GEN 3:12
+Adoni-Bezek	1	Male	Adult			JDG 1:7
+Adonijah, son of David	1	Male	Adult			1KI 1:5 <-(5 more)-> 1KI 2:17
+Adoni-Zedek, king of Jerusalem	1	Male	Adult			JOS 10:4
+advisers to king	-1	Male	Adult			DAN 3:24	Chaldean
+Agabus the prophet	1	Male	Adult			ACT 11:28 & ACT 21:11
+Agag, king of the Amalekites	1	Male	Adult			1SA 15:32
+Agur	1	Male	Adult			PRO 30:1 & PRO 30:2
+Ahab, king of Israel	1	Male	Adult			1KI 18:5 <-(36 more)-> 2CH 18:33
+Ahaz, king of Judah	1	Male	Adult			2KI 16:7 <-(2 more)-> ISA 7:12
+Ahaziah, king of Israel	1	Male	Adult			1KI 22:49 <-(3 more)-> 2KI 1:8
+Ahijah the priest	1	Male	Adult			1SA 14:36	Priest
+Ahijah the prophet	1	Male	Adult			1KI 11:31 <-(18 more)-> 1KI 14:16
+Ahimaaz (messenger)	1	Male	Adult			2SA 17:21 <-(4 more)-> 2SA 18:29
+Ahimelech the priest (son of Ahitub)	1	Male	Adult			1SA 21:1 <-(4 more)-> 1SA 22:15	Priest (Ahimelech)
+Ahithophel	1	Male	Adult			2SA 16:21 <-(2 more)-> 2SA 17:3
+all in Nazareth synagogue	-1		Adult			LUK 4:22
+all in temple	-1		Adult			PSA 29:9
+all seeking God	-1		Adult			PSA 40:16
+all the elders	-1	Male	Elder		elders of the church in Jerusalem	ACT 21:20 <-(4 more)-> ACT 21:25
+all who heard (in synagogues)	-1		Adult			ACT 9:21
+altar	1	PreferMale	Adult			REV 16:7
+Amasa	1	Male	Adult		leader in Ephraim	2CH 28:13
+Amasai, chief of thirty	1	Male	Adult			1CH 12:18
+Amaziah, king of Judah	1	Male	Adult			2KI 14:8 <-(2 more)-> 2CH 25:17
+Amaziah, priest of Bethel	1	Male	Adult			AMO 7:10 <-(2 more)-> AMO 7:13
+ambassador	-1	Male	Adult			JER 49:14 & OBA 1:1	Envoy
+ambassador sent by sea	-1	Male	Adult			ISA 18:2	Ambassador
+Ammonite nobles	-1	Male	Adult			2SA 10:3 & 1CH 19:3	Noble
+Ammonites	-1	Male	Adult			EZK 25:3
+Amnon, son of David	1	Male	Adult			2SA 13:4 <-(5 more)-> 2SA 13:17
+Amos	1	Male	Adult			AMO 1:2 <-(87 more)-> AMO 9:15
+Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder			JHN 18:19 <-(9 more)-> ACT 23:2
+Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17
+Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5
+Andrew	1	Male	Adult			MAT 14:17 <-(8 more)-> JHN 6:9
+angel	-1	Male	Adult			1KI 19:5 <-(23 more)-> ACT 12:8
+angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11
+angel flying directly overhead	1		Adult			REV 14:7
+angel flying directly overhead, second	1		Adult			REV 14:8
+angel flying directly overhead, third	1		Adult			REV 14:9 <-(2 more)-> REV 14:12
+angel of the LORD, the	1	Male	Adult		Default speaker should be Jesus	GEN 16:8 <-(32 more)-> 2KI 1:15
+angel or messenger (Greek variant: someone speaking to John)	1		Adult			REV 11:1 <-(1 more)-> REV 11:3
+angel over waters	1		Adult			REV 16:5 & REV 16:6
+angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18
+angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11
+angel who talked with Zechariah	1		Adult		Also descibed as "the angel of the LORD" and "man standing among myrtle trees"	ZEC 1:9 <-(37 more)-> ZEC 6:8
+angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29
+angel, another (in vision)	1		Adult			ZEC 2:4 & ZEC 2:5
+angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3
+angel, coming out of temple	1		Adult			REV 14:15
+angel, coming out of temple, another	1		Adult			REV 14:18
+angel, powerful	1		Adult			REV 5:2 <-(3 more)-> REV 18:24
+angels at Sodom, two	2	Male	Adult			GEN 18:5 <-(8 more)-> GEN 19:22
+angels in white, two	2	Male	Adult			MAT 28:5 <-(7 more)-> JHN 20:13
+angels, all the	-1		Adult			REV 7:12
+angels, many	-1		Adult			REV 5:12
+Anna, prophetess	1	Female	Elder			LUK 2:38
+another disciple of John the Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)	JHN 1:38
+another holy one (in vision)	1		Adult			DAN 8:13
+answer from Israel	1		Adult			ISA 14:32
+anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11
+anyone with complaint for king	1		Adult			2SA 15:2
+Apollos	1	Male	Adult			ACT 18:28
+apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(8 more)-> JUD 1:18
+apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 4:24 <-(6 more)-> ACT 15:22
+Aramean soldiers	-1	Male	Adult			2KI 7:6	Syrians
+Araunah, the Jebusite	1	Male	Adult			2SA 24:21 <-(2 more)-> 1CH 21:23
+Arioch	1	Male	Adult			DAN 2:25
+army cry	-1	Male	Adult			1KI 22:36
+army officer, one of	1	Male	Adult			2KI 9:11
+army officers	-1	Male	Adult			2KI 9:12 <-(5 more)-> JER 42:6
+Aroer, inhabitant of	-1	Male	Adult			JER 48:19
+arrogant men	-1	Male	Adult			JER 43:2 & JER 43:3
+Artaxerxes, king of Persia	1	Male	Adult			EZR 4:17 <-(24 more)-> NEH 5:14
+Asa, king of Judah	1	Male	Adult			1KI 15:19 <-(2 more)-> 2CH 16:3
+Asahel, brother of Joab	1	Male	Adult			2SA 2:20
+Asaph	1	Male	Adult			
+assembly, whole	-1		Adult			EZR 10:12 <-(2 more)-> NEH 5:13
+astrologers	-1	Male	Adult			DAN 2:4 <-(6 more)-> DAN 3:12	Chaldean
+Athaliah, mother of Ahaziah (Queen)	1	Female	Adult			2KI 11:14 & 2CH 23:13
+attendants to Xerxes, king	-1	Male	Adult			EST 2:2 <-(3 more)-> EST 6:5
+attendents of Phineas' wife	-1	Female	Adult			1SA 4:20
+authorities, governing	-1	Male	Adult			ROM 13:3
+authorities, Philippi	-1	Male	Adult			ACT 16:22 & ACT 16:23
+Azariah the chief priest (during reign of Hezekiah)	1	Male			from the family of Zadok	2CH 31:10
+Azariah the priest (during reign of Uzziah)	1	Male				2CH 26:18
+Azariah, son of Hoshaiah	1	Male				JER 43:2 & JER 43:3
+Azariah, son of Jehohanan	1	Male			leader in Ephraim	2CH 28:13	Leader
+Azariah, son of Oded	1	Male				2CH 15:2 <-(4 more)-> 2CH 15:7
+Baanah	1	Male				2SA 4:8
+Babylon (personified as adulteress)	1	Female	Adult			ISA 47:7 <-(2 more)-> REV 18:7
+Balaam	1	Male	Adult			NUM 22:8 <-(46 more)-> NUM 24:24
+Balak	1	Male	Adult			NUM 22:5 <-(8 more)-> NUM 24:11
+Barak	1	Male	Adult			JDG 4:8 <-(29 more)-> JDG 5:31
+Barnabas	1	Male	Adult			ACT 9:27 <-(10 more)-> ACT 15:37
+Bartimaeus (a blind man)	1	Male	Adult			MRK 10:46 <-(8 more)-> LUK 18:43
+Baruch	1	Male	Adult			JER 36:18
+Barzillai	1	Male	Adult		Gileadite	2SA 17:29
+Barzillai (old)	1	Male	Elder		Gileadite	2SA 19:34 <-(2 more)-> 2SA 19:37
+Bathsheba	1	Female	Adult			2SA 11:5 <-(11 more)-> 1KI 2:21
+beast from out of the earth	1		Adult			REV 13:14
+believers who came with Peter	-1	Male	Adult			ACT 10:45
+believers who were Pharisees	-1	Male	Adult			ACT 15:5
+believers, circumcised (in Jerusalem)	-1	Male	Adult			ACT 11:3 & ACT 11:18
+believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or one of the other eleven disciples	ACT 1:24 & ACT 1:25
+beloved	1	Female	Adult			SNG 1:2 <-(68 more)-> SNG 8:14
+Belshazzar, king of Babylon	1	Male	Adult			DAN 5:2 <-(7 more)-> DAN 5:29
+Benaiah, son of Jehoiada	1	Male				1KI 1:36 <-(1 more)-> 1KI 2:30
+Ben-Hadad, king of Aram	1	Male			Ben-Hadad II (aka, Hadadezer or Adad-Idri); Aram = Syria	1KI 20:12 <-(10 more)-> 2CH 18:30	Ben Hadad
+Benjamin	1	Male				
+Benjamite messenger to Eli	1	Male				1SA 4:16 & 1SA 4:17
+Benjamites	-1					JDG 20:32 & JDG 20:39
+Bera, king of Sodom	1	Male				GEN 14:4 & GEN 14:21	King of Sodom
+Berekiah	1	Male			leader in Ephraim	2CH 28:13
+Bernice	1	Female				ACT 26:31
+Beth-ezel	-1	Male				MIC 1:11
+Beth Shemesh, men of	-1	Male				1SA 6:20
+Beth Shemesh, messenger from	1	PreferMale				1SA 6:21
+Bethlehem, elders of	-1	Male	Elder			1SA 16:4	Elder of Bethlehem
+Bethuel, Rebekah's father	1	Male	Adult			GEN 24:50 & GEN 24:51
+Bildad the Shuhite	1	Male				JOB 8:2 <-(44 more)-> JOB 25:6
+Birsha, king of Gomorrah	1	Male				GEN 14:4
+blind man	1	Male	Adult			MRK 8:24
+blind men, two	2	Male	Adult			MAT 9:27 <-(3 more)-> MAT 20:33
+Boaz	1	Male	Adult			RUT 2:4 <-(21 more)-> RUT 4:10
+Book of the Wars of the LORD	1	PreferMale	Adult			NUM 21:14 & NUM 21:15
+boys	-1	Male	Child			2KI 2:23
+bride, the (referring to the Church)	-1	PreferFemale	Adult			REV 22:17
+brother-in-law of widow	1	Male	Adult			DEU 25:8
+brothers at Antioch	-1	Male	Adult			ACT 15:33 & ACT 15:40
+brothers at Ephesus	-1	Male	Adult			ACT 18:27
+brothers at Lystra and Iconium	-1	Male	Adult			ACT 16:2
+brothers at Puteoli	-1	Male	Adult			ACT 28:14
+brothers at Rome	-1	Male	Adult			ACT 28:15
+brothers at Thessalonica	-1	Male	Adult			ACT 17:10
+brothers of beloved	-1	Male	Adult			SNG 8:8 & SNG 8:9
+brothers who hate you	-1	Male	Adult			ISA 66:5	Brother
+buyer	1	Either	Adult			PRO 20:14
+bystanders at Calvary, some	-1		Adult			MAT 27:47 & MRK 15:35
+bystanders at Calvary, the rest	-1		Adult			MAT 27:49
+Caesar Augustus	1	Male	Adult			LUK 2:1
+Caiaphas, the high priest	1	Male	Adult			MAT 26:62 <-(16 more)-> ACT 4:18
+Cain	1	Male	Adult			GEN 4:8 <-(2 more)-> GEN 4:14
+Caleb	1	Male	Adult			NUM 13:30 <-(14 more)-> JDG 1:14
+Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28
+Canaanites	-1		Adult			GEN 50:11
+captain of ship to Italy (Rome)	1	Male	Adult			ACT 27:12 <-(1 more)-> ACT 27:39
+captain of ship to Tarshish	1	Male	Adult			JON 1:6 <-(4 more)-> JON 1:14	Captain
+captain of the temple guard	1	Male	Adult			ACT 4:1 & ACT 5:24
+captain, first	1	Male	Adult			2KI 1:9
+captain, second	1	Male	Adult			2KI 1:11
+captain, third	1	Male	Adult			2KI 1:13 & 2KI 1:14
+captors, our	-1		Adult			PSA 137:3
+centurion at crucifixion	1	Male	Adult			MAT 27:54 <-(1 more)-> LUK 23:47
+centurion at Paul's flogging	1	Male	Adult			ACT 22:26
+centurion on ship with Paul	1	Male	Adult			ACT 27:43
+centurion summoned by Pilate	1	Male	Adult			MRK 15:45
+centurion with great faith	1	Male	Adult			MAT 8:6 <-(4 more)-> LUK 7:8
+centurion in the barracks	1	Male	Adult			ACT 23:18
+chariot commanders of Aram	-1	Male	Adult			1KI 22:32 & 2CH 18:31	Commander
+chief baker of Egypt	1	Male	Adult			GEN 40:8 <-(1 more)-> GEN 40:17	Chief Baker
+chief cupbearer of Egypt	1	Male	Adult			GEN 40:8 <-(7 more)-> GEN 41:13	Cupbearer
+chief official	1	Male				DAN 1:10	Official
+chief priests	-1	Male				2KI 19:3 <-(64 more)-> ACT 25:7
+chiefs of 10 tribes	10	Male			not Reuben, Gad, half tribe of Manasseh	JOS 22:16 <-(4 more)-> JOS 22:32
+children	-1		Child			MAT 21:15
+children of excellent wife	-1		Child			PRO 31:28
+children of Zion (Jerusalem)	-1		Child			LAM 2:12 & LAM 4:4
+citizens of Shechem	-1		Adult			JDG 9:3
+city clerk of Ephesus	1	Male	Adult			ACT 19:35 <-(5 more)-> ACT 19:41
+Claudius	1	Male	Adult			ACT 18:2
+Cleopas	1	Male	Adult			LUK 24:18 <-(8 more)-> LUK 24:35
+Cleopas' companion (on road to Emmaus)	1	Either	Adult			LUK 24:19 <-(7 more)-> LUK 24:35
+collectors of temple tax	-1	Male	Adult			MAT 17:24
+commander of Roman troops in Jerusalem	1	Male	Adult			ACT 21:33 <-(17 more)-> ACT 23:30
+commander of the LORD's army	1	Male	Adult			JOS 5:14 & JOS 5:15	Angel
+company of the prophets	-1		Adult			2KI 4:40 <-(3 more)-> 2KI 6:5
+company of the prophets (Bethel)	-1		Adult			2KI 2:3
+company of the prophets (Jericho)	-1		Adult			2KI 2:5 <-(1 more)-> 2KI 2:16
+company of the prophets, one of (young man)	1	Male	YoungAdult			2KI 9:5 <-(4 more)-> 2KI 9:10	Prophet (young)
+conquerors of beast, image & his name	-1		Adult			REV 15:3 & REV 15:4
+conquerors of Lo Debar	-1	Male	Adult			AMO 6:13
+Cornelius	1	Male	Adult			ACT 10:4 <-(4 more)-> ACT 10:48
+council of elders	-1	Male	Elder			LUK 22:67 <-(3 more)-> ACT 5:40
+craftsman	1	Male	Adult			EXO 36:5 <-(4 more)-> ISA 44:20
+craftsmen and workmen	-1	Male	Adult			ACT 19:28 <-(1 more)-> ACT 19:34
+Cretan prophet	1	Male				TIT 1:12
+criminal on cross, insulting	1	Male	Adult			LUK 23:39
+criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
+crippled man	1	Male	Adult			ACT 3:3 & ACT 3:5
+crowd	-1		Adult			MAT 9:8 <-(18 more)-> ACT 21:36
+crowd after mute healed	-1		Adult			MAT 9:33
+crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31
+crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN 7:41
+crowd at Festival of Tabernacles in Jerusalem, some	-1		Adult			JHN 7:12 & JHN 7:40
+crowd at Festival of Tabernacles in Jerusalem, still others	-1		Adult			JHN 7:41 & JHN 7:42
+crowd at Festival of Tabernacles in Jerusalem, the	-1		Adult			JHN 7:20
+crowd at Jericho	-1		Adult			MAT 20:30 <-(3 more)-> LUK 19:11
+crowd before Pilate	-1		Adult			MAT 27:21 <-(7 more)-> LUK 23:21
+crowd in Jerusalem	-1		Adult			ACT 22:22 & ACT 22:24
+crowd in Jerusalem on Pentecost	-1		Adult			ACT 2:37
+crowd in Lystra	-1		Adult			ACT 14:11
+crowd near sea of Galilee	-1		Adult			MAT 15:31
+crowd preparing for Passover Feast	-1		Adult			MAT 21:9 <-(5 more)-> JHN 12:34
+crowd preparing for Passover Feast, others	-1		Adult			JHN 12:29
+crowd, large (witnessed healing of widow's son)	-1		Adult			LUK 7:16
+crowd, many in the	-1		Adult			MAT 20:31 <-(1 more)-> LUK 18:39
+crowd, some in	-1		Adult			LUK 11:15
+cured man, blind from birth	1	Male	Adult			JHN 9:9 <-(11 more)-> JHN 9:38
+Cyrus, king of Persia	1	Male	Adult			2CH 36:23 <-(6 more)-> ISA 48:16
+Dan	1	Male	Adult			
+Daniel	1	Male	Adult			DAN 1:12 <-(98 more)-> DAN 10:19
+Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25
+Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(15 more)-> DAN 6:27
+Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
+daughter of Zion	1	Female				JER 4:31 <-(17 more)-> LAM 2:22
+daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	Daughter of Zelophehad (female)
+David	1	Male	Adult			1SA 17:26 <-(400 more)-> PRO 4:9
+David (old)	1	Male	Elder			1KI 1:16 <-(14 more)-> 1KI 2:9
+David's enemies	-1	Male				PSA 3:2 <-(12 more)-> PSA 71:11
+David's men	-1	Male				1SA 23:3 <-(2 more)-> 2SA 21:17
+David's supporters	-1					PSA 35:27
+Deborah	1	Female			prophetess	JDG 4:6 <-(32 more)-> JDG 5:31
+Delaiah	1	Male			son of Shemaiah	JER 36:15 <-(3 more)-> JER 36:25
+Delilah	1	Female				JDG 16:6 <-(7 more)-> JDG 16:20
+Demetrius the silversmith	1	Male				ACT 19:25 <-(1 more)-> ACT 19:27
+demons (Legion)	-1	Male				MAT 8:29 <-(9 more)-> LUK 8:32
+demons coming out of people	-1					LUK 4:41
+disciple who wanted to bury his father	1	Male				MAT 8:21 & LUK 9:59
+disciples	11	Male				MAT 8:25 <-(76 more)-> ACT 21:4
+disciples (but not Thomas)	10	Male				JHN 20:25
+disciples in Ephesus, some	-1					ACT 19:2 & ACT 19:3
+disciples of John the Baptist	-1	Male				MAT 9:14 <-(2 more)-> JHN 3:26
+disciples, some	-1					LUK 21:5
+disciples, two men (from Joppa)	2	Male				ACT 9:38
+Doeg the Edomite	1	Male				1SA 22:9 <-(1 more)-> PSA 52:0
+donkey (female)	1	Female				NUM 22:28 & NUM 22:30
+dream	1	Male				MAT 2:12 & MAT 2:22
+dreamers	-1	Either				JUD 1:8
+drunkard	1	Male				PRO 23:35
+each one	1					2CO 9:7
+eagle crying with loud voice	1	PreferMale				REV 8:13
+ear	1	Neuter				1CO 12:16
+Ebed-Melech (official of king of Judea)	1	Male			Ethiopian eunuch	JER 38:9 & JER 38:12
+Edom	1	Male				NUM 20:18 <-(1 more)-> MAL 1:4
+Edomites	-1					PSA 137:7
+Eglon, king of Moab	1	Male				JDG 3:19
+Egyptian (slave of Amalekite)	1					1SA 30:13 <-(1 more)-> 1SA 30:15
+Egyptians	-1					EXO 12:33 <-(4 more)-> JER 46:16
+Egyptians, all the	-1					GEN 47:15 <-(2 more)-> GEN 47:25
+Ehud, Israelite deliverer	1	Male				JDG 3:19 <-(1 more)-> JDG 3:28
+eighty other priests	80	Male				2CH 26:18
+Ekron, people of	-1					1SA 5:10 & 1SA 5:11
+Elasah, son of Shaphan	1	Male				JER 29:4 <-(18 more)-> JER 29:23
+elders	-1	Male	Elder			RUT 4:11 <-(33 more)-> ACT 4:18
+elders in Shechem	-1	Male	Elder			1KI 12:7 & 2CH 10:7	Elder of Shechem
+elders of Israel	-1	Male	Elder			DEU 27:1 <-(9 more)-> 1SA 8:6	Elder of Israel
+elders of Jabesh	-1	Male	Elder			1SA 11:3	Elder of Jabesh
+elders of the Jews	-1	Male	Elder			LUK 7:4 & LUK 7:5
+elders of the land	-1	Male	Elder			JER 26:18 <-(4 more)-> JER 26:23	Elder
+elders of the town	-1	Male	Elder			DEU 21:7 <-(1 more)-> DEU 25:8
+elders, Ephesian	-1	Male	Elder			ACT 20:38
+elders, one of the	1	Male	Elder			REV 5:5 <-(4 more)-> REV 7:17
+Eleazar the priest, son of Aaron	1	Male	Adult			NUM 26:4 <-(3 more)-> NUM 31:24
+Eleven	11	Male	Adult		This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.	LUK 24:34
+Eli	1	Male	Elder			1SA 1:14 <-(12 more)-> 1SA 4:16
+Eliab, David's brother	1	Male				1SA 17:28
+Eliakim	1	Male				2KI 18:26 <-(4 more)-> ISA 37:4
+Eliezer, prophet of the Lord	1	Male				2CH 20:37
+Elihu, son of Barakel	1	Male				JOB 32:6 <-(155 more)-> JOB 37:24
+Elijah	1	Male				1KI 17:1 <-(48 more)-> JAS 5:17
+Eliphaz the Temanite	1	Male				JOB 4:2 <-(108 more)-> JOB 22:30
+Elisha	1	Male	Adult			1KI 19:20 <-(66 more)-> 2KI 9:3
+Elisha (old)	1	Male	Elder			2KI 13:15 <-(3 more)-> 2KI 13:19
+Elishama	1	Male			scribe	JER 36:15 <-(2 more)-> JER 36:19
+Elisha's messenger	1				possibly Gehazi, but not named in this passage	2KI 5:10
+Elizabeth	1	Female	Elder			LUK 1:25 <-(4 more)-> LUK 1:60
+Elkanah	1	Male				1SA 1:8 & 1SA 1:23
+Elnathan	1	Male			son of Achbor	JER 36:15 <-(3 more)-> JER 36:25
+Elymas	1	Male			magician	ACT 13:8
+enemies of God	-1					PSA 74:8 & LAM 2:16
+enemies of Israel	-1					PSA 83:4 <-(2 more)-> EZK 36:2
+enemies of Judah and Benjamin	-1	Male				EZR 4:2 & NEH 4:11
+enemy (female)	1	Female				MIC 7:10
+Enoch	1	Male				JUD 1:14 & JUD 1:15
+Ephraim	-1	Male			The tribe (collectively personified), not the actual tribal forefather, nor a specific descendent	ISA 7:6 <-(4 more)-> HOS 13:2
+Ephraimites	-1				i.e., specific/individual men of the tribe of Ephraim	JDG 8:1 <-(3 more)-> JDG 12:6	Ephraimite
+Ephron the Hittite	1	Male				GEN 23:11 & GEN 23:15
+Epicurean and Stoic philosophers	-1					ACT 17:19 & ACT 17:20
+Epicurean and Stoic philosophers, interested	-1					ACT 17:32
+Epicurean and Stoic philosophers, other	-1					ACT 17:18
+Epicurean and Stoic philosophers, sneering	-1					ACT 17:32
+Epicurean and Stoic philosophers, some	-1					ACT 17:18
+Esau	1	Male	Adult			GEN 25:30 <-(12 more)-> GEN 33:15
+Esther, queen	1	Female	Adult			EST 4:11 <-(9 more)-> EST 9:13
+Ethan	1	Male	Adult			
+Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(3 more)-> ACT 8:38
+Ethiopians	-1					ISA 45:14 & ISA 45:15
+eunuch	-1					ISA 56:3
+Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25
+every created thing	-1					REV 5:13
+everyone	-1					JER 6:14 <-(5 more)-> PHP 2:11
+everyone in Judean hills who heard	-1					LUK 1:65 & LUK 1:66
+everyone seeing healing of paralyzed man	-1					LUK 5:26
+everyone who saw healing of paralytic	-1					MRK 2:12
+everyone who witnessed healing of boy	-1					LUK 9:43
+every tongue	-1					ISA 45:24
+evil men and troublemakers	-1	Male				1SA 30:22
+evil spirit in possessed man	1	Male				ACT 19:15
+evil spirits	-1					MRK 3:11
+exiles	-1					ISA 48:20
+expert in religious law	1	Male				MRK 12:28 <-(5 more)-> LUK 10:37
+experts in religious law, one of the	1	Male				LUK 11:45
+explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33
+eye	1	Neuter				1CO 12:21
+Ezekiel	1	Male				EZK 3:27 <-(653 more)-> EZK 47:23
+Ezra, priest and teacher	1	Male				EZR 5:4 <-(15 more)-> NEH 8:15
+false prophets	-1	Male				JER 14:13 <-(15 more)-> ZEC 13:6
+false teachers	-1					1TI 4:3
+false witnesses	-1					ACT 6:13 & ACT 6:14
+family heads of Gilead	-1	Male				NUM 36:2 <-(1 more)-> NUM 36:4
+father of accused daughter	1	Male				DEU 22:16 & DEU 22:17
+father of concubine	1	Male				JDG 19:5 <-(2 more)-> JDG 19:9	Father in Law
+father of cured man, blind from birth	1	Male				
+father of demon-possessed boy	1	Male				MAT 17:15 <-(8 more)-> LUK 9:40
+father of false prophet	1	Male				ZEC 13:3
+Felix, governor of Judea	1	Male				ACT 23:34 <-(3 more)-> ACT 24:25
+Festus, governor of Judea	1	Male				ACT 25:4 <-(19 more)-> ACT 26:31
+figure like that of a man (in vision)	1	Male			Default character should be Jesus	EZK 8:5 <-(8 more)-> EZK 9:1
+flatterers	-1					PSA 12:4
+follower of Apollos	1					1CO 1:12 & 1CO 3:4
+follower of Cephas (Peter)	1					1CO 1:12
+follower of Christ	1					1CO 1:12
+follower of Paul	1					1CO 1:12 & 1CO 3:4
+followers of Jesus	-1					LUK 22:49
+Folly	-1	Female				PRO 9:16 & PRO 9:17
+fool	1					PSA 14:1 <-(1 more)-> ECC 7:10
+foot	1	Neuter				1CO 12:15
+foreigner who has joined himself to the Lord	-1	Male				ISA 56:3	Foreigner
+foreman	1	Male				RUT 2:6 & RUT 2:7
+fortune telling slave girl	1	Female	YoungAdult			ACT 16:17
+friends of Haman	-1	PreferMale				EST 5:14 & EST 6:13
+Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37
+Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37
+Gad the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12
+Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(2 more)-> LUK 8:37
+Gadites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29
+Gallio, proconsul of Achaia	1	Male				ACT 18:14 & ACT 18:15
+Gamaliel	1	Male				ACT 5:34 <-(4 more)-> ACT 5:39
+Gaza, people of (wicked)	-1					JDG 16:2	Philistine
+Gedaliah, governor of Judah	1	Male			son of Ahikam, son of Shaphan	2KI 25:24 <-(2 more)-> JER 40:16
+Gedaliah, son of Pashur	1	Male				JER 38:4 & JER 38:25
+Gehazi	1	Male				2KI 4:14 <-(7 more)-> 2KI 8:5
+Gemariah, son of Shaphan	1	Male				JER 36:15 <-(3 more)-> JER 36:25
+Gemariah, son of Hilkiah	1	Male				JER 29:4 <-(18 more)-> JER 29:23
+Gentiles	-1					ACT 13:48
+Gentiles, Jews, and leaders at Iconium	-1					ACT 14:5
+Geshem the Arab	1	Male				NEH 2:19 <-(2 more)-> NEH 6:9
+Gibeonites	-1	Male				JOS 9:6 <-(11 more)-> 2SA 21:6
+Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
+Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder of Gilead
+Gilead, leaders of	-1	Male				JDG 10:18
+Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
+God	1	Male		Y		GEN 1:3 <-(5834 more)-> REV 21:8
+God's chosen (beloved) friend or ally	1	Male				ISA 48:16
+Gog	1	Male				EZK 38:11 & EZK 38:12
+Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
+Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
+great company of heavenly host	-1		Adult			LUK 2:14
+Grecian Jews	-1	Either				ACT 6:1
+Greeks	-1	Male				JHN 12:21
+guards at high priests' house	-1	Male	Adult			LUK 22:64
+Habakkuk	1	Male				HAB 1:2 <-(39 more)-> HAB 3:19
+Hadad the Edomite	1	Male				1KI 11:21 & 1KI 11:22
+Hagar, Sarai's maid	1	Female				GEN 16:8 <-(1 more)-> GEN 21:16
+Haggai	1	Male				HAG 1:2 <-(28 more)-> HAG 2:23
+half-tribe of Manasseh	-1	Male				JOS 1:16 <-(9 more)-> JOS 22:29
+Haman, highest noble to Xerxes, king	1	Male				EST 3:8 <-(7 more)-> EST 6:11
+Hamor, Hivite ruler	1	Male				GEN 34:8 <-(4 more)-> GEN 34:23
+Hanamel (Jeremiah's cousin)	1	Male				JER 32:8
+Hanani the seer	1	Male			father of Jehu	2CH 16:7 <-(1 more)-> 2CH 16:9
+Hanani, brother of Nehemiah	1	Male				NEH 1:3
+Hananiah, false prophet	1	Male				JER 28:2 <-(2 more)-> JER 28:11
+Hannah	1	Female				1SA 1:11 <-(17 more)-> 1SA 2:10
+Harbona, eunuch attending Xerxes, king	1	Male				EST 7:9	Eunuch
+harvesters	-1	Male				RUT 2:4
+Hazael of Aram	1	Male			Annointed King of Aram/Syria by Elijah; assasinated Ben Hadad II about 16 years later	2KI 8:9 <-(2 more)-> 2KI 8:14
+head	1	Neuter				1CO 12:21
+heads of all the families	-1	Male				NEH 8:15
+hearers	-1					ISA 28:9 & ISA 28:10
+herald	1	Male				DAN 3:4 <-(2 more)-> NAM 1:15
+herdsman	1	Male				GEN 26:20
+herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36
+Heshbon, people of	-1	Male				JER 48:2
+Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(11 more)-> LUK 23:8
+Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16
+Herodias	1	Female				MAT 14:8 & MRK 6:24
+Herodias' daughter	1	Female				MAT 14:8 <-(1 more)-> MRK 6:25
+Hezekiah, king of Judah	1	Male				2KI 18:14 <-(52 more)-> ISA 39:8	King Hezekiah
+high priest	1	Male			Not a particular (historical) high priest, but rather an arbitrary (hypothetical) holder of that office	HEB 9:7
+high priest's servant (relative of the man whose ear Peter cut off)	1	Male				MAT 26:73 <-(2 more)-> JHN 18:26
+Hilkiah, high priest	1	Male				2KI 22:8 & 2CH 34:15
+him who hears	1	Male				REV 22:17
+Hirah, the Adullamite	1	Male				GEN 38:21 & GEN 38:22
+Hiram, king of Tyre	1	Male				1KI 5:7 <-(8 more)-> 2CH 2:16
+Hittites	-1	Male				GEN 23:6
+Hobab, Moses brother-in-law	1	Male				NUM 10:30
+holy one (in vision)	1	Male				DAN 4:14 <-(3 more)-> DAN 8:14
+Holy Spirit, the	1	Male		Y		EZK 3:24 <-(39 more)-> REV 22:17
+horseman, first	1	Male				2KI 9:18
+horseman, second	1	Male				2KI 9:19
+horses (or their angelic riders) (in vision)	-1	PreferMale				ZEC 1:11
+Hosea	1	Male				HOS 2:13 <-(10 more)-> HOS 4:1
+house of Aaron, the	-1	Male				PSA 118:3
+Huldah, prophetess	1	Female				2KI 22:15 <-(10 more)-> 2CH 34:28
+husband accusing wife	1		Adult			DEU 22:14
+husband of excellent wife	-1		Adult			PRO 31:29
+husband of Shunammite	1	Male				2KI 4:19 & 2KI 4:23	Father
+Hushai, David's friend	1	Male				2SA 16:16 <-(10 more)-> 2SA 17:16
+hymn, early creedal	1	PreferMale				1TI 3:16
+idolaters from Judah (men)	-1	Male				JER 44:16 <-(2 more)-> JER 44:25
+idolaters from Judah (women)	-1	Female				JER 44:16 <-(2 more)-> JER 44:19
+immoral woman	1	Female				PRO 7:14 <-(6 more)-> PRO 30:20
+informer	-1	PreferMale				JDG 15:6 <-(11 more)-> ACT 21:31
+inhabitants of Egyptian and Ethiopian coastlands	-1	Male				ISA 20:6
+inhabitant of valley	-1	PreferMale				JER 21:13
+inscription on forehead of Babylon	1	PreferFemale				REV 17:5
+invaders	-1	Male				JER 6:4 & JER 6:5
+invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
+Irijah, captain of the guard of Judah	1	Male				JER 37:13
+Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20
+Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
+Isaiah	1	Male				2KI 19:6 <-(388 more)-> ISA 66:6
+Ish-Bosheth, son of Saul	1	Male				2SA 3:7
+Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6
+islanders	-1					ISA 41:6
+Israel	-1					NUM 21:17 <-(70 more)-> MAL 1:2	Israelite
+Israel, all	-1					1SA 12:4 <-(8 more)-> JER 13:12
+Israel, all the tribes	-1	Male				2SA 5:1 & 2SA 5:2
+Israel, fathers of	-1	Male				JER 2:6
+Israel, leaders of	-1	Male				JOS 9:19 <-(2 more)-> 2CH 12:6
+Israel, men of	-1	Male				JOS 9:7 <-(7 more)-> EZK 12:27
+Israelite army commanding officers	-1	Male				NUM 31:49 & NUM 31:50
+Israelite assembly	-1	Male				JDG 21:10 & JDG 21:11
+Israelite assembly, elders of	-1	Male	Elder			JDG 21:16 <-(5 more)-> JDG 21:22	Elder of Congregation
+Israelite community	-1					NUM 14:2 <-(4 more)-> PSA 78:20
+Israelite fighting men	-1	Male				JDG 7:20
+Israelite foremen	-1	Male				EXO 5:15 <-(1 more)-> EXO 5:21
+Israelite officers	-1	Male				JOS 3:3 & JOS 3:4
+Israelite soldier in Saul's army	1	Male				1SA 14:28
+Israelite spies from house of Joseph	-1	Male				JDG 1:24
+Israelite spies from Joshua, two men	2	Male				JOS 2:14 <-(4 more)-> JOS 2:24
+Israelite spies Joshua sent to Ai	-1	Male	Adult			JOS 7:3
+Israelites	-1					EXO 14:11 <-(76 more)-> 1KI 20:8
+Israelites (excluding Benjamites)	-1	Male				JDG 20:23 & JDG 20:28
+Israelites (soldiers)	-1	Male				1SA 14:36 <-(2 more)-> 1SA 17:25
+Israelites, some	-1	Male				NUM 9:7
+Ittai	1	Male				2SA 15:21
+Jabez	1	Male				1CH 4:10
+Jabez's mother	1	Female				1CH 4:9
+Jacob (Israel)	1	Male				GEN 25:31 <-(142 more)-> GEN 49:32
+Jacob's son (one who discovered his silver in his sack)	1	Male			Not Simeon, Joseph, or Benjamin	GEN 42:28
+Jacob's sons	10	Male			Not Joseph or Banjamin	GEN 37:19 <-(9 more)-> GEN 44:9
+Jacob's sons (not Simeon, Joseph, or Benjamin)	9	Male				GEN 42:28 <-(11 more)-> GEN 44:8
+Jael	1	Female				JDG 4:18 & JDG 4:22
+Jahaziel (Spirit of the Lord on)	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17
+jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36
+Jairus (synagogue leader)	1	Male				MAT 9:18 <-(1 more)-> LUK 8:41
+James, the disciple	1	Male			Do not confuse with James (the brother of Jesus and author of the book of James)	MAT 17:10 <-(11 more)-> JHN 21:3
+James	1	Male			The brother of Jesus and author of the book of James	JHN 21:5 <-(15 more)-> GAL 2:10
+Jebusites	-1	Male				2SA 5:6 <-(1 more)-> 1CH 11:5	Jebusite
+Jehizkiah	1	Male			leader in Ephraim	2CH 28:13
+Jehoash, king of Israel	1	Male				2KI 13:14 <-(3 more)-> 2CH 25:19	King Joash
+Jehoiada the priest	1	Male				2KI 11:5 <-(10 more)-> 2CH 23:14
+Jehoiada's sons	-1	Male				2CH 23:11
+Jehonadab, son of Recab	1	Male				2KI 10:15
+Jehoshaphat, king of Judah	1	Male				1KI 22:4 <-(23 more)-> 2CH 20:20
+Jehu, son of Hanani	1	Male				2CH 19:2 & 2CH 19:3	Jehu the Seer
+Jehu, son of Nimshi	1	Male				2KI 9:5 <-(30 more)-> 2KI 10:25
+Jehucal	1	Male			son of Shelemiah	JER 37:3 <-(1 more)-> JER 38:25
+Jehudi	1	Male				JER 36:14
+Jephthah	1	Male				JDG 11:7 <-(6 more)-> JDG 12:3
+Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37
+Jephthah's half-brothers	-1	Male				JDG 11:2	Son of Gilead
+Jeremiah	1	Male				JER 1:6 <-(706 more)-> LAM 3:66
+Jeremiah's enemies	-1	Male				JER 17:15 <-(1 more)-> JER 20:10
+Jeremiah's friends (bad)	-1	PreferMale				JER 20:10
+Jeroboam	1	Male				1KI 12:4 <-(9 more)-> 2CH 10:4
+Jerusalem (personified)	1	Male				JER 51:34 & JER 51:35
+Jeshua	1	Male				EZR 4:3
+Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
+Jesus	1	Male	Adult	Y		JOS 5:14 <-(2113 more)-> REV 22:20
+Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
+Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
+Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
+Jethro (Reuel), Moses' father-in-law	1	Male				EXO 2:18 <-(12 more)-> EXO 18:23
+Jewish leaders	-1	Male				ACT 25:3 & ACT 25:7
+Jews from Asia	-1					ACT 21:28
+Jews of Berea	-1				noble	ACT 17:11
+Jews of Cyrene, Alexandria, Cilicia & Asia	-1					ACT 6:11
+Jews who had been with Mary and Martha	-1					JHN 11:31 & JHN 11:36
+Jews who had been with Mary and Martha, some	-1					JHN 11:37
+Jews who had believed Jesus	-1					JHN 8:33 <-(1 more)-> JHN 8:41
+Jews, God-fearing from every nation	-1					ACT 2:7 <-(4 more)-> ACT 2:12
+Jews, God-fearing from every nation, some	-1					ACT 2:13
+Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22
+Jews, many	-1					JHN 10:20
+Jews, more than forty in conspiracy	-1	Male				ACT 23:12 <-(1 more)-> ACT 23:15
+Jews, other	-1					JHN 10:21
+Jews, the	-1	Male				EZR 5:4 <-(43 more)-> ROM 3:5
+Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31
+Joab	1	Male				2SA 2:14 <-(34 more)-> 1CH 21:3
+Joab's men, one of	1	Male				2SA 20:11
+Joah	1	Male				2KI 18:26 & ISA 36:11
+Joash, father of Gideon (Jerubbaal)	1	Male				JDG 6:31 & JDG 6:32
+Joash, king of Judah	1	Male				2KI 12:4 <-(3 more)-> 2CH 24:6
+Job	1	Male				JOB 1:5 <-(509 more)-> JOB 42:6
+Job's wife	1	Female				JOB 2:9
+Joel	1	Male				JOL 3:9 <-(1 more)-> JOL 3:11
+Johanan	1	Male			son of Kareah	JER 40:14 <-(6 more)-> JER 43:3
+John	1	Male				MAT 17:10 <-(34 more)-> GAL 2:10
+John the Baptist	1	Male				MAT 3:2 <-(46 more)-> JHN 3:36
+John, Alexander, and other men of the high priest's family	-1	Male				ACT 4:7 <-(4 more)-> ACT 4:18
+Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35
+Jonah	1	Male				JON 1:9 <-(14 more)-> JON 4:9
+Jonathan	1	Male				1SA 14:1 <-(35 more)-> 1SA 23:17
+Jonathan, son of Abiathar	1	Male				2SA 17:21 <-(5 more)-> 1KI 1:48	Jonathan the Priest
+Jonathan's armor bearer	1	Male				1SA 14:7	Armor-bearer
+Joram, king of Israel	1	Male				2KI 3:7 <-(16 more)-> 2KI 9:23
+Joseph	1	Male				GEN 37:6 <-(84 more)-> EXO 13:19
+Joseph of Arimathea	1	Male				MAT 27:58 <-(2 more)-> JHN 19:38
+Joseph, people of	1	Male				JOS 17:14 & JOS 17:16
+Joseph, the carpenter	1	Male			Jesus' earthly father	MAT 1:19
+Joseph's brothers	11	Male			Different from Jacob's sons because it cannot be Joseph	GEN 37:8 <-(6 more)-> GEN 50:18
+Joshua	1	Male	Adult			EXO 32:17 <-(69 more)-> JOS 22:8
+Joshua (old)	1	Male	Elder			JOS 23:2 <-(32 more)-> JOS 24:27
+Josiah, king of Judah	1	Male				2KI 22:4 <-(12 more)-> 2CH 35:23
+Jotham, son of Gideon (Jerubbaal)	1	Male				JDG 9:7 <-(12 more)-> JDG 9:20
+Judah	1	Male				GEN 37:26 <-(32 more)-> GEN 44:34
+Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:12 & JER 13:22
+Judah, fathers of	-1	Male				ZEC 1:6
+Judah, leaders of	-1	Male				ZEC 12:5
+Judah, men of	-1	Male				JDG 1:3 <-(8 more)-> JER 18:12	Judean
+Judah, people in	-1					NEH 4:10
+Judah, people of	-1					JER 5:12 <-(4 more)-> HAG 1:2
+Judah, remnant of	-1					JER 42:13 <-(1 more)-> JER 42:20
+Judaizers	-1	Male				GAL 6:12
+Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5
+Judas, apostle (not Judas Iscariot)	1	Male				JHN 14:22
+judge (corrupt)	1	Male				PRO 24:24 & MIC 7:3
+King Herod Agrippa II	1	Male				ACT 12:19 <-(4 more)-> ACT 26:32
+King Lemuel	1	Male				PRO 31:2 <-(28 more)-> PRO 31:31
+King Lemuel's mother	1	Female				PRO 31:2 <-(28 more)-> PRO 31:31	Mother of King Lemuel (female)
+king	1	Male				PRO 25:7
+king of the Ammonites	1	Male				JDG 11:13
+Shalmaneser, king of Assyria	1	Male				2KI 17:27
+Sennacherib, king of Assyria	1	Male				2CH 32:17 <-(5 more)-> ISA 10:14	King Sennacherib
+king of Babylon	1	Male				ISA 14:13 & ISA 14:14	Son of the Morning
+king of Bela	1	Male				GEN 14:4
+king of Jericho	1	Male				JOS 2:3
+king of Nineveh	1	Male				JON 3:7 <-(1 more)-> JON 3:9
+kings of the earth	-1	Male				PSA 2:3 & REV 18:10
+kings over the nations	-1	Male				ISA 14:10
+kings, princes, generals, rich, powerful, slave and free	-1	Male				REV 6:16 & REV 6:17
+kinsman-redeemer	1	Male				RUT 4:4 <-(1 more)-> RUT 4:8
+Kish, father of Saul	1	Male				1SA 9:3
+Korah	1	Male			son of Izhar, son of Kohath, son of Levi	NUM 16:3
+Laban	1	Male				GEN 24:31 <-(29 more)-> GEN 31:53
+Laban's sons	-1	Male				GEN 31:1
+Lamech (descendent of Cain)	1	Male				GEN 4:23 & GEN 4:24
+Lamech (descendent of Seth)	1	Male				GEN 5:29
+leaders	-1	Male				EZR 9:1 <-(2 more)-> MIC 7:3
+Leah	1	Female				GEN 29:32 <-(11 more)-> GEN 31:16
+leper	1	Male				MAT 8:2 <-(1 more)-> LUK 5:12
+leper, thankful Samaritan	1	Male				LUK 17:15 & LUK 17:16
+lepers, ten	10	Male				LUK 17:13
+letter from apostles and elders	1	PreferMale				ACT 15:23 <-(5 more)-> ACT 15:29
+Levi	1	Male				GEN 34:14 <-(3 more)-> GEN 34:31
+Levite husband of concubine	1	Male				JDG 19:12 <-(7 more)-> JDG 20:7
+Levite, young, from Bethlehem	1	Male	YoungAdult			JDG 17:9 <-(2 more)-> JDG 18:18
+Levites	8	Male				2CH 7:6 <-(58 more)-> JHN 1:25
+Levites, family heads of	-1	Male				JOS 21:2
+living creature, first	1					REV 4:8 <-(4 more)-> REV 19:4
+living creature, fourth	1					REV 4:8 <-(4 more)-> REV 19:4
+living creature, second	1					REV 4:8 <-(4 more)-> REV 19:4
+living creature, third	1					REV 4:8 <-(4 more)-> REV 19:4
+lookout	1	Male				ISA 21:8 <-(1 more)-> ISA 21:10
+lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20
+Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20
+Lydia	1	Female				ACT 16:15
+lying words	-1	Male				JER 7:4
+Macedonian	1	Male				ACT 16:9
+magi (wise men from East)	-1	Male				MAT 2:2
+magicians	-1	Male				EXO 8:19
+magistrates, chief	-1	Male				ACT 16:39
+maidens	-1	Female	YoungAdult			SNG 1:4 <-(16 more)-> SNG 8:9	Daughter of Jerusalem (female)
+Makir	1	Male			son of Ammiel from Lo Debar	2SA 17:29
+Malachi	1	Male				MAL 1:9
+Malta islanders	-1					ACT 28:4 & ACT 28:6
+man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17
+man (Hebrew fighting)	1	Male				EXO 2:14	Hebrew
+man (hypothetical)	1	Male				ISA 3:6 <-(2 more)-> ZEC 13:6
+man all alone	1	Male				ECC 4:8
+man answered David	1	Male				2SA 11:3
+man delivered from Legion of demons	1	Male			Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.	MAT 8:29 <-(12 more)-> LUK 8:38
+man escaped from Jerusalem	1	Male				EZK 33:21
+man from Saul's camp (young)	1	Male	YoungAdult			2SA 1:3 <-(6 more)-> 2SA 1:13	Man (young)
+man in linen above river	1	Male				DAN 10:11 <-(60 more)-> DAN 12:13
+man in linen with writing kit (in vision)	1	Male				EZK 9:11
+man like bronze with measuring rod (in vision)	1	Male				EZK 40:4 <-(13 more)-> EZK 47:12
+man of Gibeah	1	Male				1SA 10:12
+man of God (prophet to Amaziah)	1	Male				2CH 25:7 <-(1 more)-> 2CH 25:9
+man of God (prophet to Eli)	1	Male				1SA 2:27 <-(8 more)-> 1SA 2:36
+man of God from Judah	1	Male				1KI 13:2 <-(5 more)-> 1KI 13:17
+man of lawlessness	1	Male				2TH 2:4
+man possessed by evil spirit	1	Male				MRK 1:24 & LUK 4:34
+man reporting to David	1	Male				2SA 13:30
+man who builds his house by unrighteousness	1	Male				JER 22:14
+man who says 'I know him'	1	Male				1JN 2:4
+man who says 'we remain in union with God'	1	Male				1JN 2:6
+man with measuring line (in vision)	1	Male				ZEC 2:2
+man with sponge	1	Male				MRK 15:36
+man, still another	1	Male				LUK 9:61
+man, wicked	1	Male				PSA 10:6 <-(1 more)-> PSA 10:13
+Manoah, father of Samson	1	Male				JDG 13:8 <-(5 more)-> JDG 14:3	Manoah
+Manoah's wife, mother of Samson	1	Female				JDG 13:6 <-(4 more)-> JDG 14:3	Mother of Samson (female)
+man's brother (hypothetical)	1	Male				ISA 3:7
+man's voice from the Ulai (in vision)	1	Male				DAN 8:16
+many in crowd	-1					MRK 9:26
+many Samaritans	-1					JHN 4:40 & JHN 4:42
+Martha	1	Female				LUK 10:40 <-(7 more)-> JHN 11:39
+Mary Magdalene	1	Female				MRK 16:3 <-(9 more)-> JHN 20:18
+Mary mother of James	1	Female				MRK 16:3 <-(2 more)-> LUK 24:11
+Mary, Jesus' mother	1	Female				LUK 1:29 <-(15 more)-> JHN 2:5
+Mary, sister of Martha	1	Female				JHN 11:3 <-(1 more)-> JHN 11:34
+master of the banquet	1	Male				JHN 2:10
+Melchizedek, king of Salem (priest of God Most High)	1	Male				GEN 14:19 <-(1 more)-> HEB 7:1
+Memucan, noble advisor to Xerxes, king	1	Male				EST 1:16 <-(3 more)-> EST 1:20
+men	-1	Male				NEH 5:2 <-(2 more)-> LAM 4:15	Man
+men (soldiers) standing near David	-1	Male				1SA 17:27
+men appointed to sing and praise	-1	Male				2CH 20:21
+men dressed in white, two (angels)	2	Male	Adult			ACT 1:11
+men from Cornelius	3	Male				ACT 10:17 <-(1 more)-> ACT 10:22
+men from Jairus' house	-1	Male				MRK 5:35 & LUK 8:49
+men from Judea, some	-1	Male				ACT 15:1
+men in Capernaum synagogue	-1	Male				MRK 1:27 & LUK 4:36
+men in mourning, ten of eighty	10	Male				JER 41:8
+men in Nazareth synagogue	-1	Male				MAT 13:54 <-(3 more)-> MRK 6:3
+men of Anathoth	-1	Male			people who wanted to kill Jeremiah	JER 11:19 & JER 11:21
+men of Ashdod	-1	Male				1SA 5:7 <-(2 more)-> NEH 6:9
+men of Babel	-1	Male				GEN 11:3 & GEN 11:4
+men of Bethel	-1	Male				2KI 23:17 & ZEC 7:3
+men of David	-1	Male				2SA 18:3
+men of David, one	1	Male				2SA 18:10 <-(1 more)-> 2SA 18:13
+men of Enaim	-1	Male				GEN 38:21
+men of Gerar	-1	Male				GEN 26:7
+men of Gennesaret	-1	Male				MAT 14:35
+men of Jabesh	-1	Male				1SA 11:1 & 1SA 11:10
+men of Jericho	-1	Male				2KI 2:19
+men of Sodom (wicked)	-1	Male				GEN 19:5 & GEN 19:9	Sodomite
+men who are complacent	-1	Male				ZEP 1:12
+men who have gone astray	-1	Male				2TI 2:18
+men with leprosy, four	4	Male				2KI 7:3 <-(2 more)-> 2KI 7:10
+men, large force of	-1	Male				2CH 32:4
+men, many	-1	Male				PSA 4:6
+men, other	-1	Male				NEH 5:3
+men, some	-1	Male				2CH 20:2 & 2CH 22:9
+men, still others	-1	Male				NEH 5:4 & NEH 5:5
+Mephibosheth, son of Jonathan	1	Male				2SA 9:6 <-(4 more)-> 2SA 19:30
+merchants of the earth	-1	PreferMale				REV 18:14 <-(2 more)-> REV 18:17
+Meshach	1	Male			original Hebrew name: Mishael	DAN 3:16 <-(1 more)-> DAN 3:18
+message from Tamar, daughter-in-law of Judah	1	PreferFemale				GEN 38:25
+message to Saul	1	Male				1SA 19:19
+messenger	-1					2CH 18:12 <-(10 more)-> JER 27:11
+messenger from battle to David	1	Male				2SA 11:23 & 2SA 11:24
+messenger from guardians of Ahab's children	1	Male				2KI 10:8	Messenger
+messenger of Ahab, king of Israel	1	Male				1KI 22:13
+messenger to Abimelech	1	Male				JDG 9:47
+messenger to Abraham	1	Male				GEN 22:20 <-(1 more)-> GEN 22:22
+messenger to David	1	Male				2SA 15:13
+messenger to Jesus	1	Male				MAT 4:12
+messenger to king of Jericho	1	Male				JOS 2:2
+messenger to Saul	1	Male				1SA 23:7 & 1SA 23:27
+messenger to the king and to the queen mother	1	Male				JER 13:18 & JER 13:19
+messenger, another	1	Male				JOB 1:16	Messenger 2nd
+messenger, Cushite	1	Male				2SA 18:31 & 2SA 18:32	Cushite
+messenger, still another	1					JOB 1:17	Messenger 3rd
+messenger, yet another	1					JOB 1:18 & JOB 1:19	Messenger 4th
+messengers from Jephthah	-1	PreferMale				JDG 11:12 <-(12 more)-> JDG 11:27
+messengers Israel sent to Amorite king Sihon	-1	PreferMale				NUM 21:22
+messengers Moses sent to king of Edom	-1	Male				NUM 20:14 <-(3 more)-> NUM 20:19
+messengers of Ahaziah	-1	Male				2KI 1:6 & 2KI 1:8
+messengers of Ben-Hadad, king of Aram	-1	Male				1KI 20:2 <-(3 more)-> 1KI 20:10
+messengers of Jabesh	-1	Male				1SA 11:9
+messengers of Saul	-1	Male				1SA 11:7
+messengers sent by Jacob	-1	Male				GEN 32:6
+messengers to Jezebel	-1	Male				1KI 21:14	Scoundrel
+messengers to Joab	-1	PreferMale				2SA 3:23
+messengers to Saul	-1	PreferMale				1SA 14:33
+Micah, prophet	1	Male			from Moresheth-Gath	JER 26:18 <-(53 more)-> MIC 6:9
+Micah of Ephraim	1	Male				JDG 17:2 <-(3 more)-> JDG 18:24
+Micah's mother	1	Female				JDG 17:2 & JDG 17:3
+Micaiah, prophet of the LORD	1	Male				1KI 22:14 <-(18 more)-> 2CH 18:27
+Michael, archangel	1	Male				JUD 1:9
+Michal, David's wife	1	Female				1SA 19:11 <-(2 more)-> 2SA 6:20	Michal (David's wife) (female)
+Midianite soldier who had a dream	1	Male				JDG 7:13
+Midianite soldier who interprets dream	1	Male				JDG 7:14
+midwife of Rachel	1	Female				GEN 35:17
+midwife of Tamar, daughter-in-law of Judah	1	Female				GEN 38:28 & GEN 38:29
+Miriam	1	Female	Adult			EXO 15:21 & NUM 12:2
+Miriam (young)	1	Female	Child			EXO 2:7
+Moabite officials	-1	Male				NUM 22:14
+Moabite officials, more distinguished	-1	Male				NUM 22:16 & NUM 22:17
+Moabites	-1	Male				NUM 22:4 <-(4 more)-> EZK 25:8
+Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4	Daughter of Moab (female)
+mob	-1	PreferMale				ACT 17:6 & ACT 17:7
+molded thing	1					ROM 9:20
+Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14
+Moses	1	Male				EXO 2:13 <-(1183 more)-> NEH 8:15
+mother of cured man, blind from birth	1	Female				
+mother of false prophet	1	Female				ZEC 13:3
+mother of the sons of Zebedee (James and John)	1	Female				MAT 20:20 & MAT 20:21
+mourners	-1					JER 34:5
+multitude from all nations, tribes, peoples, languages	-1					REV 7:10
+musicians	-1					PSA 87:7
+Naaman	1	Male				2KI 5:4 <-(6 more)-> 2KI 5:23
+Naaman's servants	-1	Male				2KI 5:4 & 2KI 5:13
+Nabal	1	Male				1SA 25:10 & 1SA 25:11
+Naboth	1	Male				1KI 21:3 & 1KI 21:4
+Nahash the Ammonite	1	Male				1SA 11:2
+Nahum	1	Male				NAM 1:12 <-(16 more)-> NAM 3:19
+Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
+Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
+Nathanael	1	Male				JHN 1:46 <-(3 more)-> JHN 21:5
+nations	-1	PreferMale				DEU 4:6 <-(14 more)-> ZEC 8:23
+nations, neighboring (reply)	-1	PreferMale				JER 22:9
+Nebuchadnezzar, king of Babylon	1	Male				JER 39:12 <-(58 more)-> DAN 4:37
+Nebuzaradan	1	Male				JER 39:14 <-(3 more)-> JER 40:5
+Neco, king of Egypt	1	Male				2CH 35:21	Ambassador
+Nehemiah	1	Male				NEH 1:2 <-(46 more)-> NEH 13:31
+neighboring nations around Moab	-1					JER 48:17
+neighbors and relatives of Elizabeth and Zacharias (Zechariah)	-1	Either				LUK 1:58 <-(2 more)-> LUK 1:62
+neighbors of man blind from birth	-1					JHN 9:8 <-(1 more)-> JHN 9:12
+neighbors of man blind from birth, others	-1					JHN 9:9
+neighbors of man blind from birth, some	-1					JHN 9:9
+news giver to Jacob	1	Male				GEN 48:2
+news giver to Joseph	1	Male				GEN 48:1
+news to Pharoah's palace	1					GEN 45:16
+Nicodemus	1	Male				JHN 3:2 <-(2 more)-> JHN 7:51
+Nineveh	-1	Female			The text personifies the city using female pronouns	NAM 2:8 & ZEP 2:15
+no one	-1					JER 8:6 & JER 22:18
+Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27
+nobles and officials (Jewish)	-1	Male				NEH 2:18 & NEH 5:12	Official
+non-reader	1					ISA 29:12
+oarsmen, mariners, pilots of the sea	-1		Adult			EZK 27:32 <-(3 more)-> EZK 27:36
+Obadiah, manager of Ahab's palace	1	Male				1KI 18:7 <-(5 more)-> 1KI 18:14
+Obadiah, prophet	1	Male				OBA 1:4 <-(1 more)-> OBA 1:18
+Oded, prophet of the Lord	1	Male				2CH 28:9 <-(1 more)-> 2CH 28:11
+officer of King Jehoshaphat of Israel	1	Male				2KI 3:11
+officer of King Joram of Israel	1	Male				2KI 7:13
+officer of king of Israel, on whose arm the king leaned	1	Male				2KI 7:2 & 2KI 7:19
+officers	-1	Male				DEU 20:5 <-(3 more)-> ACT 5:23
+officers of king of Aram	-1	Male				2KI 6:12
+officers of king of Babylon	-1	Male				JER 39:14
+officers of magistrates	-1	Male				ACT 16:35
+officers of temple guard	-1	Male				LUK 22:5
+official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52
+officials	-1	Male				JER 26:16 <-(5 more)-> JHN 19:6
+officials from chief priests and Pharisees	-1	Male				JHN 18:5 & JHN 18:7
+officials of Belshazzar	-1	Male				DAN 5:4
+officials of Ben-Hadad, king of Aram	-1	Male				1KI 20:23 <-(4 more)-> 1KI 20:33
+officials of David	-1	Male				2SA 15:15
+officials of high priest, one of the	1	Male				JHN 18:22
+officials of Samaria	-1	Male				2KI 10:4 & 2KI 10:5	Elder in Samaria
+officials of Succoth	-1	Male				JDG 8:6	Prince of Succoth
+officials of Trans-Euphrates	-1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
+officials, Ephesus (friends of Paul)	-1	Male				ACT 19:31
+officials, royal, to Xerxes, king	-1	Male				EST 3:3
+old man in Gibeah	1	Male	Elder			JDG 19:17 <-(2 more)-> JDG 19:24
+old prophet in Bethel	1	Male	Elder			1KI 13:12 <-(9 more)-> 1KI 13:32	Prophet (old)
+older daughter of Lot	1	Female				GEN 19:31 <-(1 more)-> GEN 19:34	Daughter of Lot (female)
+On	1	Male			son of Peleth (Reubenite)	NUM 16:3
+one at table of Pharisee (expert in religious law)	1	Male				LUK 14:15
+one of you	-1					ROM 9:19 & JAS 2:16
+one of the others who stood on the river bank	1	Male				DAN 12:6
+one who allowed Paul to live by himself	-1	Male				ACT 28:16
+one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7
+onlookers	-1					ISA 14:16 & ISA 14:17
+oppressors of poor	-1					AMO 8:5 & AMO 8:6
+Orpah	1	Female				RUT 1:10
+other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
+others (testing Jesus)	-1					LUK 11:16
+others who would not believe	-1	Male				ACT 28:24 & ACT 28:25
+owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33
+owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
+parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(2 more)-> JHN 9:23
+parents of rebellious son	2	Either				DEU 21:20
+Pashur	1	Male			son of Malkijah	JER 21:2 <-(1 more)-> JER 38:25	Pashhur
+passers by	-1					LAM 2:15 <-(3 more)-> MRK 15:30
+Paul	1	Male				ACT 9:1 <-(197 more)-> 1TH 5:27
+Paul's traveling companions, Luke and	-1					ACT 21:14
+Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
+people	-1					2CH 26:23 <-(37 more)-> 1TH 5:3
+people at cistern	-1					1SA 19:22
+people at coronation of King Joash	-1					2KI 11:12
+people at Jairus' house	-1					MAT 9:24 & LUK 8:53
+people in Capernaum	-1					MRK 1:30 & MRK 2:1
+people in crowd by Sea of Galilee	-1					JHN 6:14 <-(3 more)-> JHN 6:34
+people in high priest's courtyard	-1	Either			Group consisted of at least a servant girl and a man	JHN 18:25
+people in Jericho, all the	-1					LUK 19:7
+people in Pisidian Antioch synagogue	-1					ACT 13:42
+people in temple courts, all the	-1					ACT 3:10
+people in the temple	-1					LUK 20:16
+people near Jordan River	-1					LUK 3:15 & JHN 10:41
+people of Decapolis	-1					MRK 7:32 <-(1 more)-> MRK 7:37
+people of Jerusalem	-1					JER 4:5 <-(6 more)-> MAT 21:10
+people of Jerusalem, some	-1					JHN 7:25 <-(1 more)-> JHN 7:27
+people of Samaria, all the	-1					ACT 8:10
+people of Tyre and Sidon	-1					ACT 12:22
+people praying at John Mark's mother's house	-1					ACT 12:15
+people who had known Saul	-1					1SA 10:11
+people who saw healing of demon-possessed man who was blind and mute	-1					MAT 12:23
+people who see Nineveh's destruction	-1					NAM 3:7
+people, all the	-1					1KI 1:39 <-(12 more)-> LUK 7:29
+people, arrogant wicked	-1					PSA 73:11
+people, God's	-1					ISA 25:9 <-(5 more)-> ZEC 13:9
+people, hurried	-1					ISA 5:19
+people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10
+people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56
+people, other	-1					MRK 6:15 & LUK 9:8
+people, repentant	-1					JER 14:7 <-(5 more)-> JER 14:22
+people, righteous	-1					PSA 52:7 & PSA 92:15
+people, some	-1					MRK 2:18 <-(2 more)-> LUK 13:1
+people, still others	-1					MRK 6:15 & LUK 9:8
+peoples, many	-1					ISA 2:3
+person asking someone to read a sealed book	1	Male				ISA 29:11 & ISA 29:12
+person claiming to have a pure heart	1	Either				PRO 20:9
+person encouraging Jerusalem	1	PreferMale				ZEP 3:16 & ZEP 3:17
+person near Lazarus' grave who informed Jesus	1					JHN 11:17
+person sacrificing	1					1SA 2:16	Man
+person warning people of Benjamin to flee	1					JER 6:1
+person who informed Judah	1					GEN 38:24
+person who informed people of Gaza	1					JDG 16:2	Man
+person who informed Rabshakeh	1					2KI 19:9 & ISA 37:9
+person who informed Solomon	1					1KI 2:29
+person who informed the sons of Israel	1					JOS 22:11
+person who informed Tamar, daughter-in-law of Judah	1					GEN 38:13
+person who informed townsmen of Ophrah	1					JDG 6:29
+person who told David about Philistines	1					1SA 23:1
+person who told David about Obed-Edom	1					2SA 6:12
+person who told David of Nathan's arrival	1	Male				1KI 1:23
+person who told Joshua where the kings were hiding	1	Male				JOS 10:17
+person who told king of Aram of Elisha's arrival	1	Male				2KI 8:7
+person who told Samuel where Saul was	1	Male				1SA 15:12
+person who told Saul where David was	1	Male				1SA 24:1
+person who told Shimei where his servants were	1	Male				1KI 2:39
+person who told the guards and priests where the apostles were	1	Male				ACT 5:25
+person without the gift of tongues	1					1CO 14:16
+Peter (Simon)	1	Male				MAT 14:28 <-(183 more)-> GAL 2:10
+Pharaoh (1st)	1	Male				GEN 12:18 & GEN 12:19
+Pharaoh (2nd)	1	Male				GEN 41:15 <-(22 more)-> GEN 50:6
+Pharaoh (2nd)'s men	-1	Male				GEN 41:43
+Pharaoh (3rd)	1	Male				EXO 1:9 <-(28 more)-> EXO 14:5
+Pharaoh (6th)	1	Male				1KI 11:22
+Pharaoh (Apries)	1	Male			aka, Pharaoh Hophra (see JER 44:30)	EZK 29:3 & EZK 29:9
+Pharaoh's daughter	1	Female				EXO 2:6 <-(2 more)-> EXO 2:10
+Pharaoh's officials	-1	Male				EXO 10:7 & EXO 14:5
+Pharisee (expert in religious law)	1	Male				MAT 22:36 & LUK 13:31
+Pharisee (Simon)	1	Male				LUK 7:39 <-(1 more)-> LUK 7:43
+Pharisees	-1	Male				MAT 9:11 <-(37 more)-> ACT 23:9
+Pharisees, other	-1	Male				LUK 11:37 & JHN 9:16
+Pharisees, some	-1	Male				MAT 12:2 <-(8 more)-> JHN 9:40
+Phicol	1	Male				GEN 21:22 & GEN 21:23
+Philip the apostle	1	Male				MRK 6:37 <-(3 more)-> JHN 14:8
+Philip the evangelist	1	Male				ACT 8:30 <-(2 more)-> ACT 8:40
+Philistine commanders	-1	Male				1SA 29:3 <-(1 more)-> 1SA 29:5	Commander
+Philistine priests and fortune tellers	-1	Male				1SA 6:3 <-(5 more)-> 1SA 6:9
+Philistine rulers	-1	Male				JDG 16:5 <-(2 more)-> 1CH 12:19
+Philistines	-1	Male				JDG 15:6 <-(11 more)-> 1SA 14:12
+Phineas the priest	1	Male				JOS 22:16 <-(5 more)-> JOS 22:32	Phinehas
+Phineas' wife (daughter-in-law of Eli)	1	Female				1SA 4:21 & 1SA 4:22	Mother of Ichabod (female)
+Pilate	1	Male				MAT 27:11 <-(42 more)-> JHN 19:22
+Pilate's wife	1	Female				MAT 27:19
+pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	Tree
+poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
+Potiphar's wife	1	Female				GEN 39:7 <-(6 more)-> GEN 39:19
+priest	-1	Male				NUM 5:19 <-(5 more)-> JER 23:33
+priests	-1	Male				DEU 27:9 <-(35 more)-> ACT 4:1
+prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
+princes of the sea	-1	Male				EZK 26:17 & EZK 26:18
+proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
+proclamation	1	Male				EZR 10:7 & EZR 10:8
+prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
+prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16
+prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42
+prophets	-1					JER 25:5 <-(2 more)-> JER 44:4
+prophets (speaking the word of the LORD)	-1					2KI 21:11 <-(3 more)-> 2KI 21:15
+prophets and teachers at Antioch	-1	Male				ACT 13:3
+prophets of Baal	-1					1KI 18:26	Prophet: Baal
+prophets, 400 false	400					1KI 22:6 <-(2 more)-> 2CH 18:11	Prophet (false)
+prostitute (symbolic of Israel)	1	Female				HOS 2:5 <-(1 more)-> HOS 2:12
+prostitute, one	1	Female				1KI 3:17 <-(5 more)-> 1KI 3:26
+prostitute, other	1	Female				1KI 3:22 & 1KI 3:26
+psalmist	-1					
+Puah (midwife)	1	Female				EXO 1:19
+queen of Babylon	1	Female			Probably Belshazzar's mother	DAN 5:10 <-(1 more)-> DAN 5:12
+queen of Sheba	1	Female				1KI 10:6 <-(6 more)-> 2CH 9:8
+queens and concubines	-1	Female				SNG 6:10
+Rabshakeh	1	Male				2KI 18:19 <-(51 more)-> ISA 37:25
+Rachel	1	Female				GEN 30:1 <-(10 more)-> GEN 31:35
+Rahab	1	Female				JOS 2:4 <-(7 more)-> JOS 2:21
+reader	1					ISA 29:11
+Rebekah	1	Female				GEN 24:18 <-(17 more)-> GEN 27:46
+Rebekah's mother	1	Female				GEN 24:55 <-(2 more)-> GEN 24:60
+rebels	-1	PreferMale				ISA 30:10 <-(1 more)-> ISA 30:16
+Recab	1	Male				2SA 4:8	Son of Rimmon
+Recabite family, men of	-1	Male				JER 35:6 <-(4 more)-> JER 35:11	Recabite Man
+Regem-Melech	1	Male				ZEC 7:3
+Rehoboam, king	1	Male				1KI 12:5 <-(9 more)-> 2CH 12:6
+Rehum, commanding officer	1	Male				EZR 4:9 <-(6 more)-> EZR 4:16
+relative	1	Male				AMO 6:10
+relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13
+reply to the slain believers (in vision)	1					REV 6:11
+report about Jesus	-1	PreferMale				MAT 14:13
+report concerning Paul	1	PreferMale				GAL 1:23
+report to king of Aram	1	Male				2KI 6:13
+report to king of Assyria	1	Male				2KI 17:26
+report to Sanballat and Tobiah	-1	Male				NEH 4:7 <-(2 more)-> NEH 6:16
+rest of heads of families	-1	Male				EZR 4:3
+Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37
+Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29	Reubenite
+Rhoda	1	Female	YoungAdult		possibly young girl/teen	ACT 12:13 <-(1 more)-> ACT 12:15
+rich young ruler	1	Male	YoungAdult			MAT 19:16 <-(5 more)-> LUK 18:21
+royal record	1	Male				EZR 6:3 <-(1 more)-> EZR 6:5	Scribe
+rumbling sound	1	Male				EZK 3:12	Angel
+rule given by Paul	1	Male				2TH 3:10
+rules of the world	1					COL 2:21
+Ruth	1	Female				RUT 1:10 <-(9 more)-> RUT 3:17
+Sabeans	-1					ISA 45:14 & ISA 45:15
+Sadducees	-1	Male				MAT 16:1 <-(19 more)-> ACT 23:8
+sailors on ship to Italy (Rome)	-1	Male				ACT 27:12 <-(2 more)-> ACT 27:39
+sailors on ship to Tarshish	-1	Male				JON 1:5 <-(5 more)-> JON 1:16	Sailor
+Salome	1	Female				MRK 16:3 <-(2 more)-> LUK 24:11
+Samson	1	Male				JDG 14:2 <-(20 more)-> JDG 16:30
+Samson's 30 Philistine companions	30	Male				JDG 14:13 <-(1 more)-> JDG 14:18	Philistine
+Samson's father-in-law	1	Male				JDG 15:2
+Samson's Philistine wife	1	Female				JDG 14:16	Wife of Samson (female)
+Samuel	1	Male	Adult			1SA 7:3 <-(75 more)-> 1SA 16:11
+Samuel (boy)	1	Male	Child			1SA 3:4 <-(4 more)-> 1SA 3:16
+Samuel (dead)	1	Male	Elder			1SA 28:15 <-(3 more)-> 1SA 28:19
+Sanballat the Horonite	1	Male				NEH 2:19 <-(8 more)-> NEH 6:9
+Sanhedrin	-1	Male				MAT 26:66 <-(9 more)-> ACT 7:57
+Sapphira, wife of Ananias of Jerusalem	1	Female				ACT 5:8
+Sarah (Sarai)	1	Female	Adult			GEN 16:2 & GEN 16:5
+Sarah (Sarai) (old)	1	Female	Elder			GEN 18:12 <-(3 more)-> GEN 21:10
+Satan (Devil)	1	Male				JOB 1:7 <-(14 more)-> LUK 4:11
+satraps	-1	Male				DAN 6:5 <-(5 more)-> DAN 6:15
+Saul	1	Male				1SA 9:5 <-(90 more)-> 1CH 10:4
+Saul's announcement	1	Male				1SA 13:4
+Saul's attendants	-1	Male				1SA 16:15 <-(1 more)-> 1SA 28:7
+Saul's messengers to Jesse	-1	Male				1SA 16:19 & 1SA 16:22
+Saul's servant	1	Male				1SA 9:11 <-(1 more)-> 1SA 18:24
+Saul's uncle	1	Male				1SA 10:14 & 1SA 10:15	Uncle
+saying (lie about disciples stealing Jesus' body)	1	Male				MAT 28:15
+saying (proverb)	1					GEN 22:14
+saying about Anakites	1					DEU 9:2
+saying about blind and lame	1					2SA 5:8
+saying about captivity and death by the sword	1				Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52	REV 13:10
+saying about Gentile nations	1					PSA 87:4
+saying about God's deliverance	2					JER 16:14 <-(2 more)-> JER 23:8
+saying about going beyond what is written	1					1CO 4:6
+saying about idolaters	-1					HOS 13:2
+saying about Nimrod	1					GEN 10:9
+saying about Saul	1					1SA 10:12 & 1SA 19:24
+saying about seer	1					1SA 9:9
+saying (proverb) about sour grapes	1					EZK 18:2
+saying about sow	1					2PE 2:22
+saying about short bed and narrow blanket	1					ISA 28:20
+saying about what controls you	1					2PE 2:19
+saying about yeast	1					1CO 5:6 & GAL 5:9
+saying about Zion	1					PSA 87:5
+saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13
+scoffers	-1	PreferMale				2PE 3:4
+scoffers who rule people in Jerusalem	-1	Male				ISA 28:15	Scoffer
+scoundrels	-1	Male				1KI 21:13
+scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
+scripture	-1					2CH 25:4 <-(228 more)-> REV 19:15
+sea	1	Neuter				ISA 23:4
+sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19
+second person to accuse Peter (man)	1	Male				LUK 22:58
+Seir (personified)	1	Male				EZK 25:8 & EZK 35:10	Mount Seir
+Seraiah	1	Male				JER 51:62 & JER 51:64
+seraph, one of the	1	Male				ISA 6:7
+seraphs	-1	Male				ISA 6:3
+serpent	1	Male			Gen 3 - text uses masculine pronouns	GEN 3:1 <-(1 more)-> GEN 3:5
+servant girl at high priest's courtyard	1	Female				MAT 26:69 <-(3 more)-> JHN 18:17
+servant girl, another	1	Female				MAT 26:71
+servant of concubine's husband	1	Male				JDG 19:11
+servant of Elijah	1	Male				1KI 18:43 & 1KI 18:44
+servant of Naaman's wife (young girl)	1	Female	Child			2KI 5:3 & 2KI 5:4	Slave Girl (female)
+servant of Nabal	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 25:14 <-(2 more)-> 1SA 25:17
+servant of priest	1	Male				1SA 2:15 & 1SA 2:16
+servant of Saul	1	Male	YoungAdult		na?ar, nah'-ar; from H5287; a boy, from the age of infancy to adolescence	1SA 9:6 & 1SA 9:8
+servants of Achish, king of Gath	-1	Male				1SA 21:11
+servants of David	-1	Male				1SA 25:40 <-(3 more)-> 1KI 1:2
+servants of Eglon, king of Moab	-1	Male				JDG 3:24
+servants of Isaac	-1	Male				GEN 26:32
+servants of royal official (father)	-1	Male				JHN 4:51 & JHN 4:52
+seven sons of Sceva	7	Male				ACT 19:13
+seventy-two	72	Male				LUK 10:17
+Shadrach	1	Male			original Hebrew name: Hananiah	DAN 3:16 <-(1 more)-> DAN 3:18
+Shaphan, secretary	1	Male				2KI 22:9 <-(3 more)-> 2CH 34:18
+Sharezer	1	Male				ZEC 7:3
+Sheba, Dedan, and the merchants of Tarshish	-1	Male				EZK 38:13
+Sheba, son of Bicri	1	Male				2SA 20:1
+Shebna	1	Male				2KI 18:26 <-(4 more)-> ISA 37:4
+Shecaniah, son of Jehiel	1	Male				EZR 10:2 <-(1 more)-> EZR 10:4
+Shechem, son of Hamor	1	Male	YoungAdult			GEN 34:4 <-(4 more)-> GEN 34:23
+Shemaiah, prophet	1	Male			prophet during reign of Jeroboam	2CH 11:4 & 2CH 12:5	Prophet: Shemaiah
+Shemaiah, son of Delaiah	1	Male			false prophet	NEH 6:10
+Shemaiah the Nehelamite	1	Male			false prophet, enemy of Jeremiah	JER 29:26 <-(1 more)-> JER 29:28
+Shemeber, king of Zeboiim	1	Male				GEN 14:4
+Shephatiah	1	Male			son of Mattan	JER 38:4 & JER 38:25
+shepherds at well	-1	Male				GEN 29:4 <-(2 more)-> GEN 29:8	Shepherd
+shepherds outside Bethlehem	-1					LUK 2:15
+Shethar-Bozenai	1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
+Shimei	1	Male				2SA 16:7 <-(3 more)-> 1KI 2:38
+Shimshai, secretary	1	Male				EZR 4:9 <-(6 more)-> EZR 4:16
+Shinab, king of Admah	1	Male				GEN 14:4
+Shiphrah (midwife)	1	Female				EXO 1:19
+Shobi	1	Male			son of Nahash from Rabbah of the Ammonites	2SA 17:29
+Shua (Judah's wife)	1	Female				GEN 38:3 <-(1 more)-> GEN 38:5
+Shunammite woman	1	Female			well-to-do	2KI 4:9 <-(8 more)-> 2KI 4:30
+sign on the cross	1	PreferMale				MAT 27:37 <-(2 more)-> JHN 19:19
+Silas	1	Male				ACT 15:34
+Simeon	1	Male				GEN 34:14 <-(3 more)-> GEN 34:31
+Simeon, devout man in Jerusalem	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35
+Simon, sorcerer	1	Male				ACT 8:9 <-(1 more)-> ACT 8:24
+singers	-1	Male				1CH 16:41
+singers from the ends of the earth	-1					ISA 24:16
+singers in Judah	-1					ISA 26:1 <-(19 more)-> ISA 26:21
+singers, and relatives	-1	Male				2CH 5:13
+sinners	-1					PRO 1:11 <-(4 more)-> AMO 9:10
+Sisera	1	Male				JDG 4:19 & JDG 4:20
+sisters of beloved	-1	Female				SNG 8:8 & SNG 8:9
+slave drivers, Egyptian	-1	Male	Adult			EXO 5:10 <-(2 more)-> EXO 5:14
+slave girls	-1	Female				NAM 2:7 & NAM 2:8	Slave Girl (female)
+sluggard	1	Male	Adult			PRO 22:13 & PRO 26:13
+soldier at the cross	1	Male	Adult			LUK 23:37
+soldiers	-1	Male	Adult			NAM 2:9 <-(3 more)-> ACT 27:42
+soldiers, Assyrian	-1	Male	Adult			ISA 10:29
+soldiers, Roman	-1	Male	Adult			MAT 27:29 <-(5 more)-> JHN 19:24
+soldiers, some (near Jordan River)	-1	Male	Adult			LUK 3:14
+Solomon, king	1	Male				1KI 1:52 <-(179 more)-> SNG 8:13
+some convinced by Paul	-1	Male				ACT 28:24
+some people (quoted by Paul)	-1					2CO 10:10
+someone	-1					ECC 1:10 <-(8 more)-> JAS 4:13
+someone (hypothetical argument)	-1					PSA 11:1 <-(3 more)-> 2CO 12:16
+someone from Seir	1	PreferMale				ISA 21:11
+someone hiding	1	Male				AMO 6:10
+someone in crowd	1	Male				LUK 12:13
+someone in Jerusalem	1					ISA 22:13
+son (child) in Israel (hypothetical)	1	Male	Child			DEU 6:20
+son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21
+son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11 & LEV 24:23
+son of Shunammite	1	Male	Child			2KI 4:19	Boy
+son of widow	1	Male				2KI 4:6
+song about the prostitute	1	Either				ISA 23:16
+song of the prostitute	1	Female				ISA 23:16
+sons (hypothetical), at end of life	-1	Male	Elder			PRO 5:12 <-(1 more)-> PRO 5:14
+sons of Korah	-1	Male				PSA 42:3 & PSA 42:9	Son of Korah
+sons of Korah's enemies	-1	Male				PSA 42:3
+sons of prophet in Bethel	-1	Male				1KI 13:30
+souls of those killed for word of God	-1					REV 6:10
+sound of rejoicing and victory	-1					PSA 118:15 & PSA 118:16
+spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(7 more)-> LUK 20:24
+Stephen	1	Male				ACT 7:2 <-(53 more)-> ACT 7:60
+steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10
+stingy man	1	Male				PRO 23:7
+synagogue ruler	1	Male				LUK 13:14
+synagogue rulers in Pisidian Antioch	-1	Male				ACT 13:15
+Syria	-1	Male				ISA 7:6
+Tamar, daughter of David	1	Female				2SA 13:12 <-(1 more)-> 2SA 13:16
+Tamar, daughter-in-law of Judah	1	Female				GEN 38:16 <-(1 more)-> GEN 38:18
+Tattenai, governor	1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
+tax collectors	-1	Male				LUK 3:12
+teacher (Preacher)	1	Male			It is generally accepted that this is King Solomon	ECC 3:19 <-(1 more)-> ECC 3:21	Preacher
+teacher of religious law	1	Male				MAT 8:19 & LUK 9:57
+teachers of religious law	-1	Male				MAT 2:5 <-(49 more)-> ACT 5:40
+temple guards	-1	Male				JHN 7:46
+Tertius	1	Male				ROM 16:22
+Tertullus, lawyer	1	Male				ACT 24:2 <-(5 more)-> ACT 24:8
+Thomas	1	Male				JHN 11:16 <-(4 more)-> JHN 21:5
+those hiding from the LORD	-1					ISA 29:15
+those standing near	-1	Male			accusers of Peter in courtyard	MAT 26:73 <-(1 more)-> LUK 22:59
+those standing near Paul in Sanhedrin	-1	Male				ACT 23:4
+those who afflict Jerusalem	-1	Male				ISA 51:23
+those who call on God	-1					ROM 10:14
+those who fear the Lord	-1					PSA 118:4
+those who go by	-1	Male			PSA 129:8	PSA 129:8
+those who heard	-1					HEB 12:19
+those who seek God	-1					PSA 70:4
+those with the Eleven	-1	Either				LUK 24:34
+three administrators	3	Male				DAN 6:6 <-(4 more)-> DAN 6:15
+Titus	1	Male				2CO 8:17
+Tobiah the Ammonite official	1	Male				NEH 2:19 <-(3 more)-> NEH 6:9
+townsmen of Ophrah	-1	Male				JDG 6:29 <-(1 more)-> JDG 6:32
+troublemakers	-1	Male				1SA 10:27
+twenty-four elders	24	Male				REV 4:11 <-(4 more)-> REV 19:4
+Tyre (personified)	-1	Male				EZK 26:2
+unbeliever who comes under conviction	1					1CO 14:25
+unbelievers	-1					1TH 4:12
+Uriah	1	Male				2SA 11:11
+virgin	1	Female				AMO 8:14
+voice	1					EZK 10:13
+voice (God?)	1	Male				ISA 40:6 <-(1 more)-> ISA 40:8
+voice in reply (Isaiah?)	1	Male				ISA 40:6
+voice from altar	1	Male				REV 9:14
+voice from among living creatures	1	Male				REV 6:6
+voice from heaven (angel?)	1	Male			Possibly an angel (not identified)	DAN 4:31 & DAN 4:32	Angel
+voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:4 <-(2 more)-> REV 14:13
+voice from heaven, another	1	Male				REV 18:4 <-(15 more)-> REV 18:20
+voice from temple	1					REV 16:1
+voice from throne	1	Male				REV 19:5 <-(1 more)-> REV 21:4
+voice in heaven	13					REV 7:5 <-(4 more)-> REV 13:10
+voice in heaven, loud	1					REV 12:10 <-(1 more)-> REV 12:12
+voice of great crowd in heaven, loud	-1					REV 19:1 <-(1 more)-> REV 19:3
+voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:6 <-(1 more)-> REV 19:8
+voice of joy and gladness	1	Male				JER 33:11
+voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> ISA 40:5
+voices in heaven, loud	-1					REV 11:15
+warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19
+watchman	1	Male				2SA 13:34 <-(4 more)-> JER 31:6
+watchmen of Israel	-1	Male				ISA 56:12	Watchman
+waves	-1					ISA 51:15
+we (believers)	-1					ROM 8:15
+weakling	1					JOL 3:10
+what is formed	1					ISA 29:16
+whoever has doubts	1					ROM 14:23
+whole earth	-1					REV 13:3
+wicked men of Gibeah	-1	Male				JDG 19:22
+wicked, the	-1					PSA 94:7 <-(1 more)-> JER 12:4
+widow	1	Female				DEU 25:7 & DEU 25:9
+widow (from company of prophets)	1	Female				2KI 4:1 <-(1 more)-> 2KI 4:6
+widow at Zarephath	1	Female				1KI 17:12 <-(1 more)-> 1KI 17:24
+wife suspected of infidelity	1	Female				NUM 5:22
+Wisdom	1	Female				PRO 1:22 <-(52 more)-> PRO 9:12
+wise counselors of Pharaoh	-1	Male				ISA 19:11	Counselor of Pharaoh
+witnesses, false	-1	Male				MAT 26:61 & MRK 14:58
+wives	-1	Female				NEH 5:2
+wives and concubines of Belshazzar	-1	Female				DAN 5:4
+wives, other	-1	Female				NEH 5:3
+wives, still others	-1	Female				NEH 5:4 & NEH 5:5
+woman from Tekoa	1	Female				2SA 14:4 <-(13 more)-> 2SA 14:20	Woman of Tekoa (female)
+woman in Bahurim	1	Female				2SA 17:20
+woman in crowd	1	Female				LUK 11:27
+woman in famine	1	Female				2KI 6:26 <-(1 more)-> 2KI 6:29	Samarian Woman (female)
+woman medium	1	Female				1SA 28:9 <-(5 more)-> 1SA 28:22	Woman at Endor (female)
+woman who could not straighten up	1	Female				LUK 13:13
+woman, bleeding for twelve years	1	Female				MAT 9:21 <-(2 more)-> LUK 8:47
+woman, caught in adultery	1	Female				JHN 8:11
+woman, Samaritan	1	Female				JHN 4:9 <-(8 more)-> JHN 4:39
+woman, wise	1	Female				2SA 20:16 <-(4 more)-> 2SA 20:22
+women of Bethlehem	-1	Female				RUT 1:19 <-(2 more)-> RUT 4:17
+women who oppress the poor ("cows of Bashan")	-1	Female				AMO 4:1	Woman of Bashan (female)
+women, dancing	-1	Female				1SA 18:7
+women, remnant of the king of Judah's house	7	Female				JER 38:22
+women, seven	7	Female				ISA 4:1	Daughter of Zion (female)
+worshipers	-1	Male				PSA 122:1
+worshipers of the beast	-1					REV 13:4
+Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12
+you (hypothetical Gentile)	1					ROM 11:19
+you (hypothetical)	-1					PRO 3:28 <-(34 more)-> 1PE 1:17
+you (people of Zion, restored)	-1					ISA 14:4 <-(17 more)-> JER 31:7
+you ought to say	1					JAS 4:15
+young man	1	Male	YoungAdult			NUM 11:27 & AMO 8:14
+young men (advisors of Rehoboam)	-1	Male	YoungAdult			1KI 12:10 <-(2 more)-> 2CH 10:11	Advisor (young)
+young women (maidens)	-1	Female	YoungAdult			1SA 9:12 & 1SA 9:13	Maiden (girl)
+Zaccheaus	1	Male				LUK 19:8
+Zacharias (Zechariah)	1	Male				LUK 1:18 <-(12 more)-> LUK 1:79
+Zalmunna	1	Male				JDG 8:18 & JDG 8:21
+Zebah	1	Male				JDG 8:18 & JDG 8:21	King Zebah
+Zebul, governor of Shechem	1	Male				JDG 9:31 <-(3 more)-> JDG 9:38
+Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(109 more)-> ZEC 13:9
+Zechariah, son of Jehoiada the priest	1	Male				2CH 24:20 & 2CH 24:22
+Zedekiah, king of Judah	1	Male				JER 32:3 <-(16 more)-> JER 38:26
+Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19
+Zedekiah, son of Kenaanah, false prophet	1	Male				1KI 22:11 <-(2 more)-> 2CH 18:23	Zedekiah son of Chenaanah
+Zephaniah, priest	1	Male			son of Maaseiah	JER 21:2 <-(3 more)-> JER 37:3
+Zephaniah, prophet	1	Male			son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hezekiah	ZEP 1:2 <-(20 more)-> ZEP 3:20
+Zeresh, wife of Haman	1	Female				EST 5:14 & EST 6:13	Wife of Haman (female)
+Zerubbabel	1	Male				EZR 4:3 & ZEC 4:7
+Ziba, servant of Saul's household	1	Male				2SA 9:2 <-(5 more)-> 2SA 16:4
+Zion	1	PreferFemale				ISA 49:14 & ISA 49:21
+Ziphites	-1	Male				1SA 23:19 <-(2 more)-> PSA 54:0
+Zipporah, Moses' wife	1	Female				EXO 2:19 <-(1 more)-> EXO 4:26
+Zophar the Naamathite	1	Male				JOB 11:2 <-(45 more)-> JOB 20:29

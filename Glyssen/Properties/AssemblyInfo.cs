@@ -29,8 +29,10 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// Only specify Major and Minor Build Numbers here. The others come from Team City
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+// The version numbers here get overridden by StampAssemblies during the build.
+// the major/minor version numbers come from the Glyssen.proj file and the build
+// number comes from the BuildCounter on TeamCity.
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.2.0.0")]
 [assembly: InternalsVisibleTo("GlyssenTests")]
 [assembly: InternalsVisibleTo("ControlDataIntegrityTests")]

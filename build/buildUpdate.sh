@@ -68,43 +68,43 @@ cd -
 # *** Results ***
 # build: Glyssen master Continuous (bt431)
 # project: Glyssen
-# URL: http://build.palaso.org/viewType.html?buildTypeId=bt431
+# URL: https://build.palaso.org/viewType.html?buildTypeId=bt431
 # VCS: https://github.com/sillsdev/Glyssen.git [master]
 # dependencies:
 # [0] build: geckofx29-win32-continuous (bt399)
 #     project: GeckoFx
-#     URL: http://build.palaso.org/viewType.html?buildTypeId=bt399
+#     URL: https://build.palaso.org/viewType.html?buildTypeId=bt399
 #     clean: false
 #     revision: latest.lastSuccessful
 #     paths: {"*"=>"lib/dotnet"}
 #     VCS: https://bitbucket.org/geckofx/geckofx-29.0 [default]
 # [1] build: XulRunner29-win32 (bt400)
 #     project: GeckoFx
-#     URL: http://build.palaso.org/viewType.html?buildTypeId=bt400
+#     URL: https://build.palaso.org/viewType.html?buildTypeId=bt400
 #     clean: false
 #     revision: latest.lastSuccessful
 #     paths: {"xulrunner-29.0.1.en-US.win32.zip!**"=>"lib"}
 # [2] build: NetSparkle Continuous (NetSparkle_NetSparkleContinuous)
 #     project: NetSparkle
-#     URL: http://build.palaso.org/viewType.html?buildTypeId=NetSparkle_NetSparkleContinuous
+#     URL: https://build.palaso.org/viewType.html?buildTypeId=NetSparkle_NetSparkleContinuous
 #     clean: false
 #     revision: latest.lastSuccessful
 #     paths: {"*.dll"=>"lib/dotnet"}
 #     VCS: https://github.com/sillsdev/NetSparkle [master]
 # [3] build: palaso-Win-AnyCPU-master (Libpalaso_PalasoAnyCPUMaster)
 #     project: libpalaso
-#     URL: http://build.palaso.org/viewType.html?buildTypeId=Libpalaso_PalasoAnyCPUMaster
+#     URL: https://build.palaso.org/viewType.html?buildTypeId=Libpalaso_PalasoAnyCPUMaster
 #     clean: false
 #     revision: glyssen-current.tcbuildtag
 #     paths: {"SIL.Core.dll"=>"lib/dotnet", "SIL.Core.pdb"=>"lib/dotnet", "SIL.Core.Desktop.dll"=>"lib/dotnet", "SIL.Core.Desktop.pdb"=>"lib/dotnet", "SIL.DblBundle.dll"=>"lib/dotnet", "SIL.DblBundle.pdb"=>"lib/dotnet", "SIL.DblBundle.Tests.dll"=>"lib/dotnet", "SIL.DblBundle.Tests.pdb"=>"lib/dotnet", "SIL.Scripture.dll"=>"lib/dotnet", "SIL.Scripture.pdb"=>"lib/dotnet", "SIL.TestUtilities.dll"=>"lib/dotnet", "SIL.Windows.Forms.dll"=>"lib/dotnet", "SIL.Windows.Forms.pdb"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.dll"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.pdb"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.dll"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.pdb"=>"lib/dotnet", "SIL.Windows.Forms.Scripture.dll"=>"lib/dotnet", "SIL.Windows.Forms.Scripture.pdb"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.dll"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.pdb"=>"lib/dotnet", "SIL.Windows.Forms.DblBundle.dll"=>"lib/dotnet", "SIL.Windows.Forms.DblBundle.pdb"=>"lib/dotnet", "SIL.WritingSystems.dll"=>"lib/dotnet", "SIL.WritingSystems.pdb"=>"lib/dotnet"}
 #     VCS: https://github.com/sillsdev/libpalaso.git [master]
 # [4] build: palaso-win32-master-nostrongname Continuous (Libpalaso_PalasoWin32masterNostrongnameContinuous)
 #     project: libpalaso
-#     URL: http://build.palaso.org/viewType.html?buildTypeId=Libpalaso_PalasoWin32masterNostrongnameContinuous
+#     URL: https://build.palaso.org/viewType.html?buildTypeId=Libpalaso_PalasoWin32masterNostrongnameContinuous
 #     clean: false
 #     revision: glyssen-current.tcbuildtag
 #     paths: {"icu.net.dll"=>"lib/dotnet", "x86/icu*.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "L10NSharp.pdb"=>"lib/dotnet"}
-#     VCS: https://github.com/sillsdev/libpalaso.git [master]
+#     VCS: https://github.com/sillsdev/libpalaso.git [refs/heads/master]
 
 # make sure output directories exist
 mkdir -p ../Downloads

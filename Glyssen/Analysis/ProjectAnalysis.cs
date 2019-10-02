@@ -20,6 +20,7 @@ namespace Glyssen.Analysis
 		public int NarratorBlocks { get; private set; }
 		public int UnknownBlocks { get; private set; }
 		public int AmbiguousBlocks { get; private set; }
+		public int NeedsReviewBlocks { get; private set; }
 		public double TotalPercentAssigned { get; private set; }
 		public int UserAssignedBlocks { get; private set; }
 		public int NeedsAssignment { get; private set; }
@@ -41,6 +42,7 @@ namespace Glyssen.Analysis
 			NarratorBlocks = 0;
 			UnknownBlocks = 0;
 			AmbiguousBlocks = 0;
+			NeedsReviewBlocks = 0;
 			UserAssignedBlocks = 0;
 			NeedsAssignment = 0;
 			foreach (BookScript book in m_projectToAnalyze.IncludedBooks)
@@ -59,13 +61,15 @@ namespace Glyssen.Analysis
 
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
 						NarratorBlocks++;
-					else if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					else if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 						UnknownBlocks++;
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 						AmbiguousBlocks++;
+					else if (block.CharacterId == CharacterVerseData.kNeedsReview)
+						NeedsReviewBlocks++;
 					if (block.UserConfirmed)
 						UserAssignedBlocks++;
-					if (block.UserConfirmed || block.CharacterIsUnclear())
+					if (block.UserConfirmed || block.CharacterIsUnclear)
 						NeedsAssignment++;
 				}
 			}
@@ -89,7 +93,9 @@ namespace Glyssen.Analysis
 				m_alignmentPercent = 0;
 				return;
 			}
-			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze))
+			// Note: Since we want this to be as efficient as possible and all we care about here is statistics,
+			// we don't need to bother with applying narrator overrides.
+			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze, false))
 			{
 				var blocks = book.GetScriptBlocks();
 				if (!refText.CanDisplayReferenceTextForBook(book) || book.SingleVoice)
