@@ -17134,6 +17134,7 @@ LUK	7	13	Jesus	compassionately		Dialogue
 LUK	7	14	Jesus	giving orders		Dialogue		
 LUK	7	15	Jesus			Indirect		
 LUK	7	16	crowd, large (witnessed healing of widow's son)	praising		Dialogue		
+LUK	7	18	disciples of John the Baptist			Potential		MAT 11.2;LUK 7.18
 LUK	7	19	John the Baptist	discouraged		Normal		
 LUK	7	20	disciples of John the Baptist	puzzled	John's disciples, two	Dialogue		MAT 11.3;LUK 7.20
 LUK	7	22	Jesus			Dialogue		
