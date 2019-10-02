@@ -245,7 +245,9 @@ namespace Glyssen.Quote
 							if (m_possibleCharactersForCurrentQuote.Any())
 							{
 								m_possibleCharactersForCurrentQuote = m_possibleCharactersForCurrentQuote.Intersect(
-									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse, verseElement.EndVerse, versification: m_versification, includeAlternates:true).Select(cv => cv.Character)).ToList();
+									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse,
+									verseElement.EndVerse, versification: m_versification, includeAlternatesAndRareQuotes: true)
+									.Select(cv => cv.Character)).ToList();
 
 								if (!m_possibleCharactersForCurrentQuote.Any())
 								{
@@ -924,8 +926,8 @@ namespace Glyssen.Quote
 							characterVerseDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
 							Debug.Assert(characterVerseDetails.Any(),
 								"We are in the middle of a quote and we have no speakers left who were possible when this quote " +
-								"opened. The logic for m_possibleCharactersForCurrentQuote should have kept us from running off " +
-								"the rails like this.");
+								"opened. Unless we're missing some useful entries in the CharacterVerse control file, the logic for " +
+								"m_possibleCharactersForCurrentQuote should have kept us from running off the rails like this.");
 						}
 					}
 					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);

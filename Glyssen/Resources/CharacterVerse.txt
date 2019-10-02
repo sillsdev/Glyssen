@@ -15479,7 +15479,7 @@ MAL	4	5	God		God (the LORD)	Implicit
 MAL	4	6	God		God (the LORD)	Implicit		
 MAT	1	1	narrator-MAT			Quotation		
 MAT	1	16	narrator-MAT			Quotation		
-MAT	1	19	Joseph, the carpenter	thinking		Potential		
+MAT	1	19	Joseph, the carpenter	thinking		Rare		
 MAT	1	20	angel		angel of the Lord	Normal		
 MAT	1	21	angel		angel of the Lord	Normal		
 MAT	1	23	narrator-MAT			Quotation		
@@ -15523,7 +15523,7 @@ MAT	4	6	Satan (Devil)			Dialogue
 MAT	4	7	Jesus			Dialogue		
 MAT	4	9	Satan (Devil)			Dialogue		
 MAT	4	10	Jesus	rebuking		Dialogue		
-MAT	4	12	messenger to Jesus	reporting		Indirect		
+MAT	4	12	messenger to Jesus	reporting		Rare		
 MAT	4	15	scripture			Quotation	Isaiah	
 MAT	4	16	scripture			Quotation	Isaiah	
 MAT	4	17	Jesus	preaching		Normal		
@@ -15636,7 +15636,7 @@ MAT	7	24	Jesus	preaching		Implicit
 MAT	7	25	Jesus	preaching		Implicit		
 MAT	7	26	Jesus	preaching		Implicit		
 MAT	7	27	Jesus	preaching		Implicit		
-MAT	7	28	crowd			Potential		
+MAT	7	28	crowd			Rare		
 MAT	8	2	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MAT	8	3	Jesus			Dialogue		
 MAT	8	4	Jesus	giving orders		Dialogue		
@@ -15691,7 +15691,9 @@ MAT	9	29	Jesus			Dialogue
 MAT	9	30	Jesus	warning		Dialogue		
 MAT	9	33	crowd after mute healed	amazed		Normal		
 MAT	9	34	Pharisees	accusing		Normal		
-MAT	9	36	Jesus			Potential		
+MAT	9	36	Jesus			Rare		
+MAT	9	36	narrator-MAT			Quotation		
+MAT	9	36	scripture			Quotation	Micaiah, prophet of the LORD	
 MAT	9	37	Jesus			Dialogue		
 MAT	9	38	Jesus			Normal		
 MAT	10	1	Jesus			Indirect		
@@ -15735,7 +15737,8 @@ MAT	10	39	Jesus	instructing		Normal
 MAT	10	40	Jesus	instructing		Normal		
 MAT	10	41	Jesus	instructing		Normal		
 MAT	10	42	Jesus	instructing		Normal		
-MAT	11	2	disciples of John the Baptist			Potential		MAT 11.2;LUK 7.18
+MAT	11	2	disciples of John the Baptist			Rare		MAT 11.2;LUK 7.18
+MAT	11	2	John the Baptist			Rare		
 MAT	11	3	disciples of John the Baptist	puzzled		Dialogue		MAT 11.3;LUK 7.20
 MAT	11	4	Jesus			Normal		
 MAT	11	5	Jesus			Normal		
@@ -15864,8 +15867,9 @@ MAT	13	56	men in Nazareth synagogue	offended		Normal
 MAT	13	57	Jesus			Dialogue		
 MAT	14	2	Herod Antipas (the tetrarch)	fearful		Normal		
 MAT	14	4	John the Baptist	rebuking		Normal		
-MAT	14	5	John the Baptist			Potential		
-MAT	14	5	people			Potential		
+MAT	14	5	Herod Antipas (the tetrarch)			Rare		
+MAT	14	5	people			Rare		
+MAT	14	6	Herod Antipas (the tetrarch)			Rare		
 MAT	14	7	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	8	Herodias' daughter			Normal		
 MAT	14	8	Herodias			Indirect		
@@ -16392,9 +16396,9 @@ MAT	28	9	Jesus			Normal
 MAT	28	10	Jesus			Dialogue		
 MAT	28	13	chief priests/elders	bribing		Normal		
 MAT	28	14	chief priests/elders	bribing		Normal		
-MAT	28	15	saying (lie about disciples stealing Jesus' body)			Potential		
-MAT	28	15	chief priests/elders			Quotation		
-MAT	28	15	Jews, the			Quotation		
+MAT	28	15	saying (lie about disciples stealing Jesus' body)			Rare		
+MAT	28	15	chief priests/elders			Rare		
+MAT	28	15	Jews, the			Rare		
 MAT	28	18	Jesus			Dialogue		
 MAT	28	19	Jesus			Normal		
 MAT	28	20	Jesus			Normal		
@@ -16527,7 +16531,7 @@ MRK	5	40	crowd			Indirect
 MRK	5	40	Jesus			Indirect		
 MRK	5	41	Jesus	giving orders		Dialogue		
 MRK	5	41	narrator-MRK			Quotation		
-MRK	5	43	Jesus			Indirect		
+MRK	5	43	Jesus			Indirect		MRK 5.43; LUK 8.55,56
 MRK	6	2	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	4	Jesus			Dialogue		
@@ -16968,6 +16972,7 @@ LUK	1	52	Mary, Jesus' mother			Normal
 LUK	1	53	Mary, Jesus' mother			Normal		
 LUK	1	54	Mary, Jesus' mother			Normal		
 LUK	1	55	Mary, Jesus' mother			Normal		
+LUK	1	58	report of God's mercy to Elizabeth			Rare		
 LUK	1	58	neighbors and relatives of Elizabeth and Zacharias (Zechariah)	rejoicing		Potential		
 # There is a potential speaking part in v. 59 because some translations will render this using direct
 # speech instead of indirect. Something like:
@@ -17212,8 +17217,8 @@ LUK	8	50	Jesus			Dialogue
 LUK	8	52	Jesus			Dialogue		
 LUK	8	53	people at Jairus' house	laughing		Indirect		
 LUK	8	54	Jesus	giving orders		Dialogue		
-LUK	8	55	Jesus			Indirect		
-LUK	8	56	Jesus	warning		Indirect		
+LUK	8	55	Jesus			Indirect		MRK 5.43; LUK 8.55
+LUK	8	56	Jesus	warning		Indirect		MRK 5.43; LUK 8.56
 LUK	9	3	Jesus	instructing		Dialogue		
 LUK	9	4	Jesus	instructing		Dialogue		
 LUK	9	5	Jesus	instructing		Dialogue		
@@ -17253,6 +17258,7 @@ LUK	9	48	Jesus			Dialogue
 LUK	9	49	John		John (disciple whom Jesus loved)	Dialogue		
 LUK	9	50	Jesus			Dialogue		
 LUK	9	54	James, the disciple/John		James/John	Dialogue	John	
+# textual variant in Luke 9:55-56
 LUK	9	55	Jesus	rebuking		Potential		
 LUK	9	56	Jesus	rebuking		Potential		
 LUK	9	57	teacher of religious law	eager	someone	Dialogue		MAT 8.19;LUK 9.57

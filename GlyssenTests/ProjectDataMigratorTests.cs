@@ -881,9 +881,9 @@ namespace GlyssenTests
 		public void MigrateDeprecatedCharacterIds_NormalQuoteChangedToAlternate_CharacterIdUnchanged()
 		{
 			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8).Any(cv => cv.Character == "God"),
-				"Test setup condition not met: God should not be returned as a character when includeAlternates is false.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8, includeAlternates:true).Any(cv => cv.Character == "God"),
-				"Test setup condition not met: God should be returned as a character when includeAlternates is true.");
+				"Test setup condition not met: God should not be returned as a character when includeAlternatesAndRareQuotes is false.");
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8, includeAlternatesAndRareQuotes: true).Any(cv => cv.Character == "God"),
+				"Test setup condition not met: God should be returned as a character when includeAlternatesAndRareQuotes is true.");
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var stringRepresentationOfQuoteBlocksInRevC1V8 = new List<string>(2);

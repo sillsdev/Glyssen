@@ -210,7 +210,7 @@ Cretan prophet	1	Male				TIT 1:12
 criminal on cross, insulting	1	Male	Adult			LUK 23:39
 criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
 crippled man	1	Male	Adult			ACT 3:3 & ACT 3:5
-crowd	-1		Adult			MAT 9:8 <-(18 more)-> ACT 21:36
+crowd	-1		Adult			MAT 7:28 <-(19 more)-> ACT 21:36
 crowd after mute healed	-1		Adult			MAT 9:33
 crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31
 crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN 7:41
@@ -252,7 +252,7 @@ disciple who wanted to bury his father	1	Male				MAT 8:21 & LUK 9:59
 disciples	11	Male				MAT 8:25 <-(76 more)-> ACT 21:4
 disciples (but not Thomas)	10	Male				JHN 20:25
 disciples in Ephesus, some	-1					ACT 19:2 & ACT 19:3
-disciples of John the Baptist	-1	Male				MAT 9:14 <-(2 more)-> JHN 3:26
+disciples of John the Baptist	-1	Male				MAT 9:14 <-(6 more)-> JHN 3:26
 disciples, some	-1					LUK 21:5
 disciples, two men (from Joppa)	2	Male				ACT 9:38
 Doeg the Edomite	1	Male				1SA 22:9 <-(1 more)-> PSA 52:0
@@ -414,7 +414,7 @@ herald	1	Male				DAN 3:4 <-(2 more)-> NAM 1:15
 herdsman	1	Male				GEN 26:20
 herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36
 Heshbon, people of	-1	Male				JER 48:2
-Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(11 more)-> LUK 23:8
+Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(13 more)-> LUK 23:8
 Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16
 Herodias	1	Female				MAT 14:8 & MRK 6:24
 Herodias' daughter	1	Female				MAT 14:8 <-(1 more)-> MRK 6:25
@@ -511,7 +511,7 @@ Jeroboam	1	Male				1KI 12:4 <-(9 more)-> 2CH 10:4
 Jerusalem (personified)	1	Male				JER 51:34 & JER 51:35
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		JOS 5:14 <-(2113 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		JOS 5:14 <-(2114 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
@@ -541,7 +541,7 @@ Job's wife	1	Female				JOB 2:9
 Joel	1	Male				JOL 3:9 <-(1 more)-> JOL 3:11
 Johanan	1	Male			son of Kareah	JER 40:14 <-(6 more)-> JER 43:3
 John	1	Male				MAT 17:10 <-(34 more)-> GAL 2:10
-John the Baptist	1	Male				MAT 3:2 <-(46 more)-> JHN 3:36
+John the Baptist	1	Male				MAT 3:2 <-(47 more)-> JHN 3:36
 John, Alexander, and other men of the high priest's family	-1	Male				ACT 4:7 <-(4 more)-> ACT 4:18
 Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35
 Jonah	1	Male				JON 1:9 <-(14 more)-> JON 4:9
@@ -822,7 +822,7 @@ passers by	-1					LAM 2:15 <-(3 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(197 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
-people	-1					2CH 26:23 <-(37 more)-> 1TH 5:3
+people	-1					2CH 26:23 <-(38 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
 people at coronation of King Joash	-1					2KI 11:12
 people at Jairus' house	-1					MAT 9:24 & LUK 8:53
@@ -945,6 +945,7 @@ relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13
 reply to the slain believers (in vision)	1					REV 6:11
 report about Jesus	-1	PreferMale				MAT 14:13
 report concerning Paul	1	PreferMale				GAL 1:23
+report of God's mercy to Elizabeth	-1					LUK 1:58
 report to king of Aram	1	Male				2KI 6:13
 report to king of Assyria	1	Male				2KI 17:26
 report to Sanballat and Tobiah	-1	Male				NEH 4:7 <-(2 more)-> NEH 6:16
@@ -1006,7 +1007,7 @@ scoffers	-1	PreferMale				2PE 3:4
 scoffers who rule people in Jerusalem	-1	Male				ISA 28:15	Scoffer
 scoundrels	-1	Male				1KI 21:13
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
-scripture	-1					2CH 25:4 <-(228 more)-> REV 19:15
+scripture	-1					2CH 25:4 <-(229 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 & REV 18:19
 second person to accuse Peter (man)	1	Male				LUK 22:58
