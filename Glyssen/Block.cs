@@ -49,7 +49,7 @@ namespace Glyssen
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
-		private string m_characterIdInScript;
+		private string m_characterIdInScriptOverride;
 		private string m_delivery;
 		private bool m_matchesReferenceText;
 		private static string s_characterSelect;
@@ -223,15 +223,15 @@ namespace Glyssen
 		[XmlAttribute("characterIdOverrideForScript")]
 		public string CharacterIdOverrideForScript
 		{
-			get => m_characterIdInScript;
+			get => m_characterIdInScriptOverride;
 			set => CharacterIdInScript = value;
 		}
 
 		[XmlIgnore]
 		public string CharacterIdInScript
 		{
-			get => m_characterIdInScript ?? CharacterId;
-			set { if (CharacterId != value) m_characterIdInScript = value; }
+			get => m_characterIdInScriptOverride ?? CharacterId;
+			set { if (CharacterId != value) m_characterIdInScriptOverride = value; }
 		}
 
 		[XmlAttribute("delivery")]
@@ -343,6 +343,16 @@ namespace Glyssen
 		public bool IsChapterAnnouncement { get { return StyleTag == "c" || StyleTag == "cl"; } }
 
 		public bool ContainsVerseNumber => BlockElements.OfType<Verse>().Any();
+
+		/// <summary>
+		/// Since the name of this property leaves some amount of vaguery, to be precise, it
+		/// indicates whether the block represents any verse other than the verse/bridge it starts
+		/// with. So it will return false if the block begins with a bridge and has no other
+		/// subsequent verses. However, it does not guarantee that it completely covers any full
+		/// verse, so it will return true if the block begins with the end of one verse and ends
+		/// with the beginning of the following verse.
+		/// </summary>
+		public bool CoversMoreThanOneVerse => BlockElements.Skip(1).Any(e => e is Verse);
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
@@ -795,10 +805,7 @@ namespace Glyssen
 			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
 		}
 
-		public bool CharacterIsUnclear()
-		{
-			return CharacterVerseData.IsCharacterUnclear(CharacterId);
-		}
+		public bool CharacterIsUnclear => CharacterVerseData.IsCharacterUnclear(CharacterId);
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
@@ -810,7 +817,7 @@ namespace Glyssen
 		public void SetNonDramaticCharacterId(string characterID)
 		{
 			CharacterId = characterID;
-			m_characterIdInScript = null;
+			m_characterIdInScriptOverride = null;
 			Delivery = null;
 		}
 
@@ -829,17 +836,17 @@ namespace Glyssen
 			}
 			else if (characterList.Count == 0)
 			{
-				SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
+				SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 				UserConfirmed = false;
 			}
 			else
 			{
 				// Might all represent the same Character/Delivery. Need to check.
-				var set = new SortedSet<CharacterVerse>(characterList, new CharacterDeliveryComparer());
-				if (set.Count == 1)
+				var distinctCharacterDeliveryList = characterList.Distinct(new CharacterDeliveryEqualityComparer()).ToList();
+				if (distinctCharacterDeliveryList.Count == 1)
 				{
 					SetCharacterIdAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
-					Delivery = set.First().Delivery;
+					Delivery = distinctCharacterDeliveryList.First().Delivery;
 				}
 				else
 				{
@@ -884,7 +891,8 @@ namespace Glyssen
 
 		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
-			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
+			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter ||
+				characterId == CharacterVerseData.kNeedsReview)
 			{
 				SetNonDramaticCharacterId(characterId);
 				return;
@@ -892,7 +900,7 @@ namespace Glyssen
 			if (CharacterId == characterId && CharacterIdOverrideForScript != null)
 			{
 				if (CharacterIsStandard)
-					m_characterIdInScript = null;
+					m_characterIdInScriptOverride = null;
 				return;
 			}
 			CharacterId = characterId;
@@ -904,7 +912,7 @@ namespace Glyssen
 			UseDefaultForMultipleChoiceCharacter(() => GetMatchingCharacter(bookNumber, scrVers));
 		}
 
-		public void UseDefaultForMultipleChoiceCharacter(Func<CharacterVerse> getMatchingCharacterForVerse)
+		public void UseDefaultForMultipleChoiceCharacter(Func<ICharacterDeliveryInfo> getMatchingCharacterForVerse)
 		{
 			var ids = CharacterId.SplitCharacterId(2);
 			if (ids.Length > 1)
@@ -913,7 +921,7 @@ namespace Glyssen
 				CharacterIdInScript = (cv != null && !IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
 			}
 			else if (CharacterIsStandard)
-				m_characterIdInScript = null;
+				m_characterIdInScriptOverride = null;
 		}
 
 		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
@@ -924,7 +932,7 @@ namespace Glyssen
 		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
 		{
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
-				InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId);
+				InitialEndVerseNumber, versification: scrVers, includeAlternates:true).FirstOrDefault(c => c.Character == CharacterId);
 		}
 
 		public static string BuildSplitLineHtml(int id)
@@ -1110,7 +1118,7 @@ namespace Glyssen
 					newBlock = new Block(StyleTag, ChapterNumber, initialStartVerse, initialEndVerse)
 					{
 						CharacterId = CharacterId,
-						CharacterIdOverrideForScript = CharacterIdOverrideForScript,
+						m_characterIdInScriptOverride = m_characterIdInScriptOverride,
 						Delivery = Delivery,
 						UserConfirmed = UserConfirmed
 					};
@@ -1136,15 +1144,25 @@ namespace Glyssen
 		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, ScrVers scrVers)
 		{
 			if (basedOnBlock.CharacterIdOverrideForScript == null)
+			{
+				// Typically, if the reference text has a character ID representing multiple characters, it will not have
+				// an override to specify which one to use in the script.
 				SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
-			SetCharacterAndDeliveryInfo(basedOnBlock);
+				Delivery = basedOnBlock.Delivery;
+			}
+			else
+				SetCharacterAndDeliveryInfo(basedOnBlock);
+		}
+
+		public void SetCharacterInfo(Block basedOnBlock)
+		{
+			CharacterId = basedOnBlock.CharacterId;
+			m_characterIdInScriptOverride = basedOnBlock.m_characterIdInScriptOverride;
 		}
 
 		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
 		{
-			CharacterId = basedOnBlock.CharacterId;
-			if (basedOnBlock.CharacterIdOverrideForScript != null)
-				CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
+			SetCharacterInfo(basedOnBlock);
 			Delivery = basedOnBlock.Delivery;
 		}
 
@@ -1210,6 +1228,16 @@ namespace Glyssen
 			newRowAValue = leadingVerse + rowB;
 		}
 
+		public VerseRef StartRef(int bookNum, ScrVers versification)
+		{
+			return new VerseRef(bookNum, ChapterNumber, InitialStartVerseNumber, versification);
+		}
+
+		public VerseRef EndRef(int bookNum, ScrVers versification)
+		{
+			return new VerseRef(bookNum, ChapterNumber, LastVerseNum, versification);
+		}
+
 		public bool ChangeReferenceText(string bookId, ReferenceText referenceText, ScrVers vernVersification)
 		{
 			if (!MatchesReferenceText)
@@ -1229,8 +1257,8 @@ namespace Glyssen
 
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var bookNumber = BCVRef.BookToNumber(bookId);
-			var startVerse = new VerseRef(bookNumber, ChapterNumber, InitialStartVerseNumber, vernVersification);
-			var endVerse = new VerseRef(bookNumber, ChapterNumber, LastVerseNum, vernVersification);
+			var startVerse = StartRef(bookNumber, vernVersification);
+			var endVerse = EndRef(bookNumber, vernVersification);
 			startVerse.ChangeVersification(englishRefText.Versification);
 			endVerse.ChangeVersification(englishRefText.Versification);
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Shared;
 using SIL.Scripture;
@@ -11,17 +12,54 @@ namespace Glyssen
 	public class PortionScript
 	{
 		public const int kSplitAtEndOfVerse = -999;
-		protected string m_id;
+		private string m_id;
 		protected List<Block> m_blocks;
 
-		public PortionScript(string id, IEnumerable<Block> blocks)
+		public PortionScript(PortionScript parent, IEnumerable<Block> blocks) : this(parent.BookId, blocks, parent.Versification)
 		{
-			m_id = id;
-			if (blocks != null)
-				m_blocks = blocks.ToList();
 		}
 
-		public string Id => m_id;
+		public PortionScript(string id, IEnumerable<Block> blocks, ScrVers versification)
+		{
+			BookId = id;
+			if (blocks != null)
+				m_blocks = blocks.ToList();
+
+			if (versification != null)
+				Initialize(versification);
+		}
+
+		public void Initialize(ScrVers versification)
+		{
+			if (Versification != null)
+				throw new InvalidOperationException($"Initialize called more than once for {BookId}!");
+
+			Versification = versification ?? throw new ArgumentNullException(nameof(versification));
+		}
+
+		[XmlAttribute("id")]
+		public string BookId
+		{
+			get => m_id;
+			set
+			{
+				m_id = value;
+				if (m_id != null)
+				{
+					BookNumber = BCVRef.BookToNumber(m_id);
+					NarratorCharacterId = CharacterVerseData.GetStandardCharacterId(m_id, CharacterVerseData.StandardCharacter.Narrator);
+				}
+			}
+		}
+
+		[XmlIgnore]
+		public int BookNumber { get; private set; }
+
+		[XmlIgnore]
+		public string NarratorCharacterId { get; private set; }
+
+		[XmlIgnore]
+		public ScrVers Versification { get; private set; }
 
 		public virtual IReadOnlyList<Block> GetScriptBlocks()
 		{
@@ -37,16 +75,16 @@ namespace Glyssen
 		}
 
 		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
-			string characterId = null, ScrVers versification = null)
+			string characterId = null)
 		{
 			var iBlock = m_blocks.IndexOf(blockToSplit);
 
 			if (iBlock < 0)
-				throw new ArgumentException(@"Block not found in the list for " + Id, "blockToSplit");
+				throw new ArgumentException($"Block not found in the list for {BookId}", nameof(blockToSplit));
 
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
-				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId, versification);
+				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId);
 				return blockToSplit;
 			}
 
@@ -54,7 +92,7 @@ namespace Glyssen
 			if (newBlock == null)
 			{
 				blockToSplit = m_blocks[++iBlock];
-				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId, versification);
+				SplitBeforeBlock(iBlock, GetSplitId(blockToSplit, userSplit), userSplit, characterId);
 				return blockToSplit;
 			}
 
@@ -65,18 +103,17 @@ namespace Glyssen
 			{
 				if (string.IsNullOrEmpty(characterId))
 				{
-					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnknownCharacter);
+					newBlock.SetNonDramaticCharacterId(CharacterVerseData.kUnexpectedCharacter);
 					newBlock.UserConfirmed = false;
 				}
 				else
 				{
 					newBlock.Delivery = null;
-					if (versification == null)
-						throw new ArgumentNullException("versification");
-					var bookNum = BCVRef.BookToNumber(Id);
-					if (bookNum < 0)
+					if (Versification == null)
+						throw new InvalidOperationException("SplitBlock called on a script that has not been initialized with a versification");
+					if (BookNumber < 0)
 						throw new InvalidOperationException("Attempting a user-originated split of a block which is not part of a known Scripture book. Possible characters cannot be determined.");
-					newBlock.SetCharacterIdAndCharacterIdInScript(characterId, BCVRef.BookToNumber(Id), versification);
+					newBlock.SetCharacterIdAndCharacterIdInScript(characterId, BookNumber, Versification);
 					newBlock.UserConfirmed = true;
 				}
 
@@ -192,7 +229,7 @@ namespace Glyssen
 			return true;
 		}
 		
-		protected void SplitBeforeBlock(int indexOfBlockToSplit, int splitId, bool userSplit, string characterId, ScrVers versification, bool reapplyingUserSplits = false)
+		protected void SplitBeforeBlock(int indexOfBlockToSplit, int splitId, bool userSplit, string characterId, bool reapplyingUserSplits = false)
 		{
 			if (indexOfBlockToSplit == 0)
 				throw new IndexOutOfRangeException("Split cannot occur before first block!");
@@ -211,7 +248,7 @@ namespace Glyssen
 			m_blocks[indexOfBlockToSplit - 1].SplitId = m_blocks[indexOfBlockToSplit].SplitId = splitId;
 
 			if (userSplit && characterId != null)
-				m_blocks[indexOfBlockToSplit].SetCharacterIdAndCharacterIdInScript(characterId, BCVRef.BookToNumber(Id), versification);
+				m_blocks[indexOfBlockToSplit].SetCharacterIdAndCharacterIdInScript(characterId, BookNumber, Versification);
 		}
 	}
 }

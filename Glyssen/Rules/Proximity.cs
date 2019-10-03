@@ -89,15 +89,14 @@ namespace Glyssen.Rules
 					var author = BiblicalAuthors.GetAuthorOfBook(book.BookId);
 					if (author.CombineAuthorAndNarrator && !treatAsSameCharacter.Any(set => set.Contains(author.Name)))
 					{
-						var narrator = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
-						if (!m_strictlyAdhereToNarratorPreferences || (characterIdsToCalculate.Contains(narrator) && characterIdsToCalculate.Contains(author.Name)))
+						if (!m_strictlyAdhereToNarratorPreferences || (characterIdsToCalculate.Contains(book.NarratorCharacterId) && characterIdsToCalculate.Contains(author.Name)))
 						{
-							HashSet<string> charactersToTreatAsOneWithNarrator = treatAsSameCharacter.FirstOrDefault(set => set.Contains(narrator));
+							HashSet<string> charactersToTreatAsOneWithNarrator = treatAsSameCharacter.FirstOrDefault(set => set.Contains(book.NarratorCharacterId));
 							if (charactersToTreatAsOneWithNarrator == null)
 							{
 								charactersToTreatAsOneWithNarrator = new HashSet<string>();
 								treatAsSameCharacter.Add(charactersToTreatAsOneWithNarrator);
-								charactersToTreatAsOneWithNarrator.Add(narrator);
+								charactersToTreatAsOneWithNarrator.Add(book.NarratorCharacterId);
 								charactersToTreatAsOneWithNarrator.Add(author.Name);
 							}
 							else
@@ -212,11 +211,11 @@ namespace Glyssen.Rules
 
 				// add the narrator to its group if there are others there already
 				if (bookData.ContainsKey(ExtraBiblicalMaterialSpeakerOption.Narrator))
-					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(book.NarratorCharacterId);
 			}
 			else
 			{
-				AddOrNew(bookData, ExtraBiblicalMaterialSpeakerOption.Narrator, CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+				AddOrNew(bookData, ExtraBiblicalMaterialSpeakerOption.Narrator, book.NarratorCharacterId);
 				if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
 					bookData[ExtraBiblicalMaterialSpeakerOption.Narrator].Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
 				if (dramatizationPreferences.SectionHeadDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
@@ -326,10 +325,10 @@ namespace Glyssen.Rules
 			var sb = new StringBuilder();
 			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).PadLeft(kProximityHeader.Length)).Append("  |  ")
 				.Append(FirstReference)
-				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
+				.Append(" (").Append(FirstCharacterId).Append(")")
 				.Append(" - ")
 				.Append(SecondReference)
-				.Append(" (").Append(m_secondBlock.CharacterIdInScript).Append(")");
+				.Append(" (").Append(SecondCharacterId).Append(")");
 			return sb.ToString();
 		}
 	}

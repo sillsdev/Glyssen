@@ -24,6 +24,7 @@ namespace GlyssenTests.Dialogs
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 
@@ -599,7 +600,7 @@ namespace GlyssenTests.Dialogs
 		public void IsModified_BlockCharacterUnknownCharacterNull_ReturnsFalse()
 		{
 			var block1 = m_model.CurrentBlock;
-			block1.CharacterId = CharacterVerseData.kUnknownCharacter;
+			block1.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 			Assert.IsFalse(m_model.IsModified(null, null));
 		}
 
@@ -888,10 +889,10 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(currentBlockCharacterId, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, m_model.CurrentBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, m_model.CurrentBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(firstRelevantBlockAfterTheBlockToSplit, m_model.CurrentBlock);
 		}
@@ -1432,9 +1433,9 @@ namespace GlyssenTests.Dialogs
 				new BlockSplitData(2, blockToSplit, "21b", 7)
 			}, GetListOfCharacters(3, new[] { "", "", "" }));
 
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, project.Books[0].Blocks[blockIndex].CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, project.Books[0].Blocks[blockIndex + 1].CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, project.Books[0].Blocks[blockIndex + 2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, project.Books[0].Blocks[blockIndex].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, project.Books[0].Blocks[blockIndex + 1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, project.Books[0].Blocks[blockIndex + 2].CharacterId);
 		}
 
 		[Test]
@@ -1530,7 +1531,7 @@ namespace GlyssenTests.Dialogs
 		public void GetCharacterToSelectForCurrentBlock_BlockIsOneOfTwoAmbiguousQuotesInVerse_ReturnsNull()
 		{
 			FindRefInMark(5, 9);
-			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 			Assert.AreEqual(3, m_model.GetUniqueCharactersForCurrentReference(false).Count()); // Includes narrator
 			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(m_model.GetUniqueCharactersForCurrentReference(false)));
 		}
@@ -1542,15 +1543,15 @@ namespace GlyssenTests.Dialogs
 			m_fullProjectRefreshRequired = true;
 
 			FindRefInMark(5, 9);
-			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 			var possibleCharactersForMark59 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			var possibleSpeakingCharactersForMark59 = possibleCharactersForMark59.Where(c => !c.IsNarrator).ToList();
 			Assert.AreEqual(2, possibleSpeakingCharactersForMark59.Count);
 			m_model.SetCharacterAndDelivery(possibleSpeakingCharactersForMark59[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
 			possibleSpeakingCharactersForMark59.RemoveAt(indexOfCharacterToAssignToFirstBlock);
-			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 			Assert.AreEqual(5, m_model.CurrentBlock.ChapterNumber);
 			Assert.AreEqual(9, m_model.CurrentBlock.InitialStartVerseNumber);
 			Assert.AreEqual(possibleSpeakingCharactersForMark59.Single(), m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForMark59));
@@ -1563,15 +1564,15 @@ namespace GlyssenTests.Dialogs
 			m_fullProjectRefreshRequired = true;
 
 			FindRefInMark(5, 41);
-			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 			var possibleCharactersForMark541 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			var unusedCharactersForMark541 = possibleCharactersForMark541.ToList();
 			Assert.AreEqual(2, unusedCharactersForMark541.Count);
 			m_model.SetCharacterAndDelivery(unusedCharactersForMark541[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
 			unusedCharactersForMark541.RemoveAt(indexOfCharacterToAssignToFirstBlock);
-			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 			Assert.AreEqual(5, m_model.CurrentBlock.ChapterNumber);
 			Assert.AreEqual(41, m_model.CurrentBlock.InitialStartVerseNumber);
 			Assert.AreEqual(unusedCharactersForMark541.Single(), m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForMark541));
@@ -1594,14 +1595,14 @@ namespace GlyssenTests.Dialogs
 				Assert.AreEqual("ACT", m_model.CurrentBookId);
 				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
 				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
-				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 				var possibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 				Assert.AreEqual(3, possibleCharactersForActs837.Count);
 				m_model.SetCharacterAndDelivery(possibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
 					AssignCharacterViewModel.Delivery.Normal);
-				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
 				m_model.LoadNextRelevantBlock();
-				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
 				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
 				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
 				Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(possibleCharactersForActs837));
@@ -1619,20 +1620,20 @@ namespace GlyssenTests.Dialogs
 			// To most closely simulate the real situation where this can occur, find a place where the matchup results in a correlated block with an
 			// unknown character ID. Then set an adjacent block's character id to "null", as would happen if the user atempted to swap the values between
 			// these two blocks.
-			while ((m_model.CurrentReferenceTextMatchup == null || !m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear())) &&
+			while ((m_model.CurrentReferenceTextMatchup == null || !m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear)) &&
 				m_model.CanNavigateToNextRelevantBlock)
 			{
 				m_model.LoadNextRelevantBlock();
 			}
 
-			var blockWithoutCharacterId = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First(b => b.CharacterIsUnclear());
+			var blockWithoutCharacterId = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First(b => b.CharacterIsUnclear);
 			var indexOfBlockWithoutCharacterId = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.IndexOf(blockWithoutCharacterId);
 			var indexOfAdjacentBlock = (indexOfBlockWithoutCharacterId > 0) ? indexOfBlockWithoutCharacterId - 1 : indexOfBlockWithoutCharacterId + 1;
 			var adjacentBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[indexOfAdjacentBlock];
 
 			m_model.SetReferenceTextMatchupCharacter(indexOfAdjacentBlock, null);
 
-			Assert.IsTrue(adjacentBlock.CharacterIsUnclear());
+			Assert.IsTrue(adjacentBlock.CharacterIsUnclear);
 			Assert.IsFalse(adjacentBlock.UserConfirmed);
 		}
 
@@ -1643,7 +1644,7 @@ namespace GlyssenTests.Dialogs
 			FindRefInMark(9, 21);
 			var originalAnchorBlock = m_model.CurrentBlock;
 			m_model.AttemptRefBlockMatchup = true;
-			Assert.IsTrue(originalAnchorBlock.CharacterIsUnclear());
+			Assert.IsTrue(originalAnchorBlock.CharacterIsUnclear);
 			var charactersForVerse = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			var deliveriesForVerse = m_model.GetUniqueDeliveries().ToList();
 			var characterJesus = charactersForVerse.Single(c => c.CharacterId == "Jesus");
@@ -1683,7 +1684,7 @@ namespace GlyssenTests.Dialogs
 				"If this isn't false, it is considered \"dirty\" and the Assign button will be enabled.");
 
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()));
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear));
 			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber > 9);
 		}
 
@@ -1751,16 +1752,16 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
-		// PG-1104
+		// PG-1104 - Note: We now always include factory hypothetical characters in our list
+		// (though they might not be considered by the quote parser), so they should be treated
+		// like any other character - it is an exception to attempt to add one that already exists.
 		[Test]
-		public void StoreCharacterDetail_CharacterDetailOnlyUsedForHypotheticalSpeech_DoesNotThrow()
+		public void StoreCharacterDetail_CharacterDetailOnlyUsedForHypotheticalSpeech_Throws()
 		{
-			m_fullProjectRefreshRequired = true;
-			m_model.StoreCharacterDetail("sluggard", CharacterGender.Male, CharacterAge.Adult);
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("sluggard"),
-				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
-			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("sluggard"));
+			Assert.Throws<ArgumentException>(() =>
+			{
+				m_model.StoreCharacterDetail("sluggard", CharacterGender.Male, CharacterAge.Adult);
+			});
 		}
 
 		[Test]
@@ -1891,7 +1892,7 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
-			Assert.AreEqual(0, matchupForMark85.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
+			Assert.AreEqual(0, matchupForMark85.OriginalBlocks.Count(b => b.CharacterIsUnclear));
 
 			try
 			{
@@ -1918,7 +1919,7 @@ namespace GlyssenTests.Dialogs
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
-			Assert.IsTrue(matchup.OriginalBlocks.All(b => !b.CharacterIsUnclear()));
+			Assert.IsTrue(matchup.OriginalBlocks.All(b => !b.CharacterIsUnclear));
 
 			try
 			{
@@ -1944,7 +1945,7 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
-			Assert.AreEqual(2, matchupForMark85.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
+			Assert.AreEqual(2, matchupForMark85.OriginalBlocks.Count(b => b.CharacterIsUnclear));
 			matchupForMark85.SetReferenceText(0, "Some random text: " + Guid.NewGuid());
 
 			try
@@ -1972,7 +1973,7 @@ namespace GlyssenTests.Dialogs
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
  			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchupForMark85.CorrelatedBlocks.Count);
-			Assert.IsTrue(matchupForMark85.CorrelatedBlocks[1].CharacterIsUnclear());
+			Assert.IsTrue(matchupForMark85.CorrelatedBlocks[1].CharacterIsUnclear);
 			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Bartimaeus (a blind man)"));
 			m_model.SetReferenceTextMatchupDelivery(1, new AssignCharacterViewModel.Delivery("shouting", false));
 
@@ -2003,7 +2004,7 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			var matchupForMark1215 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(1, matchupForMark1215.CountOfBlocksAddedBySplitting);
-			Assert.AreEqual(1, matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
+			Assert.AreEqual(1, matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear));
 			Assert.IsTrue(matchupForMark1215.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			m_model.SetReferenceTextMatchupCharacter(4, new AssignCharacterViewModel.Character("Jesus"));
 
@@ -2039,7 +2040,7 @@ namespace GlyssenTests.Dialogs
 				var block = matchupForMark319.CorrelatedBlocks[i];
 				if (!block.MatchesReferenceText)
 					matchupForMark319.SetReferenceText(i, "Some random text: " + Guid.NewGuid());
-				Assert.IsFalse(block.CharacterIsUnclear());
+				Assert.IsFalse(block.CharacterIsUnclear);
 			}
 
 			try
@@ -2055,15 +2056,21 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 
+		// ENHANCE: Add a similar test for a relevant matchup consisting of multiple orginal blocks but that
+		// also inserts blocks due to splits from aligning to reference text. (None of the existing test data
+		// used in the fixtures in this file (as of 5/23/2019) have such data.)
 		[Test]
-		public void ApplyCurrentReferenceTextMatchup_RelevantMatchup_RemainsRelevant()
+		public void ApplyCurrentReferenceTextMatchup_NotAlignedToReferenceText_RelevantMatchupConsistingOfSingleBlockThatIsSplitByRefText_RemainsRelevant()
 		{
+			// It might seem counter-intuitive that we want the block to remain relevant, but we want the user
+			// to be able to navigate back to it and not have the total count keep going down.
 			m_assigned = 0;
 			m_fullProjectRefreshRequired = true;
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			while (m_model.CurrentReferenceTextMatchup == null || m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting == 0 ||
+				m_model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 ||
 				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.All(
 				b => m_model.GetCharactersForCurrentReferenceTextMatchup().Any(c => c.CharacterId == b.CharacterId)))
 			{
@@ -2229,6 +2236,24 @@ namespace GlyssenTests.Dialogs
 				Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
 			}
 		}
+
+		[Test]
+		public void GetCharactersForCurrentReference_AlternatesPresent_GetsAllIncludingAlternates()
+		{
+			m_model.Mode = BlocksToDisplay.AllQuotes;
+			while (m_model.CurrentBlock.ChapterNumber != 10 || m_model.CurrentBlock.InitialStartVerseNumber != 13)
+				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual("ACT", m_model.CurrentBookId);
+			Assert.AreEqual(10, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(13, m_model.CurrentBlock.InitialStartVerseNumber);
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
+			Assert.AreEqual(4, characters.Count);
+			Assert.IsFalse(characters.Any(c => c.ProjectSpecific));
+			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "Jesus"));
+			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "God"));
+			Assert.AreEqual(1, characters.Count(c => c.CharacterId == "Holy Spirit, the"));
+		}
 	}
 
 	[TestFixture]
@@ -2368,6 +2393,128 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual("Martin", startBlock.CharacterId);
 			Assert.IsFalse(m_indicesOfChangedBlocks.Any());
+		}
+	}
+
+	[TestFixture]
+	internal class AssignCharacterViewModelObaTests
+	{
+		private Project m_testProject;
+		private AssignCharacterViewModel m_model;
+		private int m_bookNum;
+		const string kObadiahTheProphet = "Obadiah, prophet";
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			m_model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.AllScripture, m_testProject.Status.AssignCharacterBlock);
+			m_model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
+
+			var bookScript = m_testProject.IncludedBooks.Single();
+			m_bookNum = bookScript.BookNumber;
+			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, 1, 18).Single().Character,
+				"Test setup conditions not met!");
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var overrideOba = NarratorOverrides.Singleton.Books.Single(b => b.Id == bookScript.BookId).Overrides.Single();
+			Assert.AreEqual(1, overrideOba.StartChapter, "Test setup conditions not met!");
+			Assert.AreEqual(1, overrideOba.EndChapter, "Test setup conditions not met!");
+			Assert.AreEqual(kObadiahTheProphet, overrideOba.Character, "Test setup conditions not met!");
+			Assert.AreEqual(1, overrideOba.StartVerse, "Test setup conditions not met!");
+			Assert.AreEqual(2, overrideOba.StartBlock, "Test setup conditions not met!");
+			Assert.AreEqual(21, overrideOba.EndVerse, "Test setup conditions not met!");
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			m_testProject = null;
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GetUniqueCharacters_InBlockWithNarratorOverride_ResultIncludesOverrideCharacter()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 18)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharacters().ToList();
+
+			// Verify
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("God", result[0].CharacterId, "God is first because the list is alphabetical (with narrator last)");
+			Assert.AreEqual(kObadiahTheProphet, result[1].CharacterId);
+			Assert.AreEqual("narrator (OBA)", result[2].LocalizedDisplay);
+		}
+
+		[Test]
+		public void GetUniqueCharactersForCurrentReference_InBlockWithNarratorOverride_ResultIncludesOverrideCharacter()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 18)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharactersForCurrentReference().ToList();
+
+			// Verify
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("narrator (OBA)", result[0].LocalizedDisplay, "GetUniqueCharactersForCurrentReference should always put the narrator first.");
+			Assert.AreEqual("God", result[1].CharacterId, "God is second because remaining items in the list are alphabetical");
+			Assert.AreEqual(kObadiahTheProphet, result[2].CharacterId);
+		}
+
+		[Test]
+		public void GetUniqueCharacters_MatchingFilterInVerseWithNarratorOverride_ResultStartsWithMatchingCharactersIncludingOverrideCharacter()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 1)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharacters("Obad").ToList();
+
+			// Verify
+			Assert.AreEqual(4, result.Count);
+			Assert.IsTrue(result[0].CharacterId.StartsWith("Obadiah"), "The first match happens to be from a different book. " +
+				"List of matches is alphabetic");
+			Assert.AreEqual(kObadiahTheProphet, result[1].CharacterId);
+			Assert.AreEqual("God", result[2].CharacterId, "God is second because he is a Normal character in OBA 1:1");
+			Assert.AreEqual("narrator (OBA)", result[3].LocalizedDisplay, "GetUniqueCharacters should always include" +
+				"the narrator at the end, if not already in the list.");
+		}
+
+		[Test]
+		public void GetUniqueCharacters_NonMatchingFilterInBlockWithNarratorOverride_ResultIncludesOverrideCharacterAtEnd()
+		{
+			// Setup
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(m_bookNum, 1, 1)), "Test setup conditions not met!");
+
+			// SUT
+			var result = m_model.GetUniqueCharacters("Holy S").ToList();
+
+			// Verify
+			Assert.IsTrue(result.Count >= 4);
+			var iStartOfNonMatching = result.Count -3;
+			Assert.AreEqual("God", result[iStartOfNonMatching].CharacterId, "God should be first non-match because this part " +
+				"of list is alphabetical.");
+			Assert.AreEqual(kObadiahTheProphet, result[iStartOfNonMatching + 1].CharacterId, $"{kObadiahTheProphet} should be " +
+				$"second non-match because this part of list is alphabetical.");
+			Assert.AreEqual("narrator (OBA)", result[iStartOfNonMatching + 2].LocalizedDisplay, "GetUniqueCharacters should always include" +
+				"the narrator at the end, if not already in the list.");
 		}
 	}
 }

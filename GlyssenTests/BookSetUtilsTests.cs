@@ -151,12 +151,12 @@ namespace GlyssenTests
 	{
 		public static string BookSummary(this IEnumerable<string> bookStrs)
 		{
-			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>())).BookSummary();
+			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)).BookSummary();
 		}
 
 		public static IEnumerable<BookScript> ToBookScriptEnumerable(this IEnumerable<string> bookStrs)
 		{
-			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>()));
+			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null));
 		}
 
 		public static IEnumerable<Book> ToBookEnumerable(this IEnumerable<string> bookStrs)

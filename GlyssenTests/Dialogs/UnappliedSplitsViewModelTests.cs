@@ -26,14 +26,14 @@ namespace GlyssenTests.Dialogs
 					.AddVerse(26, "Laos disuru ma ibana muli tu jabuna, didok ma: Unang bongoti huta i! ")
 			};
 
-			var mark = new BookScript("MRK", blocks);
+			var mark = new BookScript("MRK", blocks, ScrVers.English);
 
 			var blockToSplit = mark.GetFirstBlockForVerse(8, 26);
 			var newBlock = Split(mark, blockToSplit, "26", 47);
 
 			mark.UnappliedBlockSplits_DoNotUse.Add(new List<Block> { blockToSplit, newBlock });
 
-			var model = new UnappliedSplitsViewModel(new [] {mark.Clone(false)}, false);
+			var model = new UnappliedSplitsViewModel(new [] {mark.Clone()}, false);
 			var xmlDoc = new XmlDocument();
 			var html = model.GetHtml();
 			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
@@ -65,7 +65,7 @@ namespace GlyssenTests.Dialogs
 					.AddVerse(26, "Laos disuru ma ibana muli tu jabuna, didok ma: Unang bongoti huta i! ")
 			};
 
-			var mark = new BookScript("MRK", blocks);
+			var mark = new BookScript("MRK", blocks, ScrVers.English);
 
 			var blockToSplitMark = mark.GetFirstBlockForVerse(8, 26);
 			var newBlockMark = Split(mark, blockToSplitMark, "26", 47);
@@ -83,14 +83,14 @@ namespace GlyssenTests.Dialogs
 					.AddVerse(7, "Flabba Gabba punkifing, snerfdo blugtew! ")
 			};
 
-			var acts = new BookScript("ACT", blocks);
+			var acts = new BookScript("ACT", blocks, ScrVers.English);
 
 			var blockToSplitActs = acts.GetFirstBlockForVerse(10, 5);
 			var newBlockActs = Split(acts, blockToSplitActs, "7", 21);
 
 			acts.UnappliedBlockSplits_DoNotUse.Add(new List<Block> { blockToSplitActs, newBlockActs });
 
-			var model = new UnappliedSplitsViewModel(new[] { mark.Clone(false), acts.Clone(false) }, false);
+			var model = new UnappliedSplitsViewModel(new[] { mark.Clone(), acts.Clone() }, false);
 			var xmlDoc = new XmlDocument();
 			var html = model.GetHtml();
 			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
@@ -142,7 +142,7 @@ namespace GlyssenTests.Dialogs
 					.AddVerse(6, "Kaos tisuru sa obana: nuli du zabuna, widok na: Enang pongoti luta o! ")
 			};
 
-			var mark = new BookScript("MRK", blocks);
+			var mark = new BookScript("MRK", blocks, ScrVers.English);
 
 			var blockToSplit1 = mark.GetFirstBlockForVerse(8, 26);
 			var newBlock1 = Split(mark, blockToSplit1, "26", 47);
@@ -154,7 +154,7 @@ namespace GlyssenTests.Dialogs
 			mark.UnappliedBlockSplits_DoNotUse.Add(new List<Block> { blockToSplit1, newBlock1, blockToSplit2,
 				newBlock2, newBlock3});
 
-			var model = new UnappliedSplitsViewModel(new[] { mark.Clone(false) }, false);
+			var model = new UnappliedSplitsViewModel(new[] { mark.Clone() }, false);
 			var xmlDoc = new XmlDocument();
 			var html = model.GetHtml();
 			xmlDoc.LoadXml(html.Replace("&nbsp;", "&#160;"));
@@ -184,7 +184,7 @@ namespace GlyssenTests.Dialogs
 
 		private Block Split(BookScript book, Block blockToSplit, string verse, int pos)
 		{
-			var newBlock = book.SplitBlock(blockToSplit, verse, pos, true, "Jesus", ScrVers.English);
+			var newBlock = book.SplitBlock(blockToSplit, verse, pos, true, "Jesus");
 			newBlock.Delivery = "giving orders";
 			newBlock.UserConfirmed = true;
 			blockToSplit.UserConfirmed = true;

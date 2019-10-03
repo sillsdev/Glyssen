@@ -716,6 +716,60 @@ namespace GlyssenTests
 			Assert.AreEqual(3, blocks[2].InitialEndVerseNumber);
 		}
 
+		[TestCase("-")]
+		[TestCase("- ")]
+		[TestCase(" -")]
+		[TestCase(" - ")]
+		public void Parse_OddlyFormedVerseBridgeInAdjacentVFields_CorrectlyInterpretsAsVerseBridge(string dash)
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+				"<verse number=\"1\" style=\"v\" />" +
+				dash +
+				"<verse number=\"3\" style=\"v\" />" +
+				"Verse 1-3 text</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(3, blocks[1].InitialEndVerseNumber);
+			Assert.AreEqual("{1-3}\u00A0Verse 1-3 text", blocks[1].GetText(true));
+		}
+
+		[TestCase("-")]
+		[TestCase(" - ")]
+		public void Parse_VerseConsistsOfDashButPreviousVerseIsABridge_DiscardedAsEmptyVerse(string dash)
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+				"<verse number=\"1-3\" style=\"v\" />" + dash + // This one should get discarded
+				"<verse number=\"4\" style=\"v\" />" +
+				"Verse 4 text</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count, "Should only have chapter number block and v. 4 block. " +
+				"Empty verse bridge block should have been discarded.");
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			Assert.AreEqual(1, blocks[0].ChapterNumber);
+			Assert.AreEqual(4, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialEndVerseNumber);
+			Assert.AreEqual("{4}\u00A0Verse 4 text", blocks[1].GetText(true));
+		}
+
+		[TestCase("-", 3)]
+		[TestCase("-", 2)]
+		public void Parse_VerseConsistsOfDashButFollowingVerseLessThanOrEqualToPrevNumber_DiscardedAsEmptyVerse(string dash, int followingVerseNum)
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+				"<verse number=\"3\" style=\"v\" />" + dash + // This one should get discarded
+				$"<verse number=\"{followingVerseNum}\" style=\"v\" />" +
+				"Verse text</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(followingVerseNum, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialEndVerseNumber);
+			Assert.AreEqual("{" + followingVerseNum + "}\u00A0Verse text", blocks[1].GetText(true));
+		}
+
 		[Test]
 		public void Parse_NodeWithNoChildren_IgnoresNode()
 		{

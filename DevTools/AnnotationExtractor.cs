@@ -25,7 +25,7 @@ namespace DevTools
 		{
 			var directoryWithXmlFiles = @"C:\Users\Polk\Documents\Protoscript Generator\bundles\English Director Guide\WithApostrophes\English DG 9 apo\English DG 9 apo";
 
-			var bookList = Directory.GetFiles(directoryWithXmlFiles, "*.xml").Select(XmlSerializationHelper.DeserializeFromFile<BookScript>).ToList();
+			var bookList = Directory.GetFiles(directoryWithXmlFiles, "*.xml").Select(f => BookScript.Deserialize(f, ScrVers.English)).ToList();
 
 			Block prevRealBlock = null;
 			foreach (var book in bookList.OrderBy(b => BCVRef.BookToNumber(b.BookId)))
