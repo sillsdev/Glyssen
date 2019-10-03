@@ -948,7 +948,7 @@ report concerning Paul	1	PreferMale				GAL 1:23
 report of God's mercy to Elizabeth	-1					LUK 1:58
 report to king of Aram	1	Male				2KI 6:13
 report to king of Assyria	1	Male				2KI 17:26
-report to Sanballat and Tobiah	-1	Male				NEH 4:7 <-(2 more)-> NEH 6:16
+report to Sanballat and Tobiah	-1	Male				NEH 4:1 <-(3 more)-> NEH 6:16
 rest of heads of families	-1	Male				EZR 4:3
 Reuben	1	Male				GEN 37:21 <-(3 more)-> GEN 42:37
 Reubenites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29	Reubenite

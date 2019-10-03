@@ -2310,7 +2310,7 @@ LEV	24	6	God		God (the LORD)	Implicit
 LEV	24	7	God		God (the LORD)	Implicit		
 LEV	24	8	God		God (the LORD)	Implicit		
 LEV	24	9	God		God (the LORD)	Implicit		
-LEV	24	11	son of Shelomith (whose father was an Egyptian)			Potential		
+LEV	24	11	son of Shelomith (whose father was an Egyptian)			Rare		
 LEV	24	14	God		God (the LORD)	Implicit		
 LEV	24	15	God		God (the LORD)	Implicit		
 LEV	24	16	God		God (the LORD)	Implicit		
@@ -2468,7 +2468,7 @@ NUM	1	12	God		God (the LORD)	Implicit
 NUM	1	13	God		God (the LORD)	Implicit		
 NUM	1	14	God		God (the LORD)	Implicit		
 NUM	1	15	God		God (the LORD)	Implicit		
-# REVIEW: The following verse seems unlikely to be quoted speech by God
+# The following verse is unlikely to be quoted speech by God, but some projects may include it.
 NUM	1	16	God		God (the LORD)	Potential		
 NUM	1	49	God		God (the LORD)	Implicit		
 NUM	1	50	God		God (the LORD)	Implicit		
@@ -5597,7 +5597,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	13	30	man reporting to David			Normal		
 2SA	13	32	Jonadab	shrewd		Normal		
 2SA	13	33	Jonadab	shrewd		Normal		
-2SA	13	34	watchman			Potential		
+2SA	13	34	watchman			Rare		
 2SA	13	35	Jonadab	shrewd		Normal		
 2SA	14	2	Joab			Normal		
 2SA	14	3	Joab			Normal		
@@ -7143,7 +7143,8 @@ NEH	2	17	Nehemiah			Normal
 NEH	2	18	Jews, the/priests/nobles and officials (Jewish)			Normal	nobles and officials (Jewish)	
 NEH	2	19	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab	mocking		Normal	Sanballat the Horonite	
 NEH	2	20	Nehemiah			Normal		
-NEH	4	1	Sanballat the Horonite	mocking	Sanballat	Potential		
+NEH	4	1	Sanballat the Horonite	mocking	Sanballat	Rare		
+NEH	4	1	report to Sanballat and Tobiah			Rare		
 NEH	4	2	Sanballat the Horonite	angry	Sanballat	Normal		
 NEH	4	3	Tobiah the Ammonite official	mocking	Tobiah the Ammonite	Normal		
 NEH	4	4	Nehemiah	praying		Potential		
@@ -19344,13 +19345,13 @@ ROM	10	18	scripture			Quotation	David
 ROM	10	19	scripture			Quotation	Moses	
 ROM	10	20	scripture			Quotation	Isaiah	
 ROM	10	21	scripture			Quotation	God	
-ROM	11	1	Paul			Potential		
+ROM	11	1	narrator-ROM			Quotation		
 ROM	11	3	scripture			Quotation	Elijah	
 ROM	11	4	scripture			Quotation	God	
 ROM	11	8	scripture			Quotation	Isaiah	
 ROM	11	9	scripture			Quotation	David	
 ROM	11	10	scripture			Quotation	David	
-ROM	11	11	Paul			Potential		
+ROM	11	11	narrator-ROM			Quotation		
 ROM	11	19	you (hypothetical Gentile)	smug		Hypothetical		
 ROM	11	26	scripture			Quotation	God	
 ROM	11	27	scripture			Quotation	God	
@@ -19390,7 +19391,7 @@ ROM	16	22	Tertius			Indirect
 1CO	6	13	narrator-1CO			Hypothetical		
 1CO	6	16	scripture			Quotation		
 1CO	6	18	scripture			Quotation		
-1CO	7	10	Paul			Potential		
+1CO	7	10	narrator-1CO			Potential		
 1CO	8	1	narrator-1CO			Hypothetical		
 1CO	8	5	narrator-1CO			Quotation		
 1CO	9	9	scripture			Quotation	Moses	
@@ -19465,7 +19466,7 @@ GAL	3	12	scripture			Quotation	God
 GAL	3	13	scripture			Quotation	Moses	
 GAL	3	16	narrator-GAL		God does not say (narrator)	Hypothetical		
 GAL	3	16	scripture		scripture (God)	Quotation	God	
-GAL	3	17	God		God (the LORD)	Potential		
+GAL	3	17	God		God (the LORD)	Rare		
 GAL	3	22	scripture			Indirect		
 GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	Quotation		
 GAL	4	8	narrator-GAL			Quotation		
@@ -19476,7 +19477,7 @@ GAL	5	3	narrator-GAL			Quotation
 GAL	5	9	saying about yeast			Quotation		
 GAL	5	14	scripture			Quotation	God	
 GAL	6	12	Judaizers			Indirect		
-EPH	1	7	God		God (the LORD)	Potential		
+EPH	1	7	God		God (the LORD)	Rare		
 EPH	2	11	narrator-EPH			Quotation		
 EPH	4	8	scripture			Quotation	David	
 EPH	4	9	narrator-EPH			Quotation		
@@ -19486,13 +19487,13 @@ EPH	5	31	scripture			Quotation
 EPH	6	2	scripture			Quotation	God	
 EPH	6	3	scripture			Quotation	God	
 PHP	2	11	everyone			Hypothetical		
-PHP	4	4	Paul			Potential		
+PHP	4	4	narrator-PHP			Potential		
 COL	2	18	narrator-COL			Quotation		
 COL	2	21	rules of the world			Hypothetical		
 COL	4	17	narrator-COL			Quotation		
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Hypothetical		
-1TH	5	27	Paul			Potential		
+1TH	5	27	narrator-1TH			Potential		
 2TH	2	4	man of lawlessness			Indirect		
 2TH	3	10	rule given by Paul			Quotation		
 1TI	1	15	narrator-1TI			Quotation		
