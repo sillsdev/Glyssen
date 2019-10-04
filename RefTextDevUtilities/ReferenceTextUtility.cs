@@ -117,6 +117,7 @@ namespace Glyssen.RefTextDevUtilities
 			public string ChapterTwoInfoFromXls { get; set; }
 			public string BookTitle { get; set; }
 			public string ChapterLabel { get; set; }
+			public string PageHeader => ChapterLabel ?? BookTitle;
 		}
 
 		private class BookTitleAndChapterLabelInfo
@@ -447,7 +448,7 @@ namespace Glyssen.RefTextDevUtilities
 							if (prevBook != null)
 							{
 								isFirstBookInTestament = false;
-								newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks, existingEnglishRefBook.Versification) {PageHeader = currentTitleAndChapterLabelInfo.ChapterLabel });
+								newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks, existingEnglishRefBook.Versification) {PageHeader = currentTitleAndChapterLabelInfo.PageHeader });
 								newBlocks.Clear();
 							}
 
@@ -730,7 +731,7 @@ namespace Glyssen.RefTextDevUtilities
 
 					if (mode == Mode.Generate || mode == Mode.GenerateEnglish)
 					{
-						newBooks.Add(new BookScript(newBlocks[0].BookCode, newBlocks, existingEnglishRefBook.Versification) {PageHeader = currentTitleAndChapterLabelInfo.ChapterLabel});
+						newBooks.Add(new BookScript(newBlocks[0].BookCode, newBlocks, existingEnglishRefBook.Versification) {PageHeader = currentTitleAndChapterLabelInfo.PageHeader });
 
 						foreach (var bookScript in newBooks)
 						{

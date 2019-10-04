@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="3JN" singlevoice="false">
+<book id="3JN" singlevoice="false" pageheader="3-e Иоанна">
   <block style="mt" chapter="0" book="3JN" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" book="3JN" initialStartVerse="0" characterId="BC-3JN">
       <text>3 JOHN</text>

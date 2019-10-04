@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="JUD" singlevoice="false">
+<book id="JUD" singlevoice="false" pageheader="Иуда">
   <block style="mt" chapter="0" book="JUD" initialStartVerse="0" characterId="BC-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" book="JUD" initialStartVerse="0" characterId="BC-JUD">
       <text>JUDE</text>
