@@ -1,4 +1,4 @@
-Control File Version	145
+Control File Version	146
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -16054,11 +16054,14 @@ MAT	20	26	Jesus			Normal
 MAT	20	27	Jesus			Normal		
 MAT	20	28	Jesus			Normal		
 MAT	20	30	crowd at Jericho			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
-MAT	20	30	blind men, two	shouting		Dialogue	Bartimaeus (a blind man)	MAT 20.30;MRK 10.47;LUK 18.38
+# Although the Matthew accout says "two blind men" the paralels to the accounts in Mark and Luke
+# suggest that it was Bartimaeus and a companion, so for consitency, we'll use Bartimaeus as the
+# character here.
+MAT	20	30	Bartimaeus (a blind man)	shouting	two blind men	Dialogue		MAT 20.30;MRK 10.47;LUK 18.38
 MAT	20	31	crowd, many in the	rebuking	crowd at Jericho	Indirect		MAT 20.31;MRK 10.48;LUK 18.39
-MAT	20	31	blind men, two	shouting		Dialogue	Bartimaeus (a blind man)	MAT 20.31;MRK 10.48;LUK 18.39
+MAT	20	31	Bartimaeus (a blind man)	shouting	two blind men	Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
 MAT	20	32	Jesus			Dialogue		
-MAT	20	33	blind men, two	begging		Dialogue	Bartimaeus (a blind man)	MAT 20.33;MRK 10.51;LUK 18.41
+MAT	20	33	Bartimaeus (a blind man)	begging	two blind men	Dialogue		MAT 20.33;MRK 10.51;LUK 18.41
 MAT	21	2	Jesus			Normal		
 MAT	21	3	Jesus			Normal		
 MAT	21	5	scripture			Quotation	Zechariah the prophet, son of Berechiah	MAT 21:5; JHN 12:15
@@ -16370,7 +16373,7 @@ MAT	27	47	bystanders at Calvary, some	misunderstanding	some of the bystanders	Di
 MAT	27	49	bystanders at Calvary, the rest	jeering	the rest	Dialogue		
 MAT	27	50	Jesus	crying		Indirect		
 MAT	27	54	centurion at crucifixion	amazed		Dialogue		
-MAT	27	58	Joseph of Arimathea			Indirect		
+MAT	27	58	Joseph of Arimathaea			Indirect		
 MAT	27	58	Pilate			Indirect		
 MAT	27	63	chief priests/Pharisees	negotiating		Dialogue		
 MAT	27	64	chief priests/Pharisees	negotiating		Dialogue		
@@ -16912,7 +16915,7 @@ MRK	15	35	bystanders at Calvary, some	uneasy	some of the bystanders	Dialogue		MA
 MRK	15	36	man with sponge	jeering		Dialogue		
 MRK	15	37	Jesus	crying		Indirect		
 MRK	15	39	centurion at crucifixion	amazed		Dialogue		
-MRK	15	43	Joseph of Arimathea			Indirect		
+MRK	15	43	Joseph of Arimathaea			Indirect		
 MRK	15	44	Pilate			Indirect		
 MRK	15	45	centurion summoned by Pilate			Indirect		
 MRK	15	45	Pilate			Indirect		
@@ -17188,7 +17191,7 @@ LUK	8	28	demons (Legion)/man delivered from Legion of demons		demon-possessed ma
 LUK	8	29	Jesus			Indirect		MRK 5.8; LUK 8.29
 LUK	8	30	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	30	Jesus	questioning		Dialogue		
-LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion) man	Indirect		
+LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion)	Indirect		
 LUK	8	32	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	32	Jesus			Indirect		
 LUK	8	34	herdsmen of pigs			Indirect		
@@ -17614,7 +17617,7 @@ LUK	18	43	Bartimaeus (a blind man)	praising		Indirect
 LUK	18	43	people	praising		Indirect		
 LUK	19	5	Jesus	giving orders		Dialogue		
 LUK	19	7	people in Jericho, all the	complaining		Normal		
-LUK	19	8	Zaccheaus			Dialogue		
+LUK	19	8	Zacchaeus			Dialogue		
 LUK	19	9	Jesus			Dialogue		
 LUK	19	10	Jesus			Normal		
 LUK	19	11	crowd at Jericho			Indirect		
@@ -17816,7 +17819,7 @@ LUK	23	42	criminal on cross, repentant	repentant		Dialogue
 LUK	23	43	Jesus			Dialogue		
 LUK	23	46	Jesus			Dialogue		
 LUK	23	47	centurion at crucifixion	amazed		Dialogue		
-LUK	23	52	Joseph of Arimathea			Indirect		
+LUK	23	52	Joseph of Arimathaea			Indirect		
 LUK	24	4	Mary Magdalene/Mary mother of James/Salome			Indirect	Mary Magdalene	
 LUK	24	5	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		
 LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
@@ -17830,9 +17833,9 @@ LUK	24	19	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his compan
 LUK	24	19	Jesus			Dialogue		
 LUK	24	20	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
 LUK	24	21	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
-LUK	24	22	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
-LUK	24	23	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
-LUK	24	24	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
+LUK	24	22	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
+LUK	24	23	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
+LUK	24	24	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
 LUK	24	25	Jesus			Dialogue		
 LUK	24	26	Jesus			Normal		
 LUK	24	29	Cleopas/Cleopas' companion (on road to Emmaus)	urging	Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas	
@@ -18524,7 +18527,7 @@ JHN	19	28	Jesus	deeply distressed		Dialogue
 JHN	19	30	Jesus			Dialogue		
 JHN	19	36	scripture			Quotation	David	
 JHN	19	37	scripture			Quotation	God	
-JHN	19	38	Joseph of Arimathea			Indirect		
+JHN	19	38	Joseph of Arimathaea			Indirect		
 JHN	20	2	Mary Magdalene			Dialogue		
 JHN	20	13	angels in white, two			Dialogue		
 JHN	20	13	Mary Magdalene			Dialogue		
