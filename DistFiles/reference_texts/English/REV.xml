@@ -34,14 +34,14 @@
     <verse num="7" />
     <text>Behold, he is coming with the clouds, and every eye will see him, including those who pierced him. All the tribes of the earth will mourn over him. Even so, Amen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus">
     <verse num="8" />
     <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
     <text>says the Lord God,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus">
     <text>“who is and who was and who is to come, the Almighty.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV">
@@ -1340,7 +1340,7 @@
     <verse num="17" />
     <text>The seventh poured out his bowl into the air. A loud voice came forth out of the temple of heaven, from the throne, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="God">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="voice from throne">
     <text>“It is done!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-REV">
@@ -1546,7 +1546,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="weeping">
     <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="narrator-REV">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors">
     <verse num="20" />
     <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
   </block>

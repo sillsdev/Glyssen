@@ -1648,7 +1648,7 @@
     <verse num="13" />
     <text>A voice came to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Holy Spirit, the">
     <text>“Rise, Peter, kill and eat!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ACT">
@@ -1662,7 +1662,7 @@
     <verse num="15" />
     <text>A voice came to him again the second time,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Holy Spirit, the">
     <text>“What God has cleansed, you must not call unclean.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ACT">

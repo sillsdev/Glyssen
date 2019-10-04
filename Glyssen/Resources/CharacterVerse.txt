@@ -19396,8 +19396,12 @@ ROM	16	22	Tertius			Potential
 1CO	10	23	narrator-1CO			Hypothetical		
 1CO	10	26	scripture			Quotation	David	
 1CO	10	28	anyone			Hypothetical		
-# Some manuscripts have the quote from Psalm 24 inluded in v. 28 as well.
+# Some manuscripts have the quote from Psalm 24:1 repeated in v. 28 (in addition to v. 26)
+# Including a "Needs Review" option to avoid automatically assigning the hypothetical quote
+# as scripture (since the parser ignores hypotheticals that are not pulled out as separate
+# blocks in the reference text)
 1CO	10	28	scripture			Potential	David	
+1CO	10	28	Needs Review			Potential		
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
 1CO	12	3	narrator-1CO			Hypothetical		
@@ -19506,6 +19510,11 @@ COL	4	17	narrator-COL			Quotation
 2TI	2	18	men who have gone astray			Indirect		
 2TI	2	19	narrator-2TI			Quotation		
 2TI	2	19	scripture			Quotation		
+# Speaker of the target language may need to review whether it is acceptable to
+# combine the two quotes into one "scripture" block. For languages with a single "and"
+# joining them, this will probably sound fine, but for languages that have a longer
+# clause introducing the second quote, this might not work.
+2TI	2	19	Needs Review			Potential		
 TIT	1	12	Cretan prophet			Quotation		
 TIT	2	12	narrator-TIT			Quotation		
 HEB	1	5	scripture			Quotation	God	
@@ -19644,6 +19653,7 @@ JUD	1	18	apostles			Normal
 REV	1	7	narrator-REV			Quotation		
 REV	1	8	God		God (the Lord)	Alternate		
 REV	1	8	Jesus		Jesus (the Lord)	Normal		
+REV	1	8	Needs Review			Normal		
 REV	1	11	Jesus		voice like a trumpet	Normal		
 REV	1	13	narrator-REV			Quotation		
 REV	1	17	Jesus		someone like a son of man	Normal		

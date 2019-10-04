@@ -499,34 +499,31 @@ namespace Glyssen.RefTextDevUtilities
 							WriteOutput($"Invalid verse number in {currBookId}: {referenceTextRow.Verse}", true);
 
 						Block existingEnglishRefBlock = null;
-						if (mode != Mode.GenerateEnglish)
+						var blocks = existingEnglishRefBook.GetScriptBlocks();
+						if (blocks.Count <= iBlockInExistingEnglishRefBook)
 						{
-							var blocks = existingEnglishRefBook.GetScriptBlocks();
-							if (blocks.Count <= iBlockInExistingEnglishRefBook)
+							if (mode == Mode.Generate && !languageInfo.IsEnglish)
 							{
-								if (mode == Mode.Generate && !languageInfo.IsEnglish)
-								{
-									WriteOutput($"Went past end of existing English reference blocks. Skipping {referenceTextRow}");
-									continue;
-								}
-
-								existingEnglishRefBlock = null;
+								WriteOutput($"Went past end of existing English reference blocks. Skipping {referenceTextRow}");
+								continue;
 							}
-							else
-							{
+
+							existingEnglishRefBlock = null;
+						}
+						else
+						{
+							existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
+							// We theoretically need to check to make sure we don't go out of range, but in
+							// practice, a book should never end with an extrabiblical block.
+							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
 								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
-								// We theoretically need to check to make sure we don't go out of range, but in
-								// practice, a book should never end with an extrabiblical block.
-								while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
-									existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
 
-								// When generating a new English reference text, blocks can be inserted or removed, so we don't
-								// necessarily expect it to align verse-by-verse to the old version. However, we want to try
-								// to be as in-sync as possible (and get back in sync as soon as possible) so the
-								// comparison logic has a shot at working.
-								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
-									ref existingEnglishRefBlock, blocks, "English", ref iBlockInExistingEnglishRefBook);
-							}
+							// When generating a new English reference text, blocks can be inserted or removed, so we don't
+							// necessarily expect it to align verse-by-verse to the old version. However, we want to try
+							// to be as in-sync as possible (and get back in sync as soon as possible) so the
+							// comparison logic has a shot at working.
+							EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
+								ref existingEnglishRefBlock, blocks, "English", ref iBlockInExistingEnglishRefBook);
 						}
 
 						if (mode == Mode.CreateCharacterMapping)
