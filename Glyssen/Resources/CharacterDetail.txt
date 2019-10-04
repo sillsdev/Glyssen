@@ -174,7 +174,7 @@ captain, second	1	Male	Adult			2KI 1:11
 captain, third	1	Male	Adult			2KI 1:13 & 2KI 1:14
 captors, our	-1		Adult			PSA 137:3
 centurion at crucifixion	1	Male	Adult			MAT 27:54 <-(1 more)-> LUK 23:47
-centurion at Paul's flogging	1	Male	Adult			ACT 22:26
+centurion at Paul's flogging	1	Male	Adult			ACT 22:26	Centurion
 centurion on ship with Paul	1	Male	Adult			ACT 27:43
 centurion summoned by Pilate	1	Male	Adult			MRK 15:45	Officer
 centurion with great faith	1	Male	Adult			MAT 8:6 <-(4 more)-> LUK 7:8	Officer
@@ -367,7 +367,7 @@ Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37
 Gad the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12
 Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(2 more)-> LUK 8:37
 Gadites	-1	Male				NUM 32:3 <-(21 more)-> JOS 22:29
-Gallio, proconsul of Achaia	1	Male				ACT 18:14 & ACT 18:15
+Gallio, proconsul of Achaia	1	Male				ACT 18:14 & ACT 18:15	Governor
 Gamaliel	1	Male				ACT 5:34 <-(4 more)-> ACT 5:39
 Gaza, people of (wicked)	-1					JDG 16:2	Philistine
 Gedaliah, governor of Judah	1	Male			son of Ahikam, son of Shaphan	2KI 25:24 <-(2 more)-> JER 40:16
@@ -527,7 +527,7 @@ Jews, God-fearing from every nation	-1					ACT 2:7 <-(4 more)-> ACT 2:12
 Jews, God-fearing from every nation, some	-1					ACT 2:13
 Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22
 Jews, many	-1					JHN 10:20
-Jews, more than forty in conspiracy	-1	Male				ACT 23:12 <-(1 more)-> ACT 23:15
+Jews, more than forty in conspiracy	-1	Male				ACT 23:12 <-(1 more)-> ACT 23:15	Assassin
 Jews, other	-1					JHN 10:21
 Jews, the	-1	Male				EZR 5:4 <-(43 more)-> ROM 3:5
 Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31
@@ -567,7 +567,7 @@ Judah, people of	-1					JER 5:12 <-(4 more)-> HAG 1:2
 Judah, remnant of	-1					JER 42:13 <-(1 more)-> JER 42:20
 Judaizers	-1	Male				GAL 6:12
 Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5
-Judas, apostle (not Judas Iscariot)	1	Male				JHN 14:22
+Judas, apostle (not Judas Iscariot)	1	Male				JHN 14:22	Judas (not Iscariot)
 judge (corrupt)	1	Male				PRO 24:24 & MIC 7:3
 King Herod Agrippa II	1	Male				ACT 12:19 <-(4 more)-> ACT 26:32	King Agrippa
 King Lemuel	1	Male				PRO 31:2 <-(28 more)-> PRO 31:31
@@ -790,7 +790,7 @@ officials from chief priests and Pharisees	-1	Male				JHN 18:5 & JHN 18:7
 officials of Belshazzar	-1	Male				DAN 5:4
 officials of Ben-Hadad, king of Aram	-1	Male				1KI 20:23 <-(4 more)-> 1KI 20:33
 officials of David	-1	Male				2SA 15:15
-officials of high priest, one of the	1	Male				JHN 18:22
+officials of high priest, one of the	1	Male				JHN 18:22	Officer
 officials of Samaria	-1	Male				2KI 10:4 & 2KI 10:5	Elder in Samaria
 officials of Succoth	-1	Male				JDG 8:6	Prince of Succoth
 officials of Trans-Euphrates	-1	Male				EZR 5:3 <-(11 more)-> EZR 5:17
@@ -1054,7 +1054,7 @@ sign on the cross	1	PreferMale				MAT 27:37 <-(2 more)-> JHN 19:19
 Silas	1	Male				ACT 15:34
 Simeon	1	Male				GEN 34:14 <-(3 more)-> GEN 34:31
 Simeon, devout man in Jerusalem	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35	Simeon (Old)
-Simon, sorcerer	1	Male				ACT 8:9 <-(1 more)-> ACT 8:24
+Simon, sorcerer	1	Male				ACT 8:9 <-(1 more)-> ACT 8:24	Sorcerer (Simon)
 singers	-1	Male				1CH 16:41
 singers from the ends of the earth	-1					ISA 24:16
 singers in Judah	-1					ISA 26:1 <-(19 more)-> ISA 26:21
@@ -1080,7 +1080,7 @@ someone hiding	1	Male				AMO 6:10
 someone in crowd	1	Male				LUK 12:13
 someone in Jerusalem	1					ISA 22:13
 son (child) in Israel (hypothetical)	1	Male	Child			DEU 6:20
-son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21
+son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21	Child (Nephew)
 son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11 & LEV 24:23
 son of Shunammite	1	Male	Child			2KI 4:19	Boy
 son of widow	1	Male				2KI 4:6

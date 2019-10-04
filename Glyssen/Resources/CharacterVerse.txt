@@ -18663,7 +18663,7 @@ ACT	4	16	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, 
 ACT	4	17	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Normal	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	18	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Indirect	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	19	Peter (Simon)/John			Dialogue	Peter (Simon)	
-ACT	4	20	Peter (Simon)/John			Normal	John	
+ACT	4	20	Peter (Simon)/John			Normal	Peter (Simon)	
 ACT	4	23	Peter (Simon)/John			Indirect	Peter (Simon)	
 ACT	4	24	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	25	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
@@ -19225,7 +19225,7 @@ ACT	26	26	Paul			Normal
 ACT	26	27	Paul			Normal		
 ACT	26	28	King Herod Agrippa II			Dialogue		
 ACT	26	29	Paul			Dialogue		
-ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/Festus/Bernice/those sitting with them	Dialogue	Bernice	
+ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/Festus/Bernice/those sitting with them	Dialogue		
 ACT	26	32	King Herod Agrippa II			Dialogue		
 ACT	27	1	narrator-ACT			Quotation		
 ACT	27	10	Paul	warning		Normal		
