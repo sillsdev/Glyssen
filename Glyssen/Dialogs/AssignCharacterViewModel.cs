@@ -501,7 +501,8 @@ namespace Glyssen.Dialogs
 					AddRecordsToProjectCharacterVerseData(block,
 						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
 						string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
-							GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery), verses);
+							GetDeliveriesForCurrentReferenceTextMatchup().FirstOrDefault(d => d.Text == block.Delivery) ??
+							new Delivery(block.Delivery, true), verses);
 				}
 			}
 
