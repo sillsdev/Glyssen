@@ -16404,6 +16404,7 @@ MAT	27	39	passers by	mocking		Potential
 MAT	27	40	passers by	mocking		Dialogue		
 MAT	27	42	chief priests/teachers of religious law/elders	sneering		Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
 MAT	27	43	chief priests/teachers of religious law/elders	sneering		Dialogue		
+MAT	27	44	criminal on cross, insulting		the robbers who were crucified with Jesus	Potential		MAT 27.44;LUK 23.39
 MAT	27	46	Jesus	deeply distressed		Normal		
 MAT	27	46	narrator-MAT			Quotation		
 MAT	27	47	bystanders at Calvary, some	misunderstanding	some of the bystanders	Dialogue		MAT 27.47;MRK 15.35
@@ -17881,7 +17882,7 @@ LUK	23	34	Jesus			Normal
 LUK	23	35	chief priests/teachers of religious law/elders	sneering	rulers	Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
 LUK	23	37	soldier at the cross			Dialogue		
 LUK	23	38	sign on the cross			Quotation		
-LUK	23	39	criminal on cross, insulting	insulting		Dialogue		
+LUK	23	39	criminal on cross, insulting	insulting		Dialogue		MAT 27.44;LUK 23.39
 LUK	23	40	criminal on cross, repentant	rebuking		Dialogue		
 LUK	23	41	criminal on cross, repentant	rebuking		Normal		
 LUK	23	42	criminal on cross, repentant	repentant		Dialogue		

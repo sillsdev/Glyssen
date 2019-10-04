@@ -207,7 +207,7 @@ council of elders	-1	Male	Elder			LUK 22:67 <-(3 more)-> ACT 5:40
 craftsman	1	Male	Adult			EXO 36:5 <-(4 more)-> ISA 44:20
 craftsmen and workmen	-1	Male	Adult			ACT 19:28 <-(1 more)-> ACT 19:34
 Cretan prophet	1	Male				TIT 1:12
-criminal on cross, insulting	1	Male	Adult			LUK 23:39
+criminal on cross, insulting	1	Male	Adult			MAT 27:44 & LUK 23:39
 criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
 crippled man	1	Male	Adult			ACT 3:3 & ACT 3:5
 crowd	-1		Adult			MAT 7:28 <-(20 more)-> ACT 21:36
