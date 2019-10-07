@@ -1,4 +1,4 @@
-Control File Version	141
+Control File Version	142
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -13262,8 +13262,8 @@ MAT	11	25	Jesus	praying		Normal
 MAT	11	26	Jesus	praying		Normal		
 MAT	11	27	Jesus			Normal		
 MAT	11	28	Jesus	compassionately		Normal		
-MAT	11	29	Jesus			Normal		
-MAT	11	30	Jesus			Normal		
+MAT	11	29	Jesus	compassionately		Normal		
+MAT	11	30	Jesus	compassionately		Normal		
 MAT	12	2	Pharisees, some	angry		Dialogue		
 MAT	12	3	Jesus			Normal		
 MAT	12	4	Jesus			Normal		
