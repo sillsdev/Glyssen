@@ -15765,8 +15765,8 @@ MAT	11	25	Jesus	praying		Normal
 MAT	11	26	Jesus	praying		Normal		
 MAT	11	27	Jesus			Normal		
 MAT	11	28	Jesus	compassionately		Normal		
-MAT	11	29	Jesus			Normal		
-MAT	11	30	Jesus			Normal		
+MAT	11	29	Jesus	compassionately		Normal		
+MAT	11	30	Jesus	compassionately		Normal		
 MAT	12	2	Pharisees, some	angry		Dialogue		
 MAT	12	3	Jesus			Normal		
 MAT	12	4	Jesus			Normal		
