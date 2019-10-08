@@ -83,8 +83,7 @@ answer from Israel	1		Adult			ISA 14:32
 anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11
 anyone with complaint for king	1		Adult			2SA 15:2
 Apollos	1	Male	Adult			ACT 18:28
-apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(8 more)-> JUD 1:18
-apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 4:24 <-(6 more)-> ACT 15:22
+apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 4:24 <-(7 more)-> ACT 15:22
 Aramean soldiers	-1	Male	Adult			2KI 7:6	Syrians
 Araunah, the Jebusite	1	Male	Adult			2SA 24:21 <-(2 more)-> 1CH 21:23
 Arioch	1	Male	Adult			DAN 2:25
@@ -114,7 +113,7 @@ Babylon (personified as adulteress)	1	Female	Adult			ISA 47:7 <-(2 more)-> REV 1
 Balaam	1	Male	Adult			NUM 22:8 <-(46 more)-> NUM 24:24
 Balak	1	Male	Adult			NUM 22:5 <-(8 more)-> NUM 24:11
 Barak	1	Male	Adult			JDG 4:8 <-(29 more)-> JDG 5:31
-Barnabas	1	Male	Adult			ACT 9:27 <-(10 more)-> ACT 15:37
+Barnabas	1	Male	Adult			ACT 9:27 <-(16 more)-> ACT 15:37
 Bartimaeus (a blind man)	1	Male	Adult			MRK 10:46 <-(8 more)-> LUK 18:43
 Baruch	1	Male	Adult			JER 36:18
 Barzillai	1	Male	Adult		Gileadite	2SA 17:29
@@ -149,8 +148,8 @@ Book of the Wars of the LORD	1	PreferMale	Adult			NUM 21:14 & NUM 21:15
 boys	-1	Male	Child			2KI 2:23
 bride, the (referring to the Church)	-1	PreferFemale	Adult			REV 22:17
 brother-in-law of widow	1	Male	Adult			DEU 25:8
-brothers at Antioch	-1	Male	Adult			ACT 15:33 & ACT 15:40
-brothers at Ephesus	-1	Male	Adult			ACT 18:27
+brothers at Antioch	-1	Male	Adult			ACT 15:2 <-(2 more)-> ACT 15:40
+brothers at Ephesus	-1	Male	Adult			ACT 18:27 & ACT 19:30
 brothers at Lystra and Iconium	-1	Male	Adult			ACT 16:2
 brothers at Puteoli	-1	Male	Adult			ACT 28:14
 brothers at Rome	-1	Male	Adult			ACT 28:15
@@ -168,7 +167,7 @@ Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <
 Canaanites	-1		Adult			GEN 50:11
 captain of ship to Italy (Rome)	1	Male	Adult			ACT 27:12 <-(1 more)-> ACT 27:39
 captain of ship to Tarshish	1	Male	Adult			JON 1:6 <-(4 more)-> JON 1:14	Captain
-captain of the temple guard	1	Male	Adult			ACT 4:1 & ACT 5:24
+captain of the temple guard	1	Male	Adult			ACT 4:1 <-(1 more)-> ACT 5:26
 captain, first	1	Male	Adult			2KI 1:9
 captain, second	1	Male	Adult			2KI 1:11
 captain, third	1	Male	Adult			2KI 1:13 & 2KI 1:14
@@ -183,7 +182,7 @@ chariot commanders of Aram	-1	Male	Adult			1KI 22:32 & 2CH 18:31	Commander
 chief baker of Egypt	1	Male	Adult			GEN 40:8 <-(1 more)-> GEN 40:17	Chief Baker
 chief cupbearer of Egypt	1	Male	Adult			GEN 40:8 <-(7 more)-> GEN 41:13	Cupbearer
 chief official	1	Male				DAN 1:10	Official
-chief priests	-1	Male				2KI 19:3 <-(68 more)-> ACT 25:7
+chief priests	-1	Male				2KI 19:3 <-(70 more)-> ACT 25:7
 chiefs of 10 tribes	10	Male			not Reuben, Gad, half tribe of Manasseh	JOS 22:16 <-(4 more)-> JOS 22:32
 children	-1		Child			MAT 21:15
 children of excellent wife	-1		Child			PRO 31:28
@@ -210,7 +209,7 @@ Cretan prophet	1	Male				TIT 1:12
 criminal on cross, insulting	1	Male	Adult			MAT 27:44 & LUK 23:39
 criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
 crippled man	1	Male	Adult			ACT 3:3 & ACT 3:5
-crowd	-1		Adult			MAT 7:28 <-(21 more)-> ACT 21:36
+crowd	-1		Adult			MAT 7:28 <-(25 more)-> ACT 21:36
 crowd after mute healed	-1		Adult			MAT 9:33 & LUK 11:14
 crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31
 crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN 7:41
@@ -223,7 +222,7 @@ crowd in Jerusalem	-1		Adult			ACT 22:22 & ACT 22:24
 crowd in Jerusalem on Pentecost	-1		Adult			ACT 2:37
 crowd in Lystra	-1		Adult			ACT 14:11
 crowd near sea of Galilee	-1		Adult			MAT 15:31
-crowd preparing for Passover Feast	-1		Adult			MAT 21:9 <-(5 more)-> JHN 12:34
+crowd preparing for Passover Feast	-1		Adult			MAT 21:9 <-(6 more)-> JHN 12:37
 crowd preparing for Passover Feast, others	-1		Adult			JHN 12:29
 crowd, large (witnessed healing of widow's son)	-1		Adult			LUK 7:16
 crowd, many in the	-1		Adult			MAT 20:31 <-(2 more)-> LUK 18:39
@@ -236,6 +235,7 @@ Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25
 Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(15 more)-> DAN 6:27
 Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
 daughter of Zion	1	Female				JER 4:31 <-(17 more)-> LAM 2:22
+daughters of Philip the evangelist	4	Female				ACT 20:12
 daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	Daughter of Zelophehad (female)
 David	1	Male	Adult			1SA 17:26 <-(400 more)-> PRO 4:9
 David (old)	1	Male	Elder			1KI 1:16 <-(14 more)-> 1KI 2:9
@@ -249,12 +249,12 @@ Demetrius the silversmith	1	Male				ACT 19:25 <-(1 more)-> ACT 19:27
 demons (Legion)	-1	Male				MAT 8:29 <-(9 more)-> LUK 8:32
 demons coming out of people	-1					LUK 4:41
 disciple who wanted to bury his father	1	Male				MAT 8:21 & LUK 9:59
-disciples	11	Male				MAT 8:25 <-(86 more)-> ACT 21:4
+disciples	11	Male			Not Judas Iscariot (after Acts 1:23, this could include Matthias)	MAT 8:25 <-(105 more)-> JUD 1:18
 disciples (but not Thomas)	10	Male				JHN 20:25
 disciples in Ephesus, some	-1					ACT 19:2 & ACT 19:3
 disciples of John the Baptist	-1	Male				MAT 9:14 <-(6 more)-> JHN 3:26
 disciples, some	-1					LUK 21:5
-disciples, two men (from Joppa)	2	Male				ACT 9:38
+disciples, two men (from Joppa)	2	Male				ACT 9:38 & ACT 9:39
 Doeg the Edomite	1	Male				1SA 22:9 <-(1 more)-> PSA 52:0
 donkey (female)	1	Female				NUM 22:28 & NUM 22:30
 dream	1	Male				MAT 2:12 & MAT 2:22
@@ -347,7 +347,7 @@ father of concubine	1	Male				JDG 19:5 <-(2 more)-> JDG 19:9	Father in Law
 father of cured man, blind from birth	1	Male				
 father of demon-possessed boy	1	Male				MAT 17:15 <-(8 more)-> LUK 9:40
 father of false prophet	1	Male				ZEC 13:3
-Felix, governor of Judea	1	Male				ACT 23:34 <-(3 more)-> ACT 24:25
+Felix, governor of Judea	1	Male				ACT 23:34 <-(6 more)-> ACT 24:27
 Festus, governor of Judea	1	Male				ACT 25:4 <-(19 more)-> ACT 26:31
 figure like that of a man (in vision)	1	Male			Default character should be Jesus	EZK 8:5 <-(8 more)-> EZK 9:1
 flatterers	-1					PSA 12:4
@@ -391,8 +391,8 @@ Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
 great company of heavenly host	-1		Adult			LUK 2:14
-Grecian Jews	-1	Either				ACT 6:1
-Greeks	-1	Male				JHN 12:21
+Grecian Jews	-1	Either				ACT 6:1 & ACT 6:5
+Greeks	-1	Male			Gr. Hellēn	JHN 12:21
 guards at high priests' house	-1	Male	Adult			LUK 22:64
 Habakkuk	1	Male				HAB 1:2 <-(39 more)-> HAB 3:19
 Hadad the Edomite	1	Male				1KI 11:21 & 1KI 11:22
@@ -412,6 +412,7 @@ Hazael of Aram	1	Male			Annointed King of Aram/Syria by Elijah; assasinated Ben 
 head	1	Neuter				1CO 12:21
 heads of all the families	-1	Male				NEH 8:15
 hearers	-1					ISA 28:9 & ISA 28:10
+Hellenists in Antioch	-1	Male			Gr. Hellēnistēs	ACT 11:21
 herald	1	Male				DAN 3:4 <-(2 more)-> NAM 1:15
 herdsman	1	Male				GEN 26:20
 herdsmen of pigs	-1	Male				MAT 8:33 <-(3 more)-> LUK 8:36
@@ -430,7 +431,7 @@ Hiram, king of Tyre	1	Male				1KI 5:7 <-(8 more)-> 2CH 2:16
 Hittites	-1	Male				GEN 23:6
 Hobab, Moses brother-in-law	1	Male				NUM 10:30
 holy one (in vision)	1	Male				DAN 4:14 <-(3 more)-> DAN 8:14
-Holy Spirit, the	1	Male		Y		EZK 3:24 <-(39 more)-> REV 22:17
+Holy Spirit, the	1	Male		Y		EZK 3:24 <-(41 more)-> REV 22:17
 horseman, first	1	Male				2KI 9:18
 horseman, second	1	Male				2KI 9:19
 horses (or their angelic riders) (in vision)	-1	PreferMale				ZEC 1:11
@@ -450,7 +451,7 @@ inhabitants of Egyptian and Ethiopian coastlands	-1	Male				ISA 20:6
 inhabitant of valley	-1	PreferMale				JER 21:13
 inscription on forehead of Babylon	1	PreferFemale				REV 17:5
 invaders	-1	Male				JER 6:4 & JER 6:5
-invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
+invalid for 38 years	1	Male				JHN 5:7 <-(2 more)-> JHN 5:15
 Irijah, captain of the guard of Judah	1	Male				JER 37:13
 Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20
 Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
@@ -514,16 +515,17 @@ Jeroboam	1	Male				1KI 12:4 <-(9 more)-> 2CH 10:4
 Jerusalem (personified)	1	Male				JER 51:34 & JER 51:35
 Jeshua	1	Male				EZR 4:3
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		JOS 5:14 <-(2134 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		JOS 5:14 <-(2141 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
 Jethro (Reuel), Moses' father-in-law	1	Male				EXO 2:18 <-(12 more)-> EXO 18:23
 Jewish leaders	-1	Male				ACT 25:3 & ACT 25:7
+Jewish leaders in Pisidian Antioch	-1	Male				ACT 13:45 & ACT 13:50
 Jews from Asia	-1					ACT 21:28
-Jews of Berea	-1				noble	ACT 17:11
+Jews of Berea	-1				noble	ACT 17:11 & ACT 17:14
 Jews of Cyrene, Alexandria, Cilicia & Asia	-1					ACT 6:11
-Jews who had been with Mary and Martha	-1					JHN 11:31 & JHN 11:36
+Jews who had been with Mary and Martha	-1					JHN 11:31 <-(1 more)-> JHN 12:17
 Jews who had been with Mary and Martha, some	-1					JHN 11:37
 Jews who had believed Jesus	-1					JHN 8:33 <-(1 more)-> JHN 8:41
 Jews, God-fearing from every nation	-1					ACT 2:7 <-(4 more)-> ACT 2:12
@@ -532,7 +534,7 @@ Jews, leaders of the (in Rome)	-1	Male				ACT 28:21 & ACT 28:22
 Jews, many	-1					JHN 10:20
 Jews, more than forty in conspiracy	-1	Male				ACT 23:12 <-(1 more)-> ACT 23:15
 Jews, other	-1					JHN 10:21
-Jews, the	-1	Male				EZR 5:4 <-(43 more)-> ROM 3:5
+Jews, the	-1	Male				EZR 5:4 <-(46 more)-> ROM 3:5
 Jezebel	1	Female				1KI 19:2 <-(5 more)-> 2KI 9:31
 Joab	1	Male				2SA 2:14 <-(34 more)-> 1CH 21:3
 Joab's men, one of	1	Male				2SA 20:11
@@ -543,7 +545,7 @@ Job	1	Male				JOB 1:5 <-(509 more)-> JOB 42:6
 Job's wife	1	Female				JOB 2:9
 Joel	1	Male				JOL 3:9 <-(1 more)-> JOL 3:11
 Johanan	1	Male			son of Kareah	JER 40:14 <-(6 more)-> JER 43:3
-John	1	Male				MAT 17:10 <-(34 more)-> GAL 2:10
+John	1	Male				MAT 17:10 <-(35 more)-> GAL 2:10
 John the Baptist	1	Male				MAT 3:2 <-(47 more)-> JHN 3:36
 John, Alexander, and other men of the high priest's family	-1	Male				ACT 4:7 <-(4 more)-> ACT 4:18
 Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35
@@ -553,7 +555,7 @@ Jonathan, son of Abiathar	1	Male				2SA 17:21 <-(5 more)-> 1KI 1:48	Jonathan the
 Jonathan's armor bearer	1	Male				1SA 14:7	Armor-bearer
 Joram, king of Israel	1	Male				2KI 3:7 <-(16 more)-> 2KI 9:23
 Joseph	1	Male				GEN 37:6 <-(84 more)-> EXO 13:19
-Joseph of Arimathea	1	Male				MAT 27:58 <-(2 more)-> JHN 19:38
+Joseph of Arimathea	1	Male				MAT 27:58 <-(4 more)-> JHN 19:38
 Joseph, people of	1	Male				JOS 17:14 & JOS 17:16
 Joseph, the carpenter	1	Male			Jesus' earthly father	MAT 1:19 <-(1 more)-> LUK 2:44
 Joseph's brothers	11	Male			Different from Jacob's sons because it cannot be Joseph	GEN 37:8 <-(6 more)-> GEN 50:18
@@ -570,10 +572,11 @@ Judah, people in	-1					NEH 4:10
 Judah, people of	-1					JER 5:12 <-(4 more)-> HAG 1:2
 Judah, remnant of	-1					JER 42:13 <-(1 more)-> JER 42:20
 Judaizers	-1	Male				GAL 6:12
-Judas Iscariot	1	Male				MAT 26:15 <-(8 more)-> JHN 12:5
+Judas Iscariot	1	Male				MAT 26:15 <-(9 more)-> JHN 12:5
 Judas, apostle (not Judas Iscariot)	1	Male				JHN 14:22
 judge (corrupt)	1	Male				PRO 24:24 & MIC 7:3
-King Herod Agrippa II	1	Male				ACT 12:19 <-(4 more)-> ACT 26:32
+Julius	1	Male			centurian of the Augustan band	ACT 27:3
+King Herod Agrippa II	1	Male				ACT 12:4 <-(6 more)-> ACT 26:32
 King Lemuel	1	Male				PRO 31:2 <-(28 more)-> PRO 31:31
 King Lemuel's mother	1	Female				PRO 31:2 <-(28 more)-> PRO 31:31	Mother of King Lemuel (female)
 king	1	Male				PRO 25:7
@@ -594,7 +597,8 @@ Laban	1	Male				GEN 24:31 <-(29 more)-> GEN 31:53
 Laban's sons	-1	Male				GEN 31:1
 Lamech (descendent of Cain)	1	Male				GEN 4:23 & GEN 4:24
 Lamech (descendent of Seth)	1	Male				GEN 5:29
-leaders	-1	Male				EZR 9:1 <-(2 more)-> MIC 7:3
+leaders	-1	Male				EZR 9:1 <-(3 more)-> LUK 19:47
+leaders, many	-1	Male				JHN 12:42
 Leah	1	Female				GEN 29:32 <-(11 more)-> GEN 31:16
 leper	1	Male				MAT 8:2 <-(2 more)-> LUK 5:12
 leper, thankful Samaritan	1	Male				LUK 17:15 & LUK 17:16
@@ -654,11 +658,11 @@ man's voice from the Ulai (in vision)	1	Male				DAN 8:16
 many in crowd	-1					MRK 9:26
 many Samaritans	-1					JHN 4:40 & JHN 4:42
 Martha	1	Female				LUK 10:38 <-(8 more)-> JHN 11:39
-Mary Magdalene	1	Female				MRK 16:3 <-(9 more)-> JHN 20:18
+Mary Magdalene	1	Female				MRK 16:3 <-(10 more)-> JHN 20:18
 Mary mother of James	1	Female				MRK 16:3 <-(2 more)-> LUK 24:11
 Mary, Jesus' mother	1	Female				LUK 1:29 <-(18 more)-> JHN 2:5
 Mary, sister of Martha	1	Female				JHN 11:3 <-(1 more)-> JHN 11:34
-master of the banquet	1	Male				JHN 2:10
+master of the banquet	1	Male				JHN 2:9 & JHN 2:10
 Melchizedek, king of Salem (priest of God Most High)	1	Male				GEN 14:19 <-(1 more)-> HEB 7:1
 Memucan, noble advisor to Xerxes, king	1	Male				EST 1:16 <-(3 more)-> EST 1:20
 men	-1	Male				NEH 5:2 <-(2 more)-> LAM 4:15	Man
@@ -784,10 +788,10 @@ Oded, prophet of the Lord	1	Male				2CH 28:9 <-(1 more)-> 2CH 28:11
 officer of King Jehoshaphat of Israel	1	Male				2KI 3:11
 officer of King Joram of Israel	1	Male				2KI 7:13
 officer of king of Israel, on whose arm the king leaned	1	Male				2KI 7:2 & 2KI 7:19
-officers	-1	Male				DEU 20:5 <-(3 more)-> ACT 5:23
+officers	-1	Male				DEU 20:5 <-(4 more)-> ACT 5:26
 officers of king of Aram	-1	Male				2KI 6:12
 officers of king of Babylon	-1	Male				JER 39:14
-officers of magistrates	-1	Male				ACT 16:35
+officers of magistrates	-1	Male				ACT 16:35 & ACT 16:38
 officers of temple guard	-1	Male				LUK 22:5
 official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52
 officials	-1	Male				JER 26:16 <-(5 more)-> JHN 19:6
@@ -817,13 +821,13 @@ other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
 others (testing Jesus)	-1					LUK 11:16
 others who would not believe	-1	Male				ACT 28:24 & ACT 28:25
 owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33
-owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
+owners of fortune telling slave girl	-1	Male				ACT 16:19 <-(1 more)-> ACT 16:21
 parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(2 more)-> JHN 9:23
 parents of rebellious son	2	Either				DEU 21:20
 Pashur	1	Male			son of Malkijah	JER 21:2 <-(1 more)-> JER 38:25	Pashhur
 passers by	-1					LAM 2:15 <-(3 more)-> MRK 15:30
-Paul	1	Male				ACT 9:1 <-(192 more)-> 2CO 9:2
-Paul's traveling companions, Luke and	-1					ACT 21:14
+Paul	1	Male				ACT 9:1 <-(201 more)-> 2CO 9:2
+Paul's traveling companions, Luke and	-1					ACT 20:12 <-(1 more)-> ACT 21:14
 Pekah, son of Remaliah, king of Israel	-1	Male				ISA 7:6
 people	-1					2CH 26:23 <-(38 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
@@ -842,7 +846,7 @@ people of Decapolis	-1					MRK 7:32 <-(1 more)-> MRK 7:37
 people of Jerusalem	-1					JER 4:5 <-(6 more)-> MAT 21:10
 people of Jerusalem, some	-1					JHN 7:25 <-(1 more)-> JHN 7:27
 people of Samaria, all the	-1					ACT 8:10
-people of Tyre and Sidon	-1					ACT 12:22
+people of Tyre and Sidon	-1					ACT 12:20 & ACT 12:22
 people praying at John Mark's mother's house	-1					ACT 12:15
 people who had known Saul	-1					1SA 10:11
 people who heard about Jesus' birth	-1					LUK 2:18
@@ -884,7 +888,7 @@ person who told Saul where David was	1	Male				1SA 24:1
 person who told Shimei where his servants were	1	Male				1KI 2:39
 person who told the guards and priests where the apostles were	1	Male				ACT 5:25
 person without the gift of tongues	1					1CO 14:16
-Peter (Simon)	1	Male				MAT 14:28 <-(183 more)-> GAL 2:10
+Peter (Simon)	1	Male				MAT 14:28 <-(187 more)-> GAL 2:10
 Pharaoh (1st)	1	Male				GEN 12:18 & GEN 12:19
 Pharaoh (2nd)	1	Male				GEN 41:15 <-(22 more)-> GEN 50:6
 Pharaoh (2nd)'s men	-1	Male				GEN 41:43
@@ -900,14 +904,14 @@ Pharisees, other	-1	Male				LUK 11:37 <-(1 more)-> JHN 9:16
 Pharisees, some	-1	Male				MAT 12:2 <-(8 more)-> JHN 9:40
 Phicol	1	Male				GEN 21:22 & GEN 21:23
 Philip the apostle	1	Male				MRK 6:37 <-(3 more)-> JHN 14:8
-Philip the evangelist	1	Male				ACT 8:30 <-(2 more)-> ACT 8:40
+Philip the evangelist	1	Male				ACT 8:5 <-(4 more)-> ACT 20:12
 Philistine commanders	-1	Male				1SA 29:3 <-(1 more)-> 1SA 29:5	Commander
 Philistine priests and fortune tellers	-1	Male				1SA 6:3 <-(5 more)-> 1SA 6:9
 Philistine rulers	-1	Male				JDG 16:5 <-(2 more)-> 1CH 12:19
 Philistines	-1	Male				JDG 15:6 <-(11 more)-> 1SA 14:12
 Phineas the priest	1	Male				JOS 22:16 <-(5 more)-> JOS 22:32	Phinehas
 Phineas' wife (daughter-in-law of Eli)	1	Female				1SA 4:21 & 1SA 4:22	Mother of Ichabod (female)
-Pilate	1	Male				MAT 27:11 <-(44 more)-> JHN 19:22
+Pilate	1	Male				MAT 27:11 <-(45 more)-> JHN 19:22
 Pilate's wife	1	Female				MAT 27:19
 pine trees and cedars of Lebanon	-1	Neuter				ISA 14:8	Tree
 poets	-1					NUM 21:27 <-(2 more)-> NUM 21:30
@@ -917,6 +921,7 @@ priests	-1	Male				DEU 27:9 <-(35 more)-> ACT 4:1
 prince of Tyre	1	Male				EZK 28:2 & EZK 28:9
 princes of the sea	-1	Male				EZK 26:17 & EZK 26:18
 proclaimers of God's word	-1					PSA 68:12 & PSA 68:13
+proclamation of the resurrection	-1					ACT 4:2
 proclamation	1	Male				EZR 10:7 & EZR 10:8
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
 prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16
@@ -949,9 +954,12 @@ Rehum, commanding officer	1	Male				EZR 4:9 <-(6 more)-> EZR 4:16
 relative	1	Male				AMO 6:10
 relatives of Ahaziah, king of Judah	-1	Male				2KI 10:13
 reply to the slain believers (in vision)	1					REV 6:11
-report about Jesus	-1	PreferMale				MAT 14:13 <-(2 more)-> LUK 7:37
+report about Jesus	-1	PreferMale				MAT 14:13 <-(6 more)-> JHN 12:18
+report to Martha about Jesus	-1	PreferFemale				JHN 11:20
 report about John the Baptist	-1	PreferMale				MRK 6:29
-report concerning Paul	1	PreferMale				GAL 1:23
+report about Lazarus	-1	PreferMale				JHN 11:6
+report concerning new believers in Antioch	-1	PreferMale				ACT 11:22
+report concerning Paul	1	PreferMale				ACT 17:13 & GAL 1:23
 report of God's mercy to Elizabeth	-1					LUK 1:58
 report to king of Aram	1	Male				2KI 6:13
 report to king of Assyria	1	Male				2KI 17:26
@@ -968,7 +976,7 @@ rules of the world	1					COL 2:21
 Ruth	1	Female				RUT 1:10 <-(9 more)-> RUT 3:17
 Sabeans	-1					ISA 45:14 & ISA 45:15
 Sadducees	-1	Male				MAT 16:1 <-(20 more)-> ACT 23:8
-sailors on ship to Italy (Rome)	-1	Male				ACT 27:12 <-(2 more)-> ACT 27:39
+sailors on ship to Italy (Rome)	-1	Male				ACT 27:12 <-(4 more)-> ACT 27:39
 sailors on ship to Tarshish	-1	Male				JON 1:5 <-(5 more)-> JON 1:16	Sailor
 Salome	1	Female				MRK 16:3 <-(2 more)-> LUK 24:11
 Samson	1	Male				JDG 14:2 <-(20 more)-> JDG 16:30
@@ -1014,7 +1022,7 @@ scoffers	-1	PreferMale				2PE 3:4
 scoffers who rule people in Jerusalem	-1	Male				ISA 28:15	Scoffer
 scoundrels	-1	Male				1KI 21:13
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
-scribes	-1	Male			Gr. grammateus	LUK 11:53 & LUK 11:54
+scribes	-1	Male			Gr. grammateus	LUK 11:53 <-(2 more)-> LUK 20:19
 scripture	-1					2CH 25:4 <-(230 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 <-(1 more)-> REV 18:20
@@ -1023,6 +1031,7 @@ Seir (personified)	1	Male				EZK 25:8 & EZK 35:10	Mount Seir
 Seraiah	1	Male				JER 51:62 & JER 51:64
 seraph, one of the	1	Male				ISA 6:7
 seraphs	-1	Male				ISA 6:3
+Sergius Paulus, proconsul	1	Male				ACT 13:7 & ACT 13:12
 serpent	1	Male			Gen 3 - text uses masculine pronouns	GEN 3:1 <-(1 more)-> GEN 3:5
 servant girl at high priest's courtyard	1	Female				MAT 26:69 <-(3 more)-> JHN 18:17
 servant girl, another	1	Female				MAT 26:71
@@ -1066,7 +1075,7 @@ sign on the cross	1	PreferMale				MAT 27:37 <-(2 more)-> JHN 19:19
 Silas	1	Male				ACT 15:34
 Simeon	1	Male				GEN 34:14 <-(3 more)-> GEN 34:31
 Simeon, devout man in Jerusalem	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35
-Simon, sorcerer	1	Male				ACT 8:9 <-(1 more)-> ACT 8:24
+Simon, sorcerer	1	Male				ACT 8:9 <-(3 more)-> ACT 8:24
 sinful woman	1	Female				LUK 7:37
 singers	-1	Male				1CH 16:41
 singers from the ends of the earth	-1					ISA 24:16
@@ -1172,7 +1181,7 @@ whoever has doubts	1					ROM 14:23
 whole earth	-1					REV 13:3
 wicked men of Gibeah	-1	Male				JDG 19:22
 wicked, the	-1					PSA 94:7 <-(1 more)-> JER 12:4
-widow	1	Female				DEU 25:7 & DEU 25:9
+widow	1	Female				DEU 25:7 <-(1 more)-> ACT 9:39
 widow (from company of prophets)	1	Female				2KI 4:1 <-(1 more)-> 2KI 4:6
 widow at Zarephath	1	Female				1KI 17:12 <-(1 more)-> 1KI 17:24
 wife suspected of infidelity	1	Female				NUM 5:22
