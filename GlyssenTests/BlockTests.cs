@@ -203,6 +203,63 @@ namespace GlyssenTests
 				block.GetPrimaryReferenceText());
 		}
 
+		[TestCase("lf")] // List footer: https://ubsicap.github.io/usfm/lists/index.html#lf
+		[TestCase("li")] // List entry: https://ubsicap.github.io/usfm/lists/index.html#li
+		[TestCase("li2")]
+		[TestCase("lim")] // Embedded list entry: https://ubsicap.github.io/usfm/lists/index.html#lim
+		[TestCase("lim1")]
+		[TestCase("q")] // Poetic line: https://ubsicap.github.io/usfm/poetry/index.html#q
+		[TestCase("q1")]
+		[TestCase("qm")] // Embedded text poetic line: https://ubsicap.github.io/usfm/poetry/index.html#qm
+		[TestCase("qm3")]
+		[TestCase("m")] // Continuation (margin) paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#m
+		[TestCase("mi")] // Indented flush left paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#mi
+		[TestCase("pi")] // Indented paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#pi
+		[TestCase("pi2")]
+		[TestCase("qr")] // Right-aligned poetic line: https://ubsicap.github.io/usfm/poetry/index.html#qr
+		[TestCase("qc")] // Centered poetic line: https://ubsicap.github.io/usfm/poetry/index.html#qc
+		public void IsFollowOnParagraphStyle_LineBreakingUsfmTag_ReturnsTrue(string tag)
+		{
+			var block = new Block(tag);
+			Assert.IsTrue(block.IsFollowOnParagraphStyle);
+		}
+
+		[TestCase("p")] // Normal paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#p
+		[TestCase("po")] // Opening of an epistle/letter: https://ubsicap.github.io/usfm/paragraphs/index.html#po
+		[TestCase("pr")] // Right-aligned paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#pr
+		[TestCase("cls")] // Closure of an epistle/letter: https://ubsicap.github.io/usfm/paragraphs/index.html#cls
+		[TestCase("pmo")] // Embedded text opening: https://ubsicap.github.io/usfm/paragraphs/index.html#pmo
+		[TestCase("pmc")] // Embedded text closing: https://ubsicap.github.io/usfm/paragraphs/index.html#pmc
+		[TestCase("pmr")] // Embedded text refrain: https://ubsicap.github.io/usfm/paragraphs/index.html#pmr
+		[TestCase("pc")] // Centered paragraph: https://ubsicap.github.io/usfm/paragraphs/index.html#pc
+		[TestCase("qd")] // Hebrew note: https://ubsicap.github.io/usfm/poetry/index.html#qd
+		[TestCase("qa")] // Acrostic heading: https://ubsicap.github.io/usfm/poetry/index.html#qa
+		public void IsFollowOnParagraphStyle_RealParagraphUsfmTag_ReturnsFalse(string tag)
+		{
+			var block = new Block(tag);
+			Assert.IsFalse(block.IsFollowOnParagraphStyle);
+		}
+
+		[TestCase("lf6")]
+		[TestCase("li22")]
+		[TestCase("lim10")]
+		[TestCase("nb2")]
+		[TestCase(" q1")]
+		[TestCase("p3")]
+		[TestCase("qm13")]
+		[TestCase("m6")]
+		[TestCase("ma")]
+		[TestCase("mi1")]
+		[TestCase("z")]
+		[TestCase("pig")]
+		[TestCase("qr7")]
+		[TestCase("qc ")]
+		public void IsFollowOnParagraphStyle_UnknownTag_ReturnsFalse(string tag)
+		{
+			var block = new Block(tag);
+			Assert.IsFalse(block.IsFollowOnParagraphStyle);
+		}
+
 		[Test]
 		public void CombineBlocks_DoesNotModifyBlocks()
 		{
