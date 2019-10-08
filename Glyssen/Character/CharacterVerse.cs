@@ -117,8 +117,12 @@ namespace Glyssen.Character
 
 		/// <summary>
 		/// Used to indicate a potential speaker which so very rarely occurs in any project that it cannot
-		/// be safely assigned automatically. If a verse has only Rare quotes and the parser finds a quote
-		/// in that verse, it will be regarded as unexpected, but in Identify Speaking Parts, the rare
+		/// be safely assigned automatically. Typically, this kind of quote represents an attitude, thought,
+		/// intention, desire, or belief. In the target language, this may be expressed as actual speech, in
+		/// which case it should definitely be dramatized. But it might just be an unexpressed thought,
+		/// spelled out literally for the sake of the audience, in which case, the target community will
+		/// need to decide whether to dramatize it or have it read by the narrator. If a verse has only Rare quotes and the parser finds a
+		/// quote in that verse, it will be regarded as unexpected, but in Identify Speaking Parts, the rare
 		/// speaker(s) will appear (along with the narrator) in the list of choices. So at least for now,
 		/// the actual handling will be identical to <seealso cref="Alternate"/>, though it is a semantically
 		/// distinct case. See PG-1233 for a full discussion, along with an alternate proposal for how to

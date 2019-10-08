@@ -2311,6 +2311,7 @@ LEV	24	7	God		God (the LORD)	Implicit
 LEV	24	8	God		God (the LORD)	Implicit		
 LEV	24	9	God		God (the LORD)	Implicit		
 LEV	24	11	son of Shelomith (whose father was an Egyptian)			Rare		
+LEV	24	11	Needs Review			Potential		
 LEV	24	14	God		God (the LORD)	Implicit		
 LEV	24	15	God		God (the LORD)	Implicit		
 LEV	24	16	God		God (the LORD)	Implicit		
@@ -5598,6 +5599,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	13	32	Jonadab	shrewd		Normal		
 2SA	13	33	Jonadab	shrewd		Normal		
 2SA	13	34	watchman			Rare		
+2SA	13	34	Needs Review			Potential		
 2SA	13	35	Jonadab	shrewd		Normal		
 2SA	14	2	Joab			Normal		
 2SA	14	3	Joab			Normal		
@@ -7145,6 +7147,7 @@ NEH	2	19	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab	moc
 NEH	2	20	Nehemiah			Normal		
 NEH	4	1	Sanballat the Horonite	mocking	Sanballat	Rare		
 NEH	4	1	report to Sanballat and Tobiah			Rare		
+NEH	4	1	Needs Review			Potential		
 NEH	4	2	Sanballat the Horonite	angry	Sanballat	Normal		
 NEH	4	3	Tobiah the Ammonite official	mocking	Tobiah the Ammonite	Normal		
 NEH	4	4	Nehemiah	praying		Potential		
@@ -15481,6 +15484,7 @@ MAL	4	6	God		God (the LORD)	Implicit
 MAT	1	1	narrator-MAT			Quotation		
 MAT	1	16	narrator-MAT			Quotation		
 MAT	1	19	Joseph, the carpenter	thinking		Rare		
+MAT	1	19	Needs Review			Potential		
 MAT	1	20	angel		angel of the Lord	Normal		
 MAT	1	21	angel		angel of the Lord	Normal		
 MAT	1	23	narrator-MAT			Quotation		
@@ -15525,6 +15529,7 @@ MAT	4	7	Jesus			Dialogue
 MAT	4	9	Satan (Devil)			Dialogue		
 MAT	4	10	Jesus	rebuking		Dialogue		
 MAT	4	12	messenger to Jesus	reporting		Rare		
+MAT	4	12	Needs Review			Potential		
 MAT	4	15	scripture			Quotation	Isaiah	
 MAT	4	16	scripture			Quotation	Isaiah	
 MAT	4	17	Jesus	preaching		Normal		
@@ -15638,6 +15643,7 @@ MAT	7	25	Jesus	preaching		Implicit
 MAT	7	26	Jesus	preaching		Implicit		
 MAT	7	27	Jesus	preaching		Implicit		
 MAT	7	28	crowd			Rare		
+MAT	7	28	Needs Review			Potential		
 MAT	8	2	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MAT	8	3	Jesus			Dialogue		
 MAT	8	4	Jesus	giving orders		Dialogue		
@@ -15692,9 +15698,10 @@ MAT	9	29	Jesus			Dialogue
 MAT	9	30	Jesus	warning		Dialogue		
 MAT	9	33	crowd after mute healed	amazed		Normal		
 MAT	9	34	Pharisees	accusing		Normal		
-MAT	9	36	Jesus			Rare		
 MAT	9	36	narrator-MAT			Quotation		
 MAT	9	36	scripture			Quotation	Micaiah, prophet of the LORD	
+MAT	9	36	Jesus			Rare		
+MAT	9	36	Needs Review			Rare		
 MAT	9	37	Jesus			Dialogue		
 MAT	9	38	Jesus			Normal		
 MAT	10	1	Jesus			Indirect		
@@ -15740,6 +15747,7 @@ MAT	10	41	Jesus	instructing		Normal
 MAT	10	42	Jesus	instructing		Normal		
 MAT	11	2	disciples of John the Baptist			Rare		MAT 11.2;LUK 7.18
 MAT	11	2	John the Baptist			Rare		
+MAT	11	2	Needs Review			Potential		
 MAT	11	3	disciples of John the Baptist	puzzled		Dialogue		MAT 11.3;LUK 7.20
 MAT	11	4	Jesus			Normal		
 MAT	11	5	Jesus			Normal		
@@ -15870,7 +15878,9 @@ MAT	14	2	Herod Antipas (the tetrarch)	fearful		Normal
 MAT	14	4	John the Baptist	rebuking		Normal		
 MAT	14	5	Herod Antipas (the tetrarch)			Rare		
 MAT	14	5	people			Rare		
+MAT	14	5	Needs Review			Potential		
 MAT	14	6	Herod Antipas (the tetrarch)			Rare		
+MAT	14	6	Needs Review			Potential		
 MAT	14	7	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	8	Herodias' daughter			Normal		
 MAT	14	8	Herodias			Indirect		
@@ -15879,6 +15889,7 @@ MAT	14	10	Herod Antipas (the tetrarch)			Indirect
 MAT	14	12	disciples of John the Baptist			Potential		
 MAT	14	13	disciples of John the Baptist			Rare		
 MAT	14	13	report about Jesus			Rare		
+MAT	14	13	Needs Review			Potential		
 MAT	14	15	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MAT	14	16	Jesus			Dialogue		
 MAT	14	17	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
@@ -16143,6 +16154,7 @@ MAT	22	12	Jesus			Normal
 MAT	22	13	Jesus			Normal		
 MAT	22	14	Jesus			Normal		
 MAT	22	15	Pharisees			Rare		
+MAT	22	15	Needs Review			Potential		
 MAT	22	16	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MAT	22	17	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MAT	22	18	Jesus	rebuking		Dialogue		
@@ -16151,6 +16163,7 @@ MAT	22	20	Jesus	questioning		Dialogue
 MAT	22	21	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
 MAT	22	21	Jesus			Dialogue		
 MAT	22	22	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Rare		MAT 22.22;MRK 12.17;LUK 20.26
+MAT	22	22	Needs Review			Potential		
 MAT	22	23	Sadducees			Hypothetical		
 MAT	22	24	Sadducees			Dialogue		
 MAT	22	25	Sadducees			Normal		
@@ -16165,7 +16178,9 @@ MAT	22	32	Jesus			Normal
 # reaction of some of the scribes in Luke's account, so it's best to allow for both possibilities here.
 MAT	22	33	crowd			Rare		
 MAT	22	33	expert in religious law			Rare		
+MAT	22	33	Needs Review			Potential		
 MAT	22	34	report about Jesus			Rare		
+MAT	22	34	Needs Review			Potential		
 MAT	22	36	Pharisee (expert in religious law)	testing		Dialogue		
 MAT	22	37	Jesus			Dialogue		
 MAT	22	38	Jesus			Normal		
@@ -16348,6 +16363,7 @@ MAT	26	42	Jesus	deeply distressed		Normal
 MAT	26	45	Jesus	resigned		Normal		
 MAT	26	46	Jesus			Normal		
 MAT	26	47	Jesus			Rare		
+MAT	26	47	Needs Review			Potential		
 MAT	26	48	Judas Iscariot	plotting		Normal		
 MAT	26	49	Judas Iscariot	fake respect		Dialogue		
 MAT	26	50	Jesus			Dialogue		
@@ -16357,6 +16373,7 @@ MAT	26	54	Jesus			Normal
 MAT	26	55	Jesus			Dialogue		
 MAT	26	56	Jesus			Normal		
 MAT	26	59	chief priests/Sanhedrin			Rare		MAT 26.59; MRK 14.55
+MAT	26	59	Needs Review			Potential		
 MAT	26	61	witnesses, false		two false witnesses	Dialogue		MAT 26.61;MRK 14.58
 MAT	26	62	Caiaphas, the high priest	demanding		Dialogue		
 MAT	26	63	Caiaphas, the high priest	demanding		Dialogue		
@@ -16383,6 +16400,7 @@ MAT	27	11	Jesus			Dialogue
 MAT	27	11	Pilate	to Jesus		Dialogue		
 MAT	27	13	Pilate	to Jesus		Dialogue		
 MAT	27	14	Pilate	amazed		Rare		
+MAT	27	14	Needs Review			Potential		
 MAT	27	17	Pilate	to crowd		Dialogue		
 MAT	27	19	Pilate's wife			Normal		
 MAT	27	20	chief priests/elders			Indirect		
@@ -16427,8 +16445,11 @@ MAT	28	14	chief priests/elders	bribing		Normal
 MAT	28	15	saying (lie about disciples stealing Jesus' body)			Rare		
 MAT	28	15	chief priests/elders			Rare		
 MAT	28	15	Jews, the			Rare		
+MAT	28	15	Needs Review			Potential		
 MAT	28	16	Jesus			Rare		
+MAT	28	16	Needs Review			Potential		
 MAT	28	17	disciples			Rare		
+MAT	28	17	Needs Review			Potential		
 MAT	28	18	Jesus			Dialogue		
 MAT	28	19	Jesus			Normal		
 MAT	28	20	Jesus			Normal		
@@ -16442,6 +16463,7 @@ MRK	1	15	Jesus			Normal
 MRK	1	17	Jesus			Dialogue		
 MRK	1	20	Jesus			Indirect		
 MRK	1	22	people in Capernaum synagogue	amazed		Rare		
+MRK	1	22	Needs Review			Potential		
 MRK	1	24	man possessed by evil spirit			Dialogue		
 MRK	1	25	Jesus	giving orders		Dialogue		
 MRK	1	27	men in Capernaum synagogue	amazed		Normal		
@@ -16456,6 +16478,7 @@ MRK	1	41	Jesus	compassionately		Dialogue
 MRK	1	43	Jesus	warning		Indirect		
 MRK	1	44	Jesus			Normal		
 MRK	1	45	leper	proclaim		Rare		
+MRK	1	45	Needs Review			Potential		
 MRK	2	1	people in Capernaum			Indirect		
 MRK	2	5	Jesus			Dialogue		
 MRK	2	7	teachers of religious law/Pharisees	thinking	teachers of religious law	Normal		MRK 2.7;LUK 5.21
@@ -16479,11 +16502,14 @@ MRK	2	26	Jesus			Normal
 MRK	2	27	Jesus			Normal		
 MRK	2	28	Jesus			Normal		
 MRK	3	2	Pharisees	accusing		Rare		
+MRK	3	2	Needs Review			Potential		
 MRK	3	3	Jesus	giving orders		Dialogue		
 MRK	3	4	Jesus			Dialogue		
 MRK	3	5	Jesus	giving orders		Dialogue		
 MRK	3	6	Pharisees			Rare		
+MRK	3	6	Needs Review			Potential		
 MRK	3	7	report about Jesus			Rare		
+MRK	3	7	Needs Review			Potential		
 MRK	3	9	Jesus	giving orders		Indirect		
 MRK	3	11	evil spirits			Normal		
 MRK	3	12	Jesus			Indirect		
@@ -16551,6 +16577,7 @@ MRK	5	10	demons (Legion)/man delivered from Legion of demons	begging		Indirect		
 MRK	5	12	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	13	Jesus			Indirect		
 MRK	5	14	herdsmen of pigs		those that saw demon-possessed man cured	Rare		
+MRK	5	14	Needs Review			Potential		
 MRK	5	15	narrator-MRK			Quotation		
 MRK	5	16	herdsmen of pigs		those that saw demon-possessed man cured	Indirect		
 MRK	5	17	Gadarene (or Gerasenes) people	pleading	the people (of the region of the Gerasenes)	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
@@ -16560,11 +16587,14 @@ MRK	5	20	man delivered from Legion of demons			Indirect
 MRK	5	23	Jairus (synagogue leader)	pleading		Dialogue		MAT 9.18;MRK 5.23;LUK 8.41
 MRK	5	28	woman, bleeding for twelve years	thinking		Normal		MAT 9.21;MRK 5.28,33;LUK 8.47
 MRK	5	29	woman, bleeding for twelve years	feeling or thinking		Rare		
+MRK	5	29	Needs Review			Potential		
 MRK	5	30	Jesus	feeling or thinking		Rare		
+MRK	5	30	Needs Review			Rare		
 MRK	5	30	Jesus	questioning		Dialogue		
 MRK	5	31	disciples	perplexed	disciples, Jesus'	Dialogue		
 MRK	5	33	woman, bleeding for twelve years	thinking		Rare		
 MRK	5	33	woman, bleeding for twelve years	trembling		Indirect		MAT 9.21;MRK 5.28,33;LUK 8.47
+MRK	5	33	Needs Review			Rare		
 MRK	5	34	Jesus	giving orders		Dialogue		
 MRK	5	35	men from Jairus' house	sad		Dialogue		MRK 5.35;LUK 8.49
 MRK	5	36	Jesus			Dialogue		
@@ -16576,11 +16606,13 @@ MRK	5	40	Jesus			Indirect
 MRK	5	41	Jesus	giving orders		Dialogue		
 MRK	5	41	narrator-MRK			Quotation		
 MRK	5	42	Jairus (synagogue leader)/Jairus' wife/disciples	amazed	father and mother of the girl, and those who were with him	Rare		
+MRK	5	42	Needs Review			Potential		
 MRK	5	43	Jesus			Indirect		MRK 5.43; LUK 8.55,56
 MRK	6	2	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	4	Jesus			Dialogue		
 MRK	6	6	Jesus	amazed		Rare		
+MRK	6	6	Needs Review			Potential		
 MRK	6	7	Jesus	giving orders		Indirect		
 MRK	6	8	Jesus			Indirect		
 MRK	6	9	Jesus			Indirect		
@@ -16596,7 +16628,9 @@ MRK	6	16	Herod Antipas (the tetrarch)	fearful		Normal
 MRK	6	17	Herod Antipas (the tetrarch)			Indirect		
 MRK	6	18	John the Baptist	rebuking		Normal		
 MRK	6	19	Herodias			Rare		
+MRK	6	19	Needs Review			Potential		
 MRK	6	20	Herod Antipas (the tetrarch)			Rare		
+MRK	6	20	Needs Review			Potential		
 MRK	6	22	Herod Antipas (the tetrarch)	drunk		Dialogue		
 MRK	6	23	Herod Antipas (the tetrarch)	drunk		Dialogue		
 MRK	6	24	Herodias			Dialogue		
@@ -16605,10 +16639,14 @@ MRK	6	25	Herodias' daughter			Dialogue
 MRK	6	26	Herod Antipas (the tetrarch)			Indirect		
 MRK	6	27	Herod Antipas (the tetrarch)			Indirect		
 MRK	6	29	report about John the Baptist			Rare		
+MRK	6	29	Needs Review			Potential		
 MRK	6	30	disciples			Rare		
+MRK	6	30	Needs Review			Potential		
 MRK	6	31	Jesus			Dialogue		
 MRK	6	33	crowd, many in the			Rare		
+MRK	6	33	Needs Review			Potential		
 MRK	6	34	Jesus			Rare		
+MRK	6	34	Needs Review			Potential		
 MRK	6	35	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MRK	6	36	disciples	taking charge		Normal		
 MRK	6	37	Jesus			Dialogue		
@@ -16622,6 +16660,7 @@ MRK	6	45	Jesus			Indirect
 MRK	6	49	disciples	terrified		Indirect		
 MRK	6	50	Jesus	reassuring		Normal		
 MRK	6	51	disciples	amazed		Rare		
+MRK	6	51	Needs Review			Potential		
 MRK	6	54	crowd		people	Indirect		
 MRK	6	55	crowd		people	Indirect		
 MRK	6	56	people at Gennesaret (sick)			Indirect		MAT 14.36;MRK 6.56
@@ -16648,6 +16687,7 @@ MRK	7	21	Jesus	instructing		Normal
 MRK	7	22	Jesus	instructing		Normal		
 MRK	7	23	Jesus	instructing		Normal		
 MRK	7	24	Jesus			Rare		
+MRK	7	24	Needs Review			Potential		
 MRK	7	26	Canaanite (Syrophoenician) mother of possessed girl			Indirect		MAT 15.22;MRK 7.26
 MRK	7	27	Jesus	instructing		Dialogue		
 MRK	7	28	Canaanite (Syrophoenician) mother of possessed girl			Dialogue		
@@ -16766,6 +16806,7 @@ MRK	10	30	Jesus			Normal
 MRK	10	31	Jesus			Normal		
 MRK	10	32	disciples	amazed and afraid		Rare		
 MRK	10	32	Jesus			Rare		
+MRK	10	32	Needs Review			Potential		
 MRK	10	33	Jesus			Normal		
 MRK	10	34	Jesus			Normal		
 MRK	10	35	James, the disciple/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
@@ -16798,6 +16839,7 @@ MRK	11	6	people			Indirect
 MRK	11	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MRK	11	10	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MRK	11	13	Jesus			Rare		
+MRK	11	13	Needs Review			Potential		
 MRK	11	14	Jesus			Normal		
 MRK	11	17	Jesus			Normal		
 MRK	11	21	Peter (Simon)	amazed		Dialogue		
@@ -16825,6 +16867,7 @@ MRK	12	9	Jesus	preaching		Normal
 MRK	12	10	Jesus	preaching		Normal		
 MRK	12	11	Jesus	preaching		Normal		
 MRK	12	12	chief priests/teachers of religious law/elders			Rare		
+MRK	12	12	Needs Review			Potential		
 MRK	12	14	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MRK	12	15	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MRK	12	15	Jesus			Dialogue		
@@ -16832,6 +16875,7 @@ MRK	12	16	Jesus	questioning		Dialogue
 MRK	12	16	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
 MRK	12	17	Jesus			Dialogue		
 MRK	12	17	spies (from Pharisees and Herodians)		Pharisees/Herodians	Rare		MAT 22.22;MRK 12.17;LUK 20.26
+MRK	12	17	Needs Review			Rare		
 MRK	12	18	Sadducees			Hypothetical		
 MRK	12	19	Sadducees			Dialogue		
 MRK	12	20	Sadducees			Normal		
@@ -16931,12 +16975,15 @@ MRK	14	38	Jesus			Normal
 MRK	14	41	Jesus			Normal		
 MRK	14	42	Jesus			Normal		
 MRK	14	43	Jesus			Rare		
+MRK	14	43	Needs Review			Potential		
 MRK	14	44	Judas Iscariot	plotting		Normal		
 MRK	14	45	Judas Iscariot	fake respect		Dialogue		
 MRK	14	48	Jesus	questioning		Dialogue		
 MRK	14	49	Jesus			Normal		
 MRK	14	55	chief priests/Sanhedrin			Rare		MAT 26.59; MRK 14.55
+MRK	14	55	Needs Review			Potential		
 MRK	14	56	false witnesses, many			Rare		
+MRK	14	56	Needs Review			Potential		
 MRK	14	58	witnesses, false	mocking		Dialogue		MAT 26.61;MRK 14.58
 MRK	14	60	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	61	Caiaphas, the high priest	demanding		Dialogue		
@@ -16953,11 +17000,13 @@ MRK	14	70	high priest's servant (relative of the man whose ear Peter cut off)/th
 MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
 MRK	14	72	Jesus			Normal		
 MRK	15	1	chief priests/all the elders/expert in religious law/Sanhedrin			Rare		
+MRK	15	1	Needs Review			Potential		
 MRK	15	2	Jesus			Dialogue		
 MRK	15	2	Pilate	to Jesus		Dialogue		
 MRK	15	3	chief priests	accusing		Indirect		
 MRK	15	4	Pilate	to Jesus		Dialogue		
 MRK	15	5	Pilate	amazed		Rare		
+MRK	15	5	Needs Review			Potential		
 MRK	15	8	crowd before Pilate			Indirect		
 MRK	15	9	Pilate	to crowd		Dialogue		
 MRK	15	11	chief priests			Indirect		
@@ -16998,6 +17047,7 @@ MRK	16	16	Jesus			Potential
 MRK	16	17	Jesus			Potential		
 MRK	16	18	Jesus			Potential		
 MRK	16	20	disciples			Rare		
+MRK	16	20	Needs Review			Potential		
 LUK	1	13	Gabriel		angel of the Lord	Dialogue		
 LUK	1	14	Gabriel		angel of the Lord	Normal		
 LUK	1	15	Gabriel		angel of the Lord	Normal		
@@ -17039,6 +17089,7 @@ LUK	1	54	Mary, Jesus' mother			Normal
 LUK	1	55	Mary, Jesus' mother			Normal		
 LUK	1	58	report of God's mercy to Elizabeth			Rare		
 LUK	1	58	neighbors and relatives of Elizabeth and Zacharias (Zechariah)	rejoicing		Potential		
+LUK	1	58	Needs Review			Rare		
 # There is a potential speaking part in v. 59 because some translations will render this using direct
 # speech instead of indirect. Something like:
 # The neighbors and relatives of Elizabeth and Zachariah said, “He should be called ‘Zachariah’ like his father.”
@@ -17071,6 +17122,13 @@ LUK	2	11	angel		angel of the Lord	Normal
 LUK	2	12	angel		angel of the Lord	Normal		
 LUK	2	14	great company of heavenly host			Normal		
 LUK	2	15	shepherds outside Bethlehem	awe		Normal		
+LUK	2	17	shepherds outside Bethlehem			Rare		
+LUK	2	17	Needs Review			Potential		
+LUK	2	18	shepherds outside Bethlehem			Rare		
+LUK	2	18	people who heard about Jesus' birth	amazed		Rare		
+LUK	2	18	Needs Review			Potential		
+LUK	2	22	scripture			Rare	Moses	
+LUK	2	22	Needs Review			Potential		
 LUK	2	23	scripture			Quotation	God	
 LUK	2	24	scripture			Quotation	God	
 LUK	2	26	Holy Spirit, the			Indirect		
@@ -17078,9 +17136,14 @@ LUK	2	29	Simeon, devout man in Jerusalem			Implicit
 LUK	2	30	Simeon, devout man in Jerusalem			Implicit		
 LUK	2	31	Simeon, devout man in Jerusalem			Implicit		
 LUK	2	32	Simeon, devout man in Jerusalem			Implicit		
+LUK	2	33	Joseph, the carpenter/Mary, Jesus' mother	amazed		Rare		
+LUK	2	33	Needs Review			Potential		
 LUK	2	34	Simeon, devout man in Jerusalem			Normal		
 LUK	2	35	Simeon, devout man in Jerusalem			Normal		
 LUK	2	38	Anna, prophetess			Indirect		
+LUK	2	44	Mary, Jesus' mother	thinking		Rare		
+LUK	2	44	Joseph, the carpenter/Mary, Jesus' mother			Rare		
+LUK	2	44	Needs Review			Potential		
 LUK	2	48	Mary, Jesus' mother			Dialogue		
 LUK	2	49	Jesus (child)			Dialogue		
 LUK	3	3	John the Baptist			Indirect		
@@ -17120,6 +17183,8 @@ LUK	4	24	Jesus			Normal
 LUK	4	25	Jesus			Normal		
 LUK	4	26	Jesus			Normal		
 LUK	4	27	Jesus			Normal		
+LUK	4	32	men in Capernaum synagogue	amazed		Rare		
+LUK	4	32	Needs Review			Potential		
 LUK	4	34	man possessed by evil spirit			Dialogue		
 LUK	4	35	Jesus	giving orders		Dialogue		
 LUK	4	36	men in Capernaum synagogue	amazed		Normal		
@@ -17142,7 +17207,6 @@ LUK	5	23	Jesus			Normal
 LUK	5	24	Jesus	giving orders		Dialogue		
 LUK	5	26	everyone seeing healing of paralyzed man			Normal		
 LUK	5	27	Jesus			Dialogue		
-LUK	5	27	narrator-LUK			Quotation		
 LUK	5	30	Pharisees/teachers of religious law	complaining		Dialogue		
 LUK	5	31	Jesus			Dialogue		
 LUK	5	32	Jesus			Normal		
@@ -17194,6 +17258,8 @@ LUK	6	46	Jesus			Normal
 LUK	6	47	Jesus			Normal		
 LUK	6	48	Jesus			Normal		
 LUK	6	49	Jesus			Normal		
+LUK	7	3	centurion with great faith			Indirect		
+LUK	7	3	elders of the Jews	interceding		Indirect	Good Priest	
 LUK	7	4	elders of the Jews	interceding		Dialogue	Good Priest	
 LUK	7	5	elders of the Jews	interceding		Dialogue	Good Priest	
 LUK	7	6	centurion with great faith	polite		Normal		MAT 8.8-9;LUK 7.6-8
@@ -17220,6 +17286,9 @@ LUK	7	32	Jesus			Normal
 LUK	7	33	Jesus			Normal		
 LUK	7	34	Jesus			Normal		
 LUK	7	35	Jesus			Normal		
+LUK	7	37	sinful woman	thinking		Rare		
+LUK	7	37	report about Jesus			Rare		
+LUK	7	37	Needs Review			Potential		
 LUK	7	39	Pharisee (Simon)	judgmental		Normal		
 LUK	7	40	Jesus			Dialogue		
 LUK	7	40	Pharisee (Simon)			Dialogue		
@@ -17291,6 +17360,12 @@ LUK	9	7	people			Indirect
 LUK	9	8	people, other			Indirect		
 LUK	9	8	people, still others			Indirect		
 LUK	9	9	Herod Antipas (the tetrarch)			Normal		
+LUK	9	10	disciples			Rare		
+LUK	9	10	Jesus			Rare		
+LUK	9	10	Needs Review			Potential		
+LUK	9	11	crowd			Rare		
+LUK	9	11	Jesus			Rare		
+LUK	9	11	Needs Review			Potential		
 LUK	9	12	disciples	taking charge	the Twelve (disciples)	Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 LUK	9	13	Andrew	frustrated	the Twelve (disciples)	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 LUK	9	13	Jesus	giving orders		Dialogue		
@@ -17322,6 +17397,9 @@ LUK	9	46	disciples	arguing		Indirect		MAT 18.1;MRK 9.34;LUK 9.46
 LUK	9	48	Jesus			Dialogue		
 LUK	9	49	John		John (disciple whom Jesus loved)	Dialogue		
 LUK	9	50	Jesus			Dialogue		
+LUK	9	51	Jesus			Rare		
+LUK	9	51	Needs Review			Potential		
+LUK	9	52	Jesus			Potential		
 LUK	9	54	James, the disciple/John		James/John	Dialogue	John	
 # textual variant in Luke 9:55-56
 LUK	9	55	Jesus	rebuking		Potential		
@@ -17371,6 +17449,8 @@ LUK	10	35	Jesus			Normal
 LUK	10	36	Jesus	questioning		Normal		
 LUK	10	37	expert in religious law			Dialogue	Good Priest	
 LUK	10	37	Jesus			Dialogue		
+LUK	10	38	Martha			Rare		
+LUK	10	38	Needs Review			Potential		
 LUK	10	40	Martha			Dialogue		
 LUK	10	41	Jesus	compassionately		Dialogue		
 LUK	10	42	Jesus	compassionately		Normal		
@@ -17387,6 +17467,10 @@ LUK	11	10	Jesus			Normal
 LUK	11	11	Jesus			Normal		
 LUK	11	12	Jesus			Normal		
 LUK	11	13	Jesus			Normal		
+LUK	11	14	Jesus			Rare		
+LUK	11	14	formerly mute demon-possessed man			Rare		
+LUK	11	14	crowd after mute healed			Rare		
+LUK	11	14	Needs Review			Potential		
 LUK	11	15	crowd, some in			Normal		
 LUK	11	16	others (testing Jesus)			Indirect		
 LUK	11	17	Jesus			Normal		
@@ -17410,6 +17494,8 @@ LUK	11	34	Jesus			Normal
 LUK	11	35	Jesus			Normal		
 LUK	11	36	Jesus			Normal		
 LUK	11	37	Pharisees, other		Pharisee	Indirect		
+LUK	11	38	Pharisees, other		Pharisee	Rare		
+LUK	11	38	Needs Review			Potential		
 LUK	11	39	Jesus			Dialogue		
 LUK	11	40	Jesus			Normal		
 LUK	11	41	Jesus			Normal		
@@ -17424,6 +17510,11 @@ LUK	11	49	Jesus	rebuking		Dialogue
 LUK	11	50	Jesus	rebuking		Dialogue		
 LUK	11	51	Jesus	rebuking		Dialogue		
 LUK	11	52	Jesus	rebuking		Dialogue		
+LUK	11	53	Jesus			Rare		
+LUK	11	53	scribes/Pharisees			Rare		
+LUK	11	53	Needs Review			Potential		
+LUK	11	54	scribes/Pharisees			Rare		
+LUK	11	54	Needs Review			Potential		
 LUK	12	1	Jesus			Normal		
 LUK	12	2	Jesus			Normal		
 LUK	12	3	Jesus			Normal		
@@ -17650,6 +17741,8 @@ LUK	18	5	Jesus			Normal
 LUK	18	6	Jesus			Normal		
 LUK	18	7	Jesus			Normal		
 LUK	18	8	Jesus			Normal		
+LUK	18	9	people, self-righteous			Rare		
+LUK	18	9	Needs Review			Potential		
 LUK	18	10	Jesus			Normal		
 LUK	18	11	Jesus			Normal		
 LUK	18	12	Jesus			Normal		
@@ -17685,6 +17778,8 @@ LUK	18	41	Bartimaeus (a blind man)	pleading		Dialogue		MAT 20.33;MRK 10.51;LUK 1
 LUK	18	42	Jesus			Dialogue		
 LUK	18	43	Bartimaeus (a blind man)	praising		Indirect		
 LUK	18	43	people	praising		Indirect		
+LUK	19	4	Zaccheaus			Rare		
+LUK	19	4	Needs Review			Potential		
 LUK	19	5	Jesus	giving orders		Dialogue		
 LUK	19	7	people in Jericho, all the	complaining		Normal		
 LUK	19	8	Zaccheaus			Dialogue		
@@ -17745,6 +17840,7 @@ LUK	20	24	Jesus			Dialogue
 LUK	20	24	spies (from Pharisees and Herodians)		spies (from the teachers of the law and chief priests)	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
 LUK	20	25	Jesus			Dialogue		
 LUK	20	26	spies (from Pharisees and Herodians)		spies (from the teachers of the law and chief priests)	Rare		MAT 22.22;MRK 12.17;LUK 20.26
+LUK	20	26	Needs Review			Potential		
 LUK	20	27	Sadducees			Hypothetical		
 LUK	20	28	Sadducees			Dialogue		
 LUK	20	29	Sadducees			Normal		
@@ -19532,6 +19628,7 @@ GAL	3	13	scripture			Quotation	Moses
 GAL	3	16	narrator-GAL		God does not say (narrator)	Hypothetical		
 GAL	3	16	scripture		scripture (God)	Quotation	God	
 GAL	3	17	God		God (the LORD)	Rare		
+GAL	3	17	Needs Review			Potential		
 GAL	3	22	scripture			Indirect		
 GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	Quotation		
 GAL	4	8	narrator-GAL			Quotation		
@@ -19543,6 +19640,7 @@ GAL	5	9	saying about yeast			Quotation
 GAL	5	14	scripture			Quotation	God	
 GAL	6	12	Judaizers			Indirect		
 EPH	1	7	God		God (the LORD)	Rare		
+EPH	1	7	Needs Review			Potential		
 EPH	2	11	narrator-EPH			Quotation		
 EPH	4	8	scripture			Quotation	David	
 EPH	4	9	narrator-EPH			Quotation		
