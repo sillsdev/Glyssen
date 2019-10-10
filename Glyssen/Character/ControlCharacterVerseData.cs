@@ -136,5 +136,10 @@ namespace Glyssen.Character
 				versesWithExpectedQuotesInChapter.Add(expectedQuote.Verse);
 			}
 		}
+
+		protected override void AdjustCharacterVerseDataInLoookupTable()
+		{
+			throw new NotImplementedException("Do this tomorrow");
+		}
 	}
 }

@@ -378,11 +378,17 @@ namespace Glyssen.Character
 		private void ResetCaches()
 		{
 			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
+			AdjustCharacterVerseDataInLoookupTable();
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
 
-		public void LoadData(string tabDelimitedCharacterVerseData)
+		protected virtual void AdjustCharacterVerseDataInLoookupTable()
+		{
+			// No-op in base
+		}
+
+		protected void LoadData(string tabDelimitedCharacterVerseData)
 		{
 			var data = new HashSet<CharacterVerse>();
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
