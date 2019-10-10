@@ -221,7 +221,7 @@ namespace Glyssen.Dialogs
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
 				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification,
-				includeAlternates:true, includeNarratorOverrides:true));
+				includeAlternatesAndRareQuotes: true, includeNarratorOverrides:true));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
@@ -258,7 +258,7 @@ namespace Glyssen.Dialogs
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
 				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification, includeAlternates:true))
+						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification, includeAlternatesAndRareQuotes: true))
 				{
 					m_currentCharacters.Add(character);
 				}
@@ -275,7 +275,7 @@ namespace Glyssen.Dialogs
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
 					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification, includeAlternates: true))
+						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification, includeAlternatesAndRareQuotes: true))
 					{
 						m_currentCharacters.Add(character);
 					}

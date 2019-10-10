@@ -191,7 +191,8 @@ namespace Glyssen.Character
 		private ISet<string> m_uniqueDeliveries;
 
 		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false)
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false,
+			bool includeNarratorOverrides = false)
 		{
 			if (versification == null)
 				versification = ScrVers.English;
@@ -229,8 +230,8 @@ namespace Glyssen.Character
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
 			}
-			if (!includeAlternates)
-				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate).ToList();
+			if (!includeAlternatesAndRareQuotes)
+				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate && cv.QuoteType != QuoteType.Rare).ToList();
 			if (overrideCharacters != null)
 			{
 				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))

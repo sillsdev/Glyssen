@@ -284,6 +284,65 @@ namespace ControlDataIntegrityTests
 		}
 
 		/// <summary>
+		/// The Rare quote type must always be accompanied by a Needs Review entry, because this type of quote nearly always requires
+		/// input from a native speaker to know whether or not to dramatize it as actual spoken words (or thinking out loud) or treat
+		/// it as "hypothetical" speech that should be read by the narrator to convey an attitude, thought or belief of a character.
+		/// In many cases review may also be needed to determine which character is thinking or speaking the quoted text. Furthermore,
+		/// if all the possible quotes in the verse are Rare, the the Needs Review should be of type Potential, so that it will be
+		/// assigned automatically to any quoted text found. However, if the verse has a mix of Rare and non-Rare quotes, then the
+		/// Needs Review entry should itself be marked as Rare (at least until we find a plausible exception) if there is exactly
+		/// one such entry, so that it would not cause a needless ambiguity in the most common case where the only quoted text in
+		/// the verse is the expected (i.e., non-rare) text. If there is an extra bit of quoted text, it may well be automatically
+		/// assigned to the expected speaker, but this should not normally be a problem because it will not align to the reference
+		/// text, so the user will have to look at it anyway, and can at that point assign it correctly to the Rare character or mark
+		/// it as needing review. If there is more than one non-rare entry in addition to the obligatory Needs Review entry, then
+		/// most likely the Needs Review entry will be of type Potential, but either way there will be an ambiguity, so we can trust
+		/// the data analyst to choose the most appropriate type.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_RareMustBeAccompaniedByNeedsReview()
+		{
+			foreach (var rare in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+				.Where(i => i.QuoteType == QuoteType.Rare))
+			{
+				var nonRare = ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(rare.BookCode),
+					rare.Chapter, rare.Verse, versification: ScrVers.English, includeAlternatesAndRareQuotes:true)
+					.Where(c => c.QuoteType != QuoteType.Rare || c.Character == CharacterVerseData.kNeedsReview).ToList();
+				try
+				{
+					var needsReviewQuoteType = nonRare.Single(c => c.Character == CharacterVerseData.kNeedsReview).QuoteType;
+					var anticipatedCharacterEntries = nonRare.Count(c => c.Character != CharacterVerseData.kNeedsReview);
+					switch (anticipatedCharacterEntries)
+					{
+						case 0:
+							Assert.AreEqual(QuoteType.Potential, needsReviewQuoteType, "Character-verse file contains a Rare quote " +
+							$"for {rare.Character} in {rare.BookCode} {rare.Chapter}:{rare.Verse}, and there are no non-rare " +
+							$"entries, so the corresponding {CharacterVerseData.kNeedsReview} entry for that " +
+							"verse should be of type Potential.");
+							break;
+						case 1:
+							Assert.AreEqual(QuoteType.Rare, needsReviewQuoteType, "Character-verse file contains a Rare quote " +
+								$"for {rare.Character} in {rare.BookCode} {rare.Chapter}:{rare.Verse} along with 1 " +
+								$"non-rare entry, so the corresponding {CharacterVerseData.kNeedsReview} entry for that " +
+								"verse should be of type Rare to prevent an unnecessary ambiguity.");
+							break;
+						default:
+							Assert.IsTrue(needsReviewQuoteType == QuoteType.Rare || needsReviewQuoteType == QuoteType.Potential,
+								"Character-verse file contains a Needs Review entry in {rare.BookCode} {rare.Chapter}:" +
+								"{rare.Verse} that is neither Rare nor Potential. If there is a valid reason, this check can" +
+								"be remove from this test.");
+							break;
+					}
+				}
+				catch (InvalidOperationException)
+				{
+					Assert.Fail($"Character-verse file contains a Rare quote for {rare.Character} in {rare.BookCode} {rare.Chapter}:" +
+						$"{rare.Verse}, but there is no corresponding {CharacterVerseData.kNeedsReview} character in that verse.");
+				}
+			}
+		}
+
+		/// <summary>
 		/// Although the class that reads and uses the data in this file does not actually care what order the lines are in,
 		/// for ease of maintenance, we keep it in canonical order. If any verse or chapter numbers appear out of order, it
 		/// is most likely a typo.
