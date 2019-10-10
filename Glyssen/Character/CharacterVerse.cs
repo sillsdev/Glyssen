@@ -48,7 +48,8 @@ namespace Glyssen.Character
 		/// Potential direct speech that is
 		/// a) in verses that are not found in some manuscripts and may be omitted from translations;
 		/// b) likely to be marked up using poetry but without quotes;
-		/// c) likely not to be marked as speech at all.
+		/// c) likely not to be marked as speech at all, but in these cases <seealso cref="Rare"/> is
+		/// probably a better choice.
 		/// d) A self-quote by the narrator (especially where the narrator refers to himself in the
 		/// first person). * ENHANCE: We might want to consider breaking this case out into a
 		/// distinct type.
@@ -113,6 +114,21 @@ namespace Glyssen.Character
 		/// opened in a previous verse.
 		/// </summary>
 		Alternate,
+
+		/// <summary>
+		/// Used to indicate a potential speaker which so very rarely occurs in any project that it cannot
+		/// be safely assigned automatically. Typically, this kind of quote represents an attitude, thought,
+		/// intention, desire, or belief. In the target language, this may be expressed as actual speech, in
+		/// which case it should definitely be dramatized. But it might just be an unexpressed thought,
+		/// spelled out literally for the sake of the audience, in which case, the target community will
+		/// need to decide whether to dramatize it or have it read by the narrator. If a verse has only Rare quotes and the parser finds a
+		/// quote in that verse, it will be regarded as unexpected, but in Identify Speaking Parts, the rare
+		/// speaker(s) will appear (along with the narrator) in the list of choices. So at least for now,
+		/// the actual handling will be identical to <seealso cref="Alternate"/>, though it is a semantically
+		/// distinct case. See PG-1233 for a full discussion, along with an alternate proposal for how to
+		/// handle Rare when it occurs along with other quote types in a verse.
+		/// </summary>
+		Rare,
 	}
 
 	public class CharacterVerse : ICharacterDeliveryInfo

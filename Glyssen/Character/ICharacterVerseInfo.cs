@@ -22,7 +22,7 @@ namespace Glyssen.Character
 		/// characters known to speak in ALL the verses will be included in the returned set.
 		/// </summary>
 		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false);
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
 
 		/// <summary>
 		/// Gets a single character/delivery object that represents the one known character expected to be the
