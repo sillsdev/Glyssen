@@ -6,6 +6,7 @@ using Glyssen.Properties;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Character
 {
@@ -103,7 +104,7 @@ namespace Glyssen.Character
 			if (items.Length > kiQuoteType)
 			{
 				var value = items[kiQuoteType];
-				if (value != "FALSE" && value != String.Empty && !Enum.TryParse(value, out quoteType))
+				if (value != "FALSE" && value != Empty && !Enum.TryParse(value, out quoteType))
 				{
 					throw new InvalidDataException(
 						$"{items[0]} {items[1]}:{items[2]}, {items[3]} - items[{kiQuoteType}] has a value of {value}, which is not a valid {typeof(QuoteType).Name}.");
@@ -137,9 +138,29 @@ namespace Glyssen.Character
 			}
 		}
 
-		protected override void AdjustCharacterVerseDataInLoookupTable()
+		protected virtual void AdjustData(IEnumerable<CharacterVerse> data)
 		{
-			throw new NotImplementedException("Do this tomorrow");
+			for (int i = 0; i < data.Count(); i++)
+			{
+				var cv = data.ElementAt(i);
+				if (cv.QuoteType == QuoteType.Quotation)
+				{
+					var defaultCharacter = cv.DefaultCharacter;
+					if (!IsNullOrEmpty(defaultCharacter))
+					{
+						// Should be SingleOrDefault, but this is more efficient
+						var alt = data.FirstOrDefault(a => a.Book == cv.Book &&
+							a.Chapter == cv.Chapter &&
+							a.Verse == cv.Verse &&
+							a.QuoteType == QuoteType.Quotation &&
+							a.Character == defaultCharacter);
+						if (alt != null)
+						{
+							alt.QuoteType = QuoteType.Alternate;
+						}
+					}
+				}
+			}
 		}
 	}
 }

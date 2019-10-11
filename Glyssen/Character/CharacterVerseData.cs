@@ -378,15 +378,15 @@ namespace Glyssen.Character
 
 		private void ResetCaches()
 		{
+			AdjustData(m_data);
 			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			AdjustCharacterVerseDataInLoookupTable();
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
 
-		protected virtual void AdjustCharacterVerseDataInLoookupTable()
+		protected virtual void AdjustData(IEnumerable<CharacterVerse> data)
 		{
-			// No-op in base
+			// base implementation is a no-op;
 		}
 
 		protected void LoadData(string tabDelimitedCharacterVerseData)
