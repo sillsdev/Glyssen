@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Properties;
@@ -138,26 +139,31 @@ namespace Glyssen.Character
 			}
 		}
 
-		protected virtual void AdjustData(IEnumerable<CharacterVerse> data)
+		protected override void AdjustData(ILookup<int, CharacterVerse> bookLookup)
 		{
-			for (int i = 0; i < data.Count(); i++)
+			for (var b = 1; b <= 66; b++)
 			{
-				var cv = data.ElementAt(i);
-				if (cv.QuoteType == QuoteType.Quotation)
+				var book = bookLookup[b];
+				var narrator = GetStandardCharacterId(BCVRef.NumberToBookCode(b), StandardCharacter.Narrator);
+				for (int i = 0; i < book.Count(); i++)
 				{
-					var defaultCharacter = cv.DefaultCharacter;
-					if (!IsNullOrEmpty(defaultCharacter))
+					var cv = book.ElementAt(i);
+					if (cv.QuoteType == QuoteType.Quotation && cv.DefaultCharacter == narrator)
 					{
-						// Should be SingleOrDefault, but this is more efficient
-						var alt = data.FirstOrDefault(a => a.Book == cv.Book &&
+						// PG-1248: cv is a Quotation entry which, if used, would have the quote spoken by the original
+						// speaker. (Even though the default character is the narrator, we ignore that.) if there is a
+						// narrator Quotation entry for this same verse, we want it to be considered as the primary
+						// option. We'll mark the cv we've found as an Alternate, so the quote parser will not
+						// consider it as an option, but the user will still be able to use it to override the default.
+
+						// Following line should be SingleOrDefault, but this is more efficient
+						var quotationByNarrator = book.FirstOrDefault(a => a.Book == cv.Book &&
 							a.Chapter == cv.Chapter &&
 							a.Verse == cv.Verse &&
 							a.QuoteType == QuoteType.Quotation &&
-							a.Character == defaultCharacter);
-						if (alt != null)
-						{
-							alt.QuoteType = QuoteType.Alternate;
-						}
+							a.Character == narrator);
+						if (quotationByNarrator != null)
+							cv.ChangeToAlternate();
 					}
 				}
 			}

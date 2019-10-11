@@ -186,7 +186,8 @@ namespace Glyssen.Character
 
 		private readonly IEqualityComparer<ICharacterDeliveryInfo> m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
-		private ILookup<int, CharacterVerse> m_lookup;
+		private ILookup<int, CharacterVerse> m_lookupByRef;
+		private ILookup<int, CharacterVerse> m_lookupByBookNum;
 		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterAndDeliveries;
 		private ISet<string> m_uniqueDeliveries;
 
@@ -216,7 +217,7 @@ namespace Glyssen.Character
 
 			if (initialStartVerse == initialEndVerse)
 			{
-				result = m_lookup[verseRef.BBBCCCVVV].ToList();
+				result = m_lookupByRef[verseRef.BBBCCCVVV].ToList();
 			}
 			else
 			{
@@ -225,7 +226,7 @@ namespace Glyssen.Character
 				result = new List<CharacterVerse>();
 				do
 				{
-					result = result.Union(m_lookup[verseRef.BBBCCCVVV]).ToList();
+					result = result.Union(m_lookupByRef[verseRef.BBBCCCVVV]).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
@@ -249,7 +250,7 @@ namespace Glyssen.Character
 			// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 			while (verseRef <= finalVerseRef)
 			{
-				var nextResult = m_lookup[verseRef.BBBCCCVVV].ToList();
+				var nextResult = m_lookupByRef[verseRef.BBBCCCVVV].ToList();
 				if (nextResult.Any())
 				{
 					if (!interruption.Any())
@@ -289,7 +290,7 @@ namespace Glyssen.Character
 
 			var verseRef = new VerseRef(bookId, chapter, startVerse, versification);
 			verseRef.ChangeVersification(ScrVers.English);
-			var implicitCv = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+			var implicitCv = m_lookupByRef[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
 
 			if (endVerse == 0 || startVerse == endVerse || implicitCv == null)
 				return implicitCv;
@@ -298,7 +299,7 @@ namespace Glyssen.Character
 			initialEndRef.ChangeVersification(ScrVers.English);
 			do
 			{
-				var cvNextVerse = m_lookup[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+				var cvNextVerse = m_lookupByRef[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
 				// Unless all verses in the range have the same implicit character, we cannot say that there is an
 				// implicit character for this range. Note that there is the slight possibility that the delivery may vary
 				// from one verse to the next, but it doesn't seem worth it to fail to find the implicit character just
@@ -316,9 +317,9 @@ namespace Glyssen.Character
 			return m_data;
 		}
 
-		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookCode)
+		public IEnumerable<CharacterVerse> GetAllQuoteInfo(int bookNum)
 		{
-			return m_data.Where(cv => cv.BookCode == bookCode);
+			return m_lookupByBookNum[bookNum];
 		}
 
 		protected virtual void AddCharacterVerse(CharacterVerse cv)
@@ -378,13 +379,14 @@ namespace Glyssen.Character
 
 		private void ResetCaches()
 		{
-			AdjustData(m_data);
-			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
+			m_lookupByBookNum = m_data.ToLookup(c => c.Book);
+			AdjustData(m_lookupByBookNum);
+			m_lookupByRef = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
 
-		protected virtual void AdjustData(IEnumerable<CharacterVerse> data)
+		protected virtual void AdjustData(ILookup<int, CharacterVerse> data)
 		{
 			// base implementation is a no-op;
 		}

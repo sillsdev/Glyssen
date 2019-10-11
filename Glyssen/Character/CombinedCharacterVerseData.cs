@@ -37,10 +37,10 @@ namespace Glyssen.Character
 			return project.Union(control);
 		}
 
-		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId)
+		public IEnumerable<CharacterVerse> GetAllQuoteInfo(int bookNum)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetAllQuoteInfo(bookId);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetAllQuoteInfo(bookId);
+			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetAllQuoteInfo(bookNum);
+			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetAllQuoteInfo(bookNum);
 			return project.Union(control);
 		}
 

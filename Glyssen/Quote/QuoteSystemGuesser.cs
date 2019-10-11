@@ -67,9 +67,10 @@ namespace Glyssen.Quote
 			stopwatch.Start();
 
 			// Start with the New Testament because that's where most of the dialogue quotes are, and it makes guessing A LOT faster!
-			foreach (var book in bookList.SkipWhile(b => BCVRef.BookToNumber(b.BookId) < 40).Union(bookList.TakeWhile(b => BCVRef.BookToNumber(b.BookId) < 40)))
+			foreach (var bookTuple in bookList.Select(b => new Tuple<int, T>(BCVRef.BookToNumber(b.BookId), b)).OrderBy(t => t.Item1, new NewTestamentBooksFirstComparer()))
 			{
-				var bookNum = BCVRef.BookToNumber(book.BookId);
+				var bookNum = bookTuple.Item1;
+				var book = bookTuple.Item2;
 
 				if (worker != null)
 					worker.ReportProgress(MathUtilities.Percent(++booksProcessed, bookCount));
@@ -78,7 +79,7 @@ namespace Glyssen.Quote
 				int prevQuoteChapter = -1;
 				int prevQuoteVerse = -1;
 
-				foreach (var quote in cvInfo.GetAllQuoteInfo(book.BookId).Where(q => q.IsExpected))
+				foreach (var quote in cvInfo.GetAllQuoteInfo(bookNum).Where(q => q.IsExpected))
 				{
 					if (versesAnalyzedForCurrentBook > maxNonDialogueSamplesPerBook && !quote.IsDialogue)
 						continue;

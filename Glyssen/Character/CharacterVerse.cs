@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
@@ -148,7 +149,7 @@ namespace Glyssen.Character
 		public string Character { get; }
 		public string Delivery { get; }
 		public string Alias { get; }
-		public QuoteType QuoteType { get; }
+		public QuoteType QuoteType { get; private set; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
 		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
@@ -223,6 +224,14 @@ namespace Glyssen.Character
 			ParallelPassageReferences = parallelPassageReferences;
 			ProjectSpecific = projectSpecific;
 			QuoteType = quoteType;
+		}
+
+		public void ChangeToAlternate()
+		{
+			Debug.Assert(QuoteType == QuoteType.Quotation &&
+				DefaultCharacter == CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
+				"At least for now, we only allow this for Quotations that default to the narrator.");
+			QuoteType = QuoteType.Alternate;
 		}
 
 		public override string ToString()
