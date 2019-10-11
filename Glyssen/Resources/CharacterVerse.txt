@@ -8668,11 +8668,16 @@ PRO	24	29	you (hypothetical)			Hypothetical
 PRO	25	7	king			Hypothetical		
 PRO	26	13	sluggard			Hypothetical		
 PRO	30	1	Agur			Potential		
-PRO	30	2	Agur			Potential		
-PRO	30	8	narrator-PRO			Quotation	Agur	
-PRO	30	9	narrator-PRO			Quotation	Agur	
-PRO	30	15	narrator-PRO			Quotation	Agur	
-PRO	30	16	narrator-PRO			Quotation	Agur	
+# Because of the difficult textual/translation issue in v. 1, if there are not explicit
+# quotes, it should be reviewed. The English refernce text takes the traditional interpretation,
+# but even in that interpretation, the portion following the colon could be spoken by Agur
+PRO	30	1	Needs Review			Implicit		
+PRO	30	2-33	Agur			Potential		
+PRO	30	8	narrator-PRO			Quotation		
+PRO	30	9	narrator-PRO			Quotation		
+PRO	30	15	leech's two daughters			Hypothetical		
+PRO	30	15	narrator-PRO			Quotation		
+PRO	30	16	narrator-PRO			Quotation		
 PRO	30	20	immoral woman			Hypothetical		
 PRO	31	2	King Lemuel's mother/King Lemuel			Implicit		
 PRO	31	3	King Lemuel's mother/King Lemuel			Implicit		
