@@ -79,6 +79,13 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
+		public void GetCharacters_ControlHasSameCharacterEntryForInitialStartAndInitialEndVerse_GetsOnlyOneEntryForCharacter()
+		{
+			var character = ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 1, 14, 15).Single();
+			Assert.AreEqual("God", character.Character);
+		}
+
+		[Test]
 		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification()
 		{
 			// Psalm 37:16-17 in Russian Orthodox => Psalm 38:15-16 in English

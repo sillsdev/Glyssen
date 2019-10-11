@@ -212,7 +212,7 @@ namespace Glyssen.Character
 				result = Enumerable.Empty<CharacterVerse>();
 				do
 				{
-					result = result.Union(m_lookup[verseRef.BBBCCCVVV]);
+					result = result.Union(m_lookup[verseRef.BBBCCCVVV], m_characterDeliveryEqualityComparer).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
