@@ -184,7 +184,7 @@ namespace Glyssen.Character
 
 		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
-		private readonly IEqualityComparer<ICharacterDeliveryInfo> m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
+		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
 		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterAndDeliveries;
@@ -225,7 +225,8 @@ namespace Glyssen.Character
 				result = new List<CharacterVerse>();
 				do
 				{
-					result = result.Union(m_lookup[verseRef.BBBCCCVVV]).ToList();
+					result = result.Union(m_lookup[verseRef.BBBCCCVVV],
+						(IEqualityComparer<CharacterVerse>)m_characterDeliveryEqualityComparer).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
