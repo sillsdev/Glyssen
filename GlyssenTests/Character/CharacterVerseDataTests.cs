@@ -78,6 +78,13 @@ namespace GlyssenTests.Character
 			Assert.AreEqual("believers, circumcised", character.Character);
 		}
 
+		[Test]
+		public void GetCharacters_ControlHasSameCharacterEntryForInitialStartAndInitialEndVerse_GetsOnlyOneEntryForCharacter()
+		{
+			var character = ControlCharacterVerseData.Singleton.GetCharacters(kGENbookNum, 1, 14, 15).Single();
+			Assert.AreEqual("God", character.Character);
+		}
+
 		[TestCase(false)]
 		[TestCase(true)]
 		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification(bool includeNarratorOverrides)
