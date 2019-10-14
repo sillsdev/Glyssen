@@ -8,7 +8,7 @@ namespace Glyssen.Utilities
 		{
 			if (x < 40 && y < 40 || x >= 40 && y >= 40)
 				return x.CompareTo(y);
-			// On is a NT book number and the other is an OT book number, so higher (NT) should
+			// One is a NT book number and the other is an OT book number, so higher (NT) should
 			// actually be treated as LOWER.
 			return -x.CompareTo(y);
 		}
