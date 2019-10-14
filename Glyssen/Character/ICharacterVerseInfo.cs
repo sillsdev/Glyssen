@@ -37,7 +37,7 @@ namespace Glyssen.Character
 	{
 		IEnumerable<CharacterVerse> GetAllQuoteInfo();
 
-		IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId);
+		IEnumerable<CharacterVerse> GetAllQuoteInfo(int bookNum);
 
 		IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries();
 
