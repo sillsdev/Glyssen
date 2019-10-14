@@ -2579,7 +2579,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[1].CharacterId); //  We know for sure this is part of Jesus' quote.
 
 			Assert.AreEqual("Todas las cosas son posibles para el que cree.", output[2].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[2].CharacterId); // This is part of it, but we can't know that for sure.
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, output[2].CharacterId); // This is part of it, but we can't know that for sure.
 		}
 #if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
@@ -2691,7 +2691,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 
 			Assert.AreEqual("is my favorite word, for thus saith Isaiah.", output[2].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, output[2].CharacterId);
 
 			Assert.AreEqual("Don't even go there!", output[3].GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
