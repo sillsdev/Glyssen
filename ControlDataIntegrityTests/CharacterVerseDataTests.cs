@@ -71,7 +71,10 @@ namespace ControlDataIntegrityTests
 
 				var defaultCharacter = match.Result("${defaultCharacter}");
 				if (!string.IsNullOrEmpty(defaultCharacter))
+				{
 					Assert.AreNotEqual(character, defaultCharacter, "Line: " + line);
+					Assert.IsFalse(defaultCharacter.Contains("/"), $"Line: {line} has a default character which is a multi-character ID.");
+				}
 
 				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator))
 					Assert.AreNotEqual("Dialogue", match.Result("${type}"), "Line: " + line);
@@ -277,7 +280,11 @@ namespace ControlDataIntegrityTests
 				Assert.IsFalse(otherEntries.Any(c => c.Character == alternate.Character && c.Delivery == alternate.Delivery),
 					$"Alternate used for a {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}, " +
 					"but that character also has another quote type in that verse!");
-				Assert.IsTrue(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-")),
+				Assert.IsTrue(otherEntries.Any(c => c.QuoteType != QuoteType.Quotation || !c.Character.StartsWith("narrator-") ||
+						// PG-1248: Because of the logic in AdjustData, this Alternate could be a Quotation that was turned into
+						// an Alternate because there was a corresponding narrator Quotation that should be considered as primary.
+						// If so, we don't want to flag this as a mistake.
+						c.Character == alternate.DefaultCharacter),
 					$"Character-verse file contains an Alternate quote for {alternate.Character} in {alternate.BookCode} {alternate.Chapter}:{alternate.Verse}" +
 					", but there is no primary character.");
 			}

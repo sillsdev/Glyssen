@@ -410,7 +410,7 @@ GEN	28	1	Isaac (old)			Normal
 GEN	28	2	Isaac (old)			Normal		
 GEN	28	3	Isaac (old)			Normal		
 GEN	28	4	Isaac (old)			Normal		
-GEN	28	6	Isaac (old)			Quotation	narrator-GEN	
+GEN	28	6	Isaac (old)			Quotation		
 GEN	28	13	God		God (the LORD) (in vision)	Normal		
 GEN	28	14	God		God (the LORD) (in vision)	Normal		
 GEN	28	15	God		God (the LORD) (in vision)	Normal		
@@ -6050,7 +6050,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	12	9	Rehoboam, king			Normal		
 1KI	12	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 1KI	12	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
-1KI	12	12	Rehoboam, king			Quotation	narrator-1KI	
+1KI	12	12	Rehoboam, king			Quotation		
 1KI	12	14	Rehoboam, king			Normal		
 1KI	12	16	Israel, all			Normal		
 1KI	12	16	Jeroboam			Alternate		
@@ -6858,7 +6858,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	9	Rehoboam, king			Normal		
 2CH	10	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 2CH	10	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
-2CH	10	12	Rehoboam, king			Quotation	narrator-2CH	
+2CH	10	12	Rehoboam, king			Quotation		
 2CH	10	14	Rehoboam, king			Normal		
 2CH	10	16	Israel, all			Normal		
 2CH	11	3	God		God (the LORD)	Normal		
@@ -18813,7 +18813,8 @@ JHN	21	19	Jesus			Dialogue
 JHN	21	20	John		John (who had asked the Lord who was going to betray Him)	Quotation		
 JHN	21	21	Peter (Simon)	defensive		Dialogue		
 JHN	21	22	Jesus			Dialogue		
-JHN	21	23	Jesus			Quotation		
+JHN	21	23	Jesus			Quotation	narrator-JHN	
+JHN	21	23	narrator-JHN			Quotation		
 ACT	1	4	Jesus			Dialogue		
 ACT	1	5	Jesus			Normal		
 ACT	1	6	disciples		apostles	Dialogue		
@@ -18867,12 +18868,14 @@ ACT	2	38	Peter (Simon)			Dialogue
 ACT	2	39	Peter (Simon)			Normal		
 ACT	2	40	Peter (Simon)			Dialogue		
 ACT	2	43	everyone			Indirect		
+# "Beautiful" or "Beautiful Gate
 ACT	3	2	narrator-ACT			Quotation		
 ACT	3	3	crippled man			Indirect		
 ACT	3	4	Peter (Simon)			Dialogue		
 ACT	3	5	crippled man			Indirect		
 ACT	3	6	Peter (Simon)			Dialogue		
 ACT	3	10	people in temple courts, all the			Indirect		
+# "Solomon's Colonnade"
 ACT	3	11	narrator-ACT			Quotation		
 ACT	3	12	Peter (Simon)			Normal		
 ACT	3	13	Peter (Simon)			Normal		
@@ -18916,6 +18919,7 @@ ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Pet
 ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	32	narrator-ACT			Hypothetical		
 ACT	4	33	disciples		apostles	Indirect		
+# "Son of Encouragement"
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	2	Ananias of Jerusalem			Indirect		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
@@ -18950,6 +18954,7 @@ ACT	6	3	disciples		the twelve (apostles)	Normal
 ACT	6	4	disciples		the twelve (apostles)	Normal		
 ACT	6	5	Grecian Jews		the whole multitude (of believers)	Rare		
 ACT	6	5	Needs Review			Potential		
+# "Synagogue of the Freed-men"
 ACT	6	9	narrator-ACT			Quotation		
 ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing		Normal		
 ACT	6	13	false witnesses			Normal		
@@ -19031,6 +19036,7 @@ ACT	8	23	Peter (Simon)	rebuking		Normal
 ACT	8	24	Simon, sorcerer			Dialogue		
 ACT	8	26	angel		angel of the Lord	Normal		
 ACT	8	26	narrator-ACT			Interruption		
+# Kandake (which means "queen of the Ethiopians")
 ACT	8	27	narrator-ACT			Quotation		
 ACT	8	29	Holy Spirit, the			Normal		
 ACT	8	30	Philip the evangelist		Philip	Dialogue		
@@ -19068,6 +19074,7 @@ ACT	9	26	disciples			Rare
 ACT	9	26	Needs Review			Potential		
 ACT	9	27	Barnabas			Indirect		
 ACT	9	34	Peter (Simon)			Dialogue		
+# as the name may be translated, "Dorcas."
 ACT	9	36	narrator-ACT			Quotation		
 ACT	9	38	disciples, two men (from Joppa)	urgent		Normal		
 ACT	9	39	Peter (Simon)			Rare		
@@ -19076,6 +19083,7 @@ ACT	9	39	widow	weeping	widows	Rare
 ACT	9	39	Needs Review			Potential		
 ACT	9	40	Peter (Simon)			Normal		
 ACT	9	41	Peter (Simon)			Indirect		
+# "Italian Regiment"
 ACT	10	1	narrator-ACT			Quotation		
 ACT	10	3	angel		angel of God	Normal		
 ACT	10	4	angel		angel of God	Normal		
@@ -19550,12 +19558,15 @@ ACT	26	28	King Herod Agrippa II			Dialogue
 ACT	26	29	Paul			Dialogue		
 ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/Festus/Bernice/those sitting with them	Dialogue	Bernice	
 ACT	26	32	King Herod Agrippa II			Dialogue		
+# called "The Emperor's Regiment"
 ACT	27	1	narrator-ACT			Quotation		
 ACT	27	3	Julius			Indirect		
+# called "Fair Havens"
 ACT	27	8	narrator-ACT			Quotation		
 ACT	27	10	Paul	warning		Normal		
 ACT	27	12	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		majority (ship's crew)	Indirect		
 ACT	27	13	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		majority (ship's crew)	Indirect		
+# called "Northeaster" or "Typhoniqos Euroqlydon"
 ACT	27	14	narrator-ACT			Quotation		
 ACT	27	21	Paul			Normal		
 ACT	27	22	Paul			Normal		
