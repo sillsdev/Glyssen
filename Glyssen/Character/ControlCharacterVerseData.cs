@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Properties;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen.Character
 {
@@ -103,7 +105,7 @@ namespace Glyssen.Character
 			if (items.Length > kiQuoteType)
 			{
 				var value = items[kiQuoteType];
-				if (value != "FALSE" && value != String.Empty && !Enum.TryParse(value, out quoteType))
+				if (value != "FALSE" && value != Empty && !Enum.TryParse(value, out quoteType))
 				{
 					throw new InvalidDataException(
 						$"{items[0]} {items[1]}:{items[2]}, {items[3]} - items[{kiQuoteType}] has a value of {value}, which is not a valid {typeof(QuoteType).Name}.");
@@ -134,6 +136,36 @@ namespace Glyssen.Character
 					expectedQuotesInBook.Add(expectedQuote.Chapter, versesWithExpectedQuotesInChapter = new HashSet<int>());
 
 				versesWithExpectedQuotesInChapter.Add(expectedQuote.Verse);
+			}
+		}
+
+		protected override void AdjustData(ILookup<int, CharacterVerse> bookLookup)
+		{
+			for (var b = 1; b <= 66; b++)
+			{
+				var book = bookLookup[b];
+				var narrator = GetStandardCharacterId(BCVRef.NumberToBookCode(b), StandardCharacter.Narrator);
+				for (int i = 0; i < book.Count(); i++)
+				{
+					var cv = book.ElementAt(i);
+					if (cv.QuoteType == QuoteType.Quotation && cv.DefaultCharacter == narrator)
+					{
+						// PG-1248: cv is a Quotation entry which, if used, would have the quote spoken by the original
+						// speaker. (Even though the default character is the narrator, we ignore that.) if there is a
+						// narrator Quotation entry for this same verse, we want it to be considered as the primary
+						// option. We'll mark the cv we've found as an Alternate, so the quote parser will not
+						// consider it as an option, but the user will still be able to use it to override the default.
+
+						// Following line should be SingleOrDefault, but this is more efficient
+						var quotationByNarrator = book.FirstOrDefault(a => a.Book == cv.Book &&
+							a.Chapter == cv.Chapter &&
+							a.Verse == cv.Verse &&
+							a.QuoteType == QuoteType.Quotation &&
+							a.Character == narrator);
+						if (quotationByNarrator != null)
+							cv.ChangeToAlternate();
+					}
+				}
 			}
 		}
 	}

@@ -66,7 +66,7 @@ namespace Glyssen
 			// might be added to the USFM standard, this regex matches only the known allowed poetry markers. It specifically prevents matching
 			// "qa", which is an acrostic header and should not be treated like other poetry markers. As the standard is changed in the future,
 			// any new markers that should be treated as "follow on" paragraphs will need to be added here.
-			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi.?))$", RegexOptions.Compiled);
+			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi\\d?)|(l(f|(i(m?)\\d?))))$", RegexOptions.Compiled);
 			InitializeInterruptionRegEx(false);
 		}
 
@@ -932,7 +932,7 @@ namespace Glyssen
 		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
 		{
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
-				InitialEndVerseNumber, versification: scrVers, includeAlternates:true).FirstOrDefault(c => c.Character == CharacterId);
+				InitialEndVerseNumber, versification: scrVers, includeAlternatesAndRareQuotes:true).FirstOrDefault(c => c.Character == CharacterId);
 		}
 
 		public static string BuildSplitLineHtml(int id)
