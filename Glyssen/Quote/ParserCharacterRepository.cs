@@ -25,12 +25,12 @@ namespace Glyssen.Quote
 		/// will be treated as a narrator "quotation."
 		/// </summary>
 		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false)
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
 		{
 			Debug.Assert(!includeNarratorOverrides, "Can't think of any valid reason the quote parser should ever want to consider" +
 				"narrator overrides. These should be applied only after user has done disambiguation.");
 			return m_cvInfo.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification,
-					includeAlternates, includeNarratorOverrides)
+					includeAlternatesAndRareQuotes, includeNarratorOverrides)
 				.Select(cv => cv.QuoteType != QuoteType.Hypothetical ||
 					m_referenceText.GetBook(bookId)?.GetBlocksForVerse(chapter,
 							initialStartVerse, finalVerse > 0 ? finalVerse : (initialEndVerse > 0 ? initialEndVerse : initialStartVerse))

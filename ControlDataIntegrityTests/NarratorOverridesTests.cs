@@ -219,7 +219,9 @@ namespace ControlDataIntegrityTests
 								var msg = $"There is a \"hole\" (more than one missing block in the block chain) because an override for {book.Id} " +
 									$"{partialStart.StartChapter}:{partialStart.StartVerse} has a start block of {partialStart.StartBlock} " +
 									"but no preceding entries";
-								if (book.Id == "SNG" && partialStart.StartChapter == 4 && partialStart.StartVerse == 16)
+								if (book.Id == "SNG" && partialStart.StartChapter == 4 && partialStart.StartVerse == 16 ||
+									book.Id == "HAG" && (partialStart.StartChapter == 1 && partialStart.StartVerse == 13 ||
+									partialStart.StartChapter == 2 && partialStart.StartVerse == 14))
 								{
 									Debug.WriteLine($"Known exception: {msg}");
 								}

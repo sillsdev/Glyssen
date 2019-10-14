@@ -16,10 +16,12 @@ namespace Glyssen.Character
 		}
 
 		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternates = false, bool includeNarratorOverrides = false)
+			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification, includeAlternates, includeNarratorOverrides);
+			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse,
+				initialEndVerse, finalVerse, versification);
+			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse,
+				initialEndVerse, finalVerse, versification, includeAlternatesAndRareQuotes, includeNarratorOverrides);
 			return project.Union(control);
 		}
 
@@ -35,10 +37,10 @@ namespace Glyssen.Character
 			return project.Union(control);
 		}
 
-		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId)
+		public IEnumerable<CharacterVerse> GetAllQuoteInfo(int bookNum)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetAllQuoteInfo(bookId);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetAllQuoteInfo(bookId);
+			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetAllQuoteInfo(bookNum);
+			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetAllQuoteInfo(bookNum);
 			return project.Union(control);
 		}
 

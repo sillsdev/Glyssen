@@ -1160,7 +1160,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static IEnumerable<CharacterVerse> GetAllCharacters(int bookNum, Block block)
 		{
-			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, includeAlternates:true);
+			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, includeAlternatesAndRareQuotes:true);
 		}
 
 		static readonly Regex s_stripNumericSuffixes = new Regex(@"(.*?)((( #)|(-FX)|(_))\d+)+", RegexOptions.Compiled);
