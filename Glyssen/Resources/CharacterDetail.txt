@@ -600,6 +600,7 @@ Lamech (descendent of Seth)	1	Male				GEN 5:29
 leaders	-1	Male				EZR 9:1 <-(3 more)-> LUK 19:47
 leaders, many	-1	Male				JHN 12:42
 Leah	1	Female				GEN 29:32 <-(11 more)-> GEN 31:16
+leech's two daughters	2	Female				PRO 30:15
 leper	1	Male				MAT 8:2 <-(2 more)-> LUK 5:12
 leper, thankful Samaritan	1	Male				LUK 17:15 & LUK 17:16
 lepers, ten	10	Male				LUK 17:13
