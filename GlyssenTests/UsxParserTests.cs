@@ -821,6 +821,58 @@ namespace GlyssenTests
 			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
 		}
 
+		#region PG-1272 Tests
+		[Test]
+		public void Parse_WordsOfJesus_BreakIntoSeparateBlockAssignedToJesus()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left. </char><verse number=\"36\" style=\"v\" /><char style=\"wj\">Two will be in the field: the one taken, and the other left, </char>Jesus concluded.</para>\r\n" +
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual(4, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left. {36}\u00A0Two will be in the field: the one taken, and the other left, ", blocks[1].GetText(true));
+			Assert.AreEqual("Jesus", blocks[1].CharacterId);
+			Assert.AreEqual(1, blocks[2].BlockElements.Count);
+			Assert.AreEqual("Jesus concluded.", blocks[2].GetText(true));
+			Assert.IsNull(blocks[2].CharacterId);
+			Assert.AreEqual(2, blocks[3].BlockElements.Count);
+			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[3].GetText(true));
+			Assert.IsNull(blocks[3].CharacterId);
+		}
+
+		[Test]
+		public void Parse_WordsOfJesusInVerseWhereJesusIsNotExpected_BreakIntoSeparateBlockAssignedToNeedsReview()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"7\" style=\"v\" />And he preached: <char style=\"wj\">Someone is coming who is > I, the thong of whose sandals I am unworthy to untie.</char></para>\r\n" +
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"8\" style=\"v\" /><char style=\"wj\">I immerse you in H2O, but he will plunge you into life with God's 'Holy Spirit.</char></para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{7}\u00A0And he preached: ", blocks[1].GetText(true));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual(1, blocks[2].BlockElements.Count);
+			Assert.AreEqual("Someone is coming who is > I, the thong of whose sandals I am unworthy to untie.", blocks[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[2].CharacterId);
+			Assert.AreEqual(2, blocks[3].BlockElements.Count);
+			Assert.AreEqual("{8}\u00A0I immerse you in H2O, but he will plunge you into life with God's 'Holy Spirit.", blocks[3].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[3].CharacterId);
+		}
+
+		[Test]
+		public void Parse_ScriptureQuotes_BreakIntoSeparateBlockAssignedToScripture()
+		{
+			Assert.Fail("Write this test.");
+		}
+		#endregion // PG-1272 Tests
+
 		[Test]
 		public void Parse_OnlyVerseInParagraphConsistsEntirelyOfNote_DoNotIncludeParagraph()
 		{

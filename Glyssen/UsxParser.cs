@@ -19,6 +19,8 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
+		private static Dictionary<string, string> s_charStylesThatMapToSpecificCharacters;
+
 		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
@@ -93,6 +95,12 @@ namespace Glyssen
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
+
+		static UsxParser()
+		{
+			s_charStylesThatMapToSpecificCharacters = new Dictionary<string, string>(2);
+			s_charStylesThatMapToSpecificCharacters["wj"] = "Jesus";
+		}
 
 		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
@@ -188,17 +196,41 @@ namespace Glyssen
 									block.BlockElements.Add(new Verse(verseNumStr));
 									break;
 								case "char":
-									IStyle charStyle = m_stylesheet.GetStyle((new UsxNode(childNode)).StyleTag);
+									var charTag = (new UsxNode(childNode)).StyleTag;
+									IStyle charStyle = m_stylesheet.GetStyle(charTag);
 									if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
 									{
 										// Starting with USFM 3.0, char styles can have attributes separated by |
 										var tokens = childNode.InnerText.Split('|');
 										if (tokens.Any())
+										{
+											if (s_charStylesThatMapToSpecificCharacters.TryGetValue(charTag, out var character) && block.StyleTag != charTag)
+											{
+												if (block.BlockElements.OfType<ScriptText>().Any() || sb.ToString().Any(Char.IsLetter))
+												{
+													FlushStringBuilderToBlockElement(sb, block);
+													blocks.Add(block);
+													block = new Block(charTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
+												}
+												else
+												{
+													block.StyleTag = charTag;
+												}
+												block.CharacterId = character;
+											}
 											sb.Append(tokens[0]);
+										}
 									}
 
 									break;
 								case "#text":
+									if (s_charStylesThatMapToSpecificCharacters.ContainsKey(block.StyleTag))
+									{
+										FlushStringBuilderToBlockElement(sb, block);
+										if (block.BlockElements.Count > 0)
+											blocks.Add(block);
+										block = new Block(usxPara.StyleTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
+									}
 									sb.Append(childNode.InnerText);
 									break;
 								case "#whitespace":
@@ -207,24 +239,30 @@ namespace Glyssen
 									break;
 							}
 						}
-						sb.TrimStart();
-						if (sb.Length > 0)
-						{
-							block.BlockElements.Add(new ScriptText(sb.ToString()));
-							sb.Clear();
-						}
-						if (RemoveEmptyTrailingVerse(block))
-						{
-							var lastVerse = block.LastVerse;
-							m_currentStartVerse = lastVerse.StartVerse;
-							m_currentEndVerse = lastVerse.EndVerse;
-						}
+						FlushStringBuilderToBlockElement(sb, block);
 						break;
 				}
 				if (block != null && block.BlockElements.Count > 0)
 					blocks.Add(block);
 			}
 			return blocks;
+		}
+
+		private void FlushStringBuilderToBlockElement(StringBuilder sb, Block block)
+		{
+			sb.TrimStart();
+			if (sb.Length > 0)
+			{
+				block.BlockElements.Add(new ScriptText(sb.ToString()));
+				sb.Clear();
+			}
+
+			if (RemoveEmptyTrailingVerse(block))
+			{
+				var lastVerse = block.LastVerse;
+				m_currentStartVerse = lastVerse.StartVerse;
+				m_currentEndVerse = lastVerse.EndVerse;
+			}
 		}
 
 		/// <summary>
