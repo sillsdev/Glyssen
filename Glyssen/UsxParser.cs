@@ -21,7 +21,7 @@ namespace Glyssen
 	{
 		private static Dictionary<string, string> s_charStylesThatMapToSpecificCharacters;
 
-		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
+		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, ScrVers versification, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
@@ -38,7 +38,7 @@ namespace Glyssen
 			Parallel.ForEach(blocksInBook, book =>
 			{
 				var bookId = book.Key;
-				var bookScript = new UsxParser(bookId, stylesheet, book.Value).CreateBookScript();
+				var bookScript = new UsxParser(bookId, stylesheet, versification, book.Value).CreateBookScript();
 				lock(bookScripts)
 					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
@@ -88,7 +88,9 @@ namespace Glyssen
 		}
 
 		private readonly string m_bookId;
+		private readonly int m_bookNum;
 		private readonly IStylesheet m_stylesheet;
+		private readonly ScrVers m_versification;
 		private readonly XmlNodeList m_nodeList;
 
 		private string m_bookLevelChapterLabel;
@@ -98,14 +100,16 @@ namespace Glyssen
 
 		static UsxParser()
 		{
-			s_charStylesThatMapToSpecificCharacters = new Dictionary<string, string>(2);
-			s_charStylesThatMapToSpecificCharacters["wj"] = "Jesus";
+			s_charStylesThatMapToSpecificCharacters = new Dictionary<string, string>(2)
+				{["wj"] = "Jesus", ["qt"] = "scripture"};
 		}
 
-		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
+		public UsxParser(string bookId, IStylesheet stylesheet, ScrVers versification, XmlNodeList nodeList)
 		{
 			m_bookId = bookId;
+			m_bookNum = BCVRef.BookToNumber(m_bookId);
 			m_stylesheet = stylesheet;
+			m_versification = versification;
 			m_nodeList = nodeList;
 		}
 
@@ -206,17 +210,10 @@ namespace Glyssen
 										{
 											if (s_charStylesThatMapToSpecificCharacters.TryGetValue(charTag, out var character) && block.StyleTag != charTag)
 											{
-												if (block.BlockElements.OfType<ScriptText>().Any() || sb.ToString().Any(Char.IsLetter))
-												{
-													FlushStringBuilderToBlockElement(sb, block);
-													blocks.Add(block);
-													block = new Block(charTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
-												}
-												else
-												{
-													block.StyleTag = charTag;
-												}
-												block.CharacterId = character;
+												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
+												block.CharacterId = ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
+													block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, m_versification, true)
+													.FirstOrDefault(cv => cv.Character == character)?.Character ?? CharacterVerseData.kNeedsReview;
 											}
 											sb.Append(tokens[0]);
 										}
@@ -225,12 +222,7 @@ namespace Glyssen
 									break;
 								case "#text":
 									if (s_charStylesThatMapToSpecificCharacters.ContainsKey(block.StyleTag))
-									{
-										FlushStringBuilderToBlockElement(sb, block);
-										if (block.BlockElements.Count > 0)
-											blocks.Add(block);
-										block = new Block(usxPara.StyleTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
-									}
+										FinalizeCharacterStyleBlock(sb, ref block, blocks, usxPara.StyleTag);
 									sb.Append(childNode.InnerText);
 									break;
 								case "#whitespace":
@@ -240,12 +232,37 @@ namespace Glyssen
 							}
 						}
 						FlushStringBuilderToBlockElement(sb, block);
+						if (RemoveEmptyTrailingVerse(block))
+						{
+							var lastVerse = block.LastVerse;
+							m_currentStartVerse = lastVerse.StartVerse;
+							m_currentEndVerse = lastVerse.EndVerse;
+						}
 						break;
 				}
 				if (block != null && block.BlockElements.Count > 0)
 					blocks.Add(block);
 			}
 			return blocks;
+		}
+
+		private void FinalizeCharacterStyleBlock(StringBuilder sb, ref Block block, IList<Block> blocks, string newBlockTag)
+		{
+			FlushStringBuilderToBlockElement(sb, block);
+			if (block.BlockElements.OfType<ScriptText>().Any())
+			{
+				Verse finalVerse = block.BlockElements.Last() as Verse;
+				if (finalVerse != null)
+					block.BlockElements.RemoveAt(block.BlockElements.Count - 1);
+				blocks.Add(block);
+				block = new Block(newBlockTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
+				if (finalVerse != null)
+					block.BlockElements.Add(finalVerse);
+			}
+			else
+			{
+				block.StyleTag = newBlockTag;
+			}
 		}
 
 		private void FlushStringBuilderToBlockElement(StringBuilder sb, Block block)
@@ -255,13 +272,6 @@ namespace Glyssen
 			{
 				block.BlockElements.Add(new ScriptText(sb.ToString()));
 				sb.Clear();
-			}
-
-			if (RemoveEmptyTrailingVerse(block))
-			{
-				var lastVerse = block.LastVerse;
-				m_currentStartVerse = lastVerse.StartVerse;
-				m_currentEndVerse = lastVerse.EndVerse;
 			}
 		}
 

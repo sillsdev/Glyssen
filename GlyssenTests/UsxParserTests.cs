@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using Glyssen;
@@ -8,6 +9,7 @@ using NUnit.Framework;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
 using SIL.DblBundle.Usx;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {
@@ -803,17 +805,24 @@ namespace GlyssenTests
 			Assert.AreEqual("{27}\u00A0“You have heard that it was said, ‘You shall not commit adultery;’ {28}\u00A0but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. {29}\u00A0If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna. {30}\u00A0If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.", blocks[1].GetText(true));
 		}
 
+		private List<Block> ParseLuke17Data(string paragraphData)
+		{
+			string usxFrame = "<?xml version=\"1.0\" encoding=\"utf-8\"?><usx version=\"2.0\"><book code=\"LUK\" style=\"id\">Some Bible</book><chapter number=\"17\" style=\"c\" />{0}</usx>";
+			var doc = UsxDocumentTests.CreateDocFromString(string.Format(usxFrame, paragraphData));
+			var parser = GetUsxParser(doc, "LUK");
+			return parser.Parse().ToList();
+		}
+
 		[Test]
 		public void Parse_VerseAtEndOfParagraphConsistsEntirelyOfNote_DoNotIncludeVerseNumber()
 		{
-			// World English Bible, LUK 17:36, PG-594
-			var doc = UsxDocumentTests.CreateMarkOneDoc(
-				"  <para style=\"p\">\r\n" +
+			// World English Bible, LUK 17:36
+			var data = "  <para style=\"p\">\r\n" +
 				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
-			var parser = GetUsxParser(doc);
-			var blocks = parser.Parse().ToList();
+				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
+
+			var blocks = ParseLuke17Data(data);
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
 			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
@@ -825,23 +834,25 @@ namespace GlyssenTests
 		[Test]
 		public void Parse_WordsOfJesus_BreakIntoSeparateBlockAssignedToJesus()
 		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc(
-				"  <para style=\"p\">\r\n" +
+			var data = "  <para style=\"p\">\r\n" +
 				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left. </char><verse number=\"36\" style=\"v\" /><char style=\"wj\">Two will be in the field: the one taken, and the other left, </char>Jesus concluded.</para>\r\n" +
 				"  <para style=\"p\">\r\n" +
-				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
-			var parser = GetUsxParser(doc);
-			var blocks = parser.Parse().ToList();
+				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
+
+			var blocks = ParseLuke17Data(data);
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(4, blocks[1].BlockElements.Count);
 			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left. {36}\u00A0Two will be in the field: the one taken, and the other left, ", blocks[1].GetText(true));
 			Assert.AreEqual("Jesus", blocks[1].CharacterId);
+			Assert.AreEqual("wj", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[2].BlockElements.Count);
 			Assert.AreEqual("Jesus concluded.", blocks[2].GetText(true));
 			Assert.IsNull(blocks[2].CharacterId);
+			Assert.AreEqual("p", blocks[2].StyleTag);
 			Assert.AreEqual(2, blocks[3].BlockElements.Count);
 			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[3].GetText(true));
 			Assert.IsNull(blocks[3].CharacterId);
+			Assert.AreEqual("p", blocks[3].StyleTag);
 		}
 
 		[Test]
@@ -858,18 +869,47 @@ namespace GlyssenTests
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
 			Assert.AreEqual("{7}\u00A0And he preached: ", blocks[1].GetText(true));
 			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[2].BlockElements.Count);
 			Assert.AreEqual("Someone is coming who is > I, the thong of whose sandals I am unworthy to untie.", blocks[2].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[2].CharacterId);
+			Assert.AreEqual("wj", blocks[2].StyleTag);
 			Assert.AreEqual(2, blocks[3].BlockElements.Count);
 			Assert.AreEqual("{8}\u00A0I immerse you in H2O, but he will plunge you into life with God's 'Holy Spirit.", blocks[3].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[3].CharacterId);
+			Assert.AreEqual("wj", blocks[3].StyleTag);
 		}
 
 		[Test]
-		public void Parse_ScriptureQuotes_BreakIntoSeparateBlockAssignedToScripture()
+		public void Parse_CharacterStyleScriptureQuotes_BreakIntoSeparateBlockAssignedToScripture()
 		{
-			Assert.Fail("Write this test.");
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"<para style=\"p\">\r\n" +
+				"<verse number=\"1\" style=\"v\" />The start of the gospel of Jesus Christ, God's Son'. " +
+				"<verse number=\"2\" style=\"v\" />In the words of Isaiah: " +
+				"<char style=\"qt\">I send my messenger ahead of you to prepare the way, </char>" +
+				"<verse number=\"3\" style=\"v\" /><char style=\"qt\">shouting in the wild:</char></para>\r\n" +
+				"<para style=\"q1\">“Prepare the way for the Lord,</para>\r\n" +
+				"<para style=\"q2\">make straight paths for him.”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(5, blocks.Count);
+			Assert.AreEqual(4, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{1}\u00A0The start of the gospel of Jesus Christ, God's Son'. {2}\u00A0In the words of Isaiah: ", blocks[1].GetText(true));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.AreEqual("p", blocks[1].StyleTag);
+			Assert.AreEqual(3, blocks[2].BlockElements.Count);
+			Assert.AreEqual("I send my messenger ahead of you to prepare the way, {3}\u00A0shouting in the wild:", blocks[2].GetText(true));
+			Assert.AreEqual("scripture", blocks[2].CharacterId);
+			Assert.AreEqual("qt", blocks[2].StyleTag);
+			Assert.AreEqual(1, blocks[3].BlockElements.Count);
+			Assert.AreEqual("“Prepare the way for the Lord,", blocks[3].GetText(true));
+			Assert.IsNull(blocks[3].CharacterId);
+			Assert.AreEqual("q1", blocks[3].StyleTag);
+			Assert.AreEqual(1, blocks[4].BlockElements.Count);
+			Assert.AreEqual("make straight paths for him.”", blocks[4].GetText(true));
+			Assert.IsNull(blocks[4].CharacterId);
+			Assert.AreEqual("q2", blocks[4].StyleTag);
 		}
 		#endregion // PG-1272 Tests
 
@@ -897,14 +937,16 @@ namespace GlyssenTests
 				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note> <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual(4, blocks[1].BlockElements.Count);
-			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” {37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
+			Assert.AreEqual(2, blocks[2].BlockElements.Count);
+			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
 		}
 
 		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK")
 		{
-			return new UsxParser(bookId, new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			return new UsxParser(bookId, new TestStylesheet(), ScrVers.English, new UsxDocument(doc).GetChaptersAndParas());
 		}
 
 		private void VerifyChapterBlock(Block block, int number, string bookId = "MRK", string text = null, string tag = "c")
