@@ -857,8 +857,12 @@ namespace GlyssenTests
 			Assert.AreEqual("p", blocks[3].StyleTag);
 		}
 
+		// Note: this test was originally written with the expectation that the USXParser would be responsible for
+		// determining whether the character (e.g, Jesus) is expected to speak in the verse, but for efficiency and
+		// clarity, that is now the responsibility of the QuoteParser, but I'm keeping this (modified) test here
+		// to make the new expectation explicit.
 		[Test]
-		public void Parse_WordsOfJesusInVerseWhereJesusIsNotExpected_BreakIntoSeparateBlockAssignedToNeedsReview()
+		public void Parse_WordsOfJesusInVerseWhereJesusIsNotExpected_BreakIntoSeparateBlockAssignedToJesus()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc(
 				"  <para style=\"p\">\r\n" +
@@ -874,11 +878,11 @@ namespace GlyssenTests
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[2].BlockElements.Count);
 			Assert.AreEqual("Someone is coming who is > I, the thong of whose sandals I am unworthy to untie.", blocks[2].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[2].CharacterId);
+			Assert.AreEqual("Jesus", blocks[2].CharacterId);
 			Assert.AreEqual("wj", blocks[2].StyleTag);
 			Assert.AreEqual(2, blocks[3].BlockElements.Count);
 			Assert.AreEqual("{8}\u00A0I immerse you in H2O, but he will plunge you into life with God's 'Holy Spirit.", blocks[3].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kNeedsReview, blocks[3].CharacterId);
+			Assert.AreEqual("Jesus", blocks[3].CharacterId);
 			Assert.AreEqual("wj", blocks[3].StyleTag);
 		}
 
@@ -948,7 +952,7 @@ namespace GlyssenTests
 
 		private UsxParser GetUsxParser(XmlDocument doc, string bookId = "MRK")
 		{
-			return new UsxParser(bookId, new TestStylesheet(), ScrVers.English, new UsxDocument(doc).GetChaptersAndParas());
+			return new UsxParser(bookId, new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
 		}
 
 		private void VerifyChapterBlock(Block block, int number, string bookId = "MRK", string text = null, string tag = "c")

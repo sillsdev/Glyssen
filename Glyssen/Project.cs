@@ -1518,7 +1518,7 @@ namespace Glyssen
 
 			var backgroundWorker = (BackgroundWorker)sender;
 
-			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, Versification, i => backgroundWorker.ReportProgress(i));
+			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => backgroundWorker.ReportProgress(i));
 
 			if (postParseAction != null)
 			{
@@ -2527,7 +2527,7 @@ namespace Glyssen
 				usxDocsForBooksToInclude = scrTextWrapper.UsxDocumentsForIncludedBooks;
 				stylesheet = scrTextWrapper.Stylesheet;
 			}
-			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, Versification, null);
+			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, null);
 
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
 

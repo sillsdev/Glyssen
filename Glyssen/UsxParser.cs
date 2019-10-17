@@ -19,7 +19,7 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
-		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, ScrVers versification, Action<int> reportProgressAsPercent)
+		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
@@ -36,7 +36,7 @@ namespace Glyssen
 			Parallel.ForEach(blocksInBook, book =>
 			{
 				var bookId = book.Key;
-				var bookScript = new UsxParser(bookId, stylesheet, versification, book.Value).CreateBookScript();
+				var bookScript = new UsxParser(bookId, stylesheet, book.Value).CreateBookScript();
 				lock(bookScripts)
 					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
@@ -88,7 +88,6 @@ namespace Glyssen
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IStylesheet m_stylesheet;
-		private readonly ScrVers m_versification;
 		private readonly XmlNodeList m_nodeList;
 
 		private string m_bookLevelChapterLabel;
@@ -96,12 +95,11 @@ namespace Glyssen
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
 
-		public UsxParser(string bookId, IStylesheet stylesheet, ScrVers versification, XmlNodeList nodeList)
+		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
 			m_bookId = bookId;
 			m_bookNum = BCVRef.BookToNumber(m_bookId);
 			m_stylesheet = stylesheet;
-			m_versification = versification;
 			m_nodeList = nodeList;
 		}
 
@@ -203,9 +201,10 @@ namespace Glyssen
 											if (ControlCharacterVerseData.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
 											{
 												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
-												block.CharacterId = ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
-													block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, m_versification, true)
-													.FirstOrDefault(cv => cv.Character == character)?.Character ?? CharacterVerseData.kNeedsReview;
+												block.CharacterId = character;
+												//ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
+												//block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, m_versification, true)
+												//.FirstOrDefault(cv => cv.Character == character)?.Character ?? CharacterVerseData.kNeedsReview;
 											}
 											sb.Append(tokens[0]);
 										}
