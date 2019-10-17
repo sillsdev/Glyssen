@@ -2999,14 +2999,14 @@ namespace GlyssenTests.Quote
 			var block2 = new Block("p", 4, 4) { IsParagraphStart = true };
 			block2.BlockElements.Add(new Verse("4"));
 			block2.BlockElements.Add(new ScriptText("Jesus replied, "));
-			var block3 = new Block("wj", 4, 4) { IsParagraphStart = false };
+			var block3 = new Block("wj", 4, 4) { IsParagraphStart = false, CharacterId = "Jesus"};
 			block3.BlockElements.Add(new ScriptText("The Word says: “Man must not live on bread alone, but on what God says.”"));
 			var block4 = new Block("p", 4, 5) { IsParagraphStart = true };
 			block4.BlockElements.Add(new Verse("5"));
 			block4.BlockElements.Add(new ScriptText("The devil led him to the Temple in Zion "));
 			block4.BlockElements.Add(new Verse("6"));
 			block4.BlockElements.Add(new ScriptText("“If you are the Son of God,” he said, “hurl yourself down.” He tempted him by quoting where the Word says: "));
-			var block5 = new Block("qt", 4, 6) { IsParagraphStart = false };
+			var block5 = new Block("qt", 4, 6) { IsParagraphStart = false, CharacterId = "scripture"};
 			block5.BlockElements.Add(new ScriptText("He will command his angels to hold you up and not let you smash your foot on a rock."));
 			var input = new List<Block> { block1, block2, block3, block4, block5 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueQuoteStart, null);
@@ -3049,7 +3049,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("he said, ", output[++i].GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.IsFalse(output[i].IsParagraphStart);
 			Assert.AreEqual("p", output[i].StyleTag);
 
 			Assert.AreEqual("“hurl yourself down.” ", output[++i].GetText(true));
@@ -3059,7 +3059,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("He tempted him by quoting where the Word says: ", output[++i].GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.IsFalse(output[i].IsParagraphStart);
 			Assert.AreEqual("p", output[i].StyleTag);
 
 			Assert.AreEqual("He will command his angels to hold you up and not let you smash your foot on a rock.", output[++i].GetText(true));

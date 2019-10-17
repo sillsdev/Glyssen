@@ -15,6 +15,8 @@ namespace Glyssen.Character
 	{
 		private static ControlCharacterVerseData s_singleton;
 		private static string s_tabDelimitedCharacterVerseData;
+		private static Dictionary<string, string> s_charStylesThatMapToSpecificCharacters;
+
 		private Dictionary<int, Dictionary<int, HashSet<int>>> m_expectedQuotes;
 
 		internal static string TabDelimitedCharacterVerseData
@@ -25,6 +27,13 @@ namespace Glyssen.Character
 				s_tabDelimitedCharacterVerseData = value;
 				s_singleton?.Dispose();
 			}
+		}
+
+		static ControlCharacterVerseData()
+		{
+			// This could come from a control file, but for now we'll just hard-code it.
+			s_charStylesThatMapToSpecificCharacters = new Dictionary<string, string>(2)
+				{ ["wj"] = "Jesus", ["qt"] = "scripture" };
 		}
 
 		private ControlCharacterVerseData()
@@ -55,6 +64,16 @@ namespace Glyssen.Character
 					InitializeExpectedQuotes();
 				return m_expectedQuotes;
 			}
+		}
+
+		public static bool TryGetCharacterForCharStyle(string charTag, out string character)
+		{
+			return s_charStylesThatMapToSpecificCharacters.TryGetValue(charTag, out character);
+		}
+
+		public static bool IsCharStyleThatMapsToSpecificCharacter(string charTag)
+		{
+			return s_charStylesThatMapToSpecificCharacters.ContainsKey(charTag);
 		}
 
 		public int ControlFileVersion { get; private set; }

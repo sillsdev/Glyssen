@@ -5,6 +5,7 @@ using System.Xml;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
@@ -24,7 +25,7 @@ namespace GlyssenTests
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			Block.FormatChapterAnnouncement = null;
 		}
 

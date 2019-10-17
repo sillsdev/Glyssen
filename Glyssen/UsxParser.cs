@@ -19,8 +19,6 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
-		private static Dictionary<string, string> s_charStylesThatMapToSpecificCharacters;
-
 		public static List<BookScript> ParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, ScrVers versification, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
@@ -97,12 +95,6 @@ namespace Glyssen
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
-
-		static UsxParser()
-		{
-			s_charStylesThatMapToSpecificCharacters = new Dictionary<string, string>(2)
-				{["wj"] = "Jesus", ["qt"] = "scripture"};
-		}
 
 		public UsxParser(string bookId, IStylesheet stylesheet, ScrVers versification, XmlNodeList nodeList)
 		{
@@ -208,7 +200,7 @@ namespace Glyssen
 										var tokens = childNode.InnerText.Split('|');
 										if (tokens.Any())
 										{
-											if (s_charStylesThatMapToSpecificCharacters.TryGetValue(charTag, out var character) && block.StyleTag != charTag)
+											if (ControlCharacterVerseData.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
 											{
 												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
 												block.CharacterId = ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
@@ -221,7 +213,7 @@ namespace Glyssen
 
 									break;
 								case "#text":
-									if (s_charStylesThatMapToSpecificCharacters.ContainsKey(block.StyleTag))
+									if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag))
 										FinalizeCharacterStyleBlock(sb, ref block, blocks, usxPara.StyleTag);
 									sb.Append(childNode.InnerText);
 									break;
