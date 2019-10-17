@@ -24,6 +24,7 @@ namespace GlyssenTests
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			Block.FormatChapterAnnouncement = null;
 		}
 
