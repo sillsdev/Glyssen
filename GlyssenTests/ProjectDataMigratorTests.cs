@@ -804,6 +804,26 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void MigrateDeprecatedCharacterIds_BlockHasNoDeliveryButSomeOfTheVersesHaveOnlyCvEntryWithDelivery_DeliveryLeftUnspecified()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(new Block("c", 16)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("16") })
+			});
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(23, "Jesus rebuked him, saying:", true,  16));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "«Get the behind me Satan! ")
+				.AddVerse(24, "If you disciples are serious about following me, this is the deal.");
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.IsTrue(testProject.Books[0].Blocks.All(b => b.Delivery == null));
+		}
+
+		[Test]
 		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserConfirmed_ClearsUserConfirmed()
 		{
 			// Note: this scenario was caused by a bug in a previous version of this method.
