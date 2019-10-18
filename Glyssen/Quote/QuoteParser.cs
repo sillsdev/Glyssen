@@ -215,6 +215,8 @@ namespace Glyssen.Quote
 
 				if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag))
 				{
+					if (m_bookNum == 40 && block.ChapterNumber == 16 && block.InitialStartVerseNumber == 23)
+						Debug.WriteLine("here");
 					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 						block.LastVerseNum, versification: m_versification), new CharacterVerseData.SimpleCharacterInfoWithoutDelivery(block.CharacterId));
 					if (cvInfo ==  null)
@@ -230,7 +232,6 @@ namespace Glyssen.Quote
 					m_nextBlockContinuesQuote = false;
 					m_outputBlocks.Add(block);
 					continue;
-
 				}
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&

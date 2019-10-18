@@ -6358,8 +6358,6 @@ namespace GlyssenTests.Quote
 		[Test]
 		public void Parse_WordsOfJesusInBlockWhereJesusSpeaksWithSpecificDeliveryAndNormalDelivery_AssignedToJesusWithNoSpecificDelivery()
 		{
-			// REVIEW: I think this should be okay (and pretty unlikely), but if we do it this way, do we maybe need to force the addition
-			// of project-specific entries for verses that don't have a normal delivery entry?
 			var block1 = new Block("p", 11, 25) { IsParagraphStart = true };
 			block1.BlockElements.Add(new Verse("25"));
 			block1.BlockElements.Add(new ScriptText("Then Jesus said: "));
@@ -6413,6 +6411,39 @@ namespace GlyssenTests.Quote
 			Assert.IsNull(output[i].Delivery);
 			Assert.IsFalse(output[i].IsParagraphStart);
 			Assert.AreEqual("wj", output[i].StyleTag);
+		}
+
+		// This is technically unrelated to PG-1272, but as part of that work, I concluded that if we have a block that convers
+		// multiple verses that have the same character but incompatible deliveries, we shoud just leave the delivery undefined.
+		[TestCase(25, 0, "25", "26-27")]
+		[TestCase(25, 26, "25-26", "27")]
+		[TestCase(25, 26, "25-26", "27-28")]
+		[TestCase(21, 23, "21-23", "24-25")]
+		[TestCase(21, 23, "21-23", "24-26")]
+		[TestCase(21, 24, "21-24", "25")]
+		[TestCase(21, 24, "21-24", "25-26")]
+		public void Parse_BlockWhereJesusSpeaksWithConflictingDeliveries_AssignedToJesusWithNoSpecificDelivery(int initStartV, int initEndV,
+			string firstRef, string secondRef)
+		{
+			var block1 = new Block("p", 11, initStartV, initEndV) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse(firstRef));
+			block1.BlockElements.Add(new ScriptText("Then Jesus said: “First thing. "));
+			block1.BlockElements.Add(new Verse(secondRef));
+			block1.BlockElements.Add(new ScriptText("Second thing.”"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			int i = 0;
+			Assert.AreEqual("{" + firstRef + "}\u00A0Then Jesus said: ", output[i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“First thing. {" + secondRef + "}\u00A0Second thing.”",
+				output[++i].GetText(true));
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.IsNull(output[i].Delivery);
 		}
 		#endregion // Tests for PG-1272
 	}
