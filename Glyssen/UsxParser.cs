@@ -13,6 +13,7 @@ using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.Reporting;
 using SIL.Scripture;
+using static System.Char;
 using static System.String;
 
 namespace Glyssen
@@ -167,13 +168,16 @@ namespace Glyssen
 							switch (childNode.Name)
 							{
 								case "verse":
+									var verseNumAttr = childNode.Attributes.GetNamedItem("number");
+									if (verseNumAttr == null)
+										continue; // presumably this is an end-verse element
 									if (sb.Length > 0)
 									{
 										sb.TrimStart();
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}
-									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
+									var verseNumStr = verseNumAttr.Value;
 									if (!HandleVerseBridgeInSeparateVerseFields(block, ref verseNumStr))
 									{
 										RemoveEmptyTrailingVerse(block);
@@ -212,9 +216,19 @@ namespace Glyssen
 
 									break;
 								case "#text":
-									if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag))
+									var textToAppend = childNode.InnerText;
+									if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag) && textToAppend.Any(IsLetter))
+									{
+										if (sb.Length > 0 && sb[sb.Length - 1] != ' ' && textToAppend.StartsWith(" "))
+										{
+											// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
+											// leading spaces, it might look funny in some places in the display.
+											sb.Append(" ");
+											textToAppend = textToAppend.TrimStart();
+										}
 										FinalizeCharacterStyleBlock(sb, ref block, blocks, usxPara.StyleTag);
-									sb.Append(childNode.InnerText);
+									}
+									sb.Append(textToAppend);
 									break;
 								case "#whitespace":
 									if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
@@ -333,7 +347,7 @@ namespace Glyssen
 				// text. And it would be slow and unwieldy to check all the other possibilities
 				// and something might still fall through the cracks.
 				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 &&
-					!text.Content.Any(char.IsLetter))
+					!text.Content.Any(IsLetter))
 				{
 					if (!(block.BlockElements[block.BlockElements.Count - 2] is Verse))
 					{
@@ -369,7 +383,7 @@ namespace Glyssen
 				finalScriptText.Content.TrimEnd().Last() == punctToTrim)
 			{
 				finalScriptText.Content = finalScriptText.Content.TrimEnd().TrimEnd(punctToTrim);
-				if (finalScriptText.Content.All(char.IsWhiteSpace))
+				if (finalScriptText.Content.All(IsWhiteSpace))
 				{
 					block.BlockElements.Remove(finalScriptText);
 				}

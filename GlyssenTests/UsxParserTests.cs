@@ -7,10 +7,10 @@ using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using Paratext.Data;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
 using SIL.DblBundle.Usx;
-using SIL.Scripture;
 
 namespace GlyssenTests
 {
@@ -832,12 +832,86 @@ namespace GlyssenTests
 			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
 		}
 
-		#region PG-1272 Tests
+		// This test is an attempt to future-proof Glyssen when the DBL spec changes to support USX 3 (without us getting a heads-up).
 		[Test]
-		public void Parse_WordsOfJesus_BreakIntoSeparateBlockAssignedToJesus()
+		public void Parse_VerseElementWithEid_EndVerseElementIgnored()
 		{
 			var data = "  <para style=\"p\">\r\n" +
-				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left. </char><verse number=\"36\" style=\"v\" /><char style=\"wj\">Two will be in the field: the one taken, and the other left, </char>Jesus concluded.</para>\r\n" +
+				$"    <verse number=\"35\" style=\"v\" sid=\"LUK 17:35\" />There will be two grinding grain together. One will be taken and the other will be left. <verse eid=\"LUK 17:35\" /><verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" />Two will be in the field: the one taken, and the other left, Jesus concluded.<verse eid=\"LUK 17:36\" /></para>\r\n" +
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"37\" style=\"v\" sid=\"LUK 17:37\" />They, answering, asked him, “Where, Lord?”</para>";
+
+			var blocks = ParseLuke17Data(data);
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(4, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left. {36}\u00A0Two will be in the field: the one taken, and the other left, Jesus concluded.", blocks[1].GetText(true));
+			Assert.AreEqual(2, blocks[2].BlockElements.Count);
+			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
+			Assert.IsNull(blocks[2].CharacterId);
+			Assert.AreEqual("p", blocks[2].StyleTag);
+		}
+
+		// Since most of the tests in this fixture rely on UsxDocumentTests.CreateDocFromString, this
+		// test ensures that the XML doc we get from ParatextData isn't somehow significantly different.
+		[TestCase("\r\n")]
+		[TestCase(" ")]
+		public void Parse_FromParatextUsfm_VersesInSingleParagraphStayAsOneBlock(string whitespace)
+		{
+			var usfmData = $@"\id MAT{whitespace}" +
+				$@"\c 16{whitespace}" +
+				$@"\p{whitespace}" +
+				$@"\v 23 Yesu pǝlǝa arǝ Bitǝrus sǝ ne wi ama, Nyaram anggo, Shetan!{whitespace}" +
+				$@"\v 24 Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga.\f + \fr 16:24 \ft Ɓalli gbal aɓa: \xt Mat 10:38; Luk 14:27\xt*.\f*{whitespace}" +
+				$@"\v 25 Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.\f + \fr 16:25 \ft Ɓalli gbal aɓa: \xt Mat 10:39; Luk 17:33; Yoh 12:25\xt*.\f*";
+
+			// This uses the "real" stylesheet (now USFM v. 3)
+			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
+			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(6, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{23}\u00A0Yesu pǝlǝa arǝ Bitǝrus sǝ ne wi ama, Nyaram anggo, Shetan! " +
+				"{24}\u00A0Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga. " +
+				"{25}\u00A0Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.", blocks[1].GetText(true));
+		}
+
+		#region PG-1272 Tests
+		[TestCase("\r\n")]
+		[TestCase(" ")]
+		public void Parse_WordsOfJesusFromUsfm_BreakIntoSeparateBlockAssignedToJesus(string whitespace)
+		{
+			var usfmData = $@"\id MAT{whitespace}" +
+				$@"\c 16{whitespace}" +
+				$@"\p{whitespace}" +
+				$@"\v 23 Yesu pǝlǝa arǝ Bitǝrus sǝ ne wi ama, \wj Nyaram anggo, Shetan!\wj*{whitespace}" +
+				$@"\v 24 \wj Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga.\wj*\f + \fr 16:24 \ft Ɓalli gbal aɓa: \xt Mat 10:38; Luk 14:27\xt*.\f*{whitespace}" +
+				$@"\v 25 \wj Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.\wj*\f + \fr 16:25 \ft Ɓalli gbal aɓa: \xt Mat 10:39; Luk 17:33; Yoh 12:25\xt*.\f*";
+
+			// This uses the "real" stylesheet (now USFM v. 3)
+			var doc = UsfmToUsx.ConvertToXmlDocument(SfmLoader.GetUsfmScrStylesheet(), usfmData);
+			var parser = new UsxParser("MAT", SfmLoader.GetUsfmStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("{23}\u00A0Yesu pǝlǝa arǝ Bitǝrus sǝ ne wi ama, ", blocks[1].GetText(true));
+			Assert.AreEqual(5, blocks[2].BlockElements.Count);
+			Assert.AreEqual("Nyaram anggo, Shetan! " +
+				"{24}\u00A0Ɓwa mǝnana kat earce ama nǝ̀ yiu atam nǝ̀ duk mǝkpatam ngga. " +
+				"{25}\u00A0Ɓwa mana kat kǝ sǝni nǝ̀ amsǝ yilǝmi ka nǝ̀ ngga ɗwanyi banì.", blocks[2].GetText(true));
+		}
+
+		// Note: Although it might feel like the USX should logically have the trailing space after a run of "wj" characters
+		// included inside the run, that appears not to be what Paratext generates. Paratext requires a space following the
+		// closing \wj* marker, and when this gets turned into USX, that space is retained as data inside the para element,
+		// but not inside the char. These three test cases ensure that whether the spaces are inside, outside, or both, we
+		// do not break the blocks just because of a space that Jesus doesn't speak.
+		[TestCase(" ", "")]
+		[TestCase("", " ")]
+		[TestCase(" ", " ")]
+		public void Parse_WordsOfJesus_BreakIntoSeparateBlockAssignedToJesus(string trailingSpaceInsideChar, string trailingSpaceOutsideChar)
+		{
+			var data = "  <para style=\"p\">\r\n" +
+				$"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.{trailingSpaceInsideChar}</char>{trailingSpaceOutsideChar}<verse number=\"36\" style=\"v\" sid=\"LUK 17:36\" /><char style=\"wj\">Two will be in the field: the one taken, and the other left,{trailingSpaceInsideChar}</char>{trailingSpaceOutsideChar}Jesus concluded.</para>\r\n" +
 				"  <para style=\"p\">\r\n" +
 				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>";
 
