@@ -21,7 +21,7 @@ namespace Glyssen.Character
 		/// Gets all characters completely covered by the given range of verses. If there are multiple verses, only
 		/// characters known to speak in ALL the verses will be included in the returned set.
 		/// </summary>
-		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+		IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
 
 		/// <summary>

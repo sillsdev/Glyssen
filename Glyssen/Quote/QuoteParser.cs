@@ -901,7 +901,7 @@ namespace Glyssen.Quote
 					if (m_nextBlockContinuesQuote && m_workingBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
-					var characterVerseDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
+					var characterSpeakingDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
 						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification,
 						// The quote parser generally ignores alternate characters, but if it is trying to resolve
 						// a multi-block quote, we want to include them in case an alternate is the one being
@@ -909,9 +909,9 @@ namespace Glyssen.Quote
 						// quotes that disagree with FCBH's idea of who is speaking, especially in poetic or
 						// prophetic material.)
 						m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation).ToList();
-					if (characterVerseDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
+					if (characterSpeakingDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
 					{
-						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
+						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterSpeakingDetails);
 					}
 					if (m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation)
 					{
@@ -923,14 +923,14 @@ namespace Glyssen.Quote
 							// slight chance the delivery could change. And an even slighter chance we could have two
 							// possible deliveries left after removing any other characters from this list. So we'll
 							// be conservative and just prune the list down by character.
-							characterVerseDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
-							Debug.Assert(characterVerseDetails.Any(),
+							characterSpeakingDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
+							Debug.Assert(characterSpeakingDetails.Any(),
 								"We are in the middle of a quote and we have no speakers left who were possible when this quote " +
 								"opened. Unless we're missing some useful entries in the CharacterVerse control file, the logic for " +
 								"m_possibleCharactersForCurrentQuote should have kept us from running off the rails like this.");
 						}
 					}
-					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
+					m_workingBlock.SetCharacterAndDelivery(characterSpeakingDetails);
 				}
 				else
 				{
@@ -1003,9 +1003,9 @@ namespace Glyssen.Quote
 		/// Coming out of this method, m_workingBlock will always be the last interruption found.
 		/// </summary>
 		/// <param name="bookId"></param>
-		/// <param name="characterVerseDetails"></param>
+		/// <param name="characterDeliveryDetails"></param>
 		/// <returns>Any portion of the block following the (last) interruption we detect</returns>
-		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
+		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterSpeakingMode> characterSpeakingDetails)
 		{
 			var nextInterruption = m_workingBlock.GetNextInterruption();
 			if (nextInterruption == null)
@@ -1023,7 +1023,7 @@ namespace Glyssen.Quote
 			{
 				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
 				if (originalQuoteBlock.CharacterId == null)
-					originalQuoteBlock.SetCharacterAndDelivery(characterVerseDetails);
+					originalQuoteBlock.SetCharacterAndDelivery(characterSpeakingDetails);
 				var startCharIndex = nextInterruption.Item1.Length;
 				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
 				{
@@ -1041,7 +1041,7 @@ namespace Glyssen.Quote
 				}
 				if (nextInterruption == null)
 					break;
-				m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
+				m_workingBlock.SetCharacterAndDelivery(characterSpeakingDetails);
 				m_workingBlock = blocks.GetScriptBlocks().Last();
 			}
 

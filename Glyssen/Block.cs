@@ -826,7 +826,7 @@ namespace Glyssen
 			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
 		}
 
-		public void SetCharacterAndDelivery(IEnumerable<CharacterVerse> characters)
+		public void SetCharacterAndDelivery(IEnumerable<CharacterSpeakingMode> characters)
 		{
 			var characterList = characters.ToList();
 			if (characterList.Count == 1)
@@ -889,7 +889,7 @@ namespace Glyssen
 			SetCharacterIdAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
 		}
 
-		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
+		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterSpeakingMode> getMatchingCharacterForVerse)
 		{
 			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter ||
 				characterId == CharacterVerseData.kNeedsReview)
@@ -924,12 +924,12 @@ namespace Glyssen
 				m_characterIdInScriptOverride = null;
 		}
 
-		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
+		private CharacterSpeakingMode GetMatchingCharacter(int bookNumber, ScrVers scrVers)
 		{
 			return GetMatchingCharacter(ControlCharacterVerseData.Singleton, bookNumber, scrVers);
 		}
 
-		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
+		public CharacterSpeakingMode GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
 		{
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
 				InitialEndVerseNumber, versification: scrVers, includeAlternatesAndRareQuotes:true).FirstOrDefault(c => c.Character == CharacterId);

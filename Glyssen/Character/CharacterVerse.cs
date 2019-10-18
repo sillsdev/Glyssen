@@ -132,7 +132,7 @@ namespace Glyssen.Character
 		Rare,
 	}
 
-	public class CharacterVerse : ICharacterDeliveryInfo
+	public class CharacterSpeakingMode : ICharacterDeliveryInfo
 	{
 		public const string kScriptureCharacter = "scripture";
 		internal const string kMultiCharacterIdSeparator = "/";
@@ -141,18 +141,14 @@ namespace Glyssen.Character
 
 		private bool m_localized;
 
-		public BCVRef BcvRef { get; }
-		public string BookCode => BCVRef.NumberToBookCode(BcvRef.Book);
-		public int Book => BcvRef.Book;
-		public int Chapter => BcvRef.Chapter;
-		public int Verse => BcvRef.Verse;
 		public string Character { get; }
 		public string Delivery { get; }
 		public string Alias { get; }
-		public QuoteType QuoteType { get; private set; }
+		public QuoteType QuoteType { get; protected set; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
 		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
+
 		/// <summary>
 		/// A single character ID which could/should be used in the script.
 		/// </summary>
@@ -213,10 +209,9 @@ namespace Glyssen.Character
 		public string ParallelPassageReferences { get; }
 		public bool ProjectSpecific { get; }
 
-		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
+		public CharacterSpeakingMode(string character, string delivery, string alias, bool projectSpecific,
 			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null)
 		{
-			BcvRef = new BCVRef(bcvRef);
 			Character = character;
 			Delivery = delivery;
 			Alias = alias;
@@ -224,14 +219,6 @@ namespace Glyssen.Character
 			ParallelPassageReferences = parallelPassageReferences;
 			ProjectSpecific = projectSpecific;
 			QuoteType = quoteType;
-		}
-
-		public void ChangeToAlternate()
-		{
-			Debug.Assert(QuoteType == QuoteType.Quotation &&
-				DefaultCharacter == CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
-				"At least for now, we only allow this for Quotations that default to the narrator.");
-			QuoteType = QuoteType.Alternate;
 		}
 
 		public override string ToString()
@@ -271,12 +258,75 @@ namespace Glyssen.Character
 		}
 
 		#region Equality Members
+		protected bool Equals(CharacterSpeakingMode other)
+		{
+			return Equals(Character, other.Character) &&
+				Equals(Delivery, other.Delivery) &&
+				Equals(Alias, other.Alias);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (ReferenceEquals(this, obj))
+				return true;
+			if (obj.GetType() != GetType())
+				return false;
+			return Equals((CharacterSpeakingMode)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				int hashCode = (Character != null ? Character.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (Delivery != null ? Delivery.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (Alias != null ? Alias.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
+
+		public static bool operator ==(CharacterSpeakingMode left, CharacterSpeakingMode right)
+		{
+			return Equals(left, right);
+		}
+
+		public static bool operator !=(CharacterSpeakingMode left, CharacterSpeakingMode right)
+		{
+			return !Equals(left, right);
+		}
+		#endregion
+	}
+
+	public class CharacterVerse : CharacterSpeakingMode
+	{
+		public BCVRef BcvRef { get; }
+		public string BookCode => BCVRef.NumberToBookCode(BcvRef.Book);
+		public int Book => BcvRef.Book;
+		public int Chapter => BcvRef.Chapter;
+		public int Verse => BcvRef.Verse;
+
+		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
+			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null) :
+			base(character, delivery, alias, projectSpecific, quoteType, defaultCharacter, parallelPassageReferences)
+		{
+			BcvRef = new BCVRef(bcvRef);
+		}
+
+		public void ChangeToAlternate()
+		{
+			Debug.Assert(QuoteType == QuoteType.Quotation &&
+				DefaultCharacter == CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
+				"At least for now, we only allow this for Quotations that default to the narrator.");
+			QuoteType = QuoteType.Alternate;
+		}
+
+		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
 			return Equals(BcvRef, other.BcvRef) &&
-				String.Equals(Character, other.Character) &&
-				String.Equals(Delivery, other.Delivery) &&
-				String.Equals(Alias, other.Alias) &&
+				base.Equals(other) &&
 				QuoteType == other.QuoteType;
 		}
 
@@ -389,14 +439,14 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterEqualityComparer : IEqualityComparer<CharacterVerse>
+	public class CharacterEqualityComparer : IEqualityComparer<CharacterSpeakingMode>
 	{
-		public bool Equals(CharacterVerse x, CharacterVerse y)
+		public bool Equals(CharacterSpeakingMode x, CharacterSpeakingMode y)
 		{
 			return String.Equals(x.Character, y.Character);
 		}
 
-		public int GetHashCode(CharacterVerse obj)
+		public int GetHashCode(CharacterSpeakingMode obj)
 		{
 			return obj.Character.GetHashCode();
 		}

@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using DesktopAnalytics;
-using SIL.Extensions;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -68,14 +67,7 @@ namespace Glyssen.Character
 
 		public void Remove(int bookNum, int chapterNumber, int initialStartVerseNumber, int initialEndVerseNumber, string characterId, string delivery)
 		{
-			RemoveAll(GetCharacters(bookNum, chapterNumber, initialStartVerseNumber, initialEndVerseNumber)
-				.Where(c => c.Character == characterId && c.Delivery == delivery), new BcvCharacterDeliveryEqualityComparer());
-		}
-
-		public void UnionWith(ProjectCharacterVerseData otherProjectData)
-		{
-			foreach (var cv in otherProjectData.GetAllQuoteInfo())
-				AddCharacterVerse(cv);
+			RemoveAll(bookNum, chapterNumber, initialStartVerseNumber, initialEndVerseNumber, characterId, delivery);
 		}
 	}
 }

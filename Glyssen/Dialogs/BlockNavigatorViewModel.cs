@@ -1091,16 +1091,15 @@ namespace Glyssen.Dialogs
 				if (block.IsQuote || CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
 					return false;
 
-				IEnumerable<BCVRef> versesWithPotentialMissingQuote =
-					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.LastVerseNum, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
-
-				var withPotentialMissingQuote = versesWithPotentialMissingQuote as IList<BCVRef> ?? versesWithPotentialMissingQuote.ToList();
-				if (!withPotentialMissingQuote.Any())
+				var versesWithPotentialMissingQuote =
+					block.AllVerses.SelectMany(v => v.AllVerseNumbers).Where(verse => ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber,
+					block.ChapterNumber, verse, 0, versification: Versification).Any(c => c.IsExpected))
+					.Select(v => new BCVRef(CurrentBookNumber, block.ChapterNumber, v)).ToList();
+				if (!versesWithPotentialMissingQuote.Any())
 					return false;
 
 				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method.
-				return CurrentBlockHasMissingExpectedQuote(withPotentialMissingQuote);
+				return CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
 			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
 			{

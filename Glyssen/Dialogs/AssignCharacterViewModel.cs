@@ -212,14 +212,14 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Methods to get characters and deliveries
-		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForCurrentReference()
+		private HashSet<CharacterSpeakingMode> GetUniqueCharacterVerseObjectsForCurrentReference()
 		{
 			return GetUniqueCharacterVerseObjectsForBlock(CurrentBlock);
 		}
 
-		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
+		private HashSet<CharacterSpeakingMode> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
-			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
+			return new HashSet<CharacterSpeakingMode>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
 				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification,
 				includeAlternatesAndRareQuotes: true, includeNarratorOverrides:true));
 		}

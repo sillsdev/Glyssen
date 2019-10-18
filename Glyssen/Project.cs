@@ -2567,9 +2567,9 @@ namespace Glyssen
 			{
 				var bookNum = BCVRef.BookToNumber(book.BookId);
 				List<Block> blocksForMultiBlockQuote = null;
-				CharacterVerse characterForMultiBlockQuote = null;
+				CharacterSpeakingMode characterForMultiBlockQuote = null;
 				int iCharacter = 0;
-				List<CharacterVerse> charactersForVerse = null;
+				List<CharacterSpeakingMode> charactersForVerse = null;
 				foreach (var block in book.GetScriptBlocks())
 				{
 					if (block.StartsAtVerseStart)
@@ -2621,7 +2621,7 @@ namespace Glyssen
 			}
 		}
 
-		private void ProcessMultiBlock(int bookNum, ref List<Block> blocksForMultiBlockQuote, ref CharacterVerse characterForMultiBlockQuote)
+		private void ProcessMultiBlock(int bookNum, ref List<Block> blocksForMultiBlockQuote, ref CharacterSpeakingMode characterForMultiBlockQuote)
 		{
 			if (blocksForMultiBlockQuote != null)
 			{

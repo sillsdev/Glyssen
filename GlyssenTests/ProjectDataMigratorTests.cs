@@ -955,7 +955,8 @@ namespace GlyssenTests
 			projectSpecificDetail.CharacterId = soulsBlockInRev610.CharacterId;
 			// The following line works fine today but could theoretically fail if we ever tighten up the control to
 			// prevent adding a project-specific CV that is identical to one in the control CV file.
-			testProject.ProjectCharacterVerseData.Add(ControlCharacterVerseData.Singleton.GetCharacters(66, 6, 10)
+			// Also, now that GetCharacters may not really return a CharacterVerse object, this cast could fail.
+			testProject.ProjectCharacterVerseData.Add((CharacterVerse)ControlCharacterVerseData.Singleton.GetCharacters(66, 6, 10)
 				.Single(cv => cv.Character == soulsBlockInRev610.CharacterId));
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));

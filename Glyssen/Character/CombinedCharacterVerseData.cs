@@ -15,12 +15,12 @@ namespace Glyssen.Character
 			m_project = project;
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+		public IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse,
+			IEnumerable<CharacterSpeakingMode> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse,
 				initialEndVerse, finalVerse, versification);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse,
+			IEnumerable<CharacterSpeakingMode> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse,
 				initialEndVerse, finalVerse, versification, includeAlternatesAndRareQuotes, includeNarratorOverrides);
 			return project.Union(control);
 		}

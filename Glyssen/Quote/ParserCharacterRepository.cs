@@ -24,7 +24,7 @@ namespace Glyssen.Quote
 		/// block actually assigned to that hypothetical character. Otherwise, the hypothetical character
 		/// will be treated as a narrator "quotation."
 		/// </summary>
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+		public IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
 		{
 			Debug.Assert(!includeNarratorOverrides, "Can't think of any valid reason the quote parser should ever want to consider" +
@@ -34,8 +34,8 @@ namespace Glyssen.Quote
 				.Select(cv => cv.QuoteType != QuoteType.Hypothetical ||
 					m_referenceText.GetBook(bookId)?.GetBlocksForVerse(chapter,
 							initialStartVerse, finalVerse > 0 ? finalVerse : (initialEndVerse > 0 ? initialEndVerse : initialStartVerse))
-						.Any(b => b.CharacterId == cv.Character) == true ? cv : new CharacterVerse(cv.BcvRef,
-						CharacterVerseData.GetStandardCharacterId(cv.BookCode, CharacterVerseData.StandardCharacter.Narrator),
+						.Any(b => b.CharacterId == cv.Character) == true ? cv : new CharacterSpeakingMode(
+						CharacterVerseData.GetStandardCharacterId(BCVRef.NumberToBookCode(bookId), CharacterVerseData.StandardCharacter.Narrator),
 						String.Empty, String.Empty, false, QuoteType.Quotation)).Distinct();
 		}
 

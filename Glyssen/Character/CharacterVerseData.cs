@@ -191,14 +191,14 @@ namespace Glyssen.Character
 		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterAndDeliveries;
 		private ISet<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
+		public IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
 			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false,
 			bool includeNarratorOverrides = false)
 		{
 			if (versification == null)
 				versification = ScrVers.English;
 
-			List<CharacterVerse> result;
+			List<CharacterSpeakingMode> result;
 
 			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
 			verseRef.ChangeVersification(ScrVers.English);
@@ -217,17 +217,17 @@ namespace Glyssen.Character
 
 			if (initialStartVerse == initialEndVerse)
 			{
-				result = m_lookupByRef[verseRef.BBBCCCVVV].ToList();
+				result = GetSpeakingModesForRef(verseRef);
 			}
 			else
 			{
 				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
 				initialEndRef.ChangeVersification(ScrVers.English);
-				result = new List<CharacterVerse>();
+				result = new List<CharacterSpeakingMode>();
 				do
 				{
 					result = result.Union(m_lookupByRef[verseRef.BBBCCCVVV],
-						(IEqualityComparer<CharacterVerse>)m_characterDeliveryEqualityComparer).ToList();
+						(IEqualityComparer<CharacterSpeakingMode>)m_characterDeliveryEqualityComparer).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
@@ -237,7 +237,7 @@ namespace Glyssen.Character
 			if (overrideCharacters != null)
 			{
 				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))
-					result.Add(new CharacterVerse(new BCVRef(verseRef.BBBCCCVVV), character, Empty, null, false, QuoteType.Potential));
+					result.Add(new CharacterSpeakingMode(character, Empty, null, false, QuoteType.Potential));
 			}
 			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
@@ -251,7 +251,7 @@ namespace Glyssen.Character
 			// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 			while (verseRef <= finalVerseRef)
 			{
-				var nextResult = m_lookupByRef[verseRef.BBBCCCVVV].ToList();
+				var nextResult = GetSpeakingModesForRef(verseRef);
 				if (nextResult.Any())
 				{
 					if (!interruption.Any())
@@ -276,6 +276,11 @@ namespace Glyssen.Character
 				verseRef.NextVerse();
 			}
 			return result.Union(interruption);
+		}
+
+		private List<CharacterSpeakingMode> GetSpeakingModesForRef(VerseRef verseRef)
+		{
+			return m_lookupByRef[verseRef.BBBCCCVVV].Cast<CharacterSpeakingMode>().ToList();
 		}
 
 		/// <summary>
@@ -367,6 +372,22 @@ namespace Glyssen.Character
 		public ISet<string> GetUniqueDeliveries()
 		{
 			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !IsNullOrEmpty(d))));
+		}
+
+		protected virtual void RemoveAll(int bookNum, int chapterNumber, int initialStartVerseNumber, int initialEndVerseNumber, string characterId, string delivery)
+		{
+			if (initialEndVerseNumber == 0)
+				initialEndVerseNumber = initialStartVerseNumber;
+			for (int v = initialStartVerseNumber; v <= initialEndVerseNumber; v++)
+			{
+				foreach (var cv in m_lookupByRef[new BCVRef(bookNum, chapterNumber, v).BBCCCVVV]
+					.Where(cv => cv.Character == characterId && cv.Delivery == delivery))
+				{
+					m_data.Remove(cv);
+				}
+			}
+
+			ResetCaches();
 		}
 
 		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)

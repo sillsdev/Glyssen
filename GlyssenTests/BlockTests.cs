@@ -897,7 +897,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(new CharacterVerse[0]);
+			block.SetCharacterAndDelivery(new CharacterSpeakingMode[0]);
 			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
@@ -921,7 +921,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Mary", block.CharacterIdInScript);
 		}
@@ -934,7 +934,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Mary/Martha";
 			block.CharacterIdInScript = "Martha";
-			block.SetCharacterAndDelivery(new[] { new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Martha", block.CharacterIdInScript);
 		}
@@ -946,7 +946,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Mary/Martha";
-			block.SetCharacterAndDelivery(new[] { new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Mary", block.CharacterIdInScript);
 		}
@@ -959,9 +959,9 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verses four through seven. "));
 			block.SetCharacterAndDelivery(new[]
 			{
-				new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Martha"),
-				new CharacterVerse(new BCVRef(41, 4, 5), "Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Jews"),
-				new CharacterVerse(new BCVRef(41, 4, 6), "Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Mary")
+				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Martha"),
+				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Jews"),
+				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Mary")
 			});
 			Assert.AreEqual("Mary/Martha/Jews", block.CharacterId);
 			Assert.AreEqual("Martha", block.CharacterIdInScript);
@@ -1842,10 +1842,10 @@ namespace GlyssenTests
 			};
 		}
 
-		private CharacterVerse JesusQuestioning => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
+		private CharacterSpeakingMode JesusQuestioning => new CharacterSpeakingMode("Jesus", "Questioning", null, false);
 
-		private CharacterVerse JesusCommanding => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Commanding", null, false);
+		private CharacterSpeakingMode JesusCommanding => new CharacterSpeakingMode("Jesus", "Commanding", null, false);
 
-		private CharacterVerse Andrew => new CharacterVerse(new BCVRef(41, 4, 4), "Andrew", null, null, false);
+		private CharacterSpeakingMode Andrew => new CharacterSpeakingMode("Andrew", null, null, false);
 	}
 }
