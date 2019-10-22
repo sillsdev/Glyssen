@@ -990,7 +990,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void MigrateDeprecatedCharacterIds_FirstVerseInQuoteIsUnexpectedForCharacter_CharacterIdNotSetToUnknown()
+		public void MigrateDeprecatedCharacterIds_FirstVerseInQuoteIsUnexpectedForCharacter_CharacterIdSetToUnknown()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
@@ -1019,9 +1019,9 @@ namespace GlyssenTests
 			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
 
 			//SUT
-			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, verses13and14Block.CharacterId);
 		}
 
 		/// <summary>

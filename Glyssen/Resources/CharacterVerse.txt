@@ -16993,8 +16993,8 @@ MRK	14	58	witnesses, false	mocking		Dialogue		MAT 26.61;MRK 14.58
 MRK	14	60	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	61	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	62	Jesus			Dialogue		
-MRK	14	63	Caiaphas, the high priest	screaming		Dialogue		
-MRK	14	64	Caiaphas, the high priest			Normal		
+MRK	14	63	Caiaphas, the high priest	indignant		Dialogue		
+MRK	14	64	Caiaphas, the high priest	indignant		Normal		
 MRK	14	64	chief priests/Sanhedrin			Dialogue		MAT 26.66;MRK 14.64
 MRK	14	65	chief priests/Sanhedrin	mocking		Dialogue		MAT 26.68;MRK 14.65
 MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
@@ -18737,6 +18737,7 @@ JHN	18	38	Pilate	to Jesus		Dialogue
 JHN	18	38	Pilate	to crowd		Dialogue		
 JHN	18	39	Pilate	to crowd		Dialogue		
 JHN	18	40	Jews, the			Dialogue		
+JHN	19	1	Pilate			Rare		
 JHN	19	3	soldiers, Roman	mocking		Dialogue		
 JHN	19	4	Pilate	to crowd		Dialogue		
 JHN	19	5	Pilate	to crowd		Dialogue		
@@ -19390,6 +19391,7 @@ ACT	20	32	Paul			Normal
 ACT	20	33	Paul			Normal		
 ACT	20	34	Paul			Normal		
 ACT	20	35	Paul			Normal		
+ACT	20	37	elders, Ephesian			Rare		
 ACT	20	38	elders, Ephesian			Indirect		
 ACT	21	4	disciples		Holy Spirit through disciples	Indirect		
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		

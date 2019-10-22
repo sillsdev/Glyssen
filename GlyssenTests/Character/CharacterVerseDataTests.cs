@@ -72,10 +72,9 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForSecondVerse_FindsCharacterForSecondVerse()
+		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForSecondVerse_ReturnsNoCharacters()
 		{
-			var character = ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, 2, 0, 3).Single();
-			Assert.AreEqual("believers, circumcised", character.Character);
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, 2, 0, 3).Any());
 		}
 
 		[Test]
@@ -125,10 +124,9 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForThirdVerse_FindsCharacterForThirdVerse()
+		public void GetCharacters_ControlHasNoDataForInitialStartVerseButDoesForThirdVerse_ReturnsNoCharacters()
 		{
-			var character = ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, 1, 0, 3).Single();
-			Assert.AreEqual("believers, circumcised", character.Character);
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kACTbookNum, 11, 1, 0, 3).Any());
 		}
 
 		[Test]
@@ -157,19 +155,15 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void GetCharacters_MultipleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsAmbiguous()
+		public void GetCharacters_MultipleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsNoCharacters()
 		{
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, 20, 0, 22);
-			Assert.AreEqual(2, characters.Count());
-			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Samuel"));
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 8, 20, 0, 22).Any());
 		}
 
 		[Test]
-		public void GetCharacters_SingleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsFirstUniqueCharacter()
+		public void GetCharacters_SingleCharactersInMultipleVerses_NoCharacterInInitialStartVerse_ReturnsNoCharacters()
 		{
-			var character = ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 9, 4, 0, 6).Single();
-			Assert.AreEqual("Saul", character.Character);
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(k1SAbookNum, 9, 4, 0, 6).Any());
 		}
 
 		[Test]
