@@ -235,7 +235,7 @@ namespace Glyssen.Character
 			if (!includeAlternatesAndRareQuotes)
 				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate && cv.QuoteType != QuoteType.Rare).ToList();
 
-			// If there are more verses (e.e., in the block) to consider, even if we're down to a single character/delivery, we can't quit early
+			// If there are more verses (e.g., in the block) to consider, even if we're down to a single character/delivery, we can't quit early
 			// because there is the possibility of:
 			// * an interruption, which needs to be added to the results
 			// * conflicting deliveries, which means we need to ensure that we return a result with an unspecified delivery
@@ -387,15 +387,6 @@ namespace Glyssen.Character
 			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
 			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
 				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
-			return set;
-		}
-
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
-		{
-			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), m_characterDeliveryEqualityComparer);
-			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode)
-				.Where(o => o.StartChapter <= chapter && o.EndChapter >= chapter)
-				.Select(o => o.Character).Distinct().Select(c => new NarratorOverrideCharacter(c)));
 			return set;
 		}
 

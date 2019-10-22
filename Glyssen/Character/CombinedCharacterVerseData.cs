@@ -61,14 +61,6 @@ namespace Glyssen.Character
 			return result;
 		}
 
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
-		{
-			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(bookCode, chapter);
-			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterAndDeliveries(bookCode, chapter);
-			result.UnionWith(project);
-			return result;
-		}
-
 		public ISet<string> GetUniqueDeliveries()
 		{
 			var result = ControlCharacterVerseData.Singleton.GetUniqueDeliveries();

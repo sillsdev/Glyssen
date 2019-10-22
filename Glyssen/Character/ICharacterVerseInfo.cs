@@ -43,8 +43,6 @@ namespace Glyssen.Character
 
 		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode);
 
-		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter);
-
 		ISet<string> GetUniqueDeliveries();
 	}
 }
