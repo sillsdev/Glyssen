@@ -819,7 +819,7 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 			Assert.IsTrue(testProject.Books[0].Blocks.All(b => b.Delivery == null));
 		}
 
@@ -1026,7 +1026,7 @@ namespace GlyssenTests
 
 		/// <summary>
 		/// This test is mainly designed to verify that the migrator doesn't clear all the explicitly set Character IDs
-		/// for a reference text in "narrator" blocks. We don't want to require the the C-V control file to have a
+		/// for a reference text in "narrator" blocks. We don't want to require the C-V control file to have a
 		/// "Potential" quote for all the places where we really wouldn't expect there to be explicit quotes in the text.
 		/// </summary>
 		[Test]

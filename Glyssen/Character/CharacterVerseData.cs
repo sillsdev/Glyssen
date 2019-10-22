@@ -234,48 +234,78 @@ namespace Glyssen.Character
 			}
 			if (!includeAlternatesAndRareQuotes)
 				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate && cv.QuoteType != QuoteType.Rare).ToList();
+
+			// If there are more verses (e.e., in the block) to consider, even if we're down to a single character/delivery, we can't quit early
+			// because there is the possibility of:
+			// * an interruption, which needs to be added to the results
+			// * conflicting deliveries, which means we need to ensure that we return a result with an unspecified delivery
+			if (finalVerse > 0)
+			{
+				verseRef.ChangeVersification(ScrVers.English);
+				var interruption = result.SingleOrDefault(c => c.QuoteType == QuoteType.Interruption);
+
+				var finalVerseRef = new VerseRef(verseRef.BookNum, chapter, finalVerse, versification);
+				finalVerseRef.ChangeVersification(ScrVers.English);
+				// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
+				while (verseRef <= finalVerseRef)
+				{
+					var nextResult = GetSpeakingModesForRef(verseRef);
+					if (nextResult.Any())
+					{
+						if (interruption == null)
+							interruption = nextResult.SingleOrDefault(c => c.QuoteType == QuoteType.Interruption);
+
+						if (result.Any())
+						{
+							var exactMatches = new List<CharacterSpeakingMode>(result.Count);
+							var characterMatches = new List<CharacterSpeakingMode>(result.Count);
+							foreach (var entry in result)
+							{
+								if (nextResult.Contains(entry, m_characterDeliveryEqualityComparer))
+									exactMatches.Add(entry);
+								if (exactMatches.Any())
+									continue;
+								var charMatch = nextResult.FirstOrDefault(r => r.Character == entry.Character);
+								if (charMatch != null)
+								{
+									if (entry.Delivery == null)
+										characterMatches.Add(entry);
+									else if (charMatch.Delivery == null)
+										characterMatches.Add(charMatch);
+									else
+										characterMatches.Add(new CharacterSpeakingMode(entry.Character, "", entry.Alias, false, QuoteType.Potential));
+								}
+							}
+
+							result = exactMatches.Any() ? exactMatches : characterMatches;
+							//if (overrideCharacters != null)
+							//	result.AddRange(overrideCharacters.Where(cv => !result.Any(e => e.Contains(cv.Character) && cv.Delivery == Empty));
+							//if (nextResult.Count == 1)
+							//{
+							//result = nextResult;
+							//	break;
+							//}
+						}
+
+						//else
+						//{
+						//	Debug.Fail("REVIEW: Let's see why we have this logic.");
+						//	result = nextResult;
+						//}
+					}
+
+					verseRef.NextVerse();
+				}
+				if (interruption != null && !result.Contains(interruption))
+					result.Add(interruption);
+			}
+
 			if (overrideCharacters != null)
 			{
 				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))
 					result.Add(new CharacterSpeakingMode(character, Empty, null, false, QuoteType.Potential));
 			}
-			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
-				return result;
-
-			// This is a list (because that makes it easy to do a Union), but it should only ever have exactly one item in it.
-			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
-
-			var finalVerseRef = new VerseRef(bookId, chapter, finalVerse, versification);
-			finalVerseRef.ChangeVersification(ScrVers.English);
-			verseRef.NextVerse();
-			// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
-			while (verseRef <= finalVerseRef)
-			{
-				var nextResult = GetSpeakingModesForRef(verseRef);
-				if (nextResult.Any())
-				{
-					if (!interruption.Any())
-						interruption = nextResult.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
-
-					if (!result.Any())
-					{
-						result = nextResult;
-					}
-					else
-					{
-						nextResult.RemoveAll(c => !result.Contains(c, m_characterDeliveryEqualityComparer));
-						if (overrideCharacters != null && !nextResult.Any(cv => overrideCharacters.Contains(cv.Character) && cv.Delivery == Empty))
-							nextResult.AddRange(result.Where(cv => overrideCharacters.Contains(cv.Character) && cv.Delivery == Empty));
-						if (nextResult.Count == 1)
-						{
-							result = nextResult;
-							break;
-						}
-					}
-				}
-				verseRef.NextVerse();
-			}
-			return result.Union(interruption);
+			return result;
 		}
 
 		private List<CharacterSpeakingMode> GetSpeakingModesForRef(VerseRef verseRef)
