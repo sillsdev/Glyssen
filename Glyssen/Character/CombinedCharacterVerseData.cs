@@ -44,19 +44,19 @@ namespace Glyssen.Character
 			return project.Union(control);
 		}
 
-		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries()
+		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo()
 		{
-			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries();
-			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterAndDeliveries();
+			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryAliasInfo();
+			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterDeliveryAliasInfo();
 			if (project.Any()) // Since this is rare, we can save the cost of a union and two set creations
 				result = new ReadOnlySet<ICharacterDeliveryInfo>(new HashSet<ICharacterDeliveryInfo>(result.Union(project, m_characterDeliveryEqualityComparer)));
 			return result;
 		}
 
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
 		{
-			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(bookCode);
-			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterAndDeliveries(bookCode);
+			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryInfo(bookCode);
+			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterDeliveryInfo(bookCode);
 			result.UnionWith(project);
 			return result;
 		}

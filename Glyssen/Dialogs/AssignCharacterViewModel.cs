@@ -237,7 +237,8 @@ namespace Glyssen.Dialogs
 			{
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
 				Debug.Assert(block.CharacterIsStandard || block.CharacterIsUnclear ||
-					m_currentCharacters.Any(c => c.Character == block.CharacterId),
+					m_currentCharacters.Any(c => c.Character == block.CharacterId) ||
+					m_pendingCharacterVerseAdditions.Any(p => p.Character == block.CharacterId),
 					"Block should not be assigned to a character that is not in either the project CV file " +
 					"or the factory CV file for every verse in the block.");
 			}
@@ -302,14 +303,19 @@ namespace Glyssen.Dialogs
 
 			if (string.IsNullOrWhiteSpace(filterText))
 			{
-				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
+				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterDeliveryInfo(CurrentBookId));
 			}
 			else
 			{
 				filterText = filterText.Trim();
-				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries()
-					.Where(c => c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
-						(c.LocalizedAlias != null && c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase))));
+				// First add all the matches that do NOT have an alias because we only want to add the aliased versions if there is no non-aliased version.
+				var uniqueEntries = m_combinedCharacterVerseData.GetUniqueCharacterDeliveryAliasInfo();
+				m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(uniqueEntries
+					.Where(c => c.LocalizedAlias == null && c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase)),
+					new CharacterDeliveryEqualityComparer());
+				m_currentCharacters.UnionWith(uniqueEntries.Where(c => c.LocalizedAlias != null &&
+					(c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) ||
+					c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase))));
 			}
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(

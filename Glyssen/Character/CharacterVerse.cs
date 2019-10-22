@@ -416,9 +416,27 @@ namespace Glyssen.Character
 		}
 	}
 
+	public class CharacterDeliveryAliasEqualityComparer : CharacterDeliveryEqualityComparer
+	{
+		public override bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
+		{
+			return base.Equals(x, y) && x?.Alias == y?.Alias;
+		}
+
+		public override int GetHashCode(ICharacterDeliveryInfo obj)
+		{
+			unchecked
+			{
+				int hashCode = base.GetHashCode(obj);
+				hashCode = (hashCode * 397) ^ (obj.Alias != null ? obj.Alias.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
+	}
+
 	public class CharacterDeliveryEqualityComparer : IEqualityComparer<ICharacterDeliveryInfo>
 	{
-		public bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
+		public virtual bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
 		{
 			if (x == null && y == null)
 				return true;
@@ -428,7 +446,7 @@ namespace Glyssen.Character
 			return x.Character.Equals(y.Character) && x.Delivery == y.Delivery;
 		}
 
-		public int GetHashCode(ICharacterDeliveryInfo obj)
+		public virtual int GetHashCode(ICharacterDeliveryInfo obj)
 		{
 			unchecked
 			{

@@ -185,10 +185,11 @@ namespace Glyssen.Character
 		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
+		private readonly IEqualityComparer<ICharacterDeliveryInfo> m_characterDeliveryAliasEqualityComparer = new CharacterDeliveryAliasEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookupByRef;
 		private ILookup<int, CharacterVerse> m_lookupByBookNum;
-		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterAndDeliveries;
+		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterDeliverAliasEntries;
 		private ISet<string> m_uniqueDeliveries;
 
 		public IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
@@ -369,20 +370,20 @@ namespace Glyssen.Character
 			return m_data.Any();
 		}
 
-		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries()
+		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo()
 		{
-			if (m_uniqueCharacterAndDeliveries == null)
+			if (m_uniqueCharacterDeliverAliasEntries == null)
 			{
-				var set = new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryEqualityComparer);
+				var set = new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryAliasEqualityComparer);
 				set.AddRange(NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides).Select(o => o.Character)
 					.Distinct().Select(c => new NarratorOverrideCharacter(c)));
-				m_uniqueCharacterAndDeliveries = new ReadOnlySet<ICharacterDeliveryInfo>(set);
+				m_uniqueCharacterDeliverAliasEntries = new ReadOnlySet<ICharacterDeliveryInfo>(set);
 			}
 
-			return m_uniqueCharacterAndDeliveries;
+			return m_uniqueCharacterDeliverAliasEntries;
 		}
 
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
 		{
 			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
 			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
@@ -425,7 +426,7 @@ namespace Glyssen.Character
 			m_lookupByBookNum = m_data.ToLookup(c => c.Book);
 			AdjustData(m_lookupByBookNum);
 			m_lookupByRef = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
+			m_uniqueCharacterDeliverAliasEntries = null;
 			m_uniqueDeliveries = null;
 		}
 

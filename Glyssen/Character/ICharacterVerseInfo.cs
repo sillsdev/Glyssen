@@ -39,9 +39,9 @@ namespace Glyssen.Character
 
 		IEnumerable<CharacterVerse> GetAllQuoteInfo(int bookNum);
 
-		IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries();
+		IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo();
 
-		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode);
+		ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode);
 
 		ISet<string> GetUniqueDeliveries();
 	}
