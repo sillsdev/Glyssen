@@ -881,7 +881,7 @@ namespace Glyssen.Dialogs
 				var charIdsString = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
 				e.Value = IsNullOrWhiteSpace(charIdsString) ? LocalizationManager.GetString(
 					"DialogBoxes.VoiceActorAssignmentDlg.SelectCameoRoleLink", "Select a cameo role",
-					"Displayed as link in the \"Characters In Group\" column when the group assigned to a cameo	actor has no characters in it.")
+					"Displayed as link in the \"Characters In Group\" column when the group assigned to a cameo actor has no characters in it.")
 					: charIdsString;
 			}
 			else if (e.ColumnIndex == AttributesCol.Index)

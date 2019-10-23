@@ -17980,8 +17980,16 @@ LUK	23	3	Pilate	to Jesus		Dialogue
 LUK	23	4	Pilate	to crowd		Dialogue		
 LUK	23	5	chief priests/crowd	angry		Dialogue		
 LUK	23	6	Pilate			Indirect		
-LUK	23	7	chief priests/crowd			Indirect		
+LUK	23	7	chief priests/crowd			Rare		
+LUK	23	7	Pilate			Rare		
+LUK	23	7	Needs Review			Potential		
 LUK	23	8	Herod Antipas (the tetrarch)			Indirect		
+LUK	23	9	Herod Antipas (the tetrarch)			Rare		
+LUK	23	9	Needs Review			Potential		
+LUK	23	10	chief priests/scribes			Rare		
+LUK	23	10	Needs Review			Potential		
+LUK	23	11	Herod Antipas (the tetrarch)/soldiers, Roman			Rare		
+LUK	23	11	Needs Review			Potential		
 LUK	23	13	Pilate			Potential		
 LUK	23	14	Pilate	to crowd		Dialogue		
 LUK	23	15	Pilate	to crowd		Normal		
