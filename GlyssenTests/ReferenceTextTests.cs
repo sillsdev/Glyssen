@@ -3258,6 +3258,42 @@ namespace GlyssenTests
 			Assert.IsFalse(result[1].ReferenceBlocks.Any());
 		}
 
+		/// <summary>
+		/// PG-1277: Test to ensure that no part of the reference text needed to align to the vernacular goes missing when a verse is missing
+		/// in the vernacular (because of a manuscript variant) and in the reference text that verse is combined with (part of) the following
+		/// verse. In the case of LUK 23:17, when we try to skip over the reference block for v. 17, we don't want to 'inadvertently also skip
+		/// over the first part of v. 18, which FCBH has included in the same block.
+		/// </summary>
+		[Test]
+		public void GetBooksWithBlocksConnectedToReferenceText_MissingVerseInVernIsInRefBlockAlongWithStartOfFollowingVerse_VernVerseFollowingHoleAlignsToPartOfRefBlockWithVerse()
+		{
+			const string kBookId = "LUK";
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+			var v18RefTextBlocks = primaryReferenceText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(23, 18);
+			var v17And18Block = v18RefTextBlocks.First();
+			Assert.AreEqual(17, v17And18Block.InitialStartVerseNumber, "Test setup conditions not met");
+			Assert.AreEqual("18", ((Verse)v17And18Block.BlockElements[2]).Number, "Test setup conditions not met");
+			var expectedRefTextForVerse18Part1 = "{18}\u00A0" + ((ScriptText)v17And18Block.BlockElements[3]).Content;
+			var expectedRefTextForVerse18Part2 = v18RefTextBlocks.Last().GetText(true);
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Pilate said, ", true, 23, kBookId));
+			AddBlockForVerseInProgress(vernacularBlocks, "Pilate", "“You say this man was inciting rebellion, but I have found no basis for your charges. ")
+				.AddVerse(15, "Herod came up empty, too, so he sent him back. How could we kill him? ")
+				.AddVerse(16, "I'll just rough him up a bit and let him go.”");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(18, "But the whole crowd is screaming like, ", true, 23, kBookId));
+			AddBlockForVerseInProgress(vernacularBlocks, "crowd", "“Eliminate this man! Give us Barabbas!” ");
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
+
+			Assert.AreEqual(6, result.Count);
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			Assert.AreEqual(expectedRefTextForVerse18Part1, result[4].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(expectedRefTextForVerse18Part2, result[5].ReferenceBlocks.Single().GetText(true));
+		}
+
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_BadIndex_ThrowsArgumentOutOfRangeException()
 		{
@@ -3544,22 +3580,28 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_EndOfBookWhereReferenceTextCombinesTwoVerses_DoesNotCrashOrMatch()
+		public void GetBlocksForVerseMatchedToReferenceText_EndOfBookWhereReferenceTextCombinesTwoVerses_MatchesToRelevantPartOfRefBlock()
 		{
-			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(25, "Grace be unto you all.", true, 13, "HEB") };
-			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
-
 			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
+			const string kBookId = "HEB";
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var v25RefTextBlock = refText.Books.Single(b => b.BookId == kBookId).GetBlocksForVerse(13, 25).Single();
+			Assert.AreEqual(24, v25RefTextBlock.InitialStartVerseNumber, "Test setup conditions not met");
+			Assert.AreEqual("25", ((Verse)v25RefTextBlock.BlockElements[2]).Number, "Test setup conditions not met");
+			var expectedRefTextForVerse25 = "{25}\u00A0" + ((ScriptText)v25RefTextBlock.BlockElements[3]).Content;
+
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(25, "Grace be unto you all.", true, 13, kBookId) };
+			var vernBook = new BookScript(kBookId, vernacularBlocks, m_vernVersification);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
 			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			Assert.AreEqual(1, matchup.CorrelatedBlocks.Count);
-			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+			Assert.IsTrue(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+			Assert.AreEqual(expectedRefTextForVerse25, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 		}
 
 		[Test]
-		public void GetBlocksForVerseMatchedToReferenceText_VernBlockIsFirstVerseOfCombinedReferenceTextBlock_MatchupIncludesBothVerses()
+		public void GetBlocksForVerseMatchedToReferenceText_AllowSplitting_VernBlockIsFirstVerseOfCombinedReferenceTextBlock_MatchupIncludesBothVerses()
 		{
 			var vernacularBlocks = new List<Block> {
 				CreateNarratorBlockForVerse(24, "Köszöntsétek minden elõljárótokat és a szenteket mind. Köszöntenek titeket az Olaszországból valók. ", true, 13, "HEB"),
@@ -3570,13 +3612,38 @@ namespace GlyssenTests
 			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
-			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0); // allowing splitting is the default
+			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
+			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+			Assert.AreEqual(24, matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().InitialStartVerseNumber);
+			Assert.AreEqual(24, matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().LastVerseNum);
+			Assert.IsTrue(matchup.CorrelatedBlocks[1].MatchesReferenceText);
+			Assert.AreEqual(25, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().InitialStartVerseNumber);
+			Assert.AreEqual(25, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().LastVerseNum);
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_DisallowSplitting_VernBlockIsFirstVerseOfCombinedReferenceTextBlock_MatchupIncludesBothVerses()
+		{
+			var vernacularBlocks = new List<Block> {
+				CreateNarratorBlockForVerse(24, "Köszöntsétek minden elõljárótokat és a szenteket mind. Köszöntenek titeket az Olaszországból valók. ", true, 13, "HEB"),
+				CreateNarratorBlockForVerse(25, "Kegyelem mindnyájatokkal! Ámen!", true, 13, "HEB")
+			};
+			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
+
+			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, allowSplitting: false);
 			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
 			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
 			Assert.AreEqual(1, matchup.CorrelatedBlocks[0].ReferenceBlocks.Count);
 			Assert.IsFalse(matchup.CorrelatedBlocks[1].MatchesReferenceText);
-			Assert.AreEqual(0, matchup.CorrelatedBlocks[1].ReferenceBlocks.Count);
+			Assert.AreEqual(1, matchup.CorrelatedBlocks[1].ReferenceBlocks.Count);
+			Assert.AreEqual(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(), matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(),
+				"Since we're not allowing the reference block to be split, we should match the block with v. 24 and v. 25 to both vern blocks.");
 		}
 
 		[Test]
