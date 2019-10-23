@@ -372,23 +372,18 @@ namespace Glyssen.Character
 
 		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo()
 		{
-			if (m_uniqueCharacterDeliverAliasEntries == null)
-			{
-				var set = new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryAliasEqualityComparer);
-				set.AddRange(NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides).Select(o => o.Character)
-					.Distinct().Select(c => new NarratorOverrideCharacter(c)));
-				m_uniqueCharacterDeliverAliasEntries = new ReadOnlySet<ICharacterDeliveryInfo>(set);
-			}
-
-			return m_uniqueCharacterDeliverAliasEntries;
+			return m_uniqueCharacterDeliverAliasEntries ??
+				(m_uniqueCharacterDeliverAliasEntries = new ReadOnlySet<ICharacterDeliveryInfo>(GetUniqueCharacterDeliveryAliasSet()));
 		}
 
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
+		protected virtual HashSet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasSet()
 		{
-			var set = new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
-			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
-				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
-			return set;
+			return new HashSet<ICharacterDeliveryInfo>(m_data, m_characterDeliveryAliasEqualityComparer);
+		}
+
+		public virtual ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
+		{
+			return new HashSet<ICharacterDeliveryInfo>(m_data.Where(cv => cv.BookCode == bookCode), m_characterDeliveryEqualityComparer);
 		}
 
 		public ISet<string> GetUniqueDeliveries()

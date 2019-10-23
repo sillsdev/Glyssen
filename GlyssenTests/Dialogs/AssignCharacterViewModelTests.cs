@@ -2498,6 +2498,17 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void GetUniqueCharacters_MatchingCharacterHasAliasedAndNonAliasedMatch_ResultIncludesNonAliasedRatherThanAliasedCharacter()
+		{
+			// SUT
+			var result = m_model.GetUniqueCharacters("script").ToList();
+
+			// Verify
+			Assert.IsTrue(result.Any(c => c.CharacterId == "scripture" && c.LocalizedAlias == null));
+			Assert.IsFalse(result.Any(c => c.CharacterId == "scripture" && c.LocalizedAlias != null));
+		}
+
+		[Test]
 		public void GetUniqueCharacters_NonMatchingFilterInBlockWithNarratorOverride_ResultIncludesOverrideCharacterAtEnd()
 		{
 			// Setup

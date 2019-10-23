@@ -6,6 +6,7 @@ using System.Linq;
 using Glyssen.Properties;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
 
@@ -78,6 +79,22 @@ namespace Glyssen.Character
 		protected override void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
 			throw new ApplicationException("The control file cannot be modified programmatically.");
+		}
+
+		protected override HashSet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasSet()
+		{
+			var set = base.GetUniqueCharacterDeliveryAliasSet();
+			set.AddRange(NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides).Select(o => o.Character)
+				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
+		}
+
+		public override ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
+		{
+			var set = base.GetUniqueCharacterDeliveryInfo(bookCode);
+			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
+				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
 		}
 
 		protected override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)

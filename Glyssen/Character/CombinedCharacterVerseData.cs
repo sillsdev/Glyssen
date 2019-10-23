@@ -49,7 +49,7 @@ namespace Glyssen.Character
 			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryAliasInfo();
 			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterDeliveryAliasInfo();
 			if (project.Any()) // Since this is rare, we can save the cost of a union and two set creations
-				result = new ReadOnlySet<ICharacterDeliveryInfo>(new HashSet<ICharacterDeliveryInfo>(result.Union(project, m_characterDeliveryEqualityComparer)));
+				result = new ReadOnlySet<ICharacterDeliveryInfo>(new HashSet<ICharacterDeliveryInfo>(result.Union(project, new CharacterDeliveryAliasEqualityComparer())));
 			return result;
 		}
 
