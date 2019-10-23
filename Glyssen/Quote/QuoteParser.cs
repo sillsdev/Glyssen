@@ -774,7 +774,8 @@ namespace Glyssen.Quote
 		private void IncrementQuoteLevel()
 		{
 			if (m_quoteLevel++ == 0)
-				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, versification: m_versification).Select(cv => cv.Character).ToList();
+				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
+					m_workingBlock.InitialEndVerseNumber, versification: m_versification, includeAlternatesAndRareQuotes: true).Select(cv => cv.Character).ToList();
 		}
 
 		private void DecrementQuoteLevel()

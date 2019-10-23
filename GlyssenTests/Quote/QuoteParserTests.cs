@@ -5537,6 +5537,27 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_RareQuoteContinuedIntoVerseWithNormalScriptureQuote_ScriptureCharacterAssigned()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 12, 39) {IsParagraphStart = true}.AddVerse(39, "Gima rino bon ingon jo kep Yesus bi Yesaya tri tut,"),
+				new Block("p", 12, 39) {IsParagraphStart = true}.AddText("“Allah pai, ")
+					.AddVerse(40, "‘Ditak igyai ba. Dikes bingat ba, niti au. Diyai nok ingkwei hanyen Da bidibindei, hanyen bi.’ ”"),
+			};
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
+			Assert.AreEqual("scripture", output[1].CharacterId);
+		}
+
+		[Test]
 		public void Parse_TwoAdjacentQuotesBySameCharacter_NotCombined()
 		{
 			var input = new List<Block>

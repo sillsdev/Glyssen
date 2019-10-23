@@ -14280,6 +14280,9 @@ JHN	12	34	crowd preparing for Passover Feast	challenging		Dialogue
 JHN	12	35	Jesus			Dialogue		
 JHN	12	36	Jesus			Normal		
 JHN	12	38	scripture			Quotation	Isaiah	
+# PG-1276: A project added in a leading "God says" (the original passage quoted from ISA 6 is God speaking) in v. 39
+JHN	12	39	scripture			Rare	Isaiah	
+JHN	12	39	Needs Review			Potential		
 JHN	12	40	scripture			Quotation	Isaiah	
 JHN	12	44	Jesus			Normal		
 JHN	12	45	Jesus			Normal		

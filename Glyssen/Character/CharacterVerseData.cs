@@ -227,14 +227,15 @@ namespace Glyssen.Character
 				result = new List<CharacterSpeakingMode>();
 				do
 				{
+					// ENHANCE: in the unlikely case that we have a verse bridge that begins with a verse in
+					// which there is a rare/alternate quote, followed by verse(s) with a regular quote for
+					// the same character/delivery, we will get the less desirable one.
 					result = result.Union(m_lookupByRef[verseRef.BBBCCCVVV],
 						(IEqualityComparer<CharacterSpeakingMode>)m_characterDeliveryEqualityComparer).ToList();
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
 			}
-			if (!includeAlternatesAndRareQuotes)
-				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate && cv.QuoteType != QuoteType.Rare).ToList();
 
 			// If there are more verses (e.g., in the block) to consider, even if we're down to a single character/delivery, we can't quit early
 			// because there is the possibility of:
@@ -262,37 +263,30 @@ namespace Glyssen.Character
 							var characterMatches = new List<CharacterSpeakingMode>(result.Count);
 							foreach (var entry in result)
 							{
-								if (nextResult.Contains(entry, m_characterDeliveryEqualityComparer))
-									exactMatches.Add(entry);
+								var match = nextResult.FirstOrDefault(n => m_characterDeliveryEqualityComparer.Equals(n, entry));
+								if (match != null)
+								{
+									// We prefer a regular quote type because in the end we might eliminate Alternate and Rare quotes,
+									// but if any of the included verses 
+									exactMatches.Add((entry.QuoteType != QuoteType.Alternate && entry.QuoteType != QuoteType.Rare) ?
+										entry : match);
+								}
 								if (exactMatches.Any())
 									continue;
-								var charMatch = nextResult.FirstOrDefault(r => r.Character == entry.Character);
-								if (charMatch != null)
+								match = nextResult.FirstOrDefault(r => r.Character == entry.Character);
+								if (match != null)
 								{
 									if (entry.Delivery == null)
 										characterMatches.Add(entry);
-									else if (charMatch.Delivery == null)
-										characterMatches.Add(charMatch);
+									else if (match.Delivery == null)
+										characterMatches.Add(match);
 									else
 										characterMatches.Add(new CharacterSpeakingMode(entry.Character, "", entry.Alias, false, QuoteType.Potential));
 								}
 							}
 
 							result = exactMatches.Any() ? exactMatches : characterMatches;
-							//if (overrideCharacters != null)
-							//	result.AddRange(overrideCharacters.Where(cv => !result.Any(e => e.Contains(cv.Character) && cv.Delivery == Empty));
-							//if (nextResult.Count == 1)
-							//{
-							//result = nextResult;
-							//	break;
-							//}
 						}
-
-						//else
-						//{
-						//	Debug.Fail("REVIEW: Let's see why we have this logic.");
-						//	result = nextResult;
-						//}
 					}
 
 					verseRef.NextVerse();
@@ -300,6 +294,9 @@ namespace Glyssen.Character
 				if (interruption != null && !result.Contains(interruption))
 					result.Add(interruption);
 			}
+
+			if (!includeAlternatesAndRareQuotes)
+				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate && cv.QuoteType != QuoteType.Rare).ToList();
 
 			if (overrideCharacters != null)
 			{
