@@ -18533,6 +18533,7 @@ JHN	12	37	Needs Review			Potential
 JHN	12	38	scripture			Quotation	Isaiah	
 # PG-1276: A project added in a leading "God says" (the original passage quoted from ISA 6 is God speaking) in v. 39
 JHN	12	39	scripture			Rare	Isaiah	
+JHN	12	39	Needs Review			Potential		
 JHN	12	40	scripture			Quotation	Isaiah	
 JHN	12	42	leaders, many			Rare		
 JHN	12	42	Needs Review			Potential		
@@ -18738,6 +18739,7 @@ JHN	18	38	Pilate	to crowd		Dialogue
 JHN	18	39	Pilate	to crowd		Dialogue		
 JHN	18	40	Jews, the			Dialogue		
 JHN	19	1	Pilate			Rare		
+JHN	19	1	Needs Review			Potential		
 JHN	19	3	soldiers, Roman	mocking		Dialogue		
 JHN	19	4	Pilate	to crowd		Dialogue		
 JHN	19	5	Pilate	to crowd		Dialogue		
@@ -19392,6 +19394,7 @@ ACT	20	33	Paul			Normal
 ACT	20	34	Paul			Normal		
 ACT	20	35	Paul			Normal		
 ACT	20	37	elders, Ephesian			Rare		
+ACT	20	37	Needs Review			Potential		
 ACT	20	38	elders, Ephesian			Indirect		
 ACT	21	4	disciples		Holy Spirit through disciples	Indirect		
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		
