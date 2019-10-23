@@ -5558,6 +5558,26 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_VersesInVerseBridgeHaveTwoCharactersWithConflictingAlternateAndNormalQuoteTypes_CharacterSetAsAmbiguous()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 1, 3, 4) {IsParagraphStart = true}.AddVerse("3-4", "“The ox and donkey know their master, but this sinful nation " +
+					"of mine is full of iniquity. They are like corrupt children who do not know or understand what family they belong to. They have " +
+					"so despised their Lord as to utterly forsake him, and now they have become cut off and are buried under a pile of sin.”"),
+			};
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ISA", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[0].CharacterId);
+		}
+
+		[Test]
 		public void Parse_TwoAdjacentQuotesBySameCharacter_NotCombined()
 		{
 			var input = new List<Block>

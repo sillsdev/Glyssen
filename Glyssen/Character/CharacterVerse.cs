@@ -148,6 +148,7 @@ namespace Glyssen.Character
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
 		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
+		public bool IsUnusual => QuoteType == QuoteType.Alternate || QuoteType == QuoteType.Rare;
 
 		/// <summary>
 		/// A single character ID which could/should be used in the script.

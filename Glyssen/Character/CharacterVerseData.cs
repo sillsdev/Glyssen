@@ -227,11 +227,22 @@ namespace Glyssen.Character
 				result = new List<CharacterSpeakingMode>();
 				do
 				{
-					// ENHANCE: in the unlikely case that we have a verse bridge that begins with a verse in
-					// which there is a rare/alternate quote, followed by verse(s) with a regular quote for
-					// the same character/delivery, we will get the less desirable one.
-					result = result.Union(m_lookupByRef[verseRef.BBBCCCVVV],
-						(IEqualityComparer<CharacterSpeakingMode>)m_characterDeliveryEqualityComparer).ToList();
+					foreach (var cv in m_lookupByRef[verseRef.BBBCCCVVV])
+					{
+						var match = result.FirstOrDefault(e => m_characterDeliveryEqualityComparer.Equals(e, cv));
+						if (match == null)
+						{
+							result.Add(cv);
+						}
+						else if (!cv.IsUnusual && match.IsUnusual && !includeAlternatesAndRareQuotes)
+						{
+							// We prefer a regular quote type because in the end we will eliminate Alternate and Rare quotes.
+							// Since we have found a subsequent verse with the unusual character as a "regular" quote type,
+							// we want to replace the unusual entry with the preferred one.
+							result.Remove(match);
+							result.Add(cv);
+						}
+					}
 					verseRef.NextVerse();
 					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
 				} while (verseRef <= initialEndRef);
@@ -267,9 +278,9 @@ namespace Glyssen.Character
 								if (match != null)
 								{
 									// We prefer a regular quote type because in the end we might eliminate Alternate and Rare quotes,
-									// but if any of the included verses 
-									exactMatches.Add((entry.QuoteType != QuoteType.Alternate && entry.QuoteType != QuoteType.Rare) ?
-										entry : match);
+									// but if any of the included verses have the unusual character as a "regular" quote type, we want
+									// to keep the character in the list.
+									exactMatches.Add(!entry.IsUnusual ?entry : match);
 								}
 								if (exactMatches.Any())
 									continue;
