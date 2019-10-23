@@ -5546,7 +5546,7 @@ namespace GlyssenTests.Quote
 					.AddVerse(40, "‘Ditak igyai ba. Dikes bingat ba, niti au. Diyai nok ingkwei hanyen Da bidibindei, hanyen bi.’ ”"),
 			};
 
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "\u2014", "\u2014");
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
 
