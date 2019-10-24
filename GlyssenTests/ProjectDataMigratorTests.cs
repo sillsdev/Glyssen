@@ -1022,6 +1022,48 @@ namespace GlyssenTests
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
 			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, verses13and14Block.CharacterId);
+			Assert.IsFalse(verses13and14Block.UserConfirmed);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_FirstVerseInQuoteIsProjectSpecificCvButSecondVerseIsControlCv_NoChangesAndEntryNotRemovedFromProjectCvFile()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var bookScript = testProject.IncludedBooks.Single();
+			var verses13and14Block = bookScript.GetBlocksForVerse(1, 13).Single();
+			var originalVerse14Blocks = bookScript.GetBlocksForVerse(1, 14);
+
+			// Use reflection to get around a check to ensure we don't do this in production code
+			List<Block> blocks = (List<Block>)ReflectionHelper.GetField(bookScript, "m_blocks");
+			int blockCount = (int)ReflectionHelper.GetField(bookScript, "m_blockCount");
+
+			//Combine verse 13 and 14 blocks
+			foreach (var block in originalVerse14Blocks)
+			{
+				verses13and14Block.BlockElements.AddRange(block.BlockElements);
+
+				blocks.Remove(block);
+				blockCount--;
+			}
+			ReflectionHelper.SetField(bookScript, "m_blockCount", blockCount);
+
+			verses13and14Block.CharacterId = "Enoch";
+			verses13and14Block.UserConfirmed = true;
+			for (int v = verses13and14Block.InitialStartVerseNumber; v < 14; v++)
+				testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(65, 1, v), verses13and14Block.CharacterId, "", "", true));
+
+			//Setup check
+			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+
+			//SUT - Call it twice to make sure first time doesn't delete project CV entry
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+			Assert.IsTrue(verses13and14Block.UserConfirmed);
+			Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
 		}
 
 		/// <summary>

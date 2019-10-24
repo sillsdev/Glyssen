@@ -234,14 +234,7 @@ namespace Glyssen.Dialogs
 		{
 			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
-			{
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
-				Debug.Assert(block.CharacterIsStandard || block.CharacterIsUnclear ||
-					m_currentCharacters.Any(c => c.Character == block.CharacterId) ||
-					m_pendingCharacterVerseAdditions.Any(p => p.Character == block.CharacterId),
-					"Block should not be assigned to a character that is not in either the project CV file " +
-					"or the factory CV file for every verse in the block.");
-			}
 			m_currentCharacters.UnionWith(m_pendingCharacterVerseAdditions);
 		}
 

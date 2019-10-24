@@ -253,7 +253,7 @@ namespace Glyssen
 							// PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
 							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+								block.LastVerseNum, block.CharacterId, block.Delivery ?? "");
 							block.UserConfirmed = false;
 							block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 							block.CharacterIdInScript = null;
@@ -296,6 +296,7 @@ namespace Glyssen
 							}
 							else if (knownFactoryCharacter)
 							{
+								// TODO: Only remove from the project CV file any entries for verses that ARE in the control CV file.
 								project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 									block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
 								if (project.RemoveProjectCharacterDetail(block.CharacterId))
