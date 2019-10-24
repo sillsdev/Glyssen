@@ -8,6 +8,7 @@ using L10NSharp;
 using SIL.Extensions;
 using SIL.ObjectModel;
 using SIL.Scripture;
+using static System.Int32;
 using static System.String;
 
 namespace Glyssen.Character
@@ -466,20 +467,22 @@ namespace Glyssen.Character
 		/// <exception cref="ApplicationException">Bad data (incorrect number of fields, etc.)</exception>
 		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
-			var list = new List<CharacterVerse>();
-
 			if (items.Length < kiQuoteType)
 				throw new ApplicationException($"Bad format in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");
 			if (items.Length > kMaxItems)
 				throw new ApplicationException($"Incorrect number of fields in CharacterVerse control file! Line #: {lineNumber}; Line contents: {string.Join("\t", items)}");
 
-			int chapter;
-			if (!Int32.TryParse(items[1], out chapter))
-				throw new ApplicationException($"Invalid chapter number ({items[1]}) on line {lineNumber}: {items[0]}");
-			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
-				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
+			return GetAllVerses(items, () => throw new ApplicationException($"Invalid chapter number ({items[1]}) on line {lineNumber}: {items[0]}"))
+				.Select(bcvRef => CreateCharacterVerse(bcvRef, items)).ToList();
+		}
 
-			return list;
+		internal static IEnumerable<BCVRef> GetAllVerses(string[] items, Action chapterNumberErrorHandler)
+		{
+			if (!TryParse(items[1], out var chapter))
+				chapterNumberErrorHandler();
+
+			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
+				yield return new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse);
 		}
 
 		protected abstract CharacterVerse CreateCharacterVerse(BCVRef bcvRef, string[] items);

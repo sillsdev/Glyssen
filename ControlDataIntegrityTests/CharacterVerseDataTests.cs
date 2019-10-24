@@ -37,6 +37,7 @@ namespace ControlDataIntegrityTests
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 
 			var set = new HashSet<string>();
+			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>();
 			foreach (var line in AllDataLines)
 			{
 				var match = regex.Match(line);
@@ -47,11 +48,13 @@ namespace ControlDataIntegrityTests
 				Assert.IsTrue(bookNum > 0, "Line: " + line);
 				Assert.IsTrue(bookNum <= 66, "Line: " + line);
 
-				var chapter = Int32.Parse(match.Result("${chapter}"));
+				var chapterAsString = match.Result("${chapter}");
+				var chapter = Int32.Parse(chapterAsString);
 				Assert.IsTrue(chapter > 0, "Line: " + line);
 				Assert.IsTrue(chapter <= ScrVers.English.GetLastChapter(bookNum), "Line: " + line);
 
-				var verse = Int32.Parse(match.Result("${verse}"));
+				var verseAsString = match.Result("${verse}");
+				var verse = Int32.Parse(verseAsString);
 				Assert.IsTrue(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
 				Assert.IsTrue(verse <= ScrVers.English.GetLastVerse(bookNum, chapter), "Line: " + line);
 
@@ -76,30 +79,23 @@ namespace ControlDataIntegrityTests
 					Assert.IsFalse(defaultCharacter.Contains("/"), $"Line: {line} has a default character which is a multi-character ID.");
 				}
 
+				string typeAsString = match.Result("${type}");
 				if (CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator))
-					Assert.AreNotEqual("Dialogue", match.Result("${type}"), "Line: " + line);
+					Assert.AreNotEqual("Dialogue", typeAsString, "Line: " + line);
 
 				var matchResult = match.Result("$&");
 				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
 
+				Assert.IsTrue(QuoteType.TryParse(typeAsString, out QuoteType type));
+				foreach (var bcvRef in CharacterVerseData.GetAllVerses(new [] {bookId, chapterAsString, verseAsString}, () => throw new Exception("This should never happen")))
+				{
+					var cv = new CharacterVerse(bcvRef, character, match.Result("${delivery}"), alias, false, type, defaultCharacter);
+					Assert.IsTrue(uniqueCharacterVerses.Add(cv), "Line is equivalent to another line even though they are not identical: " + matchResult);
+				}
+
 				var extraSpacesMatch = extraSpacesRegex.Match(line);
 				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
 			}
-		}
-
-		[Test]
-		public void DataIntegrity_NoDuplicateData()
-		{
-			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>();
-			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
-			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
-				if (!uniqueCharacterVerses.Add(cv))
-					duplicateCharacterVerses.Add(cv);
-
-			Assert.False(duplicateCharacterVerses.Any(),
-				"Duplicate Character-Verse data:" +
-				Environment.NewLine +
-				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
 		}
 
 		[Test]

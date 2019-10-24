@@ -132,6 +132,16 @@ namespace Glyssen.Character
 		Rare,
 	}
 
+	/// <summary>
+	/// Class that vaguely represents a "local" instance of speech, but is not tied to a specific verse. In most cases
+	/// an object of type <see cref="CharacterSpeakingMode"/> will actually be a <seealso cref="CharacterVerse"/>, which
+	/// is representative of the entire speech, even though it may cover multiple verses. Where the Delivery, Alias and
+	/// QuoteType are the same for the entire speech (which is the most typical case), they will accurately reflect that
+	/// homogeneity. In cases where a speech overruns the natural limits (e.g. crosses over into a different delivery or
+	/// type of quote), then an object of this class might be a synthesis reflecting that, which may or may not correspond
+	/// to any existing <seealso cref="CharacterVerse"/>. For example, if there is no paragraph break, a block may have
+	/// Jesus first scolding and then instructing. In such a case, the delivery would need to be unspecified.
+	/// </summary>
 	public class CharacterSpeakingMode : ICharacterDeliveryInfo
 	{
 		public const string kScriptureCharacter = "scripture";
@@ -259,6 +269,7 @@ namespace Glyssen.Character
 		}
 
 		#region Equality Members
+		// Note QuoteType *cannot* be included in equality determination (nor do we want it to be) because it is not readonly.
 		protected bool Equals(CharacterSpeakingMode other)
 		{
 			return Equals(Character, other.Character) &&
@@ -300,6 +311,10 @@ namespace Glyssen.Character
 		#endregion
 	}
 
+	/// <summary>
+	/// Represents all the known details of an actual or potential speech by a character in a particular
+	/// verse.
+	/// </summary>
 	public class CharacterVerse : CharacterSpeakingMode
 	{
 		public BCVRef BcvRef { get; }
@@ -307,12 +322,18 @@ namespace Glyssen.Character
 		public int Book => BcvRef.Book;
 		public int Chapter => BcvRef.Chapter;
 		public int Verse => BcvRef.Verse;
+		// There are a few places where we need to allow two entries in the CV control file that differ only by Quote Type,
+		// so we need to include the quote type when evaluating "equality" (otherwise, they can't both be included in the set).
+		// However, since we occasionally "adjust" the quotation type (e.g., change some Quotation entries to Alternate), it
+		// is not readonly and therefore can't be used in determining equality. So here we store the original value.
+		private readonly QuoteType m_origQuoteType;
 
 		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
 			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null) :
 			base(character, delivery, alias, projectSpecific, quoteType, defaultCharacter, parallelPassageReferences)
 		{
 			BcvRef = new BCVRef(bcvRef);
+			m_origQuoteType = quoteType;
 		}
 
 		public void ChangeToAlternate()
@@ -328,7 +349,7 @@ namespace Glyssen.Character
 		{
 			return Equals(BcvRef, other.BcvRef) &&
 				base.Equals(other) &&
-				QuoteType == other.QuoteType;
+				m_origQuoteType == other.m_origQuoteType;
 		}
 
 		public override bool Equals(object obj)
@@ -347,9 +368,8 @@ namespace Glyssen.Character
 			unchecked
 			{
 				int hashCode = (BcvRef != null ? BcvRef.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (Character != null ? Character.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (Delivery != null ? Delivery.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (Alias != null ? Alias.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ base.GetHashCode();
+				hashCode = (hashCode * 397) ^ m_origQuoteType.GetHashCode();
 				return hashCode;
 			}
 		}

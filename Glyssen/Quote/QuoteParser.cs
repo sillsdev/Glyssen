@@ -1004,7 +1004,7 @@ namespace Glyssen.Quote
 		/// Coming out of this method, m_workingBlock will always be the last interruption found.
 		/// </summary>
 		/// <param name="bookId"></param>
-		/// <param name="characterDeliveryDetails"></param>
+		/// <param name="characterSpeakingDetails"></param>
 		/// <returns>Any portion of the block following the (last) interruption we detect</returns>
 		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterSpeakingMode> characterSpeakingDetails)
 		{

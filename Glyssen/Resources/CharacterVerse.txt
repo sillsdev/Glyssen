@@ -8780,7 +8780,6 @@ SNG	2	13	beloved			Potential
 SNG	2	13	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	14	beloved			Potential		
 SNG	2	14	Solomon, king		Solomon (lover)	Quotation		
-SNG	2	15	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	15	Solomon, king		Solomon (lover)	Potential		
 SNG	2	15	beloved			Potential		
 SNG	2	15	maidens			Potential		
@@ -14341,7 +14340,12 @@ HOS	8	11	God		God (the LORD)	Implicit
 HOS	8	12	God		God (the LORD)	Implicit		
 HOS	8	13	God		God (the LORD)	Implicit		
 HOS	8	14	God		God (the LORD)	Implicit		
-HOS	9	1-9	Hosea			Potential		
+HOS	9	1	Hosea			Potential		
+HOS	9	2	Hosea			Potential		
+HOS	9	3	Hosea			Potential		
+HOS	10	3	Israel			Hypothetical		
+HOS	9	4-7	Hosea			Potential		
+HOS	9	8	Hosea			Potential		
 HOS	9	10	God		God (the LORD)	Implicit		
 HOS	9	11	God		God (the LORD)	Implicit		
 HOS	9	12	God		God (the LORD)	Implicit		
@@ -14350,12 +14354,6 @@ HOS	9	14	Hosea			Potential
 HOS	9	15	God		God (the LORD)	Implicit		
 HOS	9	16	God		God (the LORD)	Implicit		
 HOS	9	17	Hosea			Potential		
-HOS	9	1	Hosea			Potential		
-HOS	9	2	Hosea			Potential		
-HOS	9	3	Hosea			Potential		
-HOS	10	3	Israel			Hypothetical		
-HOS	9	4-7	Hosea			Potential		
-HOS	9	8	Hosea			Potential		
 HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		God (the LORD)	Potential		
 HOS	10	10	God		God (the LORD)	Implicit		

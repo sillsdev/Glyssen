@@ -261,7 +261,7 @@ namespace Glyssen
 						}
 						else
 						{
-							var characters = (IEnumerable<CharacterSpeakingMode>)cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
 								block.LastVerseNum, includeAlternatesAndRareQuotes: true, includeNarratorOverrides: true).ToList();
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
