@@ -275,7 +275,9 @@ namespace Glyssen.ReferenceTextUtility
 			if (m_chkPunctuation.Checked)
 				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.Punctuation;
 			else if (m_chkQuoteMarkDifferences.Checked)
-				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.QuotationMarkDifferences;
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.QuotationMarkDifferences;
+			else if (m_chkCurlyVsStraight.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.CurlyVsStraightQuoteDifferences;
 			if (m_chkWhitespace.Checked)
 				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.WhitespaceDifferences;
 			if (m_chkSymbols.Checked)
@@ -435,6 +437,17 @@ namespace Glyssen.ReferenceTextUtility
 			}
 			else
 				m_chkQuoteMarkDifferences.Enabled = true;
+		}
+
+		private void m_chkQuoteMarkDifferences_CheckedChanged(object sender, EventArgs e)
+		{
+			if (m_chkPunctuation.Checked)
+			{
+				m_chkCurlyVsStraight.Checked = true;
+				m_chkCurlyVsStraight.Enabled = false;
+			}
+			else
+				m_chkCurlyVsStraight.Enabled = true;
 		}
 
 		private void m_btnSkipAll_Click(object sender, EventArgs e)

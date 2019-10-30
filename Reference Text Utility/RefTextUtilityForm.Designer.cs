@@ -48,6 +48,7 @@
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_grpComparisonSensitivity = new System.Windows.Forms.GroupBox();
+			this.m_chkCurlyVsStraight = new System.Windows.Forms.CheckBox();
 			this.m_chkSymbols = new System.Windows.Forms.CheckBox();
 			this.m_chkPunctuation = new System.Windows.Forms.CheckBox();
 			this.m_chkQuoteMarkDifferences = new System.Windows.Forms.CheckBox();
@@ -269,6 +270,7 @@
 			// 
 			this.m_grpComparisonSensitivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkCurlyVsStraight);
 			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkSymbols);
 			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkPunctuation);
 			this.m_grpComparisonSensitivity.Controls.Add(this.m_chkQuoteMarkDifferences);
@@ -282,11 +284,24 @@
 			this.m_grpComparisonSensitivity.TabStop = false;
 			this.m_grpComparisonSensitivity.Text = "Comparison Sensitivity";
 			// 
+			// m_chkCurlyVsStraight
+			// 
+			this.m_chkCurlyVsStraight.AutoSize = true;
+			this.m_chkCurlyVsStraight.Checked = true;
+			this.m_chkCurlyVsStraight.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_chkCurlyVsStraight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkCurlyVsStraight.Location = new System.Drawing.Point(200, 26);
+			this.m_chkCurlyVsStraight.Name = "m_chkCurlyVsStraight";
+			this.m_chkCurlyVsStraight.Size = new System.Drawing.Size(142, 17);
+			this.m_chkCurlyVsStraight.TabIndex = 5;
+			this.m_chkCurlyVsStraight.Text = "Curly vs. Straight Quotes";
+			this.m_chkCurlyVsStraight.UseVisualStyleBackColor = true;
+			// 
 			// m_chkSymbols
 			// 
 			this.m_chkSymbols.AutoSize = true;
 			this.m_chkSymbols.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkSymbols.Location = new System.Drawing.Point(577, 26);
+			this.m_chkSymbols.Location = new System.Drawing.Point(624, 26);
 			this.m_chkSymbols.Name = "m_chkSymbols";
 			this.m_chkSymbols.Size = new System.Drawing.Size(65, 17);
 			this.m_chkSymbols.TabIndex = 4;
@@ -297,7 +312,7 @@
 			// 
 			this.m_chkPunctuation.AutoSize = true;
 			this.m_chkPunctuation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkPunctuation.Location = new System.Drawing.Point(439, 26);
+			this.m_chkPunctuation.Location = new System.Drawing.Point(517, 26);
 			this.m_chkPunctuation.Name = "m_chkPunctuation";
 			this.m_chkPunctuation.Size = new System.Drawing.Size(96, 17);
 			this.m_chkPunctuation.TabIndex = 3;
@@ -308,15 +323,14 @@
 			// m_chkQuoteMarkDifferences
 			// 
 			this.m_chkQuoteMarkDifferences.AutoSize = true;
-			this.m_chkQuoteMarkDifferences.Checked = true;
-			this.m_chkQuoteMarkDifferences.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_chkQuoteMarkDifferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkQuoteMarkDifferences.Location = new System.Drawing.Point(246, 26);
+			this.m_chkQuoteMarkDifferences.Location = new System.Drawing.Point(353, 26);
 			this.m_chkQuoteMarkDifferences.Name = "m_chkQuoteMarkDifferences";
 			this.m_chkQuoteMarkDifferences.Size = new System.Drawing.Size(153, 17);
 			this.m_chkQuoteMarkDifferences.TabIndex = 2;
 			this.m_chkQuoteMarkDifferences.Text = "Quotation mark differences";
 			this.m_chkQuoteMarkDifferences.UseVisualStyleBackColor = true;
+			this.m_chkQuoteMarkDifferences.CheckedChanged += new System.EventHandler(this.m_chkQuoteMarkDifferences_CheckedChanged);
 			// 
 			// m_chkWhitespace
 			// 
@@ -324,7 +338,7 @@
 			this.m_chkWhitespace.Checked = true;
 			this.m_chkWhitespace.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_chkWhitespace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_chkWhitespace.Location = new System.Drawing.Point(63, 26);
+			this.m_chkWhitespace.Location = new System.Drawing.Point(51, 26);
 			this.m_chkWhitespace.Name = "m_chkWhitespace";
 			this.m_chkWhitespace.Size = new System.Drawing.Size(138, 17);
 			this.m_chkWhitespace.TabIndex = 1;
@@ -407,6 +421,7 @@
 		private System.Windows.Forms.CheckBox m_chkQuoteMarkDifferences;
 		private System.Windows.Forms.CheckBox m_chkSymbols;
 		private System.Windows.Forms.Button m_btnSkipAll;
+		private System.Windows.Forms.CheckBox m_chkCurlyVsStraight;
 	}
 }
 

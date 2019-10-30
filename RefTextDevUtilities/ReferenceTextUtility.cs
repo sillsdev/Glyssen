@@ -44,6 +44,7 @@ namespace Glyssen.RefTextDevUtilities
 		private static readonly Regex s_verseNumberMarkupRegex = new Regex("(\\{\\d*?\\}\u00A0)", RegexOptions.Compiled);
 		private static readonly Regex s_extractVerseNumberRegex = new Regex("\\{(\\d*?)\\}\u00A0", RegexOptions.Compiled);
 		private static Regex s_charactersToExcludeWhenComparing;
+		private static bool s_ignoreCurlyVsStraightQuoteDifferences = true;
 		private static readonly Regex s_verseNumberInExcelRegex = new Regex("\\{(\\d*?)\\} ?", RegexOptions.Compiled);
 		private static readonly Regex s_doubleSingleOpenQuote = new Regex("(<< <)", RegexOptions.Compiled);
 		private static readonly Regex s_singleDoubleOpenQuote = new Regex("(< <<)", RegexOptions.Compiled);
@@ -193,9 +194,10 @@ namespace Glyssen.RefTextDevUtilities
 			Nothing = 0,
 			WhitespaceDifferences = 1,
 			QuotationMarkDifferences = 2,
-			Default = QuotationMarkDifferences | WhitespaceDifferences,
-			Punctuation = 4,
-			Symbols = 8,
+			Default = QuotationMarkDifferences | CurlyVsStraightQuoteDifferences,
+			CurlyVsStraightQuoteDifferences = 4,
+			Punctuation = 8,
+			Symbols = 16,
 			AllDifferencesExceptAlphaNumericText = Punctuation | Symbols | Default,
 		}
 
@@ -209,10 +211,12 @@ namespace Glyssen.RefTextDevUtilities
 				if (s_differencesToIgnore == Ignore.Nothing)
 				{
 					s_charactersToExcludeWhenComparing = null;
+					s_ignoreCurlyVsStraightQuoteDifferences = false;
 					return;
 				}
 
-				var sb = new StringBuilder("[]");
+				const string kEmptyBrackets = "[]";
+				var sb = new StringBuilder(kEmptyBrackets);
 
 				if ((DifferencesToIgnore & Ignore.Symbols) > 0)
 					sb.Insert(1, @"\p{S}");
@@ -225,10 +229,15 @@ namespace Glyssen.RefTextDevUtilities
 					// end of the string apparently is.
 					sb.Append("|(--$)");
 				}
+				else if ((DifferencesToIgnore & Ignore.CurlyVsStraightQuoteDifferences) > 0)
+				{
+					s_ignoreCurlyVsStraightQuoteDifferences = true;
+				}
 				if ((DifferencesToIgnore & Ignore.WhitespaceDifferences) > 0)
 					sb.Insert(1, @"\s");
 
-				s_charactersToExcludeWhenComparing = new Regex(sb.ToString(), RegexOptions.Compiled);
+				s_charactersToExcludeWhenComparing = (sb.Length > kEmptyBrackets.Length) ?
+					new Regex(sb.ToString(), RegexOptions.Compiled) : null;
 			}
 		}
 		
@@ -593,7 +602,7 @@ namespace Glyssen.RefTextDevUtilities
 							}
 						}
 
-						var existingCharacterId = existingEnglishRefBlock.CharacterId;
+						var existingCharacterId = existingEnglishRefBlock?.CharacterId;
 						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock);
 						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
 							// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
@@ -607,7 +616,7 @@ namespace Glyssen.RefTextDevUtilities
 						if (characterIdChanged)
 						{
 							WriteOutput($"Character change at {currBookId} {referenceTextRow.Chapter}:{referenceTextRow.Verse}");
-							WriteOutput($"   From {existingCharacterId} ==> {characterIdBasedOnExcelEntry}");
+							WriteOutput($"   From {existingCharacterId ?? "null"} ==> {characterIdBasedOnExcelEntry}");
 						}
 
 						var noTextChangesWeCareAbout = IsUnchanged(modifiedText, existingRefBlockForLanguage, currBookId);
@@ -1106,8 +1115,27 @@ namespace Glyssen.RefTextDevUtilities
 						offset = -1;
 					}
 
-					annotationsToOutput.Add($"{bookId}\t{referenceTextRow.Chapter}\t" +
-						$"{referenceTextRow.Verse}\t{offset}\t{serializedAnnotation}");
+					var verse = referenceTextRow.Verse;
+					if (annotation is Pause && existingEnglishRefBlock != null && existingEnglishRefBlock.CoversMoreThanOneVerse)
+					{
+						var existingVerse = existingEnglishRefBlock.LastVerse.ToString();
+						if (verse != existingVerse)
+						{
+							var indexOfVerse = referenceTextRow.English.IndexOf("{" + existingVerse + "}", StringComparison.Ordinal);
+							if (indexOfVerse > 0 && referenceTextRow.English.LastIndexOf("{", StringComparison.Ordinal) == indexOfVerse)
+							{
+								//WriteOutput($"Using last verse of existing block for pause reference: ({bookId}) {referenceTextRow.Chapter}:{existingVerse}");
+								verse = existingVerse;
+							}
+							else
+							{
+								WriteOutput($"(warning) Check to ensure pause reference is correct: ({bookId}) {referenceTextRow.Chapter} " +
+									$"verse number in Excel row: {verse}; last verse from existing block: {existingVerse}");
+							}
+						}
+					}
+
+					annotationsToOutput.Add($"{bookId}\t{referenceTextRow.Chapter}\t{verse}\t{offset}\t{serializedAnnotation}");
 				}
 			}
 			else
@@ -1763,6 +1791,11 @@ namespace Glyssen.RefTextDevUtilities
 			{
 				existingStrToCompare = s_charactersToExcludeWhenComparing.Replace(existingStr, "");
 				excelStrToCompare = s_charactersToExcludeWhenComparing.Replace(excelStrToCompare, "");
+			}
+			if (s_ignoreCurlyVsStraightQuoteDifferences)
+			{
+				existingStrToCompare = existingStrToCompare.Replace('“', '"').Replace('”', '"').Replace('‘', '\'').Replace('’', '\'');
+				excelStrToCompare = excelStrToCompare.Replace('“', '"').Replace('”', '"').Replace('‘', '\'').Replace('’', '\'');
 			}
 
 			var indexOfFirstDifference = DiffersAtIndex(excelStrToCompare, existingStrToCompare);

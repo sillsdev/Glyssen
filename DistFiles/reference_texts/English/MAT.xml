@@ -3360,7 +3360,7 @@
     <verse num="30" />
     <text>Behold, two blind men sitting by the road, when they heard that Jesus was passing by, cried out,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="blind men, two" delivery="shouting">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="Bartimaeus (a blind man)" delivery="shouting">
     <text>“Lord, have mercy on us, you son of David!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="narrator-MAT">
@@ -3373,7 +3373,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="narrator-MAT">
     <text>but they cried out even louder,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="blind men, two" delivery="shouting">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Bartimaeus (a blind man)" delivery="shouting">
     <text>“Lord, have mercy on us, you son of David!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="32" characterId="narrator-MAT">
@@ -3387,7 +3387,7 @@
     <verse num="33" />
     <text>They told him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="blind men, two" delivery="begging">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Bartimaeus (a blind man)" delivery="begging">
     <text>“Lord, that our eyes may be opened.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="34" characterId="narrator-MAT">
@@ -5330,7 +5330,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Teach them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.” Amen.</text>
+    <text>Teach them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.”</text>
+  </block>
+  <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT">
+    <text>Amen.</text>
   </block>
   <UnappliedSplits />
 </book>

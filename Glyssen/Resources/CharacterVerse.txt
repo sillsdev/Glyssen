@@ -16099,9 +16099,8 @@ MAT	20	26	Jesus			Normal
 MAT	20	27	Jesus			Normal		
 MAT	20	28	Jesus			Normal		
 MAT	20	30	crowd at Jericho			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
-# Although the Matthew accout says "two blind men" the paralels to the accounts in Mark and Luke
-# suggest that it was Bartimaeus and a companion, so for consitency, we'll use Bartimaeus as the
-# character here.
+# Although the Matthew account says "two blind men" the parallel accounts in Mark and Luke suggest
+# that it was Bartimaeus and a companion, so for consistency, we'll use Bartimaeus as the character here.
 MAT	20	30	Bartimaeus (a blind man)	shouting	two blind men	Dialogue		MAT 20.30;MRK 10.47;LUK 18.38
 MAT	20	31	crowd, many in the	rebuking	crowd at Jericho	Indirect		MAT 20.31;MRK 10.48;LUK 18.39
 MAT	20	31	Bartimaeus (a blind man)	shouting	two blind men	Dialogue		MAT 20.31;MRK 10.48;LUK 18.39

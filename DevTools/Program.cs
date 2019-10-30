@@ -129,9 +129,10 @@ namespace DevTools
 			Console.WriteLine("Enter desired sensitivity?");
 			Console.WriteLine("");
 			Console.WriteLine("1) Report all differences");
-			Console.WriteLine("2) Ignore whitespace differences");
-			Console.WriteLine("3) Ignore quotation mark differences (default)");
-			Console.WriteLine("4) Report only alpha-numeric text differences (ignore differences in whitespace, punctuation, and symbols)");
+			Console.WriteLine("2) Ignore only whitespace differences");
+			Console.WriteLine("3) Ignore curly vs. straight quote and whitespace differences (default)");
+			Console.WriteLine("4) Ignore quotation mark and whitespace differences");
+			Console.WriteLine("5) Report only alpha-numeric text differences (ignore differences in whitespace, punctuation, and symbols)");
 			Console.WriteLine("*** NOTE *** For more specific control or to see more details, set a breakpoint in CompareIgnoringQuoteMarkDifferences.");
 
 			Console.WriteLine();
@@ -146,6 +147,10 @@ namespace DevTools
 					ReferenceTextUtility.DifferencesToIgnore = ReferenceTextUtility.Ignore.WhitespaceDifferences;
 					break;
 				case "4":
+					ReferenceTextUtility.DifferencesToIgnore = ReferenceTextUtility.Ignore.QuotationMarkDifferences |
+						ReferenceTextUtility.Ignore.WhitespaceDifferences;
+					break;
+				case "5":
 					ReferenceTextUtility.DifferencesToIgnore = ReferenceTextUtility.Ignore.AllDifferencesExceptAlphaNumericText;
 					break;
 			}

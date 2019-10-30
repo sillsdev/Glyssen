@@ -160,7 +160,7 @@
     <verse num="5" />
     <text>But according to your hardness and unrepentant heart you are treasuring up for yourself wrath in the day of wrath, revelation, and of the righteous judgment of God;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-ROM">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
     <verse num="6" />
     <text>who “will pay back to everyone according to their works:”</text>
   </block>
@@ -1047,7 +1047,7 @@
     <text>But indeed, O man, who are you to reply against God?</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-    <text>Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
+    <text>“Will the thing formed ask him who formed it, Why did you make me like this?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />

@@ -3796,7 +3796,7 @@
     <verse num="5" />
     <text>The apostles said to the Lord,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="apostles">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="disciples">
     <text>“Increase our faith.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-LUK">
@@ -4250,7 +4250,7 @@
     <verse num="8" />
     <text>Zacchaeus stood and said to the Lord,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="Zaccheaus">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="Zacchaeus">
     <text>“Behold, Lord, half of my goods I give to the poor. If I have wrongfully exacted anything of anyone, I restore four times as much.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-LUK">

@@ -163,6 +163,8 @@ namespace Glyssen.Shared
 		}
 
 		public IEnumerable<int> AllVerseNumbers => this.GetAllVerseNumbers();
+
+		public override string ToString() => Number;
 	}
 
 	[XmlInclude(typeof(Pause))]

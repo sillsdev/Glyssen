@@ -33,7 +33,7 @@
     <verse num="6" />
     <text>Therefore when they had come together, they asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="apostles">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="disciples">
     <text>“Lord, are you now restoring the kingdom to Israel?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-ACT">
@@ -756,18 +756,18 @@
     <verse num="29" />
     <text>But Peter and the apostles answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)/disciples" multiBlockQuote="Start">
     <text>“We must obey God rather than men.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation">
     <verse num="30" />
     <text>The God of our fathers raised up Jesus, whom you killed, hanging him on a tree.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation">
     <verse num="31" />
     <text>God exalted him with his right hand to be a Prince and a Savior, to give repentance to Israel, and remission of sins.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation">
     <verse num="32" />
     <text>We are His witnesses of these things; and so also is the Holy Spirit, whom God has given to those who obey him.”</text>
   </block>
@@ -823,14 +823,14 @@
     <verse num="2" />
     <text>The twelve summoned the multitude of the disciples and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="apostles" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="disciples" multiBlockQuote="Start">
     <text>“It is not appropriate for us to forsake the word of God and serve tables.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="apostles" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="disciples" multiBlockQuote="Continuation">
     <verse num="3" />
     <text>Therefore select from among you, brothers, seven men of good report, full of the Holy Spirit and of wisdom, whom we may appoint over this business.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="apostles" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="disciples" multiBlockQuote="Continuation">
     <verse num="4" />
     <text>But we will continue steadfastly in prayer and in the ministry of the word.”</text>
   </block>

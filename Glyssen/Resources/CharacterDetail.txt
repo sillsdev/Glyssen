@@ -163,7 +163,7 @@ Caesar Augustus	1	Male	Adult			LUK 2:1
 Caiaphas, the high priest	1	Male	Adult			MAT 26:62 <-(16 more)-> ACT 4:18	High Priest
 Cain	1	Male	Adult			GEN 4:8 <-(2 more)-> GEN 4:14
 Caleb	1	Male	Adult			NUM 13:30 <-(14 more)-> JDG 1:14
-Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28
+Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28	Woman (Foreigner)
 Canaanites	-1		Adult			GEN 50:11
 captain of ship to Italy (Rome)	1	Male	Adult			ACT 27:12 <-(1 more)-> ACT 27:39
 captain of ship to Tarshish	1	Male	Adult			JON 1:6 <-(4 more)-> JON 1:14	Captain
@@ -794,7 +794,7 @@ officers of king of Aram	-1	Male				2KI 6:12
 officers of king of Babylon	-1	Male				JER 39:14
 officers of magistrates	-1	Male				ACT 16:35 & ACT 16:38
 officers of temple guard	-1	Male				LUK 22:5
-official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52
+official, royal (father)	1	Male				JHN 4:47 <-(1 more)-> JHN 4:52	Father
 officials	-1	Male				JER 26:16 <-(5 more)-> JHN 19:6
 officials from chief priests and Pharisees	-1	Male				JHN 18:5 & JHN 18:7
 officials of Belshazzar	-1	Male				DAN 5:4
@@ -1034,8 +1034,8 @@ seraph, one of the	1	Male				ISA 6:7
 seraphs	-1	Male				ISA 6:3
 Sergius Paulus, proconsul	1	Male				ACT 13:7 & ACT 13:12
 serpent	1	Male			Gen 3 - text uses masculine pronouns	GEN 3:1 <-(1 more)-> GEN 3:5
-servant girl at high priest's courtyard	1	Female				MAT 26:69 <-(3 more)-> JHN 18:17
-servant girl, another	1	Female				MAT 26:71
+servant girl at high priest's courtyard	1	Female				MAT 26:69 <-(3 more)-> JHN 18:17	Woman (Servant)
+servant girl, another	1	Female				MAT 26:71	Woman (Servant)
 servant of concubine's husband	1	Male				JDG 19:11
 servant of Elijah	1	Male				1KI 18:43 & 1KI 18:44
 servant of Naaman's wife (young girl)	1	Female	Child			2KI 5:3 & 2KI 5:4	Slave Girl (female)
@@ -1046,7 +1046,7 @@ servants of Achish, king of Gath	-1	Male				1SA 21:11
 servants of David	-1	Male				1SA 25:40 <-(3 more)-> 1KI 1:2
 servants of Eglon, king of Moab	-1	Male				JDG 3:24
 servants of Isaac	-1	Male				GEN 26:32
-servants of royal official (father)	-1	Male				JHN 4:51 & JHN 4:52	Father
+servants of royal official (father)	-1	Male				JHN 4:51 & JHN 4:52	Servant
 seven sons of Sceva	7	Male				ACT 19:13
 seventy-two	72	Male				LUK 10:17
 Shadrach	1	Male			original Hebrew name: Hananiah	DAN 3:16 <-(1 more)-> DAN 3:18
@@ -1115,7 +1115,7 @@ sons of Korah's enemies	-1	Male				PSA 42:3
 sons of prophet in Bethel	-1	Male				1KI 13:30
 souls of those killed for word of God	-1					REV 6:10
 sound of rejoicing and victory	-1					PSA 118:15 & PSA 118:16
-spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(10 more)-> LUK 20:26
+spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(10 more)-> LUK 20:26	Religious Leader
 Stephen	1	Male				ACT 7:2 <-(53 more)-> ACT 7:60
 steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10
 stingy man	1	Male				PRO 23:7
