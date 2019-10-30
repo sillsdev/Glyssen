@@ -906,8 +906,8 @@ namespace Glyssen.RefTextDevUtilities
 			fcbhCharacterLabel = s_stripFemaleSuffix.Replace(fcbhCharacterLabel, "$1");
 
 			var bookNum = BCVRef.BookToNumber(bookId);
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, includeAlternatesAndRareQuotes: true).ToList();
-			var implicitChar = characters.SingleOrDefault(c => c.QuoteType == QuoteType.Implicit);
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, includeAlternatesAndRareQuotes: true).ToList();
+			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);

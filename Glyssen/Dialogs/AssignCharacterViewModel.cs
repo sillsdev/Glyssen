@@ -9,19 +9,19 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
 using SIL.Scripture;
+using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 
 namespace Glyssen.Dialogs
 {
 	public class AssignCharacterViewModel : BlockNavigatorViewModel
 	{
 		#region Data members and events
-		private readonly ProjectCharacterVerseData m_projectCharacterVerseData;
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
-		private readonly HashSet<CharacterVerse> m_pendingCharacterVerseAdditions = new HashSet<CharacterVerse>();
+		private readonly HashSet<ICharacterDeliveryInfo> m_pendingCharacterDeliveryAdditions = new HashSet<ICharacterDeliveryInfo>();
 		private ISet<ICharacterDeliveryInfo> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
@@ -43,7 +43,6 @@ namespace Glyssen.Dialogs
 		public AssignCharacterViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices)
 			: base(project, mode, startingIndices)
 		{
-			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 
 			CurrentBlockMatchupChanged += OnCurrentBlockMatchupChanged;
@@ -51,7 +50,7 @@ namespace Glyssen.Dialogs
 
 		private void OnCurrentBlockMatchupChanged(object sender, EventArgs args)
 		{
-			m_pendingCharacterVerseAdditions.Clear();
+			m_pendingCharacterDeliveryAdditions.Clear();
 		}
 
 		#endregion
@@ -144,12 +143,7 @@ namespace Glyssen.Dialogs
 		private void AddPendingProjectCharacterVerseData(Block block, string characterId, Delivery delivery = null)
 		{
 			Debug.Assert(!String.IsNullOrEmpty(characterId));
-			// TODO: Probably not strictly necessary, but we should really add one per verse if this block
-			// covers multiple verses. See block.AllVerses and AddRecordsToProjectCharacterVerseData. Note
-			// that this will also require some re-working of GetUniqueCharacterVerseObjectsForBlock because
-			// in some code paths, this method currently only gets called if that method can't find a match,
-			// but it doesn't require the character to be in the control file for every verse.
-			m_pendingCharacterVerseAdditions.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
+			m_pendingCharacterDeliveryAdditions.Add(new CharacterSpeakingMode(
 				characterId,
 				delivery == null ? Delivery.Normal.Text : delivery.Text,
 				null,
@@ -220,8 +214,7 @@ namespace Glyssen.Dialogs
 		private HashSet<CharacterSpeakingMode> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
 			return new HashSet<CharacterSpeakingMode>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
-				block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification,
-				includeAlternatesAndRareQuotes: true, includeNarratorOverrides:true));
+				block.ChapterNumber, (Block.VerseRangeFromBlock)block, Versification, true, true));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
@@ -235,7 +228,7 @@ namespace Glyssen.Dialogs
 			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
-			m_currentCharacters.UnionWith(m_pendingCharacterVerseAdditions);
+			m_currentCharacters.UnionWith(m_pendingCharacterDeliveryAdditions);
 		}
 
 		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
@@ -257,11 +250,8 @@ namespace Glyssen.Dialogs
 			{
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
-				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification, includeAlternatesAndRareQuotes: true))
-				{
-					m_currentCharacters.Add(character);
-				}
+				CollectionExtensions.AddRange(m_currentCharacters, m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
+					new[] { (Block.VerseRangeFromBlock)block }, Versification, true));
 
 				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
 					new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
@@ -274,11 +264,8 @@ namespace Glyssen.Dialogs
 				// This will get any potential or actual characters from surrounding material.
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
-					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification, includeAlternatesAndRareQuotes: true))
-					{
-						m_currentCharacters.Add(character);
-					}
+					m_currentCharacters.UnionWith(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
+						(Block.VerseRangeFromBlock)block, Versification, true));
 				}
 
 				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
@@ -431,12 +418,10 @@ namespace Glyssen.Dialogs
 					{ "character", selectedCharacter.CharacterId }
 				});
 
-			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
-				AddRecordsToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
-
 			SetCharacter(block, selectedCharacter);
-
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
+
+			AddRecordsToProjectControlFilesIfNeeded(block);
 		}
 
 		private void SetCharacter(Block block, Character selectedCharacter)
@@ -500,18 +485,10 @@ namespace Glyssen.Dialogs
 			for (int i = CurrentReferenceTextMatchup.IndexOfStartBlockInBook; i < iLastBlockInMatchup || (i < blocks.Count && blocks[i].IsContinuationOfPreviousBlockQuote); i++)
 			{
 				var block = blocks[i];
-				var verses = GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(block).ToArray();
-				if (verses.Any())
-				{
-					AddRecordsToProjectCharacterVerseData(block,
-						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
-						string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
-							GetDeliveriesForCurrentReferenceTextMatchup().FirstOrDefault(d => d.Text == block.Delivery) ??
-							new Delivery(block.Delivery, true), verses);
-				}
+				AddRecordsToProjectControlFilesIfNeeded(block);
 			}
 
-			m_pendingCharacterVerseAdditions.Clear();
+			m_pendingCharacterDeliveryAdditions.Clear();
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
@@ -531,18 +508,6 @@ namespace Glyssen.Dialogs
 			}
 			return !GetUniqueCharacterVerseObjectsForBlock(block).Any(cv => cv.Character == block.CharacterId &&
 				((cv.Delivery ?? "") == (block.Delivery ?? "")));
-		}
-
-		public IEnumerable<IVerse> GetVersesInBlockAssignedToUnknownCharacterDeliveryPair(Block block)
-		{
-			if (block.CharacterIsStandard)
-			{
-				Debug.Assert(block.Delivery == null);
-				return new Verse[0];
-			}
-			return block.AllVerses.Where(verse => !m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
-				block.ChapterNumber, verse.StartVerse, verse.EndVerse, versification: Versification)
-				.Any(cv => cv.Character == block.CharacterId && cv.Delivery == (block.Delivery ?? "")));
 		}
 
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
@@ -572,33 +537,16 @@ namespace Glyssen.Dialogs
 			// merely split off by the reference text.
 		}
 
-		private void AddRecordsToProjectCharacterVerseData(Block block, Character character, Delivery delivery, IEnumerable<IVerse> verses = null)
+		private void AddRecordsToProjectControlFilesIfNeeded(Block block)
 		{
-			if (m_pendingCharacterDetails.TryGetValue(character.CharacterId, out var detail))
+			if (m_pendingCharacterDetails.TryGetValue(block.CharacterId, out var detail))
 			{
 				m_project.AddProjectCharacterDetail(detail);
 				m_project.SaveProjectCharacterDetailData();
 				m_pendingCharacterDetails.Remove(detail.CharacterId);
 			}
 
-			if (verses == null)
-				verses = block.AllVerses;
-
-			foreach (var verseNum in verses.SelectMany(v => v.AllVerseNumbers))
-			{
-				var verseRef = new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, verseNum, Versification);
-				verseRef.ChangeVersification(ScrVers.English);
-				var cv = new CharacterVerse(
-					new BCVRef(verseRef.BBBCCCVVV), 
-					character.IsNarrator
-						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)
-						: character.CharacterId,
-					delivery.IsNormal ? null : delivery.Text,
-					character.Alias,
-					character.ProjectSpecific || delivery.ProjectSpecific);
-				m_projectCharacterVerseData.Add(cv);
-			}
-
+			m_project.ProjectCharacterVerseData.AddEntriesFor(CurrentBookNumber, block);
 			m_project.SaveProjectCharacterVerseData();
 		}
 
@@ -956,13 +904,13 @@ namespace Glyssen.Dialogs
 					// indirect speech (and should therefore be marked as Indirect|Quotation). We really don't want to
 					// include these, but in practice it probably won't matter much.
 					charactersForCurrentVerse.RemoveWhere(c => !c.IsExpected && c.QuoteType != QuoteType.Quotation);
-					if (charactersForCurrentVerse.Count != 2)
+					if (charactersForCurrentVerse.Distinct(m_characterEqualityComparer).Count() != 2)
 						return null;
-					var blocks = CurrentBook.GetBlocksForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber).Where(b => b.UserConfirmed).ToList();
-					if (blocks.Count != 1)
+					var userConfirmedBlock = CurrentBook.GetBlocksForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber).OnlyOrDefault(b => b.UserConfirmed);
+					if (userConfirmedBlock == null)
 						return null;
 
-					charactersForCurrentVerse.RemoveWhere(c => c.Character == blocks[0].CharacterId);
+					charactersForCurrentVerse.RemoveWhere(c => c.Character == userConfirmedBlock.CharacterId);
 
 					if (charactersForCurrentVerse.Count != 1)
 						return null;

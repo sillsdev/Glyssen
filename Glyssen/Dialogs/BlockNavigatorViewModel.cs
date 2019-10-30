@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -36,6 +37,7 @@ namespace Glyssen.Dialogs
 		protected List<BookBlockIndices> m_relevantBookBlockIndices;
 		protected BookBlockIndices m_temporarilyIncludedBookBlockIndices;
 		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
+		protected readonly IEqualityComparer<CharacterSpeakingMode> m_characterEqualityComparer = new CharacterEqualityComparer();
 		private int m_currentRelevantIndex = -1;
 		private BlocksToDisplay m_mode;
 		private BlockMatchup m_currentRefBlockMatchups;
@@ -563,7 +565,7 @@ namespace Glyssen.Dialogs
 		public VerseRef GetBlockVerseRef(Block block = null, ScrVers targetVersification = null)
 		{
 			block = block ?? BlockAccessor.CurrentBlock;
-			var verseRef =  block.StartRef(BCVRef.BookToNumber(CurrentBookId), Versification);
+			var verseRef =  block.StartRef(CurrentBookNumber, Versification);
 			if (targetVersification != null)
 				verseRef.ChangeVersification(targetVersification);
 			return verseRef;
@@ -1082,7 +1084,7 @@ namespace Glyssen.Dialogs
 				return BlockNotAssignedAutomatically(block);
 
 			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
-				return IsBlockInVerseWithExpectedQuote(block);
+				return IsBlockForVerseWithExpectedQuote(block);
 			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)
 			{
 				if (CurrentBookIsSingleVoice)
@@ -1093,7 +1095,7 @@ namespace Glyssen.Dialogs
 
 				var versesWithPotentialMissingQuote =
 					block.AllVerses.SelectMany(v => v.AllVerseNumbers).Where(verse => ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber,
-					block.ChapterNumber, verse, 0, versification: Versification).Any(c => c.IsExpected))
+					block.ChapterNumber, new SingleVerse(verse), Versification).Any(c => c.IsExpected))
 					.Select(v => new BCVRef(CurrentBookNumber, block.ChapterNumber, v)).ToList();
 				if (!versesWithPotentialMissingQuote.Any())
 					return false;
@@ -1106,8 +1108,8 @@ namespace Glyssen.Dialogs
 				if (!block.IsQuote || CurrentBookIsSingleVoice)
 					return false;
 
-				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.InitialEndVerseNumber, versification: Versification).Distinct(new CharacterEqualityComparer()).Count();
+				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber,
+					(Block.InitialVerseNumberBridgeFromBlock)block, Versification).Distinct(m_characterEqualityComparer).Count();
 
 				var actualquotes = 1; // this is the quote represented by the given block.
 
@@ -1136,13 +1138,12 @@ namespace Glyssen.Dialogs
 			return false;
 		}
 
-		private bool IsBlockInVerseWithExpectedQuote(Block block)
+		private bool IsBlockForVerseWithExpectedQuote(Block block)
 		{
 			if (!block.IsScripture)
 				return false;
 			return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber,
-				block.InitialStartVerseNumber,
-				block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
+				(Block.VerseRangeFromBlock)block, Versification).Any(c => c.IsExpected);
 		}
 
 		private bool BlockNotAssignedAutomatically(Block block)

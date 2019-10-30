@@ -8276,8 +8276,7 @@ ISA	51	12	God		God (the LORD Almighty)	Normal
 ISA	51	13	God		God (the LORD Almighty)	Normal		
 ISA	51	14	God		God (the LORD Almighty)	Normal		
 ISA	51	15	God		God (the LORD)	Normal		
-ISA	51	16	God		God (the LORD)	Implicit		
-ISA	51	16	God		God (the LORD)	Quotation		
+ISA	51	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	51	22	God		God (The Sovereign LORD)	Normal		
 ISA	51	23	God		God (The Sovereign LORD)	Normal		
 ISA	52	3	God		God (the LORD)	Normal		
@@ -8383,8 +8382,7 @@ ISA	61	9	God		God (The Sovereign LORD)	Normal
 ISA	62	1	God		God (the LORD)	Implicit		
 ISA	62	2	God		God (the LORD)	Implicit		
 ISA	62	3	God		God (the LORD)	Implicit		
-ISA	62	4	God		God (the LORD)	Implicit		
-ISA	62	4	God			Quotation		
+ISA	62	4	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	62	5	God		God (the LORD)	Implicit		
 ISA	62	8	God		God (the LORD)	Normal		
 ISA	62	9	God		God (the LORD)	Normal		
@@ -13856,7 +13854,7 @@ JHN	1	36	John the Baptist			Dialogue
 JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
-JHN	1	38	narrator-JHN			Interruption		
+JHN	1	38	interruption-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue		
 JHN	1	41	Andrew	excited		Dialogue		
 JHN	1	41	narrator-JHN			Quotation		

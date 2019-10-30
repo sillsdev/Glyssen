@@ -98,23 +98,24 @@ namespace Glyssen
 			m_projectMetadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
-			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
+
 			ProjectCharacterDetail = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
+
 			if (loadVersification)
 			{
 				if (HasVersificationFile)
-					m_vers = LoadVersification(VersificationFilePath);
+					SetVersification(LoadVersification(VersificationFilePath));
 				else if (IsLiveParatextProject)
 				{
 					try
 					{
-						m_vers = GetSourceParatextProject().Settings.Versification;
+						SetVersification(GetSourceParatextProject().Settings.Versification);
 					}
 					catch (ProjectNotFoundException e)
 					{
 						Logger.WriteError("Paratext project not found. Falling back to get usable versification file.", e);
 						if (RobustFile.Exists(FallbackVersificationFilePath))
-							m_vers = LoadVersification(FallbackVersificationFilePath);
+							SetVersification(LoadVersification(FallbackVersificationFilePath));
 						else
 						{
 							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
@@ -129,11 +130,12 @@ namespace Glyssen
 								ParatextProjectName,
 								Name,
 								"“English”"), GlyssenInfo.kProduct);
-							m_vers = ScrVers.English;
+							SetVersification(ScrVers.English);
 						}
 					}
 				}
 			}
+
 			if (installFonts)
 				InstallFontsIfNecessary();
 		}
@@ -158,7 +160,7 @@ namespace Glyssen
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
 			{
-				m_vers = LoadVersification(VersificationFilePath);
+				SetVersification(LoadVersification(VersificationFilePath));
 			}
 			catch (InvalidVersificationLineException ex)
 			{
@@ -192,7 +194,7 @@ namespace Glyssen
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? Resources.EnglishVersification);
-			m_vers = LoadVersification(VersificationFilePath);
+			SetVersification(LoadVersification(VersificationFilePath));
 
 			ParseAndSetBooks(books, stylesheet);
 		}
@@ -1240,7 +1242,7 @@ namespace Glyssen
 				return;
 			}
 			metadata.Inactive = hidden;
-			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), loadVersification:false).Save();
+			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
 			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
@@ -1369,6 +1371,13 @@ namespace Glyssen
 						m_metadata.AvailableBooks.RemoveAt(i--);
 				}
 			}
+		}
+
+		protected override void SetVersification(ScrVers versification)
+		{
+			base.SetVersification(versification);
+
+			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath, Versification);
 		}
 
 		private void InitializeLoadedProject()
@@ -1782,7 +1791,7 @@ namespace Glyssen
 			{
 				try
 				{
-					m_vers.Save(FallbackVersificationFilePath);
+					Versification.Save(FallbackVersificationFilePath);
 				}
 				catch (Exception e)
 				{
@@ -2593,8 +2602,10 @@ namespace Glyssen
 						blocksForMultiBlockQuote?.Add(block);
 
 						if (runningTests || charactersForVerse == null)
-							charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, versification: Versification).ToList();
+						{
+							charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber,
+								(Block.InitialVerseNumberBridgeFromBlock)block, Versification).ToList();
+						}
 
 						if (!charactersForVerse.Any())
 							continue;

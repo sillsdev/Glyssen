@@ -9,6 +9,10 @@ using static System.String;
 
 namespace Glyssen.Character
 {
+	// REVIEW: It would be really nice to be able to make this Flags, but some of the useful "flag" values
+	// (e.g., Expected) would not be valid values to set the property of a CharacterSpeakingMode to, so
+	// then we'd need some more sanity checking (at least in data integrity tests, but for maximum safety,
+	// in the production code).
 	public enum QuoteType
 	{
 		/// <summary>
@@ -27,6 +31,15 @@ namespace Glyssen.Character
 		/// that might make explicit use of first-level quotation marks more unwieldy.
 		/// </summary>
 		Implicit,
+
+		/// <summary>
+		/// Like <seealso cref="Implicit"/>, but when a verse also has the possibility of a self-quote.
+		/// Knowing this makes it possible for us to ignore quoted text within the larger discourse and
+		/// not incorrectly assume that explicit quotes are being used (along with a "he said" reporting
+		/// clause) in the verse. (As noted in the quote parser, there is a slight chance a stray
+		/// "he said" could mess us up here, but that's unlikely.)
+		/// </summary>
+		ImplicitWithPotentialSelfQuote,
 
 		/// <summary>
 		/// Conversation between two or more characters, generally consisting of relatively short
@@ -54,8 +67,8 @@ namespace Glyssen.Character
 		/// d) A self-quote by the narrator (especially where the narrator refers to himself in the
 		/// first person). * ENHANCE: We might want to consider breaking this case out into a
 		/// distinct type.
-		/// For now, Potential quotes will be treated just like Indirect quotes -- they will not be
-		/// considered as "expected" quotes.
+		/// For now, Potential quotes will be treated just like <seealso cref="Indirect"/> quotes --
+		/// they will not be considered as "expected" quotes.
 		/// </summary>
 		Potential,
 
@@ -156,9 +169,10 @@ namespace Glyssen.Character
 		public string Alias { get; }
 		public QuoteType QuoteType { get; protected set; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
-		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
+		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || QuoteType == QuoteType.ImplicitWithPotentialSelfQuote || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
 		public bool IsUnusual => QuoteType == QuoteType.Alternate || QuoteType == QuoteType.Rare;
+		public bool IsImplicit => QuoteType == QuoteType.Implicit || QuoteType == QuoteType.ImplicitWithPotentialSelfQuote;
 
 		/// <summary>
 		/// A single character ID which could/should be used in the script.

@@ -245,8 +245,7 @@ namespace Glyssen.Quote
 							if (m_possibleCharactersForCurrentQuote.Any())
 							{
 								m_possibleCharactersForCurrentQuote = m_possibleCharactersForCurrentQuote.Intersect(
-									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement.StartVerse,
-									verseElement.EndVerse, versification: m_versification, includeAlternatesAndRareQuotes: true)
+									m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, verseElement, m_versification, true)
 									.Select(cv => cv.Character)).ToList();
 
 								if (!m_possibleCharactersForCurrentQuote.Any())
@@ -390,15 +389,14 @@ namespace Glyssen.Quote
 							{
 								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(IsPunctuation))))
 								{
-									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
+									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse, m_versification);
 									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
-									// Also, if the verse has an implicit character and the only other entry is a Quotation by that same character,
-									// ignore it. (There is a slight chance a stray "he said" could mess us up here, but that's unlikely.)
-									if ((characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
-										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator)) ||
-										(characters.Count == 2 && characters.Count(c => c.QuoteType == QuoteType.Implicit) == 1 &&
-										characters.SingleOrDefault(c => c.QuoteType == QuoteType.Quotation)?.Character ==
-										characters.First(c => c.QuoteType == QuoteType.Implicit).Character))
+									// Also, if the verse has an implicit character with the possibility of a self-quote, ignore it.
+									// (There is a slight chance a stray "he said" could mess us up here, but that's unlikely.)
+									CharacterSpeakingMode onlyChar = characters.OnlyOrDefault();
+									if (onlyChar?.QuoteType == QuoteType.Quotation &&
+										CharacterVerseData.IsCharacterOfType(onlyChar.Character, CharacterVerseData.StandardCharacter.Narrator) ||
+										onlyChar?.QuoteType == QuoteType.ImplicitWithPotentialSelfQuote)
 									{
 										m_ignoringNarratorQuotation = true;
 									}
@@ -505,9 +503,8 @@ namespace Glyssen.Quote
 		/// spoken by the known character. If the control file indicates that the same character also speaks in
 		/// the preceding or following verse, we mark those split-off blocks as ambiguous.
 		/// Note: The control file needs to take a fairly conservative approach to marking a verse as
-		/// <see cref="Glyssen.Character.QuoteType.Implicit"/>. Verses that are not part of an ongoing discourse
-		/// and may reasonably be re-worded to turn direct speech into indirect speech should not be marked as
-		/// implicit.
+		/// Implicit. Verses that are not part of an ongoing discourse and may reasonably be re-worded to turn
+		/// direct speech into indirect speech should not be marked as implicit.
 		/// </remarks>
 		private void SetImplicitCharacters()
 		{
@@ -597,14 +594,13 @@ namespace Glyssen.Quote
 							!prevBlockWasOriginallyNarratorCharacter && i > 0 &&
 							m_outputBlocks[i - 1].LastVerse.StartVerse == block.InitialStartVerseNumber &&
 							m_outputBlocks[i - 1].CharacterId == initialImplicitCv.Character &&
-							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, versification:m_versification).Any(cv => cv.QuoteType == QuoteType.Quotation);
+							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, (Block.InitialVerseNumberBridgeFromBlock)block, m_versification)
+								.Any(cv => cv.QuoteType == QuoteType.Quotation);
 						var nextBlockForThisSameVerseIsSetToCorrectCharacterDueToExplicitlyMarkedQuotes =
 							i + 1 < m_outputBlocks.Count &&
 							m_outputBlocks[i + 1].InitialStartVerseNumber == block.LastVerse.StartVerse &&
 							m_outputBlocks[i + 1].CharacterId == initialImplicitCv.Character &&
-							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, m_outputBlocks[i + 1].InitialStartVerseNumber,
-									m_outputBlocks[i + 1].InitialEndVerseNumber, versification: m_versification)
+							!m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, (Block.InitialVerseNumberBridgeFromBlock)m_outputBlocks[i + 1], m_versification)
 								.Any(cv => cv.QuoteType == QuoteType.Quotation);
 
 						bool needsReview;
@@ -651,8 +647,8 @@ namespace Glyssen.Quote
 			ICharacterDeliveryInfo leadInCharacter = null;
 			// There will almost always be only one entry with a matching character name. But if there are two, we
 			// want the one whose delivery matches, if any.
-			foreach (var character in m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, newBlock.LastVerseNum,
-				versification: m_versification).Where(cv => cv.Character == subsequentImplicitCv.Character))
+			foreach (var character in m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, new SingleVerse(newBlock.LastVerseNum),
+				m_versification).Where(cv => cv.Character == subsequentImplicitCv.Character))
 			{
 				if (leadInCharacter == null)
 					leadInCharacter = character;
@@ -774,8 +770,8 @@ namespace Glyssen.Quote
 		private void IncrementQuoteLevel()
 		{
 			if (m_quoteLevel++ == 0)
-				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
-					m_workingBlock.InitialEndVerseNumber, versification: m_versification, includeAlternatesAndRareQuotes: true).Select(cv => cv.Character).ToList();
+				m_possibleCharactersForCurrentQuote = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber,
+					(Block.InitialVerseNumberBridgeFromBlock)m_workingBlock, m_versification, true).Select(cv => cv.Character).ToList();
 		}
 
 		private void DecrementQuoteLevel()
@@ -902,14 +898,13 @@ namespace Glyssen.Quote
 					if (m_nextBlockContinuesQuote && m_workingBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
-					var characterSpeakingDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
-						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification,
+					var characterSpeakingDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.AllVerses, m_versification,
 						// The quote parser generally ignores alternate characters, but if it is trying to resolve
 						// a multi-block quote, we want to include them in case an alternate is the one being
 						// continued from a previous block. (This can happen if the translators used explicit
 						// quotes that disagree with FCBH's idea of who is speaking, especially in poetic or
 						// prophetic material.)
-						m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation).ToList();
+						m_workingBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
 					if (characterSpeakingDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
 					{
 						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterSpeakingDetails);
@@ -958,8 +953,7 @@ namespace Glyssen.Quote
 				// PG-1121: Since indentation (without quotes) is often used to indicate a Scripture quotation, prevent combining following
 				// poetry paragraphs with the preceding "normal" paragraph if a Scripture quote is expected in this verse.
 				(prevBlock.IsFollowOnParagraphStyle ||
-				!m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
-				m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).Any(cv => cv.IsScriptureQuotation)))
+				!m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.AllVerses, m_versification).Any(cv => cv.IsScriptureQuotation)))
 			{
 				prevBlock.CombineWith(m_workingBlock);
 			}
@@ -1006,7 +1000,7 @@ namespace Glyssen.Quote
 		/// <param name="bookId"></param>
 		/// <param name="characterSpeakingDetails"></param>
 		/// <returns>Any portion of the block following the (last) interruption we detect</returns>
-		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterSpeakingMode> characterSpeakingDetails)
+		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, IReadOnlyCollection<CharacterSpeakingMode> characterSpeakingDetails)
 		{
 			var nextInterruption = m_workingBlock.GetNextInterruption();
 			if (nextInterruption == null)

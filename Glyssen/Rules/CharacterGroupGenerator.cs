@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
@@ -203,17 +204,13 @@ namespace Glyssen.Rules
 			foreach (var actor in nonCameoActors)
 			{
 				// After we find the second match, we can quit looking because we're only interested in unique matches.
-				var matches = includedCharacterDetails.Where(c => c.StandardCharacterType == CharacterVerseData.StandardCharacter.NonStandard && actor.Matches(c)).Take(2).ToList();
-				if (matches.Any())
+				var uniqueMatch = includedCharacterDetails.Where(c => c.StandardCharacterType == CharacterVerseData.StandardCharacter.NonStandard && actor.Matches(c)).OnlyOrDefault();
+				if (uniqueMatch != null)
 				{
-					if (matches.Count == 1)
-					{
-						var characterDetail = matches.First();
-						if (characterDetailsUniquelyMatchedToActors.ContainsKey(characterDetail))
-							characterDetailsUniquelyMatchedToActors[characterDetail].Add(actor);
-						else
-							characterDetailsUniquelyMatchedToActors[characterDetail] = new List<VoiceActor.VoiceActor> { actor };
-					}
+					if (characterDetailsUniquelyMatchedToActors.ContainsKey(uniqueMatch))
+						characterDetailsUniquelyMatchedToActors[uniqueMatch].Add(actor);
+					else
+						characterDetailsUniquelyMatchedToActors[uniqueMatch] = new List<VoiceActor.VoiceActor> { actor };
 				}
 			}
 
@@ -228,12 +225,12 @@ namespace Glyssen.Rules
 			{
 				var matchingActors = characterDetailToActors.Value;
 
-				var matchingGroups = characterGroups.Where(g => matchingActors.Any(a => a.Id == g.VoiceActorId)).ToList();
+				var uniqueMatchingGroup = characterGroups.Where(g => matchingActors.Any(a => a.Id == g.VoiceActorId)).OnlyOrDefault();
 
-				if (matchingGroups.Count == 1)
+				if (uniqueMatchingGroup != null)
 				{
-					matchingGroups.First().CharacterIds.Add(characterDetailToActors.Key.CharacterId);
-					actorsWithRealAssignments.Add(matchingGroups[0].VoiceActorId);
+					uniqueMatchingGroup.CharacterIds.Add(characterDetailToActors.Key.CharacterId);
+					actorsWithRealAssignments.Add(uniqueMatchingGroup.VoiceActorId);
 				}
 			}
 
@@ -245,13 +242,12 @@ namespace Glyssen.Rules
 
 			foreach (var character in includedCharacterDetails)
 			{
-				var matchingActors = characterGroups.Where(g => !g.Closed).Select(g => g.VoiceActor).Where(a => a.Matches(character)).ToList();
-				if (matchingActors.Count == 1)
+				var uniqueMatchingActor = characterGroups.Where(g => !g.Closed).Select(g => g.VoiceActor).Where(a => a.Matches(character)).OnlyOrDefault();
+				if (uniqueMatchingActor != null)
 				{
-					var matchingActor = matchingActors.First();
-					CharacterGroup groupForActor = characterGroups.Single(g => g.VoiceActorId == matchingActor.Id);
+					CharacterGroup groupForActor = characterGroups.Single(g => g.VoiceActorId == uniqueMatchingActor.Id);
 					groupForActor.CharacterIds.Add(character.CharacterId);
-					actorsWithRealAssignments.Add(matchingActor.Id);
+					actorsWithRealAssignments.Add(uniqueMatchingActor.Id);
 				}
 			}
 

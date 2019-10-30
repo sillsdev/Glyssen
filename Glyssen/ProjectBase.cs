@@ -26,7 +26,6 @@ namespace Glyssen
 
 		protected readonly GlyssenDblTextMetadataBase m_metadata;
 		protected readonly List<BookScript> m_books = new List<BookScript>();
-		protected ScrVers m_vers;
 		protected string m_recordingProjectName;
 
 		protected ProjectBase(GlyssenDblTextMetadataBase metadata, string recordingProjectName)
@@ -37,7 +36,12 @@ namespace Glyssen
 
 		public IReadOnlyList<BookScript> Books => m_books;
 
-		public ScrVers Versification => m_vers;
+		public virtual ScrVers Versification { get; private set;  }
+
+		protected virtual void SetVersification(ScrVers versification)
+		{
+			Versification = versification;
+		}
 
 		public string LanguageName => m_metadata.Language.Name;
 

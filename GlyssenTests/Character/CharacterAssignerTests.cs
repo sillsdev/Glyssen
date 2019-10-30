@@ -71,8 +71,8 @@ namespace GlyssenTests.Character
 		{
 			var bookScript = GetSimpleBookScript();
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("King Saul", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("Jesus", null, null, false) });
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "King Saul");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "Jesus");
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, false);
 			Assert.AreEqual("King Saul", bookScript[1].CharacterId);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
@@ -84,9 +84,9 @@ namespace GlyssenTests.Character
 		{
 			var bookScript = GetSimpleBookScript();
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("John the Baptist", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("King Saul", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "John the Baptist");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "King Saul");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, true);
 			Assert.AreEqual("John the Baptist", bookScript[1].CharacterId);
 			Assert.AreEqual("King Saul", bookScript[2].CharacterId);
@@ -97,9 +97,9 @@ namespace GlyssenTests.Character
 		{
 			var bookScript = GetSimpleBookScript();
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("James/John", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") });
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "James/John");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, true, true);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[1].CharacterId);
 			Assert.AreEqual("Andrew", bookScript[1].CharacterIdInScript);
@@ -115,8 +115,9 @@ namespace GlyssenTests.Character
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterIdInScript);
 
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("Made Up Guy", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(41, 1, 5, 0, versification: ScrVers.English, includeAlternatesAndRareQuotes: true)).Return(new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false) });
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "Made Up Guy");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English,
+				new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false) }, true);
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, true, false);
 			Assert.AreEqual("Made Up Guy", bookScript[1].CharacterId);
 			Assert.AreEqual("Made Up Guy", bookScript[1].CharacterIdInScript);
@@ -132,8 +133,9 @@ namespace GlyssenTests.Character
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterIdInScript);
 
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("Made Up Guy", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(41, 1, 5, 0, versification: ScrVers.English, includeAlternatesAndRareQuotes: true)).Return(new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") });
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "Made Up Guy");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English,
+				new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") }, true);
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, true, false);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
 			Assert.AreEqual("Andrew", bookScript[2].CharacterIdInScript);
@@ -144,9 +146,9 @@ namespace GlyssenTests.Character
 		{
 			var bookScript = GetSimpleBookScript();
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("John the Baptist", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("King Saul", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "John the Baptist");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "King Saul");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, true);
 			Assert.AreEqual("narrator-MRK", bookScript[0].CharacterId);
 		}
@@ -156,13 +158,13 @@ namespace GlyssenTests.Character
 		{
 			var bookScript = GetSimpleBookScript();
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new List<CharacterVerse>());
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 5, 0, 5, ScrVers.English)).Return(new[]
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, new CharacterSpeakingMode[0]);
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, new[]
 			{
 				new CharacterSpeakingMode("John the Baptist", null, null, false),
 				new CharacterSpeakingMode("King Saul", null, null, false)
 			});
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
 
 			Assert.True(bookScript[2].UserConfirmed);
 			Assert.True(bookScript[3].UserConfirmed);
@@ -179,8 +181,8 @@ namespace GlyssenTests.Character
 		{
 			var bookScript = GetMultiBlockBookScript();
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("irrelevant", null, null, false) });
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterSpeakingMode("irrelevant", null, null, false) });
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "irrelevant");
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "irrelevant");
 
 			Assert.True(bookScript[0].UserConfirmed);
 			Assert.True(bookScript[1].UserConfirmed);
@@ -219,7 +221,7 @@ namespace GlyssenTests.Character
 				</book>");
 			bookScript.Initialize(versification);
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMRKbookNum, 13, 14, 0, 14, versification)).Return(new[]
+			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 13, 14, versification, new[]
 			{
 				new CharacterSpeakingMode("Jesus", null, null, false, QuoteType.Normal),
 				new CharacterSpeakingMode("narrator-MRK", null, null, false, QuoteType.Interruption)
@@ -240,12 +242,12 @@ namespace GlyssenTests.Character
 		{
 			var versification = new ScrVers(vers);
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters(kMATbookNum, 17, 26, 0, 26, versification)).Return(new[]
+			StubGetCharactersForSingleVerse(cvInfo, kMATbookNum, 17, 26, versification, new[]
 			{
 				new CharacterSpeakingMode("Peter (Simon)", null, null, false),
 				new CharacterSpeakingMode("Jesus", null, null, false),
 			});
-			cvInfo.Stub(x => x.GetCharacters(kMATbookNum, 17, 27, 0, 27, versification)).Return(new[]
+			StubGetCharactersForSingleVerse(cvInfo, kMATbookNum, 17, 27, versification, new[]
 			{
 				new CharacterSpeakingMode("Jesus", null, null, false)
 			});
@@ -323,6 +325,21 @@ namespace GlyssenTests.Character
 					Assert.AreEqual(expectedBlocks[j].GetText(true), actualBlocks[j].GetText(true));
 				}
 			}
+		}
+
+		private void StubGetCharactersForSingleVerse(ICharacterVerseInfo cvInfo, int bookNum, int chapter, int verse, ScrVers versification,
+			string singleCharacterToReturn)
+		{
+			StubGetCharactersForSingleVerse(cvInfo, bookNum, chapter, verse, versification,
+				new[] { new CharacterSpeakingMode(singleCharacterToReturn, null, null, false) });
+		}
+
+		private void StubGetCharactersForSingleVerse(ICharacterVerseInfo cvInfo, int bookNum, int chapter, int verse, ScrVers versification,
+			CharacterSpeakingMode[] result, bool includeAlternatesAndRareQuotes = false)
+		{
+			cvInfo.Stub(x => x.GetCharacters(Arg.Is(bookNum), Arg.Is(chapter),
+				Arg<IReadOnlyCollection<IVerse>>.Matches(a => a.Single().StartVerse == verse && a.Single().EndVerse == verse), Arg.Is(versification),
+				Arg.Is(includeAlternatesAndRareQuotes), Arg.Is(false))).Return(new HashSet<CharacterSpeakingMode>(result));
 		}
 	}
 }

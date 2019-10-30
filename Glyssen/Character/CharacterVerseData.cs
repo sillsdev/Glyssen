@@ -185,7 +185,7 @@ namespace Glyssen.Character
 
 		private static readonly Regex s_narratorRegex = new Regex($"{kNarratorPrefix}(?<bookId>...)");
 
-		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
+		protected readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private readonly IEqualityComparer<ICharacterDeliveryInfo> m_characterDeliveryAliasEqualityComparer = new CharacterDeliveryAliasEqualityComparer();
 		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookupByRef;
@@ -193,134 +193,20 @@ namespace Glyssen.Character
 		private IReadOnlySet<ICharacterDeliveryInfo> m_uniqueCharacterDeliverAliasEntries;
 		private ISet<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false,
-			bool includeNarratorOverrides = false)
+		public abstract HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IVerse verseOrBridge,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
+
+		public abstract HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IReadOnlyCollection<IVerse> verses,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
+
+		protected List<CharacterSpeakingMode> GetSpeakingModesForRef(VerseRef verseRef)
 		{
-			if (versification == null)
-				versification = ScrVers.English;
-
-			List<CharacterSpeakingMode> result;
-
-			var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
-			verseRef.ChangeVersification(ScrVers.English);
-
-			if (initialEndVerse == 0)
-				initialEndVerse = initialStartVerse;
-
-			List<string> overrideCharacters = null;
-			if (includeNarratorOverrides)
-			{
-				overrideCharacters = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef,
-					(finalVerse == 0 ? initialEndVerse : finalVerse))?.Select(o => o.Character).ToList();
-				if (overrideCharacters != null && !overrideCharacters.Any())
-					overrideCharacters = null;
-			}
-
-			if (initialStartVerse == initialEndVerse)
-			{
-				result = GetSpeakingModesForRef(verseRef);
-			}
-			else
-			{
-				var initialEndRef = new VerseRef(bookId, chapter, initialEndVerse, versification);
-				initialEndRef.ChangeVersification(ScrVers.English);
-				result = new List<CharacterSpeakingMode>();
-				do
-				{
-					foreach (var cv in m_lookupByRef[verseRef.BBBCCCVVV])
-					{
-						var match = result.FirstOrDefault(e => m_characterDeliveryEqualityComparer.Equals(e, cv));
-						if (match == null)
-						{
-							result.Add(cv);
-						}
-						else if (!cv.IsUnusual && match.IsUnusual && !includeAlternatesAndRareQuotes)
-						{
-							// We prefer a regular quote type because in the end we will eliminate Alternate and Rare quotes.
-							// Since we have found a subsequent verse with the unusual character as a "regular" quote type,
-							// we want to replace the unusual entry with the preferred one.
-							result.Remove(match);
-							result.Add(cv);
-						}
-					}
-					verseRef.NextVerse();
-					// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
-				} while (verseRef <= initialEndRef);
-			}
-
-			// If there are more verses (e.g., in the block) to consider, even if we're down to a single character/delivery, we can't quit early
-			// because there is the possibility of:
-			// * an interruption, which needs to be added to the results
-			// * conflicting deliveries, which means we need to ensure that we return a result with an unspecified delivery
-			if (finalVerse > 0)
-			{
-				verseRef.ChangeVersification(ScrVers.English);
-				var interruption = result.SingleOrDefault(c => c.QuoteType == QuoteType.Interruption);
-
-				var finalVerseRef = new VerseRef(verseRef.BookNum, chapter, finalVerse, versification);
-				finalVerseRef.ChangeVersification(ScrVers.English);
-				// ReSharper disable once LoopVariableIsNeverChangedInsideLoop - NextVerse changes verseRef
-				while (verseRef <= finalVerseRef)
-				{
-					var nextResult = GetSpeakingModesForRef(verseRef);
-					if (nextResult.Any())
-					{
-						if (interruption == null)
-							interruption = nextResult.SingleOrDefault(c => c.QuoteType == QuoteType.Interruption);
-
-						if (result.Any())
-						{
-							var exactMatches = new List<CharacterSpeakingMode>(result.Count);
-							var characterMatches = new List<CharacterSpeakingMode>(result.Count);
-							foreach (var entry in result)
-							{
-								var match = nextResult.FirstOrDefault(n => m_characterDeliveryEqualityComparer.Equals(n, entry));
-								if (match != null)
-								{
-									// We prefer a regular quote type because in the end we might eliminate Alternate and Rare quotes,
-									// but if any of the included verses have the unusual character as a "regular" quote type, we want
-									// to keep the character in the list.
-									exactMatches.Add(!entry.IsUnusual ?entry : match);
-								}
-								if (exactMatches.Any())
-									continue;
-								match = nextResult.FirstOrDefault(r => r.Character == entry.Character);
-								if (match != null)
-								{
-									if (entry.Delivery == null)
-										characterMatches.Add(entry);
-									else if (match.Delivery == null)
-										characterMatches.Add(match);
-									else
-										characterMatches.Add(new CharacterSpeakingMode(entry.Character, "", entry.Alias, false, QuoteType.Potential));
-								}
-							}
-
-							result = exactMatches.Any() ? exactMatches : characterMatches;
-						}
-					}
-
-					verseRef.NextVerse();
-				}
-				if (interruption != null && !result.Contains(interruption))
-					result.Add(interruption);
-			}
-
-			if (!includeAlternatesAndRareQuotes)
-				result = result.Where(cv => cv.QuoteType != QuoteType.Alternate && cv.QuoteType != QuoteType.Rare).ToList();
-
-			if (overrideCharacters != null)
-			{
-				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))
-					result.Add(new CharacterSpeakingMode(character, Empty, null, false, QuoteType.Potential));
-			}
-			return result;
+			return GetEntriesForRef(verseRef.BBBCCCVVV).Cast<CharacterSpeakingMode>().ToList();
 		}
 
-		private List<CharacterSpeakingMode> GetSpeakingModesForRef(VerseRef verseRef)
+		protected IEnumerable<CharacterVerse> GetEntriesForRef(int BbbCcVvv)
 		{
-			return m_lookupByRef[verseRef.BBBCCCVVV].Cast<CharacterSpeakingMode>().ToList();
+			return m_lookupByRef[BbbCcVvv];
 		}
 
 		/// <summary>
@@ -336,7 +222,7 @@ namespace Glyssen.Character
 
 			var verseRef = new VerseRef(bookId, chapter, startVerse, versification);
 			verseRef.ChangeVersification(ScrVers.English);
-			var implicitCv = m_lookupByRef[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+			var implicitCv = m_lookupByRef[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.IsImplicit);
 
 			if (endVerse == 0 || startVerse == endVerse || implicitCv == null)
 				return implicitCv;
@@ -345,7 +231,7 @@ namespace Glyssen.Character
 			initialEndRef.ChangeVersification(ScrVers.English);
 			do
 			{
-				var cvNextVerse = m_lookupByRef[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.QuoteType == QuoteType.Implicit);
+				var cvNextVerse = m_lookupByRef[verseRef.BBBCCCVVV].SingleOrDefault(cv => cv.IsImplicit);
 				// Unless all verses in the range have the same implicit character, we cannot say that there is an
 				// implicit character for this range. Note that there is the slight possibility that the delivery may vary
 				// from one verse to the next, but it doesn't seem worth it to fail to find the implicit character just
@@ -368,10 +254,15 @@ namespace Glyssen.Character
 			return m_lookupByBookNum[bookNum];
 		}
 
-		protected virtual void AddCharacterVerse(CharacterVerse cv)
+		protected virtual bool AddCharacterVerse(CharacterVerse cv)
 		{
-			m_data.Add(cv);
-			ResetCaches();
+			if (m_data.Add(cv))
+			{
+				ResetCaches();
+				return true;
+			}
+
+			return false;
 		}
 
 		public bool Any()
@@ -400,20 +291,16 @@ namespace Glyssen.Character
 			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !IsNullOrEmpty(d))));
 		}
 
-		protected virtual void RemoveAll(int bookNum, int chapterNumber, int initialStartVerseNumber, int initialEndVerseNumber, string characterId, string delivery)
+		protected bool Remove(int bookNum, int chapterNumber, int initialStartVerseNumber, string characterId, string delivery)
 		{
-			if (initialEndVerseNumber == 0)
-				initialEndVerseNumber = initialStartVerseNumber;
-			for (int v = initialStartVerseNumber; v <= initialEndVerseNumber; v++)
-			{
-				foreach (var cv in m_lookupByRef[new BCVRef(bookNum, chapterNumber, v).BBCCCVVV]
-					.Where(cv => cv.Character == characterId && cv.Delivery == delivery))
-				{
-					m_data.Remove(cv);
-				}
-			}
-
+			bool removed = false;
+			var cvToDelete = m_lookupByRef[new BCVRef(bookNum, chapterNumber, initialStartVerseNumber).BBCCCVVV]
+				.SingleOrDefault(cv => cv.Character == characterId && cv.Delivery == delivery);
+			if (cvToDelete != null)
+				removed = m_data.Remove(cvToDelete);
+			
 			ResetCaches();
+			return removed;
 		}
 
 		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)

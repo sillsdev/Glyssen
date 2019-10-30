@@ -5,6 +5,8 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
 using Glyssen.Shared;
+using Glyssen.Utilities;
+using GlyssenTests.Utilities;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.ObjectModel;
@@ -5407,10 +5409,10 @@ namespace GlyssenTests.Quote
 		public void Parse_AlternateCharactersInControlFile_QuoteAssignedToNormalCharacter()
 		{
 			var bookNumActs = BCVRef.BookToNumber("ACT");
-			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, 15)
+			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, new SingleVerse(15))
 				.Any(cv => cv.Character == "God" || cv.Character == "Jesus"),
 				"Test setup condition not met: Neither God nor Jesus should be returned as a character when includeAlternatesAndRareQuotes is false.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, 15, includeAlternatesAndRareQuotes: true)
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumActs, 10, new SingleVerse(15), includeAlternatesAndRareQuotes: true)
 				.Select(cv => cv.Character)
 				.SetEquals(new HashSet<string>{"Holy Spirit, the", "God", "Jesus"}),
 				"Test setup condition not met: God and Jesus should be returned as characters when includeAlternatesAndRareQuotes is true.");
@@ -5429,17 +5431,18 @@ namespace GlyssenTests.Quote
 		public void Parse_AlternateCharactersInControlFile_VerseTextAssignedToImplicitCharacter()
 		{
 			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
-			var onlyNonAlternateCv = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, 6).Single();
+			var onlyNonAlternateCv = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, new SingleVerse(6)).Single();
 			Assert.AreEqual("Isaiah", onlyNonAlternateCv.Character,
 				"Test setup condition not met: Isaiah should be the only character returned for ISA 37:6 when includeAlternatesAndRareQuotes is false.");
 			Assert.AreEqual(QuoteType.Normal, onlyNonAlternateCv.QuoteType,
 				"Test setup condition not met: Isaiah should be Normal for ISA 37:6.");
-			onlyNonAlternateCv = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, 7).Single();
+			onlyNonAlternateCv = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, new SingleVerse(7)).Single();
 			Assert.AreEqual("Isaiah", onlyNonAlternateCv.Character,
 				"Test setup condition not met: Isaiah should be the only character returned for ISA 37:7 when includeAlternatesAndRareQuotes is false.");
 			Assert.AreEqual(QuoteType.Implicit, onlyNonAlternateCv.QuoteType,
 				"Test setup condition not met: Isaiah should be Implicit for ISA 37:7.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, 6, finalVerse: 7, includeAlternatesAndRareQuotes: true)
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 37, new []{ new SingleVerse(6), new SingleVerse(7)},
+				includeAlternatesAndRareQuotes: true)
 					.Select(cv => cv.Character)
 					.SetEquals(new HashSet<string> { "Isaiah", "God" }),
 				"Test setup condition not met: Isaiah and God should be returned as characters when includeAlternatesAndRareQuotes is true.");
@@ -5468,15 +5471,12 @@ namespace GlyssenTests.Quote
 			string closeQuoteMarkForPassageIfAny, string openQuoteMarkForExpressionIfAny, string closeQuoteMarkForExpressionIfAny)
 		{
 			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
-			var entriesInCvForIsa62V4 = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 62, 4,
-				includeAlternatesAndRareQuotes: true).ToList();
-			Assert.AreEqual(2, entriesInCvForIsa62V4.Count,
-				"Test setup condition not met: ISA 62:4 should have two entries.");
-			Assert.AreEqual("God", entriesInCvForIsa62V4.Single(c => c.QuoteType == QuoteType.Implicit).Character,
-				"Test setup condition not met: God should be the implicit character for ISA 62:4.");
-			Assert.IsNotNull(entriesInCvForIsa62V4.Single(c => c.QuoteType == QuoteType.Quotation),
-				"Test setup condition not met: ISA 62:4 should have a Quotation (i.e., quoted expression or word) entry.");
-			Assert.AreEqual(QuoteType.Implicit, ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 62, 3, finalVerse: 5).Single().QuoteType,
+			var entriesInCvForIsa62V4 = ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 62, new SingleVerse(4),
+				includeAlternatesAndRareQuotes: true);
+			Assert.AreEqual(QuoteType.ImplicitWithPotentialSelfQuote, entriesInCvForIsa62V4.Single().QuoteType,
+				"Test setup condition not met: ISA 62:4 should have one entry, of type ImplicitWithPotentialSelfQuote.");
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 62,
+					new []{new SingleVerse(3), new SingleVerse(5)}).Single().IsImplicit,
 				"Test setup condition not met: God should be the implicit speaker in ISA 62:3-5.");
 
 			var input = new List<Block>
@@ -5505,13 +5505,13 @@ namespace GlyssenTests.Quote
 		public void Parse_LongQuoteStartsAsNormalButContinuesAsAlternateInControlFile_QuoteAssignedToInitialNormalCharacter()
 		{
 			var bookNumIsaiah = BCVRef.BookToNumber("ISA");
-			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, 2, 3).Select(cv => cv.Character).Distinct().Single(),
+			Assert.AreEqual("God", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, new VerseBridge(2, 3)).Select(cv => cv.Character).Distinct().Single(),
 				"Test setup condition not met: God (not Isaiah) should be the primary/expected character in ISA 1:2-3; " +
 				"Isaiah should not be included when includeAlternatesAndRareQuotes is false.");
-			Assert.AreEqual("Isaiah", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, 4, 5).Select(cv => cv.Character).Distinct().Single(),
+			Assert.AreEqual("Isaiah", ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, new VerseBridge(4, 5)).Select(cv => cv.Character).Distinct().Single(),
 				"Test setup condition not met: Isaiah (not God) should be the primary/expected character in ISA 1:4-5; " +
 				"God should not be included when includeAlternatesAndRareQuotes is false.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, 2, 5, includeAlternatesAndRareQuotes: true)
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(bookNumIsaiah, 1, new VerseBridge(2, 5), includeAlternatesAndRareQuotes: true)
 					.Select(cv => cv.Character).Distinct()
 					.SetEquals(new HashSet<string> { "Isaiah", "God" }),
 				"Test setup condition not met: God and Isaiah should both be returned as characters for ISA 1:2-5 when includeAlternatesAndRareQuotes is true.");
@@ -6283,18 +6283,15 @@ namespace GlyssenTests.Quote
 
 		// As part of the work for PG-1272, I concluded that if we have a block that covers multiple verses that have the same character
 		// but incompatible deliveries, we should just leave the delivery undefined.
-		[TestCase(25, 0, "25", "26-27")]
-		[TestCase(25, 26, "25-26", "27")]
-		[TestCase(25, 26, "25-26", "27-28")]
-		[TestCase(21, 23, "21-23", "24-25")]
-		[TestCase(21, 23, "21-23", "24-26")]
-		[TestCase(21, 24, "21-24", "25")]
-		[TestCase(21, 24, "21-24", "25-26")]
-		public void Parse_BlockWhereJesusSpeaksWithConflictingDeliveries_AssignedToJesusWithNoSpecificDelivery(int initStartV, int initEndV,
-			string firstRef, string secondRef)
+		[TestCase("25-26", "27")]
+		[TestCase("25-26", "27-28")]
+		[TestCase("21-24", "25")]
+		[TestCase("21-24", "25-26")]
+		public void Parse_BlockWhereJesusSpeaksWithConflictingDeliveries_AssignedToJesusWithNoSpecificDelivery(string firstRef, string secondRef)
 		{
-			var block1 = new Block("p", 11, initStartV, initEndV) { IsParagraphStart = true };
-			block1.BlockElements.Add(new Verse(firstRef));
+			var firstVerseOrBridge = new Verse(firstRef);
+			var block1 = new Block("p", 11, firstVerseOrBridge.StartVerse, firstVerseOrBridge.LastVerseOfBridge) { IsParagraphStart = true };
+			block1.BlockElements.Add(firstVerseOrBridge);
 			block1.BlockElements.Add(new ScriptText("Then Jesus said: “First thing. "));
 			block1.BlockElements.Add(new Verse(secondRef));
 			block1.BlockElements.Add(new ScriptText("Second thing.”"));
@@ -6313,5 +6310,39 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[i].CharacterId);
 			Assert.IsNull(output[i].Delivery);
 		}
+
+		// PG-1272: The expected results for these tests are a bit dubious. In the unlikely case where there is a verse bridge that crosses
+		// the line from one delivery to another, as long as there is a delivery that all verses/bridges in the block share in common, that
+		// one will be used. It's quite likely that what we'd really want is an undefined delivery, but these test cases are really contrived
+		// and I can't think of a real scenario where this is likely to occur. Until a real user complains, it's not likely to be worth any
+		// further programming to make it work "as expected" (whatever that turns out to be).
+		[TestCase("25", "26-27", ExpectedResult = "praying")]
+		[TestCase("21-23", "24-25", ExpectedResult = "rebuking")]
+		[TestCase("21-23", "24-26", ExpectedResult = "rebuking")]
+		public string Parse_BridgesWhereJesusSpeaksWithConflictingDeliveries_AssignedToJesusWithDeliveryInCommonAcrossAllVerseBridges(
+			string firstRef, string secondRef)
+		{
+			var firstVerseOrBridge = new Verse(firstRef);
+			var block1 = new Block("p", 11, firstVerseOrBridge.StartVerse, firstVerseOrBridge.LastVerseOfBridge) { IsParagraphStart = true };
+			block1.BlockElements.Add(firstVerseOrBridge);
+			block1.BlockElements.Add(new ScriptText("Then Jesus said: “First thing. "));
+			block1.BlockElements.Add(new Verse(secondRef));
+			block1.BlockElements.Add(new ScriptText("Second thing.”"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			int i = 0;
+			Assert.AreEqual("{" + firstRef + "}\u00A0Then Jesus said: ", output[i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“First thing. {" + secondRef + "}\u00A0Second thing.”",
+				output[++i].GetText(true));
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			return output[i].Delivery;
+		}
+
 	}
 }

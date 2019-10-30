@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;
@@ -900,9 +902,10 @@ namespace GlyssenTests
 		[Test]
 		public void MigrateDeprecatedCharacterIds_NormalQuoteChangedToAlternate_CharacterIdUnchanged()
 		{
-			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8).Any(cv => cv.Character == "God"),
+			Assert.That(!ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8)).Any(cv => cv.Character == "God"),
 				"Test setup condition not met: God should not be returned as a character when includeAlternatesAndRareQuotes is false.");
-			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, 8, includeAlternatesAndRareQuotes: true).Any(cv => cv.Character == "God"),
+			Assert.That(ControlCharacterVerseData.Singleton.GetCharacters(66, 1, new SingleVerse(8), includeAlternatesAndRareQuotes: true)
+					.Any(cv => cv.Character == "God"),
 				"Test setup condition not met: God should be returned as a character when includeAlternatesAndRareQuotes is true.");
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
@@ -928,8 +931,8 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var unexpectedPeterInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
-			testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(66, 7, 11), "peter", "", "", true));
 			unexpectedPeterInRev711.SetCharacterIdAndCharacterIdInScript("peter", 66);
+			testProject.ProjectCharacterVerseData.AddEntriesFor(66, unexpectedPeterInRev711);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
@@ -940,30 +943,47 @@ namespace GlyssenTests
 		[Test]
 		public void MigrateDeprecatedCharacterIds_StandardCharacterIdPreviouslyAddedAsProjectSpecific_ProjectSpecificCharacterIdRemoved()
 		{
-			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
-			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			// The following setup steps simulate a condition where the user had to add (and use) a character ID that was not
-			// present in the control files, but has subsequently been added.
-			var soulsBlockInRev610 = testProject.IncludedBooks.Single().GetBlocksForVerse(6, 10).First(b => !b.CharacterIsStandard);
-			var projectSpecificDetail = new CharacterDetail
+			List<Block> altarBlocksInRev16v7;
+			Project testProject;
+			try
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+				CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+
+				testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+				//TestProject.SimulateDisambiguationForAllBooks(testProject);
+				// The following setup steps simulate a condition where the user added (and used) a character ID that was not
+				// present in the control files, but was subsequently added. Rev 16:7 used to have a character called "altar, the",
+				// but it was renamed to "altar". This forward-thinking user added their own "altar" character before that became
+				// the official character ID.
+				altarBlocksInRev16v7 = testProject.IncludedBooks.Single().GetBlocksForVerse(16, 7).Where(b => b.CharacterId == "altar, the").ToList();
+				Assert.IsTrue(altarBlocksInRev16v7.Any());
+				var projectSpecificDetail = new CharacterDetail
 				{
-					CharacterId = "we have to add it with an unknown id to avoid an exception, but then we can trick the system by renaming it",
+					CharacterId = "altar",
 					Age = CharacterAge.Adult,
 					Gender = CharacterGender.PreferMale,
 				};
-			testProject.AddProjectCharacterDetail(projectSpecificDetail);
-			projectSpecificDetail.CharacterId = soulsBlockInRev610.CharacterId;
-			// The following line works fine today but could theoretically fail if we ever tighten up the control to
-			// prevent adding a project-specific CV that is identical to one in the control CV file.
-			// Also, now that GetCharacters may not really return a CharacterVerse object, this cast could fail.
-			testProject.ProjectCharacterVerseData.Add((CharacterVerse)ControlCharacterVerseData.Singleton.GetCharacters(66, 6, 10)
-				.Single(cv => cv.Character == soulsBlockInRev610.CharacterId));
+				testProject.AddProjectCharacterDetail(projectSpecificDetail);
+				foreach (var block in altarBlocksInRev16v7)
+				{
+					block.CharacterId = projectSpecificDetail.CharacterId;
+					testProject.ProjectCharacterVerseData.AddEntriesFor(66, block);
+				}
+				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
+			}
+			finally
+			{
+				// Fast-forward into the future!
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+				CharacterDetailData.TabDelimitedCharacterDetailData = null;
+			}
 
-			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.IsTrue(ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject) >= 1);
 
-			Assert.AreEqual(projectSpecificDetail.CharacterId, soulsBlockInRev610.CharacterId, "The block itself should not have changed.");
+			Assert.IsTrue(altarBlocksInRev16v7.All(b => b.CharacterId == "altar"), "The blocks themselves should not have changed.");
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any(), "The only entry in ProjectCharacterVerseData should have been removed.");
-			Assert.IsTrue(testProject.AllCharacterDetailDictionary.ContainsKey(soulsBlockInRev610.CharacterId),
+			Assert.IsTrue(testProject.AllCharacterDetailDictionary.ContainsKey("altar"),
 				"The only entry in ProjectCharacterDetail should have been removed. This call should throw an exception if the key is " +
 				"present in both.");
 		}
@@ -1051,8 +1071,7 @@ namespace GlyssenTests
 
 			verses13and14Block.CharacterId = "Enoch";
 			verses13and14Block.UserConfirmed = true;
-			for (int v = verses13and14Block.InitialStartVerseNumber; v < 14; v++)
-				testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(65, 1, v), verses13and14Block.CharacterId, "", "", true));
+			testProject.ProjectCharacterVerseData.AddEntriesFor(65, verses13and14Block);
 
 			//Setup check
 			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);

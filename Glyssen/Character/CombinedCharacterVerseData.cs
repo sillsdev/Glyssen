@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Glyssen.Shared;
 using SIL.ObjectModel;
 using SIL.Scripture;
 
@@ -15,14 +17,32 @@ namespace Glyssen.Character
 			m_project = project;
 		}
 
-		public IEnumerable<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
+		public HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IVerse verseOrBridge, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
 		{
-			IEnumerable<CharacterSpeakingMode> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse,
-				initialEndVerse, finalVerse, versification);
-			IEnumerable<CharacterSpeakingMode> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse,
-				initialEndVerse, finalVerse, versification, includeAlternatesAndRareQuotes, includeNarratorOverrides);
-			return project.Union(control);
+			var result = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, verseOrBridge, versification,
+				includeAlternatesAndRareQuotes, includeNarratorOverrides);
+			var project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, verseOrBridge, versification);
+			result.UnionWith(project);
+			return result;
+		}
+
+		public HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IReadOnlyCollection<IVerse> verses,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
+		{
+			HashSet<CharacterSpeakingMode> result = null;
+			foreach (var verse in verses)
+			{
+				var resultForThisVerse = new HashSet<CharacterSpeakingMode>(GetCharacters(bookId, chapter, verse, versification,
+					includeAlternatesAndRareQuotes, includeNarratorOverrides), m_characterDeliveryEqualityComparer);
+				if (result == null)
+					result = resultForThisVerse;
+				else
+					ControlCharacterVerseData.Singleton.PerformPreferentialIntersection(ref result, resultForThisVerse);
+			}
+			if (result == null)
+				throw new ArgumentException("Empty enumeration passed to GetCharacters.", nameof(verses));
+
+			return result;
 		}
 
 		public ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
