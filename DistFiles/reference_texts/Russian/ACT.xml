@@ -66,8 +66,8 @@
     <verse num="6" />
     <text>Посему они, сойдясь, спрашивали Его, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="apostles" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="apostles">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="disciples" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="disciples">
       <text>“Lord, are you now restoring the kingdom to Israel?”</text>
     </ReferenceBlocks>
     <text>“не в сие ли время, Господи, восстановляешь Ты царство Израилю?”</text>
@@ -1452,8 +1452,8 @@
     <verse num="24" />
     <text>Когда услышали эти слова первосвященник, начальник стражи и прочие первосвященники, недоумевали,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="captain of the temple guard/chief priests" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="captain of the temple guard/chief priests">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests">
       <text>“What will happen now?”</text>
     </ReferenceBlocks>
     <text>“Что же теперь будет?”</text>
@@ -1512,30 +1512,30 @@
     <verse num="29" />
     <text>Петр же и Апостолы в ответ сказали:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)/disciples" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)/disciples" multiBlockQuote="Start">
       <text>“We must obey God rather than men.</text>
     </ReferenceBlocks>
     <text>“должно повиноваться больше Богу, нежели человекам.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation">
       <verse num="30" />
       <text>The God of our fathers raised up Jesus, whom you killed, hanging him on a tree.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Бог отцов наших воскресил Иисуса, Которого вы умертвили, повесив на древе.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation">
       <verse num="31" />
       <text>God exalted him with his right hand to be a Prince and a Savior, to give repentance to Israel, and remission of sins.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Его возвысил Бог десницею Своею в Начальника и Спасителя, дабы дать Израилю покаяние и прощение грехов.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)/disciples" multiBlockQuote="Continuation">
       <verse num="32" />
       <text>We are His witnesses of these things; and so also is the Holy Spirit, whom God has given to those who obey him.”</text>
     </ReferenceBlocks>
@@ -1646,22 +1646,22 @@
     <verse num="2" />
     <text>Тогда двенадцать Апостолов, созвав множество учеников, сказали:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="apostles" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="apostles" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="disciples" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="disciples" multiBlockQuote="Start">
       <text>“It is not appropriate for us to forsake the word of God and serve tables.</text>
     </ReferenceBlocks>
     <text>“нехорошо нам, оставив слово Божие, пещись о столах.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="apostles" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="apostles" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="disciples" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="disciples" multiBlockQuote="Continuation">
       <verse num="3" />
       <text>Therefore select from among you, brothers, seven men of good report, full of the Holy Spirit and of wisdom, whom we may appoint over this business.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Итак, братия, выберите из среды себя семь человек изведанных, исполненных Святаго Духа и мудрости; их поставим на эту службу,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="apostles" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="apostles" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="disciples" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="disciples" multiBlockQuote="Continuation">
       <verse num="4" />
       <text>But we will continue steadfastly in prayer and in the ministry of the word.”</text>
     </ReferenceBlocks>
@@ -3296,8 +3296,8 @@
     <verse num="13" />
     <text>И был глас к нему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Rise, Peter, kill and eat!”</text>
     </ReferenceBlocks>
     <text>“встань, Петр, заколи и ешь.”</text>
@@ -3324,8 +3324,8 @@
     <verse num="15" />
     <text>Тогда в другой раз был глас к нему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Holy Spirit, the" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Holy Spirit, the">
       <text>“What God has cleansed, you must not call unclean.”</text>
     </ReferenceBlocks>
     <text>“что Бог очистил, того ты не почитай нечистым.”</text>
@@ -7924,8 +7924,8 @@
     <verse num="18" />
     <text>Тот, взяв его, привел к тысяченачальнику и сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion, one of the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion, one of the">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion in the barracks" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion in the barracks">
       <text>“Paul, the prisoner, summoned me and asked me to bring this young man to you, who has something to tell you.”</text>
     </ReferenceBlocks>
     <text>“узник Павел, призвав меня, просил отвести к тебе этого юношу, который имеет нечто сказать тебе.”</text>

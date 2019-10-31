@@ -19,7 +19,6 @@ namespace Glyssen.ReferenceTextUtility
 	{
 		private OutputForm m_outputForm;
 		private ReferenceTextData m_data;
-		private bool m_manualSettingsChangesMade = false;
 		private Stack<RefTextDevUtilities.ReferenceTextUtility.Mode> m_passes = new Stack<RefTextDevUtilities.ReferenceTextUtility.Mode>();
 		private readonly string m_distFilesDir;
 		private static readonly string[] s_createActions = { "Create in Temp Folder", "Create/Overwrite" };
@@ -81,7 +80,6 @@ namespace Glyssen.ReferenceTextUtility
 						m_dataGridRefTexts.Rows[iRow].Cells[colIsoCode.Index].ReadOnly = true;
 
 					m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
-					m_manualSettingsChangesMade = false;
 				}
 				m_lblLoading.Visible = false;
 			}
@@ -283,6 +281,9 @@ namespace Glyssen.ReferenceTextUtility
 			if (m_chkSymbols.Checked)
 				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.Symbols;
 
+			if (m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Enabled)
+				RefTextDevUtilities.ReferenceTextUtility.AttemptToAddQuotationMarksToMatchEnglish = m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Checked;
+
 			m_passes.Clear();
 			m_passes.Push(RefTextDevUtilities.ReferenceTextUtility.Mode.Generate);
 			m_passes.Push(RefTextDevUtilities.ReferenceTextUtility.Mode.FindDifferencesBetweenCurrentVersionAndNewText);
@@ -357,7 +358,8 @@ namespace Glyssen.ReferenceTextUtility
 						throw new Exception("Unexpected Action. This can't happen!");
 				}
 				m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].ReadOnly = true;
-				m_manualSettingsChangesMade = true;
+
+				UpdateAddQuotationMarksState();
 				return;
 			}
 
@@ -394,6 +396,27 @@ namespace Glyssen.ReferenceTextUtility
 			}
 		}
 
+		private void UpdateAddQuotationMarksState()
+		{
+			foreach (DataGridViewRow row in m_dataGridRefTexts.Rows)
+			{
+				var languageInfo = Data.GetLanguageInfo((string)row.Cells[colName.Index].Value);
+
+				if (languageInfo.IsEnglish)
+					continue;
+
+				if (IsGeneratingAction(row.Cells[colAction.Index].Value as string))
+				{
+					m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Enabled = true;
+					return;
+				}
+			}
+
+			m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Enabled = false;
+		}
+
+		private static bool IsGeneratingAction(string action) => action != "Compare to Current" && action != "Skip";
+
 		private void SetStateForValidDestination(int iRow)
 		{
 			m_dataGridRefTexts.Rows[iRow].Cells[colDestination.Index].Style.ForeColor = m_dataGridRefTexts.DefaultCellStyle.ForeColor;
@@ -401,9 +424,8 @@ namespace Glyssen.ReferenceTextUtility
 				{
 					var destinationCellForeColor = r.Cells[colDestination.Index].Style.ForeColor;
 					var destValue = r.Cells[colDestination.Index].Value as string;
-					var action = r.Cells[colAction.Index].Value as string;
-					return (!String.IsNullOrWhiteSpace(destValue) || action == "Compare to Current" || action == "Skip") &&
-						(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
+					return (!String.IsNullOrWhiteSpace(destValue) || !IsGeneratingAction(r.Cells[colAction.Index].Value as string)) &&
+						(destinationCellForeColor == default || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
 				}) &&
 				m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Any(r => r.Cells[colAction.Index].Value as string != "Skip");
 		}
@@ -433,7 +455,7 @@ namespace Glyssen.ReferenceTextUtility
 			if (m_chkPunctuation.Checked)
 			{
 				m_chkQuoteMarkDifferences.Checked = true;
-				m_chkQuoteMarkDifferences.Enabled = false;
+				m_chkQuoteMarkDifferences.Enabled = m_chkCurlyVsStraight.Enabled = false;
 			}
 			else
 				m_chkQuoteMarkDifferences.Enabled = true;

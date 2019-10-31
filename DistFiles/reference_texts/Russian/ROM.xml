@@ -320,8 +320,8 @@
     <verse num="5" />
     <text>Но, по упорству твоему и нераскаянному сердцу, ты сам себе собираешь гнев на день гнева и откровения праведного суда от Бога,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-ROM">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
       <verse num="6" />
       <text>who “will pay back to everyone according to their works:”</text>
     </ReferenceBlocks>
@@ -2094,7 +2094,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-      <text>Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
+      <text>“Will the thing formed ask him who formed it, Why did you make me like this?”</text>
     </ReferenceBlocks>
     <text>Изделие скажет ли сделавшему его: 'зачем ты меня так сделал?'</text>
   </block>
@@ -3033,18 +3033,32 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>Owe no one anything, except to love one another; for he who loves his neighbor has fulfilled the law.</text>
+      <text>Owe no one anything, except to love one another; for he who loves his neighbor has fulfilled the law. </text>
+      <verse num="9" />
+      <text>For the commandments,</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Не оставайтесь должными никому ничем, кроме взаимной любви; ибо любящий другого исполнил закон.</text>
+    <text>Не оставайтесь должными никому ничем, кроме взаимной любви; ибо любящий другого исполнил закон. </text>
+    <verse num="9" />
+    <text>Ибо заповеди:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="scripture">
+      <text>“You shall not commit adultery, You shall not murder, You shall not steal, You shall not give false testimony, You shall not covet,”</text>
+    </ReferenceBlocks>
+    <text>не прелюбодействуй, не убивай, не кради, не лжесвидетельствуй, не пожелай чужого</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-ROM">
-      <verse num="9" />
-      <text>For the commandments, “You shall not commit adultery,” “You shall not murder,” “You shall not steal,” “You shall not give false testimony,” “You shall not covet,” and whatever other commandments there are, are all summed up in this saying, namely, “You shall love your neighbor as yourself.”</text>
+      <text>and whatever other commandments there are, are all summed up in this saying, namely,</text>
     </ReferenceBlocks>
-    <verse num="9" />
-    <text>Ибо заповеди: не прелюбодействуй, не убивай, не кради, не лжесвидетельствуй, не пожелай чужого и все другие заключаются в сем слове: люби ближнего твоего, как самого себя.</text>
+    <text>и все другие заключаются в сем слове:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="scripture">
+      <text>“You shall love your neighbor as yourself.”</text>
+    </ReferenceBlocks>
+    <text>люби ближнего твоего, как самого себя.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
@@ -3754,8 +3768,8 @@
     <verse num="21" />
     <text>Приветствуют вас Тимофей, сотрудник мой, и Луций, Иасон и Сосипатр, сродники мои.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ROM">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="Tertius" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="Tertius">
       <verse num="22" />
       <text>I, Tertius, who write the letter, greet you in the Lord.</text>
     </ReferenceBlocks>

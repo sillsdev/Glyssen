@@ -92,7 +92,7 @@ namespace Glyssen.RefTextDevUtilities
 			allQuoteChars.Add("(" + Regex.Escape("&lt;") + ")");
 
 			s_regexStartQuoteMarks = new Regex(@"^\s*" + String.Join("|", allQuoteChars), RegexOptions.Compiled);
-			s_regexEndQuoteMarks = new Regex("(" + String.Join("|", allQuoteChars) + @")\s*[.,?!]*\s*$", RegexOptions.Compiled);
+			s_regexEndQuoteMarks = new Regex("(" + String.Join("|", allQuoteChars) + @")\s*[.,?!;:]*\s*$", RegexOptions.Compiled);
 			s_regexStartEnglishDoubleQuoteMarks = new Regex(@"^\s*“|""", RegexOptions.Compiled);
 			s_regexEndEnglishDoubleQuoteMarks = new Regex(@"”|""\s*$", RegexOptions.Compiled);
 		}
@@ -200,6 +200,8 @@ namespace Glyssen.RefTextDevUtilities
 			Symbols = 16,
 			AllDifferencesExceptAlphaNumericText = Punctuation | Symbols | Default,
 		}
+
+		public static bool AttemptToAddQuotationMarksToMatchEnglish { get; set; }
 
 		public static Ignore DifferencesToIgnore
 		{
@@ -479,8 +481,8 @@ namespace Glyssen.RefTextDevUtilities
 									.SingleOrDefault(b => b.BookId == currBookId)?.GetScriptBlocks();
 								
 								if (existingRefBlocksForLanguage?.Count != existingEnglishRefBook?.GetScriptBlocks().Count)
-									WriteOutput($"Existing book of {currBookId} for {language} has different number of blocks than " +
-										"the existing English reference text.", true);
+									WriteOutput($"Existing book of {currBookId} for {language} has {existingRefBlocksForLanguage?.Count} blocks, but the existing " +
+										$"English reference text has {existingEnglishRefBook?.GetScriptBlocks().Count} blocks.", true);
 							}
 
 							iBlockInExistingEnglishRefBook = 0;
@@ -524,7 +526,7 @@ namespace Glyssen.RefTextDevUtilities
 						{
 							existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
 							// We theoretically need to check to make sure we don't go out of range, but in
-							// practice, a book should never end with an extrabiblical block.
+							// practice, a book should never end with an extra-biblical block.
 							while (CharacterVerseData.IsCharacterExtraBiblical(existingEnglishRefBlock.CharacterId))
 								existingEnglishRefBlock = blocks[iBlockInExistingEnglishRefBook++];
 
@@ -593,7 +595,7 @@ namespace Glyssen.RefTextDevUtilities
 
 							// If we've gotten out of C/V alignment with the existing reference text, we need to try to
 							// get back in sync.
-							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
+							if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText || (mode == Mode.Generate && !languageInfo.IsEnglish))
 							{
 								Debug.Assert(existingRefBlockForLanguage != null);
 								EnsureAlignmentToExistingReferenceText(currBookId, currChapter, currVerse,
@@ -602,7 +604,7 @@ namespace Glyssen.RefTextDevUtilities
 							}
 						}
 
-						var existingCharacterId = existingEnglishRefBlock?.CharacterId;
+						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
 						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock);
 						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
 							// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
@@ -630,7 +632,10 @@ namespace Glyssen.RefTextDevUtilities
 							if (characterIdChanged)
 							{
 								blockToAdd = blockToAdd.Clone();
+
 								blockToAdd.CharacterId = languageInfo.IsEnglish ? characterIdBasedOnExcelEntry : existingEnglishRefBlock.CharacterId;
+								if (!languageInfo.IsEnglish)
+									blockToAdd.Delivery = existingEnglishRefBlock.Delivery;
 							}
 							newBlocks.Add(blockToAdd);
 							foreach (var split in s_verseNumberMarkupRegex.Split(modifiedText)
@@ -647,6 +652,8 @@ namespace Glyssen.RefTextDevUtilities
 										WriteOutput("No text found between annotations:" + referenceTextRow, true);
 								}
 							}
+
+							CheckBlockForMissingF8Annotations(blockToAdd, existingEnglishRefBlock, languageInfo);
 
 							continue;
 						}
@@ -729,6 +736,8 @@ namespace Glyssen.RefTextDevUtilities
 						var lastScriptText = newBlock.BlockElements.OfType<ScriptText>().Last();
 						lastScriptText.Content = lastScriptText.Content.Trim();
 
+						CheckBlockForMissingF8Annotations(newBlock, existingEnglishRefBlock, languageInfo);
+
 						newBlocks.Add(newBlock);
 					}
 
@@ -745,7 +754,7 @@ namespace Glyssen.RefTextDevUtilities
 						foreach (var bookScript in newBooks)
 						{
 							if (!languageInfo.IsEnglish)
-								LinkBlockByBlockInOrder(bookScript);
+								LinkBlockByBlockInOrder(bookScript, AttemptToAddQuotationMarksToMatchEnglish);
 							XmlSerializationHelper.SerializeToFile(Path.Combine(languageInfo.OutputFolder, bookScript.BookId + ".xml"),
 								bookScript);
 						}
@@ -759,7 +768,8 @@ namespace Glyssen.RefTextDevUtilities
 					WriteOutput("Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version is " +
 						"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
 
-				WriteAnnotationsFile(annotationsToOutput);
+				if (annotationsToOutput.Any()) // If not, we probably didn't process English data
+					WriteAnnotationsFile(annotationsToOutput);
 			}
 
 			if (mode == Mode.GenerateEnglish)
@@ -788,7 +798,7 @@ namespace Glyssen.RefTextDevUtilities
 				if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
 				{
 					var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
-					WriteOutput($"CharacterDetail.txt contains some FCBH character labels that were not found in the " +
+					WriteOutput("CharacterDetail.txt contains some FCBH character labels that were not found in the " +
 						$"source Director's Guide. See {filename} for details.", true);
 					File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
 						.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
@@ -810,6 +820,35 @@ namespace Glyssen.RefTextDevUtilities
 			}
 
 			WriteOutput("Done!");
+		}
+
+		private static void CheckBlockForMissingF8Annotations(Block block, Block englishRefBlock, ReferenceTextLanguageInfo languageInfo)
+		{
+			if (languageInfo.IsEnglish)
+				return;
+			
+			var missing = englishRefBlock.CountOfSoundsWhereUserSpecifiesLocation - block.CountOfSoundsWhereUserSpecifiesLocation;
+			if (missing == 0)
+				return;
+			var annotationsPlOrSingle = "annotation";
+			var isAre = "is";
+			if (Math.Abs(missing) > 1)
+			{
+				annotationsPlOrSingle += "(s)";
+				isAre = "are";
+			}
+
+			if (missing > 0)
+			{
+				WriteOutput($"{languageInfo.Name} block {block} is missing {missing} expected \"F8\" {annotationsPlOrSingle} that " +
+					$"{isAre} present in the corresponding English block.", true);
+			}
+			else
+			{
+				WriteOutput($"{languageInfo.Name} block {block} has {-missing} \"F8\" extra {annotationsPlOrSingle} that " +
+					$"{isAre} present in the corresponding English block.", true);
+
+			}
 		}
 
 		private static void EnsureAlignmentToExistingReferenceText(string currBookId, int currChapter, int currVerse, ref Block existingRefBlock, IReadOnlyList<Block> blocks, string languageName, ref int iBlock)
@@ -1784,21 +1823,8 @@ namespace Glyssen.RefTextDevUtilities
 			var existingStr = existingBlock.GetText(true).Trim();
 			var excelStrWithoutAnnotations = s_annotationDelimitedWith3VerticalBarsRegex.Replace(excelStr, "");
 			excelStrWithoutAnnotations = s_annotationInCurlyBracesRegex.Replace(excelStrWithoutAnnotations, "").Trim();
-			var excelStrToCompare = excelStrWithoutAnnotations;
-
-			var existingStrToCompare = existingStr;
-			if (s_charactersToExcludeWhenComparing != null)
-			{
-				existingStrToCompare = s_charactersToExcludeWhenComparing.Replace(existingStr, "");
-				excelStrToCompare = s_charactersToExcludeWhenComparing.Replace(excelStrToCompare, "");
-			}
-			if (s_ignoreCurlyVsStraightQuoteDifferences)
-			{
-				existingStrToCompare = existingStrToCompare.Replace('“', '"').Replace('”', '"').Replace('‘', '\'').Replace('’', '\'');
-				excelStrToCompare = excelStrToCompare.Replace('“', '"').Replace('”', '"').Replace('‘', '\'').Replace('’', '\'');
-			}
-
-			var indexOfFirstDifference = DiffersAtIndex(excelStrToCompare, existingStrToCompare);
+			
+			var indexOfFirstDifference = DiffersAtIndex(excelStrWithoutAnnotations, existingStr);
 			if (indexOfFirstDifference == -1)
 				return true;
 
@@ -1812,11 +1838,10 @@ namespace Glyssen.RefTextDevUtilities
 				lengthComparison = $"String length shrunk by {lengthChange} characters";
 
 			WriteOutput($"Difference found in text at {bookId} {existingBlock.ChapterNumber}:{existingBlock.InitialStartVerseNumber} - {lengthComparison}");
-			WriteOutput($"   Existing:   {existingStr.Trim()}");
-			WriteOutput($"   New:        {excelStrWithoutAnnotations.Trim()}");
-#if DEBUG
-			WriteOutput($"   Difference: {new string(' ', indexOfFirstDifference)}^"); // This will be off!
-#endif
+			WriteOutput($"   Existing:   {existingStr}");
+			WriteOutput($"   New:        {excelStrWithoutAnnotations}");
+			WriteOutput($"   Difference: {new string(' ', indexOfFirstDifference)}^");
+
 			// ------------------------------------------
 			// Put a breakpoint here to investigate differences
 			// | | | |
@@ -1825,16 +1850,93 @@ namespace Glyssen.RefTextDevUtilities
 		}
 
 		/// <summary>
-		/// Compare two strings and return the index of the first difference.  Return -1 if the strings are equal.
+		/// Compare two strings and return the index of the first difference. Return -1 if the strings are equal.
 		/// </summary>
 		private static int DiffersAtIndex(string s1, string s2)
 		{
-			int index = 0;
-			int min = Math.Min(s1.Length, s2.Length);
-			while (index < min && s1[index] == s2[index])
-				index++;
+			int i1 = 0, i2 = 0;
+			int lim1 = s1.Length, lim2 = s2.Length;
+			for (; i1 < lim1 && i2 < lim2; i1++, i2++)
+			{
+				var c1 = s1[i1];
+				var c2 = s2[i2];
+				if (c1 == c2)
+					continue;
+				if (s_ignoreCurlyVsStraightQuoteDifferences)
+				{
+					switch (c1)
+					{
+						case '“':
+						case '”':
+							if (c2 == '\"')
+								continue;
+							break;
+						case '‘':
+						case '’':
+							if (c2 == '\'')
+								continue;
+							break;
+						case '\"':
+							if (c2 == '“' || c2 == '”')
+								continue;
+							break;
+						case '\'':
+							if (c2 == '‘' || c2 == '’')
+								continue;
+							break;
+					}
+				}
+				if (s_charactersToExcludeWhenComparing != null)
+				{
+					if (s_charactersToExcludeWhenComparing.IsMatch(c1.ToString()))
+					{
+						if (!s_charactersToExcludeWhenComparing.IsMatch(c2.ToString()))
+							i2--; // recheck current character in s2 against next character in s1
+					}
+					else
+					{
+						if (s_charactersToExcludeWhenComparing.IsMatch(c2.ToString()))
+							i1--; // recheck current character in s1 against next character in s2
+						else
+							return Math.Min(i1, i2); // mismatch
+					} 
+				}
+			}
 
-			return (index == min && s1.Length == s2.Length) ? -1 : index;
+			if (i1 == lim1 && i2 == lim2)
+				return -1;
+
+			if (i1 < lim1)
+			{
+				return GetIndexOfFirstNonExcludedCharacter(s1, i1);
+			}
+			else // (i2 < lim2)
+			{
+				return GetIndexOfFirstNonExcludedCharacter(s2, i2);
+			}
+		}
+
+		/// <summary>
+		/// Like the above method, this returns -1 if no unexcluded character is found in the range.
+		/// </summary>
+		/// <param name="s">The string to examine</param>
+		/// <param name="iStartAt">The index of the first character to examine</param>
+		private static int GetIndexOfFirstNonExcludedCharacter(string s, int iStartAt)
+		{
+			if (s_charactersToExcludeWhenComparing == null)
+				return iStartAt;
+			var cUnchecked = s.Length - iStartAt;
+			var matches = s_charactersToExcludeWhenComparing.Matches(s.Substring(iStartAt, cUnchecked));
+			if (matches.Count == cUnchecked)
+				return -1; // All remaining characters are ones we can ignore.
+			foreach (Match match in matches)
+			{
+				if (match.Index > iStartAt)
+					return iStartAt;
+				iStartAt++;
+			}
+
+			return -1;
 		}
 
 		private static void GetQuoteMarksForLanguage(string languageName, out string doubleOpen, out string doubleClose, out string singleOpen, out string singleClose)
@@ -1921,7 +2023,7 @@ namespace Glyssen.RefTextDevUtilities
 			return !errorOccurred;
 		}
 
-		private static void LinkBlockByBlockInOrder(BookScript book)
+		private static void LinkBlockByBlockInOrder(BookScript book, bool attemptToAddQuotationMarksToMatchEnglish = true)
 		{
 			var blocks = book.GetScriptBlocks();
 			var englishBlocks = s_existingEnglish.Books.Single(b => b.BookId == book.BookId).GetScriptBlocks();
@@ -1939,7 +2041,7 @@ namespace Glyssen.RefTextDevUtilities
 				else
 				{
 					block.SetMatchedReferenceBlock(englishBlocks[i]);
-					if (!englishBlocks[i].CharacterIsStandard)
+					if (attemptToAddQuotationMarksToMatchEnglish && !englishBlocks[i].CharacterIsStandard)
 					{
 						if (englishBlocks[i].StartsWithQuoteMarks(s_regexStartEnglishDoubleQuoteMarks) && !block.StartsWithQuoteMarks(s_regexStartQuoteMarks))
 						{

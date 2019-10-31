@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="REV" singlevoice="false" pageheader="Откровение">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-REV">
+  <block style="mt" chapter="0" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="REV" initialStartVerse="0" characterId="BC-REV">
       <text>REVELATION</text>
     </ReferenceBlocks>
     <text>Откровение</text>
@@ -68,8 +68,8 @@
     <verse num="7" />
     <text>Се, грядет с облаками, и узрит Его всякое око и те, которые пронзили Его; и возрыдают пред Ним все племена земные. Ей, аминь.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus">
       <verse num="8" />
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
@@ -82,8 +82,8 @@
     </ReferenceBlocks>
     <text>говорит Господь,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus">
       <text>“who is and who was and who is to come, the Almighty.”</text>
     </ReferenceBlocks>
     <text>“Который есть и был и грядет, Вседержитель.”</text>
@@ -2042,9 +2042,13 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-REV">
       <verse num="17" />
       <text>The dragon grew angry with the woman, and went away to make war with the rest of her seed, who keep God’s commandments and have the testimony of Jesus Christ.</text>
+      <verse num="18" />
+      <text>[variant: And he stood on the sand of the sea.]</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>И рассвирепел дракон на жену, и пошел, чтобы вступить в брань с прочими от семени ее, сохраняющими заповеди Божии и имеющими свидетельство Иисуса Христа.</text>
+    <text>И рассвирепел дракон на жену, и пошел, чтобы вступить в брань с прочими от семени ее, сохраняющими заповеди Божии и имеющими свидетельство Иисуса Христа. </text>
+    <verse num="18" />
+    <text>[вариант: И стал я на песке морском.]</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
@@ -2170,8 +2174,8 @@
     <verse num="14" />
     <text>И чудесами, которые дано было ему творить перед зверем, он обольщает живущих на земле, говоря живущим на земле,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast from out of the earth" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast from out of the earth">
       <text>“Make an image to the beast who was wounded by the sword and lived.”</text>
     </ReferenceBlocks>
     <text>“чтобы они сделали образ зверя, который имеет рану от меча и жив.”</text>
@@ -2680,8 +2684,8 @@
     <verse num="17" />
     <text>Седьмой Ангел вылил чашу свою на воздух: и из храма небесного от престола раздался громкий голос, говорящий:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="God">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="voice from throne" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="voice from throne">
       <text>“It is done!”</text>
     </ReferenceBlocks>
     <text>“совершилось!”</text>
@@ -2765,16 +2769,10 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="narrator-REV">
       <verse num="5" />
-      <text>And on her forehead a name was written,</text>
+      <text>And on her forehead a name was written, “MYSTERY, BABYLON THE GREAT, THE MOTHER OF THE PROSTITUTES AND OF THE ABOMINATIONS OF THE EARTH.”</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>и на челе ее написано имя:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="inscription on forehead of Babylon" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="inscription on forehead of Babylon">
-      <text>“MYSTERY, BABYLON THE GREAT, THE MOTHER OF THE PROSTITUTES AND OF THE ABOMINATIONS OF THE EARTH.”</text>
-    </ReferenceBlocks>
-    <text>“тайна, Вавилон великий, мать блудницам и мерзостям земным.”</text>
+    <text>и на челе ее написано имя: “тайна, Вавилон великий, мать блудницам и мерзостям земным.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV">
@@ -2962,21 +2960,15 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
       <verse num="7" />
-      <text>However much she glorified herself, and grew wanton, so much give her of torment and mourning. For she says in her heart,</text>
+      <text>However much she glorified herself, and grew wanton, so much give her of torment and mourning. For she says in her heart, ‘I sit as queen, and am no widow, and will in no way see mourning.’</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Сколько славилась она и роскошествовала, столько воздайте ей мучений и горестей. Ибо она говорит в сердце своем:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
-      <text>‘I sit as queen, and am no widow, and will in no way see mourning.’</text>
-    </ReferenceBlocks>
-    <text>'сижу царицею, я не вдова и не увижу горести!'</text>
+    <text>Сколько славилась она и роскошествовала, столько воздайте ей мучений и горестей. Ибо она говорит в сердце своем: ‘сижу царицею, я не вдова и не увижу горести!’ ”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>Therefore in one day her plagues will come: </text>
+      <text>“Therefore in one day her plagues will come: </text>
       <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong.”</text>
     </ReferenceBlocks>
@@ -3103,8 +3095,8 @@
     </ReferenceBlocks>
     <text>“горе, горе тебе, город великий, драгоценностями которого обогатились все, имеющие корабли на море, ибо опустел в один час!”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors">
       <verse num="20" />
       <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
     </ReferenceBlocks>
@@ -3334,16 +3326,10 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV">
       <verse num="16" />
-      <text>He has on his garment and on his thigh a name written,</text>
+      <text>He has on his garment and on his thigh a name written, “KING OF KINGS, AND LORD OF LORDS.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>На одежде и на бедре Его написано имя:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV">
-      <text>“KING OF KINGS, AND LORD OF LORDS.”</text>
-    </ReferenceBlocks>
-    <text>'Царь царей и Господь господствующих'.</text>
+    <text>На одежде и на бедре Его написано имя: 'Царь царей и Господь господствующих'.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-REV">

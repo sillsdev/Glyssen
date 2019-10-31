@@ -1588,8 +1588,8 @@
     <verse num="16" />
     <text>так чтобы и далее вас проповедывать Евангелие, а не хвалиться готовым в чужом уделе.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
       <verse num="17" />
       <text>But “he who boasts, let him boast in the Lord.”</text>
     </ReferenceBlocks>
@@ -1948,9 +1948,9 @@
     <verse num="9" />
     <text>Но Господь сказал мне:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
-      <text>My grace is sufficient for you, for my power is made perfect in weakness.</text>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus">
+      <text>“My grace is sufficient for you, for my power is made perfect in weakness.”</text>
     </ReferenceBlocks>
     <text>'довольно для тебя благодати Моей, ибо сила Моя совершается в немощи'.</text>
   </block>
@@ -2070,9 +2070,9 @@
     <verse num="1" />
     <text>В третий уже раз иду к вам.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
-      <text>At the mouth of two or three witnesses shall every word be established.</text>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="scripture">
+      <text>“At the mouth of two or three witnesses shall every word be established.”</text>
     </ReferenceBlocks>
     <text>При устах двух или трех свидетелей будет твердо всякое слово.</text>
   </block>

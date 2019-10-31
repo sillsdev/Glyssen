@@ -17114,8 +17114,14 @@ LUK	1	59	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indire
 LUK	1	59	narrator-LUK			Quotation		
 LUK	1	60	Elizabeth			Dialogue		
 LUK	1	61	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Dialogue		
+# We make allowance for this question to be spoken by the neighbors, but since the text says that
+# they were making signs m(as opposed to speaking), it most likely should be spoken by the narrator.
+# Also, including a "Needs Review" option, since a scripter who does not know the vernacular would
+# likely be unable to detect a case where it was translated something like: The neighbors asked,
+# “What is his name?” and they made signs to his father to inquire of him.
 LUK	1	62	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indirect		
 LUK	1	62	narrator-LUK			Quotation		
+LUK	1	62	Needs Review			Potential		
 LUK	1	63	narrator-LUK			Quotation		
 LUK	1	64	Zacharias (Zechariah)			Indirect		
 LUK	1	65	everyone in Judean hills who heard			Indirect		
@@ -19732,7 +19738,7 @@ ROM	15	10	scripture			Quotation	Moses
 ROM	15	11	scripture			Quotation	psalmist	
 ROM	15	12	scripture			Quotation	Isaiah	
 ROM	15	21	scripture			Quotation	Isaiah	
-ROM	16	22	Tertius			Potential		
+ROM	16	22	Tertius			Implicit		
 1CO	1	12	follower of Apollos	boasting		Hypothetical		
 1CO	1	12	follower of Cephas (Peter)	boasting		Hypothetical		
 1CO	1	12	follower of Paul	boasting		Hypothetical		

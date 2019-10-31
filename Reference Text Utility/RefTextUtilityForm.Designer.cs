@@ -39,6 +39,7 @@
 			this.m_lblSpreadsheetFilePath = new System.Windows.Forms.Label();
 			this.m_btnSelectSpreadsheetFile = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.m_btnSkipAll = new System.Windows.Forms.Button();
 			this.m_dataGridRefTexts = new System.Windows.Forms.DataGridView();
 			this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colAction = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -54,7 +55,7 @@
 			this.m_chkQuoteMarkDifferences = new System.Windows.Forms.CheckBox();
 			this.m_chkWhitespace = new System.Windows.Forms.CheckBox();
 			this.m_lblIgnore = new System.Windows.Forms.Label();
-			this.m_btnSkipAll = new System.Windows.Forms.Button();
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridRefTexts)).BeginInit();
@@ -164,6 +165,7 @@
 			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox2.Controls.Add(this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish);
 			this.groupBox2.Controls.Add(this.m_btnSkipAll);
 			this.groupBox2.Controls.Add(this.m_dataGridRefTexts);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,6 +175,20 @@
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Reference Text";
+			// 
+			// m_btnSkipAll
+			// 
+			this.m_btnSkipAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_btnSkipAll.AutoSize = true;
+			this.m_btnSkipAll.Enabled = false;
+			this.m_btnSkipAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_btnSkipAll.Location = new System.Drawing.Point(9, 207);
+			this.m_btnSkipAll.Name = "m_btnSkipAll";
+			this.m_btnSkipAll.Size = new System.Drawing.Size(132, 23);
+			this.m_btnSkipAll.TabIndex = 1;
+			this.m_btnSkipAll.Text = "Set all languages to skip";
+			this.m_btnSkipAll.UseVisualStyleBackColor = true;
+			this.m_btnSkipAll.Click += new System.EventHandler(this.m_btnSkipAll_Click);
 			// 
 			// m_dataGridRefTexts
 			// 
@@ -355,19 +371,19 @@
 			this.m_lblIgnore.TabIndex = 0;
 			this.m_lblIgnore.Text = "Ignore:";
 			// 
-			// m_btnSkipAll
+			// m_chkAttemptToRegularizeQuotationMarksToMatchEnglish
 			// 
-			this.m_btnSkipAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.m_btnSkipAll.AutoSize = true;
-			this.m_btnSkipAll.Enabled = false;
-			this.m_btnSkipAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.m_btnSkipAll.Location = new System.Drawing.Point(9, 207);
-			this.m_btnSkipAll.Name = "m_btnSkipAll";
-			this.m_btnSkipAll.Size = new System.Drawing.Size(132, 23);
-			this.m_btnSkipAll.TabIndex = 1;
-			this.m_btnSkipAll.Text = "Set all languages to skip";
-			this.m_btnSkipAll.UseVisualStyleBackColor = true;
-			this.m_btnSkipAll.Click += new System.EventHandler(this.m_btnSkipAll_Click);
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.AutoSize = true;
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Checked = true;
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Location = new System.Drawing.Point(200, 211);
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Name = "m_chkAttemptToRegularizeQuotationMarksToMatchEnglish";
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Size = new System.Drawing.Size(254, 17);
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.TabIndex = 2;
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Text = "Attempt to add quotation marks to match English";
+			this.m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.UseVisualStyleBackColor = true;
 			// 
 			// RefTextUtilityForm
 			// 
@@ -422,6 +438,7 @@
 		private System.Windows.Forms.CheckBox m_chkSymbols;
 		private System.Windows.Forms.Button m_btnSkipAll;
 		private System.Windows.Forms.CheckBox m_chkCurlyVsStraight;
+		private System.Windows.Forms.CheckBox m_chkAttemptToRegularizeQuotationMarksToMatchEnglish;
 	}
 }
 

@@ -577,16 +577,10 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="62" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="62" characterId="narrator-LUK">
       <verse num="62" />
-      <text>They made signs to his father, asking:</text>
+      <text>They made signs to his father, asking: “What is his name?”</text>
     </ReferenceBlocks>
     <verse num="62" />
-    <text>И спрашивали знаками у отца его,</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="62" characterId="neighbors and relatives of Elizabeth and Zacharias (Zechariah)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="62" characterId="neighbors and relatives of Elizabeth and Zacharias (Zechariah)">
-      <text>“What is his name?”</text>
-    </ReferenceBlocks>
-    <text>“Какой должна быть его зовут?”</text>
+    <text>И спрашивали знаками у отца его, “Какой должна быть его зовут?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="63" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="63" characterId="narrator-LUK">
@@ -7599,8 +7593,8 @@
     <verse num="5" />
     <text>И сказали Апостолы Господу:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="apostles" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="apostles">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="disciples" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="disciples">
       <text>“Increase our faith.”</text>
     </ReferenceBlocks>
     <text>“умножь в нас веру.”</text>
@@ -8507,8 +8501,8 @@
     <verse num="8" />
     <text>Закхей же, став, сказал Господу:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="Zaccheaus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="Zaccheaus">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="Zacchaeus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="Zacchaeus">
       <text>“Behold, Lord, half of my goods I give to the poor. If I have wrongfully exacted anything of anyone, I restore four times as much.”</text>
     </ReferenceBlocks>
     <text>“Господи! половину имения моего я отдам нищим, и, если кого чем обидел, воздам вчетверо.”</text>
@@ -10377,16 +10371,10 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="61" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="61" characterId="narrator-LUK">
       <verse num="61" />
-      <text>The Lord turned, and looked at Peter. Then Peter remembered the Lord’s word, how he said to him,</text>
+      <text>The Lord turned, and looked at Peter. Then Peter remembered the Lord’s word, how he said to him, “Before the rooster crows you will deny me three times.”</text>
     </ReferenceBlocks>
     <verse num="61" />
-    <text>Тогда Господь, обратившись, взглянул на Петра, и Петр вспомнил слово Господа, как Он сказал ему:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="61" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="61" characterId="Jesus">
-      <text>“Before the rooster crows you will deny me three times.”</text>
-    </ReferenceBlocks>
-    <text>“прежде нежели пропоет петух, отречешься от Меня трижды.”</text>
+    <text>Тогда Господь, обратившись, взглянул на Петра, и Петр вспомнил слово Господа, как Он сказал ему: “прежде нежели пропоет петух, отречешься от Меня трижды.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="62" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="62" characterId="narrator-LUK">

@@ -426,8 +426,8 @@
     </ReferenceBlocks>
     <text>Они сказали Ему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John the Baptist" delivery="curious" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John the Baptist" delivery="curious">
       <text>“Rabbi”</text>
     </ReferenceBlocks>
     <text>“Равви,”</text>
@@ -438,8 +438,8 @@
     </ReferenceBlocks>
     <text>—что значит: учитель,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John the Baptist" delivery="curious" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John the Baptist" delivery="curious">
       <text>“where are you staying?”</text>
     </ReferenceBlocks>
     <text>—где живешь?”</text>
@@ -2677,16 +2677,10 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="41" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="41" characterId="narrator-JHN">
       <verse num="41" />
-      <text>The Jews therefore murmured concerning him, because he said,</text>
+      <text>The Jews therefore murmured concerning him, because he said, “I am the bread which came down out of heaven.”</text>
     </ReferenceBlocks>
     <verse num="41" />
-    <text>Возроптали на Него Иудеи за то, что Он сказал:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="41" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="41" characterId="Jesus">
-      <text>“I am the bread which came down out of heaven.”</text>
-    </ReferenceBlocks>
-    <text>“Я есмь хлеб, сшедший с небес.”</text>
+    <text>Возроптали на Него Иудеи за то, что Он сказал: “Я есмь хлеб, сшедший с небес.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="narrator-JHN">
@@ -7792,8 +7786,8 @@
     <verse num="5" />
     <text>Ему отвечали:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="soldiers/officials from chief priests/Pharisees" delivery="rowdy" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="soldiers/officials from chief priests/Pharisees" delivery="rowdy">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="soldiers/officials from chief priests and Pharisees" delivery="rowdy" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="soldiers/officials from chief priests and Pharisees" delivery="rowdy">
       <text>“Jesus of Nazareth.”</text>
     </ReferenceBlocks>
     <text>“Иисуса Назорея.”</text>
@@ -7840,8 +7834,8 @@
     </ReferenceBlocks>
     <text>Они сказали:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="soldiers/officials from chief priests/Pharisees" delivery="afraid" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="soldiers/officials from chief priests/Pharisees" delivery="afraid">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="soldiers/officials from chief priests and Pharisees" delivery="afraid" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="soldiers/officials from chief priests and Pharisees" delivery="afraid">
       <text>“Jesus of Nazareth.”</text>
     </ReferenceBlocks>
     <text>“Иисуса Назорея.”</text>
@@ -8790,8 +8784,8 @@
     <verse num="38" />
     <text>После сего Иосиф из Аримафеи—ученик Иисуса, но тайный из страха от Иудеев, —и сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathea" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathea">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathaea" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathaea">
       <text>“May I take Jesus’ body for burial?”</text>
     </ReferenceBlocks>
     <text>“Дайте мне тело Иисуса;”</text>

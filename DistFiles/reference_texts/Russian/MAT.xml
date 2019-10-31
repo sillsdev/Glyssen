@@ -6721,8 +6721,8 @@
     <verse num="30" />
     <text>И вот, двое слепых, сидевшие у дороги, услышав, что Иисус идет мимо, начали кричать:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="blind men, two" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="blind men, two" delivery="shouting">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="Bartimaeus (a blind man)" delivery="shouting" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="Bartimaeus (a blind man)" delivery="shouting">
       <text>“Lord, have mercy on us, you son of David!”</text>
     </ReferenceBlocks>
     <text>“помилуй нас, Господи, Сын Давидов!”</text>
@@ -6747,8 +6747,8 @@
     </ReferenceBlocks>
     <text>но они еще громче стали кричать:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="blind men, two" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="blind men, two" delivery="shouting">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Bartimaeus (a blind man)" delivery="shouting" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Bartimaeus (a blind man)" delivery="shouting">
       <text>“Lord, have mercy on us, you son of David!”</text>
     </ReferenceBlocks>
     <text>“помилуй нас, Господи, Сын Давидов!”</text>
@@ -6775,8 +6775,8 @@
     <verse num="33" />
     <text>Они говорят Ему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="blind men, two" delivery="begging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="blind men, two" delivery="begging">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Bartimaeus (a blind man)" delivery="begging" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Bartimaeus (a blind man)" delivery="begging">
       <text>“Lord, that our eyes may be opened.”</text>
     </ReferenceBlocks>
     <text>“Господи! чтобы открылись глаза наши.”</text>
@@ -9746,24 +9746,12 @@
       <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
       <text>crowed. </text>
       <verse num="75" />
-      <text>Peter remembered the word which Jesus had said to him,</text>
+      <text>Peter remembered the word which Jesus had said to him, “Before the rooster crows, you will deny me three times.” He went out and wept bitterly.</text>
     </ReferenceBlocks>
     <text>И вдруг запел петух. </text>
     <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     <verse num="75" />
-    <text>И вспомнил Петр слово, сказанное ему Иисусом:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="Jesus">
-      <text>“Before the rooster crows, you will deny me three times.”</text>
-    </ReferenceBlocks>
-    <text>“прежде нежели пропоет петух, трижды отречешься от Меня.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT">
-      <text>He went out and wept bitterly.</text>
-    </ReferenceBlocks>
-    <text>И выйдя вон, плакал горько.</text>
+    <text>И вспомнил Петр слово, сказанное ему Иисусом: “прежде нежели пропоет петух, трижды отречешься от Меня.” И выйдя вон, плакал горько.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="27" initialStartVerse="0">
@@ -9855,7 +9843,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="7" characterId="chief priests">
       <text>“We shall use the money to buy the land called the Potter’s Field so that strangers can be buried there.”</text>
     </ReferenceBlocks>
-    <text>“Мы будем использовать деньги, чтобы купить землю называли землю горшечника, так что чужие могут быть похоронены там;”</text>
+    <text>“Мы будем использовать деньги, чтобы купить землю называли землю горшечника, так что чужие могут быть похоронены там”;”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="8" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="8" characterId="narrator-MAT">
@@ -10291,15 +10279,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="46" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="46" characterId="narrator-MAT">
-      <text>That is,</text>
+      <text>That is, “My God, my God, why have you forsaken me?”</text>
     </ReferenceBlocks>
-    <text>то есть:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="46" characterId="Jesus" delivery="deeply distressed" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="46" characterId="Jesus" delivery="deeply distressed">
-      <text>“My God, my God, why have you forsaken me?”</text>
-    </ReferenceBlocks>
-    <text>“Боже Мой, Боже Мой! для чего Ты Меня оставил?”</text>
+    <text>то есть: “Боже Мой, Боже Мой! для чего Ты Меня оставил?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="47" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="47" characterId="narrator-MAT">
@@ -10676,10 +10658,16 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="20" />
-      <text>Teach them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.” Amen.</text>
+      <text>Teach them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>уча их соблюдать всё, что Я повелел вам; и се, Я с вами во все дни до скончания века. Аминь.”</text>
+    <text>уча их соблюдать всё, что Я повелел вам; и се, Я с вами во все дни до скончания века.”</text>
+  </block>
+  <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT" matchesReferenceText="true">
+    <ReferenceBlocks style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT">
+      <text>Amen.</text>
+    </ReferenceBlocks>
+    <text>Аминь.</text>
   </block>
   <UnappliedSplits />
 </book>

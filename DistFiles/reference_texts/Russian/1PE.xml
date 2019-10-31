@@ -420,13 +420,13 @@
     <verse num="21" />
     <text>Ибо вы к тому призваны, потому что и Христос пострадал за нас, оставив нам пример, дабы мы шли по следам Его.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
       <verse num="22" />
-      <text>who did not sin, “neither was deceit found in his mouth.”</text>
+      <text>“who did not sin, neither was deceit found in his mouth.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Он не сделал никакого греха, и не было лести в устах Его.</text>
+    <text>“Он не сделал никакого греха, и не было лести в устах Его.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
@@ -778,10 +778,10 @@
     <verse num="17" />
     <text>Ибо время начаться суду с дома Божия; если же прежде с нас начнется, то какой конец непокоряющимся Евангелию Божию?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
       <verse num="18" />
-      <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
+      <text>If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>И если праведник едва спасается, то нечестивый и грешный где явится?</text>

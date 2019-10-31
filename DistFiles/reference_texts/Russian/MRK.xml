@@ -1040,16 +1040,10 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-MRK">
       <verse num="30" />
-      <text>--because they said,</text>
+      <text>--because they said, “He has an unclean spirit.”</text>
     </ReferenceBlocks>
     <verse num="30" />
-    <text>Сие сказал Он, потому что говорили:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="teachers of religious law" delivery="insulting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="teachers of religious law" delivery="insulting">
-      <text>“He has an unclean spirit.”</text>
-    </ReferenceBlocks>
-    <text>“в Нем нечистый дух.”</text>
+    <text>Сие сказал Он, потому что говорили: “в Нем нечистый дух.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-MRK">
@@ -1580,22 +1574,12 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-MRK">
       <verse num="8" />
-      <text>For he said to him,</text>
-    </ReferenceBlocks>
-    <verse num="8" />
-    <text>Ибо Иисус сказал ему:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="Jesus">
-      <text>“Come out of the man, you unclean spirit!”</text>
-    </ReferenceBlocks>
-    <text>“выйди, дух нечистый, из сего человека.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-MRK">
+      <text>For he said to him, “Come out of the man, you unclean spirit!” </text>
       <verse num="9" />
       <text>He asked him,</text>
     </ReferenceBlocks>
+    <verse num="8" />
+    <text>Ибо Иисус сказал ему: “выйди, дух нечистый, из сего человека.” </text>
     <verse num="9" />
     <text>И спросил его:</text>
   </block>
@@ -2099,7 +2083,7 @@
       <text>Wear sandals, but only one tunic.”</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>носить сандалии, но только одна туника”.</text>
+    <text>носить сандалии, но только одна туника.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK">
@@ -2142,7 +2126,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-MRK">
       <verse num="14" />
-      <text>King Herod heard this, for his name had become known, and he said,</text>
+      <text>King Herod heard this, for his name had become known, and some said,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Царь Ирод, услышав об Иисусе, —ибо имя Его стало гласно, —говорил:</text>
@@ -2641,8 +2625,8 @@
     <verse num="56" />
     <text>И куда ни приходил Он, в селения ли, в города ли, в деревни ли, клали больных на открытых местах и просили Его,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="people, sick" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="people, sick">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="people at Gennesaret (sick)" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="people at Gennesaret (sick)">
       <text>“Just let me touch the fringe of your garment!”</text>
     </ReferenceBlocks>
     <text>“Просто позвольте мне коснуться краем вашу одежду!”</text>
@@ -4936,7 +4920,7 @@
       <text>For most certainly I tell you, whoever may tell this mountain, ‘Be taken up and cast into the sea,’ and doesn’t doubt in his heart, but believes that what he says is happening; he shall have whatever he says.</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>имейте веру Божию, ибо истинно говорю вам, если кто скажет горе сей: поднимись и ввергнись в море, и не усомнится в сердце своем, но поверит, что сбудется по словам его, —будет ему, что ни скажет.</text>
+    <text>“имейте веру Божию, ибо истинно говорю вам, если кто скажет горе сей: поднимись и ввергнись в море, и не усомнится в сердце своем, но поверит, что сбудется по словам его, будет ему, что ни скажет.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
@@ -6652,22 +6636,10 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
       <verse num="72" />
-      <text>The rooster crowed the second time. Peter remembered the word, how that Jesus said to him,</text>
+      <text>The rooster crowed the second time. Peter remembered the word, how that Jesus said to him, “Before the rooster crows twice, you will deny me three times.”  When he thought about that, he wept.</text>
     </ReferenceBlocks>
     <verse num="72" />
-    <text>Тогда петух запел во второй раз. И вспомнил Петр слово, сказанное ему Иисусом:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="Jesus">
-      <text>“Before the rooster crows twice, you will deny me three times.”</text>
-    </ReferenceBlocks>
-    <text>“прежде нежели петух пропоет дважды, трижды отречешься от Меня;”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
-      <text>When he thought about that, he wept.</text>
-    </ReferenceBlocks>
-    <text>и начал плакать.</text>
+    <text>Тогда петух запел во второй раз. И вспомнил Петр слово, сказанное ему Иисусом: “прежде нежели петух пропоет дважды, трижды отречешься от Меня”; и начал плакать.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
@@ -7045,15 +7017,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-MRK">
-      <text>which is, being interpreted,</text>
+      <text>which is, being interpreted, “My God, my God, why have you forsaken me?”</text>
     </ReferenceBlocks>
-    <text>—что значит:</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus">
-      <text>“My God, my God, why have you forsaken me?”</text>
-    </ReferenceBlocks>
-    <text>“Боже Мой! Боже Мой! для чего Ты Меня оставил?”</text>
+    <text>что значит: “Боже Мой! Боже Мой! для чего Ты Меня оставил?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-MRK">
@@ -7141,8 +7107,8 @@
     <verse num="43" />
     <text>пришел Иосиф из Аримафеи, знаменитый член совета, который и сам ожидал Царствия Божия, осмелился войти к Пилату, и сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="43" characterId="Joseph of Arimathea" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="43" characterId="Joseph of Arimathea">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="43" characterId="Joseph of Arimathaea" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="43" characterId="Joseph of Arimathaea">
       <text>“Give me the body of Jesus.”</text>
     </ReferenceBlocks>
     <text>“Дайте мне тело Иисуса”</text>

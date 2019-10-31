@@ -148,8 +148,8 @@
     <verse num="17" />
     <text>Ибо Он принял от Бога Отца честь и славу, когда от велелепной славы принесся к Нему такой глас:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="God" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="God">
       <text>“This is my beloved Son, in whom I am well pleased.”</text>
     </ReferenceBlocks>
     <text>Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
@@ -370,9 +370,21 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
-      <text>“The dog turns to his own vomit again,” and “the sow that has washed to wallowing in the mire.”</text>
+      <text>“The dog turns to his own vomit again,.”</text>
     </ReferenceBlocks>
-    <text>“пес возвращается на свою блевотину, и: вымытая свинья идет валяться в грязи.”</text>
+    <text>“пес возвращается на свою блевотину,”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
+      <text>and</text>
+    </ReferenceBlocks>
+    <text>и:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
+      <text>“the sow that has washed to wallowing in the mire.”</text>
+    </ReferenceBlocks>
+    <text>“вымытая свинья идет валяться в грязи.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
