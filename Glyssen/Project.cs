@@ -1,18 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing.Text;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
-using DesktopAnalytics;
+﻿using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -37,6 +23,20 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing.Text;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
 using static System.String;
 
 namespace Glyssen
@@ -235,6 +235,10 @@ namespace Glyssen
 		{
 			if (m_projectMetadata.Type != ParatextScrTextWrapper.kLiveParatextProjectType)
 				throw new InvalidOperationException("GetSourceParatextProject should only be used for projects based on live Paratext projects.");
+			// TODO (Paratext 9.1): To get a project, we will first need to try to "Find" it using the name and GUID (because in P9.1 it will
+			// be possible to have multiple projects with the same name). If no match, then "Get" by name. If there is exactly one match by name,
+			// Paratext will return it. If there are no matches or multiple matches, Paratext will throw a ProjectNotFoundException, and we'll
+			// have to deal with it as we currently do.
 			return ScrTextCollection.Get(ParatextProjectName);
 		}
 
@@ -964,7 +968,42 @@ namespace Glyssen
 			try
 			{
 				scrTextWrapper = new ParatextScrTextWrapper(sourceScrText, QuoteSystemStatus != QuoteSystemStatus.Obtained);
-				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
+				bool compatible = scrTextWrapper.GlyssenDblTextMetadata.Language.Iso == Metadata.Language.Iso;
+				if (compatible)
+				{
+					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
+					if (!compatible && canInteractWithUser)
+					{
+						var msg = Format(LocalizationManager.GetString("Project.ParatextProjectIdChangedMsg",
+								"The ID of the {0} project {1} does not match the one expected by the {2} project. " +
+								"This usually happens when the {0} and {2} projects have been restored from backups " +
+								"(for example, to move them to a different computer). If this is the case, you can " +
+								"safely update this {2} project to use the ID of the {0} project on this computer. " +
+								"If you do not understand how this mismatch happened, please contact support.",
+								"Param 0: \"Paratext\" (product name); " +
+								"Param 1: Paratext project short name (unique project identifier); " +
+								"Param 2: \"Glyssen\" (product name)"),
+							ParatextScrTextWrapper.kParatextProgramName,
+							ParatextProjectName,
+							GlyssenInfo.kProduct);
+						var question = Format(LocalizationManager.GetString("Project.UpdateParatextProjectIdQuestion",
+							"Do you want to continue, updating the {0} project to use the new {1} project ID?",
+							"Param 0: \"Glyssen\" (product name); " +
+							"Param 1: \"Paratext\" (product name)"),
+							GlyssenInfo.kProduct,
+							ParatextScrTextWrapper.kParatextProgramName);
+
+						if (MessageBox.Show(msg + Environment.NewLine + Environment.NewLine + question, GlyssenInfo.kProduct,
+							MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+						{
+							ChangePublicationId(scrTextWrapper.GlyssenDblTextMetadata.Id);
+							compatible = true;
+						}
+						else
+							throw new ApplicationException(msg);
+					}
+				}
+				if (!compatible)
 				{
 					throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectMetadataChangedMsg",
 						"The settings of the {0} project {1} no longer appear to correspond to the {2} project. " +
@@ -992,6 +1031,13 @@ namespace Glyssen
 						ParatextScrTextWrapper.kParatextProgramName,
 						sourceScrText.Name) +
 						Environment.NewLine + e.Message;
+
+					var inner = e.InnerException;
+					while (inner != null)
+					{
+						msg += Environment.NewLine + inner.Message;
+						inner = inner.InnerException;
+					}
 
 					MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
@@ -1796,6 +1842,63 @@ namespace Glyssen
 			RobustFile.Delete(FallbackVersificationFilePath);
 		}
 
+		private void ChangePublicationId(string newPubId)
+		{
+			Debug.Assert(newPubId != m_metadata.Id);
+
+			string origProjectFolder = ProjectFolder;
+			string restoreId = m_metadata.Id;
+
+			m_metadata.Id = newPubId;
+
+			string FailureMessage() => LocalizationManager.GetString("Project.ChangeMetadataIdFailure",
+				"An error occurred attempting to change the publication ID for this project:");
+
+			try
+			{
+				var newProjectFolder = ProjectFolder;
+				Directory.CreateDirectory(Path.GetDirectoryName(newProjectFolder));
+				RobustIO.MoveDirectory(origProjectFolder, newProjectFolder);
+			}
+			catch (Exception inner)
+			{
+				m_metadata.Id = restoreId;
+				throw new ApplicationException(FailureMessage(), inner);
+			}
+
+			SaveProjectFile(out var error);
+			if (error == null)
+			{
+				try
+				{
+					RobustIO.DeleteDirectory(Path.GetDirectoryName(origProjectFolder));
+				}
+				catch (Exception e)
+				{
+					Logger.WriteError(e);
+				}
+				return;
+			}
+
+			var revertFolder = ProjectFolder;
+			m_metadata.Id = restoreId;
+			try
+			{
+				RobustIO.MoveDirectory(revertFolder, ProjectFolder);
+			}
+			catch (Exception moveFolderBackError)
+			{
+				// Uh-oh. We've gotten this project into a corrupted state.
+				m_metadata.Id = restoreId;
+				
+				throw new Exception(FailureMessage() + Environment.NewLine + error + Environment.NewLine + Environment.NewLine +
+					LocalizationManager.GetString("Project.ChangeMetadataIdCatastrophicFailure",
+						"During the attempt to recover and revert to the original ID, a catastrophic error occurred that has probably left " +
+						"this project in a corrupted state. Please contact support."), moveFolderBackError);
+			}
+			throw new ApplicationException(FailureMessage(), error);
+		}
+
 		public void Save(bool saveCharacterGroups = false)
 		{
 			if (!m_projectFileIsWritable)
@@ -1803,16 +1906,13 @@ namespace Glyssen
 
 			Directory.CreateDirectory(ProjectFolder);
 
-			m_metadata.LastModified = DateTime.Now;
-			var projectPath = ProjectFilePath;
-			Exception error;
-			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
+			SaveProjectFile(out var error);
 			if (error != null)
 			{
 				MessageBox.Show(error.Message);
 				return;
 			}
-			Settings.Default.CurrentProject = projectPath;
+
 			foreach (var book in m_books)
 				SaveBook(book);
 			SaveProjectCharacterVerseData();
@@ -1823,6 +1923,14 @@ namespace Glyssen
 			ProjectState = !IsQuoteSystemReadyForParse
 				? ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess)
 				: ProjectState.FullyInitialized;
+		}
+
+		private void SaveProjectFile(out Exception error)
+		{
+			m_metadata.LastModified = DateTime.Now;
+			var projectPath = ProjectFilePath;
+			if (XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error))
+				Settings.Default.CurrentProject = projectPath;
 		}
 
 		public void SaveBook(BookScript book)

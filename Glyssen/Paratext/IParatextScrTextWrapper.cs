@@ -23,7 +23,6 @@ namespace Glyssen.Paratext
 		IReadOnlyList<Book> AvailableBooks { get; }
 		void GetUpdatedBookInfo();
 		IEnumerable<UsxDocument> UsxDocumentsForIncludedBooks { get; }
-		bool IsMetadataCompatible(IReadOnlyGlyssenDblTextMetadata metadata);
 		string GetBookChecksum(int bookNum);
 		bool DoesBookPassChecks(int bookNumber, bool refreshInfoIfNeeded = false);
 		IEnumerable<string> GetCheckFailuresForBook(string bookId);
