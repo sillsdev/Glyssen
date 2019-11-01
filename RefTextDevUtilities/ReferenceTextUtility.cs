@@ -556,8 +556,9 @@ namespace Glyssen.RefTextDevUtilities
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
-						modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText, openDoubleQuote + "\u202F" + openQuoteSingle);
+						var modifiedText1 = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
+						// REVIEW: Is any of this quote replacement stuff needed in the OT? (Already checked and it's not ot needed in NT)
+						var modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText1, openDoubleQuote + "\u202F" + openQuoteSingle);
 						modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
 						modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
 						modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
@@ -565,10 +566,12 @@ namespace Glyssen.RefTextDevUtilities
 						modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
 						modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
 						modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
+						if (modifiedText1 != modifiedText)
+							Debug.WriteLine($"{modifiedText1} != {modifiedText}");
+						// END REVIEW
+
 						if (languageInfo.IsEnglish) // REVIEW: Do we want to enforce this for all languages?
 							modifiedText = modifiedText.Replace("  ", " ");
-						if (verseNumberFixedText != modifiedText)
-							Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
 
 						Block existingRefBlockForLanguage;
 						if (languageInfo.IsEnglish)
