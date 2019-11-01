@@ -485,7 +485,8 @@ namespace Glyssen.Dialogs
 			for (int i = CurrentReferenceTextMatchup.IndexOfStartBlockInBook; i < iLastBlockInMatchup || (i < blocks.Count && blocks[i].IsContinuationOfPreviousBlockQuote); i++)
 			{
 				var block = blocks[i];
-				AddRecordsToProjectControlFilesIfNeeded(block);
+				if (block.IsScripture)
+					AddRecordsToProjectControlFilesIfNeeded(block);
 			}
 
 			m_pendingCharacterDeliveryAdditions.Clear();

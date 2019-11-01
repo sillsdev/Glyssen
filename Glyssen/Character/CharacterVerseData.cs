@@ -298,18 +298,22 @@ namespace Glyssen.Character
 				.SingleOrDefault(cv => cv.Character == characterId && cv.Delivery == delivery);
 			if (cvToDelete != null)
 				removed = m_data.Remove(cvToDelete);
-			
-			ResetCaches();
+
+			if (removed)
+				ResetCaches();
 			return removed;
 		}
 
 		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
 			var intersection = m_data.Intersect(cvsToRemove, comparer).ToList();
-			foreach (CharacterVerse cv in intersection)
-				m_data.Remove(cv);
+			if (intersection.Any())
+			{
+				foreach (CharacterVerse cv in intersection)
+					m_data.Remove(cv);
 
-			ResetCaches();
+				ResetCaches();
+			}
 		}
 
 		private void ResetCaches()

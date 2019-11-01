@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -608,7 +609,8 @@ namespace Glyssen
 					list.AddRange(BlockElements.Skip(1).OfType<Verse>());
 					return list;
 				}
-				return new IVerse[0];
+
+				throw new InvalidOperationException("AllVerses property only valid for Scripture blocks.");
 			}
 		}
 

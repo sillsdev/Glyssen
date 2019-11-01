@@ -206,7 +206,7 @@ namespace Glyssen.Quote
 
 				bool thisBlockStartsWithAContinuer = false;
 
-				if (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
+				if (!block.IsScripture)
 				{
 					m_nextBlockContinuesQuote = false;
 

@@ -425,7 +425,10 @@ namespace GlyssenTests
 		public void AllVerses_ExtraBiblical_Empty(StandardCharacter type, string styleTag)
 		{
 			var block = new Block(styleTag) {BookCode = "MAT", CharacterId = GetStandardCharacterId("MAT", type)};
-			Assert.IsFalse(block.AllVerses.Any());
+			Assert.Throws<InvalidOperationException>(() =>
+			{
+				if (block.AllVerses.Any()) throw new Exception("Shouldn't have found any verses in a non-Scripture block - should have thrown InvalidOperationException.");
+			});
 		}
 
 		[TestCase(1, 3, "1-3")]
