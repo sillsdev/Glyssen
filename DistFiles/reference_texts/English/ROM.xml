@@ -301,14 +301,14 @@
     <verse num="10" />
     <text>As it is written,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
     <text>“There is no one righteous; no, not one.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
     <verse num="11" />
     <text>There is no one who understands. There is no one who seeks after God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
     <verse num="12" />
     <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
   </block>
@@ -320,19 +320,19 @@
     <verse num="14" />
     <text>“whose mouth is full of cursing and bitterness.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
     <verse num="15" />
     <text>“Their feet are swift to shed blood. </text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="scripture">
     <verse num="16" />
     <text>Destruction and misery are in their ways.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture">
     <verse num="17" />
     <text>The way of peace, they haven’t known.” </text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
     <text>“There is no fear of God before their eyes.”</text>
   </block>
@@ -418,10 +418,10 @@
     <verse num="7" />
     <text>David said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
     <text>“Blessed are they whose iniquities are forgiven, whose sins are covered.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
     <verse num="8" />
     <text>Blessed is the man whom the Lord will by no means charge with sin.”</text>
   </block>
@@ -1080,10 +1080,10 @@
     <verse num="27" />
     <text>Isaiah cries concerning Israel,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="scripture">
     <text>“If the number of the children of Israel are as the sand of the sea, it is the remnant who will be saved;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture">
     <verse num="28" />
     <text>for He will finish the work and cut it short in righteousness, because the LORD will make a short work upon the earth.”</text>
   </block>
@@ -1277,10 +1277,10 @@
     <verse num="9" />
     <text>David says,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="scripture">
     <text>“Let their table be made a snare, and a trap, a stumbling block, and a retribution to them.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture">
     <verse num="10" />
     <text>Let their eyes be darkened, that they may not see. Bow down their back always.”</text>
   </block>
@@ -1348,10 +1348,10 @@
     <verse num="26" />
     <text>Then all Israel will be saved. Even as it is written,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="scripture">
     <text>“There will come out of Zion the Deliverer, and he will turn away ungodliness from Jacob.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture">
     <verse num="27" />
     <text>This is my covenant to them, when I will take away their sins.”</text>
   </block>

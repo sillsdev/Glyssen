@@ -28,14 +28,14 @@
     <verse num="2" />
     <text>как написано у пророков:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="scripture">
       <text>“Behold, I send my messenger before your face, who will prepare your way before you.</text>
     </ReferenceBlocks>
     <text>“вот, Я посылаю Ангела Моего пред лицем Твоим, который приготовит путь Твой пред Тобою.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="scripture">
       <verse num="3" />
       <text>The voice of one crying in the wilderness, ‘Make ready the way of the Lord! Make his paths straight!’”</text>
     </ReferenceBlocks>
@@ -76,14 +76,14 @@
     <verse num="7" />
     <text>И проповедывал, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="John the Baptist" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="John the Baptist" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="John the Baptist" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="John the Baptist">
       <text>“After me comes he who is mightier than I, the thong of whose sandals I am not worthy to stoop down and loosen.</text>
     </ReferenceBlocks>
     <text>“идет за мною Сильнейший меня, у Которого я недостоин, наклонившись, развязать ремень обуви Его;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist">
       <verse num="8" />
       <text>I baptized you in water, but he will baptize you in the Holy Spirit.”</text>
     </ReferenceBlocks>
@@ -515,22 +515,22 @@
     <verse num="8" />
     <text>Иисус, тотчас узнав духом Своим, что они так помышляют в себе, сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" delivery="rebuking">
       <text>“Why do you reason these things in your hearts?</text>
     </ReferenceBlocks>
     <text>“для чего так помышляете в сердцах ваших?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus">
       <verse num="9" />
       <text>Which is easier, to tell the paralytic, ‘Your sins are forgiven;’ or to say, ‘Arise, and take up your bed, and walk?’</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Что легче? сказать ли расслабленному: прощаются тебе грехи? или сказать: встань, возьми свою постель и ходи?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus">
       <verse num="10" />
       <text>But that you may know that the Son of Man has authority on earth to forgive sins,”</text>
     </ReferenceBlocks>
@@ -651,30 +651,30 @@
     <verse num="19" />
     <text>И сказал им Иисус:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus">
       <text>“Can the groomsmen fast while the bridegroom is with them? As long as they have the bridegroom with them, they can’t fast.</text>
     </ReferenceBlocks>
     <text>“могут ли поститься сыны чертога брачного, когда с ними жених? Доколе с ними жених, не могут поститься,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus">
       <verse num="20" />
       <text>But the days will come when the bridegroom will be taken away from them, and then will they fast in that day.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>но придут дни, когда отнимется у них жених, и тогда будут поститься в те дни.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Jesus">
       <verse num="21" />
       <text>No one sews a piece of unshrunk cloth on an old garment, or else the patch shrinks and the new tears away from the old, and a worse hole is made.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Никто к ветхой одежде не приставляет заплаты из небеленой ткани: иначе вновь пришитое отдерет от старого, и дыра будет еще хуже.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus">
       <verse num="22" />
       <text>No one puts new wine into old wineskins, or else the new wine will burst the skins, and the wine pours out, and the skins will be destroyed; but they put new wine into fresh wineskins.”</text>
     </ReferenceBlocks>
@@ -707,14 +707,14 @@
     <verse num="25" />
     <text>Он сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus">
       <text>“Did you never read what David did, when he had need, and was hungry--he, and those who were with him?</text>
     </ReferenceBlocks>
     <text>“неужели вы не читали никогда, что сделал Давид, когда имел нужду и взалкал сам и бывшие с ним?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus">
       <verse num="26" />
       <text>In the days when Abiathar was high priest, David entered into God’s house and ate the consecrated bread, which is lawful only for the priests to eat. He also gave some to those who were with him?”</text>
     </ReferenceBlocks>
@@ -729,14 +729,14 @@
     <verse num="27" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Jesus">
       <text>“The Sabbath was made for man, not man for the Sabbath.</text>
     </ReferenceBlocks>
     <text>“суббота для человека, а не человек для субботы;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus">
       <verse num="28" />
       <text>Therefore the Son of Man is lord even of the Sabbath.”</text>
     </ReferenceBlocks>
@@ -983,54 +983,54 @@
     <verse num="23" />
     <text>И, призвав их, говорил им притчами:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="Jesus">
       <text>“How can Satan cast out Satan?</text>
     </ReferenceBlocks>
     <text>“как может сатана изгонять сатану?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="Jesus">
       <verse num="24" />
       <text>If a kingdom is divided against itself, that kingdom cannot stand.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Если царство разделится само в себе, не может устоять царство то;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>If a house is divided against itself, that house cannot stand.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>и если дом разделится сам в себе, не может устоять дом тот;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Jesus">
       <verse num="26" />
       <text>If Satan has risen up against himself, and is divided, he can’t stand, but has an end.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>и если сатана восстал на самого себя и разделился, не может устоять, но пришел конец его.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="Jesus">
       <verse num="27" />
       <text>But no one can enter into the house of the strong man to plunder, unless he first binds the strong man; and then he will plunder his house.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Никто, войдя в дом сильного, не может расхитить вещей его, если прежде не свяжет сильного, и тогда расхитит дом его.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="Jesus">
       <verse num="28" />
       <text>Most certainly I tell you, all the sins and blasphemies of men will be forgiven.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>Истинно говорю вам: будут прощены сынам человеческим все грехи и хуления, какими бы ни хулили;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="Jesus">
       <verse num="29" />
       <text>But whoever may blaspheme against the Holy Spirit never has forgiveness, but is guilty of an eternal sin.”</text>
     </ReferenceBlocks>
@@ -1089,14 +1089,14 @@
     <verse num="34" />
     <text>И обозрев сидящих вокруг Себя, говорит:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="34" characterId="Jesus">
       <text>“Behold, my mother and my brothers!</text>
     </ReferenceBlocks>
     <text>“вот матерь Моя и братья Мои;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus">
       <verse num="35" />
       <text>For whoever does the will of God, the same is my brother, and my sister, and mother.”</text>
     </ReferenceBlocks>
@@ -1125,48 +1125,48 @@
     <verse num="2" />
     <text>И учил их притчами много, и в учении Своем говорил им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="Jesus">
       <verse num="3" />
       <text>“Listen! Behold, a farmer went out to sow.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>“слушайте: вот, вышел сеятель сеять;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="Jesus">
       <verse num="4" />
       <text>As he sowed, some seed fell by the road, and the birds came and devoured it.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>и, когда сеял, случилось, что иное упало при дороге, и налетели птицы и поклевали то.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="Jesus">
       <verse num="5" />
       <text>Others fell on the rocky ground, where it had little soil, and immediately it sprang up, because it had no depth of soil.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Иное упало на каменистое место, где немного было земли, и скоро взошло, потому что земля была неглубока;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Jesus">
       <verse num="6" />
       <text>When the sun had risen, it was scorched; and because it had no root, it withered away.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>когда же взошло солнце, увяло и, как не имело корня, засохло.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="Jesus">
       <verse num="7" />
       <text>Others fell among the thorns, and the thorns grew up, and choked it, and it yielded no fruit.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Иное упало в терние, и терние выросло, и заглушило семя, и оно не дало плода.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Jesus">
       <verse num="8" />
       <text>Others fell into the good ground, and yielded fruit, growing up and increasing. Some brought forth thirty times, some sixty times, and some one hundred times as much.”</text>
     </ReferenceBlocks>
@@ -1199,14 +1199,14 @@
     <verse num="11" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Jesus">
       <text>“To you is given the mystery of the Kingdom of God, but to those who are outside, all things are done in parables,</text>
     </ReferenceBlocks>
     <text>“вам дано знать тайны Царствия Божия, а тем внешним все бывает в притчах;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="Jesus">
       <verse num="12" />
       <text>that ‘seeing they may see, and not perceive; and hearing they may hear, and not understand; lest perhaps they should turn again, and their sins should be forgiven them.’”</text>
     </ReferenceBlocks>
@@ -1221,62 +1221,62 @@
     <verse num="13" />
     <text>И говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Jesus">
       <text>“Don’t you understand this parable? How will you understand all of the parables?</text>
     </ReferenceBlocks>
     <text>“не понимаете этой притчи? Как же вам уразуметь все притчи?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="Jesus">
       <verse num="14" />
       <text>The farmer sows the word.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Сеятель слово сеет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
       <text>The ones by the road are the ones where the word is sown; and when they have heard, immediately Satan comes, and takes away the word which has been sown in them.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Посеянное при дороге означает тех, в которых сеется слово, но к которым, когда услышат, тотчас приходит сатана и похищает слово, посеянное в сердцах их.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Jesus">
       <verse num="16" />
       <text>These in the same way are those who are sown on the rocky places, who, when they have heard the word, immediately receive it with joy.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Подобным образом и посеянное на каменистом месте означает тех, которые, когда услышат слово, тотчас с радостью принимают его,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus">
       <verse num="17" />
       <text>They have no root in themselves, but are short-lived. When oppression or persecution arises because of the word, immediately they stumble.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>но не имеют в себе корня и непостоянны; потом, когда настанет скорбь или гонение за слово, тотчас соблазняются.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="Jesus">
       <verse num="18" />
       <text>Others are those who are sown among the thorns. These are those who have heard the word,</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Посеянное в тернии означает слышащих слово,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Jesus">
       <verse num="19" />
       <text>but the cares of this age, the deceitfulness of riches, and the lusts of other things enter in and choke the word, and it becomes unfruitful.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>но в которых заботы века сего, обольщение богатством и другие пожелания, входя в них, заглушают слово, и оно бывает без плода.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Jesus">
       <verse num="20" />
       <text>Those which were sown on the good ground are those who hear the word, and accept it, and bear fruit, some thirty times, some sixty times, and some one hundred times.”</text>
     </ReferenceBlocks>
@@ -1291,22 +1291,22 @@
     <verse num="21" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="Jesus">
       <text>“Is the lamp brought to be put under a basket or under a bed? Isn’t it put on a stand?</text>
     </ReferenceBlocks>
     <text>“для того ли приносится свеча, чтобы поставить ее под сосуд или под кровать? не для того ли, чтобы поставить ее на подсвечнике?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="Jesus">
       <verse num="22" />
       <text>For there is nothing hidden, except that it should be made known; neither was anything made secret, but that it should come to light.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Нет ничего тайного, что не сделалось бы явным, и ничего не бывает потаенного, что не вышло бы наружу.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="Jesus">
       <verse num="23" />
       <text>If any man has ears to hear, let him hear.”</text>
     </ReferenceBlocks>
@@ -1321,14 +1321,14 @@
     <verse num="24" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="Jesus">
       <text>“Take heed what you hear. With whatever measure you measure, it will be measured to you, and more will be given to you who hear.</text>
     </ReferenceBlocks>
     <text>“замечайте, что слышите: какою мерою мерите, такою отмерено будет вам и прибавлено будет вам, слушающим.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>For whoever has, to him will more be given, and he who doesn’t have, even that which he has will be taken away from him.”</text>
     </ReferenceBlocks>
@@ -1343,30 +1343,30 @@
     <verse num="26" />
     <text>И сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="Jesus">
       <text>“The Kingdom of God is as if a man should cast seed on the earth.</text>
     </ReferenceBlocks>
     <text>“Царствие Божие подобно тому, как если человек бросит семя в землю,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="Jesus">
       <verse num="27" />
       <text>Night and day, whether he sleeps or gets up, the seed sprouts and grows, he doesn’t know how.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>и спит, и встает ночью и днем; и как семя всходит и растет, не знает он,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="Jesus">
       <verse num="28" />
       <text>All by itself, the earth bears fruit: first the blade, then the ear, then the full grain in the ear.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>ибо земля сама собою производит сперва зелень, потом колос, потом полное зерно в колосе.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="Jesus">
       <verse num="29" />
       <text>But when the fruit is ripe, immediately he puts forth the sickle, because the harvest has come.”</text>
     </ReferenceBlocks>
@@ -1381,22 +1381,22 @@
     <verse num="30" />
     <text>И сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="Jesus">
       <text>“How will we liken the Kingdom of God? Or with what parable will we illustrate it?</text>
     </ReferenceBlocks>
     <text>“чему уподобим Царствие Божие? или какою притчею изобразим его?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="Jesus">
       <verse num="31" />
       <text>It’s like a grain of mustard seed, which, when it is sown in the earth, it is less than all the seeds that are on the earth.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Оно—как зерно горчичное, которое, когда сеется в землю, есть меньше всех семян на земле;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="Jesus">
       <verse num="32" />
       <text>Yet when it is sown, grows up, and becomes greater than all the herbs, and puts out great branches, so that the birds of the sky can lodge under its shadow.”</text>
     </ReferenceBlocks>
@@ -2009,8 +2009,8 @@
     </ReferenceBlocks>
     <text>“откуда у Него это? что за премудрость дана Ему, и как такие чудеса совершаются руками Его?”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed">
       <verse num="3" />
       <text>Isn’t this the carpenter, the son of Mary, and brother of James, Joses, Judah, and Simon? Aren’t his sisters here with us?”</text>
     </ReferenceBlocks>
@@ -2071,14 +2071,14 @@
     <verse num="8" />
     <text>Затем он сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="Jesus">
       <text>“Take nothing for your journey, except a staff: no bread, no wallet, no money in your purse.</text>
     </ReferenceBlocks>
     <text>“ничего не берите на дорогу, за исключением персонала: Ни хлеба, ни кошелька, ни денег в вашем кошельке</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="Jesus">
       <verse num="9" />
       <text>Wear sandals, but only one tunic.”</text>
     </ReferenceBlocks>
@@ -2093,14 +2093,14 @@
     <verse num="10" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="Jesus">
       <text>“Wherever you enter into a house, stay there until you depart from there.</text>
     </ReferenceBlocks>
     <text>“если где войдете в дом, оставайтесь в нем, доколе не выйдете из того места.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Jesus">
       <verse num="11" />
       <text>Whoever will not receive you nor hear you, as you depart from there, shake off the dust that is under your feet for a testimony against them. Assuredly, I tell you, it will be more tolerable for Sodom and Gomorrah in the day of judgment than for that city!”</text>
     </ReferenceBlocks>
@@ -2379,14 +2379,14 @@
     <verse num="35" />
     <text>И как времени прошло много, ученики Его, приступив к Нему, говорят:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="35" characterId="disciples" delivery="taking charge" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="35" characterId="disciples" delivery="taking charge" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="35" characterId="disciples" delivery="taking charge" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="35" characterId="disciples" delivery="taking charge">
       <text>“This place is deserted, and it is late in the day.</text>
     </ReferenceBlocks>
     <text>место здесь пустынное, а времени уже много, —</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="36" characterId="disciples" delivery="taking charge" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="36" characterId="disciples" delivery="taking charge" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="36" characterId="disciples" delivery="taking charge" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="36" characterId="disciples" delivery="taking charge">
       <verse num="36" />
       <text>Send them away, that they may go into the surrounding country and villages, and buy themselves bread, for they have nothing to eat.”</text>
     </ReferenceBlocks>
@@ -2697,14 +2697,14 @@
     <verse num="6" />
     <text>Он сказал им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Jesus" delivery="rebuking">
       <text>“Well did Isaiah prophesy of you hypocrites, as it is written, ‘This people honors me with their lips, but their heart is far from me.</text>
     </ReferenceBlocks>
     <text>“хорошо пророчествовал о вас, лицемерах, Исаия, как написано: люди сии чтут Меня устами, сердце же их далеко отстоит от Меня,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Jesus" delivery="rebuking">
       <verse num="7" />
       <text>But in vain do they worship me, teaching as doctrines the commandments of men.’</text>
     </ReferenceBlocks>
@@ -2727,38 +2727,38 @@
     <verse num="9" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Jesus" delivery="rebuking">
       <text>“Full well do you reject the commandment of God, that you may keep your tradition.</text>
     </ReferenceBlocks>
     <text>“хорошо ли, что вы отменяете заповедь Божию, чтобы соблюсти свое предание?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Jesus" delivery="rebuking">
       <verse num="10" />
       <text>For Moses said, ‘Honor your father and your mother;’ and, ‘He who speaks evil of father or mother, let him be put to death.’</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Ибо Моисей сказал: почитай отца своего и мать свою; и: злословящий отца или мать смертью да умрет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking">
       <verse num="11" />
       <text>But you say, ‘If a man tells his father or his mother, “Whatever profit you might have received from me is Corban, that is to say, given to God;”’</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>А вы говорите: кто скажет отцу или матери: корван, то есть дар Богу то, чем бы ты от меня пользовался,”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking">
       <verse num="12" />
       <text>then you no longer allow him to do anything for his father or his mother.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>тому вы уже попускаете ничего не делать для отца своего или матери своей,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Jesus" delivery="rebuking">
       <verse num="13" />
       <text>You make void the word of God by your tradition, which you have handed down. You do many things like this.”</text>
     </ReferenceBlocks>
@@ -2773,22 +2773,22 @@
     <verse num="14" />
     <text>И, призвав весь народ, говорил им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="Jesus">
       <text>“Hear me, all of you, and understand.</text>
     </ReferenceBlocks>
     <text>“слушайте Меня все и разумейте:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
       <text>There is nothing from outside of the man, that going into him can defile him; but the things which proceed out of the man are those that defile the man.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>ничто, входящее в человека извне, не может осквернить его; но что исходит из него, то оскверняет человека.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Jesus">
       <verse num="16" />
       <text>If anyone has ears to hear, let him hear!”</text>
     </ReferenceBlocks>
@@ -2807,14 +2807,14 @@
     <verse num="18" />
     <text>Он сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus">
       <text>“Are you thus without understanding also? Don’t you see that whatever goes into a man from outside can’t defile him?</text>
     </ReferenceBlocks>
     <text>“неужели и вы так непонятливы? Неужели не разумеете, что ничто, извне входящее в человека, не может осквернить его?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus">
       <verse num="19" />
       <text>This is because it doesn’t go into his heart, but into his stomach, then into the latrine, thus purifying all foods.”</text>
     </ReferenceBlocks>
@@ -2831,30 +2831,30 @@
     <verse num="20" />
     <text>Далее сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Jesus" delivery="instructing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Jesus" delivery="instructing" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Jesus" delivery="instructing" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Jesus" delivery="instructing">
       <text>“That which proceeds out of a man, that is what defiles a man.</text>
     </ReferenceBlocks>
     <text>“исходящее из человека оскверняет человека.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Jesus" delivery="instructing" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Jesus" delivery="instructing">
       <verse num="21" />
       <text>For from within, out of the hearts of men, proceed evil thoughts, adulteries, sexual sins, murders, thefts,</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Ибо извнутрь, из сердца человеческого, исходят злые помыслы, прелюбодеяния, любодеяния, убийства,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Jesus" delivery="instructing" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Jesus" delivery="instructing">
       <verse num="22" />
       <text>covetings, wickedness, deceit, lustful desires, an evil eye, blasphemy, pride, and foolishness.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>кражи, лихоимство, злоба, коварство, непотребство, завистливое око, богохульство, гордость, безумство, —</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing">
       <verse num="23" />
       <text>All these evil things come from within, and defile the man.”</text>
     </ReferenceBlocks>
@@ -3041,16 +3041,16 @@
     <verse num="1" />
     <text>В те дни, когда собралось весьма много народа и нечего было им есть, Иисус, призвав учеников Своих, сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="Jesus">
       <verse num="2" />
       <text>“I have compassion on the multitude, because they have stayed with me now three days, and have nothing to eat.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>“жаль Мне народа, что уже три дня находятся при Мне, и нечего им есть.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="Jesus">
       <verse num="3" />
       <text>If I send them away fasting to their home, they will faint on the way, for some of them have come a long way.”</text>
     </ReferenceBlocks>
@@ -3225,22 +3225,22 @@
     <verse num="17" />
     <text>Иисус, уразумев, говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking">
       <text>“Why do you reason that it’s because you have no bread? Don’t you perceive yet, neither understand? Is your heart still hardened?</text>
     </ReferenceBlocks>
     <text>“что рассуждаете о том, что нет у вас хлебов? Еще ли не понимаете и не разумеете? Еще ли окаменено у вас сердце?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking">
       <verse num="18" />
       <text>Having eyes, don’t you see? Having ears, don’t you hear? Don’t you remember?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Имея очи, не видите? имея уши, не слышите? и не помните?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking">
       <verse num="19" />
       <text>When I broke the five loaves among the five thousand, how many baskets full of broken pieces did you take up?”</text>
     </ReferenceBlocks>
@@ -3463,38 +3463,38 @@
     <verse num="34" />
     <text>И, подозвав народ с учениками Своими, сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Jesus">
       <text>“Whoever wants to come after me, let him deny himself, and take up his cross, and follow me.</text>
     </ReferenceBlocks>
     <text>“кто хочет идти за Мною, отвергнись себя, и возьми крест свой, и следуй за Мною.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="Jesus">
       <verse num="35" />
       <text>For whoever wants to save his life will lose it; and whoever will lose his life for my sake and the sake of the Good News will save it.</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Ибо кто хочет душу свою сберечь, тот потеряет ее, а кто потеряет душу свою ради Меня и Евангелия, тот сбережет ее.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="Jesus">
       <verse num="36" />
       <text>For what does it profit a man, to gain the whole world, and forfeit his life?</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Ибо какая польза человеку, если он приобретет весь мир, а душе своей повредит?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="Jesus">
       <verse num="37" />
       <text>For what will a man give in exchange for his life?</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>Или какой выкуп даст человек за душу свою?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus">
       <verse num="38" />
       <text>For whoever will be ashamed of me and of my words in this adulterous and sinful generation, the Son of Man also will be ashamed of him, when he comes in the glory of his Father with the holy angels.”</text>
     </ReferenceBlocks>
@@ -3635,14 +3635,14 @@
     <verse num="12" />
     <text>Он сказал им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus">
       <text>“Elijah indeed comes first, and restores all things. How is it written about the Son of Man, that he should suffer many things and be despised?</text>
     </ReferenceBlocks>
     <text>“правда, Илия должен придти прежде и устроить всё; и Сыну Человеческому, как написано о Нем, надлежит много пострадать и быть уничижену.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus">
       <verse num="13" />
       <text>But I tell you that Elijah has come, and they have also done to him whatever they wanted to, even as it is written about him.”</text>
     </ReferenceBlocks>
@@ -3683,14 +3683,14 @@
     <verse num="17" />
     <text>Один из народа сказал в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="father of demon-possessed boy" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="father of demon-possessed boy" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="father of demon-possessed boy" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="father of demon-possessed boy">
       <text>“Teacher, I brought to you my son, who has a mute spirit.</text>
     </ReferenceBlocks>
     <text>“Учитель! я привел к Тебе сына моего, одержимого духом немым:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="father of demon-possessed boy" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="father of demon-possessed boy" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="father of demon-possessed boy" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="father of demon-possessed boy">
       <verse num="18" />
       <text>Whenever it seizes him, it throws him down, and he foams at the mouth, and grinds his teeth, and becomes rigid. I asked your disciples to cast it out, but they could not.”</text>
     </ReferenceBlocks>
@@ -3949,94 +3949,94 @@
     <verse num="39" />
     <text>Иисус сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus">
       <text>“Don’t forbid him, for there is no one who will do a mighty work in my name, and be able quickly to speak evil of me.</text>
     </ReferenceBlocks>
     <text>“не запрещайте ему, ибо никто, сотворивший чудо именем Моим, не может вскоре злословить Меня.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="Jesus">
       <verse num="40" />
       <text>For whoever is not against us is on our side.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Ибо кто не против вас, тот за вас.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus">
       <verse num="41" />
       <text>For whoever will give you a cup of water to drink in my name, because you are Christ’s, most certainly I tell you, he will in no way lose his reward.</text>
     </ReferenceBlocks>
     <verse num="41" />
     <text>И кто напоит вас чашею воды во имя Мое, потому что вы Христовы, истинно говорю вам, не потеряет награды своей.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="42" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="42" characterId="Jesus">
       <verse num="42" />
       <text>Whoever will cause one of these little ones who believe in me to stumble, it would be better for him if he were thrown into the sea with a millstone hung around his neck.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>А кто соблазнит одного из малых сих, верующих в Меня, тому лучше было бы, если бы повесили ему жерновный камень на шею и бросили его в море.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="Jesus">
       <verse num="43" />
       <text>If your hand causes you to sin, cut it off. It is better for you to enter into life maimed, rather than having your two hands to go into Gehenna, into the unquenchable fire,</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>И если соблазняет тебя рука твоя, отсеки ее: лучше тебе увечному войти в жизнь, нежели с двумя руками идти в геенну, в огонь неугасимый,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus">
       <verse num="44" />
       <text>‘where their worm doesn’t die, and the fire is not quenched.’</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>где червь их не умирает и огонь не угасает.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="Jesus">
       <verse num="45" />
       <text>If your foot causes you to stumble, cut it off. It is better for you to enter into life lame, rather than having your two feet to be cast into Gehenna, into the fire that will never be quenched--</text>
     </ReferenceBlocks>
     <verse num="45" />
     <text>И если нога твоя соблазняет тебя, отсеки ее: лучше тебе войти в жизнь хромому, нежели с двумя ногами быть ввержену в геенну, в огонь неугасимый,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus">
       <verse num="46" />
       <text>‘where their worm doesn’t die, and the fire is not quenched.’</text>
     </ReferenceBlocks>
     <verse num="46" />
     <text>где червь их не умирает и огонь не угасает.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="47" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="47" characterId="Jesus">
       <verse num="47" />
       <text>If your eye causes you to sin, cast it out. It is better for you to enter into the Kingdom of God with one eye, rather than having two eyes to be cast into the Gehenna of fire,</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>И если глаз твой соблазняет тебя, вырви его: лучше тебе с одним глазом войти в Царствие Божие, нежели с двумя глазами быть ввержену в геенну огненную,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="48" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="48" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="48" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="48" characterId="Jesus">
       <verse num="48" />
       <text>‘where their worm doesn’t die, and the fire is not quenched.’</text>
     </ReferenceBlocks>
     <verse num="48" />
     <text>где червь их не умирает и огонь не угасает.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="49" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="49" characterId="Jesus">
       <verse num="49" />
       <text>For everyone will be salted with fire, and every sacrifice will be seasoned with salt.</text>
     </ReferenceBlocks>
     <verse num="49" />
     <text>Ибо всякий огнем осолится, и всякая жертва солью осолится.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus">
       <verse num="50" />
       <text>Salt is good, but if the salt has lost its saltiness, with what will you season it? Have salt in yourselves, and be at peace with one another.”</text>
     </ReferenceBlocks>
@@ -4107,38 +4107,38 @@
     <verse num="5" />
     <text>Иисус сказал им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus">
       <text>“For your hardness of heart, he wrote you this commandment.</text>
     </ReferenceBlocks>
     <text>“по жестокосердию вашему он написал вам сию заповедь.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="Jesus">
       <verse num="6" />
       <text>But from the beginning of the creation, God made them male and female.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>В начале же создания, Бог мужчину и женщину сотворил их.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="Jesus">
       <verse num="7" />
       <text>For this cause a man will leave his father and mother, and will join to his wife,</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Посему оставит человек отца своего и мать</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="Jesus">
       <verse num="8" />
       <text>and the two will become one flesh, so that they are no longer two, but one flesh.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>и прилепится к жене своей, и будут два одною плотью; так что они уже не двое, но одна плоть.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="Jesus">
       <verse num="9" />
       <text>What therefore God has joined together, let no man separate.”</text>
     </ReferenceBlocks>
@@ -4157,14 +4157,14 @@
     <verse num="11" />
     <text>Он сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="Jesus">
       <text>“Whoever divorces his wife, and marries another, commits adultery against her.</text>
     </ReferenceBlocks>
     <text>“кто разведется с женою своею и женится на другой, тот прелюбодействует от нее;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="Jesus">
       <verse num="12" />
       <text>If a woman herself divorces her husband, and marries another, she commits adultery.”</text>
     </ReferenceBlocks>
@@ -4193,14 +4193,14 @@
     <verse num="14" />
     <text>Увидев то, Иисус вознегодовал и сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus">
       <text>“Allow the little children to come to me! Don’t forbid them, for the Kingdom of God belongs to such as these.</text>
     </ReferenceBlocks>
     <text>“пустите детей приходить ко Мне и не препятствуйте им, ибо таковых есть Царствие Божие.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
       <text>Most certainly I tell you, whoever will not receive the Kingdom of God like a little child, he will in no way enter into it.”</text>
     </ReferenceBlocks>
@@ -4237,14 +4237,14 @@
     <verse num="18" />
     <text>Иисус сказал ему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="Jesus">
       <text>“Why do you call me good? No one is good except one--God.</text>
     </ReferenceBlocks>
     <text>“что ты называешь Меня благим? Никто не благ, как только один Бог.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Jesus">
       <verse num="19" />
       <text>You know the commandments: ‘Do not murder,’ ‘Do not commit adultery,’ ‘Do not steal,’ ‘Do not give false testimony,’ ‘Do not defraud,’ ‘Honor your father and mother.’”</text>
     </ReferenceBlocks>
@@ -4309,14 +4309,14 @@
     <verse num="24" />
     <text>Ученики ужаснулись от слов Его. Но Иисус опять говорит им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="Jesus">
       <text>“Children, how hard is it for those who trust in riches to enter into the Kingdom of God!</text>
     </ReferenceBlocks>
     <text>“дети! как трудно надеющимся на богатство войти в Царствие Божие!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>It is easier for a camel to go through a needle’s eye than for a rich man to enter into the Kingdom of God.”</text>
     </ReferenceBlocks>
@@ -4373,22 +4373,22 @@
     <verse num="29" />
     <text>Иисус сказал в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus">
       <text>“Most certainly I tell you, there is no one who has left house, or brothers, or sisters, or father, or mother, or wife, or children, or land, for my sake, and for the sake of the Good News,</text>
     </ReferenceBlocks>
     <text>“истинно говорю вам: нет никого, кто оставил бы дом, или братьев, или сестер, или отца, или мать, или жену, или детей, или земли, ради Меня и Евангелия,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="Jesus">
       <verse num="30" />
       <text>but he will receive one hundred times more now in this time, houses, brothers, sisters, mothers, children, and land, with persecutions; and in the age to come eternal life.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>и не получил бы ныне, во время сие, среди гонений, во сто крат более домов, и братьев и сестер, и отцов, и матерей, и детей, и земель, а в веке грядущем жизни вечной.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus">
       <verse num="31" />
       <text>But many who are first will be last; and the last first.”</text>
     </ReferenceBlocks>
@@ -4403,16 +4403,16 @@
     <verse num="32" />
     <text>Когда были они на пути, восходя в Иерусалим, Иисус шел впереди их, а они ужасались и, следуя за Ним, были в страхе. Подозвав двенадцать, Он опять начал им говорить о том, что будет с Ним:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Jesus">
       <verse num="33" />
       <text>“Behold, we are going up to Jerusalem. The Son of Man will be delivered to the chief priests and the scribes. They will condemn him to death, and will deliver him to the Gentiles.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>“вот, мы восходим в Иерусалим, и Сын Человеческий предан будет первосвященникам и книжникам, и осудят Его на смерть, и предадут Его язычникам,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus">
       <verse num="34" />
       <text>They will mock him, spit on him, scourge him, and kill him. On the third day he will rise again.”</text>
     </ReferenceBlocks>
@@ -4495,14 +4495,14 @@
     </ReferenceBlocks>
     <text>Иисус же сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="Jesus">
       <text>“You shall indeed drink the cup that I drink, and you shall be baptized with the baptism that I am baptized with.</text>
     </ReferenceBlocks>
     <text>“чашу, которую Я пью, будете пить, и крещением, которым Я крещусь, будете креститься;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="40" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="40" characterId="Jesus">
       <verse num="40" />
       <text>But to sit at my right hand and at my left hand is not mine to give, but for whom it has been prepared.”</text>
     </ReferenceBlocks>
@@ -4525,30 +4525,30 @@
     <verse num="42" />
     <text>Иисус же, подозвав их, сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Jesus">
       <text>“You know that they who are recognized as rulers over the nations lord it over them, and their great ones exercise authority over them.</text>
     </ReferenceBlocks>
     <text>“вы знаете, что почитающиеся князьями народов господствуют над ними, и вельможи их властвуют ими.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="43" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="43" characterId="Jesus">
       <verse num="43" />
       <text>But it shall not be so among you, but whoever wants to become great among you shall be your servant.</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>Но между вами да не будет так: а кто хочет быть большим между вами, да будем вам слугою;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="44" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="44" characterId="Jesus">
       <verse num="44" />
       <text>Whoever of you wants to become first among you, shall be bondservant of all.</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>и кто хочет быть первым между вами, да будет всем рабом.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus">
       <verse num="45" />
       <text>For the Son of Man also came not to be served, but to serve, and to give his life as a ransom for many.”</text>
     </ReferenceBlocks>
@@ -4697,14 +4697,14 @@
     <verse num="2" />
     <text>и говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="Jesus">
       <text>“Go your way into the village that is opposite you. Immediately as you enter into it, you will find a young donkey tied, on which no one has sat. Untie him, and bring him.</text>
     </ReferenceBlocks>
     <text>“пойдите в селение, которое прямо перед вами; входя в него, тотчас найдете привязанного молодого осла, на которого никто из людей не садился; отвязав его, приведите.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="Jesus">
       <verse num="3" />
       <text>If anyone asks you, ‘Why are you doing this?’ say, ‘The Lord needs him;’ and immediately he will send him back here.”</text>
     </ReferenceBlocks>
@@ -4783,14 +4783,14 @@
     <verse num="9" />
     <text>И предшествовавшие и сопровождавшие восклицали:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="crowd preparing for Passover Feast" delivery="praising" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="crowd preparing for Passover Feast" delivery="praising" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="crowd preparing for Passover Feast" delivery="praising" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="crowd preparing for Passover Feast" delivery="praising">
       <text>“Hosanna! Blessed is he who comes in the name of the Lord!</text>
     </ReferenceBlocks>
     <text>“осанна! благословен Грядущий во имя Господне!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="crowd preparing for Passover Feast" delivery="praising" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="crowd preparing for Passover Feast" delivery="praising" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="crowd preparing for Passover Feast" delivery="praising" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="crowd preparing for Passover Feast" delivery="praising">
       <verse num="10" />
       <text>Blessed is the kingdom of our father David that is coming in the name of the Lord! Hosanna in the highest!”</text>
     </ReferenceBlocks>
@@ -4913,8 +4913,8 @@
     <verse num="22" />
     <text>Иисус, отвечая, говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="Jesus">
       <text>“Have faith in God. </text>
       <verse num="23" />
       <text>For most certainly I tell you, whoever may tell this mountain, ‘Be taken up and cast into the sea,’ and doesn’t doubt in his heart, but believes that what he says is happening; he shall have whatever he says.</text>
@@ -4922,24 +4922,24 @@
     <verse num="23" />
     <text>“имейте веру Божию, ибо истинно говорю вам, если кто скажет горе сей: поднимись и ввергнись в море, и не усомнится в сердце своем, но поверит, что сбудется по словам его, будет ему, что ни скажет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus">
       <verse num="24" />
       <text>Therefore I tell you, all things whatever you pray and ask for, believe that you have received them, and you shall have them.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Потому говорю вам: всё, чего ни будете просить в молитве, верьте, что получите, —и будет вам.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>Whenever you stand praying, if you have anything against anyone, forgive them so that your Father who is in heaven may also forgive you your transgressions.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>И когда стоите на молитве, прощайте, если что имеете на кого, дабы и Отец ваш Небесный простил вам согрешения ваши.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus">
       <verse num="26" />
       <text>But if you do not forgive, neither will your Father in heaven forgive your transgressions.”</text>
     </ReferenceBlocks>
@@ -4972,14 +4972,14 @@
     <verse num="29" />
     <text>Иисус сказал им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus">
       <text>“I will ask you one question. Answer me, and I will tell you by what authority I do these things.</text>
     </ReferenceBlocks>
     <text>“спрошу и Я вас об одном, отвечайте Мне; тогда и Я скажу вам, какою властью это делаю.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus">
       <verse num="30" />
       <text>The baptism of John--was it from heaven, or from men? Answer me.”</text>
     </ReferenceBlocks>
@@ -4994,14 +4994,14 @@
     <verse num="31" />
     <text>Они рассуждали между собою:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="to themselves">
       <text>“If we should say, ‘From heaven;’ he will say, ‘Why then did you not believe him?’</text>
     </ReferenceBlocks>
     <text>если скажем: с небес, —то Он скажет: почему же вы не поверили ему?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves">
       <verse num="32" />
       <text>If we should say, ‘From men’”</text>
     </ReferenceBlocks>
@@ -5050,86 +5050,86 @@
     <verse num="1" />
     <text>И начал говорить им притчами:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="Jesus" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="Jesus" delivery="preaching">
       <text>“A man planted a vineyard, put a hedge around it, dug a pit for the winepress, built a tower, rented it out to a farmer, and went into another country.</text>
     </ReferenceBlocks>
     <text>“некоторый человек насадил виноградник и обнес оградою, и выкопал точило, и построил башню, и, отдав его виноградарям, отлучился.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="Jesus" delivery="preaching">
       <verse num="2" />
       <text>When it was time, he sent a servant to the farmer to get from the farmer his share of the fruit of the vineyard.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>И послал в свое время к виноградарям слугу—принять от виноградарей плодов из виноградника.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="Jesus" delivery="preaching">
       <verse num="3" />
       <text>They took him, beat him, and sent him away empty.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Они же, схватив его, били, и отослали ни с чем.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="Jesus" delivery="preaching">
       <verse num="4" />
       <text>Again, he sent another servant to them; and they threw stones at him, wounded him in the head, and sent him away shamefully treated.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Опять послал к ним другого слугу; и тому камнями разбили голову и отпустили его с бесчестьем.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="Jesus" delivery="preaching">
       <verse num="5" />
       <text>Again he sent another; and they killed him; and many others, beating some, and killing some.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>И опять иного послал: и того убили; и многих других то били, то убивали.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" delivery="preaching">
       <verse num="6" />
       <text>Therefore still having one, his beloved son, he sent him last to them, saying, ‘They will respect my son.’</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Имея же еще одного сына, любезного ему, напоследок послал и его к ним, говоря: постыдятся сына моего.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" delivery="preaching">
       <verse num="7" />
       <text>But those farmers said among themselves, ‘This is the heir. Come, let’s kill him, and the inheritance will be ours.’</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Но виноградари сказали друг другу: это наследник; пойдем, убьем его, и наследство будет наше.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="Jesus" delivery="preaching">
       <verse num="8" />
       <text>They took him, killed him, and cast him out of the vineyard.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>И, схватив его, убили и выбросили вон из виноградника.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus" delivery="preaching">
       <verse num="9" />
       <text>What therefore will the lord of the vineyard do? He will come and destroy the farmers, and will give the vineyard to others.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Что же сделает хозяин виноградника? —Придет и предаст смерти виноградарей, и отдаст виноградник другим.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="Jesus" delivery="preaching">
       <verse num="10" />
       <text>Haven’t you even read this Scripture: ‘The stone which the builders rejected, the same was made the head of the corner.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Неужели вы не читали сего в Писании: камень, который отвергли строители, тот самый сделался главою угла;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" delivery="preaching">
       <verse num="11" />
       <text>This was from the Lord, it is marvelous in our eyes’?”</text>
     </ReferenceBlocks>
@@ -5235,40 +5235,40 @@
     <verse num="18" />
     <text>Потом пришли к Нему саддукеи, которые говорят, что нет воскресения, и спросили Его, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="Sadducees" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="Sadducees" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="Sadducees" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="Sadducees">
       <verse num="19" />
       <text>“Teacher, Moses wrote to us, ‘If a man’s brother dies, and leaves a wife behind him, and leaves no children, that his brother should take his wife, and raise up offspring for his brother.’</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>“Учитель! Моисей написал нам: если у кого умрет брат и оставит жену, а детей не оставит, то брат его пусть возьмет жену его и восстановит семя брату своему.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="Sadducees" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="Sadducees" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="Sadducees" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="Sadducees">
       <verse num="20" />
       <text>There were seven brothers. The first took a wife, and dying left no offspring.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Было семь братьев: первый взял жену и, умирая, не оставил детей.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="Sadducees" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="Sadducees" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="Sadducees" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="Sadducees">
       <verse num="21" />
       <text>The second took her, and died, leaving no children behind him. The third likewise;</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Взял ее второй и умер, и он не оставил детей; также и третий.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="Sadducees" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="Sadducees" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="Sadducees" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="Sadducees">
       <verse num="22" />
       <text>and the seven took her and left no children. Last of all the woman also died.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Брали ее за себя семеро и не оставили детей. После всех умерла и жена.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="Sadducees" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="Sadducees" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="Sadducees" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="Sadducees">
       <verse num="23" />
       <text>In the resurrection, when they rise, whose wife will she be of them? For the seven had her as a wife.”</text>
     </ReferenceBlocks>
@@ -5283,30 +5283,30 @@
     <verse num="24" />
     <text>Иисус сказал им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="Jesus">
       <text>“Isn’t this because you are mistaken, not knowing the Scriptures, nor the power of God?</text>
     </ReferenceBlocks>
     <text>“этим ли приводитесь вы в заблуждение, не зная Писаний, ни силы Божией?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>For when they will rise from the dead, they neither marry, nor are given in marriage, but are like angels in heaven.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Ибо, когда из мертвых воскреснут, тогда не будут ни жениться, ни замуж выходить, но будут, как Ангелы на небесах.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus">
       <verse num="26" />
       <text>But about the dead, that they are raised; haven’t you read in the book of Moses, about the Bush, how God spoke to him, saying, ‘I am the God of Abraham, the God of Isaac, and the God of Jacob’?</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>А о мертвых, что они воскреснут, разве не читали вы в книге Моисея, как Бог при купине сказал ему: Я Бог Авраама, и Бог Исаака, и Бог Иакова?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus">
       <verse num="27" />
       <text>He is not the God of the dead, but of the living. You are therefore badly mistaken.”</text>
     </ReferenceBlocks>
@@ -5335,22 +5335,22 @@
     <verse num="29" />
     <text>Иисус отвечал ему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="Jesus">
       <text>“The greatest is, ‘Hear, Israel, the Lord our God, the Lord is one:</text>
     </ReferenceBlocks>
     <text>“первая из всех заповедей: слушай, Израиль! Господь Бог наш есть Господь единый;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus">
       <verse num="30" />
       <text>you shall love the Lord your God with all your heart, and with all your soul, and with all your mind, and with all your strength.’ This is the first commandment.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>и возлюби Господа Бога твоего всем сердцем твоим, и всею душею твоею, и всем разумением твоим, и всею крепостию твоею, —вот первая заповедь!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="Jesus">
       <verse num="31" />
       <text>The second is like this, ‘You shall love your neighbor as yourself.’ There is no other commandment greater than these.”</text>
     </ReferenceBlocks>
@@ -5365,14 +5365,14 @@
     <verse num="32" />
     <text>Книжник сказал Ему:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="32" characterId="expert in religious law" delivery="approving" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="32" characterId="expert in religious law" delivery="approving" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="32" characterId="expert in religious law" delivery="approving" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="32" characterId="expert in religious law" delivery="approving">
       <text>“Truly, teacher, you have said well that he is one, and there is none other but he.</text>
     </ReferenceBlocks>
     <text>“хорошо, Учитель! истину сказал Ты, что один есть Бог и нет иного, кроме Его;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law">
       <verse num="33" />
       <text>And to love him with all the heart, and with all the understanding, with all the soul, and with all the strength, and to love his neighbor as himself, is more important than all whole burnt offerings and sacrifices.”</text>
     </ReferenceBlocks>
@@ -5407,22 +5407,22 @@
     <verse num="35" />
     <text>Продолжая учить в храме, Иисус говорил:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="Jesus">
       <text>“How is it that the scribes say that the Christ is the son of David?</text>
     </ReferenceBlocks>
     <text>“как говорят книжники, что Христос есть Сын Давидов?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="36" characterId="Jesus">
       <verse num="36" />
       <text>For David himself said in the Holy Spirit, ‘The Lord said to my Lord, “Sit at my right hand, until I make your enemies the footstool of your feet.”’</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Ибо сам Давид сказал Духом Святым: сказал Господь Господу моему: седи одесную Меня, доколе положу врагов Твоих в подножие ног Твоих.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="Jesus">
       <verse num="37" />
       <text>Therefore David himself calls him Lord, so how can he be his son?”</text>
     </ReferenceBlocks>
@@ -5443,22 +5443,22 @@
     <verse num="38" />
     <text>И говорил им в учении Своем:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="38" characterId="Jesus">
       <text>“Beware of the scribes. They like to walk around in long robes, and to get greetings in the marketplaces.</text>
     </ReferenceBlocks>
     <text>"Остерегайтесь книжников. Они любят ходить в длинных одеждах, и, чтобы получить приветствия в народных собраниях.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="Jesus">
       <verse num="39" />
       <text>They choose the best seats in the synagogues, and the best places at feasts.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Они выбирают лучшие места в синагогах, и лучшие места на праздники.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus">
       <verse num="40" />
       <text>They devour widows’ houses, and for a pretense make long prayers. They will receive the greater damnation.”</text>
     </ReferenceBlocks>
@@ -5489,14 +5489,14 @@
     <verse num="43" />
     <text>Подозвав учеников Своих, Иисус сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus">
       <text>“Most certainly I tell you, this poor widow gave more than all those who are giving into the treasury.</text>
     </ReferenceBlocks>
     <text>“истинно говорю вам, что эта бедная вдова положила больше всех, клавших в сокровищницу,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus">
       <verse num="44" />
       <text>They all gave out of their abundance, but she, out of her poverty, gave all that she had to live on.”</text>
     </ReferenceBlocks>
@@ -5561,78 +5561,78 @@
     <verse num="5" />
     <text>Отвечая им, Иисус начал говорить:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="Jesus">
       <text>“Be careful that no one leads you astray.</text>
     </ReferenceBlocks>
     <text>“берегитесь, чтобы кто не прельстил вас,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="Jesus">
       <verse num="6" />
       <text>For many will come in my name, saying, ‘I am Christ!’ and will lead many astray.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>ибо многие придут под именем Моим и будут говорить, что это Я; и многих прельстят.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus">
       <verse num="7" />
       <text>“When you hear of wars and rumors of wars, don’t be troubled. For those must happen, but the end is not yet.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Когда же услышите о войнах и о военных слухах, не ужасайтесь: ибо надлежит сему быть, —но это еще не конец.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus">
       <verse num="8" />
       <text>For nation will rise against nation, and kingdom against kingdom. There will be earthquakes in various places. There will be famines and troubles. These things are the beginning of birth pains.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Ибо восстанет народ на народ и царство на царство; и будут землетрясения по местам, и будут глады и смятения. Это—начало болезней.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="Jesus">
       <verse num="9" />
       <text>But watch yourselves, for they will deliver you up to councils. You will be beaten in synagogues. You will stand before rulers and kings for my sake, for a testimony to them.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Но вы смотрите за собою, ибо вас будут предавать в судилища и бить в синагогах, и перед правителями и царями поставят вас за Меня, для свидетельства перед ними.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Jesus">
       <verse num="10" />
       <text>The Good News must first be preached to all the nations.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>И во всех народах прежде должно быть проповедано Евангелие.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Jesus">
       <verse num="11" />
       <text>When they lead you away and deliver you up, don’t be anxious beforehand, or premeditate what you will say, but say whatever will be given you in that hour. For it is not you who speak, but the Holy Spirit.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Когда же поведут предавать вас, не заботьтесь наперед, что вам говорить, и не обдумывайте; но что дано будет вам в тот час, то и говорите, ибо не вы будете говорить, но Дух Святый.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus">
       <verse num="12" />
       <text>“Brother will deliver up brother to death, and the father his child. Children will rise up against parents, and cause them to be put to death.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Предаст же брат брата на смерть, и отец—детей; и восстанут дети на родителей и умертвят их.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus">
       <verse num="13" />
       <text>You will be hated by all men for my name’s sake, but he who endures to the end, the same will be saved.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>И будете ненавидимы всеми за имя Мое; претерпевший же до конца спасется.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus">
       <verse num="14" />
       <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not</text>
     </ReferenceBlocks>
@@ -5645,190 +5645,190 @@
     </ReferenceBlocks>
     <text>—читающий да разумеет, —</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" chapter="13" initialStartVerse="14" characterId="Jesus">
       <text>then let those who are in Judea flee to the mountains.</text>
     </ReferenceBlocks>
     <text>то пусть те кто находятся в Иудее да бегут в горы.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
       <text>Let him who is on the housetop not go down, nor enter in, to take anything out of his house.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Пусть тот, кто будет на кровле, тот не сходи, ни войти, взять что-нибудь из дома своего.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="Jesus">
       <verse num="16" />
       <text>Let him who is in the field not return back to take his cloak.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Пусть тот, кто на поле, не обращайся назад взять его плащ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus">
       <verse num="17" />
       <text>But woe to those who are with child and to those who nurse babies in those days!</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Горе беременным и питающим сосцами в те дни.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus">
       <verse num="18" />
       <text>Pray that your flight won’t be in the winter.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Молитесь, чтобы не случилось бегство ваше зимою.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Jesus">
       <verse num="19" />
       <text>For in those days there will be oppression, such as there has not been the like from the beginning of the creation which God created until now, and never will be.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Ибо в те дни будет такая скорбь, какой не было от начала творения, которое сотворил Бог, даже доныне, и не будет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="Jesus">
       <verse num="20" />
       <text>Unless the Lord had shortened the days, no flesh would have been saved; but for the sake of the chosen ones, whom he picked out, he shortened the days.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>И если бы Господь не сократил тех дней, то не спаслась бы никакая плоть; но ради избранных, которых Он избрал, сократил те дни.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus">
       <verse num="21" />
       <text>Then if anyone tells you, ‘Look, here is the Christ!’ or, ‘Look, there!’ don’t believe it.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Тогда, если кто вам скажет: вот, здесь Христос, или: вот, там, —не верьте.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="Jesus">
       <verse num="22" />
       <text>For there will arise false christs and false prophets, and will show signs and wonders, that they may lead astray, if possible, even the chosen ones.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Ибо восстанут лжехристы и лжепророки и дадут знамения и чудеса, чтобы прельстить, если возможно, и избранных.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Jesus">
       <verse num="23" />
       <text>But you watch. Behold, I have told you all things beforehand.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Вы же берегитесь. Вот, Я наперед сказал вам всё.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="Jesus">
       <verse num="24" />
       <text>But in those days, after that oppression, the sun will be darkened, the moon will not give its light,</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Но в те дни, после скорби той, солнце померкнет, и луна не даст света своего,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>the stars will be falling from the sky, and the powers that are in the heavens will be shaken.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>и звезды спадут с неба, и силы небесные поколеблются.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="26" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="26" characterId="Jesus">
       <verse num="26" />
       <text>Then they will see the Son of Man coming in clouds with great power and glory.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Тогда увидят Сына Человеческого, грядущего на облаках с силою многою и славою.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Jesus">
       <verse num="27" />
       <text>Then he will send out his angels, and will gather together his chosen ones from the four winds, from the ends of the earth to the ends of the sky.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>И тогда Он пошлет Ангелов Своих и соберет избранных Своих от четырех ветров, от края земли до края неба.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus">
       <verse num="28" />
       <text>“Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>“От смоковницы возьмите подобие: когда ветви ее становятся уже мягки и пускают листья, то знаете, что близко лето.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus">
       <verse num="29" />
       <text>Even so you also, when you see these things coming to pass, know that it is near, at the doors.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Так и когда вы увидите то сбывающимся, знайте, что близко, при дверях.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Jesus">
       <verse num="30" />
       <text>Most certainly I say to you, this generation will not pass away until all these things happen.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Истинно говорю вам: не прейдет род сей, как всё это будет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="Jesus">
       <verse num="31" />
       <text>Heaven and earth will pass away, but my words will not pass away.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Небо и земля прейдут, но слова Мои не прейдут.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="32" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="32" characterId="Jesus">
       <verse num="32" />
       <text>But of that day or that hour no one knows, not even the angels in heaven, nor the Son, but only the Father.</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>О дне же том, или часе, никто не знает, ни Ангелы небесные, ни Сын, но только Отец.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus">
       <verse num="33" />
       <text>Watch, keep alert, and pray; for you don’t know when the time is.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Смотрите, бодрствуйте, молитесь, ибо не знаете, когда наступит это время.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus">
       <verse num="34" />
       <text>“It is like a man, traveling to another country, having left his house, and given authority to his servants, and to each one his work, and also commanded the doorkeeper to keep watch.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>“Подобно как бы кто, отходя в путь и оставляя дом свой, дал слугам своим власть и каждому свое дело, и приказал привратнику бодрствовать.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus">
       <verse num="35" />
       <text>Watch therefore, for you don’t know when the lord of the house is coming, whether at evening, or at midnight, or when the rooster crows, or in the morning;</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Итак бодрствуйте, ибо не знаете, когда придет хозяин дома: вечером, или в полночь, или в пение петухов, или поутру;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Jesus">
       <verse num="36" />
       <text>lest coming suddenly he might find you sleeping.</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>чтобы, придя внезапно, не нашел вас спящими.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus">
       <verse num="37" />
       <text>What I tell you, I tell all: Watch.”</text>
     </ReferenceBlocks>
@@ -5875,14 +5875,14 @@
     <verse num="4" />
     <text>Некоторые же вознегодовали и говорили между собою:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="disciples" delivery="scolding" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="disciples" delivery="scolding" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="disciples" delivery="scolding" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="disciples" delivery="scolding">
       <text>“Why has this ointment been wasted?</text>
     </ReferenceBlocks>
     <text>“к чему сия трата мира?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="disciples" delivery="scolding" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="disciples" delivery="scolding" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="disciples" delivery="scolding" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="disciples" delivery="scolding">
       <verse num="5" />
       <text>For this might have been sold for more than three hundred denarii, and given to the poor.”</text>
     </ReferenceBlocks>
@@ -5899,30 +5899,30 @@
     <verse num="6" />
     <text>Но Иисус сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="Jesus">
       <text>“Leave her alone. Why do you trouble her? She has done a good work for me.</text>
     </ReferenceBlocks>
     <text>“оставьте ее; что ее смущаете? Она доброе дело сделала для Меня.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="Jesus">
       <verse num="7" />
       <text>For you always have the poor with you, and whenever you want to, you can do them good; but you will not always have me.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Ибо нищих всегда имеете с собою и, когда захотите, можете им благотворить; а Меня не всегда имеете.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="Jesus">
       <verse num="8" />
       <text>She has done what she could. She has anointed my body beforehand for the burying.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Она сделала, что могла: предварила помазать тело Мое к погребению.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="Jesus">
       <verse num="9" />
       <text>Most certainly I tell you, wherever this Good News may be preached throughout the whole world, that which this woman has done will also be spoken of for a memorial of her.”</text>
     </ReferenceBlocks>
@@ -5985,22 +5985,22 @@
     <verse num="13" />
     <text>И посылает двух из учеников Своих и говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Jesus">
       <text>“Go into the city, and there you will meet a man carrying a pitcher of water. Follow him.</text>
     </ReferenceBlocks>
     <text>“пойдите в город; и встретится вам человек, несущий кувшин воды; последуйте за ним</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="Jesus">
       <verse num="14" />
       <text>Wherever he enters in, tell the master of the house, ‘The Teacher says, “Where is the guest room, where I may eat the Passover with my disciples?”’</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>и куда он войдет, скажите хозяину дома того: Учитель говорит: где комната, в которой бы Мне есть пасху с учениками Моими?”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
       <text>He will himself show you a large upper room furnished and ready. Get ready for us there.”</text>
     </ReferenceBlocks>
@@ -6055,14 +6055,14 @@
     <verse num="20" />
     <text>Он же сказал им в ответ:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="Jesus">
       <text>“It is one of the twelve, he who dips with me in the dish.</text>
     </ReferenceBlocks>
     <text>“один из двенадцати, обмакивающий со Мною в блюдо.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus">
       <verse num="21" />
       <text>For the Son of Man goes, even as it is written about him, but woe to that man by whom the Son of Man is betrayed! It would be better for that man if he had not been born.”</text>
     </ReferenceBlocks>
@@ -6095,14 +6095,14 @@
     <verse num="24" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="Jesus">
       <text>“This is my blood of the new covenant, which is poured out for many.</text>
     </ReferenceBlocks>
     <text>“сие есть Кровь Моя Нового Завета, за многих изливаемая.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="Jesus">
       <verse num="25" />
       <text>Most certainly I tell you, I will no more drink of the fruit of the vine, until that day when I drink it anew in the Kingdom of God.”</text>
     </ReferenceBlocks>
@@ -6121,14 +6121,14 @@
     <verse num="27" />
     <text>И говорит им Иисус:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus">
       <text>“All of you will be made to stumble because of me tonight, for it is written, ‘I will strike the shepherd, and the sheep will be scattered.’</text>
     </ReferenceBlocks>
     <text>“все вы соблазнитесь о Мне в эту ночь; ибо написано: поражу пастыря, и рассеются овцы.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="28" characterId="Jesus">
       <verse num="28" />
       <text>However, after I am raised up, I will go before you into Galilee.”</text>
     </ReferenceBlocks>
@@ -6241,14 +6241,14 @@
     <verse num="37" />
     <text>Возвращается и находит их спящими, и говорит Петру:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="Jesus">
       <text>“Simon, are you sleeping? Couldn’t you watch one hour?</text>
     </ReferenceBlocks>
     <text>“Симон! ты спишь? не мог ты бодрствовать один час?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="38" characterId="Jesus">
       <verse num="38" />
       <text>Watch and pray, that you may not enter into temptation. The spirit indeed is willing, but the flesh is weak.”</text>
     </ReferenceBlocks>
@@ -6279,14 +6279,14 @@
     <verse num="41" />
     <text>И приходит в третий раз и говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="41" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="41" characterId="Jesus">
       <text>“Sleep now and take your rest. It is enough. The hour has come. Behold, the Son of Man is betrayed into the hands of sinners.</text>
     </ReferenceBlocks>
     <text>“вы всё еще спите и почиваете? Кончено, пришел час: вот, предается Сын Человеческий в руки грешников.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="42" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="42" characterId="Jesus">
       <verse num="42" />
       <text>Arise, let us be going. Behold, he who betrays me is at hand.”</text>
     </ReferenceBlocks>
@@ -6355,14 +6355,14 @@
     <verse num="48" />
     <text>Тогда Иисус сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="48" characterId="Jesus" delivery="questioning" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="48" characterId="Jesus" delivery="questioning" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="48" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="48" characterId="Jesus" delivery="questioning">
       <text>“Have you come out, as against a robber, with swords and clubs to seize me?</text>
     </ReferenceBlocks>
     <text>“как будто на разбойника вышли вы с мечами и кольями, чтобы взять Меня.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus">
       <verse num="49" />
       <text>I was daily with you in the temple teaching, and you didn’t arrest me. But this is so that the Scriptures might be fulfilled.”</text>
     </ReferenceBlocks>
@@ -6973,14 +6973,14 @@
     <verse num="31" />
     <text>Подобно и первосвященники с книжниками, насмехаясь, говорили друг другу:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering">
       <text>“He saved others. He can’t save himself.</text>
     </ReferenceBlocks>
     <text>“других спасал, а Себя не может спасти.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="sneering" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="sneering">
       <verse num="32" />
       <text>Let the Christ, the King of Israel, now come down from the cross, that we may see and believe him.”</text>
     </ReferenceBlocks>
@@ -7225,14 +7225,14 @@
     <verse num="6" />
     <text>Он же говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angels in white, two" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angels in white, two" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angels in white, two" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angels in white, two">
       <text>“Don’t be alarmed. You seek Jesus, the Nazarene, who has been crucified. He has risen. He is not here. Behold, the place where they laid him!</text>
     </ReferenceBlocks>
     <text>“не ужасайтесь. Иисуса ищете Назарянина, распятого; Он воскрес, Его нет здесь. Вот место, где Он был положен.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="angels in white, two" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="angels in white, two" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="angels in white, two" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="angels in white, two">
       <verse num="7" />
       <text>But go, tell his disciples and Peter, ‘He goes before you into Galilee. There you will see him, as he said to you.’”</text>
     </ReferenceBlocks>
@@ -7309,30 +7309,30 @@
     <verse num="15" />
     <text>И сказал им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus">
       <text>“Go into all the world, and preach the Good News to the whole creation.</text>
     </ReferenceBlocks>
     <text>“идите по всему миру и проповедуйте Евангелие всей твари.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="Jesus">
       <verse num="16" />
       <text>He who believes and is baptized will be saved; but he who disbelieves will be condemned.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Кто будет веровать и креститься, спасен будет; а кто не будет веровать, осужден будет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="Jesus">
       <verse num="17" />
       <text>These signs will accompany those who believe: in my name they will cast out demons; they will speak with new languages;</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Уверовавших же будут сопровождать сии знамения: именем Моим будут изгонять бесов; будут говорить новыми языками;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="Jesus">
       <verse num="18" />
       <text>they will take up serpents; and if they drink any deadly thing, it will in no way hurt them; they will lay hands on the sick, and they will recover.”</text>
     </ReferenceBlocks>

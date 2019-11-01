@@ -101,10 +101,10 @@
     <verse num="24" />
     <text>For,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture">
     <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture">
     <verse num="25" />
     <text>but the Lord’s word endures forever.”</text>
   </block>
@@ -267,14 +267,14 @@
     <verse num="10" />
     <text>For,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
     <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
     <verse num="11" />
     <text>Let him turn away from evil, and do good. Let him seek peace, and pursue it.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
     <verse num="12" />
     <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.”</text>
   </block>

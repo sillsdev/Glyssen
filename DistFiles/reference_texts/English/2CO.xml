@@ -488,11 +488,11 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
     <text>“I will dwell in them, and walk in them; and I will be their God, and they will be my people.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture">
     <verse num="17" />
     <text>Therefore “‘Come out from among them, and be separate,’ says the Lord. ‘Touch no unclean thing. I will receive you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
     <text>I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.”</text>
   </block>

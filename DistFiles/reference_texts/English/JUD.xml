@@ -65,10 +65,10 @@
     <verse num="14" />
     <text>About these also Enoch, the seventh from Adam, prophesied, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch">
     <text>“Behold, the Lord came with ten thousands of his holy ones,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch">
     <verse num="15" />
     <text>to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him.”</text>
   </block>

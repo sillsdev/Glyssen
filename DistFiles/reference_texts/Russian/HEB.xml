@@ -106,14 +106,14 @@
     <verse num="8" />
     <text>А о Сыне:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture">
       <text>“Your throne, O God, is forever and ever. The scepter of uprightness is the scepter of your Kingdom.</text>
     </ReferenceBlocks>
     <text>престол Твой, Боже, в век века; жезл царствия Твоего—жезл правоты.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture">
       <verse num="9" />
       <text>You have loved righteousness, and hated iniquity; therefore God, your God, has anointed you with the oil of gladness above your fellows.”</text>
     </ReferenceBlocks>
@@ -128,22 +128,22 @@
     <verse num="10" />
     <text>И:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture">
       <text>“You, Lord, in the beginning, laid the foundation of the earth. The heavens are the works of your hands.</text>
     </ReferenceBlocks>
     <text>в начале Ты, Господи, основал землю, и небеса—дело рук Твоих;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture">
       <verse num="11" />
       <text>They will perish, but you continue. They all will grow old like a garment does.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>они погибнут, а Ты пребываешь; и все обветшают, как риза,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
       <text>As a mantle, you will roll them up, and they will be changed; but you are the same. Your years will not fail.”</text>
     </ReferenceBlocks>
@@ -226,22 +226,22 @@
     <verse num="6" />
     <text>напротив некто негде засвидетельствовал, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
       <text>“What is man, that you think of him? Or the son of man, that you care for him?</text>
     </ReferenceBlocks>
     <text>“что значит человек, что Ты помнишь его? или сын человеческий, что Ты посещаешь его?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
       <verse num="7" />
       <text>You made him a little lower than the angels. You crowned him with glory and honor; and did set him over the works of your hands.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Не много Ты унизил его пред Ангелами; славою и честью увенчал его, и поставил его над делами рук Твоих,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
       <verse num="8" />
       <text>You have put all things in subjection under his feet.”</text>
     </ReferenceBlocks>
@@ -415,38 +415,38 @@
     <verse num="7" />
     <text>Почему, как говорит Дух Святый,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture">
       <text>“Today if you will hear his voice,</text>
     </ReferenceBlocks>
     <text>“ныне, когда услышите глас Его,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture">
       <verse num="8" />
       <text>don’t harden your hearts, as in the rebellion, like as in the day of the trial in the wilderness.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>не ожесточите сердец ваших, как во время ропота, в день искушения в пустыне,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture">
       <verse num="9" />
       <text>Your fathers tested me by proving me, and saw my works for forty years.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>где искушали Меня отцы ваши, испытывали Меня, и видели дела Мои сорок лет.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
       <verse num="10" />
       <text>Therefore I was displeased with that generation, and said, ‘They always err in their heart, but they didn’t know my ways.’</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Посему Я вознегодовал на оный род и сказал: непрестанно заблуждаются сердцем, не познали они путей Моих;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
       <verse num="11" />
       <text>I swore in my wrath, ‘They will not enter into my rest.’”</text>
     </ReferenceBlocks>
@@ -1267,14 +1267,14 @@
     <verse num="8" />
     <text>Но пророк, укоряя их, говорит:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture">
       <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
     <text>“вот, наступают дни, говорит Господь, когда Я заключу с домом Израиля и с домом Иуды новый завет,”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture">
       <verse num="9" />
       <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,” says the Lord.</text>
     </ReferenceBlocks>
@@ -1289,22 +1289,22 @@
     <verse num="10" />
     <text>“Вот завет, который завещаю дому Израилеву после тех дней, говорит Господь:”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
       <text>“I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
     </ReferenceBlocks>
     <text>“вложу законы Мои в мысли их, и напишу их на сердцах их; и буду их Богом, а они будут Моим народом.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture">
       <verse num="11" />
       <text>They will not teach every man his fellow citizen, and every man his brother, saying, ‘Know the Lord.’ All will know me, from their least to their greatest.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>И не будет учить каждый ближнего своего и каждый брата своего, говоря: познай Господа; потому что все, от малого до большого, будут знать Меня,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
       <text>For I will be merciful to their unrighteousness. I will remember their sins and lawless deeds no more.”</text>
     </ReferenceBlocks>
@@ -1597,22 +1597,22 @@
     <verse num="5" />
     <text>Посему Христос, входя в мир, говорит:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture">
       <text>“Sacrifice and offering you didn’t desire, but you prepared a body for me;</text>
     </ReferenceBlocks>
     <text>“жертвы и приношения Ты не восхотел, но тело уготовал Мне.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture">
       <verse num="6" />
       <text>You had no pleasure in whole burnt offerings and sacrifices for sin.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Всесожжения и жертвы за грех неугодны Тебе.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
       <verse num="7" />
       <text>Then I said, ‘Behold, I have come (in the scroll of the book it is written of me) to do your will, O God.’”</text>
     </ReferenceBlocks>
@@ -1683,16 +1683,16 @@
     <verse num="15" />
     <text>О сем свидетельствует нам и Дух Святый; ибо сказано:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
       <verse num="16" />
       <text>“This is the covenant that I will make with them:</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>“Вот завет, который завещаю им после тех дней, говорит Господь:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
       <text>‘After those days,’ says the Lord, ‘I will put my laws on their heart, I will also write them on their mind;’”</text>
     </ReferenceBlocks>
     <text>вложу законы Мои в сердца их, и в мыслях их напишу их,”</text>
@@ -1885,14 +1885,14 @@
     <verse num="37" />
     <text>ибо</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture">
       <text>“In a very little while, he who comes will come, and will not wait.</text>
     </ReferenceBlocks>
     <text>“еще немного, очень немного, и Грядущий придет и не умедлит.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture">
       <verse num="38" />
       <text>But the righteous will live by faith. If he shrinks back, my soul has no pleasure in him.”</text>
     </ReferenceBlocks>
@@ -2285,14 +2285,14 @@
     <verse num="5" />
     <text>и забыли утешение, которое предлагается вам, как сынам:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture">
       <text>“My son, don’t take lightly the chastening of the Lord, nor faint when you are reproved by him;</text>
     </ReferenceBlocks>
     <text>“сын мой! не пренебрегай наказания Господня, и не унывай, когда Он обличает тебя.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture">
       <verse num="6" />
       <text>For whom the Lord loves, he chastens, and scourges every son whom he receives.”</text>
     </ReferenceBlocks>
