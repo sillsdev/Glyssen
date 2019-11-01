@@ -26,8 +26,7 @@ namespace Glyssen.Character
 			{
 				if (!block.UserConfirmed || overwriteUserConfirmed)
 				{
-					block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-						block.InitialEndVerseNumber, block.LastVerseNum, bookScript.Versification));
+					block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, bookScript.Versification));
 				}
 				else if (setDefaultForMultipleChoiceCharacters)
 				{

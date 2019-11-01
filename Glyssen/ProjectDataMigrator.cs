@@ -247,13 +247,12 @@ namespace Glyssen
 					{
 						var knownFactoryCharacter = characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
 						var unknownCharacter = !knownFactoryCharacter && !project.IsProjectSpecificCharacter(block.CharacterIdInScript);
-						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-							block.InitialEndVerseNumber, block.LastVerseNum, includeNarratorOverrides: true).Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses)
+							.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
 							// PG-471: This is a formerly known character who spoke in an unexpected location and was therefore added to the project CV file,
 							// but was subsequently removed or renamed from the master character detail list.
-							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+							project.ProjectCharacterVerseData.RemoveAllEntriesForBlock(bookNum, block);
 							block.UserConfirmed = false;
 							block.CharacterId = CharacterVerseData.kUnexpectedCharacter;
 							block.CharacterIdInScript = null;
@@ -261,8 +260,8 @@ namespace Glyssen
 						}
 						else
 						{
-							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
-								block.LastVerseNum, includeAlternatesAndRareQuotes: true, includeNarratorOverrides: true).ToList();
+							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses,
+								includeAlternatesAndRareQuotes: true, includeNarratorOverrides: true);
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)
@@ -282,7 +281,7 @@ namespace Glyssen
 								}
 								else
 								{
-									CharacterVerse match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
+									var match = characters.SingleOrDefault(c => c.ResolvedDefaultCharacter == block.CharacterId &&
 										c.Delivery == (block.Delivery ?? ""));
 									if (match != null)
 									{
@@ -296,9 +295,18 @@ namespace Glyssen
 							}
 							else if (knownFactoryCharacter)
 							{
-								project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-									block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
-								if (project.RemoveProjectCharacterDetail(block.CharacterId))
+								var projectCvEntryRemoved = false;
+								foreach (var verseNum in block.AllVerses.SelectMany(v => v.AllVerseNumbers))
+								{
+									if (ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, verseNum)
+										.Any(cv => cv.Character == block.CharacterId && cv.Delivery == (block.Delivery ?? "")))
+									{
+										projectCvEntryRemoved |= project.ProjectCharacterVerseData.RemoveEntryForBlock(bookNum, block, verseNum);
+									}
+								}
+
+
+								if (project.RemoveProjectCharacterDetail(block.CharacterId) || projectCvEntryRemoved)
 									numberOfChangesMade++;
 							}
 						}

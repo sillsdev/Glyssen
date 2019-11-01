@@ -166,7 +166,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_NoOverridesCoverVersesWithImplicitCharacter()
 		{
-			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.QuoteType == QuoteType.Implicit))
+			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.IsImplicit))
 			{
 				var verse = new VerseRef(BCVRef.BookToNumber(cv.BookCode), cv.Chapter, cv.Verse, ScrVers.English);
 				var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verse, cv.Verse);

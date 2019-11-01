@@ -110,7 +110,7 @@ namespace Glyssen
 			{
 				case ReferenceTextType.English:
 				case ReferenceTextType.Russian:
-					m_vers = ScrVers.English;
+					SetVersification(ScrVers.English);
 					break;
 				default:
 					SetVersification();
@@ -123,12 +123,12 @@ namespace Glyssen
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
 			if (File.Exists(VersificationFilePath))
 			{
-				m_vers = LoadVersification(VersificationFilePath);
+				SetVersification(LoadVersification(VersificationFilePath));
 			}
 			else
 			{
 				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versification.");
-				m_vers = ScrVers.English;
+				SetVersification(ScrVers.English);
 			}
 		}
 

@@ -295,19 +295,7 @@ namespace GlyssenTests
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
 					book.GetScriptBlocks().Count - 1);
 
-				foreach (var block in matchup.CorrelatedBlocks)
-				{
-					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
-							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
-						.Any(c => c.Character == character))
-					{
-						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
-							character, "foamy", null, true));
-					}
-					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
-					block.Delivery = "foamy";
-					block.UserConfirmed = true;
-				}
+				SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
 
 				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
 				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
@@ -367,19 +355,7 @@ namespace GlyssenTests
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
 					book.GetScriptBlocks().Count - 1);
 
-				foreach (var block in matchup.CorrelatedBlocks)
-				{
-					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
-							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
-						.Any(c => c.Character == character))
-					{
-						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
-							character, "foamy", null, true));
-					}
-					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
-					block.Delivery = "foamy";
-					block.UserConfirmed = true;
-				}
+				SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
 
 				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
 				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
@@ -435,19 +411,7 @@ namespace GlyssenTests
 				var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(book,
 					book.GetScriptBlocks().Count - 1);
 
-				foreach (var block in matchup.CorrelatedBlocks)
-				{
-					if (!ControlCharacterVerseData.Singleton.GetCharacters(book.BookNumber, block.ChapterNumber,
-							block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, testProject.Versification)
-						.Any(c => c.Character == character))
-					{
-						testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(book.BookNumber, block.ChapterNumber, block.InitialStartVerseNumber),
-							character, "foamy", null, true));
-					}
-					block.SetCharacterIdAndCharacterIdInScript(character, book.BookNumber, testProject.Versification);
-					block.Delivery = "foamy";
-					block.UserConfirmed = true;
-				}
+				SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(matchup, book.BookNumber, testProject, character);
 
 				Assert.IsTrue(testProject.ProjectCharacterVerseData.Any());
 				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
@@ -1300,6 +1264,22 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			Assert.IsTrue(testProject.SpeechDistributionScoreByCharacterId["Boaz"] >= 7);
+		}
+
+		private static void SetAndConfirmCharacterAndDeliveryForAllCorrelatedBlocks(BlockMatchup matchup, int bookNumber, Project testProject, string character, string delivery = "foamy")
+		{
+			foreach (var block in matchup.CorrelatedBlocks)
+			{
+				block.SetCharacterIdAndCharacterIdInScript(character, bookNumber, testProject.Versification);
+				block.Delivery = delivery;
+				if (!ControlCharacterVerseData.Singleton.GetCharacters(bookNumber, block.ChapterNumber, block.AllVerses, testProject.Versification)
+					.Any(c => c.Character == character))
+				{
+					testProject.ProjectCharacterVerseData.AddEntriesFor(bookNumber, block);
+				}
+
+				block.UserConfirmed = true;
+			}
 		}
 
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)

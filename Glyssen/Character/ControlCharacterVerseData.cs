@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
 
@@ -70,7 +71,145 @@ namespace Glyssen.Character
 				throw new ApplicationException("No character verse data available!");
 		}
 
-		protected override void AddCharacterVerse(CharacterVerse cv)
+		// In a perfect world, this would be private, but there are a lot of unit tests that make use of it because it
+		// is easier and cheaper than the public one. It assumes the chapter and verse passed in are in the English
+		// versification.
+		internal IEnumerable<ICharacterDeliveryInfo> GetCharacters(int bookId, int chapter, int verse)
+		{
+			return GetEntriesForRef(new BCVRef(bookId, chapter, verse));
+		}
+
+		/// <summary>
+		/// Gets all character/delivery pairs for the given verse or bridge.
+		/// </summary>
+		public override HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IVerse verseOrBridge,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
+		{
+			return GetCharacters(bookId, chapter, new[] {verseOrBridge}, versification, includeAlternatesAndRareQuotes, includeNarratorOverrides);
+		}
+
+		/// <summary>
+		/// Gets all characters completely covered by the given range of verses. If there are multiple verses, only
+		/// characters known to speak in ALL the verses will be included in the returned set, with the exception of
+		/// Interruptions, which will be included if they occur in any verse. Returned items will include the accompanying
+		/// deliveries if the deliveries are consistent across all verses.
+		/// </summary>
+		public override HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IReadOnlyCollection<IVerse> verses,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
+		{
+			if (versification == null)
+				versification = ScrVers.English;
+
+			List<string> overrideCharacters = null;
+			CharacterSpeakingMode interruption = null;
+			HashSet<CharacterSpeakingMode> result = null;
+
+			foreach (var verse in verses)
+			{
+				var entriesForCurrentVerseBridge = new HashSet<CharacterSpeakingMode>();
+				foreach (var v in verse.AllVerseNumbers)
+				{
+					var verseRef = new VerseRef(bookId, chapter, v, versification);
+					verseRef.ChangeVersification(ScrVers.English);
+					foreach (var cv in GetSpeakingModesForRef(verseRef))
+					{
+						if (cv.QuoteType == QuoteType.Interruption)
+						{
+							if (interruption == null)
+								interruption = cv;
+							continue;
+						}
+						var match = entriesForCurrentVerseBridge.FirstOrDefault(e => m_characterDeliveryEqualityComparer.Equals(e, cv));
+						if (match == null)
+						{
+							entriesForCurrentVerseBridge.Add(cv);
+						}
+						else if (!cv.IsUnusual && match.IsUnusual && !includeAlternatesAndRareQuotes)
+						{
+							// We prefer a regular quote type because in the end we will eliminate Alternate and Rare quotes.
+							// Since we have found a subsequent verse with the unusual character as a "regular" quote type,
+							// we want to replace the unusual entry with the preferred one.
+							entriesForCurrentVerseBridge.Remove(match);
+							entriesForCurrentVerseBridge.Add(cv);
+						}
+					}
+
+					if (includeNarratorOverrides)
+					{
+						overrideCharacters = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef,
+							verses.Last().EndVerse)?.Select(o => o.Character).ToList();
+						if (overrideCharacters != null && !overrideCharacters.Any())
+							overrideCharacters = null;
+						includeNarratorOverrides = false; // Don't need to get them again
+					}
+				}
+
+				if (result == null)
+					result = entriesForCurrentVerseBridge;
+				else
+					PerformPreferentialIntersection(ref result, entriesForCurrentVerseBridge);
+			}
+
+			if (result == null)
+				throw new ArgumentException("Empty enumeration passed to GetCharacters.", nameof(verses));
+
+			if (interruption != null)
+				result.Add(interruption);
+
+			if (!includeAlternatesAndRareQuotes)
+				result.RemoveWhere(cv => cv.QuoteType == QuoteType.Alternate || cv.QuoteType == QuoteType.Rare);
+
+			if (overrideCharacters != null)
+			{
+				foreach (var character in overrideCharacters.Where(c => !result.Any(r => r.Character == c && r.Delivery == Empty)))
+					result.Add(new CharacterSpeakingMode(character, Empty, null, false, QuoteType.Potential));
+			}
+
+			return result;
+		}
+
+		/// <summary>
+		/// Even though two CharacterSpeakingModes are equal if their character and delivery values are equal, some are "more
+		/// equal than others". This custom intersection logic prefers regular entries over unusual (rare/alternate ones) and
+		/// will also coalesce entries with conflicting deliveries into a single entry with no delivery specified.
+		/// </summary>
+		/// <param name="result"></param>
+		/// <param name="entriesForCurrentVerseBridge"></param>
+		internal void PerformPreferentialIntersection(ref HashSet<CharacterSpeakingMode> result, ISet<CharacterSpeakingMode> entriesForCurrentVerseBridge)
+		{
+			if (result.Any())
+			{
+				var exactMatches = new HashSet<CharacterSpeakingMode>(m_characterDeliveryEqualityComparer);
+				var characterMatches = new HashSet<CharacterSpeakingMode>(m_characterDeliveryEqualityComparer);
+				foreach (var entry in result)
+				{
+					var match = entriesForCurrentVerseBridge.FirstOrDefault(n => m_characterDeliveryEqualityComparer.Equals(n, entry));
+					if (match != null)
+					{
+						// We prefer a regular quote type because in the end we might eliminate Alternate and Rare quotes,
+						// but if any of the included verses have the unusual character as a "regular" quote type, we want
+						// to keep the character in the list.
+						exactMatches.Add(!entry.IsUnusual ? entry : match);
+					}
+					if (exactMatches.Any())
+						continue;
+					match = entriesForCurrentVerseBridge.FirstOrDefault(r => r.Character == entry.Character);
+					if (match != null)
+					{
+						if (entry.Delivery == null)
+							characterMatches.Add(entry);
+						else if (match.Delivery == null)
+							characterMatches.Add(match);
+						else
+							characterMatches.Add(new CharacterSpeakingMode(entry.Character, "", entry.Alias, false, QuoteType.Potential));
+					}
+				}
+
+				result = exactMatches.Any() ? exactMatches : characterMatches;
+			}
+		}
+
+		protected override bool AddCharacterVerse(CharacterVerse cv)
 		{
 			throw new ApplicationException("The control file cannot be modified programmatically.");
 		}
@@ -78,6 +217,22 @@ namespace Glyssen.Character
 		protected override void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
 			throw new ApplicationException("The control file cannot be modified programmatically.");
+		}
+
+		protected override HashSet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasSet()
+		{
+			var set = base.GetUniqueCharacterDeliveryAliasSet();
+			set.AddRange(NarratorOverrides.Singleton.Books.SelectMany(b => b.Overrides).Select(o => o.Character)
+				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
+		}
+
+		public override ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
+		{
+			var set = base.GetUniqueCharacterDeliveryInfo(bookCode);
+			set.AddRange(NarratorOverrides.GetNarratorOverridesForBook(bookCode).Select(o => o.Character)
+				.Distinct().Select(c => new NarratorOverrideCharacter(c)));
+			return set;
 		}
 
 		protected override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
