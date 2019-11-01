@@ -69,7 +69,7 @@ namespace Glyssen.Dialogs
 			if (IsNullOrWhiteSpace(character))
 				return;
 
-			var existingItem = CurrentContextCharacters.FirstOrDefault(c => c.ToString() == character);
+			var existingItem = CurrentContextCharacters.FirstOrDefault(c => c.ToString().Equals(character, StringComparison.OrdinalIgnoreCase));
 			if (existingItem != null)
 			{
 				m_listBoxCharacters.SelectedItem = existingItem;

@@ -126,7 +126,7 @@ namespace Glyssen
 										bundle.CopyVersificationFile(versificationPath);
 										try
 										{
-											Project.LoadVersification(versificationPath);
+											ProjectBase.LoadVersification(versificationPath);
 										}
 										catch (InvalidVersificationLineException ex)
 										{

@@ -906,8 +906,8 @@ namespace Glyssen.RefTextDevUtilities
 			fcbhCharacterLabel = s_stripFemaleSuffix.Replace(fcbhCharacterLabel, "$1");
 
 			var bookNum = BCVRef.BookToNumber(bookId);
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, includeAlternatesAndRareQuotes: true).ToList();
-			var implicitChar = characters.SingleOrDefault(c => c.QuoteType == QuoteType.Implicit);
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, includeAlternatesAndRareQuotes: true).ToList();
+			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
@@ -967,7 +967,7 @@ namespace Glyssen.RefTextDevUtilities
 				default:
 					if (characters.Any(c => c.Character == CharacterVerseData.kNeedsReview) && ForceRefTextToNeedsReview(fcbhCharacterLabel, bookId, block.ChapterNumber, block.InitialStartVerseNumber))
 						return CharacterVerseData.kNeedsReview;
-					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, CharacterVerse>(c.ResolvedDefaultCharacter, c)).ToList();
+					var defaultCharactersAndFullCharacterIds = characters.Select(c => new Tuple<string, CharacterSpeakingMode>(c.ResolvedDefaultCharacter, c)).ToList();
 					try
 					{
 						var single = defaultCharactersAndFullCharacterIds.SingleOrDefault(c => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, c.Item1) == MatchLikelihood.Reliable);

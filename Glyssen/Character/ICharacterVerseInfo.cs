@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Glyssen.Shared;
 using SIL.ObjectModel;
 using SIL.Scripture;
 
@@ -18,11 +19,19 @@ namespace Glyssen.Character
 	public interface ICharacterVerseRepository
 	{
 		/// <summary>
-		/// Gets all characters completely covered by the given range of verses. If there are multiple verses, only
-		/// characters known to speak in ALL the verses will be included in the returned set.
+		/// Gets all character/delivery pairs for the given verse or bridge.
 		/// </summary>
-		IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
+		HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IVerse verseOrBridge,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
+
+		/// <summary>
+		/// Gets all characters completely covered by the given range of verses. If there are multiple verses, only
+		/// characters known to speak in ALL the verses will be included in the returned set, with the exception of
+		/// Interruptions, which will be included if they occur in any verse. Returned items will include the accompanying
+		/// deliveries if the deliveries are consistent across all verses.
+		/// </summary>
+		HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IReadOnlyCollection<IVerse> verses,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false);
 
 		/// <summary>
 		/// Gets a single character/delivery object that represents the one known character expected to be the
@@ -39,11 +48,9 @@ namespace Glyssen.Character
 
 		IEnumerable<CharacterVerse> GetAllQuoteInfo(int bookNum);
 
-		IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries();
+		IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo();
 
-		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode);
-
-		ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter);
+		ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode);
 
 		ISet<string> GetUniqueDeliveries();
 	}
