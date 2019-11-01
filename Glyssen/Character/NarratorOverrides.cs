@@ -72,7 +72,8 @@ namespace Glyssen.Character
 		public static bool ChangeToEnglishVersification(ref VerseRef startRef, ref int endVerse, out int endChapter)
 		{
 			if (endVerse < startRef.VerseNum)
-				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse.");
+				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse. " +
+					$"Details: {nameof(startRef)} = {startRef}; {nameof(endVerse)} = {endVerse}");
 
 			bool endAndStartAreSame = endVerse == startRef.VerseNum;
 			VerseRef endRef = endAndStartAreSame ? startRef : new VerseRef(startRef) { VerseNum = endVerse };
