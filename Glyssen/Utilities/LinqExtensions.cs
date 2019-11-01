@@ -21,7 +21,7 @@ namespace Glyssen.Utilities
 		public static T OnlyOrDefault<T>(this IEnumerable<T> source)
 		{
 			bool any = false;
-			T first = default;
+			T first = default(T);
 			foreach (var t in source)
 			{
 				if (any)
