@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.Scripture;
 
@@ -147,7 +148,7 @@ namespace Glyssen.Quote
 							{
 								for (int i = 1; i <= maxFollowingVersesToSearch; i++)
 								{
-									if (!cvInfo.GetCharacters(bookNum, quote.Chapter, quote.Verse + i, versification: versification).Any())
+									if (!cvInfo.GetCharacters(bookNum, quote.Chapter, new SingleVerse(quote.Verse + i), versification).Any())
 										break;
 									string followingText;
 									if (followingVerses.Count >= i )
