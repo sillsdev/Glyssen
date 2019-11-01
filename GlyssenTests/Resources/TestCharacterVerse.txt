@@ -5946,7 +5946,9 @@ JER	31	14	God		God (the LORD)
 JER	31	15	God		God (the LORD)
 JER	31	16	God		God (the LORD)
 JER	31	17	God		God (the LORD)
-JER	31	18	God		God (the LORD)
+JER	31	18	God		God (the LORD)	Normal		
+JER	31	18	Ephraim			Quotation		
+JER	31	18	God	quoting Ephraim	God (the LORD)	Alternate		
 JER	31	20	God		God (the LORD)
 JER	31	21	God		God (the LORD)
 JER	31	22	God		God (the LORD)
@@ -10580,6 +10582,7 @@ REV	2	26,27	Jesus		someone like a son of man
 REV	2	27	Jesus		someone like a son of man
 REV	2	29	Jesus		someone like a son of man
 REV	3	1	Jesus		someone like a son of man
+REV	3	2	Jesus		someone like a son of man
 REV	3	3	Jesus		someone like a son of man
 REV	3	4	Jesus		someone like a son of man
 REV	3	5	Jesus		someone like a son of man
