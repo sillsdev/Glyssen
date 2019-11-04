@@ -3240,7 +3240,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetBooksWithBlocksConnectedToReferenceText_ExtraBlockAtEndOfBook_ExtraBlocksNotAlignedtoreferenceText()
+		public void GetBooksWithBlocksConnectedToReferenceText_ExtraBlockAtEndOfBook_ExtraBlocksNotAlignedToReferenceText()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 19,
@@ -3253,7 +3253,7 @@ namespace GlyssenTests
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject, false).Single().GetScriptBlocks();
 
-			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
+			Assert.AreEqual(3, result[0].ReferenceBlocks.Count);
 			Assert.IsFalse(result[1].MatchesReferenceText);
 			Assert.IsFalse(result[1].ReferenceBlocks.Any());
 		}
@@ -3955,8 +3955,8 @@ namespace GlyssenTests
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
 			: base(metadata, ReferenceTextType.Custom, null)
 		{
-			if (m_vers != null && book.Versification == null)
-				book.Initialize(m_vers);
+			if (Versification != null && book.Versification == null)
+				book.Initialize(Versification);
 
 			m_books.Add(book);
 		}
@@ -3964,9 +3964,9 @@ namespace GlyssenTests
 		protected override void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			m_vers = ScrVers.English;
+			SetVersification(ScrVers.English);
 			foreach (var book in m_books.Where(b => b.Versification == null))
-				book.Initialize(m_vers);
+				book.Initialize(Versification);
 		}
 
 		private static GlyssenDblTextMetadata NewMetadata

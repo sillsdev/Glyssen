@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -183,30 +184,45 @@ namespace Glyssen
 			set => m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value;
 		}
 
-		private class VerseNumberFromBlock : IVerse
+		public class VerseNumberFromBlockBase : IVerse
 		{
-			public static implicit operator VerseNumberFromBlock(Block block)
-			{
-				return new VerseNumberFromBlock
-				{
-					StartVerse = block.InitialStartVerseNumber,
-					LastVerseOfBridge = block.InitialEndVerseNumber
-				 };
-			}
-
-			public int StartVerse { get; private set; }
+			public int StartVerse { get; protected set; }
 			public int EndVerse => LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge;
 
 			/// <summary>
 			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
 			/// </summary>
-			public int LastVerseOfBridge { get; private set; }
+			public int LastVerseOfBridge { get; protected set; }
 
 			public IEnumerable<int> AllVerseNumbers => this.GetAllVerseNumbers();
 		}
 
+		public class InitialVerseNumberBridgeFromBlock : VerseNumberFromBlockBase
+		{
+			public static implicit operator InitialVerseNumberBridgeFromBlock(Block block)
+			{
+				return new InitialVerseNumberBridgeFromBlock
+				{
+					StartVerse = block.InitialStartVerseNumber,
+					LastVerseOfBridge = block.InitialEndVerseNumber
+				};
+			}
+		}
+
+		public class VerseRangeFromBlock : VerseNumberFromBlockBase
+		{
+			public static implicit operator VerseRangeFromBlock(Block block)
+			{
+				return new VerseRangeFromBlock
+				{
+					StartVerse = block.InitialStartVerseNumber,
+					LastVerseOfBridge = block.LastVerseNum
+				};
+			}
+		}
+
 		public int LastVerseNum => LastVerse.EndVerse;
-		public IVerse LastVerse => BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this;
+		public IVerse LastVerse => BlockElements.OfType<IVerse>().LastOrDefault() ?? (InitialVerseNumberBridgeFromBlock)this;
 
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
@@ -354,6 +370,8 @@ namespace Glyssen
 		/// </summary>
 		public bool CoversMoreThanOneVerse => BlockElements.Skip(1).Any(e => e is Verse);
 
+		public int CountOfSoundsWhereUserSpecifiesLocation => BlockElements.OfType<Sound>().Count(s => s.UserSpecifiesLocation);
+
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
 			if (referenceBlock == null)
@@ -383,7 +401,7 @@ namespace Glyssen
 
 		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
 		{
-			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
+			var prevVerse = prevRefBlock == null ? (InitialVerseNumberBridgeFromBlock)this : prevRefBlock.LastVerse;
 			var refBlock = GetEmptyReferenceBlock(prevVerse);
 			refBlock.ParsePlainText(text);
 			if (!refBlock.StartsAtVerseStart && prevRefBlock == null && refBlock.InitialEndVerseNumber > 0)
@@ -435,10 +453,9 @@ namespace Glyssen
 
 		private Block GetEmptyReferenceBlock(IVerse prevVerse)
 		{
-			Block refBlock;
-			if (ReferenceBlocks != null && ReferenceBlocks.Count == 1)
+			Block refBlock = ReferenceBlocks?.OnlyOrDefault();
+			if (refBlock != null)
 			{
-				refBlock = ReferenceBlocks[0];
 				refBlock.StyleTag = StyleTag;
 				refBlock.ChapterNumber = ChapterNumber;
 				refBlock.InitialStartVerseNumber = prevVerse.StartVerse;
@@ -453,9 +470,9 @@ namespace Glyssen
 
 		private void SetMatchedReferenceBlock(List<Tuple<BlockElement, BlockElement>> referenceTextBlockElements)
 		{
-			Block primaryBlock = GetEmptyReferenceBlock((VerseNumberFromBlock)this);
+			Block primaryBlock = GetEmptyReferenceBlock((InitialVerseNumberBridgeFromBlock)this);
 			primaryBlock.BlockElements.AddRange(referenceTextBlockElements.Select(e => e.Item1));
-			var secondaryBlock = primaryBlock.GetEmptyReferenceBlock((VerseNumberFromBlock) primaryBlock);
+			var secondaryBlock = primaryBlock.GetEmptyReferenceBlock((InitialVerseNumberBridgeFromBlock) primaryBlock);
 			secondaryBlock.BlockElements.AddRange(referenceTextBlockElements.Select(e => e.Item2));
 			primaryBlock.SetMatchedReferenceBlock(secondaryBlock);
 		}
@@ -583,16 +600,19 @@ namespace Glyssen
 		/// verses or bridges. Note that the initial and final verses may not be entirely contained
 		/// within this block.
 		/// </summary>
-		public IEnumerable<IVerse> AllVerses
+		public IReadOnlyCollection<IVerse> AllVerses
 		{
 			get
 			{
 				if (IsScripture)
 				{
-					yield return BlockElements.First() as IVerse ?? new Verse(InitialVerseNumberOrBridge);
-					foreach (var subsequentVerse in BlockElements.Skip(1).OfType<Verse>())
-						yield return subsequentVerse;
+					var list = new List<IVerse>();
+					list.Add(new Verse(InitialVerseNumberOrBridge));
+					list.AddRange(BlockElements.Skip(1).OfType<Verse>());
+					return list;
 				}
+
+				throw new InvalidOperationException("AllVerses property only valid for Scripture blocks.");
 			}
 		}
 
@@ -755,9 +775,11 @@ namespace Glyssen
 
 		public string ToString(bool includeReference, string bookId = null)
 		{
-			if (!includeReference)
-				return ToString();
+			return !includeReference ? ToString() : GetReferenceString(bookId) + " : " + ToString();
+		}
 
+		public string GetReferenceString(string bookId = null)
+		{
 			if (bookId == null && !IsNullOrEmpty(BookCode))
 				bookId = BookCode;
 			int bookNum;
@@ -772,7 +794,7 @@ namespace Glyssen
 			var startRef = new BCVRef(bookNum, ChapterNumber, InitialStartVerseNumber);
 			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerseNum);
 
-			return BCVRef.MakeReferenceString(bookId, startRef, endRef, ":", "-") + " : " + ToString();
+			return BCVRef.MakeReferenceString(bookId, startRef, endRef, ":", "-");
 		}
 
 		/// <summary>
@@ -826,7 +848,7 @@ namespace Glyssen
 			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
 		}
 
-		public void SetCharacterAndDelivery(IEnumerable<CharacterVerse> characters)
+		public void SetCharacterAndDelivery(IReadOnlyCollection<CharacterSpeakingMode> characters)
 		{
 			var characterList = characters.ToList();
 			if (characterList.Count == 1)
@@ -842,23 +864,23 @@ namespace Glyssen
 			else
 			{
 				// Might all represent the same Character/Delivery. Need to check.
-				var distinctCharacterDeliveryList = characterList.Distinct(new CharacterDeliveryEqualityComparer()).ToList();
-				if (distinctCharacterDeliveryList.Count == 1)
+				var uniqueDelivery = characterList.Distinct(new CharacterDeliveryEqualityComparer()).OnlyOrDefault();
+				if (uniqueDelivery != null)
 				{
 					SetCharacterIdAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
-					Delivery = distinctCharacterDeliveryList.First().Delivery;
+					Delivery = uniqueDelivery.Delivery;
 				}
 				else
 				{
+					CharacterSpeakingMode nonInterruption;
 					if (characterList.Count(cd => cd.QuoteType == QuoteType.Interruption) == 1 &&
-						characterList.Count(cd => cd.QuoteType != QuoteType.Interruption) == 1 &&
+						(nonInterruption = characterList.OnlyOrDefault(cd => cd.QuoteType != QuoteType.Interruption)) != null &&
 						ProbablyDoesNotContainInterruption)
 					{
 						// Since this block does not appear to be an interruption, we can safely assign the character from
 						// the one and only cv record that is not an "Interruption" type.
-						var cv = characterList.First(cd => cd.QuoteType != QuoteType.Interruption);
-						SetCharacterIdAndCharacterIdInScript(cv.Character, () => cv);
-						Delivery = cv.Delivery;
+						SetCharacterIdAndCharacterIdInScript(nonInterruption.Character, () => nonInterruption);
+						Delivery = nonInterruption.Delivery;
 					}
 					else
 					{
@@ -873,9 +895,7 @@ namespace Glyssen
 		{
 			get
 			{
-				if (BlockElements.Count != 1)
-					return true;
-				var textElement = BlockElements[0] as ScriptText;
+				var textElement = BlockElements.OnlyOrDefault() as ScriptText;
 				if (textElement == null)
 					return true;
 				var text = textElement.Content;//.Trim();
@@ -889,7 +909,7 @@ namespace Glyssen
 			SetCharacterIdAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
 		}
 
-		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
+		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterSpeakingMode> getMatchingCharacterForVerse)
 		{
 			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter ||
 				characterId == CharacterVerseData.kNeedsReview)
@@ -924,15 +944,17 @@ namespace Glyssen
 				m_characterIdInScriptOverride = null;
 		}
 
-		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
+		private CharacterSpeakingMode GetMatchingCharacter(int bookNumber, ScrVers scrVers)
 		{
 			return GetMatchingCharacter(ControlCharacterVerseData.Singleton, bookNumber, scrVers);
 		}
 
-		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
+		public CharacterSpeakingMode GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
 		{
-			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
-				InitialEndVerseNumber, versification: scrVers, includeAlternatesAndRareQuotes:true).FirstOrDefault(c => c.Character == CharacterId);
+			// Note: Do not change this to call the version of GetCharacters that takes a single IVerse because some of
+			// the tests use a mocked call and they set up the mock for the other version.
+			return cvInfo.GetCharacters(bookNumber, ChapterNumber, new [] { (InitialVerseNumberBridgeFromBlock)this }, scrVers, true)
+				.FirstOrDefault(c => c.Character == CharacterId);
 		}
 
 		public static string BuildSplitLineHtml(int id)

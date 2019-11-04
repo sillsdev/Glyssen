@@ -60,9 +60,8 @@ namespace Glyssen.Character
 
 		public static IEnumerable<NarratorOverrideDetail> GetCharacterOverrideDetailsForRefRange(VerseRef startRef, int endVerse)
 		{
-			int endChapter;
-			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out endChapter))
-				return null;
+			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out var endChapter))
+				return new NarratorOverrideDetail[0];
 
 			return GetNarratorOverridesForBook(startRef.Book).Where(o =>
 				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
@@ -72,7 +71,8 @@ namespace Glyssen.Character
 		public static bool ChangeToEnglishVersification(ref VerseRef startRef, ref int endVerse, out int endChapter)
 		{
 			if (endVerse < startRef.VerseNum)
-				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse.");
+				throw new ArgumentOutOfRangeException(nameof(endVerse), "Range must be in a single chapter and end verse must be greater than start verse. " +
+					$"Details: {nameof(startRef)} = {startRef}; {nameof(endVerse)} = {endVerse}");
 
 			bool endAndStartAreSame = endVerse == startRef.VerseNum;
 			VerseRef endRef = endAndStartAreSame ? startRef : new VerseRef(startRef) { VerseNum = endVerse };

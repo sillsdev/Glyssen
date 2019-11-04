@@ -1,4 +1,4 @@
-Control File Version	148
+Control File Version	150
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -8780,7 +8780,6 @@ SNG	2	13	beloved			Potential
 SNG	2	13	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	14	beloved			Potential		
 SNG	2	14	Solomon, king		Solomon (lover)	Quotation		
-SNG	2	15	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	15	Solomon, king		Solomon (lover)	Potential		
 SNG	2	15	beloved			Potential		
 SNG	2	15	maidens			Potential		
@@ -9105,8 +9104,7 @@ ISA	8	8	God		God (the LORD)	Implicit
 ISA	8	9	Isaiah			Potential		
 ISA	8	10	God		God (the LORD)	Potential		
 ISA	8	11	Isaiah			Potential		
-ISA	8	12	God		God (the LORD)	Implicit		
-ISA	8	12	God		God (the LORD)	Quotation		
+ISA	8	12	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	8	13	God		God (the LORD)	Implicit		
 ISA	8	13	Isaiah			Alternate		
 ISA	8	14	God		God (the LORD)	Implicit		
@@ -9700,10 +9698,8 @@ ISA	41	9	God		God (the LORD)	Implicit
 ISA	41	10	God		God (the LORD)	Implicit		
 ISA	41	11	God		God (the LORD)	Implicit		
 ISA	41	12	God		God (the LORD)	Implicit		
-ISA	41	13	God		God (the LORD)	Implicit		
-ISA	41	13	God		God (the LORD)	Quotation		
-ISA	41	14	God		God (the LORD)	Implicit		
-ISA	41	14	God		God (the LORD)	Quotation		
+ISA	41	13	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
+ISA	41	14	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	41	15	God		God (the LORD)	Implicit		
 ISA	41	16	God		God (the LORD)	Implicit		
 ISA	41	17	God		God (the LORD)	Implicit		
@@ -9718,8 +9714,7 @@ ISA	41	25	God		God (the LORD)	Implicit
 ISA	41	26	Needs Review			Implicit		
 ISA	41	26	God		God (the LORD)	Alternate		
 ISA	41	26	Isaiah			Alternate		
-ISA	41	27	God		God (the LORD)	Implicit		
-ISA	41	27	God		God (the LORD)	Quotation		
+ISA	41	27	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	41	28	God		God (the LORD)	Implicit		
 ISA	41	28	Isaiah			Alternate		
 ISA	41	29	God		God (the LORD)	Implicit		
@@ -9933,8 +9928,7 @@ ISA	49	15	God		God (the LORD)	Implicit
 ISA	49	16	God		God (the LORD)	Implicit		
 ISA	49	17	God		God (the LORD)	Implicit		
 ISA	49	17	Isaiah			Alternate		
-ISA	49	18	God		God (the LORD)	Normal		
-ISA	49	18	God	vowing	God (the LORD)	Quotation		
+ISA	49	18	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	49	18	Isaiah			Alternate		
 ISA	49	19	God		God (the LORD)	Implicit		
 ISA	49	19	Isaiah			Alternate		
@@ -9977,8 +9971,7 @@ ISA	51	13	God		God (the LORD)	Implicit
 ISA	51	14	God		God (the LORD)	Implicit		
 ISA	51	15	God		God (the LORD)	Implicit		
 ISA	51	15	waves			Hypothetical		
-ISA	51	16	God		God (the LORD)	Implicit		
-ISA	51	16	God		God (the LORD)	Quotation		
+ISA	51	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	51	17	Isaiah			Potential		
 ISA	51	18	Isaiah			Potential		
 ISA	51	19	Isaiah			Potential		
@@ -10106,8 +10099,7 @@ ISA	58	5	God		God (the LORD)	Implicit
 ISA	58	6	God		God (the LORD)	Implicit		
 ISA	58	7	God		God (the LORD)	Implicit		
 ISA	58	8	God		God (the LORD)	Implicit		
-ISA	58	9	God		God (the LORD)	Implicit		
-ISA	58	9	God		God (the LORD)	Quotation		
+ISA	58	9	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	58	10	God		God (the LORD)	Implicit		
 ISA	58	11	God		God (the LORD)	Implicit		
 ISA	58	12	God		God (the LORD)	Implicit		
@@ -10145,8 +10137,7 @@ ISA	61	9	God		God (the LORD)	Normal
 ISA	62	1	God		God (the LORD)	Implicit		
 ISA	62	2	God		God (the LORD)	Implicit		
 ISA	62	3	God		God (the LORD)	Implicit		
-ISA	62	4	God		God (the LORD)	Implicit		
-ISA	62	4	God			Quotation		
+ISA	62	4	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	62	5	God		God (the LORD)	Implicit		
 ISA	62	6	God		God (the LORD)	Potential		
 ISA	62	8	God		God (the LORD)	Normal		
@@ -10320,12 +10311,10 @@ JER	3	16	God		God (the LORD)	Normal
 # See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character
 #JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
 JER	3	16	you (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
-JER	3	17	God		God (the LORD)	Implicit		
 # expression: "The throne of God"
-JER	3	17	God			Quotation		
+JER	3	17	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	3	18	God		God (the LORD)	Implicit		
-JER	3	19	God		God (the LORD)	Implicit		
-JER	3	19	God		God (the LORD)	Quotation		
+JER	3	19	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	3	19	you (hypothetical)			Hypothetical		
 JER	3	20	God		God (the LORD)	Normal		
 JER	3	21	God		God (the LORD)	Potential		
@@ -10651,8 +10640,7 @@ JER	10	24	Jeremiah	prayer		Implicit
 JER	10	25	Jeremiah	prayer		Implicit		
 JER	11	2	God		God (the LORD)	Implicit		
 JER	11	3	God		God (the LORD)	Implicit		
-JER	11	4	God		God (the LORD)	Implicit		
-JER	11	4	God			Quotation		
+JER	11	4	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	11	5	God		God (the LORD)	Normal		
 JER	11	5	Jeremiah			Quotation		
 JER	11	6	Jeremiah			Potential		
@@ -10683,7 +10671,7 @@ JER	11	23	God		God (the LORD)	Implicit
 JER	12	1	Jeremiah			Potential		
 JER	12	2	Jeremiah			Potential		
 JER	12	3	Jeremiah			Potential		
-JER	12	4	Jeremiah			Potential		
+JER	12	4	Jeremiah	lament		Potential		
 JER	12	4	Jeremiah	quoting the wicked who live in the land		Hypothetical		
 JER	12	4	wicked, the			Hypothetical		
 JER	12	5	God		God (the LORD)	Implicit		
@@ -12681,8 +12669,7 @@ EZK	20	6	God		God (the LORD)	Implicit
 EZK	20	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	7	God		God (the LORD)	Implicit		
 EZK	20	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	8	God		God (the LORD)	Implicit		
-EZK	20	8	God		God (the LORD)	Quotation		
+EZK	20	8	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	9	God		God (the LORD)	Implicit		
 EZK	20	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -12692,8 +12679,7 @@ EZK	20	11	God		God (the LORD)	Implicit
 EZK	20	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	12	God		God (the LORD)	Implicit		
 EZK	20	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	13	God		God (the LORD)	Implicit		
-EZK	20	13	God		God (the LORD)	Quotation		
+EZK	20	13	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	14	God		God (the LORD)	Implicit		
 EZK	20	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -12703,20 +12689,17 @@ EZK	20	16	God		God (the LORD)	Implicit
 EZK	20	16	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	17	God		God (the LORD)	Implicit		
 EZK	20	17	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	18	God		God (the LORD)	Implicit		
-EZK	20	18	God		God (the LORD)	Quotation		
+EZK	20	18	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	18	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	19	God		God (the LORD)	Implicit		
 EZK	20	19	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	20	God		God (the LORD)	Implicit		
 EZK	20	20	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	21	God		God (the LORD)	Implicit		
-EZK	20	21	God		God (the LORD)	Quotation		
+EZK	20	21	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	21	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	22	God		God (the LORD)	Implicit		
 EZK	20	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	23	God		God (the LORD)	Implicit		
-EZK	20	23	God		God (the LORD)	Quotation		
+EZK	20	23	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	24	God		God (the LORD)	Implicit		
 EZK	20	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -13558,8 +13541,8 @@ EZK	37	12	Ezekiel		Ezekiel (the LORD says)	Normal
 EZK	37	13	God		God (the LORD) (in vision)	Implicit		
 EZK	37	14	God		God (the LORD) (in vision)	Normal		
 EZK	37	14	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	37	16	God		God (the LORD)	Implicit		
-EZK	37	16	God		writing on sticks (spoken by God)	Quotation		
+# writing on sticks should be spoken by God
+EZK	37	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	37	17	God		God (the LORD)	Implicit		
 EZK	37	18	God		God (the LORD)	Implicit		
 EZK	37	18	Israel		whole house of Israel	Hypothetical		
@@ -13647,8 +13630,7 @@ EZK	39	9	God		God (the LORD)	Implicit
 EZK	39	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	10	God		God (the LORD)	Normal		
 EZK	39	10	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	39	11	God		God (the LORD)	Implicit		
-EZK	39	11	God		God (the LORD)	Quotation		
+EZK	39	11	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	39	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	12	God		God (the LORD)	Implicit		
 EZK	39	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -13658,8 +13640,7 @@ EZK	39	14	God		God (the LORD)	Implicit
 EZK	39	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	15	God		God (the LORD)	Implicit		
 EZK	39	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	39	16	God		God (the LORD)	Implicit		
-EZK	39	16	God		God (the LORD)	Quotation		
+EZK	39	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	39	16	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	17	God		God (the LORD)	Normal		
 EZK	39	17	Ezekiel		Ezekiel (the LORD says)	Normal		
@@ -13908,7 +13889,15 @@ EZK	48	32	God		God (the LORD)	Normal
 EZK	48	33	God		God (the LORD)	Normal		
 EZK	48	34	God		God (the LORD)	Normal		
 EZK	48	35	God		God (the LORD)	Normal		
-EZK	48	35	God		God (the LORD)	Quotation		
+# Although FCBH has assigned all of 48:30-35 to God, we don't mark it Implicit, because
+# there is a slight possibility that different translations might use explicit quotes to
+# assign more limited portions of the text to God. If God is speaking v. 35, then He should
+# definitely speak the name "The LORD is there" (Yahweh Shammah). But if the narrator is
+# speaking, then it should just be treated as a narrator quote. To eliminate the next line
+# would mean that if there are no explicit quotes around the whole passage but there are quotes
+# around the name, then the name would be assigned (unambiguously) to be spoken by God. That's
+# not right, so better to include this line and deal with the ambiguity.
+EZK	48	35	narrator-EZK			Quotation		
 DAN	1	10	chief official			Normal		
 DAN	1	12	Daniel			Normal		
 DAN	1	13	Daniel			Normal		
@@ -14258,8 +14247,7 @@ HOS	2	21	God		God (the LORD)	Normal
 HOS	2	21	Hosea		Hosea (the LORD says)	Potential		
 HOS	2	22	God		God (the LORD)	Implicit		
 HOS	2	22	Hosea		Hosea (the LORD says)	Alternate		
-HOS	2	23	God		God (the LORD)	Implicit		
-HOS	2	23	God			Quotation		
+HOS	2	23	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 HOS	2	23	people, God's			Hypothetical		
 HOS	3	1	God		God (the LORD)	Normal		
 HOS	3	3	Hosea			Quotation		
@@ -14278,12 +14266,11 @@ HOS	4	11	God		God (the LORD)	Implicit
 HOS	4	12	God		God (the LORD)	Implicit		
 HOS	4	13	God		God (the LORD)	Implicit		
 HOS	4	14	God		God (the LORD)	Implicit		
-HOS	4	15	God		God (the LORD)	Implicit		
 # The quoted text in v.15 could be treated as a Hypothetical quote instead, but since it is not
 # dramatized in the reference text and it is sommething God is saying not to say -- as opposed
 # to something He is explicitly accusing them of saying -- we can just note it as a self-quote
 # and it won't interfere with the treatment of this discourse as implicitly spoken by God.
-HOS	4	15	God			Quotation		
+HOS	4	15	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 HOS	4	16	God		God (the LORD)	Implicit		
 HOS	4	17	God		God (the LORD)	Implicit		
 HOS	4	18	God		God (the LORD)	Implicit		
@@ -14341,7 +14328,11 @@ HOS	8	11	God		God (the LORD)	Implicit
 HOS	8	12	God		God (the LORD)	Implicit		
 HOS	8	13	God		God (the LORD)	Implicit		
 HOS	8	14	God		God (the LORD)	Implicit		
-HOS	9	1-9	Hosea			Potential		
+HOS	9	1	Hosea			Potential		
+HOS	9	2	Hosea			Potential		
+HOS	9	3	Hosea			Potential		
+HOS	9	4-7	Hosea			Potential		
+HOS	9	8	Hosea			Potential		
 HOS	9	10	God		God (the LORD)	Implicit		
 HOS	9	11	God		God (the LORD)	Implicit		
 HOS	9	12	God		God (the LORD)	Implicit		
@@ -14350,12 +14341,7 @@ HOS	9	14	Hosea			Potential
 HOS	9	15	God		God (the LORD)	Implicit		
 HOS	9	16	God		God (the LORD)	Implicit		
 HOS	9	17	Hosea			Potential		
-HOS	9	1	Hosea			Potential		
-HOS	9	2	Hosea			Potential		
-HOS	9	3	Hosea			Potential		
 HOS	10	3	Israel			Hypothetical		
-HOS	9	4-7	Hosea			Potential		
-HOS	9	8	Hosea			Potential		
 HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		God (the LORD)	Potential		
 HOS	10	10	God		God (the LORD)	Implicit		
@@ -14741,6 +14727,7 @@ JON	2	6	Jonah	praying		Normal
 JON	2	7	Jonah	praying		Normal		
 JON	2	8	Jonah	praying		Normal		
 JON	2	9	Jonah	praying		Normal		
+JON	2	10	God		God (the LORD)	Potential		
 JON	3	2	God		God (the LORD)	Normal		
 JON	3	4	Jonah			Normal		
 JON	3	7	king of Nineveh	proclamation		Normal		
@@ -15012,7 +14999,7 @@ ZEP	3	14	Zephaniah, prophet			Potential
 ZEP	3	14	God		God (the LORD)	Potential		
 ZEP	3	15	Zephaniah, prophet			Potential		
 ZEP	3	15	God		God (the LORD)	Potential		
-ZEP	3	16	God		God (the LORD)	Potential		
+ZEP	3	16	God	prophecy	God (the LORD)	Potential		
 ZEP	3	16	God	encouraging	God (the LORD)	Hypothetical		
 ZEP	3	16	person encouraging Jerusalem			Hypothetical		
 ZEP	3	16	Needs Review			Normal		
@@ -15493,7 +15480,7 @@ MAT	1	19	Needs Review			Potential
 MAT	1	20	angel		angel of the Lord	Normal		
 MAT	1	21	angel		angel of the Lord	Normal		
 MAT	1	23	narrator-MAT			Quotation		
-MAT	1	23	narrator-MAT			Interruption		
+MAT	1	23	interruption-MAT			Interruption		
 MAT	1	23	scripture		scripture (prophet)	Quotation	Isaiah	
 #If the language requires the words of the angel to be repeated in quotes, this could be read by the narrator
 MAT	1	24	narrator-MAT			Quotation		
@@ -16099,14 +16086,16 @@ MAT	20	26	Jesus			Normal
 MAT	20	27	Jesus			Normal		
 MAT	20	28	Jesus			Normal		
 MAT	20	30	crowd at Jericho			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
-MAT	20	30	blind men, two	shouting		Dialogue	Bartimaeus (a blind man)	MAT 20.30;MRK 10.47;LUK 18.38
+# Although the Matthew account says "two blind men" the parallel accounts in Mark and Luke suggest
+# that it was Bartimaeus and a companion, so for consistency, we'll use Bartimaeus as the character here.
+MAT	20	30	Bartimaeus (a blind man)	shouting	two blind men	Dialogue		MAT 20.30;MRK 10.47;LUK 18.38
 MAT	20	31	crowd, many in the	rebuking	crowd at Jericho	Indirect		MAT 20.31;MRK 10.48;LUK 18.39
-MAT	20	31	blind men, two	shouting		Dialogue	Bartimaeus (a blind man)	MAT 20.31;MRK 10.48;LUK 18.39
+MAT	20	31	Bartimaeus (a blind man)	shouting	two blind men	Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
 MAT	20	32	Jesus			Dialogue		
-MAT	20	33	blind men, two	begging		Dialogue	Bartimaeus (a blind man)	MAT 20.33;MRK 10.51;LUK 18.41
+MAT	20	33	Bartimaeus (a blind man)	begging	two blind men	Dialogue		MAT 20.33;MRK 10.51;LUK 18.41
 MAT	21	2	Jesus			Normal		
 MAT	21	3	Jesus			Normal		
-MAT	21	5	scripture			Quotation	Zechariah the prophet, son of Berechiah	
+MAT	21	5	scripture			Quotation	Zechariah the prophet, son of Berechiah	MAT 21:5; JHN 12:15
 MAT	21	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MAT	21	10	people of Jerusalem		the whole city	Dialogue		
 MAT	21	11	crowd	praising		Dialogue		
@@ -16393,7 +16382,7 @@ MAT	26	71	servant girl, another			Dialogue		*different speakers;MAT 26.71;MRK 14
 MAT	26	72	Peter (Simon)	denial, stronger		Dialogue		
 MAT	26	73	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MAT	26	74	Peter (Simon)	denial, strongest		Dialogue		
-MAT	26	75	Jesus			Normal		
+MAT	26	75	Jesus			Quotation		
 MAT	27	4	chief priests/elders	impatient		Dialogue		
 MAT	27	4	Judas Iscariot	remorse		Dialogue		
 MAT	27	6	chief priests	disdain		Normal		
@@ -16434,7 +16423,7 @@ MAT	27	47	bystanders at Calvary, some	misunderstanding	some of the bystanders	Di
 MAT	27	49	bystanders at Calvary, the rest	jeering	the rest	Dialogue		
 MAT	27	50	Jesus	crying		Indirect		
 MAT	27	54	centurion at crucifixion	amazed		Dialogue		
-MAT	27	58	Joseph of Arimathea			Indirect		
+MAT	27	58	Joseph of Arimathaea			Indirect		
 MAT	27	58	Pilate			Indirect		
 MAT	27	63	chief priests/Pharisees	negotiating		Dialogue		
 MAT	27	64	chief priests/Pharisees	negotiating		Dialogue		
@@ -16531,7 +16520,8 @@ MRK	3	26	Jesus			Normal
 MRK	3	27	Jesus			Normal		
 MRK	3	28	Jesus			Normal		
 MRK	3	29	Jesus			Normal		
-MRK	3	30	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Normal		
+MRK	3	30	narrator-MRK			Quotation		
+MRK	3	30	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Quotation		
 MRK	3	31	Jesus' family			Indirect		
 MRK	3	32	crowd	announcing		Dialogue		MAT 12.47;MRK 3.32;LUK 8.20
 MRK	3	33	Jesus	questioning		Dialogue		
@@ -16574,7 +16564,13 @@ MRK	4	40	Jesus	questioning		Dialogue
 MRK	4	41	disciples	awe		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
 MRK	5	7	demons (Legion)/man delivered from Legion of demons	shrieking	demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-MRK	5	8	Jesus			Normal		
+# Jesus' speech in v. 8 is technically a "Quotation" because Jesus is not saying this at this point in the story.
+# (It is related out of chronological order.) Some translations put this in parentheses. It could also easily be
+# turned into indirect speech, as is the case in Luke's account. However, we don't want to automatically force the
+# quotation to be spoken by the narrator (as we sometimes do elsewhere) because there is the possibility that a
+# translation team could reorder (e.g., using a bridge) this material to make it "live" speech.
+MRK	5	8	Jesus			Normal		MRK 5.8; LUK 8.29
+MRK	5	8	narrator-MRK			Quotation		
 MRK	5	9	Jesus	questioning		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
 MRK	5	9	demons (Legion)/man delivered from Legion of demons			Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
@@ -16993,8 +16989,8 @@ MRK	14	58	witnesses, false	mocking		Dialogue		MAT 26.61;MRK 14.58
 MRK	14	60	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	61	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	62	Jesus			Dialogue		
-MRK	14	63	Caiaphas, the high priest	screaming		Dialogue		
-MRK	14	64	Caiaphas, the high priest			Normal		
+MRK	14	63	Caiaphas, the high priest	indignant		Dialogue		
+MRK	14	64	Caiaphas, the high priest	indignant		Normal		
 MRK	14	64	chief priests/Sanhedrin			Dialogue		MAT 26.66;MRK 14.64
 MRK	14	65	chief priests/Sanhedrin	mocking		Dialogue		MAT 26.68;MRK 14.65
 MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
@@ -17003,7 +16999,8 @@ MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		*diffe
 MRK	14	70	Peter (Simon)	denial, stronger		Dialogue		
 MRK	14	70	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
-MRK	14	72	Jesus			Normal		
+MRK	14	72	narrator-MRK			Quotation		
+MRK	14	72	Jesus			Quotation	narrator-MRK	
 MRK	15	1	chief priests/all the elders/expert in religious law/Sanhedrin			Rare		
 MRK	15	1	Needs Review			Potential		
 MRK	15	2	Jesus			Dialogue		
@@ -17036,7 +17033,7 @@ MRK	15	35	bystanders at Calvary, some	uneasy	some of the bystanders	Dialogue		MA
 MRK	15	36	man with sponge	jeering		Dialogue		
 MRK	15	37	Jesus	crying		Indirect		
 MRK	15	39	centurion at crucifixion	amazed		Dialogue		
-MRK	15	43	Joseph of Arimathea			Indirect		
+MRK	15	43	Joseph of Arimathaea			Indirect		
 MRK	15	44	Pilate			Indirect		
 MRK	15	45	centurion summoned by Pilate			Indirect		
 MRK	15	45	Pilate			Indirect		
@@ -17104,7 +17101,14 @@ LUK	1	59	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indire
 LUK	1	59	narrator-LUK			Quotation		
 LUK	1	60	Elizabeth			Dialogue		
 LUK	1	61	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Dialogue		
+# We make allowance for this question to be spoken by the neighbors, but since the text says that
+# they were making signs m(as opposed to speaking), it most likely should be spoken by the narrator.
+# Also, including a "Needs Review" option, since a scripter who does not know the vernacular would
+# likely be unable to detect a case where it was translated something like: The neighbors asked,
+# “What is his name?” and they made signs to his father to inquire of him.
 LUK	1	62	neighbors and relatives of Elizabeth and Zacharias (Zechariah)			Indirect		
+LUK	1	62	narrator-LUK			Quotation		
+LUK	1	62	Needs Review			Potential		
 LUK	1	63	narrator-LUK			Quotation		
 LUK	1	64	Zacharias (Zechariah)			Indirect		
 LUK	1	65	everyone in Judean hills who heard			Indirect		
@@ -17331,10 +17335,10 @@ LUK	8	25	disciples	amazed		Dialogue		MAT 8.27; LUK 8:25
 LUK	8	25	Jesus	questioning		Dialogue		
 LUK	8	27	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Indirect		
 LUK	8	28	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-LUK	8	29	Jesus			Indirect		
+LUK	8	29	Jesus			Indirect		MRK 5.8; LUK 8.29
 LUK	8	30	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	30	Jesus	questioning		Dialogue		
-LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion) man	Indirect		
+LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion)	Indirect		
 LUK	8	32	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	32	Jesus			Indirect		
 LUK	8	34	herdsmen of pigs			Indirect		
@@ -17783,11 +17787,11 @@ LUK	18	41	Bartimaeus (a blind man)	pleading		Dialogue		MAT 20.33;MRK 10.51;LUK 1
 LUK	18	42	Jesus			Dialogue		
 LUK	18	43	Bartimaeus (a blind man)	praising		Indirect		
 LUK	18	43	people	praising		Indirect		
-LUK	19	4	Zaccheaus			Rare		
+LUK	19	4	Zacchaeus			Rare		
 LUK	19	4	Needs Review			Potential		
 LUK	19	5	Jesus	giving orders		Dialogue		
 LUK	19	7	people in Jericho, all the	complaining		Normal		
-LUK	19	8	Zaccheaus			Dialogue		
+LUK	19	8	Zacchaeus			Dialogue		
 LUK	19	9	Jesus			Dialogue		
 LUK	19	10	Jesus			Normal		
 LUK	19	11	crowd at Jericho			Indirect		
@@ -17952,7 +17956,8 @@ LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	Dialog
 LUK	22	58	Peter (Simon)	denial, stronger		Dialogue		
 LUK	22	59	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	another (person in the courtyard)	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 LUK	22	60	Peter (Simon)	denial, strongest		Dialogue		
-LUK	22	61	Jesus			Normal		
+LUK	22	61	Jesus			Quotation	narrator-LUK	
+LUK	22	61	narrator-LUK			Quotation		
 LUK	22	64	guards at high priests' house	mocking		Dialogue		
 LUK	22	67	council of elders/chief priests/teachers of religious law	demanding		Dialogue		
 LUK	22	67	Jesus			Dialogue		
@@ -17967,8 +17972,16 @@ LUK	23	3	Pilate	to Jesus		Dialogue
 LUK	23	4	Pilate	to crowd		Dialogue		
 LUK	23	5	chief priests/crowd	angry		Dialogue		
 LUK	23	6	Pilate			Indirect		
-LUK	23	7	chief priests/crowd			Indirect		
+LUK	23	7	chief priests/crowd			Rare		
+LUK	23	7	Pilate			Rare		
+LUK	23	7	Needs Review			Potential		
 LUK	23	8	Herod Antipas (the tetrarch)			Indirect		
+LUK	23	9	Herod Antipas (the tetrarch)			Rare		
+LUK	23	9	Needs Review			Potential		
+LUK	23	10	chief priests/scribes			Rare		
+LUK	23	10	Needs Review			Potential		
+LUK	23	11	Herod Antipas (the tetrarch)/soldiers, Roman			Rare		
+LUK	23	11	Needs Review			Potential		
 LUK	23	13	Pilate			Potential		
 LUK	23	14	Pilate	to crowd		Dialogue		
 LUK	23	15	Pilate	to crowd		Normal		
@@ -17997,11 +18010,11 @@ LUK	23	42	criminal on cross, repentant	repentant		Dialogue
 LUK	23	43	Jesus			Dialogue		
 LUK	23	46	Jesus			Dialogue		
 LUK	23	47	centurion at crucifixion	amazed		Dialogue		
-LUK	23	50	Joseph of Arimathea			Rare		
+LUK	23	50	Joseph of Arimathaea			Rare		
 LUK	23	50	Needs Review			Potential		
-LUK	23	51	Joseph of Arimathea			Rare		
+LUK	23	51	Joseph of Arimathaea			Rare		
 LUK	23	51	Needs Review			Potential		
-LUK	23	52	Joseph of Arimathea			Indirect		
+LUK	23	52	Joseph of Arimathaea			Indirect		
 LUK	24	4	Mary Magdalene/Mary mother of James/Salome			Indirect	Mary Magdalene	
 LUK	24	5	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		
 LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
@@ -18017,9 +18030,9 @@ LUK	24	19	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his compan
 LUK	24	19	Jesus			Dialogue		
 LUK	24	20	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
 LUK	24	21	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
-LUK	24	22	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
-LUK	24	23	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
-LUK	24	24	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
+LUK	24	22	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
+LUK	24	23	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
+LUK	24	24	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
 LUK	24	25	Jesus			Dialogue		
 LUK	24	26	Jesus			Normal		
 LUK	24	29	Cleopas/Cleopas' companion (on road to Emmaus)	urging	Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas	
@@ -18059,14 +18072,14 @@ JHN	1	36	John the Baptist			Dialogue
 JHN	1	38	Andrew/another disciple of John the Baptist	curious	disciples of John the Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
-JHN	1	38	narrator-JHN			Interruption		
+JHN	1	38	interruption-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue		
 JHN	1	41	Andrew	excited		Dialogue		
 JHN	1	41	narrator-JHN			Quotation		
-JHN	1	41	narrator-JHN			Interruption		
+JHN	1	41	interruption-JHN			Interruption		
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
-JHN	1	42	narrator-JHN			Interruption		
+JHN	1	42	interruption-JHN			Interruption		
 JHN	1	43	Jesus	inviting		Dialogue		
 JHN	1	45	Philip the apostle	excited	Philip	Dialogue		
 JHN	1	46	Nathanael			Dialogue		
@@ -18243,7 +18256,8 @@ JHN	6	37	Jesus			Normal
 JHN	6	38	Jesus			Normal		
 JHN	6	39	Jesus			Normal		
 JHN	6	40	Jesus			Normal		
-JHN	6	41	Jesus			Normal		
+JHN	6	41	Jesus			Quotation		
+JHN	6	41	narrator-JHN			Quotation		
 JHN	6	42	Jews, the	grumbling		Normal		
 JHN	6	43	Jesus			Dialogue		
 JHN	6	44	Jesus			Normal		
@@ -18372,7 +18386,7 @@ JHN	9	4	Jesus			Normal
 JHN	9	5	Jesus			Normal		
 JHN	9	7	Jesus	giving orders		Dialogue		
 JHN	9	7	narrator-JHN			Quotation		
-JHN	9	7	narrator-JHN			Interruption		
+JHN	9	7	interruption-JHN			Interruption		
 JHN	9	8	neighbors of man blind from birth			Normal		
 JHN	9	9	cured man, blind from birth			Normal		
 JHN	9	9	neighbors of man blind from birth, others			Normal		
@@ -18502,7 +18516,7 @@ JHN	12	10	chief priests	plotting		Indirect
 JHN	12	12	report about Jesus			Rare		
 JHN	12	12	Needs Review			Potential		
 JHN	12	13	crowd preparing for Passover Feast	praising	great crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
-JHN	12	15	scripture			Quotation	Zechariah the prophet, son of Berechiah	
+JHN	12	15	scripture			Quotation	Zechariah the prophet, son of Berechiah	MAT 21:5; JHN 12:15
 JHN	12	17	Jews who had been with Mary and Martha		multitude that was with Jesus when he raised Lazarus	Rare		
 JHN	12	17	Needs Review			Potential		
 JHN	12	18	report about Jesus			Rare		
@@ -18531,6 +18545,9 @@ JHN	12	36	Jesus			Normal
 JHN	12	37	crowd preparing for Passover Feast			Rare		
 JHN	12	37	Needs Review			Potential		
 JHN	12	38	scripture			Quotation	Isaiah	
+# PG-1276: A project added in a leading "God says" (the original passage quoted from ISA 6 is God speaking) in v. 39
+JHN	12	39	scripture			Rare	Isaiah	
+JHN	12	39	Needs Review			Potential		
 JHN	12	40	scripture			Quotation	Isaiah	
 JHN	12	42	leaders, many			Rare		
 JHN	12	42	Needs Review			Potential		
@@ -18566,7 +18583,7 @@ JHN	13	26	Jesus			Dialogue
 JHN	13	27	Jesus	giving orders		Dialogue		
 JHN	13	28	Jesus			Rare		
 JHN	13	28	Needs Review			Potential		
-JHN	13	29	Jesus			Quotation		
+JHN	13	29	narrator-JHN			Quotation		
 JHN	13	29	disciples			Indirect		
 JHN	13	31	Jesus			Dialogue		
 JHN	13	32	Jesus			Normal		
@@ -18697,11 +18714,13 @@ JHN	17	26	Jesus	praying		Normal
 JHN	18	4	Jesus	questioning		Dialogue		
 JHN	18	5	Jesus			Dialogue		
 JHN	18	5	soldiers/officials from chief priests and Pharisees	rowdy		Dialogue		
-JHN	18	6	Jesus			Quotation		
+JHN	18	6	Jesus			Quotation	narrator-JHN	
+JHN	18	6	narrator-JHN			Quotation		
 JHN	18	7	Jesus	questioning		Dialogue		
 JHN	18	7	soldiers/officials from chief priests and Pharisees	afraid		Dialogue		
 JHN	18	8	Jesus			Dialogue		
-JHN	18	9	Jesus			Quotation		
+JHN	18	9	Jesus			Quotation	narrator-JHN	
+JHN	18	9	narrator-JHN			Quotation		
 JHN	18	11	Jesus			Dialogue		
 JHN	18	14	Caiaphas, the high priest			Indirect		
 JHN	18	16	John		the other disciple (John)	Indirect		
@@ -18735,6 +18754,8 @@ JHN	18	38	Pilate	to Jesus		Dialogue
 JHN	18	38	Pilate	to crowd		Dialogue		
 JHN	18	39	Pilate	to crowd		Dialogue		
 JHN	18	40	Jews, the			Dialogue		
+JHN	19	1	Pilate			Rare		
+JHN	19	1	Needs Review			Potential		
 JHN	19	3	soldiers, Roman	mocking		Dialogue		
 JHN	19	4	Pilate	to crowd		Dialogue		
 JHN	19	5	Pilate	to crowd		Dialogue		
@@ -18763,7 +18784,7 @@ JHN	19	30	Jesus			Dialogue
 JHN	19	31	Jews, the			Indirect		
 JHN	19	36	scripture			Quotation	David	
 JHN	19	37	scripture			Quotation	God	
-JHN	19	38	Joseph of Arimathea			Indirect		
+JHN	19	38	Joseph of Arimathaea			Indirect		
 JHN	20	2	Mary Magdalene			Dialogue		
 JHN	20	13	angels in white, two			Dialogue		
 JHN	20	13	Mary Magdalene			Dialogue		
@@ -18774,7 +18795,7 @@ JHN	20	15	Mary Magdalene			Dialogue
 JHN	20	16	Jesus			Dialogue		
 JHN	20	16	Mary Magdalene			Dialogue		
 JHN	20	16	narrator-JHN			Quotation		
-JHN	20	16	narrator-JHN			Interruption		
+JHN	20	16	interruption-JHN			Interruption		
 JHN	20	17	Jesus			Dialogue		
 JHN	20	18	Mary Magdalene			Normal		
 JHN	20	19	Jesus			Dialogue		
@@ -18908,7 +18929,7 @@ ACT	4	16	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, 
 ACT	4	17	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Normal	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	18	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Indirect	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	19	Peter (Simon)/John			Dialogue	Peter (Simon)	
-ACT	4	20	Peter (Simon)/John			Normal	John	
+ACT	4	20	Peter (Simon)/John			Normal	Peter (Simon)	
 ACT	4	23	Peter (Simon)/John			Indirect	Peter (Simon)	
 ACT	4	24	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	25	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
@@ -19255,14 +19276,14 @@ ACT	15	18	James			Normal
 ACT	15	19	James			Normal		
 ACT	15	20	James			Normal		
 ACT	15	21	James			Normal		
-ACT	15	22	apostles, elders, and whole church at Jerusalem			Indirect		
-ACT	15	23	letter from apostles and elders			Potential		
-ACT	15	24	letter from apostles and elders			Potential		
-ACT	15	25	letter from apostles and elders			Potential		
-ACT	15	26	letter from apostles and elders			Potential		
-ACT	15	27	letter from apostles and elders			Potential		
-ACT	15	28	letter from apostles and elders			Potential		
-ACT	15	29	letter from apostles and elders			Potential		
+ACT	15	22	apostles, elders, and whole church at Jerusalem/James		apostles, elders, and whole church at Jerusalem	Indirect	James	
+ACT	15	23	letter from apostles and elders			Potential	James	
+ACT	15	24	letter from apostles and elders			Potential	James	
+ACT	15	25	letter from apostles and elders			Potential	James	
+ACT	15	26	letter from apostles and elders			Potential	James	
+ACT	15	27	letter from apostles and elders			Potential	James	
+ACT	15	28	letter from apostles and elders			Potential	James	
+ACT	15	29	letter from apostles and elders			Potential	James	
 ACT	15	31	brothers at Antioch	blessing		Rare		
 ACT	15	31	Needs Review			Potential		
 ACT	15	33	brothers at Antioch	blessing		Indirect		
@@ -19388,6 +19409,8 @@ ACT	20	32	Paul			Normal
 ACT	20	33	Paul			Normal		
 ACT	20	34	Paul			Normal		
 ACT	20	35	Paul			Normal		
+ACT	20	37	elders, Ephesian			Rare		
+ACT	20	37	Needs Review			Potential		
 ACT	20	38	elders, Ephesian			Indirect		
 ACT	21	4	disciples		Holy Spirit through disciples	Indirect		
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		
@@ -19556,7 +19579,7 @@ ACT	26	26	Paul			Normal
 ACT	26	27	Paul			Normal		
 ACT	26	28	King Herod Agrippa II			Dialogue		
 ACT	26	29	Paul			Dialogue		
-ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/Festus/Bernice/those sitting with them	Dialogue	Bernice	
+ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/Festus/Bernice/those sitting with them	Dialogue		
 ACT	26	32	King Herod Agrippa II			Dialogue		
 # called "The Emperor's Regiment"
 ACT	27	1	narrator-ACT			Quotation		
@@ -19659,6 +19682,7 @@ ROM	9	15	scripture			Quotation	God
 ROM	9	17	scripture			Quotation	God	
 ROM	9	19	one of you			Hypothetical		
 ROM	9	20	molded thing			Hypothetical		
+ROM	9	20	scripture			Potential	Isaiah	
 ROM	9	25	scripture			Quotation	God	
 ROM	9	26	scripture			Quotation	Hosea	
 ROM	9	27	scripture			Quotation	Isaiah	
@@ -19668,8 +19692,10 @@ ROM	9	32	narrator-ROM			Quotation
 ROM	9	33	scripture			Quotation	God	
 ROM	10	5	scripture			Quotation	Moses	
 ROM	10	6	scripture			Quotation	Moses	
+ROM	10	6	God		righteousness which is of faith (God)	Quotation		
 ROM	10	6	narrator-ROM			Interruption		
 ROM	10	7	scripture			Quotation	Moses	
+ROM	10	7	God		righteousness which is of faith (God)	Quotation		
 ROM	10	7	narrator-ROM			Interruption		
 ROM	10	8	scripture			Quotation	Moses	
 ROM	10	9	narrator-ROM			Hypothetical		
@@ -19707,7 +19733,7 @@ ROM	15	10	scripture			Quotation	Moses
 ROM	15	11	scripture			Quotation	psalmist	
 ROM	15	12	scripture			Quotation	Isaiah	
 ROM	15	21	scripture			Quotation	Isaiah	
-ROM	16	22	Tertius			Indirect		
+ROM	16	22	Tertius			Implicit		
 1CO	1	12	follower of Apollos	boasting		Hypothetical		
 1CO	1	12	follower of Cephas (Peter)	boasting		Hypothetical		
 1CO	1	12	follower of Paul	boasting		Hypothetical		
@@ -19737,6 +19763,12 @@ ROM	16	22	Tertius			Indirect
 1CO	10	23	narrator-1CO			Hypothetical		
 1CO	10	26	scripture			Quotation	David	
 1CO	10	28	anyone			Hypothetical		
+# Some manuscripts have the quote from Psalm 24:1 repeated in v. 28 (in addition to v. 26)
+# Including a "Needs Review" option to avoid automatically assigning the hypothetical quote
+# as scripture (since the parser ignores hypotheticals that are not pulled out as separate
+# blocks in the reference text)
+1CO	10	28	scripture			Potential	David	
+1CO	10	28	Needs Review			Potential		
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
 1CO	12	3	narrator-1CO			Hypothetical		
@@ -19847,6 +19879,11 @@ COL	4	17	narrator-COL			Quotation
 2TI	2	18	men who have gone astray			Indirect		
 2TI	2	19	narrator-2TI			Quotation		
 2TI	2	19	scripture			Quotation		
+# Speaker of the target language may need to review whether it is acceptable to
+# combine the two quotes into one "scripture" block. For languages with a single "and"
+# joining them, this will probably sound fine, but for languages that have a longer
+# clause introducing the second quote, this might not work.
+2TI	2	19	Needs Review			Potential		
 TIT	1	12	Cretan prophet			Quotation		
 TIT	2	12	narrator-TIT			Quotation		
 HEB	1	5	scripture			Quotation	God	
@@ -19871,7 +19908,9 @@ HEB	3	10	scripture			Quotation
 HEB	3	11	scripture			Quotation		
 HEB	3	13	narrator-HEB			Quotation		
 HEB	3	15	scripture			Quotation		
+HEB	3	15	narrator-HEB			Quotation		
 HEB	3	18	scripture			Quotation	God	
+HEB	3	18	narrator-HEB			Quotation		
 HEB	4	3	scripture			Quotation	God	
 HEB	4	4	scripture			Quotation	God	
 HEB	4	5	scripture			Quotation	God	
@@ -19983,6 +20022,7 @@ JUD	1	18	disciples		apostles	Normal
 REV	1	7	narrator-REV			Quotation		
 REV	1	8	God		God (the Lord)	Alternate		
 REV	1	8	Jesus		Jesus (the Lord)	Normal		
+REV	1	8	Needs Review			Normal		
 REV	1	11	Jesus		voice like a trumpet	Normal		
 REV	1	13	narrator-REV			Quotation		
 REV	1	17	Jesus		someone like a son of man	Normal		
@@ -20120,9 +20160,12 @@ REV	16	6	angel over waters			Normal
 REV	16	7	altar			Normal		
 REV	16	15	Jesus			Normal		
 REV	16	16	narrator-REV			Quotation		
-REV	16	17	God		voice out of temple, from throne	Normal		
+REV	16	17	God		God (voice from throne)	Normal		
+REV	16	17	voice from throne		loud voice out of temple, from throne	Normal		
+REV	16	17	Needs Review			Normal		
 REV	17	1	angel (one of the seven)			Normal		
 REV	17	2	angel (one of the seven)			Normal		
+REV	17	5	narrator-REV			Quotation		
 REV	17	5	inscription on forehead of Babylon			Potential		
 REV	17	7	angel (one of the seven)			Normal		
 REV	17	8	angel (one of the seven)			Normal		
@@ -20139,11 +20182,11 @@ REV	17	18	angel (one of the seven)			Normal
 REV	18	2	angel, another, coming down from heaven	shouting		Normal		
 REV	18	3	angel, another, coming down from heaven	shouting		Normal		
 REV	18	4	voice from heaven, another			Normal		
-REV	18	5	voice from heaven, another			Normal		
-REV	18	6	voice from heaven, another			Normal		
+REV	18	5	voice from heaven, another			Implicit		
+REV	18	6	voice from heaven, another			Implicit		
 REV	18	7	Babylon (personified as adulteress)			Hypothetical		
-REV	18	7	voice from heaven, another			Normal		
-REV	18	8	voice from heaven, another			Normal		
+REV	18	7	voice from heaven, another			Implicit		
+REV	18	8	voice from heaven, another			Implicit		
 REV	18	9	voice from heaven, another			Normal		
 REV	18	10	kings of the earth	weeping		Normal		
 REV	18	10	voice from heaven, another			Normal		

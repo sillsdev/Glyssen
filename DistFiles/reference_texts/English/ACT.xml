@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="ACT" singlevoice="false" pageheader="ACTS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ACT">
+  <block style="mt" chapter="0" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>ACTS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ACT" initialStartVerse="0" characterId="BC-ACT">
@@ -22,10 +22,10 @@
     <verse num="4" />
     <text>Being assembled together with them, he commanded them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="Jesus">
     <text>“Don’t depart from Jerusalem, but wait for the promise of the Father, which you heard from me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="Jesus">
     <verse num="5" />
     <text>For John indeed baptized in water, but you will be baptized in the Holy Spirit not many days from now.”</text>
   </block>
@@ -33,17 +33,17 @@
     <verse num="6" />
     <text>Therefore when they had come together, they asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="apostles">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="disciples">
     <text>“Lord, are you now restoring the kingdom to Israel?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="Jesus">
     <text>“It isn’t for you to know times or seasons which the Father has set within his own authority.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="Jesus">
     <verse num="8" />
     <text>But you will receive power when the Holy Spirit has come upon you. You will be witnesses to me in Jerusalem, in all Judea and Samaria, and to the uttermost parts of the earth.”</text>
   </block>
@@ -76,31 +76,31 @@
     <verse num="15" />
     <text>In these days, Peter stood up in the midst of the disciples (and the number of names was about one hundred twenty), and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="Peter (Simon)">
     <verse num="16" />
     <text>“Brothers, it was necessary that this Scripture should be fulfilled, which the Holy Spirit spoke before by the mouth of David concerning Judas, who was guide to those who took Jesus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Peter (Simon)">
     <verse num="17" />
     <text>For he was numbered with us, and received his portion in this ministry.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="Peter (Simon)">
     <verse num="18" />
     <text>Now this man obtained a field with the reward for his wickedness, and falling headlong, his body burst open, and all his intestines gushed out.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="Peter (Simon)">
     <verse num="19" />
     <text>It became known to everyone who lived in Jerusalem that in their language that field was called ‘Akeldama,’ that is, ‘The field of blood.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Peter (Simon)">
     <verse num="20" />
     <text>For it is written in the book of Psalms, ‘Let his habitation be made desolate. Let no one dwell therein;’ and, ‘Let another take his office.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="Peter (Simon)">
     <verse num="21" />
     <text>“Therefore, the man who will replace Judas should be one of the men who accompanied us all the time that the Lord Jesus was with us.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="Peter (Simon)">
     <verse num="22" />
     <text>He must have been with Jesus from the day he was baptised by John, to the day that he was received up to Heaven from us. He must become a witness with us of his resurrection.”</text>
   </block>
@@ -150,22 +150,22 @@
     <verse num="7" />
     <text>They were all amazed and marveled, saying to one another,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Jews, God-fearing from every nation" delivery="amazed">
     <text>“Behold, aren’t all these who speak Galileans?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jews, God-fearing from every nation" delivery="amazed">
     <verse num="8" />
     <text>How do we hear, everyone in our own native language?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jews, God-fearing from every nation" delivery="amazed">
     <verse num="9" />
     <text>Parthians, Medes, Elamites, and people from Mesopotamia, Judea, Cappadocia, Pontus, Asia,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jews, God-fearing from every nation" delivery="amazed">
     <verse num="10" />
     <text>Phrygia, Pamphylia, Egypt, the parts of Libya around Cyrene, visitors from Rome, both Jews and proselytes,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="Jews, God-fearing from every nation" delivery="amazed">
     <verse num="11" />
     <text>Cretans and Arabians: we hear them speaking in our languages the mighty works of God!”</text>
   </block>
@@ -190,85 +190,87 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Peter (Simon)">
     <text>“You men of Judea, and all you who dwell at Jerusalem, let this be known to you, and listen to my words.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Peter (Simon)">
     <verse num="15" />
     <text>For these aren’t drunken, as you suppose, seeing it is only the third hour of the day.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="Peter (Simon)">
     <verse num="16" />
     <text>But this is what has been spoken through the prophet Joel:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="Peter (Simon)">
     <verse num="17" />
     <text>‘It will be in the last days, says God, that I will pour out my Spirit on all flesh. Your sons and your daughters will prophesy. Your young men will see visions. Your old men will dream dreams.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="Peter (Simon)">
     <verse num="18" />
     <text>Yes, and on my servants and on my handmaidens in those days, I will pour out my Spirit, and they will prophesy.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Peter (Simon)">
     <verse num="19" />
     <text>I will show wonders in the sky above, and signs on the earth beneath; blood, and fire, and billows of smoke.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Peter (Simon)">
     <verse num="20" />
     <text>The sun will be turned into darkness, and the moon into blood, before the great and glorious day of the Lord comes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Peter (Simon)">
     <verse num="21" />
     <text>It will be, that whoever will call on the name of the Lord will be saved.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Peter (Simon)">
     <verse num="22" />
     <text>“Men of Israel, hear these words! Jesus of Nazareth was a man approved by God to you by mighty works and wonders and signs which God did by him in the midst of you, even as you yourselves know.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Peter (Simon)">
     <verse num="23" />
     <text>He was handed over to you by the determined counsel and foreknowledge of God, and you, with the help of wicked men, put him to death by nailing him to a cross.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Peter (Simon)">
     <verse num="24" />
     <text>whom God raised up, having freed him from the agony of death, because it was not possible that he should be held by it.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Peter (Simon)">
     <verse num="25" />
     <text>For David says concerning him, ‘I saw the Lord always before my face, For he is on my right hand, that I should not be moved.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Peter (Simon)">
     <verse num="26" />
     <text>Therefore my heart was glad, and my tongue rejoiced. Moreover my flesh also will dwell in hope.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Peter (Simon)">
     <verse num="27" />
     <text>You will not leave my soul in Hades, neither will you allow your Holy One to see decay.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Peter (Simon)">
     <verse num="28" />
     <text>You made known to me the ways of life. You will make me full of gladness with your presence.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Peter (Simon)">
     <verse num="29" />
     <text>“Brothers, I may tell you freely of the patriarch David, that he both died and was buried, and his tomb is with us to this day.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="Peter (Simon)">
     <verse num="30" />
     <text>Therefore, being a prophet, and knowing that God had sworn with an oath to him that of the fruit of his body, according to the flesh, he would raise up the Christ to sit on his throne,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="31" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="31" characterId="Peter (Simon)">
     <verse num="31" />
     <text>he foreseeing this spoke about the resurrection of the Christ, that neither was his soul left in Hades, nor did his flesh see decay.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="32" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="32" characterId="Peter (Simon)">
     <verse num="32" />
     <text>This Jesus God raised up, to which we all are witnesses.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="33" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="33" characterId="Peter (Simon)">
     <verse num="33" />
     <text>Being therefore exalted by the right hand of God, and having received from the Father the promise of the Holy Spirit, he has poured out this, which you now see and hear.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="34" characterId="Peter (Simon)">
     <verse num="34" />
     <text>For David didn’t ascend into the heavens, but he says himself, ‘The Lord said to my Lord, “Sit by my right hand, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="35" characterId="Peter (Simon)">
     <verse num="35" />
     <text>until I make your enemies a footstool for your feet.”’</text>
   </block>
@@ -287,10 +289,10 @@
     <verse num="38" />
     <text>Peter said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="38" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="38" characterId="Peter (Simon)">
     <text>“Repent, and be baptized, every one of you, in the name of Jesus Christ for the remission of sins, and you will receive the gift of the Holy Spirit.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="39" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="39" characterId="Peter (Simon)">
     <verse num="39" />
     <text>For the promise is to you, and to your children, and to all who are far off, even as many as the Lord our God will call to himself.”</text>
   </block>
@@ -385,60 +387,60 @@
     <verse num="12" />
     <text>When Peter saw it, he responded to the people,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Peter (Simon)">
     <text>“You men of Israel, why do you marvel at this man? Why do you fasten your eyes on us, as though by our own power or godliness we had made him walk?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="Peter (Simon)">
     <verse num="13" />
     <text>The God of Abraham, Isaac, and Jacob, the God of our fathers, has glorified his Servant Jesus, whom you delivered up, and denied in the presence of Pilate, when he had determined to release him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Peter (Simon)">
     <verse num="14" />
     <text>But you denied the Holy and Righteous One, and asked for a murderer to be granted to you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Peter (Simon)">
     <verse num="15" />
     <text>You killed the Prince of life, whom God raised from the dead, to which we are witnesses.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Peter (Simon)">
     <verse num="16" />
     <text>By faith in his name, his name has made this man strong, whom you see and know. Yes, the faith which is through him has given him this perfect soundness in the presence of you all.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Peter (Simon)">
     <verse num="17" />
     <text>“Now, brothers, I know that you did this in ignorance, as did also your rulers.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Peter (Simon)">
     <verse num="18" />
     <text>But the things which God announced by the mouth of all his prophets, that Christ should suffer, he thus fulfilled.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)">
     <verse num="19" />
     <text>“Repent therefore, and turn again, that your sins may be blotted out, so that there may come times of refreshing from the presence of the Lord, </text>
     <verse num="20" />
     <text>and that he may send Christ Jesus, who was ordained for you before.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="Peter (Simon)">
     <verse num="21" />
     <text>But for awhile, he must remain in heaven, until the times of restoration of all things, which God spoke long ago by the mouth of his holy prophets.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Peter (Simon)">
     <verse num="22" />
     <text>For Moses indeed said to the fathers, ‘The Lord God will raise up a prophet for you from among your brothers, like me. You shall listen to him in all things whatever he says to you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="Peter (Simon)">
     <verse num="23" />
     <text>It will be, that every soul that will not listen to that prophet will be utterly destroyed from among the people.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="Peter (Simon)">
     <verse num="24" />
     <text>Yes, and all the prophets from Samuel and those who followed after, as many as have spoken, they also told of these days.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="Peter (Simon)">
     <verse num="25" />
     <text>You are the children of the prophets, and of the covenant which God made with our fathers, saying to Abraham, ‘In your seed will all the families of the earth be blessed.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Peter (Simon)">
     <verse num="26" />
     <text>God, having raised up his servant, Jesus, sent him to you first, to bless you, in turning away everyone of you from your wickedness.”</text>
   </block>
@@ -480,20 +482,22 @@
     <verse num="8" />
     <text>Then Peter, filled with the Holy Spirit, said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Peter (Simon)" multiBlockQuote="Start">
-    <text>“You rulers of the people, and elders of Israel, </text>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="Peter (Simon)">
+    <text>“You rulers of the people, and elders of Israel,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Peter (Simon)">
     <verse num="9" />
     <text>are we being examined today concerning a good deed done to a crippled man? Are you asking by what means this man has been healed?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="Peter (Simon)">
     <verse num="10" />
     <text>Be it known to you all, and to all the people of Israel, that in the name of Jesus Christ of Nazareth, whom you crucified, whom God raised from the dead, in him does this man stand here before you whole.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Peter (Simon)">
     <verse num="11" />
     <text>He is ‘the stone which was regarded as worthless by you, the builders, which has become the head of the corner.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="Peter (Simon)">
     <verse num="12" />
     <text>There is salvation in none other, for neither is there any other name under heaven, that is given among men, by which we must be saved!”</text>
   </block>
@@ -514,10 +518,10 @@
     <verse num="16" />
     <text>saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin">
     <text>“What shall we do to these men? Because indeed a notable miracle has been done through them, as can be plainly seen by all who dwell in Jerusalem, and we can’t deny it.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin">
     <verse num="17" />
     <text>But so that this spreads no further among the people, let’s threaten them, that from now on they don’t speak to anyone in this name.”</text>
   </block>
@@ -555,30 +559,30 @@
     <verse num="24" />
     <text>When they heard it, they lifted up their voice to God with one accord, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <text>“O Lord, you are God, who made the heaven, the earth, the sea, and all that is in them.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <verse num="25" />
     <text>You said through the mouth of your servant, David, said, ‘Why do the nations rage, and the peoples plot a vain thing?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <verse num="26" />
     <text>The kings of the earth take a stand, and the rulers take council together, against the Lord, and against his Christ.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <verse num="27" />
     <text>“For truly, in this city against your holy child, Jesus, whom you anointed, both Herod and Pontius Pilate, with the Gentiles and the people of Israel, were gathered together.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <verse num="28" />
     <text>They were to do whatever your hand and your council foreordained to happen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <verse num="29" />
     <text>Now, Lord, look at their threats, and grant to your servants to speak your word with all boldness.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John">
     <verse num="30" />
     <text>May you stretch out your hand to heal and show signs and wonders through the name of your holy child Jesus.”</text>
   </block>
@@ -619,10 +623,10 @@
     <verse num="3" />
     <text>But Peter said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="Peter (Simon)" delivery="rebuking">
     <text>“Ananias, why has Satan filled your heart to lie to the Holy Spirit, and to keep back part of the price of the land?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="Peter (Simon)" delivery="rebuking">
     <verse num="4" />
     <text>While you kept it, didn’t it remain your own? After it was sold, wasn’t it in your power? How is it that you have conceived this thing in your heart? You haven’t lied to men, but to God.”</text>
   </block>
@@ -653,10 +657,10 @@
     <verse num="9" />
     <text>But Peter asked her,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Peter (Simon)">
     <text>“How is it that you have agreed together to tempt the Spirit of the Lord?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Peter (Simon)">
     <text>Behold, the feet of those who have buried your husband are at the door, and they will carry you out.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-ACT">
@@ -722,7 +726,7 @@
     <verse num="24" />
     <text>Now when the high priest, the captain of the temple, and the chief priests heard these words, they were very perplexed about them and wondered:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="captain of the temple guard/chief priests">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests">
     <text>“What will happen now?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-ACT">
@@ -742,28 +746,28 @@
     <verse num="28" />
     <text>saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)">
     <text>“Didn’t we strictly command you not to teach in this name?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)">
     <text>Behold, you have filled Jerusalem with your teaching, and intend to bring this man’s blood on us.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-ACT">
     <verse num="29" />
     <text>But Peter and the apostles answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="Peter (Simon)/disciples">
     <text>“We must obey God rather than men.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Peter (Simon)/disciples">
     <verse num="30" />
     <text>The God of our fathers raised up Jesus, whom you killed, hanging him on a tree.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Peter (Simon)/disciples">
     <verse num="31" />
     <text>God exalted him with his right hand to be a Prince and a Savior, to give repentance to Israel, and remission of sins.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Peter (Simon)/disciples">
     <verse num="32" />
     <text>We are His witnesses of these things; and so also is the Holy Spirit, whom God has given to those who obey him.”</text>
   </block>
@@ -777,22 +781,22 @@
     <verse num="35" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="35" characterId="Gamaliel" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="35" characterId="Gamaliel">
     <text>“You men of Israel, be careful concerning these men, what you are about to do.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="36" characterId="Gamaliel" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="36" characterId="Gamaliel">
     <verse num="36" />
     <text>For before these days Theudas rose up, making himself out to be somebody; to whom a number of men, about four hundred, joined themselves: He was slain; and all, as many as obeyed him, were dispersed, and came to nothing.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="37" characterId="Gamaliel" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="37" characterId="Gamaliel">
     <verse num="37" />
     <text>After this man, Judas of Galilee rose up in the days of the enrollment, and drew away some people after him. He also perished, and all, as many as obeyed him, were scattered abroad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="38" characterId="Gamaliel" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="38" characterId="Gamaliel">
     <verse num="38" />
     <text>Now I tell you, withdraw from these men, and leave them alone. For if this counsel or this work is of men, it will be overthrown.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Gamaliel" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Gamaliel">
     <verse num="39" />
     <text>But if it is of God, you will not be able to overthrow it, and you would be found even to be fighting against God!”</text>
   </block>
@@ -819,14 +823,14 @@
     <verse num="2" />
     <text>The twelve summoned the multitude of the disciples and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="apostles" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="disciples">
     <text>“It is not appropriate for us to forsake the word of God and serve tables.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="apostles" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="disciples">
     <verse num="3" />
     <text>Therefore select from among you, brothers, seven men of good report, full of the Holy Spirit and of wisdom, whom we may appoint over this business.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="apostles" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="disciples">
     <verse num="4" />
     <text>But we will continue steadfastly in prayer and in the ministry of the word.”</text>
   </block>
@@ -869,10 +873,10 @@
     <verse num="13" />
     <text>They set up false witnesses who said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="false witnesses" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="false witnesses">
     <text>“This man never stops speaking blasphemous words against this holy place and the law.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="false witnesses" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="false witnesses">
     <verse num="14" />
     <text>For we have heard him say that this Jesus of Nazareth will destroy this place, and will change the customs which Moses delivered to us.”</text>
   </block>
@@ -894,210 +898,210 @@
     <verse num="2" />
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="Stephen">
     <text>“Brothers and fathers, listen. The God of glory appeared to our father Abraham, when he was in Mesopotamia, before he lived in Haran.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="Stephen">
     <verse num="3" />
     <text>God said to him, ‘Get out of your land, and from your relatives, and come into a land which I will show you.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="Stephen">
     <verse num="4" />
     <text>Then he came out of the land of the Chaldaeans, and lived in Haran. From there, when his father was dead, God moved him into this land, where you are now living.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Stephen">
     <verse num="5" />
     <text>He gave him no inheritance in it, no, not so much as to set his foot on. God promised that he would give it to him for a possession, and to his seed after him, when he still had no child.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Stephen">
     <verse num="6" />
     <text>God spoke in this way: that his seed would live as aliens in a strange land, and that they would be enslaved and mistreated for four hundred years.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Stephen">
     <verse num="7" />
     <text>‘I will judge the nation to which they will be in bondage,’ said God, ‘and after that will they come out, and serve me in this place.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="Stephen">
     <verse num="8" />
     <text>He gave him the covenant of circumcision. So Abraham became the father of Isaac, and circumcised him the eighth day. Isaac became the father of Jacob, and Jacob became the father of the twelve patriarchs.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Stephen">
     <verse num="9" />
     <text>“The patriarchs, moved with jealousy against Joseph, sold him into Egypt. God was with him</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Stephen">
     <verse num="10" />
     <text>He delivered him out of all his afflictions and gave him favor and wisdom before Pharaoh, king of Egypt. He made him governor over Egypt and all his house.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Stephen">
     <verse num="11" />
     <text>Now a famine came over all the land of Egypt and Canaan, and great affliction. Our fathers found no food.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Stephen">
     <verse num="12" />
     <text>But when Jacob heard that there was grain in Egypt, he sent out our fathers the first time.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Stephen">
     <verse num="13" />
     <text>On the second time Joseph was made known to his brothers, and Joseph’s race was revealed to Pharaoh.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="Stephen">
     <verse num="14" />
     <text>Joseph sent, and summoned Jacob, his father, and all his relatives, seventy-five souls.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Stephen">
     <verse num="15" />
     <text>Jacob went down into Egypt, and he died. Our forefathers died there also.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Stephen">
     <verse num="16" />
     <text>They were all brought back to Shechem and laid in the tomb that Abraham bought for a price in silver from the children of Hamor of Shechem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="Stephen">
     <verse num="17" />
     <text>“But as the time of the promise came close which God had sworn to Abraham, the people grew and multiplied in Egypt.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Stephen">
     <verse num="18" />
     <text>Then there arose a different king, who didn’t know Joseph.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Stephen">
     <verse num="19" />
     <text>The same took advantage of our race, and mistreated our fathers, and forced them to throw out their babies, so that they wouldn’t stay alive.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Stephen">
     <verse num="20" />
     <text>At that time Moses was born, and was exceedingly handsome. He was nourished three months in his father’s house.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Stephen">
     <verse num="21" />
     <text>When he was thrown out, Pharaoh’s daughter took him up, and reared him as her own son.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Stephen">
     <verse num="22" />
     <text>Moses was instructed in all the wisdom of the Egyptians. He was mighty in his words and works.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Stephen">
     <verse num="23" />
     <text>But when he was forty years old, it came into his heart to visit his brothers, the children of Israel.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="Stephen">
     <verse num="24" />
     <text>Seeing one of them suffer wrong, he defended him, and avenged him who was oppressed, striking the Egyptian.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="Stephen">
     <verse num="25" />
     <text>He supposed that his brothers understood that God, by his hand, was giving them deliverance; but they didn’t understand.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Stephen">
     <verse num="26" />
     <text>“The day following, he appeared to them as they fought, and urged them to be at peace again, saying, ‘Sirs, you are brothers. Why do you wrong one another?’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="Stephen">
     <verse num="27" />
     <text>But he who did his neighbor wrong pushed him away, saying, ‘Who made you a ruler and a judge over us?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="Stephen">
     <verse num="28" />
     <text>Do you want to kill me, as you killed the Egyptian yesterday?’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="Stephen">
     <verse num="29" />
     <text>Moses fled at this saying, and became a stranger in the land of Midian, where he became the father of two sons.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="Stephen">
     <verse num="30" />
     <text>“When forty years were fulfilled, an angel of the Lord appeared to him in the wilderness of Mount Sinai, in a flame of fire in a bush.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="Stephen">
     <verse num="31" />
     <text>When Moses saw it, he wondered at the sight. As he came close to see, a voice of the Lord came to him and said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="32" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="32" characterId="Stephen">
     <verse num="32" />
     <text>‘I am the God of your fathers, the God of Abraham, the God of Isaac, and the God of Jacob.’ Moses trembled, and dared not look.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="33" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="33" characterId="Stephen">
     <verse num="33" />
     <text>The Lord said to him, ‘Take your sandals off of your feet, for the place where you stand is holy ground.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Stephen">
     <verse num="34" />
     <text>I have surely seen the affliction of my people that is in Egypt, and have heard their groaning. I have come down to deliver them. Now come, I will send you into Egypt.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="Stephen">
     <verse num="35" />
     <text>“This Moses, whom they refused, saying, ‘Who made you a ruler and a judge?’--God has sent him as both a ruler and a deliverer by the hand of the angel who appeared to him in the bush.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Stephen">
     <verse num="36" />
     <text>This man led them out, having worked wonders and signs in Egypt, in the Red Sea, and in the wilderness for forty years.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="Stephen">
     <verse num="37" />
     <text>This is that Moses, who said to the children of Israel, ‘The Lord our God will raise up a prophet for you from among your brothers, like me.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="38" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="38" characterId="Stephen">
     <verse num="38" />
     <text>This is he who was in the assembly in the wilderness with the angel that spoke to him on Mount Sinai, and with our fathers, who received living oracles to give to us.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="39" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="39" characterId="Stephen">
     <verse num="39" />
     <text>Our forefathers would not listen to him but rejected him, and turned back in their hearts to Egypt.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Stephen">
     <verse num="40" />
     <text>They said to Aaron, ‘Make us gods that will go before us, for as for this Moses, who led us out of the land of Egypt, we don’t know what has become of him.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="41" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="41" characterId="Stephen">
     <verse num="41" />
     <text>They made a calf in those days, and brought a sacrifice to the idol, and rejoiced in the works of their hands.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="42" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="42" characterId="Stephen">
     <verse num="42" />
     <text>But God turned, and gave them up to serve the army of the sky, as it is written in the book of the prophets, ‘Did you offer to me slain animals and sacrifices forty years in the wilderness, O house of Israel?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Stephen">
     <verse num="43" />
     <text>You took up the tabernacle of Moloch, the star of your god Rephan, the figures which you made to worship. I will carry you away beyond Babylon.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="44" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="44" characterId="Stephen">
     <verse num="44" />
     <text>“Our fathers had the tabernacle of the testimony in the wilderness, even as he who spoke to Moses commanded him to make it according to the pattern that he had seen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="45" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="45" characterId="Stephen">
     <verse num="45" />
     <text>Having received the tabernacle, our fathers, under Joshua, brought it with them when they entered into the possession of the nations, whom God drove out before the face of our fathers, to the days of David.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="46" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="46" characterId="Stephen">
     <verse num="46" />
     <text>David found favor in the sight of God and asked to find a habitation for the God of Jacob.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Stephen">
     <verse num="47" />
     <text>But Solomon built him a house.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Stephen">
     <verse num="48" />
     <text>However, the Most High doesn’t dwell in temples made with hands: The prophet says:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="49" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="49" characterId="Stephen">
     <verse num="49" />
     <text>‘heaven is my throne, and the earth a footstool for my feet. What kind of house will you build me?’ says the Lord; ‘or what is the place of my rest?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="50" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="50" characterId="Stephen">
     <verse num="50" />
     <text>Didn’t my hand make all these things?’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="51" characterId="Stephen" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="51" characterId="Stephen">
     <verse num="51" />
     <text>“You stiff-necked and uncircumcised in heart and ears, you always resist the Holy Spirit! As your fathers did, so you do.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="52" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="52" characterId="Stephen">
     <verse num="52" />
     <text>Which of the prophets didn’t your fathers persecute? They killed those who foretold the coming of the Righteous One, of whom you have now become betrayers and murderers.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="53" characterId="Stephen" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="53" characterId="Stephen">
     <verse num="53" />
     <text>You received the law as it was ordained by angels, and didn’t keep it!”</text>
   </block>
@@ -1227,18 +1231,18 @@
     <verse num="20" />
     <text>But Peter said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="Peter (Simon)" delivery="rebuking">
     <text>“May your silver perish with you, because you thought you could obtain the gift of God with money!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Peter (Simon)" delivery="rebuking">
     <verse num="21" />
     <text>You have neither part nor lot in this matter, for your heart isn’t right before God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Peter (Simon)" delivery="rebuking">
     <verse num="22" />
     <text>Repent therefore of this, your wickedness, and ask God if perhaps the thought of your heart may be forgiven you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="Peter (Simon)" delivery="rebuking">
     <verse num="23" />
     <text>For I see that you are in the gall of bitterness and in the bondage of iniquity.”</text>
   </block>
@@ -1294,10 +1298,10 @@
     <verse num="32" />
     <text>Now the passage of the Scripture which he was reading was this,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="scripture">
     <text>“He was led as a sheep to the slaughter. As a lamb before his shearer is silent, so he doesn’t open his mouth.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="scripture">
     <verse num="33" />
     <text>In his humiliation, his judgment was taken away. Who will declare His generation? For his life is taken from the earth.”</text>
   </block>
@@ -1378,7 +1382,7 @@
     <text>The Lord said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus">
-    <text>“I am Jesus, whom you are persecuting: it is hard for you to kick against the goads.”</text>
+    <text>“I am Jesus, whom you are persecuting: [it is hard for you to kick against the goads.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
     <verse num="6" />
@@ -1388,7 +1392,7 @@
     <text>“Lord, what should I do?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
-    <text>And the Lord said to him,</text>
+    <text>And the Lord said to him,]</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
     <text>“Rise up, and enter into the city, and you will be told what you must do.”</text>
@@ -1422,10 +1426,10 @@
     <verse num="11" />
     <text>The Lord said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="Jesus">
     <text>“Arise, and go to the street which is called Straight, and inquire in the house of Judah for one named Saul, a man of Tarsus. For behold, he is praying.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus">
     <verse num="12" />
     <text>In a vision he has seen a man named Ananias coming in, and laying his hands on him, that he might receive his sight.”</text>
   </block>
@@ -1433,10 +1437,10 @@
     <verse num="13" />
     <text>But Ananias answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Ananias of Damascus" delivery="puzzled" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Ananias of Damascus" delivery="puzzled">
     <text>“Lord, I have heard from many about this man, how much evil he did to your saints at Jerusalem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="Ananias of Damascus" delivery="puzzled" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="Ananias of Damascus" delivery="puzzled">
     <verse num="14" />
     <text>Here he has authority from the chief priests to bind all who call on your name.”</text>
   </block>
@@ -1444,10 +1448,10 @@
     <verse num="15" />
     <text>But the Lord said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="Jesus">
     <text>“Go your way, for he is my chosen vessel to bear my name before the nations and kings, and the children of Israel.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Jesus">
     <verse num="16" />
     <text>For I will show him how many things he must suffer for my name’s sake.”</text>
   </block>
@@ -1607,16 +1611,16 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-ACT">
     <text>He said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="angel" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="angel">
     <text>“Your prayers and your gifts to the needy have gone up for a memorial before God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="angel" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="angel">
     <verse num="5" />
     <text>Now send men to Joppa, and get Simon, who is surnamed Peter.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="angel" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="angel">
     <verse num="6" />
-    <text>He lodges with one Simon, a tanner, whose house is by the seaside: he will tell you what you should do..”</text>
+    <text>He lodges with one Simon, a tanner, whose house is by the seaside: he will tell you what you should do.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
@@ -1644,7 +1648,7 @@
     <verse num="13" />
     <text>A voice came to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Holy Spirit, the">
     <text>“Rise, Peter, kill and eat!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ACT">
@@ -1658,7 +1662,7 @@
     <verse num="15" />
     <text>A voice came to him again the second time,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Holy Spirit, the">
     <text>“What God has cleansed, you must not call unclean.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ACT">
@@ -1731,10 +1735,10 @@
     <verse num="28" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="Peter (Simon)">
     <text>“You yourselves know how it is an unlawful thing for a man who is a Jew to join himself or come to one of another nation. But God has shown me that I shouldn’t call any man unholy or unclean.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Peter (Simon)">
     <verse num="29" />
     <text>Therefore also I came without complaint when I was sent for. I ask therefore, why did you send for me?”</text>
   </block>
@@ -1742,18 +1746,18 @@
     <verse num="30" />
     <text>Cornelius said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="Cornelius" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="Cornelius">
     <text>“Four days ago, I was fasting until this hour, and at the ninth hour, I prayed in my house, and behold, a man stood before me in bright clothing,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Cornelius" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Cornelius">
     <verse num="31" />
     <text>and said, ‘Cornelius, your prayer is heard, and your gifts to the needy are remembered in the sight of God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="Cornelius" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="Cornelius">
     <verse num="32" />
     <text>Send therefore to Joppa, and summon Simon, who is surnamed Peter. He lodges in the house of Simon a tanner, by the seaside. When he comes, he will speak to you.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Cornelius" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Cornelius">
     <verse num="33" />
     <text>Therefore I sent to you at once, and it was good of you to come. Now therefore we are all here present in the sight of God to hear all things that have been commanded you by God.”</text>
   </block>
@@ -1761,42 +1765,42 @@
     <verse num="34" />
     <text>Peter opened his mouth and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Peter (Simon)">
     <text>“Truly I perceive that God doesn’t show favoritism;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="Peter (Simon)">
     <verse num="35" />
     <text>but in every nation he who fears him and works righteousness is acceptable to him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Peter (Simon)">
     <verse num="36" />
-    <text>The word which he sent to the children of Israel, preaching good news of peace by Jesus Christ--he is Lord of all—</text>
+    <text>The word which he sent to the children of Israel, preaching good news of peace by Jesus Christ—he is Lord of all—</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Peter (Simon)">
     <verse num="37" />
     <text>you know what happened, which was proclaimed throughout all Judea, beginning from Galilee, after the baptism which John preached;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Peter (Simon)">
     <verse num="38" />
     <text>even Jesus of Nazareth, how God anointed him with the Holy Spirit and with power. He went about doing good and healing all who were oppressed by the devil, for God was with him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="Peter (Simon)">
     <verse num="39" />
     <text>We are witnesses of everything he did both in the country of the Jews, and in Jerusalem; whom they also killed, hanging him on a tree.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="40" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="40" characterId="Peter (Simon)">
     <verse num="40" />
     <text>God raised him up the third day, and caused him to be seen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="41" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="41" characterId="Peter (Simon)">
     <verse num="41" />
     <text>He was not seen by all the people, but by witnesses whom God had already chosen -- by us, who ate and drank with him after he rose from the dead.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Peter (Simon)">
     <verse num="42" />
     <text>He commanded us to preach to the people and to testify that this is he who is appointed by God as the Judge of the living and the dead.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="43" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="43" characterId="Peter (Simon)">
     <verse num="43" />
     <text>All the prophets testify about him, that through his name everyone who believes in him will receive remission of sins.”</text>
   </block>
@@ -1840,55 +1844,55 @@
     <verse num="4" />
     <text>But Peter began, and explained to them in order, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="Peter (Simon)">
     <verse num="5" />
     <text>“I was in the city of Joppa praying, and in a trance I saw a vision: I saw something like a large sheet let down from heaven by four corners. It came down to where I was.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="Peter (Simon)">
     <verse num="6" />
     <text>When I had looked intently at it, I considered, and saw the four-footed animals of the earth, wild animals, creeping things, and birds of the sky.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="Peter (Simon)">
     <verse num="7" />
     <text>I also heard a voice saying to me, ‘Rise, Peter, kill and eat!’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="Peter (Simon)">
     <verse num="8" />
     <text>But I said, ‘Not so, Lord, for nothing unholy or unclean has ever entered into my mouth.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Peter (Simon)">
     <verse num="9" />
     <text>But a voice answered me the second time out of heaven, ‘What God has cleansed, don’t you call unclean.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="Peter (Simon)">
     <verse num="10" />
     <text>This was done three times, and all were drawn up again into heaven.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="Peter (Simon)">
     <verse num="11" />
     <text>Behold, immediately three men stood before the house where I was, having been sent from Caesarea to me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Peter (Simon)">
     <verse num="12" />
     <text>The Spirit told me to go with them, without discriminating. These six brothers also accompanied me, and we entered into the man’s house.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="Peter (Simon)">
     <verse num="13" />
     <text>He told us how he had seen the angel standing in his house, and saying to him, ‘Send to Joppa, and get Simon, whose surname is Peter.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="Peter (Simon)">
     <verse num="14" />
     <text>He will speak to you words by which you will be saved, you and all your house.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="Peter (Simon)">
     <verse num="15" />
     <text>As I began to speak, the Holy Spirit fell on them, even as on us at the beginning.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Peter (Simon)">
     <verse num="16" />
     <text>I remembered the word of the Lord, how he said, ‘John indeed baptized in water, but you will be baptized in the Holy Spirit.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Peter (Simon)">
     <verse num="17" />
     <text>If then God gave to them the same gift as us, when we believed in the Lord Jesus Christ, who was I, that I could withstand God?”</text>
   </block>
@@ -2138,13 +2142,13 @@
     <verse num="10" />
     <text>and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Paul" delivery="rebuking" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Paul" delivery="rebuking">
     <text>“Full of all deceit and all cunning, you son of the devil, you enemy of all righteousness!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Paul" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="Paul" delivery="rebuking">
     <text>Will you not cease to pervert the right ways of the Lord?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Paul" delivery="rebuking" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Paul" delivery="rebuking">
     <verse num="11" />
     <text>Now, behold, the hand of the Lord is on you, and you will be blind, not seeing the sun for a season!”</text>
   </block>
@@ -2174,106 +2178,106 @@
     <verse num="16" />
     <text>Paul stood up, and beckoning with his hand said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="Paul" delivery="preaching">
     <text>“Men of Israel, and you who fear God, listen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Paul" delivery="preaching">
     <verse num="17" />
     <text>The God of this people chose our fathers, and exalted the people when they stayed as aliens in the land of Egypt, and with an uplifted arm, he led them out of it.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Paul" delivery="preaching">
     <verse num="18" />
     <text>For a period of about forty years he put up with them in the wilderness.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Paul" delivery="preaching">
     <verse num="19" />
     <text>When he had destroyed seven nations in the land of Canaan, he gave them their land for an inheritance, for about four hundred fifty years.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="Paul" delivery="preaching">
     <verse num="20" />
     <text>After these things he gave them judges until Samuel the prophet.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Paul" delivery="preaching">
     <verse num="21" />
     <text>Afterward they asked for a king, and God gave to them Saul the son of Kish, a man of the tribe of Benjamin, for forty years.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="Paul" delivery="preaching">
     <verse num="22" />
     <text>When he had removed him, he raised up David to be their king, to whom he also testified, ‘I have found David the son of Jesse, a man after my heart, who will do all my will.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Paul" delivery="preaching">
     <verse num="23" />
     <text>From this man’s seed, God has brought salvation to Israel according to his promise.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="Paul" delivery="preaching">
     <verse num="24" />
     <text>Before Jesus came, John had first preached the baptism of repentance to Israel.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="Paul" delivery="preaching">
     <verse num="25" />
     <text>As John was fulfilling his course, he said, ‘What do you suppose that I am? I am not he. But behold, one comes after me the sandals of whose feet I am not worthy to untie.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="26" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="26" characterId="Paul" delivery="preaching">
     <verse num="26" />
     <text>Brothers, children of the stock of Abraham, and those among you who fear God, the word of this salvation is sent out to you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Paul" delivery="preaching">
     <verse num="27" />
     <text>For the inhabitants of Jerusalem and their rulers did not recognize Jesus. By condemning him they fulfilled the words of the prophets which are read every sabbath day.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching">
     <verse num="28" />
     <text>“Though they found no cause for death, they still asked Pilate to have him killed.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Paul" delivery="preaching">
     <verse num="29" />
     <text>When they had fulfilled all things that were written about him, they took him down from the tree, and laid him in a tomb.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Paul" delivery="preaching">
     <verse num="30" />
     <text>But God raised him from the dead.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="Paul" delivery="preaching">
     <verse num="31" />
     <text>He was seen for many days by those who came up with him from Galilee to Jerusalem, who are his witnesses to the people.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="32" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="32" characterId="Paul" delivery="preaching">
     <verse num="32" />
     <text>We bring you good news of the promise made to the fathers,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Paul" delivery="preaching">
     <verse num="33" />
     <text>that God has fulfilled the same to us, their children, in that he raised up Jesus. As it is also written in the second psalm, ‘You are my Son. Today I have become your father.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Paul" delivery="preaching">
     <verse num="34" />
     <text>“Concerning that he raised him up from the dead, now no more to return to corruption, he has spoken thus: ‘I will give you the holy and sure blessings of David.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Paul" delivery="preaching">
     <verse num="35" />
     <text>Therefore he says also in another psalm, ‘You will not allow your Holy One to see decay.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Paul" delivery="preaching">
     <verse num="36" />
     <text>For David, after he had in his own generation served the counsel of God, fell asleep, and was laid with his fathers, and saw decay.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Paul" delivery="preaching">
     <verse num="37" />
     <text>But he whom God raised up saw no decay.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="38" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="38" characterId="Paul" delivery="preaching">
     <verse num="38" />
     <text>Be it known unto you therefore, brethren, that through this man is preached unto you the forgiveness of sins.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="39" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="39" characterId="Paul" delivery="preaching">
     <verse num="39" />
     <text>Through him everyone who believes is justified from all things, from which they could not be justified by the law of Moses.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="40" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="40" characterId="Paul" delivery="preaching">
     <verse num="40" />
     <text>Beware therefore, lest that come on you which is spoken in the prophets:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="41" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="41" characterId="Paul" delivery="preaching">
     <verse num="41" />
     <text>‘Behold, you scoffers, and wonder, and perish; for I work a work in your days, a work which you will in no way believe, if one declares it to you.’”</text>
   </block>
@@ -2300,10 +2304,10 @@
     <verse num="46" />
     <text>Paul and Barnabas spoke out boldly, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="46" characterId="Paul/Barnabas" delivery="boldly" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="46" characterId="Paul/Barnabas" delivery="boldly">
     <text>“It was necessary that God’s word should be spoken to you first. Since indeed you thrust it from you, and judge yourselves unworthy of eternal life, behold, we turn to the Gentiles.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="47" characterId="Paul/Barnabas" delivery="boldly" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="47" characterId="Paul/Barnabas" delivery="boldly">
     <verse num="47" />
     <text>For so has the Lord commanded us, saying, ‘I have set you as a light for the Gentiles, that you should bring salvation to the uttermost parts of the earth.’”</text>
   </block>
@@ -2395,15 +2399,15 @@
     <verse num="14" />
     <text>But when the apostles, Barnabas and Paul, heard of it, they tore their clothes, and sprang into the multitude, crying out,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="Barnabas/Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="Barnabas/Paul" delivery="preaching">
     <verse num="15" />
     <text>“Men, why are you doing these things? We also are men of like passions with you. We bring you good news, that you should turn from these vain things to the living God, who made the sky and the earth and the sea, and all that is in them.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="Barnabas/Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="Barnabas/Paul" delivery="preaching">
     <verse num="16" />
     <text>In the generations gone by, He allowed all the nations to walk in their own ways.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="Barnabas/Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="Barnabas/Paul" delivery="preaching">
     <verse num="17" />
     <text>Yet he didn’t leave himself without witness, in that he did good and gave you rains from the sky and fruitful seasons, filling our hearts with food and gladness.”</text>
   </block>
@@ -2491,22 +2495,22 @@
     <verse num="7" />
     <text>When there had been much discussion, Peter rose up and said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Peter (Simon)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Peter (Simon)">
     <text>“Brothers, you know that a good while ago God made a choice among you, that by my mouth the nations should hear the word of the Good News, and believe.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Peter (Simon)">
     <verse num="8" />
     <text>God, who knows the heart, testified about them, giving them the Holy Spirit, just like he did to us.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Peter (Simon)">
     <verse num="9" />
     <text>He made no distinction between us and them, cleansing their hearts by faith.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Peter (Simon)">
     <verse num="10" />
     <text>Now therefore why do you tempt God, that you should put a yoke on the neck of the disciples which neither our fathers nor we were able to bear?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="Peter (Simon)">
     <verse num="11" />
     <text>But we believe that we are saved through the grace of the Lord Jesus Christ, just as they are.”</text>
   </block>
@@ -2518,36 +2522,36 @@
     <verse num="13" />
     <text>After they were silent, James answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="James" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="James">
     <text>“Brothers, listen to me. </text>
     <verse num="14" />
     <text>Simeon has reported how God first visited the nations, to take out of them a people for his name.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="James" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="James">
     <verse num="15" />
     <text>This agrees with the words of the prophets. As it is written,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="James" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="James">
     <verse num="16" />
     <text>‘After these things I will return. I will again build the tabernacle of David, which has fallen. I will again build its ruins. I will set it up again.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="James" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="James">
     <verse num="17" />
     <text>Then the rest of men may seek after the Lord; All the Gentiles who are called by my name, Says the Lord, who does all these things.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="18" characterId="James" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="18" characterId="James">
     <verse num="18" />
     <text>All his works are known to God from eternity.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="James" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="James">
     <verse num="19" />
     <text>“Therefore my judgment is that we don’t trouble those from among the Gentiles who turn to God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="James" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="James">
     <verse num="20" />
     <text>Instead, we write to them that they abstain from the pollution of idols, from sexual immorality, from what is strangled, and from blood.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="James" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="James">
     <verse num="21" />
     <text>For Moses from generations of old has in every city those who preach him, being read in the synagogues every Sabbath.”</text>
   </block>
@@ -2559,30 +2563,30 @@
     <verse num="23" />
     <text>They wrote these things by their hand:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="letter from apostles and elders" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="letter from apostles and elders">
     <text>“The apostles, the elders, and the brothers, to the brothers who are of the Gentiles in Antioch, Syria, and Cilicia: greetings.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="letter from apostles and elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="letter from apostles and elders">
     <verse num="24" />
     <text>Because we have heard that some who went out from us have troubled you with words, unsettling your souls, saying, ‘You must be circumcised and keep the law,’ to whom we gave no commandment;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="letter from apostles and elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="letter from apostles and elders">
     <verse num="25" />
     <text>it seemed good to us, having come to one accord, to choose out men and send them to you with our beloved Barnabas and Paul.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="letter from apostles and elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="letter from apostles and elders">
     <verse num="26" />
     <text>These men have risked their lives for the name of our Lord Jesus Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="letter from apostles and elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="letter from apostles and elders">
     <verse num="27" />
     <text>We have sent therefore Judas and Silas, who themselves will also tell you the same things by word of mouth.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="letter from apostles and elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="letter from apostles and elders">
     <verse num="28" />
     <text>For it seemed good to the Holy Spirit, and to us, to lay no greater burden on you than these necessary things:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="letter from apostles and elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="letter from apostles and elders">
     <verse num="29" />
     <text>that you abstain from things sacrificed to idols, from blood, from things strangled, and from sexual immorality, from which if you keep yourselves, it will be well with you. Farewell.”</text>
   </block>
@@ -2742,10 +2746,10 @@
     <verse num="20" />
     <text>When they had brought them to the magistrates, they said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="owners of fortune telling slave girl" delivery="angry" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="owners of fortune telling slave girl" delivery="angry">
     <text>“These men, being Jews, are agitating our city.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="owners of fortune telling slave girl" delivery="angry" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="owners of fortune telling slave girl" delivery="angry">
     <verse num="21" />
     <text>They set forth customs which it is not lawful for us to accept or to observe, being Romans.”</text>
   </block>
@@ -2771,9 +2775,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
-    <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="narrator-ACT">
+    <text>The jailer, being roused out of sleep and seeing the prison doors open, drew his sword and was about to kill himself. He thought that the prisoners had escaped. </text>
     <verse num="28" />
     <text>But Paul cried out,</text>
   </block>
@@ -2876,10 +2878,10 @@
     <verse num="6" />
     <text>When they didn’t find them, they dragged Jason and certain brothers before the rulers of the city, crying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="mob" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="mob">
     <text>“These who have turned the world upside down have come here also.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="mob" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="mob">
     <verse num="7" />
     <text>These people whom Jason has received all act contrary to the decrees of Caesar, saying that there is another king, Jesus!”</text>
   </block>
@@ -2943,10 +2945,10 @@
     <verse num="19" />
     <text>They took hold of him, and brought him to a meeting of the Areopagus, saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="Epicurean and Stoic philosophers" delivery="curious" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="Epicurean and Stoic philosophers" delivery="curious">
     <text>“May we know what this new teaching is, which is spoken by you?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Epicurean and Stoic philosophers" delivery="curious" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Epicurean and Stoic philosophers" delivery="curious">
     <verse num="20" />
     <text>For you bring certain strange things to our ears. We want to know therefore what these things mean.”</text>
   </block>
@@ -2958,42 +2960,42 @@
     <verse num="22" />
     <text>Paul stood in the middle of the Areopagus and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="22" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="22" characterId="Paul">
     <text>“You men of Athens, I perceive that you are very religious in all things.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="23" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="23" characterId="Paul">
     <verse num="23" />
     <text>For as I passed along, and observed the objects of your worship, I found also an altar with this inscription: ‘TO AN UNKNOWN GOD.’ What therefore you worship in ignorance, this I announce to you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="Paul">
     <verse num="24" />
     <text>The God who made the world and all things in it, he, being Lord of heaven and earth, doesn’t dwell in temples made with hands.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="25" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="25" characterId="Paul">
     <verse num="25" />
     <text>Neither is he served by men’s hands, as though he needed anything, since he himself gives to all life and breath, and all things.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="26" characterId="Paul">
     <verse num="26" />
     <text>He made from one blood every nation of men to dwell on all the surface of the earth, having determined appointed seasons, and the boundaries of their dwellings.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="27" characterId="Paul">
     <verse num="27" />
     <text>God did this so that men would seek the Lord, if perhaps they might reach out for him and find him, though he is not far from each one of us.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="28" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="28" characterId="Paul">
     <verse num="28" />
     <text>‘For in him we live, and move, and have our being.’ As some of your own poets have said, ‘For we are also his offspring.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="29" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="29" characterId="Paul">
     <verse num="29" />
     <text>Being then the offspring of God, we ought not to think that the Godhead is like gold, or silver, or stone, engraved by art and design of man.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="30" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="30" characterId="Paul">
     <verse num="30" />
     <text>The times of ignorance therefore God overlooked. But now he commands that all people everywhere should repent.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="31" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="31" characterId="Paul">
     <verse num="31" />
     <text>For he has appointed a day in which he will judge the world in righteousness by the man whom he has ordained; of which he has given assurance to all men, in that he has raised him from the dead.”</text>
   </block>
@@ -3054,10 +3056,10 @@
     <verse num="9" />
     <text>The Lord said to Paul in the night by a vision,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus" delivery="in a vision" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus" delivery="in a vision">
     <text>“Don’t be afraid, but speak and don’t be silent;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="in a vision" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="in a vision">
     <verse num="10" />
     <text>for I am with you, and no one will attack you to harm you, for I have many people in this city.”</text>
   </block>
@@ -3078,10 +3080,10 @@
     <verse num="14" />
     <text>But when Paul was about to open his mouth, Gallio said to the Jews,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="Gallio, proconsul of Achaia" delivery="sternly" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="Gallio, proconsul of Achaia" delivery="sternly">
     <text>“If indeed it were a matter of wrong or of wicked crime, you Jews, it would be reasonable that I should bear with you;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="Gallio, proconsul of Achaia" delivery="sternly" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="Gallio, proconsul of Achaia" delivery="sternly">
     <verse num="15" />
     <text>but if they are questions about words and names and your own law, look to it yourselves. For I don’t want to be a judge of these matters.”</text>
   </block>
@@ -3274,14 +3276,14 @@
     <verse num="25" />
     <text>He gathered together with the workmen of like occupation, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="25" characterId="Demetrius the silversmith" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="25" characterId="Demetrius the silversmith">
     <text>“Sirs, you know that by this business we have our wealth.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="26" characterId="Demetrius the silversmith" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="26" characterId="Demetrius the silversmith">
     <verse num="26" />
     <text>You see and hear, that not at Ephesus alone, but almost throughout all Asia, this Paul has persuaded and turned away many people, saying that they are no gods, that are made with hands.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="27" characterId="Demetrius the silversmith" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="27" characterId="Demetrius the silversmith">
     <verse num="27" />
     <text>Not only is there danger that this our trade come into disrepute, but also that the temple of the great goddess Artemis will be counted as nothing. The goddess herself, who is worshipped throughout the province of Asia and the world will be robbed of her divine majesty.”</text>
   </block>
@@ -3323,26 +3325,26 @@
     <verse num="35" />
     <text>When the town clerk had quieted the crowd, he said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="35" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="35" characterId="city clerk of Ephesus" delivery="diplomatic">
     <text>“You men of Ephesus, what man is there who doesn’t know that the city of the Ephesians is worshipper of the great goddess Artemis, and of the image which fell down from Zeus?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="36" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="36" characterId="city clerk of Ephesus" delivery="diplomatic">
     <verse num="36" />
     <text>Seeing then that these things can’t be denied, you ought to be quiet, and to do nothing rash.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="37" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="37" characterId="city clerk of Ephesus" delivery="diplomatic">
     <verse num="37" />
     <text>For you have brought these men here, who are neither robbers of temples nor blasphemers of your goddess.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="city clerk of Ephesus" delivery="diplomatic">
     <verse num="38" />
     <text>If therefore Demetrius and the craftsmen who are with him have a matter against anyone, the courts are open, and there are proconsuls. Let them press charges against one another.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="39" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="39" characterId="city clerk of Ephesus" delivery="diplomatic">
     <verse num="39" />
     <text>But if you seek anything about other matters, it will be settled in the regular assembly.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="40" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="40" characterId="city clerk of Ephesus" delivery="diplomatic">
     <verse num="40" />
     <text>For indeed we are in danger of being accused concerning this day’s riot, there being no cause. Concerning it, we wouldn’t be able to give an account of this commotion.”</text>
   </block>
@@ -3428,74 +3430,74 @@
     <verse num="18" />
     <text>When they had come to him, he said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="18" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="18" characterId="Paul">
     <text>“You yourselves know, from the first day that I set foot in Asia, how I was with you all the time.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="Paul">
     <verse num="19" />
     <text>I served the Lord with all humility, with many tears, and with trials which happened to me by the plots of the Jews;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="20" characterId="Paul">
     <verse num="20" />
     <text>I didn’t shrink from declaring to you anything that was profitable. I taught you publically, from house to house.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="21" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="21" characterId="Paul">
     <verse num="21" />
     <text>I testified both to Jews and to Greeks of repentance toward God, and faith toward our Lord Jesus Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="22" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="22" characterId="Paul">
     <verse num="22" />
     <text>Now, behold, I go bound by the Spirit to Jerusalem, not knowing what will happen to me there;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Paul">
     <verse num="23" />
     <text>I only know that the Holy Spirit testifies in every city, saying that bonds and afflictions wait for me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Paul">
     <verse num="24" />
     <text>But these things don’t count; nor do I hold my life dear to myself, so that I may finish my race with joy, and the ministry which I received from the Lord Jesus, to fully testify to the Good News of the grace of God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Paul">
     <verse num="25" />
     <text>“Now, behold, I know that you all, among whom I went about preaching the Kingdom of God, will see my face no more.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="Paul">
     <verse num="26" />
     <text>Therefore I testify to you this day that I am clean from the blood of all men.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="Paul">
     <verse num="27" />
     <text>For I didn’t shrink from declaring to you the whole counsel of God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="28" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="28" characterId="Paul">
     <verse num="28" />
     <text>Take heed, therefore, to yourselves, and to all the flock, in which the Holy Spirit has made you overseers, to shepherd the assembly of the Lord and God which he purchased with his own blood.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="29" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="29" characterId="Paul">
     <verse num="29" />
     <text>For I know that after my departure, vicious wolves will enter in among you, not sparing the flock.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="30" characterId="Paul">
     <verse num="30" />
     <text>Men will arise from among your own selves, speaking perverse things, to draw away the disciples after them.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Paul">
     <verse num="31" />
     <text>Therefore watch, remembering that for a period of three years I didn’t cease to admonish everyone night and day with tears.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="32" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="32" characterId="Paul">
     <verse num="32" />
     <text>Now, brothers, I entrust you to God, and to the word of his grace. It is able to build you up, and to give you the inheritance among all those who are sanctified.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Paul">
     <verse num="33" />
     <text>I coveted no one’s silver, or gold, or clothing.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="34" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="34" characterId="Paul">
     <verse num="34" />
     <text>You yourselves know that these hands served my necessities, and those who were with me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="35" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="35" characterId="Paul">
     <verse num="35" />
     <text>In all things I gave you an example, that so laboring you ought to help the weak. We must remember the words that the Lord Jesus said, ‘It is more blessed to give than to receive.’”</text>
   </block>
@@ -3563,7 +3565,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
-    <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem. </text>
+    <text>When we heard these things, both we and they of that place begged him not to go up to Jerusalem.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
     <text>Then Paul answered,</text>
   </block>
@@ -3601,26 +3605,26 @@
     <verse num="20" />
     <text>They, when they heard it, glorified God. They said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="20" characterId="James/all the elders" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="20" characterId="James/all the elders">
     <text>“You see, brother, how many thousands there are among the Jews of those who have believed, and they are all zealous for the law.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="21" characterId="James/all the elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="21" characterId="James/all the elders">
     <verse num="21" />
     <text>They have been informed about you, that you teach all the Jews who are among the Gentiles to forsake Moses. They tell them not to circumcise their children neither to walk after the customs.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="James/all the elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="James/all the elders">
     <verse num="22" />
     <text>What then? The assembly must certainly meet, for they will hear that you have come.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="James/all the elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="James/all the elders">
     <verse num="23" />
     <text>Therefore do what we tell you. We have four men who have taken a vow.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="24" characterId="James/all the elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="24" characterId="James/all the elders">
     <verse num="24" />
     <text>Take them, and purify yourself with them, and pay their expenses for them, that they may shave their heads. Then all will know that there is no truth in the things that they have been informed about you, but that you yourself also walk keeping the law.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="25" characterId="James/all the elders" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="25" characterId="James/all the elders">
     <verse num="25" />
     <text>But concerning the Gentiles who believe, we have sent a letter with our decision: They should abstain from what has been sacrificed to idols, and from blood, and from what has been strangled, and from sexual immorality.”</text>
   </block>
@@ -3634,10 +3638,10 @@
     <verse num="28" />
     <text>crying out,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="28" characterId="Jews from Asia" delivery="shouting" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="28" characterId="Jews from Asia" delivery="shouting">
     <text>“Men of Israel, help us! This is the man who teaches all men everywhere against the people, and the law, and this place.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="28" characterId="Jews from Asia" delivery="shouting" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="28" characterId="Jews from Asia" delivery="shouting">
     <text>Moreover, he also brought Greeks into the temple, and has defiled this holy place!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="29" characterId="narrator-ACT">
@@ -3685,10 +3689,10 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="37" characterId="narrator-ACT">
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="37" characterId="commander of Roman troops in Jerusalem" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="37" characterId="commander of Roman troops in Jerusalem">
     <text>“Do you know Greek?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="38" characterId="commander of Roman troops in Jerusalem" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="38" characterId="commander of Roman troops in Jerusalem">
     <verse num="38" />
     <text>Aren’t you then the Egyptian, who before these days stirred up to sedition and led out into the wilderness the four thousand men of the Assassins?”</text>
   </block>
@@ -3714,75 +3718,75 @@
     <verse num="2" />
     <text>When they heard that he spoke to them in the Hebrew language, they were even more quiet. He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="3" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="3" characterId="Paul" delivery="preaching">
     <verse num="3" />
     <text>“I am indeed a Jew, born in Tarsus of Cilicia, but brought up in this city. At the feet of Gamaliel, I was instructed according to the strict tradition of the law of our fathers, being zealous for God, even as you all are this day.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="4" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="4" characterId="Paul" delivery="preaching">
     <verse num="4" />
     <text>I persecuted this Way to the death, binding and delivering into prisons both men and women.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="Paul" delivery="preaching">
     <verse num="5" />
     <text>The high priest and all the council of the elders testify. I even obtained letters from them to their brothers in Damascus, and I went there to bring these people as prisoners to Jerusalem to be punished.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="Paul" delivery="preaching">
     <verse num="6" />
     <text>It happened that, as I made my journey, and came close to Damascus, about noon, suddenly there shone from the sky a great light around me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="Paul" delivery="preaching">
     <verse num="7" />
     <text>I fell to the ground, and heard a voice saying to me, ‘Saul, Saul, why are you persecuting me?’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Paul" delivery="preaching">
     <verse num="8" />
     <text>I answered, ‘Who are you, Lord?’ He said to me, ‘I am Jesus of Nazareth, whom you persecute.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Paul" delivery="preaching">
     <verse num="9" />
     <text>“Those who were with me indeed saw the light and were afraid, but they didn’t understand the voice of him who spoke to me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Paul" delivery="preaching">
     <verse num="10" />
     <text>I said, ‘What shall I do, Lord?’ The Lord said to me, ‘Arise, and go into Damascus. There you will be told about all things which are appointed for you to do.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Paul" delivery="preaching">
     <verse num="11" />
     <text>When I couldn’t see for the glory of that light, being led by the hand of those who were with me, I came into Damascus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="Paul" delivery="preaching">
     <verse num="12" />
     <text>One Ananias, a devout man according to the law, well reported of by all the Jews who lived in Damascus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="Paul" delivery="preaching">
     <verse num="13" />
     <text>He came to me, and standing by me said to me, ‘Brother Saul, receive your sight!’ In that very hour I looked up at him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="14" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="14" characterId="Paul" delivery="preaching">
     <verse num="14" />
     <text>He said, ‘The God of our fathers has appointed you to know his will, and to see the Righteous One, and to hear a voice from his mouth.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="15" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="15" characterId="Paul" delivery="preaching">
     <verse num="15" />
     <text>For you will be a witness for him to all men of what you have seen and heard.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="16" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="16" characterId="Paul" delivery="preaching">
     <verse num="16" />
     <text>Now why do you wait? Arise, be baptized, and wash away your sins, calling on the name of the Lord.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Paul" delivery="preaching">
     <verse num="17" />
     <text>“It happened that, when I had returned to Jerusalem, and while I prayed in the temple, I fell into a trance,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="Paul" delivery="preaching">
     <verse num="18" />
     <text>I saw him saying to me, ‘Hurry and get out of Jerusalem quickly, because they will not receive testimony concerning me from you.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="19" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="19" characterId="Paul" delivery="preaching">
     <verse num="19" />
     <text>I said, ‘Lord, they themselves know that I imprisoned and beat in every synagogue those who believed in you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="Paul" delivery="preaching">
     <verse num="20" />
     <text>When the blood of Stephen, your witness, was shed, I also was there too. I consented to his death and guarded the cloaks of those who killed him.’</text>
   </block>
@@ -3933,14 +3937,14 @@
     <verse num="14" />
     <text>They came to the chief priests and the elders, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jews, more than forty in conspiracy" delivery="plotting" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jews, more than forty in conspiracy" delivery="plotting">
     <text>“We have bound ourselves under a great curse, to taste nothing until we have killed Paul.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jews, more than forty in conspiracy" delivery="plotting" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jews, more than forty in conspiracy" delivery="plotting">
     <verse num="15" />
     <text>Now therefore, you with the council inform the commanding officer that he should bring him down to you tomorrow, as though you were going to judge his case more exactly.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jews, more than forty in conspiracy" delivery="plotting" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jews, more than forty in conspiracy" delivery="plotting">
     <text>We are ready to kill him before he comes near.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="narrator-ACT">
@@ -3958,7 +3962,7 @@
     <verse num="18" />
     <text>So he took him, and brought him to the commanding officer, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion, one of the">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion in the barracks">
     <text>“Paul, the prisoner, summoned me and asked me to bring this young man to you, who has something to tell you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="19" characterId="narrator-ACT">
@@ -3972,10 +3976,10 @@
     <verse num="20" />
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="20" characterId="son of Paul's sister (young man)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="20" characterId="son of Paul's sister (young man)">
     <text>“The Jews have agreed to ask you to bring Paul down to the council tomorrow, as though intending to inquire somewhat more accurately concerning him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="son of Paul's sister (young man)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="son of Paul's sister (young man)">
     <verse num="21" />
     <text>Therefore don’t yield to them, for more than forty men lie in wait for him, who have bound themselves under a curse neither to eat nor to drink until they have killed him. Now they are ready, looking for the promise from you.”</text>
   </block>
@@ -3990,10 +3994,10 @@
     <verse num="23" />
     <text>He called to himself two of the centurions, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="commander of Roman troops in Jerusalem" delivery="ordering" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="commander of Roman troops in Jerusalem" delivery="ordering">
     <text>“Prepare two hundred soldiers to go as far as Caesarea, with seventy horsemen, and two hundred men armed with spears, at the third hour of the night.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="24" characterId="commander of Roman troops in Jerusalem" delivery="ordering" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="24" characterId="commander of Roman troops in Jerusalem" delivery="ordering">
     <verse num="24" />
     <text>Provide mounts for Paul to ride, and bring him safely to Felix the governor.”</text>
   </block>
@@ -4005,19 +4009,19 @@
     <verse num="26" />
     <text>“Claudius Lysias to the most excellent governor Felix: Greetings.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter">
     <verse num="27" />
     <text>“This man was seized by the Jews, and was about to be killed by them. Then I came with the soldiers and rescued him, having learned that he was a Roman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem" delivery="letter">
     <verse num="28" />
     <text>Desiring to know the cause why they accused him, I brought him down to their council.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="29" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="29" characterId="commander of Roman troops in Jerusalem" delivery="letter">
     <verse num="29" />
     <text>I found him to be accused about questions of their law, but not to be charged with anything worthy of death or of imprisonment.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="30" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="30" characterId="commander of Roman troops in Jerusalem" delivery="letter">
     <verse num="30" />
     <text>When I was told that the Jews lay in wait for the man, I sent him to you immediately. I also ordered his accusers to bring their accusations against him before you. Farewell.”</text>
   </block>
@@ -4070,30 +4074,30 @@
     <verse num="2" />
     <text>When he was called, Tertullus began to accuse him, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="2" characterId="Tertullus, lawyer" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="2" characterId="Tertullus, lawyer">
     <text>“We have enjoyed a long period of peace under you, and your foresight has brought about reforms in this nation.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="3" characterId="Tertullus, lawyer" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="3" characterId="Tertullus, lawyer">
     <verse num="3" />
     <text>Everywhere and in every way, most excellent Felix, we acknowledge this with profound gratitude.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Tertullus, lawyer" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Tertullus, lawyer">
     <verse num="4" />
     <text>But, that I don’t delay you, I entreat you to bear with us and hear a few words.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="Tertullus, lawyer" delivery="accusing">
     <verse num="5" />
     <text>We have found this man to be a plague, an instigator of insurrections among all the Jews throughout the world, and a ringleader of the sect of the Nazarenes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="6" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="6" characterId="Tertullus, lawyer" delivery="accusing">
     <verse num="6" />
     <text>He even tried to profane the temple, and we arrested him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="7" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="7" characterId="Tertullus, lawyer" delivery="accusing">
     <verse num="7" />
     <text>But the chief captain Lysias came upon us, and violently took him away out of our hands.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Tertullus, lawyer" delivery="accusing">
     <verse num="8" />
     <text>By examining him yourself you may ascertain all these things of which we accuse him.”</text>
   </block>
@@ -4105,50 +4109,50 @@
     <verse num="10" />
     <text>When the governor had beckoned to him to speak, Paul answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="10" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="10" characterId="Paul">
     <text>“Because I know that you have been a judge of this nation for many years, I cheerfully make my defense.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="11" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="11" characterId="Paul">
     <verse num="11" />
     <text>You can recognize that it is not more than twelve days since I went up to worship at Jerusalem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="12" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="12" characterId="Paul">
     <verse num="12" />
     <text>In the temple they didn’t find me disputing with anyone or stirring up a crowd, either in the synagogues, or in the city.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="13" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="13" characterId="Paul">
     <verse num="13" />
     <text>Nor can they prove to you the things of which they now accuse me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="14" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="14" characterId="Paul">
     <verse num="14" />
     <text>But this I confess to you, that after the Way, which they call heresy, so I serve the God of our fathers, believing all things which are according to the law, and which are written in the prophets.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Paul">
     <verse num="15" />
     <text>I have the same hope toward God which these also themselves look for, that there will be a resurrection of the dead, both of the just and unjust.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="16" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="16" characterId="Paul">
     <verse num="16" />
     <text>Herein I also practice always having a conscience void of offense toward God and men.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="17" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="17" characterId="Paul">
     <verse num="17" />
     <text>Now after some years, I came to bring gifts for the needy to my nation, and offerings.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="18" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="18" characterId="Paul">
     <verse num="18" />
     <text>Certain Jews from Asia found me purified in the temple, not with a mob, nor with turmoil.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Paul">
     <verse num="19" />
     <text>They ought to have been here before you, and to make accusation, if they had anything against me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Paul">
     <verse num="20" />
     <text>Or else let these men themselves say what injustice they found in me when I stood before the council --</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Paul">
     <verse num="21" />
     <text>unless it is for this one thing that I cried standing among them, ‘Concerning the resurrection of the dead I am being judged before you today!’”</text>
   </block>
@@ -4199,10 +4203,10 @@
     <verse num="4" />
     <text>However Festus answered saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="4" characterId="Festus, governor of Judea" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="4" characterId="Festus, governor of Judea">
     <text>“Paul is being held at Caesarea, and I myself am going there soon.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="5" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="5" characterId="Festus, governor of Judea">
     <verse num="5" />
     <text>Let some of your leaders come with me and press charges against him there, if he has done anything wrong.”</text>
   </block>
@@ -4232,13 +4236,13 @@
     <verse num="10" />
     <text>But Paul said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="Paul">
     <text>“I am standing before Caesar’s judgment seat, where I ought to be tried.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="Paul">
     <text>I have done no wrong to the Jews, as you also know very well.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="11" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="11" characterId="Paul">
     <verse num="11" />
     <text>For if I have done wrong, and have committed anything worthy of death, I don’t refuse to die. But if none of those things is true that they accuse me of, no one can give me up to them. I appeal to Caesar!”</text>
   </block>
@@ -4257,34 +4261,34 @@
     <verse num="14" />
     <text>As he stayed there many days, Festus laid Paul’s case before the king, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="14" characterId="Festus, governor of Judea" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="14" characterId="Festus, governor of Judea">
     <text>“There is a certain man here whom Felix left as a prisoner.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="15" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="15" characterId="Festus, governor of Judea">
     <verse num="15" />
     <text>When I went to Jerusalem, the chief priests and the elders of the Jews brought charges against him and asked that he be condemned.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="16" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="16" characterId="Festus, governor of Judea">
     <verse num="16" />
     <text>I said to them that it is not the custom of the Romans to give up any man to destruction, before the accused has met the accusers face to face, and has had opportunity to make his defense concerning the matter laid against him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="17" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="17" characterId="Festus, governor of Judea">
     <verse num="17" />
     <text>When therefore they had come together here, I didn’t delay, but on the next day sat on the judgment seat, and commanded the man to be brought.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="18" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="18" characterId="Festus, governor of Judea">
     <verse num="18" />
     <text>Concerning whom, when the accusers stood up, they brought no charge of such things as I supposed.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="Festus, governor of Judea">
     <verse num="19" />
     <text>But they had certain questions against him about their own religion, and about one Jesus, who was dead, whom Paul affirmed to be alive.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="20" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="20" characterId="Festus, governor of Judea">
     <verse num="20" />
     <text>Being perplexed how to inquire concerning these things, I asked whether he was willing to go to Jerusalem and there be judged concerning these matters.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="21" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="21" characterId="Festus, governor of Judea">
     <verse num="21" />
     <text>But when Paul had appealed to be kept for the decision of the emperor, I commanded him to be kept until I could send him to Caesar.”</text>
   </block>
@@ -4310,18 +4314,18 @@
     <verse num="24" />
     <text>Festus said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="24" characterId="Festus, governor of Judea" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="24" characterId="Festus, governor of Judea">
     <text>“King Agrippa, and all men who are here present with us, you see this man. All the multitude of the Jews petitioned me, both at Jerusalem and here. They shouted that he ought not to live any longer.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="25" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="25" characterId="Festus, governor of Judea">
     <verse num="25" />
     <text>But when I found that he had committed nothing worthy of death, and as he himself appealed to the emperor I determined to send him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="26" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="26" characterId="Festus, governor of Judea">
     <verse num="26" />
     <text>But I have nothing definite to write to my lord. Therefore I have brought him forth before you, and especially before you, King Agrippa, that, after examination, I may have something to write.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="27" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="25" initialStartVerse="27" characterId="Festus, governor of Judea">
     <verse num="27" />
     <text>For it seems to me unreasonable, in sending a prisoner, not to also specify the charges against him.”</text>
   </block>
@@ -4338,55 +4342,55 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="1" characterId="narrator-ACT">
     <text>Then Paul stretched out his hand, and made his defense.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="2" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="2" characterId="Paul">
     <verse num="2" />
     <text>“I think myself happy, King Agrippa, that I am to make my defense before you this day concerning all the things that I am accused of by the Jews,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="3" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="3" characterId="Paul">
     <verse num="3" />
     <text>especially because you are expert in all customs and questions which are among the Jews. Therefore I beg you to hear me patiently.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="4" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="4" characterId="Paul">
     <verse num="4" />
     <text>“Indeed, all the Jews know my way of life from my youth up, which was from the beginning among my own nation and at Jerusalem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="Paul">
     <verse num="5" />
     <text>If they are willing to testify, they would say that I lived my life after the strictest sect of our religion. I was a Pharisee.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="6" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="6" characterId="Paul">
     <verse num="6" />
     <text>Now I stand here to be judged for the hope of the promise made by God to our fathers.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="7" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="7" characterId="Paul">
     <verse num="7" />
     <text>Our twelve tribes, earnestly serving night and day, hoped to attain this promise. Concerning this hope I am accused by the Jews, King Agrippa!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="8" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="8" characterId="Paul">
     <verse num="8" />
     <text>Why is it judged incredible with you, if God does raise the dead?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="9" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="9" characterId="Paul">
     <verse num="9" />
     <text>“I myself most certainly thought that I ought to do many things contrary to the name of Jesus of Nazareth.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="10" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="10" characterId="Paul">
     <verse num="10" />
     <text>This I also did in Jerusalem. I both shut up many of the saints in prisons, having received authority from the chief priests. And when they were put to death I gave my vote against them.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="11" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="11" characterId="Paul">
     <verse num="11" />
     <text>Punishing them often in all the synagogues, I tried to make them blaspheme. Being exceedingly enraged against them, I persecuted them even to foreign cities.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="12" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="12" characterId="Paul">
     <verse num="12" />
     <text>“I was traveling to Damascus with the authority and commission from the chief priests.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="13" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="13" characterId="Paul">
     <verse num="13" />
     <text>At noon, O king, I saw on the way a light from the sky, brighter than the sun, shining around me and those who traveled with me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="14" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="14" characterId="Paul">
     <verse num="14" />
     <text>When we had all fallen to the earth, I heard a voice saying to me in the Hebrew language, ‘Saul, Saul, why are you persecuting me? It is hard for you to kick against the goads.’</text>
   </block>
@@ -4394,35 +4398,35 @@
     <verse num="15" />
     <text>“I said, ‘Who are you, Lord?’ He said, ‘I am Jesus, whom you are persecuting.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul">
     <verse num="16" />
     <text>But arise, and stand on your feet, for I have appeared to you for this purpose: to appoint you a servant and a witness both of the things which you have seen, and of the things which I will reveal to you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="17" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="17" characterId="Paul">
     <verse num="17" />
     <text>I will keep you safe from the jews and from the Gentiles, to whom I send you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="18" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="18" characterId="Paul">
     <verse num="18" />
     <text>You are to open their eyes, that they may turn from darkness to light and from the power of Satan to God. In this way they may receive remission of sins and an inheritance among those who are sanctified by faith in me.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="19" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="19" characterId="Paul">
     <verse num="19" />
     <text>“Therefore, King Agrippa, I was not disobedient to the heavenly vision.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="20" characterId="Paul">
     <verse num="20" />
     <text>I declared first to them of Damascus, at Jerusalem, and throughout all the country of Judea, and also to the Gentiles, that they should repent and turn to God, doing works worthy of repentance.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="21" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="21" characterId="Paul">
     <verse num="21" />
     <text>For this reason the Jews seized me in the temple, and tried to kill me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="22" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="22" characterId="Paul">
     <verse num="22" />
     <text>Having therefore obtained the help that is from God, I stand to this day testifying both to small and great. I say nothing but what the prophets and Moses said would happen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="23" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="23" characterId="Paul">
     <verse num="23" />
     <text>I explained how the Christ must suffer, and how, by the resurrection of the dead, he would be first to proclaim light both to these people and to the Gentiles.”</text>
   </block>
@@ -4437,14 +4441,14 @@
     <verse num="25" />
     <text>But he said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="25" characterId="Paul">
     <text>“I am not crazy, most excellent Festus, but boldly declare words of truth and reasonableness.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="26" characterId="Paul">
     <verse num="26" />
     <text>For the king knows of these things, to whom also I speak freely. For I am persuaded that none of these things is hidden from him, for this has not been done in a corner.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="27" characterId="Paul">
     <verse num="27" />
     <text>King Agrippa, do you believe the prophets? I know that you believe.”</text>
   </block>
@@ -4570,26 +4574,26 @@
     <verse num="21" />
     <text>When they had been long without food, Paul stood up in the middle of them, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="21" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="21" characterId="Paul">
     <text>“Sirs, you should have listened to me, and not have set sail from Crete, and have gotten this injury and loss.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="22" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="22" characterId="Paul">
     <verse num="22" />
     <text>Now I exhort you to cheer up, for there will be no loss of life among you, but only of the ship.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="23" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="23" characterId="Paul">
     <verse num="23" />
     <text>For there stood by me this night an angel, belonging to the God whose I am and whom I serve.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="24" characterId="Paul">
     <verse num="24" />
     <text>He said, ‘Don’t be afraid, Paul. You must stand before Caesar. Behold, God has granted you all those who sail with you.’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="25" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="25" characterId="Paul">
     <verse num="25" />
     <text>Therefore, sirs, cheer up! For I believe God, that it will be just as it has been spoken to me.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="26" characterId="Paul">
     <verse num="26" />
     <text>But we must run aground on a certain island.”</text>
   </block>
@@ -4624,10 +4628,10 @@
     <verse num="33" />
     <text>While the day was coming on, Paul begged them all to take some food, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="33" characterId="Paul" delivery="encouraging" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="33" characterId="Paul" delivery="encouraging">
     <text>“This day is the fourteenth day that you wait and continue fasting, having taken nothing.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="34" characterId="Paul" delivery="encouraging" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="27" initialStartVerse="34" characterId="Paul" delivery="encouraging">
     <verse num="34" />
     <text>Therefore I beg you to take some food, for this is for your safety. Not a hair will perish from any of your heads.”</text>
   </block>
@@ -4748,18 +4752,18 @@
     <verse num="17" />
     <text>It happened that after three days Paul called together those who were the leaders of the Jews. When they had come together, he said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="17" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="17" characterId="Paul">
     <text>“Brothers, I have done nothing against our people or against the customs of our ancestors. However, I was arrested in Jerusalem and was delivered to the Romans.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="18" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="18" characterId="Paul">
     <verse num="18" />
     <text>When they had examined me, they desired to set me free because there was no reason for the death penalty in my case.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="19" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="19" characterId="Paul">
     <verse num="19" />
     <text>But the Jews objected and so I was compelled to appeal to Caesar. However, I had no charge to bring against my nation.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Paul">
     <verse num="20" />
     <text>For this cause therefore I asked to see you and to speak with you. For because of the hope of Israel I am bound with this chain.”</text>
   </block>
@@ -4767,10 +4771,10 @@
     <verse num="21" />
     <text>They said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="21" characterId="Jews, leaders of the (in Rome)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="21" characterId="Jews, leaders of the (in Rome)">
     <text>“We neither received letters from Judea concerning you, nor did any of the brothers come here and report or speak any evil of you.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="22" characterId="Jews, leaders of the (in Rome)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="22" characterId="Jews, leaders of the (in Rome)">
     <verse num="22" />
     <text>But we desire to hear what your views are. For we know that people everywhere are talking against this sect.”</text>
   </block>
@@ -4786,14 +4790,14 @@
     <verse num="25" />
     <text>When they didn’t agree among themselves, they departed after Paul had spoken one word,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="25" characterId="Paul">
     <text>“The Holy Spirit spoke rightly through Isaiah, the prophet, to our fathers, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="26" characterId="Paul">
     <verse num="26" />
     <text>‘Go to this people, and say, in hearing, you will hear, but will in no way understand. In seeing, you will see, but will in no way perceive.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="28" initialStartVerse="27" characterId="Paul">
     <verse num="27" />
     <text>For this people’s heart has grown callous. Their ears are dull of hearing. Their eyes they have closed. Lest they should see with their eyes, hear with their ears, understand with their heart, and would turn again, and I would heal them.’</text>
   </block>

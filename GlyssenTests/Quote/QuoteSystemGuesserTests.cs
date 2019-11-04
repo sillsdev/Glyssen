@@ -8,6 +8,7 @@ using System.Text;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
@@ -234,7 +235,7 @@ namespace GlyssenTests.Quote
 
 			var verseText = new StringBuilder();
 
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse).ToList();
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, new SingleVerse(verse)).ToList();
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
 			bool quoteStartExpected = (verse == 1 || characters.Count > 1 || !ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse - 1)
 				.SequenceEqual(characters) || verse % 5 == 0);

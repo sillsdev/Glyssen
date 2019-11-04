@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="2PE" singlevoice="false" pageheader="2-e Петра">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2PE">
+  <block style="mt" chapter="0" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="2PE" initialStartVerse="0" characterId="BC-2PE">
       <text>2 PETER</text>
     </ReferenceBlocks>
     <text>2-e Петра</text>
@@ -143,10 +143,16 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
       <verse num="17" />
-      <text>For he received from God the Father honor and glory, when the voice came to him from the Majestic Glory, “This is my beloved Son, in whom I am well pleased.”</text>
+      <text>For he received from God the Father honor and glory, when the voice came to him from the Majestic Glory,</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Ибо Он принял от Бога Отца честь и славу, когда от велелепной славы принесся к Нему такой глас: Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
+    <text>Ибо Он принял от Бога Отца честь и славу, когда от велелепной славы принесся к Нему такой глас:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="God" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="God">
+      <text>“This is my beloved Son, in whom I am well pleased.”</text>
+    </ReferenceBlocks>
+    <text>Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE">
@@ -364,9 +370,21 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
-      <text>“The dog turns to his own vomit again,” and “the sow that has washed to wallowing in the mire.”</text>
+      <text>“The dog turns to his own vomit again,.”</text>
     </ReferenceBlocks>
-    <text>“пес возвращается на свою блевотину, и: вымытая свинья идет валяться в грязи.”</text>
+    <text>“пес возвращается на свою блевотину,”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
+      <text>and</text>
+    </ReferenceBlocks>
+    <text>и:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
+      <text>“the sow that has washed to wallowing in the mire.”</text>
+    </ReferenceBlocks>
+    <text>“вымытая свинья идет валяться в грязи.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
