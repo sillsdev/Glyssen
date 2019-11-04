@@ -8,9 +8,9 @@ Requirements for building the Reference Text Utility Installer:
 
 - MSBuild Community tasks. I got the msi from https://github.com/loresoft/msbuildtasks/downloads.
 
-- Palaso.BuildTasks.dll must be in your build directory
+- Palaso.BuildTasks.dll must be installed as a NuGet package.
 
-- A customized .bat for running the installer: build/TestRTUInstallerBuild.bat
+- A customized .bat for running the installer: build/TestRTUInstallerBuild.bat (update version number as needed)
 
 Run your bat file, and if all goes well you'll get an installer in your output/RefTextUtilityInstaller folder.
 

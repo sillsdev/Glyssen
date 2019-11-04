@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="COL" singlevoice="false" pageheader="К Колоссянам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-COL">
+  <block style="mt" chapter="0" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="COL" initialStartVerse="0" characterId="BC-COL">
       <text>COLOSSIANS</text>
     </ReferenceBlocks>
     <text>К Колоссянам</text>

@@ -370,6 +370,8 @@ namespace Glyssen
 		/// </summary>
 		public bool CoversMoreThanOneVerse => BlockElements.Skip(1).Any(e => e is Verse);
 
+		public int CountOfSoundsWhereUserSpecifiesLocation => BlockElements.OfType<Sound>().Count(s => s.UserSpecifiesLocation);
+
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
 			if (referenceBlock == null)

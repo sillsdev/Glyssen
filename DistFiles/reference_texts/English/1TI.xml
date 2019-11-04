@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1TI" singlevoice="false" pageheader="1 TIMOTHY CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI">
+  <block style="mt" chapter="0" book="1TI" initialStartVerse="0" characterId="BC-1TI">
     <text>1 TIMOTHY</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1TI" initialStartVerse="0" characterId="BC-1TI">
@@ -474,7 +474,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1TI">
     <verse num="20" />
-    <text>Timothy, guard that which is committed to you, turning away from the empty chatter and oppositions of science which is falsely so called;</text>
+    <text>Timothy, guard that which is committed to you, turning away from the empty chatter and oppositions of what is falsely called knowledge,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-1TI">
     <verse num="21" />

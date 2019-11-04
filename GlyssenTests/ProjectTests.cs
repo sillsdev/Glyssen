@@ -1106,6 +1106,7 @@ namespace GlyssenTests
 		[Test]
 		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
 		{
+			// Setup
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			testProject.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			testProject.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = () => true;
@@ -1114,21 +1115,30 @@ namespace GlyssenTests
 
 			var mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
 			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41);
-			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
-			Assert.AreEqual(40, matchup.CorrelatedBlocks[0].InitialStartVerseNumber);
-			Assert.AreEqual(41, matchup.CorrelatedBlocks[1].InitialStartVerseNumber);
-			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count, "Setup problem");
+			Assert.AreEqual(40, matchup.CorrelatedBlocks[0].InitialStartVerseNumber, "Setup problem");
+			Assert.AreEqual(41, matchup.CorrelatedBlocks[1].InitialStartVerseNumber, "Setup problem");
+			Assert.IsTrue(matchup.CorrelatedBlocks.Take(4).All(b => b.MatchesReferenceText),
+				"Setup problem: GetBlocksForVerseMatchedToReferenceText expected to match all except the last " +
+				"vern block to exactly one ref block.");
+			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+			var englishTextOfLastNarrtorBlock = ((ScriptText)matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().BlockElements.Single()).Content;
+			var iQuoteMark = englishTextOfLastNarrtorBlock.IndexOf("“");
+			matchup.SetReferenceText(3, "This is not going to match the corresponding English text in the French test reference text.");
+			matchup.SetReferenceText(4, englishTextOfLastNarrtorBlock.Substring(iQuoteMark));
+			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(mark.NarratorCharacterId);
 			matchup.MatchAllBlocks(null);
-			matchup.SetReferenceText(3, "this won't match.");
 			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
 			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 
+			// SUT
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;
 
+			// Verification
 			Assert.IsTrue(blocks.Single(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 40).MatchesReferenceText);
 			mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
 			var vernBlocksForMark5V41 = blocks.Skip(mark5V41).Take(4).ToList();
