@@ -170,7 +170,7 @@ namespace ControlDataIntegrityTests
 			{
 				var verse = new VerseRef(BCVRef.BookToNumber(cv.BookCode), cv.Chapter, cv.Verse, ScrVers.English);
 				var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verse, cv.Verse);
-				Assert.IsTrue(overrideInfo == null || overrideInfo.All(oi => oi.Character != cv.Character),
+				Assert.IsTrue(overrideInfo.All(oi => oi.Character != cv.Character),
 					$"Character-verse file contains an Implicit quote for {cv.Character} in verse {verse} that is also covered " +
 					$"by narrator override {overrideInfo}.");
 			}
