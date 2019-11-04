@@ -46,14 +46,16 @@ namespace Glyssen.RefTextDevUtilities
 		private static Regex s_charactersToExcludeWhenComparing;
 		private static bool s_ignoreCurlyVsStraightQuoteDifferences = true;
 		private static readonly Regex s_verseNumberInExcelRegex = new Regex("\\{(\\d*?)\\} ?", RegexOptions.Compiled);
-		private static readonly Regex s_doubleSingleOpenQuote = new Regex("(<< <)", RegexOptions.Compiled);
-		private static readonly Regex s_singleDoubleOpenQuote = new Regex("(< <<)", RegexOptions.Compiled);
-		private static readonly Regex s_doubleSingleCloseQuote = new Regex("(>> >)", RegexOptions.Compiled);
-		private static readonly Regex s_singleDoubleCloseQuote = new Regex("((> >>)|(>>>))", RegexOptions.Compiled);
-		private static readonly Regex s_doubleOpenQuote = new Regex("((<<)|«)", RegexOptions.Compiled);
-		private static readonly Regex s_doubleCloseQuote = new Regex("((>>)|(»))", RegexOptions.Compiled);
-		private static readonly Regex s_singleOpenQuote = new Regex("(<|‹)", RegexOptions.Compiled);
-		private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
+		//private static readonly Regex s_doubleSingleOpenQuote = new Regex("(<< <)", RegexOptions.Compiled);
+		//private static readonly Regex s_singleDoubleOpenQuote = new Regex("(< <<)", RegexOptions.Compiled);
+		//private static readonly Regex s_doubleSingleCloseQuote = new Regex("(>> >)", RegexOptions.Compiled);
+		//private static readonly Regex s_singleDoubleCloseQuote = new Regex("((> >>)|(>>>))", RegexOptions.Compiled);
+		//private static readonly Regex s_doubleOpenQuote = new Regex("<<", RegexOptions.Compiled);
+		//private static readonly Regex s_doubleCloseQuote = new Regex(">>", RegexOptions.Compiled);
+		//private static readonly Regex s_singleOpenQuote = new Regex("(<|‹)", RegexOptions.Compiled);
+		//private static readonly Regex s_singleCloseQuote = new Regex("(>|›)", RegexOptions.Compiled);
+		//private static readonly Regex s_closeDoubleChevrons = new Regex("»", RegexOptions.Compiled);
+		//private static readonly Regex s_openDoubleChevrons = new Regex("«", RegexOptions.Compiled);
 		private static readonly Regex s_FcbhNarrator = new Regex("Narr_\\d+: ", RegexOptions.Compiled);
 		private static readonly Regex s_regexDupName = new Regex(@"(([1-3] )?[^\s\n\r]+)[\s\n\r]+\1[\s\n\r]+(?<chapterLabel>[^\s\n\r]*)", RegexOptions.Compiled);
 
@@ -273,7 +275,7 @@ namespace Glyssen.RefTextDevUtilities
 
 			try
 			{
-				ProcessReferenceTextData(mode, ntData, otData, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null);
+				ProcessReferenceTextData(mode, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null, ntData, otData);
 			}
 			catch (Exception e)
 			{
@@ -321,13 +323,11 @@ namespace Glyssen.RefTextDevUtilities
 		/// We can't just roll this into the method below with an optional parameter because
 		/// ReferenceTextUtility doesn't have access to the definition of a 'ReferenceText'
 		/// </summary>
-		/// <param name="mode"></param>
-		/// <param name="data"></param>
-		public static void ProcessReferenceTextData(Mode mode, ReferenceTextData data, ReferenceTextData otData)
+		public static void ProcessReferenceTextData(Mode mode, params ReferenceTextData[] data)
 		{
 			try
 			{
-				ProcessReferenceTextData(mode, data, otData, null);
+				ProcessReferenceTextData(mode, null, data);
 			}
 			catch (Exception e)
 			{
@@ -336,17 +336,20 @@ namespace Glyssen.RefTextDevUtilities
 			}
 		}
 
-		public static void ProcessReferenceTextData(
-			Mode mode,
-			ReferenceTextData ntData,
-			ReferenceTextData otData,
-			Func<ReferenceText> getReferenceText)
+		public static void ProcessReferenceTextData(Mode mode, Func<ReferenceText> getReferenceText, params ReferenceTextData[] data)
 		{
 			ErrorsOccurred = false;
 
 			var characterMappings = new List<CharacterMapping>();
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
 			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
+			int minBook = 66;
+			int maxBook = 1;
+			foreach (var dataSet in data)
+			{
+				minBook = Math.Min(minBook, BCVRef.BookToNumber(dataSet.ReferenceTextRows.First().Book));
+				maxBook = Math.Max(maxBook, BCVRef.BookToNumber(dataSet.ReferenceTextRows.Last().Book));
+			}
 			s_characterDetailsWithUnmatchedFCBHCharacterLabel = CharacterDetailData.Singleton.GetDictionary()
 				.Where(kvp =>
 				{
@@ -357,14 +360,10 @@ namespace Glyssen.RefTextDevUtilities
 					// override (see ENHANCE comment in CharacterDetailProcessing.PopulateReferences).
 					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment))
 						return false;
-					if (otData == null && kvp.Value.LastReference.BBCCCVVV < 40000000)
-						return false;
-					if (ntData == null && kvp.Value.FirstReference.BBCCCVVV > 39999999)
-						return false;
-					return true;
+					return kvp.Value.LastReference.Book >= minBook && kvp.Value.FirstReference.Book <= maxBook;
 				}).ToDictionary(e => e.Key, e => e.Value);
 
-			ErrorsOccurred = (ntData != null && !ntData.IsValid) || (otData != null && !otData.IsValid);
+			ErrorsOccurred = !data.All(d => d.IsValid);
 			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66);
 
 			var annotationsToOutput = new List<string>();
@@ -374,9 +373,9 @@ namespace Glyssen.RefTextDevUtilities
 
 			List<ReferenceTextLanguageInfo> languagesToProcess = null;
 
-			for (int iData = 0 + (otData == null ? 1 : 0); iData < (ntData == null ? 1 : 2); iData++)
+			foreach (var dataSet in data)
 			{
-				languagesToProcess = iData == 0 ? otData.LanguagesToProcess.ToList() : ntData.LanguagesToProcess.ToList();
+				languagesToProcess = dataSet.LanguagesToProcess.ToList();
 
 				foreach (var languageInfo in languagesToProcess)
 				{
@@ -426,9 +425,7 @@ namespace Glyssen.RefTextDevUtilities
 					BookScript existingEnglishRefBook = null;
 					string chapterLabelForPrevBook = null;
 					string justTheWordForChapter = null;
-					var existingEnglishRefBooks = iData == 0 ?
-						s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) < 40).ToList() :
-						s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= 40).ToList();
+					var existingEnglishRefBooks = s_existingEnglish.Books;
 					List<BookScript> newBooks = new List<BookScript>();
 					List<Block> newBlocks = new List<Block>();
 					TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo = null;
@@ -445,7 +442,7 @@ namespace Glyssen.RefTextDevUtilities
 							.Select(e => BCVRef.BookToNumber(e.BookId)));
 					}
 
-					var referenceTextRowsToProcess = iData == 0 ? otData.ReferenceTextRows : ntData.ReferenceTextRows;
+					var referenceTextRowsToProcess = dataSet.ReferenceTextRows;
 
 					foreach (var referenceTextRow in referenceTextRowsToProcess.Where(r => !r.CharacterId.StartsWith("Section Head_")))
 					{
@@ -556,19 +553,26 @@ namespace Glyssen.RefTextDevUtilities
 
 						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
 
-						var modifiedText1 = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ');
-						// REVIEW: Is any of this quote replacement stuff needed in the OT? (Already checked and it's not ot needed in NT)
-						var modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText1, openDoubleQuote + "\u202F" + openQuoteSingle);
-						modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
-						modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
-						modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
-						modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
-						modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
-						modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
-						modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
-						if (modifiedText1 != modifiedText)
-							Debug.WriteLine($"{modifiedText1} != {modifiedText}");
-						// END REVIEW
+						var modifiedText = verseNumberFixedText.Replace("\n ", " ").Replace('\n', ' ').Replace("«", openDoubleQuote).Replace("»", closeDoubleQuote);
+						// Apparently, at one time this code cleaned up all kinds of unusual quotation marks. Recent versions of the DG are cleaner
+						// so the only thing left to do is to replace double chevrons (above). This code could probably be removed completely, but
+						// I'm leaving it here just in case things ever go backward or we need to process an old version for some reason.
+						//var modifiedText1 = modifiedText;
+						//var modifiedText = s_doubleSingleOpenQuote.Replace(modifiedText1, openDoubleQuote + "\u202F" + openQuoteSingle);
+						//modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
+						//modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
+						//modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
+						//modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
+						//modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
+						//if (modifiedText1 != modifiedText)
+						//	Debug.WriteLine($"{modifiedText1} != {modifiedText}");
+						//modifiedText = s_openDoubleChevrons.Replace(modifiedText, openDoubleQuote);
+						//modifiedText = s_closeDoubleChevrons.Replace(modifiedText, closeDoubleQuote);
+						//var modifiedText2 = modifiedText;
+						//modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
+						//modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
+						//if (modifiedText2 != modifiedText)
+						//	Debug.WriteLine($"{modifiedText2} != {modifiedText}");
 
 						if (languageInfo.IsEnglish) // REVIEW: Do we want to enforce this for all languages?
 							modifiedText = modifiedText.Replace("  ", " ");
@@ -1370,7 +1374,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId, string alias = null, string defaultCharacter = null)
 		{
-			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId) || glyssenCharacterId == CharacterVerseData.kNeedsReview)
+			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId) || glyssenCharacterId == CharacterVerseData.kNeedsReview || glyssenCharacterId.StartsWith("interruption-"))
 				return MatchLikelihood.Mismatch; // Before we call this, we've already checked to see if the FCBH character is the narrator. Can't auto-map any other character to that.
 
 			if (glyssenCharacterId == fcbhCharacterLabel)
@@ -1552,6 +1556,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static ReferenceTextData GetDataFromExcelFile(string path)
 		{
+			ErrorsOccurred = false;
 			var allLanguages = new Dictionary<string, string>();
 
 			var data = new ReferenceTextData();

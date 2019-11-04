@@ -156,7 +156,7 @@ namespace Glyssen.ReferenceTextUtility
 			if (languagesToDiff.Any())
 			{
 				Data.FilterBy(languagesToDiff);
-				RefTextDevUtilities.ReferenceTextUtility.ProcessReferenceTextData(mode, Data, null);
+				RefTextDevUtilities.ReferenceTextUtility.ProcessReferenceTextData(mode, Data);
 			}
 		}
 
