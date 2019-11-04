@@ -62,8 +62,7 @@ namespace GlyssenTests.Rules
 				.Single(b => b.CharacterId == existingCharacterId);
 			block.CharacterId = newCharacterId;
 
-			m_testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(bookNum, chapter, verse),
-				newCharacterId, string.Empty, string.Empty, true));
+			m_testProject.ProjectCharacterVerseData.AddEntriesFor(bookNum, block);
 
 			if (!m_testProject.AllCharacterDetailDictionary.ContainsKey(newCharacterId))
 				m_testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = newCharacterId});

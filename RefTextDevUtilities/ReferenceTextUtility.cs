@@ -67,8 +67,8 @@ namespace Glyssen.RefTextDevUtilities
 		private static ISet<string> s_characterIdsMatchedByControlFileStr = new HashSet<string>();
 		private static Dictionary<string, CharacterDetail> s_characterDetailsWithUnmatchedFCBHCharacterLabel;
 
-		private static IEqualityComparer<CharacterVerse> s_characterDeliveryEqualityComparer;
-		private static IEqualityComparer<CharacterVerse> s_characterEqualityComparer;
+		private static IEqualityComparer<CharacterSpeakingMode> s_characterDeliveryEqualityComparer;
+		private static IEqualityComparer<CharacterSpeakingMode> s_characterEqualityComparer;
 
 		public static bool ErrorsOccurred { get; private set; }
 
@@ -1228,9 +1228,9 @@ namespace Glyssen.RefTextDevUtilities
 			return silBookCode;
 		}
 
-		private static IEnumerable<CharacterVerse> GetAllCharacters(int bookNum, Block block)
+		private static IEnumerable<CharacterSpeakingMode> GetAllCharacters(int bookNum, Block block)
 		{
-			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.LastVerseNum, includeAlternatesAndRareQuotes:true);
+			return ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.AllVerses, includeAlternatesAndRareQuotes:true);
 		}
 
 		static readonly Regex s_stripNumericSuffixes = new Regex(@"(.*?)((( #)|(-FX)|(_))\d+)+", RegexOptions.Compiled);
@@ -1255,7 +1255,7 @@ namespace Glyssen.RefTextDevUtilities
 
 			var bookNum = BCVRef.BookToNumber(bookId);
 			var characters = GetAllCharacters(bookNum, block).Distinct(s_characterDeliveryEqualityComparer).ToList();
-			var implicitChar = characters.SingleOrDefault(c => c.QuoteType == QuoteType.Implicit);
+			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
@@ -1316,7 +1316,7 @@ namespace Glyssen.RefTextDevUtilities
 					if (characters.Any(c => c.Character == CharacterVerseData.kNeedsReview) && ForceRefTextToNeedsReview(fcbhCharacterLabel, bookId, block.ChapterNumber, block.InitialStartVerseNumber))
 						return CharacterVerseData.kNeedsReview;
 					var defaultCharactersAndFullCharacterIds = characters.Distinct(s_characterEqualityComparer)
-						.Select(c => new Tuple<string, CharacterVerse>(c.ResolvedDefaultCharacter, c)).ToList();
+						.Select(c => new Tuple<string, CharacterSpeakingMode>(c.ResolvedDefaultCharacter, c)).ToList();
 					try
 					{
 						var single = defaultCharactersAndFullCharacterIds.SingleOrDefault(c => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, c.Item1) == MatchLikelihood.Reliable);

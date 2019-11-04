@@ -40,7 +40,6 @@ all in temple	-1		Adult			PSA 29:9
 all seeking God	-1		Adult			PSA 40:16
 all the elders	-1	Male	Elder		elders of the church in Jerusalem	
 all who heard (in synagogues)	-1		Adult			ACT 9:21
-altar	1	Neuter	Adult			REV 16:7
 Amasa	1	Male	Adult		leader in Ephraim	
 Amasai, chief of thirty	1	Male	Adult			1CH 12:18
 Amaziah, king of Judah	1	Male	Adult			2KI 14:8 <-(2 more)-> 2CH 25:17

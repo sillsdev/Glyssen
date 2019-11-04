@@ -8780,7 +8780,6 @@ SNG	2	13	beloved			Potential
 SNG	2	13	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	14	beloved			Potential		
 SNG	2	14	Solomon, king		Solomon (lover)	Quotation		
-SNG	2	15	Solomon, king		Solomon (lover)	Quotation		
 SNG	2	15	Solomon, king		Solomon (lover)	Potential		
 SNG	2	15	beloved			Potential		
 SNG	2	15	maidens			Potential		
@@ -9105,8 +9104,7 @@ ISA	8	8	God		God (the LORD)	Implicit
 ISA	8	9	Isaiah			Potential		
 ISA	8	10	God		God (the LORD)	Potential		
 ISA	8	11	Isaiah			Potential		
-ISA	8	12	God		God (the LORD)	Implicit		
-ISA	8	12	God		God (the LORD)	Quotation		
+ISA	8	12	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	8	13	God		God (the LORD)	Implicit		
 ISA	8	13	Isaiah			Alternate		
 ISA	8	14	God		God (the LORD)	Implicit		
@@ -9700,10 +9698,8 @@ ISA	41	9	God		God (the LORD)	Implicit
 ISA	41	10	God		God (the LORD)	Implicit		
 ISA	41	11	God		God (the LORD)	Implicit		
 ISA	41	12	God		God (the LORD)	Implicit		
-ISA	41	13	God		God (the LORD)	Implicit		
-ISA	41	13	God		God (the LORD)	Quotation		
-ISA	41	14	God		God (the LORD)	Implicit		
-ISA	41	14	God		God (the LORD)	Quotation		
+ISA	41	13	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
+ISA	41	14	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	41	15	God		God (the LORD)	Implicit		
 ISA	41	16	God		God (the LORD)	Implicit		
 ISA	41	17	God		God (the LORD)	Implicit		
@@ -9718,8 +9714,7 @@ ISA	41	25	God		God (the LORD)	Implicit
 ISA	41	26	Needs Review			Implicit		
 ISA	41	26	God		God (the LORD)	Alternate		
 ISA	41	26	Isaiah			Alternate		
-ISA	41	27	God		God (the LORD)	Implicit		
-ISA	41	27	God		God (the LORD)	Quotation		
+ISA	41	27	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	41	28	God		God (the LORD)	Implicit		
 ISA	41	28	Isaiah			Alternate		
 ISA	41	29	God		God (the LORD)	Implicit		
@@ -9933,8 +9928,7 @@ ISA	49	15	God		God (the LORD)	Implicit
 ISA	49	16	God		God (the LORD)	Implicit		
 ISA	49	17	God		God (the LORD)	Implicit		
 ISA	49	17	Isaiah			Alternate		
-ISA	49	18	God		God (the LORD)	Normal		
-ISA	49	18	God	vowing	God (the LORD)	Quotation		
+ISA	49	18	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	49	18	Isaiah			Alternate		
 ISA	49	19	God		God (the LORD)	Implicit		
 ISA	49	19	Isaiah			Alternate		
@@ -9977,8 +9971,7 @@ ISA	51	13	God		God (the LORD)	Implicit
 ISA	51	14	God		God (the LORD)	Implicit		
 ISA	51	15	God		God (the LORD)	Implicit		
 ISA	51	15	waves			Hypothetical		
-ISA	51	16	God		God (the LORD)	Implicit		
-ISA	51	16	God		God (the LORD)	Quotation		
+ISA	51	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	51	17	Isaiah			Potential		
 ISA	51	18	Isaiah			Potential		
 ISA	51	19	Isaiah			Potential		
@@ -10106,8 +10099,7 @@ ISA	58	5	God		God (the LORD)	Implicit
 ISA	58	6	God		God (the LORD)	Implicit		
 ISA	58	7	God		God (the LORD)	Implicit		
 ISA	58	8	God		God (the LORD)	Implicit		
-ISA	58	9	God		God (the LORD)	Implicit		
-ISA	58	9	God		God (the LORD)	Quotation		
+ISA	58	9	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	58	10	God		God (the LORD)	Implicit		
 ISA	58	11	God		God (the LORD)	Implicit		
 ISA	58	12	God		God (the LORD)	Implicit		
@@ -10145,8 +10137,7 @@ ISA	61	9	God		God (the LORD)	Normal
 ISA	62	1	God		God (the LORD)	Implicit		
 ISA	62	2	God		God (the LORD)	Implicit		
 ISA	62	3	God		God (the LORD)	Implicit		
-ISA	62	4	God		God (the LORD)	Implicit		
-ISA	62	4	God			Quotation		
+ISA	62	4	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 ISA	62	5	God		God (the LORD)	Implicit		
 ISA	62	6	God		God (the LORD)	Potential		
 ISA	62	8	God		God (the LORD)	Normal		
@@ -10320,12 +10311,10 @@ JER	3	16	God		God (the LORD)	Normal
 # See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character
 #JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
 JER	3	16	you (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
-JER	3	17	God		God (the LORD)	Implicit		
 # expression: "The throne of God"
-JER	3	17	God			Quotation		
+JER	3	17	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	3	18	God		God (the LORD)	Implicit		
-JER	3	19	God		God (the LORD)	Implicit		
-JER	3	19	God		God (the LORD)	Quotation		
+JER	3	19	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	3	19	you (hypothetical)			Hypothetical		
 JER	3	20	God		God (the LORD)	Normal		
 JER	3	21	God		God (the LORD)	Potential		
@@ -10651,8 +10640,7 @@ JER	10	24	Jeremiah	prayer		Implicit
 JER	10	25	Jeremiah	prayer		Implicit		
 JER	11	2	God		God (the LORD)	Implicit		
 JER	11	3	God		God (the LORD)	Implicit		
-JER	11	4	God		God (the LORD)	Implicit		
-JER	11	4	God			Quotation		
+JER	11	4	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	11	5	God		God (the LORD)	Normal		
 JER	11	5	Jeremiah			Quotation		
 JER	11	6	Jeremiah			Potential		
@@ -10683,7 +10671,7 @@ JER	11	23	God		God (the LORD)	Implicit
 JER	12	1	Jeremiah			Potential		
 JER	12	2	Jeremiah			Potential		
 JER	12	3	Jeremiah			Potential		
-JER	12	4	Jeremiah			Potential		
+JER	12	4	Jeremiah	lament		Potential		
 JER	12	4	Jeremiah	quoting the wicked who live in the land		Hypothetical		
 JER	12	4	wicked, the			Hypothetical		
 JER	12	5	God		God (the LORD)	Implicit		
@@ -12681,8 +12669,7 @@ EZK	20	6	God		God (the LORD)	Implicit
 EZK	20	6	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	7	God		God (the LORD)	Implicit		
 EZK	20	7	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	8	God		God (the LORD)	Implicit		
-EZK	20	8	God		God (the LORD)	Quotation		
+EZK	20	8	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	8	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	9	God		God (the LORD)	Implicit		
 EZK	20	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -12692,8 +12679,7 @@ EZK	20	11	God		God (the LORD)	Implicit
 EZK	20	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	12	God		God (the LORD)	Implicit		
 EZK	20	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	13	God		God (the LORD)	Implicit		
-EZK	20	13	God		God (the LORD)	Quotation		
+EZK	20	13	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	14	God		God (the LORD)	Implicit		
 EZK	20	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -12703,20 +12689,17 @@ EZK	20	16	God		God (the LORD)	Implicit
 EZK	20	16	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	17	God		God (the LORD)	Implicit		
 EZK	20	17	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	18	God		God (the LORD)	Implicit		
-EZK	20	18	God		God (the LORD)	Quotation		
+EZK	20	18	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	18	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	19	God		God (the LORD)	Implicit		
 EZK	20	19	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	20	God		God (the LORD)	Implicit		
 EZK	20	20	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	21	God		God (the LORD)	Implicit		
-EZK	20	21	God		God (the LORD)	Quotation		
+EZK	20	21	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	21	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	22	God		God (the LORD)	Implicit		
 EZK	20	22	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	20	23	God		God (the LORD)	Implicit		
-EZK	20	23	God		God (the LORD)	Quotation		
+EZK	20	23	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	20	23	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	20	24	God		God (the LORD)	Implicit		
 EZK	20	24	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -13558,8 +13541,8 @@ EZK	37	12	Ezekiel		Ezekiel (the LORD says)	Normal
 EZK	37	13	God		God (the LORD) (in vision)	Implicit		
 EZK	37	14	God		God (the LORD) (in vision)	Normal		
 EZK	37	14	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	37	16	God		God (the LORD)	Implicit		
-EZK	37	16	God		writing on sticks (spoken by God)	Quotation		
+# writing on sticks should be spoken by God
+EZK	37	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	37	17	God		God (the LORD)	Implicit		
 EZK	37	18	God		God (the LORD)	Implicit		
 EZK	37	18	Israel		whole house of Israel	Hypothetical		
@@ -13647,8 +13630,7 @@ EZK	39	9	God		God (the LORD)	Implicit
 EZK	39	9	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	10	God		God (the LORD)	Normal		
 EZK	39	10	Ezekiel		Ezekiel (the LORD says)	Potential		
-EZK	39	11	God		God (the LORD)	Implicit		
-EZK	39	11	God		God (the LORD)	Quotation		
+EZK	39	11	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	39	11	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	12	God		God (the LORD)	Implicit		
 EZK	39	12	Ezekiel		Ezekiel (the LORD says)	Alternate		
@@ -13658,8 +13640,7 @@ EZK	39	14	God		God (the LORD)	Implicit
 EZK	39	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	15	God		God (the LORD)	Implicit		
 EZK	39	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
-EZK	39	16	God		God (the LORD)	Implicit		
-EZK	39	16	God		God (the LORD)	Quotation		
+EZK	39	16	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 EZK	39	16	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	39	17	God		God (the LORD)	Normal		
 EZK	39	17	Ezekiel		Ezekiel (the LORD says)	Normal		
@@ -13908,7 +13889,15 @@ EZK	48	32	God		God (the LORD)	Normal
 EZK	48	33	God		God (the LORD)	Normal		
 EZK	48	34	God		God (the LORD)	Normal		
 EZK	48	35	God		God (the LORD)	Normal		
-EZK	48	35	God		God (the LORD)	Quotation		
+# Although FCBH has assigned all of 48:30-35 to God, we don't mark it Implicit, because
+# there is a slight possibility that different translations might use explicit quotes to
+# assign more limited portions of the text to God. If God is speaking v. 35, then He should
+# definitely speak the name "The LORD is there" (Yahweh Shammah). But if the narrator is
+# speaking, then it should just be treated as a narrator quote. To eliminate the next line
+# would mean that if there are no explicit quotes around the whole passage but there are quotes
+# around the name, then the name would be assigned (unambiguously) to be spoken by God. That's
+# not right, so better to include this line and deal with the ambiguity.
+EZK	48	35	narrator-EZK			Quotation		
 DAN	1	10	chief official			Normal		
 DAN	1	12	Daniel			Normal		
 DAN	1	13	Daniel			Normal		
@@ -14258,8 +14247,7 @@ HOS	2	21	God		God (the LORD)	Normal
 HOS	2	21	Hosea		Hosea (the LORD says)	Potential		
 HOS	2	22	God		God (the LORD)	Implicit		
 HOS	2	22	Hosea		Hosea (the LORD says)	Alternate		
-HOS	2	23	God		God (the LORD)	Implicit		
-HOS	2	23	God			Quotation		
+HOS	2	23	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 HOS	2	23	people, God's			Hypothetical		
 HOS	3	1	God		God (the LORD)	Normal		
 HOS	3	3	Hosea			Quotation		
@@ -14278,12 +14266,11 @@ HOS	4	11	God		God (the LORD)	Implicit
 HOS	4	12	God		God (the LORD)	Implicit		
 HOS	4	13	God		God (the LORD)	Implicit		
 HOS	4	14	God		God (the LORD)	Implicit		
-HOS	4	15	God		God (the LORD)	Implicit		
 # The quoted text in v.15 could be treated as a Hypothetical quote instead, but since it is not
 # dramatized in the reference text and it is sommething God is saying not to say -- as opposed
 # to something He is explicitly accusing them of saying -- we can just note it as a self-quote
 # and it won't interfere with the treatment of this discourse as implicitly spoken by God.
-HOS	4	15	God			Quotation		
+HOS	4	15	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 HOS	4	16	God		God (the LORD)	Implicit		
 HOS	4	17	God		God (the LORD)	Implicit		
 HOS	4	18	God		God (the LORD)	Implicit		
@@ -14341,7 +14328,11 @@ HOS	8	11	God		God (the LORD)	Implicit
 HOS	8	12	God		God (the LORD)	Implicit		
 HOS	8	13	God		God (the LORD)	Implicit		
 HOS	8	14	God		God (the LORD)	Implicit		
-HOS	9	1-9	Hosea			Potential		
+HOS	9	1	Hosea			Potential		
+HOS	9	2	Hosea			Potential		
+HOS	9	3	Hosea			Potential		
+HOS	9	4-7	Hosea			Potential		
+HOS	9	8	Hosea			Potential		
 HOS	9	10	God		God (the LORD)	Implicit		
 HOS	9	11	God		God (the LORD)	Implicit		
 HOS	9	12	God		God (the LORD)	Implicit		
@@ -14350,12 +14341,7 @@ HOS	9	14	Hosea			Potential
 HOS	9	15	God		God (the LORD)	Implicit		
 HOS	9	16	God		God (the LORD)	Implicit		
 HOS	9	17	Hosea			Potential		
-HOS	9	1	Hosea			Potential		
-HOS	9	2	Hosea			Potential		
-HOS	9	3	Hosea			Potential		
 HOS	10	3	Israel			Hypothetical		
-HOS	9	4-7	Hosea			Potential		
-HOS	9	8	Hosea			Potential		
 HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		God (the LORD)	Potential		
 HOS	10	10	God		God (the LORD)	Implicit		
@@ -14741,6 +14727,7 @@ JON	2	6	Jonah	praying		Normal
 JON	2	7	Jonah	praying		Normal		
 JON	2	8	Jonah	praying		Normal		
 JON	2	9	Jonah	praying		Normal		
+JON	2	10	God		God (the LORD)	Potential		
 JON	3	2	God		God (the LORD)	Normal		
 JON	3	4	Jonah			Normal		
 JON	3	7	king of Nineveh	proclamation		Normal		
@@ -15012,7 +14999,7 @@ ZEP	3	14	Zephaniah, prophet			Potential
 ZEP	3	14	God		God (the LORD)	Potential		
 ZEP	3	15	Zephaniah, prophet			Potential		
 ZEP	3	15	God		God (the LORD)	Potential		
-ZEP	3	16	God		God (the LORD)	Potential		
+ZEP	3	16	God	prophecy	God (the LORD)	Potential		
 ZEP	3	16	God	encouraging	God (the LORD)	Hypothetical		
 ZEP	3	16	person encouraging Jerusalem			Hypothetical		
 ZEP	3	16	Needs Review			Normal		
@@ -15493,7 +15480,7 @@ MAT	1	19	Needs Review			Potential
 MAT	1	20	angel		angel of the Lord	Normal		
 MAT	1	21	angel		angel of the Lord	Normal		
 MAT	1	23	narrator-MAT			Quotation		
-MAT	1	23	narrator-MAT			Interruption		
+MAT	1	23	interruption-MAT			Interruption		
 MAT	1	23	scripture		scripture (prophet)	Quotation	Isaiah	
 #If the language requires the words of the angel to be repeated in quotes, this could be read by the narrator
 MAT	1	24	narrator-MAT			Quotation		
@@ -17002,8 +16989,8 @@ MRK	14	58	witnesses, false	mocking		Dialogue		MAT 26.61;MRK 14.58
 MRK	14	60	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	61	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	62	Jesus			Dialogue		
-MRK	14	63	Caiaphas, the high priest	screaming		Dialogue		
-MRK	14	64	Caiaphas, the high priest			Normal		
+MRK	14	63	Caiaphas, the high priest	indignant		Dialogue		
+MRK	14	64	Caiaphas, the high priest	indignant		Normal		
 MRK	14	64	chief priests/Sanhedrin			Dialogue		MAT 26.66;MRK 14.64
 MRK	14	65	chief priests/Sanhedrin	mocking		Dialogue		MAT 26.68;MRK 14.65
 MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
@@ -18085,14 +18072,14 @@ JHN	1	36	John the Baptist			Dialogue
 JHN	1	38	Andrew/another disciple of John the Baptist	curious	disciples of John the Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
-JHN	1	38	narrator-JHN			Interruption		
+JHN	1	38	interruption-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue		
 JHN	1	41	Andrew	excited		Dialogue		
 JHN	1	41	narrator-JHN			Quotation		
-JHN	1	41	narrator-JHN			Interruption		
+JHN	1	41	interruption-JHN			Interruption		
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
-JHN	1	42	narrator-JHN			Interruption		
+JHN	1	42	interruption-JHN			Interruption		
 JHN	1	43	Jesus	inviting		Dialogue		
 JHN	1	45	Philip the apostle	excited	Philip	Dialogue		
 JHN	1	46	Nathanael			Dialogue		
@@ -18399,7 +18386,7 @@ JHN	9	4	Jesus			Normal
 JHN	9	5	Jesus			Normal		
 JHN	9	7	Jesus	giving orders		Dialogue		
 JHN	9	7	narrator-JHN			Quotation		
-JHN	9	7	narrator-JHN			Interruption		
+JHN	9	7	interruption-JHN			Interruption		
 JHN	9	8	neighbors of man blind from birth			Normal		
 JHN	9	9	cured man, blind from birth			Normal		
 JHN	9	9	neighbors of man blind from birth, others			Normal		
@@ -18558,6 +18545,9 @@ JHN	12	36	Jesus			Normal
 JHN	12	37	crowd preparing for Passover Feast			Rare		
 JHN	12	37	Needs Review			Potential		
 JHN	12	38	scripture			Quotation	Isaiah	
+# PG-1276: A project added in a leading "God says" (the original passage quoted from ISA 6 is God speaking) in v. 39
+JHN	12	39	scripture			Rare	Isaiah	
+JHN	12	39	Needs Review			Potential		
 JHN	12	40	scripture			Quotation	Isaiah	
 JHN	12	42	leaders, many			Rare		
 JHN	12	42	Needs Review			Potential		
@@ -18764,6 +18754,8 @@ JHN	18	38	Pilate	to Jesus		Dialogue
 JHN	18	38	Pilate	to crowd		Dialogue		
 JHN	18	39	Pilate	to crowd		Dialogue		
 JHN	18	40	Jews, the			Dialogue		
+JHN	19	1	Pilate			Rare		
+JHN	19	1	Needs Review			Potential		
 JHN	19	3	soldiers, Roman	mocking		Dialogue		
 JHN	19	4	Pilate	to crowd		Dialogue		
 JHN	19	5	Pilate	to crowd		Dialogue		
@@ -18803,7 +18795,7 @@ JHN	20	15	Mary Magdalene			Dialogue
 JHN	20	16	Jesus			Dialogue		
 JHN	20	16	Mary Magdalene			Dialogue		
 JHN	20	16	narrator-JHN			Quotation		
-JHN	20	16	narrator-JHN			Interruption		
+JHN	20	16	interruption-JHN			Interruption		
 JHN	20	17	Jesus			Dialogue		
 JHN	20	18	Mary Magdalene			Normal		
 JHN	20	19	Jesus			Dialogue		
@@ -19417,6 +19409,8 @@ ACT	20	32	Paul			Normal
 ACT	20	33	Paul			Normal		
 ACT	20	34	Paul			Normal		
 ACT	20	35	Paul			Normal		
+ACT	20	37	elders, Ephesian			Rare		
+ACT	20	37	Needs Review			Potential		
 ACT	20	38	elders, Ephesian			Indirect		
 ACT	21	4	disciples		Holy Spirit through disciples	Indirect		
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		

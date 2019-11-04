@@ -107,6 +107,22 @@ namespace Glyssen.Shared
 		IEnumerable<int> AllVerseNumbers { get; }
 	}
 
+	public class SingleVerse : IVerse
+	{
+		public int StartVerse { get; }
+
+		public SingleVerse(int verseNum)
+		{
+			StartVerse = verseNum;
+		}
+
+		public int EndVerse => StartVerse;
+		public int LastVerseOfBridge => 0;
+		public IEnumerable<int> AllVerseNumbers => new [] {StartVerse};
+
+		public static explicit operator SingleVerse(VerseRef v) => new SingleVerse(v.VerseNum);
+	}
+
 	public static class IVerseExtensions
 	{
 		public static IEnumerable<int> GetAllVerseNumbers(this IVerse verse)

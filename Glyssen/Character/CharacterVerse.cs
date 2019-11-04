@@ -9,6 +9,10 @@ using static System.String;
 
 namespace Glyssen.Character
 {
+	// REVIEW: It would be really nice to be able to make this Flags, but some of the useful "flag" values
+	// (e.g., Expected) would not be valid values to set the property of a CharacterSpeakingMode to, so
+	// then we'd need some more sanity checking (at least in data integrity tests, but for maximum safety,
+	// in the production code).
 	public enum QuoteType
 	{
 		/// <summary>
@@ -27,6 +31,15 @@ namespace Glyssen.Character
 		/// that might make explicit use of first-level quotation marks more unwieldy.
 		/// </summary>
 		Implicit,
+
+		/// <summary>
+		/// Like <seealso cref="Implicit"/>, but when a verse also has the possibility of a self-quote.
+		/// Knowing this makes it possible for us to ignore quoted text within the larger discourse and
+		/// not incorrectly assume that explicit quotes are being used (along with a "he said" reporting
+		/// clause) in the verse. (As noted in the quote parser, there is a slight chance a stray
+		/// "he said" could mess us up here, but that's unlikely.)
+		/// </summary>
+		ImplicitWithPotentialSelfQuote,
 
 		/// <summary>
 		/// Conversation between two or more characters, generally consisting of relatively short
@@ -54,8 +67,8 @@ namespace Glyssen.Character
 		/// d) A self-quote by the narrator (especially where the narrator refers to himself in the
 		/// first person). * ENHANCE: We might want to consider breaking this case out into a
 		/// distinct type.
-		/// For now, Potential quotes will be treated just like Indirect quotes -- they will not be
-		/// considered as "expected" quotes.
+		/// For now, Potential quotes will be treated just like <seealso cref="Indirect"/> quotes --
+		/// they will not be considered as "expected" quotes.
 		/// </summary>
 		Potential,
 
@@ -132,7 +145,17 @@ namespace Glyssen.Character
 		Rare,
 	}
 
-	public class CharacterVerse : ICharacterDeliveryInfo
+	/// <summary>
+	/// Class that vaguely represents a "local" instance of speech, but is not tied to a specific verse. In most cases
+	/// an object of type <see cref="CharacterSpeakingMode"/> will actually be a <seealso cref="CharacterVerse"/>, which
+	/// is representative of the entire speech, even though it may cover multiple verses. Where the Delivery, Alias and
+	/// QuoteType are the same for the entire speech (which is the most typical case), they will accurately reflect that
+	/// homogeneity. In cases where a speech overruns the natural limits (e.g. crosses over into a different delivery or
+	/// type of quote), then an object of this class might be a synthesis reflecting that, which may or may not correspond
+	/// to any existing <seealso cref="CharacterVerse"/>. For example, if there is no paragraph break, a block may have
+	/// Jesus first scolding and then instructing. In such a case, the delivery would need to be unspecified.
+	/// </summary>
+	public class CharacterSpeakingMode : ICharacterDeliveryInfo
 	{
 		public const string kScriptureCharacter = "scripture";
 		internal const string kMultiCharacterIdSeparator = "/";
@@ -141,18 +164,16 @@ namespace Glyssen.Character
 
 		private bool m_localized;
 
-		public BCVRef BcvRef { get; }
-		public string BookCode => BCVRef.NumberToBookCode(BcvRef.Book);
-		public int Book => BcvRef.Book;
-		public int Chapter => BcvRef.Chapter;
-		public int Verse => BcvRef.Verse;
 		public string Character { get; }
 		public string Delivery { get; }
 		public string Alias { get; }
-		public QuoteType QuoteType { get; private set; }
+		public QuoteType QuoteType { get; protected set; }
 		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
-		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || IsScriptureQuotation;
+		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal || QuoteType == QuoteType.Implicit || QuoteType == QuoteType.ImplicitWithPotentialSelfQuote || IsScriptureQuotation;
 		public bool IsScriptureQuotation => QuoteType == QuoteType.Quotation && Character == kScriptureCharacter;
+		public bool IsUnusual => QuoteType == QuoteType.Alternate || QuoteType == QuoteType.Rare;
+		public bool IsImplicit => QuoteType == QuoteType.Implicit || QuoteType == QuoteType.ImplicitWithPotentialSelfQuote;
+
 		/// <summary>
 		/// A single character ID which could/should be used in the script.
 		/// </summary>
@@ -213,10 +234,9 @@ namespace Glyssen.Character
 		public string ParallelPassageReferences { get; }
 		public bool ProjectSpecific { get; }
 
-		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
+		public CharacterSpeakingMode(string character, string delivery, string alias, bool projectSpecific,
 			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null)
 		{
-			BcvRef = new BCVRef(bcvRef);
 			Character = character;
 			Delivery = delivery;
 			Alias = alias;
@@ -224,14 +244,6 @@ namespace Glyssen.Character
 			ParallelPassageReferences = parallelPassageReferences;
 			ProjectSpecific = projectSpecific;
 			QuoteType = quoteType;
-		}
-
-		public void ChangeToAlternate()
-		{
-			Debug.Assert(QuoteType == QuoteType.Quotation &&
-				DefaultCharacter == CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
-				"At least for now, we only allow this for Quotations that default to the narrator.");
-			QuoteType = QuoteType.Alternate;
 		}
 
 		public override string ToString()
@@ -271,13 +283,87 @@ namespace Glyssen.Character
 		}
 
 		#region Equality Members
+		// Note QuoteType *cannot* be included in equality determination (nor do we want it to be) because it is not readonly.
+		protected bool Equals(CharacterSpeakingMode other)
+		{
+			return Equals(Character, other.Character) &&
+				Equals(Delivery, other.Delivery) &&
+				Equals(Alias, other.Alias);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (ReferenceEquals(this, obj))
+				return true;
+			if (obj.GetType() != GetType())
+				return false;
+			return Equals((CharacterSpeakingMode)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				int hashCode = (Character != null ? Character.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (Delivery != null ? Delivery.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (Alias != null ? Alias.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
+
+		public static bool operator ==(CharacterSpeakingMode left, CharacterSpeakingMode right)
+		{
+			return Equals(left, right);
+		}
+
+		public static bool operator !=(CharacterSpeakingMode left, CharacterSpeakingMode right)
+		{
+			return !Equals(left, right);
+		}
+		#endregion
+	}
+
+	/// <summary>
+	/// Represents all the known details of an actual or potential speech by a character in a particular
+	/// verse.
+	/// </summary>
+	public class CharacterVerse : CharacterSpeakingMode
+	{
+		public BCVRef BcvRef { get; }
+		public string BookCode => BCVRef.NumberToBookCode(BcvRef.Book);
+		public int Book => BcvRef.Book;
+		public int Chapter => BcvRef.Chapter;
+		public int Verse => BcvRef.Verse;
+		// There are a few places where we need to allow two entries in the CV control file that differ only by Quote Type,
+		// so we need to include the quote type when evaluating "equality" (otherwise, they can't both be included in the set).
+		// However, since we occasionally "adjust" the quotation type (e.g., change some Quotation entries to Alternate), it
+		// is not readonly and therefore can't be used in determining equality. So here we store the original value.
+		private readonly QuoteType m_origQuoteType;
+
+		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
+			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null) :
+			base(character, delivery, alias, projectSpecific, quoteType, defaultCharacter, parallelPassageReferences)
+		{
+			BcvRef = new BCVRef(bcvRef);
+			m_origQuoteType = quoteType;
+		}
+
+		public void ChangeToAlternate()
+		{
+			Debug.Assert(QuoteType == QuoteType.Quotation &&
+				DefaultCharacter == CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
+				"At least for now, we only allow this for Quotations that default to the narrator.");
+			QuoteType = QuoteType.Alternate;
+		}
+
+		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
 			return Equals(BcvRef, other.BcvRef) &&
-				String.Equals(Character, other.Character) &&
-				String.Equals(Delivery, other.Delivery) &&
-				String.Equals(Alias, other.Alias) &&
-				QuoteType == other.QuoteType;
+				base.Equals(other) &&
+				m_origQuoteType == other.m_origQuoteType;
 		}
 
 		public override bool Equals(object obj)
@@ -296,9 +382,8 @@ namespace Glyssen.Character
 			unchecked
 			{
 				int hashCode = (BcvRef != null ? BcvRef.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (Character != null ? Character.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (Delivery != null ? Delivery.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (Alias != null ? Alias.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ base.GetHashCode();
+				hashCode = (hashCode * 397) ^ m_origQuoteType.GetHashCode();
 				return hashCode;
 			}
 		}
@@ -366,9 +451,27 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterDeliveryEqualityComparer : IEqualityComparer<ICharacterDeliveryInfo>, IEqualityComparer<CharacterVerse>
+	public class CharacterDeliveryAliasEqualityComparer : CharacterDeliveryEqualityComparer
 	{
-		public bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
+		public override bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
+		{
+			return base.Equals(x, y) && x?.Alias == y?.Alias;
+		}
+
+		public override int GetHashCode(ICharacterDeliveryInfo obj)
+		{
+			unchecked
+			{
+				int hashCode = base.GetHashCode(obj);
+				hashCode = (hashCode * 397) ^ (obj.Alias != null ? obj.Alias.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
+	}
+
+	public class CharacterDeliveryEqualityComparer : IEqualityComparer<ICharacterDeliveryInfo>
+	{
+		public virtual bool Equals(ICharacterDeliveryInfo x, ICharacterDeliveryInfo y)
 		{
 			if (x == null && y == null)
 				return true;
@@ -378,7 +481,7 @@ namespace Glyssen.Character
 			return x.Character.Equals(y.Character) && x.Delivery == y.Delivery;
 		}
 
-		public int GetHashCode(ICharacterDeliveryInfo obj)
+		public virtual int GetHashCode(ICharacterDeliveryInfo obj)
 		{
 			unchecked
 			{
@@ -399,14 +502,14 @@ namespace Glyssen.Character
 		}
 	}
 
-	public class CharacterEqualityComparer : IEqualityComparer<CharacterVerse>
+	public class CharacterEqualityComparer : IEqualityComparer<CharacterSpeakingMode>
 	{
-		public bool Equals(CharacterVerse x, CharacterVerse y)
+		public bool Equals(CharacterSpeakingMode x, CharacterSpeakingMode y)
 		{
 			return String.Equals(x.Character, y.Character);
 		}
 
-		public int GetHashCode(CharacterVerse obj)
+		public int GetHashCode(CharacterSpeakingMode obj)
 		{
 			return obj.Character.GetHashCode();
 		}
