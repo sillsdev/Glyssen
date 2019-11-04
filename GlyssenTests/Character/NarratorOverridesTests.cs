@@ -126,11 +126,11 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void GetCharacterOverrideDetailsForRefRange_RangeStartsInVerseZeroInMultiChapterOverride_ReturnsNull()
+		public void GetCharacterOverrideDetailsForRefRange_RangeStartsInVerseZeroInMultiChapterOverride_ReturnsEmpty()
 		{
 			var bookNum = BCVRef.BookToNumber("PSA");
 			var verseRef = new VerseRef(new BCVRef(bookNum, 45, 0), ScrVers.English);
-			Assert.IsNull(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2));
+			Assert.IsFalse(NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, 2).Any());
 		}
 
 		[Test]

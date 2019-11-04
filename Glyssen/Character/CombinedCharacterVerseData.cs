@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Glyssen.Shared;
 using SIL.ObjectModel;
 using SIL.Scripture;
 
@@ -15,14 +17,32 @@ namespace Glyssen.Character
 			m_project = project;
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0,
-			int finalVerse = 0, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
+		public HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IVerse verseOrBridge, ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse,
-				initialEndVerse, finalVerse, versification);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse,
-				initialEndVerse, finalVerse, versification, includeAlternatesAndRareQuotes, includeNarratorOverrides);
-			return project.Union(control);
+			var result = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, verseOrBridge, versification,
+				includeAlternatesAndRareQuotes, includeNarratorOverrides);
+			var project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, verseOrBridge, versification);
+			result.UnionWith(project);
+			return result;
+		}
+
+		public HashSet<CharacterSpeakingMode> GetCharacters(int bookId, int chapter, IReadOnlyCollection<IVerse> verses,
+			ScrVers versification = null, bool includeAlternatesAndRareQuotes = false, bool includeNarratorOverrides = false)
+		{
+			HashSet<CharacterSpeakingMode> result = null;
+			foreach (var verse in verses)
+			{
+				var resultForThisVerse = new HashSet<CharacterSpeakingMode>(GetCharacters(bookId, chapter, verse, versification,
+					includeAlternatesAndRareQuotes, includeNarratorOverrides), m_characterDeliveryEqualityComparer);
+				if (result == null)
+					result = resultForThisVerse;
+				else
+					ControlCharacterVerseData.Singleton.PerformPreferentialIntersection(ref result, resultForThisVerse);
+			}
+			if (result == null)
+				throw new ArgumentException("Empty enumeration passed to GetCharacters.", nameof(verses));
+
+			return result;
 		}
 
 		public ICharacterDeliveryInfo GetImplicitCharacter(int bookId, int chapter, int startVerse, int endVerse = 0, ScrVers versification = null)
@@ -44,27 +64,19 @@ namespace Glyssen.Character
 			return project.Union(control);
 		}
 
-		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries()
+		public IReadOnlySet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryAliasInfo()
 		{
-			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries();
-			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterAndDeliveries();
+			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryAliasInfo();
+			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterDeliveryAliasInfo();
 			if (project.Any()) // Since this is rare, we can save the cost of a union and two set creations
-				result = new ReadOnlySet<ICharacterDeliveryInfo>(new HashSet<ICharacterDeliveryInfo>(result.Union(project, m_characterDeliveryEqualityComparer)));
+				result = new ReadOnlySet<ICharacterDeliveryInfo>(new HashSet<ICharacterDeliveryInfo>(result.Union(project, new CharacterDeliveryAliasEqualityComparer())));
 			return result;
 		}
 
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode)
+		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterDeliveryInfo(string bookCode)
 		{
-			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(bookCode);
-			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterAndDeliveries(bookCode);
-			result.UnionWith(project);
-			return result;
-		}
-
-		public ISet<ICharacterDeliveryInfo> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
-		{
-			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(bookCode, chapter);
-			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterAndDeliveries(bookCode, chapter);
+			var result = ControlCharacterVerseData.Singleton.GetUniqueCharacterDeliveryInfo(bookCode);
+			var project = m_project.ProjectCharacterVerseData.GetUniqueCharacterDeliveryInfo(bookCode);
 			result.UnionWith(project);
 			return result;
 		}

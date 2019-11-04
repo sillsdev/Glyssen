@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Scripture;
@@ -21,9 +22,9 @@ namespace GlyssenTests.Character
 			{
 				File.WriteAllText(file.Path, postVersion34CvDataLine);
 
-				var data = new ProjectCharacterVerseData(file.Path);
+				var data = new ProjectCharacterVerseData(file.Path, ScrVers.English);
 
-				var quoteInfo = data.GetCharacters(kMATbookNum, 24, 1).Single();
+				var quoteInfo = data.GetCharacters(kMATbookNum, 24, new SingleVerse(1)).Single();
 
 				Assert.AreEqual("Peter/Andrew", quoteInfo.Character);
 				Assert.AreEqual("Confused", quoteInfo.Delivery);
@@ -43,9 +44,9 @@ namespace GlyssenTests.Character
 			{
 				File.WriteAllText(file.Path, preVersion34CvDataLine);
 
-				var data = new ProjectCharacterVerseData(file.Path);
+				var data = new ProjectCharacterVerseData(file.Path, ScrVers.English);
 
-				var quoteInfo = data.GetCharacters(kMATbookNum, 24, 1).Single();
+				var quoteInfo = data.GetCharacters(kMATbookNum, 24, new SingleVerse(1)).Single();
 
 				Assert.AreEqual("Jesus", quoteInfo.Character);
 				Assert.AreEqual("Mysteriously", quoteInfo.Delivery);
