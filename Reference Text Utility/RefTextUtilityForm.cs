@@ -425,7 +425,7 @@ namespace Glyssen.ReferenceTextUtility
 					var destinationCellForeColor = r.Cells[colDestination.Index].Style.ForeColor;
 					var destValue = r.Cells[colDestination.Index].Value as string;
 					return (!String.IsNullOrWhiteSpace(destValue) || !IsGeneratingAction(r.Cells[colAction.Index].Value as string)) &&
-						(destinationCellForeColor == default || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
+						(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
 				}) &&
 				m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Any(r => r.Cells[colAction.Index].Value as string != "Skip");
 		}
