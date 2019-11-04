@@ -6281,34 +6281,119 @@ namespace GlyssenTests.Quote
 		}
 		#endregion
 
-		// As part of the work for PG-1272, I concluded that if we have a block that covers multiple verses that have the same character
-		// but incompatible deliveries, we should just leave the delivery undefined.
-		[TestCase("25-26", "27")]
-		[TestCase("25-26", "27-28")]
-		[TestCase("21-24", "25")]
-		[TestCase("21-24", "25-26")]
-		public void Parse_BlockWhereJesusSpeaksWithConflictingDeliveries_AssignedToJesusWithNoSpecificDelivery(string firstRef, string secondRef)
+		#region Tests for PG-1272
+		[TestCase(":")]
+		[TestCase(null)]
+		public void Parse_BlocksHaveCharacterSetBasedOnSpecialUSXCharStyles_PresetCharactersNotChanged(string dialogueQuoteStart)
 		{
-			var firstVerseOrBridge = new Verse(firstRef);
-			var block1 = new Block("p", 11, firstVerseOrBridge.StartVerse, firstVerseOrBridge.LastVerseOfBridge) { IsParagraphStart = true };
-			block1.BlockElements.Add(firstVerseOrBridge);
-			block1.BlockElements.Add(new ScriptText("Then Jesus said: “First thing. "));
-			block1.BlockElements.Add(new Verse(secondRef));
-			block1.BlockElements.Add(new ScriptText("Second thing.”"));
-			var input = new List<Block> { block1 };
+			var block1 = new Block("p", 4, 1) {IsParagraphStart = true};
+			block1.BlockElements.Add(new Verse("1"));
+			block1.BlockElements.Add(new ScriptText("Jesus was led by the Spirit into the wild to be tempted by Satan. "));
+			block1.BlockElements.Add(new Verse("2"));
+			block1.BlockElements.Add(new ScriptText("After a long fast, he was starving. "));
+			block1.BlockElements.Add(new Verse("3"));
+			block1.BlockElements.Add(new ScriptText("The tempter came and said, “If you are the Son of God, make these stones into bread.”"));
+			var block2 = new Block("p", 4, 4) {IsParagraphStart = true};
+			block2.BlockElements.Add(new Verse("4"));
+			block2.BlockElements.Add(new ScriptText("Jesus replied, "));
+			var block3 = new Block("wj", 4, 4) {IsParagraphStart = false, CharacterId = "Jesus"};
+			block3.BlockElements.Add(new ScriptText("The Word says: “Man must not live on bread alone, but on what God says.”"));
+			var block4 = new Block("p", 4, 5) {IsParagraphStart = true};
+			block4.BlockElements.Add(new Verse("5"));
+			block4.BlockElements.Add(new ScriptText("The devil led him to the Temple in Zion "));
+			block4.BlockElements.Add(new Verse("6"));
+			block4.BlockElements.Add(new ScriptText("“If you are the Son of God,” he said, “hurl yourself down.” He tempted him by quoting where the Word says: "));
+			var block5 = new Block("qt", 4, 6) {IsParagraphStart = false, CharacterId = "scripture"};
+			block5.BlockElements.Add(new ScriptText("He will command his angels to hold you up and not let you smash your foot on a rock."));
+			var input = new List<Block> {block1, block2, block3, block4, block5};
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueQuoteStart, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(10, output.Count);
+
+			int i = 0;
+			Assert.AreEqual("{1}\u00A0Jesus was led by the Spirit into the wild to be tempted by Satan. " +
+				"{2}\u00A0After a long fast, he was starving. " +
+				"{3}\u00A0The tempter came and said, ", output[i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("“If you are the Son of God, make these stones into bread.”", output[++i].GetText(true));
+			Assert.AreEqual("Satan (Devil)", output[i].CharacterId);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("{4}\u00A0Jesus replied, ", output[++i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("The Word says: “Man must not live on bread alone, but on what God says.”", output[++i].GetText(true));
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("wj", output[i].StyleTag);
+
+			Assert.AreEqual("{5}\u00A0The devil led him to the Temple in Zion ", output[++i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("{6}\u00A0“If you are the Son of God,” ", output[++i].GetText(true));
+			Assert.AreEqual("Satan (Devil)", output[i].CharacterId);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("he said, ", output[++i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("“hurl yourself down.” ", output[++i].GetText(true));
+			Assert.AreEqual("Satan (Devil)", output[i].CharacterId);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("He tempted him by quoting where the Word says: ", output[++i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual("He will command his angels to hold you up and not let you smash your foot on a rock.", output[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kNeedsReview, output[i].CharacterId);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("qt", output[i].StyleTag);
+		}
+
+		[Test]
+		public void Parse_WordsOfJesusInBlockWhereJesusSpeaksWithSpecificDelivery_DeliveryAssignedBasedOnControlFile()
+		{
+			var block1 = new Block("p", 11, 25) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("25"));
+			block1.BlockElements.Add(new ScriptText("Then Jesus said: "));
+			var block2 = new Block("wj", 11, 25) { IsParagraphStart = false, CharacterId = "Jesus" };
+			block2.BlockElements.Add(new ScriptText("I praise you, Father, Lord of all, because you keep wise people in the dark and you show yourself to kids "));
+			block2.BlockElements.Add(new Verse("26"));
+			block2.BlockElements.Add(new ScriptText("because that is what pleases you. "));
+			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 
 			int i = 0;
-			Assert.AreEqual("{" + firstRef + "}\u00A0Then Jesus said: ", output[i].GetText(true));
+			Assert.AreEqual("{25}\u00A0Then Jesus said: ", output[i].GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
 
-			Assert.AreEqual("“First thing. {" + secondRef + "}\u00A0Second thing.”",
+			Assert.AreEqual("I praise you, Father, Lord of all, because you keep wise people in the dark and you show yourself to kids " +
+				"{26}\u00A0because that is what pleases you. ",
 				output[++i].GetText(true));
 			Assert.AreEqual("Jesus", output[i].CharacterId);
-			Assert.IsNull(output[i].Delivery);
+			Assert.AreEqual("praying", output[i].Delivery);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("wj", output[i].StyleTag);
 		}
 
 		// PG-1272: The expected results for these tests are a bit dubious. In the unlikely case where there is a verse bridge that crosses
@@ -6344,5 +6429,64 @@ namespace GlyssenTests.Quote
 			return output[i].Delivery;
 		}
 
+		[Test]
+		public void Parse_WordsOfJesusInBlockWhereJesusSpeaksWithDifferentDeliveries_AssignedToJesusWithUndefinedDelivery()
+		{
+			var block1 = new Block("p", 14, 18) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("18"));
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("wj", 14, 18) { IsParagraphStart = false, CharacterId = "Jesus" };
+			block2.BlockElements.Add(new ScriptText("Bring the food here to me "));
+			block2.BlockElements.Add(new Verse("19"));
+			block2.BlockElements.Add(new ScriptText("and have everyone sit down on the turf. "));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			int i = 0;
+			Assert.AreEqual(block1.GetText(true), output[i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(output[i].IsParagraphStart);
+			Assert.AreEqual("p", output[i].StyleTag);
+
+			Assert.AreEqual(block2.GetText(true), output[++i].GetText(true));
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.IsNull(output[i].Delivery);
+			Assert.IsFalse(output[i].IsParagraphStart);
+			Assert.AreEqual("wj", output[i].StyleTag);
+		}
+
+		// As part of the work for PG-1272, I concluded that if we have a block that covers multiple verses that have the same character
+		// but incompatible deliveries, we should just leave the delivery undefined.
+		[TestCase("25-26", "27")]
+		[TestCase("25-26", "27-28")]
+		[TestCase("21-24", "25")]
+		[TestCase("21-24", "25-26")]
+		public void Parse_BlockWhereJesusSpeaksWithConflictingDeliveries_AssignedToJesusWithNoSpecificDelivery(string firstRef, string secondRef)
+		{
+			var firstVerseOrBridge = new Verse(firstRef);
+			var block1 = new Block("p", 11, firstVerseOrBridge.StartVerse, firstVerseOrBridge.LastVerseOfBridge) { IsParagraphStart = true };
+			block1.BlockElements.Add(firstVerseOrBridge);
+			block1.BlockElements.Add(new ScriptText("Then Jesus said: “First thing. "));
+			block1.BlockElements.Add(new Verse(secondRef));
+			block1.BlockElements.Add(new ScriptText("Second thing.”"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			int i = 0;
+			Assert.AreEqual("{" + firstRef + "}\u00A0Then Jesus said: ", output[i].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[i].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“First thing. {" + secondRef + "}\u00A0Second thing.”",
+				output[++i].GetText(true));
+			Assert.AreEqual("Jesus", output[i].CharacterId);
+			Assert.IsNull(output[i].Delivery);
+		}
+		#endregion // Tests for PG-1272
 	}
 }

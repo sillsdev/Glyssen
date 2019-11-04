@@ -384,25 +384,35 @@ namespace Glyssen.Character
 				cv.ResetLocalization();
 		}
 
-		public class NeedsReviewCharacter : ICharacterDeliveryInfo
+		public class SimpleCharacterInfoWithoutDelivery : ICharacterDeliveryInfo
 		{
-			public static NeedsReviewCharacter Singleton { get; }
-
-			public string Character => kNeedsReview;
-			public string LocalizedCharacter =>
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CharacterNeedsReview", "Needs Review");
+			public string Character { get; }
+			public virtual string LocalizedCharacter => Character;
 			public string Delivery => Empty;
 			public string DefaultCharacter => null;
 			public string Alias => null;
 			public string LocalizedAlias => null;
 			public bool ProjectSpecific => false;
 
+			public SimpleCharacterInfoWithoutDelivery(string characterId)
+			{
+				Character = characterId;
+			}
+		}
+
+		public class NeedsReviewCharacter : SimpleCharacterInfoWithoutDelivery
+		{
+			public static NeedsReviewCharacter Singleton { get; }
+
+			public override string LocalizedCharacter =>
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CharacterNeedsReview", "Needs Review");
+
 			static NeedsReviewCharacter()
 			{
 				Singleton = new NeedsReviewCharacter();
 			}
 
-			private NeedsReviewCharacter()
+			private NeedsReviewCharacter() : base(kNeedsReview)
 			{
 			}
 		}
