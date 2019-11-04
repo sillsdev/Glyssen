@@ -60,9 +60,8 @@ namespace Glyssen.Character
 
 		public static IEnumerable<NarratorOverrideDetail> GetCharacterOverrideDetailsForRefRange(VerseRef startRef, int endVerse)
 		{
-			int endChapter;
-			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out endChapter))
-				return null;
+			if (!ChangeToEnglishVersification(ref startRef, ref endVerse, out var endChapter))
+				return new NarratorOverrideDetail[0];
 
 			return GetNarratorOverridesForBook(startRef.Book).Where(o =>
 				(o.StartChapter < startRef.ChapterNum || (o.StartChapter == startRef.ChapterNum && o.StartVerse <= startRef.VerseNum)) &&
