@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1CO" singlevoice="false" pageheader="1 CORINTHIANS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
+  <block style="mt" chapter="0" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>1 CORINTHIANS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1CO" initialStartVerse="0" characterId="BC-1CO">
@@ -447,7 +447,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>But those who are outside, God judges. “Put away the wicked man from among yourselves.”</text>
+    <text>But those who are outside, God judges.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="scripture">
+    <text>Put away the wicked man from among yourselves.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>6</text>
@@ -514,7 +517,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Or don’t you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
+    <text>Or don’t you know that he who is joined to a prostitute is one body? For he says,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
+    <text>The two will become one flesh.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -967,11 +973,12 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO">
     <verse num="25" />
-    <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
+    <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience. </text>
     <verse num="26" />
-    <text>The scriptures say, “for “the earth is the Lord’s, and its fullness.”</text>
+    <text>The scriptures say, for</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture">
+    <text>“the earth is the Lord’s, and its fullness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
@@ -979,7 +986,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
-    <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience. For “the earth is the Lord’s, and all its fullness.”</text>
+    <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />
@@ -1596,10 +1603,14 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
     <text>The last enemy that will be abolished is death.</text>
+    <verse num="27" />
+    <text>For,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture">
+    <text>“He put all things in subjection under his feet.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-    <verse num="27" />
-    <text>For, “He put all things in subjection under his feet.” But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
+    <text>But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
@@ -1619,7 +1630,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
     <verse num="32" />
-    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised, then “let us eat and drink, for tomorrow we die.”</text>
+    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="scripture">
+    <text>then let us eat and drink, for tomorrow we die.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />
@@ -1795,7 +1809,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>I ask you that you also be in subjection to leadersa such as these, and to everyone who helps in the work and labors.</text>
+    <text>I ask you that you also be in subjection to leaders such as these, and to everyone who helps in the work and labors.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />

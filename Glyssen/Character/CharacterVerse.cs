@@ -490,6 +490,16 @@ namespace Glyssen.Character
 				return hashCode;
 			}
 		}
+
+		public bool Equals(CharacterVerse x, CharacterVerse y)
+		{
+			return Equals(x, (ICharacterDeliveryInfo)y);
+		}
+
+		public int GetHashCode(CharacterVerse cv)
+		{
+			return GetHashCode((ICharacterDeliveryInfo)cv);
+		}
 	}
 
 	public class CharacterEqualityComparer : IEqualityComparer<CharacterSpeakingMode>
