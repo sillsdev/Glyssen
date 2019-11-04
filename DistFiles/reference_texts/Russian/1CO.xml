@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1CO" singlevoice="false" pageheader="1-е Коринфянам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
+  <block style="mt" chapter="0" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="1CO" initialStartVerse="0" characterId="BC-1CO">
       <text>1 CORINTHIANS</text>
     </ReferenceBlocks>
     <text>1-е Коринфянам</text>
@@ -893,10 +893,16 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>But those who are outside, God judges. “Put away the wicked man from among yourselves.”</text>
+      <text>But those who are outside, God judges.</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Внешних же судит Бог. Итак, извергните развращенного из среды вас.</text>
+    <text>Внешних же судит Бог.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="scripture">
+      <text>Put away the wicked man from among yourselves.</text>
+    </ReferenceBlocks>
+    <text>Итак, извергните развращенного из среды вас.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
@@ -1027,10 +1033,16 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>Or don’t you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
+      <text>Or don’t you know that he who is joined to a prostitute is one body? For he says,</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Или не знаете, что совокупляющийся с блудницею становится одно тело с нею? ибо сказано: два будут одна плоть.</text>
+    <text>Или не знаете, что совокупляющийся с блудницею становится одно тело с нею? ибо сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
+      <text>The two will become one flesh.</text>
+    </ReferenceBlocks>
+    <text>два будут одна плоть.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO">
@@ -1933,18 +1945,20 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO">
       <verse num="25" />
-      <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience.</text>
+      <text>Whatever is sold in the butcher shop, eat, asking no question for the sake of conscience. </text>
+      <verse num="26" />
+      <text>The scriptures say, for</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>Все, что продается на торгу, ешьте без всякого исследования, для спокойствия совести;</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
-      <verse num="26" />
-      <text>The scriptures say, “for “the earth is the Lord’s, and its fullness.”</text>
-    </ReferenceBlocks>
+    <text>Все, что продается на торгу, ешьте без всякого исследования, для спокойствия совести; </text>
     <verse num="26" />
-    <text>ибо Господня земля, и что наполняет ее.</text>
+    <text>ибо</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="scripture">
+      <text>“the earth is the Lord’s, and its fullness.”</text>
+    </ReferenceBlocks>
+    <text>“Господня земля, и что наполняет ее.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
@@ -1957,7 +1971,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
       <verse num="28" />
-      <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience. For “the earth is the Lord’s, and all its fullness.”</text>
+      <text>But if anyone says to you, “This was offered to idols,” don’t eat it for the sake of the one who told you. And for the sake of conscience.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>Но если кто скажет вам: это идоложертвенное, —то не ешьте ради того, кто объявил вам, и ради совести. Ибо Господня земля, и что наполняет ее.</text>
@@ -3190,17 +3204,25 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
       <verse num="26" />
       <text>The last enemy that will be abolished is death.</text>
+      <verse num="27" />
+      <text>For,</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Последний же враг истребится—смерть,</text>
+    <verse num="27" />
+    <text>потому</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="scripture">
+      <text>“He put all things in subjection under his feet.”</text>
+    </ReferenceBlocks>
+    <text>“что все покорил под ноги Его.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-      <verse num="27" />
-      <text>For, “He put all things in subjection under his feet.” But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
+      <text>But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
     </ReferenceBlocks>
-    <verse num="27" />
-    <text>потому что все покорил под ноги Его. Когда же сказано, что Ему все покорено, то ясно, что кроме Того, Который покорил Ему все.</text>
+    <text>Когда же сказано, что Ему все покорено, то ясно, что кроме Того, Который покорил Ему все.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO">
@@ -3237,10 +3259,16 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
       <verse num="32" />
-      <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised, then “let us eat and drink, for tomorrow we die.”</text>
+      <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised,</text>
     </ReferenceBlocks>
     <verse num="32" />
-    <text>По рассуждению человеческому, когда я боролся со зверями в Ефесе, какая мне польза, если мертвые не воскресают? Станем есть и пить, ибо завтра умрем!</text>
+    <text>По рассуждению человеческому, когда я боролся со зверями в Ефесе, какая мне польза, если мертвые не воскресают?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="scripture">
+      <text>then let us eat and drink, for tomorrow we die.</text>
+    </ReferenceBlocks>
+    <text>Станем есть и пить, ибо завтра умрем!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
@@ -3589,7 +3617,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>I ask you that you also be in subjection to leadersa such as these, and to everyone who helps in the work and labors.</text>
+      <text>I ask you that you also be in subjection to leaders such as these, and to everyone who helps in the work and labors.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>будьте и вы почтительны к таковым и ко всякому содействующему и трудящемуся.</text>

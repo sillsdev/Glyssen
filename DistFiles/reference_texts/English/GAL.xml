@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="GAL" singlevoice="false" pageheader="GALATIANS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-GAL">
+  <block style="mt" chapter="0" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>GALATIANS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="GAL" initialStartVerse="0" characterId="BC-GAL">
@@ -351,7 +351,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-GAL">
     <verse num="6" />
-    <text>And because you are children, God sent out the Spirit of his Son into your hearts, crying, “Abba, Father!”</text>
+    <text>And because you are children, God sent out the Spirit of his Son into your hearts, crying,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Holy Spirit, the">
+    <text>Abba, Father!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />

@@ -322,7 +322,7 @@ namespace Glyssen
 					case CharacterVerseData.StandardCharacter.BookOrChapter:
 						if (currentVernBlock.IsChapterAnnouncement)
 						{
-							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
+							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber) { CharacterId = currentVernBlock.CharacterId };
 							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
 
 							if (HasSecondaryReferenceText)
@@ -357,6 +357,8 @@ namespace Glyssen
 							}
 
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
+							if (!currentRefBlock.IsChapterAnnouncement && currentRefBlock.ChapterNumber == currentVernBlock.ChapterNumber)
+								iRefBlock--;
 							continue;
 						}
 						goto case CharacterVerseData.StandardCharacter.ExtraBiblical; // Book title

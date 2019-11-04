@@ -5,6 +5,8 @@ namespace Glyssen.ReferenceTextUtility
 {
 	public partial class OutputForm : Form
 	{
+		private int m_totalMessages = 0;
+		private bool m_messageLimitReached = false;
 		public OutputForm()
 		{
 			InitializeComponent();
@@ -19,12 +21,24 @@ namespace Glyssen.ReferenceTextUtility
 
 		public void DisplayMessage(string message, bool isError)
 		{
+			if (m_messageLimitReached)
+				return;
 			this.SafeInvoke(() =>
 			{
-				if (isError)
-					m_logBox.WriteError(message);
-				else
-					m_logBox.WriteMessage(message);
+				m_totalMessages++;
+				if (m_totalMessages < 10000)
+				{
+					if (isError)
+						m_logBox.WriteError(message);
+					else
+						m_logBox.WriteMessage(message);
+				}
+				else if (!m_messageLimitReached)
+				{
+					m_logBox.WriteError("Maximum number of messages reached!");
+					m_messageLimitReached = true;
+				}
+
 			}, GetType().FullName + ".DisplayMessage");
 		}
 	}

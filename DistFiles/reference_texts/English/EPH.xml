@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="EPH" singlevoice="false" pageheader="EPHESIANS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+  <block style="mt" chapter="0" book="EPH" initialStartVerse="0" characterId="BC-EPH">
     <text>EPHESIANS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH">
@@ -36,7 +36,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
     <verse num="8" />
-    <text>which he made to abound toward us in all wisdom and prudence,</text>
+    <text>which he made to abound toward us in all wisdom and prudence.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
     <verse num="9" />
@@ -76,7 +76,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
     <verse num="18" />
-    <text>I pray also that the eyes of your hearts are enlightened, that you may know what is the hope of his calling. and what are the riches of the glory of his inheritance in the saints,</text>
+    <text>I pray also that the eyes of your hearts are enlightened, that you may know what is the hope of his calling, and what are the riches of the glory of his inheritance in the saints,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
     <verse num="19" />

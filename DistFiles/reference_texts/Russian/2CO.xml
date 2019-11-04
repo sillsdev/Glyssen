@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="2CO" singlevoice="false" pageheader="2-е Коринфянам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2CO">
+  <block style="mt" chapter="0" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="2CO" initialStartVerse="0" characterId="BC-2CO">
       <text>2 CORINTHIANS</text>
     </ReferenceBlocks>
     <text>2-е Коринфянам</text>
@@ -976,16 +976,16 @@
     </ReferenceBlocks>
     <text>“вселюсь в них и буду ходить в них; и буду их Богом, и они будут Моим народом.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture">
       <verse num="17" />
       <text>Therefore “‘Come out from among them, and be separate,’ says the Lord. ‘Touch no unclean thing. I will receive you.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>И потому выйдите из среды их и отделитесь, говорит Господь, и не прикасайтесь к нечистому; и Я прииму вас.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture">
       <verse num="18" />
       <text>I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.”</text>
     </ReferenceBlocks>
@@ -1588,8 +1588,8 @@
     <verse num="16" />
     <text>так чтобы и далее вас проповедывать Евангелие, а не хвалиться готовым в чужом уделе.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
       <verse num="17" />
       <text>But “he who boasts, let him boast in the Lord.”</text>
     </ReferenceBlocks>
@@ -1939,18 +1939,26 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO">
       <verse num="8" />
-      <text>Concerning this thing, I begged the Lord three times that it might depart from me.</text>
+      <text>Concerning this thing, I begged the Lord three times that it might depart from me. </text>
+      <verse num="9" />
+      <text>He has said to me,</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Трижды молил я Господа о том, чтобы удалил его от меня.</text>
+    <text>Трижды молил я Господа о том, чтобы удалил его от меня. </text>
+    <verse num="9" />
+    <text>Но Господь сказал мне:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="Jesus">
+      <text>“My grace is sufficient for you, for my power is made perfect in weakness.”</text>
+    </ReferenceBlocks>
+    <text>'довольно для тебя благодати Моей, ибо сила Моя совершается в немощи'.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
-      <verse num="9" />
-      <text>He has said to me, “My grace is sufficient for you, for my power is made perfect in weakness.” Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
+      <text>Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
     </ReferenceBlocks>
-    <verse num="9" />
-    <text>Но Господь сказал мне: 'довольно для тебя благодати Моей, ибо сила Моя совершается в немощи'. И потому я гораздо охотнее буду хвалиться своими немощами, чтобы обитала во мне сила Христова.</text>
+    <text>И потому я гораздо охотнее буду хвалиться своими немощами, чтобы обитала во мне сила Христова.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
@@ -2057,10 +2065,16 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
       <verse num="1" />
-      <text>This is the third time I am coming to you. “At the mouth of two or three witnesses shall every word be established.”</text>
+      <text>This is the third time I am coming to you.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>В третий уже раз иду к вам. При устах двух или трех свидетелей будет твердо всякое слово.</text>
+    <text>В третий уже раз иду к вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="scripture">
+      <text>“At the mouth of two or three witnesses shall every word be established.”</text>
+    </ReferenceBlocks>
+    <text>При устах двух или трех свидетелей будет твердо всякое слово.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">

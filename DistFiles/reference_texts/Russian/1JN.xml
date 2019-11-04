@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1JN" singlevoice="false" pageheader="1-e Иоанна">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+  <block style="mt" chapter="0" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="1JN" initialStartVerse="0" characterId="BC-1JN">
       <text>1 JOHN</text>
     </ReferenceBlocks>
     <text>1-e Иоанна</text>

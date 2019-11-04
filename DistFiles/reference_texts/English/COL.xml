@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="COL" singlevoice="false" pageheader="COLOSSIANS CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-COL">
+  <block style="mt" chapter="0" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>COLOSSIANS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="COL" initialStartVerse="0" characterId="BC-COL">

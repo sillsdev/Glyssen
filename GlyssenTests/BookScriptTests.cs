@@ -1919,8 +1919,6 @@ namespace GlyssenTests
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			englishRefText.ApplyTo(origSource);
 			var sourceBlocksChunkedOut = origSource.GetScriptBlocks();
-			// ICO 15:3 has a paragraph break, so we need to match up the second half of the verse
-			sourceBlocksChunkedOut.Single(b => b.IsScripture && !b.MatchesReferenceText).SetMatchedReferenceBlock("Blah blah");
 			var source = new BookScript(origSource.BookId, sourceBlocksChunkedOut, origSource.Versification);
 			Assert.IsTrue(origBlockCount < sourceBlocksChunkedOut.Count);
 
@@ -1932,7 +1930,7 @@ namespace GlyssenTests
 			firstBlockforV27.SetNonDramaticCharacterId(CharacterVerse.kScriptureCharacter);
 			firstBlockforV27.UserConfirmed = true;
 
-			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit - 1];
+			var blockForV26 = source.GetScriptBlocks()[iBlockToSplit];
 			Assert.AreEqual("26", ((Verse)blockForV26.BlockElements.First()).Number);
 			source.SplitBlock(blockForV26, "26", k1Co15V26Text.Length, true, CharacterVerse.kScriptureCharacter).UserConfirmed = true;
 
