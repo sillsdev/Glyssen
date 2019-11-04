@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1PE" singlevoice="false" pageheader="1-e Петра">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE">
+  <block style="mt" chapter="0" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="1PE" initialStartVerse="0" characterId="BC-1PE">
       <text>1 PETER</text>
     </ReferenceBlocks>
     <text>1-e Петра</text>
@@ -202,14 +202,14 @@
     <verse num="24" />
     <text>Ибо всякая плоть—</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture">
       <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
     </ReferenceBlocks>
     <text>как трава, и всякая слава человеческая—как цвет на траве: засохла трава, и цвет ее опал;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture">
       <verse num="25" />
       <text>but the Lord’s word endures forever.”</text>
     </ReferenceBlocks>
@@ -420,13 +420,13 @@
     <verse num="21" />
     <text>Ибо вы к тому призваны, потому что и Христос пострадал за нас, оставив нам пример, дабы мы шли по следам Его.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
       <verse num="22" />
-      <text>who did not sin, “neither was deceit found in his mouth.”</text>
+      <text>“who did not sin, neither was deceit found in his mouth.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Он не сделал никакого греха, и не было лести в устах Его.</text>
+    <text>“Он не сделал никакого греха, и не было лести в устах Его.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
@@ -534,22 +534,22 @@
     <verse num="10" />
     <text>Ибо,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
       <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
     </ReferenceBlocks>
     <text>“кто любит жизнь и хочет видеть добрые дни, тот удерживай язык свой от зла и уста свои от лукавых речей;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
       <verse num="11" />
       <text>Let him turn away from evil, and do good. Let him seek peace, and pursue it.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>уклоняйся от зла и делай добро; ищи мира и стремись к нему,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
       <verse num="12" />
       <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.”</text>
     </ReferenceBlocks>
@@ -778,10 +778,10 @@
     <verse num="17" />
     <text>Ибо время начаться суду с дома Божия; если же прежде с нас начнется, то какой конец непокоряющимся Евангелию Божию?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
       <verse num="18" />
-      <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
+      <text>If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>И если праведник едва спасается, то нечестивый и грешный где явится?</text>

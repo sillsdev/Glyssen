@@ -8,6 +8,7 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using NUnit.Framework;
 using SIL.Scripture;
+using static System.String;
 
 namespace ControlDataIntegrityTests
 {
@@ -259,6 +260,27 @@ namespace ControlDataIntegrityTests
 					$"Character-verse file contains an Implicit quote for {cv.Character} in {cv.BookCode} {cv.Chapter}:{cv.Verse} " +
 						"that also has other incompatible quotes.");
 				}
+			}
+		}
+
+		/// <summary>
+		/// A Scripture quote that is either explicitly defaulted to God or has no default (which will typically
+		/// appear in FCBH's Director's Guide as a line to be spoken by God) should not exist alongside (i.e., for
+		/// the same verse) an explicit entry for God. The reason this is critical is that the ReferenceTextUtility
+		/// expects to be able to find exactly one reliable match, but if the DG has God, and the control file has
+		/// both God and scripture, that will result in two equally reliable matches.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_ScriptureQuoteDefaultedToGodOrWithoutDefaultDoesNotCoOccurWithEntryForGod()
+		{
+			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+				.Where(q => q.QuoteType == QuoteType.Quotation && q.Character == CharacterSpeakingMode.kScriptureCharacter &&
+					(IsNullOrEmpty(q.DefaultCharacter) || q.DefaultCharacter == "God")))
+			{
+				Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(BCVRef.BookToNumber(cv.BookCode),
+						cv.Chapter, new SingleVerse(cv.Verse), ScrVers.English).Any(c => c.Character == "God"),
+						$"Character-verse file contains a Scripture quote that defaults to God in {cv.BookCode} {cv.Chapter}:{cv.Verse}, " +
+						"but that verse also has God speaking directly.");
 			}
 		}
 

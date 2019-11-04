@@ -88,10 +88,11 @@ namespace ControlDataIntegrityTests
 		}
 
 		[Test]
-		public void DataIntegrity_AdultFemaleCharacterFCBHCharacterIdHasFemaleSuffix()
+		public void DataIntegrity_AdultFemaleCharacterFCBHCharacterIdInOldTestamentHasFemaleSuffix()
 		{
 			var missingFemaleSuffix = CharacterDetailData.Singleton.GetAll()
-				.Where(d => (d.Gender == CharacterGender.Female || d.Gender == CharacterGender.PreferFemale) &&
+				.Where(d => (d.Gender == CharacterGender.Female || d.Gender == CharacterGender.PreferFemale) && 
+					d.LastReference?.Book < 40 &&
 					(d.Age == CharacterAge.Adult || d.Age == CharacterAge.Elder) &&
 					d.DefaultFCBHCharacter != null &&
 					!d.DefaultFCBHCharacter.EndsWith(" (female)")).ToList();

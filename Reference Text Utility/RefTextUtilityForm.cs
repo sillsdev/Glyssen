@@ -33,7 +33,6 @@ namespace Glyssen.ReferenceTextUtility
 				m_data = value;
 				if (m_data == null)
 					return;
-				// TODO: Load data grid view
 				foreach (var languageInfo in Data.LanguagesToProcess)
 				{
 					int iOption = 0;
@@ -80,7 +79,7 @@ namespace Glyssen.ReferenceTextUtility
 					if (!String.IsNullOrEmpty(isoCode))
 						m_dataGridRefTexts.Rows[iRow].Cells[colIsoCode.Index].ReadOnly = true;
 
-					m_btnOk.Enabled = true;
+					m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
 				}
 				m_lblLoading.Visible = false;
 			}
@@ -126,14 +125,19 @@ namespace Glyssen.ReferenceTextUtility
 							ExcelSpreadsheetLoader.CancelAsync();
 					}
 					if (File.Exists(openDlg.FileName))
-						m_lblSpreadsheetFilePath.Text = openDlg.FileName;
+					{
+						if (m_lblSpreadsheetFilePath.Text == openDlg.FileName)
+							LoadExcelSpreadsheet(m_lblSpreadsheetFilePath.Text); // Force attempted reload
+						else
+							m_lblSpreadsheetFilePath.Text = openDlg.FileName;
+					}
 				}
 			}
 		}
 
 		private void LoadExcelSpreadsheet(string path)
 		{
-			m_btnOk.Enabled = false;
+			m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
 			m_dataGridRefTexts.RowCount = 0;
 			m_lblLoading.Visible = true;
 
@@ -152,7 +156,7 @@ namespace Glyssen.ReferenceTextUtility
 			if (languagesToDiff.Any())
 			{
 				Data.FilterBy(languagesToDiff);
-				RefTextDevUtilities.ReferenceTextUtility.ProcessReferenceTextData(mode, Data, null);
+				RefTextDevUtilities.ReferenceTextUtility.ProcessReferenceTextData(mode, Data);
 			}
 		}
 
@@ -188,7 +192,7 @@ namespace Glyssen.ReferenceTextUtility
 							HandleMessageRaised(error.Message, true);
 					}
 				}
-				m_btnOk.Enabled = true;
+				m_btnOk.Enabled = m_btnSkipAll.Enabled = true;
 			}
 			else
 				BackgroundProcessor.RunWorkerAsync();
@@ -206,15 +210,20 @@ namespace Glyssen.ReferenceTextUtility
 		{
 			lock (this)
 			{
+				m_lblLoading.Visible = false;
 				if (e.Error != null)
 				{
-					m_lblLoading.Visible = false;
 					MessageBox.Show(this, $"The file {m_lblSpreadsheetFilePath.Text} could not be read.", "Invalid Excel Spreadsheet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					return;
 				}
 
 				if (!ExcelSpreadsheetLoader.CancellationPending)
+				{
 					Data = e.Result as ReferenceTextData;
+					if (Data == null)
+						MessageBox.Show(this, $"No error was reported, but no data was loaded from file {m_lblSpreadsheetFilePath.Text}.", "Something bad happened", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					colAction.MinimumWidth = colAction.Width;
+				}
 			}
 		}
 
@@ -245,7 +254,7 @@ namespace Glyssen.ReferenceTextUtility
 
 		private void m_btnProcess_Click(object sender, EventArgs e)
 		{
-			m_btnOk.Enabled = false;
+			m_btnOk.Enabled = m_btnSkipAll.Enabled = false;
 			lock (this)
 			{
 				if (m_outputForm == null || m_outputForm.IsDisposed)
@@ -258,6 +267,22 @@ namespace Glyssen.ReferenceTextUtility
 					m_outputForm.Clear();
 				}
 			}
+
+			RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.Nothing;
+
+			if (m_chkPunctuation.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.Punctuation;
+			else if (m_chkQuoteMarkDifferences.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.QuotationMarkDifferences;
+			else if (m_chkCurlyVsStraight.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore = RefTextDevUtilities.ReferenceTextUtility.Ignore.CurlyVsStraightQuoteDifferences;
+			if (m_chkWhitespace.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.WhitespaceDifferences;
+			if (m_chkSymbols.Checked)
+				RefTextDevUtilities.ReferenceTextUtility.DifferencesToIgnore |= RefTextDevUtilities.ReferenceTextUtility.Ignore.Symbols;
+
+			if (m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Enabled)
+				RefTextDevUtilities.ReferenceTextUtility.AttemptToAddQuotationMarksToMatchEnglish = m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Checked;
 
 			m_passes.Clear();
 			m_passes.Push(RefTextDevUtilities.ReferenceTextUtility.Mode.Generate);
@@ -320,15 +345,21 @@ namespace Glyssen.ReferenceTextUtility
 						return;
 					case "Create/Overwrite":
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = defaultCreateDestination;
+						SkipAllOtherLanguagesIfThisRowIsEnglish(e.RowIndex, languageInfo);
 						break;
 					case "Compare to Current":
+						SkipAllOtherLanguagesIfThisRowIsEnglish(e.RowIndex, languageInfo);
+						goto case "Skip";
 					case "Skip":
 						m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].Value = languageInfo.OutputFolder = "";
+						SetStateForValidDestination(e.RowIndex);
 						break;
 					default:
 						throw new Exception("Unexpected Action. This can't happen!");
 				}
 				m_dataGridRefTexts.Rows[e.RowIndex].Cells[colDestination.Index].ReadOnly = true;
+
+				UpdateAddQuotationMarksState();
 				return;
 			}
 
@@ -359,22 +390,91 @@ namespace Glyssen.ReferenceTextUtility
 				}
 				else
 				{
-					m_dataGridRefTexts.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = m_dataGridRefTexts.DefaultCellStyle.ForeColor;
-					m_btnOk.Enabled = m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().All(r =>
-					{
-						var destinationCellForeColor = r.Cells[e.ColumnIndex].Style.ForeColor;
-						var destValue = r.Cells[e.ColumnIndex].Value as string;
-						return (!String.IsNullOrWhiteSpace(destValue) || r.Cells[colAction.Index].Value as string == "Compare to Current") &&
-							(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
-					});
+					SetStateForValidDestination(e.RowIndex);
 					languageInfo.OutputFolder = newValue;
 				}
+			}
+		}
+
+		private void UpdateAddQuotationMarksState()
+		{
+			foreach (DataGridViewRow row in m_dataGridRefTexts.Rows)
+			{
+				var languageInfo = Data.GetLanguageInfo((string)row.Cells[colName.Index].Value);
+
+				if (languageInfo.IsEnglish)
+					continue;
+
+				if (IsGeneratingAction(row.Cells[colAction.Index].Value as string))
+				{
+					m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Enabled = true;
+					return;
+				}
+			}
+
+			m_chkAttemptToRegularizeQuotationMarksToMatchEnglish.Enabled = false;
+		}
+
+		private static bool IsGeneratingAction(string action) => action != "Compare to Current" && action != "Skip";
+
+		private void SetStateForValidDestination(int iRow)
+		{
+			m_dataGridRefTexts.Rows[iRow].Cells[colDestination.Index].Style.ForeColor = m_dataGridRefTexts.DefaultCellStyle.ForeColor;
+			m_btnOk.Enabled = m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().All(r =>
+				{
+					var destinationCellForeColor = r.Cells[colDestination.Index].Style.ForeColor;
+					var destValue = r.Cells[colDestination.Index].Value as string;
+					return (!String.IsNullOrWhiteSpace(destValue) || !IsGeneratingAction(r.Cells[colAction.Index].Value as string)) &&
+						(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
+				}) &&
+				m_dataGridRefTexts.Rows.OfType<DataGridViewRow>().Any(r => r.Cells[colAction.Index].Value as string != "Skip");
+		}
+
+		private void SkipAllOtherLanguagesIfThisRowIsEnglish(int indexOfRowBeingSet, ReferenceTextLanguageInfo languageInfo)
+		{
+			if (languageInfo.IsEnglish)
+				SetRowsToSkip(i => indexOfRowBeingSet != i);
+		}
+
+		private void SetRowsToSkip(Func<int, bool> iff = null)
+		{
+			for (var i = 0; i < m_dataGridRefTexts.RowCount; i++)
+			{
+				if (iff?.Invoke(i) ?? true)
+					m_dataGridRefTexts.Rows[i].Cells[colAction.Index].Value = "Skip";
 			}
 		}
 
 		private void m_btnCancel_Click(object sender, EventArgs e)
 		{
 			Close();
+		}
+
+		private void m_chkPunctuation_CheckedChanged(object sender, EventArgs e)
+		{
+			if (m_chkPunctuation.Checked)
+			{
+				m_chkQuoteMarkDifferences.Checked = true;
+				m_chkQuoteMarkDifferences.Enabled = m_chkCurlyVsStraight.Enabled = false;
+			}
+			else
+				m_chkQuoteMarkDifferences.Enabled = true;
+		}
+
+		private void m_chkQuoteMarkDifferences_CheckedChanged(object sender, EventArgs e)
+		{
+			if (m_chkPunctuation.Checked)
+			{
+				m_chkCurlyVsStraight.Checked = true;
+				m_chkCurlyVsStraight.Enabled = false;
+			}
+			else
+				m_chkCurlyVsStraight.Enabled = true;
+		}
+
+		private void m_btnSkipAll_Click(object sender, EventArgs e)
+		{
+			SetRowsToSkip();
 		}
 	}
 }

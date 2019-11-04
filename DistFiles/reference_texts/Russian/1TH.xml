@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1TH" singlevoice="false" pageheader="1-е Фессалоникийцам">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
-    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TH">
+  <block style="mt" chapter="0" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" book="1TH" initialStartVerse="0" characterId="BC-1TH">
       <text>1 THESSALONIANS</text>
     </ReferenceBlocks>
     <text>1-е Фессалоникийцам</text>

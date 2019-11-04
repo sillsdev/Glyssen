@@ -110,6 +110,16 @@ namespace Glyssen.Character
 				foreach (var v in verse.AllVerseNumbers)
 				{
 					var verseRef = new VerseRef(bookId, chapter, v, versification);
+
+					if (includeNarratorOverrides)
+					{
+						overrideCharacters = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef,
+							verses.Last().EndVerse)?.Select(o => o.Character).ToList();
+						if (overrideCharacters != null && !overrideCharacters.Any())
+							overrideCharacters = null;
+						includeNarratorOverrides = false; // Don't need to get them again
+					}
+
 					verseRef.ChangeVersification(ScrVers.English);
 					foreach (var cv in GetSpeakingModesForRef(verseRef))
 					{
@@ -132,15 +142,6 @@ namespace Glyssen.Character
 							entriesForCurrentVerseBridge.Remove(match);
 							entriesForCurrentVerseBridge.Add(cv);
 						}
-					}
-
-					if (includeNarratorOverrides)
-					{
-						overrideCharacters = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef,
-							verses.Last().EndVerse)?.Select(o => o.Character).ToList();
-						if (overrideCharacters != null && !overrideCharacters.Any())
-							overrideCharacters = null;
-						includeNarratorOverrides = false; // Don't need to get them again
 					}
 				}
 

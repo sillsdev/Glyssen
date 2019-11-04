@@ -40,9 +40,11 @@
 			this.m_logBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(173)))), ((int)(((byte)(179)))));
 			this.m_logBox.CancelRequested = false;
 			this.m_logBox.ErrorEncountered = false;
-			this.m_logBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.m_logBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_logBox.GetDiagnosticsMethod = null;
 			this.m_logBox.Location = new System.Drawing.Point(12, 12);
+			this.m_logBox.MaxLength = 715827882;
+			this.m_logBox.MaxLengthErrorMessage = "Maximum length exceeded!";
 			this.m_logBox.Name = "m_logBox";
 			this.m_logBox.ProgressIndicator = null;
 			this.m_logBox.ShowCopyToClipboardMenuItem = false;

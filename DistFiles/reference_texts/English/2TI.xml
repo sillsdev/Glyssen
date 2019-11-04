@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="2TI" singlevoice="false" pageheader="2 TIMOTHY CHP">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TI">
+  <block style="mt" chapter="0" book="2TI" initialStartVerse="0" characterId="BC-2TI">
     <text>2 TIMOTHY</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2TI" initialStartVerse="0" characterId="BC-2TI">
@@ -155,7 +155,16 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
     <verse num="19" />
-    <text>However God’s firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
+    <text>However God's firm foundation stands, having this seal,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture">
+    <text>“The Lord knows those who are his,”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
+    <text>and,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="scripture">
+    <text>“Let every one who names the name of the Lord depart from unrighteousness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI">
     <verse num="20" />
