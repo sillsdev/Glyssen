@@ -4144,7 +4144,7 @@ namespace GlyssenTests
 					else
 					{
 						var verseRef = new VerseRef(bookNum, c, v, scrVers);
-						var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, v)?.FirstOrDefault();
+						var overrideInfo = NarratorOverrides.GetCharacterOverrideDetailsForRefRange(verseRef, v).FirstOrDefault();
 						if (overrideInfo != null)
 						{
 							if (c == overrideInfo.StartChapter && v == overrideInfo.StartVerse + (missingVerseOffset == 0 ? 1 :0) &&

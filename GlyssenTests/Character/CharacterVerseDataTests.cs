@@ -84,6 +84,23 @@ namespace GlyssenTests.Character
 			Assert.AreEqual("God", character.Character);
 		}
 
+		[Test]
+		public void GetCharacters_OriginalVersification_StartVerseMovesToPreviousChapter_GettingNarratorOverridesDoesNotCrash()
+		{
+			// Note: There are no narrator overrides for GEN, so this test would also work for includeNarratorOverrides: false, 
+			// but it is testing the case where we attempt to retrieve narrator overrides for a range which (after converting to
+			// English versification), the verses are no longer in the same chapter.
+			var bookNumGen = BCVRef.BookToNumber("GEN");
+			// In English, GEN 31:55 => GEN 32:1 & GEN 32:1-32 => GEN 32:2-33
+			var expected = ControlCharacterVerseData.Singleton.GetCharacters(bookNumGen, 31, new SingleVerse(55),
+				ScrVers.English, includeNarratorOverrides: true);
+			expected.UnionWith(ControlCharacterVerseData.Singleton.GetCharacters(bookNumGen, 32, new VerseBridge(1, 2),
+				ScrVers.English, includeNarratorOverrides: true));
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNumGen, 32, new VerseBridge(1, 3),
+				ScrVers.Original, includeNarratorOverrides: true);
+			Assert.IsTrue(expected.SetEquals(characters));
+		}
+
 		[TestCase(false)]
 		[TestCase(true)]
 		public void GetCharacters_RussianOrthodoxVersificationWithInitialVerseBridge_FindsCharacterAfterChangingVersification(bool includeNarratorOverrides)
