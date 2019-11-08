@@ -9,6 +9,7 @@ using Gecko.Events;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using L10NSharp;
+using SIL;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
@@ -165,7 +166,7 @@ namespace Glyssen.Controls
 
 		public void ShowNothingMatchesFilterMessage()
 		{
-			string msg = LocalizationManager.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
+			string msg = Localizer.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
 			MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		#endregion

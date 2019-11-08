@@ -7,6 +7,7 @@ using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL;
 using SIL.IO;
 using SIL.Reporting;
 
@@ -37,13 +38,13 @@ namespace Glyssen.Dialogs
 				m_rolesForVoiceActorsFileNameSuffix + Constants.kExcelFileExtension;
 			FileName = Path.Combine(m_defaultDirectory, defaultFileName);
 			m_saveFileDialog = new SaveFileDialog();
-			m_saveFileDialog.Title = LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.SaveFileDialog.Title", "Choose File Location");
+			m_saveFileDialog.Title = Localizer.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.SaveFileDialog.Title", "Choose File Location");
 			m_saveFileDialog.OverwritePrompt = false;
 			m_saveFileDialog.InitialDirectory = m_defaultDirectory;
 			m_saveFileDialog.FileName = Path.GetFileName(FileName);
 			m_saveFileDialog.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
-				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
-				LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+				Localizer.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
+				Localizer.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
 			m_saveFileDialog.DefaultExt = Constants.kExcelFileExtension;
 			m_saveFileDialog.OverwritePrompt = true;
 		}
@@ -53,7 +54,7 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			m_rolesForVoiceActorsFileNameSuffix =
-				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.RolesForVoiceActorsFileNameDefaultSuffix", "Roles for Voice Actors");
+				Localizer.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.RolesForVoiceActorsFileNameDefaultSuffix", "Roles for Voice Actors");
 		}
 
 		public DialogResult ShowDialog(IWin32Window owner = null)
@@ -73,7 +74,7 @@ namespace Glyssen.Dialogs
 			{
 				Analytics.ReportException(ex);
 				ErrorReport.NotifyUserOfProblem(ex,
-					string.Format(LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.CouldNotExport",
+					string.Format(Localizer.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.CouldNotExport",
 						"Could not save Roles for Voice Actors data to {0}", "{0} is a file name."), FileName));
 				dialogResult = DialogResult.None;
 			}

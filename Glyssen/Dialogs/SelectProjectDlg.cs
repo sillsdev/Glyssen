@@ -1,6 +1,7 @@
 ﻿using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 using SIL.Windows.Forms.DblBundle;
 
 namespace Glyssen.Dialogs
@@ -15,7 +16,7 @@ namespace Glyssen.Dialogs
 
 		protected override string ProjectFileExtension => Constants.kProjectFileExtension;
 
-		protected override string Title => LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project");
+		protected override string Title => Localizer.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project");
 
 		protected override string ProductName => GlyssenInfo.kProduct;
 	}

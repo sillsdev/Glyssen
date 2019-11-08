@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 using SIL.Scripture;
 
 namespace Glyssen.Utilities
@@ -54,7 +55,7 @@ namespace Glyssen.Utilities
 				var englishName = getEnglishBookName(id);
 				// Prevent attempting to look up dynamic strings for non-canonical books (which should never actually appear in the Glyssen UI)
 				if (!String.IsNullOrEmpty(englishName) && BCVRef.BookToNumber(id) > 0)
-					return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "Common.BookName." + id, englishName);
+					return Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "Common.BookName." + id, englishName);
 				return englishName;
 			};
 		}
@@ -75,7 +76,7 @@ namespace Glyssen.Utilities
 
 		public void Localize()
 		{
-			m_localizedText = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, m_localizationId, m_englishText);
+			m_localizedText = Localizer.GetDynamicString(GlyssenInfo.kApplicationId, m_localizationId, m_englishText);
 		}
 
 		public override string ToString()
