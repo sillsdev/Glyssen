@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen.Character;
 using Glyssen.Utilities;
 using L10NSharp;
+using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -58,10 +59,10 @@ namespace Glyssen.Dialogs
 			{
 				if (JustChangedName)
 				{
-					return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorNameChange",
+					return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorNameChange",
 						"Change name of voice actor from {0} to {1}"), PreviousNameOfActor, ActorAffected);
 				}
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditSingleVoiceActor",
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditSingleVoiceActor",
 					"Edit voice actor {0}"), ActorAffected);
 			}
 		}
@@ -130,7 +131,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.DeleteVoiceActor",
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.DeleteVoiceActor",
 					"Delete voice actor {0}"), DeletedActorName);
 			}
 		}
@@ -213,7 +214,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.AddVoiceActor",
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.AddVoiceActor",
 					"Add voice actor {0}"), ActorAffected);
 			}
 		}
@@ -257,7 +258,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (Actions.Count > 1)
-					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditMultipleVoiceActors", "Edit voice actors");
+					return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditMultipleVoiceActors", "Edit voice actors");
 
 				return base.Description;
 			}

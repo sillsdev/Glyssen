@@ -26,6 +26,7 @@ using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using Paratext.Data;
+using SIL;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -118,7 +119,7 @@ namespace Glyssen
 							SetVersification(LoadVersification(FallbackVersificationFilePath));
 						else
 						{
-							MessageBox.Show(Format(LocalizationManager.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
+							MessageBox.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
 								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
 								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
 								"for this project, some things will not work as expected.",
@@ -153,7 +154,7 @@ namespace Glyssen
 
 			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
 				ErrorReport.ReportNonFatalMessageWithStackTrace(
-					LocalizationManager.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
+					Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
 					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
 
 			InstallFontsIfNecessary();
@@ -214,7 +215,7 @@ namespace Glyssen
 		public string PublicationName => m_metadata.Identification?.Name;
 
 		internal static string DefaultRecordingProjectNameSuffix => " " +
-			LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
+			Localizer.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
 				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
 
 		private static int MaxBaseRecordingNameLength => kMaxDefaultProjectNameLength - DefaultRecordingProjectNameSuffix.Length;
@@ -610,11 +611,11 @@ namespace Glyssen
 				sb.Append(", ").Append(FontFamily);
 				sb.Append(", ")
 					.Append(FontSizeInPoints)
-					.Append(LocalizationManager.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
+					.Append(Localizer.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
 				sb.Append(", ")
 					.Append(RightToLeftScript
-						? LocalizationManager.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system")
-						: LocalizationManager.GetString("WritingSystem.LeftToRight", "Left-to-right", "Describes a writing system"));
+						? Localizer.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system")
+						: Localizer.GetString("WritingSystem.LeftToRight", "Left-to-right", "Describes a writing system"));
 				return sb.ToString();
 			}
 		}
@@ -831,7 +832,7 @@ namespace Glyssen
 			}
 		}
 
-		private static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded",
+		private static string ParserUpgradeMessage => Localizer.GetString("Project.ParserVersionUpgraded",
 			"The splitting engine has been upgraded.") + " ";
 
 		private static Project AttemptToUpgradeByReparsingBundleData(Project existingProject)
@@ -842,12 +843,12 @@ namespace Glyssen
 				if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
 				{
 					string msg = ParserUpgradeMessage + " " + Format(
-							LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
+							Localizer.GetString("Project.ParserUpgradeBundleMissingMsg",
 								"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
 							existingProject.OriginalBundlePath) +
 						Environment.NewLine + Environment.NewLine +
-						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
-					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+						Localizer.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
+					string caption = Localizer.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
 						upgradeProject = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
 					if (!upgradeProject)
@@ -911,19 +912,19 @@ namespace Glyssen
 					if (canInteractWithUser)
 					{
 						string msg = contextMessage + Format(
-								LocalizationManager.GetString("Project.ParatextProjectMissingMsg",
+								Localizer.GetString("Project.ParatextProjectMissingMsg",
 									"To update the {0} project, the {1} project {2} must be available, but it is not.",
 									"Param 0: Glyssen recording project name; " +
 									"Param 1: \"Paratext\" (product name); " +
 									"Param 2: Paratext project short name (unique project identifier)"),
 								Name, ParatextScrTextWrapper.kParatextProgramName, e.ProjectName) +
 							Environment.NewLine + Environment.NewLine +
-							Format(LocalizationManager.GetString("Project.RestoreParatextProject",
+							Format(Localizer.GetString("Project.RestoreParatextProject",
 									"If possible, you can restore the {0} project and retry; otherwise, you can cancel and {1} will continue to work with the existing project data.",
 									"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name)"),
 								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
 
-						string caption = Format(LocalizationManager.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
+						string caption = Format(Localizer.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
 							"Param is \"Paratext\" (product name)"),
 							ParatextScrTextWrapper.kParatextProgramName);
 						if (DialogResult.Retry == MessageBox.Show(msg, caption, MessageBoxButtons.RetryCancel))
@@ -948,7 +949,7 @@ namespace Glyssen
 						if (canInteractWithUser)
 						{
 							string msg = contextMessage + Format(
-								LocalizationManager.GetString("Project.ParatextProjectReloadFailure",
+								Localizer.GetString("Project.ParatextProjectReloadFailure",
 									"An error occurred reloading the {0} project {1}:\r\n{2}\r\n\r\n" +
 									"If you cannot fix the problem, you can cancel and continue to work with the existing project data.",
 									"Param 0: \"Paratext\" (product name); " +
@@ -968,7 +969,7 @@ namespace Glyssen
 				scrTextWrapper = new ParatextScrTextWrapper(sourceScrText, QuoteSystemStatus != QuoteSystemStatus.Obtained);
 				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
 				{
-					throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectMetadataChangedMsg",
+					throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectMetadataChangedMsg",
 						"The settings of the {0} project {1} no longer appear to correspond to the {2} project. " +
 						"This is an unusual situation. If you do not understand how this happened, please contact support.",
 						"Param 0: \"Paratext\" (product name); " +
@@ -983,7 +984,7 @@ namespace Glyssen
 			{
 				if (canInteractWithUser)
 				{
-					string msg = contextMessage + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateErrorMsg",
+					string msg = contextMessage + Format(Localizer.GetString("Project.ParatextProjectUpdateErrorMsg",
 						"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
 						"Param 0: Glyssen recording project name; " +
 						"Param 1: \"Glyssen\" (product name); " +
@@ -1039,7 +1040,7 @@ namespace Glyssen
 				if (!noLongerAvailableBookIds.Any() && !noLongerPassingListBookIds.Any())
 					return false;
 
-				string msg = contextMessage + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateExcludedBooksWarning",
+				string msg = contextMessage + Format(Localizer.GetString("Project.ParatextProjectUpdateExcludedBooksWarning",
 						"{1} detected changes in the {2} project {3} that would result in the exclusion " +
 						"of books from the {0} project that were previously included:",
 						"Param 0: \"Glyssen\" (product name); " +
@@ -1053,30 +1054,30 @@ namespace Glyssen
 
 				if (noLongerAvailableBookIds.Any())
 				{
-					msg += Environment.NewLine + LocalizationManager.GetString("Project.ParatextBooksNoLongerAvailable",
+					msg += Environment.NewLine + Localizer.GetString("Project.ParatextBooksNoLongerAvailable",
 							"The following books are no longer available:") + Environment.NewLine + "   " +
-						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), noLongerAvailableBookIds);
+						Join(Localizer.GetString("Common.SimpleListSeparator", ", "), noLongerAvailableBookIds);
 				}
 				if (noLongerPassingListBookIds.Any())
 				{
-					var scriptureRangeSelectionDlgName = LocalizationManager.GetString(
+					var scriptureRangeSelectionDlgName = Localizer.GetString(
 						"DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle", "Select Books - {0}", "{0} is the project name");
-					Debug.Assert(LocalizationManager.UILanguageId != "en" || scriptureRangeSelectionDlgName == "Select Books - {0}",
+					Debug.Assert(Localizer.UILanguageId != "en" || scriptureRangeSelectionDlgName == "Select Books - {0}",
 						"Dev alert: this localized string and ID MUST be kept in sync with the version in ScriptureRangeSelectionDlg.Designer.cs!");
 					scriptureRangeSelectionDlgName = Format(scriptureRangeSelectionDlgName, "");
 					while (!Char.IsLetter(scriptureRangeSelectionDlgName.Last()))
 						scriptureRangeSelectionDlgName = scriptureRangeSelectionDlgName.Remove(scriptureRangeSelectionDlgName.Length - 1);
-					msg += Environment.NewLine + Format(LocalizationManager.GetString("Project.ParatextBooksNoLongerPassChecks",
+					msg += Environment.NewLine + Format(Localizer.GetString("Project.ParatextBooksNoLongerPassChecks",
 							"The following books no longer appear to pass the basic checks:\r\n   {0}\r\n" +
 							"(If needed, you can include these books again later in the {1} dialog box.)",
 							"Param 0: list of 3-letter book IDs; " +
 							"Param 1: Name of the \"Select Books\" dialog box."),
-						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), noLongerPassingListBookIds),
+						Join(Localizer.GetString("Common.SimpleListSeparator", ", "), noLongerPassingListBookIds),
 						scriptureRangeSelectionDlgName);
 				}
 
 				msg += Environment.NewLine + Environment.NewLine +
-					LocalizationManager.GetString("Project.ParatextProjectUpdateConfirmExcludeBooks",
+					Localizer.GetString("Project.ParatextProjectUpdateConfirmExcludeBooks",
 						"Would you like to proceed with the update?");
 
 				return DialogResult.No == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -1238,7 +1239,7 @@ namespace Glyssen
 			{
 				Analytics.ReportException(exception);
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-					LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
+					Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
 				return;
 			}
 			metadata.Inactive = hidden;
@@ -1281,7 +1282,7 @@ namespace Glyssen
 			var isWritable = !FileHelper.IsLocked(projectFilePath);
 			if (!isWritable)
 			{
-				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg",
+				MessageBox.Show(Localizer.GetString("Project.NotWritableMsg",
 					"The project file is not writable. No changes will be saved."));
 			}
 
@@ -1291,7 +1292,7 @@ namespace Glyssen
 			{
 				Analytics.ReportException(exception);
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
+					Localizer.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;
 			}
 
@@ -1302,7 +1303,7 @@ namespace Glyssen
 			}
 			catch(ProjectNotFoundException e)
 			{
-				throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectNotFound",
+				throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectNotFound",
 					"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
 					"Param 0: \"Paratext\" (product name); " +
 					"Param 1: Paratext project short name (unique project identifier); " +
@@ -1973,20 +1974,20 @@ namespace Glyssen
 					}
 					catch (XmlException e)
 					{
-						var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+						var msg1 = Format(Localizer.GetString("Project.LdmlFileLoadError",
 								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
 								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
 							Name, LdmlFilePath, e.Message);
 						var msg2 = Format(attemptToUseBackup
-							? LocalizationManager.GetString("Project.UseBackupLdmlFile",
+							? Localizer.GetString("Project.UseBackupLdmlFile",
 								"To use the automatically created backup (which might be out-of-date), click {0}.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
 								"created backup file exists. Param is \"Retry\" button label.")
-							: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
+							: Localizer.GetString("Project.AdvancedUserLdmlRepairInstructions",
 								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click {0}.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
 								"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
-						var msg3 = Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
+						var msg3 = Format(Localizer.GetString("Project.IgnoreToRepairLdmlFile",
 							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
 							"so check the quote system and font settings carefully.",
 							"Param 0: \"Ignore\" button label; " +
@@ -2125,7 +2126,7 @@ namespace Glyssen
 							wsFromBackup.RightToLeftScript != WritingSystem.RightToLeftScript)
 						{
 							// There were significant changes that we couldn't save. Something bad is probably going to happen, so we need to tell the user.
-							ErrorReport.ReportNonFatalExceptionWithMessage(exSave, LocalizationManager.GetString("Project.RevertedToOutdatedBackupWs",
+							ErrorReport.ReportNonFatalExceptionWithMessage(exSave, Localizer.GetString("Project.RevertedToOutdatedBackupWs",
 									"The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but " +
 									"since the old settings were different, some things might not work correctly next time you open this project."),
 								GlyssenInfo.kProduct);
@@ -2242,13 +2243,13 @@ namespace Glyssen
 				if (count > 1)
 					MessageBox.Show(
 						Format(
-							LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
+							Localizer.GetString("Font.InstallInstructionsMultipleStyles",
 								"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
 					MessageBox.Show(
 						Format(
-							LocalizationManager.GetString("Font.InstallInstructions",
+							Localizer.GetString("Font.InstallInstructions",
 								"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 
@@ -2263,7 +2264,7 @@ namespace Glyssen
 						Logger.WriteError("There was a problem launching the font preview. Please install the font manually:" + ttfFile, ex);
 						MessageBox.Show(
 							Format(
-								LocalizationManager.GetString("Font.UnableToLaunchFontPreview",
+								Localizer.GetString("Font.UnableToLaunchFontPreview",
 									"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
 					}
 				}
@@ -2271,7 +2272,7 @@ namespace Glyssen
 			else
 				MessageBox.Show(
 					Format(
-						LocalizationManager.GetString("Font.FontFilesNotFound",
+						Localizer.GetString("Font.FontFilesNotFound",
 							"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
 						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 		}

@@ -1,6 +1,7 @@
 ﻿using System;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 
 namespace Glyssen.Paratext
 {
@@ -9,7 +10,7 @@ namespace Glyssen.Paratext
 		public ParatextProjectBookInfo Details { get; }
 
 		public NoSupportedBooksException(string projectName, ParatextProjectBookInfo details) : base(
-			String.Format(LocalizationManager.GetString("Project.NoSupportedBooksInParatextProject",
+			String.Format(Localizer.GetString("Project.NoSupportedBooksInParatextProject",
 				"{0} project {1} has no books which are supported by {2}.",
 				"Param 0: \"Paratext\" (product name); " +
 				"Param 1: Paratext project short name (unique project identifier); " +

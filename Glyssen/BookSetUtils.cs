@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using L10NSharp;
+using SIL;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 
@@ -35,15 +36,15 @@ namespace Glyssen
 			return bookSet.CustomSummary();
 		}
 
-		public static string OldTestamentLocalizedString => LocalizationManager.GetString("BookSelection.OldTestament", "Old Testament");
-		public static string NewTestamentLocalizedString => LocalizationManager.GetString("BookSelection.NewTestament", "New Testament");
+		public static string OldTestamentLocalizedString => Localizer.GetString("BookSelection.OldTestament", "Old Testament");
+		public static string NewTestamentLocalizedString => Localizer.GetString("BookSelection.NewTestament", "New Testament");
 
 		public static string CustomSummary(this BookSet bookSet)
 		{
 			var components = new List<string>();
 
 			if (bookSet.Count == OldTestament.Count + NewTestament.Count)
-				return LocalizationManager.GetString("BookSelection.AllBooks", "All Books");
+				return Localizer.GetString("BookSelection.AllBooks", "All Books");
 			BookSet includedOtBooks = bookSet.Intersect(OldTestament);
 			if (includedOtBooks.Count == OldTestament.Count)
 				components.Add(OldTestamentLocalizedString);
