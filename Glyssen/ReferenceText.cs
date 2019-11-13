@@ -298,7 +298,11 @@ namespace Glyssen
 						if (bookId != "MRK")
 							Logger.WriteMinorEvent("Reference text matching went off end of ref block list for " +
 								$"vern block {currentVernBlock}");
-						iRefBlock = refBook.GetIndexOfFirstBlockForVerse(currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber);
+						var verse = currentVernBlock.StartRef(bookNum, vernacularVersification);
+						verse.ChangeVersification(Versification);
+						iRefBlock = refBook.GetIndexOfFirstBlockForVerse(verse.ChapterNum, verse.VerseNum);
+						if (iRefBlock < 0)
+							break;
 					}
 					else
 					{

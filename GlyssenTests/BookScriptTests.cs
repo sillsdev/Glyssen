@@ -1278,12 +1278,19 @@ namespace GlyssenTests
 
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 
+			var origblock1RefText = vernBook.GetScriptBlocks()[0].GetPrimaryReferenceText();
+			var origblock2RefText = vernBook.GetScriptBlocks()[1].GetPrimaryReferenceText();
+
 			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
 			Assert.AreEqual(1, result.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
 			Assert.AreEqual(expectedCombinedRefText, result[0].GetPrimaryReferenceText());
+			// Finally, ensure that joining of reference texts did not alter the reference text of the original vernacular blocks
+			// because if it did, then when we save, that will get stored and can lead to the bug PG-1291.
+			Assert.AreEqual(origblock1RefText, vernBook.GetScriptBlocks()[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origblock2RefText, vernBook.GetScriptBlocks()[1].GetPrimaryReferenceText());
 		}
 		#endregion
 

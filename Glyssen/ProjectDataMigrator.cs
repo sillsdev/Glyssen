@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
+using Glyssen.Shared;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -72,6 +73,8 @@ namespace Glyssen
 					CleanUpMultiBlockQuotesAssignedToNarrator(project.Books);
 					ResolveUnclearCharacterIdsForVernBlocksMatchedToRefBlocks(project.Books);
 				}
+				if (fromControlFileVersion < 151)
+					MigrateDuplicatedReferenceTextFromJoining(project.Books);
 				MigrateDeprecatedCharacterIds(project);
 
 				result = MigrationResult.Complete;
@@ -392,6 +395,82 @@ namespace Glyssen
 					else if (block.IsContinuationOfPreviousBlockQuote && block.CharacterIsUnclear)
 						block.SetCharacterAndDeliveryInfo(prevBlock, book.BookNumber, book.Versification);
 					prevBlock = block;
+				}
+			}
+		}
+
+		// internal for testing
+		internal static void MigrateDuplicatedReferenceTextFromJoining(IReadOnlyList<BookScript> books)
+		{
+			foreach (var book in books.Where(b => !b.SingleVoice))
+			{
+				var blocks = book.GetScriptBlocks();
+				Block block1 = blocks[0].MatchesReferenceText ? blocks[0] : null;
+				Block combinedRefBlock = null;
+				for (var i = 1; i < blocks.Count; i++)
+				{
+					var currBlock = blocks[i];
+					if (block1 != null && book.ShouldCombineBlocksInMultiVoiceBook(block1, currBlock))
+					{
+						if (combinedRefBlock == null)
+						{
+							combinedRefBlock = currBlock.ReferenceBlocks.Single().Clone();
+							combinedRefBlock.CloneReferenceBlocks();
+						}
+						else
+						{
+							combinedRefBlock.CombineWith(currBlock.ReferenceBlocks.Single());
+						}
+					}
+					else
+					{
+						if (combinedRefBlock != null)
+						{
+							Debug.Assert(block1 != null);
+							var primaryRefBlock = block1.ReferenceBlocks.Single();
+							RemoveDuplicatedRefTextFromJoiningWithFollowingRefBlocks(primaryRefBlock, combinedRefBlock);
+
+							if (combinedRefBlock.MatchesReferenceText)
+							{
+								RemoveDuplicatedRefTextFromJoiningWithFollowingRefBlocks(primaryRefBlock.ReferenceBlocks.Single(),
+									combinedRefBlock.ReferenceBlocks.Single());
+							}
+							combinedRefBlock = null;
+						}
+
+						block1 = currBlock.MatchesReferenceText ? currBlock : null;
+					}
+				}
+			}
+		}
+
+		private static void RemoveDuplicatedRefTextFromJoiningWithFollowingRefBlocks(Block refBlockToFix, Block combinedRefBlock)
+		{
+			var lastScriptTextElement = refBlockToFix.BlockElements.OfType<ScriptText>().Last();
+			// It's very unlikely that this has ever happened, but there is a slight chance that a combined reference text
+			// could have verse numbers. It would be fairly complicated to write the code to fix this, but if we ever find
+			// a case where such a reference text has gotten duplicated at the end of the first block, this is where we'd
+			// need to attempt it.
+			var combinedFollowingPrimaryRefText = combinedRefBlock.GetText(true);
+			if (combinedFollowingPrimaryRefText.Length > 0)
+			{
+				bool endedWithSpace = lastScriptTextElement.Content.EndsWith(" ");
+				while (lastScriptTextElement.Content.EndsWith(combinedFollowingPrimaryRefText))
+					lastScriptTextElement.Content = lastScriptTextElement.Content.Remove(lastScriptTextElement.Content.Length - combinedFollowingPrimaryRefText.Length);
+				while (lastScriptTextElement.Content.TrimEnd().EndsWith(combinedFollowingPrimaryRefText))
+				{
+					var trimmed = lastScriptTextElement.Content.TrimEnd();
+					lastScriptTextElement.Content = trimmed.Remove(trimmed.Length - combinedFollowingPrimaryRefText.Length);
+				}
+
+				if (endedWithSpace)
+				{
+					if (!lastScriptTextElement.Content.EndsWith(" "))
+						lastScriptTextElement.Content += " ";
+				}
+				else
+				{
+					lastScriptTextElement.Content = lastScriptTextElement.Content.TrimEnd();
 				}
 			}
 		}
