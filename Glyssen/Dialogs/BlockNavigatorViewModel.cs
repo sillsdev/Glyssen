@@ -770,14 +770,9 @@ namespace Glyssen.Dialogs
 						return i;
 					}
 				}
-				catch (IndexOutOfRangeException e)
+				catch (Exception e) when (e is IndexOutOfRangeException || e is ArgumentOutOfRangeException)
 				{
 					throw new IndexOutOfRangeException($"Index out of range. RelevantBlockCount = {RelevantBlockCount}. " +
-						$"m_currentRelevantIndex = {m_currentRelevantIndex}. i = {i}.", e);
-				}
-				catch (ArgumentOutOfRangeException e)
-				{
-					throw new ArgumentOutOfRangeException($"Index out of range. RelevantBlockCount = {RelevantBlockCount}. " +
 						$"m_currentRelevantIndex = {m_currentRelevantIndex}. i = {i}.", e);
 				}
 			}
