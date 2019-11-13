@@ -689,8 +689,8 @@ namespace Glyssen.Dialogs
 			if (indices == null)
 				return false;
 
-			m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(indices);
-			if (m_currentRelevantIndex < 0)
+			var indexOfRelevantBlock = m_relevantBookBlockIndices.IndexOf(indices);
+			if (indexOfRelevantBlock < 0)
 			{
 				var block = GetBlock(indices);
 				if (CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
@@ -699,6 +699,8 @@ namespace Glyssen.Dialogs
 			}
 			else
 				m_temporarilyIncludedBookBlockIndices = null;
+
+			m_currentRelevantIndex = indexOfRelevantBlock;
 			SetBlock(indices);
 			return true;
 		}
@@ -768,7 +770,7 @@ namespace Glyssen.Dialogs
 						return i;
 					}
 				}
-				catch(IndexOutOfRangeException e)
+				catch (Exception e) when (e is IndexOutOfRangeException || e is ArgumentOutOfRangeException)
 				{
 					throw new IndexOutOfRangeException($"Index out of range. RelevantBlockCount = {RelevantBlockCount}. " +
 						$"m_currentRelevantIndex = {m_currentRelevantIndex}. i = {i}.", e);

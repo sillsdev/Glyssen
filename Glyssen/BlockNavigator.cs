@@ -86,6 +86,8 @@ namespace Glyssen
 
 		public BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef, bool allowMidQuoteBlock = false)
 		{
+			if (!verseRef.Valid)
+				return null;
 			var bookId = verseRef.Book;
 			int bookIndex = -1;
 			BookScript book = null;
