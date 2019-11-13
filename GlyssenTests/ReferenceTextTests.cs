@@ -3580,6 +3580,26 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasExtraChapterBeyondLastChapterOfRefText_VernVersesInExtraChapterRemainsUnmatched()
+		{
+			var vernacularBlocks = new List<Block> {
+				CreateNarratorBlockForVerse(24, "Köszöntsétek minden elõljárótokat és a szenteket mind. Köszöntenek titeket az Olaszországból valók. ", true, 13, "HEB")
+					.AddVerse(25, "Kegyelem mindnyájatokkal! Ámen!"),
+				NewChapterBlock("HEB", 14),
+				CreateNarratorBlockForVerse(1, "Alright, who's the wise guy?", true, 14, "HEB"),
+				CreateNarratorBlockForVerse(2, "This is not supposed to be here", true, 14, "HEB")
+			};
+			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2);
+			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+			matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 3);
+			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+		}
+
+		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasLeadingSquareBracket_BlockIsNotSplitBetweenBracketAndVerseNumber()
 		{
 			var vernacularBlocks = new List<Block> {
