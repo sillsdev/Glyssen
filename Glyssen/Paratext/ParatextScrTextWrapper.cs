@@ -7,6 +7,7 @@ using L10NSharp;
 using Paratext.Data;
 using Paratext.Data.Checking;
 using Paratext.Data.ProjectSettingsAccess;
+using SIL;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -46,7 +47,7 @@ namespace Glyssen.Paratext
 		// REVIEW (PG-63): In all cases where FailedChecksBooks is accessed, analyze whether UserCanEditProject should be
 		// taken into account. Maybe FailedChecksBooks should always return an empty list when !UserCanEditProject.
 		public IEnumerable<string> FailedChecksBooks => m_bookInfo.FailedChecksBooks;
-		public string RequiredCheckNames => string.Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "),
+		public string RequiredCheckNames => string.Join(Localizer.GetString("Common.SimpleListSeparator", ", "),
 			m_requiredChecks.Select(ParatextProjectBookInfo.LocalizedCheckName));
 		private string ProjectId => UnderlyingScrText.Name;
 		public bool UserCanEditProject => UnderlyingScrText.Permissions.AmAdministratorOrTeamMember;
@@ -147,7 +148,7 @@ namespace Glyssen.Paratext
 					}
 					catch (Exception e)
 					{
-						ErrorReport.NotifyUserOfProblem(e, LocalizationManager.GetString("Project.FailedToCreateWritingSystemFromParatextLdml",
+						ErrorReport.NotifyUserOfProblem(e, Localizer.GetString("Project.FailedToCreateWritingSystemFromParatextLdml",
 							"Failed to create Writing System based on LDML file for {0} project {1}",
 							"Param 0: \"Paratext\"; " +
 							"Param 1: Project short name (unique project identifier)"),

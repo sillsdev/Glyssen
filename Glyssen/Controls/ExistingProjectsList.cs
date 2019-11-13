@@ -12,6 +12,7 @@ using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using Paratext.Data;
+using SIL;
 using SIL.DblBundle;
 using SIL.Extensions;
 using SIL.Windows.Forms.DblBundle;
@@ -52,7 +53,7 @@ namespace Glyssen.Controls
 
 		private void HandleStringsLocalized()
 		{
-			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
+			m_fmtParatextProjectSource = Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
 				"{0} project: {1}", "Param 0: \"Paratext\" (product name); Param 1: Paratext project short name (unique project identifier)");
 		}
 
@@ -95,7 +96,7 @@ namespace Glyssen.Controls
 				return recordingProjName;
 			if (!m_unstartedParatextProjectStates.ContainsKey(project.Item1))
 				m_unstartedParatextProjectStates[project.Item1] = IsInactiveParatextProject(project.Item1); 
-			return LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.NoRecordingProject",
+			return Localizer.GetString("DialogBoxes.OpenProjectDlg.NoRecordingProject",
 				"(recording project not started)");
 		}
 

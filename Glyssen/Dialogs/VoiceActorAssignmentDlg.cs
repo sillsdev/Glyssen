@@ -16,6 +16,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL;
 using SIL.Reporting;
 using SIL.Extensions;
 using static System.String;
@@ -163,7 +164,7 @@ namespace Glyssen.Dialogs
 
 			//m_fmtNoCharactersInGroup = m_lblHowToAssignCharactersToCameoGroup.Text;
 			m_fmtMoveCharactersInfo = m_lblMovePendingInfo.Text;
-			m_fmtHideCharacterDetails = LocalizationManager.GetString(
+			m_fmtHideCharacterDetails = Localizer.GetString(
 					"DialogBoxes.VoiceActorAssignmentDlg.HideCharacterDetailsLink", "Hide details for {0} group");
 			m_fmtShowCharacterDetails = m_linkLabelShowHideDetails.Text;
 			m_fmtMatches = m_lblMatches.Text;
@@ -172,7 +173,7 @@ namespace Glyssen.Dialogs
 			Text = Format(Text, m_project.Name);
 
 			string printNonLinkText = m_linkPrint.Text;
-			string printLinkText = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line1.LinkText", "Print");
+			string printLinkText = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line1.LinkText", "Print");
 			m_linkPrint.Links.Clear();
 			m_linkPrint.Links.Add(printNonLinkText.IndexOf("{0}", StringComparison.Ordinal), printLinkText.Length);
 			m_linkPrint.Text = Format(printNonLinkText, printLinkText);
@@ -261,9 +262,9 @@ namespace Glyssen.Dialogs
 			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
 
 			m_unAssignActorFromGroupToolStripMenuItem.Text = multipleGroupsSelected
-				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignments",
+				? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignments",
 					"Remove Voice Actor Assignments")
-				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment",
+				: Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment",
 					"Remove Voice Actor Assignment");
 
 			m_unAssignActorFromGroupToolStripMenuItem.Enabled = SelectedGroupsThatCanBeUnassigned.Any();
@@ -301,7 +302,7 @@ namespace Glyssen.Dialogs
 						item.Enabled = selectedCharacterGroup.AssignedToCameoActor ||
 										m_characterDetailsGrid.SelectedRows.Count < m_characterDetailsGrid.RowCount;
 						item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
-							? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacters",
+							? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacters",
 								"Create a new group with the selected characters")
 							: m_menuItemCreateNewGroup.Text;
 						break;
@@ -312,7 +313,7 @@ namespace Glyssen.Dialogs
 
 						item.Enabled = availableCameoActors.Any();
 						item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
-							? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.AssignSelectedCharactersToCameoActor",
+							? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.AssignSelectedCharactersToCameoActor",
 								"Assign selected characters to cameo actor")
 							: m_menuItemAssignToCameoActor.Text;
 
@@ -330,7 +331,7 @@ namespace Glyssen.Dialogs
 						break;
 					case kMoveToAnotherGroupMenuItemId:
 						item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
-							? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveSelectedCharactersToAnotherGroup",
+							? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveSelectedCharactersToAnotherGroup",
 								"Move selected characters to another group...")
 							: m_menuItemMoveToAnotherGroup.Text;
 						break;
@@ -529,18 +530,18 @@ namespace Glyssen.Dialogs
 					string warningMsg;
 					if (unusedActors == 1)
 					{
-						warningMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural",
+						warningMsg = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural",
 							"The Voice Actor List for this project has 1 actor not assigned to any group.");
 					}
 					else
 					{
 						warningMsg =
-							Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural",
+							Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural",
 								"The Voice Actor List for this project has {0} actors not assigned to any group.", "{0} is a number."),
 								unusedActors);
 					}
 					var msg =
-						Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningInstructions",
+						Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningInstructions",
 							"{0} If this was not intentional," +
 							" you can do either (or both) of the following:\r\n" +
 							"1) In the Voice Actor List dialog box, delete or mark as inactive any unsed actors.\r\n" +
@@ -600,11 +601,11 @@ namespace Glyssen.Dialogs
 				bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
 
 				string dlgMessage = multipleGroupsSelected
-					? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessagePlural",
+					? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessagePlural",
 						"Are you sure you want to remove the voice actor assignments from the selected character groups?")
-					: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessageSingular",
+					: Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessageSingular",
 						"Are you sure you want to remove the voice actor assignment from the selected character group?");
-				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.Title", "Confirm");
+				string dlgTitle = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.Title", "Confirm");
 
 				if (MessageBox.Show(this, dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 					UnAssignActorsFromSelectedGroups();
@@ -739,7 +740,7 @@ namespace Glyssen.Dialogs
 				if (IsNullOrWhiteSpace(charIdsString) && !(m_characterGroupGrid[CharacterIdsCol.Index, e.RowIndex] is DataGridViewLinkCell))
 					m_characterGroupGrid[CharacterIdsCol.Index, e.RowIndex] = new DataGridViewLinkCell();
 
-				string actorIsCameo = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoTooltip",
+				string actorIsCameo = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoTooltip",
 					"This actor is assigned to perform a cameo role.");
 				if (!Char.IsWhiteSpace(actorIsCameo.Last()))
 					actorIsCameo += " ";
@@ -748,13 +749,13 @@ namespace Glyssen.Dialogs
 				{
 					m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ToolTipText =
 						actorIsCameo +
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoChangeCharactersTooltip",
+						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoChangeCharactersTooltip",
 							"You can change the characters in this group, but you cannot change the actor assignment.");
 				}
 				else
 				{
 					m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ToolTipText = actorIsCameo +
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoAddCharactersTooltip",
+						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoAddCharactersTooltip",
 							"You can add characters to this group, but you cannot change the actor assignment.");
 				}
 			}
@@ -879,7 +880,7 @@ namespace Glyssen.Dialogs
 			else if (e.ColumnIndex == CharacterIdsCol.Index)
 			{
 				var charIdsString = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
-				e.Value = IsNullOrWhiteSpace(charIdsString) ? LocalizationManager.GetString(
+				e.Value = IsNullOrWhiteSpace(charIdsString) ? Localizer.GetString(
 					"DialogBoxes.VoiceActorAssignmentDlg.SelectCameoRoleLink", "Select a cameo role",
 					"Displayed as link in the \"Characters In Group\" column when the group assigned to a cameo actor has no characters in it.")
 					: charIdsString;
@@ -1000,7 +1001,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				if (!m_actorAssignmentViewModel.Undo())
-					MessageBox.Show(this, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UndoFailed", "Undo Failed!"));
+					MessageBox.Show(this, Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.UndoFailed", "Undo Failed!"));
 			}
 			finally
 			{
@@ -1015,7 +1016,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				if (!m_actorAssignmentViewModel.Redo())
-					MessageBox.Show(this, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RedoFailed", "Redo Failed!"));
+					MessageBox.Show(this, Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RedoFailed", "Redo Failed!"));
 			}
 			finally
 			{
@@ -1285,7 +1286,7 @@ namespace Glyssen.Dialogs
 			{
 				// No matches.
 				m_lblMatches.ForeColor = Color.Red;
-				m_lblMatches.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.NoMatchingCharacters", "no matches");
+				m_lblMatches.Text = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.NoMatchingCharacters", "no matches");
 				SystemSounds.Beep.Play();
 				return;
 			}

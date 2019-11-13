@@ -13,6 +13,7 @@ using Glyssen.Rules;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
 
@@ -66,11 +67,11 @@ namespace Glyssen.Dialogs
 		{
 			switch (characterGender)
 			{
-				case CharacterGender.Male: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Male", "Male");
-				case CharacterGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Female", "Female");
-				case CharacterGender.PreferMale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferMale", "Pref: Male");
-				case CharacterGender.PreferFemale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferFemale", "Pref: Female");
-// Probably don't want to show this anyway, and definitely not for narrators				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
+				case CharacterGender.Male: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Male", "Male");
+				case CharacterGender.Female: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Female", "Female");
+				case CharacterGender.PreferMale: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferMale", "Pref: Male");
+				case CharacterGender.PreferFemale: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferFemale", "Pref: Female");
+// Probably don't want to show this anyway, and definitely not for narrators				case CharacterGender.Neuter: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
 				default: return string.Empty;
 			}
 		}
@@ -79,9 +80,9 @@ namespace Glyssen.Dialogs
 		{
 			switch (characterAge)
 			{
-				case CharacterAge.Child: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
-				case CharacterAge.Elder: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
-				case CharacterAge.YoungAdult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
+				case CharacterAge.Child: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
+				case CharacterAge.Elder: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
+				case CharacterAge.YoungAdult: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
 				default: return string.Empty;
 			}
 		}
@@ -90,8 +91,8 @@ namespace Glyssen.Dialogs
 		{
 			switch (actorGender)
 			{
-				case ActorGender.Male: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Male", "Male");
-				case ActorGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female", "Female");
+				case ActorGender.Male: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Male", "Male");
+				case ActorGender.Female: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female", "Female");
 				default: return string.Empty;
 			}
 		}
@@ -100,10 +101,10 @@ namespace Glyssen.Dialogs
 		{
 			switch (actorAge)
 			{
-				case ActorAge.Adult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult", "Adult");
-				case ActorAge.Child: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
-				case ActorAge.Elder: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
-				case ActorAge.YoungAdult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
+				case ActorAge.Adult: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult", "Adult");
+				case ActorAge.Child: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
+				case ActorAge.Elder: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
+				case ActorAge.YoungAdult: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
 				default: return string.Empty;
 			}
 		}
@@ -249,9 +250,9 @@ namespace Glyssen.Dialogs
 					var secondReference = resultsAfter.SecondReference;
 
 					var dlgMessageFormat1 = (firstReference == secondReference) ?
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
 							"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
 							"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
 					var dlgMessagePart1 = string.Format(dlgMessageFormat1,
 						resultsAfter.NumberOfBlocks,
@@ -262,11 +263,11 @@ namespace Glyssen.Dialogs
 					Logger.WriteEvent($"{dlgMessagePart1}\r\n>>>Moving {characterIds.Count} characters to group {destGroup.GroupId}:\r\n   {String.Join("\r\n   ", characterIds)}");
 
 					var dlgMessagePart2 =
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
+						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
 							"Do you want to continue with this move?");
 
 					var dlgMessage = dlgMessagePart1 + Environment.NewLine + Environment.NewLine + dlgMessagePart2;
-					var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
+					var dlgTitle = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
 						"Confirm");
 
 					if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
@@ -317,7 +318,7 @@ namespace Glyssen.Dialogs
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
+				table.Rows.Add(GetDataTableRow(actor, Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
 			}
 
 			table.Rows.Add(
@@ -325,15 +326,15 @@ namespace Glyssen.Dialogs
 				null,
 				Resources.RemoveActor,
 				"",
-				//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+				//Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 				"",
 				"",
 				"",
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
+				Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
+				table.Rows.Add(GetDataTableRow(actor, Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));
 			}
 
@@ -350,7 +351,7 @@ namespace Glyssen.Dialogs
 				actor.Name,
 				GetUiStringForActorGender(actor.Gender),
 				GetUiStringForActorAge(actor.Age),
-				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : "",
+				actor.IsCameo ? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : "",
 				null
 			};
 		}

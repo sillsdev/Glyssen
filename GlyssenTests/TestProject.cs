@@ -129,19 +129,19 @@ namespace GlyssenTests
 			return CreateTestProject(TestBook.JUD);
 		}
 
-		public static List<BookScript> BooksBeforeQuoteParse(params TestBook[] booksToInclude)
-		{
-			var sampleMetadata = new GlyssenDblTextMetadata {AvailableBooks = new List<Book>()};
-			var books = new List<UsxDocument>();
+		//public static List<BookScript> BooksBeforeQuoteParse(params TestBook[] booksToInclude)
+		//{
+		//	var sampleMetadata = new GlyssenDblTextMetadata {AvailableBooks = new List<Book>()};
+		//	var books = new List<UsxDocument>();
 
-			foreach (var testBook in booksToInclude)
-				AddBook(testBook, sampleMetadata, books);
+		//	foreach (var testBook in booksToInclude)
+		//		AddBook(testBook, sampleMetadata, books);
 
-			int previousPercentageValue = 0;
-			var reportProgress = new Action<int>(i => Assert.IsTrue(previousPercentageValue <= i));
+		//	int previousPercentageValue = 0;
+		//	var reportProgress = new Action<int>(i => Assert.IsTrue(previousPercentageValue <= i));
 
-			return UsxParser.ParseBooks(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
-		}
+		//	return UsxParser.ParseBooks(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
+		//}
 
 		private static QuoteSystem GetTestQuoteSystem(bool includeDialogueDash)
 		{

@@ -14,6 +14,7 @@ using Glyssen.Shared;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -76,7 +77,7 @@ namespace Glyssen
 		internal ExportFileType SelectedFileType { get; set; }
 
 		internal string RecordingScriptFileNameSuffix =>
-			LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
+			Localizer.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 
 		private string DefaultDirectory
 		{
@@ -126,7 +127,7 @@ namespace Glyssen
 		{
 			get
 			{
-				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors");
+				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors");
 				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
 		}
@@ -135,7 +136,7 @@ namespace Glyssen
 		{
 			get
 			{
-				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
+				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
 				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
 		}
@@ -144,7 +145,7 @@ namespace Glyssen
 		{
 			get
 			{
-				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips");
+				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips");
 				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
 		}
@@ -195,7 +196,7 @@ namespace Glyssen
 				{
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
-						Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
+						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
 								"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
 							ActorDirectory));
 				}
@@ -211,7 +212,7 @@ namespace Glyssen
 				{
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
-						Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
+						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 							"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
 				}
 			}
@@ -375,7 +376,7 @@ namespace Glyssen
 					{
 						Analytics.ReportException(ex);
 						ErrorReport.NotifyUserOfProblem(ex,
-							Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
+							Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
 								"Error writing file: {0}. Creation of clip files aborted.", "{0} is a WAV file path."), fileName));
 						return;
 					}
@@ -387,7 +388,7 @@ namespace Glyssen
 		{
 			Analytics.ReportException(ex);
 			ErrorReport.NotifyUserOfProblem(ex,
-				Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
+				Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
 					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}
 
@@ -449,7 +450,7 @@ namespace Glyssen
 				sheet.Column(columnNum++).AutoFit(2d, 20d); // character ID
 
 				// add a column for the localized character id (hidden if not relevant)
-				if (LocalizationManager.UILanguageId != "en")
+				if (Localizer.UILanguageId != "en")
 					sheet.Column(columnNum++).AutoFit(2d, 20d);
 				else
 					sheet.Column(columnNum++).Hidden = true;
@@ -822,7 +823,7 @@ namespace Glyssen
 			headers.Add("Chapter");
 			headers.Add("Verse");
 			headers.Add("Character");
-			headers.Add(LocalizationManager.GetString("DialogBoxes.ExportDlg.LocalizedCharacterIdColumnHeading", "Character (localized)",
+			headers.Add(Localizer.GetString("DialogBoxes.ExportDlg.LocalizedCharacterIdColumnHeading", "Character (localized)",
 				"If desired, the column heading can be localized to indicate the name of this UI locale language."));
 			headers.Add("Delivery");
 			headers.Add("Text");
@@ -860,7 +861,7 @@ namespace Glyssen
 			else
 				exportData.CharacterId = useCharacterIdInScript ? block.CharacterIdInScript : block.CharacterId;
 
-			if (LocalizationManager.UILanguageId != "en")
+			if (Localizer.UILanguageId != "en")
 				exportData.LocalizedCharacterId = CharacterVerseData.GetCharacterNameForUi(exportData.CharacterId);
 
 			if (includeDelivery)

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 using SIL.Scripture;
 using static System.String;
 
@@ -279,7 +280,7 @@ namespace Glyssen.Character
 
 		internal static string GetLocalizedIndividualCharacterString(string character)
 		{
-			return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + character, character);
+			return Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + character, character);
 		}
 
 		#region Equality Members

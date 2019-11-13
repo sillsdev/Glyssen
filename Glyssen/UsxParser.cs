@@ -13,6 +13,7 @@ using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.Reporting;
 using SIL.Scripture;
+using static System.Char;
 using static System.String;
 
 namespace Glyssen
@@ -86,6 +87,7 @@ namespace Glyssen
 		}
 
 		private readonly string m_bookId;
+		private readonly int m_bookNum;
 		private readonly IStylesheet m_stylesheet;
 		private readonly XmlNodeList m_nodeList;
 
@@ -97,6 +99,7 @@ namespace Glyssen
 		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
 			m_bookId = bookId;
+			m_bookNum = BCVRef.BookToNumber(m_bookId);
 			m_stylesheet = stylesheet;
 			m_nodeList = nodeList;
 		}
@@ -165,13 +168,16 @@ namespace Glyssen
 							switch (childNode.Name)
 							{
 								case "verse":
+									var verseNumAttr = childNode.Attributes.GetNamedItem("number");
+									if (verseNumAttr == null)
+										continue; // presumably this is an end-verse element
 									if (sb.Length > 0)
 									{
 										sb.TrimStart();
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}
-									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
+									var verseNumStr = verseNumAttr.Value;
 									if (!HandleVerseBridgeInSeparateVerseFields(block, ref verseNumStr))
 									{
 										RemoveEmptyTrailingVerse(block);
@@ -188,18 +194,41 @@ namespace Glyssen
 									block.BlockElements.Add(new Verse(verseNumStr));
 									break;
 								case "char":
-									IStyle charStyle = m_stylesheet.GetStyle((new UsxNode(childNode)).StyleTag);
+									var charTag = (new UsxNode(childNode)).StyleTag;
+									IStyle charStyle = m_stylesheet.GetStyle(charTag);
 									if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
 									{
 										// Starting with USFM 3.0, char styles can have attributes separated by |
 										var tokens = childNode.InnerText.Split('|');
 										if (tokens.Any())
+										{
+											if (ControlCharacterVerseData.TryGetCharacterForCharStyle(charTag, out var character) && block.StyleTag != charTag)
+											{
+												FinalizeCharacterStyleBlock(sb, ref block, blocks, charTag);
+												block.CharacterId = character;
+												//ControlCharacterVerseData.Singleton.GetCharacters(m_bookNum, block.ChapterNumber,
+												//block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum, m_versification, true)
+												//.FirstOrDefault(cv => cv.Character == character)?.Character ?? CharacterVerseData.kNeedsReview;
+											}
 											sb.Append(tokens[0]);
+										}
 									}
 
 									break;
 								case "#text":
-									sb.Append(childNode.InnerText);
+									var textToAppend = childNode.InnerText;
+									if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag) && textToAppend.Any(IsLetter))
+									{
+										if (sb.Length > 0 && sb[sb.Length - 1] != ' ' && textToAppend.StartsWith(" "))
+										{
+											// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
+											// leading spaces, it might look funny in some places in the display.
+											sb.Append(" ");
+											textToAppend = textToAppend.TrimStart();
+										}
+										FinalizeCharacterStyleBlock(sb, ref block, blocks, usxPara.StyleTag);
+									}
+									sb.Append(textToAppend);
 									break;
 								case "#whitespace":
 									if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
@@ -207,12 +236,7 @@ namespace Glyssen
 									break;
 							}
 						}
-						sb.TrimStart();
-						if (sb.Length > 0)
-						{
-							block.BlockElements.Add(new ScriptText(sb.ToString()));
-							sb.Clear();
-						}
+						FlushStringBuilderToBlockElement(sb, block);
 						if (RemoveEmptyTrailingVerse(block))
 						{
 							var lastVerse = block.LastVerse;
@@ -225,6 +249,35 @@ namespace Glyssen
 					blocks.Add(block);
 			}
 			return blocks;
+		}
+
+		private void FinalizeCharacterStyleBlock(StringBuilder sb, ref Block block, IList<Block> blocks, string newBlockTag)
+		{
+			FlushStringBuilderToBlockElement(sb, block);
+			if (block.BlockElements.OfType<ScriptText>().Any())
+			{
+				Verse finalVerse = block.BlockElements.Last() as Verse;
+				if (finalVerse != null)
+					block.BlockElements.RemoveAt(block.BlockElements.Count - 1);
+				blocks.Add(block);
+				block = new Block(newBlockTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse);
+				if (finalVerse != null)
+					block.BlockElements.Add(finalVerse);
+			}
+			else
+			{
+				block.StyleTag = newBlockTag;
+			}
+		}
+
+		private void FlushStringBuilderToBlockElement(StringBuilder sb, Block block)
+		{
+			sb.TrimStart();
+			if (sb.Length > 0)
+			{
+				block.BlockElements.Add(new ScriptText(sb.ToString()));
+				sb.Clear();
+			}
 		}
 
 		/// <summary>
@@ -294,7 +347,7 @@ namespace Glyssen
 				// text. And it would be slow and unwieldy to check all the other possibilities
 				// and something might still fall through the cracks.
 				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 &&
-					!text.Content.Any(char.IsLetter))
+					!text.Content.Any(IsLetter))
 				{
 					if (!(block.BlockElements[block.BlockElements.Count - 2] is Verse))
 					{
@@ -330,7 +383,7 @@ namespace Glyssen
 				finalScriptText.Content.TrimEnd().Last() == punctToTrim)
 			{
 				finalScriptText.Content = finalScriptText.Content.TrimEnd().TrimEnd(punctToTrim);
-				if (finalScriptText.Content.All(char.IsWhiteSpace))
+				if (finalScriptText.Content.All(IsWhiteSpace))
 				{
 					block.BlockElements.Remove(finalScriptText);
 				}

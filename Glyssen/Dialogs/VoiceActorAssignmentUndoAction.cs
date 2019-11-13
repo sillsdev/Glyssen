@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen.Character;
 using L10NSharp;
+using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -33,7 +34,7 @@ namespace Glyssen.Dialogs
 
 		public override string Description
 		{
-			get { return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorAssignment", "Assign voice actor {0}"), ActorName); }
+			get { return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorAssignment", "Assign voice actor {0}"), ActorName); }
 		}
 
 		protected override bool PerformUndo()
