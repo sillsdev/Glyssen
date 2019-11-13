@@ -22,6 +22,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -57,7 +58,7 @@ namespace Glyssen.Dialogs
 				CharacterVerseData.StandardCharacterNameFormatBookOrChapter,
 				CharacterVerseData.StandardCharacterNameFormatIntroduction,
 				CharacterVerseData.StandardCharacterNameFormatSectionHead,
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
+				Localizer.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
 			if (m_toolStripComboBoxFilter.Items.Count == m_indexOfFirstFilterItemRemoved)
 			{
@@ -225,7 +226,7 @@ namespace Glyssen.Dialogs
 				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 				m_progressBar.Value = m_viewModel.CompletedBlockCount;
 				m_progressBar.UnitName = m_viewModel.DoingAlignmentTask ?
-					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages",
+					Localizer.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages",
 						"Parameter #2 in DialogBoxes.AssignCharacterDlg.AssignmentProgressFmt") : null;
 				m_progressBar.Invalidate();
 				if (m_viewModel.IsCurrentTaskComplete)
@@ -249,17 +250,17 @@ namespace Glyssen.Dialogs
 
 		private void ShowCompletionMessage()
 		{
-			string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.TaskCompleteTitle", "Task Complete");
+			string title = Localizer.GetString("DialogBoxes.AssignCharacterDlg.TaskCompleteTitle", "Task Complete");
 			string msg = m_viewModel.DoingAssignmentTask ?
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
+				Localizer.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
 					"All character assignments have been made. ") :
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AlignmentsComplete",
+				Localizer.GetString("DialogBoxes.AssignCharacterDlg.AlignmentsComplete",
 					"Alignment of blocks to the Reference Text is complete. ");
 
 			if (!char.IsWhiteSpace(msg.Last()))
 				msg += " ";
 
-			msg += LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "Would you like to return to the main window?");
+			msg += Localizer.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "Would you like to return to the main window?");
 			if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
 				Close();
@@ -714,14 +715,14 @@ namespace Glyssen.Dialogs
 				{
 					if (m_btnAssign.Enabled)
 					{
-						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage",
+						string msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage",
 							"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
 						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							SaveSelections();
 					}
 					else if (m_listBoxCharacters.SelectedIndex < 0)
 					{
-						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoSelectionMessage",
+						string msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.NoSelectionMessage",
 							"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
 						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 							DialogResult.Yes;
@@ -729,7 +730,7 @@ namespace Glyssen.Dialogs
 					else
 					{
 						Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
-						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoDeliveryMessage",
+						string msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.NoDeliveryMessage",
 							"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
 						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 							DialogResult.Yes;
@@ -739,7 +740,7 @@ namespace Glyssen.Dialogs
 				{
 					if (m_btnApplyReferenceTextMatches.Enabled)
 					{
-						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
+						string msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
 							"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?");
 						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							result = CheckRefTextValuesAndApplyMatchup();
@@ -749,7 +750,7 @@ namespace Glyssen.Dialogs
 						// Technically, we shouyld have a separate message for the case where the Delivery column is showing, but in practice
 						// there is no way for the user to set the value for a cell in the Delivery column to null, so even though our code
 						// checks for this, it can't really happen.
-						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IncompleteCharacterAssignments",
+						string msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.IncompleteCharacterAssignments",
 							"You have not finished specifying the character information for every block. Would you like to discard the changes you have made?");
 						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo,
 							MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
@@ -1146,7 +1147,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private string UnsavedChangesMessageBoxTitle => LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChanges", "Unsaved Changes");
+		private string UnsavedChangesMessageBoxTitle => Localizer.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChanges", "Unsaved Changes");
 
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
@@ -1155,7 +1156,7 @@ namespace Glyssen.Dialogs
 			{
 				if (IsDirty && m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
 				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting",
+					string msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting",
 						"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?");
 					if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 						if (!CheckRefTextValuesAndApplyMatchup())
@@ -1302,21 +1303,21 @@ namespace Glyssen.Dialogs
 				var language = m_dataGridReferenceText.Columns[refTextColumnIndex].HeaderText;
 				if (problems.Count == 1)
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.SingleReferenceTextEndsWithVerse",
+					msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.SingleReferenceTextEndsWithVerse",
 						"One of the {0} reference texts entered ends with a verse number.");
 				}
 				else if (problems.All(p => p.Item2 == firstProblem.Item2))
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfSameReferenceTextsEndWithVerse",
+					msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfSameReferenceTextsEndWithVerse",
 						"Some of the {0} reference texts entered end with a verse number.");
 				}
 				else
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfDifferentReferenceTextsEndWithVerse",
+					msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfDifferentReferenceTextsEndWithVerse",
 						"Some of the reference texts entered end with a verse number.");
 				}
 
-				msg = String.Format(msg, language) + " " + LocalizationManager.GetString(
+				msg = String.Format(msg, language) + " " + Localizer.GetString(
 					"DialogBoxes.AssignCharacterDlg.AllowReferenceTextsEndingWithVerse",
 					"Would you like to correct this before applying your changes?");
 				if (MessageBox.Show(this, msg, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
@@ -1382,7 +1383,7 @@ namespace Glyssen.Dialogs
 			{
 				m_viewModel.AttemptRefBlockMatchup = true;
 				m_blocksViewer.Text =
-					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
+					Localizer.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
 						"Match reference text for each colored row.");
 				m_saveStatus.Visible = false;
 				m_blocksViewer.ContentBorderStyle = m_dataGridReferenceText.BorderStyle;
@@ -1418,7 +1419,7 @@ namespace Glyssen.Dialogs
 						index = matchup.IndexOfStartBlockInBook;
 						verseWhereQuoteStarts = m_viewModel.FindStartOfQuote(ref index).LastVerseNum;
 					}
-					var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock", "The character cannot be changed for this block because it is in the middle of a quote. " +
+					var msgFmt = Localizer.GetString("DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock", "The character cannot be changed for this block because it is in the middle of a quote. " +
 						"To change this, select the block that begins this quote (in verse {0}). If this quote block needs to be split up so that different characters can be assigned, " +
 						"use the Split command.");
 					MessageBox.Show(this, Format(msgFmt, verseWhereQuoteStarts), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1827,7 +1828,7 @@ namespace Glyssen.Dialogs
 			var editingCtrl = (DataGridViewTextBoxEditingControl)sender;
 			if (editingCtrl.SelectionStart <= 0 || editingCtrl.SelectionStart >= editingCtrl.TextLength || editingCtrl.SelectionLength > 0)
 			{
-				var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.InvalidSplitTextAction",
+				var msgFmt = Localizer.GetString("DialogBoxes.AssignCharacterDlg.InvalidSplitTextAction",
 					"To split the reference text, click the location where it is to be split. Do not attempt to make a text selection " +
 					"or click at the very start or end of the text. You will need to select the {0} command again to enable splitting now.");
 				MessageBox.Show(this, String.Format(msgFmt, m_ContextMenuItemSplitText.Text), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1984,7 +1985,7 @@ namespace Glyssen.Dialogs
 				{
 					if (m_askedUserAboutAssigningOnDoubleClick)
 						return;
-					var msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UseDoubleClickAsShortcut",
+					var msg = Localizer.GetString("DialogBoxes.AssignCharacterDlg.UseDoubleClickAsShortcut",
 						"You just double-clicked. By default, Glyssen slows you down so you will take time to carefully review each selection. Do " +
 						"you want Glyssen to let you go faster by interpreting a double click as your confirmation of the selection, so you won't have to " +
 						"click the {0} button?");

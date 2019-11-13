@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 
 namespace Glyssen.Paratext
 {
@@ -42,16 +43,16 @@ namespace Glyssen.Paratext
 			switch (paratextCheckId)
 			{
 				case "Marker":
-					return LocalizationManager.GetString("ParatextCheck.Marker", "Markers",
+					return Localizer.GetString("ParatextCheck.Marker", "Markers",
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 				case "Quotation":
-					return LocalizationManager.GetString("ParatextCheck.Quotation", "Quotations",
+					return Localizer.GetString("ParatextCheck.Quotation", "Quotations",
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 				case "ChapterVerse":
-					return LocalizationManager.GetString("ParatextCheck.ChapterVerse", "Chapter/Verse Numbers",
+					return Localizer.GetString("ParatextCheck.ChapterVerse", "Chapter/Verse Numbers",
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 				default:
-					return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "ParatextCheck." + paratextCheckId, paratextCheckId,
+					return Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "ParatextCheck." + paratextCheckId, paratextCheckId,
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 			}
 		}

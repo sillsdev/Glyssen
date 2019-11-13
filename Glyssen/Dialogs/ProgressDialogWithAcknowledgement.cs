@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using L10NSharp;
+using SIL;
 using SIL.Progress;
 using SIL.Reporting;
 
@@ -335,7 +336,7 @@ namespace Glyssen.Dialogs
 
 				AcceptButton = m_okButton;
 
-				m_okButton.Text = OkButtonText ?? LocalizationManager.GetString("Common.OK", "OK");
+				m_okButton.Text = OkButtonText ?? Localizer.GetString("Common.OK", "OK");
 				m_okButton.DialogResult = DialogResult.OK;
 				m_okButton.Enabled = true;
 				m_okButton.Visible = true;
@@ -700,7 +701,7 @@ namespace Glyssen.Dialogs
 			// Prevent further cancellation
 			m_cancelButton.Enabled = false;
 			m_progressTimer.Stop();
-			m_progressLabel.Text =  LocalizationManager.GetString("DialogBoxes.ProgressDialogWithAcknowledgement.Canceling", "Canceling...");
+			m_progressLabel.Text =  Localizer.GetString("DialogBoxes.ProgressDialogWithAcknowledgement.Canceling", "Canceling...");
 			// Tell people we're canceling
 			OnCancelled( e );
 			if (m_backgroundWorker != null && m_backgroundWorker.WorkerSupportsCancellation)

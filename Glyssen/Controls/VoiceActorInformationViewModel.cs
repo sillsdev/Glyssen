@@ -7,6 +7,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using SIL;
 using SIL.Extensions;
 
 namespace Glyssen.Controls
@@ -156,8 +157,8 @@ namespace Glyssen.Controls
 			var table = new DataTable();
 			table.Columns.Add("ID", typeof(ActorGender));
 			table.Columns.Add("Name");
-			table.Rows.Add(ActorGender.Male, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.Gender.Male", "M - Male"));
-			table.Rows.Add(ActorGender.Female, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.Gender.Female", "F - Female"));
+			table.Rows.Add(ActorGender.Male, Localizer.GetString("DialogBoxes.VoiceActorInformation.Gender.Male", "M - Male"));
+			table.Rows.Add(ActorGender.Female, Localizer.GetString("DialogBoxes.VoiceActorInformation.Gender.Female", "F - Female"));
 			return table;
 		}
 
@@ -166,10 +167,10 @@ namespace Glyssen.Controls
 			var table = new DataTable();
 			table.Columns.Add("ID", typeof(ActorAge));
 			table.Columns.Add("Name");
-			table.Rows.Add(ActorAge.Adult, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.Age.Adult", "A - Adult"));
-			table.Rows.Add(ActorAge.Elder, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.Age.Elder", "E - Elder"));
-			table.Rows.Add(ActorAge.YoungAdult, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.Age.YoungAdult", "Y - Young Adult"));
-			table.Rows.Add(ActorAge.Child, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.Age.Child", "C - Child"));
+			table.Rows.Add(ActorAge.Adult, Localizer.GetString("DialogBoxes.VoiceActorInformation.Age.Adult", "A - Adult"));
+			table.Rows.Add(ActorAge.Elder, Localizer.GetString("DialogBoxes.VoiceActorInformation.Age.Elder", "E - Elder"));
+			table.Rows.Add(ActorAge.YoungAdult, Localizer.GetString("DialogBoxes.VoiceActorInformation.Age.YoungAdult", "Y - Young Adult"));
+			table.Rows.Add(ActorAge.Child, Localizer.GetString("DialogBoxes.VoiceActorInformation.Age.Child", "C - Child"));
 			return table;
 		}
 
@@ -178,12 +179,12 @@ namespace Glyssen.Controls
 			var table = new DataTable();
 			table.Columns.Add("ID", typeof(VoiceQuality));
 			table.Columns.Add("Name");
-			table.Rows.Add(VoiceQuality.Normal, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Normal", "N - Normal", "This feature not currently in use in Glyssen"));
-			table.Rows.Add(VoiceQuality.Dramatic, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Dramatic", "D - Dramatic", "This feature not currently in use in Glyssen"));
-			table.Rows.Add(VoiceQuality.Authoritative, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Authoritative", "A - Authoritative/Firm", "This feature not currently in use in Glyssen"));
-			table.Rows.Add(VoiceQuality.Weak, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Weak", "W - Weak", "This feature not currently in use in Glyssen"));
-			table.Rows.Add(VoiceQuality.Suspicious, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Suspicious", "S - Suspicious", "This feature not currently in use in Glyssen"));
-			table.Rows.Add(VoiceQuality.Clear, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Clear", "C - Clear", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Normal, Localizer.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Normal", "N - Normal", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Dramatic, Localizer.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Dramatic", "D - Dramatic", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Authoritative, Localizer.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Authoritative", "A - Authoritative/Firm", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Weak, Localizer.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Weak", "W - Weak", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Suspicious, Localizer.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Suspicious", "S - Suspicious", "This feature not currently in use in Glyssen"));
+			table.Rows.Add(VoiceQuality.Clear, Localizer.GetString("DialogBoxes.VoiceActorInformation.VoiceQuality.Clear", "C - Clear", "This feature not currently in use in Glyssen"));
 			return table;
 		}
 

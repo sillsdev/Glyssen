@@ -14,8 +14,10 @@ using L10NSharp.UI;
 using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
+using SIL;
 using SIL.IO;
 using SIL.Reporting;
+using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
 
@@ -204,7 +206,7 @@ namespace Glyssen
 
 		private static void HandleDeleteUserSettings(string userConfigSettingsPath)
 		{
-				var confirmationString = LocalizationManager.GetString("Program.ConfirmDeleteUserSettingsFile",
+				var confirmationString = Localizer.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
 				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
@@ -229,6 +231,7 @@ namespace Glyssen
 
 		private static void SetUpLocalization()
 		{
+			Localizer.Default = new L10NSharpLocalizer();
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string targetTmxFilePath = Path.Combine(GlyssenInfo.kCompany, GlyssenInfo.kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
@@ -247,7 +250,7 @@ namespace Glyssen
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
 
-			var uiLanguage = LocalizationManager.UILanguageId;
+			var uiLanguage = Localizer.UILanguageId;
 			LocalizationManager.Create(TranslationMemory.Tmx, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");

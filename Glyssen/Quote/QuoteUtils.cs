@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using L10NSharp;
+using SIL;
 using SIL.WritingSystems;
 
 namespace Glyssen.Quote
@@ -12,7 +13,7 @@ namespace Glyssen.Quote
 		public const string kSentenceEndingPunctuation = "Sentence-ending punctuation";
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
-		public static readonly string None = LocalizationManager.GetString("Common.None", "None");
+		public static readonly string None = Localizer.GetString("Common.None", "None");
 		private static readonly object[] s_defaultSymbols = { "“", "”", "‘", "’", "«", "»", "‹", "›", "„", "‚", "「", "」", "『", "』", "<<", ">>", "<", ">", None };
 		private static readonly Dictionary<MatchedPair, MatchedPair[]> s_level2Possibilities = new Dictionary<MatchedPair, MatchedPair[]>
 		{
