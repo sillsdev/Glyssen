@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 using SIL.Extensions;
 using SIL.ObjectModel;
 using SIL.Scripture;
@@ -110,16 +111,16 @@ namespace Glyssen.Character
 				IsCharacterOfType(characterId, StandardCharacter.Intro);
 		}
 
-		public static string StandardCharacterNameFormatNarrator = LocalizationManager.GetString("CharacterName.Standard.Fmt.Narrator", "narrator ({0})");
-		public static string StandardCharacterNameFormatIntroduction = LocalizationManager.GetString("CharacterName.Standard.Fmt.Introduction", "introduction ({0})");
-		public static string StandardCharacterNameFormatSectionHead = LocalizationManager.GetString("CharacterName.Standard.Fmt.SectionHead", "section head ({0})");
-		public static string StandardCharacterNameFormatBookOrChapter = LocalizationManager.GetString("CharacterName.Standard.Fmt.BookOrChapter", "book title or chapter ({0})");
+		public static string StandardCharacterNameFormatNarrator = Localizer.GetString("CharacterName.Standard.Fmt.Narrator", "narrator ({0})");
+		public static string StandardCharacterNameFormatIntroduction = Localizer.GetString("CharacterName.Standard.Fmt.Introduction", "introduction ({0})");
+		public static string StandardCharacterNameFormatSectionHead = Localizer.GetString("CharacterName.Standard.Fmt.SectionHead", "section head ({0})");
+		public static string StandardCharacterNameFormatBookOrChapter = Localizer.GetString("CharacterName.Standard.Fmt.BookOrChapter", "book title or chapter ({0})");
 
 		public static string GetCharacterNameForUi(string characterId)
 		{
 			var standardCharacterType = GetStandardCharacterType(characterId);
 			string localizedCharacterId = standardCharacterType == StandardCharacter.NonStandard ?
-				LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId) :
+				Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId) :
 				GetStandardCharacterNameForUi(standardCharacterType, GetBookCodeFromStandardCharacterId(characterId));
 			SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId] = characterId;
 
@@ -384,25 +385,35 @@ namespace Glyssen.Character
 				cv.ResetLocalization();
 		}
 
-		public class NeedsReviewCharacter : ICharacterDeliveryInfo
+		public class SimpleCharacterInfoWithoutDelivery : ICharacterDeliveryInfo
 		{
-			public static NeedsReviewCharacter Singleton { get; }
-
-			public string Character => kNeedsReview;
-			public string LocalizedCharacter =>
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CharacterNeedsReview", "Needs Review");
+			public string Character { get; }
+			public virtual string LocalizedCharacter => Character;
 			public string Delivery => Empty;
 			public string DefaultCharacter => null;
 			public string Alias => null;
 			public string LocalizedAlias => null;
 			public bool ProjectSpecific => false;
 
+			public SimpleCharacterInfoWithoutDelivery(string characterId)
+			{
+				Character = characterId;
+			}
+		}
+
+		public class NeedsReviewCharacter : SimpleCharacterInfoWithoutDelivery
+		{
+			public static NeedsReviewCharacter Singleton { get; }
+
+			public override string LocalizedCharacter =>
+				Localizer.GetString("DialogBoxes.AssignCharacterDlg.CharacterNeedsReview", "Needs Review");
+
 			static NeedsReviewCharacter()
 			{
 				Singleton = new NeedsReviewCharacter();
 			}
 
-			private NeedsReviewCharacter()
+			private NeedsReviewCharacter() : base(kNeedsReview)
 			{
 			}
 		}

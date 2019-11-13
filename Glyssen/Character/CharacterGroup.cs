@@ -9,6 +9,7 @@ using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using SIL;
 using SIL.Reporting;
 
 namespace Glyssen.Character
@@ -57,7 +58,7 @@ namespace Glyssen.Character
 			// just report it non-fatally and clear the actor info.
 			if (VoiceActorId >= 0 && VoiceActor == null)
 			{
-				ErrorReport.NotifyUserOfProblem(LocalizationManager.GetString("CharacterGroup.InvalidActorId",
+				ErrorReport.NotifyUserOfProblem(Localizer.GetString("CharacterGroup.InvalidActorId",
 					"Character group {0} is assigned to a voice actor who is no longer part of this project. " +
 					"This might have been caused by a previous failure. {1} will clear this assignment for you now."),
 					GroupIdForUiDisplay, GlyssenInfo.kProduct);
@@ -95,13 +96,13 @@ namespace Glyssen.Character
 				switch (GroupIdLabel)
 				{
 					case Label.Male:
-						return string.Format(LocalizationManager.GetString("CharacterGroup.MaleGroupId", "Man {0}"), GroupIdNumber);
+						return string.Format(Localizer.GetString("CharacterGroup.MaleGroupId", "Man {0}"), GroupIdNumber);
 					case Label.Female:
-						return string.Format(LocalizationManager.GetString("CharacterGroup.FemaleGroupId", "Woman {0}"), GroupIdNumber);
+						return string.Format(Localizer.GetString("CharacterGroup.FemaleGroupId", "Woman {0}"), GroupIdNumber);
 					case Label.Child:
-						return string.Format(LocalizationManager.GetString("CharacterGroup.ChildGroupId", "Child {0}"), GroupIdNumber);
+						return string.Format(Localizer.GetString("CharacterGroup.ChildGroupId", "Child {0}"), GroupIdNumber);
 					case Label.Narrator:
-						return string.Format(LocalizationManager.GetString("CharacterGroup.NarratorGroupId", "Narrator {0}"), GroupIdNumber);
+						return string.Format(Localizer.GetString("CharacterGroup.NarratorGroupId", "Narrator {0}"), GroupIdNumber);
 					case Label.Other:
 						return GroupIdOtherText;
 					default:

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
 using L10NSharp;
+using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -43,17 +44,17 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (m_characterRestorationInfo.Count > 1)
-					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignments", "Remove voice actor assignment for multiple groups");
+					return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignments", "Remove voice actor assignment for multiple groups");
 
 				var groupId = m_characterRestorationInfo.Keys.Single();
 
 				if (groupId == kEmptyGroup)
-					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroupWithNoCharacters", "Remove voice actor assignment");
+					return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroupWithNoCharacters", "Remove voice actor assignment");
 
 				CharacterGroup charGroup = m_project.GetGroupById(groupId);
 				if (charGroup.CharacterIds.Count > 1)
-					return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroup", "Remove voice actor assignment for {0} group"), charGroup.GroupIdForUiDisplay);
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForCharacter", "Remove voice actor assignment for {0}"), charGroup.CharacterIds.Single());
+					return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroup", "Remove voice actor assignment for {0} group"), charGroup.GroupIdForUiDisplay);
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForCharacter", "Remove voice actor assignment for {0}"), charGroup.CharacterIds.Single());
 			}
 		}
 

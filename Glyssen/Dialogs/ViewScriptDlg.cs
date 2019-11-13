@@ -5,6 +5,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -77,7 +78,7 @@ namespace Glyssen.Dialogs
 			}
 			if (!m_viewModel.IncludeVoiceActors)
 				m_dataGridView.Columns[(int)ExportColumn.Actor].Visible = false;
-			if (LocalizationManager.UILanguageId == "en")
+			if (Localizer.UILanguageId == "en")
 				m_dataGridView.Columns[(int)ExportColumn.CharacterIdLocalized].Visible = false;
 			if (!m_viewModel.Project.ReferenceText.HasSecondaryReferenceText)
 				m_dataGridView.Columns[(int)ExportColumn.AdditionalReferenceText].Visible = false;

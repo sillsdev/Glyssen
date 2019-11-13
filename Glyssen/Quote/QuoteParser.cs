@@ -209,9 +209,28 @@ namespace Glyssen.Quote
 				if (!block.IsScripture)
 				{
 					m_nextBlockContinuesQuote = false;
-
 					m_outputBlocks.Add(block);
 					continue;
+				}
+
+				if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag))
+				{
+					var cvInfo = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, block.ChapterNumber, block.AllVerses, m_versification),
+						new CharacterVerseData.SimpleCharacterInfoWithoutDelivery(block.CharacterId));
+					if (cvInfo ==  null)
+					{
+						block.CharacterId = CharacterVerseData.kNeedsReview;
+					}
+					else
+					{
+						block.CharacterId = cvInfo.Character;
+						block.Delivery = cvInfo.Delivery;
+					}
+
+					m_nextBlockContinuesQuote = false;
+					m_outputBlocks.Add(block);
+					continue;
+
 				}
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&
@@ -545,7 +564,8 @@ namespace Glyssen.Quote
 						// Decide how to assign the newly split-off (preceding) block. There are four possibilities.
 						ICharacterDeliveryInfo leadInCharacter;
 						if (subsequentImplicitCv != null &&
-							(leadInCharacter = GetMatchingCharacter(newBlock, subsequentImplicitCv)) != null)
+							(leadInCharacter = GetMatchingCharacter(m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, new SingleVerse(newBlock.LastVerseNum),
+								versification: m_versification), subsequentImplicitCv)) != null)
 						{
 							if (newBlock.ContainsVerseNumber)
 							{
@@ -642,19 +662,18 @@ namespace Glyssen.Quote
 			}
 		}
 
-		private ICharacterDeliveryInfo GetMatchingCharacter(Block newBlock, ICharacterDeliveryInfo subsequentImplicitCv)
+		private ICharacterDeliveryInfo GetMatchingCharacter(IEnumerable<CharacterSpeakingMode> possibilities, ICharacterDeliveryInfo cvToMatch)
 		{
 			ICharacterDeliveryInfo leadInCharacter = null;
 			// There will almost always be only one entry with a matching character name. But if there are two, we
 			// want the one whose delivery matches, if any.
-			foreach (var character in m_cvInfo.GetCharacters(m_bookNum, newBlock.ChapterNumber, new SingleVerse(newBlock.LastVerseNum),
-				m_versification).Where(cv => cv.Character == subsequentImplicitCv.Character))
+			foreach (var character in possibilities.Where(cv => cv.Character == cvToMatch.Character))
 			{
 				if (leadInCharacter == null)
 					leadInCharacter = character;
-				else if (leadInCharacter.Delivery == subsequentImplicitCv.Delivery)
+				else if (leadInCharacter.Delivery == cvToMatch.Delivery)
 					break;
-				else if (character.Delivery == subsequentImplicitCv.Delivery)
+				else if (character.Delivery == cvToMatch.Delivery)
 				{
 					return character;
 				}

@@ -9,6 +9,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -54,7 +55,7 @@ namespace Glyssen.Dialogs
 			var project = m_viewModel.Project;
 			int includedBooksCount = project.IncludedBooks.Count;
 			if (includedBooksCount == 1)
-				m_lblProjectSummary.Text = string.Format(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.ProjectSummary.Singular",
+				m_lblProjectSummary.Text = string.Format(Localizer.GetString("DialogBoxes.CastSizePlanningDlg.ProjectSummary.Singular",
 					"This project has 1 book with {0} distinct character roles."), project.TotalCharacterCount);
 			else
 				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount, project.TotalCharacterCount);
@@ -105,15 +106,15 @@ namespace Glyssen.Dialogs
 		private void m_linkAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			var msg = new StringBuilder();
-			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line1",
+			msg.AppendParagraph(Localizer.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line1",
 				"Since there are usually a large number of brief character roles in a recording script, most voice actors will speak multiple roles."));
-			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line2",
+			msg.AppendParagraph(Localizer.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line2",
 				"So how many voice actors or narrators should you have? That’s discussed in the <a href=\"#\" target=\"_blank\">Guide for the Recording Project Coordinator</a>."));
-			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line3",
+			msg.AppendParagraph(Localizer.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line3",
 				"In the <b>Cast Size Planning</b> dialog, Glyssen provides recommendations for the size of your cast and for how to distribute the narration work. You can adjust these as needed."));
-			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line4",
+			msg.AppendParagraph(Localizer.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line4",
 				"As a result of this planning, Glyssen will generate a list of groups called ‘Roles for Voice Actors’. This list will be useful to you for recruiting and/or assigning voice actors."));
-			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line5",
+			msg.AppendParagraph(Localizer.GetString("DialogBoxes.CastSizePlanningDlg.IsAbout.Line5",
 				"Not sure how to plan? Try some selections and see how the groups work out. You are free to come back and change things."));
 
 			var html = msg.ToString();
@@ -240,7 +241,7 @@ namespace Glyssen.Dialogs
 			var actorCount = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption).Total;
 			if (actorCount < m_viewModel.MinimumActorCount)
 			{
-				var msg = LocalizationManager.GetString("DialogBoxes.CastSizePlanningDlg.CastTooSmallWarning",
+				var msg = Localizer.GetString("DialogBoxes.CastSizePlanningDlg.CastTooSmallWarning",
 					"Using a cast size smaller than {0} will probably introduce proximity issues. Do you want to continue and generate groups using just {1} voice actors?");
 
 				if (MessageBox.Show(this, string.Format(msg, m_viewModel.MinimumActorCount, actorCount), ProductName, MessageBoxButtons.YesNo) == DialogResult.No)

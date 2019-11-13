@@ -947,6 +947,19 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CurrentBlockDisplayIndex > 0);
 		}
 
+		[TestCase(41001000)] // MRK 1:0
+		[TestCase(41000001)] // MRK 0:1
+		public void TryLoadBlock_FromRelevantBlockToNonScriptureBlock_NotLoaded(int bbbcccvvv)
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
+
+			Assert.IsFalse(m_model.TryLoadBlock(new VerseRef(bbbcccvvv, ScrVers.English)));
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
+		}
+
 		[Test]
 		public void LoadNextRelevantBlock_FollowingInsertionOfBlockByApplyingMatchupWithSplits_LoadsARelevantBlock()
 		{
