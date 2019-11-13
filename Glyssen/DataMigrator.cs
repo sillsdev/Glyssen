@@ -10,6 +10,7 @@ using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Scripture;
@@ -130,7 +131,7 @@ namespace Glyssen
 										}
 										catch (InvalidVersificationLineException ex)
 										{
-											var msg = string.Format(LocalizationManager.GetString("DataMigration.InvalidVersificationFile",
+											var msg = string.Format(Localizer.GetString("DataMigration.InvalidVersificationFile",
 													"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
 													"attempts to open this project will fail.\r\n" +
 													"Project: {0}\r\n" +
@@ -245,7 +246,7 @@ namespace Glyssen
 						string fmt;
 						if (safeReplacements.Count == 1)
 						{
-							fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
+							fmt = Localizer.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
 								"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
 								"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
 								"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
@@ -257,7 +258,7 @@ namespace Glyssen
 						}
 						else
 						{
-							fmt = LocalizationManager.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+							fmt = Localizer.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
 								"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
 								"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
 								"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
@@ -286,7 +287,7 @@ namespace Glyssen
 						string fmt;
 						if (unsafeReplacements.Count == 1)
 						{
-							fmt = LocalizationManager.GetString("DataMigration.NoticeToManuallyFixAudioAudioProject",
+							fmt = Localizer.GetString("DataMigration.NoticeToManuallyFixAudioAudioProject",
 								"However, doing this would replace the existing project by the same name. " +
 								"Since {0} was unable to determine whether this was safe or otherwise failed to do the replacement, it is recommended " +
 								"that you clean up the problem project yourself. You are encouraged to contact a local support person if needed or " +
@@ -298,7 +299,7 @@ namespace Glyssen
 						else
 						{
 
-							fmt = LocalizationManager.GetString("DataMigration.NoticeToManuallyFixAudioAudioProjects",
+							fmt = Localizer.GetString("DataMigration.NoticeToManuallyFixAudioAudioProjects",
 								"However, doing this would replace the existing projects by the same name. " +
 								"Since {0} was unable to determine whether this was safe or otherwise failed to do the replacements, it is recommended " +
 								"that you clean up the problem projects yourself. You are encouraged to contact a local support person if needed or " +
@@ -329,7 +330,7 @@ namespace Glyssen
 			string fmt;
 			if (count == 1)
 			{
-				fmt = LocalizationManager.GetString("DataMigration.AudioAudioProblemPreambleSingle",
+				fmt = Localizer.GetString("DataMigration.AudioAudioProblemPreambleSingle",
 					"To correct a problem in the way default recording project names were assigned in a previous version of the program, {0} has identified " +
 					"the following project that should be renamed to end with only a single \"{1}\":",
 					"Param 0: \"Glyssen\" (product name); " +
@@ -338,7 +339,7 @@ namespace Glyssen
 			}
 			else
 			{
-				fmt = LocalizationManager.GetString("DataMigration.AudioAudioProblemPreambleMultiple",
+				fmt = Localizer.GetString("DataMigration.AudioAudioProblemPreambleMultiple",
 					"To correct a problem in the way default recording project names were assigned in a previous version of the program, {0} has identified " +
 					"the following projects that should be renamed to end with only a single \"{1}\":",
 					"Param 0: \"Glyssen\" (product name); " +

@@ -530,6 +530,14 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetIndicesOfFirstBlockAtReference_InvalidRef_ReturnsNull()
+		{
+			VerseRef.TryParse("REV 5:5-3", out var verseRef);
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef);
+			Assert.IsNull(result);
+		}
+
+		[Test]
 		public void GetIndicesOfSpecificBlock_FirstBlock()
 		{
 			var result = m_navigator.GetIndicesOfSpecificBlock(m_books.First().GetScriptBlocks()[0]);

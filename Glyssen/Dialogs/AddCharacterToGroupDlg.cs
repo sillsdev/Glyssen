@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
 using L10NSharp.TMXUtils;
+using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -25,7 +26,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_viewModel.AddingToCameoGroup)
 			{
-				Text = String.Format(LocalizationManager.GetString("DialogBoxes.SelectCameoRoleDlg.Title",
+				Text = String.Format(Localizer.GetString("DialogBoxes.SelectCameoRoleDlg.Title",
 					"Select a Cameo Role for {0}"), m_viewModel.CameoActorName);
 			}
 		}

@@ -11,6 +11,7 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
 using Paratext.Data;
+using SIL;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
@@ -81,7 +82,7 @@ namespace Glyssen.Dialogs
 				var loadErrors = Program.CompatibleParatextProjectLoadErrors.ToList();
 				if (loadErrors.Any())
 				{
-					StringBuilder sb = new StringBuilder(String.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors",
+					StringBuilder sb = new StringBuilder(String.Format(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadErrors",
 						"The following {0} project load errors occurred:", "Param 0: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName));
 					foreach (var errMsgInfo in loadErrors)
 					{
@@ -92,7 +93,7 @@ namespace Glyssen.Dialogs
 							{
 								case UnsupportedReason.UnknownType:
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
-									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.UnknownProjectType",
+									sb.AppendFormat(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.UnknownProjectType",
 											"This project has a project type ({0}) that is not supported.", "Param 0: Paratext project type"),
 										errMsgInfo.ProjecType);
 									break;
@@ -100,7 +101,7 @@ namespace Glyssen.Dialogs
 								case UnsupportedReason.CannotUpgrade:
 									// Glyssen is newer than project version
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
-									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated",
+									sb.AppendFormat(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.ProjectOutdated",
 											"The project administrator needs to update it by opening it with {0} {1} or later. " +
 											"Alternatively, you might be able to revert to an older version of {2}.",
 											"Param 0: \"Paratext\" (product name); " +
@@ -114,7 +115,7 @@ namespace Glyssen.Dialogs
 								case UnsupportedReason.FutureVersion:
 									// Project version is newer than Glyssen
 									AppendVersionIncompatibilityMessage(sb, errMsgInfo);
-									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated",
+									sb.AppendFormat(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.GlyssenVersionOutdated",
 											"To read this project, a version of {0} compatible with {1} {2} is required.",
 											"Param 0: \"Glyssen\" (product name); " +
 											"Param 1: \"Paratext\" (product name); " +
@@ -127,7 +128,7 @@ namespace Glyssen.Dialogs
 
 								case UnsupportedReason.Corrupted:
 								case UnsupportedReason.Unspecified:
-									sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.Generic",
+									sb.AppendFormat(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.Generic",
 											"Project: {0}\nError message: {1}", "Param 0: Paratext project name; Param 1: error details"),
 										errMsgInfo.ProjectName, errMsgInfo.Exception.Message);
 									break;
@@ -146,11 +147,11 @@ namespace Glyssen.Dialogs
 			}
 			catch (Exception err)
 			{
-				NotifyUserOfParatextProblem(String.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.CantAccessParatext",
+				NotifyUserOfParatextProblem(String.Format(Localizer.GetString("DialogBoxes.OpenProjectDlg.CantAccessParatext",
 						"There was a problem accessing {0} data files.",
 						"Param: \"Paratext\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName),
-					string.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextError", "The error was: {0}"), err.Message));
+					string.Format(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextError", "The error was: {0}"), err.Message));
 				paratextProjects = new ScrText[0];
 			}
 			// ENHANCE (PG-63): Implement something like this if we decide to give the user the option of manually
@@ -175,7 +176,7 @@ namespace Glyssen.Dialogs
 
 		private static void AppendVersionIncompatibilityMessage(StringBuilder sb, ErrorMessageInfo errMsgInfo)
 		{
-			sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.VersionIncompatibility",
+			sb.AppendFormat(Localizer.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.VersionIncompatibility",
 					"Project {0} is not compatible with this version of {1}.", "Param 0: Paratext project name; Param 1: \"Glyssen\""),
 				errMsgInfo.ProjectName, GlyssenInfo.kProduct).Append(' ');
 		}
@@ -185,7 +186,7 @@ namespace Glyssen.Dialogs
 			additionalInfo.Aggregate(message, (current, s) => current + Environment.NewLine + s);
 
 			var result = ErrorReport.NotifyUserOfProblem(new ShowAlwaysPolicy(),
-				LocalizationManager.GetString("Common.Quit", "Quit"), ErrorResult.Abort, message);
+				Localizer.GetString("Common.Quit", "Quit"), ErrorResult.Abort, message);
 
 			if (result == ErrorResult.Abort)
 				Application.Exit();

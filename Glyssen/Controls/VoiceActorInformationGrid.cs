@@ -10,6 +10,7 @@ using Glyssen.VoiceActor;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
+using SIL;
 using SIL.Reporting;
 
 namespace Glyssen.Controls
@@ -36,7 +37,7 @@ namespace Glyssen.Controls
 			InitializeComponent();
 
 			m_dataGrid.AddRemoveRowColumn(null, null,
-				() => LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteColumn_ToolTip_", "Delete this voice actor"),
+				() => Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteColumn_ToolTip_", "Delete this voice actor"),
 				DeleteActor, true);
 
 			m_dataGrid.DataError += m_dataGrid_DataError;
@@ -48,14 +49,14 @@ namespace Glyssen.Controls
 			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();
 			ActorAge.ValueMember = "ID";
 			ActorAge.DisplayMember = "Name";
-			ActorAge.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
+			ActorAge.ToolTipText = Localizer.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
 				"“Age” quality of actor’s voice");
 
 			ActorQuality.DataSource = VoiceActorInformationViewModel.GetVoiceQualityDataTable();
 			ActorQuality.ValueMember = "ID";
 			ActorQuality.DisplayMember = "Name";
 
-			ActorInactive.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
+			ActorInactive.ToolTipText = Localizer.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
 				"No longer available");
 
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
@@ -66,7 +67,7 @@ namespace Glyssen.Controls
 			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 
 			// We can't set this in the designer because L10NSharp is squashing it when the header is localized.
-			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
+			Cameo.ToolTipText = Localizer.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
 				"Distinguished actor to play minor character role.");
 
 			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
@@ -250,11 +251,11 @@ namespace Glyssen.Controls
 			m_contextMenu_itemDeleteActors.Enabled = true;
 			if (SelectedRows.Count > 1)
 			{
-				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors", "Delete Actors");
+				m_contextMenu_itemDeleteActors.Text = Localizer.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors", "Delete Actors");
 			}
 			else
 			{
-				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActor", "Delete Actor");
+				m_contextMenu_itemDeleteActors.Text = Localizer.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActor", "Delete Actor");
 				if (m_dataGrid.SelectedRows[0].IsNewRow)
 					m_contextMenu_itemDeleteActors.Enabled = false;
 			}
@@ -288,7 +289,7 @@ namespace Glyssen.Controls
 				{
 					e.Cancel = true;
 					if (!m_inEndEdit)
-						MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DuplicateName", "Actor Name must be unique."));
+						MessageBox.Show(Localizer.GetString("DialogBoxes.VoiceActorInformation.DuplicateName", "Actor Name must be unique."));
 				}
 			}
 		}
@@ -319,7 +320,7 @@ namespace Glyssen.Controls
 				e.Cancel = true;
 				if (!m_inEndEdit)
 				{
-					MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName",
+					MessageBox.Show(Localizer.GetString("DialogBoxes.VoiceActorInformation.InvalidName",
 						"Actor Name must be provided."));
 					if (m_dataGrid.CurrentCellAddress.X != ActorName.Index)
 						m_dataGrid.CurrentCell = m_dataGrid.Rows[e.RowIndex].Cells[ActorName.Index];
@@ -458,34 +459,34 @@ namespace Glyssen.Controls
 				if (countOfActorsToDelete > 1)
 				{
 					msg =
-						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessagePlural",
+						Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessagePlural",
 							"One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
 					title =
-						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitlePlural",
+						Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitlePlural",
 							"Voice Actors Assigned");
 				}
 				else
 				{
 					msg =
-						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessageSingular",
+						Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessageSingular",
 							"The selected actor is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actor?");
 					title =
-						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitleSingular",
+						Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitleSingular",
 							"Voice Actor Assigned");
 				}
 			}
 			else
 			{
-				title = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
+				title = Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
 
 				if (countOfActorsToDelete > 1)
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessagePlural",
+					msg = Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessagePlural",
 						"Are you sure you want to delete the selected actors?");
 				}
 				else
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessageSingular",
+					msg = Localizer.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessageSingular",
 						"Are you sure you want to delete the selected actor?");
 				}
 			}

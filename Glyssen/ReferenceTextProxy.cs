@@ -7,6 +7,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using Glyssen.Shared.Bundle;
@@ -214,16 +215,16 @@ namespace Glyssen
 				if (!s_allAvailable.Any())
 				{
 					throw new Exception(
-						Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
+						Format(Localizer.GetString("ReferenceText.NoReferenceTextsLoaded",
 							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
 							"for more details."), GlyssenInfo.kProduct),
 						firstLoadError.Item1);
 				}
 				if (additionalErrors.Any())
 				{
-					var comma = LocalizationManager.GetString("Common.SimpleListSeparator", ", ");
+					var comma = Localizer.GetString("Common.SimpleListSeparator", ", ");
 					ErrorReport.ReportNonFatalExceptionWithMessage(firstLoadError.Item1,
-						Format(LocalizationManager.GetString("ReferenceText.MultipleLoadErrors",
+						Format(Localizer.GetString("ReferenceText.MultipleLoadErrors",
 							"The following reference texts could not be loaded: {0}"),
 							Format($"{firstLoadError.Item2}{comma}{Join(comma, additionalErrors)}")));
 				}
@@ -335,7 +336,7 @@ namespace Glyssen
 
 		private static string GetLoadErrorMessage(string token, string path)
 		{
-			return Format(LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
+			return Format(Localizer.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
 				token, path);
 		}
 

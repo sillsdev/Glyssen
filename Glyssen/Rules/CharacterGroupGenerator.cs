@@ -10,6 +10,7 @@ using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using SIL;
 using SIL.Extensions;
 using SIL.Progress;
  using SIL.Reporting;
@@ -118,7 +119,7 @@ namespace Glyssen.Rules
 
 					if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
 					{
-						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+						var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
 							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
 						MessageBox.Show(msg);
 					}
