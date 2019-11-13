@@ -188,7 +188,10 @@ namespace Glyssen
 				currBlock = m_blocks[i].Clone();
 				modifyClonedBlockAsNeeded?.Invoke(m_blocks[i], currBlock);
 				if (shouldCombine(currBlock, prevBlock))
+				{
+					prevBlock.CloneReferenceBlocks();
 					prevBlock.CombineWith(currBlock);
+				}
 				else
 					list.Add(currBlock);
 			}
