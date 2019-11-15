@@ -764,7 +764,7 @@ namespace Glyssen.Dialogs
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
-			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentBlockDisplayIndex);
+			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentDisplayIndex);
 			UpdateRelativeNavigationPositionDisplay();
 
 			m_navigatorViewModel.GetBlockVerseRef().SendScrReference();
@@ -772,7 +772,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateRelativeNavigationPositionDisplay()
 		{
-			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
+			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
 		}
 
 		private void UpdateNavigationButtonState()

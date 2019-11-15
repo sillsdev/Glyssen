@@ -133,7 +133,7 @@ namespace Glyssen
 
 		public bool IsLastBlock()
 		{
-			return IsLastBlockInBook(m_currentBook, CurrentBlock) && IsLastBook(m_currentBook);
+			return IsLastBlockInBook(m_currentBook, CurrentEndBlock) && IsLastBook(m_currentBook);
 		}
 
 		public bool IsLastBlockInBook(BookScript book, Block block)
@@ -189,14 +189,15 @@ namespace Glyssen
 		{
 			if (IsLastBook(m_currentBook))
 				return null;
-			return m_currentBook = m_books[++m_currentIndices.BookIndex];
+			m_currentIndices = new BookBlockIndices(m_currentIndices.BookIndex + 1, 0);
+			return m_currentBook = m_books[m_currentIndices.BookIndex];
 		}
 
 		public Block GetNextBlock()
 		{
 			if (IsLastBlock())
 				return null;
-			if (IsLastBlockInBook(m_currentBook, CurrentBlock))
+			if (IsLastBlockInBook(m_currentBook, CurrentEndBlock))
 			{
 				var nextBook = GetNextBook();
 				if (!nextBook.HasScriptBlocks)
@@ -204,9 +205,14 @@ namespace Glyssen
 				return nextBook[0];
 			}
 
-			return m_currentBook[m_currentIndices.BlockIndex + 1];
+			return m_currentBook[m_currentIndices.BlockIndex + (int)m_currentIndices.BlockCount];
 		}
 
+		/// <summary>
+		/// Gets a collection representing the requested number of blocks following the current
+		/// block (not including the current block). If the current indices represents a "MultiBlock"
+		/// position, the start block -- not the final block -- is used as a starting reference point.
+		/// </summary>
 		public IEnumerable<Block> GetNextNBlocksWithinBook(int numberOfBlocks)
 		{
 			var blocks = new List<Block>();
@@ -220,11 +226,18 @@ namespace Glyssen
 			return blocks;
 		}
 
+		/// <summary>
+		/// Gets the block "n" blocks beyond the current block. If the current indices represents a "MultiBlock"
+		/// position, the start block -- not the final block -- is used as a starting reference point.
+		/// </summary>
 		public Block GetNthNextBlockWithinBook(int n)
 		{
 			return GetNthNextBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
 		}
 
+		/// <summary>
+		/// Gets the block "n" blocks beyond the specified block.
+		/// </summary>
 		public Block GetNthNextBlockWithinBook(int n, Block baseLineBlock)
 		{
 			if (baseLineBlock == CurrentBlock)
@@ -293,16 +306,13 @@ namespace Glyssen
 		{
 			if (IsLastBlock())
 				return null;
-			if (IsLastBlockInBook(m_currentBook, CurrentBlock))
+			if (IsLastBlockInBook(m_currentBook, CurrentEndBlock))
 			{
 				var nextBook = GoToNextBook();
-				if (!nextBook.HasScriptBlocks)
-					return null;
-				m_currentIndices.BlockIndex = 0;
-				return nextBook[m_currentIndices.BlockIndex];
+				return !nextBook.HasScriptBlocks ? null : nextBook[m_currentIndices.BlockIndex];
 			}
 
-			m_currentIndices.BlockIndex++;
+			m_currentIndices.AdvanceToNextBlock();
 			return CurrentBlock;
 		}
 
@@ -317,7 +327,9 @@ namespace Glyssen
 		{
 			if (IsFirstBook(m_currentBook))
 				return null;
-			return m_currentBook = m_books[--m_currentIndices.BookIndex];
+			var newBookIndex = m_currentIndices.BookIndex - 1;
+			m_currentIndices = new BookBlockIndices(newBookIndex, m_books[newBookIndex].GetScriptBlocks().Count - 1);
+			return m_currentBook = m_books[newBookIndex];
 		}
 
 		public Block GetPreviousBlock()
@@ -335,26 +347,24 @@ namespace Glyssen
 			return m_currentBook[m_currentIndices.BlockIndex - 1];
 		}
 
-		public Block GoToPreviousBlock()
-		{
-			if (IsFirstBlock(CurrentBlock))
-				return null;
-			if (IsFirstBlockInBook(m_currentBook, CurrentBlock))
-			{
-				var previousBook = GoToPreviousBook();
-				if (!previousBook.HasScriptBlocks)
-					return null;
-				m_currentIndices.BlockIndex = m_currentBook.GetScriptBlocks().Count - 1;
-				return previousBook[m_currentIndices.BlockIndex];
-			}
+		//public Block GoToPreviousBlock()
+		//{
+		//	if (IsFirstBlock(CurrentBlock))
+		//		return null;
+		//	if (IsFirstBlockInBook(m_currentBook, CurrentBlock))
+		//	{
+		//		var previousBook = GoToPreviousBook();
+		//		return !previousBook.HasScriptBlocks ? null : previousBook[m_currentIndices.BlockIndex];
+		//	}
 
-			m_currentIndices.BlockIndex--;
-			return CurrentBlock;
-		}
+		//	m_currentIndices.BlockIndex--;
+		//	m_currentIndices.MultiBlockCount = 0;
+		//	return CurrentBlock;
+		//}
 
 		public void ExtendCurrentBlockGroup(uint additionalBlocks)
 		{
-			m_currentIndices.MultiBlockCount += additionalBlocks;
+			m_currentIndices.ExtendToIncludeMoreBlocks(additionalBlocks);
 		}
 	}
 }

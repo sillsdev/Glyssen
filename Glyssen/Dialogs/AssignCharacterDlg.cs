@@ -365,8 +365,8 @@ namespace Glyssen.Dialogs
 		{
 			if (m_labelXofY.Visible)
 			{
-				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
-				m_labelXofY.Text = Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentDisplayIndex);
+				m_labelXofY.Text = Format(m_xOfYFmt, m_viewModel.CurrentDisplayIndex, m_viewModel.RelevantBlockCount);
 			}
 		}
 
