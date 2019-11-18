@@ -715,7 +715,7 @@ namespace Glyssen.Dialogs
 					break;
 			}
 
-			m_navigatorViewModel.Mode = mode;
+			m_navigatorViewModel.SetMode(mode);
 
 			if (m_navigatorViewModel.RelevantBlockCount > 0)
 			{

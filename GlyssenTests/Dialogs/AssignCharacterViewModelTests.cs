@@ -92,7 +92,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetCharactersForCurrentReference_NonQuoteBlockContainingVerseWitExpectedQuote_GetsNarratorFollowedByOtherSpeakersInVersesInBlock()
 		{
-			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			m_model.SetMode(BlocksToDisplay.AllExpectedQuotes);
 			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
 			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.AreEqual(2, characters.Count);
@@ -145,7 +145,7 @@ namespace GlyssenTests.Dialogs
 		public void GetCharactersForCurrentReferenceTextMatchup_Works()
 		{
 			FindRefInMark(9, 21);
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 
 			var result = m_model.GetCharactersForCurrentReferenceTextMatchup().ToList();
 			Assert.AreEqual(3, result.Count);
@@ -158,7 +158,7 @@ namespace GlyssenTests.Dialogs
 		public void GetDeliveriesForCurrentReferenceTextMatchup_CannedDeliveries_GetsNormalPlusDeliveriesForCoveredVerses()
 		{
 			FindRefInMark(9, 21);
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.AreEqual(3, result.Count);
@@ -173,7 +173,7 @@ namespace GlyssenTests.Dialogs
 			FindRefInMark(10, 49);
 			m_model.SetCharacterAndDelivery(m_model.GetUniqueCharactersForCurrentReference().First(c => c.CharacterId == "Jesus"),
 				new AssignCharacterViewModel.Delivery("ordering"));
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
 			Assert.AreEqual(3, result.Count);
@@ -374,17 +374,17 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual(1, m_model.CompletedBlockCount);
 
-			m_model.Mode = BlocksToDisplay.NotYetAssigned;
+			m_model.SetMode(BlocksToDisplay.NotYetAssigned);
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
 
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
 			Assert.AreEqual(1, m_model.CompletedBlockCount);
 
 			// The assignment call above actually affects 5 blocks because they are all in the same quote.
-			m_model.Mode = BlocksToDisplay.AllScripture;
+			m_model.SetMode(BlocksToDisplay.AllScripture);
 			Assert.AreEqual(1, m_model.CompletedBlockCount);
 
-			m_model.Mode = BlocksToDisplay.HotSpots | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.SetMode(BlocksToDisplay.HotSpots | BlocksToDisplay.ExcludeUserConfirmed);
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
 		}
 
@@ -394,8 +394,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			while (m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0 &&
 				m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.GetText(true) == m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.GetText(true)) &&
 				m_model.CanNavigateToNextRelevantBlock)
@@ -416,7 +415,7 @@ namespace GlyssenTests.Dialogs
 			var origCorrelatedBlocksText = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true)).ToList();
 
 			m_model.ApplyCurrentReferenceTextMatchup();
-			m_model.Mode = BlocksToDisplay.KnownTroubleSpots;
+			m_model.SetMode(BlocksToDisplay.KnownTroubleSpots);
 			Assert.AreEqual(0, m_model.RelevantBlockCount, "IMPORTANT NOTE: We're using the KnownTroubleSpots for convenience because it isn't " +
 				"implemented. Therefore, nothing matches it. If we ever implement it, this test may need to be adjusted to ensure that when we " +
 				"switch to the new filter, nothing matches.");
@@ -469,7 +468,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetUniqueDeliveries_HasCurrentDeliveries_NoFilterText_ReturnsAll()
 		{
-			m_model.Mode = BlocksToDisplay.AllScripture;
+			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(5, 7);
 			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
@@ -481,7 +480,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetUniqueDeliveries_HasCurrentDeliveries_FilterText_ReturnsDeliveriesWithFilterText()
 		{
-			m_model.Mode = BlocksToDisplay.AllScripture;
+			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(5, 7);
 			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
@@ -630,7 +629,7 @@ namespace GlyssenTests.Dialogs
 			m_model.SetCurrentBookSingleVoice(true);
 
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
-			m_model.Mode = BlocksToDisplay.NotYetAssigned;
+			m_model.SetMode(BlocksToDisplay.NotYetAssigned);
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
@@ -649,7 +648,7 @@ namespace GlyssenTests.Dialogs
 		public void SplitBlock_SingleSplit_RelevantBlocksUpdated()
 		{
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
 			var currentBlock = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
 			var nextBlock = m_model.CurrentBlock;
@@ -684,7 +683,7 @@ namespace GlyssenTests.Dialogs
 
 			var model = new AssignCharacterViewModel(project);
 
-			model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
 			var currentBlock = model.CurrentBlock;
 			model.LoadNextRelevantBlock();
 			var nextBlock = model.CurrentBlock;
@@ -713,7 +712,7 @@ namespace GlyssenTests.Dialogs
 		public void SplitBlock_MultipleSplitsInOneBlock_RelevantBlocksUpdated()
 		{
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
 			while (m_model.CurrentBlock.InitialStartVerseNumber == m_model.CurrentBlock.LastVerseNum)
 				m_model.LoadNextRelevantBlock();
 			var currentBlock = m_model.CurrentBlock;
@@ -773,7 +772,7 @@ namespace GlyssenTests.Dialogs
 		public void SplitBlock_SplitsInMultipleBlocks_RelevantBlocksUpdated()
 		{
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
 			var currentBlock = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
 			var nextBlock = m_model.CurrentBlock;
@@ -817,7 +816,7 @@ namespace GlyssenTests.Dialogs
 		public void SplitBlock_DoubleSplitInBlockWhichIsNotRelevant_NewBlocksAllNeedAssignments()
 		{
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically);
 			FindRefInMark(1, 7);
 			Block firstRelevantBlockAfterTheBlockToSplit = m_model.CurrentBlock;
 			m_model.CurrentBlockIndexInBook = m_model.CurrentBlockIndexInBook - 2;
@@ -941,7 +940,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(splitIndex > 0);
 			var blockTextBeforeSplit = currentBlock.GetText(true);
 
-			model.Mode = BlocksToDisplay.MissingExpectedQuote;
+			model.SetMode(BlocksToDisplay.MissingExpectedQuote);
 			Assert.AreEqual("MRK", model.CurrentBookId, "Changing the filter should not have caused us to go to a different book.");
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
 			Assert.AreEqual(currentBlock, model.CurrentBlock, "Setting the CurrentBlockIndexInBook should have moved us back to the block we intend to split.");
@@ -983,10 +982,7 @@ namespace GlyssenTests.Dialogs
 		public void SplitBlock_SplitBetweenBlocks_IndicesNotChanged()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
-			var model = new AssignCharacterViewModel(project);
-
-			model.Mode = BlocksToDisplay.NotYetAssigned;
-			model.AttemptRefBlockMatchup = false;
+			var model = new AssignCharacterViewModel(project, BlocksToDisplay.NotYetAssigned, null);
 
 			while (model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
 				model.LoadNextRelevantBlock();
@@ -1028,10 +1024,11 @@ namespace GlyssenTests.Dialogs
 			{
 				model.LoadNextRelevantBlock();
 				matchup = model.CurrentReferenceTextMatchup;
-				blockToSplit = matchup.CountOfBlocksAddedBySplitting == 0 ? model.CurrentBlock : null;
-			} while (blockToSplit == null || blockToSplit.MultiBlockQuote != MultiBlockQuote.Start);
+				blockToSplit = matchup.CountOfBlocksAddedBySplitting == 0 && matchup.OriginalBlocks.Count() > 1 ?
+					matchup.OriginalBlocks.First() : null;
+			} while ((blockToSplit == null || blockToSplit.MultiBlockQuote != MultiBlockQuote.Start) && model.CanNavigateToNextRelevantBlock);
 
-			Assert.IsTrue(model.CanNavigateToNextRelevantBlock, "Did not find a block sufficient for testing this scenario - no subsequent relevant blocks");
+			Assert.NotNull(blockToSplit, "Did not find a block sufficient for testing this scenario - no subsequent relevant blocks");
 			Assert.IsTrue(blockToSplit.MultiBlockQuote == MultiBlockQuote.Start, "Did not find a block sufficient for testing this scenario");
 
 			var origOriginalBlockCount = matchup.OriginalBlockCount;
@@ -1098,8 +1095,7 @@ namespace GlyssenTests.Dialogs
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			var model = new AssignCharacterViewModel(project);
 
-			model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 
 			// Go to MAT 5:18
 			while (model.CurrentBlock.ChapterNumber != 5 || model.CurrentBlock.InitialStartVerseNumber != 18)
@@ -1140,8 +1136,7 @@ namespace GlyssenTests.Dialogs
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			var model = new AssignCharacterViewModel(project);
 
-			model.Mode = BlocksToDisplay.MissingExpectedQuote;
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(BlocksToDisplay.MissingExpectedQuote, true);
 			Assert.IsTrue(model.IsCurrentBlockRelevant);
 			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 && model.CanNavigateToNextRelevantBlock)
 			{
@@ -1166,7 +1161,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), origBlockText);
 
 			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
-			model.Mode = BlocksToDisplay.AllScripture;
+			model.SetMode(BlocksToDisplay.AllScripture, true);
 			model.LoadNextRelevantBlock();
 
 			Assert.True(model.IndexOfFirstBlockInCurrentGroup > indexOfBlockThatWasSplitOff);
@@ -1179,8 +1174,7 @@ namespace GlyssenTests.Dialogs
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
 			var model = new AssignCharacterViewModel(project);
 
-			model.Mode = BlocksToDisplay.MissingExpectedQuote;
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(BlocksToDisplay.MissingExpectedQuote, true);
 			var verseRef = new VerseRef(BCVRef.BookToNumber("MAT"), 1, 1, ScrVers.English);
 			Assert.IsTrue(model.TryLoadBlock(verseRef));
 			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 || model.IsCurrentBlockRelevant)
@@ -1207,7 +1201,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(model.IsCurrentBlockRelevant);
 
 			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
-			model.Mode = BlocksToDisplay.AllScripture;
+			model.SetMode(BlocksToDisplay.AllScripture, true);
 			model.LoadNextRelevantBlock();
 
 			Assert.True(model.IndexOfFirstBlockInCurrentGroup > indexOfBlockThatWasSplitOff);
@@ -1220,8 +1214,7 @@ namespace GlyssenTests.Dialogs
 			var project = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			var model = new AssignCharacterViewModel(project);
 
-			model.Mode = BlocksToDisplay.AllQuotes;
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(BlocksToDisplay.AllQuotes, true);
 
 			// LUK 21:20
 			Assert.IsTrue(model.TryLoadBlock(new VerseRef(042021020)));
@@ -1233,7 +1226,7 @@ namespace GlyssenTests.Dialogs
 			// LUK 21:21
 			Assert.IsTrue(model.TryLoadBlock(new VerseRef(042021021)));
 
-			blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
+			blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Last();
 			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "21", PortionScript.kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
 
@@ -1424,7 +1417,7 @@ namespace GlyssenTests.Dialogs
 		public void SetCurrentBookSingleVoice_CurrentBlockIsResultOfBlockMatchupSplit_MatchupResetAndOriginalBlocksRestored()
 		{
 			FindRefInMark(9, 21);
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
 			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0);
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
@@ -1455,7 +1448,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetCharacterToSelectForCurrentBlock_BlockHasAssignedCharacter_ReturnsAssignedCharacter()
 		{
-			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			m_model.SetMode(BlocksToDisplay.AllExpectedQuotes);
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
 			while (m_model.CurrentBlock.CharacterId != "Jesus")
 				m_model.LoadNextRelevantBlock();
@@ -1466,7 +1459,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetCharacterToSelectForCurrentBlock_BlockHasAssignedCharacterThatIsNotInEnumeration_ThisShouldNeverHappenInRealLife_ReturnsNull()
 		{
-			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			m_model.SetMode(BlocksToDisplay.AllExpectedQuotes);
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
 			while (m_model.CurrentBlock.CharacterId != "Jesus")
 				m_model.LoadNextRelevantBlock();
@@ -1562,7 +1555,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void SetReferenceTextMatchupCharacter_Null_CharacterSetToAmbiguousAndNotUserConfirmed()
 		{
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 			// To most closely simulate the real situation where this can occur, find a place where the matchup results in a correlated block with an
 			// unknown character ID. Then set an adjacent block's character id to "null", as would happen if the user atempted to swap the values between
 			// these two blocks.
@@ -1585,7 +1578,7 @@ namespace GlyssenTests.Dialogs
 
 		// This test for SetCharacterAndDelivery is pointless because that method is never intended to be called
 		// when there is a block matchup. (Maybe it was at some time in the past?) It no longer passes because
-		// setting m_model.AttemptRefBlockMatchup = true causes refiltering, which changes the state, and
+		// setting m_model.SetMode(m_model.Mode, true) causes refiltering, which changes the state, and
 		// FindRefInMark is implemented in such a way that it cannot find the verse when block matches are set.
 		// It didn't seem worthwhile to do further debugging of this test, especially since it relied on code
 		// which was only ever used for this test. I wasn't include to just delete it yet because I thought its
@@ -1598,7 +1591,7 @@ namespace GlyssenTests.Dialogs
 		//m_fullProjectRefreshRequired = true;
 		//FindRefInMark(9, 21);
 		//var originalAnchorBlock = m_model.CurrentBlock;
-		//m_model.AttemptRefBlockMatchup = true;
+		//m_model.SetMode(m_model.Mode, true);
 		//Assert.IsTrue(originalAnchorBlock.CharacterIsUnclear);
 		//var charactersForVerse = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 		//var deliveriesForVerse = m_model.GetUniqueDeliveries().ToList();
@@ -1726,10 +1719,9 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_testProject.AllCharacterDetailDictionary.ContainsKey("Thaddeus' wife"));
 
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 
 			FindRefInMark(8, 5);
-			m_model.AttemptRefBlockMatchup = true;
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
 			m_model.StoreCharacterDetail("Christ", CharacterGender.Male, CharacterAge.Adult);
 			var newCharacterChrist = new AssignCharacterViewModel.Character("Christ");
@@ -1763,12 +1755,11 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_testProject.AllCharacterDetailDictionary.ContainsKey(charChrist));
 
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.AllScripture;
+			m_model.SetMode(BlocksToDisplay.AllScripture, true);
 
 			const int chapter = 13;
 			const int startVerse = 5;
 			FindRefInMark(chapter, startVerse);
-			m_model.AttemptRefBlockMatchup = true;
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
 			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1];
 			Assert.AreEqual(5, block.InitialStartVerseNumber);
@@ -1836,11 +1827,10 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 
-			m_model.AttemptRefBlockMatchup = true;
-			m_model.Mode = BlocksToDisplay.AllQuotes;
+			m_model.SetMode(BlocksToDisplay.AllQuotes, true);
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 7, 6);
 			var iBlock = m_model.CurrentBlockIndexInBook;
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			m_model.CurrentBlockIndexInBook = iBlock;
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 
@@ -1867,12 +1857,12 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NotAlignedToReferenceText_ReferenceTextSetButNoAssignmentsMade_NoChangeToMaximumAssignmentsIncremented()
 		{
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 34);
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
@@ -1894,11 +1884,10 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NeedAssignmentsTask_ApplyCurrentReferenceTextMatchupMakesTwoAssignments_NoChangeToMaximumAssignmentsIncremented()
 		{
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			m_assigned = 0;
 
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 8, 5);
-			m_model.AttemptRefBlockMatchup = true;
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
@@ -1921,12 +1910,12 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NotAlignedToReferenceText_CharacterAssignmentApplied_NoChangeToMaximumAssignmentsIncremented()
 		{
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 10, 48);
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
  			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchupForMark85.CorrelatedBlocks.Count);
@@ -1950,15 +1939,15 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NeedAssignmentsTask_VernacularSplitByReferenceText_NoChangeToMaximumAssignmentsIncremented()
 		{
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 12, 15);
-			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
-			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetMode(m_model.Mode, true);
 			var matchupForMark1215 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(1, matchupForMark1215.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(1, matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear));
@@ -1981,12 +1970,11 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NotAlignedToReferenceText_VernacularSplitByReferenceText_MaximumAndAssignmentsIncremented()
 		{
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 3, 19);
-			m_model.AttemptRefBlockMatchup = true;
 			var matchupForMark319 = m_model.CurrentReferenceTextMatchup;
 			var countOfBlocksAddedBySplitting = matchupForMark319.CountOfBlocksAddedBySplitting;
 			Assert.IsTrue(countOfBlocksAddedBySplitting > 0);
@@ -2023,8 +2011,7 @@ namespace GlyssenTests.Dialogs
 			// to be able to navigate back to it and not have the total count keep going down.
 			m_assigned = 0;
 			m_fullProjectRefreshRequired = true;
-			//m_model.AttemptRefBlockMatchup = true;
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			while (m_model.CurrentReferenceTextMatchup == null || m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting == 0 ||
 				m_model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 ||
@@ -2105,7 +2092,7 @@ namespace GlyssenTests.Dialogs
 			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, new BookBlockIndices(0,
 				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical) &&
 				b.InitialStartVerseNumber > 0)));
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(model.Mode, true);
 			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
@@ -2116,7 +2103,7 @@ namespace GlyssenTests.Dialogs
 			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, new BookBlockIndices(0,
 				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter) &&
 				b.ChapterNumber > 0)));
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(model.Mode, true);
 			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
@@ -2125,7 +2112,7 @@ namespace GlyssenTests.Dialogs
 		public void Constructor_StartingIndexIsOutOfRangeBook_StartingIndexIgnored()
 		{
 			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, new BookBlockIndices(1, 3));
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(model.Mode, true);
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
 
@@ -2133,7 +2120,7 @@ namespace GlyssenTests.Dialogs
 		public void Constructor_StartingIndexIsOutOfRangeBlock_StartingIndexIgnored()
 		{
 			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically, new BookBlockIndices(0, Int32.MaxValue));
-			model.AttemptRefBlockMatchup = true;
+			model.SetMode(model.Mode, true);
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
 	}
@@ -2187,7 +2174,7 @@ namespace GlyssenTests.Dialogs
 			m_model.CurrentBlock.UserConfirmed = true;
 			m_model.LoadNextRelevantBlock();
 
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 
 			Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber <= 37);
 			while (m_model.CanNavigateToPreviousRelevantBlock && m_model.CurrentBlock.ChapterNumber >= 8)
@@ -2260,7 +2247,6 @@ namespace GlyssenTests.Dialogs
 		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuote_CharacterSetForAllContinuationBlocks()
 		{
 			Func<Block, bool> isAmbiguousStartBlock = block => block.MultiBlockQuote == MultiBlockQuote.Start && block.CharacterId == CharacterVerseData.kAmbiguousCharacter;
-			m_model.AttemptRefBlockMatchup = true;
 			// Find a matchup that has a multi-block quote that is ambiguous.
 			while ((m_model.CurrentReferenceTextMatchup == null ||
 				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isAmbiguousStartBlock(b))) &&
@@ -2296,7 +2282,6 @@ namespace GlyssenTests.Dialogs
 		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuote_SetToNarrator_QuoteChainBrokenIntoIndividual()
 		{
 			Func<Block, bool> isAmbiguousStartBlock = block => block.MultiBlockQuote == MultiBlockQuote.Start && block.CharacterId == CharacterVerseData.kAmbiguousCharacter;
-			m_model.AttemptRefBlockMatchup = true;
 			// Find a matchup that has a multi-block quote that is ambiguous.
 			while ((m_model.CurrentReferenceTextMatchup == null ||
 					!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isAmbiguousStartBlock(b))) &&
@@ -2333,7 +2318,6 @@ namespace GlyssenTests.Dialogs
 		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuoteButMatchupContainsNoContinuationBlocks_DoesNotCrash()
 		{
 			Func<Block, bool> isStartBlockAtEndOfMatchup = block => block.MultiBlockQuote == MultiBlockQuote.Start && block == m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last();
-			m_model.AttemptRefBlockMatchup = true;
 			// Find a matchup that ends with the first block of a multi-block quote.
 			while ((m_model.CurrentReferenceTextMatchup == null ||
 				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isStartBlockAtEndOfMatchup(b))) &&

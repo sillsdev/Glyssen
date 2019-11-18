@@ -78,7 +78,7 @@ namespace Glyssen.Dialogs
 
 			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
 
-			Mode = mode;
+			SetModeInternal(mode);
 
 			if (startingIndices != null && !startingIndices.IsUndefined && startingIndices.BookIndex < m_project.IncludedBooks.Count)
 			{
@@ -115,7 +115,7 @@ namespace Glyssen.Dialogs
 			m_includedBooks = books.Select(b => b.BookId);
 			Versification = versification;
 
-			Mode = BlocksToDisplay.AllScripture;
+			SetModeInternal(BlocksToDisplay.AllScripture);
 		}
 
 		internal BlockNavigator BlockNavigator
@@ -189,15 +189,7 @@ namespace Glyssen.Dialogs
 		public int CurrentBookNumber => BlockAccessor.CurrentBook.BookNumber;
 		public bool CurrentBookIsSingleVoice => BlockAccessor.CurrentBook.SingleVoice;
 
-		public Block CurrentBlock
-		{
-			get
-			{
-				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
-					return m_currentRefBlockMatchups.CorrelatedAnchorBlock;
-				return BlockAccessor.CurrentBlock;
-			}
-		}
+		public Block CurrentBlock => BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CorrelatedAnchorBlock : BlockAccessor.CurrentBlock;
 		public Block CurrentEndBlock => BlockAccessor.CurrentEndBlock;
 		protected Block CurrentBlockInOriginal => BlockAccessor.CurrentBlock;
 		public BlockMatchup CurrentReferenceTextMatchup => m_currentRefBlockMatchups;
@@ -205,38 +197,14 @@ namespace Glyssen.Dialogs
 		public int ForwardContextBlockCount { get; set; }
 		public string ProjectName => m_project.Name;
 		public BlockGroupingType BlockGroupingStyle => m_currentRefBlockMatchups == null ? BlockGroupingType.Quote : BlockGroupingType.BlockCorrelation;
-		public bool AttemptRefBlockMatchup
-		{
-			get { return m_attemptRefBlockMatchup; }
-			set
-			{
-				if (m_attemptRefBlockMatchup == value)
-					return;
-				if (!value && (Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
-					throw new InvalidOperationException("The \"Not aligned to reference text\" filer requires matching up with the reference text.");
-				m_attemptRefBlockMatchup = value;
-				//if (value)
-				//	SetBlockMatchupForCurrentVerse();
-				//else
-				//	ClearBlockMatchup();
-				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
-				ResetFilter(BlockAccessor.CurrentBlock, false);
-			}
-		}
+		public bool AttemptRefBlockMatchup => m_attemptRefBlockMatchup;
 
 		public bool CanDisplayReferenceTextForCurrentBlock => m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook) && !CurrentBook.SingleVoice;
 
-		public bool IsCurrentBlockRelevant
-		{
-			get
-			{
-				BookBlockIndices indices = BlockAccessor.GetIndices();
-				return m_relevantBookBlockIndices.Any(i => i.Contains(indices));
-			}
-		}
+		public bool IsCurrentBlockRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
 
-		public IEnumerable<string> IncludedBooks { get { return m_includedBooks; } }
-		public FontProxy Font { get { return m_font; } }
+		public IEnumerable<string> IncludedBooks => m_includedBooks;
+		public FontProxy Font => m_font;
 		public FontProxy PrimaryReferenceTextFont => m_referenceTextFonts[m_project.ReferenceText];
 		public FontProxy EnglishReferenceTextFont
 		{
@@ -263,7 +231,7 @@ namespace Glyssen.Dialogs
 
 		public int CurrentBlockIndexInBook
 		{
-			get => BlockAccessor.GetIndices().BlockIndex;
+			get => BlockAccessor.GetIndices().BlockIndex + (m_currentRefBlockMatchups?.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock) ?? 0);
 			set
 			{
 				int index = value;
@@ -287,13 +255,10 @@ namespace Glyssen.Dialogs
 							index++; // A section head should NEVER be the last one in the matchup!
 							newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
 						}
+						// Just reset the anchor (if needed) and get out.
 						if (newAnchorBlock != m_currentRefBlockMatchups.CorrelatedAnchorBlock)
 						{
-							// Just reset the anchor and get out.
 							m_currentRefBlockMatchups.ChangeAnchor(newAnchorBlock);
-							var relevantBlockIndex = m_relevantBookBlockIndices.IndexOf(new BookBlockIndices(bookIndex, value));
-							if (relevantBlockIndex >= 0)
-								m_currentRelevantIndex = relevantBlockIndex;
 							HandleCurrentBlockChanged();
 						}
 						return;
@@ -320,23 +285,29 @@ namespace Glyssen.Dialogs
 			return b;
 		}
 
+		public void SetMode(BlocksToDisplay mode, bool attemptBlockMatchup = false)
+		{
+			if (m_mode == mode && m_attemptRefBlockMatchup == attemptBlockMatchup)
+				return;
+
+			if (!attemptBlockMatchup && (mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
+				throw new InvalidOperationException("The \"Not aligned to reference text\" filer requires matching up with the reference text.");
+
+			m_attemptRefBlockMatchup = attemptBlockMatchup;
+			SetModeInternal(mode);
+		}
+
 		public virtual BlocksToDisplay Mode
 		{
 			get => m_mode;
-			set
-			{
-				if (m_mode == value)
-					return;
-
-				SetModeInternal(value);
-			}
+			protected set => m_mode = value;
 		}
 
-		protected void SetModeInternal(BlocksToDisplay mode, bool stayOnCurrentBlock = false)
+		private void SetModeInternal(BlocksToDisplay mode, bool stayOnCurrentBlock = false)
 		{
-			m_mode = mode;
+			Mode = mode;
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
-				m_attemptRefBlockMatchup = true; // Don't use the property because it will cause ResetFilter to be called twice.
+				m_attemptRefBlockMatchup = true;
 			m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
 			ResetFilter(BlockAccessor.CurrentBlock, stayOnCurrentBlock);
 		}
@@ -361,7 +332,7 @@ namespace Glyssen.Dialogs
 						{
 							indices.BlockIndex++;
 							if (SetAsCurrentLocationIfRelevant(indices))
-								return; // REVIEW: Let's see if this is really still needed. Shouldn't be unless maybe a matchup's extent changes
+								return; // This can happen, for example if we're switching out of rainbow mode and going from a previously relevant matchup to a single relevant block within it.
 						}
 					}
 					if (stayOnCurrentBlock)
@@ -570,13 +541,9 @@ namespace Glyssen.Dialogs
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
-		public VerseRef GetBlockVerseRef(Block block = null, ScrVers targetVersification = null)
+		public VerseRef GetBlockVerseRef()
 		{
-			block = block ?? BlockAccessor.CurrentBlock;
-			var verseRef =  block.StartRef(CurrentBookNumber, Versification);
-			if (targetVersification != null)
-				verseRef.ChangeVersification(targetVersification);
-			return verseRef;
+			return BlockAccessor.CurrentBlock.StartRef(CurrentBookNumber, Versification);
 		}
 
 		public int GetLastVerseInCurrentQuote()
@@ -693,6 +660,9 @@ namespace Glyssen.Dialogs
 
 		public bool TryLoadBlock(VerseRef verseRef)
 		{
+			if (TrySelectRefInCurrentBlockMatchup(verseRef))
+				return true;
+
 			var indices = BlockAccessor.GetIndicesOfFirstBlockAtReference(verseRef, AttemptRefBlockMatchup);
 			if (indices == null)
 				return false;
@@ -709,8 +679,34 @@ namespace Glyssen.Dialogs
 				m_temporarilyIncludedBookBlockIndices = null;
 
 			m_currentRelevantIndex = indexOfRelevantBlock;
+
 			SetBlock(indices);
+			TrySelectRefInCurrentBlockMatchup(verseRef);
 			return true;
+		}
+
+		private bool TrySelectRefInCurrentBlockMatchup(VerseRef verseRef)
+		{
+			if (m_currentRefBlockMatchups != null && CurrentBook.BookNumber == verseRef.BookNum && CurrentBlock.ChapterNumber == verseRef.ChapterNum &&
+				m_currentRefBlockMatchups.CorrelatedBlocks.First().InitialStartVerseNumber <= verseRef.VerseNum &&
+				m_currentRefBlockMatchups.CorrelatedBlocks.Last().LastVerseNum >= verseRef.VerseNum)
+			{
+				// Just need to find the correct block within the current matchup and select it as the anchor block.
+				foreach (var block in m_currentRefBlockMatchups.CorrelatedBlocks)
+				{
+					if (block.LastVerseNum >= verseRef.VerseNum)
+					{
+						if (m_currentRefBlockMatchups.CorrelatedAnchorBlock != block)
+						{
+							m_currentRefBlockMatchups.ChangeAnchor(block);
+							HandleCurrentBlockChanged();
+						}
+						return true;
+					}
+				}
+			}
+
+			return false;
 		}
 
 		// Internal for testing
@@ -834,12 +830,12 @@ namespace Glyssen.Dialogs
 				SetBlockMatchupForCurrentVerse();
 				if (m_currentRefBlockMatchups != null &&
 					!indices.IsMultiBlock &&
-					CurrentBlockIndexInBook != indices.BlockIndex &&
+					// Pretty sure these next two checks will always be true, but better safe than sorry:
 					m_currentRefBlockMatchups.IndexOfStartBlockInBook <= indices.BlockIndex &&
-					m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.OriginalBlockCount >= indices.BlockIndex)
+					m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.OriginalBlockCount >= indices.BlockIndex &&
+					m_currentRefBlockMatchups.CorrelatedAnchorBlock != m_currentRefBlockMatchups.CorrelatedBlocks[indices.BlockIndex - m_currentRefBlockMatchups.IndexOfStartBlockInBook])
 				{
-					// TODO: refactor code from CurrentBlockIndexInBook to set anchor block if possible
-					CurrentBlockIndexInBook = indices.BlockIndex
+					m_currentRefBlockMatchups.ChangeAnchor(m_currentRefBlockMatchups.CorrelatedBlocks[indices.BlockIndex - m_currentRefBlockMatchups.IndexOfStartBlockInBook]);
 				}
 			}
 
@@ -912,12 +908,6 @@ namespace Glyssen.Dialogs
 				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
-			//bool relevantBlockRemoved = false;
-			//if (insertions > 0 && !BlockAccessor.GetIndices().IsMultiBlock)
-			//{
-			//	foreach (var indices in IndicesOfOriginalRelevantBlocks)
-			//		relevantBlockRemoved |= m_relevantBookBlockIndices.Remove(indices);
-			//}
 
 			m_currentRefBlockMatchups.Apply(m_project.Versification);
 			if (insertionIndex < 0)
@@ -932,24 +922,7 @@ namespace Glyssen.Dialogs
 
 			var origRelevantBlockCount = RelevantBlockCount;
 
-			//if (relevantBlockRemoved)
-			//{
-			//	m_relevantBookBlockIndices.InsertRange(insertionIndex,
-			//		m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => BlockAccessor.GetIndicesOfSpecificBlock(b)));
-			//	if (m_temporarilyIncludedBookBlockIndices != null)
-			//	{
-			//		var indexOfCurrentBlock = m_relevantBookBlockIndices.IndexOf(m_temporarilyIncludedBookBlockIndices);
-			//		if (indexOfCurrentBlock >= 0)
-			//		{
-			//			m_temporarilyIncludedBookBlockIndices = null;
-			//			m_currentRelevantIndex = indexOfCurrentBlock;
-			//		}
-			//	}
-			//}
-			//else //if (BlockAccessor.GetIndices().IsMultiBlock)
-			//{
 			m_navigator.ExtendCurrentBlockGroup((uint)insertions);
-			//}
 
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",

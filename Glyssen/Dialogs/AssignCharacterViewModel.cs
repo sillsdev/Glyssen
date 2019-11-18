@@ -7,7 +7,6 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;
-using L10NSharp;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
@@ -61,8 +60,8 @@ namespace Glyssen.Dialogs
 
 		public override BlocksToDisplay Mode
 		{
-			get { return base.Mode; }
-			set
+			get => base.Mode;
+			protected set
 			{
 				base.Mode = value;
 				m_project.Status.AssignCharacterMode = value;
@@ -178,7 +177,7 @@ namespace Glyssen.Dialogs
 				}
 				else
 				{
-					CurrentReferenceTextMatchup?.ChangeAnchor(CurrentBlock);
+					CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
 				}
 			}
 			base.HandleCurrentBlockChanged();
@@ -632,6 +631,7 @@ namespace Glyssen.Dialogs
 					// A split will always require the current matchup to be re-constructed.
 					SetBlockMatchupForCurrentVerse();
 				}
+
 
 				//// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
 				//// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
