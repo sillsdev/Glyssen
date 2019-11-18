@@ -5,6 +5,9 @@ if NOT EXIST ..\%palaso% set palaso=palaso
 xcopy /Y ..\%palaso%\output\debug\SIL.Core.dll lib\dotnet
 xcopy /Y ..\%palaso%\output\debug\SIL.Core.pdb lib\dotnet
 
+xcopy /Y ..\%palaso%\output\debug\SIL.Core.Desktop.dll lib\dotnet
+xcopy /Y ..\%palaso%\output\debug\SIL.Core.Desktop.pdb lib\dotnet
+
 xcopy /Y ..\%palaso%\output\debug\SIL.DblBundle.dll lib\dotnet
 xcopy /Y ..\%palaso%\output\debug\SIL.DblBundle.pdb lib\dotnet
 
