@@ -491,7 +491,6 @@
     <Compile Include="Utilities\UndoStack.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Utilities\FileSystemUtils.cs" />
-    <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
@@ -696,6 +695,10 @@
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
+      <Project>{fdf9df2e-776b-4d7c-8e63-61dad4c39ac3}</Project>
+      <Name>GlyssenEngine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
       <Name>GlyssenShared</Name>

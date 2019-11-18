@@ -187,7 +187,6 @@
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\FileSystemUtilsTests.cs" />
-    <Compile Include="Utilities\MathUtilitiesTests.cs" />
     <Compile Include="Utilities\UndoActionSequenceTests.cs" />
     <Compile Include="Utilities\UndoStackTests.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />

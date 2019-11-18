@@ -8,6 +8,7 @@ using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using SIL.Scripture;
 
 namespace Glyssen.Quote

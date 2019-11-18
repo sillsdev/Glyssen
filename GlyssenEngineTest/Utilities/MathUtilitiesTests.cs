@@ -1,7 +1,7 @@
-﻿using Glyssen.Utilities;
+﻿using GlyssenEngine.Utilities;
 using NUnit.Framework;
 
-namespace GlyssenTests.Utilities
+namespace GlyssenEngineTests.Utilities
 {
 	[TestFixture]
 	public class MathUtilitiesTests

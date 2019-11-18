@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using L10NSharp;
 using SIL;
 
