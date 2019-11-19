@@ -1045,8 +1045,15 @@ namespace Glyssen.Dialogs
 
 		private void HandleFilterChanged(object sender, EventArgs e)
 		{
-			if (!IsHandleCreated)
+			if (IsHandleCreated)
+			{
+				HandleCreated -= HandleFilterChanged;
+			}
+			else
+			{
+				HandleCreated += HandleFilterChanged;
 				return;
+			}
 
 			Cursor = Cursors.WaitCursor;
 
