@@ -696,13 +696,14 @@ namespace GlyssenTests.Dialogs
 			navigator.GoToNextBlock();
 			navigator.GoToNextBlock();
 
-			var found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+			var found = model.BlockHasMissingExpectedQuote(navigator.CurrentBlock, false, versesWithPotentialMissingQuote);
 
 			Assert.False(found);
 		}
 
-		[Test]
-		public void CurrentBlockHasMissingExpectedQuote_QuoteContainsVerseBridgeNonQuoteAtBeginning_NoMissingExpectedQuotes()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void CurrentBlockHasMissingExpectedQuote_QuoteContainsVerseBridgeNonQuoteAtBeginning_NoMissingExpectedQuotes(bool searchForwardOnlyFromFirstVerse)
 		{
 			var blockA = new Block("ip") {MultiBlockQuote = MultiBlockQuote.None};
 			var blockB = new Block("p", 1, 1, 2) {MultiBlockQuote = MultiBlockQuote.None};
@@ -721,11 +722,11 @@ namespace GlyssenTests.Dialogs
 			navigator.GoToFirstBlock();
 			navigator.GoToNextBlock();
 
-			var found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+			var found = model.BlockHasMissingExpectedQuote(navigator.CurrentBlock, searchForwardOnlyFromFirstVerse, versesWithPotentialMissingQuote);
 			Assert.False(found);
 
 			navigator.GoToNextBlock();
-			found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+			found = model.BlockHasMissingExpectedQuote(navigator.CurrentBlock, false, versesWithPotentialMissingQuote);
 			Assert.False(found);
 		}
 

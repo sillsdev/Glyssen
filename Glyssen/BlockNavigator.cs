@@ -268,16 +268,29 @@ namespace Glyssen
 			return blocks;
 		}
 
-		public IEnumerable<Block> GetPreviousBlocksWithinBookWhile(Func<Block, bool> predicate)
+		public IEnumerable<Block> GetSurroundingBlocksWithinBookWhile(Func<Block, bool> predicate, bool forwardOnly, Block startBlock = null)
 		{
 			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
-			while (tempCurrentBlockIndex > 0 && predicate(m_currentBook[--tempCurrentBlockIndex]))
-				yield return m_currentBook[tempCurrentBlockIndex];
-		}
+			if (startBlock != null && startBlock != CurrentBlock)
+			{
+				var currentBookBlocks = m_currentBook.GetScriptBlocks();
+				// By far the most common case will be a start block within the current multi-block index, so we'll try that first
+				do
+				{
+					if (++tempCurrentBlockIndex > m_currentIndices.EffectiveFinalBlockIndex)
+					{
+						tempCurrentBlockIndex = currentBookBlocks.IndexOf(startBlock);
+						break;
+					}
+				} while (currentBookBlocks[tempCurrentBlockIndex] != startBlock);
+			}
 
-		public IEnumerable<Block> GetNextBlocksWithinBookWhile(Func<Block, bool> predicate)
-		{
-			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
+			if (!forwardOnly)
+			{
+				var tempTempIndex = tempCurrentBlockIndex;
+				while (tempTempIndex > 0 && predicate(m_currentBook[--tempTempIndex]))
+					yield return m_currentBook[tempTempIndex];
+			}
 			while (!IsLastBlockInBook(m_currentBook, tempCurrentBlockIndex) && predicate(m_currentBook[++tempCurrentBlockIndex]))
 				yield return m_currentBook[tempCurrentBlockIndex];
 		}

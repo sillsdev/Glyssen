@@ -559,7 +559,7 @@ namespace Glyssen.Dialogs
 			if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
 				return CurrentBlock;
 
-			var lastBlock = BlockAccessor.GetNextBlocksWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start).LastOrDefault();
+			var lastBlock = BlockAccessor.GetSurroundingBlocksWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start, true).LastOrDefault();
 			return lastBlock ?? CurrentBlock;
 		}
 		#endregion
@@ -1060,13 +1060,13 @@ namespace Glyssen.Dialogs
 			// No-op in base class
 		}
 
-		private bool IsRelevant(Block block, bool ignoreExcludeUserConfirmed = false)
+		private bool IsRelevant(Block block, bool rebuildingFilter = true)
 		{
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 				return block.CharacterIsUnclear;
 			if (block.IsContinuationOfPreviousBlockQuote)
 				return false;
-			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
+			if (rebuildingFilter && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
 			if ((Mode & BlocksToDisplay.NotAssignedAutomatically) > 0)
 				return BlockNotAssignedAutomatically(block);
@@ -1081,15 +1081,18 @@ namespace Glyssen.Dialogs
 				if (block.IsQuote || CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
 					return false;
 
+				// When rebuilding the filter, we can be sure that any block that starts mid-verse has already had that first partial verse
+				// checked, so we can save some time by ony checking any verses that start in the block and then we only have to examine any
+				// following blocks (for the same final verse) to see if there is a quote.
+				var versesToCheck = rebuildingFilter ? block.BlockElements.OfType<IVerse>() : block.AllVerses;
 				var versesWithPotentialMissingQuote =
-					block.AllVerses.SelectMany(v => v.AllVerseNumbers).Where(verse => ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber,
+					versesToCheck.SelectMany(v => v.AllVerseNumbers).Where(verse => ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber,
 					block.ChapterNumber, new SingleVerse(verse), Versification).Any(c => c.IsExpected))
 					.Select(v => new BCVRef(CurrentBookNumber, block.ChapterNumber, v)).ToList();
 				if (!versesWithPotentialMissingQuote.Any())
 					return false;
 
-				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method.
-				return CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+				return BlockHasMissingExpectedQuote(block, rebuildingFilter, versesWithPotentialMissingQuote);
 			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
 			{
@@ -1099,23 +1102,23 @@ namespace Glyssen.Dialogs
 				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber,
 					(Block.InitialVerseNumberBridgeFromBlock)block, Versification).Distinct(m_characterEqualityComparer).Count();
 
-				var actualquotes = 1; // this is the quote represented by the given block.
+				var actualQuotes = 1; // this is the quote represented by the given block.
 
-				if (actualquotes > expectedSpeakers)
+				if (actualQuotes > expectedSpeakers)
 					return true;
 
-				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method.
 				// Check surrounding blocks to count quote blocks for same verse.
-				actualquotes += BlockAccessor.GetPreviousBlocksWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
-					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
+				foreach (var surroundingBlockInVerse in BlockAccessor.GetSurroundingBlocksWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber, false, block))
+				{
+					if (surroundingBlockInVerse.IsQuoteStart)
+					{
+						if (++actualQuotes > expectedSpeakers)
+							return true;
+					}
+				}
 
-				if (actualquotes > expectedSpeakers)
-					return true;
-
-				actualquotes += BlockAccessor.GetNextBlocksWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
-					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
-
-				return (actualquotes > expectedSpeakers);
+				return false;
 			}
 			if ((Mode & BlocksToDisplay.AllScripture) > 0)
 				return true;
@@ -1142,15 +1145,10 @@ namespace Glyssen.Dialogs
 			return (block.UserConfirmed || block.CharacterIsUnclear);
 		}
 
-		internal bool CurrentBlockHasMissingExpectedQuote(IEnumerable<BCVRef> versesWithPotentialMissingQuote)
+		internal bool BlockHasMissingExpectedQuote(Block startBlock, bool searchForwardOnly, IEnumerable<BCVRef> versesWithPotentialMissingQuote)
 		{
-			foreach (var verse in versesWithPotentialMissingQuote)
-			{
-				if (BlockAccessor.GetPreviousBlocksWithinBookWhile(b => PeekBackwardBlocksMatch(b, verse)).All(b => !b.IsQuote) &&
-					BlockAccessor.GetNextBlocksWithinBookWhile(b => PeekForwardBlocksMatch(b, verse)).All(b => !b.IsQuote))
-					return true;
-			}
-			return false;
+			return versesWithPotentialMissingQuote.Any(verse => BlockAccessor.GetSurroundingBlocksWithinBookWhile
+				(b => PeekBackwardBlocksMatch(b, verse), searchForwardOnly, startBlock).All(b => !b.IsQuote));
 		}
 
 		static bool PeekBackwardBlocksMatch(Block block , BCVRef verse)
@@ -1199,14 +1197,13 @@ namespace Glyssen.Dialogs
 							m_relevantBookBlockIndices[m_currentRelevantIndex].ExtendToIncludeMoreBlocks(1);
 						return;
 					}
-					// else - This can happen when using a filter (e.g., All Scripture) that does not make use
-					// of MultiBlockCount to track with the block matchups. In that case, we want to fall through
-					// in order do the simple addition of this block to relevant blocks if appropriate.
+					Debug.Fail("Can this happen now?");
+					// else, fall through in order do the simple addition of this block to relevant blocks if appropriate.
 				}
 				else
 					return;
 			}
-			if (IsRelevant(newOrModifiedBlock, true))
+			if (IsRelevant(newOrModifiedBlock, false))
 			{
 				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
 				m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
