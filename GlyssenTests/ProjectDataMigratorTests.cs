@@ -8,6 +8,7 @@ using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;
+using static System.String;
 
 namespace GlyssenTests
 {
@@ -1724,6 +1725,197 @@ namespace GlyssenTests
 			Assert.IsTrue(origBlocks.Select(b => b.CharacterId).SequenceEqual(resultingBlocks.Select(b => b.CharacterId)));
 			Assert.IsTrue(origBlocks.Select(b => b.UserConfirmed).SequenceEqual(resultingBlocks.Select(b => b.UserConfirmed)));
 		}
+
+		#region PG-1291/PG-1286
+		[TestCase("{1} This is not empty. ", " ")]
+		[TestCase("{1} Neither is this; but it could have been but it could have been but it could have been ", "but it could have been ")]
+		[TestCase("{1} The other block's ref text was just a verse number.", "The other block's ref text was just a verse number.")]
+		public void MigrateDuplicatedReferenceTextFromJoining_SingleVoiceBook_NoChanges(string block1RefText, string block2RefText)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			var mark = testProject.IncludedBooks.Single();
+			var poetryBlockInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Single(b => b.StyleTag == "q1");
+			mark.SplitBlock(poetryBlockInMarkC1V2, "2", poetryBlockInMarkC1V2.GetText(true).IndexOf("ma bigero yoni;", StringComparison.Ordinal));
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var poetryBlocksInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Where(b => b.StyleTag == "q1").ToList();
+			poetryBlocksInMarkC1V2[0].SetMatchedReferenceBlock(block1RefText);
+			poetryBlocksInMarkC1V2[0].UserConfirmed = true;
+			poetryBlocksInMarkC1V2[1].SetMatchedReferenceBlock(block2RefText);
+			poetryBlocksInMarkC1V2[1].UserConfirmed = true;
+
+			var origBlock1RefText = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			var origBlock2RefText = poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText();
+
+			mark.SingleVoice = true;
+
+			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
+
+			Assert.AreEqual(origBlock1RefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock2RefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
+		}
+
+		[TestCase("{1} This is not empty.  ", " ", 1)]
+		[TestCase("{1} This is not empty. ", "", 2)]
+		[TestCase("{1} Neither is this; ", "but it could have been ", 3)]
+		[TestCase("{1} ", "The other block's ref text was just a verse number.", 1)]
+		public void MigrateDuplicatedReferenceTextFromJoining_MultiVoiceBook_RepeatedBlock2ReferenceTextRemovedFromBlock1(string block1RefText, string block2RefText,
+			int numberOfTimesToJoin)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			var mark = testProject.IncludedBooks.Single();
+			var poetryBlockInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Single(b => b.StyleTag == "q1");
+			var newBlock = mark.SplitBlock(poetryBlockInMarkC1V2, "2", poetryBlockInMarkC1V2.GetText(true).IndexOf("ma bigero yoni;", StringComparison.Ordinal));
+			poetryBlockInMarkC1V2.MultiBlockQuote = MultiBlockQuote.Start;
+			newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			newBlock.CharacterId = poetryBlockInMarkC1V2.CharacterId;
+			var poetryBlocksInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Where(b => b.StyleTag == "q1").ToList();
+			poetryBlocksInMarkC1V2[0].SetMatchedReferenceBlock(block1RefText);
+			poetryBlocksInMarkC1V2[0].UserConfirmed = true;
+			poetryBlocksInMarkC1V2[1].SetMatchedReferenceBlock(block2RefText);
+			poetryBlocksInMarkC1V2[1].UserConfirmed = true;
+
+			var origBlock1RefText = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			var origBlock2RefText = poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText();
+
+			for (int i = 0; i < numberOfTimesToJoin; i++)
+				poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().CombineWith(poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single());
+
+			var joinedRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			if (!IsNullOrWhiteSpace(block2RefText))
+				Assert.AreNotEqual(joinedRefTextToVerifySetup, origBlock1RefText);
+			Assert.IsTrue(joinedRefTextToVerifySetup.StartsWith(origBlock1RefText));
+			Assert.IsTrue(joinedRefTextToVerifySetup.EndsWith(origBlock2RefText));
+
+			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
+
+			Assert.AreEqual(origBlock1RefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock2RefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
+		}
+
+		[TestCase("{1} This is not  ", " ", " empty ", 2)]
+		[TestCase("{1} This is not ", "", " empty ", 2)]
+		[TestCase("{1} This is not", "", "empty", 3)]
+		[TestCase("{1} This is not", "", " ", 1)]
+		[TestCase("{1} Neither is this; ", "but it could have been, ", "you know ", 3)]
+		[TestCase("{1} ", "The other block's ref text was just a verse number.", " ", 1)]
+		[TestCase("{1}", "The other block's ref text was just a verse number.", " ", 2)]
+		public void MigrateDuplicatedReferenceTextFromJoining_MultiVoiceBookWithMultipleJoinedBlocks_RepeatedBlock2And3ReferenceTextRemovedFromBlock1(
+			string block1RefText, string block2RefText, string block3RefText, int numberOfTimesToJoin)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			var mark = testProject.IncludedBooks.Single();
+			var poetryBlockInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Single(b => b.StyleTag == "q1");
+			var newBlock = mark.SplitBlock(poetryBlockInMarkC1V2, "2", 8);
+			poetryBlockInMarkC1V2.MultiBlockQuote = MultiBlockQuote.Start;
+			newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			newBlock.CharacterId = poetryBlockInMarkC1V2.CharacterId;
+			newBlock = mark.SplitBlock(newBlock, "2", 9);
+			newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			newBlock.CharacterId = poetryBlockInMarkC1V2.CharacterId;
+			var poetryBlocksInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Where(b => b.StyleTag == "q1").ToList();
+			poetryBlocksInMarkC1V2[0].SetMatchedReferenceBlock(block1RefText);
+			poetryBlocksInMarkC1V2[0].UserConfirmed = true;
+			poetryBlocksInMarkC1V2[1].SetMatchedReferenceBlock(block2RefText);
+			poetryBlocksInMarkC1V2[1].UserConfirmed = true;
+			poetryBlocksInMarkC1V2[2].SetMatchedReferenceBlock(block3RefText);
+			poetryBlocksInMarkC1V2[2].UserConfirmed = true;
+
+			var origBlock1RefText = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			var origBlock2RefText = poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText();
+			var origBlock3RefText = poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText();
+
+			for (int i = 0; i < numberOfTimesToJoin; i++)
+			{
+				poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().CombineWith(poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single());
+				poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().CombineWith(poetryBlocksInMarkC1V2[2].ReferenceBlocks.Single());
+			}
+
+			var joinedRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			if (!IsNullOrWhiteSpace(block2RefText) || !IsNullOrWhiteSpace(block3RefText))
+				Assert.AreNotEqual(joinedRefTextToVerifySetup, origBlock1RefText);
+			Assert.IsTrue(joinedRefTextToVerifySetup.StartsWith(origBlock1RefText));
+			Assert.IsTrue(joinedRefTextToVerifySetup.Contains(origBlock2RefText));
+			Assert.IsTrue(joinedRefTextToVerifySetup.EndsWith(origBlock3RefText));
+
+			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
+
+			Assert.AreEqual(origBlock1RefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock2RefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock3RefText, poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText());
+		}
+
+		[TestCase("{1} This is not  ", " ", " empty ", 2)]
+		[TestCase("{1} This is not ", "", " empty ", 2)]
+		[TestCase("{1} This is not", "", "empty", 3)]
+		[TestCase("{1} This is not", "", " ", 1)]
+		[TestCase("{1} Neither is this; ", "but it could have been, ", "you know ", 3)]
+		[TestCase("{1} ", "The other block's ref text was just a verse number.", " ", 1)]
+		[TestCase("{1}", "The other block's ref text was just a verse number.", " ", 2)]
+		public void MigrateDuplicatedReferenceTextFromJoining_MultiVoiceBookWithMultipleJoinedBlocksAndSecondaryReferenceText_RepeatedBlock2And3ReferenceTextRemovedFromBlock1(
+			string block1RefText, string block2RefText, string block3RefText, int numberOfTimesToJoin)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			testProject.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var mark = testProject.IncludedBooks.Single();
+			var poetryBlockInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Single(b => b.StyleTag == "q1");
+			var newBlock = mark.SplitBlock(poetryBlockInMarkC1V2, "2", 8);
+			poetryBlockInMarkC1V2.MultiBlockQuote = MultiBlockQuote.Start;
+			newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			newBlock.CharacterId = poetryBlockInMarkC1V2.CharacterId;
+			newBlock = mark.SplitBlock(newBlock, "2", 9);
+			newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			newBlock.CharacterId = poetryBlockInMarkC1V2.CharacterId;
+			var poetryBlocksInMarkC1V2 = mark.GetBlocksForVerse(1, 2).Where(b => b.StyleTag == "q1").ToList();
+			poetryBlocksInMarkC1V2[0].SetMatchedReferenceBlock(ToCyrillic(block1RefText)).SetMatchedReferenceBlock(block1RefText);
+			poetryBlocksInMarkC1V2[0].UserConfirmed = true;
+			poetryBlocksInMarkC1V2[1].SetMatchedReferenceBlock(ToCyrillic(block2RefText)).SetMatchedReferenceBlock(block2RefText);
+			poetryBlocksInMarkC1V2[1].UserConfirmed = true;
+			poetryBlocksInMarkC1V2[2].SetMatchedReferenceBlock(ToCyrillic(block3RefText)).SetMatchedReferenceBlock(block3RefText);
+			poetryBlocksInMarkC1V2[2].UserConfirmed = true;
+
+			var origBlock1PrimaryRefText = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			var origBlock1SecondaryRefText = poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().GetPrimaryReferenceText();
+			var origBlock2PrimaryRefText = poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText();
+			var origBlock2SecondaryRefText = poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single().GetPrimaryReferenceText();
+			var origBlock3PrimaryRefText = poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText();
+			var origBlock3SecondaryRefText = poetryBlocksInMarkC1V2[2].ReferenceBlocks.Single().GetPrimaryReferenceText();
+
+			for (int i = 0; i < numberOfTimesToJoin; i++)
+			{
+				poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().CombineWith(poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single());
+				poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().CombineWith(poetryBlocksInMarkC1V2[2].ReferenceBlocks.Single());
+			}
+
+			var joinedPrimaryRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText();
+			var joinedSecondaryRefTextToVerifySetup = poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().GetPrimaryReferenceText();
+			if (!IsNullOrWhiteSpace(block2RefText) || !IsNullOrWhiteSpace(block3RefText))
+			{
+				Assert.AreNotEqual(joinedPrimaryRefTextToVerifySetup, origBlock1PrimaryRefText);
+				Assert.AreNotEqual(joinedSecondaryRefTextToVerifySetup, origBlock1SecondaryRefText);
+			}
+
+			Assert.IsTrue(joinedPrimaryRefTextToVerifySetup.StartsWith(origBlock1PrimaryRefText));
+			Assert.IsTrue(joinedPrimaryRefTextToVerifySetup.Contains(origBlock2PrimaryRefText));
+			Assert.IsTrue(joinedPrimaryRefTextToVerifySetup.EndsWith(origBlock3PrimaryRefText));
+			Assert.IsTrue(joinedSecondaryRefTextToVerifySetup.StartsWith(origBlock1SecondaryRefText));
+			Assert.IsTrue(joinedSecondaryRefTextToVerifySetup.Contains(origBlock2SecondaryRefText));
+			Assert.IsTrue(joinedSecondaryRefTextToVerifySetup.EndsWith(origBlock3SecondaryRefText));
+
+			ProjectDataMigrator.MigrateDuplicatedReferenceTextFromJoining(testProject.Books);
+
+			Assert.AreEqual(origBlock1PrimaryRefText, poetryBlocksInMarkC1V2[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock1SecondaryRefText, poetryBlocksInMarkC1V2[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock2PrimaryRefText, poetryBlocksInMarkC1V2[1].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock2SecondaryRefText, poetryBlocksInMarkC1V2[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock3PrimaryRefText, poetryBlocksInMarkC1V2[2].GetPrimaryReferenceText());
+			Assert.AreEqual(origBlock3SecondaryRefText, poetryBlocksInMarkC1V2[2].ReferenceBlocks.Single().GetPrimaryReferenceText());
+		}
+
+		private string ToCyrillic(string english)
+		{
+			return english.Replace('s', 'с').Replace('n', 'н').Replace('e', 'э');
+		}
+		#endregion
 
 		private void SetDummyReferenceText(IEnumerable<Block> blocks)
 		{

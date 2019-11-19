@@ -3580,6 +3580,26 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasExtraChapterBeyondLastChapterOfRefText_VernVersesInExtraChapterRemainsUnmatched()
+		{
+			var vernacularBlocks = new List<Block> {
+				CreateNarratorBlockForVerse(24, "Köszöntsétek minden elõljárótokat és a szenteket mind. Köszöntenek titeket az Olaszországból valók. ", true, 13, "HEB")
+					.AddVerse(25, "Kegyelem mindnyájatokkal! Ámen!"),
+				NewChapterBlock("HEB", 14),
+				CreateNarratorBlockForVerse(1, "Alright, who's the wise guy?", true, 14, "HEB"),
+				CreateNarratorBlockForVerse(2, "This is not supposed to be here", true, 14, "HEB")
+			};
+			var vernBook = new BookScript("HEB", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2);
+			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+			matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 3);
+			Assert.IsFalse(matchup.CorrelatedBlocks.Last().MatchesReferenceText);
+		}
+
+		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasLeadingSquareBracket_BlockIsNotSplitBetweenBracketAndVerseNumber()
 		{
 			var vernacularBlocks = new List<Block> {
@@ -3870,6 +3890,33 @@ namespace GlyssenTests
 			Assert.AreEqual(expected,
 				Join("", matchup.CorrelatedBlocks[0].ReferenceBlocks.Select(r => r.GetText(true))));
 			Assert.AreEqual(referenceBlocks.Last().GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true));
+		}
+
+		/// <summary>
+		/// PG-1297
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernacularHasTextBeforeVerse1InChapter_MatchupDoesNotCrossChapterBoundary()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(25, "He had no relations with her until she had her firstborn son: and he called him Jesus.", true));
+			vernacularBlocks.Add(NewChapterBlock("MAT", 2));
+			vernacularBlocks.Add(new Block("s", 2) {CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical)}
+				.AddText("The next thing"));
+			vernacularBlocks.Add(new Block("p", 2) { CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator) }.AddText("The text before verse one:"));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 1, "“Who am I?”", false, 2));
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			for (var i = 0; i < vernacularBlocks.Count; i++)
+			{
+				var block = vernacularBlocks[i];
+				if (!block.IsScripture)
+					continue;
+				var matchup = primaryReferenceText.GetBlocksForVerseMatchedToReferenceText(testProject.Books.First(), i);
+				Assert.AreEqual(matchup.OriginalBlocks.First().ChapterNumber, matchup.OriginalBlocks.Last().ChapterNumber);
+			}
 		}
 
 		#region private helper methods

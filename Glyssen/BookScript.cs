@@ -138,7 +138,7 @@ namespace Glyssen
 					if (!clone.CharacterIsStandard)
 						clone.CharacterIdInScript = narrator;
 				};
-				shouldCombine = (curr, prev) => !curr.IsParagraphStart || (curr.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false)));
+				shouldCombine = (block1, block2) => !block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
 			}
 			else
 			{
@@ -154,29 +154,7 @@ namespace Glyssen
 						};
 				}
 
-				shouldCombine = (curr, prev) =>
-				{
-					if (curr.MatchesReferenceText == prev.MatchesReferenceText &&
-						curr.CharacterIdInScript == prev.CharacterIdInScript && (curr.Delivery ?? Empty) == (prev.Delivery ?? Empty))
-					{
-						if (curr.MatchesReferenceText)
-						{
-							return curr.ReferenceBlocks.Single().StartsWithEllipsis ||
-							((!curr.IsParagraphStart || (curr.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false)))) &&
-								!curr.ContainsVerseNumber &&
-								((!curr.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
-										!CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false))) ||
-									curr.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
-									prev.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
-						}
-						if (!curr.StartsAtVerseStart)
-						{
-							var style = (StyleAdapter)m_styleSheet.GetStyle(curr.StyleTag);
-							return !curr.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prev.GetText(false)));
-						}
-					}
-					return false;
-				};
+				shouldCombine = ShouldCombineBlocksInMultiVoiceBook;
 			}
 
 			var currBlock = m_blocks[0].Clone();
@@ -187,13 +165,42 @@ namespace Glyssen
 				var prevBlock = list.Last();
 				currBlock = m_blocks[i].Clone();
 				modifyClonedBlockAsNeeded?.Invoke(m_blocks[i], currBlock);
-				if (shouldCombine(currBlock, prevBlock))
+				if (shouldCombine(prevBlock, currBlock))
+				{
+					prevBlock.CloneReferenceBlocks();
 					prevBlock.CombineWith(currBlock);
+				}
 				else
 					list.Add(currBlock);
 			}
 
 			return clonedBook;
+		}
+
+		internal bool ShouldCombineBlocksInMultiVoiceBook(Block block1, Block block2)
+		{
+			if (block2.MatchesReferenceText == block1.MatchesReferenceText &&
+				block2.CharacterIdInScript == block1.CharacterIdInScript && (block2.Delivery ?? Empty) == (block1.Delivery ?? Empty))
+			{
+				if (block2.MatchesReferenceText)
+				{
+					return block2.ReferenceBlocks.Single().StartsWithEllipsis ||
+						((!block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)))) &&
+							!block2.ContainsVerseNumber &&
+							((!block2.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
+									!CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false))) ||
+								block2.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
+								block1.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
+				}
+
+				if (!block2.StartsAtVerseStart)
+				{
+					var style = (StyleAdapter)m_styleSheet.GetStyle(block2.StyleTag);
+					return !block2.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
+				}
+			}
+
+			return false;
 		}
 
 		internal string GetCharacterIdInScript(Block block)

@@ -224,6 +224,8 @@ namespace Glyssen
 
 		public bool IsOkayToSplitAtVerse(VerseRef nextVerse, ScrVers vernacularVersification, List<VerseSplitLocation> verseSplitLocationsBasedOnRef)
 		{
+			if (nextVerse.VerseNum == 0) // This is unusual, but there can be verse text before verse 1
+				return true; // and it is always valid (indeed required) to split at a chapter break.
 			nextVerse.Versification = vernacularVersification;
 			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
 		}
@@ -298,7 +300,11 @@ namespace Glyssen
 						if (bookId != "MRK")
 							Logger.WriteMinorEvent("Reference text matching went off end of ref block list for " +
 								$"vern block {currentVernBlock}");
-						iRefBlock = refBook.GetIndexOfFirstBlockForVerse(currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber);
+						var verse = currentVernBlock.StartRef(bookNum, vernacularVersification);
+						verse.ChangeVersification(Versification);
+						iRefBlock = refBook.GetIndexOfFirstBlockForVerse(verse.ChapterNum, verse.VerseNum);
+						if (iRefBlock < 0)
+							break;
 					}
 					else
 					{
