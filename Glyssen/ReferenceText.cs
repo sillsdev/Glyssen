@@ -224,6 +224,8 @@ namespace Glyssen
 
 		public bool IsOkayToSplitAtVerse(VerseRef nextVerse, ScrVers vernacularVersification, List<VerseSplitLocation> verseSplitLocationsBasedOnRef)
 		{
+			if (nextVerse.VerseNum == 0) // This is unusual, but there can be verse text before verse 1
+				return true; // and it is always valid (indeed required) to split at a chapter break.
 			nextVerse.Versification = vernacularVersification;
 			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
 		}

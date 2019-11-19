@@ -3959,6 +3959,33 @@ namespace GlyssenTests
 			Assert.AreEqual(referenceBlocks.Last().GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true));
 		}
 
+		/// <summary>
+		/// PG-1297
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernacularHasTextBeforeVerse1InChapter_MatchupDoesNotCrossChapterBoundary()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(25, "He had no relations with her until she had her firstborn son: and he called him Jesus.", true));
+			vernacularBlocks.Add(NewChapterBlock("MAT", 2));
+			vernacularBlocks.Add(new Block("s", 2) {CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical)}
+				.AddText("The next thing"));
+			vernacularBlocks.Add(new Block("p", 2) { CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator) }.AddText("The text before verse one:"));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 1, "“Who am I?”", false, 2));
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			for (var i = 0; i < vernacularBlocks.Count; i++)
+			{
+				var block = vernacularBlocks[i];
+				if (!block.IsScripture)
+					continue;
+				var matchup = primaryReferenceText.GetBlocksForVerseMatchedToReferenceText(testProject.Books.First(), i);
+				Assert.AreEqual(matchup.OriginalBlocks.First().ChapterNumber, matchup.OriginalBlocks.Last().ChapterNumber);
+			}
+		}
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{

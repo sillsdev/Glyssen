@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public static class MathUtilities
 	{
