@@ -60,6 +60,7 @@ namespace GlyssenTests.Dialogs
 				Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
 				m_model.LoadNextRelevantBlock();
 			} while (!m_model.CanNavigateToNextRelevantBlock);
+
 			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
 		}
 
@@ -78,6 +79,7 @@ namespace GlyssenTests.Dialogs
 				}
 				else
 					blocksInPreviousRainbowGroup = null;
+
 				m_model.LoadNextRelevantBlock();
 			} while (m_model.CanNavigateToNextRelevantBlock);
 		}
@@ -114,6 +116,7 @@ namespace GlyssenTests.Dialogs
 				}
 				else
 					blocksInFollowingRainbowGroup = null;
+
 				m_model.LoadPreviousRelevantBlock();
 			} while (m_model.CanNavigateToPreviousRelevantBlock);
 		}
@@ -432,6 +435,7 @@ namespace GlyssenTests.Dialogs
 					break;
 				}
 			}
+
 			Assert.True(quoteStart >= 0, "Couldn't find data suitable to test");
 
 			var startBlock = m_model.FindStartOfQuote(ref i);
@@ -484,6 +488,7 @@ namespace GlyssenTests.Dialogs
 					} while (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation);
 				}
 			}
+
 			m_model.CurrentBlockIndexInBook = i;
 			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
 			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
@@ -509,6 +514,7 @@ namespace GlyssenTests.Dialogs
 					} while (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation);
 				}
 			}
+
 			m_model.CurrentBlockIndexInBook = i;
 			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
 			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
@@ -666,19 +672,19 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void CurrentBlockHasMissingExpectedQuote_QuoteContainsVerseBridgeNonQuoteAtEnd_NoMissingExpectedQuotes()
 		{
-			var blockA = new Block("ip") { MultiBlockQuote = MultiBlockQuote.None };
-			var blockB = new Block("p", 1, 1) { MultiBlockQuote = MultiBlockQuote.Start };
+			var blockA = new Block("ip") {MultiBlockQuote = MultiBlockQuote.None};
+			var blockB = new Block("p", 1, 1) {MultiBlockQuote = MultiBlockQuote.Start};
 			blockB.BlockElements.Add(new Verse("1"));
 			blockB.BlockElements.Add(new ScriptText("Verse 1"));
-			var blockC = new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation };
+			var blockC = new Block("p", 1, 2) {MultiBlockQuote = MultiBlockQuote.Continuation};
 			blockC.BlockElements.Add(new Verse("2"));
 			blockC.BlockElements.Add(new ScriptText("Verse 2"));
 			blockC.BlockElements.Add(new Verse("3-4"));
 			blockC.BlockElements.Add(new ScriptText("Verse 3-4"));
-			var blockD = new Block("p", 1, 3, 4) { MultiBlockQuote = MultiBlockQuote.None };
+			var blockD = new Block("p", 1, 3, 4) {MultiBlockQuote = MultiBlockQuote.None};
 			blockD.BlockElements.Add(new ScriptText("Jesus said"));
-			var bookScriptJud = new BookScript("JUD", new List<Block> { blockA, blockB, blockC, blockD }, ScrVers.English);
-			var bookList = new List<BookScript> { bookScriptJud };
+			var bookScriptJud = new BookScript("JUD", new List<Block> {blockA, blockB, blockC, blockD}, ScrVers.English);
+			var bookList = new List<BookScript> {bookScriptJud};
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 3), new BCVRef(65, 1, 4)};
 
@@ -711,7 +717,7 @@ namespace GlyssenTests.Dialogs
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 1), new BCVRef(65, 1, 2)};
 
 			var model = new BlockNavigatorViewModel(bookList, ScrVers.English);
-			var navigator = (BlockNavigator) ReflectionHelper.GetField(model, "m_navigator");
+			var navigator = (BlockNavigator)ReflectionHelper.GetField(model, "m_navigator");
 			navigator.GoToFirstBlock();
 			navigator.GoToNextBlock();
 
@@ -759,6 +765,7 @@ namespace GlyssenTests.Dialogs
 			{
 				m_model.LoadNextRelevantBlock();
 			}
+
 			Assert.True(m_model.CanNavigateToNextRelevantBlock);
 
 			var origBlockCount = m_model.BlockCountForCurrentBook;
@@ -777,6 +784,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		#region These tests test the process of creating a block matchup (as performed by SetBlockMatchupForCurrentVerse), but that method is called indirectly.
+
 		[Test]
 		public void SetBlockMatchupForCurrentVerse_Indirect_BlockWithTwoVersesSplitByReferenceText_CurrentReferenceTextMatchupHasOneOriginalBlockAndTwoCorrelatedBlocks()
 		{
@@ -786,6 +794,7 @@ namespace GlyssenTests.Dialogs
 			{
 				m_model.LoadNextRelevantBlock();
 			}
+
 			var origBlockCount = m_model.BlockCountForCurrentBook;
 			FindRefInMark(m_model, 1, 12);
 
@@ -804,6 +813,7 @@ namespace GlyssenTests.Dialogs
 			{
 				m_model.LoadNextRelevantBlock();
 			}
+
 			var origBlockCount = m_model.BlockCountForCurrentBook;
 
 			while (m_model.CanNavigateToNextRelevantBlock)
@@ -818,6 +828,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Single().GetText(true), m_model.CurrentBlock.GetText(true));
 			Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
 		}
+
 		#endregion
 
 		[Test]
@@ -943,6 +954,7 @@ namespace GlyssenTests.Dialogs
 				Assert.AreEqual(correlatedBlock, m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup + c), c.ToString());
 				c++;
 			}
+
 			Assert.AreEqual(origFollowingBlock, m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock + m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting));
 		}
 
@@ -961,6 +973,7 @@ namespace GlyssenTests.Dialogs
 					throw new Exception("Could not find Mark " + chapter + ":" + verse);
 				model.LoadNextRelevantBlock();
 			}
+
 			Assert.AreEqual("MRK", model.CurrentBookId);
 			Assert.AreEqual(chapter, model.CurrentBlock.ChapterNumber);
 			Assert.IsTrue(verse >= model.CurrentBlock.InitialStartVerseNumber && verse <= model.CurrentEndBlock.LastVerseNum);
@@ -1060,6 +1073,7 @@ namespace GlyssenTests.Dialogs
 				Assert.AreEqual(++displayIndex, m_model.CurrentDisplayIndex);
 				Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 			} while (m_model.CurrentBookId == "MRK");
+
 			Assert.AreEqual("ACT", m_model.CurrentBookId);
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 		}
@@ -1136,7 +1150,7 @@ namespace GlyssenTests.Dialogs
 			m_model.LoadNextRelevantBlock();
 			var origNextRelevantBlock = m_model.CurrentBlock;
 			m_model.SetMode(BlocksToDisplay.NotYetAssigned, true);
-			
+
 			m_model.TryLoadBlock(new VerseRef(41, 9, 21, m_testProject.Versification));
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 
@@ -1392,7 +1406,7 @@ namespace GlyssenTests.Dialogs
 				b.ChapterNumber == 15 &&
 				b.LastVerseNum == ScrVers.English.GetLastVerse(bookNum, b.ChapterNumber) &&
 				b.StartsAtVerseStart &&
-				b.AllVerses.Skip(1).Any() && 
+				b.AllVerses.Skip(1).Any() &&
 				b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			// We have to manually split the block to separate the initial verses which already don't match
 			// the reference text from the last two verse, which are just plain narrator verses in both the
@@ -1433,6 +1447,39 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(m_model.Mode, true);
 			Assert.IsTrue(m_model.TryLoadBlock(m_targetReference));
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+		}
+	}
+
+	[TestFixture]
+	class BlockNavigatorViewModelTestsForMatCuk
+	{
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void IsRelevant_MissingExpectedQuote_BlockWithMultiple_BlocksWithMissingExpectedQuotes()
+		{
+			Project testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			BlockNavigatorViewModel model = new BlockNavigatorViewModel(testProject, BlocksToDisplay.MissingExpectedQuote);
+			model.SetMode(model.Mode, true);
+
+			model.TryLoadBlock(new VerseRef(40, 3, 14));
+			Assert.AreEqual(14, model.CurrentReferenceTextMatchup.OriginalBlocks.Last().LastVerseNum);
+			model.LoadNextRelevantBlock();
+
+			// MAT 3:15-17 should not be relevant
+			Assert.AreEqual("MAT", model.CurrentBookId);
+			Assert.IsFalse(model.CurrentBlock.ChapterNumber == 3 && model.CurrentBlock.InitialStartVerseNumber <= 17);
 		}
 	}
 }
