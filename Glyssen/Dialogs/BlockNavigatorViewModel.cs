@@ -201,7 +201,7 @@ namespace Glyssen.Dialogs
 
 		public bool CanDisplayReferenceTextForCurrentBlock => m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook) && !CurrentBook.SingleVoice;
 
-		public bool IsCurrentBlockRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
+		public bool IsCurrentLocationRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
 
 		public IEnumerable<string> IncludedBooks => m_includedBooks;
 		public FontProxy Font => m_font;
@@ -589,7 +589,7 @@ namespace Glyssen.Dialogs
 				if (RelevantBlockCount == 0)
 					return false;
 
-				if (IsCurrentBlockRelevant)
+				if (IsCurrentLocationRelevant)
 				{
 					if (m_currentRelevantIndex == 0)
 						return false;
@@ -617,7 +617,7 @@ namespace Glyssen.Dialogs
 					return false;
 				}
 
-				if (IsCurrentBlockRelevant)
+				if (IsCurrentLocationRelevant)
 				{
 					if (m_currentRelevantIndex == RelevantBlockCount - 1)
 					{
@@ -719,7 +719,7 @@ namespace Glyssen.Dialogs
 
 			var currentBookIndex = BlockAccessor.GetIndicesOfSpecificBlock(BlockAccessor.CurrentBlock).BookIndex;
 
-			var blockIndex = (IsCurrentBlockRelevant) ? m_currentRelevantIndex + 1 :
+			var blockIndex = (IsCurrentLocationRelevant) ? m_currentRelevantIndex + 1 :
 				GetIndexOfClosestRelevantBlock(m_relevantBookBlockIndices, m_temporarilyIncludedBookBlockIndices, false, 0, RelevantBlockCount - 1);
 
 			var bookBlockIndices = m_relevantBookBlockIndices[blockIndex];
@@ -736,7 +736,7 @@ namespace Glyssen.Dialogs
 
 		public void LoadNextRelevantBlock()
 		{
-			if (IsCurrentBlockRelevant)
+			if (IsCurrentLocationRelevant)
 			{
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
 					m_currentRelevantIndex++;
@@ -785,7 +785,7 @@ namespace Glyssen.Dialogs
 
 		public void LoadPreviousRelevantBlock()
 		{
-			if (IsCurrentBlockRelevant)
+			if (IsCurrentLocationRelevant)
 			{
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
 					m_currentRelevantIndex--;
@@ -823,7 +823,7 @@ namespace Glyssen.Dialogs
 				ClearBlockMatchup();
 			}
 			m_navigator.SetIndices(indices);
-			if (!IsCurrentBlockRelevant)
+			if (!IsCurrentLocationRelevant)
 				m_temporarilyIncludedBookBlockIndices = indices;
 			if (m_currentRefBlockMatchups == null)
 			{
@@ -862,7 +862,7 @@ namespace Glyssen.Dialogs
 				// (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise, we'll lose
 				// track of our place in the list (which not only affects the display index but also can lead to crashes, such as PG-924)
 				// later when we try to go to the previous or next relevant passage).
-				if (IsCurrentBlockRelevant && m_temporarilyIncludedBookBlockIndices != null && !BlockAccessor.GetIndices().IsMultiBlock && m_relevantBookBlockIndices.Any(i => i.IsMultiBlock))
+				if (IsCurrentLocationRelevant && m_temporarilyIncludedBookBlockIndices != null && !BlockAccessor.GetIndices().IsMultiBlock && m_relevantBookBlockIndices.Any(i => i.IsMultiBlock))
 				{
 					m_navigator.SetIndices(new BookBlockIndices(BlockAccessor.GetIndices().BookIndex, m_currentRefBlockMatchups.IndexOfStartBlockInBook, (uint)m_currentRefBlockMatchups.OriginalBlockCount));
 					m_temporarilyIncludedBookBlockIndices = null;
@@ -877,7 +877,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_currentRefBlockMatchups == null)
 				return;
-			var relevant = IsCurrentBlockRelevant;
+			var relevant = IsCurrentLocationRelevant;
 			m_currentRefBlockMatchups = null;
 			if (!relevant)
 				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();

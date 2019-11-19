@@ -630,7 +630,7 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
 			m_model.SetMode(BlocksToDisplay.NotYetAssigned);
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
 			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
 		}
@@ -823,7 +823,7 @@ namespace GlyssenTests.Dialogs
 			var blockToSplit = m_model.CurrentBlock;
 			var currentBlockCharacterId = blockToSplit.CharacterId;
 			Assert.True(blockToSplit.ChapterNumber == 1 && blockToSplit.InitialStartVerseNumber == 5);
-			Assert.False(m_model.IsCurrentBlockRelevant);
+			Assert.False(m_model.IsCurrentLocationRelevant);
 
 			m_model.SplitBlock(new[]
 			{
@@ -831,7 +831,7 @@ namespace GlyssenTests.Dialogs
 				new BlockSplitData(2, blockToSplit, "5", 9)
 			}, GetListOfCharacters(3, new[] {currentBlockCharacterId}));
 
-			Assert.False(m_model.IsCurrentBlockRelevant);
+			Assert.False(m_model.IsCurrentLocationRelevant);
 			Assert.AreEqual(currentBlockCharacterId, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
@@ -931,7 +931,7 @@ namespace GlyssenTests.Dialogs
 			while (!model.CurrentBlock.BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Contains(" "))
 				model.LoadNextRelevantBlock();
 			var currentBlock = model.CurrentBlock;
-			Assert.IsTrue(model.IsCurrentBlockRelevant, "Couldn't find a block to use for this test.");
+			Assert.IsTrue(model.IsCurrentLocationRelevant, "Couldn't find a block to use for this test.");
 			Assert.AreEqual("MRK", model.CurrentBookId);
 
 			var verse = currentBlock.InitialVerseNumberOrBridge;
@@ -944,7 +944,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual("MRK", model.CurrentBookId, "Changing the filter should not have caused us to go to a different book.");
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
 			Assert.AreEqual(currentBlock, model.CurrentBlock, "Setting the CurrentBlockIndexInBook should have moved us back to the block we intend to split.");
-			Assert.IsFalse(model.IsCurrentBlockRelevant, "The block we intend to split must not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
+			Assert.IsFalse(model.IsCurrentLocationRelevant, "The block we intend to split must not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
 
 			// Now go to the next relevant block in this same book and rememeber which block it is. After splitting, going to the next block
 			// should still take us to this same block.
@@ -965,7 +965,7 @@ namespace GlyssenTests.Dialogs
 			var splitPartA = model.CurrentBlock;
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit + 1;
 			var splitPartB = model.CurrentBlock;
-			Assert.IsFalse(model.IsCurrentBlockRelevant, "The second part of the split block should not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
+			Assert.IsFalse(model.IsCurrentLocationRelevant, "The second part of the split block should not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
 			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
 			Assert.AreEqual(splitIndex, partALength);
 			Assert.IsTrue(blockTextBeforeSplit.StartsWith(splitPartA.GetText(true)));
@@ -1072,7 +1072,7 @@ namespace GlyssenTests.Dialogs
 			var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
 
 			// Validate our setup
-			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.True(model.IsCurrentLocationRelevant);
 			Assert.AreEqual(18, model.CurrentBlock.LastVerseNum, "CurrentBlock is not an original block, so it should end with v. 18");
 			Assert.AreEqual(1, model.CurrentReferenceTextMatchup.OriginalBlockCount);
 			Assert.Greater(blockToSplit.LastVerseNum, 18);
@@ -1111,7 +1111,7 @@ namespace GlyssenTests.Dialogs
 			model.LoadPreviousRelevantBlock();
 
 			// Validate our setup
-			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.True(model.IsCurrentLocationRelevant);
 			Assert.AreEqual(18, model.CurrentBlock.LastVerseNum, "CurrentBlock is not an original block, so it should end with v. 18");
 			Assert.Greater(blockToSplit.LastVerseNum, 18);
 
@@ -1119,7 +1119,7 @@ namespace GlyssenTests.Dialogs
 				GetListOfCharacters(2, new[] { "", "" }));
 
 			Assert.AreEqual(origRelevantBlockCount, model.RelevantBlockCount);
-			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.True(model.IsCurrentLocationRelevant);
 			Assert.AreEqual(18, model.CurrentBlock.LastVerseNum);
 			Assert.AreEqual(2, model.CurrentReferenceTextMatchup.OriginalBlockCount);
 			Assert.AreEqual(origBlock, model.CurrentReferenceTextMatchup.OriginalBlocks.First());
@@ -1137,12 +1137,12 @@ namespace GlyssenTests.Dialogs
 			var model = new AssignCharacterViewModel(project);
 
 			model.SetMode(BlocksToDisplay.MissingExpectedQuote, true);
-			Assert.IsTrue(model.IsCurrentBlockRelevant);
+			Assert.IsTrue(model.IsCurrentLocationRelevant);
 			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 && model.CanNavigateToNextRelevantBlock)
 			{
 				model.LoadNextRelevantBlock();
 			}
-			Assert.IsTrue(model.IsCurrentBlockRelevant, $"Setup problem: no block in {project.IncludedBooks.Single().BookId} " +
+			Assert.IsTrue(model.IsCurrentLocationRelevant, $"Setup problem: no block in {project.IncludedBooks.Single().BookId} " +
 				$"matches the filter for {model.Mode} and results in a matchup with a single original block.");
 
 			var origBlock = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
@@ -1177,7 +1177,7 @@ namespace GlyssenTests.Dialogs
 			model.SetMode(BlocksToDisplay.MissingExpectedQuote, true);
 			var verseRef = new VerseRef(BCVRef.BookToNumber("MAT"), 1, 1, ScrVers.English);
 			Assert.IsTrue(model.TryLoadBlock(verseRef));
-			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 || model.IsCurrentBlockRelevant)
+			while (model.CurrentReferenceTextMatchup.OriginalBlockCount != 1 || model.IsCurrentLocationRelevant)
 			{
 				if (!verseRef.NextVerse())
 					Assert.Fail("Could not find any block in MAT to test this case.");
@@ -1198,7 +1198,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(2, model.CurrentReferenceTextMatchup.OriginalBlockCount);
 			Assert.AreEqual(origBlock, model.CurrentReferenceTextMatchup.OriginalBlocks.First());
 			Assert.AreEqual(String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), origBlockText);
-			Assert.IsFalse(model.IsCurrentBlockRelevant);
+			Assert.IsFalse(model.IsCurrentLocationRelevant);
 
 			var indexOfBlockThatWasSplitOff = model.IndexOfLastBlockInCurrentGroup;
 			model.SetMode(BlocksToDisplay.AllScripture, true);
@@ -1832,7 +1832,7 @@ namespace GlyssenTests.Dialogs
 			var iBlock = m_model.CurrentBlockIndexInBook;
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			m_model.CurrentBlockIndexInBook = iBlock;
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
 
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
@@ -1942,7 +1942,7 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 12, 15);
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
@@ -2026,7 +2026,7 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
 			Assert.AreEqual(1, m_assigned);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 		}
 
 		private void FindRefInMark(int chapter, int verse)
@@ -2162,7 +2162,7 @@ namespace GlyssenTests.Dialogs
 			CreateModel(BlocksToDisplay.NotYetAssigned);
 			var verseRefActs837 = new VerseRef(44, 8, 37);
 			m_model.TryLoadBlock(verseRefActs837);
-			if (!m_model.IsCurrentBlockRelevant)
+			if (!m_model.IsCurrentLocationRelevant)
 				m_model.LoadNextRelevantBlock();
 			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
 

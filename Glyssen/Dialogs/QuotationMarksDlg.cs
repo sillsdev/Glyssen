@@ -763,7 +763,7 @@ namespace Glyssen.Dialogs
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
-			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
+			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentLocationRelevant;
 			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentDisplayIndex);
 			UpdateRelativeNavigationPositionDisplay();
 

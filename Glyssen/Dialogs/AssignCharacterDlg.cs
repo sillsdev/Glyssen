@@ -345,7 +345,7 @@ namespace Glyssen.Dialogs
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
-			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
+			m_labelXofY.Visible = m_viewModel.IsCurrentLocationRelevant;
 			UpdateNavigationIndexLabel();
 			m_chkSingleVoice.Text = Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 

@@ -254,10 +254,10 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			FindRefInMark(8, 5);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			var origMatchup = m_model.CurrentReferenceTextMatchup;
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook);
 			Assert.AreEqual(origMatchup.OriginalBlockCount, m_model.CurrentReferenceTextMatchup.OriginalBlockCount);
 		}
@@ -391,7 +391,7 @@ namespace GlyssenTests.Dialogs
 		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsAdHocLocationInMIddleOfBook_ReturnsTrue()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant, "If this fails, we chose a relevant block index by accident.");
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant, "If this fails, we chose a relevant block index by accident.");
 			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
 		}
 
@@ -399,7 +399,7 @@ namespace GlyssenTests.Dialogs
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsAdHocLocationInMIddleOfBook_ReturnsTrue()
 		{
 			m_model.CurrentBlockIndexInBook = 400;
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant, "If this fails, we chose a relevant block index by accident.");
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant, "If this fails, we chose a relevant block index by accident.");
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
 		}
 
@@ -453,7 +453,7 @@ namespace GlyssenTests.Dialogs
 			m_model.LoadNextRelevantBlock();
 			m_model.LoadNextRelevantBlock();
 			m_model.CurrentBlockIndexInBook = index;
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
 			Assert.AreEqual(2, m_model.CurrentDisplayIndex);
@@ -464,7 +464,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.CurrentBlockIndexInBook = 400;
 			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote, "If this fails, choose a different block.");
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
 			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
 			Assert.AreEqual(0, m_model.CurrentDisplayIndex);
@@ -492,7 +492,7 @@ namespace GlyssenTests.Dialogs
 			m_model.CurrentBlockIndexInBook = i;
 			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
 			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			Assert.IsTrue(m_model.CurrentDisplayIndex > 0);
 		}
 
@@ -518,7 +518,7 @@ namespace GlyssenTests.Dialogs
 			m_model.CurrentBlockIndexInBook = i;
 			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
 			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
 			Assert.AreEqual(0, m_model.CurrentDisplayIndex);
 		}
 
@@ -549,7 +549,7 @@ namespace GlyssenTests.Dialogs
 			m_model.LoadNextRelevantBlock();
 			var followingMatchup = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(followingMatchup);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			var origDisplayIndex = m_model.CurrentDisplayIndex;
 			m_model.CurrentBlockIndexInBook = followingMatchup.IndexOfStartBlockInBook + followingMatchup.OriginalBlockCount + followingMatchup.CountOfBlocksAddedBySplitting;
 			Assert.AreNotEqual(followingMatchup, m_model.CurrentReferenceTextMatchup);
@@ -559,7 +559,7 @@ namespace GlyssenTests.Dialogs
 
 			m_model.CurrentBlockIndexInBook = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook - 1;
 
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			Assert.AreEqual(origDisplayIndex, m_model.CurrentDisplayIndex);
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origDisplayIndex + 1, m_model.CurrentDisplayIndex);
@@ -969,7 +969,7 @@ namespace GlyssenTests.Dialogs
 			//model.AttemptRefBlockMatchup = false;
 			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentEndBlock.LastVerseNum < verse)
 			{
-				if (model.IsCurrentBlockRelevant && model.CurrentDisplayIndex == model.RelevantBlockCount)
+				if (model.IsCurrentLocationRelevant && model.CurrentDisplayIndex == model.RelevantBlockCount)
 					throw new Exception("Could not find Mark " + chapter + ":" + verse);
 				model.LoadNextRelevantBlock();
 			}
@@ -1031,7 +1031,7 @@ namespace GlyssenTests.Dialogs
 			var targetRef = m_model.GetBlockVerseRef();
 
 			int v = 1;
-			while (m_model.IsCurrentBlockRelevant)
+			while (m_model.IsCurrentLocationRelevant)
 			{
 				m_model.TryLoadBlock(new VerseRef(41, 1, v++));
 			}
@@ -1060,10 +1060,10 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(m_model.Mode, true);
 			//Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
 			int displayIndex = m_model.CurrentDisplayIndex;
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			m_model.ApplyCurrentReferenceTextMatchup();
 			Assert.AreEqual(displayIndex, m_model.CurrentDisplayIndex);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			// Need to switch to "Match Character" mode because in rainbow mode, we occasionally get a block matchup that covers
 			// more than one relevant block, so advancing to the next relevant place can increment the display index by more than one.
 			//		m_model.SetMode(m_model.Mode, false);
@@ -1071,11 +1071,11 @@ namespace GlyssenTests.Dialogs
 			{
 				m_model.LoadNextRelevantBlock();
 				Assert.AreEqual(++displayIndex, m_model.CurrentDisplayIndex);
-				Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+				Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 			} while (m_model.CurrentBookId == "MRK");
 
 			Assert.AreEqual("ACT", m_model.CurrentBookId);
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 		}
 
 		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
@@ -1152,7 +1152,7 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(BlocksToDisplay.NotYetAssigned, true);
 
 			m_model.TryLoadBlock(new VerseRef(41, 9, 21, m_testProject.Versification));
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
 
 			var matchupForMark921 = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchupForMark921);
@@ -1184,7 +1184,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 
-			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.IsCurrentLocationRelevant);
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
@@ -1323,7 +1323,7 @@ namespace GlyssenTests.Dialogs
 			model.SetMode(model.Mode, true);
 			Assert.IsTrue(model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("JHN"), 12, 27), m_testProject.Versification)));
 			Assert.AreEqual(27, model.CurrentBlock.InitialStartVerseNumber);
-			Assert.IsFalse(model.IsCurrentBlockRelevant);
+			Assert.IsFalse(model.IsCurrentLocationRelevant);
 			var matchup = model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
 			matchup.MatchAllBlocks(m_testProject.Versification);
@@ -1418,7 +1418,7 @@ namespace GlyssenTests.Dialogs
 			m_targetReference = new VerseRef(bookNum, lastBlockInChapter.ChapterNumber, lastBlockInChapter.InitialStartVerseNumber);
 			var tempModel = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
 			Assert.IsTrue(tempModel.TryLoadBlock(m_targetReference));
-			Assert.IsFalse(tempModel.IsCurrentBlockRelevant, "Before adding the extra verse, this block should not be relevant.");
+			Assert.IsFalse(tempModel.IsCurrentLocationRelevant, "Before adding the extra verse, this block should not be relevant.");
 
 			// Finally, we add the extra verse (not in the reference text)
 			var extraVerseNum = lastBlockInChapter.LastVerseNum + 1;
@@ -1446,7 +1446,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.SetMode(m_model.Mode, true);
 			Assert.IsTrue(m_model.TryLoadBlock(m_targetReference));
-			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 		}
 	}
 
