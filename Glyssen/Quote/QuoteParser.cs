@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
