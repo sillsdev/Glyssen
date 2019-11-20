@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="PSA" singlevoice="false" pageheader="Psalms">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PSA">
+  <block style="mt" chapter="0" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>Psalms</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="PSA" initialStartVerse="0" characterId="BC-PSA">
@@ -41,17 +41,19 @@
     <verse num="2" />
     <text>The kings of the earth take a stand, and the rulers take counsel together, against God, and against his Anointed, saying,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="kings of the earth">
     <verse num="3" />
     <text>Let's break their bonds apart, and cast their cords from us.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>He who sits in the heavens will laugh. The Lord will have them in derision. </text>
+    <text>He who sits in the heavens will laugh. The Lord will have them in derision.</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>Then he will speak to them in his anger, and terrify them in his wrath:</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-PSA">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>Yet I have set my King on my holy hill of Zion.</text>
   </block>
@@ -59,14 +61,14 @@
     <verse num="7" />
     <text>I will tell of the decree. God said to me,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="God">
     <text>“You are my son. Today I have become your father.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Ask of me, and I will give the nations for your inheritance, the uttermost parts of the earth for your possession.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-PSA">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>You shall break them with a rod of iron. You shall dash them in pieces like a potter's vessel.”</text>
   </block>
@@ -92,17 +94,21 @@
     <verse num="2" />
     <text>Many there are who say of my soul,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-PSA">
+  <block style="p" chapter="3" initialStartVerse="2" characterId="David's enemies">
     <text>“There is no help for him in God.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-PSA">
     <text>Selah. </text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>But you, God, are a shield around me, my glory, and the one who lifts up my head.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>I cry to God with my voice, and he answers me out of his holy hill. Selah. </text>
+    <text>I cry to God with my voice, and he answers me out of his holy hill. Selah.</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>I laid myself down and slept. I awakened; for God sustains me.</text>
   </block>
@@ -146,11 +152,13 @@
     <verse num="6" />
     <text>Many say,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-PSA">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="men, many">
     <text>“Who will show us any good?”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-PSA">
     <text>God, let the light of your face shine on us. </text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>You have put gladness in my heart, more than when their grain and their new wine are increased.</text>
   </block>
@@ -166,7 +174,9 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Give ear to my words, God. Consider my meditation. </text>
+    <text>Give ear to my words, God. Consider my meditation.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Listen to the voice of my cry, my King and my God; for to you do I pray.</text>
   </block>
@@ -176,7 +186,9 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>For you are not a God who has pleasure in wickedness. Evil can't live with you. </text>
+    <text>For you are not a God who has pleasure in wickedness. Evil can't live with you.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>The arrogant shall not stand in your sight. You hate all workers of iniquity.</text>
   </block>
@@ -220,13 +232,17 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Have mercy on me, God, for I am faint. God, heal me, for my bones are troubled. </text>
+    <text>Have mercy on me, God, for I am faint. God, heal me, for my bones are troubled.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>My soul is also in great anguish. But you, God--how long?</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Return, God. Deliver my soul, and save me for your loving kindness' sake. </text>
+    <text>Return, God. Deliver my soul, and save me for your loving kindness' sake.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>For in death there is no memory of you. In Sheol, who shall give you thanks?</text>
   </block>
@@ -240,7 +256,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Depart from me, all you workers of iniquity, for God has heard the voice of my weeping. </text>
+    <text>Depart from me, all you workers of iniquity, for God has heard the voice of my weeping.</text>
+  </block>
+  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>God has heard my supplication. God accepts my prayer.</text>
   </block>
@@ -256,15 +274,21 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, my God, I take refuge in you. Save me from all those who pursue me, and deliver me, </text>
+    <text>God, my God, I take refuge in you. Save me from all those who pursue me, and deliver me,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>lest they tear apart my soul like a lion, ripping it in pieces, while there is none to deliver.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>God, my God, if I have done this, if there is iniquity in my hands, </text>
+    <text>God, my God, if I have done this, if there is iniquity in my hands,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>if I have rewarded evil to him who was at peace with me (yes, if I have delivered him who without cause was my adversary), </text>
+    <text>if I have rewarded evil to him who was at peace with me (yes, if I have delivered him who without cause was my adversary),</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>let the enemy pursue my soul, and overtake it; yes, let him tread my life down to the earth, and lay my glory in the dust. Selah.</text>
   </block>
@@ -326,7 +350,9 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>When I consider your heavens, the work of your fingers, the moon and the stars, which you have ordained; </text>
+    <text>When I consider your heavens, the work of your fingers, the moon and the stars, which you have ordained;</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>what is man, that you think of him? What is the son of man, that you care for him?</text>
   </block>
@@ -340,7 +366,9 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>All sheep and cattle, yes, and the animals of the field, </text>
+    <text>All sheep and cattle, yes, and the animals of the field,</text>
+  </block>
+  <block style="p" chapter="8" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>The birds of the sky, the fish of the sea, and whatever passes through the paths of the seas.</text>
   </block>
@@ -356,13 +384,17 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>I will give thanks to God with my whole heart. I will tell of all your marvelous works. </text>
+    <text>I will give thanks to God with my whole heart. I will tell of all your marvelous works.</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>I will be glad and rejoice in you. I will sing praise to your name, O Most High.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>When my enemies turn back, they stumble and perish in your presence. </text>
+    <text>When my enemies turn back, they stumble and perish in your presence.</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>For you have maintained my just cause. You sit on the throne judging righteously.</text>
   </block>
@@ -376,7 +408,9 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>But God reigns forever. He has prepared his throne for judgment. </text>
+    <text>But God reigns forever. He has prepared his throne for judgment.</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>He will judge the world in righteousness. He will administer judgment to the peoples in uprightness.</text>
   </block>
@@ -479,7 +513,7 @@
     <verse num="13" />
     <text>Why does the wicked person condemn God, and say in his heart,</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-PSA">
+  <block style="p" chapter="10" initialStartVerse="13" characterId="man, wicked">
     <text>“God won't call me into account?”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="narrator-PSA">
@@ -510,7 +544,7 @@
     <verse num="1" />
     <text>In God, I take refuge. How can you say to my soul,</text>
   </block>
-  <block style="p" chapter="11" initialStartVerse="1" characterId="narrator-PSA">
+  <block style="p" chapter="11" initialStartVerse="1" characterId="someone (hypothetical argument)">
     <text>“Flee as a bird to your mountain!”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-PSA">
@@ -549,20 +583,22 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Everyone lies to his neighbor. They speak with flattering lips, and with a double heart. </text>
+    <text>Everyone lies to his neighbor. They speak with flattering lips, and with a double heart.</text>
+  </block>
+  <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>May God cut off all flattering lips, and the tongue that boasts, </text>
     <verse num="4" />
     <text>who have said,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="12" initialStartVerse="4" characterId="flatterers" delivery="boastful">
     <text>“With our tongue we will prevail. Our lips are our own. Who is lord over us?”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>The Lord says,</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-PSA">
+  <block style="p" chapter="12" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>Because of the oppression of the weak and because of the groaning of the needy, I will now arise, says God; “I will set him in safety from those who malign him.”</text>
   </block>
@@ -598,7 +634,7 @@
     <verse num="4" />
     <text>Lest my enemy say,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="13" initialStartVerse="4" characterId="David's enemies">
     <text>“I have prevailed against him;”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-PSA">
@@ -618,7 +654,7 @@
     <verse num="1" />
     <text>The fool has said in his heart,</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-PSA">
+  <block style="p" chapter="14" initialStartVerse="1" characterId="fool">
     <text>“There is no God.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-PSA">
@@ -664,7 +700,9 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>He who doesn't slander with his tongue, nor does evil to his friend, nor casts slurs against his fellow man; </text>
+    <text>He who doesn't slander with his tongue, nor does evil to his friend, nor casts slurs against his fellow man;</text>
+  </block>
+  <block style="p" chapter="15" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>In whose eyes a vile man is despised, but who honors those who fear God; he who keeps an oath even when it hurts, and doesn't change;</text>
   </block>
@@ -704,7 +742,9 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>I will bless God, who has given me counsel. Yes, my heart instructs me in the night seasons. </text>
+    <text>I will bless God, who has given me counsel. Yes, my heart instructs me in the night seasons.</text>
+  </block>
+  <block style="p" chapter="16" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>I have set God always before me. Because he is at my right hand, I shall not be moved.</text>
   </block>
@@ -742,7 +782,9 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>My steps have held fast to your paths. My feet have not slipped. </text>
+    <text>My steps have held fast to your paths. My feet have not slipped.</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>I have called on you, for you will answer me, God. Turn your ear to me. Hear my speech.</text>
   </block>
@@ -752,7 +794,9 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Keep me as the apple of your eye. Hide me under the shadow of your wings, </text>
+    <text>Keep me as the apple of your eye. Hide me under the shadow of your wings,</text>
+  </block>
+  <block style="p" chapter="17" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>from the wicked who oppress me, my deadly enemies, who surround me.</text>
   </block>
@@ -786,7 +830,9 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>I love you, God, my strength. </text>
+    <text>I love you, God, my strength.</text>
+  </block>
+  <block style="p" chapter="18" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>God is my rock, my fortress, and my deliverer; my God, my rock, in whom I take refuge; my shield, and the horn of my salvation, my high tower.</text>
   </block>
@@ -796,7 +842,9 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>The cords of death surrounded me. The floods of ungodliness made me afraid. </text>
+    <text>The cords of death surrounded me. The floods of ungodliness made me afraid.</text>
+  </block>
+  <block style="p" chapter="18" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>The cords of Sheol were around me. The snares of death came on me.</text>
   </block>
@@ -962,13 +1010,17 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Day after day they pour forth speech, and night after night they display knowledge. </text>
+    <text>Day after day they pour forth speech, and night after night they display knowledge.</text>
+  </block>
+  <block style="p" chapter="19" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>There is no speech nor language, where their voice is not heard.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Their voice has gone out through all the earth, their words to the end of the world. In them he has set a tent for the sun, </text>
+    <text>Their voice has gone out through all the earth, their words to the end of the world. In them he has set a tent for the sun,</text>
+  </block>
+  <block style="p" chapter="19" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>which is as a bridegroom coming out of his room, like a strong man rejoicing to run his course.</text>
   </block>
@@ -1014,9 +1066,13 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>May God answer you in the day of trouble. May the name of the God of Jacob set you up on high, </text>
+    <text>May God answer you in the day of trouble. May the name of the God of Jacob set you up on high,</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>send you help from the sanctuary, grant you support from Zion, </text>
+    <text>send you help from the sanctuary, grant you support from Zion,</text>
+  </block>
+  <block style="p" chapter="20" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>remember all your offerings, and accept your burnt sacrifice. Selah.</text>
   </block>
@@ -1060,7 +1116,9 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>For you meet him with the blessings of goodness. You set a crown of fine gold on his head. </text>
+    <text>For you meet him with the blessings of goodness. You set a crown of fine gold on his head.</text>
+  </block>
+  <block style="p" chapter="21" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>He asked life of you, you gave it to him, even length of days forever and ever.</text>
   </block>
@@ -1114,7 +1172,9 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>But you are holy, you who inhabit the praises of Israel. </text>
+    <text>But you are holy, you who inhabit the praises of Israel.</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Our fathers trusted in you. They trusted, and you delivered them.</text>
   </block>
@@ -1124,11 +1184,13 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>But I am a worm, and no man; a reproach of men, and despised by the people. </text>
+    <text>But I am a worm, and no man; a reproach of men, and despised by the people.</text>
+  </block>
+  <block style="p" chapter="22" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>All those who see me mock me. They insult me with their lips. They shake their heads, saying,</text>
   </block>
-  <block style="p" chapter="22" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="22" initialStartVerse="8" characterId="men/people" delivery="mocking">
     <verse num="8" />
     <text>He trusts in God; let him deliver him. Let him rescue him, since he delights in him.</text>
   </block>
@@ -1224,7 +1286,9 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>He makes me lie down in green pastures. He leads me beside still waters. </text>
+    <text>He makes me lie down in green pastures. He leads me beside still waters.</text>
+  </block>
+  <block style="p" chapter="23" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>He restores my soul. He guides me in the paths of righteousness for his name's sake.</text>
   </block>
@@ -1248,7 +1312,9 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>The earth is God's, with its fullness; the world, and those who dwell therein. </text>
+    <text>The earth is God's, with its fullness; the world, and those who dwell therein.</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>For he has founded it on the seas, and established it on the floods.</text>
   </block>
@@ -1262,7 +1328,9 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>He shall receive a blessing from God, righteousness from the God of his salvation. </text>
+    <text>He shall receive a blessing from God, righteousness from the God of his salvation.</text>
+  </block>
+  <block style="p" chapter="24" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>This is the generation of those who seek Him, who seek your face--even Jacob. Selah.</text>
   </block>
@@ -1290,7 +1358,9 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>To you, God, do I lift up my soul. </text>
+    <text>To you, God, do I lift up my soul.</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>My God, I have trusted in you. Don't let me be shamed. Don't let my enemies triumph over me.</text>
   </block>
@@ -1300,7 +1370,9 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Show me your ways, God. Teach me your paths. </text>
+    <text>Show me your ways, God. Teach me your paths.</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>Guide me in your truth, and teach me, For you are the God of my salvation, I wait for you all day long.</text>
   </block>
@@ -1314,7 +1386,9 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Good and upright is God, therefore he will instruct sinners in the way. </text>
+    <text>Good and upright is God, therefore he will instruct sinners in the way.</text>
+  </block>
+  <block style="p" chapter="25" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>He will guide the humble in justice. He will teach the humble his way.</text>
   </block>
@@ -1374,19 +1448,25 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Examine me, God, and prove me. Try my heart and my mind. </text>
+    <text>Examine me, God, and prove me. Try my heart and my mind.</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>For your loving kindness is before my eyes. I have walked in your truth.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>I have not sat with deceitful men, neither will I go in with hypocrites. </text>
+    <text>I have not sat with deceitful men, neither will I go in with hypocrites.</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>I hate the assembly of evildoers, and will not sit with the wicked.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>I will wash my hands in innocence, so I will go about your altar, God; </text>
+    <text>I will wash my hands in innocence, so I will go about your altar, God;</text>
+  </block>
+  <block style="p" chapter="26" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>that I may make the voice of thanksgiving to be heard, and tell of all your wondrous works.</text>
   </block>
@@ -1440,7 +1520,9 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Hear, God, when I cry with my voice. Have mercy also on me, and answer me. </text>
+    <text>Hear, God, when I cry with my voice. Have mercy also on me, and answer me.</text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>When you said, “Seek my face,” my heart said to you, “I will seek your face, God.”</text>
   </block>
@@ -1518,7 +1600,9 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Ascribe to God, you sons of the mighty, ascribe to God glory and strength. </text>
+    <text>Ascribe to God, you sons of the mighty, ascribe to God glory and strength.</text>
+  </block>
+  <block style="p" chapter="29" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Ascribe to God the glory due to his name. Worship God in holy array.</text>
   </block>
@@ -1532,13 +1616,17 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>The voice of God breaks the cedars. Yes, God breaks in pieces the cedars of Lebanon. </text>
+    <text>The voice of God breaks the cedars. Yes, God breaks in pieces the cedars of Lebanon.</text>
+  </block>
+  <block style="p" chapter="29" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>He makes them also to skip like a calf; Lebanon and Sirion like a young, wild ox.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>God's voice strikes with flashes of lightning. </text>
+    <text>God's voice strikes with flashes of lightning.</text>
+  </block>
+  <block style="p" chapter="29" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>God's voice shakes the wilderness. God shakes the wilderness of Kadesh.</text>
   </block>
@@ -1566,7 +1654,9 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>God my God, I cried to you, and you have healed me. </text>
+    <text>God my God, I cried to you, and you have healed me.</text>
+  </block>
+  <block style="p" chapter="30" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>God, you have brought up my soul from Sheol. You have kept me alive, that I should not go down to the pit.</text>
   </block>
@@ -1620,7 +1710,9 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>For you are my rock and my fortress, therefore for your name's sake lead me and guide me. </text>
+    <text>For you are my rock and my fortress, therefore for your name's sake lead me and guide me.</text>
+  </block>
+  <block style="p" chapter="31" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Pluck me out of the net that they have laid secretly for me, for you are my stronghold.</text>
   </block>
@@ -1705,18 +1797,22 @@
   <block style="c" paragraphStart="true" chapter="32" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>32</text>
   </block>
-  <block style="p" chapter="31" initialStartVerse="0" characterId="narrator-PSA">
+  <block style="p" chapter="32" initialStartVerse="0" characterId="narrator-PSA">
     <text>By David. A contemplative psalm.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Blessed is he whose disobedience is forgiven, whose sin is covered. </text>
+    <text>Blessed is he whose disobedience is forgiven, whose sin is covered.</text>
+  </block>
+  <block style="p" chapter="32" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Blessed is the man to whom God doesn't impute iniquity, in whose spirit there is no deceit.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>When I kept silence, my bones wasted away through my groaning all day long. </text>
+    <text>When I kept silence, my bones wasted away through my groaning all day long.</text>
+  </block>
+  <block style="p" chapter="32" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>For day and night your hand was heavy on me. My strength was sapped in the heat of summer. Selah.</text>
   </block>
@@ -1843,7 +1939,9 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>I will bless God at all times. His praise will always be in my mouth. </text>
+    <text>I will bless God at all times. His praise will always be in my mouth.</text>
+  </block>
+  <block style="p" chapter="34" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>My soul shall boast in God. The humble shall hear of it, and be glad.</text>
   </block>
@@ -1853,19 +1951,25 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>I sought God, and he answered me, and delivered me from all my fears. </text>
+    <text>I sought God, and he answered me, and delivered me from all my fears.</text>
+  </block>
+  <block style="p" chapter="34" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>They looked to him, and were radiant. Their faces shall never be covered with shame.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>This poor man cried, and God heard him, and saved him out of all his troubles. </text>
+    <text>This poor man cried, and God heard him, and saved him out of all his troubles.</text>
+  </block>
+  <block style="p" chapter="34" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>The angel of God encamps around those who fear him, and delivers them.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Oh taste and see that God is good. Blessed is the man who takes refuge in him. </text>
+    <text>Oh taste and see that God is good. Blessed is the man who takes refuge in him.</text>
+  </block>
+  <block style="p" chapter="34" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>Oh fear God, you his saints, for there is no lack with those who fear him.</text>
   </block>
@@ -1927,7 +2031,7 @@
     <verse num="3" />
     <text>Brandish the spear and block those who pursue me. Tell my soul,</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="35" initialStartVerse="3" characterId="God">
     <text>“I am your salvation.”</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="4" characterId="narrator-PSA">
@@ -1936,7 +2040,9 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Let them be as chaff before the wind, God's angel driving them on. </text>
+    <text>Let them be as chaff before the wind, God's angel driving them on.</text>
+  </block>
+  <block style="p" chapter="35" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Let their way be dark and slippery, God's angel pursuing them.</text>
   </block>
@@ -1959,7 +2065,9 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="11" characterId="narrator-PSA">
     <verse num="11" />
-    <text>Unrighteous witnesses rise up. They ask me about things that I don't know about. </text>
+    <text>Unrighteous witnesses rise up. They ask me about things that I don't know about.</text>
+  </block>
+  <block style="p" chapter="35" initialStartVerse="12" characterId="narrator-PSA">
     <verse num="12" />
     <text>They reward me evil for good, to the bereaving of my soul.</text>
   </block>
@@ -1995,7 +2103,7 @@
     <verse num="21" />
     <text>Yes, they opened their mouth wide against me. They said,</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="21" characterId="narrator-PSA">
+  <block style="p" chapter="35" initialStartVerse="21" characterId="David's enemies" delivery="accusing">
     <text>“Aha! Aha! Our eye has seen it!”</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="22" characterId="narrator-PSA">
@@ -2010,13 +2118,13 @@
     <verse num="25" />
     <text>Don't let them say in their heart,</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="25" characterId="narrator-PSA">
+  <block style="p" chapter="35" initialStartVerse="25" characterId="David's enemies" delivery="accusing">
     <text>“Aha! That's the way we want it!”</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="25" characterId="narrator-PSA">
     <text>Don't let them say,</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="25" characterId="narrator-PSA">
+  <block style="p" chapter="35" initialStartVerse="25" characterId="David's enemies" delivery="accusing">
     <text>“We have swallowed him up!”</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="26" characterId="narrator-PSA">
@@ -2027,7 +2135,7 @@
     <verse num="27" />
     <text>Let them shout for joy and be glad, who favor my righteous cause. Yes, let them say continually,</text>
   </block>
-  <block style="p" chapter="35" initialStartVerse="27" characterId="narrator-PSA">
+  <block style="p" chapter="35" initialStartVerse="27" characterId="David's supporters" delivery="shouting">
     <text>“God be magnified, who has pleasure in the prosperity of his servant!”</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="28" characterId="narrator-PSA">
@@ -2046,7 +2154,9 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>For he flatters himself in his own eyes, too much to detect and hate his sin. </text>
+    <text>For he flatters himself in his own eyes, too much to detect and hate his sin.</text>
+  </block>
+  <block style="p" chapter="36" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>The words of his mouth are iniquity and deceit. He has ceased to be wise and to do good.</text>
   </block>
@@ -2068,7 +2178,9 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>They shall be abundantly satisfied with the abundance of your house. You will make them drink of the river of your pleasures. </text>
+    <text>They shall be abundantly satisfied with the abundance of your house. You will make them drink of the river of your pleasures.</text>
+  </block>
+  <block style="p" chapter="36" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>For with you is the spring of life. In your light shall we see light.</text>
   </block>
@@ -2092,19 +2204,25 @@
   </block>
   <block style="p" chapter="37" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Don't fret because of evildoers, neither be envious against those who work unrighteousness. </text>
+    <text>Don't fret because of evildoers, neither be envious against those who work unrighteousness.</text>
+  </block>
+  <block style="p" chapter="37" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>For they shall soon be cut down like the grass, and wither like the green herb.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>Trust in God, and do good. Dwell in the land, and enjoy safe pasture. </text>
+    <text>Trust in God, and do good. Dwell in the land, and enjoy safe pasture.</text>
+  </block>
+  <block style="p" chapter="37" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Also delight yourself in God, and he will give you the desires of your heart.</text>
   </block>
   <block style="p" chapter="37" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Commit your way to God. Trust also in him, and he will do this: </text>
+    <text>Commit your way to God. Trust also in him, and he will do this:</text>
+  </block>
+  <block style="p" chapter="37" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>he will make your righteousness go forth as the light, and your justice as the noon day sun.</text>
   </block>
@@ -2114,7 +2232,9 @@
   </block>
   <block style="p" chapter="37" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Cease from anger, and forsake wrath. Don't fret, it leads only to evildoing. </text>
+    <text>Cease from anger, and forsake wrath. Don't fret, it leads only to evildoing.</text>
+  </block>
+  <block style="p" chapter="37" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>For evildoers shall be cut off, but those who wait for God shall inherit the land.</text>
   </block>
@@ -2232,7 +2352,9 @@
   </block>
   <block style="p" chapter="38" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, don't rebuke me in your wrath, neither chasten me in your hot displeasure. </text>
+    <text>God, don't rebuke me in your wrath, neither chasten me in your hot displeasure.</text>
+  </block>
+  <block style="p" chapter="38" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>For your arrows have pierced me, your hand presses hard on me.</text>
   </block>
@@ -2242,19 +2364,25 @@
   </block>
   <block style="p" chapter="38" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>For my iniquities have gone over my head. As a heavy burden, they are too heavy for me. </text>
+    <text>For my iniquities have gone over my head. As a heavy burden, they are too heavy for me.</text>
+  </block>
+  <block style="p" chapter="38" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>My wounds are loathsome and corrupt, because of my foolishness.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>I am pained and bowed down greatly. I go mourning all day long. </text>
+    <text>I am pained and bowed down greatly. I go mourning all day long.</text>
+  </block>
+  <block style="p" chapter="38" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>For my waist is filled with burning. There is no soundness in my flesh.</text>
   </block>
   <block style="p" chapter="38" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>I am faint and severely bruised. I have groaned by reason of the anguish of my heart. </text>
+    <text>I am faint and severely bruised. I have groaned by reason of the anguish of my heart.</text>
+  </block>
+  <block style="p" chapter="38" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>Lord, all my desire is before you. My groaning is not hidden from you.</text>
   </block>
@@ -2332,7 +2460,9 @@
   </block>
   <block style="p" chapter="39" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Now, Lord, what do I wait for? My hope is in you. </text>
+    <text>Now, Lord, what do I wait for? My hope is in you.</text>
+  </block>
+  <block style="p" chapter="39" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>Deliver me from all my transgressions. Don't make me the reproach of the foolish.</text>
   </block>
@@ -2386,7 +2516,9 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Then I said, “Behold, I have come. It is written about me in the book in the scroll. </text>
+    <text>Then I said, “Behold, I have come. It is written about me in the book in the scroll.</text>
+  </block>
+  <block style="p" chapter="40" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>I delight to do your will, my God. Yes, your law is within my heart.”</text>
   </block>
@@ -2416,11 +2548,13 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="15" characterId="narrator-PSA">
     <verse num="15" />
-    <text>Let them be desolate by reason of their shame that tell me, “Aha! Aha!” </text>
+    <text>Let them be desolate by reason of their shame that tell me, “Aha! Aha!”</text>
+  </block>
+  <block style="p" chapter="40" initialStartVerse="16" characterId="narrator-PSA">
     <verse num="16" />
     <text>Let all those who seek you rejoice and be glad in you. Let such as love your salvation say continually,</text>
   </block>
-  <block style="p" chapter="40" initialStartVerse="16" characterId="narrator-PSA">
+  <block style="p" chapter="40" initialStartVerse="16" characterId="all seeking God" delivery="rejoicing">
     <text>“Let God be exalted!”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="17" characterId="narrator-PSA">
@@ -2452,7 +2586,7 @@
     <verse num="5" />
     <text>My enemies speak evil against me:</text>
   </block>
-  <block style="p" chapter="41" initialStartVerse="5" characterId="narrator-PSA">
+  <block style="p" chapter="41" initialStartVerse="5" characterId="David's enemies" delivery="malicious">
     <text>“When will he die, and his name perish?”</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="6" characterId="narrator-PSA">
@@ -2463,9 +2597,9 @@
     <verse num="7" />
     <text>All who hate me whisper together against me. They imagine the worst for me, they say,</text>
   </block>
-  <block style="p" chapter="41" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="41" initialStartVerse="8" characterId="David's enemies" delivery="whispering">
     <verse num="8" />
-    <text>“An evil disease  has afflicted him. Now that he lies he shall rise up no more.”</text>
+    <text>“An evil disease has afflicted him. Now that he lies he shall rise up no more.”</text>
   </block>
   <block style="p" chapter="41" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
@@ -2501,7 +2635,7 @@
     <verse num="3" />
     <text>My tears have been my food day and night, while they continually ask me,</text>
   </block>
-  <block style="p" chapter="42" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="42" initialStartVerse="3" characterId="sons of Korah's enemies">
     <text>“Where is your God?”</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="4" characterId="narrator-PSA">
@@ -2533,7 +2667,7 @@
     <verse num="10" />
     <text>As with a sword in my bones, my adversaries reproach me, while they continually ask me,</text>
   </block>
-  <block style="p" chapter="42" initialStartVerse="10" characterId="narrator-PSA">
+  <block style="p" chapter="42" initialStartVerse="10" characterId="David's enemies">
     <text>“Where is your God?”</text>
   </block>
   <block style="p" chapter="42" initialStartVerse="11" characterId="narrator-PSA">
@@ -2591,7 +2725,9 @@
   </block>
   <block style="p" chapter="44" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>For I will not trust in my bow, neither shall my sword save me. </text>
+    <text>For I will not trust in my bow, neither shall my sword save me.</text>
+  </block>
+  <block style="p" chapter="44" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>But you have saved us from our adversaries, and have shamed those who hate us.</text>
   </block>
@@ -2668,7 +2804,7 @@
   <block style="c" paragraphStart="true" chapter="45" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>45</text>
   </block>
-  <block style="p" chapter="44" initialStartVerse="0" characterId="narrator-PSA">
+  <block style="p" chapter="45" initialStartVerse="0" characterId="narrator-PSA">
     <text>For the Chief Musician. Set to “The Lilies.” A contemplation by the sons of Korah. A wedding song.</text>
   </block>
   <block style="p" chapter="45" initialStartVerse="1" characterId="narrator-PSA">
@@ -2781,7 +2917,7 @@
     <verse num="9" />
     <text>He makes wars cease to the end of the earth. He breaks the bow, and shatters the spear. He burns the chariots in the fire.</text>
   </block>
-  <block style="p" chapter="46" initialStartVerse="10" characterId="narrator-PSA">
+  <block style="p" chapter="46" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>Be still, and know that I am God. I will be exalted among the nations. I will be exalted in the earth.</text>
   </block>
@@ -2851,7 +2987,9 @@
   </block>
   <block style="p" chapter="48" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>For, behold, the kings assembled themselves, they passed by together. </text>
+    <text>For, behold, the kings assembled themselves, they passed by together.</text>
+  </block>
+  <block style="p" chapter="48" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>They saw it, then they were amazed. They were dismayed. They hurried away.</text>
   </block>
@@ -2897,7 +3035,9 @@
   </block>
   <block style="p" chapter="49" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Hear this, all you peoples. Listen, all you inhabitants of the world, </text>
+    <text>Hear this, all you peoples. Listen, all you inhabitants of the world,</text>
+  </block>
+  <block style="p" chapter="49" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>both low and high, rich and poor together.</text>
   </block>
@@ -2911,7 +3051,9 @@
   </block>
   <block style="p" chapter="49" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Why should I fear in the days of evil, when iniquity at my heels surrounds me? </text>
+    <text>Why should I fear in the days of evil, when iniquity at my heels surrounds me?</text>
+  </block>
+  <block style="p" chapter="49" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Those who trust in their wealth, and boast in the multitude of their riches--</text>
   </block>
@@ -2921,7 +3063,9 @@
   </block>
   <block style="p" chapter="49" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>For the redemption of their life is costly, no payment is ever enough, </text>
+    <text>For the redemption of their life is costly, no payment is ever enough,</text>
+  </block>
+  <block style="p" chapter="49" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>That he should live on forever, that he should not see corruption.</text>
   </block>
@@ -2977,7 +3121,9 @@
   </block>
   <block style="p" chapter="50" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Out of Zion, the perfection of beauty, God shines forth. </text>
+    <text>Out of Zion, the perfection of beauty, God shines forth.</text>
+  </block>
+  <block style="p" chapter="50" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Our God comes, and does not keep silent. A fire devours before him. It is very stormy around him.</text>
   </block>
@@ -2985,7 +3131,7 @@
     <verse num="4" />
     <text>He calls to the heavens above, to the earth, that he may judge his people:</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="5" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>Gather my saints together to me, those who have made a covenant with me by sacrifice.</text>
   </block>
@@ -2993,31 +3139,31 @@
     <verse num="6" />
     <text>The heavens shall declare his righteousness, for God himself is judge. Selah.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>Hear, my people, and I will speak; Israel, and I will testify against you. I am God, your God.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>I don't rebuke you for your sacrifices. Your burnt offerings are continually before me.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="9" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>I have no need for a bull from your stall, nor male goats from your pens. </text>
     <verse num="10" />
     <text>For every animal of the forest is mine, and the livestock on a thousand hills.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>I know all the birds of the mountains. The wild animals of the field are mine.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="12" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="12" characterId="God">
     <verse num="12" />
     <text>If I were hungry, I would not tell you, for the world is mine, and all that is in it. </text>
     <verse num="13" />
     <text>Will I eat the flesh of bulls, or drink the blood of goats?</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="14" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>Offer to God the sacrifice of thanksgiving. Pay your vows to the Most High. </text>
     <verse num="15" />
@@ -3027,30 +3173,30 @@
     <verse num="16" />
     <text>But to the wicked God says,</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="16" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="16" characterId="God">
     <text>“What right do you have to declare my statutes, that you have taken my covenant on your lips, </text>
     <verse num="17" />
     <text>since you hate instruction, and throw my words behind you?</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="18" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="18" characterId="God">
     <verse num="18" />
     <text>When you saw a thief, you consented with him, and have participated with adulterers. </text>
     <verse num="19" />
     <text>You give your mouth to evil. Your tongue frames deceit.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="20" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="20" characterId="God">
     <verse num="20" />
     <text>You sit and speak against your brother. You slander your own mother's son.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="21" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="21" characterId="God">
     <verse num="21" />
     <text>You have done these things, and I kept silent. You thought that I was just like you. I will rebuke you, and accuse you in front of your eyes.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="22" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="22" characterId="God">
     <verse num="22" />
     <text>Now consider this, you who forget God, lest I tear you into pieces, and there be none to deliver.</text>
   </block>
-  <block style="p" chapter="50" initialStartVerse="23" characterId="narrator-PSA">
+  <block style="p" chapter="50" initialStartVerse="23" characterId="God">
     <verse num="23" />
     <text>Whoever offers the sacrifice of thanksgiving glorifies me, and prepares his way so that I will show God's salvation to him.”</text>
   </block>
@@ -3066,7 +3212,9 @@
   </block>
   <block style="p" chapter="51" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Wash me thoroughly from my iniquity. Cleanse me from my sin. </text>
+    <text>Wash me thoroughly from my iniquity. Cleanse me from my sin.</text>
+  </block>
+  <block style="p" chapter="51" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>For I know my transgressions. My sin is constantly before me.</text>
   </block>
@@ -3084,7 +3232,9 @@
   </block>
   <block style="p" chapter="51" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Purify me with hyssop, and I will be clean. Wash me, and I will be whiter than snow. </text>
+    <text>Purify me with hyssop, and I will be clean. Wash me, and I will be whiter than snow.</text>
+  </block>
+  <block style="p" chapter="51" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>Let me hear joy and gladness, That the bones which you have broken may rejoice.</text>
   </block>
@@ -3156,7 +3306,7 @@
     <verse num="6" />
     <text>The righteous also will see it, and fear, and laugh at him, saying,</text>
   </block>
-  <block style="p" chapter="52" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="52" initialStartVerse="7" characterId="people, righteous" delivery="laughing">
     <verse num="7" />
     <text>Behold, this is the man who didn't make God his strength, but trusted in the abundance of his riches, and strengthened himself in his wickedness.</text>
   </block>
@@ -3172,13 +3322,13 @@
     <text>53</text>
   </block>
   <block style="p" chapter="53" initialStartVerse="0" characterId="narrator-PSA">
-    <text>For the Chief Musician. To the tune of  “Mahalath.” A contemplation by David.</text>
+    <text>For the Chief Musician. To the tune of “Mahalath.” A contemplation by David.</text>
   </block>
   <block style="p" chapter="53" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
     <text>The fool has said in his heart,</text>
   </block>
-  <block style="p" chapter="53" initialStartVerse="1" characterId="narrator-PSA">
+  <block style="p" chapter="53" initialStartVerse="1" characterId="fool">
     <text>“There is no God.”</text>
   </block>
   <block style="p" chapter="53" initialStartVerse="1" characterId="narrator-PSA">
@@ -3212,7 +3362,9 @@
   </block>
   <block style="p" chapter="54" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Save me, God, by your name. Vindicate me in your might. </text>
+    <text>Save me, God, by your name. Vindicate me in your might.</text>
+  </block>
+  <block style="p" chapter="54" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Hear my prayer, God. Listen to the words of my mouth.</text>
   </block>
@@ -3222,7 +3374,9 @@
   </block>
   <block style="p" chapter="54" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Behold, God is my helper. The Lord is the one who sustains my soul. </text>
+    <text>Behold, God is my helper. The Lord is the one who sustains my soul.</text>
+  </block>
+  <block style="p" chapter="54" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>He will repay the evil to my enemies. Destroy them in your truth.</text>
   </block>
@@ -3246,7 +3400,9 @@
   </block>
   <block style="p" chapter="55" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Attend to me, and answer me. I am restless in my complaint, and moan, </text>
+    <text>Attend to me, and answer me. I am restless in my complaint, and moan,</text>
+  </block>
+  <block style="p" chapter="55" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Because of the voice of the enemy, Because of the oppression of the wicked. For they bring suffering on me. In anger they hold a grudge against me.</text>
   </block>
@@ -3256,9 +3412,13 @@
   </block>
   <block style="p" chapter="55" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Fearfulness and trembling have come on me. Horror has overwhelmed me. </text>
+    <text>Fearfulness and trembling have come on me. Horror has overwhelmed me.</text>
+  </block>
+  <block style="p" chapter="55" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>I said, “Oh that I had wings like a dove! Then I would fly away, and be at rest. </text>
+    <text>I said, “Oh that I had wings like a dove! Then I would fly away, and be at rest.</text>
+  </block>
+  <block style="p" chapter="55" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Behold, then I would wander far off. I would lodge in the wilderness.” Selah.</text>
   </block>
@@ -3324,7 +3484,7 @@
     <text>56</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="0" characterId="narrator-PSA">
-    <text>For the Chief Musician. To the tune of  “Silent Dove in Distant Lands.” A poem by David, when the Philistines seized him in Gath.</text>
+    <text>For the Chief Musician. To the tune of “Silent Dove in Distant Lands.” A poem by David, when the Philistines seized him in Gath.</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
@@ -3336,19 +3496,25 @@
   </block>
   <block style="p" chapter="56" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>When I am afraid, I will put my trust in you. </text>
+    <text>When I am afraid, I will put my trust in you.</text>
+  </block>
+  <block style="p" chapter="56" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>In God, I praise his word. In God, I put my trust. I will not be afraid. What can flesh do to me?</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>All day long they twist my words. All their thoughts are against me for evil. </text>
+    <text>All day long they twist my words. All their thoughts are against me for evil.</text>
+  </block>
+  <block style="p" chapter="56" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>They conspire and lurk, watching my steps, they are eager to take my life.</text>
   </block>
   <block style="p" chapter="56" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Shall they escape by iniquity? In anger cast down the peoples, God. </text>
+    <text>Shall they escape by iniquity? In anger cast down the peoples, God.</text>
+  </block>
+  <block style="p" chapter="56" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>You number my wanderings. You put my tears into your bottle. Aren't they in your book?</text>
   </block>
@@ -3374,7 +3540,7 @@
     <text>57</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="0" characterId="narrator-PSA">
-    <text>For the Chief Musician. To the tune of  “Do Not Destroy.” A poem by David, when he fled from Saul, in the cave.</text>
+    <text>For the Chief Musician. To the tune of “Do Not Destroy.” A poem by David, when he fled from Saul, in the cave.</text>
   </block>
   <block style="p" chapter="57" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
@@ -3406,7 +3572,9 @@
   </block>
   <block style="p" chapter="57" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Wake up, my glory! Wake up, psaltery and harp! I will wake up the dawn. </text>
+    <text>Wake up, my glory! Wake up, psaltery and harp! I will wake up the dawn.</text>
+  </block>
+  <block style="p" chapter="57" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>I will give thanks to you, Lord, among the peoples. I will sing praises to you among the nations.</text>
   </block>
@@ -3422,11 +3590,13 @@
     <text>58</text>
   </block>
   <block style="p" chapter="58" initialStartVerse="0" characterId="narrator-PSA">
-    <text>For the Chief Musician. To the tune of  “Do Not Destroy.” A poem by David.</text>
+    <text>For the Chief Musician. To the tune of “Do Not Destroy.” A poem by David.</text>
   </block>
   <block style="p" chapter="58" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Do you indeed speak righteousness, silent ones? Do you judge blamelessly, you sons of men? </text>
+    <text>Do you indeed speak righteousness, silent ones? Do you judge blamelessly, you sons of men?</text>
+  </block>
+  <block style="p" chapter="58" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>No, in your heart you plot injustice. You measure out the violence of your hands in the earth.</text>
   </block>
@@ -3436,13 +3606,17 @@
   </block>
   <block style="p" chapter="58" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Their poison is like the poison of a snake; like a deaf cobra that stops its ear, </text>
+    <text>Their poison is like the poison of a snake; like a deaf cobra that stops its ear,</text>
+  </block>
+  <block style="p" chapter="58" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>which doesn't listen to the voice of charmers, no matter how skillful the charmer may be.</text>
   </block>
   <block style="p" chapter="58" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Break their teeth, God, in their mouth. Break out the great teeth of the young lions, God. </text>
+    <text>Break their teeth, God, in their mouth. Break out the great teeth of the young lions, God.</text>
+  </block>
+  <block style="p" chapter="58" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Let them vanish as water that flows away. When they draw the bow, let their arrows be made blunt.</text>
   </block>
@@ -3460,7 +3634,7 @@
     <verse num="11" />
     <text>so that men shall say,</text>
   </block>
-  <block style="p" chapter="58" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="58" initialStartVerse="11" characterId="men">
     <text>“Most certainly there is a reward for the righteous. Most certainly there is a God who judges the earth.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="59" book="PSA" initialStartVerse="0" characterId="BC-PSA">
@@ -3471,7 +3645,9 @@
   </block>
   <block style="p" chapter="59" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Deliver me from my enemies, my God. Set me on high from those who rise up against me. </text>
+    <text>Deliver me from my enemies, my God. Set me on high from those who rise up against me.</text>
+  </block>
+  <block style="p" chapter="59" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Deliver me from the workers of iniquity. Save me from the bloodthirsty men.</text>
   </block>
@@ -3535,11 +3711,13 @@
     <text>60</text>
   </block>
   <block style="p" chapter="60" initialStartVerse="0" characterId="narrator-PSA">
-    <text>For the Chief Musician. To the tune of  “The Lily of the Covenant.” A teaching poem by David, when he fought with Aram Naharaim and with Aram Zobah, and Joab returned, and killed twelve thousand of Edom in the Valley of Salt.</text>
+    <text>For the Chief Musician. To the tune of “The Lily of the Covenant.” A teaching poem by David, when he fought with Aram Naharaim and with Aram Zobah, and Joab returned, and killed twelve thousand of Edom in the Valley of Salt.</text>
   </block>
   <block style="p" chapter="60" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, you have rejected us. You have broken us down. You have been angry. Restore us, again. </text>
+    <text>God, you have rejected us. You have broken us down. You have been angry. Restore us, again.</text>
+  </block>
+  <block style="p" chapter="60" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>You have made the land tremble. You have torn it. Mend its fractures, for it quakes.</text>
   </block>
@@ -3557,14 +3735,14 @@
     <verse num="6" />
     <text>God has spoken from his sanctuary:</text>
   </block>
-  <block style="p" chapter="60" initialStartVerse="6" characterId="narrator-PSA">
+  <block style="p" chapter="60" initialStartVerse="6" characterId="God">
     <text>“I will triumph. I will divide Shechem, and measure out the valley of Succoth.</text>
   </block>
-  <block style="p" chapter="60" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="60" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>Gilead is mine, and Manasseh is mine. Ephraim also is the defense of my head. Judah is my scepter.</text>
   </block>
-  <block style="p" chapter="60" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="60" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Moab is my wash basin. I will throw my shoe on Edom. I shout in triumph over Philistia.”</text>
   </block>
@@ -3588,13 +3766,17 @@
   </block>
   <block style="p" chapter="61" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Hear my cry, God. Listen to my prayer. </text>
+    <text>Hear my cry, God. Listen to my prayer.</text>
+  </block>
+  <block style="p" chapter="61" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>From the end of the earth, I will call to you, when my heart is overwhelmed. Lead me to the rock that is higher than I.</text>
   </block>
   <block style="p" chapter="61" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>For you have been a refuge for me, a strong tower from the enemy. </text>
+    <text>For you have been a refuge for me, a strong tower from the enemy.</text>
+  </block>
+  <block style="p" chapter="61" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>I will dwell in your tent forever. I will take refuge in the shelter of your wings. Selah.</text>
   </block>
@@ -3604,7 +3786,9 @@
   </block>
   <block style="p" chapter="61" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>You will prolong the king's life; his years shall be for generations. </text>
+    <text>You will prolong the king's life; his years shall be for generations.</text>
+  </block>
+  <block style="p" chapter="61" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>He shall be enthroned in God's presence forever. Appoint your loving kindness and truth, that they may preserve him.</text>
   </block>
@@ -3620,7 +3804,9 @@
   </block>
   <block style="p" chapter="62" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>My soul rests in God alone. My salvation is from him. </text>
+    <text>My soul rests in God alone. My salvation is from him.</text>
+  </block>
+  <block style="p" chapter="62" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>He alone is my rock and my salvation, my fortress-- I will never be greatly shaken.</text>
   </block>
@@ -3634,13 +3820,17 @@
   </block>
   <block style="p" chapter="62" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>My soul, wait in silence for God alone, for my expectation is from him. </text>
+    <text>My soul, wait in silence for God alone, for my expectation is from him.</text>
+  </block>
+  <block style="p" chapter="62" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>He alone is my rock and my salvation, my fortress. I will not be shaken.</text>
   </block>
   <block style="p" chapter="62" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>With God is my salvation and my honor. The rock of my strength, and my refuge, is in God. </text>
+    <text>With God is my salvation and my honor. The rock of my strength, and my refuge, is in God.</text>
+  </block>
+  <block style="p" chapter="62" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>Trust in him at all times, you people. Pour out your heart before him. God is a refuge for us. Selah.</text>
   </block>
@@ -3672,7 +3862,9 @@
   </block>
   <block style="p" chapter="63" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>So I have seen you in the sanctuary, watching your power and your glory. </text>
+    <text>So I have seen you in the sanctuary, watching your power and your glory.</text>
+  </block>
+  <block style="p" chapter="63" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Because your loving kindness is better than life, my lips shall praise you.</text>
   </block>
@@ -3682,13 +3874,17 @@
   </block>
   <block style="p" chapter="63" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>My soul shall be satisfied as with the richest food. My mouth shall praise you with joyful lips, </text>
+    <text>My soul shall be satisfied as with the richest food. My mouth shall praise you with joyful lips,</text>
+  </block>
+  <block style="p" chapter="63" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>when I remember you on my bed, and think about you in the night watches.</text>
   </block>
   <block style="p" chapter="63" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>For you have been my help. I will rejoice in the shadow of your wings. </text>
+    <text>For you have been my help. I will rejoice in the shadow of your wings.</text>
+  </block>
+  <block style="p" chapter="63" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>My soul stays close to you. Your right hand holds me up.</text>
   </block>
@@ -3710,13 +3906,17 @@
   </block>
   <block style="p" chapter="64" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Hear my voice, God, in my complaint. Preserve my life from fear of the enemy. </text>
+    <text>Hear my voice, God, in my complaint. Preserve my life from fear of the enemy.</text>
+  </block>
+  <block style="p" chapter="64" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Hide me from the conspiracy of the wicked, from the noisy crowd of the ones doing evil;</text>
   </block>
   <block style="p" chapter="64" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>who sharpen their tongue like a sword, and aim their arrows, deadly words, </text>
+    <text>who sharpen their tongue like a sword, and aim their arrows, deadly words,</text>
+  </block>
+  <block style="p" chapter="64" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>to shoot innocent men from ambushes. They shoot at him suddenly and fearlessly.</text>
   </block>
@@ -3724,14 +3924,14 @@
     <verse num="5" />
     <text>They encourage themselves in evil plans. They talk about laying snares secretly. They say,</text>
   </block>
-  <block style="p" chapter="64" initialStartVerse="5" characterId="narrator-PSA">
+  <block style="p" chapter="64" initialStartVerse="5" characterId="David's enemies">
     <text>“Who will see them?”</text>
   </block>
   <block style="p" chapter="64" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>They plot injustice, saying,</text>
   </block>
-  <block style="p" chapter="64" initialStartVerse="6" characterId="narrator-PSA">
+  <block style="p" chapter="64" initialStartVerse="6" characterId="David's enemies">
     <text>“We have made a perfect plan!”</text>
   </block>
   <block style="p" chapter="64" initialStartVerse="6" characterId="narrator-PSA">
@@ -3759,7 +3959,9 @@
   </block>
   <block style="p" chapter="65" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Praise waits for you, God, in Zion. To you shall vows be performed. </text>
+    <text>Praise waits for you, God, in Zion. To you shall vows be performed.</text>
+  </block>
+  <block style="p" chapter="65" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>You who hear prayer, to you all men will come.</text>
   </block>
@@ -3777,7 +3979,9 @@
   </block>
   <block style="p" chapter="65" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Who by his power forms the mountains, having armed yourself with strength; </text>
+    <text>Who by his power forms the mountains, having armed yourself with strength;</text>
+  </block>
+  <block style="p" chapter="65" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>who stills the roaring of the seas, the roaring of their waves, and the turmoil of the nations.</text>
   </block>
@@ -3815,7 +4019,9 @@
   </block>
   <block style="p" chapter="66" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Sing to the glory of his name! Offer glory and praise! </text>
+    <text>Sing to the glory of his name! Offer glory and praise!</text>
+  </block>
+  <block style="p" chapter="66" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Tell God, “How awesome are your deeds! Through the greatness of your power, your enemies submit themselves to you.</text>
   </block>
@@ -3837,7 +4043,9 @@
   </block>
   <block style="p" chapter="66" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Praise our God, you peoples! Make the sound of his praise heard, </text>
+    <text>Praise our God, you peoples! Make the sound of his praise heard,</text>
+  </block>
+  <block style="p" chapter="66" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>who preserves our life among the living, and doesn't allow our feet to be moved.</text>
   </block>
@@ -3891,7 +4099,9 @@
   </block>
   <block style="p" chapter="67" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>That your way may be known on earth, and your salvation among all nations, </text>
+    <text>That your way may be known on earth, and your salvation among all nations,</text>
+  </block>
+  <block style="p" chapter="67" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>let the peoples praise you, God. Let all the peoples praise you.</text>
   </block>
@@ -3999,7 +4209,7 @@
     <verse num="22" />
     <text>The Lord said,</text>
   </block>
-  <block style="p" chapter="68" initialStartVerse="22" characterId="narrator-PSA">
+  <block style="p" chapter="68" initialStartVerse="22" characterId="God">
     <text>“I will bring you again from Bashan, I will bring you again from the depths of the sea; </text>
     <verse num="23" />
     <text>That you may crush them, dipping your foot in blood, that the tongues of your dogs may have their portion from your enemies.”</text>
@@ -4058,7 +4268,9 @@
   </block>
   <block style="p" chapter="69" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Save me, God, for the waters have come up to my neck! </text>
+    <text>Save me, God, for the waters have come up to my neck!</text>
+  </block>
+  <block style="p" chapter="69" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>I sink in deep mire, where there is no foothold. I have come into deep waters, where the floods overflow me.</text>
   </block>
@@ -4084,7 +4296,9 @@
   </block>
   <block style="p" chapter="69" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>I have become a stranger to my brothers, an alien to my mother's children. </text>
+    <text>I have become a stranger to my brothers, an alien to my mother's children.</text>
+  </block>
+  <block style="p" chapter="69" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>For the zeal of your house consumes me. The reproaches of those who reproach you have fallen on me.</text>
   </block>
@@ -4184,7 +4398,9 @@
   </block>
   <block style="p" chapter="70" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Hurry, God, to deliver me. Come quickly to help me, God. </text>
+    <text>Hurry, God, to deliver me. Come quickly to help me, God.</text>
+  </block>
+  <block style="p" chapter="70" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Let them be disappointed and confounded who seek my soul. Let those who desire my ruin be turned back in disgrace.</text>
   </block>
@@ -4194,7 +4410,7 @@
     <verse num="4" />
     <text>Let all those who seek you rejoice and be glad in you. Let those who love your salvation continually say,</text>
   </block>
-  <block style="p" chapter="70" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="70" initialStartVerse="4" characterId="those who seek God">
     <text>“Let God be exalted!”</text>
   </block>
   <block style="p" chapter="70" initialStartVerse="5" characterId="narrator-PSA">
@@ -4246,7 +4462,7 @@
     <verse num="11" />
     <text>saying,</text>
   </block>
-  <block style="p" chapter="71" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="71" initialStartVerse="11" characterId="David's enemies">
     <text>“God has forsaken him. Pursue and take him, for no one will rescue him.”</text>
   </block>
   <block style="p" chapter="71" initialStartVerse="12" characterId="narrator-PSA">
@@ -4333,7 +4549,9 @@
   </block>
   <block style="p" chapter="72" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>In his days, the righteous shall flourish, and abundance of peace, until the moon is no more. </text>
+    <text>In his days, the righteous shall flourish, and abundance of peace, until the moon is no more.</text>
+  </block>
+  <block style="p" chapter="72" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>He shall have dominion also from sea to sea, from the River to the ends of the earth.</text>
   </block>
@@ -4391,13 +4609,17 @@
   </block>
   <block style="p" chapter="73" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Surely God is good to Israel, to those who are pure in heart. </text>
+    <text>Surely God is good to Israel, to those who are pure in heart.</text>
+  </block>
+  <block style="p" chapter="73" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>But as for me, my feet were almost gone. My steps had nearly slipped.</text>
   </block>
   <block style="p" chapter="73" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>For I was envious of the arrogant, when I saw the prosperity of the wicked. </text>
+    <text>For I was envious of the arrogant, when I saw the prosperity of the wicked.</text>
+  </block>
+  <block style="p" chapter="73" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>For there are no struggles in their death, but their strength is firm.</text>
   </block>
@@ -4427,7 +4649,7 @@
     <verse num="11" />
     <text>They say,</text>
   </block>
-  <block style="p" chapter="73" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="73" initialStartVerse="11" characterId="people, arrogant wicked">
     <text>“How does God know? Is there knowledge in the Most High?”</text>
   </block>
   <block style="p" chapter="73" initialStartVerse="12" characterId="narrator-PSA">
@@ -4510,7 +4732,9 @@
   </block>
   <block style="p" chapter="74" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>They behaved like men wielding axes, cutting through a thicket of trees. </text>
+    <text>They behaved like men wielding axes, cutting through a thicket of trees.</text>
+  </block>
+  <block style="p" chapter="74" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Now they break all its carved work down with hatchet and hammers.</text>
   </block>
@@ -4520,7 +4744,7 @@
     <verse num="8" />
     <text>They said in their heart,</text>
   </block>
-  <block style="p" chapter="74" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="74" initialStartVerse="8" characterId="enemies of God">
     <text>“We will crush them completely.”</text>
   </block>
   <block style="p" chapter="74" initialStartVerse="8" characterId="narrator-PSA">
@@ -4596,21 +4820,27 @@
     <verse num="1" />
     <text>We give thanks to you, God. We give thanks, for your Name is near. Men tell about your wondrous works.</text>
   </block>
-  <block style="p" chapter="75" initialStartVerse="2" characterId="narrator-PSA">
+  <block style="p" chapter="75" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>When I choose the appointed time, I will judge blamelessly. </text>
+    <text>When I choose the appointed time, I will judge blamelessly.</text>
+  </block>
+  <block style="p" chapter="75" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>The earth and all its inhabitants quake. I firmly hold its pillars. Selah.</text>
   </block>
-  <block style="p" chapter="75" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="75" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>I said to the arrogant,“Don't boast!” I said to the wicked, “Don't lift up the horn. </text>
+    <text>I said to the arrogant,“Don't boast!” I said to the wicked, “Don't lift up the horn.</text>
+  </block>
+  <block style="p" chapter="75" initialStartVerse="5" characterId="God">
     <verse num="5" />
     <text>Don't lift up your horn on high. Don't speak with a stiff neck.”</text>
   </block>
   <block style="p" chapter="75" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>For neither from the east, nor from the west, nor yet from the south, comes exaltation. </text>
+    <text>For neither from the east, nor from the west, nor yet from the south, comes exaltation.</text>
+  </block>
+  <block style="p" chapter="75" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>But God is the judge. He puts down one, and lifts up another.</text>
   </block>
@@ -4634,7 +4864,9 @@
   </block>
   <block style="p" chapter="76" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>In Judah, God is known. His name is great in Israel. </text>
+    <text>In Judah, God is known. His name is great in Israel.</text>
+  </block>
+  <block style="p" chapter="76" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>His tabernacle is also in Salem; His dwelling place in Zion.</text>
   </block>
@@ -4648,7 +4880,9 @@
   </block>
   <block style="p" chapter="76" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Valiant men lie plundered, they have slept their last sleep. None of the men of war can lift their hands. </text>
+    <text>Valiant men lie plundered, they have slept their last sleep. None of the men of war can lift their hands.</text>
+  </block>
+  <block style="p" chapter="76" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>At your rebuke, God of Jacob, both chariot and horse are cast into a deep sleep.</text>
   </block>
@@ -4658,7 +4892,9 @@
   </block>
   <block style="p" chapter="76" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>You pronounced judgment from heaven. The earth feared, and was silent, </text>
+    <text>You pronounced judgment from heaven. The earth feared, and was silent,</text>
+  </block>
+  <block style="p" chapter="76" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>when God arose to judgment, to save all the afflicted ones of the earth. Selah.</text>
   </block>
@@ -4690,7 +4926,9 @@
   </block>
   <block style="p" chapter="77" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>I remember God, and I groan. I complain, and my spirit is overwhelmed. Selah. </text>
+    <text>I remember God, and I groan. I complain, and my spirit is overwhelmed. Selah.</text>
+  </block>
+  <block style="p" chapter="77" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>You hold my eyelids open. I am so troubled that I can't speak.</text>
   </block>
@@ -4700,13 +4938,17 @@
   </block>
   <block style="p" chapter="77" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>I remember my song in the night. I consider in my own heart; my spirit diligently inquires: </text>
+    <text>I remember my song in the night. I consider in my own heart; my spirit diligently inquires:</text>
+  </block>
+  <block style="p" chapter="77" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Will the Lord reject us forever? Will he be favorable no more?</text>
   </block>
   <block style="p" chapter="77" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Has his loving kindness vanished forever? Does his promise fail for generations? </text>
+    <text>Has his loving kindness vanished forever? Does his promise fail for generations?</text>
+  </block>
+  <block style="p" chapter="77" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>Has God forgotten to be gracious? Has he, in anger, withheld his compassion? Selah. </text>
     <verse num="10" />
@@ -4763,7 +5005,9 @@
   </block>
   <block style="p" chapter="78" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>I will open my mouth in a parable. I will utter dark sayings of old, </text>
+    <text>I will open my mouth in a parable. I will utter dark sayings of old,</text>
+  </block>
+  <block style="p" chapter="78" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Which we have heard and known, and our fathers have told us.</text>
   </block>
@@ -4777,9 +5021,13 @@
   </block>
   <block style="p" chapter="78" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>that the generation to come might know, even the children who should be born; who should arise and tell their children, </text>
+    <text>that the generation to come might know, even the children who should be born; who should arise and tell their children,</text>
+  </block>
+  <block style="p" chapter="78" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>that they might set their hope in God, and not forget the works of God, but keep his commandments, </text>
+    <text>that they might set their hope in God, and not forget the works of God, but keep his commandments,</text>
+  </block>
+  <block style="p" chapter="78" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>and might not be as their fathers, a stubborn and rebellious generation, a generation that didn't make their hearts loyal, whose spirit was not steadfast with God.</text>
   </block>
@@ -4817,10 +5065,10 @@
     <verse num="19" />
     <text>Yes, they spoke against God. They said,</text>
   </block>
-  <block style="p" chapter="78" initialStartVerse="19" characterId="narrator-PSA">
+  <block style="p" chapter="78" initialStartVerse="19" characterId="Israelite community" delivery="unbelief">
     <text>“Can God prepare a table in the wilderness?</text>
   </block>
-  <block style="p" chapter="78" initialStartVerse="20" characterId="narrator-PSA">
+  <block style="p" chapter="78" initialStartVerse="20" characterId="Israelite community" delivery="unbelief">
     <verse num="20" />
     <text>Behold, he struck the rock, so that waters gushed out, and streams overflowed. Can he give bread also? Will he provide flesh for his people?”</text>
   </block>
@@ -5028,7 +5276,9 @@
   </block>
   <block style="p" chapter="79" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Pour out your wrath on the nations that don't know you; on the kingdoms that don't call on your name; </text>
+    <text>Pour out your wrath on the nations that don't know you; on the kingdoms that don't call on your name;</text>
+  </block>
+  <block style="p" chapter="79" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>For they have devoured Jacob, and destroyed his homeland.</text>
   </block>
@@ -5042,7 +5292,7 @@
     <verse num="10" />
     <text>Why should the nations say,</text>
   </block>
-  <block style="p" chapter="79" initialStartVerse="10" characterId="narrator-PSA">
+  <block style="p" chapter="79" initialStartVerse="10" characterId="nations">
     <text>“Where is their God?”</text>
   </block>
   <block style="p" chapter="79" initialStartVerse="10" characterId="narrator-PSA">
@@ -5068,7 +5318,9 @@
   </block>
   <block style="p" chapter="80" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Hear us, Shepherd of Israel, you who lead Joseph like a flock, you who sit above the cherubim, shine forth. </text>
+    <text>Hear us, Shepherd of Israel, you who lead Joseph like a flock, you who sit above the cherubim, shine forth.</text>
+  </block>
+  <block style="p" chapter="80" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Before Ephraim and Benjamin and Manasseh, stir up your might! Come to save us!</text>
   </block>
@@ -5094,7 +5346,9 @@
   </block>
   <block style="p" chapter="80" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>You brought a vine out of Egypt. You drove out the nations, and planted it. </text>
+    <text>You brought a vine out of Egypt. You drove out the nations, and planted it.</text>
+  </block>
+  <block style="p" chapter="80" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>You cleared the ground for it. It took deep root, and filled the land.</text>
   </block>
@@ -5140,13 +5394,17 @@
   </block>
   <block style="p" chapter="81" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Sing aloud to God, our strength! Make a joyful shout to the God of Jacob! </text>
+    <text>Sing aloud to God, our strength! Make a joyful shout to the God of Jacob!</text>
+  </block>
+  <block style="p" chapter="81" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Raise a song, and bring here the tambourine, the pleasant lyre with the harp.</text>
   </block>
   <block style="p" chapter="81" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>Blow the trumpet at the New Moon, at the full moon, on our feast day. </text>
+    <text>Blow the trumpet at the New Moon, at the full moon, on our feast day.</text>
+  </block>
+  <block style="p" chapter="81" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>For it is a statute for Israel, an ordinance of the God of Jacob.</text>
   </block>
@@ -5164,7 +5422,9 @@
   </block>
   <block style="p" chapter="81" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Hear, my people, and I will testify to you, Israel, if you would listen to me! </text>
+    <text>Hear, my people, and I will testify to you, Israel, if you would listen to me!</text>
+  </block>
+  <block style="p" chapter="81" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>There shall be no strange god in you, neither shall you worship any foreign god.</text>
   </block>
@@ -5220,7 +5480,9 @@
   </block>
   <block style="p" chapter="82" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>I said,“You are gods, all of you are sons of the Most High. </text>
+    <text>I said,“You are gods, all of you are sons of the Most High.</text>
+  </block>
+  <block style="p" chapter="82" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Nevertheless you shall die like men, and fall like one of the rulers.”</text>
   </block>
@@ -5236,17 +5498,24 @@
   </block>
   <block style="p" chapter="83" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, don't keep silent. Don't keep silent, and don't be still, God. </text>
+    <text>God, don't keep silent. Don't keep silent, and don't be still, God.</text>
+  </block>
+  <block style="p" chapter="83" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>For, behold, your enemies are stirred up. Those who hate you have lifted up their heads.</text>
   </block>
   <block style="p" chapter="83" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>They conspire with cunning against your people. They plot against your cherished ones. </text>
+    <text>They conspire with cunning against your people. They plot against your cherished ones.</text>
+  </block>
+  <block style="p" chapter="83" initialStartVerse="4" characterId="enemies of Israel">
     <verse num="4" />
-    <text>Come, they say,</text>
+    <text>Come,</text>
   </block>
   <block style="p" chapter="83" initialStartVerse="4" characterId="narrator-PSA">
+    <text>they say,</text>
+  </block>
+  <block style="p" chapter="83" initialStartVerse="4" characterId="enemies of Israel">
     <text>“and let's destroy them as a nation, that the name of Israel may be remembered no more.”</text>
   </block>
   <block style="p" chapter="83" initialStartVerse="5" characterId="narrator-PSA">
@@ -5279,7 +5548,7 @@
     <verse num="12" />
     <text>who said,</text>
   </block>
-  <block style="p" chapter="83" initialStartVerse="12" characterId="narrator-PSA">
+  <block style="p" chapter="83" initialStartVerse="12" characterId="enemies of Israel">
     <text>“Let us take possession of God's pasturelands.”</text>
   </block>
   <block style="p" chapter="83" initialStartVerse="13" characterId="narrator-PSA">
@@ -5338,7 +5607,9 @@
   </block>
   <block style="p" chapter="84" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>God, God of Armies, hear my prayer. Listen, God of Jacob. Selah. </text>
+    <text>God, God of Armies, hear my prayer. Listen, God of Jacob. Selah.</text>
+  </block>
+  <block style="p" chapter="84" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>Behold, God our shield, look at the face of your anointed.</text>
   </block>
@@ -5362,19 +5633,25 @@
   </block>
   <block style="p" chapter="85" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, you have been favorable to your land. You have restored the fortunes of Jacob. </text>
+    <text>God, you have been favorable to your land. You have restored the fortunes of Jacob.</text>
+  </block>
+  <block style="p" chapter="85" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>You have forgiven the iniquity of your people. You have covered all their sin. Selah.</text>
   </block>
   <block style="p" chapter="85" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>You have taken away all your wrath. You have turned from the fierceness of your anger. </text>
+    <text>You have taken away all your wrath. You have turned from the fierceness of your anger.</text>
+  </block>
+  <block style="p" chapter="85" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Turn us, God of our salvation, and cause your indignation toward us to cease.</text>
   </block>
   <block style="p" chapter="85" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Will you be angry with us forever? Will you draw out your anger to all generations? </text>
+    <text>Will you be angry with us forever? Will you draw out your anger to all generations?</text>
+  </block>
+  <block style="p" chapter="85" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Won't you revive us again, that your people may rejoice in you?</text>
   </block>
@@ -5414,25 +5691,33 @@
   </block>
   <block style="p" chapter="86" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Hear, God, and answer me, for I am poor and needy. </text>
+    <text>Hear, God, and answer me, for I am poor and needy.</text>
+  </block>
+  <block style="p" chapter="86" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Preserve my soul, for I am godly. You, my God, save your servant who trusts in you.</text>
   </block>
   <block style="p" chapter="86" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>Be merciful to me, Lord, for I call to you all day long. </text>
+    <text>Be merciful to me, Lord, for I call to you all day long.</text>
+  </block>
+  <block style="p" chapter="86" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Bring joy to the soul of your servant, for to you, Lord, do I lift up my soul.</text>
   </block>
   <block style="p" chapter="86" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>For you, Lord, are good, and ready to forgive; abundant in loving kindness to all those who call on you. </text>
+    <text>For you, Lord, are good, and ready to forgive; abundant in loving kindness to all those who call on you.</text>
+  </block>
+  <block style="p" chapter="86" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Hear, God, my prayer. Listen to the voice of my petitions.</text>
   </block>
   <block style="p" chapter="86" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>In the day of my trouble I will call on you, for you will answer me. </text>
+    <text>In the day of my trouble I will call on you, for you will answer me.</text>
+  </block>
+  <block style="p" chapter="86" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>There is no one like you among the gods, Lord, nor any deeds like your deeds.</text>
   </block>
@@ -5476,7 +5761,9 @@
   </block>
   <block style="p" chapter="87" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>His foundation is in the holy mountains. </text>
+    <text>His foundation is in the holy mountains.</text>
+  </block>
+  <block style="p" chapter="87" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>God loves the gates of Zion more than all the dwellings of Jacob.</text>
   </block>
@@ -5484,7 +5771,7 @@
     <verse num="3" />
     <text>Glorious things are spoken about you, city of God. Selah.</text>
   </block>
-  <block style="p" chapter="87" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="87" initialStartVerse="4" characterId="God">
     <verse num="4" />
     <text>I will record Rahab and Babylon among those who acknowledge me. Behold, Philistia, Tyre, and also Ethiopia: “This one was born there.”</text>
   </block>
@@ -5492,7 +5779,7 @@
     <verse num="5" />
     <text>Yes, of Zion it will be said,</text>
   </block>
-  <block style="p" chapter="87" initialStartVerse="5" characterId="narrator-PSA">
+  <block style="p" chapter="87" initialStartVerse="5" characterId="God">
     <text>“This one and that one was born in her;”</text>
   </block>
   <block style="p" chapter="87" initialStartVerse="5" characterId="narrator-PSA">
@@ -5500,7 +5787,7 @@
     <verse num="6" />
     <text>God will count, when he writes up the peoples,</text>
   </block>
-  <block style="p" chapter="87" initialStartVerse="6" characterId="narrator-PSA">
+  <block style="p" chapter="87" initialStartVerse="6" characterId="God">
     <text>“This one was born there.”</text>
   </block>
   <block style="p" chapter="87" initialStartVerse="6" characterId="narrator-PSA">
@@ -5508,7 +5795,7 @@
     <verse num="7" />
     <text>Those who sing as well as those who dance say,</text>
   </block>
-  <block style="p" chapter="87" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="87" initialStartVerse="7" characterId="musicians">
     <text>“All my springs are in you.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="88" book="PSA" initialStartVerse="0" characterId="BC-PSA">
@@ -5519,21 +5806,29 @@
   </block>
   <block style="p" chapter="88" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, the God of my salvation, I have cried day and night before you. </text>
+    <text>God, the God of my salvation, I have cried day and night before you.</text>
+  </block>
+  <block style="p" chapter="88" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Let my prayer enter into your presence. Turn your ear to my cry.</text>
   </block>
   <block style="p" chapter="88" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>For my soul is full of troubles. My life draws near to Sheol. </text>
+    <text>For my soul is full of troubles. My life draws near to Sheol.</text>
+  </block>
+  <block style="p" chapter="88" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>I am counted among those who go down into the pit. I am like a man who has no help, </text>
+    <text>I am counted among those who go down into the pit. I am like a man who has no help,</text>
+  </block>
+  <block style="p" chapter="88" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>set apart among the dead, like the slain who lie in the grave, whom you remember no more. They are cut off from your hand.</text>
   </block>
   <block style="p" chapter="88" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>You have laid me in the lowest pit, in the darkest depths. </text>
+    <text>You have laid me in the lowest pit, in the darkest depths.</text>
+  </block>
+  <block style="p" chapter="88" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Your wrath lies heavily on me. You have afflicted me with all your waves. Selah.</text>
   </block>
@@ -5583,11 +5878,13 @@
   </block>
   <block style="p" chapter="89" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>I will sing of the loving kindness of God forever. With my mouth, I will make known your faithfulness to all generations. </text>
+    <text>I will sing of the loving kindness of God forever. With my mouth, I will make known your faithfulness to all generations.</text>
+  </block>
+  <block style="p" chapter="89" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>I indeed declare, “Love stands firm forever. You established the heavens. Your faithfulness is in them.”</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="3" characterId="God">
     <verse num="3" />
     <text>I have made a covenant with my chosen one, I have sworn to David, my servant, </text>
     <verse num="4" />
@@ -5600,7 +5897,9 @@
   </block>
   <block style="p" chapter="89" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>For who in the skies can be compared to God? Who among the sons of the heavenly beings is like God, </text>
+    <text>For who in the skies can be compared to God? Who among the sons of the heavenly beings is like God,</text>
+  </block>
+  <block style="p" chapter="89" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>a very awesome God in the council of the holy ones, to be feared above all those who are around him?</text>
   </block>
@@ -5652,64 +5951,64 @@
     <verse num="19" />
     <text>Then you spoke in vision to your saints, and said,</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="19" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="19" characterId="God">
     <text>“I have bestowed strength on the warrior. I have exalted a young man from the people.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="20" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="20" characterId="God">
     <verse num="20" />
     <text>I have found David, my servant. I have anointed him with my holy oil, </text>
     <verse num="21" />
     <text>with whom my hand shall be established. My arm will also strengthen him.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="22" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="22" characterId="God">
     <verse num="22" />
     <text>No enemy will tax him. No wicked man will oppress him. </text>
     <verse num="23" />
     <text>I will beat down his adversaries before him, and strike those who hate him.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="24" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="24" characterId="God">
     <verse num="24" />
     <text>But my faithfulness and my loving kindness will be with him. In my name, his horn will be exalted. </text>
     <verse num="25" />
     <text>I will set his hand also on the sea, and his right hand on the rivers.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="26" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="26" characterId="God">
     <verse num="26" />
     <text>He will call to me, 'You are my Father, my God, and the rock of my salvation!'</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="27" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="27" characterId="God">
     <verse num="27" />
     <text>I will also appoint him my firstborn, the highest of the kings of the earth.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="28" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="28" characterId="God">
     <verse num="28" />
     <text>I will keep my loving kindness for him forevermore. My covenant will stand firm with him. </text>
     <verse num="29" />
     <text>I will also make his seed endure forever, and his throne as the days of heaven.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="30" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="30" characterId="God">
     <verse num="30" />
     <text>If his children forsake my law, and don't walk in my ordinances; </text>
     <verse num="31" />
     <text>if they break my statutes, and don't keep my commandments;</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="32" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="32" characterId="God">
     <verse num="32" />
     <text>then I will punish their sin with the rod, and their iniquity with stripes. </text>
     <verse num="33" />
     <text>But I will not completely take my loving kindness from him, nor allow my faithfulness to fail.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="34" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="34" characterId="God">
     <verse num="34" />
     <text>I will not break my covenant, nor alter what my lips have uttered.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="35" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="35" characterId="God">
     <verse num="35" />
     <text>Once have I sworn by my holiness, I will not lie to David. </text>
     <verse num="36" />
     <text>His seed will endure forever, his throne like the sun before me.</text>
   </block>
-  <block style="p" chapter="89" initialStartVerse="37" characterId="narrator-PSA">
+  <block style="p" chapter="89" initialStartVerse="37" characterId="God">
     <verse num="37" />
     <text>It will be established forever like the moon, the faithful witness in the sky.”</text>
   </block>
@@ -5788,7 +6087,7 @@
     <verse num="3" />
     <text>You turn man to destruction, saying,</text>
   </block>
-  <block style="p" chapter="90" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="90" initialStartVerse="3" characterId="God">
     <text>“Return, you children of men.”</text>
   </block>
   <block style="p" chapter="90" initialStartVerse="4" characterId="narrator-PSA">
@@ -5797,13 +6096,17 @@
   </block>
   <block style="p" chapter="90" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>You sweep them away as they sleep. In the morning they sprout like new grass. </text>
+    <text>You sweep them away as they sleep. In the morning they sprout like new grass.</text>
+  </block>
+  <block style="p" chapter="90" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>In the morning it sprouts and springs up. By evening, it is withered and dry.</text>
   </block>
   <block style="p" chapter="90" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>For we are consumed in your anger. We are troubled in your wrath. </text>
+    <text>For we are consumed in your anger. We are troubled in your wrath.</text>
+  </block>
+  <block style="p" chapter="90" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>You have set our iniquities before you, our secret sins in the light of your presence.</text>
   </block>
@@ -5846,7 +6149,9 @@
   </block>
   <block style="p" chapter="91" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>He who dwells in the secret place of the Most High will rest in the shadow of the Almighty. </text>
+    <text>He who dwells in the secret place of the Most High will rest in the shadow of the Almighty.</text>
+  </block>
+  <block style="p" chapter="91" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>I will say of God, “He is my refuge and my fortress; my God, in whom I trust.”</text>
   </block>
@@ -5860,7 +6165,9 @@
   </block>
   <block style="p" chapter="91" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>You shall not be afraid of the terror by night, nor of the arrow that flies by day; </text>
+    <text>You shall not be afraid of the terror by night, nor of the arrow that flies by day;</text>
+  </block>
+  <block style="p" chapter="91" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>nor of the pestilence that walks in darkness, nor of the destruction that wastes at noonday.</text>
   </block>
@@ -5914,7 +6221,9 @@
   </block>
   <block style="p" chapter="92" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>to proclaim your loving kindness in the morning, and your faithfulness every night, </text>
+    <text>to proclaim your loving kindness in the morning, and your faithfulness every night,</text>
+  </block>
+  <block style="p" chapter="92" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>with the ten-stringed lute, with the harp, and with the melody of the lyre.</text>
   </block>
@@ -5928,13 +6237,17 @@
   </block>
   <block style="p" chapter="92" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>A senseless man doesn't know, neither does a fool understand this: </text>
+    <text>A senseless man doesn't know, neither does a fool understand this:</text>
+  </block>
+  <block style="p" chapter="92" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>though the wicked spring up as the grass, and all the evildoers flourish, they will be destroyed forever.</text>
   </block>
   <block style="p" chapter="92" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>But you, God, are on high forevermore. </text>
+    <text>But you, God, are on high forevermore.</text>
+  </block>
+  <block style="p" chapter="92" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>For, behold, your enemies, God, for, behold, your enemies shall perish. All the evildoers will be scattered.</text>
   </block>
@@ -5986,25 +6299,31 @@
   </block>
   <block style="p" chapter="94" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, you God to whom vengeance belongs, you God to whom vengeance belongs, shine forth. </text>
+    <text>God, you God to whom vengeance belongs, you God to whom vengeance belongs, shine forth.</text>
+  </block>
+  <block style="p" chapter="94" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Rise up, you judge of the earth. Pay back the proud what they deserve.</text>
   </block>
   <block style="p" chapter="94" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>God, how long will the wicked, how long will the wicked triumph? </text>
+    <text>God, how long will the wicked, how long will the wicked triumph?</text>
+  </block>
+  <block style="p" chapter="94" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>They pour out arrogant words. All the evildoers boast.</text>
   </block>
   <block style="p" chapter="94" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>They break your people in pieces, God, and afflict your heritage. </text>
+    <text>They break your people in pieces, God, and afflict your heritage.</text>
+  </block>
+  <block style="p" chapter="94" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>They kill the widow and the alien, and murder the fatherless. </text>
     <verse num="7" />
     <text>They say,</text>
   </block>
-  <block style="p" chapter="94" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="94" initialStartVerse="7" characterId="wicked, the">
     <text>“Yah will not see, neither will Jacob's God consider.”</text>
   </block>
   <block style="p" chapter="94" initialStartVerse="8" characterId="narrator-PSA">
@@ -6079,7 +6398,9 @@
   </block>
   <block style="p" chapter="95" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Let's come before his presence with thanksgiving. Let's extol him with songs! </text>
+    <text>Let's come before his presence with thanksgiving. Let's extol him with songs!</text>
+  </block>
+  <block style="p" chapter="95" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>For God is a great God, a great King above all gods.</text>
   </block>
@@ -6098,9 +6419,13 @@
     <text>for he is our God. We are the people of his pasture, and the sheep in his care.</text>
   </block>
   <block style="p" chapter="95" initialStartVerse="7" characterId="narrator-PSA">
-    <text>Today, oh that you would hear his voice! </text>
+    <text>Today, oh that you would hear his voice!</text>
+  </block>
+  <block style="p" chapter="95" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Don't harden your heart, as at Meribah, as in the day of Massah in the wilderness, </text>
+    <text>Don't harden your heart, as at Meribah, as in the day of Massah in the wilderness,</text>
+  </block>
+  <block style="p" chapter="95" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>when your fathers tempted me, tested me, and saw my work.</text>
   </block>
@@ -6117,7 +6442,9 @@
   </block>
   <block style="p" chapter="96" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Sing to God a new song! Sing to God, all the earth. </text>
+    <text>Sing to God a new song! Sing to God, all the earth.</text>
+  </block>
+  <block style="p" chapter="96" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Sing to God! Bless his name! Proclaim his salvation from day to day!</text>
   </block>
@@ -6178,7 +6505,9 @@
   </block>
   <block style="p" chapter="97" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>A fire goes before him, and burns up his adversaries on every side. </text>
+    <text>A fire goes before him, and burns up his adversaries on every side.</text>
+  </block>
+  <block style="p" chapter="97" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>His lightning lights up the world. The earth sees, and trembles.</text>
   </block>
@@ -6265,7 +6594,9 @@
   </block>
   <block style="p" chapter="99" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>God is great in Zion. He is high above all the peoples. </text>
+    <text>God is great in Zion. He is high above all the peoples.</text>
+  </block>
+  <block style="p" chapter="99" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Let them praise your great and awesome name. He is Holy!</text>
   </block>
@@ -6301,7 +6632,9 @@
   </block>
   <block style="p" chapter="100" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Shout for joy to God, all you lands! </text>
+    <text>Shout for joy to God, all you lands!</text>
+  </block>
+  <block style="p" chapter="100" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Serve God with gladness. Come before his presence with singing.</text>
   </block>
@@ -6473,13 +6806,17 @@
   </block>
   <block style="p" chapter="103" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Praise God, my soul! All that is within me, praise his holy name! </text>
+    <text>Praise God, my soul! All that is within me, praise his holy name!</text>
+  </block>
+  <block style="p" chapter="103" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Praise God, my soul, and don't forget all his benefits;</text>
   </block>
   <block style="p" chapter="103" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>who forgives all your sins; who heals all your diseases; </text>
+    <text>who forgives all your sins; who heals all your diseases;</text>
+  </block>
+  <block style="p" chapter="103" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>who redeems your life from destruction; who crowns you with loving kindness and tender mercies;</text>
   </block>
@@ -6558,7 +6895,9 @@
   </block>
   <block style="p" chapter="104" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>He covers himself with light as with a garment. He stretches out the heavens like a curtain. </text>
+    <text>He covers himself with light as with a garment. He stretches out the heavens like a curtain.</text>
+  </block>
+  <block style="p" chapter="104" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>He lays the beams of his rooms in the waters. He makes the clouds his chariot. He walks on the wings of the wind.</text>
   </block>
@@ -6709,7 +7048,9 @@
   </block>
   <block style="p" chapter="105" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Remember his marvelous works that he has done; his wonders, and the judgments of his mouth, </text>
+    <text>Remember his marvelous works that he has done; his wonders, and the judgments of his mouth,</text>
+  </block>
+  <block style="p" chapter="105" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>you seed of Abraham, his servant, you children of Jacob, his chosen ones.</text>
   </block>
@@ -6719,7 +7060,9 @@
   </block>
   <block style="p" chapter="105" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>He has remembered his covenant forever, the word which he commanded to a thousand generations, </text>
+    <text>He has remembered his covenant forever, the word which he commanded to a thousand generations,</text>
+  </block>
+  <block style="p" chapter="105" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>the covenant which he made with Abraham, his oath to Isaac, </text>
     <verse num="10" />
@@ -6727,7 +7070,7 @@
     <verse num="11" />
     <text>saying,</text>
   </block>
-  <block style="p" chapter="105" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="105" initialStartVerse="11" characterId="God">
     <text>“To you I will give the land of Canaan, the lot of your inheritance;”</text>
   </block>
   <block style="p" chapter="105" initialStartVerse="12" characterId="narrator-PSA">
@@ -6740,7 +7083,7 @@
     <verse num="14" />
     <text>He allowed no one to do them wrong. Yes, he reproved kings for their sakes,</text>
   </block>
-  <block style="p" chapter="105" initialStartVerse="15" characterId="narrator-PSA">
+  <block style="p" chapter="105" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>Don't touch my anointed ones! Do my prophets no harm!</text>
   </block>
@@ -6869,7 +7212,9 @@
   </block>
   <block style="p" chapter="106" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Remember me, God, with the favor that you show to your people. Visit me with your salvation, </text>
+    <text>Remember me, God, with the favor that you show to your people. Visit me with your salvation,</text>
+  </block>
+  <block style="p" chapter="106" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>that I may see the prosperity of your chosen, that I may rejoice in the gladness of your nation, that I may glory with your inheritance.</text>
   </block>
@@ -7043,7 +7388,9 @@
   </block>
   <block style="p" chapter="107" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Let the redeemed by God say so, whom he has redeemed from the hand of the adversary, </text>
+    <text>Let the redeemed by God say so, whom he has redeemed from the hand of the adversary,</text>
+  </block>
+  <block style="p" chapter="107" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>And gathered out of the lands, from the east and from the west, from the north and from the south.</text>
   </block>
@@ -7057,13 +7404,17 @@
   </block>
   <block style="p" chapter="107" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Then they cried to God in their trouble, and he delivered them out of their distresses, </text>
+    <text>Then they cried to God in their trouble, and he delivered them out of their distresses,</text>
+  </block>
+  <block style="p" chapter="107" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>he led them also by a straight way, that they might go to a city to live in.</text>
   </block>
   <block style="p" chapter="107" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Let them praise God for his loving kindness, for his wonderful works to the children of men! </text>
+    <text>Let them praise God for his loving kindness, for his wonderful works to the children of men!</text>
+  </block>
+  <block style="p" chapter="107" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>For he satisfies the longing soul. He fills the hungry soul with good.</text>
   </block>
@@ -7198,18 +7549,22 @@
   <block style="c" paragraphStart="true" chapter="108" book="PSA" initialStartVerse="0" characterId="BC-PSA">
     <text>108</text>
   </block>
-  <block style="p" chapter="107" initialStartVerse="0" characterId="narrator-PSA">
+  <block style="p" chapter="108" initialStartVerse="0" characterId="narrator-PSA">
     <text>A Song. A Psalm by David.</text>
   </block>
   <block style="p" chapter="108" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>My heart is steadfast, God. I will sing and I will make music with my soul. </text>
+    <text>My heart is steadfast, God. I will sing and I will make music with my soul.</text>
+  </block>
+  <block style="p" chapter="108" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Wake up, harp and lyre! I will wake up the dawn.</text>
   </block>
   <block style="p" chapter="108" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>I will give thanks to you, God, among the nations. I will sing praises to you among the peoples. </text>
+    <text>I will give thanks to you, God, among the nations. I will sing praises to you among the peoples.</text>
+  </block>
+  <block style="p" chapter="108" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>For your loving kindness is great above the heavens. Your faithfulness reaches to the skies.</text>
   </block>
@@ -7223,14 +7578,14 @@
     <verse num="7" />
     <text>God has spoken from his sanctuary:</text>
   </block>
-  <block style="p" chapter="108" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="108" initialStartVerse="7" characterId="God">
     <text>“In triumph, I will divide Shechem, and measure out the valley of Succoth.</text>
   </block>
-  <block style="p" chapter="108" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="108" initialStartVerse="8" characterId="God">
     <verse num="8" />
     <text>Gilead is mine. Manasseh is mine. Ephraim also is my helmet. Judah is my scepter.</text>
   </block>
-  <block style="p" chapter="108" initialStartVerse="9" characterId="narrator-PSA">
+  <block style="p" chapter="108" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>Moab is my wash pot. I will toss my sandal on Edom. I will shout over Philistia.”</text>
   </block>
@@ -7254,13 +7609,17 @@
   </block>
   <block style="p" chapter="109" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God of my praise, don't remain silent, </text>
+    <text>God of my praise, don't remain silent,</text>
+  </block>
+  <block style="p" chapter="109" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>for they have opened the mouth of the wicked and the mouth of deceit against me. They have spoken to me with a lying tongue.</text>
   </block>
   <block style="p" chapter="109" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>They have also surrounded me with words of hatred, and fought against me without a cause. </text>
+    <text>They have also surrounded me with words of hatred, and fought against me without a cause.</text>
+  </block>
+  <block style="p" chapter="109" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>In return for my love, they are my adversaries; but I am in prayer.</text>
   </block>
@@ -7270,13 +7629,17 @@
   </block>
   <block style="p" chapter="109" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Set a wicked man over him. Let an adversary stand at his right hand. </text>
+    <text>Set a wicked man over him. Let an adversary stand at his right hand.</text>
+  </block>
+  <block style="p" chapter="109" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>When he is judged, let him come forth guilty. Let his prayer be turned into sin.</text>
   </block>
   <block style="p" chapter="109" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>Let his days be few. Let another take his office. </text>
+    <text>Let his days be few. Let another take his office.</text>
+  </block>
+  <block style="p" chapter="109" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>Let his children be fatherless, and his wife a widow.</text>
   </block>
@@ -7366,7 +7729,7 @@
     <verse num="1" />
     <text>God says to my Lord,</text>
   </block>
-  <block style="p" chapter="110" initialStartVerse="1" characterId="narrator-PSA">
+  <block style="p" chapter="110" initialStartVerse="1" characterId="God">
     <text>“Sit at my right hand, until I make your enemies your footstool for your feet.”</text>
   </block>
   <block style="p" chapter="110" initialStartVerse="2" characterId="narrator-PSA">
@@ -7381,7 +7744,7 @@
     <verse num="4" />
     <text>God has sworn, and will not change his mind:</text>
   </block>
-  <block style="p" chapter="110" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="110" initialStartVerse="4" characterId="God">
     <text>“You are a priest forever in the order of Melchizedek.”</text>
   </block>
   <block style="p" chapter="110" initialStartVerse="5" characterId="narrator-PSA">
@@ -7503,13 +7866,17 @@
   </block>
   <block style="p" chapter="113" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Who is like God, our God, who has his seat on high, </text>
+    <text>Who is like God, our God, who has his seat on high,</text>
+  </block>
+  <block style="p" chapter="113" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Who stoops down to see in heaven and in the earth?</text>
   </block>
   <block style="p" chapter="113" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>He raises up the poor out of the dust. Lifts up the needy from the ash heap; </text>
+    <text>He raises up the poor out of the dust. Lifts up the needy from the ash heap;</text>
+  </block>
+  <block style="p" chapter="113" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>that he may set him with princes, even with the princes of his people.</text>
   </block>
@@ -7522,19 +7889,25 @@
   </block>
   <block style="p" chapter="114" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>When Israel went forth out of Egypt, the house of Jacob from a people of foreign language; </text>
+    <text>When Israel went forth out of Egypt, the house of Jacob from a people of foreign language;</text>
+  </block>
+  <block style="p" chapter="114" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Judah became his sanctuary, Israel his dominion.</text>
   </block>
   <block style="p" chapter="114" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>The sea saw it, and fled. The Jordan was driven back. </text>
+    <text>The sea saw it, and fled. The Jordan was driven back.</text>
+  </block>
+  <block style="p" chapter="114" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>The mountains skipped like rams, the little hills like lambs.</text>
   </block>
   <block style="p" chapter="114" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>What was it, you sea, that you fled? You Jordan, that you turned back? </text>
+    <text>What was it, you sea, that you fled? You Jordan, that you turned back?</text>
+  </block>
+  <block style="p" chapter="114" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>You mountains, that you skipped like rams; you little hills, like lambs?</text>
   </block>
@@ -7553,7 +7926,7 @@
     <verse num="2" />
     <text>Why should the nations say,</text>
   </block>
-  <block style="p" chapter="115" initialStartVerse="2" characterId="narrator-PSA">
+  <block style="p" chapter="115" initialStartVerse="2" characterId="nations">
     <text>“Where is their God, now?”</text>
   </block>
   <block style="p" chapter="115" initialStartVerse="3" characterId="narrator-PSA">
@@ -7647,7 +8020,9 @@
   </block>
   <block style="p" chapter="116" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>For you have delivered my soul from death, my eyes from tears, and my feet from falling. </text>
+    <text>For you have delivered my soul from death, my eyes from tears, and my feet from falling.</text>
+  </block>
+  <block style="p" chapter="116" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>I will walk before God in the land of the living.</text>
   </block>
@@ -7736,7 +8111,9 @@
   </block>
   <block style="p" chapter="118" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>It is better to take refuge in God, than to put confidence in man. </text>
+    <text>It is better to take refuge in God, than to put confidence in man.</text>
+  </block>
+  <block style="p" chapter="118" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>It is better to take refuge in God, than to put confidence in princes.</text>
   </block>
@@ -7762,10 +8139,10 @@
     <verse num="15" />
     <text>The voice of rejoicing and salvation is in the tents of the righteous.</text>
   </block>
-  <block style="p" chapter="118" initialStartVerse="15" characterId="narrator-PSA">
+  <block style="p" chapter="118" initialStartVerse="15" characterId="sound of rejoicing and victory">
     <text>“The right hand of God does valiantly.</text>
   </block>
-  <block style="p" chapter="118" initialStartVerse="16" characterId="narrator-PSA">
+  <block style="p" chapter="118" initialStartVerse="16" characterId="sound of rejoicing and victory">
     <verse num="16" />
     <text>The right hand of God is exalted! The right hand of God does valiantly!”</text>
   </block>
@@ -7829,7 +8206,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Blessed are those who keep his statutes, who seek him with their whole heart. </text>
+    <text>Blessed are those who keep his statutes, who seek him with their whole heart.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Yes, they do nothing wrong. They walk in his ways.</text>
   </block>
@@ -7839,13 +8218,17 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Oh that my ways were steadfast to obey your statutes! </text>
+    <text>Oh that my ways were steadfast to obey your statutes!</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Then I wouldn't be disappointed, when I consider all of your commandments.</text>
   </block>
   <block style="p" chapter="119" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>I will give thanks to you with uprightness of heart, when I learn your righteous judgments. </text>
+    <text>I will give thanks to you with uprightness of heart, when I learn your righteous judgments.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>I will observe your statutes. Don't utterly forsake me.</text>
   </block>
@@ -7874,7 +8257,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="15" characterId="narrator-PSA">
     <verse num="15" />
-    <text>I will meditate on your precepts, and consider your ways. </text>
+    <text>I will meditate on your precepts, and consider your ways.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="16" characterId="narrator-PSA">
     <verse num="16" />
     <text>I will delight myself in your statutes. I will not forget your word.</text>
   </block>
@@ -7903,7 +8288,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="23" characterId="narrator-PSA">
     <verse num="23" />
-    <text>Though princes sit and slander me, your servant will meditate on your statutes. </text>
+    <text>Though princes sit and slander me, your servant will meditate on your statutes.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="24" characterId="narrator-PSA">
     <verse num="24" />
     <text>Indeed your statutes are my delight, and my counselors.</text>
   </block>
@@ -7961,7 +8348,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="39" characterId="narrator-PSA">
     <verse num="39" />
-    <text>Take away my disgrace that I dread, for your ordinances are good. </text>
+    <text>Take away my disgrace that I dread, for your ordinances are good.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="40" characterId="narrator-PSA">
     <verse num="40" />
     <text>Behold, I long for your precepts! Revive me in your righteousness.</text>
   </block>
@@ -8205,7 +8594,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="103" characterId="narrator-PSA">
     <verse num="103" />
-    <text>How sweet are your promises to my taste, more than honey to my mouth! </text>
+    <text>How sweet are your promises to my taste, more than honey to my mouth!</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="104" characterId="narrator-PSA">
     <verse num="104" />
     <text>Through your precepts, I get understanding; therefore I hate every false way.</text>
   </block>
@@ -8234,7 +8625,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="111" characterId="narrator-PSA">
     <verse num="111" />
-    <text>I have taken your testimonies as a heritage forever, for they are the joy of my heart. </text>
+    <text>I have taken your testimonies as a heritage forever, for they are the joy of my heart.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="112" characterId="narrator-PSA">
     <verse num="112" />
     <text>I have set my heart to perform your statutes forever, even to the end.</text>
   </block>
@@ -8265,7 +8658,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="119" characterId="narrator-PSA">
     <verse num="119" />
-    <text>You put away all the wicked of the earth like dross. Therefore I love your testimonies. </text>
+    <text>You put away all the wicked of the earth like dross. Therefore I love your testimonies.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="120" characterId="narrator-PSA">
     <verse num="120" />
     <text>My flesh trembles for fear of you. I am afraid of your judgments.</text>
   </block>
@@ -8296,7 +8691,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="127" characterId="narrator-PSA">
     <verse num="127" />
-    <text>Therefore I love your commandments more than gold, yes, more than pure gold. </text>
+    <text>Therefore I love your commandments more than gold, yes, more than pure gold.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="128" characterId="narrator-PSA">
     <verse num="128" />
     <text>Therefore I consider all of your precepts to be right. I hate every false way.</text>
   </block>
@@ -8422,7 +8819,9 @@
   </block>
   <block style="p" chapter="119" initialStartVerse="159" characterId="narrator-PSA">
     <verse num="159" />
-    <text>Consider how I love your precepts. Revive me, God, according to your loving kindness. </text>
+    <text>Consider how I love your precepts. Revive me, God, according to your loving kindness.</text>
+  </block>
+  <block style="p" chapter="119" initialStartVerse="160" characterId="narrator-PSA">
     <verse num="160" />
     <text>All of your words are truth. Every one of your righteous ordinances endures forever.</text>
   </block>
@@ -8496,7 +8895,9 @@
   </block>
   <block style="p" chapter="120" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>In my distress, I cried to God. He answered me. </text>
+    <text>In my distress, I cried to God. He answered me.</text>
+  </block>
+  <block style="p" chapter="120" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Deliver my soul, God, from lying lips, from a deceitful tongue.</text>
   </block>
@@ -8510,7 +8911,9 @@
   </block>
   <block style="p" chapter="120" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Woe is me, that I live in Meshech, that I dwell among the tents of Kedar! </text>
+    <text>Woe is me, that I live in Meshech, that I dwell among the tents of Kedar!</text>
+  </block>
+  <block style="p" chapter="120" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>My soul has had her dwelling too long with him who hates peace.</text>
   </block>
@@ -8526,19 +8929,25 @@
   </block>
   <block style="p" chapter="121" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>I will lift up my eyes to the hills. Where does my help come from? </text>
+    <text>I will lift up my eyes to the hills. Where does my help come from?</text>
+  </block>
+  <block style="p" chapter="121" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>My help comes from God, who made heaven and earth.</text>
   </block>
   <block style="p" chapter="121" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>He will not allow your foot to be moved. He who keeps you will not slumber. </text>
+    <text>He will not allow your foot to be moved. He who keeps you will not slumber.</text>
+  </block>
+  <block style="p" chapter="121" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Behold, he who keeps Israel will neither slumber nor sleep.</text>
   </block>
   <block style="p" chapter="121" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>God is your keeper. God is your shade on your right hand. </text>
+    <text>God is your keeper. God is your shade on your right hand.</text>
+  </block>
+  <block style="p" chapter="121" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>The sun will not harm you by day, nor the moon by night.</text>
   </block>
@@ -8558,12 +8967,14 @@
     <verse num="1" />
     <text>I was glad when they said to me,</text>
   </block>
-  <block style="p" chapter="122" initialStartVerse="1" characterId="narrator-PSA">
+  <block style="p" chapter="122" initialStartVerse="1" characterId="worshipers">
     <text>“Let's go to God's house!”</text>
   </block>
   <block style="p" chapter="122" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Our feet are standing within your gates, Jerusalem; </text>
+    <text>Our feet are standing within your gates, Jerusalem;</text>
+  </block>
+  <block style="p" chapter="122" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Jerusalem, that is built as a city that is compact together;</text>
   </block>
@@ -8577,7 +8988,9 @@
   </block>
   <block style="p" chapter="122" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Pray for the peace of Jerusalem. Those who love you will prosper. </text>
+    <text>Pray for the peace of Jerusalem. Those who love you will prosper.</text>
+  </block>
+  <block style="p" chapter="122" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Peace be within your walls, and prosperity within your palaces.</text>
   </block>
@@ -8617,15 +9030,21 @@
   </block>
   <block style="p" chapter="124" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>If it had not been God who was on our side, let Israel now say, </text>
+    <text>If it had not been God who was on our side, let Israel now say,</text>
+  </block>
+  <block style="p" chapter="124" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>if it had not been God who was on our side, when men rose up against us; </text>
+    <text>if it had not been God who was on our side, when men rose up against us;</text>
+  </block>
+  <block style="p" chapter="124" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>then they would have swallowed us up alive, when their wrath was kindled against us;</text>
   </block>
   <block style="p" chapter="124" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>then the waters would have overwhelmed us, the stream would have gone over our soul; </text>
+    <text>then the waters would have overwhelmed us, the stream would have gone over our soul;</text>
+  </block>
+  <block style="p" chapter="124" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>then the proud waters would have gone over our soul.</text>
   </block>
@@ -8681,7 +9100,7 @@
     <verse num="2" />
     <text>Then our mouth was filled with laughter, and our tongue with singing. Then they said among the nations,</text>
   </block>
-  <block style="p" chapter="126" initialStartVerse="2" characterId="narrator-PSA">
+  <block style="p" chapter="126" initialStartVerse="2" characterId="nations">
     <text>“God has done great things for them.”</text>
   </block>
   <block style="p" chapter="126" initialStartVerse="3" characterId="narrator-PSA">
@@ -8690,7 +9109,9 @@
   </block>
   <block style="p" chapter="126" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>Restore our fortunes again, God, like the streams in the Negev. </text>
+    <text>Restore our fortunes again, God, like the streams in the Negev.</text>
+  </block>
+  <block style="p" chapter="126" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>Those who sow in tears will reap in joy.</text>
   </block>
@@ -8714,7 +9135,9 @@
   </block>
   <block style="p" chapter="127" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>Behold, children are a heritage of God. The fruit of the womb is his reward. </text>
+    <text>Behold, children are a heritage of God. The fruit of the womb is his reward.</text>
+  </block>
+  <block style="p" chapter="127" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>As arrows in the hand of a mighty man, so are the children of youth.</text>
   </block>
@@ -8730,13 +9153,17 @@
   </block>
   <block style="p" chapter="128" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Blessed is everyone who fears God, who walks in his ways. </text>
+    <text>Blessed is everyone who fears God, who walks in his ways.</text>
+  </block>
+  <block style="p" chapter="128" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>For you will eat the labor of your hands. You will be happy, and it will be well with you.</text>
   </block>
   <block style="p" chapter="128" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>Your wife will be as a fruitful vine, in the innermost parts of your house; your children like olive plants, around your table. </text>
+    <text>Your wife will be as a fruitful vine, in the innermost parts of your house; your children like olive plants, around your table.</text>
+  </block>
+  <block style="p" chapter="128" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Behold, thus is the man blessed who fears God.</text>
   </block>
@@ -8754,15 +9181,22 @@
   <block style="p" chapter="129" initialStartVerse="0" characterId="narrator-PSA">
     <text>A Song of Ascents.</text>
   </block>
-  <block style="p" chapter="129" initialStartVerse="1" characterId="narrator-PSA">
+  <block style="p" chapter="129" initialStartVerse="1" characterId="Israel">
     <verse num="1" />
-    <text>Many times they have afflicted me from my youth up. Let Israel now say, </text>
+    <text>Many times they have afflicted me from my youth up.</text>
+  </block>
+  <block style="p" chapter="129" initialStartVerse="1" characterId="narrator-PSA">
+    <text>Let Israel now say,</text>
+  </block>
+  <block style="p" chapter="129" initialStartVerse="2" characterId="Israel">
     <verse num="2" />
     <text>many times they have afflicted me from my youth up, yet they have not prevailed against me.</text>
   </block>
-  <block style="p" chapter="129" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="129" initialStartVerse="3" characterId="Israel">
     <verse num="3" />
-    <text>The plowers plowed on my back. They made their furrows long. </text>
+    <text>The plowers plowed on my back. They made their furrows long.</text>
+  </block>
+  <block style="p" chapter="129" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>God is righteous. He has cut apart the cords of the wicked.</text>
   </block>
@@ -8772,7 +9206,9 @@
   </block>
   <block style="p" chapter="129" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>Let them be as the grass on the housetops, which withers before it grows up; </text>
+    <text>Let them be as the grass on the housetops, which withers before it grows up;</text>
+  </block>
+  <block style="p" chapter="129" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>with which the reaper doesn't fill his hand, nor he who binds sheaves, his bosom.</text>
   </block>
@@ -8791,13 +9227,17 @@
   </block>
   <block style="p" chapter="130" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Out of the depths I have cried to you, God. </text>
+    <text>Out of the depths I have cried to you, God.</text>
+  </block>
+  <block style="p" chapter="130" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Lord, hear my voice. Let your ears be attentive to the voice of my petitions.</text>
   </block>
   <block style="p" chapter="130" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>If you, Yah, kept a record of sins, Lord, who could stand? </text>
+    <text>If you, Yah, kept a record of sins, Lord, who could stand?</text>
+  </block>
+  <block style="p" chapter="130" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>But there is forgiveness with you, therefore you are feared.</text>
   </block>
@@ -8843,17 +9283,21 @@
   </block>
   <block style="p" chapter="132" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, remember David and all his affliction, </text>
+    <text>God, remember David and all his affliction,</text>
+  </block>
+  <block style="p" chapter="132" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>how he swore to God, and vowed to the Mighty One of Jacob:</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="3" characterId="David">
     <verse num="3" />
     <text>Surely I will not come into the structure of my house, nor go up into my bed;</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="4" characterId="David">
     <verse num="4" />
-    <text>I will not give sleep to my eyes, or slumber to my eyelids; </text>
+    <text>I will not give sleep to my eyes, or slumber to my eyelids;</text>
+  </block>
+  <block style="p" chapter="132" initialStartVerse="5" characterId="David">
     <verse num="5" />
     <text>until I find out a place for God, a dwelling for the Mighty One of Jacob.</text>
   </block>
@@ -8863,7 +9307,9 @@
   </block>
   <block style="p" chapter="132" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>We will go into his dwelling place. We will worship at his footstool. </text>
+    <text>We will go into his dwelling place. We will worship at his footstool.</text>
+  </block>
+  <block style="p" chapter="132" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>Arise, God, into your resting place; you, and the ark of your strength.</text>
   </block>
@@ -8877,7 +9323,7 @@
     <verse num="11" />
     <text>God has sworn to David in truth. He will not turn from it:</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="11" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="11" characterId="God">
     <text>“I will set the fruit of your body on your throne. </text>
     <verse num="12" />
     <text>If your children will keep my covenant, my testimony that I will teach them, their children also will sit on your throne forevermore.”</text>
@@ -8886,21 +9332,21 @@
     <verse num="13" />
     <text>For God has chosen Zion. He has desired it for his habitation.</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="14" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="14" characterId="God">
     <verse num="14" />
     <text>This is my resting place forever. Here I will live, for I have desired it.</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="15" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>I will abundantly bless her provision. I will satisfy her poor with bread. </text>
     <verse num="16" />
     <text>Her priests I will also clothe with salvation. Her saints will shout aloud for joy.</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="17" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="17" characterId="God">
     <verse num="17" />
     <text>There I will make the horn of David to bud. I have ordained a lamp for my anointed.</text>
   </block>
-  <block style="p" chapter="132" initialStartVerse="18" characterId="narrator-PSA">
+  <block style="p" chapter="132" initialStartVerse="18" characterId="God">
     <verse num="18" />
     <text>I will clothe his enemies with shame, but on himself, his crown will be resplendent.</text>
   </block>
@@ -8945,7 +9391,9 @@
   </block>
   <block style="p" chapter="135" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Praise Yah! Praise the name of God! Praise him, you servants of God, </text>
+    <text>Praise Yah! Praise the name of God! Praise him, you servants of God,</text>
+  </block>
+  <block style="p" chapter="135" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>you who stand in the house of God, in the courts of our God's house.</text>
   </block>
@@ -9028,7 +9476,9 @@
   </block>
   <block style="p" chapter="136" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>Give thanks to the God of gods; for his loving kindness endures forever. </text>
+    <text>Give thanks to the God of gods; for his loving kindness endures forever.</text>
+  </block>
+  <block style="p" chapter="136" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Give thanks to the Lord of lords; for his loving kindness endures forever:</text>
   </block>
@@ -9042,13 +9492,17 @@
   </block>
   <block style="p" chapter="136" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>To him who spread out the earth above the waters; for his loving kindness endures forever: </text>
+    <text>To him who spread out the earth above the waters; for his loving kindness endures forever:</text>
+  </block>
+  <block style="p" chapter="136" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>To him who made the great lights; for his loving kindness endures forever:</text>
   </block>
   <block style="p" chapter="136" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>The sun to rule by day; for his loving kindness endures forever; </text>
+    <text>The sun to rule by day; for his loving kindness endures forever;</text>
+  </block>
+  <block style="p" chapter="136" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>The moon and stars to rule by night; for his loving kindness endures forever:</text>
   </block>
@@ -9123,7 +9577,7 @@
     <verse num="3" />
     <text>For there, those who led us captive asked us for songs. Those who tormented us demanded songs of joy:</text>
   </block>
-  <block style="p" chapter="137" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="137" initialStartVerse="3" characterId="captors, our">
     <text>“Sing us one of the songs of Zion!”</text>
   </block>
   <block style="p" chapter="137" initialStartVerse="4" characterId="narrator-PSA">
@@ -9142,7 +9596,7 @@
     <verse num="7" />
     <text>Remember, God, against the children of Edom, the day of Jerusalem; who said,</text>
   </block>
-  <block style="p" chapter="137" initialStartVerse="7" characterId="narrator-PSA">
+  <block style="p" chapter="137" initialStartVerse="7" characterId="Edomites">
     <text>“Raze it! Raze it even to its foundation!”</text>
   </block>
   <block style="p" chapter="137" initialStartVerse="8" characterId="narrator-PSA">
@@ -9173,7 +9627,9 @@
   </block>
   <block style="p" chapter="138" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
-    <text>All the kings of the earth will give you thanks, God, for they have heard the words of your mouth. </text>
+    <text>All the kings of the earth will give you thanks, God, for they have heard the words of your mouth.</text>
+  </block>
+  <block style="p" chapter="138" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>Yes, they will sing of the ways of God; for great is God's glory.</text>
   </block>
@@ -9197,13 +9653,17 @@
   </block>
   <block style="p" chapter="139" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>God, you have searched me, and you know me. </text>
+    <text>God, you have searched me, and you know me.</text>
+  </block>
+  <block style="p" chapter="139" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>You know my sitting down and my rising up. You perceive my thoughts from afar.</text>
   </block>
   <block style="p" chapter="139" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>You search out my path and my lying down, and are acquainted with all my ways. </text>
+    <text>You search out my path and my lying down, and are acquainted with all my ways.</text>
+  </block>
+  <block style="p" chapter="139" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>For there is not a word on my tongue, but, behold, God, you know it altogether.</text>
   </block>
@@ -9213,7 +9673,9 @@
   </block>
   <block style="p" chapter="139" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
-    <text>This knowledge is beyond me. It's lofty. I can't attain it. </text>
+    <text>This knowledge is beyond me. It's lofty. I can't attain it.</text>
+  </block>
+  <block style="p" chapter="139" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>Where could I go from your Spirit? Or where could I flee from your presence?</text>
   </block>
@@ -9281,7 +9743,9 @@
   </block>
   <block style="p" chapter="140" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>Deliver me, God, from the evil man. Preserve me from the violent man; </text>
+    <text>Deliver me, God, from the evil man. Preserve me from the violent man;</text>
+  </block>
+  <block style="p" chapter="140" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>those who devise mischief in their hearts. They continually gather themselves together for war.</text>
   </block>
@@ -9388,7 +9852,9 @@
   </block>
   <block style="p" chapter="142" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
-    <text>I pour out my complaint before him. I tell him my troubles. </text>
+    <text>I pour out my complaint before him. I tell him my troubles.</text>
+  </block>
+  <block style="p" chapter="142" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>When my spirit was overwhelmed within me, you knew my path. In the way in which I walk, they have hidden a snare for me.</text>
   </block>
@@ -9476,19 +9942,25 @@
   </block>
   <block style="p" chapter="144" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>God, what is man, that you care for him? Or the son of man, that you think of him? </text>
+    <text>God, what is man, that you care for him? Or the son of man, that you think of him?</text>
+  </block>
+  <block style="p" chapter="144" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Man is like a breath. His days are like a shadow that passes away.</text>
   </block>
   <block style="p" chapter="144" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
-    <text>Part your heavens, God, and come down. Touch the mountains, and they will smoke. </text>
+    <text>Part your heavens, God, and come down. Touch the mountains, and they will smoke.</text>
+  </block>
+  <block style="p" chapter="144" initialStartVerse="6" characterId="narrator-PSA">
     <verse num="6" />
     <text>Throw out lightning, and scatter them. Send out your arrows, and rout them.</text>
   </block>
   <block style="p" chapter="144" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Stretch out your hand from above, rescue me, and deliver me out of great waters, out of the hands of foreigners; </text>
+    <text>Stretch out your hand from above, rescue me, and deliver me out of great waters, out of the hands of foreigners;</text>
+  </block>
+  <block style="p" chapter="144" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>whose mouths speak deceit, Whose right hand is a right hand of falsehood.</text>
   </block>
@@ -9526,7 +9998,9 @@
   </block>
   <block style="p" chapter="145" initialStartVerse="1" characterId="narrator-PSA">
     <verse num="1" />
-    <text>I will exalt you, my God, the King. I will praise your name forever and ever. </text>
+    <text>I will exalt you, my God, the King. I will praise your name forever and ever.</text>
+  </block>
+  <block style="p" chapter="145" initialStartVerse="2" characterId="narrator-PSA">
     <verse num="2" />
     <text>Every day I will praise you. I will extol your name forever and ever.</text>
   </block>
@@ -9552,7 +10026,9 @@
   </block>
   <block style="p" chapter="145" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
-    <text>God is gracious, merciful, slow to anger, and of great loving kindness. </text>
+    <text>God is gracious, merciful, slow to anger, and of great loving kindness.</text>
+  </block>
+  <block style="p" chapter="145" initialStartVerse="9" characterId="narrator-PSA">
     <verse num="9" />
     <text>God is good to all. His tender mercies are over all his works.</text>
   </block>
@@ -9670,7 +10146,9 @@
   </block>
   <block style="p" chapter="147" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
-    <text>Sing to God with thanksgiving. Sing praises on the harp to our God, </text>
+    <text>Sing to God with thanksgiving. Sing praises on the harp to our God,</text>
+  </block>
+  <block style="p" chapter="147" initialStartVerse="8" characterId="narrator-PSA">
     <verse num="8" />
     <text>who covers the sky with clouds, who prepares rain for the earth, who makes grass grow on the mountains.</text>
   </block>
@@ -9735,7 +10213,9 @@
   </block>
   <block style="p" chapter="148" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
-    <text>Praise him, sun and moon! Praise him, all you shining stars! </text>
+    <text>Praise him, sun and moon! Praise him, all you shining stars!</text>
+  </block>
+  <block style="p" chapter="148" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Praise him, you heavens of heavens, You waters that are above the heavens.</text>
   </block>

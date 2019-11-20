@@ -338,6 +338,9 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static void ProcessReferenceTextData(Mode mode, Func<ReferenceText> getReferenceText, params ReferenceTextData[] data)
 		{
+			data = data.Where(d => d != null).ToArray();
+			if (data.Length == 0)
+				throw new ArgumentException("At least one non-null data set must be provided.");
 			ErrorsOccurred = false;
 
 			var characterMappings = new List<CharacterMapping>();
@@ -888,7 +891,8 @@ namespace Glyssen.RefTextDevUtilities
 				WriteOutput($"   Aligned to existing {languageName} ref text block: {existingRefBlock}");
 			}
 
-			if (currVerse != existingRefBlock.InitialStartVerseNumber)
+			if (currVerse != existingRefBlock.InitialStartVerseNumber &&
+				(currBookId != "PSA" || currVerse > 1 || existingRefBlock.InitialStartVerseNumber > 0))
 			{
 				WriteOutput($"Verse number does not align with existing {languageName} reference text. Book: {currBookId}, Ch: {currChapter}, " +
 					$"Excel: {currVerse}, Existing: {existingRefBlock.InitialStartVerseNumber}", true);
@@ -964,7 +968,7 @@ namespace Glyssen.RefTextDevUtilities
 							iStartOfWord = i + 1;
 					}
 
-					if (iStartOfWord > 0 && iStartOfWord < chapterLabelForPrevBook.Length - 2)
+					if (iStartOfWord > 0 && chapterLabelForPrevBook.Substring(0, iStartOfWord).Any(Char.IsLetter) && iStartOfWord < chapterLabelForPrevBook.Length - 2)
 						justTheWordForChapter = chapterLabelForPrevBook.Substring(iStartOfWord);
 				}
 
@@ -1256,12 +1260,19 @@ namespace Glyssen.RefTextDevUtilities
 			var fcbhCharacterLabelOrig = fcbhCharacterLabel;
 			var fcbhCharacterLabelSansNumber = fcbhCharacterLabel = s_stripNumericSuffixes.Replace(fcbhCharacterLabel, "$1");
 			fcbhCharacterLabel = s_stripFemaleSuffix.Replace(fcbhCharacterLabel, "$1");
-
+			
 			var bookNum = BCVRef.BookToNumber(bookId);
+
+			// See REVIEW note in GetMatchingNarratorOverride
+			if (GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber) != null)
+				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
+
 			var characters = GetAllCharacters(bookNum, block).Distinct(s_characterDeliveryEqualityComparer).ToList();
 			var implicitChar = characters.SingleOrDefault(c => c.IsImplicit);
 			if (implicitChar != null)
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
+			else
+				characters.RemoveAll(c => c.Character == CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
 			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
 			string overrideChar;
 			switch (characters.Count)
@@ -1285,9 +1296,10 @@ namespace Glyssen.RefTextDevUtilities
 							characterIdToUse = null;
 							break;
 						default:
-							overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
-							if (overrideChar != null)
-								return overrideChar;
+							// See REVIEW note in GetMatchingNarratorOverride
+							//overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+							//if (overrideChar != null)
+							//	return overrideChar;
 
 							if (characterIdToUse != character.Character)
 							{
@@ -1307,9 +1319,10 @@ namespace Glyssen.RefTextDevUtilities
 						return character.Character;
 					return characterIdToUse;
 				case 0:
-					overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
-					if (overrideChar != null)
-						return overrideChar;
+					// See REVIEW note in GetMatchingNarratorOverride
+					//overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+					//if (overrideChar != null)
+					//	return overrideChar;
 
 					//if (CharacterDetailData.Singleton.GetAllCharacterIdsAsLowerInvariant().Contains(characterId.ToLowerInvariant()))
 					//	return characterId;
@@ -1325,7 +1338,13 @@ namespace Glyssen.RefTextDevUtilities
 					{
 						var single = defaultCharactersAndFullCharacterIds.SingleOrDefault(c => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, c.Item1) == MatchLikelihood.Reliable);
 						if (single != null)
+						{
+							// See REVIEW note in GetMatchingNarratorOverride
+							//overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
+							//if (overrideChar != null)
+							//	return overrideChar;
 							return single.Item2.Character;
+						}
 
 						overrideChar = GetMatchingNarratorOverride(bookNum, block, fcbhCharacterLabel, fcbhCharacterLabelSansNumber);
 						if (overrideChar != null)
@@ -1368,8 +1387,25 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static string GetMatchingNarratorOverride(int bookNum, Block block, string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber)
 		{
-			return NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
+			// Note that technically we should be constructing the reference from the referenceTextRow rather than using the block because the
+			// the block may cover more verses and therefore fail to find a narrator override. This should be rare enough that hooking it up manually
+			// won't be a huge burden.
+			var overrideCharacter = NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
 				.FirstOrDefault(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
+			// REVIEW: There are four possible strategies for reference text blocks that are part of a passage which has a narrator override:
+			// 1) Have all blocks that should be spoken by the override character assigned to the narrator.
+			//    perform the check for a matching narrator override character at the start of GetCharacterIdFromFCBHCharacterLabel (where we
+			//    check for a regular narrator match).
+			// 2) Have all blocks that should be spoken by the override character assigned explicitly to the override character.
+			return overrideCharacter;
+			// 3) Have non-quote blocks that should be spoken by the override character assigned to the narrator, but have quote blocks
+			//    assigned explicitly to the override character. This feels kind of logical, but it's not clear whether it has any practical
+			//    advantage. Anyway, it is probably nearly impossible to determine with certainty, plus FCBH doesn't usually split on quotes
+			//    in such cases, so a lot of blocks would be a mix.
+			// 4) Minimize the change from the status quo by leaving existing narrator blocks as narrator and only explicitly assigning the
+			//    override character if the block is already thus assigned (or is misassigned to some other character).
+			//return overrideCharacter != null && block.CharacterIs(BCVRef.NumberToBookCode(bookNum), CharacterVerseData.StandardCharacter.Narrator) ?
+			//	block.CharacterId : overrideCharacter;
 		}
 
 		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId, string alias = null, string defaultCharacter = null)
@@ -1934,14 +1970,14 @@ namespace Glyssen.RefTextDevUtilities
 			if (s_charactersToExcludeWhenComparing == null)
 				return iStartAt;
 			var cUnchecked = s.Length - iStartAt;
-			var matches = s_charactersToExcludeWhenComparing.Matches(s.Substring(iStartAt, cUnchecked));
+			var matches = s_charactersToExcludeWhenComparing.Matches(s, iStartAt);
 			if (matches.Count == cUnchecked)
 				return -1; // All remaining characters are ones we can ignore.
 			foreach (Match match in matches)
 			{
 				if (match.Index > iStartAt)
 					return iStartAt;
-				iStartAt++;
+				iStartAt += match.Length; // should always be 1, I think.
 			}
 
 			return -1;
