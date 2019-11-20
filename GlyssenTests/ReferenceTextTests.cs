@@ -1136,7 +1136,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void ApplyTo_MultipleSpeakersInVerse_SpeakersDoNotCorrespond_ReferenceTextCopiedIntoFirstBlockForVerse()
+		public void ApplyTo_MultipleSpeakersInVerse_SpeakersDoNotCorrespond_UnmatchedReferenceTextCopiedIntoFirstBlockForVerse()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
@@ -1173,9 +1173,9 @@ namespace GlyssenTests
 
 			// Verse 2 (different character IDs but we match them anyway because it is the entirety of the verse)
 			Assert.AreEqual(1, result[4].ReferenceBlocks.Count);
+			Assert.IsFalse(result[4].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[4].CharacterId, result[4].ReferenceBlocks[0].CharacterId);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -3642,7 +3642,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, matchup.CorrelatedBlocks[0].ReferenceBlocks.Count);
 			Assert.IsFalse(matchup.CorrelatedBlocks[1].MatchesReferenceText);
 			Assert.AreEqual(1, matchup.CorrelatedBlocks[1].ReferenceBlocks.Count);
-			Assert.AreEqual(matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(), matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(),
+			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetText(true), matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetText(true),
 				"Since we're not allowing the reference block to be split, we should match the block with v. 24 and v. 25 to both vern blocks.");
 		}
 

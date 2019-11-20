@@ -253,8 +253,16 @@ namespace Glyssen
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{
-				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularBook.Versification,
-					allowSplitting: allowSplitting);
+				if (allowSplitting)
+				{
+					lock(m_modifiedBooks)
+					{
+						MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularBook.Versification);
+					}
+				}
+				else
+					MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularBook.Versification,
+						allowSplitting: false);
 			}
 			return matchup;
 		}
@@ -488,7 +496,11 @@ namespace Glyssen
 						if (allowSplitting && TryMatchBySplittingRefBlock(vernBlockInVerseChunk, refBook, indexOfRefVerseStart))
 							iRefBlock++;
 						else
-							vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new [] {refBlockInVerseChunk});
+						{
+							if (vernBlockList[iVernBlock].CharacterIsUnclear && refBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator))
+								throw new NotImplementedException("PG-1277 [WIP] What to do: Set matched or unmatched?");
+							vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
+						}
 					}
 					else
 					{
@@ -612,18 +624,30 @@ namespace Glyssen
 			}
 		}
 
+		/// <summary>
+		/// In cases where a ref block contains multiple verses but the vernacular is missing the verse(s) with which it starts, we don't
+		/// want to lose the part of the reference text that does correspond to the omitted verses, so it may be necessary to split the
+		/// reference text block so the vernacular block can be matched just to the portion that makes sense. Because this changes the
+		/// reference block, we need to note that the reference text book is "dirty", so this method should only be called in the context
+		/// of a method that has locked m_modifiedBooks; otherwise, the local call here to lock it could result in deadlock.
+		/// </summary>
+		/// <returns></returns>
 		private bool TryMatchBySplittingRefBlock(Block vernBlock, PortionScript refBook, int iRefBlock)
 		{
-			var refBlockList = refBook.GetScriptBlocks();
-			Block refBlock = refBlockList[iRefBlock];
-			if (vernBlock.BlockElements[0] is Verse vernBlockInitStartVerse &&
-				refBlock.BlockElements.Skip(1).OfType<Verse>().Any(v => v.StartVerse == vernBlockInitStartVerse.StartVerse) &&
-				refBook.TrySplitBlockAtEndOfVerse(refBlock, vernBlockInitStartVerse.StartVerse - 1))
+			lock (m_modifiedBooks)
 			{
-				var newBlock = refBlockList[iRefBlock + 1];
-				Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernBlockInitStartVerse.StartVerse);
-				vernBlock.SetMatchedReferenceBlock(newBlock);
-				return true;
+				var refBlockList = refBook.GetScriptBlocks();
+				Block refBlock = refBlockList[iRefBlock];
+				if (vernBlock.BlockElements[0] is Verse vernBlockInitStartVerse &&
+					refBlock.BlockElements.Skip(1).OfType<Verse>().Any(v => v.StartVerse == vernBlockInitStartVerse.StartVerse) &&
+					refBook.TrySplitBlockAtEndOfVerse(refBlock, vernBlockInitStartVerse.StartVerse - 1))
+				{
+					m_modifiedBooks.Add(refBook.BookId);
+					var newBlock = refBlockList[iRefBlock + 1];
+					Debug.Assert(newBlock.StartsAtVerseStart && newBlock.InitialStartVerseNumber == vernBlockInitStartVerse.StartVerse);
+					vernBlock.SetMatchedReferenceBlock(newBlock);
+					return true;
+				}
 			}
 			return false;
 		}
