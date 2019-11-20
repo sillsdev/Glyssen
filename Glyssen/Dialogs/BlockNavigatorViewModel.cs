@@ -164,24 +164,7 @@ namespace Glyssen.Dialogs
 		/// <summary>
 		/// This shows the current position within the filtered list. In rainbow mode, we count "matchups". In white mode, we count blocks.
 		/// </summary>
-		public int CurrentDisplayIndex
-		{
-			get
-			{
-
-				//// If we're in block matchup mode and the current matchup group covers the last relevant block, then make display index
-				//// show as if we're on that very last block so it won't be confusing to the user why they can't click the Next button.
-				//if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation &&
-				//	m_currentRelevantIndex >= 0 &&
-				//	m_currentRelevantIndex < RelevantBlockCount - 1 &&
-				//	m_relevantBookBlockIndices[m_currentRelevantIndex].BookIndex == m_relevantBookBlockIndices.Last().BookIndex &&
-				//	m_relevantBookBlockIndices.Skip(m_currentRelevantIndex + 1).All(i => m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks()[i.BlockIndex])))
-				//{
-				//	return RelevantBlockCount; // REVIEW: If this is still needed, does it need any tweaking?
-				//}
-				return m_currentRelevantIndex + 1;
-			}
-		}
+		public int CurrentDisplayIndex => m_currentRelevantIndex + 1;
 
 		public IBlockAccessor BlockAccessor => m_navigator;
 
@@ -291,7 +274,7 @@ namespace Glyssen.Dialogs
 				return;
 
 			if (!attemptBlockMatchup && (mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
-				throw new InvalidOperationException("The \"Not aligned to reference text\" filer requires matching up with the reference text.");
+				throw new InvalidOperationException("The \"Not aligned to reference text\" filter requires matching up with the reference text.");
 
 			m_attemptRefBlockMatchup = attemptBlockMatchup;
 			SetModeInternal(mode);

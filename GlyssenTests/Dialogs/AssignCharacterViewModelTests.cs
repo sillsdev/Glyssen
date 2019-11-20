@@ -1828,7 +1828,7 @@ namespace GlyssenTests.Dialogs
 			m_fullProjectRefreshRequired = true;
 
 			m_model.SetMode(BlocksToDisplay.AllQuotes, true);
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 7, 6);
+			FindRefInMark(7, 6);
 			var iBlock = m_model.CurrentBlockIndexInBook;
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			m_model.CurrentBlockIndexInBook = iBlock;
@@ -1861,8 +1861,7 @@ namespace GlyssenTests.Dialogs
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 34);
-			m_model.SetMode(m_model.Mode, true);
+			FindRefInMark(9, 34);
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
@@ -1887,7 +1886,7 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			m_assigned = 0;
 
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 8, 5);
+			FindRefInMark(8, 5);
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
@@ -1914,8 +1913,7 @@ namespace GlyssenTests.Dialogs
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 10, 48);
-			m_model.SetMode(m_model.Mode, true);
+			FindRefInMark(10, 48);
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
  			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchupForMark85.CorrelatedBlocks.Count);
@@ -1940,14 +1938,13 @@ namespace GlyssenTests.Dialogs
 		public void ApplyCurrentReferenceTextMatchup_NeedAssignmentsTask_VernacularSplitByReferenceText_NoChangeToMaximumAssignmentsIncremented()
 		{
 			m_model.SetMode(BlocksToDisplay.NotAlignedToReferenceText, true);
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 12, 15);
+			FindRefInMark(12, 15);
 			m_model.SetMode(BlocksToDisplay.NotAssignedAutomatically, true);
 			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
 
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
-			m_model.SetMode(m_model.Mode, true);
 			var matchupForMark1215 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(1, matchupForMark1215.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(1, matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear));
@@ -1974,7 +1971,7 @@ namespace GlyssenTests.Dialogs
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 3, 19);
+			FindRefInMark(3, 19);
 			var matchupForMark319 = m_model.CurrentReferenceTextMatchup;
 			var countOfBlocksAddedBySplitting = matchupForMark319.CountOfBlocksAddedBySplitting;
 			Assert.IsTrue(countOfBlocksAddedBySplitting > 0);
@@ -2031,11 +2028,7 @@ namespace GlyssenTests.Dialogs
 
 		private void FindRefInMark(int chapter, int verse)
 		{
-			while (m_model.CurrentBlock.ChapterNumber != chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)
-				m_model.LoadNextRelevantBlock();
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);
+			BlockNavigatorViewModelTests.FindRefInMark(m_model, chapter, verse);
 		}
 
 		private List<KeyValuePair<int, string>> GetListOfCharacters(int numberOfCharacters, IReadOnlyList<string> characterIds )

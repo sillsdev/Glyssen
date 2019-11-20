@@ -36,11 +36,13 @@ namespace Glyssen
 		[XmlElement("blockIndex")]
 		public int BlockIndex { get; set; }
 
+		/// <summary>
+		/// Treat this setter as private (needs to be public for deserialization). Use one of the "Extend..." methods if you want to change this.
+		/// </summary>
 		[XmlElement("multiBlockCount")]
 		public uint MultiBlockCount
 		{
 			get => m_multiBlockCount;
-			// Treat this setter as private (needs to be public for deserialization
 			set => m_multiBlockCount = value == 1 ? 0 : value;
 		}
 

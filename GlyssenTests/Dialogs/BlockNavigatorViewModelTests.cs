@@ -966,8 +966,6 @@ namespace GlyssenTests.Dialogs
 
 		internal static void FindRefInMark(BlockNavigatorViewModel model, int chapter, int verse)
 		{
-			//var restore = model.AttemptRefBlockMatchup;
-			//model.AttemptRefBlockMatchup = false;
 			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentEndBlock.LastVerseNum < verse)
 			{
 				if (model.IsCurrentLocationRelevant && model.CurrentDisplayIndex == model.RelevantBlockCount)
@@ -978,7 +976,6 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual("MRK", model.CurrentBookId);
 			Assert.AreEqual(chapter, model.CurrentBlock.ChapterNumber);
 			Assert.IsTrue(verse >= model.CurrentBlock.InitialStartVerseNumber && verse <= model.CurrentEndBlock.LastVerseNum);
-			//model.AttemptRefBlockMatchup = restore;
 		}
 	}
 
@@ -1065,9 +1062,6 @@ namespace GlyssenTests.Dialogs
 			m_model.ApplyCurrentReferenceTextMatchup();
 			Assert.AreEqual(displayIndex, m_model.CurrentDisplayIndex);
 			Assert.IsTrue(m_model.IsCurrentLocationRelevant);
-			// Need to switch to "Match Character" mode because in rainbow mode, we occasionally get a block matchup that covers
-			// more than one relevant block, so advancing to the next relevant place can increment the display index by more than one.
-			//		m_model.SetMode(m_model.Mode, false);
 			do
 			{
 				m_model.LoadNextRelevantBlock();
