@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenShared", "GlyssenSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenSharedTests", "GlyssenSharedTests\GlyssenSharedTests.csproj", "{A91A6D5E-F3A1-4E6F-B9A8-4FA5C3AF7707}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngine", "GlyssenEngine\GlyssenEngine.csproj", "{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenEngine", "GlyssenEngine\GlyssenEngine.csproj", "{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngineTest", "GlyssenEngineTest\GlyssenEngineTest.csproj", "{EA2FDC70-B738-43EA-9C5B-619691778295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenEngineTests", "GlyssenEngineTest\GlyssenEngineTests.csproj", "{EA2FDC70-B738-43EA-9C5B-619691778295}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

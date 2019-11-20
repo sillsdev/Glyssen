@@ -41,8 +41,8 @@ namespace GlyssenTests
 			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
@@ -53,8 +53,8 @@ namespace GlyssenTests
 				DirectoryUtilities.DeleteDirectoryRobust(directory);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTeardown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			foreach (var folder in m_tempProjectFolders)
 				DirectoryUtilities.DeleteDirectoryRobust(folder);
