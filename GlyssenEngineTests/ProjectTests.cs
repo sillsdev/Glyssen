@@ -43,8 +43,8 @@ namespace GlyssenEngineTests
 			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			GlyssenInfo.Product = "GlyssenTests";
 
@@ -60,8 +60,8 @@ namespace GlyssenEngineTests
 			}
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTeardown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			foreach (var folder in m_tempProjectFolders)
 				RobustIO.DeleteDirectoryAndContents(folder);

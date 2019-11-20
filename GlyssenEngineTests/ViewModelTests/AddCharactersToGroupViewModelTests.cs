@@ -16,8 +16,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		private Dictionary<string, int> m_keystrokesByCharacterId;
 		private bool m_fullProjectRefreshRequired;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
@@ -50,14 +50,14 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			if (m_fullProjectRefreshRequired)
 			{
-				TestFixtureTearDown();
-				TestFixtureSetUp();
+				OneTimeTearDown();
+				OneTimeSetUp();
 				m_fullProjectRefreshRequired = false;
 			}
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			m_testProject = null;
 			TestProject.DeleteTestProjectFolder();

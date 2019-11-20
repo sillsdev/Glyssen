@@ -37,8 +37,8 @@ namespace GlyssenTests.Dialogs
 		private Project m_project;
 		private readonly ConcurrentDictionary<string, CastSizeRowValues> m_results = new ConcurrentDictionary<string, CastSizeRowValues>();
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use the real version of the file because we want the results to be based on the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
@@ -54,14 +54,14 @@ namespace GlyssenTests.Dialogs
 			}
 			catch
 			{
-				// If we have an exception here, TestFixtureTearDown doesn't get called which means we need to call Sldr.Cleanup() now
+				// If we have an exception here, OneTimeTearDown doesn't get called which means we need to call Sldr.Cleanup() now
 				Sldr.Cleanup();
 				throw;
 			}
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			Sldr.Cleanup();
 			var ntBooks = SilBooks.Codes_3Letter.Skip(39).ToArray();
@@ -175,8 +175,8 @@ namespace GlyssenTests.Dialogs
 		private Project m_project;
 		private readonly ConcurrentDictionary<string, CastSizeRowValues> m_results = new ConcurrentDictionary<string, CastSizeRowValues>();
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use the real version of the file because we want the results to be based on the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
@@ -194,15 +194,15 @@ namespace GlyssenTests.Dialogs
 			}
 			catch
 			{
-				// If we have an exception here, TestFixtureTearDown doesn't get called which means we need to call Sldr.Cleanup() now.
+				// If we have an exception here, OneTimeTearDown doesn't get called which means we need to call Sldr.Cleanup() now.
 				// This can affect other tests, otherwise.
 				Sldr.Cleanup();
 				throw;
 			}
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			Sldr.Cleanup();
 

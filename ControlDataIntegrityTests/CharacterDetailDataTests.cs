@@ -11,8 +11,8 @@ namespace ControlDataIntegrityTests
 	[TestFixture]
 	public class CharacterDetailDataTests
 	{
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+        public void OneTimeSetUp()
 		{
 			// Fixes issue where other test project was interfering with the running of this one (by setting the data to test data).
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;

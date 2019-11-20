@@ -8,6 +8,7 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using NUnit.Framework;
+using SIL.TestUtilities;
 using Rhino.Mocks;
 using SIL.IO;
 using SIL.Scripture;
@@ -25,8 +26,8 @@ namespace GlyssenEngineTests.Script
 		private ScrVers m_testVersification;
 		private IQuoteInterruptionFinder m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;

@@ -30,8 +30,8 @@ namespace GlyssenEngineTests.Script
 		private ScrVers m_testVersification;
 		private IQuoteInterruptionFinder m_interruptionFinder;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
