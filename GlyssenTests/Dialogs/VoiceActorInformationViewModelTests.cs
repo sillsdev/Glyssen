@@ -16,8 +16,8 @@ namespace GlyssenTests.Dialogs
 		private Project m_testProject;
 		private VoiceActorInformationViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -38,8 +38,8 @@ namespace GlyssenTests.Dialogs
 			m_model = new VoiceActorInformationViewModel(m_testProject);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}

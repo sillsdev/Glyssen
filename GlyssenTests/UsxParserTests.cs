@@ -22,8 +22,8 @@ namespace GlyssenTests
 			UsxDocumentTests.kUsxChapter1AndContentPlaceholder +
 			UsxDocumentTests.kUsxFrameEnd;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			Block.FormatChapterAnnouncement = null;

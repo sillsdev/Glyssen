@@ -20,8 +20,8 @@ namespace ControlDataIntegrityTests
 		private IEnumerable<string> AllDataLines =>
 			Resources.CharacterVerseData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries).Skip(1).Where(l => !l.StartsWith("#"));
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Fixes issue where other test project was interfering with the running of this one (by setting the data to test data).
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;

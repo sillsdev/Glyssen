@@ -6,7 +6,8 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
 using NUnit.Framework;
-using SIL.TestUtilities;
+// using SIL.TestUtilities;                This will be used again when libpalaso moves to NUnit 3.12
+using GlyssenSharedTests.TestUtilities; // This will no longer be used when libpalaso moves to NUnit 3.12
 using SIL.Scripture;
 using SIL.Xml;
 using GlyssenTests.Properties;
@@ -21,8 +22,8 @@ namespace GlyssenTests
 	{
 		private ScrVers m_testVersification;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
