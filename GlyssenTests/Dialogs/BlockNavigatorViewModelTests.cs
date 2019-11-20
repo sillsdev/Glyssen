@@ -19,8 +19,8 @@ namespace GlyssenTests.Dialogs
 		private Project m_testProject;
 		private BlockNavigatorViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -35,8 +35,8 @@ namespace GlyssenTests.Dialogs
 			m_model.ForwardContextBlockCount = 10;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -990,8 +990,8 @@ namespace GlyssenTests.Dialogs
 		private Project m_testProject;
 		private BlockNavigatorViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -1279,8 +1279,8 @@ namespace GlyssenTests.Dialogs
 	{
 		private Project m_testProject;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -1338,8 +1338,8 @@ namespace GlyssenTests.Dialogs
 		private Project m_testProject;
 		private BlockNavigatorViewModel m_model;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
@@ -1352,8 +1352,8 @@ namespace GlyssenTests.Dialogs
 			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.Ambiguous);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -1391,8 +1391,8 @@ namespace GlyssenTests.Dialogs
 		private BlockNavigatorViewModel m_model;
 		private VerseRef m_targetReference;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			var mark = m_testProject.IncludedBooks.Single();
@@ -1426,8 +1426,8 @@ namespace GlyssenTests.Dialogs
 			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -1448,15 +1448,15 @@ namespace GlyssenTests.Dialogs
 	[TestFixture]
 	class BlockNavigatorViewModelTestsForMatCuk
 	{
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}

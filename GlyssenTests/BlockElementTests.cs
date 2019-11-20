@@ -1,7 +1,8 @@
 ﻿using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
-using SIL.TestUtilities;
+// using SIL.TestUtilities;                This will be used again when libpalaso moves to NUnit 3.12
+using GlyssenSharedTests.TestUtilities; // This will no longer be used when libpalaso moves to NUnit 3.12
 using SIL.Xml;
 
 namespace GlyssenTests

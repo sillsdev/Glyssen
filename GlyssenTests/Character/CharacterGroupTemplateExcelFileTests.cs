@@ -13,16 +13,16 @@ namespace GlyssenTests.Character
 		private TempFile m_tempFile;
 		private ICharacterGroupSource m_charGroupSource;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_tempFile = new TempFile();
 			File.WriteAllBytes(m_tempFile.Path, Resources.TestCharacterGroups);
 			m_charGroupSource = new CharacterGroupTemplateExcelFile(TestProject.CreateBasicTestProject(), m_tempFile.Path);
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			m_tempFile.Dispose();
 		}

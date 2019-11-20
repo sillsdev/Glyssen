@@ -22,8 +22,8 @@ namespace GlyssenTests.Quote
 		private static readonly int kMRKbookNum = BCVRef.BookToNumber("MRK");
 		private static readonly int kLUKbookNum = BCVRef.BookToNumber("LUK");
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
@@ -2986,7 +2986,7 @@ namespace GlyssenTests.Quote
 		}
 		#endregion
 
-		[Ignore]
+		[Ignore("We don't know what the results should be.")]
 		[Test]
 		public void Parse_PotentialContinuationParagraphMissingCloser_NotSureWhatToDo()
 		{
@@ -5374,7 +5374,7 @@ namespace GlyssenTests.Quote
 	[TestFixture]
 	public class QuoteParserTestsWithTestCharacterVerseOct2015
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetup()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
