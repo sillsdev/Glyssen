@@ -1980,7 +1980,7 @@ namespace Glyssen.RefTextDevUtilities
 				iStartAt += match.Length; // should always be 1, I think.
 			}
 
-			return -1;
+			return iStartAt;
 		}
 
 		private static void GetQuoteMarksForLanguage(string languageName, out string doubleOpen, out string doubleClose, out string singleOpen, out string singleClose)

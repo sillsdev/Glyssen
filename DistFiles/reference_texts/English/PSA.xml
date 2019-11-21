@@ -3935,7 +3935,9 @@
     <text>“We have made a perfect plan!”</text>
   </block>
   <block style="p" chapter="64" initialStartVerse="6" characterId="narrator-PSA">
-    <text>Surely man's mind and heart are cunning. </text>
+    <text>Surely man's mind and heart are cunning.</text>
+  </block>
+  <block style="p" chapter="64" initialStartVerse="7" characterId="narrator-PSA">
     <verse num="7" />
     <text>But God will shoot at them. They will be suddenly struck down with an arrow.</text>
   </block>
@@ -5891,7 +5893,9 @@
     <text>I will establish your seed forever, and build up your throne to all generations.'</text>
   </block>
   <block style="p" chapter="89" initialStartVerse="4" characterId="narrator-PSA">
-    <text>Selah. </text>
+    <text>Selah.</text>
+  </block>
+  <block style="p" chapter="89" initialStartVerse="5" characterId="narrator-PSA">
     <verse num="5" />
     <text>The heavens will praise your wonders, God; your faithfulness also in the assembly of the holy ones.</text>
   </block>
@@ -8080,21 +8084,21 @@
     <verse num="2" />
     <text>Let Israel now say</text>
   </block>
-  <block style="p" chapter="118" initialStartVerse="2" characterId="narrator-PSA">
+  <block style="p" chapter="118" initialStartVerse="2" characterId="Israel">
     <text>that his loving kindness endures forever.</text>
   </block>
   <block style="p" chapter="118" initialStartVerse="3" characterId="narrator-PSA">
     <verse num="3" />
     <text>Let the house of Aaron now say</text>
   </block>
-  <block style="p" chapter="118" initialStartVerse="3" characterId="narrator-PSA">
+  <block style="p" chapter="118" initialStartVerse="3" characterId="house of Aaron, the">
     <text>that his loving kindness endures forever.</text>
   </block>
   <block style="p" chapter="118" initialStartVerse="4" characterId="narrator-PSA">
     <verse num="4" />
     <text>Now let those who fear God say</text>
   </block>
-  <block style="p" chapter="118" initialStartVerse="4" characterId="narrator-PSA">
+  <block style="p" chapter="118" initialStartVerse="4" characterId="those who fear the Lord">
     <text>that his loving kindness endures forever.</text>
   </block>
   <block style="p" chapter="118" initialStartVerse="5" characterId="narrator-PSA">
@@ -9216,7 +9220,7 @@
     <verse num="8" />
     <text>Neither do those who go by say,</text>
   </block>
-  <block style="p" chapter="129" initialStartVerse="8" characterId="narrator-PSA">
+  <block style="p" chapter="129" initialStartVerse="8" characterId="those who go by" delivery="do not say">
     <text>“The blessing of God be on you. We bless you in the name of God.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="130" book="PSA" initialStartVerse="0" characterId="BC-PSA">

@@ -8567,7 +8567,7 @@ PSA	129	2	narrator-PSA			Quotation
 PSA	129	2	Israel			Hypothetical		
 PSA	129	3	narrator-PSA			Quotation		
 PSA	129	3	Israel			Hypothetical		
-PSA	129	8	those who go by			Hypothetical		
+PSA	129	8	those who go by	do not say		Hypothetical		
 PSA	132	3	David			Quotation		
 PSA	132	4	David			Quotation		
 PSA	132	5	David			Quotation		
