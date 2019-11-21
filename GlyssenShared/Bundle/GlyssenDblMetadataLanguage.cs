@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Xml.Serialization;
-using Glyssen.Shared.Properties;
 using SIL.DblBundle.Text;
 
 namespace Glyssen.Shared.Bundle
@@ -26,7 +25,7 @@ namespace Glyssen.Shared.Bundle
 		[XmlElement("fontSizeInPoints")]
 		public int FontSizeInPoints
 		{
-			get { return m_fontSizeInPoints == 0 ? Settings.Default.DefaultFontSize : m_fontSizeInPoints; }
+			get { return m_fontSizeInPoints == 0 ? 10 : m_fontSizeInPoints; }
 			set { m_fontSizeInPoints = value; }
 		}
 
