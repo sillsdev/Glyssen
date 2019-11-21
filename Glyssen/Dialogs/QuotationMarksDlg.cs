@@ -715,7 +715,7 @@ namespace Glyssen.Dialogs
 					break;
 			}
 
-			m_navigatorViewModel.Mode = mode;
+			m_navigatorViewModel.SetMode(mode);
 
 			if (m_navigatorViewModel.RelevantBlockCount > 0)
 			{
@@ -763,8 +763,8 @@ namespace Glyssen.Dialogs
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
-			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
-			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentBlockDisplayIndex);
+			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentLocationRelevant;
+			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentDisplayIndex);
 			UpdateRelativeNavigationPositionDisplay();
 
 			m_navigatorViewModel.GetBlockVerseRef().SendScrReference();
@@ -772,7 +772,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateRelativeNavigationPositionDisplay()
 		{
-			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
+			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
 		}
 
 		private void UpdateNavigationButtonState()

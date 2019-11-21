@@ -19,7 +19,6 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
-using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -113,7 +112,7 @@ namespace Glyssen.Dialogs
 			else
 			{
 				if (m_viewModel.Mode == BlocksToDisplay.NotAlignedToReferenceText)
-					m_viewModel.Mode = BlocksToDisplay.NotYetAssigned;
+					m_viewModel.SetMode(BlocksToDisplay.NotYetAssigned, false);
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
 				m_toolStripButtonMatchReferenceText.Enabled = false;
 			}
@@ -182,11 +181,13 @@ namespace Glyssen.Dialogs
 				if (m_toolStripComboBoxFilter.SelectedIndex >= m_indexOfFirstFilterItemRemoved)
 				{
 					m_toolStripComboBoxFilter.SelectedIndex = 0;
-					HandleFilterChanged(m_toolStripComboBoxFilter, new EventArgs());
 				}
 				while (m_toolStripComboBoxFilter.Items.Count != m_indexOfFirstFilterItemRemoved)
 					m_toolStripComboBoxFilter.Items.RemoveAt(m_indexOfFirstFilterItemRemoved);
 			}
+			// Even if it's the same filter selected, we need to force it to reset the mode
+			// because other stuff has changed, and this is what triggers our UI to update.
+			HandleFilterChanged(m_toolStripComboBoxFilter, new EventArgs());
 		}
 
 		private void BlocksViewerOnMinimumWidthChanged(object sender, EventArgs eventArgs)
@@ -344,7 +345,7 @@ namespace Glyssen.Dialogs
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
-			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
+			m_labelXofY.Visible = m_viewModel.IsCurrentLocationRelevant;
 			UpdateNavigationIndexLabel();
 			m_chkSingleVoice.Text = Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
@@ -365,8 +366,8 @@ namespace Glyssen.Dialogs
 		{
 			if (m_labelXofY.Visible)
 			{
-				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
-				m_labelXofY.Text = Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentDisplayIndex);
+				m_labelXofY.Text = Format(m_xOfYFmt, m_viewModel.CurrentDisplayIndex, m_viewModel.RelevantBlockCount);
 			}
 		}
 
@@ -1044,8 +1045,15 @@ namespace Glyssen.Dialogs
 
 		private void HandleFilterChanged(object sender, EventArgs e)
 		{
-			if (!IsHandleCreated)
+			if (IsHandleCreated)
+			{
+				HandleCreated -= HandleFilterChanged;
+			}
+			else
+			{
+				HandleCreated += HandleFilterChanged;
 				return;
+			}
 
 			Cursor = Cursors.WaitCursor;
 
@@ -1086,7 +1094,7 @@ namespace Glyssen.Dialogs
 
 				Logger.WriteEvent("Changed filter in Identify Speaking Parts dialog: " + mode);
 
-				m_viewModel.Mode = mode;
+				m_viewModel.SetMode(mode, m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText);
 
 				if (m_viewModel.RelevantBlockCount > 0)
 				{
@@ -1381,7 +1389,6 @@ namespace Glyssen.Dialogs
 		{
 			if (m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText)
 			{
-				m_viewModel.AttemptRefBlockMatchup = true;
 				m_blocksViewer.Text =
 					Localizer.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
 						"Match reference text for each colored row.");
@@ -1390,7 +1397,6 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				m_viewModel.AttemptRefBlockMatchup = false;
 				m_blocksViewer.Text = m_defaultBlocksViewerText;
 				m_saveStatus.Visible = true;
 				m_blocksViewer.ContentBorderStyle = BorderStyle.None;

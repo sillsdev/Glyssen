@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
+using Microsoft.DotNet.PlatformAbstractions;
 
 namespace Glyssen
 {
@@ -35,6 +36,9 @@ namespace Glyssen
 		[XmlElement("blockIndex")]
 		public int BlockIndex { get; set; }
 
+		/// <summary>
+		/// Treat this setter as private (needs to be public for deserialization). Use one of the "Extend..." methods if you want to change this.
+		/// </summary>
 		[XmlElement("multiBlockCount")]
 		public uint MultiBlockCount
 		{
@@ -42,10 +46,38 @@ namespace Glyssen
 			set => m_multiBlockCount = value == 1 ? 0 : value;
 		}
 
+		public void ExtendToIncludeMoreBlocks(uint insertions)
+		{
+			MultiBlockCount = BlockCount + insertions;
+		}
+
+		public bool ExtendForMatchup(BlockMatchup matchup)
+		{
+			if (IsMultiBlock)
+				throw new InvalidOperationException($"Invalid attempt to extend a multi-block {GetType()} based on a {matchup.GetType()}.");
+			if (matchup.IndexOfStartBlockInBook != BlockIndex)
+				throw new InvalidOperationException($"This  {GetType()} does not correspond to the given {matchup.GetType()}.");
+			if (matchup.OriginalBlockCount == 1)
+				return false;
+			ExtendToIncludeMoreBlocks((uint)matchup.OriginalBlockCount - 1); // -1 because the first one is already implicitly included
+			return true;
+		}
+
 		/// <summary>
-		/// This will always return a value which is >= 1. This is needed when the actual
-		/// number of blocks is needed, because unfortunately MultiBlockCount can have a
-		/// value or either 1 or 0, and either way, it represents a single block.
+		/// Advances to the next block index beyond the EffectiveFinalBlockIndex. If this object was
+		/// a multiblock location, the MultiBlockCount is re-set such that the state of this object
+		/// represents only a single block.
+		/// </summary>
+		public void AdvanceToNextBlock()
+		{
+			BlockIndex += (int)BlockCount;
+			MultiBlockCount = 0;
+		}
+
+		/// <summary>
+		/// This will always return a value which is >= 1. Use when the actual
+		/// number of blocks is needed, because unfortunately MultiBlockCount never returns 1
+		/// (when it is set to either 1 or 0, it represents a single block and returns 0).
 		/// </summary>
 		public uint BlockCount => MultiBlockCount > 1 ? MultiBlockCount : 1;
 
@@ -53,10 +85,8 @@ namespace Glyssen
 
 		public bool IsUndefined => BookIndex == -1 || BlockIndex == -1;
 
-
 		/// <summary>
-		/// Technically, this just means this object refers to a run of blocks of specified length. It could be 1, though this is
-		/// not likely.
+		/// This object refers to a run (typically a "matchup") of two or more blocks.
 		/// </summary>
 		public bool IsMultiBlock => MultiBlockCount > 0;
 
@@ -120,5 +150,4 @@ namespace Glyssen
 		}
 		#endregion
 	}
-
 }
