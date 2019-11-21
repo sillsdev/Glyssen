@@ -497,7 +497,10 @@ namespace Glyssen
 							iRefBlock++;
 						else
 						{
-							vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
+							if (forceMatch)
+								vernBlockList[iVernBlock].SetMatchedReferenceBlock(refBlockInVerseChunk);
+							else
+								vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
 						}
 					}
 					else
