@@ -443,7 +443,7 @@ namespace Glyssen
 					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
 					// ref blocks into one and call it a match.
 					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
-						refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk));
+						refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk).ToList());
 					continue;
 				}
 
@@ -497,8 +497,6 @@ namespace Glyssen
 							iRefBlock++;
 						else
 						{
-							if (vernBlockList[iVernBlock].CharacterIsUnclear && refBlockInVerseChunk.CharacterIs(bookId, CharacterVerseData.StandardCharacter.Narrator))
-								throw new NotImplementedException("PG-1277 [WIP] What to do: Set matched or unmatched?");
 							vernBlockList[iVernBlock].SetUnmatchedReferenceBlocks(new[] {refBlockInVerseChunk});
 						}
 					}
@@ -530,7 +528,7 @@ namespace Glyssen
 							}
 						}
 						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
-						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks);
+						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks).ToList();
 						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
 						{
 							// Since there's only one vernacular block for this verse (or verse bridge), just combine all
@@ -657,6 +655,7 @@ namespace Glyssen
 			var vernInitStartVerse = vernBlock.StartRef(bookNum, vernacularVersification);
 			var refInitStartVerse = refBlock.StartRef(bookNum, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
+				// ENHANCE: In passages where there is a narrator override, narrator should be considered a "match" with the override character
 				(vernBlock.CharacterId == refBlock.CharacterId || (vernBlock.CharacterIsUnclear && !refBlock.CharacterIsStandard)) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}

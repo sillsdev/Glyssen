@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -381,20 +382,28 @@ namespace Glyssen
 		}
 
 		public void SetMatchedReferenceBlock(int bookNum, ScrVers versification,
-			IReferenceLanguageInfo referenceLanguageInfo, IEnumerable<Block> referenceBlocksToJoin = null)
+			IReferenceLanguageInfo referenceLanguageInfo, IReadOnlyCollection<Block> referenceBlocksToJoin = null)
 		{
 			if (referenceBlocksToJoin == null)
-				referenceBlocksToJoin = ReferenceBlocks;
-			var baseBlock = (referenceBlocksToJoin?.FirstOrDefault() ?? this);
-			var refBlock = new Block(StyleTag, ChapterNumber, baseBlock.InitialStartVerseNumber, baseBlock.InitialEndVerseNumber);
-			refBlock.SetCharacterAndDeliveryInfo(this, bookNum, versification);
-			if (referenceBlocksToJoin.Any())
-				refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
-			else
 			{
-				refBlock.BlockElements.Add(new ScriptText(""));
-				if (referenceLanguageInfo.HasSecondaryReferenceText)
-					refBlock.SetMatchedReferenceBlock(bookNum, versification, referenceLanguageInfo.BackingReferenceLanguage);
+				referenceBlocksToJoin = ReferenceBlocks;
+				Debug.Assert(referenceBlocksToJoin != null);
+			}
+
+			var refBlock = referenceBlocksToJoin.OnlyOrDefault();
+			if (refBlock == null)
+			{
+				var baseBlock = (referenceBlocksToJoin?.FirstOrDefault() ?? this);
+				refBlock = new Block(StyleTag, ChapterNumber, baseBlock.InitialStartVerseNumber, baseBlock.InitialEndVerseNumber);
+				refBlock.SetCharacterAndDeliveryInfo(this, bookNum, versification);
+				if (referenceBlocksToJoin.Any())
+					refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
+				else
+				{
+					refBlock.BlockElements.Add(new ScriptText(""));
+					if (referenceLanguageInfo.HasSecondaryReferenceText)
+						refBlock.SetMatchedReferenceBlock(bookNum, versification, referenceLanguageInfo.BackingReferenceLanguage);
+				}
 			}
 			SetMatchedReferenceBlock(refBlock);
 		}

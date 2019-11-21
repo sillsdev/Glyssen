@@ -311,6 +311,8 @@ namespace Glyssen
 				else
 				{
 					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
+					if (block.CharacterIsUnclear)
+						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), bookNum, m_versification);
 				}
 
 				if (block.CharacterIsStandard && block.MultiBlockQuote != MultiBlockQuote.None)
