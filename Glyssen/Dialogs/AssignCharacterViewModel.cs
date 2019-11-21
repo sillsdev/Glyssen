@@ -7,7 +7,6 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;
-using L10NSharp;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
@@ -61,8 +60,8 @@ namespace Glyssen.Dialogs
 
 		public override BlocksToDisplay Mode
 		{
-			get { return base.Mode; }
-			set
+			get => base.Mode;
+			protected set
 			{
 				base.Mode = value;
 				m_project.Status.AssignCharacterMode = value;
@@ -99,14 +98,11 @@ namespace Glyssen.Dialogs
 			CurrentBook.SingleVoice = singleVoice;
 			m_project.SaveBook(CurrentBook);
 
-			// REVIEW: Can/should we keep it in rainbow mode even for single-voice books?
 			if (singleVoice)
 			{
 				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
 				ClearBlockMatchup();
 			}
-			else // TODO: Ensure test coverage for this
-				SetBlockMatchupForCurrentVerse();
 
 			ResetFilter(CurrentBlock);
 
@@ -181,7 +177,7 @@ namespace Glyssen.Dialogs
 				}
 				else
 				{
-					CurrentReferenceTextMatchup?.ChangeAnchor(CurrentBlock);
+					CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
 				}
 			}
 			base.HandleCurrentBlockChanged();
@@ -442,6 +438,8 @@ namespace Glyssen.Dialogs
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
 		{
+			Debug.Assert(CurrentReferenceTextMatchup == null, "This method should never be called when in rainbow mode.");
+
 			if (!CurrentBlockInOriginal.UserConfirmed)
 			{
 				CompletedBlockCount++;
@@ -451,11 +449,13 @@ namespace Glyssen.Dialogs
 			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlockInOriginal))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
 
-			if (CurrentReferenceTextMatchup != null && CurrentReferenceTextMatchup.HasOutstandingChangesToApply)
-			{
-				foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
-					SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
-			}
+			// This code was added to make a test pass, but that test was testing this method in a situation
+			// where it would never actually be used in production:
+			//if (CurrentReferenceTextMatchup != null && CurrentReferenceTextMatchup.HasOutstandingChangesToApply)
+			//{
+			//	foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
+			//		SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
+			//}
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
@@ -632,9 +632,10 @@ namespace Glyssen.Dialogs
 					SetBlockMatchupForCurrentVerse();
 				}
 
-				// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
-				// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
-				SetModeInternal(Mode, true);
+
+				//// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
+				//// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
+				//SetModeInternal(Mode, true);
 			}
 			finally
 			{

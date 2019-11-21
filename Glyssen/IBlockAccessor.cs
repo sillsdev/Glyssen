@@ -24,8 +24,7 @@ namespace Glyssen
 		Block GetNthNextBlockWithinBook(int n);
 		Block GetNthNextBlockWithinBook(int n, Block baseLineBlock);
 		IEnumerable<Block> GetPreviousNBlocksWithinBook(int numberOfBlocks);
-		IEnumerable<Block> GetPreviousBlocksWithinBookWhile(Func<Block, bool> predicate);
-		IEnumerable<Block> GetNextBlocksWithinBookWhile(Func<Block, bool> predicate);
+		IEnumerable<Block> GetSurroundingBlocksWithinBookWhile(Func<Block, bool> predicate, bool forwardOnly, Block startBlock = null);
 		Block GetNthPreviousBlockWithinBook(int n);
 		Block GetNthPreviousBlockWithinBook(int n, Block baseLineBlock);
 		Block GetPreviousBlock();
