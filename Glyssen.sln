@@ -15,13 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reference Text Utility", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefTextDevUtilities", "RefTextDevUtilities\RefTextDevUtilities.csproj", "{49C0C51D-190F-450D-A7BE-14E843C2E89D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenShared", "GlyssenShared\GlyssenShared.csproj", "{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenShared", "GlyssenShared\GlyssenShared.csproj", "{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenSharedTests", "GlyssenSharedTests\GlyssenSharedTests.csproj", "{A91A6D5E-F3A1-4E6F-B9A8-4FA5C3AF7707}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngine", "GlyssenEngine\GlyssenEngine.csproj", "{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenEngine", "GlyssenEngine\GlyssenEngine.csproj", "{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngineTest", "GlyssenEngineTest\GlyssenEngineTest.csproj", "{EA2FDC70-B738-43EA-9C5B-619691778295}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngineTests", "GlyssenEngineTests\GlyssenEngineTests.csproj", "{EA2FDC70-B738-43EA-9C5B-619691778295}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
