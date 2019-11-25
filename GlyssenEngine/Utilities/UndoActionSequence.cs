@@ -4,7 +4,7 @@ using System.Linq;
 using SIL.Extensions;
 using SIL.ObjectModel;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public class UndoActionSequence<T> where T : IUndoAction
 	{

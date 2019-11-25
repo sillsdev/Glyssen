@@ -13,6 +13,7 @@ using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

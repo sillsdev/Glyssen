@@ -1,7 +1,7 @@
 ﻿using SIL.Scripture;
 using SIL.Windows.Forms.Scripture;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public static class VerseRefExtensions
 	{
