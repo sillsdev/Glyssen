@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public static class LinqExtensions
 	{

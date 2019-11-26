@@ -186,7 +186,6 @@
     <Compile Include="UsxParserTests.cs" />
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\FileSystemUtilsTests.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />
     <Compile Include="VoiceActor\VoiceActorListTests.cs" />
     <Compile Include="VoiceActor\VoiceActorTests.cs" />

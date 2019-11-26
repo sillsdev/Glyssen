@@ -7,6 +7,7 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;

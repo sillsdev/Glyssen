@@ -24,6 +24,7 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
+using GlyssenEngine.Utilities;
 using L10NSharp;
 using Paratext.Data;
 using SIL;
