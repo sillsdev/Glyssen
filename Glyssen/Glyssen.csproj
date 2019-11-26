@@ -391,7 +391,6 @@
     <Compile Include="Utilities\LogFileTraceListener.cs" />
     <Compile Include="Utilities\MessageBoxStrings.cs" />
     <Compile Include="Utilities\NewTestamentBooksFirstComparer.cs" />
-    <Compile Include="Utilities\UndoActionSequence.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
@@ -426,7 +425,6 @@
     <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\IUndoAction.cs" />
     <Compile Include="ProjectExporter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -488,11 +486,9 @@
     <Compile Include="Rules\Proximity.cs" />
     <Compile Include="ScrStylesheetAdapter.cs" />
     <Compile Include="SfmLoader.cs" />
-    <Compile Include="Utilities\UndoStack.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Utilities\FileSystemUtils.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
-    <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />
