@@ -387,10 +387,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilities\L10N.cs" />
-    <Compile Include="Utilities\LinqExtensions.cs" />
-    <Compile Include="Utilities\LogFileTraceListener.cs" />
     <Compile Include="Utilities\MessageBoxStrings.cs" />
-    <Compile Include="Utilities\NewTestamentBooksFirstComparer.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
@@ -487,8 +484,6 @@
     <Compile Include="ScrStylesheetAdapter.cs" />
     <Compile Include="SfmLoader.cs" />
     <Compile Include="UsxParser.cs" />
-    <Compile Include="Utilities\FileSystemUtils.cs" />
-    <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />

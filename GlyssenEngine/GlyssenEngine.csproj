@@ -16,6 +16,9 @@
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.Core.Desktop">
+      <HintPath>..\lib\dotnet\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Scripture">
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
