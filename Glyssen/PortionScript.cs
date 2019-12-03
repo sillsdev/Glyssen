@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using SIL.Scripture;
 
 namespace Glyssen

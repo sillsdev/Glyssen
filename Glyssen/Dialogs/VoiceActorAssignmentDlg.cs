@@ -13,6 +13,7 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Utilities;
+using GlyssenEngine.Character;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

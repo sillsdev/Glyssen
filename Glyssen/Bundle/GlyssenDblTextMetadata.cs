@@ -8,6 +8,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Character;
 using SIL.Xml;
 
 namespace Glyssen.Bundle

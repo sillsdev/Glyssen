@@ -2,6 +2,7 @@
 using System.Drawing;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using GlyssenEngine.Character;
 
 namespace Glyssen.Utilities
 {

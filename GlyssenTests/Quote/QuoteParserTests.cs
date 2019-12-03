@@ -6,6 +6,7 @@ using Glyssen.Character;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Character;
 using GlyssenTests.Utilities;
 using NUnit.Framework;
 using SIL.Extensions;

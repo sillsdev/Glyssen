@@ -6,6 +6,7 @@ using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
 using static System.String;

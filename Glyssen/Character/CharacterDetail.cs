@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using GlyssenEngine.Character;
 using SIL.Scripture;
 
 namespace Glyssen.Character

@@ -113,6 +113,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
+      <Project>{fdf9df2e-776b-4d7c-8e63-61dad4c39ac3}</Project>
+      <Name>GlyssenEngine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
       <Name>GlyssenShared</Name>

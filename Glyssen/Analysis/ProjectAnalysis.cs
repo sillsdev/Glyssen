@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Glyssen.Character;
+using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 
 namespace Glyssen.Analysis

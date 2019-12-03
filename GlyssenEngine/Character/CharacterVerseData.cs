@@ -12,7 +12,7 @@ using SIL.Scripture;
 using static System.Int32;
 using static System.String;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
@@ -158,7 +158,7 @@ namespace Glyssen.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		public static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{
@@ -368,7 +368,7 @@ namespace Glyssen.Character
 				.Select(bcvRef => CreateCharacterVerse(bcvRef, items)).ToList();
 		}
 
-		internal static IEnumerable<BCVRef> GetAllVerses(string[] items, Action chapterNumberErrorHandler)
+		public static IEnumerable<BCVRef> GetAllVerses(string[] items, Action chapterNumberErrorHandler)
 		{
 			if (!TryParse(items[1], out var chapter))
 				chapterNumberErrorHandler();

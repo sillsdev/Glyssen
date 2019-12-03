@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
+using GlyssenEngine.Character;
 using SIL.Scripture;
 using static System.String;
 
@@ -34,7 +35,7 @@ namespace DevTools
 
 			Dictionary<string, List<BCVRef>> dictionaryOfCharactersToReferences =
 				ControlCharacterVerseData.Singleton.GetAllQuoteInfo().SelectMany(cv => cv.Character.Split('/')
-				.Select(c => new Tuple<string, Glyssen.Character.CharacterVerse>(c, cv)))
+				.Select(c => new Tuple<string, GlyssenEngine.Character.CharacterVerse>(c, cv)))
 				.GroupBy(t => t.Item1, t => t.Item2).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
 
 			foreach (var line in lines)

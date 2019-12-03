@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using DesktopAnalytics;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;

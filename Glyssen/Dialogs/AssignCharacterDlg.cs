@@ -19,6 +19,7 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
+using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

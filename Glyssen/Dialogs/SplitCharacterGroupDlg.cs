@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
+using GlyssenEngine.Character;
 
 namespace Glyssen.Dialogs
 {

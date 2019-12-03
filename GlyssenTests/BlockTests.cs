@@ -5,6 +5,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
@@ -12,7 +13,7 @@ using SIL.Xml;
 using GlyssenTests.Properties;
 using Rhino.Mocks;
 using SIL.IO;
-using static Glyssen.Character.CharacterVerseData;
+using static GlyssenEngine.Character.CharacterVerseData;
 
 namespace GlyssenTests
 {

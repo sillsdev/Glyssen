@@ -11,6 +11,7 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
+using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using L10NSharp;
 using SIL;
