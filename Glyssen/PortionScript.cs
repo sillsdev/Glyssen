@@ -148,7 +148,7 @@ namespace Glyssen
 			var blockBeginsWithVerse = block.BlockElements.First() is Verse;
 			var verseString = verseNum.ToString();
 
-			if (block.InitialEndVerseNumber == verseNum)
+			if (block.InitialEndVerseNumber == verseNum && verseNum != 0)
 			{
 				verseString = block.InitialVerseNumberOrBridge;
 				if (firstVerseElement.Number != verseString && blockBeginsWithVerse)
