@@ -10,6 +10,7 @@ using Gecko;
 using Gecko.DOM;
 using Glyssen.Properties;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs

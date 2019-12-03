@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Threading;
 using SIL.Reporting;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
-	class LogFileTraceListener : TraceListener
+	public class LogFileTraceListener : TraceListener
 	{
 		public override void Write(string message)
 		{

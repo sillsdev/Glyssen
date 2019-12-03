@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using SIL.IO;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public static class FileSystemUtils
 	{
