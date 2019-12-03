@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
-using L10NSharp;
 using SIL;
 using SIL.Scripture;
 using static System.String;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	// REVIEW: It would be really nice to be able to make this Flags, but some of the useful "flag" values
 	// (e.g., Expected) would not be valid values to set the property of a CharacterSpeakingMode to, so
