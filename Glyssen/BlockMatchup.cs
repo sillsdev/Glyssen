@@ -274,10 +274,14 @@ namespace Glyssen
 
 		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, Func<int, bool> isOkayToBreakAtVerse, ref int i)
 		{
+			int initialValue = i;
 			for (; i < blockList.Count - 1 && (!blockList[i + 1].StartsAtVerseStart || !isOkayToBreakAtVerse(blockList[i + 1].InitialStartVerseNumber)) &&
 				!blockList[i + 1].IsChapterAnnouncement; i++)
 			{
 			}
+			// We don't want to include a TRAILING section head.
+			while (CharacterVerseData.IsCharacterOfType(blockList[i].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical) && i > initialValue)
+				i--;
 		}
 
 		public bool IncludesBlock(Block block)
@@ -307,6 +311,8 @@ namespace Glyssen
 				else
 				{
 					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
+					if (block.CharacterIsUnclear)
+						block.SetCharacterAndDeliveryInfo(block.ReferenceBlocks.Single(), bookNum, m_versification);
 				}
 
 				if (block.CharacterIsStandard && block.MultiBlockQuote != MultiBlockQuote.None)
