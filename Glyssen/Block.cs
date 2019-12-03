@@ -13,6 +13,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Char;

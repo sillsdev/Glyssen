@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Glyssen.Character;
-using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
 
 namespace Glyssen.Dialogs
 {

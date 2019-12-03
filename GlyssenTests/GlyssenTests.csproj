@@ -186,11 +186,7 @@
     <Compile Include="UsxParserTests.cs" />
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\FileSystemUtilsTests.cs" />
-    <Compile Include="Utilities\UndoActionSequenceTests.cs" />
-    <Compile Include="Utilities\UndoStackTests.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />
-    <Compile Include="Utilities\VerseRefExtensionsTests.cs" />
     <Compile Include="VoiceActor\VoiceActorListTests.cs" />
     <Compile Include="VoiceActor\VoiceActorTests.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -216,6 +212,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
+      <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
+      <Name>GlyssenEngine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
       <Name>GlyssenShared</Name>
