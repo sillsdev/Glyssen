@@ -11,6 +11,7 @@ using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.VoiceActor;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;

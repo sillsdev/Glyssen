@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,6 +11,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\output\Release\</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Analytics" Version="2.0.2" />
+    <PackageReference Include="DesktopAnalytics" Version="1.2.4.11" />
+    <PackageReference Include="DotNetZip" Version="1.13.3" />
+    <PackageReference Include="EPPlus" Version="4.0.5" />
+    <PackageReference Include="icu.net" Version="2.5.4" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="ParatextData" Version="9.0.3" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="SIL.Core">

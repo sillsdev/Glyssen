@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using GlyssenTests.Properties;
 using GlyssenTests.Utilities;
 using NUnit.Framework;
