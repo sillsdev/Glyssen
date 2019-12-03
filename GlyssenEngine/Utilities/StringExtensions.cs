@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SIL.Unicode;
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public static class StringExtensions
 	{
