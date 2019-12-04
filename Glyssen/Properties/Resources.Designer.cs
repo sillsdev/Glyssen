@@ -19,7 +19,7 @@ namespace Glyssen.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -193,14 +193,14 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment	Hypothetical Only
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John		False
-        ///250 Israelite leaders	250	Male	Adult				False
-        ///a Jew	1	Male	Adult				False
-        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12	False
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah		False
-        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41	False
-        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
+        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 &amp; JHN 21:5
+        ///250 Israelite leaders	250	Male	Adult			NUM 16:3
+        ///a Jew	1	Male	Adult			JHN 3:26
+        ///Aaron	1	Male	Adult			EXO 5:1 &lt;-(16 more)-&gt; NUM 16:22
+        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	DAN 3:16 &lt;-(1 more)-&gt; DAN 3:18
+        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
+        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-( [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterDetail {
             get {
@@ -209,14 +209,15 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	140
+        ///   Looks up a localized string similar to Control File Version	151
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
-        ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
-        ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
-        ///# SNG we will need to review again								
-        ///# ISA more review necessary on who is speaking: God or the Isaiah								
-        ///# JER possibly no markup of this book... will need to review								
-        ///#  [rest of string was truncated]&quot;;.
+        ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
+        ///GEN	1	3	God		God (the LORD)	Normal		
+        ///GEN	1	5	narrator-GEN			Quotation		
+        ///#Languages which do not allow indirect speech may have God speak to assign the names of things in vv. 5, 8, and 10.
+        ///GEN	1	5	God			Indirect		
+        ///GEN	1	6	God		God (the LORD)	Normal		
+        ///GEN	1	8	narrator-GEN			Quotation	 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {
@@ -348,10 +349,11 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;!--The entries in the file are somewhat similar to the entries in CharacterVerse.txt marked as &quot;Implicit&quot;. The distinction is that
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
+        ///&lt;!--The entries in this file are somewhat similar to the entries in CharacterVerse.txt marked as &quot;Implicit&quot;. The distinction is that
         ///implicit speech is normally found in the context of a historical narrative, introduced explicitly by the narrator and could/should
         ///be in quotes, but might not be for practical/stylistic reasons. Whereas, narrator overrides are books or passages where the author
-        ///is using first-person speech to give a historical account, relate a poem, give advice, etc. The text may contain se [rest of string was truncated]&quot;;.
+        ///is using first-person speech to give a historical account, relate a poem, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string NarratorOverrides {
             get {
@@ -419,26 +421,6 @@ namespace Glyssen.Properties {
             get {
                 object obj = ResourceManager.GetObject("redo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;Barzillai (old)&lt;/CharacterId&gt;
-        ///	&lt;/RelatedCharacters&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;David&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;David (old)&lt;/CharacterId&gt;
-        ///	&lt;/RelatedCharacters&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string RelatedCharacters {
-            get {
-                return ResourceManager.GetString("RelatedCharacters", resourceCulture);
             }
         }
         

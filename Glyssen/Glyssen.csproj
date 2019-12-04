@@ -195,7 +195,6 @@
     <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
-    <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="ControlAnnotations.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
