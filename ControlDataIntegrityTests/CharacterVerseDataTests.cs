@@ -151,7 +151,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
-			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.CharacterDetail; //resets cache
+			CharacterDetailData.TabDelimitedCharacterDetailData = GlyssenEngine.Resources.CharacterDetail; //resets cache
 
 			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();

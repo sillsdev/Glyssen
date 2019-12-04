@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.VoiceActor;
 using GlyssenEngine.Character;
+using GlyssenEngine.VoiceActor;
 
 namespace Glyssen.Dialogs
 {

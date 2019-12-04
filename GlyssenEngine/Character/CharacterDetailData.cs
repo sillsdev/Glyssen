@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Properties;
-using GlyssenEngine.Character;
 using SIL.Scripture;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	public class CharacterDetailData
 	{
@@ -14,7 +12,7 @@ namespace Glyssen.Character
 		private IList<CharacterDetail> m_data;
 		private Dictionary<string, CharacterDetail> m_dictionary;
 
-		internal static string TabDelimitedCharacterDetailData
+		public static string TabDelimitedCharacterDetailData
 		{
 			get { return s_tabDelimitedCharacterDetailData; }
 			set

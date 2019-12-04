@@ -22,7 +22,7 @@ namespace GlyssenEngine {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -57,6 +57,22 @@ namespace GlyssenEngine {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
+        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 &amp; JHN 21:5
+        ///250 Israelite leaders	250	Male	Adult			NUM 16:3
+        ///a Jew	1	Male	Adult			JHN 3:26
+        ///Aaron	1	Male	Adult			EXO 5:1 &lt;-(16 more)-&gt; NUM 16:22
+        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	DAN 3:16 &lt;-(1 more)-&gt; DAN 3:18
+        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
+        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-( [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string CharacterDetail {
+            get {
+                return ResourceManager.GetString("CharacterDetail", resourceCulture);
             }
         }
         
