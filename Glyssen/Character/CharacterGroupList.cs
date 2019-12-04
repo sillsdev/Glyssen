@@ -4,7 +4,6 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.VoiceActor;
 using SIL.ObjectModel;
 using SIL.Xml;
 

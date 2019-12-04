@@ -7,6 +7,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;

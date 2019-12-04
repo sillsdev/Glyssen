@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.VoiceActor;
 
 namespace Glyssen.Dialogs
 {
@@ -13,12 +14,12 @@ namespace Glyssen.Dialogs
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private readonly List<CharacterDetail> m_availableCharacters;
 		private List<CharacterDetail> m_filteredCharacters;
-		private readonly VoiceActor.VoiceActor m_cameoActor;
+		private readonly VoiceActor m_cameoActor;
 
 		public AddCharactersToGroupViewModel(IReadOnlyDictionary<string, CharacterDetail> characterDetailDictionary,
 			Dictionary<string, int> keyStrokesByCharacterId,
 			ISet<string> existingCharactersInGroup,
-			VoiceActor.VoiceActor cameoActor = null)
+			VoiceActor cameoActor = null)
 		{
 			m_characterDetailDictionary = characterDetailDictionary;
 			m_keyStrokesByCharacterId = keyStrokesByCharacterId;

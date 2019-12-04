@@ -191,7 +191,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Undo_NoDestSuppliedMoveAllCharactersFromSourceWithAssignedActor_CharactersGetMovedBackToOriginalGroupAndNewGroupIsRemoved()
 		{
-			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 13 };
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 13 };
 			m_testProject.VoiceActorList.AllActors.Add(actor);
 			var originalCharactersInSource = new[] { "Peter (Simon)", "John the Baptist", "rich young ruler", "centurion at crucifixion", "man possessed by evil spirit", "John", "Pharisees" };
 			var sourceGroup = AddCharacterGroup(originalCharactersInSource);
@@ -267,7 +267,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Redo_NoDestSuppliedMoveAllCharactersFromSourceWithAssignedActor_CharactersGetMovedBackToOriginalGroupAndNewGroupIsRemoved()
 		{
-			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 13 };
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 13 };
 			m_testProject.VoiceActorList.AllActors.Add(actor);
 			var charactersToMove = new[] { "Peter (Simon)", "John the Baptist", "rich young ruler", "centurion at crucifixion", "man possessed by evil spirit", "John", "Pharisees" };
 			var sourceGroup = AddCharacterGroup(charactersToMove);
@@ -316,7 +316,7 @@ namespace GlyssenTests.Dialogs
 			var sourceGroup = AddCharacterGroup(originalCharactersInSource);
 
 			// set up cameo actor and group
-			var cameoActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Missy Cameo", IsCameo = true };
+			var cameoActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Missy Cameo", IsCameo = true };
 			m_testProject.VoiceActorList.AllActors.Add(cameoActor);
 			var cameoGroup = AddCharacterGroup();
 			cameoGroup.AssignVoiceActor(1);

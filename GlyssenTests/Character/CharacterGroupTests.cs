@@ -2,6 +2,7 @@
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Rules;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 
 namespace GlyssenTests.Character
@@ -367,7 +368,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void SetGroupIdLabelBasedOnCharacterIds_CameoActorAssigned_GroupIdLabelIsOtherAndTextSet()
 		{
-			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Cameo Name", IsCameo = true };
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Cameo Name", IsCameo = true };
 			m_project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Andrew");

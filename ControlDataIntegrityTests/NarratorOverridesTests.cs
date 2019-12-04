@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
 

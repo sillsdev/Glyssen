@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Glyssen.Character;
+using GlyssenEngine.Character;
 
 namespace Glyssen.Rules
 {
