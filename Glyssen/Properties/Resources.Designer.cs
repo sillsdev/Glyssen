@@ -193,22 +193,6 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 &amp; JHN 21:5
-        ///250 Israelite leaders	250	Male	Adult			NUM 16:3
-        ///a Jew	1	Male	Adult			JHN 3:26
-        ///Aaron	1	Male	Adult			EXO 5:1 &lt;-(16 more)-&gt; NUM 16:22
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	DAN 3:16 &lt;-(1 more)-&gt; DAN 3:18
-        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
-        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-( [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string CharacterDetail {
-            get {
-                return ResourceManager.GetString("CharacterDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Control File Version	151
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5

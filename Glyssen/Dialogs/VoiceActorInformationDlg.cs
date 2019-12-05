@@ -2,7 +2,7 @@
 using System.Linq;
 using Glyssen.Controls;
 using Glyssen.Utilities;
-using Glyssen.VoiceActor;
+using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
