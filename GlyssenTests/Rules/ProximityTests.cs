@@ -22,7 +22,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			m_testProject.UseDefaultForUnresolvedMultipleChoiceCharacters();
 

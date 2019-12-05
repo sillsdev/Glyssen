@@ -136,6 +136,7 @@
     <Compile Include="BiblicalAuthorsTests.cs" />
     <Compile Include="BlockMatchupTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
+    <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
     <Compile Include="Character\NarratorOverridesTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
     <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
@@ -149,9 +150,7 @@
     <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
     <Compile Include="Character\CharacterGroupTemplateTests.cs" />
     <Compile Include="Character\CharacterGroupTests.cs" />
-    <Compile Include="Character\CharacterVerseDataTests.cs" />
     <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
-    <Compile Include="Character\RelatedCharactersTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\AddCharactersToGroupViewModelTests.cs" />
@@ -211,6 +210,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlyssenEngineTests\GlyssenEngineTests.csproj">
+      <Project>{aa6a1cfd-60a1-4f19-b88e-ca7758e2b4de}</Project>
+      <Name>GlyssenEngineTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
       <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
       <Name>GlyssenEngine</Name>
@@ -265,7 +268,6 @@
     <None Include="Resources\TestJHN.xml" />
     <None Include="Resources\TestEmptyBook.xml" />
     <Content Include="Resources\TestLUK.xml" />
-    <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />
     <None Include="Resources\TestREV.xml" />
     <None Include="Resources\TestMATcuk.xml" />
