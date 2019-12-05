@@ -415,8 +415,7 @@ namespace Glyssen
 					{
 						if (combinedRefBlock == null)
 						{
-							combinedRefBlock = currBlock.ReferenceBlocks.Single().Clone();
-							combinedRefBlock.CloneReferenceBlocks();
+							combinedRefBlock = currBlock.ReferenceBlocks.Single().Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
 						}
 						else
 						{

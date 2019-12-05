@@ -1256,6 +1256,10 @@ namespace GlyssenTests
 			Assert.AreEqual(countOfOrigParagraphs, result.Count);
 			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
 			Assert.IsFalse(result.Any(b => b.MatchesReferenceText));
+
+			// Verify that the original book was not modified
+			Assert.IsTrue(jude.GetScriptBlocks().All(b => b.MatchesReferenceText));
+			Assert.IsTrue(jude.GetScriptBlocks().All(b => b.GetPrimaryReferenceText() == "blah"));
 		}
 
 		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]
