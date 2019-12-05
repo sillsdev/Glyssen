@@ -10,8 +10,8 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
@@ -19,6 +19,7 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.String;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
 {

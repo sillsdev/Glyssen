@@ -5,12 +5,13 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
 using SIL.Scripture;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests.Dialogs
 {

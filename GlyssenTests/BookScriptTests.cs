@@ -7,13 +7,14 @@ using System.Text;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Scripture;
 using SIL.Xml;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
 {

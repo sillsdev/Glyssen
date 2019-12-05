@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Glyssen.Bundle;
-using Glyssen.Character;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 
