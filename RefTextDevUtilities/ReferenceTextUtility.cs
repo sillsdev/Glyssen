@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Quote;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;

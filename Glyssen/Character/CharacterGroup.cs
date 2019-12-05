@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.VoiceActor;
+using GlyssenEngine.Character;
 using L10NSharp;
 using SIL;
 using SIL.Reporting;

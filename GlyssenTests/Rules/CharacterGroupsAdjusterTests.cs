@@ -3,6 +3,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
+using GlyssenEngine.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
