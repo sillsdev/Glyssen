@@ -92,7 +92,7 @@ namespace Glyssen.Dialogs
 
 				SetFilterControlsFromMode();
 
-				if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+				if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation && !readOnly)
 					UpdateTestParse(false);
 
 				ReadOnly = readOnly;
