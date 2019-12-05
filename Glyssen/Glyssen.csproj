@@ -184,8 +184,6 @@
     <Compile Include="Bundle\GlyssenBundle.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadata.cs" />
     <Compile Include="Character\CharacterAssigner.cs" />
-    <Compile Include="Character\CharacterDetail.cs" />
-    <Compile Include="Character\CharacterDetailData.cs" />
     <Compile Include="Character\CharacterGroup.cs" />
     <Compile Include="Character\CharacterGroupTemplate.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
@@ -480,8 +478,6 @@
     <Compile Include="SfmLoader.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
-    <Compile Include="VoiceActor\VoiceActor.cs" />
-    <Compile Include="VoiceActor\VoiceActorList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
