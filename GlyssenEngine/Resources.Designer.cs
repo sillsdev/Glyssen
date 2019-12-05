@@ -22,7 +22,7 @@ namespace GlyssenEngine {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -70,7 +70,7 @@ namespace GlyssenEngine {
         ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
         ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-( [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string CharacterDetail {
+        internal static string CharacterDetail {
             get {
                 return ResourceManager.GetString("CharacterDetail", resourceCulture);
             }

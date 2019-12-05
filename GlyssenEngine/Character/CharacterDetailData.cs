@@ -12,7 +12,7 @@ namespace GlyssenEngine.Character
 		private IList<CharacterDetail> m_data;
 		private Dictionary<string, CharacterDetail> m_dictionary;
 
-		public static string TabDelimitedCharacterDetailData
+		internal static string TabDelimitedCharacterDetailData
 		{
 			get { return s_tabDelimitedCharacterDetailData; }
 			set

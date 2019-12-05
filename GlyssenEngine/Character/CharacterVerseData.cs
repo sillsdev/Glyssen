@@ -157,7 +157,7 @@ namespace GlyssenEngine.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		public static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{
@@ -367,7 +367,7 @@ namespace GlyssenEngine.Character
 				.Select(bcvRef => CreateCharacterVerse(bcvRef, items)).ToList();
 		}
 
-		public static IEnumerable<BCVRef> GetAllVerses(string[] items, Action chapterNumberErrorHandler)
+		internal static IEnumerable<BCVRef> GetAllVerses(string[] items, Action chapterNumberErrorHandler)
 		{
 			if (!TryParse(items[1], out var chapter))
 				chapterNumberErrorHandler();
