@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Glyssen;
-using Glyssen.Character;
-using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using NUnit.Framework;
 
 namespace GlyssenTests.Rules

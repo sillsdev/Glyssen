@@ -1,4 +1,4 @@
-﻿namespace Glyssen
+﻿namespace GlyssenEngine
 {
 	public enum MultiBlockQuote
 	{

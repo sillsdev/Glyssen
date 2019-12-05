@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SIL.DblBundle.Usx;
 
-namespace Glyssen.Paratext
+namespace GlyssenEngine.Paratext
 {
 	class ParatextUsxBookList : IEnumerable<UsxDocument>
 	{

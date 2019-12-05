@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using Glyssen.Rules;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using SIL;

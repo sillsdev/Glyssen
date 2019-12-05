@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Bundle;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
+using GlyssenEngine.Paratext;
 using L10NSharp;
 using Paratext.Data;
 using Paratext.Data.Checking;

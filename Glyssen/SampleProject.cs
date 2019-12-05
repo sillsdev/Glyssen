@@ -2,12 +2,13 @@
 using System.IO;
 using System.Xml;
 using Glyssen.Bundle;
-using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.WritingSystems;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {

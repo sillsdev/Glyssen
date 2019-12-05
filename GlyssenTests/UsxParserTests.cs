@@ -5,13 +5,14 @@ using System.Xml;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext.Data;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
 using SIL.DblBundle.Usx;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
 {

@@ -7,6 +7,7 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Extensions;
 using SIL.Reporting;

@@ -4,7 +4,7 @@ using System.Linq;
 using Paratext.Data;
 using SIL.DblBundle;
 
-namespace Glyssen
+namespace GlyssenEngine
 {
 	public class ScrStylesheetAdapter : IStylesheet
 	{

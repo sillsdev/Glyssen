@@ -1,5 +1,6 @@
 ﻿using System;
 using Glyssen.Shared;
+using GlyssenEngine.Paratext;
 using L10NSharp;
 using SIL;
 

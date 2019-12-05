@@ -11,6 +11,7 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.VoiceActor;
 using L10NSharp;
@@ -21,6 +22,7 @@ using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {

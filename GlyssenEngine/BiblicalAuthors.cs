@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using Glyssen.Properties;
 using SIL.Xml;
 
-namespace Glyssen
+namespace GlyssenEngine
 {
 	[XmlRoot("BiblicalAuthors")]
 	public class BiblicalAuthors : List<BiblicalAuthors.Author>

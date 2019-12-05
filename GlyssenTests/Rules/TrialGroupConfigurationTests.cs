@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.VoiceActor;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests.Rules
 {

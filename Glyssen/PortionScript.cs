@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 

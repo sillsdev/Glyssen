@@ -23,6 +23,7 @@ using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.VoiceActor;
@@ -41,6 +42,7 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {

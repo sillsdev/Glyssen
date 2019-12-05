@@ -31,17 +31,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Paratext.LexicalContracts">
+      <HintPath>..\output\Release\Paratext.LexicalContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="ParatextData">
+      <HintPath>..\output\Release\ParatextData.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop">
       <HintPath>..\lib\dotnet\SIL.Core.Desktop.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.DblBundle">
+      <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Scripture">
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Scripture">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems">
+      <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
     </Reference>
   </ItemGroup>
 

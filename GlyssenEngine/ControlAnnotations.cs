@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen.Properties;
 using Glyssen.Shared;
 using SIL.Scripture;
 using SIL.Xml;
 
-namespace Glyssen
+namespace GlyssenEngine
 {
 	class ControlAnnotations
 	{
