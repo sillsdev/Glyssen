@@ -34,3 +34,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+// TODO: This is *probably* temporary. Once all the appropriate tests have been moved from GlyssenTests to
+// GlyssenEngineTests, this shouldn't be needed.
+[assembly: InternalsVisibleTo("GlyssenTests")]

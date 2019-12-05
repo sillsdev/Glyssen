@@ -22,7 +22,7 @@ namespace GlyssenEngineTests.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -74,7 +74,7 @@ namespace GlyssenEngineTests.Properties {
         ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
         ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string TestRelatedCharacters {
+        internal static string TestRelatedCharacters {
             get {
                 return ResourceManager.GetString("TestRelatedCharacters", resourceCulture);
             }
