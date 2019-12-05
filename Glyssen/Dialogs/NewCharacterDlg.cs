@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Windows.Forms;
-using Glyssen.Character;
+using GlyssenEngine.Character;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

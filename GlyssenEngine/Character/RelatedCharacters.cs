@@ -30,7 +30,7 @@ namespace GlyssenEngine.Character
 		private IDictionary<string, ISet<RelatedCharacters>> m_characterIdToRelatedCharactersDictionary;
 		private IDictionary<string, ISet<string>> m_characterIdToSameCharactersWithDifferentAge;
 
-		public static string Source
+		internal static string Source
 		{
 			get { return s_source; }
 			set

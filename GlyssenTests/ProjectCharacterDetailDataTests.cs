@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.IO;
 

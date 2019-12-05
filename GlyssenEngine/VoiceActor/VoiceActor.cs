@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using Glyssen.Character;
+using GlyssenEngine.Character;
 
-namespace Glyssen.VoiceActor
+namespace GlyssenEngine.VoiceActor
 {
 	public enum ActorAge
 	{
