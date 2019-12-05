@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using SIL.ObjectModel;
 using SIL.Scripture;
 

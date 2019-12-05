@@ -10,6 +10,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;

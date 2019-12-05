@@ -2,6 +2,7 @@
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Rules;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 
 namespace GlyssenTests.Rules

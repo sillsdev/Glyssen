@@ -2,10 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.Properties;
 using SIL.Extensions;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	public enum CharacterRelationshipType
 	{
@@ -31,7 +30,7 @@ namespace Glyssen.Character
 		private IDictionary<string, ISet<RelatedCharacters>> m_characterIdToRelatedCharactersDictionary;
 		private IDictionary<string, ISet<string>> m_characterIdToSameCharactersWithDifferentAge;
 
-		internal static string Source
+		public static string Source
 		{
 			get { return s_source; }
 			set

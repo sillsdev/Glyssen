@@ -189,15 +189,11 @@
     <Compile Include="Character\CharacterGroup.cs" />
     <Compile Include="Character\CharacterGroupTemplate.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
-    <Compile Include="Character\CharacterVerse.cs" />
-    <Compile Include="Character\CharacterVerseData.cs" />
     <Compile Include="Character\CombinedCharacterVerseData.cs" />
     <Compile Include="Character\ControlCharacterVerseData.cs" />
     <Compile Include="Character\ICharacterGroupSource.cs" />
-    <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
-    <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="ControlAnnotations.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
