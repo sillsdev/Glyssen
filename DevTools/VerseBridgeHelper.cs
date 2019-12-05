@@ -21,7 +21,7 @@ namespace DevTools
 			var allQuoteInfo = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 
 			var sb = new StringBuilder();
-			foreach (Glyssen.Character.CharacterVerse cv in allQuoteInfo.Distinct().OrderBy(cv => cv.BcvRef))
+			foreach (GlyssenEngine.Character.CharacterVerse cv in allQuoteInfo.Distinct().OrderBy(cv => cv.BcvRef))
 			{
 				sb.Append(cv.BookCode).Append(kTab)
 					.Append(cv.Chapter).Append(kTab).Append(cv.Verse).Append(kTab).Append(cv.Character).Append(kTab)

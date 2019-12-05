@@ -11,6 +11,7 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;

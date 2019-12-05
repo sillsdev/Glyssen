@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,6 +13,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Analytics" Version="2.0.2" />
+    <PackageReference Include="DesktopAnalytics" Version="1.2.4.11" />
+    <PackageReference Include="DotNetZip" Version="1.13.3" />
+    <PackageReference Include="EPPlus" Version="4.0.5" />
+    <PackageReference Include="icu.net" Version="2.5.4" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="ParatextData" Version="9.0.3" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
@@ -25,6 +43,21 @@
     <Reference Include="SIL.Windows.Forms.Scripture">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

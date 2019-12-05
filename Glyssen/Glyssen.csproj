@@ -84,9 +84,8 @@
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
-    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MarkdownDeep, Version=1.5.6607.21413, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownDeep.NET.Patched.1.5.0.1\lib\net35\MarkdownDeep.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.0.1\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
@@ -190,15 +189,11 @@
     <Compile Include="Character\CharacterGroup.cs" />
     <Compile Include="Character\CharacterGroupTemplate.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
-    <Compile Include="Character\CharacterVerse.cs" />
-    <Compile Include="Character\CharacterVerseData.cs" />
     <Compile Include="Character\CombinedCharacterVerseData.cs" />
     <Compile Include="Character\ControlCharacterVerseData.cs" />
     <Compile Include="Character\ICharacterGroupSource.cs" />
-    <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
-    <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="ControlAnnotations.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>

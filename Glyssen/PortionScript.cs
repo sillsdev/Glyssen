@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using SIL.Scripture;
 
 namespace Glyssen
@@ -148,7 +149,7 @@ namespace Glyssen
 			var blockBeginsWithVerse = block.BlockElements.First() is Verse;
 			var verseString = verseNum.ToString();
 
-			if (block.InitialEndVerseNumber == verseNum)
+			if (block.InitialEndVerseNumber == verseNum && verseNum != 0)
 			{
 				verseString = block.InitialVerseNumberOrBridge;
 				if (firstVerseElement.Number != verseString && blockBeginsWithVerse)

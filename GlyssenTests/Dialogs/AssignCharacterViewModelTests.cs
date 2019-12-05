@@ -5,6 +5,7 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Scripture;
