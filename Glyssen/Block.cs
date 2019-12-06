@@ -113,21 +113,56 @@ namespace Glyssen
 			InitialEndVerseNumber = initialEndVerseNum;
 		}
 
-		public Block Clone(bool includeReferenceBlocks = false)
+		public enum ReferenceBlockCloningBehavior
+		{
+			/// <summary>
+			/// This results in a no-op, so it is the least expensive option. Although used as the default, it is also
+			/// the most dangerous option, since changes to the list (or the items in the list) attached to the clone
+			/// will affect the original object as well.
+			/// </summary>
+			CrossLinkToOriginalReferenceBlockList,
+			/// <summary>
+			/// This is the safest but most expensive option. The reference block list is deep-cloned recursively.
+			/// </summary>
+			CloneListAndAllReferenceBlocks,
+			/// <summary>
+			/// This is also inexpensive but is only useful in cases where the cloned copy has no interest in knowing
+			/// how/whether the original block was connected to the reference text.
+			/// </summary>
+			SetToNewEmptyList,
+		}
+
+		/// <summary>
+		/// This does a memberwise clone of the normal properties and a deep clone (new list) of the block elements. See explanation
+		/// of <paramref name="referenceBlockCloning"/> for details about reference block cloning behavior.
+		/// </summary>
+		/// <param name="referenceBlockCloning">Determines how/whether reference blocks will be cloned. See
+		/// <see cref="ReferenceBlockCloningBehavior"/> for detailed explanation of each option. Note that while the default option
+		/// turns out to be the most generally useful one, it is not safe.</param>
+		/// <returns></returns>
+		public Block Clone(ReferenceBlockCloningBehavior referenceBlockCloning = ReferenceBlockCloningBehavior.CrossLinkToOriginalReferenceBlockList)
 		{
 			var newBlock = (Block)MemberwiseClone();
 			newBlock.BlockElements = new List<BlockElement>(BlockElements.Count);
 			foreach (var blockElement in BlockElements)
 				newBlock.BlockElements.Add(blockElement.Clone());
 
-			if (includeReferenceBlocks)
-				newBlock.CloneReferenceBlocks();
+			switch (referenceBlockCloning)
+			{
+				case ReferenceBlockCloningBehavior.CrossLinkToOriginalReferenceBlockList:
+					break;
+				case ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks:
+					newBlock.CloneReferenceBlocks();
+					break;
+				case ReferenceBlockCloningBehavior.SetToNewEmptyList:
+					newBlock.m_matchesReferenceText = false;
+					newBlock.ReferenceBlocks = new List<Block>();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(referenceBlockCloning), referenceBlockCloning, null);
+			}
 
 			return newBlock;
-
-			// When cloning, we intentionally do not clone reference text info.
-			// If caller (or anything downstream) needs to modify the reference text, it should either replace existing blocks or
-			// clone them before modifying them.
 		}
 
 		[XmlAttribute("style")]
@@ -374,6 +409,12 @@ namespace Glyssen
 		public bool CoversMoreThanOneVerse => BlockElements.Skip(1).Any(e => e is Verse);
 
 		public int CountOfSoundsWhereUserSpecifiesLocation => BlockElements.OfType<Sound>().Count(s => s.UserSpecifiesLocation);
+
+		public void SetMatchedReferenceBlockFrom(Block sourceBlock)
+		{
+			ReferenceBlocks = new List<Block> {sourceBlock.ReferenceBlocks.Single().Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)};
+			m_matchesReferenceText = true;
+		}
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
@@ -1020,7 +1061,7 @@ namespace Glyssen
 
 		public static Block CombineBlocks(Block blockA, Block blockB)
 		{
-			var clone = blockA.Clone(true);
+			var clone = blockA.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
 			return clone.CombineWith(blockB);
 		}
 
@@ -1238,7 +1279,7 @@ namespace Glyssen
 		public void CloneReferenceBlocks()
 		{
 			var origList = ReferenceBlocks;
-			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(true)));
+			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks)));
 		}
 
 		public static void GetSwappedReferenceText(string rowA, string rowB, out string newRowAValue, out string newRowBValue)
