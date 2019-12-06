@@ -25,7 +25,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 
@@ -2072,7 +2072,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIJN, TestProject.TestBook.EPH);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 

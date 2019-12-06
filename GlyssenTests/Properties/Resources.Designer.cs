@@ -19,7 +19,7 @@ namespace GlyssenTests.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -656,26 +656,6 @@ namespace GlyssenTests.Properties {
         internal static string TestReferenceTextJUD {
             get {
                 return ResourceManager.GetString("TestReferenceTextJUD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;Barzillai (old)&lt;/CharacterId&gt;
-        ///	&lt;/RelatedCharacters&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;David&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;David (old)&lt;/CharacterId&gt;
-        ///	&lt;/RelatedCharacters&gt;
-        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
-        ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
-        ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TestRelatedCharacters {
-            get {
-                return ResourceManager.GetString("TestRelatedCharacters", resourceCulture);
             }
         }
         
