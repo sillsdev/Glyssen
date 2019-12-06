@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
-using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using SIL.Scripture;
