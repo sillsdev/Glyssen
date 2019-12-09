@@ -84,27 +84,13 @@ cd -
 #     clean: false
 #     revision: latest.lastSuccessful
 #     paths: {"xulrunner-29.0.1.en-US.win32.zip!**"=>"lib"}
-# [2] build: NetSparkle Continuous (NetSparkle_NetSparkleContinuous)
+# [2] build: NetSparkle Continuous (NetSparkle_NetSparkle64Continuous)
 #     project: NetSparkle
-#     URL: https://build.palaso.org/viewType.html?buildTypeId=NetSparkle_NetSparkleContinuous
+#     URL: https://build.palaso.org/viewType.html?buildTypeId=NetSparkle_NetSparkle64Continuous
 #     clean: false
 #     revision: latest.lastSuccessful
 #     paths: {"*.dll"=>"lib/dotnet"}
 #     VCS: https://github.com/sillsdev/NetSparkle [master]
-# [3] build: palaso-Win-AnyCPU-master (Libpalaso_PalasoAnyCPUMaster)
-#     project: libpalaso
-#     URL: https://build.palaso.org/viewType.html?buildTypeId=Libpalaso_PalasoAnyCPUMaster
-#     clean: false
-#     revision: glyssen-current.tcbuildtag
-#     paths: {"SIL.Core.dll"=>"lib/dotnet", "SIL.Core.pdb"=>"lib/dotnet", "SIL.Core.Desktop.dll"=>"lib/dotnet", "SIL.Core.Desktop.pdb"=>"lib/dotnet", "SIL.DblBundle.dll"=>"lib/dotnet", "SIL.DblBundle.pdb"=>"lib/dotnet", "SIL.DblBundle.Tests.dll"=>"lib/dotnet", "SIL.DblBundle.Tests.pdb"=>"lib/dotnet", "SIL.Scripture.dll"=>"lib/dotnet", "SIL.Scripture.pdb"=>"lib/dotnet", "SIL.TestUtilities.dll"=>"lib/dotnet", "SIL.Windows.Forms.dll"=>"lib/dotnet", "SIL.Windows.Forms.pdb"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.dll"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.pdb"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.dll"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.pdb"=>"lib/dotnet", "SIL.Windows.Forms.Scripture.dll"=>"lib/dotnet", "SIL.Windows.Forms.Scripture.pdb"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.dll"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.pdb"=>"lib/dotnet", "SIL.Windows.Forms.DblBundle.dll"=>"lib/dotnet", "SIL.Windows.Forms.DblBundle.pdb"=>"lib/dotnet", "SIL.WritingSystems.dll"=>"lib/dotnet", "SIL.WritingSystems.pdb"=>"lib/dotnet"}
-#     VCS: https://github.com/sillsdev/libpalaso.git [master]
-# [4] build: palaso-win32-master-nostrongname Continuous (Libpalaso_PalasoWin32masterNostrongnameContinuous)
-#     project: libpalaso
-#     URL: https://build.palaso.org/viewType.html?buildTypeId=Libpalaso_PalasoWin32masterNostrongnameContinuous
-#     clean: false
-#     revision: glyssen-current.tcbuildtag
-#     paths: {"icu.net.dll"=>"lib/dotnet", "x86/icu*.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "L10NSharp.pdb"=>"lib/dotnet"}
-#     VCS: https://github.com/sillsdev/libpalaso.git [refs/heads/master]
 
 # make sure output directories exist
 mkdir -p ../Downloads
@@ -118,38 +104,7 @@ copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.las
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Winforms.dll ../lib/dotnet/Geckofx-Winforms.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Winforms.pdb ../lib/dotnet/Geckofx-Winforms.pdb
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt400/latest.lastSuccessful/xulrunner-29.0.1.en-US.win32.zip ../Downloads/xulrunner-29.0.1.en-US.win32.zip
-copy_auto http://build.palaso.org/guestAuth/repository/download/NetSparkle_NetSparkleContinuous/latest.lastSuccessful/NetSparkle.Net40.dll ../lib/dotnet/NetSparkle.Net40.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Core.dll ../lib/dotnet/SIL.Core.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Core.pdb ../lib/dotnet/SIL.Core.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Core.Desktop.dll ../lib/dotnet/SIL.Core.Desktop.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Core.Desktop.pdb ../lib/dotnet/SIL.Core.Desktop.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.DblBundle.dll ../lib/dotnet/SIL.DblBundle.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.DblBundle.pdb ../lib/dotnet/SIL.DblBundle.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.DblBundle.Tests.dll ../lib/dotnet/SIL.DblBundle.Tests.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.DblBundle.Tests.pdb ../lib/dotnet/SIL.DblBundle.Tests.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Scripture.dll ../lib/dotnet/SIL.Scripture.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Scripture.pdb ../lib/dotnet/SIL.Scripture.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.TestUtilities.dll ../lib/dotnet/SIL.TestUtilities.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.dll ../lib/dotnet/SIL.Windows.Forms.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.pdb ../lib/dotnet/SIL.Windows.Forms.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.GeckoBrowserAdapter.dll ../lib/dotnet/SIL.Windows.Forms.GeckoBrowserAdapter.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.GeckoBrowserAdapter.pdb ../lib/dotnet/SIL.Windows.Forms.GeckoBrowserAdapter.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.Keyboarding.dll ../lib/dotnet/SIL.Windows.Forms.Keyboarding.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.Keyboarding.pdb ../lib/dotnet/SIL.Windows.Forms.Keyboarding.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.Scripture.dll ../lib/dotnet/SIL.Windows.Forms.Scripture.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.Scripture.pdb ../lib/dotnet/SIL.Windows.Forms.Scripture.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.WritingSystems.dll ../lib/dotnet/SIL.Windows.Forms.WritingSystems.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.WritingSystems.pdb ../lib/dotnet/SIL.Windows.Forms.WritingSystems.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.DblBundle.dll ../lib/dotnet/SIL.Windows.Forms.DblBundle.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.Windows.Forms.DblBundle.pdb ../lib/dotnet/SIL.Windows.Forms.DblBundle.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.WritingSystems.dll ../lib/dotnet/SIL.WritingSystems.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoAnyCPUMaster/glyssen-current.tcbuildtag/SIL.WritingSystems.pdb ../lib/dotnet/SIL.WritingSystems.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoWin32masterNostrongnameContinuous/glyssen-current.tcbuildtag/icu.net.dll ../lib/dotnet/icu.net.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoWin32masterNostrongnameContinuous/glyssen-current.tcbuildtag/x86/icudt56.dll ../lib/dotnet/icudt56.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoWin32masterNostrongnameContinuous/glyssen-current.tcbuildtag/x86/icuin56.dll ../lib/dotnet/icuin56.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoWin32masterNostrongnameContinuous/glyssen-current.tcbuildtag/x86/icuuc56.dll ../lib/dotnet/icuuc56.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoWin32masterNostrongnameContinuous/glyssen-current.tcbuildtag/L10NSharp.dll ../lib/dotnet/L10NSharp.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/Libpalaso_PalasoWin32masterNostrongnameContinuous/glyssen-current.tcbuildtag/L10NSharp.pdb ../lib/dotnet/L10NSharp.pdb
+copy_auto http://build.palaso.org/guestAuth/repository/download/NetSparkle_NetSparkle64Continuous/latest.lastSuccessful/NetSparkle.Net40.dll ../lib/dotnet/NetSparkle.Net40.dll
 # extract downloaded zip files
 unzip -uqo ../Downloads/xulrunner-29.0.1.en-US.win32.zip -d "../lib"
 # End of script

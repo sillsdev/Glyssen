@@ -3,9 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\output\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutputPath>..\output\Debug\</OutputPath>
   </PropertyGroup>
 
@@ -13,16 +18,14 @@
     <OutputPath>..\output\Release\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>..\output\Release\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="SIL.Core">
-      <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.DblBundle">
-      <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.Scripture">
-      <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
-    </Reference>
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0037" />
+    <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0037" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0037" />
   </ItemGroup>
 
 </Project>
