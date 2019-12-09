@@ -71,7 +71,8 @@ namespace GlyssenEngine.Character
 
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
-			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+			var prefix = GetCharacterPrefix(standardCharacterType);
+			return characterId.Length == prefix.Length + 3 && characterId.StartsWith(prefix, StringComparison.Ordinal);
 		}
 
 		public static bool TryGetBookIdFromNarratorCharacterId(string characterId, out string bookId)
@@ -88,27 +89,57 @@ namespace GlyssenEngine.Character
 
 		public static bool IsCharacterStandard(string characterId)
 		{
-			if (characterId == null)
-				return false;
+			switch (characterId?.Length)
+			{
+				case 12: return characterId.StartsWith(kNarratorPrefix, StringComparison.Ordinal);
+				case 6: return characterId.StartsWith(kBookOrChapterPrefix, StringComparison.Ordinal);
+				case 9: return characterId.StartsWith(kExtraBiblicalPrefix, StringComparison.Ordinal) || characterId.StartsWith(kIntroPrefix, StringComparison.Ordinal);
+				default: return false;
+			}
 
-			return IsCharacterOfType(characterId, StandardCharacter.Narrator) ||
-				IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
-				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
-				IsCharacterOfType(characterId, StandardCharacter.Intro);
-			// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
-			// but this is speed-critical code and the overhead of the extra method call is
-			// expensive.
+			// This above code could be replaced with the following slightly more readable/maintainable version, but because
+			// this is speed-critical, I optimized for performance based on extensive comparative testing. If you want to tweak
+			// this, be sure to use a test similar to the commented-out IsCharacterExtraBiblical_SpeedComparison_EnsureFastestVersion,
+			// which is in CharacterVerseDataTests.
+			//if (characterId == null)
+			//	return false;
+
+			//return IsCharacterOfType(characterId, StandardCharacter.Narrator) ||
+			//	IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
+			//	IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
+			//	IsCharacterOfType(characterId, StandardCharacter.Intro);
+			//// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
+			//// but this is speed-critical code and the overhead of the extra method call is
+			//// expensive.
 		}
 
 		public static bool IsCharacterExtraBiblical(string characterId)
 		{
-			if (characterId == null)
-				return false;
-
-			return IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
-				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
-				IsCharacterOfType(characterId, StandardCharacter.Intro);
+			switch (characterId?.Length)
+			{
+				case 6: return characterId.StartsWith(kBookOrChapterPrefix, StringComparison.Ordinal);
+				case 9: return characterId.StartsWith(kExtraBiblicalPrefix, StringComparison.Ordinal) || characterId.StartsWith(kIntroPrefix, StringComparison.Ordinal);
+				default: return false;
+			}
 		}
+
+		// This above code could be replaced with the following slightly more readable/maintainable version, but because
+		// this is speed-critical, I optimized for performance based on extensive comparative testing. If you want to tweak
+		// this, be sure to use the commented-out IsCharacterExtraBiblical_SpeedComparison_EnsureFastestVersion,
+		// which is in CharacterVerseDataTests.
+		//public static bool IsCharacterExtraBiblicalBaselineVersion(string characterId)
+		//{
+		//	if (characterId == null || characterId.Length < 6 || characterId[characterId.Length - 4] != '-')
+		//		return false;
+
+		//	return characterId.StartsWith(kBookOrChapterPrefix, StringComparison.Ordinal) ||
+		//		characterId.StartsWith(kExtraBiblicalPrefix, StringComparison.Ordinal) ||
+		//		characterId.StartsWith(kIntroPrefix, StringComparison.Ordinal);
+
+		//	//return IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
+		//	//	IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
+		//	//	IsCharacterOfType(characterId, StandardCharacter.Intro);
+		//}
 
 		public static string StandardCharacterNameFormatNarrator = Localizer.GetString("CharacterName.Standard.Fmt.Narrator", "narrator ({0})");
 		public static string StandardCharacterNameFormatIntroduction = Localizer.GetString("CharacterName.Standard.Fmt.Introduction", "introduction ({0})");
