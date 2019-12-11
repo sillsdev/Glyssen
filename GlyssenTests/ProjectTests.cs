@@ -901,6 +901,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
