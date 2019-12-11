@@ -19,7 +19,7 @@ namespace Glyssen.ReferenceTextUtility.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -62,7 +62,7 @@ namespace Glyssen.ReferenceTextUtility.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;DBLMetadata id=&quot;5453af4c7644271c&quot; type=&quot;text&quot; typeVersion=&quot;1.4&quot; revision=&quot;0&quot; usxparserversion=&quot;33&quot; controlfileversion=&quot;91&quot;&gt;
+        ///&lt;DBLMetadata&gt;
         ///  &lt;language&gt;
         ///    &lt;fontFamily&gt;Charis SIL&lt;/fontFamily&gt;
         ///    &lt;fontSizeInPoints&gt;14&lt;/fontSizeInPoints&gt;
@@ -74,9 +74,10 @@ namespace Glyssen.ReferenceTextUtility.Properties {
         ///  &lt;promotion&gt;
         ///    &lt;promoVersionInfo contentType=&quot;xhtml&quot; /&gt;
         ///  &lt;/promotion&gt;
-        ///  &lt;contents&gt;
-        ///    &lt;bookList default=&quot;true&quot; id=&quot;0&quot;&gt;
-        ///      &lt;name&gt;AdHo [rest of string was truncated]&quot;;.
+        /// &lt;projectStatus&gt;
+        ///    &lt;quoteSystemStatus&gt;UserSet&lt;/quoteSystemStatus&gt;
+        ///    &lt;quoteSystemDate&gt;2016-03-08T12:27:38.1500615-07:00&lt;/quoteSystemDate&gt;
+        ///    &lt;bookSelectionStatus&gt;Reviewed&lt;/ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string refTextMetadata {
             get {

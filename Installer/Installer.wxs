@@ -46,8 +46,8 @@ rest of the app the first time the icon is run.  If this is not behavior you
 are trying to support, you're better off using non-advertised shortcuts. "-->
 
 	<PropertyRef Id="NETFRAMEWORK45"/>
-	<Condition Message="Glyssen requires .NET Framework 4.6.1 or later.  You need to install Microsoft's free .NET Framework then run this installer again.">
-    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#394254")]]>
+	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again. More information about Glyssen's requirements can be found at https://software.sil.org/glyssen/download/ ">
+    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
 	</Condition>
 
     <!--because of bug, this needs to be 1 -->
@@ -242,10 +242,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="icuuc56.dll" Name="icuuc56.dll" KeyPath="yes" Source="..\output\release\icuuc56.dll" />
           </Component>
 
-          <Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="{D60F4F8D-4072-4476-A66C-DDF663206CFE}">
-            <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" Name="System.Runtime.InteropServices.RuntimeInformation.dll" KeyPath="yes" Source="..\output\release\System.Runtime.InteropServices.RuntimeInformation.dll" />
-          </Component>
-
           <Component Id="System.ValueTuple.dll" Guid="{F9E2AC5A-447B-46AC-96ED-A3F5B27E6559}">
             <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
           </Component>
@@ -334,7 +330,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="icudt56.dll"/>
       <ComponentRef Id="icuin56.dll"/>
       <ComponentRef Id="icuuc56.dll"/>
-	  <ComponentRef Id="System.Runtime.InteropServices.RuntimeInformation.dll"/>
 	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
