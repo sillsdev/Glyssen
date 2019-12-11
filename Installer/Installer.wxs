@@ -46,7 +46,7 @@ rest of the app the first time the icon is run.  If this is not behavior you
 are trying to support, you're better off using non-advertised shortcuts. "-->
 
 	<PropertyRef Id="NETFRAMEWORK45"/>
-	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again.">
+	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again. More information about Glyssen's requirements can be found at https://software.sil.org/glyssen/download/ ">
     <![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
 	</Condition>
 
