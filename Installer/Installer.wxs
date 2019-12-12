@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- These variables define the Windows Installer product version, product code and upgrade code. They   -->
-<!-- will be used later on in this file.  this value should be B U I LD_SCRIPT_MUST_REPLACE_AT_RUNTIME (in quotes) -->
+<!-- These variables define the Windows Installer product version, product code and upgrade code.
+     They will be used later on in this file. -->
+<!-- This value should be B U I LD_SCRIPT_MUST_REPLACE_AT_RUNTIME (in quotes). If you build the
+     Installer locally, this will be replaced by an actual version number. Do not check in that change! -->
 <?define Property_ProductVersion = "BUILD_SCRIPT_MUST_REPLACE_AT_RUNTIME" ?>
 <!--this is replaced at build time by the msbuild 'package' target -->
 <?define Property_ProductCode = "*" ?>
-<!-- auto-generate a new guid each time -->
+<!-- auto-generate a new GUID each time -->
 <?define Property_UpgradeCode = "{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" ?>
 <!--Don't even think of EVER changing this -->
 
@@ -23,8 +25,8 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
     <!-- changed schedule from afterInstallInitialize, to afterInstallValidate, hopes that upgrades which have some library (e.g. palaso) with a lower version won't leave us
         with no palaso at all, as afterInstallInitialize was doing. But it's not clear whether even this will work, as it depends on when the "costing" happens:
         http://msdn.microsoft.com/en-us/library/aa371197.aspx -->
-    <MajorUpgrade   Schedule="afterInstallValidate"
-  DowngradeErrorMessage="A later version of Glyssen is already installed. If you really want to downgrade, first uninstall Glyssen, then do this install again."/>
+    <MajorUpgrade Schedule="afterInstallValidate"
+		DowngradeErrorMessage="A later version of Glyssen is already installed. If you really want to downgrade, first uninstall Glyssen, then do this install again."/>
 
     <Upgrade Id ="$(var.Property_UpgradeCode)" >
       <UpgradeVersion Minimum ="$(var.Property_ProductVersion)" OnlyDetect ="yes" Property ="NEWVERSIONDETECTED" />
@@ -42,12 +44,12 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
     <!--
     "from the list: Don't use Advertise="yes" Advertised shortcuts are designed to allow
 users to install just the shortcut for your app, then demand-install the
-rest of the app the first time the icon is run.  If this is not behavior you
-are trying to support, you're better off using non-advertised shortcuts. "-->
+rest of the app the first time the icon is run. If this is not behavior you
+are trying to support, you're better off using non-advertised shortcuts." -->
 
 	<PropertyRef Id="NETFRAMEWORK45"/>
 	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again. More information about Glyssen's requirements can be found at https://software.sil.org/glyssen/download/ ">
-    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
+		<![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
 	</Condition>
 
     <!--because of bug, this needs to be 1 -->
@@ -55,46 +57,38 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <Directory Id="TARGETDIR" Name="SourceDir">
 
-        <Directory Id="CommonAppDataFolder">
-          <Directory Id="FCBHSILCommonAppData" Name="FCBH-SIL">
-            <Directory Id="GlyssenCommonAppData" Name="Glyssen"/>
-          </Directory>
-        </Directory>
-
-        <Directory Id="DesktopFolder" Name="Desktop"/>
-
-      <Directory Id='ProgramMenuFolder' Name='Programs'>
-        <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
-          <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
-            <RemoveFolder Id ="shortcutDirRemover" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="create" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
-              <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
-            </RegistryKey>
-          </Component>
+      <Directory Id="CommonAppDataFolder">
+        <Directory Id="FCBHSILCommonAppData" Name="FCBH-SIL">
+          <Directory Id="GlyssenCommonAppData" Name="Glyssen"/>
         </Directory>
       </Directory>
 
-      <Directory Id="ProgramFiles64Folder" Name="PFiles">
+      <Directory Id="DesktopFolder" Name="Desktop">
+		<Component Id="ComponentDesktopShortcut" Guid="*" >
+          <Shortcut Id="desktopShortcut" Name="Glyssen"
+                 WorkingDirectory="INSTALLDIR" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
+		  <!--Remove desktop shortcut on uninstall-->
+		  <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+			<RegistryValue Root="HKCU" Key="SOFTWARE\SIL-FCBH\Glyssen" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+          </Component>
+	  </Directory>
+
+	  <Directory Id='ProgramMenuFolder'/>
+
+	  <Directory Id="ProgramFiles64Folder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">
           <Directory Id="XulRunnerDir" Name="XulRunner"/>
 
-          <Component Id="Glyssen.exe" Guid="{C1599D93-A144-4800-8A79-9372160F3D43}" Win64="yes">
-            <Registry Root="HKCU" Key="SOFTWARE\Glyssen\Components\Glyssen.exe" KeyPath="yes" />
+          <Component Id="Glyssen.exe" Guid="*" Win64="yes">
             <File Id="Glyssen.exe" Name="Glyssen.exe" Source="..\output\release\Glyssen.exe" ProcessorArchitecture="x64"/>
-
-            <Shortcut Id="startmenuShortcut" Directory="GlyssenShortcutDir" Name="Glyssen"
-                 WorkingDirectory="ProgramDir" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
-            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Glyssen"
-                 WorkingDirectory="INSTALLDIR" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
-
-          </Component>
+		  </Component>
 
           <Component Id="Glyssen.pdb" Guid="*">
             <File Id="Glyssen.pdb" Name="Glyssen.pdb" KeyPath="yes" Source="..\output\release\Glyssen.pdb" />
           </Component>
 
-          <Component Id="Glyssen.exe.config" Guid="{5173C7E9-39FD-4438-B1C1-BA187907AA35}">
+          <Component Id="Glyssen.exe.config" Guid="*">
             <File Id="Glyssen.exe.config" Name="Glyssen.exe.config" KeyPath="yes" Source="..\output\release\Glyssen.exe.config" />
           </Component>
 
@@ -192,22 +186,20 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           </Component>
 
           <Component Id="icudt59.dll" Guid="*">
-            <File Id="icudt59.dll" Name="icudt59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icudt59.dll" />
+            <File Id="icudt59.dll" Name="icudt59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icudt59.dll" />
           </Component>
 
           <Component Id="icuin59.dll" Guid="*">
-            <File Id="icuin59.dll" Name="icuin59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icuin59.dll" />
+            <File Id="icuin59.dll" Name="icuin59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icuin59.dll" />
           </Component>
 
           <Component Id="icuuc59.dll" Guid="*">
-            <File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icuuc59.dll" />
+            <File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icuuc59.dll" />
           </Component>
 
-<!-- Still needed?
           <Component Id="System.ValueTuple.dll" Guid="*">
             <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
           </Component>
--->
 
           <Component Id="ParatextData.dll" Guid="*" Win64="yes">
             <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" ProcessorArchitecture="x64"/>
@@ -225,6 +217,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
           <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="*" Win64="yes">
             <File Id="Microsoft.Extensions.DependencyModel.dll" Name="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="..\output\release\Microsoft.Extensions.DependencyModel.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
+          <Component Id="Microsoft.Win32.Registry.dll" Guid="*" Win64="yes">
+            <File Id="Microsoft.Win32.Registry.dll" Name="Microsoft.Win32.Registry.dll" KeyPath="yes" Source="..\output\release\Microsoft.Win32.Registry.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
+          <Component Id="Microsoft.Win32.SystemEvents.dll" Guid="*" Win64="yes">
+            <File Id="Microsoft.Win32.SystemEvents.dll" Name="Microsoft.Win32.SystemEvents.dll" KeyPath="yes" Source="..\output\release\Microsoft.Win32.SystemEvents.dll" ProcessorArchitecture="x64"/>
           </Component>
 
           <Component Id="DotNetZip.dll" Guid="*" Win64="yes">
@@ -254,6 +254,17 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
         </Directory>
       </Directory>
     </Directory>
+	
+	<DirectoryRef Id="ProgramMenuFolder">
+	  <Component Id="GlyssenShortcut" Guid="{B8000306-EB15-4458-8264-97C1F888AD1E}">
+		<Shortcut Id="GlyssenStartMenuShortcut"
+				  Name="Glyssen"
+				  WorkingDirectory="ProgramDir"
+				  Target="[!Glyssen.exe]"
+				  Icon="Glyssen.exe" />
+		<RegistryValue Root="HKCU" Key="SOFTWARE\SIL-FCBH\Glyssen" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+	  </Component>
+	</DirectoryRef>
 
     <Component Id="CreateGlyssenAppDataFolder" Guid="{C5B67418-083A-4AE5-85E3-B0E23EAFD342}" Directory="GlyssenCommonAppData">
       <CreateFolder />
@@ -261,7 +272,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
-      <ComponentRef Id ="removeShortcutDir"/>
       <ComponentRef Id="SIL.Core.dll"/>
       <ComponentRef Id="SIL.Core.Desktop.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
@@ -278,17 +288,21 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="MarkdownDeep.dll"/>
       <ComponentRef Id="NetSparkle.Net40.dll"/>
       <ComponentRef Id="icu.net.dll"/>
-      <ComponentRef Id="icudt56.dll"/>
-      <ComponentRef Id="icuin56.dll"/>
-      <ComponentRef Id="icuuc56.dll"/>
+      <ComponentRef Id="icudt59.dll"/>
+      <ComponentRef Id="icuin59.dll"/>
+      <ComponentRef Id="icuuc59.dll"/>
 	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
 	  <ComponentRef Id="DotNetZip.dll"/>
       <ComponentRef Id="Microsoft.DotNet.PlatformAbstractions.dll"/>
       <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
+      <ComponentRef Id="Microsoft.Win32.Registry.dll"/>
+	  <ComponentRef Id="Microsoft.Win32.SystemEvents.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
+	  <ComponentRef Id="ComponentDesktopShortcut" />
+      <ComponentRef Id="GlyssenShortcut" />
       <ComponentRef Id="Glyssen.exe.config" />
       <ComponentRef Id="GlyssenShared.dll"/>
       <ComponentRef Id="GlyssenEngine.dll"/>
@@ -297,22 +311,9 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Newtonsoft.Json.dll"/>
       <ComponentRef Id="EPPlus.dll"/>
 
-      <ComponentRef Id="SIL.Core.pdb"/>
-      <ComponentRef Id="SIL.Core.Desktop.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
-      <ComponentRef Id="SIL.WritingSystems.pdb"/>
-      <ComponentRef Id="SIL.DblBundle.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.DblBundle.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
-      <ComponentRef Id="SIL.Scripture.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
-      <!--ComponentRef Id="ParatextData.pdb"/>
-      <ComponentRef Id="PtxUtils.pdb"/-->
-      <ComponentRef Id="L10NSharp.pdb"/>
+
       <ComponentRef Id="Glyssen.pdb" />
       <ComponentRef Id="GlyssenShared.pdb" />
       <ComponentRef Id="GlyssenEngine.pdb" />
