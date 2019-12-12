@@ -121,9 +121,10 @@
 			<Output ItemName="TestAssemblies" TaskParameter="Include" />
 		</CreateItem>
 		<NUnitTeamCity
+			Platform="x64"
 			Assemblies="@(TestAssemblies)"
 			ExcludeCategory="SkipOnTeamCity;ByHand"
-			NUnitVersion="NUnit-2.5.5" />
+			NUnitVersion="NUnit-2.5.8" />
 	</Target>
 
 	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
