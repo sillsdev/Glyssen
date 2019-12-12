@@ -41,15 +41,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Geckofx-Core">
-      <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Geckofx-Winforms">
-      <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
