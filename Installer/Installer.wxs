@@ -46,8 +46,8 @@ rest of the app the first time the icon is run.  If this is not behavior you
 are trying to support, you're better off using non-advertised shortcuts. "-->
 
 	<PropertyRef Id="NETFRAMEWORK45"/>
-	<Condition Message="Glyssen requires .NET Framework 4.6.1 or later.  You need to install Microsoft's free .NET Framework then run this installer again.">
-    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#394254")]]>
+	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again. More information about Glyssen's requirements can be found at https://software.sil.org/glyssen/download/ ">
+    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
 	</Condition>
 
     <!--because of bug, this needs to be 1 -->
@@ -174,40 +174,36 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Geckofx_Winforms.dll" Name="Geckofx-Winforms.dll" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.dll" />
           </Component>
 
-		  <!-- REVIEW: Is this going to go away? -->
+          <!-- REVIEW: Is this going to go away? -->
           <Component Id="Geckofx_Winforms.pdb" Guid="*">
             <File Id="Geckofx_Winforms.pdb" Name="Geckofx-Winforms.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.pdb" />
           </Component>
 
-		  <Component Id="MarkdownDeep.dll" Guid="*">
-			<File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
-		  </Component>
+          <Component Id="MarkdownDeep.dll" Guid="*">
+            <File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
+          </Component>
 
-		  <Component Id="NetSparkle.Net40.dll" Guid="*" Win64="yes">
-			<File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" ProcessorArchitecture="x64"/>
-		  </Component>
+          <Component Id="NetSparkle.Net40.dll" Guid="*" Win64="yes">
+            <File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" ProcessorArchitecture="x64"/>
+          </Component>
 
           <Component Id="icu.net.dll" Guid="*">
             <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
           </Component>
 
-		  <Component Id="icudt59.dll" Guid="*">
-			<File Id="icudt59.dll" Name="icudt59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icudt59.dll" />
-		  </Component>
-
-		  <Component Id="icuin59.dll" Guid="*">
-			<File Id="icuin59.dll" Name="icuin59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icuin59.dll" />
-		  </Component>
-
-		  <Component Id="icuuc59.dll" Guid="*">
-			<File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icuuc59.dll" />
-		  </Component>
-
-<!-- Still needed?
-          <Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="*">
-            <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" Name="System.Runtime.InteropServices.RuntimeInformation.dll" KeyPath="yes" Source="..\output\release\System.Runtime.InteropServices.RuntimeInformation.dll" />
+          <Component Id="icudt59.dll" Guid="*">
+            <File Id="icudt59.dll" Name="icudt59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icudt59.dll" />
           </Component>
 
+          <Component Id="icuin59.dll" Guid="*">
+            <File Id="icuin59.dll" Name="icuin59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icuin59.dll" />
+          </Component>
+
+          <Component Id="icuuc59.dll" Guid="*">
+            <File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\..\output\release\lib\win-x64\icuuc59.dll" />
+          </Component>
+
+<!-- Still needed?
           <Component Id="System.ValueTuple.dll" Guid="*">
             <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
           </Component>
@@ -285,7 +281,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="icudt56.dll"/>
       <ComponentRef Id="icuin56.dll"/>
       <ComponentRef Id="icuuc56.dll"/>
-	  <ComponentRef Id="System.Runtime.InteropServices.RuntimeInformation.dll"/>
 	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
