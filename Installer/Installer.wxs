@@ -120,8 +120,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-		  <!-- REVIEW: Is this going to be 64-bit? Where should we get it from? -->
-          <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Guid="*" Win64="yes">
+		  <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Guid="*" Win64="yes">
             <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Name="SIL.Windows.Forms.GeckoBrowserAdapter.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.dll" />
           </Component>
 
