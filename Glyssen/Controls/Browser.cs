@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
 using Gecko;
-using Gecko.DOM;
 using Gecko.Events;
 using SIL.Windows.Forms.HtmlBrowser;
 
@@ -58,7 +57,7 @@ namespace Glyssen.Controls
 			var element = m_geckoBrowser.Document.GetElementById(elementId);
 			if (element == null)
 				return;
-			var div = new GeckoDivElement(element.DomObject);
+			var div = (GeckoHtmlElement)element;
 			div.ScrollIntoView(true);
 			div.Parent.ScrollTop += adjustment;
 		}

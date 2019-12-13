@@ -108,11 +108,11 @@
     <Reference Include="GdkSharp, Version=3.22.24.37, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GdkSharp.3.22.24.37\lib\netstandard2.0\GdkSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Geckofx-Core">
-      <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
+    <Reference Include="Geckofx-Core, Version=60.0.44.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geckofx60.64.60.0.44\lib\net45\Geckofx-Core.dll</HintPath>
     </Reference>
-    <Reference Include="Geckofx-Winforms">
-      <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
+    <Reference Include="Geckofx-Winforms, Version=60.0.44.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geckofx60.64.60.0.44\lib\net45\Geckofx-Winforms.dll</HintPath>
     </Reference>
     <Reference Include="GioSharp, Version=3.22.24.37, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GioSharp.3.22.24.37\lib\netstandard2.0\GioSharp.dll</HintPath>
@@ -736,6 +736,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Firefox\omni.ja" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -774,6 +775,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Alert.png" />
+    <Content Include="Firefox\AccessibleHandler.dll" />
+    <Content Include="Firefox\AccessibleMarshal.dll" />
+    <Content Include="Firefox\d3dcompiler_47.dll" />
+    <Content Include="Firefox\freebl3.dll" />
+    <Content Include="Firefox\IA2Marshal.dll" />
+    <Content Include="Firefox\lgpllibs.dll" />
+    <Content Include="Firefox\libEGL.dll" />
+    <Content Include="Firefox\libGLESv2.dll" />
+    <Content Include="Firefox\mozavcodec.dll" />
+    <Content Include="Firefox\mozavutil.dll" />
+    <Content Include="Firefox\mozglue.dll" />
+    <Content Include="Firefox\nss3.dll" />
+    <Content Include="Firefox\nssckbi.dll" />
+    <Content Include="Firefox\nssdbm3.dll" />
+    <Content Include="Firefox\plugin-container.exe" />
+    <Content Include="Firefox\plugin-hang-ui.exe" />
+    <Content Include="Firefox\qipcap64.dll" />
+    <Content Include="Firefox\softokn3.dll" />
+    <Content Include="Firefox\xul.dll" />
     <Content Include="icu32\icudt54.dll" />
     <Content Include="icu32\icuin54.dll" />
     <Content Include="icu32\icuuc54.dll" />
@@ -845,12 +865,14 @@
     <Error Condition="!Exists('..\packages\SIL.ReleaseTasks.2.2.0\build\net461\SIL.ReleaseTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SIL.ReleaseTasks.2.2.0\build\net461\SIL.ReleaseTasks.targets'))" />
     <Error Condition="!Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets'))" />
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
+    <Error Condition="!Exists('..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets'))" />
   </Target>
   <Import Project="..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets" Condition="Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" />
   <Import Project="..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets" Condition="Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" />
   <Import Project="..\packages\SIL.ReleaseTasks.2.2.0\build\net461\SIL.ReleaseTasks.targets" Condition="Exists('..\packages\SIL.ReleaseTasks.2.2.0\build\net461\SIL.ReleaseTasks.targets')" />
   <Import Project="..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets" Condition="Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" />
   <Import Project="..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets" Condition="Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" />
+  <Import Project="..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets" Condition="Exists('..\packages\Geckofx60.64.60.0.44\build\Geckofx60.64.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

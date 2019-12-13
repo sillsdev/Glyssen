@@ -71,20 +71,13 @@ cd -
 # URL: https://build.palaso.org/viewType.html?buildTypeId=bt431
 # VCS: https://github.com/sillsdev/Glyssen.git [master]
 # dependencies:
-# [0] build: geckofx29-win32-continuous (bt399)
-#     project: GeckoFx
-#     URL: https://build.palaso.org/viewType.html?buildTypeId=bt399
-#     clean: false
-#     revision: latest.lastSuccessful
-#     paths: {"*"=>"lib/dotnet"}
-#     VCS: https://bitbucket.org/geckofx/geckofx-29.0 [default]
-# [1] build: XulRunner29-win32 (bt400)
+# [0] build: XulRunner29-win32 (bt400)
 #     project: GeckoFx
 #     URL: https://build.palaso.org/viewType.html?buildTypeId=bt400
 #     clean: false
 #     revision: latest.lastSuccessful
 #     paths: {"xulrunner-29.0.1.en-US.win32.zip!**"=>"lib"}
-# [2] build: NetSparkle Continuous (NetSparkle_NetSparkle64Continuous)
+# [1] build: NetSparkle Continuous (NetSparkle_NetSparkle64Continuous)
 #     project: NetSparkle
 #     URL: https://build.palaso.org/viewType.html?buildTypeId=NetSparkle_NetSparkle64Continuous
 #     clean: false
@@ -98,11 +91,6 @@ mkdir -p ../lib
 mkdir -p ../lib/dotnet
 
 # download artifact dependencies
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Core.dll ../lib/dotnet/Geckofx-Core.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Core.dll.config ../lib/dotnet/Geckofx-Core.dll.config
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Core.pdb ../lib/dotnet/Geckofx-Core.pdb
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Winforms.dll ../lib/dotnet/Geckofx-Winforms.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Winforms.pdb ../lib/dotnet/Geckofx-Winforms.pdb
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt400/latest.lastSuccessful/xulrunner-29.0.1.en-US.win32.zip ../Downloads/xulrunner-29.0.1.en-US.win32.zip
 copy_auto http://build.palaso.org/guestAuth/repository/download/NetSparkle_NetSparkle64Continuous/latest.lastSuccessful/NetSparkle.Net40.dll ../lib/dotnet/NetSparkle.Net40.dll
 # extract downloaded zip files

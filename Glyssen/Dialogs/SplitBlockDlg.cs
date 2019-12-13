@@ -164,10 +164,9 @@ namespace Glyssen.Dialogs
 		private static bool IsElementSplitLine(GeckoElement geckoElement, out int splitId)
 		{
 			splitId = -1;
-			var geckoDivElement = geckoElement as GeckoDivElement;
-			if (geckoDivElement != null && geckoDivElement.ClassName.StartsWith("split-line"))
+			if (geckoElement is GeckoHtmlElement geckoHtmlElement && geckoHtmlElement.TagName == "div" && geckoHtmlElement.ClassName.StartsWith("split-line"))
 			{
-				string splitIdStr = geckoDivElement.ClassName.Equals("split-line") ? geckoDivElement.Id : geckoDivElement.Parent.Id;
+				string splitIdStr = geckoHtmlElement.ClassName.Equals("split-line") ? geckoHtmlElement.Id : geckoHtmlElement.Parent.Id;
 				string splitIdNumber = splitIdStr.Substring(Block.kSplitElementIdPrefix.Length);
 				splitId = Int32.Parse(splitIdNumber);
 				return true;
@@ -180,15 +179,14 @@ namespace Glyssen.Dialogs
 			var selection = m_blocksDisplayBrowser.Window.Selection;
 			var newOffset = selection.AnchorOffset;
 
-			var targetElement = geckoElement as GeckoDivElement;
+			var targetElement = geckoElement as GeckoHtmlElement;
 
 			// was a verse marker clicked?
-			if (targetElement == null)
+			if (targetElement?.TagName != "div")
 			{
-				var geckoHtmlElement = geckoElement as GeckoHtmlElement;
-				if (geckoHtmlElement != null)
+				if (targetElement != null)
 				{
-					targetElement = geckoHtmlElement.Parent as GeckoDivElement;
+					targetElement = targetElement.Parent;
 					if (targetElement == null)
 						return false;
 
@@ -228,10 +226,10 @@ namespace Glyssen.Dialogs
 
 			if (newOffset == 0)
 			{
-				var newTargetElement = targetElement.PreviousSibling as GeckoDivElement;
+				var newTargetElement = targetElement.PreviousSibling as GeckoHtmlElement;
 
 				// Can't split at start of first block.
-				if (newTargetElement == null)
+				if (newTargetElement == null || newTargetElement.TagName != "div")
 					return false;
 
 				// if the previous sibling is a split, this is a duplicate
@@ -289,7 +287,7 @@ namespace Glyssen.Dialogs
 		/// <param name="selectedDivElement">The selected segment</param>
 		/// <param name="selectLastIndex">If true, ignore the subOffset and return the last position in the block</param>
 		/// <returns></returns>
-		private int GetSplitIndexInVerse(int subOffset, int blockIndex, string verseToSplit, GeckoDivElement selectedDivElement, bool selectLastIndex=false)
+		private int GetSplitIndexInVerse(int subOffset, int blockIndex, string verseToSplit, GeckoHtmlElement selectedDivElement, bool selectLastIndex=false)
 		{
 			// get the text from the previous splittext elements in this block
 			var sb = new StringBuilder();
@@ -333,7 +331,7 @@ namespace Glyssen.Dialogs
 		/// <param name="blockIndex">The index of the block containing the selected segment</param>
 		/// <param name="selectedDivElement">The selected segment</param>
 		/// <returns></returns>
-		private bool SplitIsAtEndOfLastBlock(int subOffset, int blockIndex, GeckoDivElement selectedDivElement)
+		private bool SplitIsAtEndOfLastBlock(int subOffset, int blockIndex, GeckoHtmlElement selectedDivElement)
 		{
 			// not if this is not the last block
 			if (blockIndex < m_originalBlocks.Count - 1)
