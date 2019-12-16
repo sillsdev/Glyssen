@@ -3056,10 +3056,10 @@
     <verse num="9" />
     <text>The Lord said to Paul in the night by a vision,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus" delivery="in a vision">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus">
     <text>“Don’t be afraid, but speak and don’t be silent;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="in a vision">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus">
     <verse num="10" />
     <text>for I am with you, and no one will attack you to harm you, for I have many people in this city.”</text>
   </block>
@@ -3922,7 +3922,7 @@
     <verse num="11" />
     <text>The following night, the Lord stood by him, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="11" characterId="Jesus" delivery="in a vision">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="11" characterId="Jesus">
     <text>“Cheer up, Paul, for as you have testified about me at Jerusalem, so you must testify also at Rome.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="12" characterId="narrator-ACT">

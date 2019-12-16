@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="X:\1 SCRIPT ASSEMBLER\Amgad\Director Guide into Glyssen\English\Glyssen script English DG\9 Apostrophies and r removed\export_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600\bundle_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600_release.zip" controlfileversion="143" audiostocknumber="ENGENG9Ap" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
+<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" modifieddate="2019-12-16T11:46:08.7715522-05:00" uniqueProjectId="9393f8af-9e62-4280-aa06-94171e5660a2" audiostocknumber="ENGENG9Ap" usxparserversion="48" origdblpath="X:\1 SCRIPT ASSEMBLER\Amgad\Director Guide into Glyssen\English\Glyssen script English DG\9 Apostrophies and r removed\export_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600\bundle_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600_release.zip" controlfileversion="151" firstchapterannouncement="true" singlechapterannouncement="true">
   <language>
     <iso>eng</iso>
     <name>English</name>
@@ -9,7 +9,7 @@
     <numerals />
     <fontFamily>Charis SIL</fontFamily>
     <fontSizeInPoints>14</fontSizeInPoints>
-	<heSaidText>he said.</heSaidText>
+    <heSaidText>he said.</heSaidText>
   </language>
   <identification>
     <name>World English Bible (WEB)</name>
@@ -23,7 +23,7 @@
   <copyright>
     <statement contentType="xhtml">
       <p>Public Domain.</p>
-	  <p>See: http://ebible.org/web/</p>
+      <p>See: http://ebible.org/web/</p>
     </statement>
   </copyright>
   <promotion>
@@ -138,6 +138,11 @@
       <long>Ecclesiates or, The Preacher</long>
       <short>Ecclesiastes</short>
       <abbr>Ecc</abbr>
+    </book>
+    <book code="SNG">
+      <long>The Song of Solomon</long>
+      <short>Song of Solomon</short>
+      <abbr>Sng</abbr>
     </book>
     <book code="ISA">
       <long>The Book of Isaiah</long>
@@ -390,6 +395,7 @@
         <book code="PSA" />
         <book code="PRO" />
         <book code="ECC" />
+        <book code="SNG" />
         <book code="ISA" />
         <book code="JER" />
         <book code="LAM" />
@@ -440,9 +446,10 @@
   <projectStatus>
     <assignCharacterMode>AllScripture</assignCharacterMode>
     <quoteSystemStatus>UserSet</quoteSystemStatus>
-    <quoteSystemDate>2016-03-08T12:27:38.1500615-07:00</quoteSystemDate>
+    <quoteSystemDate>2016-03-08T14:27:38.1500615-05:00</quoteSystemDate>
     <bookSelectionStatus>Reviewed</bookSelectionStatus>
     <projectSettingsStatus>Reviewed</projectSettingsStatus>
   </projectStatus>
   <characterGroupGenerationPreferences />
+  <projectDramatizationPreferences />
 </DBLMetadata>
