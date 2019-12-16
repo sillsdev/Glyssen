@@ -10,7 +10,9 @@ using Glyssen.Paratext;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Paratext;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
@@ -396,7 +398,7 @@ namespace GlyssenTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(8000)]
+		[Timeout(10000)]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -899,6 +901,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();

@@ -13,15 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Analytics" Version="2.0.2" />
-    <PackageReference Include="DesktopAnalytics" Version="1.2.4.11" />
     <PackageReference Include="DotNetZip" Version="1.13.3" />
-    <PackageReference Include="EPPlus" Version="4.0.5" />
     <PackageReference Include="icu.net" Version="2.5.4" />
     <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="ParatextData" Version="9.0.3" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
@@ -31,17 +27,41 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Geckofx-Core">
+      <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms">
+      <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Paratext.LexicalContracts">
+      <HintPath>..\packages\ParatextData.9.0.3\lib\net461\Paratext.LexicalContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="ParatextData">
+      <HintPath>..\packages\ParatextData.9.0.3\lib\net461\ParatextData.dll</HintPath>
+    </Reference>
+    <Reference Include="PtxUtils">
+      <HintPath>..\packages\ParatextData.9.0.3\lib\net461\PtxUtils.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop">
       <HintPath>..\lib\dotnet\SIL.Core.Desktop.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.DblBundle">
+      <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Scripture">
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Scripture">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems">
+      <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Spart">
+      <HintPath>..\packages\ParatextData.9.0.3\lib\net461\Spart.dll</HintPath>
     </Reference>
   </ItemGroup>
 

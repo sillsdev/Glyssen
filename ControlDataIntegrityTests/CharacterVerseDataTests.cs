@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
-using Glyssen.Utilities;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
@@ -146,6 +145,16 @@ namespace ControlDataIntegrityTests
 				"Character-Verse data where Alias equals Character ID:" +
 				Environment.NewLine +
 				entriesWhereAliasEqualsCharacterId.Select(cv => cv.BcvRef + ", " + cv.Character + ", " + cv.Alias).OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_NoExtraBiblicalCharacterIds()
+		{
+			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+			{
+				Assert.IsFalse(CharacterVerseData.IsCharacterExtraBiblical(cv.Character),
+					$"Character-Verse data cannot contain extra-biblical characters: {cv.BcvRef}: {cv.Character}");
+			}
 		}
 
 		[Test]

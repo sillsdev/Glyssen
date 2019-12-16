@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Glyssen</RootNamespace>
     <AssemblyName>Glyssen</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -154,11 +154,12 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -173,7 +174,6 @@
   <ItemGroup>
     <Compile Include="Analysis\ProjectAnalysis.cs" />
     <Compile Include="Character\NarratorOverrides.cs" />
-    <Compile Include="BiblicalAuthors.cs" />
     <Compile Include="BlockMatchup.cs" />
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BlockSplitData.cs" />
@@ -192,7 +192,6 @@
     <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
-    <Compile Include="ControlAnnotations.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -354,18 +353,14 @@
     </Compile>
     <Compile Include="IBlockAccessor.cs" />
     <Compile Include="Paratext\IParatextScrTextWrapper.cs" />
-    <Compile Include="Paratext\ParatextProjectBookInfo.cs" />
     <Compile Include="Paratext\NoSupportedBooksException.cs" />
-    <Compile Include="Paratext\ParatextProjectProxy.cs" />
     <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
-    <Compile Include="Paratext\ParatextUsxBookList.cs" />
     <Compile Include="PortionScript.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
     <Compile Include="Quote\ParserCharacterRepository.cs" />
     <Compile Include="ReferenceText.cs" />
     <Compile Include="ReferenceTextProxy.cs" />
-    <Compile Include="Rules\AuthorStats.cs" />
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
     <Compile Include="ScriptExporter.cs" />
@@ -456,7 +451,6 @@
       <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="IScrBook.cs" />
-    <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Quote\QuoteUtils.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
@@ -470,12 +464,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\CharacterAgeMatchingOptions.cs" />
-    <Compile Include="Rules\CharacterGenderMatchingOptions.cs" />
     <Compile Include="Rules\CharacterGroupGenerator.cs" />
     <Compile Include="Rules\Proximity.cs" />
-    <Compile Include="ScrStylesheetAdapter.cs" />
-    <Compile Include="SfmLoader.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">

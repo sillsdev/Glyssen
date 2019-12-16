@@ -4,12 +4,13 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
 {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Glyssen.ReferenceTextUtility.Properties {
+namespace GlyssenEngineTests.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Glyssen.ReferenceTextUtility.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Glyssen.ReferenceTextUtility.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GlyssenEngineTests.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,37 +61,22 @@ namespace Glyssen.ReferenceTextUtility.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;DBLMetadata&gt;
-        ///  &lt;language&gt;
-        ///    &lt;fontFamily&gt;Charis SIL&lt;/fontFamily&gt;
-        ///    &lt;fontSizeInPoints&gt;14&lt;/fontSizeInPoints&gt;
-        ///  &lt;/language&gt;
-        ///  &lt;copyright&gt;
-        ///    &lt;statement contentType=&quot;xhtml&quot;&gt;
-        ///    &lt;/statement&gt;
-        ///  &lt;/copyright&gt;
-        ///  &lt;promotion&gt;
-        ///    &lt;promoVersionInfo contentType=&quot;xhtml&quot; /&gt;
-        ///  &lt;/promotion&gt;
-        /// &lt;projectStatus&gt;
-        ///    &lt;quoteSystemStatus&gt;UserSet&lt;/quoteSystemStatus&gt;
-        ///    &lt;quoteSystemDate&gt;2016-03-08T12:27:38.1500615-07:00&lt;/quoteSystemDate&gt;
-        ///    &lt;bookSelectionStatus&gt;Reviewed&lt;/ [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;Barzillai (old)&lt;/CharacterId&gt;
+        ///	&lt;/RelatedCharacters&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;David&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;David (old)&lt;/CharacterId&gt;
+        ///	&lt;/RelatedCharacters&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string refTextMetadata {
+        internal static string TestRelatedCharacters {
             get {
-                return ResourceManager.GetString("refTextMetadata", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon RefTextUtility {
-            get {
-                object obj = ResourceManager.GetObject("RefTextUtility", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("TestRelatedCharacters", resourceCulture);
             }
         }
     }

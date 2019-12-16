@@ -70,4 +70,5 @@
   <File Id="ProgramDir.reference_texts.English.RUT.xml" Guid="ea439274-6e20-436a-9ac1-7d886a2882d0" />
   <File Id="ProgramDir.reference_texts.English.ZEC.xml" Guid="986684b3-3a69-4e6d-a43e-016645845765" />
   <File Id="ProgramDir.reference_texts.English.ZEP.xml" Guid="4cf7cf27-6e51-455f-bc78-40ece6e27516" />
+  <File Id="ProgramDir.reference_texts.English.SNG.xml" Guid="6b5bba9e-2fdb-4eea-a822-768c502b7781" />
 </InstallerMetadata>

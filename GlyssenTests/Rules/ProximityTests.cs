@@ -5,9 +5,10 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests.Rules
 {
@@ -22,7 +23,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			m_testProject.UseDefaultForUnresolvedMultipleChoiceCharacters();
 

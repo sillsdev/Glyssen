@@ -61,6 +61,68 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GEN	1	30	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	2	25	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	3	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	4	26	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	5	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	6	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	7	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	8	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	9	29	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	10	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	11	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	12	20	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	13	18	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	14	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	15	19	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	16	16	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	17	27 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Annotations {
+            get {
+                return ResourceManager.GetString("Annotations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;BiblicalAuthors&gt;
+        ///	&lt;Author name=&quot;Moses&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;GEN&lt;/Book&gt;
+        ///			&lt;Book&gt;EXO&lt;/Book&gt;
+        ///			&lt;Book&gt;LEV&lt;/Book&gt;
+        ///			&lt;Book&gt;NUM&lt;/Book&gt;
+        ///			&lt;Book&gt;DEU&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Joshua&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;JOS&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Author of Judges&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;JDG&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Author of Ruth&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;RUT&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Samuel&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;1SA&lt;/Book&gt;
+        ///			&lt;Book&gt;2S [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BiblicalAuthors {
+            get {
+                return ResourceManager.GetString("BiblicalAuthors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
         ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 &amp; JHN 21:5
         ///250 Israelite leaders	250	Male	Adult			NUM 16:3

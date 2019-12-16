@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 
-namespace Glyssen.Rules
+namespace GlyssenEngine.Rules
 {
 	public class AuthorStats
 	{

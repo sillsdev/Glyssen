@@ -10,6 +10,7 @@ using Glyssen.Bundle;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
