@@ -113,7 +113,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				if ((m_viewModel.Mode | BlocksToDisplay.NotAlignedToReferenceText) > 0)
+				if ((m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 					m_viewModel.SetMode(BlocksToDisplay.NotYetAssigned, false);
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
 				m_toolStripButtonMatchReferenceText.Enabled = false;
