@@ -10,7 +10,9 @@ using Glyssen.Paratext;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Paratext;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
@@ -396,7 +398,7 @@ namespace GlyssenTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(8000)]
+		[Timeout(10000)]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -463,7 +465,7 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor = new Glyssen.VoiceActor.VoiceActor();
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor();
 			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor.Id);
@@ -477,7 +479,7 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor = new Glyssen.VoiceActor.VoiceActor();
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor();
 			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			project.CharacterGroupList.CharacterGroups.Add(group);
@@ -490,7 +492,7 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor = new Glyssen.VoiceActor.VoiceActor();
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor();
 			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			group.CharacterIds.Add("Bob");
@@ -506,7 +508,7 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor = new Glyssen.VoiceActor.VoiceActor();
+			var actor = new GlyssenEngine.VoiceActor.VoiceActor();
 			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor.Id);
@@ -521,7 +523,7 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor1 = new Glyssen.VoiceActor.VoiceActor();
+			var actor1 = new GlyssenEngine.VoiceActor.VoiceActor();
 			project.VoiceActorList.AllActors.Add(actor1);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor1.Id);
@@ -536,9 +538,9 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 0 };
+			var actor1 = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0 };
 			project.VoiceActorList.AllActors.Add(actor1);
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
+			var actor2 = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1 };
 			project.VoiceActorList.AllActors.Add(actor2);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor1.Id);
@@ -553,9 +555,9 @@ namespace GlyssenTests
 		{
 			var project = TestProject.CreateBasicTestProject();
 
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 0 };
+			var actor1 = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0 };
 			project.VoiceActorList.AllActors.Add(actor1);
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 1, IsInactive = true };
+			var actor2 = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, IsInactive = true };
 			project.VoiceActorList.AllActors.Add(actor2);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor1.Id);
@@ -899,6 +901,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();

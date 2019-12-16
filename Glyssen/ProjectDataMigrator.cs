@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -415,8 +416,7 @@ namespace Glyssen
 					{
 						if (combinedRefBlock == null)
 						{
-							combinedRefBlock = currBlock.ReferenceBlocks.Single().Clone();
-							combinedRefBlock.CloneReferenceBlocks();
+							combinedRefBlock = currBlock.ReferenceBlocks.Single().Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
 						}
 						else
 						{

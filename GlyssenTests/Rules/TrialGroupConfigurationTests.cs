@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
-using Glyssen.VoiceActor;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
+using GlyssenEngine.Rules;
+using GlyssenEngine.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests.Rules
 {
@@ -562,7 +563,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.JUD);
 		}
 
@@ -638,7 +639,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT, TestProject.TestBook.MRK,
 				TestProject.TestBook.GAL, TestProject.TestBook.IIPE_NoData);
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
@@ -666,7 +667,7 @@ namespace GlyssenTests.Rules
 			SetVoiceActors(m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 
 			var groups = new List<CharacterGroup>(m_testProject.VoiceActorList.AllActors.Count);
-			foreach (Glyssen.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
+			foreach (GlyssenEngine.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
 			{
 				var group = new CharacterGroup(m_testProject);
 				group.AssignVoiceActor(actor.Id);
@@ -832,7 +833,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
-			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			RelatedCharactersData.Source = GlyssenEngineTests.Properties.Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(
 				TestProject.TestBook.MAT,
 				TestProject.TestBook.MRK,
@@ -886,7 +887,7 @@ namespace GlyssenTests.Rules
 			SetVoiceActors(m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 
 			var groups = new List<CharacterGroup>(m_testProject.VoiceActorList.AllActors.Count);
-			foreach (Glyssen.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
+			foreach (GlyssenEngine.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
 			{
 				var group = new CharacterGroup(m_testProject);
 				group.AssignVoiceActor(actor.Id);

@@ -11,7 +11,9 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -20,6 +22,7 @@ using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {
@@ -631,7 +634,7 @@ namespace Glyssen
 					if (!Project.DramatizationPreferences.IncludeCharacter(block.CharacterId))
 						continue;
 
-					VoiceActor.VoiceActor voiceActor = null;
+					VoiceActor voiceActor = null;
 					bool includeInOutput = true;
 					if (IncludeVoiceActors)
 					{
@@ -843,7 +846,7 @@ namespace Glyssen
 		}
 
 		internal static ExportBlock GetExportDataForBlock(Block block, int blockNumber, string bookId,
-			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
+			VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
 			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId,
 			bool getBlockElements = false)
 		{
@@ -919,9 +922,9 @@ namespace Glyssen
 			return null;
 		}
 
-		private VoiceActor.VoiceActor GetDummyActor()
+		private VoiceActor GetDummyActor()
 		{
-			return new VoiceActor.VoiceActor{Id = -1};
+			return new VoiceActor{Id = -1};
 		}
 
 		#region Roles for Voice Actors

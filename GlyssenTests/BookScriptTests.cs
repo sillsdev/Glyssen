@@ -7,13 +7,14 @@ using System.Text;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Scripture;
 using SIL.Xml;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
 {
@@ -1256,6 +1257,10 @@ namespace GlyssenTests
 			Assert.AreEqual(countOfOrigParagraphs, result.Count);
 			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
 			Assert.IsFalse(result.Any(b => b.MatchesReferenceText));
+
+			// Verify that the original book was not modified
+			Assert.IsTrue(jude.GetScriptBlocks().All(b => b.MatchesReferenceText));
+			Assert.IsTrue(jude.GetScriptBlocks().All(b => b.GetPrimaryReferenceText() == "blah"));
 		}
 
 		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]

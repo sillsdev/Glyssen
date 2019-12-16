@@ -7,9 +7,11 @@ using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.VoiceActor;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using SIL;
 using SIL.Extensions;
@@ -149,8 +151,8 @@ namespace Glyssen.Rules
 		{
 			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
-			List<VoiceActor.VoiceActor> actorsForGeneration;
-			List<VoiceActor.VoiceActor> realActorsToReset = null;
+			List<VoiceActor> actorsForGeneration;
+			List<VoiceActor> realActorsToReset = null;
 			if (GroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList)
 				actorsForGeneration = m_project.VoiceActorList.ActiveActors.ToList();
 			else
@@ -173,7 +175,7 @@ namespace Glyssen.Rules
 				return GeneratedGroups = characterGroups; // REVIEW: Maybe we should throw an exception instead.
 			}
 
-			List<VoiceActor.VoiceActor> nonCameoActors = actorsForGeneration.Where(a => !a.IsCameo).ToList();
+			List<VoiceActor> nonCameoActors = actorsForGeneration.Where(a => !a.IsCameo).ToList();
 
 			if (m_worker.CancellationPending)
 			{
@@ -202,7 +204,7 @@ namespace Glyssen.Rules
 			// In the first loop, we're looking for actors that could only possibly play one character role.
 			// Since we're not doing strict age matching, this is most likely only to find any candidates in
 			// the case of children (and then only if the project includes a limited selection of books)
-			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor.VoiceActor>>();
+			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor>>();
 			foreach (var actor in nonCameoActors)
 			{
 				// After we find the second match, we can quit looking because we're only interested in unique matches.
@@ -212,7 +214,7 @@ namespace Glyssen.Rules
 					if (characterDetailsUniquelyMatchedToActors.ContainsKey(uniqueMatch))
 						characterDetailsUniquelyMatchedToActors[uniqueMatch].Add(actor);
 					else
-						characterDetailsUniquelyMatchedToActors[uniqueMatch] = new List<VoiceActor.VoiceActor> { actor };
+						characterDetailsUniquelyMatchedToActors[uniqueMatch] = new List<VoiceActor> { actor };
 				}
 			}
 
@@ -392,13 +394,13 @@ namespace Glyssen.Rules
 			return GetFinalizedGroups(bestConfiguration, actorsWithRealAssignments, realActorsToReset);
 		}
 
-		private void EnsureActorListIsSetToRealActors(List<VoiceActor.VoiceActor> realActorsToReset)
+		private void EnsureActorListIsSetToRealActors(List<VoiceActor> realActorsToReset)
 		{
 			if (realActorsToReset != null)
 				m_project.VoiceActorList.AllActors = realActorsToReset;
 		}
 
-		private List<CharacterGroup> GetFinalizedGroups(TrialGroupConfiguration configuration, List<int> actorsWithRealAssignments, List<VoiceActor.VoiceActor> realActorsToReset)
+		private List<CharacterGroup> GetFinalizedGroups(TrialGroupConfiguration configuration, List<int> actorsWithRealAssignments, List<VoiceActor> realActorsToReset)
 		{
 			List<CharacterGroup> groups = configuration.Groups;
 
@@ -427,7 +429,7 @@ namespace Glyssen.Rules
 			return GeneratedGroups;
 		}
 
-		private List<CharacterGroup> CreateGroupsForActors(IEnumerable<VoiceActor.VoiceActor> actors)
+		private List<CharacterGroup> CreateGroupsForActors(IEnumerable<VoiceActor> actors)
 		{
 			List<CharacterGroup> groups = new List<CharacterGroup>();
 			bool? projectHasChildRole = null;
@@ -467,19 +469,19 @@ namespace Glyssen.Rules
 			return groups;
 		}
 
-		private IEnumerable<VoiceActor.VoiceActor> CreateGhostCastActors()
+		private IEnumerable<VoiceActor> CreateGhostCastActors()
 		{
-			List<VoiceActor.VoiceActor> ghostCastActors = new List<VoiceActor.VoiceActor>();
+			List<VoiceActor> ghostCastActors = new List<VoiceActor>();
 			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Male, ActorAge.Adult, m_ghostCastSize.Male, ghostCastActors.Count));
 			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Female, ActorAge.Adult, m_ghostCastSize.Female, ghostCastActors.Count));
 			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Male, ActorAge.Child, m_ghostCastSize.Child, ghostCastActors.Count));
 			return ghostCastActors;
 		}
 
-		private IEnumerable<VoiceActor.VoiceActor> CreateGhostCastActors(ActorGender gender, ActorAge age, int number, int startingIdNumber)
+		private IEnumerable<VoiceActor> CreateGhostCastActors(ActorGender gender, ActorAge age, int number, int startingIdNumber)
 		{
 			for (int i = 0; i < number; i++)
-				yield return new VoiceActor.VoiceActor
+				yield return new VoiceActor
 				{
 					Id = startingIdNumber++,
 					Gender = gender,

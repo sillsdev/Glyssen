@@ -9,6 +9,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Extensions;
 using SIL.Scripture;
@@ -127,15 +128,16 @@ namespace Glyssen
 			if (m_blockCount == 0)
 				return clonedBook;
 
+			Block.ReferenceBlockCloningBehavior refBlockCloning;
 			Action<Block, Block> modifyClonedBlockAsNeeded = null;
 			Func<Block, Block, bool> shouldCombine;
 
 			if (SingleVoice)
 			{
+				refBlockCloning = Block.ReferenceBlockCloningBehavior.SetToNewEmptyList;
 				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
 				modifyClonedBlockAsNeeded = (orig, clone) =>
 				{
-					clone.ClearReferenceText();
 					if (!clone.CharacterIsStandard)
 						clone.CharacterIdInScript = narrator;
 				};
@@ -143,6 +145,7 @@ namespace Glyssen
 			}
 			else
 			{
+				refBlockCloning = Block.ReferenceBlockCloningBehavior.CrossLinkToOriginalReferenceBlockList;
 				if (m_styleSheet == null)
 					m_styleSheet = SfmLoader.GetUsfmStylesheet();
 
@@ -158,17 +161,18 @@ namespace Glyssen
 				shouldCombine = ShouldCombineBlocksInMultiVoiceBook;
 			}
 
-			var currBlock = m_blocks[0].Clone();
+			var currBlock = m_blocks[0].Clone(refBlockCloning);
 			modifyClonedBlockAsNeeded?.Invoke(m_blocks[0], currBlock);
 			list.Add(currBlock);
 			for (var i = 1; i < m_blockCount; i++)
 			{
 				var prevBlock = list.Last();
-				currBlock = m_blocks[i].Clone();
+				currBlock = m_blocks[i].Clone(refBlockCloning);
 				modifyClonedBlockAsNeeded?.Invoke(m_blocks[i], currBlock);
 				if (shouldCombine(prevBlock, currBlock))
 				{
-					prevBlock.CloneReferenceBlocks();
+					if (refBlockCloning == Block.ReferenceBlockCloningBehavior.CrossLinkToOriginalReferenceBlockList)
+						prevBlock.CloneReferenceBlocks();
 					prevBlock.CombineWith(currBlock);
 				}
 				else
@@ -566,10 +570,7 @@ namespace Glyssen
 						if (((ScriptText)targetBlock.BlockElements.Single()).Content == ((ScriptText)sourceBlock.BlockElements.Single()).Content)
 						{
 							if (!targetBlock.MatchesReferenceText)
-							{
-								targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
-								targetBlock.CloneReferenceBlocks();
-							}
+								targetBlock.SetMatchedReferenceBlockFrom(sourceBlock);
 							break;
 						}
 						iTargetBlock++;
@@ -625,8 +626,7 @@ namespace Glyssen
 					sourceBlock = sourceMatchup.CorrelatedBlocks[i];
 					var targetBlock = targetMatchup.CorrelatedBlocks[i];
 					{
-						targetBlock.SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
-						targetBlock.CloneReferenceBlocks();
+						targetBlock.SetMatchedReferenceBlockFrom(sourceBlock);
 						targetBlock.SetCharacterAndDeliveryInfo(sourceBlock, BookNumber, Versification);
 						targetBlock.SplitId = sourceBlock.SplitId;
 						targetBlock.MultiBlockQuote = sourceBlock.MultiBlockQuote;
@@ -669,10 +669,7 @@ namespace Glyssen
 							m_blocks[iTarget].SetCharacterInfo(sourceBlock);
 						m_blocks[iTarget].Delivery = sourceBlock.Delivery;
 						if (sourceBlock.MatchesReferenceText && !m_blocks[iTarget].MatchesReferenceText)
-						{
-							m_blocks[iTarget].SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
-							m_blocks[iTarget].CloneReferenceBlocks();
-						}
+							m_blocks[iTarget].SetMatchedReferenceBlockFrom(sourceBlock);
 						m_blocks[iTarget].UserConfirmed = true;
 						iTarget++;
 						if (iTarget == m_blocks.Count)

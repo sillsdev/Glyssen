@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
+using GlyssenEngineTests.Properties;
 using NUnit.Framework;
 using SIL.Xml;
 
-namespace GlyssenTests.Character
+namespace GlyssenEngineTests.Character
 {
 	class RelatedCharactersTests
 	{

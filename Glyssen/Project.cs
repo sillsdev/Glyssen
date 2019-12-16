@@ -23,9 +23,10 @@ using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
-using Glyssen.VoiceActor;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using Paratext.Data;
 using SIL;
@@ -41,6 +42,7 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {
@@ -667,7 +669,7 @@ namespace Glyssen
 			get { return CharacterGroupList.AssignedGroups.All(g => g.CharacterIds.Count != 0); }
 		}
 
-		public IEnumerable<VoiceActor.VoiceActor> UnusedActors
+		public IEnumerable<VoiceActor> UnusedActors
 		{
 			get { return VoiceActorList.ActiveActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
@@ -1925,7 +1927,7 @@ namespace Glyssen
 			}
 		}
 
-		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
+		public VoiceActor GetVoiceActorForCharacter(string characterId)
 		{
 			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
 			if (charGroup == null)

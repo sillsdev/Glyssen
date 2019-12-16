@@ -10,9 +10,9 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
-using Glyssen.VoiceActor;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using SIL;
 using SIL.Extensions;
@@ -342,7 +342,7 @@ namespace Glyssen.Dialogs
 			return table;
 		}
 
-		private object[] GetDataTableRow(VoiceActor.VoiceActor actor, string category)
+		private object[] GetDataTableRow(VoiceActor actor, string category)
 		{
 			return new object[]
 			{
@@ -481,12 +481,12 @@ namespace Glyssen.Dialogs
 
 		public void CreateNewActorAndAssignToGroup(string voiceActorName, CharacterGroup group)
 		{
-			var actor = new VoiceActor.VoiceActor { Id = 99, Name = voiceActorName };
+			var actor = new VoiceActor { Id = 99, Name = voiceActorName };
 			m_project.VoiceActorList.AllActors.Add(actor);
 			AssignActorToGroup(actor.Id, group);
 		}
 
-		public VoiceActor.VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
+		public VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
 		{
 			Debug.Assert(!group.AssignedToCameoActor);
 

@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
-using Glyssen.Utilities;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
@@ -149,9 +148,19 @@ namespace ControlDataIntegrityTests
 		}
 
 		[Test]
+		public void DataIntegrity_NoExtraBiblicalCharacterIds()
+		{
+			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+			{
+				Assert.IsFalse(CharacterVerseData.IsCharacterExtraBiblical(cv.Character),
+					$"Character-Verse data cannot contain extra-biblical characters: {cv.BcvRef}: {cv.Character}");
+			}
+		}
+
+		[Test]
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
-			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.CharacterDetail; //resets cache
+			CharacterDetailData.TabDelimitedCharacterDetailData = GlyssenEngine.Resources.CharacterDetail; //resets cache
 
 			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();
