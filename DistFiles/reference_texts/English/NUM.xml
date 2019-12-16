@@ -2647,7 +2647,11 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="45" characterId="God">
     <verse num="45" />
-    <text>Get away from among this congregation, that I may consume them in a moment! They fell on their faces. </text>
+    <text>“Get away from among this congregation, that I may consume them in a moment!”</text>
+  </block>
+  <block style="p" chapter="16" initialStartVerse="45" characterId="narrator-NUM">
+    <verse num="45" />
+    <text>They fell on their faces. </text>
     <verse num="46" />
     <text>Moses said to Aaron,</text>
   </block>
@@ -4172,9 +4176,11 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>Let God, the God of the spirits of all flesh, appoint a man over the congregation, </text>
+    <text>“Let God, the God of the spirits of all flesh, appoint a man over the congregation, </text>
     <verse num="17" />
-    <text>who may go out before them, and who may come in before them, and who may lead them out, and who may bring them in; that the congregation of God not be as sheep which have no shepherd. </text>
+    <text>who may go out before them, and who may come in before them, and who may lead them out, and who may bring them in; that the congregation of God not be as sheep which have no shepherd.”</text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="18" characterId="narrator-NUM">
     <verse num="18" />
     <text>God said to Moses,</text>
   </block>
