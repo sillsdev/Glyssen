@@ -3249,7 +3249,7 @@
     <verse num="63" />
     <text>The high priest tore his clothes, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="63" characterId="Caiaphas, the high priest" delivery="screaming">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="63" characterId="Caiaphas, the high priest" delivery="indignant">
     <text>“What further need have we of witnesses? </text>
     <verse num="64" />
     <text>You have heard the blasphemy! What do you think?”</text>

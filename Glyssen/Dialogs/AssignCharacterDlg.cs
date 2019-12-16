@@ -113,7 +113,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				if (m_viewModel.Mode == BlocksToDisplay.NotAlignedToReferenceText)
+				if ((m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 					m_viewModel.SetMode(BlocksToDisplay.NotYetAssigned, false);
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
 				m_toolStripButtonMatchReferenceText.Enabled = false;
@@ -293,7 +293,14 @@ namespace Glyssen.Dialogs
 				case BlocksToDisplay.NeedsReview: m_toolStripComboBoxFilter.SelectedIndex = 7; break;
 				case BlocksToDisplay.NotAlignedToReferenceText: m_toolStripComboBoxFilter.SelectedIndex = 8; break;
 				default:
-					throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+					if (mode == (BlocksToDisplay.ExcludeUserConfirmed | BlocksToDisplay.NotAlignedToReferenceText))
+					{
+						// Not sure how this happened, but maybe there was a historic way. I had this in my Sample project.
+						m_toolStripComboBoxFilter.SelectedIndex = m_toolStripComboBoxFilter.Items.Count > 8 ? 8 : 0;
+						break;
+					}
+					else
+						throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
 			}
 		}
 
