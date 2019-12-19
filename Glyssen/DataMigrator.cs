@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using L10NSharp;
@@ -139,7 +140,8 @@ namespace Glyssen
 													"Versification file: {2}\r\n" +
 													"Error: {3}"),
 												projectFilePath, origBundlePath, versificationPath, ex.Message);
-											MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+											WinFormsMessageModal messageBox = new WinFormsMessageModal();
+											messageBox.ShowError(msg);
 											File.WriteAllText(errorlogPath, msg);
 										}
 									}
@@ -271,8 +273,8 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(safeReplacements.Count) +
 							String.Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct);
-						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
-							MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+						WinFormsMessageModal messageBox = new WinFormsMessageModal();
+						if (messageBox.AskQuestion(msg))
 						{
 							foreach (var replacement in safeReplacements)
 							{
@@ -311,7 +313,8 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
 							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
-						MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+						WinFormsMessageModal messageBox = new WinFormsMessageModal();
+						messageBox.ShowWarning(msg);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;
