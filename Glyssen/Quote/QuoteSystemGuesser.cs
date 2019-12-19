@@ -38,13 +38,13 @@ namespace Glyssen.Quote
 				bestScore = scores[quoteSystem];
 		}
 
-		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, ScrVers versification, out bool certain, BackgroundWorker worker = null) where T : IScrBook
+		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, ScrVers versification, out bool certain, IProgress<int> progress = null) where T : IScrBook
 		{
 			certain = false;
 			var bookCount = bookList.Count;
 			if (bookCount == 0)
 			{
-				ReportProgressComplete(worker);
+				ReportProgressComplete(progress);
 				return QuoteSystem.Default;
 			}
 			var scores = QuoteSystem.UniquelyGuessableSystems.ToDictionary(s => s, s => 0);
@@ -74,8 +74,8 @@ namespace Glyssen.Quote
 				var bookNum = bookTuple.Item1;
 				var book = bookTuple.Item2;
 
-				if (worker != null)
-					worker.ReportProgress(MathUtilities.Percent(++booksProcessed, bookCount));
+				if (progress != null)
+					progress.Report(MathUtilities.Percent(++booksProcessed, bookCount));
 
 				int versesAnalyzedForCurrentBook = 0;
 				int prevQuoteChapter = -1;
@@ -210,7 +210,7 @@ namespace Glyssen.Quote
 							if (competitors.Count == 1)
 							{
 								certain = true;
-								ReportProgressComplete(worker);
+								ReportProgressComplete(progress);
 								return competitors[0];
 							}
 
@@ -298,7 +298,7 @@ namespace Glyssen.Quote
 
 									if (competitors.Any())
 									{
-										ReportProgressComplete(worker);
+										ReportProgressComplete(progress);
 
 										if (competitors.Count == 1)
 											return competitors[0];
@@ -328,7 +328,7 @@ namespace Glyssen.Quote
 #if SHOWTESTINFO
 						Debug.WriteLine("Time-out guessing quote system.");
 #endif
-						ReportProgressComplete(worker);
+						ReportProgressComplete(progress);
 						return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 					}
 
@@ -336,7 +336,7 @@ namespace Glyssen.Quote
 					prevQuoteVerse = quote.Verse;
 				}
 			}
-			ReportProgressComplete(worker);
+			ReportProgressComplete(progress);
 			return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 		}
 
@@ -429,10 +429,10 @@ namespace Glyssen.Quote
 		//	return newSystem;
 		//}
 
-		private static void ReportProgressComplete(BackgroundWorker worker)
+		private static void ReportProgressComplete(IProgress<int> progress)
 		{
-			if (worker != null)
-				worker.ReportProgress(100);
+			if (progress != null)
+				progress.Report(100);
 		}
 	}
 }

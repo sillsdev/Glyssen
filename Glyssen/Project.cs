@@ -1509,45 +1509,31 @@ namespace Glyssen
 			ParseAndIncludeBooks(books, stylesheet);
 		}
 
-		private void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
+		private async void ParseAndIncludeBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<BookScript> postParseAction = null)
 		{
 			if (Versification == null)
 				throw new NullReferenceException("What!!!");
 			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
-			var usxWorker = new BackgroundWorker {WorkerReportsProgress = true};
-			usxWorker.DoWork += UsxWorker_DoWork;
-			usxWorker.RunWorkerCompleted += UsxWorker_RunWorkerCompleted;
-			usxWorker.ProgressChanged += UsxWorker_ProgressChanged;
 
-			object[] parameters = {books, stylesheet, postParseAction};
-			usxWorker.RunWorkerAsync(parameters);
-		}
-
-		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
-		{
-			var parameters = (object[]) e.Argument;
-			var books = (IEnumerable<UsxDocument>) parameters[0];
-			var stylesheet = (IStylesheet) parameters[1];
-			var postParseAction = parameters.Length > 2 ? (Action <BookScript> )parameters[2] : null;
-
-			var backgroundWorker = (BackgroundWorker)sender;
-
-			var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => backgroundWorker.ReportProgress(i));
-
-			if (postParseAction != null)
+			List<BookScript> bookScripts = new List<BookScript>();
+			var progressHandler = new Progress<int>(value =>
 			{
-				foreach (var book in parsedBooks)
-					postParseAction(book);
-			}
-			e.Result = parsedBooks;
-		}
+				m_usxPercentComplete = value;
+				OnReport(UpdatePercentInitialized());
+			});
 
-		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if (e.Error != null)
-				throw e.Error;
+			var progress = progressHandler as IProgress<int>;
+			await Task.Run(() =>
+			{
+				var parsedBooks = UsxParser.ParseBooks(books, stylesheet, i => progress.Report(i));
 
-			var bookScripts = (List<BookScript>) e.Result;
+				if (postParseAction != null)
+				{
+					foreach (var book in parsedBooks)
+						postParseAction(book);
+				}
+				bookScripts = parsedBooks;
+			});
 
 			foreach (var bookScript in bookScripts)
 			{
@@ -1585,71 +1571,46 @@ namespace Glyssen
 				DoQuoteParse();
 		}
 
-		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-		{
-			m_usxPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
-			OnReport(pe);
-		}
-
-		private void GuessAtQuoteSystem()
+		private async void GuessAtQuoteSystem()
 		{
 			ProjectState = ProjectState.UsxComplete | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
-			var guessWorker = new BackgroundWorker {WorkerReportsProgress = true};
-			guessWorker.DoWork += GuessWorker_DoWork;
-			guessWorker.RunWorkerCompleted += GuessWorker_RunWorkerCompleted;
-			guessWorker.ProgressChanged += GuessWorker_ProgressChanged;
-			guessWorker.RunWorkerAsync();
-		}
 
-		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
-		{
-			bool certain;
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain,
-				sender as BackgroundWorker);
-		}
+			QuoteSystem result = new QuoteSystem();
+			var progressHandler = new Progress<int>(value =>
+			{
+				m_guessPercentComplete = value;
+				OnReport(UpdatePercentInitialized());
+			});
 
-		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if (e.Error != null)
-				throw e.Error;
+			var progress = progressHandler as IProgress<int>;
+			await Task.Run(() =>
+			{
+				bool certain;
+				result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain, progress);
+			});
 
 			QuoteSystemStatus = QuoteSystemStatus.Guessed;
-			QuoteSystem = (QuoteSystem) e.Result;
+			QuoteSystem = result;
 
 			Save();
 		}
 
-		private void GuessWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-		{
-			m_guessPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
-			OnReport(pe);
-		}
-
-		private void DoQuoteParse()
+		private async void DoQuoteParse()
 		{
 			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 			ProjectState = ProjectState.Parsing;
-			var quoteWorker = new BackgroundWorker {WorkerReportsProgress = true};
-			quoteWorker.DoWork += QuoteWorker_DoWork;
-			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
-			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
-			quoteWorker.RunWorkerAsync();
-		}
 
-		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs doWorkEventArgs)
-		{
-			QuoteParser.ParseProject(this, sender as BackgroundWorker);
-		}
-
-		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-		{
-			if (e.Error != null)
+			var progressHandler = new Progress<int>(value =>  
 			{
-				Debug.WriteLine(e.Error.InnerException.Message + e.Error.InnerException.StackTrace);
-				throw e.Error;
-			}
+				m_quotePercentComplete = value;
+				OnReport(UpdatePercentInitialized());
+			});
+
+			var progress = progressHandler as IProgress<int>;
+			await Task.Run(() =>  // DoWork
+			{
+				QuoteParser.ParseProject(this, progress);
+			});
 
 			ProjectState = ProjectState.QuoteParseComplete;
 
@@ -1667,13 +1628,6 @@ namespace Glyssen
 			Save();
 
 			QuoteParseCompleted?.Invoke(this, new EventArgs());
-		}
-
-		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-		{
-			m_quotePercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
-			OnReport(pe);
 		}
 
 		public static string GetProjectFilePath(string langId, string publicationId, string recordingProjectId)
@@ -2210,9 +2164,9 @@ namespace Glyssen
 		public bool IsOkayToChangeQuoteSystem => QuoteSystem != null && IsBundleBasedProject &&
 			RobustFile.Exists(OriginalBundlePath);
 
-		private void OnReport(ProgressChangedEventArgs e)
+		private void OnReport(int progressPercentage)
 		{
-			ProgressChanged?.Invoke(this, e);
+			ProgressChanged?.Invoke(this, new ProgressChangedEventArgs(progressPercentage, null));
 		}
 
 		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;

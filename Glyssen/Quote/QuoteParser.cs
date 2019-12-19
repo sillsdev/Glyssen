@@ -22,7 +22,7 @@ namespace Glyssen.Quote
 {
 	public class QuoteParser
 	{
-		public static void ParseProject(Project project, BackgroundWorker projectWorker)
+		public static void ParseProject(Project project, IProgress<int> progress)
 		{
 			var cvInfo = new ParserCharacterRepository(new CombinedCharacterVerseData(project), project.ReferenceText);
 
@@ -42,10 +42,10 @@ namespace Glyssen.Quote
 			{
 				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.Versification).Parse().ToList();
 				completedProjectBlocks += numBlocksPerBook[book.BookId];
-				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
+				progress.Report(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
 
-			projectWorker.ReportProgress(100);
+			progress.Report(100);
 		}
 
 		public static void SetQuoteSystem(QuoteSystem quoteSystem)
