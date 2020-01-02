@@ -38,7 +38,7 @@ namespace Glyssen
 			if (!project.Books.Any())
 				return MigrationResult.NoOp;
 
-			Logger.WriteEvent("Migrating project " + project.ProjectFilePath);
+			Logger.WriteEvent($"Migrating project {project.ProjectFilePath} from {fromControlFileVersion} to {ControlCharacterVerseData.Singleton.ControlFileVersion}");
 
 			if (s_lastProjectMigrated != project)
 				s_migrationsRun = 0;

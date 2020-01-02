@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Xml.Serialization;
-using Microsoft.DotNet.PlatformAbstractions;
+using SIL.Reporting;
 
 namespace Glyssen
 {
@@ -56,7 +55,10 @@ namespace Glyssen
 			if (IsMultiBlock)
 				throw new InvalidOperationException($"Invalid attempt to extend a multi-block {GetType()} based on a {matchup.GetType()}.");
 			if (matchup.IndexOfStartBlockInBook != BlockIndex)
-				throw new InvalidOperationException($"This  {GetType()} does not correspond to the given {matchup.GetType()}.");
+			{
+				Logger.WriteEvent($"Error: matchup.IndexOfStartBlockInBook = {matchup.IndexOfStartBlockInBook}; BlockIndex = {BlockIndex}; BookIndex = {BookIndex}");
+				throw new InvalidOperationException($"This {GetType()} does not correspond to the given {matchup.GetType()}.");
+			}
 			if (matchup.OriginalBlockCount == 1)
 				return false;
 			ExtendToIncludeMoreBlocks((uint)matchup.OriginalBlockCount - 1); // -1 because the first one is already implicitly included
