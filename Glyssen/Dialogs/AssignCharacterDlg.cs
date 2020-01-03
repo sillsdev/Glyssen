@@ -1769,7 +1769,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleResetMatchupClick(object sender, EventArgs e)
 		{
-			m_viewModel.SetBlockMatchupForCurrentVerse();
+			m_viewModel.SetBlockMatchupForCurrentLocation();
 		}
 
 		private void HandleMouseEnterInsertHeSaidButton(object sender, EventArgs e)
