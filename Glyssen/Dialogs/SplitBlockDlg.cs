@@ -220,6 +220,8 @@ namespace Glyssen.Dialogs
 				{
 					newOffset = 0;
 				}
+				// ENHANCE: Prevent splitting such that the new segment is nothing but punctuation, with the exception
+				// of opening "brace" (parenthesis, square bracket, etc.) punctuation. (See test code in BlockTests for PG-1311.)
 				else if (segmentText.Substring(newOffset).IsWhitespace())
 				{
 					newOffset = segmentText.Length;
