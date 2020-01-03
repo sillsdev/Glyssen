@@ -204,7 +204,7 @@ namespace Glyssen.Quote
 			foreach (Block block in m_inputBlocks)
 			{
 				if (block.UserConfirmed)
-					throw new InvalidOperationException("Should not be parsing blocks that already have user-decisions applied.");
+					throw new InvalidOperationException($"Should not be parsing blocks that already have user-decisions applied. ({m_bookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}");
 
 				bool thisBlockStartsWithAContinuer = false;
 
