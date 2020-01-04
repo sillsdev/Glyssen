@@ -469,6 +469,7 @@
     <Compile Include="Rules\Proximity.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
+    <Compile Include="Utilities\WinFormsAnalytics.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
