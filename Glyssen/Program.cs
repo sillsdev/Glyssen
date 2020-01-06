@@ -216,7 +216,7 @@ namespace Glyssen
 		{
 			get
 			{
-				// Firefox files should exist in "Firefox" which should be in the same directory as paratext.exe
+				// Firefox files should exist in the "Firefox64" subfolder of the folder containing the executable.
 				string firefoxPath = Path.Combine(Application.StartupPath, "Firefox64");
 				if (File.Exists(Path.Combine(firefoxPath, "xul.dll")))
 					return firefoxPath;
