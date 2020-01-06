@@ -5,18 +5,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Utilities;
-using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
+using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Dialogs
 {

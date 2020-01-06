@@ -4,12 +4,10 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using GlyssenEngine.Utilities;
-using L10NSharp;
 using SIL;
 using SIL.DblBundle;
 using SIL.IO;
@@ -22,18 +20,19 @@ namespace Glyssen
 	internal static class DataMigrator
 	{
 		private const string kOldProjectExtension = ".pgproj";
-		public static void UpgradeToCurrentDataFormatVersion()
+		public static void UpgradeToCurrentDataFormatVersion(Func<string, string, bool> confirmAndRecycleAction, out string warning)
 		{
-			Exception error;
-			var settings = ApplicationMetadata.Load(out error);
+			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
-			if (UpgradeToCurrentDataFormatVersion(settings))
+			if (UpgradeToCurrentDataFormatVersion(settings, confirmAndRecycleAction, out warning))
 				settings.Save();
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info)
+		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<string, string, bool> confirmAndRecycleAction, out string warning)
 		{
+			warning = null;
+
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
 
@@ -113,7 +112,7 @@ namespace Glyssen
 										// we should be able to safely blow this away.
 										try
 										{
-											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);
+											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, confirmAndRecycleAction);
 										}
 										catch (Exception)
 										{

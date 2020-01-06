@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine;
@@ -12,6 +11,7 @@ using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
+using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Dialogs
 {
