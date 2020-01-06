@@ -338,17 +338,7 @@ namespace Glyssen
 					block.BlockElements.Remove(lastBlockElement);
 					return true;
 				}
-				// Originally, the last part of this condition was:
-				// text.Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c))
-				// because char.IsLetter doesn't know what to do with PUA characters and
-				// I didn't want to run the risk of accidentally deleting a verse that
-				// might have all PUA characters, but upon further consideration, I decided
-				// that was extremely unlikely, and there was probably a greater risk of
-				// some other symbol, number, separator, etc. being the only thing in the
-				// text. And it would be slow and unwieldy to check all the other possibilities
-				// and something might still fall through the cracks.
-				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 &&
-					!text.Content.Any(IsLetter))
+				if (lastBlockElement is ScriptText text && block.BlockElements.Count > 1 && text.ContainsNoWords)
 				{
 					if (!(block.BlockElements[block.BlockElements.Count - 2] is Verse))
 					{

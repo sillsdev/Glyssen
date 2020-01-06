@@ -812,7 +812,7 @@ namespace Glyssen.Dialogs
 				m_temporarilyIncludedBookBlockIndices = indices;
 			if (m_currentRefBlockMatchups == null)
 			{
-				SetBlockMatchupForCurrentVerse();
+				SetBlockMatchupForCurrentLocation();
 				if (m_currentRefBlockMatchups != null &&
 					!indices.IsMultiBlock &&
 					// Pretty sure these next two checks will always be true, but better safe than sorry:
@@ -827,27 +827,28 @@ namespace Glyssen.Dialogs
 			HandleCurrentBlockChanged();
 		}
 
-		public void SetBlockMatchupForCurrentVerse()
+		public void SetBlockMatchupForCurrentLocation()
 		{
 			if (!AttemptRefBlockMatchup || CurrentBook.SingleVoice)
 				return;
 
 			var origValue = m_currentRefBlockMatchups;
+			var currentIndices = BlockAccessor.GetIndices();
 
-			Logger.WriteMinorEvent($"Setting block matchup for block {CurrentBlockIndexInBook} in " +
+			Logger.WriteMinorEvent($"Setting block matchup for block {currentIndices.BlockIndex} in " +
 				$"{CurrentBook.BookId} {CurrentBlock.ChapterNumber}:{CurrentBlock.InitialStartVerseNumber}");
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				CurrentBlockIndexInBook, BlockAccessor.GetIndices().MultiBlockCount);
+				currentIndices.BlockIndex, currentIndices.MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
 				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
-				// We might have gotten here by ad-hoc navigation (clicking or using the Verse Reference control). If we're using a filter
-				// that holds *groups* of relevant blocks (rather than individual ones) and the new current block is in one of those groups
-				// (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise, we'll lose
-				// track of our place in the list (which not only affects the display index but also can lead to crashes, such as PG-924)
+				// We might have gotten here by ad-hoc navigation (clicking or using the Verse Reference control). Since we are in "rainbow mode"
+				// the filter holds *groups* of relevant blocks (rather than individual ones), so if the new current matchup corresponds to one
+				// of those groups (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise,
+				// we'll lose track of our place in the list (which not only affects the display index but also can lead to crashes, such as PG-924,
 				// later when we try to go to the previous or next relevant passage).
-				if (IsCurrentLocationRelevant && m_temporarilyIncludedBookBlockIndices != null && !BlockAccessor.GetIndices().IsMultiBlock && m_relevantBookBlockIndices.Any(i => i.IsMultiBlock))
+				if (IsCurrentLocationRelevant && m_temporarilyIncludedBookBlockIndices != null && !BlockAccessor.GetIndices().IsMultiBlock)
 				{
 					m_navigator.SetIndices(new BookBlockIndices(BlockAccessor.GetIndices().BookIndex, m_currentRefBlockMatchups.IndexOfStartBlockInBook, (uint)m_currentRefBlockMatchups.OriginalBlockCount));
 					m_temporarilyIncludedBookBlockIndices = null;

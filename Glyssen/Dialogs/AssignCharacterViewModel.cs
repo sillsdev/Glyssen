@@ -175,7 +175,7 @@ namespace Glyssen.Dialogs
 			{
 				if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 				{
-					SetBlockMatchupForCurrentVerse();
+					SetBlockMatchupForCurrentLocation();
 				}
 				else
 				{
@@ -543,6 +543,8 @@ namespace Glyssen.Dialogs
 
 		private void AddRecordsToProjectControlFilesIfNeeded(Block block)
 		{
+			if (block.CharacterIsStandard)
+				return;
 			if (m_pendingCharacterDetails.TryGetValue(block.CharacterId, out var detail))
 			{
 				m_project.AddProjectCharacterDetail(detail);
@@ -631,7 +633,7 @@ namespace Glyssen.Dialogs
 				if (AttemptRefBlockMatchup)
 				{
 					// A split will always require the current matchup to be re-constructed.
-					SetBlockMatchupForCurrentVerse();
+					SetBlockMatchupForCurrentLocation();
 				}
 
 

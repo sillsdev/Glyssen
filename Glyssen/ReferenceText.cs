@@ -249,8 +249,8 @@ namespace Glyssen
 			} : (Action < PortionScript >)null;
 
 			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
-			nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularBook.Versification, verseSplitLocationsBasedOnRef),
-			this, predeterminedBlockCount);
+				nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularBook.Versification, verseSplitLocationsBasedOnRef),
+				this, predeterminedBlockCount);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{
