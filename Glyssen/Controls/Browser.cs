@@ -54,10 +54,7 @@ namespace Glyssen.Controls
 
 		public void ScrollElementIntoView(string elementId, int adjustment = 0)
 		{
-			var element = m_geckoBrowser.Document.GetElementById(elementId);
-			if (element == null)
-				return;
-			var div = (GeckoHtmlElement)element;
+			var div = m_geckoBrowser.Document.GetElementById(elementId) as GeckoHtmlElement;
 			div.ScrollIntoView(true);
 			div.Parent.ScrollTop += adjustment;
 		}

@@ -71,13 +71,7 @@ cd -
 # URL: https://build.palaso.org/viewType.html?buildTypeId=bt431
 # VCS: https://github.com/sillsdev/Glyssen.git [master]
 # dependencies:
-# [0] build: XulRunner29-win32 (bt400)
-#     project: GeckoFx
-#     URL: https://build.palaso.org/viewType.html?buildTypeId=bt400
-#     clean: false
-#     revision: latest.lastSuccessful
-#     paths: {"xulrunner-29.0.1.en-US.win32.zip!**"=>"lib"}
-# [1] build: NetSparkle Continuous (NetSparkle_NetSparkle64Continuous)
+# [0] build: NetSparkle Continuous (NetSparkle_NetSparkle64Continuous)
 #     project: NetSparkle
 #     URL: https://build.palaso.org/viewType.html?buildTypeId=NetSparkle_NetSparkle64Continuous
 #     clean: false
@@ -91,8 +85,5 @@ mkdir -p ../lib
 mkdir -p ../lib/dotnet
 
 # download artifact dependencies
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt400/latest.lastSuccessful/xulrunner-29.0.1.en-US.win32.zip ../Downloads/xulrunner-29.0.1.en-US.win32.zip
 copy_auto http://build.palaso.org/guestAuth/repository/download/NetSparkle_NetSparkle64Continuous/latest.lastSuccessful/NetSparkle.Net40.dll ../lib/dotnet/NetSparkle.Net40.dll
-# extract downloaded zip files
-unzip -uqo ../Downloads/xulrunner-29.0.1.en-US.win32.zip -d "../lib"
 # End of script

@@ -164,7 +164,7 @@ namespace Glyssen.Dialogs
 		private static bool IsElementSplitLine(GeckoElement geckoElement, out int splitId)
 		{
 			splitId = -1;
-			if (geckoElement is GeckoHtmlElement geckoHtmlElement && geckoHtmlElement.TagName == "div" && geckoHtmlElement.ClassName.StartsWith("split-line"))
+			if (geckoElement is GeckoHtmlElement geckoHtmlElement && geckoHtmlElement.TagName.Equals("DIV", StringComparison.OrdinalIgnoreCase) && geckoHtmlElement.ClassName.StartsWith("split-line"))
 			{
 				string splitIdStr = geckoHtmlElement.ClassName.Equals("split-line") ? geckoHtmlElement.Id : geckoHtmlElement.Parent.Id;
 				string splitIdNumber = splitIdStr.Substring(Block.kSplitElementIdPrefix.Length);
@@ -179,12 +179,10 @@ namespace Glyssen.Dialogs
 			var selection = m_blocksDisplayBrowser.Window.Selection;
 			var newOffset = selection.AnchorOffset;
 
-			var targetElement = geckoElement as GeckoHtmlElement;
-
-			// was a verse marker clicked?
-			if (targetElement?.TagName != "div")
+			if (geckoElement is GeckoHtmlElement targetElement)
 			{
-				if (targetElement != null)
+				// was a verse marker clicked?
+				if (!targetElement.TagName.Equals("DIV", StringComparison.OrdinalIgnoreCase))
 				{
 					targetElement = targetElement.Parent;
 					if (targetElement == null)
@@ -198,13 +196,12 @@ namespace Glyssen.Dialogs
 					else
 						newOffset = 0;
 				}
-				else
+
+				// if something else (not a "splittext" div), you cannot split here
+				if (targetElement.ClassName != "splittext")
 					return false;
 			}
-
-			// if something else (not a "splittext" div), you cannot split here
-			if (targetElement.ClassName != "splittext")
-				return false;
+			else return false;
 
 			var verseToSplit = targetElement.GetAttribute("data-verse");
 			var blockIndex = int.Parse(targetElement.GetAttribute("data-blockid"));

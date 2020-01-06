@@ -78,7 +78,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
 	  <Directory Id="ProgramFiles64Folder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">
-          <Directory Id="XulRunnerDir" Name="XulRunner"/>
+          <Directory Id="XulRunnerDir" Name="Firefox64"/>
 
           <Component Id="Glyssen.exe" Guid="*" Win64="yes">
             <File Id="Glyssen.exe" Name="Glyssen.exe" Source="..\output\release\Glyssen.exe" ProcessorArchitecture="x64"/>
