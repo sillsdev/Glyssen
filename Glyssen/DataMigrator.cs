@@ -9,7 +9,6 @@ using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using GlyssenEngine.Utilities;
-using L10NSharp;
 using SIL;
 using SIL.DblBundle;
 using SIL.IO;

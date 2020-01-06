@@ -3408,6 +3408,32 @@ namespace GlyssenTests
 			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())));
 		}
 
+		/// <summary>
+		/// PG-1311: Block has multiple verses. Last verse bleeds into subsequent block, but a verse is missing so the first verse number
+		/// present in the subsequent block is > the initial verse number + 1.
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_MultipleVersesInVernBlockNextBlockStartsWith_ReturnsMatchupCoveringInitialBlockOnly()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("Jesus", 31, "«Dœ olonœ asœmœ, uzu á nœ ye sœ ɓa sœnda, tshe ye ga mangba ye nene. ", false, 17)
+				.AddVerse(32, "'E gbetshelœ 'e tœ upu nœ awo Lota kane. ")
+				.AddVerse(33, "Uzu neke á tshe para awa ndœ kœgbɔndœ soro tshu; kashe tsheneke nœ nene dá she. ")
+				.AddVerse(34, "Mœ sœ 'e, lœ butshɔnœ asœmœ, ayakoshe: endje za anga bale, yé anga œ sœpe. ")
+				.AddVerse(35, "Ayashe bisha œ sœ kœtɔ œrœ tœ œsœnœ bale: endje za anga bale, yé anga œ sœpe. "));
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.kUnexpectedCharacter, 37, "[ ", false, 17)
+				.AddVerse(37, "Ayambarœ nœ Yisu yu she adœke:"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "é tshe kœgi fœ endje adœke: ", "LUK");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
+			var vernBook = new BookScript("LUK", vernacularBlocks, m_vernVersification);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0);
+			Assert.AreEqual(1, matchup.OriginalBlockCount);
+		}
+
 		[TestCase(1)]
 		[TestCase(2)]
 		[TestCase(3)]
