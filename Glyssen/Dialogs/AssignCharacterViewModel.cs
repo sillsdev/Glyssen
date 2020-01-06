@@ -543,6 +543,8 @@ namespace Glyssen.Dialogs
 
 		private void AddRecordsToProjectControlFilesIfNeeded(Block block)
 		{
+			if (block.CharacterIsStandard)
+				return;
 			if (m_pendingCharacterDetails.TryGetValue(block.CharacterId, out var detail))
 			{
 				m_project.AddProjectCharacterDetail(detail);
