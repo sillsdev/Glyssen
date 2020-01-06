@@ -4,12 +4,10 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using GlyssenEngine.Utilities;
-using L10NSharp;
 using SIL;
 using SIL.DblBundle;
 using SIL.IO;
@@ -22,17 +20,16 @@ namespace Glyssen
 	internal static class DataMigrator
 	{
 		private const string kOldProjectExtension = ".pgproj";
-		public static void UpgradeToCurrentDataFormatVersion()
+		public static void UpgradeToCurrentDataFormatVersion(Func<string, string, bool> confirmAndRecycleAction)
 		{
-			Exception error;
-			var settings = ApplicationMetadata.Load(out error);
+			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
-			if (UpgradeToCurrentDataFormatVersion(settings))
+			if (UpgradeToCurrentDataFormatVersion(settings, confirmAndRecycleAction))
 				settings.Save();
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info)
+		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<string, string, bool> confirmAndRecycleAction)
 		{
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
@@ -109,11 +106,19 @@ namespace Glyssen
 										// Note: We didn't support Paratext-based projects until settings version 3 (Glyssen 1.1),
 										// so for this step in the migration process (going from 0 to 1), any project without
 										// OriginalReleaseBundlePath set is invalid (possibly from a really early version of Glyssen
-										// or some g;itch arising from development activity or external mangling of the file). So
+										// or some glitch arising from development activity or external mangling of the file). So
 										// we should be able to safely blow this away.
 										try
 										{
-											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);
+											if (confirmAndRecycleAction != null)
+											{
+												if (!confirmAndRecycleAction($"Standard format project \"{recordingProjectFolder}\"", recordingProjectFolder))
+													return false;
+											}
+											else if (Directory.Exists(recordingProjectFolder))
+												Directory.Delete(recordingProjectFolder, true);
+
+											Project.DeleteEmptyContainingFolders(recordingProjectFolder);
 										}
 										catch (Exception)
 										{
