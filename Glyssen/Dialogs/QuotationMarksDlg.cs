@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Controls;
@@ -15,7 +14,6 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Utilities;
-using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -23,6 +21,7 @@ using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
+using Analytics = DesktopAnalytics.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 
 namespace Glyssen.Dialogs

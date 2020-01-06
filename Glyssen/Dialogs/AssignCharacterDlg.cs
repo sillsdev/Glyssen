@@ -14,8 +14,6 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using DesktopAnalytics;
-using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
@@ -29,6 +27,7 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using static System.String;
+using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Dialogs
 {

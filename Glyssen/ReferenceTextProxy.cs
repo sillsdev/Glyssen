@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Shared;
-using L10NSharp;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Utilities;
 using static System.String;
 
 namespace Glyssen
