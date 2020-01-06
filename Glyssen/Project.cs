@@ -11,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -26,7 +25,6 @@ using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.VoiceActor;
-using L10NSharp;
 using Paratext.Data;
 using SIL;
 using SIL.DblBundle;
@@ -36,8 +34,6 @@ using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
-using SIL.Windows.Forms;
-using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
@@ -1250,14 +1246,9 @@ namespace Glyssen
 			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
-		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, bool confirmAndRecycle = false)
+		private static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder)
 		{
-			if (confirmAndRecycle)
-			{
-				if (!ConfirmRecycleDialog.ConfirmThenRecycle(Format("Standard format project \"{0}\"", projectFolder), projectFolder))
-					return;
-			}
-			else if (Directory.Exists(projectFolder))
+			if (Directory.Exists(projectFolder))
 				Directory.Delete(projectFolder, true);
 			var parent = Path.GetDirectoryName(projectFolder);
 			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
@@ -2225,7 +2216,7 @@ namespace Glyssen
 
 		private void InstallFontsIfNecessary()
 		{
-			if (m_fontInstallationAttempted || FontHelper.FontInstalled(m_projectMetadata.FontFamily))
+			if (m_fontInstallationAttempted || FontInstalled(m_projectMetadata.FontFamily))
 				return;
 
 			List<string> ttfFilesToInstall = new List<string>();
@@ -2279,6 +2270,26 @@ namespace Glyssen
 						Localizer.GetString("Font.FontFilesNotFound",
 							"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
 						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
+		}
+
+		/// ------------------------------------------------------------------------------------
+		/// <summary>
+		/// Determines if the specified font is installed on the computer.
+		/// This code is a duplicate of the code found in libpalaso\SIL.Windows.Forms\FontHelper.cs, line 104
+		/// It was placed here in order to move the code to the GlyssenEngine.
+		/// </summary>
+		/// ------------------------------------------------------------------------------------
+		public static bool FontInstalled(string fontName)
+		{
+			fontName = fontName.ToLower();
+
+			using (var installedFonts = new InstalledFontCollection())
+			{
+				if (installedFonts.Families.Any(f => f.Name.ToLower() == fontName))
+					return true;
+			}
+
+			return false;
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
