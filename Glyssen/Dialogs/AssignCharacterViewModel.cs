@@ -175,7 +175,7 @@ namespace Glyssen.Dialogs
 			{
 				if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 				{
-					SetBlockMatchupForCurrentVerse();
+					SetBlockMatchupForCurrentLocation();
 				}
 				else
 				{
@@ -633,7 +633,7 @@ namespace Glyssen.Dialogs
 				if (AttemptRefBlockMatchup)
 				{
 					// A split will always require the current matchup to be re-constructed.
-					SetBlockMatchupForCurrentVerse();
+					SetBlockMatchupForCurrentLocation();
 				}
 
 
