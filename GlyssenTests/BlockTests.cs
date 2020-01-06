@@ -1769,7 +1769,36 @@ namespace GlyssenTests
 			var newBlock = block.SplitBlock("2", 1);
 
 			Assert.AreEqual("({2}\u00A0a", block.GetText(true));
+			Assert.AreEqual(2, block.InitialStartVerseNumber);
 			Assert.AreEqual("bcdef ghi) {3}\u00A0jk lmno p", newBlock.GetText(true));
+			Assert.AreEqual(2, newBlock.InitialStartVerseNumber);
+		}
+
+		/// <summary>
+		/// PG-1311: Test that the initial start verse number for the new block is set correctly (based on first actual verse element)
+		/// </summary>
+		[TestCase("[")] // This is the likely case
+		[TestCase(".")] // This would probably be a mistake (see ENHANCE comment in SplitBlockDlg.DetermineSplitLocatino),
+						// but if the user did it, we would also need this same behavior.
+		public void SplitBlock_SplitBeforeTrailingPunctuation_NewBlockInitialVerseNumberBasedOnFirstVerseNumber(string trailingPunctuation)
+		{
+			var block = new Block("p", 1, 2)
+			{
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText($"abcdef ghi{trailingPunctuation} "),
+					new Verse("3"),
+					new ScriptText("jk lmno p")
+				}
+			};
+
+			var newBlock = block.SplitBlock("2", 10);
+
+			Assert.AreEqual("{2}\u00A0abcdef ghi", block.GetText(true));
+			Assert.AreEqual(2, block.InitialStartVerseNumber);
+			Assert.AreEqual(trailingPunctuation + " {3}\u00A0jk lmno p", newBlock.GetText(true));
+			Assert.AreEqual(3, newBlock.InitialStartVerseNumber);
 		}
 
 		[Test]

@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Gecko;
+using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
@@ -53,6 +54,8 @@ namespace Glyssen
 				ErrorReport.NotifyUserOfProblem("There is another copy of Glyssen already running. This instance of Glyssen will now shut down.");
 				return;
 			}
+
+			MessageModal.Default = new WinFormsMessageBox();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -280,7 +283,7 @@ namespace Glyssen
 				var confirmationString = Localizer.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
-				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+			if (MessageResult.Yes == MessageModal.Show(confirmationString, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Warning))
 					File.Delete(userConfigSettingsPath);
 		}
 

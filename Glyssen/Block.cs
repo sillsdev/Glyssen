@@ -1177,8 +1177,10 @@ namespace Glyssen
 							return null;
 					}
 
+					var newScriptText = (characterOffsetToSplit < content.Length) ? new ScriptText(content.Substring(characterOffsetToSplit)) : null;
+
 					int initialStartVerse, initialEndVerse;
-					if (characterOffsetToSplit == content.Length)
+					if ((newScriptText == null || newScriptText.ContainsNoWords) && indexOfFirstElementToRemove >= 0)
 					{
 						var firstVerseAfterSplit = (Verse)BlockElements[indexOfFirstElementToRemove];
 						initialStartVerse = firstVerseAfterSplit.StartVerse;
@@ -1196,8 +1198,8 @@ namespace Glyssen
 						Delivery = Delivery,
 						UserConfirmed = UserConfirmed
 					};
-					if (characterOffsetToSplit < content.Length)
-						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
+					if (newScriptText != null)
+						newBlock.BlockElements.Add(newScriptText);
 					if (text != null)
 						text.Content = content.Substring(0, characterOffsetToSplit);
 				}

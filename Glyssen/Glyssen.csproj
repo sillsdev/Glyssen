@@ -510,6 +510,7 @@
     <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\WinFormsMessageBox.cs" />
     <Compile Include="Dialogs\YesNoApplyToAllDlg.cs">
       <SubType>Form</SubType>
     </Compile>

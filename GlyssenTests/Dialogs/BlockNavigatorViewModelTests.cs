@@ -751,11 +751,11 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SetBlockMatchupForCurrentVerse_AttemptRefBlockMatchupIsFalse_DoesNothing()
+		public void SetBlockMatchupForCurrentLocation_AttemptRefBlockMatchupIsFalse_DoesNothing()
 		{
 			m_model.SetMode(m_model.Mode, false);
 			FindRefInMark(8, 5);
-			m_model.SetBlockMatchupForCurrentVerse();
+			m_model.SetBlockMatchupForCurrentLocation();
 			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
 		}
 

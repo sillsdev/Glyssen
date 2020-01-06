@@ -4,12 +4,11 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
-using L10NSharp;
+using GlyssenEngine.Utilities;
 using SIL;
 using SIL.DblBundle;
 using SIL.IO;
@@ -139,7 +138,7 @@ namespace Glyssen
 													"Versification file: {2}\r\n" +
 													"Error: {3}"),
 												projectFilePath, origBundlePath, versificationPath, ex.Message);
-											MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+											MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Warning);
 											File.WriteAllText(errorlogPath, msg);
 										}
 									}
@@ -271,8 +270,7 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(safeReplacements.Count) +
 							String.Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct);
-						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
-							MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+						if (MessageResult.Yes == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Exclamation, DefaultButton.Button2))
 						{
 							foreach (var replacement in safeReplacements)
 							{
@@ -311,7 +309,7 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
 							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
-						MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Exclamation);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;
