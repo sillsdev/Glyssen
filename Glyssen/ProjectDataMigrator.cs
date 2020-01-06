@@ -38,7 +38,7 @@ namespace Glyssen
 			if (!project.Books.Any())
 				return MigrationResult.NoOp;
 
-			Logger.WriteEvent("Migrating project " + project.ProjectFilePath);
+			Logger.WriteEvent($"Migrating project {project.ProjectFilePath} from {fromControlFileVersion} to {ControlCharacterVerseData.Singleton.ControlFileVersion}");
 
 			if (s_lastProjectMigrated != project)
 				s_migrationsRun = 0;
@@ -77,6 +77,8 @@ namespace Glyssen
 				}
 				if (fromControlFileVersion < 151)
 					MigrateDuplicatedReferenceTextFromJoining(project.Books);
+				if (fromControlFileVersion < 152)
+					MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation(project.Books);
 				MigrateDeprecatedCharacterIds(project);
 
 				result = MigrationResult.Complete;
@@ -472,6 +474,34 @@ namespace Glyssen
 				else
 				{
 					lastScriptTextElement.Content = lastScriptTextElement.Content.TrimEnd();
+				}
+			}
+		}
+
+		public static void MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation(IReadOnlyList<BookScript> books)
+		{
+			foreach (var book in books)
+			{
+				foreach (var block in book.GetScriptBlocks().Where(b => b.IsScripture))
+				{
+					if (block.BlockElements.First() is ScriptText text && text.ContainsNoWords)
+					{
+						var firstVerse = block.BlockElements.Skip(1).OfType<Verse>().FirstOrDefault();
+						if (firstVerse == null)
+						{
+							// This is almost certainly an error in the data, but just in case there's some edge case
+							// I can't think of, I'll play it safe and log it rather than crashing.
+							var error = "Unexpected block data encountered in Data migration: Block starts with an element having no word-forming" +
+								$"characters and has no subsequent {typeof(Verse).Name} element. Block: {block.ToString(true, book.BookId)}";
+							Logger.WriteEvent(error);
+							Debug.Fail("error");
+						}
+						else
+						{
+							block.InitialStartVerseNumber = firstVerse.StartVerse;
+							block.InitialEndVerseNumber = firstVerse.EndVerse;
+						}
+					}
 				}
 			}
 		}
