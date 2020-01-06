@@ -14,7 +14,7 @@ We have a battery of unit tests written using NUnit.
 
 Getting up-to-date libraries
 ====================
-We depend on several libraries, notably libpalaso and L10NSharp from SIL International.
+We depend on some libraries built on SIL's TeamCity agents.
 The source contains a script for downloading dependencies from TeamCity.
 
 From the build directory, run the buildUpdate.sh script:
@@ -28,4 +28,4 @@ If changes are made to the dependencies on TeamCity, the build update script sho
 
 Platform
 ====================
-At least initially, Glyssen only runs on Windows.
+Glyssen only runs on Windows, but FCBH is working on a new cross-platform product that will use the GlyssenEngine.
