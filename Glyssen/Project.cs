@@ -10,7 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml;
 using DesktopAnalytics;
 using Glyssen.Analysis;
@@ -123,7 +122,7 @@ namespace Glyssen
 							SetVersification(LoadVersification(FallbackVersificationFilePath));
 						else
 						{
-							MessageBox.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
+							MessageModal.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
 								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
 								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
 								"for this project, some things will not work as expected.",
@@ -853,7 +852,7 @@ namespace Glyssen
 						Environment.NewLine + Environment.NewLine +
 						Localizer.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 					string caption = Localizer.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
-					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+					if (MessageResult.Yes == MessageModal.Show(msg, caption, Buttons.YesNo))
 						upgradeProject = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
 					if (!upgradeProject)
 						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
@@ -929,9 +928,9 @@ namespace Glyssen
 								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
 
 						string caption = Format(Localizer.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
-							"Param is \"Paratext\" (product name)"),
+								"Param is \"Paratext\" (product name)"),
 							ParatextScrTextWrapper.kParatextProgramName);
-						if (DialogResult.Retry == MessageBox.Show(msg, caption, MessageBoxButtons.RetryCancel))
+						if (MessageResult.Retry == MessageModal.Show(msg, caption, Buttons.RetryCancel))
 							continue;
 					}
 					return null;
@@ -960,7 +959,7 @@ namespace Glyssen
 									"Param 1: Paratext project short name (unique project identifier); " +
 									"Param 2: Specific error message"),
 								ParatextScrTextWrapper.kParatextProgramName, ParatextProjectName, e.Message);
-							if (DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel))
+							if (MessageResult.Retry == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.RetryCancel))
 								continue;
 						}
 						return null;
@@ -1000,7 +999,7 @@ namespace Glyssen
 						sourceScrText.Name) +
 						Environment.NewLine + e.Message;
 
-					MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Exclamation);
 				}
 				return null;
 			}
@@ -1084,7 +1083,7 @@ namespace Glyssen
 					Localizer.GetString("Project.ParatextProjectUpdateConfirmExcludeBooks",
 						"Would you like to proceed with the update?");
 
-				return DialogResult.No == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+				return MessageResult.No == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Exclamation);
 			}
 
 			try
@@ -1286,7 +1285,7 @@ namespace Glyssen
 			var isWritable = !FileHelper.IsLocked(projectFilePath);
 			if (!isWritable)
 			{
-				MessageBox.Show(Localizer.GetString("Project.NotWritableMsg",
+				MessageModal.Show(Localizer.GetString("Project.NotWritableMsg",
 					"The project file is not writable. No changes will be saved."));
 			}
 
@@ -1777,7 +1776,7 @@ namespace Glyssen
 			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
 			if (error != null)
 			{
-				MessageBox.Show(error.Message);
+				MessageModal.Show(error.Message);
 				return;
 			}
 			Settings.Default.CurrentProject = projectPath;
@@ -1798,7 +1797,9 @@ namespace Glyssen
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out error);
 			if (error != null)
-				MessageBox.Show(error.Message);
+			{
+				MessageModal.Show(error.Message);
+			}
 		}
 
 		public void SaveProjectCharacterVerseData()
@@ -1953,15 +1954,14 @@ namespace Glyssen
 							MessageBoxStrings.IgnoreButton, GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
-						switch (
-							MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
-								MessageBoxDefaultButton.Button2))
+
+						switch (MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.AbortRetryIgnore, Icon.Warning, DefaultButton.Button2))
 						{
 							default:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
 								retry = false;
 								break;
-							case DialogResult.Retry:
+							case MessageResult.Retry:
 								if (attemptToUseBackup)
 								{
 									try
@@ -1981,7 +1981,7 @@ namespace Glyssen
 								}
 								retry = true;
 								break;
-							case DialogResult.Abort:
+							case MessageResult.Abort:
 								throw;
 						}
 					}
@@ -2199,13 +2199,13 @@ namespace Glyssen
 				m_fontInstallationAttempted = true;
 
 				if (count > 1)
-					MessageBox.Show(
+					MessageModal.Show(
 						Format(
 							Localizer.GetString("Font.InstallInstructionsMultipleStyles",
 								"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
-					MessageBox.Show(
+					MessageModal.Show(
 						Format(
 							Localizer.GetString("Font.InstallInstructions",
 								"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
@@ -2220,7 +2220,7 @@ namespace Glyssen
 					catch (Exception ex)
 					{
 						Logger.WriteError("There was a problem launching the font preview. Please install the font manually:" + ttfFile, ex);
-						MessageBox.Show(
+						MessageModal.Show(
 							Format(
 								Localizer.GetString("Font.UnableToLaunchFontPreview",
 									"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
@@ -2228,7 +2228,7 @@ namespace Glyssen
 				}
 			}
 			else
-				MessageBox.Show(
+				MessageModal.Show(
 					Format(
 						Localizer.GetString("Font.FontFilesNotFound",
 							"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),

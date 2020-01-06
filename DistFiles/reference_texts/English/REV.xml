@@ -1498,7 +1498,7 @@
     <verse num="10" />
     <text>standing far away for the fear of her torment, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" delivery="weeping">
     <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="narrator-REV">
