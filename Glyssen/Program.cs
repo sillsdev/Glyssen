@@ -21,9 +21,11 @@ using PtxUtils;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
+using SIL.Windows.Forms.FileSystem;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
+using Analytics = GlyssenEngine.Utilities.Analytics;
 
 namespace Glyssen
 {
@@ -56,6 +58,8 @@ namespace Glyssen
 			}
 
 			MessageModal.Default = new WinFormsMessageBox();
+			Analytics.Default = new WinFormsAnalytics();
+			Fonts.Default = new WinFormsFonts();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -141,13 +145,13 @@ namespace Glyssen
 			//}
 
 #if DEBUG
-			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", userInfo))
+			using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", userInfo))
 #else
 			//default is to allow tracking if this isn't set
 			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK")?.ToLower();
 			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting == "yes" || feedbackSetting == "true";
 
-			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", userInfo, allowTracking))
+			using (new DesktopAnalytics.Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", userInfo, allowTracking))
 #endif
 			{
 				foreach (var exception in _pendingExceptionsToReportToAnalytics)
@@ -283,7 +287,7 @@ namespace Glyssen
 				var confirmationString = Localizer.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
-			if (MessageResult.Yes == MessageModal.Show(confirmationString, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Warning))
+				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
 					File.Delete(userConfigSettingsPath);
 		}
 

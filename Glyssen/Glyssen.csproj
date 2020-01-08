@@ -635,6 +635,8 @@
     <Compile Include="UsxParser.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
+    <Compile Include="Utilities\WinFormsAnalytics.cs" />
+    <Compile Include="Utilities\WinFormsFonts.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
