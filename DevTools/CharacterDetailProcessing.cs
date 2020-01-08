@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
+using Glyssen.RefTextDevUtilities;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 using static System.String;
@@ -75,17 +76,19 @@ namespace DevTools
 			return lineWithReferenceComment;
 		}
 
+		private static string RelativePathToCharacterDetailFile => $"..\\..\\GlyssenEngine\\Resources\\{ReferenceTextUtility.kCharacterDetailTxtFilename}";
+
 		private static void WriteFile(string fileText)
 		{
 			// Note: Keeping the "Status" column around in case we want to bring it back, but it is currently always empty and
 			// always ignored in Glyssen.
 			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference\tFCBH Character" + Environment.NewLine + fileText;
-			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
+			File.WriteAllText(RelativePathToCharacterDetailFile, fileText);
 		}
 
 		private static List<CharacterDetailLine> ReadFile()
 		{
-			return File.ReadAllLines("..\\..\\Glyssen\\Resources\\CharacterDetail.txt").Select(ReadLine).Where(l => l != null).ToList();
+			return File.ReadAllLines(RelativePathToCharacterDetailFile).Select(ReadLine).Where(l => l != null).ToList();
 		}
 
 		private static CharacterDetailLine ReadLine(string line)

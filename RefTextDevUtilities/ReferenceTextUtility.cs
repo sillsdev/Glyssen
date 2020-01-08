@@ -19,7 +19,8 @@ namespace Glyssen.RefTextDevUtilities
 {
 	public static class ReferenceTextUtility
 	{
-		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
+		public const string kCharacterDetailTxtFilename = @"CharacterDetail.txt";
+		private const string kOutputFileForAnnotations = @"..\..\GlyssenEngine\Resources\Annotations.txt";
 		public const string kDirectorGuideInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDES.xlsx";
 		public const string kDirectorGuideOTInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDE_OT.xlsx";
 		public const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
@@ -809,16 +810,7 @@ namespace Glyssen.RefTextDevUtilities
 				if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
 				{
 					var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
-					WriteOutput("CharacterDetail.txt contains some FCBH character labels that were not found in the " +
-						$"source Director's Guide. See {filename} for details.", true);
-					File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
-						.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
-				}
-
-				if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
-				{
-					var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
-					WriteOutput($"CharacterDetail.txt contains some FCBH character labels that were not found in the " +
+					WriteOutput($"{kCharacterDetailTxtFilename} contains some FCBH character labels that were not found in the " +
 						$"source Director's Guide. See {filename} for details.", true);
 					File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
 						.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));

@@ -812,12 +812,9 @@
     <None Include="Resources\SplitBlock.png" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
-    <None Include="Resources\CharacterDetail.txt" />
     <None Include="Resources\bluelock.png" />
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
-    <Content Include="Resources\Annotations.txt" />
-    <Content Include="Resources\BiblicalAuthors.txt" />
     <Content Include="Resources\BlockSplit.css" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
@@ -831,7 +828,6 @@
     <None Include="Resources\people.png" />
     <None Include="Resources\RemoveActor.png" />
     <None Include="Resources\redo.png" />
-    <None Include="Resources\RelatedCharacters.xml" />
     <None Include="Resources\RemoveGridRowHot.png" />
     <None Include="Resources\RemoveGridRowNormal.png" />
     <None Include="Resources\MoveArrow.png" />
