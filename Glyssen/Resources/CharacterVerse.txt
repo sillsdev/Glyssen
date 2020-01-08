@@ -234,17 +234,17 @@ GEN	19	32	older daughter of Lot			Implicit
 GEN	19	34	older daughter of Lot			Normal		
 GEN	20	2	Abraham (Abram)			Normal		
 GEN	20	3	God		God (the LORD) (in vision)	Normal		
-GEN	20	4	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
-GEN	20	5	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	4	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	5	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	20	6	God		God (the LORD) (in vision)	Normal		
 GEN	20	7	God		God (the LORD) (in vision)	Normal		
-GEN	20	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
-GEN	20	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	9	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	10	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	20	11	Abraham (Abram)			Normal		
 GEN	20	12	Abraham (Abram)			Normal		
 GEN	20	13	Abraham (Abram)			Normal		
-GEN	20	15	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
-GEN	20	16	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	15	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	16	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	21	6	Sarah (Sarai) (old)			Normal		
 GEN	21	7	Sarah (Sarai) (old)			Normal		
 GEN	21	10	Sarah (Sarai) (old)			Normal		
@@ -253,11 +253,11 @@ GEN	21	13	God		God (the LORD)	Normal
 GEN	21	16	Hagar, Sarai's maid			Normal		
 GEN	21	17	angel of the LORD, the		angel of God	Normal	Jesus	
 GEN	21	18	angel of the LORD, the		angel of God	Normal	Jesus	
-GEN	21	22	Abimelech, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
-GEN	21	23	Abimelech, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
+GEN	21	22	Abimelech 1, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
+GEN	21	23	Abimelech 1, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
 GEN	21	24	Abraham (Abram)			Normal		
-GEN	21	26	Abimelech, king of the Philistines (in Gerar)		Abimelech	Normal		
-GEN	21	29	Abimelech, king of the Philistines (in Gerar)		Abimelech	Normal		
+GEN	21	26	Abimelech 1, king of the Philistines (in Gerar)		Abimelech	Normal		
+GEN	21	29	Abimelech 1, king of the Philistines (in Gerar)		Abimelech	Normal		
 GEN	21	30	Abraham (Abram)			Normal		
 GEN	22	1	Abraham (Abram)			Normal		
 GEN	22	1	God		God (the LORD)	Normal		
@@ -349,17 +349,17 @@ GEN	26	7	Isaac	deceiving		Normal
 GEN	26	7	Isaac	thought		Normal		
 #The words that Isaac was afraid to say (i.e., "my wife") should be spoken by the narrator
 GEN	26	7	narrator-GEN			Hypothetical		
-GEN	26	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	9	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	9	Isaac			Normal		
-GEN	26	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
-GEN	26	11	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
-GEN	26	16	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	10	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	11	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	16	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	20	herdsman	angry, quarreling		Normal		
 GEN	26	22	Isaac			Normal		
 GEN	26	24	God		God (the LORD)	Normal		
 GEN	26	27	Isaac			Normal		
-GEN	26	28	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
-GEN	26	29	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	28	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	29	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	32	servants of Isaac			Normal		
 GEN	26	33	narrator-GEN			Quotation		
 GEN	27	1	Esau			Normal		
@@ -4763,7 +4763,8 @@ JDG	18	18	Levite, young, from Bethlehem			Normal
 JDG	18	19	warriors from Zorah and Eshtaol, five			Normal		
 JDG	18	23	Danites			Normal		
 JDG	18	24	Micah of Ephraim			Normal		
-JDG	18	25	Danites			Normal		
+JDG	18	25	Danites			Alternate		
+JDG	18	25	warriors from Zorah and Eshtaol, five			Normal		
 JDG	19	5	father of concubine			Normal		
 JDG	19	6	father of concubine			Normal		
 JDG	19	8	father of concubine			Normal		
@@ -5642,6 +5643,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	15	7	Absalom, son of David			Normal		
 2SA	15	8	Absalom, son of David			Normal		
 2SA	15	9	David		David, king	Normal		
+2SA	15	10	Absalom, son of David			Normal		
 2SA	15	10	Absalom's secret messengers			Normal		
 2SA	15	13	messenger to David			Normal		
 2SA	15	14	David		David, king	Normal		
@@ -6177,6 +6179,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	20	8	elders/Israelites			Normal		
 1KI	20	9	Ahab, king of Israel			Normal		
 1KI	20	10	messengers of Ben-Hadad, king of Aram			Normal		
+1KI	20	10	Ben-Hadad, king of Aram			Normal		
 1KI	20	11	Ahab, king of Israel			Normal		
 1KI	20	12	Ben-Hadad, king of Aram			Normal		
 1KI	20	13	prophet of the LORD			Normal		
@@ -6299,15 +6302,15 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	2	21	Elisha			Normal		
 2KI	2	23	boys	jeering		Normal		
 2KI	3	7	Jehoshaphat, king of Judah			Normal		
-2KI	3	7	Joram, king of Israel			Normal		
+2KI	3	7	Joram (Jehoram), king of Israel			Normal		
 2KI	3	8	Jehoshaphat, king of Judah	questioning		Normal		
-2KI	3	8	Joram, king of Israel			Normal		
-2KI	3	10	Joram, king of Israel			Normal		
+2KI	3	8	Joram (Jehoram), king of Israel			Normal		
+2KI	3	10	Joram (Jehoram), king of Israel			Normal		
 2KI	3	11	Jehoshaphat, king of Judah			Normal		
 2KI	3	11	officer of King Jehoshaphat of Israel			Normal		
 2KI	3	12	Jehoshaphat, king of Judah			Normal		
 2KI	3	13	Elisha			Normal		
-2KI	3	13	Joram, king of Israel			Normal		
+2KI	3	13	Joram (Jehoram), king of Israel			Normal		
 2KI	3	14	Elisha			Normal		
 2KI	3	15	Elisha			Normal		
 2KI	3	16	Elisha			Normal		
@@ -6361,7 +6364,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	5	4	Needs Review			Normal		
 2KI	5	5	Ben-Hadad, king of Aram			Normal		
 2KI	5	6	Ben-Hadad, king of Aram	letter		Normal		
-2KI	5	7	Joram, king of Israel			Normal		
+2KI	5	7	Joram (Jehoram), king of Israel			Normal		
 2KI	5	8	Elisha			Normal		
 2KI	5	10	Elisha's messenger			Normal		
 2KI	5	10	Gehazi			Alternate		
@@ -6401,16 +6404,16 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	6	18	Elisha			Normal		
 2KI	6	19	Elisha			Normal		
 2KI	6	20	Elisha			Normal		
-2KI	6	21	Joram, king of Israel			Normal		
+2KI	6	21	Joram (Jehoram), king of Israel			Normal		
 2KI	6	22	Elisha			Normal		
 2KI	6	26	woman in famine	calling out		Normal		
-2KI	6	27	Joram, king of Israel			Normal		
-2KI	6	28	Joram, king of Israel			Normal		
+2KI	6	27	Joram (Jehoram), king of Israel			Normal		
+2KI	6	28	Joram (Jehoram), king of Israel			Normal		
 2KI	6	28	woman in famine			Normal		
 2KI	6	29	woman in famine			Normal		
-2KI	6	31	Joram, king of Israel			Normal		
+2KI	6	31	Joram (Jehoram), king of Israel			Normal		
 2KI	6	32	Elisha			Normal		
-2KI	6	33	Joram, king of Israel			Normal		
+2KI	6	33	Joram (Jehoram), king of Israel			Normal		
 2KI	7	1	Elisha			Normal		
 2KI	7	2	Elisha			Normal		
 2KI	7	2	officer of king of Israel, on whose arm the king leaned			Normal		
@@ -6419,16 +6422,17 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	7	6	Aramean soldiers			Normal		
 2KI	7	9	men with leprosy, four			Normal		
 2KI	7	10	men with leprosy, four			Normal		
-2KI	7	12	Joram, king of Israel			Normal		
+2KI	7	12	Joram (Jehoram), king of Israel			Normal		
 2KI	7	13	officer of King Joram of Israel			Normal		
-2KI	7	14	Joram, king of Israel			Normal		
+2KI	7	14	Joram (Jehoram), king of Israel			Normal		
 2KI	7	18	Elisha		Elisha (had said)	Quotation		
 2KI	7	19	Elisha		Elisha (had said)	Quotation		
 2KI	7	19	officer of king of Israel, on whose arm the king leaned			Quotation		
 2KI	8	1	Elisha		Elisha (had said)	Normal		
-2KI	8	4	Joram, king of Israel			Normal		
+2KI	8	4	Joram (Jehoram), king of Israel			Normal		
 2KI	8	5	Gehazi		Gehazi, servant of Elisha	Normal		
-2KI	8	6	Joram, king of Israel			Normal		
+2KI	8	5	Shunammite woman			Indirect		
+2KI	8	6	Joram (Jehoram), king of Israel			Normal		
 2KI	8	7	person who told king of Aram of Elisha's arrival			Normal		
 2KI	8	8	Ben-Hadad, king of Aram			Normal		
 2KI	8	9	Hazael of Aram			Normal		
@@ -6455,7 +6459,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	12	Jehu, son of Nimshi			Normal		
 2KI	9	13	army officers			Normal		
 2KI	9	15	Jehu, son of Nimshi			Normal		
-2KI	9	17	Joram, king of Israel			Normal		
+2KI	9	17	Joram (Jehoram), king of Israel			Normal		
 2KI	9	17	lookout in Jezreel			Normal		
 2KI	9	18	horseman, first			Normal		
 2KI	9	18	Jehu, son of Nimshi			Normal		
@@ -6463,10 +6467,10 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	19	horseman, second			Normal		
 2KI	9	19	Jehu, son of Nimshi			Normal		
 2KI	9	20	lookout in Jezreel			Normal		
-2KI	9	21	Joram, king of Israel			Normal		
+2KI	9	21	Joram (Jehoram), king of Israel			Normal		
 2KI	9	22	Jehu, son of Nimshi			Normal		
-2KI	9	22	Joram, king of Israel			Normal		
-2KI	9	23	Joram, king of Israel			Normal		
+2KI	9	22	Joram (Jehoram), king of Israel			Normal		
+2KI	9	23	Joram (Jehoram), king of Israel			Normal		
 2KI	9	25	Jehu, son of Nimshi			Normal		
 2KI	9	26	Jehu, son of Nimshi			Normal		
 2KI	9	27	Jehu, son of Nimshi			Normal		
@@ -6510,7 +6514,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	12	4	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
 2KI	12	5	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
 2KI	12	7	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
-2KI	13	14	Jehoash, king of Israel			Normal		
+2KI	13	14	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
 2KI	13	15	Elisha (old)			Normal		
 2KI	13	16	Elisha (old)			Normal		
 2KI	13	17	Elisha (old)			Normal		
@@ -6979,8 +6983,8 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	25	16	Amaziah, king of Judah			Normal		
 2CH	25	16	prophet of the LORD		prophet	Normal		
 2CH	25	17	Amaziah, king of Judah			Normal		
-2CH	25	18	Jehoash, king of Israel			Normal		
-2CH	25	19	Jehoash, king of Israel			Normal		
+2CH	25	18	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
+2CH	25	19	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
 2CH	26	18	Azariah the priest (during reign of Uzziah)/eighty other priests	courageous	Azariah the priest/eighty other priests	Normal	Azariah the priest (during reign of Uzziah)	
 2CH	26	23	people			Normal		
 2CH	28	9	Oded, prophet of the Lord			Normal		
@@ -9521,6 +9525,8 @@ ISA	30	9	Isaiah			Alternate
 ISA	30	10	God		God (the LORD)	Potential		
 ISA	30	10	Isaiah			Alternate		
 ISA	30	10	rebels			Hypothetical		
+ISA	30	11	God		God (the LORD)	Potential		
+ISA	30	11	Isaiah			Alternate		
 ISA	30	11	rebels			Hypothetical		
 ISA	30	12	God		God (Holy One of Israel)	Normal		
 ISA	30	13	God		God (Holy One of Israel)	Implicit		
@@ -9562,6 +9568,8 @@ ISA	32	18	God		God (the LORD)	Implicit
 ISA	32	18	Isaiah			Alternate		
 ISA	32	19	God		God (the LORD)	Implicit		
 ISA	32	19	Isaiah			Alternate		
+ISA	32	20	God		God (the LORD)	Implicit		
+ISA	32	20	Isaiah			Alternate		
 ISA	33	10	God		God (the LORD)	Normal		
 ISA	33	11	God		God (the LORD)	Implicit		
 ISA	33	12	God		God (the LORD)	Implicit		
@@ -9904,6 +9912,7 @@ ISA	48	15	God		God (the LORD)	Implicit
 ISA	48	16	Needs Review			Implicit		
 ISA	48	16	Jesus			Potential		
 ISA	48	16	God		God (the LORD)	Potential		
+ISA	48	16	voice (Messiah?)			Potential		
 ISA	48	16	Cyrus, king of Persia			Potential		
 ISA	48	16	God's chosen (beloved) friend or ally			Potential		
 ISA	48	17	God		God (the LORD)	Potential		
@@ -11516,6 +11525,7 @@ JER	35	16	Jeremiah		Jeremiah (the LORD says)	Alternate
 JER	35	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	35	17	God		God (the LORD)	Normal		
 JER	35	18	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	35	18	God		God (the LORD)	Normal		
 JER	35	19	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	35	19	God		God (the LORD)	Normal		
 JER	36	2	God		God (the LORD)	Implicit		
