@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Glyssen;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 using Resources = GlyssenTests.Properties.Resources;

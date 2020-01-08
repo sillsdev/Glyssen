@@ -9,6 +9,7 @@ using Glyssen.Bundle;
 using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Utilities;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

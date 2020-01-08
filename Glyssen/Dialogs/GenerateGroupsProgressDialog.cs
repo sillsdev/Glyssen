@@ -2,8 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Bundle;
-using L10NSharp;
+using GlyssenEngine.Bundle;
 using SIL;
 
 namespace Glyssen.Dialogs

@@ -11,6 +11,7 @@ using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenTests.Bundle;

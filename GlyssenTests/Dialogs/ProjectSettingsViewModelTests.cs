@@ -1,5 +1,5 @@
-﻿using Glyssen.Bundle;
-using Glyssen.Dialogs;
+﻿using Glyssen.Dialogs;
+using GlyssenEngine.Bundle;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs
