@@ -20,16 +20,16 @@ namespace Glyssen
 	internal static class DataMigrator
 	{
 		private const string kOldProjectExtension = ".pgproj";
-		public static void UpgradeToCurrentDataFormatVersion(Func<string, string, bool> confirmAndRecycleAction)
+		public static void UpgradeToCurrentDataFormatVersion()
 		{
 			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
-			if (UpgradeToCurrentDataFormatVersion(settings, confirmAndRecycleAction))
+			if (UpgradeToCurrentDataFormatVersion(settings))
 				settings.Save();
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<string, string, bool> confirmAndRecycleAction)
+		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info)
 		{
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;

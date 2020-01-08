@@ -59,6 +59,7 @@ namespace Glyssen
 
 			MessageModal.Default = new WinFormsMessageBox();
 			Analytics.Default = new WinFormsAnalytics();
+			Fonts.Default = new WinFormsFonts();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -174,8 +175,7 @@ namespace Glyssen
 
 				SetUpLocalization();
 
-				DataMigrator.UpgradeToCurrentDataFormatVersion(
-					(label, path) => ConfirmRecycleDialog.ConfirmThenRecycle(label, path));
+				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
 				SampleProject.CreateSampleProjectIfNeeded();
 
