@@ -1,4 +1,4 @@
-Control File Version	152
+Control File Version	153
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -566,7 +566,7 @@ GEN	35	12	God		God (the LORD)	Normal
 GEN	35	17	midwife of Rachel			Normal		
 GEN	37	6	Joseph			Normal		
 GEN	37	7	Joseph			Normal		
-GEN	37	8	Joseph's brothers			Normal	Simeon	
+GEN	37	8	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Levi	
 GEN	37	9	Joseph			Normal		
 GEN	37	10	Jacob (Israel)			Normal		
 GEN	37	13	Jacob (Israel)			Normal		
@@ -575,15 +575,16 @@ GEN	37	14	Jacob (Israel)			Normal
 GEN	37	15	man (at Shechem)			Normal		
 GEN	37	16	Joseph			Normal		
 GEN	37	17	man (at Shechem)			Normal		
-GEN	37	19	Jacob's sons			Normal	Levi	
-GEN	37	20	Jacob's sons			Normal	Simeon	
+GEN	37	18	Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Potential	Levi	
+GEN	37	19	Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Levi	
+GEN	37	20	Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Levi	
 GEN	37	21	Reuben			Normal		
 GEN	37	22	Reuben			Normal		
 GEN	37	26	Judah			Normal		
 GEN	37	27	Judah			Normal		
-GEN	37	27	Jacob's sons			Indirect		
+GEN	37	27	Simeon/Levi/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Judah's brothers	Indirect		
 GEN	37	30	Reuben			Normal		
-GEN	37	32	Jacob's sons			Normal	Simeon	
+GEN	37	32	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons	Normal	Levi	
 GEN	37	33	Jacob (Israel)			Normal		
 GEN	37	35	Jacob (Israel)			Normal		
 GEN	38	3	Shua (Judah's wife)			Indirect		
@@ -675,12 +676,12 @@ GEN	42	1	Jacob (Israel)			Normal
 GEN	42	2	Jacob (Israel)			Normal		
 GEN	42	4	Jacob (Israel)			Indirect		
 GEN	42	7	Joseph			Normal		
-GEN	42	7	Jacob's sons		Joseph's brothers	Normal	Reuben	
+GEN	42	7	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Reuben	
 GEN	42	9	Joseph			Normal		
-GEN	42	10	Jacob's sons		Joseph's brothers	Normal	Judah	
-GEN	42	11	Jacob's sons		Joseph's brothers	Normal	Judah	
+GEN	42	10	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Reuben	
+GEN	42	11	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Reuben	
 GEN	42	12	Joseph			Normal		
-GEN	42	13	Jacob's sons		Joseph's brothers	Normal	Reuben	
+GEN	42	13	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Judah	
 GEN	42	14	Joseph			Normal		
 GEN	42	15	Joseph			Normal		
 GEN	42	16	Joseph			Normal		
@@ -688,18 +689,17 @@ GEN	42	18	Joseph			Normal
 GEN	42	19	Joseph			Normal		
 GEN	42	20	Joseph			Normal		
 #see Gen 37:2, 35:25 but either Dan or Judah OK								
-GEN	42	21	Jacob's sons			Normal	Judah	
+GEN	42	21	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
 GEN	42	22	Reuben			Normal		
 GEN	42	24	Joseph			Indirect		
 GEN	42	25	Joseph			Indirect		
-GEN	42	28	Jacob's son (one who discovered his silver in his sack)		brother who discovered his silver in his sack	Normal	Dan	
-GEN	42	28	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Levi	
-#either Reuben or Judah OK								
-GEN	42	30	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	31	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	32	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	33	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	34	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
+GEN	42	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	surprised	brother who discovered his silver in his sack	Normal	Dan	
+GEN	42	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Jospeh's brothers (not Simeon or Benjamin)	Normal	Levi	
+GEN	42	30	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	31	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	32	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	33	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	34	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	36	Jacob (Israel)			Normal		
 GEN	42	37	Reuben			Normal		
 GEN	42	38	Jacob (Israel)			Normal		
@@ -708,7 +708,7 @@ GEN	43	3	Judah			Normal
 GEN	43	4	Judah			Normal		
 GEN	43	5	Judah			Normal		
 GEN	43	6	Jacob (Israel)			Normal		
-GEN	43	7	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
+GEN	43	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Reuben	
 GEN	43	8	Judah			Normal		
 GEN	43	9	Judah			Normal		
 GEN	43	10	Judah			Normal		
@@ -717,15 +717,15 @@ GEN	43	12	Jacob (Israel)			Normal
 GEN	43	13	Jacob (Israel)			Normal		
 GEN	43	14	Jacob (Israel)			Normal		
 GEN	43	16	Joseph			Normal		
-GEN	43	18	Jacob's sons (not Simeon, Joseph, or Benjamin)	thought		Normal	Levi	
-GEN	43	20	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	43	21	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-#Either Dan or Reuben OK								
-GEN	43	22	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Dan	
+GEN	43	18	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	thought	Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	19	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Potential	Reuben	
+GEN	43	20	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Reuben	
+GEN	43	21	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Reuben	
+GEN	43	22	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Reuben	
 GEN	43	23	steward of Joseph's house			Normal		
 GEN	43	25	steward of Joseph's house			Indirect		
 GEN	43	27	Joseph			Normal		
-GEN	43	28	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
+GEN	43	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Jospeh's brothers (not Simeon)	Normal	Dan	
 GEN	43	29	Joseph			Normal		
 GEN	43	31	Joseph			Normal		
 GEN	44	1	Joseph			Normal		
@@ -733,10 +733,12 @@ GEN	44	2	Joseph			Normal
 GEN	44	4	Joseph			Normal		
 GEN	44	5	Joseph			Normal		
 GEN	44	6	steward of Joseph's house			Indirect		
-GEN	44	7	Jacob's sons			Normal	Reuben	
-#doesn't matter whether Reuben, Levi or Simeon								
-GEN	44	8	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	44	9	Jacob's sons			Normal	Judah	
+#In theory, v. 7 and/or 9 could have been spoken by Benjamin (though very unlikely as the youngest) or by Simeon. But since 7-9 is
+#likely to be a single quotation and v. 8 could not have been spoken by Simeon or Benjamin, we'll omit them from the list of possibilities
+# for all three verses.
+GEN	44	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
+GEN	44	8	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
+GEN	44	9	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
 GEN	44	10	steward of Joseph's house			Normal		
 GEN	44	15	Joseph			Normal		
 GEN	44	16	Judah			Normal		
@@ -776,7 +778,7 @@ GEN	45	18	Pharaoh (2nd)		Pharaoh	Normal
 GEN	45	19	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	45	20	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	45	24	Joseph			Normal		
-GEN	45	26	Joseph's brothers			Normal	Benjamin	
+GEN	45	26	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Jacob's sons	Normal	Reuben	
 GEN	45	28	Jacob (Israel)			Normal		
 GEN	46	2	God		God (in vision)	Normal		
 GEN	46	2	Jacob (Israel)			Normal		
@@ -789,8 +791,8 @@ GEN	46	33	Joseph			Normal
 GEN	46	34	Joseph			Normal		
 GEN	47	1	Joseph			Normal		
 GEN	47	3	Pharaoh (2nd)			Normal		
-GEN	47	3	Joseph's brothers			Normal	Benjamin	
-GEN	47	4	Joseph's brothers			Normal	Reuben	
+GEN	47	3	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers (five representatives)	Normal	Dan	
+GEN	47	4	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers (five representatives)	Normal	Dan	
 GEN	47	5	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	47	6	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	47	7	Joseph			Indirect		
@@ -862,10 +864,10 @@ GEN	50	4	Joseph			Normal
 GEN	50	5	Joseph			Normal		
 GEN	50	6	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	50	11	Canaanites			Normal		
-GEN	50	15	Joseph's brothers			Normal	Reuben	
-GEN	50	16	Joseph's brothers			Normal	Simeon	
-GEN	50	17	Joseph's brothers			Normal	Simeon	
-GEN	50	18	Joseph's brothers			Normal	Dan	
+GEN	50	15	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
+GEN	50	16	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
+GEN	50	17	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
+GEN	50	18	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
 GEN	50	19	Joseph			Normal		
 GEN	50	20	Joseph			Normal		
 GEN	50	21	Joseph			Normal		
@@ -5412,17 +5414,17 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	30	26	David			Normal		
 1SA	31	4	Saul	critically wounded		Normal		
 2SA	1	3	David		David, king	Normal		
-2SA	1	3	man from Saul's camp (young)			Normal		
+2SA	1	3	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	4	David		David, king	Normal		
-2SA	1	4	man from Saul's camp (young)			Normal		
+2SA	1	4	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	5	David			Normal		
-2SA	1	6	man from Saul's camp (young)			Normal		
-2SA	1	7	man from Saul's camp (young)			Normal		
-2SA	1	8	man from Saul's camp (young)			Normal		
-2SA	1	9	man from Saul's camp (young)			Normal		
-2SA	1	10	man from Saul's camp (young)			Normal		
+2SA	1	6	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	7	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	8	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	9	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	10	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	13	David			Normal		
-2SA	1	13	man from Saul's camp (young)			Normal		
+2SA	1	13	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	14	David			Normal		
 2SA	1	15	David			Normal		
 2SA	1	16	David			Normal		
@@ -5471,7 +5473,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	3	35	David		David, king	Normal		
 2SA	3	38	David		David, king	Normal		
 2SA	3	39	David		David, king	Normal		
-2SA	4	8	Recab/Baanah			Normal		
+2SA	4	8	Rechab/Baanah			Normal		
 2SA	4	9	David		David, king	Normal		
 2SA	4	10	David		David, king	Normal		
 2SA	4	11	David		David, king	Normal		
@@ -5693,7 +5695,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	17	16	Hushai, David's friend			Normal		
 2SA	17	20	Absalom's men			Normal		
 2SA	17	20	woman in Bahurim			Normal		
-2SA	17	21	Jonathan, son of Abiathar/Ahimaaz (messenger)			Normal	Jonathan, son of Abiathar	
+2SA	17	21	Jonathan, son of Abiathar/Ahimaaz (messenger)			Normal	Ahimaaz (messenger)	
 2SA	17	29	Shobi/Makir/Barzillai			Normal	Shobi	
 2SA	18	2	David		David, king	Normal		
 2SA	18	3	men of David			Normal		
@@ -6052,8 +6054,9 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	12	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
 1KI	12	12	Rehoboam, king			Quotation		
 1KI	12	14	Rehoboam, king			Normal		
-1KI	12	16	Israel, all			Normal		
-1KI	12	16	Jeroboam			Alternate		
+#Even though the text says "all Israel," FCBH wants Jeroboam to speak this.
+1KI	12	16	Israel, all			Normal		1KI 12.16;2CH 10.16
+1KI	12	16	Jeroboam			Alternate		1KI 12.16;2CH 10.16
 1KI	12	23	God		God (the LORD)	Normal		
 1KI	12	24	God		God (the LORD)	Normal		
 1KI	12	26	Jeroboam	thought	Jeroboam, king of Israel	Normal		
@@ -6230,7 +6233,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	8	Ahab, king of Israel			Normal		
 1KI	22	8	Jehoshaphat, king of Judah			Normal		
 1KI	22	9	Ahab, king of Israel			Normal		
-1KI	22	11	Zedekiah, son of Kenaanah, false prophet			Normal		
+1KI	22	11	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.11;2CH 18.10
 1KI	22	12	prophets, 400 false			Normal		1KI 22.12;2CH 18.11
 1KI	22	13	messenger of Ahab, king of Israel			Normal		
 1KI	22	14	Micaiah, prophet of the LORD			Normal		
@@ -6244,7 +6247,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	21	Micaiah, prophet of the LORD			Normal		
 1KI	22	22	Micaiah, prophet of the LORD			Normal		
 1KI	22	23	Micaiah, prophet of the LORD			Normal		
-1KI	22	24	Zedekiah, son of Kenaanah, false prophet			Normal		
+1KI	22	24	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.24;2CH 18.23
 1KI	22	25	Micaiah, prophet of the LORD			Normal		
 1KI	22	26	Ahab, king of Israel			Normal		
 1KI	22	27	Ahab, king of Israel			Normal		
@@ -6475,8 +6478,9 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	37	Jehu, son of Nimshi	letter		Normal		
 2KI	10	2	Jehu, son of Nimshi	letter		Normal		
 2KI	10	3	Jehu, son of Nimshi	letter		Normal		
-2KI	10	4	officials of Samaria			Normal		
-2KI	10	5	officials of Samaria			Normal		
+2KI	10	4	officials of Samaria/guardians of Ahab's sons		officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons	Normal		
+2KI	10	5	palace administrator and overseer (elder) of the city			Normal		
+2KI	10	5	officials of Samaria/guardians of Ahab's sons		officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons	Normal		
 2KI	10	6	Jehu, son of Nimshi			Normal		
 2KI	10	8	Jehu, son of Nimshi			Normal		
 2KI	10	8	messenger from guardians of Ahab's children			Normal		
@@ -6485,7 +6489,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	10	13	Jehu, son of Nimshi			Normal		
 2KI	10	13	relatives of Ahaziah, king of Judah			Normal		
 2KI	10	14	Jehu, son of Nimshi			Normal		
-2KI	10	15	Jehonadab, son of Recab			Normal		
+2KI	10	15	Jehonadab, son of Rechab			Normal		
 2KI	10	15	Jehu, son of Nimshi			Normal		
 2KI	10	16	Jehu, son of Nimshi			Normal		
 2KI	10	18	Jehu, son of Nimshi			Normal		
@@ -6503,9 +6507,9 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	11	12	people at coronation of King Joash	shouting		Normal		
 2KI	11	14	Athaliah, mother of Ahaziah (Queen)		Athaliah	Normal		
 2KI	11	15	Jehoiada the priest			Normal		
-2KI	12	4	Joash, king of Judah			Normal		
-2KI	12	5	Joash, king of Judah			Normal		
-2KI	12	7	Joash, king of Judah			Normal		
+2KI	12	4	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
+2KI	12	5	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
+2KI	12	7	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
 2KI	13	14	Jehoash, king of Israel			Normal		
 2KI	13	15	Elisha (old)			Normal		
 2KI	13	16	Elisha (old)			Normal		
@@ -6861,7 +6865,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
 2CH	10	12	Rehoboam, king			Quotation		
 2CH	10	14	Rehoboam, king			Normal		
-2CH	10	16	Israel, all			Normal		
+#Even though the text says "all Israel," FCBH wants Jeroboam to speak this.
+2CH	10	16	Israel, all			Normal		1KI 12.16;2CH 10.16
+2CH	10	16	Jeroboam			Alternate		1KI 12.16;2CH 10.16
 2CH	11	3	God		God (the LORD)	Normal		
 2CH	11	4	God		God (the LORD)	Normal		
 2CH	11	4	Shemaiah, prophet			Alternate		
@@ -6899,7 +6905,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	7	Ahab, king of Israel			Normal		
 2CH	18	7	Jehoshaphat, king of Judah			Normal		
 2CH	18	8	Ahab, king of Israel			Normal		
-2CH	18	10	Zedekiah, son of Kenaanah, false prophet			Normal		
+2CH	18	10	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.11;2CH 18.10
 2CH	18	11	prophets, 400 false			Normal		1KI 22.12;2CH 18.11
 2CH	18	12	messenger			Normal		
 2CH	18	13	Micaiah, prophet of the LORD			Normal		
@@ -6913,7 +6919,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	20	Micaiah, prophet of the LORD			Normal		
 2CH	18	21	Micaiah, prophet of the LORD			Normal		
 2CH	18	22	Micaiah, prophet of the LORD			Normal		
-2CH	18	23	Zedekiah, son of Kenaanah, false prophet			Normal		
+2CH	18	23	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.24;2CH 18.23
 2CH	18	24	Micaiah, prophet of the LORD			Normal		
 2CH	18	25	Ahab, king of Israel			Normal		
 2CH	18	26	Ahab, king of Israel			Normal		
@@ -7337,12 +7343,12 @@ JOB	1	9	Satan (Devil)			Normal
 JOB	1	10	Satan (Devil)			Normal		
 JOB	1	11	Satan (Devil)			Normal		
 JOB	1	12	God		God (the LORD)	Normal		
-JOB	1	14	messenger			Normal		
-JOB	1	15	messenger			Normal		
-JOB	1	16	messenger, another			Normal		
-JOB	1	17	messenger, still another			Normal		
-JOB	1	18	messenger, yet another			Normal		
-JOB	1	19	messenger, yet another			Normal		
+JOB	1	14	messenger to Job			Normal		
+JOB	1	15	messenger to Job			Normal		
+JOB	1	16	messenger to Job, another			Normal		
+JOB	1	17	messenger to Job, still another			Normal		
+JOB	1	18	messenger to Job, yet another			Normal		
+JOB	1	19	messenger to Job, yet another			Normal		
 JOB	1	21	Job			Normal		
 JOB	2	2	God		God (the LORD)	Normal		
 JOB	2	2	Satan (Devil)			Normal		
@@ -11493,12 +11499,12 @@ JER	34	22	God		God (the LORD)	Normal
 JER	34	22	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	35	2	God		God (the LORD)	Implicit		
 JER	35	5	Jeremiah			Quotation		
-JER	35	6	Recabite family, men of			Normal		
-JER	35	7	Recabite family, men of			Implicit		
-JER	35	8	Recabite family, men of			Implicit		
-JER	35	9	Recabite family, men of			Implicit		
-JER	35	10	Recabite family, men of			Implicit		
-JER	35	11	Recabite family, men of			Implicit		
+JER	35	6	Rechabite family, men of			Normal		
+JER	35	7	Rechabite family, men of			Implicit		
+JER	35	8	Rechabite family, men of			Implicit		
+JER	35	9	Rechabite family, men of			Implicit		
+JER	35	10	Rechabite family, men of			Implicit		
+JER	35	11	Rechabite family, men of			Implicit		
 JER	35	13	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	35	13	God		God (the LORD)	Normal		
 JER	35	14	God		God (the LORD)	Implicit		
@@ -14379,10 +14385,10 @@ HOS	12	13	God		God (the LORD)	Potential
 HOS	12	14	God		God (the LORD)	Potential		
 HOS	13	1	God		God (the LORD)	Potential		
 HOS	13	2	God		God (the LORD)	Potential		
-#It is confusing if those speaking are the idolaters or if they are speaking of the idolaters
-HOS	13	2	saying about idolaters			Quotation		
-HOS	13	2	Ephraim		idolaters of Ephraim	Quotation		
-HOS	13	2	Needs Review			Quotation		
+#It is confusing if those speaking are the idolaters or if they are speaking of the idolaters, but since FCBH doesn't
+#want this to be spoken by the "Ephraim" character (see 12:8), it doesn't really matter, so we'll use a single generic
+#character that covers either case and thereby avoid a disambiguation issue.
+HOS	13	2	saying about (or by) idolaters			Quotation		
 HOS	13	3	God		God (the LORD)	Potential		
 HOS	13	4	God		God (the LORD)	Implicit		
 HOS	13	5	God		God (the LORD)	Implicit		
@@ -15186,9 +15192,11 @@ ZEC	4	7	Zerubbabel			Hypothetical
 ZEC	4	9	Needs Review			Implicit		
 ZEC	4	9	God		God (the LORD)	Alternate		
 ZEC	4	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	4	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Alternate		
 ZEC	4	10	Needs Review			Implicit		
 ZEC	4	10	God		God (the LORD)	Alternate		
 ZEC	4	10	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	4	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Alternate		
 ZEC	4	11	narrator-ZEC			Quotation		
 ZEC	4	12	narrator-ZEC			Quotation		
 ZEC	4	13	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
