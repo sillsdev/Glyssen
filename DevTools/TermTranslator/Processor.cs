@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen.Character;
 using SIL.Xml;
 using System.Text.RegularExpressions;
+using GlyssenEngine.Character;
 
 namespace DevTools.TermTranslator
 {

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Properties;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
@@ -18,7 +17,7 @@ namespace ControlDataIntegrityTests
 		private const string kRegexBCV = "^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t";
 
 		private IEnumerable<string> AllDataLines =>
-			Resources.CharacterVerseData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries).Skip(1).Where(l => !l.StartsWith("#"));
+            Resources.CharacterVerseData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries).Skip(1).Where(l => !l.StartsWith("#"));
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()

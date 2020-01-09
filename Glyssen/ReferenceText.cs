@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
 using SIL.Reporting;
 using SIL.Scripture;
-using SIL.Xml;
 
 namespace Glyssen
 {
