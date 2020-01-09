@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen.Properties;
 using Glyssen.Shared;
-using GlyssenEngine.Character;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Scripture;
 using static System.String;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{

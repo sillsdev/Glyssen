@@ -5,6 +5,7 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Dialogs;
+using GlyssenEngine.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 
