@@ -131,7 +131,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	151
+        ///   Looks up a localized string similar to Control File Version	152
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
         ///GEN	1	3	God		God (the LORD)	Normal		
@@ -159,7 +159,7 @@ namespace Glyssen.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;Sample&quot;
-        ///# Version=1.9
+        ///# Version=2.0
         ///#
         ///# modifications by Reinier de Blois 13/March/2012
         ///# modified mappings Psalms by adding verse #0 to the mappings
@@ -300,29 +300,6 @@ namespace Glyssen.Properties {
             get {
                 object obj = ResourceManager.GetObject("printer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
-        ///	&lt;QuoteSystem&gt;
-        ///		&lt;Name&gt;Quotation marks, double&lt;/Name&gt;
-        ///		&lt;MajorLanguage&gt;English, US/Canada&lt;/MajorLanguage&gt;
-        ///		&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
-        ///		&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
-        ///	&lt;/QuoteSystem&gt;
-        ///  	&lt;QuoteSystem&gt;
-        ///		&lt;Name&gt;Tırnak işareti (with 2014 Quotation dash)&lt;/Name&gt;
-        ///		&lt;MajorLanguage&gt;Turkish/Vietnamese&lt;/MajorLanguage&gt;
-        ///		&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
-        ///		&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
-        ///    &lt;QuotationDashMarker&gt;—&lt;/QuotationDashMarker&gt;
-        ///	&lt;/QuoteSystem&gt;
-        ///  	&lt;QuoteSyste [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string QuoteSystemData {
-            get {
-                return ResourceManager.GetString("QuoteSystemData", resourceCulture);
             }
         }
         

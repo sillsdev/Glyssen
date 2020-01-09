@@ -139,6 +139,29 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
+        ///	&lt;QuoteSystem&gt;
+        ///		&lt;Name&gt;Quotation marks, double&lt;/Name&gt;
+        ///		&lt;MajorLanguage&gt;English, US/Canada&lt;/MajorLanguage&gt;
+        ///		&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
+        ///		&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
+        ///	&lt;/QuoteSystem&gt;
+        ///  	&lt;QuoteSystem&gt;
+        ///		&lt;Name&gt;Tırnak işareti (with 2014 Quotation dash)&lt;/Name&gt;
+        ///		&lt;MajorLanguage&gt;Turkish/Vietnamese&lt;/MajorLanguage&gt;
+        ///		&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
+        ///		&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
+        ///    &lt;QuotationDashMarker&gt;—&lt;/QuotationDashMarker&gt;
+        ///	&lt;/QuoteSystem&gt;
+        ///  	&lt;QuoteSyste [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string QuoteSystemData {
+            get {
+                return ResourceManager.GetString("QuoteSystemData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
         ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
         ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;

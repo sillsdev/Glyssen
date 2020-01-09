@@ -615,12 +615,8 @@
     <Compile Include="Dialogs\ProjectSettingsDlg.Designer.cs">
       <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="IScrBook.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="Quote\QuoteUtils.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
-    <Compile Include="Quote\QuoteSystem.cs" />
-    <Compile Include="Quote\QuoteSystemGuesser.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -769,11 +765,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\quoteSystems.xml">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Alert.png" />

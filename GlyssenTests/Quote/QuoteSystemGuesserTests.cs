@@ -9,6 +9,7 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
 using Glyssen.Shared;
+using GlyssenEngine.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
