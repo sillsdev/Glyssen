@@ -14,7 +14,7 @@ Abishai, Joab's brother	1	Male	Adult			1SA 26:6 <-(2 more)-> 2SA 19:21
 Abner, commander of Saul's army	1	Male	Adult			1SA 17:55 <-(13 more)-> 2SA 3:21
 Abraham (Abram)	1	Male	Adult			GEN 12:11 <-(48 more)-> GEN 24:8
 Abraham's chief servant	1	Male	Adult			GEN 24:5 <-(25 more)-> GEN 24:65	Servant of Abraham
-Absalom, son of David	1	Male	Adult			2SA 13:20 <-(15 more)-> 2SA 18:18	Absolom
+Absalom, son of David	1	Male	Adult			2SA 13:20 <-(16 more)-> 2SA 18:18	Absolom
 Absalom's men	-1	Male	Adult			2SA 17:20	Servant of Absalom
 Absalom's secret messengers	-1	Male	Adult			2SA 15:10
 Achan	1	Male	Adult			JOS 7:20 & JOS 7:21
@@ -129,7 +129,7 @@ believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or 
 beloved	1	Female	Adult			SNG 1:2 <-(68 more)-> SNG 8:14
 Belshazzar, king of Babylon	1	Male	Adult			DAN 5:2 <-(7 more)-> DAN 5:29
 Benaiah, son of Jehoiada	1	Male				1KI 1:36 <-(1 more)-> 1KI 2:30
-Ben-Hadad, king of Aram	1	Male			Ben-Hadad II (aka, Hadadezer or Adad-Idri); Aram = Syria	1KI 20:12 <-(10 more)-> 2CH 18:30	Ben Hadad
+Ben-Hadad, king of Aram	1	Male			Ben-Hadad II (aka, Hadadezer or Adad-Idri); Aram = Syria	1KI 20:10 <-(11 more)-> 2CH 18:30	Ben Hadad
 Benjamin	1	Male				GEN 43:28 <-(6 more)-> GEN 50:18
 Benjamite messenger to Eli	1	Male				1SA 4:16 & 1SA 4:17
 Benjamites	-1					JDG 20:32 & JDG 20:39
@@ -388,7 +388,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder
 Gilead, leaders of	-1	Male				JDG 10:18	Elder
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5826 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5829 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
@@ -459,7 +459,7 @@ invalid for 38 years	1	Male				JHN 5:7 <-(2 more)-> JHN 5:15
 Irijah, captain of the guard of Judah	1	Male				JER 37:13
 Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20
 Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
-Isaiah	1	Male				2KI 19:6 <-(404 more)-> ISA 66:6
+Isaiah	1	Male				2KI 19:6 <-(412 more)-> ISA 66:6
 Ish-Bosheth, son of Saul	1	Male				2SA 3:7
 Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6
 Issachar	1	Male	Adult			GEN 37:8 <-(33 more)-> GEN 50:18
@@ -1075,7 +1075,7 @@ Shinab, king of Admah	1	Male				GEN 14:4
 Shiphrah (midwife)	1	Female				EXO 1:19
 Shobi	1	Male			son of Nahash from Rabbah of the Ammonites	2SA 17:29
 Shua (Judah's wife)	1	Female				GEN 38:3 <-(1 more)-> GEN 38:5
-Shunammite woman	1	Female			well-to-do	2KI 4:9 <-(8 more)-> 2KI 4:30
+Shunammite woman	1	Female			well-to-do	2KI 4:9 <-(9 more)-> 2KI 8:5
 sign on the cross	1	PreferMale				MAT 27:37 <-(2 more)-> JHN 19:19
 Silas	1	Male				ACT 15:34
 Simeon	1	Male				GEN 34:14 <-(21 more)-> GEN 50:18
@@ -1176,7 +1176,7 @@ voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:
 voice of joy and gladness	1	Male				JER 33:11
 voice of one calling (preparing way for Christ)	1	Male				ISA 40:3 <-(1 more)-> ISA 40:5
 voices in heaven, loud	-1					REV 11:15
-warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(4 more)-> JDG 18:19
+warriors from Zorah and Eshtaol, five	5	Male				JDG 18:3 <-(5 more)-> JDG 18:25
 watchman	1	Male				2SA 13:34 <-(4 more)-> JER 31:6
 watchmen of Israel	-1	Male				ISA 56:12	Watchman
 waves	-1					ISA 51:15

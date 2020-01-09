@@ -9271,25 +9271,25 @@ ISA	14	1	Isaiah			Potential
 ISA	14	2	Isaiah			Potential		
 ISA	14	3	Isaiah			Potential		
 ISA	14	4	you (people of Zion, restored)			Hypothetical		
-ISA	14	4	Isaiah			Alternate		
+ISA	14	4	Isaiah			Potential		
 ISA	14	5	you (people of Zion, restored)			Hypothetical		
-ISA	14	5	Isaiah			Alternate		
+ISA	14	5	Isaiah			Potential		
 ISA	14	6	you (people of Zion, restored)			Hypothetical		
-ISA	14	6	Isaiah			Alternate		
+ISA	14	6	Isaiah			Potential		
 ISA	14	7	you (people of Zion, restored)			Hypothetical		
-ISA	14	7	Isaiah			Alternate		
+ISA	14	7	Isaiah			Potential		
 ISA	14	8	you (people of Zion, restored)			Hypothetical		
 ISA	14	8	pine trees and cedars of Lebanon			Hypothetical		
-ISA	14	8	Isaiah			Alternate		
+ISA	14	8	Isaiah			Potential		
 ISA	14	9	you (people of Zion, restored)			Hypothetical		
-ISA	14	9	Isaiah			Alternate		
+ISA	14	9	Isaiah			Potential		
 ISA	14	10	you (people of Zion, restored)			Hypothetical		
 ISA	14	10	kings over the nations			Hypothetical		
-ISA	14	10	Isaiah			Alternate		
+ISA	14	10	Isaiah			Potential		
 ISA	14	11	you (people of Zion, restored)			Hypothetical		
-ISA	14	11	Isaiah			Alternate		
+ISA	14	11	Isaiah			Potential		
 ISA	14	12	you (people of Zion, restored)			Hypothetical		
-ISA	14	12	Isaiah			Alternate		
+ISA	14	12	Isaiah			Potential		
 ISA	14	13	you (people of Zion, restored)			Hypothetical		
 ISA	14	13	king of Babylon		son of the morning (king of Babylon)	Quotation		
 ISA	14	13	Isaiah			Alternate		
@@ -9297,27 +9297,33 @@ ISA	14	14	king of Babylon		son of the morning (king of Babylon)	Quotation
 ISA	14	14	you (people of Zion, restored)			Alternate		
 ISA	14	14	Isaiah			Alternate		
 ISA	14	15	you (people of Zion, restored)			Hypothetical		
-ISA	14	15	Isaiah			Alternate		
+ISA	14	15	Isaiah			Potential		
 ISA	14	16	you (people of Zion, restored)			Hypothetical		
 ISA	14	16	onlookers			Hypothetical		
-ISA	14	16	Isaiah			Alternate		
+ISA	14	16	Isaiah			Potential		
 ISA	14	17	onlookers			Hypothetical		
 ISA	14	17	you (people of Zion, restored)			Alternate		
 ISA	14	17	Isaiah			Alternate		
 ISA	14	18	you (people of Zion, restored)			Hypothetical		
-ISA	14	18	Isaiah			Alternate		
+ISA	14	18	Isaiah			Potential		
 ISA	14	19	you (people of Zion, restored)			Hypothetical		
-ISA	14	19	Isaiah			Alternate		
+ISA	14	19	Isaiah			Potential		
 ISA	14	20	you (people of Zion, restored)			Hypothetical		
-ISA	14	20	Isaiah			Alternate		
+ISA	14	20	Isaiah			Potential		
 ISA	14	21	Isaiah			Potential		
 ISA	14	21	God		God (the LORD)	Alternate		
 ISA	14	22	God		God (the LORD)	Normal		
+ISA	14	22	Isaiah			Alternate		
 ISA	14	23	God		God (the LORD)	Normal		
+ISA	14	23	Isaiah			Alternate		
 ISA	14	24	God		God (the LORD)	Normal		
+ISA	14	24	Isaiah			Alternate		
 ISA	14	25	God		God (the LORD)	Implicit		
-ISA	14	26	God		God (the LORD)	Potential		
-ISA	14	27	God		God (the LORD)	Potential		
+ISA	14	25	Isaiah			Alternate		
+ISA	14	26	Isaiah			Potential		
+ISA	14	26	God		God (the LORD)	Alternate		
+ISA	14	27	Isaiah			Potential		
+ISA	14	27	God		God (the LORD)	Alternate		
 ISA	14	29	God		God (the LORD)	Implicit		
 ISA	14	29	Isaiah			Alternate		
 ISA	14	30	God		God (the LORD)	Implicit		
