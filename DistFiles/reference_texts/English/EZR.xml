@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="EZR" singlevoice="false" pageheader="Ezra">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EZR">
+  <block style="mt" chapter="0" book="EZR" initialStartVerse="0" characterId="BC-EZR">
     <text>Ezra</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="EZR" initialStartVerse="0" characterId="BC-EZR">
@@ -8,11 +8,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-EZR">
     <verse num="1" />
-    <text>Now in the first year of Cyrus king of Persia, that the word of God by the mouth of Jeremiah might be accomplished, God stirred up the spirit of Cyrus king of Persia, so that he made a proclamation throughout all his kingdom, and [put it] also in writing, saying,</text>
+    <text>Now in the first year of Cyrus king of Persia, that the word of God by the mouth of Jeremiah might be accomplished, God stirred up the spirit of Cyrus king of Persia, so that he made a proclamation throughout all his kingdom, and put it also in writing, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="Cyrus, king of Persia" delivery="written proclamation">
     <verse num="2" />
-    <text>Thus says Cyrus king of Persia, 'God, the God of heaven, has given me all the kingdoms of the earth; and he has commanded me to build him a house in Jerusalem, which is in Judah.</text>
+    <text>Thus says Cyrus king of Persia, ‹God, the God of heaven, has given me all the kingdoms of the earth; and he has commanded me to build him a house in Jerusalem, which is in Judah.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="Cyrus, king of Persia" delivery="written proclamation">
     <verse num="3" />
@@ -20,11 +20,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="Cyrus, king of Persia" delivery="written proclamation">
     <verse num="4" />
-    <text>Whoever is left, in any place where he lives, let the men of his place help him with silver, with gold, with goods, and with animals, besides the freewill offering for the house of God which is in Jerusalem.'</text>
+    <text>Whoever is left, in any place where he lives, let the men of his place help him with silver, with gold, with goods, and with animals, besides the freewill offering for the house of God which is in Jerusalem.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
-    <text>Then the heads of fathers' [houses] of Judah and Benjamin, and the priests, and the Levites, even all whose spirit God had stirred to go up rose up to build the house of God which is in Jerusalem.</text>
+    <text>Then the heads of fathers’ houses of Judah and Benjamin, and the priests, and the Levites, even all whose spirit God had stirred to go up rose up to build the house of God which is in Jerusalem.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-EZR">
     <verse num="6" />
@@ -73,7 +73,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-EZR">
     <verse num="6" />
-    <text>The children of Pahathmoab, of the children of Jeshua [and] Joab, two thousand eight hundred twelve.</text>
+    <text>The children of Pahathmoab, of the children of Jeshua and Joab, two thousand eight hundred twelve.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-EZR">
     <verse num="7" />
@@ -247,7 +247,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="55" characterId="narrator-EZR">
     <verse num="55" />
-    <text>The children of Solomon's servants: the children of Sotai, the children of Hassophereth, the children of Peruda, </text>
+    <text>The children of Solomon’s servants: the children of Sotai, the children of Hassophereth, the children of Peruda, </text>
     <verse num="56" />
     <text>the children of Jaalah, the children of Darkon, the children of Giddel, </text>
     <verse num="57" />
@@ -255,11 +255,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="58" characterId="narrator-EZR">
     <verse num="58" />
-    <text>All the Nethinim, and the children of Solomon's servants, were three hundred ninety-two.</text>
+    <text>All the Nethinim, and the children of Solomon’s servants, were three hundred ninety-two.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="59" characterId="narrator-EZR">
     <verse num="59" />
-    <text>These were those who went up from Tel Melah, Tel Harsha, Cherub, Addan, [and] Immer; but they could not show their fathers' houses, and their seed, whether they were of Israel:</text>
+    <text>These were those who went up from Tel Melah, Tel Harsha, Cherub, Addan, and Immer; but they could not show their fathers’ houses, and their seed, whether they were of Israel:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="60" characterId="narrator-EZR">
     <verse num="60" />
@@ -271,7 +271,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="62" characterId="narrator-EZR">
     <verse num="62" />
-    <text>These sought their register [among] those who were reckoned by genealogy, but they were not found: therefore were they deemed polluted and put from the priesthood.</text>
+    <text>These sought their register among those who were reckoned by genealogy, but they were not found: therefore were they deemed polluted and put from the priesthood.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="63" characterId="narrator-EZR">
     <verse num="63" />
@@ -289,15 +289,15 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="67" characterId="narrator-EZR">
     <verse num="67" />
-    <text>their camels, four hundred thirty-five; [their] donkeys, six thousand seven hundred and twenty.</text>
+    <text>their camels, four hundred thirty-five; their donkeys, six thousand seven hundred and twenty.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="68" characterId="narrator-EZR">
     <verse num="68" />
-    <text>Some of the heads of fathers' [houses], when they came to the house of God which is in Jerusalem, offered willingly for the house of God to set it up in its place:</text>
+    <text>Some of the heads of fathers’ houses, when they came to the house of God which is in Jerusalem, offered willingly for the house of God to set it up in its place:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="69" characterId="narrator-EZR">
     <verse num="69" />
-    <text>they gave after their ability into the treasury of the work sixty-one thousand darics of gold, and five thousand minas of silver, and one hundred priests' garments.</text>
+    <text>they gave after their ability into the treasury of the work sixty-one thousand darics of gold, and five thousand minas of silver, and one hundred priests’ garments.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="70" characterId="narrator-EZR">
     <verse num="70" />
@@ -320,11 +320,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
-    <text>They kept the feast of tents, as it is written, and [offered] the daily burnt offerings by number, according to the ordinance, as the duty of every day required;</text>
+    <text>They kept the feast of tents, as it is written, and offered the daily burnt offerings by number, according to the ordinance, as the duty of every day required;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
-    <text>and afterward the continual burnt offering, and [the offerings] of the new moons, and of all the set feasts of God that were consecrated, and of everyone who willingly offered a freewill offering to God.</text>
+    <text>and afterward the continual burnt offering, and the offerings of the new moons, and of all the set feasts of God that were consecrated, and of everyone who willingly offered a freewill offering to God.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-EZR">
     <verse num="6" />
@@ -358,7 +358,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-EZR">
     <verse num="12" />
-    <text>But many of the priests and Levites and heads of fathers' [houses], the old men who had seen the first house, when the foundation of this house was laid before their eyes, wept with a loud voice; and many shouted aloud for joy:</text>
+    <text>But many of the priests and Levites and heads of fathers’ houses, the old men who had seen the first house, when the foundation of this house was laid before their eyes, wept with a loud voice; and many shouted aloud for joy:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-EZR">
     <verse num="13" />
@@ -373,21 +373,23 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-EZR">
     <verse num="2" />
-    <text>then they drew near to Zerubbabel, and to the heads of fathers' [houses], and said to them,</text>
+    <text>then they drew near to Zerubbabel, and to the heads of fathers’ houses, and said to them,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="enemies of Judah and Benjamin">
     <text>“Let us build with you; for we seek your God, as you do; and we sacrifice to him since the days of Esar Haddon king of Assyria, who brought us up here.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-EZR">
     <verse num="3" />
-    <text>But Zerubbabel, and Jeshua, and the rest of the heads of fathers' [houses] of Israel, said to them,</text>
+    <text>But Zerubbabel, and Jeshua, and the rest of the heads of fathers’ houses of Israel, said to them,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="Zerubbabel/Jeshua/rest of heads of families" characterIdOverrideForScript="Zerubbabel">
     <text>“You have nothing to do with us in building a house to our God; but we ourselves together will build to God, the God of Israel, as king Cyrus the king of Persia has commanded us.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
-    <text>Then the people of the land weakened the hands of the people of Judah, and troubled them in building, </text>
+    <text>Then the people of the land weakened the hands of the people of Judah, and troubled them in building,</text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
     <text>and hired counselors against them, to frustrate their purpose, all the days of Cyrus king of Persia, even until the reign of Darius king of Persia.</text>
   </block>
@@ -397,17 +399,17 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-EZR">
     <verse num="7" />
-    <text>In the days of Artaxerxes wrote Bishlam, Mithredath, Tabeel, and the rest of his companions, to Artaxerxes king of Persia; and the writing of the letter was written in the Syrian [character], and set forth in the Syrian [language].</text>
+    <text>In the days of Artaxerxes wrote Bishlam, Mithredath, Tabeel, and the rest of his companions, to Artaxerxes king of Persia; and the writing of the letter was written in the Syrian character, and set forth in the Syrian language.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-EZR">
     <verse num="8" />
-    <text>Rehum the chancellor and Shimshai the scribe wrote a letter against Jerusalem to Artaxerxes the king in this sort:</text>
+    <text>Rehum the chancellor and Shimshai the scribe wrote a letter against Jerusalem to Artaxerxes the king as follows;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="9" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
+  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-EZR" delivery="letter">
     <verse num="9" />
-    <text>then [wrote] Rehum the chancellor, and Shimshai the scribe, and the rest of their companions, the Dinaites, and the Apharsathchites, the Tarpelites, the Apharsites, the Archevites, the Babylonians, the Shushanchites, the Dehaites, the Elamites, </text>
+    <text>then Rehum the chancellor, Shimshai the scribe, and the rest of their companions, the Dinaites, and the Apharsathchites, the Tarpelites, the Apharsites, the Archevites, the Babylonians, the Shushanchites, the Dehaites, the Elamites, </text>
     <verse num="10" />
-    <text>and the rest of the nations whom the great and noble Osnappar brought over, and set in the city of Samaria, and in the rest [of the country] beyond the River, and so forth.</text>
+    <text>and the rest of the nations whom the great and noble Osnappar brought over, and set in the city of Samaria, and in the rest of the country beyond the River, and so forth, wrote.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-EZR">
     <verse num="11" />
@@ -416,34 +418,32 @@
   <block style="p" chapter="4" initialStartVerse="11" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
     <text>Your servants the men beyond the River, and so forth.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="12" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
+  <block style="p" chapter="4" initialStartVerse="12" characterId="Rehum, commanding officer/Shimshai, secretary" delivery="letter">
     <verse num="12" />
     <text>Be it known to the king, that the Jews who came up from you are come to us to Jerusalem; they are building the rebellious and the bad city, and have finished the walls, and repaired the foundations.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="Rehum, commanding officer/Shimshai, secretary" delivery="letter">
     <verse num="13" />
     <text>Be it known now to the king that if this city is built, and the walls finished, they will not pay tribute, custom, or toll, and in the end it will be hurtful to the kings.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="Rehum, commanding officer/Shimshai, secretary" delivery="letter">
     <verse num="14" />
-    <text>Now because we eat the salt of the palace, and it is not appropriate for us to see the king's dishonor, therefore have we sent and informed the king;</text>
+    <text>Now because we eat the salt of the palace, and it is not appropriate for us to see the king’s dishonor, therefore have we sent and informed the king;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="15" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
+  <block style="p" chapter="4" initialStartVerse="15" characterId="Rehum, commanding officer/Shimshai, secretary" delivery="letter">
     <verse num="15" />
     <text>that search may be made in the book of the records of your fathers: so you shall find in the book of the records, and know that this city is a rebellious city, and hurtful to kings and provinces, and that they have moved sedition within the same of old time; for which cause was this city laid waste.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="Rehum, commanding officer/Shimshai, secretary" characterIdOverrideForScript="Rehum, commanding officer" delivery="letter">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="Rehum, commanding officer/Shimshai, secretary" delivery="letter">
     <verse num="16" />
     <text>We inform the king that, if this city be built, and the walls finished, by this means you shall have no portion beyond the River.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-EZR">
     <verse num="17" />
-    <text>[Then] sent the king an answer</text>
+    <text>Then the king sent an answer to Rehum the chancellor, and to Shimshai the scribe, and to the rest of their companions who live in Samaria, and in the rest of the country beyond the River:</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="17" characterId="Artaxerxes, king of Persia" delivery="letter">
-    <text>to Rehum the chancellor, and to Shimshai the scribe, and to the rest of their companions who dwell in Samaria, and in the rest [of the country] beyond the River: Peace, and so forth.</text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="18" characterId="Artaxerxes, king of Persia" delivery="letter">
+    <text>Peace, </text>
     <verse num="18" />
     <text>The letter which you sent to us has been plainly read before me.</text>
   </block>
@@ -453,7 +453,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="Artaxerxes, king of Persia" delivery="letter">
     <verse num="20" />
-    <text>There have been mighty kings also over Jerusalem, who have ruled over all [the country] beyond the River; and tribute, custom, and toll, was paid to them.</text>
+    <text>There have been mighty kings also over Jerusalem, who have ruled over all the country beyond the River; and tribute, custom, and toll, was paid to them.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="21" characterId="Artaxerxes, king of Persia" delivery="letter">
     <verse num="21" />
@@ -465,7 +465,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="23" characterId="narrator-EZR">
     <verse num="23" />
-    <text>Then when the copy of king Artaxerxes' letter was read before Rehum, and Shimshai the scribe, and their companions, they went in haste to Jerusalem to the Jews, and made them to cease by force and power.</text>
+    <text>Then when the copy of king Artaxerxes’ letter was read before Rehum, and Shimshai the scribe, and their companions, they went in haste to Jerusalem to the Jews, and made them to cease by force and power.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="24" characterId="narrator-EZR">
     <verse num="24" />
@@ -476,7 +476,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-EZR">
     <verse num="1" />
-    <text>Now the prophets, Haggai the prophet, and Zechariah the son of Iddo, prophesied to the Jews who were in Judah and Jerusalem; in the name of the God of Israel [prophesied they] to them.</text>
+    <text>Now the prophets, Haggai the prophet, and Zechariah the son of Iddo, prophesied to the Jews who were in Judah and Jerusalem; in the name of the God of Israel prophesied they to them.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-EZR">
     <verse num="2" />
@@ -505,49 +505,51 @@
     <verse num="7" />
     <text>they sent a letter to him, in which was written thus:</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
-    <text>To Darius the king, all peace. </text>
+  <block style="p" chapter="5" initialStartVerse="7" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
+    <text>To Darius the king, all peace.</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="8" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="8" />
     <text>Be it known to the king, that we went into the province of Judah, to the house of the great God, which is built with great stones, and timber is laid in the walls; and this work goes on with diligence and prospers in their hands.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="9" />
     <text>Then we asked those elders, and said to them thus, “Who gave you a decree to build this house, and to finish this wall?”</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="10" />
     <text>We asked them their names also, to inform you that we might write the names of the men who were at the head of them.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="11" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="11" />
     <text>Thus they returned us answer, saying,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
     <text>“We are the servants of the God of heaven and earth, and are building the house that was built these many years ago, which a great king of Israel built and finished.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="12" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="12" />
     <text>But after that our fathers had provoked the God of heaven to wrath, he gave them into the hand of Nebuchadnezzar king of Babylon, the Chaldean, who destroyed this house, and carried the people away into Babylon.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="13" />
     <text>But in the first year of Cyrus king of Babylon, Cyrus the king made a decree to build this house of God.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="14" />
     <text>The gold and silver vessels also of the house of God, which Nebuchadnezzar took out of the temple that was in Jerusalem, and brought into the temple of Babylon, those Cyrus the king took out of the temple of Babylon, and they were delivered to one whose name was Sheshbazzar, whom he had made governor;</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="15" />
-    <text>and he said to him, 'Take these vessels, go, put them in the temple that is in Jerusalem, and let the house of God be built in its place.'</text>
+    <text>and he said to him, ‹Take these vessels, go, put them in the temple that is in Jerusalem, and let the house of God be built in its place.›</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="16" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="16" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="16" />
     <text>Then the same Sheshbazzar came, and laid the foundations of the house of God which is in Jerusalem: and since that time even until now has it been in building, and yet it is not completed.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="17" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" characterIdOverrideForScript="Tattenai, governor" delivery="letter">
+  <block style="p" chapter="5" initialStartVerse="17" characterId="Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates" delivery="letter">
     <verse num="17" />
-    <text>Now therefore, if it seem good to the king, let there be search made in the king's treasure house, which is there at Babylon, whether it be so, that a decree was made of Cyrus the king to build this house of God at Jerusalem; and let the king send his pleasure to us concerning this matter.”</text>
+    <text>Now therefore, if it seem good to the king, let there be search made in the king’s treasure house, which is there at Babylon, whether it be so, that a decree was made of Cyrus the king to build this house of God at Jerusalem; and let the king send his pleasure to us concerning this matter.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="EZR" initialStartVerse="0" characterId="BC-EZR">
     <text>6</text>
@@ -566,7 +568,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="royal record">
     <verse num="4" />
-    <text>with three courses of great stones, and a course of new timber: and let the expenses be given out of the king's house.</text>
+    <text>with three courses of great stones, and a course of new timber: and let the expenses be given out of the king’s house.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="royal record">
     <verse num="5" />
@@ -582,11 +584,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="8" />
-    <text>Moreover I make a decree what you shall do to these elders of the Jews for the building of this house of God: that of the king's goods, even of the tribute beyond the River, expenses be given with all diligence to these men, that they be not hindered.</text>
+    <text>Moreover I make a decree what you shall do to these elders of the Jews for the building of this house of God: that of the king’s goods, even of the tribute beyond the River, expenses be given with all diligence to these men, that they be not hindered.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="9" />
-    <text>That which they have need of, both young bulls, and rams, and lambs, for burnt offerings to the God of heaven; [also] wheat, salt, wine, and oil, according to the word of the priests who are at Jerusalem, let it be given them day by day without fail;</text>
+    <text>That which they have need of, both young bulls, and rams, and lambs, for burnt offerings to the God of heaven; also wheat, salt, wine, and oil, according to the word of the priests who are at Jerusalem, let it be given them day by day without fail;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="10" />
@@ -598,7 +600,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="12" characterId="Darius, king of Medes and Persians" delivery="decree">
     <verse num="12" />
-    <text>and the God who has caused his name to dwell there overthrow all kings and peoples who shall put forth their hand to alter [the same], to destroy this house of God which is at Jerusalem. I Darius have made a decree; let it be done with all diligence.</text>
+    <text>and the God who has caused his name to dwell there overthrow all kings and peoples who shall put forth their hand to alter the same, to destroy this house of God which is at Jerusalem. I Darius have made a decree; let it be done with all diligence.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-EZR">
     <verse num="13" />
@@ -626,7 +628,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-EZR">
     <verse num="19" />
-    <text>The children of the captivity kept the Passover on the fourteenth [day] of the first month.</text>
+    <text>The children of the captivity kept the Passover on the fourteenth day of the first month.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="20" characterId="narrator-EZR">
     <verse num="20" />
@@ -643,13 +645,21 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="1" characterId="narrator-EZR">
     <verse num="1" />
-    <text>Now after these things, in the reign of Artaxerxes king of Persia, Ezra the son of Seraiah, the son of Azariah, the son of Hilkiah, </text>
+    <text>Now after these things, in the reign of Artaxerxes king of Persia, Ezra the son of Seraiah, the son of Azariah, the son of Hilkiah,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-EZR">
     <verse num="2" />
-    <text>the son of Shallum, the son of Zadok, the son of Ahitub, </text>
+    <text>the son of Shallum, the son of Zadok, the son of Ahitub,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-EZR">
     <verse num="3" />
-    <text>the son of Amariah, the son of Azariah, the son of Meraioth, </text>
+    <text>the son of Amariah, the son of Azariah, the son of Meraioth,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
-    <text>the son of Zerahiah, the son of Uzzi, the son of Bukki, </text>
+    <text>the son of Zerahiah, the son of Uzzi, the son of Bukki,</text>
+  </block>
+  <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
     <text>the son of Abishua, the son of Phinehas, the son of Eleazar, the son of Aaron the chief priest;</text>
   </block>
@@ -667,7 +677,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-EZR">
     <verse num="9" />
-    <text>For on the first [day] of the first month began he to go up from Babylon; and on the first [day] of the fifth month came he to Jerusalem, according to the good hand of his God on him.</text>
+    <text>For on the first day of the first month began he to go up from Babylon; and on the first day of the fifth month came he to Jerusalem, according to the good hand of his God on him.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-EZR">
     <verse num="10" />
@@ -707,7 +717,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="20" characterId="Artaxerxes, king of Persia" delivery="letter">
     <verse num="20" />
-    <text>Whatever more shall be needful for the house of your God, which you shall have occasion to bestow, bestow it out of the king's treasure house.</text>
+    <text>Whatever more shall be needful for the house of your God, which you shall have occasion to bestow, bestow it out of the king’s treasure house.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="Artaxerxes, king of Persia" delivery="letter">
     <verse num="21" />
@@ -725,229 +735,229 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="25" characterId="Artaxerxes, king of Persia" delivery="letter">
     <verse num="25" />
-    <text>You, Ezra, after the wisdom of your God who is in your hand, appoint magistrates and judges, who may judge all the people who are beyond the River, all such as know the laws of your God; and teach him who doesn't know them.</text>
+    <text>You, Ezra, after the wisdom of your God who is in your hand, appoint magistrates and judges, who may judge all the people who are beyond the River, all such as know the laws of your God; and teach him who doesn’t know them.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="26" characterId="Artaxerxes, king of Persia" delivery="letter">
     <verse num="26" />
     <text>Whoever will not do the law of your God, and the law of the king, let judgment be executed on him with all diligence, whether it be to death, or to banishment, or to confiscation of goods, or to imprisonment.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="27" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="7" initialStartVerse="27" characterId="narrator-EZR">
     <verse num="27" />
-    <text>Blessed be God, the God of our fathers, who has put such a thing as this in the king's heart, to beautify the house of God which is in Jerusalem;</text>
+    <text>Blessed be God, the God of our fathers, who has put such a thing as this in the king’s heart, to beautify the house of God which is in Jerusalem;</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="28" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="7" initialStartVerse="28" characterId="narrator-EZR">
     <verse num="28" />
-    <text>and has extended loving kindness to me before the king, and his counselors, and before all the king's mighty princes. I was strengthened according to the hand of God my God on me, and I gathered together out of Israel chief men to go up with me.</text>
+    <text>and has extended loving kindness to me before the king, and his counselors, and before all the king’s mighty princes. I was strengthened according to the hand of God my God on me, and I gathered together out of Israel chief men to go up with me.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="EZR" initialStartVerse="0" characterId="BC-EZR">
     <text>8</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="1" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-EZR">
     <verse num="1" />
-    <text>Now these are the heads of their fathers' [houses], and this is the genealogy of those who went up with me from Babylon, in the reign of Artaxerxes the king:</text>
+    <text>Now these are the heads of their fathers’ houses, and this is the genealogy of those who went up with me from Babylon, in the reign of Artaxerxes the king:</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="2" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-EZR">
     <verse num="2" />
     <text>Of the sons of Phinehas, Gershom. Of the sons of Ithamar, Daniel. Of the sons of David, Hattush.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="3" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-EZR">
     <verse num="3" />
     <text>Of the sons of Shecaniah, of the sons of Parosh, Zechariah; and with him were reckoned by genealogy of the males one hundred fifty.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="4" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
     <text>Of the sons of Pahathmoab, Eliehoenai the son of Zerahiah; and with him two hundred males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
     <text>Of the sons of Shecaniah, the son of Jahaziel; and with him three hundred males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="6" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-EZR">
     <verse num="6" />
     <text>Of the sons of Adin, Ebed the son of Jonathan; and with him fifty males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="7" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-EZR">
     <verse num="7" />
     <text>Of the sons of Elam, Jeshaiah the son of Athaliah; and with him seventy males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="8" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="8" characterId="narrator-EZR">
     <verse num="8" />
     <text>Of the sons of Shephatiah, Zebadiah the son of Michael; and with him eighty males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="9" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-EZR">
     <verse num="9" />
     <text>Of the sons of Joab, Obadiah the son of Jehiel; and with him two hundred and eighteen males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="10" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-EZR">
     <verse num="10" />
     <text>Of the sons of Shelomith, the son of Josiphiah; and with him one hundred sixty males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="11" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-EZR">
     <verse num="11" />
     <text>Of the sons of Bebai, Zechariah the son of Bebai; and with him twenty-eight males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="12" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="12" characterId="narrator-EZR">
     <verse num="12" />
     <text>Of the sons of Azgad, Johanan the son of Hakkatan; and with him one hundred ten males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="13" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-EZR">
     <verse num="13" />
-    <text>Of the sons of Adonikam, [who were] the last; and these are their names: Eliphelet, Jeuel, and Shemaiah; and with them sixty males.</text>
+    <text>Of the sons of Adonikam, who were the last; and these are their names: Eliphelet, Jeuel, and Shemaiah; and with them sixty males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="14" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-EZR">
     <verse num="14" />
     <text>Of the sons of Bigvai, Uthai and Zabbud; and with them seventy males.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="15" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="15" characterId="narrator-EZR">
     <verse num="15" />
     <text>I gathered them together to the river that runs to Ahava; and there we encamped three days: and I viewed the people, and the priests, and found there none of the sons of Levi.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="16" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="16" characterId="narrator-EZR">
     <verse num="16" />
     <text>Then sent I for Eliezer, for Ariel, for Shemaiah, and for Elnathan, and for Jarib, and for Elnathan, and for Nathan, and for Zechariah, and for Meshullam, chief men; also for Joiarib, and for Elnathan, who were teachers.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="17" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="17" characterId="narrator-EZR">
     <verse num="17" />
-    <text>I sent them forth to Iddo the chief at the place Casiphia; and I told them what they should tell Iddo, [and] his brothers the Nethinim, at the place Casiphia, that they should bring to us ministers for the house of our God.</text>
+    <text>I sent them forth to Iddo the chief at the place Casiphia; and I told them what they should tell Iddo, and his brothers the Nethinim, at the place Casiphia, that they should bring to us ministers for the house of our God.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="18" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="18" characterId="narrator-EZR">
     <verse num="18" />
     <text>According to the good hand of our God on us they brought us a man of discretion, of the sons of Mahli, the son of Levi, the son of Israel; and Sherebiah, with his sons and his brothers, eighteen;</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="19" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="19" characterId="narrator-EZR">
     <verse num="19" />
     <text>and Hashabiah, and with him Jeshaiah of the sons of Merari, his brothers and their sons, twenty;</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="20" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="20" characterId="narrator-EZR">
     <verse num="20" />
     <text>and of the Nethinim, whom David and the princes had given for the service of the Levites, two hundred and twenty Nethinim: all of them were mentioned by name.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="21" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="21" characterId="narrator-EZR">
     <verse num="21" />
     <text>Then I proclaimed a fast there, at the river Ahava, that we might humble ourselves before our God, to seek of him a straight way for us, and for our little ones, and for all our substance.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="22" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="22" characterId="narrator-EZR">
     <verse num="22" />
     <text>For I was ashamed to ask of the king a band of soldiers and horsemen to help us against the enemy in the way, because we had spoken to the king, saying,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="22" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="22" characterId="narrator-EZR">
     <text>“The hand of our God is on all those who seek him, for good; but his power and his wrath is against all those who forsake him.”</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="23" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="23" characterId="narrator-EZR">
     <verse num="23" />
     <text>So we fasted and begged our God for this: and he was entreated of us.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="24" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="24" characterId="narrator-EZR">
     <verse num="24" />
     <text>Then I set apart twelve of the chiefs of the priests, even Sherebiah, Hashabiah, and ten of their brothers with them, </text>
     <verse num="25" />
     <text>and weighed to them the silver, and the gold, and the vessels, even the offering for the house of our God, which the king, and his counselors, and his princes, and all Israel there present, had offered:</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="26" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="26" characterId="narrator-EZR">
     <verse num="26" />
     <text>I weighed into their hand six hundred fifty talents of silver, and silver vessels one hundred talents; of gold one hundred talents;</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="27" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="27" characterId="narrator-EZR">
     <verse num="27" />
     <text>and twenty bowls of gold, of one thousand darics; and two vessels of fine bright brass, precious as gold. </text>
     <verse num="28" />
     <text>I said to them,</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="28" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="28" characterId="narrator-EZR">
     <text>“You are holy to God, and the vessels are holy; and the silver and the gold are a freewill offering to God, the God of your fathers.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="29" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="29" characterId="narrator-EZR">
     <verse num="29" />
-    <text>Watch, and keep them, until you weigh them before the chiefs of the priests and the Levites, and the princes of the fathers' [houses] of Israel, at Jerusalem, in the rooms of the house of God.”</text>
+    <text>Watch, and keep them, until you weigh them before the chiefs of the priests and the Levites, and the princes of the fathers’ houses of Israel, at Jerusalem, in the rooms of the house of God.”</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="30" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="30" characterId="narrator-EZR">
     <verse num="30" />
     <text>So the priests and the Levites received the weight of the silver and the gold, and the vessels, to bring them to Jerusalem to the house of our God.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="31" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="31" characterId="narrator-EZR">
     <verse num="31" />
-    <text>Then we departed from the river Ahava on the twelfth [day] of the first month, to go to Jerusalem: and the hand of our God was on us, and he delivered us from the hand of the enemy and the bandit by the way.</text>
+    <text>Then we departed from the river Ahava on the twelfth day of the first month, to go to Jerusalem: and the hand of our God was on us, and he delivered us from the hand of the enemy and the bandit by the way.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="32" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="32" characterId="narrator-EZR">
     <verse num="32" />
     <text>We came to Jerusalem, and stayed there three days.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="33" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="33" characterId="narrator-EZR">
     <verse num="33" />
     <text>On the fourth day the silver and the gold and the vessels were weighed in the house of our God into the hand of Meremoth the son of Uriah the priest; and with him was Eleazar the son of Phinehas; and with them was Jozabad the son of Jeshua, and Noadiah the son of Binnui, the Levite;</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="34" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="34" characterId="narrator-EZR">
     <verse num="34" />
     <text>the whole by number and by weight: and all the weight was written at that time.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="35" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="35" characterId="narrator-EZR">
     <verse num="35" />
     <text>The children of the captivity, who had come out of exile, offered burnt offerings to the God of Israel, twelve bulls for all Israel, ninety-six rams, seventy-seven lambs, and twelve male goats for a sin offering: all this was a burnt offering to God.</text>
   </block>
-  <block style="p" chapter="8" initialStartVerse="36" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="8" initialStartVerse="36" characterId="narrator-EZR">
     <verse num="36" />
-    <text>They delivered the king's commissions to the king's satraps, and to the governors beyond the River: and they furthered the people and the house of God.</text>
+    <text>They delivered the king’s commissions to the king’s satraps, and to the governors beyond the River: and they furthered the people and the house of God.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="EZR" initialStartVerse="0" characterId="BC-EZR">
     <text>9</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="1" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-EZR">
     <verse num="1" />
     <text>Now when these things were done, the princes drew near to me, saying,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="leaders">
-    <text>“The people of Israel, and the priests and the Levites, have not separated themselves from the peoples of the lands, [doing] according to their abominations, even of the Canaanites, the Hittites, the Perizzites, the Jebusites, the Ammonites, the Moabites, the Egyptians, and the Amorites.</text>
+    <text>“The people of Israel, and the priests and the Levites, have not separated themselves from the peoples of the lands, doing according to their abominations, even of the Canaanites, the Hittites, the Perizzites, the Jebusites, the Ammonites, the Moabites, the Egyptians, and the Amorites.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="leaders">
     <verse num="2" />
     <text>For they have taken of their daughters for themselves and for their sons, so that the holy seed have mixed themselves with the peoples of the lands. Yes, the hand of the princes and rulers has been chief in this trespass.”</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="3" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-EZR">
     <verse num="3" />
     <text>When I heard this thing, I tore my garment and my robe, and plucked off the hair of my head and of my beard, and sat down confounded.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="4" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-EZR">
     <verse num="4" />
     <text>Then were assembled to me everyone who trembled at the words of the God of Israel, because of the trespass of them of the captivity; and I sat confounded until the evening offering.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="Ezra, priest and teacher">
+  <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-EZR">
     <verse num="5" />
     <text>At the evening offering I arose up from my humiliation, even with my garment and my robe torn; and I fell on my knees, and spread out my hands to God my God; </text>
     <verse num="6" />
     <text>and I said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="6" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <text>“My God, I am ashamed and blush to lift up my face to you, my God; for our iniquities have increased over our head, and our guiltiness has grown up to the heavens.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="7" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="7" />
     <text>Since the days of our fathers we have been exceeding guilty to this day; and for our iniquities we, our kings, and our priests, have been delivered into the hand of the kings of the lands, to the sword, to captivity, to plunder, and to confusion of face, as it is this day.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="8" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="8" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="8" />
     <text>Now for a little moment grace has been shown from God our God, to leave us a remnant to escape, and to give us a nail in his holy place, that our God may lighten our eyes, and give us a little reviving in our bondage.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="9" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="9" />
     <text>For we are bondservants; yet our God has not forsaken us in our bondage, but has extended loving kindness to us in the sight of the kings of Persia, to give us a reviving, to set up the house of our God, and to repair its ruins, and to give us a wall in Judah and in Jerusalem.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="10" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="10" />
     <text>Now, our God, what shall we say after this? For we have forsaken your commandments, </text>
     <verse num="11" />
-    <text>which you have commanded by your servants the prophets, saying, 'The land, to which you go to possess it, is an unclean land through the uncleanness of the peoples of the lands, through their abominations, which have filled it from one end to another with their filthiness.</text>
+    <text>which you have commanded by your servants the prophets, saying, ‹The land, to which you go to possess it, is an unclean land through the uncleanness of the peoples of the lands, through their abominations, which have filled it from one end to another with their filthiness.</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="12" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="12" />
-    <text>Now therefore don't give your daughters to their sons, neither take their daughters to your sons, nor seek their peace or their prosperity forever; that you may be strong, and eat the good of the land, and leave it for an inheritance to your children forever.'</text>
+    <text>Now therefore don’t give your daughters to their sons, neither take their daughters to your sons, nor seek their peace or their prosperity forever; that you may be strong, and eat the good of the land, and leave it for an inheritance to your children forever.›</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="13" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="13" />
     <text>After all that has come on us for our evil deeds, and for our great guilt, since you, our God, have punished us less than our iniquities deserve, and have given us such a remnant, </text>
     <verse num="14" />
-    <text>shall we again break your commandments, and join in affinity with the peoples that do these abominations? Wouldn't you be angry with us until you had consumed us, so that there should be no remnant, nor any to escape?</text>
+    <text>shall we again break your commandments, and join in affinity with the peoples that do these abominations? Wouldn’t you be angry with us until you had consumed us, so that there should be no remnant, nor any to escape?</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="15" characterId="Ezra, priest and teacher" delivery="prayer (ashamed and disgraced)">
+  <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-EZR" delivery="prayer (ashamed and disgraced)">
     <verse num="15" />
     <text>God, the God of Israel, you are righteous; for we are left a remnant that has escaped, as it is this day. Behold, we are before you in our guiltiness; for none can stand before you because of this.”</text>
   </block>
@@ -979,7 +989,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="6" characterId="narrator-EZR">
     <verse num="6" />
-    <text>Then Ezra rose up from before the house of God, and went into the room of Jehohanan the son of Eliashib: and [when] he came there, he ate no bread, nor drank water; for he mourned because of the trespass of them of the captivity.</text>
+    <text>Then Ezra rose up from before the house of God, and went into the room of Jehohanan the son of Eliashib: and when he came there, he ate no bread, nor drank water; for he mourned because of the trespass of them of the captivity.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="narrator-EZR">
     <verse num="7" />
@@ -987,11 +997,11 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="narrator-EZR">
     <verse num="8" />
-    <text>and that whoever didn't come within three days, according to the counsel of the princes and the elders, all his substance should be forfeited, and himself separated from the assembly of the captivity.</text>
+    <text>and that whoever didn’t come within three days, according to the counsel of the princes and the elders, all his substance should be forfeited, and himself separated from the assembly of the captivity.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="9" characterId="narrator-EZR">
     <verse num="9" />
-    <text>Then all the men of Judah and Benjamin gathered themselves together to Jerusalem within the three days; it was the ninth month, on the twentieth [day] of the month: and all the people sat in the broad place before the house of God, trembling because of this matter, and for the great rain.</text>
+    <text>Then all the men of Judah and Benjamin gathered themselves together to Jerusalem within the three days; it was the ninth month, on the twentieth day of the month: and all the people sat in the broad place before the house of God, trembling because of this matter, and for the great rain.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="10" characterId="narrator-EZR">
     <verse num="10" />
@@ -1025,7 +1035,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="16" characterId="narrator-EZR">
     <verse num="16" />
-    <text>The children of the captivity did so. Ezra the priest, [with] certain heads of fathers' [houses], after their fathers' houses, and all of them by their names, were set apart; and they sat down in the first day of the tenth month to examine the matter.</text>
+    <text>The children of the captivity did so. Ezra the priest, with certain heads of fathers’ houses, after their fathers’ houses, and all of them by their names, were set apart; and they sat down in the first day of the tenth month to examine the matter.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="17" characterId="narrator-EZR">
     <verse num="17" />
@@ -1033,11 +1043,11 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="18" characterId="narrator-EZR">
     <verse num="18" />
-    <text>Among the sons of the priests there were found who had married foreign women: [namely], of the sons of Jeshua, the son of Jozadak, and his brothers, Maaseiah, and Eliezer, and Jarib, and Gedaliah.</text>
+    <text>Among the sons of the priests there were found who had married foreign women: namely, of the sons of Jeshua, the son of Jozadak, and his brothers, Maaseiah, and Eliezer, and Jarib, and Gedaliah.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="19" characterId="narrator-EZR">
     <verse num="19" />
-    <text>They gave their hand that they would put away their wives; and being guilty, [they offered] a ram of the flock for their guilt.</text>
+    <text>They gave their hand that they would put away their wives; and being guilty, they offered a ram of the flock for their guilt.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="20" characterId="narrator-EZR">
     <verse num="20" />
@@ -1085,7 +1095,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="31" characterId="narrator-EZR">
     <verse num="31" />
-    <text>[of] the sons of Harim: Eliezer, Isshijah, Malchijah, Shemaiah, Shimeon, </text>
+    <text>of the sons of Harim: Eliezer, Isshijah, Malchijah, Shemaiah, Shimeon, </text>
     <verse num="32" />
     <text>Benjamin, Malluch, Shemariah.</text>
   </block>

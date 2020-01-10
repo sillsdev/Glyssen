@@ -552,9 +552,13 @@ GEN	34	14	Simeon/Levi		Jacob's sons	Normal
 GEN	34	15	Simeon/Levi		Jacob's sons	Normal		
 GEN	34	16	Simeon/Levi		Jacob's sons	Normal		
 GEN	34	17	Simeon/Levi		Jacob's sons	Normal		
-GEN	34	21	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Hamor, Hivite ruler	
-GEN	34	22	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Hamor, Hivite ruler	
-GEN	34	23	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Shechem, son of Hamor	
+GEN	34	21	Hamor, Hivite ruler/Shechem, son of Hamor			Normal		
+GEN	34	22	Hamor, Hivite ruler/Shechem, son of Hamor			Normal		
+# We used to default this verse to Shechem, son of Hamor mainly for dramatic reasons but also because it
+# seemed somewhat likely for it to be spoken by an impetuous young man. But since it will alsmot always
+# be part of the same quotation in the preceding verses and since FCBH does not do it this way in their DG,
+# I'm removing the explicit default character specifications.
+GEN	34	23	Hamor, Hivite ruler/Shechem, son of Hamor			Normal		
 GEN	34	30	Jacob (Israel)			Normal		
 GEN	34	31	Simeon/Levi			Normal	Simeon	
 GEN	35	1	God		God (the LORD)	Normal		
@@ -693,8 +697,11 @@ GEN	42	21	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jose
 GEN	42	22	Reuben			Normal		
 GEN	42	24	Joseph			Indirect		
 GEN	42	25	Joseph			Indirect		
-GEN	42	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	surprised	brother who discovered his silver in his sack	Normal	Dan	
-GEN	42	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Jospeh's brothers (not Simeon or Benjamin)	Normal	Levi	
+#Even though the two lists of brothers contain the same people, I have changed the order to force Glyssen to see them as distinct.
+#Otherwise only one of them appears in the UI. It is okay to use the same speaker for both lines (as it is in the FCBH Director's Guide),
+#but having two distinct entries like allows for better dramatic effect (if Nitro/Vessel support it).
+GEN	42	28	Dan/Reuben/Levi/Judah/Issachar/Zebulun/Naphtali/Gad/Asher	surprised	brother who discovered his silver in his sack	Normal	Dan	
+GEN	42	28	Levi/Reuben/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Jospeh's brothers (not Simeon or Benjamin)	Normal	Levi	
 GEN	42	30	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	31	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	32	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
@@ -8417,7 +8424,7 @@ PSA	42	3	sons of Korah's enemies			Normal
 PSA	42	3	sons of Korah			Quotation		
 PSA	42	3	narrator-PSA			Quotation		
 PSA	42	9	sons of Korah	praying		Normal		
-PSA	42	9	narrator-PSA	praying		Quotation		
+PSA	42	9	narrator-PSA			Quotation		
 PSA	42	10	David's enemies			Normal		
 PSA	45	0	narrator-PSA			Quotation		
 PSA	46	10	God		God (the LORD)	Normal		
@@ -8686,7 +8693,7 @@ PRO	25	7	king			Hypothetical
 PRO	26	13	sluggard			Hypothetical		
 PRO	30	1	Agur			Potential		
 # Because of the difficult textual/translation issue in v. 1, if there are not explicit
-# quotes, it should be reviewed. The English refernce text takes the traditional interpretation,
+# quotes, it should be reviewed. The English reference text takes the traditional interpretation,
 # but even in that interpretation, the portion following the colon could be spoken by Agur
 PRO	30	1	Needs Review			Implicit		
 PRO	30	2-33	Agur			Potential		
@@ -10944,6 +10951,7 @@ JER	20	9	narrator-JER			Quotation
 JER	20	10	Jeremiah			Potential		
 JER	20	10	Jeremiah's enemies			Hypothetical		
 JER	20	10	Jeremiah's friends (bad)			Hypothetical		
+JER	20	10	Needs Review			Implicit		
 JER	20	11	Jeremiah			Potential		
 JER	20	12	Jeremiah			Potential		
 JER	20	13	Jeremiah			Potential		
@@ -12603,8 +12611,11 @@ EZK	17	10	God		God (the LORD)	Implicit
 EZK	17	12	God		God (the LORD)	Normal		
 EZK	17	12	Ezekiel		Ezekiel (the LORD says)	Normal		
 EZK	17	13	God		God (the LORD)	Implicit		
+EZK	17	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	17	14	God		God (the LORD)	Implicit		
+EZK	17	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	17	15	God		God (the LORD)	Implicit		
+EZK	17	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	17	16	God		God (the LORD)	Normal		
 EZK	17	16	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	17	17	God		God (the LORD)	Implicit		

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="EST" singlevoice="false" pageheader="Esther">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EST">
+  <block style="mt" chapter="0" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>Esther</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="EST" initialStartVerse="0" characterId="BC-EST">
@@ -24,7 +24,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
-    <text>When these days were fulfilled, the king made a seven day feast for all the people who were present in Shushan the palace, both great and small, in the court of the garden of the king's palace.</text>
+    <text>When these days were fulfilled, the king made a seven day feast for all the people who were present in Shushan the palace, both great and small, in the court of the garden of the king’s palace.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
@@ -36,7 +36,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-EST">
     <verse num="8" />
-    <text>In accordance with the law, the drinking was not compulsory; for so the king had instructed all the officials of his house, that they should do according to every man's pleasure.</text>
+    <text>In accordance with the law, the drinking was not compulsory; for so the king had instructed all the officials of his house, that they should do according to every man’s pleasure.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
@@ -50,15 +50,15 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
-    <text>But the queen Vashti refused to come at the king's commandment by the eunuchs. Therefore the king was very angry, and his anger burned in him.</text>
+    <text>But the queen Vashti refused to come at the king’s commandment by the eunuchs. Therefore the king was very angry, and his anger burned in him.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-EST">
     <verse num="13" />
-    <text>Then the king said to the wise men, who knew the times, (for it was the king's custom to consult those who knew law and judgment;</text>
+    <text>Then the king said to the wise men, who knew the times, (for it was the king’s custom to consult those who knew law and judgment;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
-    <text>and the next to him were Carshena, Shethar, Admatha, Tarshish, Meres, Marsena, and Memucan, the seven princes of Persia and Media, who saw the king's face, and sat first in the kingdom), </text>
+    <text>and the next to him were Carshena, Shethar, Admatha, Tarshish, Meres, Marsena, and Memucan, the seven princes of Persia and Media, who saw the king’s face, and sat first in the kingdom), </text>
     <verse num="15" />
     <text>What shall we do to the queen Vashti according to law, because she has not done the bidding of the King Ahasuerus by the eunuchs?</text>
   </block>
@@ -71,11 +71,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="Memucan, noble advisor to Xerxes, king">
     <verse num="17" />
-    <text>For this deed of the queen will become known to all women, causing them to show contempt for their husbands, when it is reported, 'King Ahasuerus commanded Vashti the queen to be brought in before him, but she didn't come.'</text>
+    <text>For this deed of the queen will become known to all women, causing them to show contempt for their husbands, when it is reported, ‹King Ahasuerus commanded Vashti the queen to be brought in before him, but she didn’t come.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="Memucan, noble advisor to Xerxes, king">
     <verse num="18" />
-    <text>Today, the princesses of Persia and Media who have heard of the queen's deed will tell all the king's princes. This will cause much contempt and wrath.</text>
+    <text>Today, the princesses of Persia and Media who have heard of the queen’s deed will tell all the king’s princes. This will cause much contempt and wrath.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="Memucan, noble advisor to Xerxes, king">
     <verse num="19" />
@@ -83,7 +83,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="Memucan, noble advisor to Xerxes, king">
     <verse num="20" />
-    <text>When the king's decree which he shall make is published throughout all his kingdom (for it is great), all the wives will give their husbands honor, both great and small.</text>
+    <text>When the king’s decree which he shall make is published throughout all his kingdom (for it is great), all the wives will give their husbands honor, both great and small.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="narrator-EST">
     <verse num="21" />
@@ -91,7 +91,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="narrator-EST">
     <verse num="22" />
-    <text>for he sent letters into all the king's provinces, into every province according to its writing, and to every people in their language, that every man should rule his own house, speaking in the language of his own people.</text>
+    <text>for he sent letters into all the king’s provinces, into every province according to its writing, and to every people in their language, that every man should rule his own house, speaking in the language of his own people.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>2</text>
@@ -102,14 +102,14 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
-    <text>Then the king's servants who served him said,</text>
+    <text>Then the king’s servants who served him said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="attendants to Xerxes, king">
     <text>“Let beautiful young virgins be sought for the king.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="attendants to Xerxes, king">
     <verse num="3" />
-    <text>Let the king appoint officers in all the provinces of his kingdom, that they may gather together all the beautiful young virgins to the citadel of Susa, to the women's house, to the custody of Hegai the king's eunuch, keeper of the women. Let cosmetics be given them;</text>
+    <text>Let the king appoint officers in all the provinces of his kingdom, that they may gather together all the beautiful young virgins to the citadel of Susa, to the women’s house, to the custody of Hegai the king’s eunuch, keeper of the women. Let cosmetics be given them;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="attendants to Xerxes, king">
     <verse num="4" />
@@ -128,15 +128,15 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
-    <text>He brought up Hadassah, that is, Esther, his uncle's daughter; for she had neither father nor mother. The maiden was fair and beautiful; and when her father and mother were dead, Mordecai took her for his own daughter.</text>
+    <text>He brought up Hadassah, that is, Esther, his uncle’s daughter; for she had neither father nor mother. The maiden was fair and beautiful; and when her father and mother were dead, Mordecai took her for his own daughter.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-EST">
     <verse num="8" />
-    <text>So it happened, when the king's commandment and his decree was heard, and when many maidens were gathered together to the citadel of Susa, to the custody of Hegai, that Esther was taken into the king's house, to the custody of Hegai, keeper of the women.</text>
+    <text>So it happened, when the king’s commandment and his decree was heard, and when many maidens were gathered together to the citadel of Susa, to the custody of Hegai, that Esther was taken into the king’s house, to the custody of Hegai, keeper of the women.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
-    <text>The maiden pleased him, and she obtained kindness from him. He quickly gave her cosmetics and her portions of food, and the seven choice maidens who were to be given her out of the king's house. He moved her and her maidens to the best place in the women's house.</text>
+    <text>The maiden pleased him, and she obtained kindness from him. He quickly gave her cosmetics and her portions of food, and the seven choice maidens who were to be given her out of the king’s house. He moved her and her maidens to the best place in the women’s house.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
@@ -144,23 +144,23 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-EST">
     <verse num="11" />
-    <text>Mordecai walked every day in front of the court of the women's house, to find out how Esther did, and what would become of her.</text>
+    <text>Mordecai walked every day in front of the court of the women’s house, to find out how Esther did, and what would become of her.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
-    <text>Each young woman's turn came to go in to King Ahasuerus after her purification for twelve months (for so were the days of their purification accomplished, six months with oil of myrrh, and six months with sweet fragrances and with preparations for beautifying women).</text>
+    <text>Each young woman’s turn came to go in to King Ahasuerus after her purification for twelve months (for so were the days of their purification accomplished, six months with oil of myrrh, and six months with sweet fragrances and with preparations for beautifying women).</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-EST">
     <verse num="13" />
-    <text>The young woman then came to the king like this: whatever she desired was given her to go with her out of the women's house to the king's house.</text>
+    <text>The young woman then came to the king like this: whatever she desired was given her to go with her out of the women’s house to the king’s house.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
-    <text>In the evening she went, and on the next day she returned into the second women's house, to the custody of Shaashgaz, the king's eunuch, who kept the concubines. She came in to the king no more, unless the king delighted in her, and she was called by name.</text>
+    <text>In the evening she went, and on the next day she returned into the second women’s house, to the custody of Shaashgaz, the king’s eunuch, who kept the concubines. She came in to the king no more, unless the king delighted in her, and she was called by name.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
-    <text>Now when the turn of Esther, the daughter of Abihail the uncle of Mordecai, who had taken her for his daughter, came to go in to the king, she required nothing but what Hegai the king's eunuch, the keeper of the women, advised. Esther obtained favor in the sight of all those who looked at her.</text>
+    <text>Now when the turn of Esther, the daughter of Abihail the uncle of Mordecai, who had taken her for his daughter, came to go in to the king, she required nothing but what Hegai the king’s eunuch, the keeper of the women, advised. Esther obtained favor in the sight of all those who looked at her.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-EST">
     <verse num="16" />
@@ -172,11 +172,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-EST">
     <verse num="18" />
-    <text>Then the king made a great feast for all his princes and his servants, even Esther's feast; and he proclaimed a holiday in the provinces, and gave gifts according to the king's bounty.</text>
+    <text>Then the king made a great feast for all his princes and his servants, even Esther’s feast; and he proclaimed a holiday in the provinces, and gave gifts according to the king’s bounty.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-EST">
     <verse num="19" />
-    <text>When the virgins were gathered together the second time, Mordecai was sitting in the king's gate.</text>
+    <text>When the virgins were gathered together the second time, Mordecai was sitting in the king’s gate.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-EST">
     <verse num="20" />
@@ -184,15 +184,15 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-EST">
     <verse num="21" />
-    <text>In those days, while Mordecai was sitting in the king's gate, two of the king's eunuchs, Bigthan and Teresh, who were doorkeepers, were angry, and sought to lay hands on the King Ahasuerus.</text>
+    <text>In those days, while Mordecai was sitting in the king’s gate, two of the king’s eunuchs, Bigthan and Teresh, who were doorkeepers, were angry, and sought to lay hands on the King Ahasuerus.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-EST">
     <verse num="22" />
-    <text>This thing became known to Mordecai, who informed Esther the queen; and Esther informed the king in Mordecai's name.</text>
+    <text>This thing became known to Mordecai, who informed Esther the queen; and Esther informed the king in Mordecai’s name.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-EST">
     <verse num="23" />
-    <text>When this matter was investigated, and it was found to be so, they were both hanged on a tree; and it was written in the book of the chronicles in the king's presence.</text>
+    <text>When this matter was investigated, and it was found to be so, they were both hanged on a tree; and it was written in the book of the chronicles in the king’s presence.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>3</text>
@@ -203,26 +203,26 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
-    <text>All the king's servants who were in the king's gate bowed down, and paid homage to Haman; for the king had so commanded concerning him. But Mordecai didn't bow down or pay him homage.</text>
+    <text>All the king’s servants who were in the king’s gate bowed down, and paid homage to Haman; for the king had so commanded concerning him. But Mordecai didn’t bow down or pay him homage.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-EST">
     <verse num="3" />
-    <text>Then the king's servants, who were in the king's gate, said to Mordecai,</text>
+    <text>Then the king’s servants, who were in the king’s gate, said to Mordecai,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="officials, royal, to Xerxes, king">
     <text>“Why do you disobey the king's commandment?”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-EST">
     <verse num="4" />
-    <text>Now it came to pass, when they spoke daily to him, and he didn't listen to them, that they told Haman, to see whether Mordecai's reason would stand; for he had told them that he was a Jew.</text>
+    <text>Now it came to pass, when they spoke daily to him, and he didn’t listen to them, that they told Haman, to see whether Mordecai’s reason would stand; for he had told them that he was a Jew.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
-    <text>When Haman saw that Mordecai didn't bow down, nor pay him homage, Haman was full of wrath.</text>
+    <text>When Haman saw that Mordecai didn’t bow down, nor pay him homage, Haman was full of wrath.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
-    <text>But he scorned the thought of laying hands on Mordecai alone, for they had made known to him Mordecai's people. Therefore Haman sought to destroy all the Jews who were throughout the whole kingdom of Ahasuerus, even Mordecai's people.</text>
+    <text>But he scorned the thought of laying hands on Mordecai alone, for they had made known to him Mordecai’s people. Therefore Haman sought to destroy all the Jews who were throughout the whole kingdom of Ahasuerus, even Mordecai’s people.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
@@ -237,11 +237,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Haman, highest noble to Xerxes, king">
     <verse num="9" />
-    <text>If it pleases the king, let it be written that they be destroyed; and I will pay ten thousand talents of silver into the hands of those who are in charge of the king's business, to bring it into the king's treasuries.”</text>
+    <text>If it pleases the king, let it be written that they be destroyed; and I will pay ten thousand talents of silver into the hands of those who are in charge of the king’s business, to bring it into the king’s treasuries.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
-    <text>The king took his ring from his hand, and gave it to Haman the son of Hammedatha the Agagite, the Jews' enemy. </text>
+    <text>The king took his ring from his hand, and gave it to Haman the son of Hammedatha the Agagite, the Jews› enemy. </text>
     <verse num="11" />
     <text>The king said to Haman,</text>
   </block>
@@ -250,11 +250,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
-    <text>Then the king's scribes were called in on the first month, on the thirteenth day of the month; and all that Haman commanded was written to the king's satraps, and to the governors who were over every province, and to the princes of every people, to every province according its writing, and to every people in their language. It was written in the name of King Ahasuerus, and it was sealed with the king's ring.</text>
+    <text>Then the king’s scribes were called in on the first month, on the thirteenth day of the month; and all that Haman commanded was written to the king’s satraps, and to the governors who were over every province, and to the princes of every people, to every province according its writing, and to every people in their language. It was written in the name of King Ahasuerus, and it was sealed with the king’s ring.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-EST">
     <verse num="13" />
-    <text>Letters were sent by couriers into all the king's provinces, to destroy, to kill, and to cause to perish, all Jews, both young and old, little children and women, in one day, even on the thirteenth day of the twelfth month, which is the month Adar, and to plunder their possessions.</text>
+    <text>Letters were sent by couriers into all the king’s provinces, to destroy, to kill, and to cause to perish, all Jews, both young and old, little children and women, in one day, even on the thirteenth day of the twelfth month, which is the month Adar, and to plunder their possessions.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
@@ -262,7 +262,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
-    <text>The couriers went forth in haste by the king's commandment, and the decree was given out in the citadel of Susa. The king and Haman sat down to drink; but the city of Shushan was perplexed.</text>
+    <text>The couriers went forth in haste by the king’s commandment, and the decree was given out in the citadel of Susa. The king and Haman sat down to drink; but the city of Shushan was perplexed.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>4</text>
@@ -273,27 +273,27 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
-    <text>He came even before the king's gate, for no one is allowed inside the king's gate clothed with sackcloth.</text>
+    <text>He came even before the king’s gate, for no one is allowed inside the king’s gate clothed with sackcloth.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-EST">
     <verse num="3" />
-    <text>In every province, wherever the king's commandment and his decree came, there was great mourning among the Jews, and fasting, and weeping, and wailing; and many lay in sackcloth and ashes.</text>
+    <text>In every province, wherever the king’s commandment and his decree came, there was great mourning among the Jews, and fasting, and weeping, and wailing; and many lay in sackcloth and ashes.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-EST">
     <verse num="4" />
-    <text>Esther's maidens and her eunuchs came and told her this, and the queen was exceedingly grieved. She sent clothing to Mordecai, to replace his sackcloth; but he didn't receive it.</text>
+    <text>Esther’s maidens and her eunuchs came and told her this, and the queen was exceedingly grieved. She sent clothing to Mordecai, to replace his sackcloth; but he didn’t receive it.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
-    <text>Then Esther called for Hathach, one of the king's eunuchs, whom he had appointed to attend her, and commanded him to go to Mordecai, to find out what this was, and why it was.</text>
+    <text>Then Esther called for Hathach, one of the king’s eunuchs, whom he had appointed to attend her, and commanded him to go to Mordecai, to find out what this was, and why it was.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-EST">
     <verse num="6" />
-    <text>So Hathach went out to Mordecai, to city square which was before the king's gate.</text>
+    <text>So Hathach went out to Mordecai, to city square which was before the king’s gate.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-EST">
     <verse num="7" />
-    <text>Mordecai told him of all that had happened to him, and the exact sum of the money that Haman had promised to pay to the king's treasuries for the destruction of the Jews.</text>
+    <text>Mordecai told him of all that had happened to him, and the exact sum of the money that Haman had promised to pay to the king’s treasuries for the destruction of the Jews.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-EST">
     <verse num="8" />
@@ -309,11 +309,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="Esther, queen">
     <verse num="11" />
-    <text>All the king's servants, and the people of the king's provinces, know, that whoever, whether man or woman, comes to the king into the inner court without being called, there is one law for him, that he be put to death, except those to whom the king might hold out the golden scepter, that he may live. I have not been called to come in to the king these thirty days.</text>
+    <text>All the king’s servants, and the people of the king’s provinces, know, that whoever, whether man or woman, comes to the king into the inner court without being called, there is one law for him, that he be put to death, except those to whom the king might hold out the golden scepter, that he may live. I have not been called to come in to the king these thirty days.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
-    <text>They told to Mordecai Esther's words. </text>
+    <text>They told to Mordecai Esther’s words. </text>
     <verse num="13" />
     <text>Then Mordecai asked them return answer to Esther,</text>
   </block>
@@ -322,7 +322,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="Mordecai, cousin of Esther">
     <verse num="14" />
-    <text>For if you remain silent now, then relief and deliverance will come to the Jews from another place, but you and your father's house will perish. Who knows if you haven't come to the kingdom for such a time as this?”</text>
+    <text>For if you remain silent now, then relief and deliverance will come to the Jews from another place, but you and your father’s house will perish. Who knows if you haven’t come to the kingdom for such a time as this?”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
@@ -341,7 +341,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>Now it happened on the third day that Esther put on her royal clothing, and stood in the inner court of the king's house, next to the king's house. The king sat on his royal throne in the royal house, next to the entrance of the house.</text>
+    <text>Now it happened on the third day that Esther put on her royal clothing, and stood in the inner court of the king’s house, next to the king’s house. The king sat on his royal throne in the royal house, next to the entrance of the house.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
@@ -387,7 +387,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
-    <text>Then Haman went out that day joyful and glad of heart, but when Haman saw Mordecai in the king's gate, that he didn't stand up nor move for him, he was filled with wrath against Mordecai.</text>
+    <text>Then Haman went out that day joyful and glad of heart, but when Haman saw Mordecai in the king’s gate, that he didn’t stand up nor move for him, he was filled with wrath against Mordecai.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
@@ -404,7 +404,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="Haman, highest noble to Xerxes, king">
     <verse num="13" />
-    <text>Yet all this avails me nothing, so long as I see Mordecai the Jew sitting at the king's gate.”</text>
+    <text>Yet all this avails me nothing, so long as I see Mordecai the Jew sitting at the king’s gate.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
@@ -421,11 +421,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>On that night, the king couldn't sleep. He commanded the book of records of the chronicles to be brought, and they were read to the king.</text>
+    <text>On that night, the king couldn’t sleep. He commanded the book of records of the chronicles to be brought, and they were read to the king.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
-    <text>It was found written that Mordecai had told of Bigthana and Teresh, two of the king's eunuchs, who were doorkeepers, who had tried to lay hands on the King Ahasuerus. </text>
+    <text>It was found written that Mordecai had told of Bigthana and Teresh, two of the king’s eunuchs, who were doorkeepers, who had tried to lay hands on the King Ahasuerus. </text>
     <verse num="3" />
     <text>The king said,</text>
   </block>
@@ -446,9 +446,9 @@
     <text>“Who is in the court?”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-EST">
-    <text>Now Haman had come into the outer court of the king's house, to speak to the king about hanging Mordecai on the gallows that he had prepared for him. </text>
+    <text>Now Haman had come into the outer court of the king’s house, to speak to the king about hanging Mordecai on the gallows that he had prepared for him. </text>
     <verse num="5" />
-    <text>The king's servants said to him,</text>
+    <text>The king’s servants said to him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="attendants to Xerxes, king">
     <text>“Behold, Haman stands in the court.”</text>
@@ -485,7 +485,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="Haman, highest noble to Xerxes, king">
     <verse num="9" />
-    <text>Let the clothing and the horse be delivered to the hand of one of the king's most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, 'Thus shall it be done to the man whom the king delights to honor!'”</text>
+    <text>Let the clothing and the horse be delivered to the hand of one of the king’s most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, ‹Thus shall it be done to the man whom the king delights to honor!› ”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
@@ -503,7 +503,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-EST">
     <verse num="12" />
-    <text>Mordecai came back to the king's gate, but Haman hurried to his house, mourning and having his head covered.</text>
+    <text>Mordecai came back to the king’s gate, but Haman hurried to his house, mourning and having his head covered.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-EST">
     <verse num="13" />
@@ -514,7 +514,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
-    <text>While they were yet talking with him, the king's eunuchs came, and hurried to bring Haman to the banquet that Esther had prepared.</text>
+    <text>While they were yet talking with him, the king’s eunuchs came, and hurried to bring Haman to the banquet that Esther had prepared.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>7</text>
@@ -537,7 +537,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="Esther, queen">
     <verse num="4" />
-    <text>For we are sold, I and my people, to be destroyed, to be slain, and to perish. But if we had been sold for bondservants and bondmaids, I would have held my peace, although the adversary could not have compensated for the king's loss.”</text>
+    <text>For we are sold, I and my people, to be destroyed, to be slain, and to perish. But if we had been sold for bondservants and bondmaids, I would have held my peace, although the adversary could not have compensated for the king’s loss.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
@@ -568,7 +568,7 @@
     <text>“Will he even assault the queen in front of me in the house?”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-EST">
-    <text>As the word went out of the king's mouth, they covered Haman's face. </text>
+    <text>As the word went out of the king’s mouth, they covered Haman’s face. </text>
     <verse num="9" />
     <text>Then Harbonah, one of the eunuchs who were with the king said,</text>
   </block>
@@ -583,14 +583,14 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
-    <text>So they hanged Haman on the gallows that he had prepared for Mordecai. Then was the king's wrath pacified.</text>
+    <text>So they hanged Haman on the gallows that he had prepared for Mordecai. Then was the king’s wrath pacified.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>8</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>On that day, King Ahasuerus gave the house of Haman, the Jews' enemy, to Esther the queen. Mordecai came before the king; for Esther had told what he was to her.</text>
+    <text>On that day, King Ahasuerus gave the house of Haman, the Jews› enemy, to Esther the queen. Mordecai came before the king; for Esther had told what he was to her.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
@@ -622,15 +622,15 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="8" characterId="Xerxes, king of Persia and Media (Ahasuerus)">
     <verse num="8" />
-    <text>Write also to the Jews, as it pleases you, in the king's name, and seal it with the king's ring; for the writing which is written in the king's name, and sealed with the king's ring, may not be reversed by any man.”</text>
+    <text>Write also to the Jews, as it pleases you, in the king’s name, and seal it with the king’s ring; for the writing which is written in the king’s name, and sealed with the king’s ring, may not be reversed by any man.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-EST">
     <verse num="9" />
-    <text>Then the king's scribes were called at that time, in the third month Sivan, on the twenty-third day of the month; and it was written according to all that Mordecai commanded to the Jews, and to the satraps, and the governors and princes of the provinces which are from India to Ethiopia, one hundred twenty-seven provinces, to every province according to its writing, and to every people in their language, and to the Jews in their writing, and in their language.</text>
+    <text>Then the king’s scribes were called at that time, in the third month Sivan, on the twenty-third day of the month; and it was written according to all that Mordecai commanded to the Jews, and to the satraps, and the governors and princes of the provinces which are from India to Ethiopia, one hundred twenty-seven provinces, to every province according to its writing, and to every people in their language, and to the Jews in their writing, and in their language.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-EST">
     <verse num="10" />
-    <text>He wrote in the name of King Ahasuerus, and sealed it with the king's ring, and sent letters by courier on horseback, riding on royal horses that were bread from swift steeds.</text>
+    <text>He wrote in the name of King Ahasuerus, and sealed it with the king’s ring, and sent letters by courier on horseback, riding on royal horses that were bread from swift steeds.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-EST">
     <verse num="11" />
@@ -644,7 +644,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
-    <text>So the couriers who rode on royal horses went out, hastened and pressed on by the king's commandment. The decree was given out in the citadel of Susa.</text>
+    <text>So the couriers who rode on royal horses went out, hastened and pressed on by the king’s commandment. The decree was given out in the citadel of Susa.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
@@ -656,14 +656,14 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="narrator-EST">
     <verse num="17" />
-    <text>In every province, and in every city, wherever the king's commandment and his decree came, the Jews had gladness, joy, a feast, and a good day. Many from among the peoples of the land became Jews; for the fear of the Jews was fallen on them.</text>
+    <text>In every province, and in every city, wherever the king’s commandment and his decree came, the Jews had gladness, joy, a feast, and a good day. Many from among the peoples of the land became Jews; for the fear of the Jews was fallen on them.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="EST" initialStartVerse="0" characterId="BC-EST">
     <text>9</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-EST">
     <verse num="1" />
-    <text>Now in the twelfth month, which is the month Adar, on the thirteenth day of the month, when the king's commandment and his decree drew near to be put in execution, on the day that the enemies of the Jews hoped to conquer them, (but it was turned out the opposite happened, that the Jews conquered those who hated them),</text>
+    <text>Now in the twelfth month, which is the month Adar, on the thirteenth day of the month, when the king’s commandment and his decree drew near to be put in execution, on the day that the enemies of the Jews hoped to conquer them, (but it was turned out the opposite happened, that the Jews conquered those who hated them),</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
@@ -671,11 +671,11 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-EST">
     <verse num="3" />
-    <text>All the princes of the provinces, the satraps, the governors, and those who did the king's business helped the Jews, because the fear of Mordecai had fallen on them.</text>
+    <text>All the princes of the provinces, the satraps, the governors, and those who did the king’s business helped the Jews, because the fear of Mordecai had fallen on them.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-EST">
     <verse num="4" />
-    <text>For Mordecai was great in the king's house, and his fame went out throughout all the provinces; for the man Mordecai grew greater and greater.</text>
+    <text>For Mordecai was great in the king’s house, and his fame went out throughout all the provinces; for the man Mordecai grew greater and greater.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-EST">
     <verse num="5" />
@@ -697,7 +697,7 @@
     <verse num="9" />
     <text>Parmashta, Arisai, Aridai, and Vaizatha, </text>
     <verse num="10" />
-    <text>the ten sons of Haman the son of Hammedatha, the Jew's enemy, but they didn't lay their hand on the plunder.</text>
+    <text>the ten sons of Haman the son of Hammedatha, the Jew’s enemy, but they didn’t lay their hand on the plunder.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-EST">
     <verse num="11" />
@@ -719,15 +719,15 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-EST">
     <verse num="14" />
-    <text>The king commanded this to be done. A decree was given out in Shushan; and they hanged Haman's ten sons.</text>
+    <text>The king commanded this to be done. A decree was given out in Shushan; and they hanged Haman’s ten sons.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-EST">
     <verse num="15" />
-    <text>The Jews who were in Shushan gathered themselves together on the fourteenth day also of the month Adar, and killed three hundred men in Shushan; but they didn't lay their hand on the spoil.</text>
+    <text>The Jews who were in Shushan gathered themselves together on the fourteenth day also of the month Adar, and killed three hundred men in Shushan; but they didn’t lay their hand on the spoil.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="16" characterId="narrator-EST">
     <verse num="16" />
-    <text>The other Jews who were in the king's provinces gathered themselves together, defended their lives, had rest from their enemies, and killed seventy-five thousand of those who hated them; but they didn't lay their hand on the plunder.</text>
+    <text>The other Jews who were in the king’s provinces gathered themselves together, defended their lives, had rest from their enemies, and killed seventy-five thousand of those who hated them; but they didn’t lay their hand on the plunder.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="17" characterId="narrator-EST">
     <verse num="17" />
@@ -794,7 +794,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="2" characterId="narrator-EST">
     <verse num="2" />
-    <text>All the acts of his power and of his might, and the full account of the greatness of Mordecai, to which the king advanced him, aren't they written in the book of the chronicles of the kings of Media and Persia?</text>
+    <text>All the acts of his power and of his might, and the full account of the greatness of Mordecai, to which the king advanced him, aren’t they written in the book of the chronicles of the kings of Media and Persia?</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="narrator-EST">
     <verse num="3" />

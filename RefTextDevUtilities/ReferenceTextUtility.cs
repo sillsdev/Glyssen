@@ -185,9 +185,12 @@ namespace Glyssen.RefTextDevUtilities
 			 * My process, after running in this mode, was to
 			 * 1) Do a bunch of checking, including making use of the output files in DevTools/Resources/temporary.
 			 * 2) Copy the book files files into a real Glyssen project which would not run a quote parse (version matched control file).
-			 * 3) Run the books through Identify Speaking Parts.
-			 * 4) Copy the files to DistFiles/reference_texts/English.
-			 * 5) Remove all userConfirmed="true"> from the book files.
+			 * 3) Disambigute books using Identify Speaking Parts.
+			 * 4) For any verse that has Needs Review Implicit (in CharacterVerse.txt), mark it accordingly in Identify Speaking Parts.
+			 *    (I considered whether this could be automated, but a few of the verses only need to have some of their blocks marked Needs Review in
+			 *    the reference text.)
+			 * 5) Copy the files to DistFiles/reference_texts/English.
+			 * 6) Remove all userConfirmed="true"> from the book files.
 			 */
 			GenerateEnglish
 		}
@@ -618,14 +621,18 @@ namespace Glyssen.RefTextDevUtilities
 
 						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
 						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock, referenceTextRow.Verse);
-						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
-							// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
-							// https://jira.sil.org/browse/PG-1215?focusedCommentId=215067&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-215067
-							(characterIdBasedOnExcelEntry == CharacterVerseData.kUnexpectedCharacter && 
-							existingCharacterId == "scripture"))
+						if (mode != Mode.GenerateEnglish)
 						{
-							characterIdBasedOnExcelEntry = existingCharacterId;
+							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
+								// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
+								// https://jira.sil.org/browse/PG-1215?focusedCommentId=215067&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-215067
+								(characterIdBasedOnExcelEntry == CharacterVerseData.kUnexpectedCharacter &&
+									existingCharacterId == "scripture"))
+							{
+								characterIdBasedOnExcelEntry = existingCharacterId;
+							}
 						}
+
 						var characterIdChanged = existingCharacterId != characterIdBasedOnExcelEntry;
 						if (characterIdChanged)
 						{
@@ -2143,7 +2150,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private const string k3Bars = @"\|\|\|";
 		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
-		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ", RegexOptions.Compiled);
+		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ?", RegexOptions.Compiled);
 		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);
 		// For splitting, the regular expression is wrapped in parentheses to tell Split method to include the capturing group as one of the strings in the resulting array.
 		// See explanation here: https://stackoverflow.com/questions/27999449/c-sharp-regex-match-vs-split-for-same-string

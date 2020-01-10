@@ -494,7 +494,7 @@ namespace Glyssen
 							var error = "Unexpected block data encountered in Data migration: Block starts with an element having no word-forming" +
 								$"characters and has no subsequent {typeof(Verse).Name} element. Block: {block.ToString(true, book.BookId)}";
 							Logger.WriteEvent(error);
-							Debug.Fail("error");
+							Debug.Fail(error);
 						}
 						else
 						{

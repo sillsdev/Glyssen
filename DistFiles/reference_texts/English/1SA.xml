@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1SA" singlevoice="false" pageheader="1 Samuel">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1SA">
+  <block style="mt" chapter="0" book="1SA" initialStartVerse="0" characterId="BC-1SA">
     <text>1 Samuel</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1SA" initialStartVerse="0" characterId="BC-1SA">
@@ -32,7 +32,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
-    <text>[as] he did so year by year, when she went up to the house of God, so she provoked her; therefore she wept, and did not eat.</text>
+    <text>as he did so year by year, when she went up to the house of God, so she provoked her; therefore she wept, and did not eat.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
@@ -76,7 +76,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="Hannah">
     <verse num="16" />
-    <text>Don't count your handmaid for a wicked woman; for I have been speaking out of the abundance of my complaint and my provocation.”</text>
+    <text>Don’t count your handmaid for a wicked woman; for I have been speaking out of the abundance of my complaint and my provocation.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-1SA">
     <verse num="17" />
@@ -101,7 +101,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
-    <text>It happened, when the time had come, that Hannah conceived, and bore a son; and she named him Samuel, [saying],</text>
+    <text>It happened, when the time had come, that Hannah conceived, and bore a son; and she named him Samuel, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="Hannah">
     <text>“Because I have asked him of God.”</text>
@@ -110,7 +110,7 @@
     <verse num="21" />
     <text>The man Elkanah, and all his house, went up to offer to God the yearly sacrifice, and his vow. </text>
     <verse num="22" />
-    <text>But Hannah didn't go up; for she said to her husband,</text>
+    <text>But Hannah didn’t go up; for she said to her husband,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="Hannah">
     <text>“Not until the child is weaned; then I will bring him, that he may appear before God, and stay there forever.”</text>
@@ -127,7 +127,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="24" characterId="narrator-1SA">
     <verse num="24" />
-    <text>When she had weaned him, she took him up with her, with three bulls, and one ephah of meal, and a bottle of wine, and brought him to God's house in Shiloh. The child was young.</text>
+    <text>When she had weaned him, she took him up with her, with three bulls, and one ephah of meal, and a bottle of wine, and brought him to God’s house in Shiloh. The child was young.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="25" characterId="narrator-1SA">
     <verse num="25" />
@@ -165,7 +165,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="Hannah">
     <verse num="3" />
-    <text>Talk no more so exceeding proudly. Don't let arrogance come out of your mouth, For God is a God of knowledge. By him actions are weighed.</text>
+    <text>Talk no more so exceeding proudly. Don’t let arrogance come out of your mouth, For God is a God of knowledge. By him actions are weighed.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Hannah">
     <verse num="4" />
@@ -173,7 +173,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="Hannah">
     <verse num="5" />
-    <text>Those who were full have hired themselves out for bread. Those who were hungry have ceased [to hunger]. Yes, the barren has borne seven. She who has many children languishes.</text>
+    <text>Those who were full have hired themselves out for bread. Those who were hungry have ceased to hunger. Yes, the barren has borne seven. She who has many children languishes.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="Hannah">
     <verse num="6" />
@@ -185,7 +185,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="Hannah">
     <verse num="8" />
-    <text>He raises up the poor out of the dust. He lifts up the needy from the dunghill, To make them sit with princes, and inherit the throne of glory. For the pillars of the earth are God's. He has set the world on them.</text>
+    <text>He raises up the poor out of the dust. He lifts up the needy from the dunghill, To make them sit with princes, and inherit the throne of glory. For the pillars of the earth are God’s. He has set the world on them.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="Hannah">
     <verse num="9" />
@@ -201,11 +201,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
-    <text>Now the sons of Eli were base men; they didn't know God.</text>
+    <text>Now the sons of Eli were base men; they didn’t know God.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
-    <text>The custom of the priests with the people was that when any man offered sacrifice, the priest's servant came, while the flesh was boiling, with a fork of three teeth in his hand;</text>
+    <text>The custom of the priests with the people was that when any man offered sacrifice, the priest’s servant came, while the flesh was boiling, with a fork of three teeth in his hand;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-1SA">
     <verse num="14" />
@@ -213,7 +213,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
-    <text>Yes, before they burnt the fat, the priest's servant came, and said to the man who sacrificed,</text>
+    <text>Yes, before they burnt the fat, the priest’s servant came, and said to the man who sacrificed,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="servant of priest">
     <text>“Give meat to roast for the priest; for he will not accept boiled meat from you, but raw.”</text>
@@ -266,7 +266,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="24" characterId="Eli">
     <verse num="24" />
-    <text>No, my sons; for it is no good report that I hear: you make God's people disobey.</text>
+    <text>No, my sons; for it is no good report that I hear: you make God’s people disobey.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="25" characterId="Eli">
     <verse num="25" />
@@ -284,7 +284,7 @@
     <text>A man of God came to Eli, and said to him,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="27" characterId="man of God (prophet to Eli)">
-    <text>“Thus says God, 'Did I reveal myself to the house of your father, when they were in Egypt [in bondage] to Pharaoh's house?</text>
+    <text>“Thus says God, ‹Did I reveal myself to the house of your father, when they were in Egypt in bondage to Pharaoh’s house?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="28" characterId="man of God (prophet to Eli)">
     <verse num="28" />
@@ -292,23 +292,23 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="29" characterId="man of God (prophet to Eli)">
     <verse num="29" />
-    <text>Why do you kick at my sacrifice and at my offering, which I have commanded in [my] habitation, and honor your sons above me, to make yourselves fat with the best of all the offerings of Israel my people?'</text>
+    <text>Why do you kick at my sacrifice and at my offering, which I have commanded in my habitation, and honor your sons above me, to make yourselves fat with the best of all the offerings of Israel my people?›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="30" characterId="man of God (prophet to Eli)">
     <verse num="30" />
-    <text>Therefore God, the God of Israel, says, 'I said indeed that your house, and the house of your father, should walk before me forever.' But now God says, 'Be it far from me; for those who honor me I will honor, and those who despise me shall be lightly esteemed.</text>
+    <text>Therefore God, the God of Israel, says, ‹I said indeed that your house, and the house of your father, should walk before me forever.› But now God says, ‹Be it far from me; for those who honor me I will honor, and those who despise me shall be lightly esteemed.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="31" characterId="man of God (prophet to Eli)">
     <verse num="31" />
-    <text>Behold, the days come, that I will cut off your arm, and the arm of your father's house, that there shall not be an old man in your house.</text>
+    <text>Behold, the days come, that I will cut off your arm, and the arm of your father’s house, that there shall not be an old man in your house.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="32" characterId="man of God (prophet to Eli)">
     <verse num="32" />
-    <text>You shall see the affliction of [my] habitation, in all the wealth which [God] shall give Israel; and there shall not be an old man in your house forever.</text>
+    <text>You shall see the affliction of my habitation, in all the wealth which God shall give Israel; and there shall not be an old man in your house forever.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="33" characterId="man of God (prophet to Eli)">
     <verse num="33" />
-    <text>The man of yours, [whom] I shall not cut off from my altar, [shall be] to consume your eyes, and to grieve your heart; and all the increase of your house shall die in the flower of their age.</text>
+    <text>The man of yours, whom I shall not cut off from my altar, shall be to consume your eyes, and to grieve your heart; and all the increase of your house shall die in the flower of their age.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="34" characterId="man of God (prophet to Eli)">
     <verse num="34" />
@@ -320,7 +320,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="36" characterId="man of God (prophet to Eli)">
     <verse num="36" />
-    <text>It shall happen, that everyone who is left in your house shall come and bow down to him for a piece of silver and a loaf of bread, and shall say, “Please put me into one of the priests' offices, that I may eat a morsel of bread.”</text>
+    <text>It shall happen, that everyone who is left in your house shall come and bow down to him for a piece of silver and a loaf of bread, and shall say, “Please put me into one of the priests’ offices, that I may eat a morsel of bread.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1SA" initialStartVerse="0" characterId="BC-1SA">
     <text>3</text>
@@ -335,7 +335,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>and the lamp of God hadn't yet gone out, and Samuel had laid down [to sleep], in the temple of God, where the ark of God was;</text>
+    <text>and the lamp of God hadn’t yet gone out, and Samuel had laid down to sleep, in the temple of God, where the ark of God was;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
@@ -379,7 +379,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
-    <text>Now Samuel didn't yet know God, neither was the word of God yet revealed to him.</text>
+    <text>Now Samuel didn’t yet know God, neither was the word of God yet revealed to him.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
@@ -394,7 +394,7 @@
     <text>Therefore Eli said to Samuel,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Eli">
-    <text>“Go, lie down: and it shall be, if he calls you, that you shall say, 'Speak, God; for your servant hears.'”</text>
+    <text>“Go, lie down: and it shall be, if he calls you, that you shall say, ‹Speak, God; for your servant hears.› ”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-1SA">
     <text>So Samuel went and lay down in his place. </text>
@@ -423,11 +423,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>For I have told him that I will judge his house forever, for the iniquity which he knew, because his sons brought a curse on themselves, and he didn't restrain them.</text>
+    <text>For I have told him that I will judge his house forever, for the iniquity which he knew, because his sons brought a curse on themselves, and he didn’t restrain them.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>Therefore I have sworn to the house of Eli, that the iniquity of Eli's house shall not be removed with sacrifice nor offering forever.”</text>
+    <text>Therefore I have sworn to the house of Eli, that the iniquity of Eli’s house shall not be removed with sacrifice nor offering forever.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
@@ -449,7 +449,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="Eli">
-    <text>“What is the thing that [God] has spoken to you? Please don't hide it from me. God do so to you, and more also, if you hide anything from me of all the things that he spoke to you.”</text>
+    <text>“What is the thing that God has spoken to you? Please don’t hide it from me. God do so to you, and more also, if you hide anything from me of all the things that he spoke to you.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-1SA">
     <verse num="18" />
@@ -490,7 +490,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
-    <text>So the people sent to Shiloh; and they brought from there the ark of the covenant of God of Armies, who sits [above] the cherubim: and the two sons of Eli, Hophni and Phinehas, were there with the ark of the covenant of God.</text>
+    <text>So the people sent to Shiloh; and they brought from there the ark of the covenant of God of Armies, who sits above the cherubim: and the two sons of Eli, Hophni and Phinehas, were there with the ark of the covenant of God.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
@@ -575,7 +575,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-1SA">
     <verse num="19" />
-    <text>His daughter-in-law, Phinehas' wife, was with child, near to be delivered. When she heard the news that the ark of God was taken, and that her father-in-law and her husband were dead, she bowed herself and brought forth; for her pains came on her.</text>
+    <text>His daughter-in-law, Phinehas’ wife, was with child, near to be delivered. When she heard the news that the ark of God was taken, and that her father-in-law and her husband were dead, she bowed herself and brought forth; for her pains came on her.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
@@ -585,7 +585,7 @@
     <text>“Don't be afraid; for you have brought forth a son.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-1SA">
-    <text>But she didn't answer, neither did she regard it. </text>
+    <text>But she didn’t answer, neither did she regard it. </text>
     <verse num="21" />
     <text>She named the child Ichabod, saying,</text>
   </block>
@@ -617,11 +617,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
-    <text>When they arose early on the next day morning, behold, Dagon was fallen on his face to the ground before the ark of God; and the head of Dagon and both the palms of his hands [lay] cut off on the threshold; only [the stump of] Dagon was left to him.</text>
+    <text>When they arose early on the next day morning, behold, Dagon was fallen on his face to the ground before the ark of God; and the head of Dagon and both the palms of his hands lay cut off on the threshold; only the stump of Dagon was left to him.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
-    <text>Therefore neither the priests of Dagon, nor any who come into Dagon's house, tread on the threshold of Dagon in Ashdod, to this day.</text>
+    <text>Therefore neither the priests of Dagon, nor any who come into Dagon’s house, tread on the threshold of Dagon in Ashdod, to this day.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
@@ -648,7 +648,7 @@
     <text>“Let the ark of the God of Israel be carried over to Gath.”</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-1SA">
-    <text>They carried the ark of the God of Israel [there].</text>
+    <text>They carried the ark of the God of Israel there.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-1SA">
     <verse num="9" />
@@ -673,7 +673,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
-    <text>The men who didn't die were struck with the tumors; and the cry of the city went up to heaven.</text>
+    <text>The men who didn’t die were struck with the tumors; and the cry of the city went up to heaven.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1SA" initialStartVerse="0" characterId="BC-1SA">
     <text>6</text>
@@ -707,7 +707,7 @@
     <text>They said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="Philistine priests and fortune tellers">
-    <text>“Five golden tumors, and five golden mice, [according to] the number of the lords of the Philistines; for one plague was on you all, and on your lords.</text>
+    <text>“Five golden tumors, and five golden mice, according to the number of the lords of the Philistines; for one plague was on you all, and on your lords.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="Philistine priests and fortune tellers">
     <verse num="5" />
@@ -715,7 +715,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="Philistine priests and fortune tellers">
     <verse num="6" />
-    <text>Why then do you harden your hearts, as the Egyptians and Pharaoh hardened their hearts? When he had worked wonderfully among them, didn't they let the people go, and they departed?</text>
+    <text>Why then do you harden your hearts, as the Egyptians and Pharaoh hardened their hearts? When he had worked wonderfully among them, didn’t they let the people go, and they departed?</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="Philistine priests and fortune tellers">
     <verse num="7" />
@@ -739,7 +739,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
-    <text>The cows took the straight way by the way to Beth Shemesh; they went along the highway, lowing as they went, and didn't turn aside to the right hand or to the left; and the lords of the Philistines went after them to the border of Beth Shemesh.</text>
+    <text>The cows took the straight way by the way to Beth Shemesh; they went along the highway, lowing as they went, and didn’t turn aside to the right hand or to the left; and the lords of the Philistines went after them to the border of Beth Shemesh.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
@@ -763,7 +763,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-1SA">
     <verse num="18" />
-    <text>and the golden mice, according to the number of all the cities of the Philistines belonging to the five lords, both of fortified cities and of country villages, even to the great stone, whereon they set down the ark of God, [which stone remains] to this day in the field of Joshua of Beth Shemesh.</text>
+    <text>and the golden mice, according to the number of all the cities of the Philistines belonging to the five lords, both of fortified cities and of country villages, even to the great stone, whereon they set down the ark of God, which stone remains to this day in the field of Joshua of Beth Shemesh.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-1SA">
     <verse num="19" />
@@ -881,7 +881,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>His sons didn't walk in his ways, but turned aside after lucre, and took bribes, and perverted justice.</text>
+    <text>His sons didn’t walk in his ways, but turned aside after lucre, and took bribes, and perverted justice.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
@@ -926,7 +926,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="12" characterId="Samuel">
     <verse num="12" />
-    <text>and he will appoint them to him for captains of thousands, and captains of fifties; and [he will set some] to plow his ground, and to reap his harvest, and to make his instruments of war, and the instruments of his chariots.</text>
+    <text>and he will appoint them to him for captains of thousands, and captains of fifties; and he will set some to plow his ground, and to reap his harvest, and to make his instruments of war, and the instruments of his chariots.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="Samuel">
     <verse num="13" />
@@ -989,14 +989,14 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>The donkeys of Kish, Saul's father, were lost. Kish said to Saul his son,</text>
+    <text>The donkeys of Kish, Saul’s father, were lost. Kish said to Saul his son,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="Kish, father of Saul">
     <text>“Take now one of the servants with you, and arise, go seek the donkeys.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
-    <text>He passed through the hill country of Ephraim, and passed through the land of Shalishah, but they didn't find them: then they passed through the land of Shaalim, and there they weren't there: and he passed through the land of the Benjamites, but they didn't find them.</text>
+    <text>He passed through the hill country of Ephraim, and passed through the land of Shalishah, but they didn’t find them: then they passed through the land of Shaalim, and there they weren’t there: and he passed through the land of the Benjamites, but they didn’t find them.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
@@ -1058,7 +1058,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-1SA">
     <verse num="14" />
-    <text>They went up to the city; [and] as they came within the city, behold, Samuel came out toward them, to go up to the high place.</text>
+    <text>They went up to the city; and as they came within the city, behold, Samuel came out toward them, to go up to the high place.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
@@ -1091,7 +1091,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="Samuel">
     <verse num="20" />
-    <text>As for your donkeys who were lost three days ago, don't set your mind on them; for they are found. For whom is all that is desirable in Israel? Is it not for you, and for all your father's house?”</text>
+    <text>As for your donkeys who were lost three days ago, don’t set your mind on them; for they are found. For whom is all that is desirable in Israel? Is it not for you, and for all your father’s house?”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="21" characterId="narrator-1SA">
     <verse num="21" />
@@ -1107,14 +1107,14 @@
     <text>Samuel said to the cook,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="23" characterId="Samuel">
-    <text>“Bring the portion which I gave you, of which I said to you, 'Set it aside.'”</text>
+    <text>“Bring the portion which I gave you, of which I said to you, ‹Set it aside.› ”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="narrator-1SA">
     <verse num="24" />
     <text>The cook took up the thigh, and that which was on it, and set it before Saul. Samuel said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="Samuel">
-    <text>“Behold, that which has been reserved! Set it before yourself and eat; because for the appointed time has it been kept for you, for I said, 'I have invited the people.'”</text>
+    <text>“Behold, that which has been reserved! Set it before yourself and eat; because for the appointed time has it been kept for you, for I said, ‹I have invited the people.› ”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="narrator-1SA">
     <text>So Saul ate with Samuel that day. </text>
@@ -1148,7 +1148,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="2" characterId="Samuel">
     <verse num="2" />
-    <text>When you have departed from me today, then you shall find two men by Rachel's tomb, in the border of Benjamin at Zelzah; and they will tell you, 'The donkeys which you went to seek have been found; and behold, your father has stopped caring about the donkeys, and is anxious for you, saying, “What shall I do for my son?”</text>
+    <text>When you have departed from me today, then you shall find two men by Rachel’s tomb, in the border of Benjamin at Zelzah; and they will tell you, ‹The donkeys which you went to seek have been found; and behold, your father has stopped caring about the donkeys, and is anxious for you, saying, “What shall I do for my son?”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="Samuel">
     <verse num="3" />
@@ -1206,7 +1206,7 @@
     <verse num="13" />
     <text>When he had made an end of prophesying, he came to the high place. </text>
     <verse num="14" />
-    <text>Saul's uncle said to him and to his servant,</text>
+    <text>Saul’s uncle said to him and to his servant,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="14" characterId="Saul's uncle">
     <text>“Where did you go?”</text>
@@ -1219,7 +1219,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
-    <text>Saul's uncle said,</text>
+    <text>Saul’s uncle said,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="15" characterId="Saul's uncle">
     <text>“Please tell me what Samuel said to you.”</text>
@@ -1232,18 +1232,18 @@
     <text>“He told us plainly that the donkeys were found.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="16" characterId="narrator-1SA">
-    <text>But concerning the matter of the kingdom, of which Samuel spoke, he didn't tell him. </text>
+    <text>But concerning the matter of the kingdom, of which Samuel spoke, he didn’t tell him. </text>
     <verse num="17" />
     <text>Samuel called the people together to God to Mizpah; </text>
     <verse num="18" />
     <text>and he said to the children of Israel,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="18" characterId="Samuel">
-    <text>“Thus says God, the God of Israel, 'I brought up Israel out of Egypt, and I delivered you out of the hand of the Egyptians, and out of the hand of all the kingdoms that oppressed you:'</text>
+    <text>“Thus says God, the God of Israel, ‹I brought up Israel out of Egypt, and I delivered you out of the hand of the Egyptians, and out of the hand of all the kingdoms that oppressed you:›</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="19" characterId="Samuel">
     <verse num="19" />
-    <text>but you have this day rejected your God, who himself saves you out of all your calamities and your distresses; and you have said to him, '[No], but set a king over us.' Now therefore present yourselves before God by your tribes, and by your thousands.”</text>
+    <text>but you have this day rejected your God, who himself saves you out of all your calamities and your distresses; and you have said to him, ‹No, but set a king over us.› Now therefore present yourselves before God by your tribes, and by your thousands.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
@@ -1277,7 +1277,7 @@
     <text>All the people shouted, and said,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="24" characterId="Israelites" delivery="shouting">
-    <text>“[Long] live the king!”</text>
+    <text>“Long live the king!”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="25" characterId="narrator-1SA">
     <verse num="25" />
@@ -1354,7 +1354,7 @@
     <text>They said to the messengers who came,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="9" characterId="Saul/Israel, men of">
-    <text>“Thus you shall tell the men of Jabesh Gilead, 'Tomorrow, by the time the sun is hot, you shall have deliverance.'”</text>
+    <text>“Thus you shall tell the men of Jabesh Gilead, ‹Tomorrow, by the time the sun is hot, you shall have deliverance.› ”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="9" characterId="narrator-1SA">
     <text>The messengers came and told the men of Jabesh; and they were glad. </text>
@@ -1371,7 +1371,7 @@
     <text>The people said to Samuel,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="12" characterId="Israelites">
-    <text>“Who is he who said, 'Shall Saul reign over us?' Bring those men, that we may put them to death!”</text>
+    <text>“Who is he who said, ‹Shall Saul reign over us?› Bring those men, that we may put them to death!”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
@@ -1450,7 +1450,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="10" characterId="Samuel">
     <verse num="10" />
-    <text>They cried to God, and said, 'We have sinned, because we have forsaken God, and have served the Baals and the Ashtaroth: but now deliver us out of the hand of our enemies, and we will serve you.'</text>
+    <text>They cried to God, and said, ‹We have sinned, because we have forsaken God, and have served the Baals and the Ashtaroth: but now deliver us out of the hand of our enemies, and we will serve you.›</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="11" characterId="Samuel">
     <verse num="11" />
@@ -1458,7 +1458,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="12" characterId="Samuel">
     <verse num="12" />
-    <text>When you saw that Nahash the king of the children of Ammon came against you, you said to me, 'No, but a king shall reign over us;' when God your God was your king.</text>
+    <text>When you saw that Nahash the king of the children of Ammon came against you, you said to me, ‹No, but a king shall reign over us;› when God your God was your king.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="13" characterId="Samuel">
     <verse num="13" />
@@ -1466,7 +1466,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="14" characterId="Samuel">
     <verse num="14" />
-    <text>If you will fear God, and serve him, and listen to his voice, and not rebel against the commandment of God, and both you and also the king who reigns over you are followers of God your God, [well]:</text>
+    <text>If you will fear God, and serve him, and listen to his voice, and not rebel against the commandment of God, and both you and also the king who reigns over you are followers of God your God, well:</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="15" characterId="Samuel">
     <verse num="15" />
@@ -1478,7 +1478,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="17" characterId="Samuel">
     <verse num="17" />
-    <text>Isn't it wheat harvest today? I will call to God, that he may send thunder and rain; and you shall know and see that your wickedness is great, which you have done in the sight of God, in asking for a king.”</text>
+    <text>Isn’t it wheat harvest today? I will call to God, that he may send thunder and rain; and you shall know and see that your wickedness is great, which you have done in the sight of God, in asking for a king.”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="narrator-1SA">
     <verse num="18" />
@@ -1487,7 +1487,7 @@
     <text>All the people said to Samuel,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="Israel, all">
-    <text>“Pray for your servants to God your God, that we not die; for we have added to all our sins [this] evil, to ask us a king.”</text>
+    <text>“Pray for your servants to God your God, that we not die; for we have added to all our sins this evil, to ask us a king.”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
@@ -1498,11 +1498,11 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="21" characterId="Samuel">
     <verse num="21" />
-    <text>Don't turn aside; for [then you would go] after vain things which can't profit nor deliver, for they are vain.</text>
+    <text>Don’t turn aside; for then you would go after vain things which can’t profit nor deliver, for they are vain.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="22" characterId="Samuel">
     <verse num="22" />
-    <text>For God will not forsake his people for his great name's sake, because it has pleased God to make you a people to himself.</text>
+    <text>For God will not forsake his people for his great name’s sake, because it has pleased God to make you a people to himself.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="23" characterId="Samuel">
     <verse num="23" />
@@ -1521,7 +1521,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="1" characterId="narrator-1SA">
     <verse num="1" />
-    <text>Saul was [forty] years old when he began to reign; and when he had reigned two years over Israel,</text>
+    <text>Saul was forty years old when he began to reign; and when he had reigned two years over Israel,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
@@ -1552,7 +1552,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
-    <text>He stayed seven days, according to the set time that Samuel [had appointed]: but Samuel didn't come to Gilgal; and the people were scattered from him. </text>
+    <text>He stayed seven days, according to the set time that Samuel had appointed: but Samuel didn’t come to Gilgal; and the people were scattered from him. </text>
     <verse num="9" />
     <text>Saul said,</text>
   </block>
@@ -1577,7 +1577,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="Saul">
     <verse num="12" />
-    <text>therefore I said, 'Now the Philistines will come down on me to Gilgal, and I haven't entreated the favor of God.' I forced myself therefore, and offered the burnt offering.”</text>
+    <text>therefore I said, ‹Now the Philistines will come down on me to Gilgal, and I haven’t entreated the favor of God.› I forced myself therefore, and offered the burnt offering.”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
@@ -1635,7 +1635,7 @@
     <text>Now it fell on a day, that Jonathan the son of Saul said to the young man who bore his armor,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="1" characterId="Jonathan">
-    <text>“Come, and let us go over to the Philistines' garrison, that is on the other side.”</text>
+    <text>“Come, and let us go over to the Philistines’ garrison, that is on the other side.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-1SA">
     <text>But he didn't tell his father.</text>
@@ -1646,11 +1646,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>and Ahijah, the son of Ahitub, Ichabod's brother, the son of Phinehas, the son of Eli, the priest of God in Shiloh, wearing an ephod. The people didn't know that Jonathan was gone.</text>
+    <text>and Ahijah, the son of Ahitub, Ichabod’s brother, the son of Phinehas, the son of Eli, the priest of God in Shiloh, wearing an ephod. The people didn’t know that Jonathan was gone.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
-    <text>Between the passes, by which Jonathan sought to go over to the Philistines' garrison, there was a rocky crag on the one side, and a rocky crag on the other side: and the name of the one was Bozez, and the name of the other Seneh.</text>
+    <text>Between the passes, by which Jonathan sought to go over to the Philistines’ garrison, there was a rocky crag on the one side, and a rocky crag on the other side: and the name of the one was Bozez, and the name of the other Seneh.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
@@ -1677,11 +1677,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="9" characterId="Jonathan">
     <verse num="9" />
-    <text>If they say thus to us, 'Wait until we come to you!' then we will stand still in our place, and will not go up to them.</text>
+    <text>If they say thus to us, ‹Wait until we come to you!› then we will stand still in our place, and will not go up to them.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="Jonathan">
     <verse num="10" />
-    <text>But if they say this, 'Come up to us!' then we will go up; for God has delivered them into our hand. This shall be the sign to us.”</text>
+    <text>But if they say this, ‹Come up to us!› then we will go up; for God has delivered them into our hand. This shall be the sign to us.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-1SA">
     <verse num="11" />
@@ -1709,7 +1709,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="narrator-1SA">
     <verse num="14" />
-    <text>That first slaughter, which Jonathan and his armor bearer made, was about twenty men, within as it were half a furrow's length in an acre of land.</text>
+    <text>That first slaughter, which Jonathan and his armor bearer made, was about twenty men, within as it were half a furrow’s length in an acre of land.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
@@ -1717,7 +1717,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="narrator-1SA">
     <verse num="16" />
-    <text>The watchmen of Saul in Gibeah of Benjamin looked; and behold, the multitude melted away, and they went [here] and there. </text>
+    <text>The watchmen of Saul in Gibeah of Benjamin looked; and behold, the multitude melted away, and they went here and there. </text>
     <verse num="17" />
     <text>Then Saul said to the people who were with him,</text>
   </block>
@@ -1733,7 +1733,7 @@
     <text>“Bring the ark of God here.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="narrator-1SA">
-    <text>For the ark of God was [there] at that time with the children of Israel. </text>
+    <text>For the ark of God was there at that time with the children of Israel. </text>
     <verse num="19" />
     <text>It happened, while Saul talked to the priest, that the tumult that was in the camp of the Philistines went on and increased: and Saul said to the priest,</text>
   </block>
@@ -1742,11 +1742,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
-    <text>Saul and all the people who were with him were gathered together, and came to the battle: and behold, every man's sword was against his fellow, [and there was] a very great confusion.</text>
+    <text>Saul and all the people who were with him were gathered together, and came to the battle: and behold, every man’s sword was against his fellow, and there was a very great confusion.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="21" characterId="narrator-1SA">
     <verse num="21" />
-    <text>Now the Hebrews who were with the Philistines as before, and who went up with them into the camp, [from the country] all around, even they also [turned] to be with the Israelites who were with Saul and Jonathan.</text>
+    <text>Now the Hebrews who were with the Philistines as before, and who went up with them into the camp, from the country all around, even they also turned to be with the Israelites who were with Saul and Jonathan.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="22" characterId="narrator-1SA">
     <verse num="22" />
@@ -1774,12 +1774,12 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="27" characterId="narrator-1SA">
     <verse num="27" />
-    <text>But Jonathan didn't hear when his father commanded the people with the oath: therefore he put forth the end of the rod who was in his hand, and dipped it in the honeycomb, and put his hand to his mouth; and his eyes were enlightened. </text>
+    <text>But Jonathan didn’t hear when his father commanded the people with the oath: therefore he put forth the end of the rod who was in his hand, and dipped it in the honeycomb, and put his hand to his mouth; and his eyes were enlightened. </text>
     <verse num="28" />
     <text>Then one of the people answered, and said,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="Israelite soldier in Saul's army">
-    <text>“Your father directly commanded the people with an oath, saying, 'Cursed is the man who eats food this day.'” The people were faint.</text>
+    <text>“Your father directly commanded the people with an oath, saying, ‹Cursed is the man who eats food this day.› ” The people were faint.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="29" characterId="narrator-1SA">
     <verse num="29" />
@@ -1818,7 +1818,7 @@
     <text>Saul said,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="34" characterId="Saul">
-    <text>“Disperse yourselves among the people, and tell them, 'Bring me here every man his ox, and every man his sheep, and kill them here, and eat; and don't sin against God in eating meat with the blood.'”</text>
+    <text>“Disperse yourselves among the people, and tell them, ‹Bring me here every man his ox, and every man his sheep, and kill them here, and eat; and don’t sin against God in eating meat with the blood.› ”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="34" characterId="narrator-1SA">
     <text>All the people brought every man his ox with him that night, and killed them there.</text>
@@ -1852,7 +1852,7 @@
     <text>“Shall I go down after the Philistines? Will you deliver them into the hand of Israel?”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="37" characterId="narrator-1SA">
-    <text>But he didn't answer him that day. </text>
+    <text>But he didn’t answer him that day. </text>
     <verse num="38" />
     <text>Saul said,</text>
   </block>
@@ -1929,7 +1929,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="47" characterId="narrator-1SA">
     <verse num="47" />
-    <text>Now when Saul had taken the kingdom over Israel, he fought against all his enemies on every side, against Moab, and against the children of Ammon, and against Edom, and against the kings of Zobah, and against the Philistines: and wherever he turned himself, he put [them] to the worse.</text>
+    <text>Now when Saul had taken the kingdom over Israel, he fought against all his enemies on every side, against Moab, and against the children of Ammon, and against Edom, and against the kings of Zobah, and against the Philistines: and wherever he turned himself, he put them to the worse.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="48" characterId="narrator-1SA">
     <verse num="48" />
@@ -1941,7 +1941,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="50" characterId="narrator-1SA">
     <verse num="50" />
-    <text>and the name of Saul's wife was Ahinoam the daughter of Ahimaaz. The name of the captain of his army was Abner the son of Ner, Saul's uncle.</text>
+    <text>and the name of Saul’s wife was Ahinoam the daughter of Ahimaaz. The name of the captain of his army was Abner the son of Ner, Saul’s uncle.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="51" characterId="narrator-1SA">
     <verse num="51" />
@@ -1963,11 +1963,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="Samuel">
     <verse num="2" />
-    <text>Thus says God of Armies, 'I have marked that which Amalek did to Israel, how he set himself against him in the way, when he came up out of Egypt.</text>
+    <text>Thus says God of Armies, ‹I have marked that which Amalek did to Israel, how he set himself against him in the way, when he came up out of Egypt.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="Samuel">
     <verse num="3" />
-    <text>Now go and strike Amalek, and utterly destroy all that they have, and don't spare them; but kill both man and woman, infant and nursing baby, ox and sheep, camel and donkey.'”</text>
+    <text>Now go and strike Amalek, and utterly destroy all that they have, and don’t spare them; but kill both man and woman, infant and nursing baby, ox and sheep, camel and donkey.› ”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
@@ -1995,7 +1995,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="9" characterId="narrator-1SA">
     <verse num="9" />
-    <text>But Saul and the people spared Agag, and the best of the sheep, and of the cattle, and of the fatlings, and the lambs, and all that was good, and wouldn't utterly destroy them: but everything that was vile and refuse, that they destroyed utterly.</text>
+    <text>But Saul and the people spared Agag, and the best of the sheep, and of the cattle, and of the fatlings, and the lambs, and all that was good, and wouldn’t utterly destroy them: but everything that was vile and refuse, that they destroyed utterly.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="narrator-1SA">
     <verse num="10" />
@@ -2056,11 +2056,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="18" characterId="Samuel">
     <verse num="18" />
-    <text>and God sent you on a journey, and said, 'Go, and utterly destroy the sinners the Amalekites, and fight against them until they are consumed.'</text>
+    <text>and God sent you on a journey, and said, ‹Go, and utterly destroy the sinners the Amalekites, and fight against them until they are consumed.›</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="Samuel">
     <verse num="19" />
-    <text>Why then didn't you obey the voice of God, but took the spoils, and did that which was evil in the sight of God?”</text>
+    <text>Why then didn’t you obey the voice of God, but took the spoils, and did that which was evil in the sight of God?”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
@@ -2209,7 +2209,7 @@
     <text>But God said to Samuel,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="7" characterId="God">
-    <text>“Don't look on his face, or on the height of his stature; because I have rejected him: for [God sees] not as man sees; for man looks at the outward appearance, but God looks at the heart.”</text>
+    <text>“Don’t look on his face, or on the height of his stature; because I have rejected him: for God sees not as man sees; for man looks at the outward appearance, but God looks at the heart.”</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
@@ -2266,7 +2266,7 @@
     <verse num="14" />
     <text>Now the Spirit of God departed from Saul, and an evil spirit from God troubled him. </text>
     <verse num="15" />
-    <text>Saul's servants said to him,</text>
+    <text>Saul’s servants said to him,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="15" characterId="Saul's attendants">
     <text>“See now, an evil spirit from God troubles you.</text>
@@ -2313,7 +2313,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="23" characterId="narrator-1SA">
     <verse num="23" />
-    <text>It happened, when the [evil] spirit from God was on Saul, that David took the harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him.</text>
+    <text>It happened, when the evil spirit from God was on Saul, that David took the harp, and played with his hand: so Saul was refreshed, and was well, and the evil spirit departed from him.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="1SA" initialStartVerse="0" characterId="BC-1SA">
     <text>17</text>
@@ -2344,7 +2344,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
-    <text>The staff of his spear was like a weaver's beam; and his spear's head [weighed] six hundred shekels of iron: and his shield bearer went before him.</text>
+    <text>The staff of his spear was like a weaver’s beam; and his spear’s head weighed six hundred shekels of iron: and his shield bearer went before him.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
@@ -2370,7 +2370,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
-    <text>Now David was the son of that Ephrathite of Bethlehem Judah, whose name was Jesse; and he had eight sons: and the man was an old man in the days of Saul, stricken [in years] among men.</text>
+    <text>Now David was the son of that Ephrathite of Bethlehem Judah, whose name was Jesse; and he had eight sons: and the man was an old man in the days of Saul, stricken in years among men.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
@@ -2382,7 +2382,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
-    <text>Now David went back and forth from Saul to feed his father's sheep at Bethlehem.</text>
+    <text>Now David went back and forth from Saul to feed his father’s sheep at Bethlehem.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="narrator-1SA">
     <verse num="16" />
@@ -2391,7 +2391,7 @@
     <text>Jesse said to David his son,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="17" characterId="Jesse">
-    <text>“Now take for your brothers an ephah of this parched grain, and these ten loaves, and carry [them] quickly to the camp to your brothers;</text>
+    <text>“Now take for your brothers an ephah of this parched grain, and these ten loaves, and carry them quickly to the camp to your brothers;</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="18" characterId="Jesse">
     <verse num="18" />
@@ -2442,7 +2442,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="28" characterId="narrator-1SA">
     <verse num="28" />
-    <text>Eliab his eldest brother heard when he spoke to the men; and Eliab's anger was kindled against David, and he said,</text>
+    <text>Eliab his eldest brother heard when he spoke to the men; and Eliab’s anger was kindled against David, and he said,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="28" characterId="Eliab, David's brother">
     <text>“Why have you come down? With whom have you left those few sheep in the wilderness? I know your pride, and the naughtiness of your heart; for you have come down that you might see the battle.”</text>
@@ -2479,7 +2479,7 @@
     <text>David said to Saul,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="34" characterId="David">
-    <text>“Your servant was keeping his father's sheep; and when a lion or a bear came, and took a lamb out of the flock, </text>
+    <text>“Your servant was keeping his father’s sheep; and when a lion or a bear came, and took a lamb out of the flock, </text>
     <verse num="35" />
     <text>I went out after him, and struck him, and rescued it out of his mouth. When he arose against me, I caught him by his beard, and struck him, and killed him.</text>
   </block>
@@ -2514,7 +2514,7 @@
   <block style="p" chapter="17" initialStartVerse="39" characterId="narrator-1SA">
     <text>David took them off. </text>
     <verse num="40" />
-    <text>He took his staff in his hand, and chose for himself five smooth stones out of the brook, and put them in the shepherd's bag which he had, even in his wallet. His sling was in his hand; and he drew near to the Philistine.</text>
+    <text>He took his staff in his hand, and chose for himself five smooth stones out of the brook, and put them in the shepherd’s bag which he had, even in his wallet. His sling was in his hand; and he drew near to the Philistine.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="41" characterId="narrator-1SA">
     <verse num="41" />
@@ -2550,7 +2550,7 @@
     <verse num="46" />
     <text>Today, God will deliver you into my hand. I will strike you, and take your head from off you. I will give the dead bodies of the army of the Philistines this day to the birds of the sky, and to the wild animals of the earth; that all the earth may know that there is a God in Israel, </text>
     <verse num="47" />
-    <text>and that all this assembly may know that God doesn't save with sword and spear: for the battle is God's, and he will give you into our hand.”</text>
+    <text>and that all this assembly may know that God doesn’t save with sword and spear: for the battle is God’s, and he will give you into our hand.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="48" characterId="narrator-1SA">
     <verse num="48" />
@@ -2624,7 +2624,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
-    <text>Saul took him that day, and would let him go no more home to his father's house.</text>
+    <text>Saul took him that day, and would let him go no more home to his father’s house.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
@@ -2636,7 +2636,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
-    <text>David went out wherever Saul sent him, [and] behaved himself wisely: and Saul set him over the men of war, and it was good in the sight of all the people, and also in the sight of Saul's servants.</text>
+    <text>David went out wherever Saul sent him, and behaved himself wisely: and Saul set him over the men of war, and it was good in the sight of all the people, and also in the sight of Saul’s servants.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
@@ -2710,11 +2710,11 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="19" characterId="narrator-1SA">
     <verse num="19" />
-    <text>But it happened at the time when Merab, Saul's daughter, should have been given to David, that she was given to Adriel the Meholathite as wife.</text>
+    <text>But it happened at the time when Merab, Saul’s daughter, should have been given to David, that she was given to Adriel the Meholathite as wife.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
-    <text>Michal, Saul's daughter, loved David; and they told Saul, and the thing pleased him. </text>
+    <text>Michal, Saul’s daughter, loved David; and they told Saul, and the thing pleased him. </text>
     <verse num="21" />
     <text>Saul said,</text>
   </block>
@@ -2732,11 +2732,11 @@
     <text>Saul commanded his servants,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="22" characterId="Saul">
-    <text>“Talk with David secretly, and say, 'Behold, the king has delight in you, and all his servants love you: now therefore be the king's son-in-law.'”</text>
+    <text>“Talk with David secretly, and say, ‹Behold, the king has delight in you, and all his servants love you: now therefore be the king’s son-in-law.› ”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="narrator-1SA">
     <verse num="23" />
-    <text>Saul's servants spoke those words in the ears of David. David said,</text>
+    <text>Saul’s servants spoke those words in the ears of David. David said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="David">
     <text>“Does it seem to you a light thing to be the king's son-in-law, since I am a poor man, and lightly esteemed?”</text>
@@ -2748,24 +2748,24 @@
     <text>Saul said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="Saul">
-    <text>“You shall tell David, 'The king desires no dowry except one hundred foreskins of the Philistines, to be avenged of the king's enemies.'”</text>
+    <text>“You shall tell David, ‹The king desires no dowry except one hundred foreskins of the Philistines, to be avenged of the king’s enemies.› ”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="narrator-1SA">
     <text>Now Saul thought to make David fall by the hand of the Philistines.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="26" characterId="narrator-1SA">
     <verse num="26" />
-    <text>When his servants told David these words, it pleased David well to be the king's son-in-law. The days were not expired;</text>
+    <text>When his servants told David these words, it pleased David well to be the king’s son-in-law. The days were not expired;</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="27" characterId="narrator-1SA">
     <verse num="27" />
-    <text>and David arose and went, he and his men, and killed of the Philistines two hundred men; and David brought their foreskins, and they gave them in full number to the king, that he might be the king's son-in-law. Saul gave him Michal his daughter as wife.</text>
+    <text>and David arose and went, he and his men, and killed of the Philistines two hundred men; and David brought their foreskins, and they gave them in full number to the king, that he might be the king’s son-in-law. Saul gave him Michal his daughter as wife.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="28" characterId="narrator-1SA">
     <verse num="28" />
-    <text>Saul saw and knew that God was with David; and Michal, Saul's daughter, loved him. </text>
+    <text>Saul saw and knew that God was with David; and Michal, Saul’s daughter, loved him. </text>
     <verse num="29" />
-    <text>Saul was yet the more afraid of David; and Saul was David's enemy continually.</text>
+    <text>Saul was yet the more afraid of David; and Saul was David’s enemy continually.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="narrator-1SA">
     <verse num="30" />
@@ -2776,7 +2776,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="1" characterId="narrator-1SA">
     <verse num="1" />
-    <text>Saul spoke to Jonathan his son, and to all his servants, that they should kill David. But Jonathan, Saul's son, delighted much in David. </text>
+    <text>Saul spoke to Jonathan his son, and to all his servants, that they should kill David. But Jonathan, Saul’s son, delighted much in David. </text>
     <verse num="2" />
     <text>Jonathan told David, saying,</text>
   </block>
@@ -2819,11 +2819,11 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="10" characterId="narrator-1SA">
     <verse num="10" />
-    <text>Saul sought to pin David even to the wall with the spear; but he slipped away out of Saul's presence, and he stuck the spear into the wall. David fled, and escaped that night.</text>
+    <text>Saul sought to pin David even to the wall with the spear; but he slipped away out of Saul’s presence, and he stuck the spear into the wall. David fled, and escaped that night.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="11" characterId="narrator-1SA">
     <verse num="11" />
-    <text>Saul sent messengers to David's house, to watch him, and to kill him in the morning. Michal, David's wife, told him, saying,</text>
+    <text>Saul sent messengers to David’s house, to watch him, and to kill him in the morning. Michal, David’s wife, told him, saying,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="11" characterId="Michal, David's wife">
     <text>“If you don't save your life tonight, tomorrow you will be killed.”</text>
@@ -2834,7 +2834,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
-    <text>Michal took the teraphim, and laid it in the bed, and put a pillow of goats' [hair] at its head, and covered it with the clothes.</text>
+    <text>Michal took the teraphim, and laid it in the bed, and put a pillow of goats’ hair at its head, and covered it with the clothes.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="narrator-1SA">
     <verse num="14" />
@@ -2852,7 +2852,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="16" characterId="narrator-1SA">
     <verse num="16" />
-    <text>When the messengers came in, behold, the teraphim was in the bed, with the pillow of goats' hair at its head. </text>
+    <text>When the messengers came in, behold, the teraphim was in the bed, with the pillow of goats’ hair at its head. </text>
     <verse num="17" />
     <text>Saul said to Michal,</text>
   </block>
@@ -2863,7 +2863,7 @@
     <text>Michal answered Saul,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="17" characterId="Michal, David's wife">
-    <text>“He said to me, 'Let me go! Why should I kill you?'”</text>
+    <text>“He said to me, ‹Let me go! Why should I kill you?› ”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="18" characterId="narrator-1SA">
     <verse num="18" />
@@ -2930,7 +2930,7 @@
     <text>David swore moreover, and said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="3" characterId="David">
-    <text>“Your father knows well that I have found favor in your eyes; and he says, 'Don't let Jonathan know this, lest he be grieved:' but truly as God lives, and as your soul lives, there is but a step between me and death.”</text>
+    <text>“Your father knows well that I have found favor in your eyes; and he says, ‹Don’t let Jonathan know this, lest he be grieved:› but truly as God lives, and as your soul lives, there is but a step between me and death.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
@@ -2948,11 +2948,11 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="6" characterId="David">
     <verse num="6" />
-    <text>If your father miss me at all, then say, 'David earnestly asked leave of me that he might run to Bethlehem his city; for it is the yearly sacrifice there for all the family.'</text>
+    <text>If your father miss me at all, then say, ‹David earnestly asked leave of me that he might run to Bethlehem his city; for it is the yearly sacrifice there for all the family.›</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="7" characterId="David">
     <verse num="7" />
-    <text>If he says, 'It is well;' your servant shall have peace: but if he be angry, then know that evil is determined by him.</text>
+    <text>If he says, ‹It is well;› your servant shall have peace: but if he be angry, then know that evil is determined by him.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="8" characterId="David">
     <verse num="8" />
@@ -2985,11 +2985,11 @@
     <text>Jonathan said to David,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="12" characterId="Jonathan">
-    <text>“God, the God of Israel, [be witness]: when I have sounded my father about this time tomorrow, [or] the third day, behold, if there be good toward David, shall I not then send to you, and disclose it to you?</text>
+    <text>“God, the God of Israel, be witness: when I have sounded my father about this time tomorrow, or the third day, behold, if there be good toward David, shall I not then send to you, and disclose it to you?</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="13" characterId="Jonathan">
     <verse num="13" />
-    <text>God do so to Jonathan, and more also, should it please my father to do you evil, if I don't disclose it to you, and send you away, that you may go in peace: and God be with you, as he has been with my father.</text>
+    <text>God do so to Jonathan, and more also, should it please my father to do you evil, if I don’t disclose it to you, and send you away, that you may go in peace: and God be with you, as he has been with my father.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="14" characterId="Jonathan">
     <verse num="14" />
@@ -3025,11 +3025,11 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="21" characterId="Jonathan">
     <verse num="21" />
-    <text>Behold, I will send the boy, saying, 'Go, find the arrows!' If I tell the boy, 'Behold, the arrows are on this side of you. Take them;' then come; for there is peace to you and no hurt, as God lives.</text>
+    <text>Behold, I will send the boy, saying, ‹Go, find the arrows!› If I tell the boy, ‹Behold, the arrows are on this side of you. Take them;› then come; for there is peace to you and no hurt, as God lives.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="22" characterId="Jonathan">
     <verse num="22" />
-    <text>But if I say this to the boy, 'Behold, the arrows are beyond you;' then go your way; for God has sent you away.</text>
+    <text>But if I say this to the boy, ‹Behold, the arrows are beyond you;› then go your way; for God has sent you away.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="23" characterId="Jonathan">
     <verse num="23" />
@@ -3041,18 +3041,18 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="25" characterId="narrator-1SA">
     <verse num="25" />
-    <text>The king sat on his seat, as at other times, even on the seat by the wall; and Jonathan stood up, and Abner sat by Saul's side: but David's place was empty.</text>
+    <text>The king sat on his seat, as at other times, even on the seat by the wall; and Jonathan stood up, and Abner sat by Saul’s side: but David’s place was empty.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="26" characterId="narrator-1SA">
     <verse num="26" />
-    <text>Nevertheless Saul didn't say anything that day: for he thought,</text>
+    <text>Nevertheless Saul didn’t say anything that day: for he thought,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="26" characterId="Saul">
     <text>“Something has happened to him. He is not clean. Surely he is not clean.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="27" characterId="narrator-1SA">
     <verse num="27" />
-    <text>It happened on the next day after the new moon, the second day, that David's place was empty. Saul said to Jonathan his son,</text>
+    <text>It happened on the next day after the new moon, the second day, that David’s place was empty. Saul said to Jonathan his son,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="27" characterId="Saul">
     <text>“Why doesn't the son of Jesse come to eat, neither yesterday, nor today?”</text>
@@ -3066,11 +3066,11 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="29" characterId="Jonathan">
     <verse num="29" />
-    <text>He said, 'Please let me go, for our family has a sacrifice in the city. My brother has commanded me to be there. Now, if I have found favor in your eyes, please let me go away and see my brothers.' Therefore he has not come to the king's table.”</text>
+    <text>He said, ‹Please let me go, for our family has a sacrifice in the city. My brother has commanded me to be there. Now, if I have found favor in your eyes, please let me go away and see my brothers.› Therefore he has not come to the king’s table.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="30" characterId="narrator-1SA">
     <verse num="30" />
-    <text>Then Saul's anger was kindled against Jonathan, and he said to him,</text>
+    <text>Then Saul’s anger was kindled against Jonathan, and he said to him,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="30" characterId="Saul">
     <text>“You son of a perverse rebellious woman, don't I know that you have chosen the son of Jesse to your own shame, and to the shame of your mother's nakedness?</text>
@@ -3121,9 +3121,9 @@
     <text>“Go fast! Hurry! Don't delay!”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="38" characterId="narrator-1SA">
-    <text>Jonathan's boy gathered up the arrows, and came to his master. </text>
+    <text>Jonathan’s boy gathered up the arrows, and came to his master. </text>
     <verse num="39" />
-    <text>But the boy didn't know anything. Only Jonathan and David knew the matter.</text>
+    <text>But the boy didn’t know anything. Only Jonathan and David knew the matter.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="40" characterId="narrator-1SA">
     <verse num="40" />
@@ -3134,12 +3134,12 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="41" characterId="narrator-1SA">
     <verse num="41" />
-    <text>As soon as the boy was gone, David arose out of [a place] toward the South, and fell on his face to the ground, and bowed himself three times. They kissed one another, and wept one with another, and David wept the most. </text>
+    <text>As soon as the boy was gone, David arose out of a place toward the South, and fell on his face to the ground, and bowed himself three times. They kissed one another, and wept one with another, and David wept the most. </text>
     <verse num="42" />
     <text>Jonathan said to David,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="42" characterId="Jonathan">
-    <text>“Go in peace, because we have both sworn in the name of God, saying, 'God shall be between me and you, and between my seed and your seed, forever.'”</text>
+    <text>“Go in peace, because we have both sworn in the name of God, saying, ‹God shall be between me and you, and between my seed and your seed, forever.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="42" characterId="narrator-1SA">
     <text>He arose and departed; and Jonathan went into the city.</text>
@@ -3159,7 +3159,7 @@
     <text>David said to Ahimelech the priest,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="2" characterId="David">
-    <text>“The king has commanded me a business, and has said to me, 'Let no man know anything of the business about which I send you, and what I have commanded you; and I have appointed the young men to such and such a place.'</text>
+    <text>“The king has commanded me a business, and has said to me, ‹Let no man know anything of the business about which I send you, and what I have commanded you; and I have appointed the young men to such and such a place.›</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="David">
     <verse num="3" />
@@ -3181,7 +3181,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
-    <text>So the priest gave him holy [bread]; for there was no bread there but the show bread, that was taken from before God, to put hot bread in the day when it was taken away.</text>
+    <text>So the priest gave him holy bread; for there was no bread there but the show bread, that was taken from before God, to put hot bread in the day when it was taken away.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
@@ -3212,7 +3212,7 @@
     <text>The servants of Achish said to him,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="servants of Achish, king of Gath">
-    <text>“Isn't this David the king of the land? Didn't they sing one to another about him in dances, saying, 'Saul has slain his thousands, David his ten thousands?'”</text>
+    <text>“Isn’t this David the king of the land? Didn’t they sing one to another about him in dances, saying, ‹Saul has slain his thousands, David his ten thousands?› ”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
@@ -3238,7 +3238,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="1" characterId="narrator-1SA">
     <verse num="1" />
-    <text>David therefore departed there, and escaped to the cave of Adullam. When his brothers and all his father's house heard it, they went down there to him.</text>
+    <text>David therefore departed there, and escaped to the cave of Adullam. When his brothers and all his father’s house heard it, they went down there to him.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
@@ -3289,7 +3289,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="11" characterId="narrator-1SA">
     <verse num="11" />
-    <text>Then the king sent to call Ahimelech the priest, the son of Ahitub, and all his father's house, the priests who were in Nob: and they came all of them to the king. </text>
+    <text>Then the king sent to call Ahimelech the priest, the son of Ahitub, and all his father’s house, the priests who were in Nob: and they came all of them to the king. </text>
     <verse num="12" />
     <text>Saul said,</text>
   </block>
@@ -3318,7 +3318,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="15" characterId="Ahimelech the priest (son of Ahitub)">
     <verse num="15" />
-    <text>Have I today begun to inquire of God for him? Be it far from me! Don't let the king impute anything to his servant, nor to all the house of my father; for your servant knows nothing of all this, less or more.”</text>
+    <text>Have I today begun to inquire of God for him? Be it far from me! Don’t let the king impute anything to his servant, nor to all the house of my father; for your servant knows nothing of all this, less or more.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="16" characterId="narrator-1SA">
     <verse num="16" />
@@ -3335,7 +3335,7 @@
     <text>“Turn, and kill the priests of God; because their hand also is with David, and because they knew that he fled, and didn't disclose it to me.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="17" characterId="narrator-1SA">
-    <text>But the servants of the king wouldn't put forth their hand to fall on the priests of God. </text>
+    <text>But the servants of the king wouldn’t put forth their hand to fall on the priests of God. </text>
     <verse num="18" />
     <text>The king said to Doeg,</text>
   </block>
@@ -3355,7 +3355,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="21" characterId="narrator-1SA">
     <verse num="21" />
-    <text>Abiathar told David that Saul had slain God's priests. </text>
+    <text>Abiathar told David that Saul had slain God’s priests. </text>
     <verse num="22" />
     <text>David said to Abiathar,</text>
   </block>
@@ -3364,7 +3364,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="23" characterId="David">
     <verse num="23" />
-    <text>Stay with me, don't be afraid; for he who seeks my life seeks your life. For with me you shall be in safeguard.”</text>
+    <text>Stay with me, don’t be afraid; for he who seeks my life seeks your life. For with me you shall be in safeguard.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="1SA" initialStartVerse="0" characterId="BC-1SA">
     <text>23</text>
@@ -3391,7 +3391,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>David's men said to him,</text>
+    <text>David’s men said to him,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="3" characterId="David's men">
     <text>“Behold, we are afraid here in Judah: how much more then if we go to Keilah against the armies of the Philistines?”</text>
@@ -3471,7 +3471,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="14" characterId="narrator-1SA">
     <verse num="14" />
-    <text>David stayed in the wilderness in the strongholds, and remained in the hill country in the wilderness of Ziph. Saul sought him every day, but God didn't deliver him into his hand.</text>
+    <text>David stayed in the wilderness in the strongholds, and remained in the hill country in the wilderness of Ziph. Saul sought him every day, but God didn’t deliver him into his hand.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="15" characterId="narrator-1SA">
     <verse num="15" />
@@ -3479,7 +3479,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="16" characterId="narrator-1SA">
     <verse num="16" />
-    <text>Jonathan, Saul's son, arose, and went to David into the woods, and strengthened his hand in God. </text>
+    <text>Jonathan, Saul’s son, arose, and went to David into the woods, and strengthened his hand in God. </text>
     <verse num="17" />
     <text>He said to him,</text>
   </block>
@@ -3497,7 +3497,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="20" characterId="Ziphites">
     <verse num="20" />
-    <text>Now therefore, O king, come down, according to all the desire of your soul to come down; and our part shall be to deliver him up into the king's hand.”</text>
+    <text>Now therefore, O king, come down, according to all the desire of your soul to come down; and our part shall be to deliver him up into the king’s hand.”</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="21" characterId="narrator-1SA">
     <verse num="21" />
@@ -3508,7 +3508,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="22" characterId="Saul">
     <verse num="22" />
-    <text>Please go make yet more sure, and know and see his place where his haunt is, [and] who has seen him there; for it is told me that he deals very subtly.</text>
+    <text>Please go make yet more sure, and know and see his place where his haunt is, and who has seen him there; for it is told me that he deals very subtly.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="23" characterId="Saul">
     <verse num="23" />
@@ -3520,7 +3520,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="25" characterId="narrator-1SA">
     <verse num="25" />
-    <text>Saul and his men went to seek him. When David was told, he went down to the rock, and stayed in the wilderness of Maon. When Saul heard [that], he pursued after David in the wilderness of Maon.</text>
+    <text>Saul and his men went to seek him. When David was told, he went down to the rock, and stayed in the wilderness of Maon. When Saul heard that, he pursued after David in the wilderness of Maon.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="26" characterId="narrator-1SA">
     <verse num="26" />
@@ -3560,14 +3560,14 @@
     <text>The men of David said to him,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="4" characterId="David's men">
-    <text>“Behold, the day of which God said to you, 'Behold, I will deliver your enemy into your hand, and you shall do to him as it shall seem good to you.'”</text>
+    <text>“Behold, the day of which God said to you, ‹Behold, I will deliver your enemy into your hand, and you shall do to him as it shall seem good to you.› ”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="4" characterId="narrator-1SA">
     <text>Then David arose, and cut off the skirt of Saul's robe secretly.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
-    <text>It happened afterward, that David's heart struck him, because he had cut off Saul's skirt. </text>
+    <text>It happened afterward, that David’s heart struck him, because he had cut off Saul’s skirt. </text>
     <verse num="6" />
     <text>He said to his men,</text>
   </block>
@@ -3576,7 +3576,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="7" characterId="narrator-1SA">
     <verse num="7" />
-    <text>So David checked his men with these words, and didn't allow them to rise against Saul. Saul rose up out of the cave, and went on his way.</text>
+    <text>So David checked his men with these words, and didn’t allow them to rise against Saul. Saul rose up out of the cave, and went on his way.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
@@ -3591,15 +3591,15 @@
     <text>David said to Saul,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="9" characterId="David">
-    <text>“Why do you listen to men's words, saying, 'Behold, David seeks your hurt?'</text>
+    <text>“Why do you listen to men’s words, saying, ‹Behold, David seeks your hurt?›</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="10" characterId="David">
     <verse num="10" />
-    <text>Behold, this day your eyes have seen how that God had delivered you today into my hand in the cave. Some urged me to kill you; but I spared you; and I said, I will not put forth my hand against my lord; for he is God's anointed.</text>
+    <text>Behold, this day your eyes have seen how that God had delivered you today into my hand in the cave. Some urged me to kill you; but I spared you; and I said, I will not put forth my hand against my lord; for he is God’s anointed.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="11" characterId="David">
     <verse num="11" />
-    <text>Moreover, my father, behold, yes, see the skirt of your robe in my hand; for in that I cut off the skirt of your robe, and didn't kill you, know and see that there is neither evil nor disobedience in my hand, and I have not sinned against you, though you hunt for my life to take it.</text>
+    <text>Moreover, my father, behold, yes, see the skirt of your robe in my hand; for in that I cut off the skirt of your robe, and didn’t kill you, know and see that there is neither evil nor disobedience in my hand, and I have not sinned against you, though you hunt for my life to take it.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="David">
     <verse num="12" />
@@ -3607,7 +3607,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="13" characterId="David">
     <verse num="13" />
-    <text>As the proverb of the ancients says, 'Out of the wicked comes forth wickedness;' but my hand shall not be on you.</text>
+    <text>As the proverb of the ancients says, ‹Out of the wicked comes forth wickedness;› but my hand shall not be on you.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="14" characterId="David">
     <verse num="14" />
@@ -3634,7 +3634,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="18" characterId="Saul">
     <verse num="18" />
-    <text>You have declared this day how you have dealt well with me, because when God had delivered me up into your hand, you didn't kill me.</text>
+    <text>You have declared this day how you have dealt well with me, because when God had delivered me up into your hand, you didn’t kill me.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="Saul">
     <verse num="19" />
@@ -3646,7 +3646,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="Saul">
     <verse num="21" />
-    <text>Swear now therefore to me by God, that you will not cut off my seed after me, and that you will not destroy my name out of my father's house.”</text>
+    <text>Swear now therefore to me by God, that you will not cut off my seed after me, and that you will not destroy my name out of my father’s house.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="narrator-1SA">
     <verse num="22" />
@@ -3680,7 +3680,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="6" characterId="David">
     <verse num="6" />
-    <text>You shall tell him, 'Long life to you! Peace be to you, and peace be to your house, and peace be to all that you have.</text>
+    <text>You shall tell him, ‹Long life to you! Peace be to you, and peace be to your house, and peace be to all that you have.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="7" characterId="David">
     <verse num="7" />
@@ -3688,24 +3688,24 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="8" characterId="David">
     <verse num="8" />
-    <text>Ask your young men, and they will tell you. Therefore, let the young men find favor in your eyes; for we come in a good day. Please give whatever comes to your hand, to your servants, and to your son David.'”</text>
+    <text>Ask your young men, and they will tell you. Therefore, let the young men find favor in your eyes; for we come in a good day. Please give whatever comes to your hand, to your servants, and to your son David.› ”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="9" characterId="narrator-1SA">
     <verse num="9" />
-    <text>When David's young men came, they spoke to Nabal according to all those words in the name of David, and ceased. </text>
+    <text>When David’s young men came, they spoke to Nabal according to all those words in the name of David, and ceased. </text>
     <verse num="10" />
-    <text>Nabal answered David's servants, and said,</text>
+    <text>Nabal answered David’s servants, and said,</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="10" characterId="Nabal">
     <text>“Who is David? Who is the son of Jesse? There are many servants who break away from their masters these days.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="11" characterId="Nabal">
     <verse num="11" />
-    <text>Shall I then take my bread, and my water, and my meat that I have killed for my shearers, and give it to men who I don't know where they come from?”</text>
+    <text>Shall I then take my bread, and my water, and my meat that I have killed for my shearers, and give it to men who I don’t know where they come from?”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
-    <text>So David's young men turned on their way, and went back, and came and told him according to all these words. </text>
+    <text>So David’s young men turned on their way, and went back, and came and told him according to all these words. </text>
     <verse num="13" />
     <text>David said to his men,</text>
   </block>
@@ -3717,7 +3717,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="14" characterId="narrator-1SA">
     <verse num="14" />
-    <text>But one of the young men told Abigail, Nabal's wife, saying,</text>
+    <text>But one of the young men told Abigail, Nabal’s wife, saying,</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="14" characterId="servant of Nabal">
     <text>“Behold, David sent messengers out of the wilderness to Greet our master; and he railed at them.</text>
@@ -3732,7 +3732,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="17" characterId="servant of Nabal">
     <verse num="17" />
-    <text>Now therefore know and consider what you will do; for evil is determined against our master, and against all his house; for he is such a worthless fellow that one can't speak to him.”</text>
+    <text>Now therefore know and consider what you will do; for evil is determined against our master, and against all his house; for he is such a worthless fellow that one can’t speak to him.”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="18" characterId="narrator-1SA">
     <verse num="18" />
@@ -3772,7 +3772,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="25" characterId="Abigail">
     <verse num="25" />
-    <text>Please don't let my lord regard this worthless fellow, even Nabal; for as his name is, so is he. Nabal is his name, and folly is with him; but I, your handmaid, didn't see the young men of my lord, whom you sent.</text>
+    <text>Please don’t let my lord regard this worthless fellow, even Nabal; for as his name is, so is he. Nabal is his name, and folly is with him; but I, your handmaid, didn’t see the young men of my lord, whom you sent.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="26" characterId="Abigail">
     <verse num="26" />
@@ -3809,7 +3809,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="34" characterId="David">
     <verse num="34" />
-    <text>For indeed, as God, the God of Israel, lives, who has withheld me from hurting you, unless you had hurried and come to meet me, surely there wouldn't have been left to Nabal by the morning light so much as one who urinates on a wall.”</text>
+    <text>For indeed, as God, the God of Israel, lives, who has withheld me from hurting you, unless you had hurried and come to meet me, surely there wouldn’t have been left to Nabal by the morning light so much as one who urinates on a wall.”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="35" characterId="narrator-1SA">
     <verse num="35" />
@@ -3820,7 +3820,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="36" characterId="narrator-1SA">
     <verse num="36" />
-    <text>Abigail came to Nabal; and behold, he held a feast in his house, like the feast of a king. Nabal's heart was merry within him, for he was very drunken. Therefore she told him nothing, less or more, until the morning light.</text>
+    <text>Abigail came to Nabal; and behold, he held a feast in his house, like the feast of a king. Nabal’s heart was merry within him, for he was very drunken. Therefore she told him nothing, less or more, until the morning light.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="37" characterId="narrator-1SA">
     <verse num="37" />
@@ -3860,7 +3860,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="44" characterId="narrator-1SA">
     <verse num="44" />
-    <text>Now Saul had given Michal his daughter, David's wife, to Palti the son of Laish, who was of Gallim.</text>
+    <text>Now Saul had given Michal his daughter, David’s wife, to Palti the son of Laish, who was of Gallim.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="26" book="1SA" initialStartVerse="0" characterId="BC-1SA">
     <text>26</text>
@@ -3926,11 +3926,11 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="11" characterId="David">
     <verse num="11" />
-    <text>God forbid that I should put forth my hand against God's anointed; but now please take the spear that is at his head, and the jar of water, and let us go.”</text>
+    <text>God forbid that I should put forth my hand against God’s anointed; but now please take the spear that is at his head, and the jar of water, and let us go.”</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
-    <text>So David took the spear and the jar of water from Saul's head; and they went away: and no man saw it, nor knew it, neither did any awake; for they were all asleep, because a deep sleep from God was fallen on them.</text>
+    <text>So David took the spear and the jar of water from Saul’s head; and they went away: and no man saw it, nor knew it, neither did any awake; for they were all asleep, because a deep sleep from God was fallen on them.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="13" characterId="narrator-1SA">
     <verse num="13" />
@@ -3958,11 +3958,11 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="16" characterId="David">
     <verse num="16" />
-    <text>This thing isn't good that you have done. As God lives, you are worthy to die, because you have not kept watch over your lord, God's anointed. Now see where the king's spear is, and the jar of water that was at his head.”</text>
+    <text>This thing isn’t good that you have done. As God lives, you are worthy to die, because you have not kept watch over your lord, God’s anointed. Now see where the king’s spear is, and the jar of water that was at his head.”</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="17" characterId="narrator-1SA">
     <verse num="17" />
-    <text>Saul knew David's voice, and said,</text>
+    <text>Saul knew David’s voice, and said,</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="17" characterId="Saul">
     <text>“Is this your voice, my son David?”</text>
@@ -3982,11 +3982,11 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="19" characterId="David">
     <verse num="19" />
-    <text>Now therefore, please let my lord the king hear the words of his servant. If it is so that God has stirred you up against me, let him accept an offering. But if it is the children of men, they are cursed before God; for they have driven me out this day that I shouldn't cling to God's inheritance, saying, 'Go, serve other gods!'</text>
+    <text>Now therefore, please let my lord the king hear the words of his servant. If it is so that God has stirred you up against me, let him accept an offering. But if it is the children of men, they are cursed before God; for they have driven me out this day that I shouldn’t cling to God’s inheritance, saying, ‹Go, serve other gods!›</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="20" characterId="David">
     <verse num="20" />
-    <text>Now therefore, don't let my blood fall to the earth away from the presence of God; for the king of Israel has come out to seek a flea, as when one hunts a partridge in the mountains.”</text>
+    <text>Now therefore, don’t let my blood fall to the earth away from the presence of God; for the king of Israel has come out to seek a flea, as when one hunts a partridge in the mountains.”</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="21" characterId="narrator-1SA">
     <verse num="21" />
@@ -4004,7 +4004,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="23" characterId="David">
     <verse num="23" />
-    <text>God will render to every man his righteousness and his faithfulness; because God delivered you into my hand today, and I wouldn't put forth my hand against God's anointed.</text>
+    <text>God will render to every man his righteousness and his faithfulness; because God delivered you into my hand today, and I wouldn’t put forth my hand against God’s anointed.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="24" characterId="David">
     <verse num="24" />
@@ -4036,7 +4036,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
-    <text>David lived with Achish at Gath, he and his men, every man with his household, even David with his two wives, Ahinoam the Jezreelitess, and Abigail the Carmelitess, Nabal's wife.</text>
+    <text>David lived with Achish at Gath, he and his men, every man with his household, even David with his two wives, Ahinoam the Jezreelitess, and Abigail the Carmelitess, Nabal’s wife.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="4" characterId="narrator-1SA">
     <verse num="4" />
@@ -4057,7 +4057,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="8" characterId="narrator-1SA">
     <verse num="8" />
-    <text>David and his men went up, and made a raid on the Geshurites, and the Girzites, and the Amalekites; for those [nations] were the inhabitants of the land, who were of old, as you go to Shur, even to the land of Egypt.</text>
+    <text>David and his men went up, and made a raid on the Geshurites, and the Girzites, and the Amalekites; for those nations were the inhabitants of the land, who were of old, as you go to Shur, even to the land of Egypt.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="9" characterId="narrator-1SA">
     <verse num="9" />
@@ -4079,7 +4079,7 @@
     <text>David saved neither man nor woman alive, to bring them to Gath, saying,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="11" characterId="David" delivery="thought">
-    <text>“Lest they should tell of us, saying, 'So did David, and so has been his way all the while he has lived in the country of the Philistines.'”</text>
+    <text>“Lest they should tell of us, saying, ‹So did David, and so has been his way all the while he has lived in the country of the Philistines.› ”</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="12" characterId="narrator-1SA">
     <verse num="12" />
@@ -4125,7 +4125,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
-    <text>When Saul inquired of God, God didn't answer him, neither by dreams, nor by Urim, nor by prophets. </text>
+    <text>When Saul inquired of God, God didn’t answer him, neither by dreams, nor by Urim, nor by prophets. </text>
     <verse num="7" />
     <text>Then Saul said to his servants,</text>
   </block>
@@ -4232,7 +4232,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="18" characterId="Samuel (dead)">
     <verse num="18" />
-    <text>Because you didn't obey the voice of God, and didn't execute his fierce wrath on Amalek, therefore God has done this thing to you this day.</text>
+    <text>Because you didn’t obey the voice of God, and didn’t execute his fierce wrath on Amalek, therefore God has done this thing to you this day.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="19" characterId="Samuel (dead)">
     <verse num="19" />
@@ -4304,7 +4304,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="5" characterId="Philistine commanders">
     <verse num="5" />
-    <text>Is not this David, of whom they sang one to another in dances, saying, 'Saul has slain his thousands, David his ten thousands?'”</text>
+    <text>Is not this David, of whom they sang one to another in dances, saying, ‹Saul has slain his thousands, David his ten thousands?› ”</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
@@ -4329,7 +4329,7 @@
     <text>Achish answered David,</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="9" characterId="Achish, king of Gath">
-    <text>“I know that you are good in my sight, as an angel of God. Notwithstanding the princes of the Philistines have said, 'He shall not go up with us to the battle.'</text>
+    <text>“I know that you are good in my sight, as an angel of God. Notwithstanding the princes of the Philistines have said, ‹He shall not go up with us to the battle.›</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="10" characterId="Achish, king of Gath">
     <verse num="10" />
@@ -4348,7 +4348,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="2" characterId="narrator-1SA">
     <verse num="2" />
-    <text>and had taken captive the women and all who were therein, both small and great. They didn't kill any, but carried them off, and went their way.</text>
+    <text>and had taken captive the women and all who were therein, both small and great. They didn’t kill any, but carried them off, and went their way.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="3" characterId="narrator-1SA">
     <verse num="3" />
@@ -4360,7 +4360,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="5" characterId="narrator-1SA">
     <verse num="5" />
-    <text>David's two wives were taken captive, Ahinoam the Jezreelitess, and Abigail the wife of Nabal the Carmelite.</text>
+    <text>David’s two wives were taken captive, Ahinoam the Jezreelitess, and Abigail the wife of Nabal the Carmelite.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="6" characterId="narrator-1SA">
     <verse num="6" />
@@ -4393,7 +4393,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="10" characterId="narrator-1SA">
     <verse num="10" />
-    <text>But David pursued, he and four hundred men; for two hundred stayed behind, who were so faint that they couldn't go over the brook Besor.</text>
+    <text>But David pursued, he and four hundred men; for two hundred stayed behind, who were so faint that they couldn’t go over the brook Besor.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="11" characterId="narrator-1SA">
     <verse num="11" />
@@ -4449,7 +4449,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="20" characterId="narrator-1SA">
     <verse num="20" />
-    <text>David took all the flocks and the herds, [which] they drove before those [other] livestock, and said,</text>
+    <text>David took all the flocks and the herds, which they drove before those other livestock, and said,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="20" characterId="David's men">
     <text>“This is David's spoil.”</text>

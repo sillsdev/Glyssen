@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="DEU" singlevoice="false" pageheader="Deuteronomy">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-DEU">
+  <block style="mt" chapter="0" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>Deuteronomy</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="DEU" initialStartVerse="0" characterId="BC-DEU">
@@ -12,7 +12,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-DEU">
     <verse num="2" />
-    <text>It is eleven days' [journey] from Horeb by the way of Mount Seir to Kadesh Barnea.</text>
+    <text>It is eleven days’ journey from Horeb by the way of Mount Seir to Kadesh Barnea.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-DEU">
     <verse num="3" />
@@ -32,7 +32,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>turn, and take your journey, and go to the hill country of the Amorites, and to all [the places] near there, in the Arabah, in the hill country, and in the lowland, and in the South, and by the seashore, the land of the Canaanites, and Lebanon, as far as the great river, the river Euphrates.</text>
+    <text>turn, and take your journey, and go to the hill country of the Amorites, and to all the places near there, in the Arabah, in the hill country, and in the lowland, and in the South, and by the seashore, the land of the Canaanites, and Lebanon, as far as the great river, the river Euphrates.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
@@ -60,7 +60,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="Moses">
     <verse num="14" />
-    <text>You answered me, and said, “The thing which you have spoken is good [for us] to do.”</text>
+    <text>You answered me, and said, “The thing which you have spoken is good for us to do.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
@@ -68,11 +68,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>I commanded your judges at that time, saying, Hear [the causes] between your brothers, and judge righteously between a man and his brother, and the foreigner who is living with him.</text>
+    <text>I commanded your judges at that time, saying, Hear the causes between your brothers, and judge righteously between a man and his brother, and the foreigner who is living with him.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>You shall not show partiality in judgment; you shall hear the small and the great alike; you shall not be afraid of the face of man; for the judgment is God's: and the cause that is too hard for you, you shall bring to me, and I will hear it.</text>
+    <text>You shall not show partiality in judgment; you shall hear the small and the great alike; you shall not be afraid of the face of man; for the judgment is God’s: and the cause that is too hard for you, you shall bring to me, and I will hear it.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
@@ -89,7 +89,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>Behold, God your God has set the land before you: go up, take possession, as God, the God of your fathers, has spoken to you; don't be afraid, neither be dismayed.”</text>
+    <text>Behold, God your God has set the land before you: go up, take possession, as God, the God of your fathers, has spoken to you; don’t be afraid, neither be dismayed.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -115,7 +115,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="26" characterId="Moses">
     <verse num="26" />
-    <text>Yet you wouldn't go up, but rebelled against the commandment of God your God:</text>
+    <text>Yet you wouldn’t go up, but rebelled against the commandment of God your God:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
@@ -127,7 +127,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="29" characterId="Moses">
     <verse num="29" />
-    <text>Then I said to you, “Don't dread, neither be afraid of them.</text>
+    <text>Then I said to you, “Don’t dread, neither be afraid of them.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="30" characterId="Moses">
     <verse num="30" />
@@ -137,7 +137,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="32" characterId="Moses">
     <verse num="32" />
-    <text>Yet in this thing you didn't believe God your God, </text>
+    <text>Yet in this thing you didn’t believe God your God, </text>
     <verse num="33" />
     <text>who went before you in the way, to seek you out a place to pitch your tents in, in fire by night, to show you by what way you should go, and in the cloud by day.</text>
   </block>
@@ -179,7 +179,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="43" characterId="Moses">
     <verse num="43" />
-    <text>So I spoke to you, and you didn't listen; but you rebelled against the commandment of God, and were presumptuous, and went up into the hill country.</text>
+    <text>So I spoke to you, and you didn’t listen; but you rebelled against the commandment of God, and were presumptuous, and went up into the hill country.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="44" characterId="Moses">
     <verse num="44" />
@@ -187,11 +187,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="45" characterId="Moses">
     <verse num="45" />
-    <text>You returned and wept before God; but God didn't listen to your voice, nor gave ear to you.</text>
+    <text>You returned and wept before God; but God didn’t listen to your voice, nor gave ear to you.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="46" characterId="Moses">
     <verse num="46" />
-    <text>So you stayed in Kadesh many days, according to the days that you stayed [there].</text>
+    <text>So you stayed in Kadesh many days, according to the days that you stayed there.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>2</text>
@@ -210,15 +210,15 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>Command the people, saying, 'You are to pass through the border of your brothers the children of Esau, who dwell in Seir; and they will be afraid of you: take good heed to yourselves therefore;</text>
+    <text>Command the people, saying, ‹You are to pass through the border of your brothers the children of Esau, who dwell in Seir; and they will be afraid of you: take good heed to yourselves therefore;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
-    <text>don't contend with them; for I will not give you of their land, no, not so much as for the sole of the foot to tread on; because I have given Mount Seir to Esau for a possession.</text>
+    <text>don’t contend with them; for I will not give you of their land, no, not so much as for the sole of the foot to tread on; because I have given Mount Seir to Esau for a possession.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>You shall purchase food of them for money, that you may eat; and you shall also buy water of them for money, that you may drink.'</text>
+    <text>You shall purchase food of them for money, that you may eat; and you shall also buy water of them for money, that you may drink.›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -267,7 +267,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
-    <text>and when you come near over against the children of Ammon, don't bother them, nor contend with them; for I will not give you of the land of the children of Ammon for a possession; because I have given it to the children of Lot for a possession.</text>
+    <text>and when you come near over against the children of Ammon, don’t bother them, nor contend with them; for I will not give you of the land of the children of Ammon for a possession; because I have given it to the children of Lot for a possession.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
@@ -328,11 +328,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="36" characterId="Moses">
     <verse num="36" />
-    <text>From Aroer, which is on the edge of the valley of the Arnon, and [from] the city that is in the valley, even to Gilead, there was not a city too high for us; God our God delivered up all before us:</text>
+    <text>From Aroer, which is on the edge of the valley of the Arnon, and from the city that is in the valley, even to Gilead, there was not a city too high for us; God our God delivered up all before us:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="37" characterId="Moses">
     <verse num="37" />
-    <text>only to the land of the children of Ammon you didn't come near; all the side of the river Jabbok, and the cities of the hill country, and wherever God our God forbade us.</text>
+    <text>only to the land of the children of Ammon you didn’t come near; all the side of the river Jabbok, and the cities of the hill country, and wherever God our God forbade us.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>3</text>
@@ -352,7 +352,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>We took all his cities at that time; there was not a city which we didn't take from them; sixty cities, all the region of Argob, the kingdom of Og in Bashan.</text>
+    <text>We took all his cities at that time; there was not a city which we didn’t take from them; sixty cities, all the region of Argob, the kingdom of Og in Bashan.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -372,7 +372,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>([which] Hermon the Sidonians call Sirion, and the Amorites call it Senir;)</text>
+    <text>(which Hermon the Sidonians call Sirion, and the Amorites call it Senir;)</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
@@ -380,7 +380,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="Moses">
     <verse num="11" />
-    <text>(For only Og king of Bashan remained of the remnant of the Rephaim; behold, his bedstead was a bedstead of iron; isn't it in Rabbah of the children of Ammon? nine cubits was its length, and four cubits its breadth, after the cubit of a man.)</text>
+    <text>(For only Og king of Bashan remained of the remnant of the Rephaim; behold, his bedstead was a bedstead of iron; isn’t it in Rabbah of the children of Ammon? nine cubits was its length, and four cubits its breadth, after the cubit of a man.)</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
@@ -398,11 +398,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>To the Reubenites and to the Gadites I gave from Gilead even to the valley of the Arnon, the middle of the valley, and the border [of it], even to the river Jabbok, which is the border of the children of Ammon;</text>
+    <text>To the Reubenites and to the Gadites I gave from Gilead even to the valley of the Arnon, the middle of the valley, and the border of it, even to the river Jabbok, which is the border of the children of Ammon;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>the Arabah also, and the Jordan and the border [of it], from Chinnereth even to the sea of the Arabah, the Salt Sea, under the slopes of Pisgah eastward.</text>
+    <text>the Arabah also, and the Jordan and the border of it, from Chinnereth even to the sea of the Arabah, the Salt Sea, under the slopes of Pisgah eastward.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
@@ -434,7 +434,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="26" characterId="Moses">
     <verse num="26" />
-    <text>But God was angry with me for your sakes, and didn't listen to me; and God said to me, “Let it suffice you; speak no more to me of this matter.</text>
+    <text>But God was angry with me for your sakes, and didn’t listen to me; and God said to me, “Let it suffice you; speak no more to me of this matter.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
@@ -488,7 +488,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>Only take heed to yourself, and keep your soul diligently, lest you forget the things which your eyes saw, and lest they depart from your heart all the days of your life; but make them known to your children and your children's children;</text>
+    <text>Only take heed to yourself, and keep your soul diligently, lest you forget the things which your eyes saw, and lest they depart from your heart all the days of your life; but make them known to your children and your children’s children;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
@@ -503,7 +503,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
-    <text>God spoke to you out of the midst of the fire: you heard the voice of words, but you saw no form; only [you heard] a voice.</text>
+    <text>God spoke to you out of the midst of the fire: you heard the voice of words, but you saw no form; only you heard a voice.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
@@ -551,7 +551,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="25" characterId="Moses">
     <verse num="25" />
-    <text>When you shall father children, and children's children, and you shall have been long in the land, and shall corrupt yourselves, and make an engraved image in the form of anything, and shall do that which is evil in the sight of God your God, to provoke him to anger;</text>
+    <text>When you shall father children, and children’s children, and you shall have been long in the land, and shall corrupt yourselves, and make an engraved image in the form of anything, and shall do that which is evil in the sight of God your God, to provoke him to anger;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="26" characterId="Moses">
     <verse num="26" />
@@ -563,7 +563,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="28" characterId="Moses">
     <verse num="28" />
-    <text>There you shall serve gods, the work of men's hands, wood and stone, which neither see, nor hear, nor eat, nor smell.</text>
+    <text>There you shall serve gods, the work of men’s hands, wood and stone, which neither see, nor hear, nor eat, nor smell.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="29" characterId="Moses">
     <verse num="29" />
@@ -579,7 +579,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="32" characterId="Moses">
     <verse num="32" />
-    <text>For ask now of the days that are past, which were before you, since the day that God created man on the earth, and from the one end of the sky to the other, whether there has been [any such thing] as this great thing is, or has been heard like it?</text>
+    <text>For ask now of the days that are past, which were before you, since the day that God created man on the earth, and from the one end of the sky to the other, whether there has been any such thing as this great thing is, or has been heard like it?</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="33" characterId="Moses">
     <verse num="33" />
@@ -587,7 +587,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="34" characterId="Moses">
     <verse num="34" />
-    <text>Or has God tried to go and take him a nation from the midst of [another] nation, by trials, by signs, and by wonders, and by war, and by a mighty hand, and by an outstretched arm, and by great terrors, according to all that God your God did for you in Egypt before your eyes?</text>
+    <text>Or has God tried to go and take him a nation from the midst of another nation, by trials, by signs, and by wonders, and by war, and by a mighty hand, and by an outstretched arm, and by great terrors, according to all that God your God did for you in Egypt before your eyes?</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="35" characterId="Moses">
     <verse num="35" />
@@ -617,11 +617,11 @@
     <verse num="41" />
     <text>Then Moses set apart three cities beyond the Jordan toward the sunrise; </text>
     <verse num="42" />
-    <text>that the manslayer might flee there, who kills his neighbor unawares, and didn't hate him in time past; and that fleeing to one of these cities he might live:</text>
+    <text>that the manslayer might flee there, who kills his neighbor unawares, and didn’t hate him in time past; and that fleeing to one of these cities he might live:</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="43" characterId="narrator-DEU">
     <verse num="43" />
-    <text>[namely], Bezer in the wilderness, in the plain country, for the Reubenites; and Ramoth in Gilead, for the Gadites; and Golan in Bashan, for the Manassites.</text>
+    <text>namely, Bezer in the wilderness, in the plain country, for the Reubenites; and Ramoth in Gilead, for the Gadites; and Golan in Bashan, for the Manassites.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="44" characterId="narrator-DEU">
     <verse num="44" />
@@ -659,7 +659,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>God didn't make this covenant with our fathers, but with us, even us, who are all of us here alive this day.</text>
+    <text>God didn’t make this covenant with our fathers, but with us, even us, who are all of us here alive this day.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
@@ -667,7 +667,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
-    <text>(I stood between God and you at that time, to show you the word of God: for you were afraid because of the fire, and didn't go up onto the mountain;) saying,</text>
+    <text>(I stood between God and you at that time, to show you the word of God: for you were afraid because of the fire, and didn’t go up onto the mountain;) saying,</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
@@ -679,7 +679,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>You shall not make an engraved image for yourself, [nor] any likeness [of anything] that is in heaven above, or that is in the earth beneath, or that is in the water under the earth:</text>
+    <text>You shall not make an engraved image for yourself, nor any likeness of anything that is in heaven above, or that is in the earth beneath, or that is in the water under the earth:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
@@ -731,7 +731,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>Neither shall you covet your neighbor's wife; neither shall you desire your neighbor's house, his field, or his male servant, or his female servant, his ox, or his donkey, or anything that is your neighbor's.</text>
+    <text>Neither shall you covet your neighbor’s wife; neither shall you desire your neighbor’s house, his field, or his male servant, or his female servant, his ox, or his donkey, or anything that is your neighbor’s.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -793,7 +793,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
-    <text>that you might fear God your God, to keep all his statutes and his commandments, which I command you, you, and your son, and your son's son, all the days of your life; and that your days may be prolonged.</text>
+    <text>that you might fear God your God, to keep all his statutes and his commandments, which I command you, you, and your son, and your son’s son, all the days of your life; and that your days may be prolonged.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
@@ -825,9 +825,9 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
-    <text>It shall be, when God your God shall bring you into the land which he swore to your fathers, to Abraham, to Isaac, and to Jacob, to give you, great and goodly cities, which you didn't build, </text>
+    <text>It shall be, when God your God shall bring you into the land which he swore to your fathers, to Abraham, to Isaac, and to Jacob, to give you, great and goodly cities, which you didn’t build, </text>
     <verse num="11" />
-    <text>and houses full of all good things, which you didn't fill, and cisterns dug out, which you didn't dig, vineyards and olive trees, which you didn't plant, and you shall eat and be full; </text>
+    <text>and houses full of all good things, which you didn’t fill, and cisterns dug out, which you didn’t dig, vineyards and olive trees, which you didn’t plant, and you shall eat and be full; </text>
     <verse num="12" />
     <text>then beware lest you forget God, who brought you forth out of the land of Egypt, out of the house of bondage.</text>
   </block>
@@ -863,7 +863,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>then you shall tell your son, “We were Pharaoh's bondservants in Egypt: and God brought us out of Egypt with a mighty hand;</text>
+    <text>then you shall tell your son, “We were Pharaoh’s bondservants in Egypt: and God brought us out of Egypt with a mighty hand;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -910,7 +910,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>God didn't set his love on you, nor choose you, because you were more in number than any people; for you were the fewest of all peoples:</text>
+    <text>God didn’t set his love on you, nor choose you, because you were more in number than any people; for you were the fewest of all peoples:</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
@@ -999,11 +999,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>He humbled you, and allowed you to hunger, and fed you with manna, which you didn't know, neither did your fathers know; that he might make you know that man does not live by bread only, but by everything that proceeds out of the mouth of God does man live.</text>
+    <text>He humbled you, and allowed you to hunger, and fed you with manna, which you didn’t know, neither did your fathers know; that he might make you know that man does not live by bread only, but by everything that proceeds out of the mouth of God does man live.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>Your clothing didn't grow old on you, neither did your foot swell, these forty years.</text>
+    <text>Your clothing didn’t grow old on you, neither did your foot swell, these forty years.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -1047,15 +1047,15 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>who led you through the great and terrible wilderness, [in which were] fiery serpents and scorpions, and thirsty ground where there was no water; who brought you forth water out of the rock of flint;</text>
+    <text>who led you through the great and terrible wilderness, in which were fiery serpents and scorpions, and thirsty ground where there was no water; who brought you forth water out of the rock of flint;</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>who fed you in the wilderness with manna, which your fathers didn't know; that he might humble you, and that he might prove you, to do you good at your latter end:</text>
+    <text>who fed you in the wilderness with manna, which your fathers didn’t know; that he might humble you, and that he might prove you, to do you good at your latter end:</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>and [lest] you say in your heart, “My power and the might of my hand has gotten me this wealth.”</text>
+    <text>and lest you say in your heart, “My power and the might of my hand has gotten me this wealth.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
@@ -1067,7 +1067,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
-    <text>As the nations that God makes to perish before you, so you shall perish; because you wouldn't listen to the voice of God your God.</text>
+    <text>As the nations that God makes to perish before you, so you shall perish; because you wouldn’t listen to the voice of God your God.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>9</text>
@@ -1086,7 +1086,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>Don't say in your heart, after God your God has thrust them out from before you, saying, “For my righteousness God has brought me in to possess this land;” because God drives them out before you because of the wickedness of these nations.</text>
+    <text>Don’t say in your heart, after God your God has thrust them out from before you, saying, “For my righteousness God has brought me in to possess this land;” because God drives them out before you because of the wickedness of these nations.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -1094,11 +1094,11 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>Know therefore, that God your God doesn't give you this good land to possess it for your righteousness; for you are a stiff-necked people.</text>
+    <text>Know therefore, that God your God doesn’t give you this good land to possess it for your righteousness; for you are a stiff-necked people.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>Remember, don't forget, how you provoked God your God to wrath in the wilderness: from the day that you went forth out of the land of Egypt, until you came to this place, you have been rebellious against God.</text>
+    <text>Remember, don’t forget, how you provoked God your God to wrath in the wilderness: from the day that you went forth out of the land of Egypt, until you came to this place, you have been rebellious against God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
@@ -1110,7 +1110,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
-    <text>God delivered to me the two tables of stone written with the finger of God; and on them [was written] according to all the words, which God spoke with you on the mountain out of the midst of the fire in the day of the assembly.</text>
+    <text>God delivered to me the two tables of stone written with the finger of God; and on them was written according to all the words, which God spoke with you on the mountain out of the midst of the fire in the day of the assembly.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="Moses">
     <verse num="11" />
@@ -1163,7 +1163,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="23" characterId="Moses">
     <verse num="23" />
-    <text>When God sent you from Kadesh Barnea, saying, “Go up and possess the land which I have given you;” then you rebelled against the commandment of God your God, and you didn't believe him, nor listen to his voice.</text>
+    <text>When God sent you from Kadesh Barnea, saying, “Go up and possess the land which I have given you;” then you rebelled against the commandment of God your God, and you didn’t believe him, nor listen to his voice.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
@@ -1175,13 +1175,13 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="26" characterId="Moses">
     <verse num="26" />
-    <text>I prayed to God, and said, “Lord God, don't destroy your people and your inheritance, that you have redeemed through your greatness, that you have brought forth out of Egypt with a mighty hand.</text>
+    <text>I prayed to God, and said, “Lord God, don’t destroy your people and your inheritance, that you have redeemed through your greatness, that you have brought forth out of Egypt with a mighty hand.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
-    <text>Remember your servants, Abraham, Isaac, and Jacob; don't look to the stubbornness of this people, nor to their wickedness, nor to their sin, </text>
+    <text>Remember your servants, Abraham, Isaac, and Jacob; don’t look to the stubbornness of this people, nor to their wickedness, nor to their sin, </text>
     <verse num="28" />
-    <text>lest the land you brought us out from say, 'Because God was not able to bring them into the land which he promised to them, and because he hated them, he has brought them out to kill them in the wilderness.'</text>
+    <text>lest the land you brought us out from say, ‹Because God was not able to bring them into the land which he promised to them, and because he hated them, he has brought them out to kill them in the wilderness.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="29" characterId="Moses">
     <verse num="29" />
@@ -1212,7 +1212,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>(The children of Israel traveled from Beeroth Bene Jaakan to Moserah. There Aaron died, and there he was buried; and Eleazar his son ministered in the priest's office in his place.</text>
+    <text>(The children of Israel traveled from Beeroth Bene Jaakan to Moserah. There Aaron died, and there he was buried; and Eleazar his son ministered in the priest’s office in his place.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -1255,7 +1255,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>For God your God, he is God of gods, and Lord of lords, the great God, the mighty, and the awesome, who doesn't respect persons, nor takes reward.</text>
+    <text>For God your God, he is God of gods, and Lord of lords, the great God, the mighty, and the awesome, who doesn’t respect persons, nor takes reward.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
@@ -1286,7 +1286,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
-    <text>Know this day: for I don't speak with your children who have not known, and who have not seen the chastisement of God your God, his greatness, his mighty hand, and his outstretched arm,</text>
+    <text>Know this day: for I don’t speak with your children who have not known, and who have not seen the chastisement of God your God, his greatness, his mighty hand, and his outstretched arm,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
@@ -1318,11 +1318,11 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
-    <text>For the land, where you go in to possess it, isn't as the land of Egypt, that you came out from, where you sowed your seed, and watered it with your foot, as a garden of herbs;</text>
+    <text>For the land, where you go in to possess it, isn’t as the land of Egypt, that you came out from, where you sowed your seed, and watered it with your foot, as a garden of herbs;</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="11" characterId="Moses">
     <verse num="11" />
-    <text>but the land, where you go over to possess it, is a land of hills and valleys, [and] drinks water of the rain of the sky,</text>
+    <text>but the land, where you go over to possess it, is a land of hills and valleys, and drinks water of the rain of the sky,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
@@ -1396,7 +1396,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="30" characterId="Moses">
     <verse num="30" />
-    <text>Aren't they beyond the Jordan, behind the way of the going down of the sun, in the land of the Canaanites who dwell in the Arabah, over against Gilgal, beside the oaks of Moreh?</text>
+    <text>Aren’t they beyond the Jordan, behind the way of the going down of the sun, in the land of the Canaanites who dwell in the Arabah, over against Gilgal, beside the oaks of Moreh?</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="31" characterId="Moses">
     <verse num="31" />
@@ -1443,7 +1443,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>for you haven't yet come to the rest and to the inheritance, which God your God gives you.</text>
+    <text>for you haven’t yet come to the rest and to the inheritance, which God your God gives you.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
@@ -1459,7 +1459,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
-    <text>Take heed to yourself that you don't offer your burnt offerings in every place that you see;</text>
+    <text>Take heed to yourself that you don’t offer your burnt offerings in every place that you see;</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="14" characterId="Moses">
     <verse num="14" />
@@ -1483,7 +1483,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
-    <text>Take heed to yourself that you don't forsake the Levite as long as you live in your land.</text>
+    <text>Take heed to yourself that you don’t forsake the Levite as long as you live in your land.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
@@ -1499,7 +1499,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="23" characterId="Moses">
     <verse num="23" />
-    <text>Only be sure that you don't eat the blood: for the blood is the life; and you shall not eat the life with the flesh.</text>
+    <text>Only be sure that you don’t eat the blood: for the blood is the life; and you shall not eat the life with the flesh.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
@@ -1635,21 +1635,21 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>Every animal that parts the hoof, and has the hoof cloven in two, [and] chews the cud, among the animals, that may you eat.</text>
+    <text>Every animal that parts the hoof, and has the hoof cloven in two, and chews the cud, among the animals, that may you eat.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>Nevertheless these you shall not eat of them that chew the cud, or of those who have the hoof cloven: the camel, and the hare, and the rabbit; because they chew the cud but don't part the hoof, they are unclean to you.</text>
+    <text>Nevertheless these you shall not eat of them that chew the cud, or of those who have the hoof cloven: the camel, and the hare, and the rabbit; because they chew the cud but don’t part the hoof, they are unclean to you.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>The pig, because it has a split hoof but doesn't chew the cud, is unclean to you: of their flesh you shall not eat, and their carcasses you shall not touch.</text>
+    <text>The pig, because it has a split hoof but doesn’t chew the cud, is unclean to you: of their flesh you shall not eat, and their carcasses you shall not touch.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
     <text>These you may eat of all that are in the waters: whatever has fins and scales may you eat; </text>
     <verse num="10" />
-    <text>and whatever doesn't have fins and scales you shall not eat; it is unclean to you.</text>
+    <text>and whatever doesn’t have fins and scales you shall not eat; it is unclean to you.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="Moses">
     <verse num="11" />
@@ -1679,7 +1679,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>You shall not eat of anything that dies of itself: you may give it to the foreigner living among you who is within your gates, that he may eat it; or you may sell it to a foreigner: for you are a holy people to God your God. You shall not boil a young goat in its mother's milk.</text>
+    <text>You shall not eat of anything that dies of itself: you may give it to the foreigner living among you who is within your gates, that he may eat it; or you may sell it to a foreigner: for you are a holy people to God your God. You shall not boil a young goat in its mother’s milk.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -1722,7 +1722,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
-    <text>This is the way of the release: every creditor shall release that which he has lent to his neighbor; he shall not exact it of his neighbor and his brother; because God's release has been proclaimed.</text>
+    <text>This is the way of the release: every creditor shall release that which he has lent to his neighbor; he shall not exact it of his neighbor and his brother; because God’s release has been proclaimed.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
@@ -1746,7 +1746,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>but you shall surely open your hand to him, and shall surely lend him sufficient for his need [in that] which he wants.</text>
+    <text>but you shall surely open your hand to him, and shall surely lend him sufficient for his need in that which he wants.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
@@ -1796,11 +1796,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>If it have any blemish, [as if it be] lame or blind, any ill blemish whatever, you shall not sacrifice it to God your God.</text>
+    <text>If it have any blemish, as if it be lame or blind, any ill blemish whatever, you shall not sacrifice it to God your God.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
-    <text>You shall eat it within your gates: the unclean and the clean [shall eat it] alike, as the gazelle, and as the hart.</text>
+    <text>You shall eat it within your gates: the unclean and the clean shall eat it alike, as the gazelle, and as the hart.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="23" characterId="Moses">
     <verse num="23" />
@@ -1839,7 +1839,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>Six days you shall eat unleavened bread; and on the seventh day shall be a solemn assembly to God your God; you shall do no work [therein].</text>
+    <text>Six days you shall eat unleavened bread; and on the seventh day shall be a solemn assembly to God your God; you shall do no work therein.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
@@ -1902,7 +1902,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="1" characterId="Moses">
     <verse num="1" />
-    <text>You shall not sacrifice to God your God an ox, or a sheep, in which is a blemish, [or] anything evil; for that is an abomination to God your God.</text>
+    <text>You shall not sacrifice to God your God an ox, or a sheep, in which is a blemish, or anything evil; for that is an abomination to God your God.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
@@ -1973,7 +1973,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
-    <text>It shall be, when he sits on the throne of his kingdom, that he shall write him a copy of this law in a book, out of [that which is] before the priests the Levites:</text>
+    <text>It shall be, when he sits on the throne of his kingdom, that he shall write him a copy of this law in a book, out of that which is before the priests the Levites:</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
@@ -1988,7 +1988,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="1" characterId="Moses">
     <verse num="1" />
-    <text>The priests the Levites, [even] all the tribe of Levi, shall have no portion nor inheritance with Israel: they shall eat the offerings of God made by fire, and his inheritance.</text>
+    <text>The priests the Levites, even all the tribe of Levi, shall have no portion nor inheritance with Israel: they shall eat the offerings of God made by fire, and his inheritance.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
@@ -1996,7 +1996,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>This shall be the priests' due from the people, from those who offer a sacrifice, whether it be ox or sheep, that they shall give to the priest the shoulder, and the two cheeks, and the maw.</text>
+    <text>This shall be the priests’ due from the people, from those who offer a sacrifice, whether it be ox or sheep, that they shall give to the priest the shoulder, and the two cheeks, and the maw.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
@@ -2070,7 +2070,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
-    <text>when a prophet speaks in the name of God, if the thing doesn't follow, nor happen, that is the thing which God has not spoken: the prophet has spoken it presumptuously, you shall not be afraid of him.</text>
+    <text>when a prophet speaks in the name of God, if the thing doesn’t follow, nor happen, that is the thing which God has not spoken: the prophet has spoken it presumptuously, you shall not be afraid of him.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>19</text>
@@ -2089,7 +2089,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>This is the case of the manslayer, that shall flee there and live: whoever kills his neighbor unawares, and didn't hate him in time past;</text>
+    <text>This is the case of the manslayer, that shall flee there and live: whoever kills his neighbor unawares, and didn’t hate him in time past;</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -2097,7 +2097,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>lest the avenger of blood pursue the manslayer, while his heart is hot, and overtake him, because the way is long, and strike him mortally; whereas he was not worthy of death, inasmuch as he didn't hate him in time past.</text>
+    <text>lest the avenger of blood pursue the manslayer, while his heart is hot, and overtake him, because the way is long, and strike him mortally; whereas he was not worthy of death, inasmuch as he didn’t hate him in time past.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -2129,7 +2129,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="Moses">
     <verse num="14" />
-    <text>You shall not remove your neighbor's landmark, which they of old time have set, in your inheritance which you shall inherit, in the land that God your God gives you to possess it.</text>
+    <text>You shall not remove your neighbor’s landmark, which they of old time have set, in your inheritance which you shall inherit, in the land that God your God gives you to possess it.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
@@ -2155,14 +2155,14 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>Your eyes shall not pity; life [shall go] for life, eye for eye, tooth for tooth, hand for hand, foot for foot.</text>
+    <text>Your eyes shall not pity; life shall go for life, eye for eye, tooth for tooth, hand for hand, foot for foot.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>20</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="1" characterId="Moses">
     <verse num="1" />
-    <text>When you go forth to battle against your enemies, and see horses, and chariots, [and] a people more than you, you shall not be afraid of them; for God your God is with you, who brought you up out of the land of Egypt.</text>
+    <text>When you go forth to battle against your enemies, and see horses, and chariots, and a people more than you, you shall not be afraid of them; for God your God is with you, who brought you up out of the land of Egypt.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
@@ -2252,7 +2252,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="1" characterId="Moses">
     <verse num="1" />
-    <text>If one be found slain in the land which God your God gives you to possess it, lying in the field, and it isn't known who has struck him;</text>
+    <text>If one be found slain in the land which God your God gives you to possess it, lying in the field, and it isn’t known who has struck him;</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
@@ -2260,11 +2260,11 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>and it shall be, that the city which is nearest to the slain man, even the elders of that city shall take a heifer of the herd, which hasn't been worked with, and which has not drawn in the yoke;</text>
+    <text>and it shall be, that the city which is nearest to the slain man, even the elders of that city shall take a heifer of the herd, which hasn’t been worked with, and which has not drawn in the yoke;</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>and the elders of that city shall bring down the heifer to a valley with running water, which is neither plowed nor sown, and shall break the heifer's neck there in the valley.</text>
+    <text>and the elders of that city shall bring down the heifer to a valley with running water, which is neither plowed nor sown, and shall break the heifer’s neck there in the valley.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -2280,7 +2280,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>Forgive, God, your people Israel, whom you have redeemed, and don't allow innocent blood [to remain] in the midst of your people Israel.” The blood shall be forgiven them.</text>
+    <text>Forgive, God, your people Israel, whom you have redeemed, and don’t allow innocent blood to remain in the midst of your people Israel.” The blood shall be forgiven them.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
@@ -2338,34 +2338,34 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="23" characterId="Moses">
     <verse num="23" />
-    <text>his body shall not remain all night on the tree, but you shall surely bury him the same day; for he who is hanged is accursed of God; that you don't defile your land which God your God gives you for an inheritance.</text>
+    <text>his body shall not remain all night on the tree, but you shall surely bury him the same day; for he who is hanged is accursed of God; that you don’t defile your land which God your God gives you for an inheritance.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>22</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="1" characterId="Moses">
     <verse num="1" />
-    <text>You shall not see your brother's ox or his sheep go astray, and hide yourself from them: you shall surely bring them again to your brother.</text>
+    <text>You shall not see your brother’s ox or his sheep go astray, and hide yourself from them: you shall surely bring them again to your brother.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
-    <text>If your brother isn't near to you, or if you don't know him, then you shall bring it home to your house, and it shall be with you until your brother seek after it, and you shall restore it to him.</text>
+    <text>If your brother isn’t near to you, or if you don’t know him, then you shall bring it home to your house, and it shall be with you until your brother seek after it, and you shall restore it to him.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>So you shall do with his donkey; and so you shall do with his garment; and so you shall do with every lost thing of your brother's, which he has lost, and you have found: you may not hide yourself.</text>
+    <text>So you shall do with his donkey; and so you shall do with his garment; and so you shall do with every lost thing of your brother’s, which he has lost, and you have found: you may not hide yourself.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>You shall not see your brother's donkey or his ox fallen down by the way, and hide yourself from them: you shall surely help him to lift them up again.</text>
+    <text>You shall not see your brother’s donkey or his ox fallen down by the way, and hide yourself from them: you shall surely help him to lift them up again.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
-    <text>A woman shall not wear men's clothing, neither shall a man put on women's clothing; for whoever does these things is an abomination to God your God.</text>
+    <text>A woman shall not wear men’s clothing, neither shall a man put on women’s clothing; for whoever does these things is an abomination to God your God.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>If a bird's nest chance to be before you in the way, in any tree or on the ground, with young ones or eggs, and the hen sitting on the young, or on the eggs, you shall not take the hen with the young:</text>
+    <text>If a bird’s nest chance to be before you in the way, in any tree or on the ground, with young ones or eggs, and the hen sitting on the young, or on the eggs, you shall not take the hen with the young:</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -2373,7 +2373,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>When you build a new house, then you shall make a battlement for your roof, that you don't bring blood on your house, if any man fall from there.</text>
+    <text>When you build a new house, then you shall make a battlement for your roof, that you don’t bring blood on your house, if any man fall from there.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
@@ -2402,14 +2402,14 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>then shall the father of the young lady, and her mother, take and bring forth the tokens of the young lady's virginity to the elders of the city in the gate; </text>
+    <text>then shall the father of the young lady, and her mother, take and bring forth the tokens of the young lady’s virginity to the elders of the city in the gate; </text>
     <verse num="16" />
-    <text>and the young lady's father shall tell the elders,</text>
+    <text>and the young lady’s father shall tell the elders,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="16" characterId="Moses">
-    <text>“I gave my daughter to this man to wife, and he hates her;  </text>
+    <text>“I gave my daughter to this man to wife, and he hates her; </text>
     <verse num="17" />
-    <text>and behold, he has accused her of shameful things, saying, 'I didn't find in your daughter the tokens of virginity;' and yet these are the tokens of my daughter's virginity.”</text>
+    <text>and behold, he has accused her of shameful things, saying, ‹I didn’t find in your daughter the tokens of virginity;› and yet these are the tokens of my daughter’s virginity.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="17" characterId="Moses">
     <text>They shall spread the cloth before the elders of the city. </text>
@@ -2418,7 +2418,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
-    <text>and they shall fine him one hundred [shekels] of silver, and give them to the father of the young lady, because he has brought up an evil name on a virgin of Israel: and she shall be his wife; he may not put her away all his days.</text>
+    <text>and they shall fine him one hundred shekels of silver, and give them to the father of the young lady, because he has brought up an evil name on a virgin of Israel: and she shall be his wife; he may not put her away all his days.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
@@ -2426,7 +2426,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>then they shall bring out the young lady to the door of her father's house, and the men of her city shall stone her to death with stones, because she has done folly in Israel, to play the prostitute in her father's house: so you shall put away the evil from the midst of you.</text>
+    <text>then they shall bring out the young lady to the door of her father’s house, and the men of her city shall stone her to death with stones, because she has done folly in Israel, to play the prostitute in her father’s house: so you shall put away the evil from the midst of you.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -2438,7 +2438,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
-    <text>then you shall bring them both out to the gate of that city, and you shall stone them to death with stones; the lady, because she didn't cry, being in the city; and the man, because he has humbled his neighbor's wife: so you shall put away the evil from the midst of you.</text>
+    <text>then you shall bring them both out to the gate of that city, and you shall stone them to death with stones; the lady, because she didn’t cry, being in the city; and the man, because he has humbled his neighbor’s wife: so you shall put away the evil from the midst of you.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="25" characterId="Moses">
     <verse num="25" />
@@ -2458,11 +2458,11 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="29" characterId="Moses">
     <verse num="29" />
-    <text>then the man who lay with her shall give to the lady's father fifty [shekels] of silver, and she shall be his wife, because he has humbled her; he may not put her away all his days.</text>
+    <text>then the man who lay with her shall give to the lady’s father fifty shekels of silver, and she shall be his wife, because he has humbled her; he may not put her away all his days.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="30" characterId="Moses">
     <verse num="30" />
-    <text>A man shall not take his father's wife, and shall not uncover his father's skirt.</text>
+    <text>A man shall not take his father’s wife, and shall not uncover his father’s skirt.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>23</text>
@@ -2481,11 +2481,11 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>because they didn't meet you with bread and with water in the way, when you came forth out of Egypt, and because they hired against you Balaam the son of Beor from Pethor of Mesopotamia, to curse you.</text>
+    <text>because they didn’t meet you with bread and with water in the way, when you came forth out of Egypt, and because they hired against you Balaam the son of Beor from Pethor of Mesopotamia, to curse you.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
-    <text>Nevertheless God your God wouldn't listen to Balaam; but God your God turned the curse into a blessing to you, because God your God loved you.</text>
+    <text>Nevertheless God your God wouldn’t listen to Balaam; but God your God turned the curse into a blessing to you, because God your God loved you.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
@@ -2561,11 +2561,11 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
-    <text>When you come into your neighbor's vineyard, then you may eat of grapes your fill at your own pleasure; but you shall not put any in your vessel.</text>
+    <text>When you come into your neighbor’s vineyard, then you may eat of grapes your fill at your own pleasure; but you shall not put any in your vessel.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="25" characterId="Moses">
     <verse num="25" />
-    <text>When you come into your neighbor's standing grain, then you may pluck the ears with your hand; but you shall not move a sickle to your neighbor's standing grain.</text>
+    <text>When you come into your neighbor’s standing grain, then you may pluck the ears with your hand; but you shall not move a sickle to your neighbor’s standing grain.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>24</text>
@@ -2576,7 +2576,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
-    <text>When she is departed out of his house, she may go and be another man's [wife].</text>
+    <text>When she is departed out of his house, she may go and be another man’s wife.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
@@ -2592,7 +2592,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>No man shall take the mill or the upper millstone to pledge; for he takes [a man's] life to pledge.</text>
+    <text>No man shall take the mill or the upper millstone to pledge; for he takes a man’s life to pledge.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -2636,7 +2636,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>You shall not wrest the justice [due] to the foreigner, [or] to the fatherless, nor take the widow's clothing to pledge;</text>
+    <text>You shall not wrest the justice due to the foreigner, or to the fatherless, nor take the widow’s clothing to pledge;</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
@@ -2652,7 +2652,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>When you gather [the grapes of] your vineyard, you shall not glean it after yourselves: it shall be for the foreigner, for the fatherless, and for the widow.</text>
+    <text>When you gather the grapes of your vineyard, you shall not glean it after yourselves: it shall be for the foreigner, for the fatherless, and for the widow.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -2663,7 +2663,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="1" characterId="Moses">
     <verse num="1" />
-    <text>If there be a controversy between men, and they come to judgment, and [the judges] judge them; then they shall justify the righteous, and condemn the wicked;</text>
+    <text>If there be a controversy between men, and they come to judgment, and the judges judge them; then they shall justify the righteous, and condemn the wicked;</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="2" characterId="Moses">
     <verse num="2" />
@@ -2675,11 +2675,11 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>You shall not muzzle the ox when he treads out [the grain].</text>
+    <text>You shall not muzzle the ox when he treads out the grain.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
-    <text>If brothers dwell together, and one of them die, and have no son, the wife of the dead shall not be married outside to a stranger: her husband's brother shall go in to her, and take her to him as wife, and perform the duty of a husband's brother to her.</text>
+    <text>If brothers dwell together, and one of them die, and have no son, the wife of the dead shall not be married outside to a stranger: her husband’s brother shall go in to her, and take her to him as wife, and perform the duty of a husband’s brother to her.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
@@ -2687,18 +2687,18 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
-    <text>If the man doesn't want to take his brother's wife, then his brother's wife shall go up to the gate to the elders, and say,</text>
+    <text>If the man doesn’t want to take his brother’s wife, then his brother’s wife shall go up to the gate to the elders, and say,</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="7" characterId="Moses">
     <text>“My husband's brother refuses to raise up to his brother a name in Israel; he will not perform the duty of a husband's brother to me.”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>Then the elders of his city shall call him, and speak to him: and if he stand, and say, “I don't want to take her;”</text>
+    <text>Then the elders of his city shall call him, and speak to him: and if he stand, and say, “I don’t want to take her;”</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>then his brother's wife shall come to him in the presence of the elders, and loose his shoe from off his foot, and spit in his face; and she shall answer and say,</text>
+    <text>then his brother’s wife shall come to him in the presence of the elders, and loose his shoe from off his foot, and spit in his face; and she shall answer and say,</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="9" characterId="Moses">
     <text>“So shall it be done to the man who does not build up his brother's house.”</text>
@@ -2729,7 +2729,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>For all who do such things, [even] all who do unrighteously, are an abomination to God your God.</text>
+    <text>For all who do such things, even all who do unrighteously, are an abomination to God your God.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
@@ -2737,7 +2737,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
-    <text>how he met you by the way, and struck the hindmost of you, all who were feeble behind you, when you were faint and weary; and he didn't fear God.</text>
+    <text>how he met you by the way, and struck the hindmost of you, all who were feeble behind you, when you were faint and weary; and he didn’t fear God.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
@@ -2841,31 +2841,31 @@
   <block style="p" chapter="27" initialStartVerse="1" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
     <text>“Keep all the commandment which I command you this day.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="2" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="2" characterId="Moses/elders of Israel">
     <verse num="2" />
     <text>It shall be on the day when you shall pass over the Jordan to the land which God your God gives you, that you shall set yourself up great stones, and plaster them with plaster:</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="3" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="3" characterId="Moses/elders of Israel">
     <verse num="3" />
     <text>and you shall write on them all the words of this law, when you have passed over; that you may go in to the land which God your God gives you, a land flowing with milk and honey, as God, the God of your fathers, has promised you.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="4" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="4" characterId="Moses/elders of Israel">
     <verse num="4" />
     <text>It shall be, when you have passed over the Jordan, that you shall set up these stones, which I command you this day, in Mount Ebal, and you shall plaster them with plaster.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="5" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="5" characterId="Moses/elders of Israel">
     <verse num="5" />
-    <text>There you shall build an altar to God your God, an altar of stones: you shall lift up no iron [tool] on them.</text>
+    <text>There you shall build an altar to God your God, an altar of stones: you shall lift up no iron tool on them.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="6" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="6" characterId="Moses/elders of Israel">
     <verse num="6" />
     <text>You shall build the altar of God your God of uncut stones; and you shall offer burnt offerings thereon to God your God:</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="7" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="7" characterId="Moses/elders of Israel">
     <verse num="7" />
     <text>and you shall sacrifice peace offerings, and shall eat there; and you shall rejoice before God your God.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="8" characterId="Moses/elders of Israel" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="8" characterId="Moses/elders of Israel">
     <verse num="8" />
     <text>You shall write on the stones all the words of this law very plainly.”</text>
   </block>
@@ -2876,7 +2876,7 @@
   <block style="p" chapter="27" initialStartVerse="9" characterId="Moses/priests" characterIdOverrideForScript="Moses">
     <text>“Keep silence, and listen, Israel: this day you have become the people of God your God.</text>
   </block>
-  <block style="p" chapter="27" initialStartVerse="10" characterId="Moses/priests" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="27" initialStartVerse="10" characterId="Moses/priests">
     <verse num="10" />
     <text>You shall therefore obey the voice of God your God, and do his commandments and his statutes, which I command you this day.”</text>
   </block>
@@ -2898,51 +2898,51 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>Cursed is the man who makes an engraved or molten image, an abomination to God, the work of the hands of the craftsman, and sets it up in secret.' All the people shall answer and say, 'Amen.'</text>
+    <text>Cursed is the man who makes an engraved or molten image, an abomination to God, the work of the hands of the craftsman, and sets it up in secret.› All the people shall answer and say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>Cursed is he who sets light by his father or his mother.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who sets light by his father or his mother.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>Cursed is he who removes his neighbor's landmark.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who removes his neighbor’s landmark.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
-    <text>Cursed is he who makes the blind to wander out of the way.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who makes the blind to wander out of the way.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
-    <text>Cursed is he who wrests the justice [due] to the foreigner, fatherless, and widow.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who wrests the justice due to the foreigner, fatherless, and widow.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
-    <text>Cursed is he who lies with his father's wife, because he has uncovered his father's skirt.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who lies with his father’s wife, because he has uncovered his father’s skirt.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>Cursed is he who lies with any kind of animal.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who lies with any kind of animal.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
-    <text>Cursed is he who lies with his sister, the daughter of his father, or the daughter of his mother.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who lies with his sister, the daughter of his father, or the daughter of his mother.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="23" characterId="Moses">
     <verse num="23" />
-    <text>Cursed is he who lies with his mother-in-law.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who lies with his mother-in-law.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
-    <text>Cursed is he who strikes his neighbor in secret.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who strikes his neighbor in secret.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="25" characterId="Moses">
     <verse num="25" />
-    <text>Cursed is he who takes a bribe to kill an innocent person.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who takes a bribe to kill an innocent person.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="26" characterId="Moses">
     <verse num="26" />
-    <text>Cursed is he who doesn't confirm the words of this law to do them.' All the people shall say, 'Amen.'</text>
+    <text>Cursed is he who doesn’t confirm the words of this law to do them.› All the people shall say, ‹Amen.›</text>
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="DEU" initialStartVerse="0" characterId="BC-DEU">
     <text>28</text>
@@ -2997,7 +2997,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
-    <text>God will make you the head, and not the tail; and you shall be above only, and you shall not be beneath; if you shall listen to the commandments of God your God, which I command you this day, to observe and to do [them], </text>
+    <text>God will make you the head, and not the tail; and you shall be above only, and you shall not be beneath; if you shall listen to the commandments of God your God, which I command you this day, to observe and to do them, </text>
     <verse num="14" />
     <text>and shall not turn aside from any of the words which I command you this day, to the right hand, or to the left, to go after other gods to serve them.</text>
   </block>
@@ -3075,7 +3075,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="33" characterId="Moses">
     <verse num="33" />
-    <text>The fruit of your ground, and all your labors, shall a nation which you don't know eat up; and you shall be only oppressed and crushed always;</text>
+    <text>The fruit of your ground, and all your labors, shall a nation which you don’t know eat up; and you shall be only oppressed and crushed always;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="34" characterId="Moses">
     <verse num="34" />
@@ -3099,11 +3099,11 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="39" characterId="Moses">
     <verse num="39" />
-    <text>You shall plant vineyards and dress them, but you shall neither drink of the wine, nor gather [the grapes]; for the worm shall eat them.</text>
+    <text>You shall plant vineyards and dress them, but you shall neither drink of the wine, nor gather the grapes; for the worm shall eat them.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="40" characterId="Moses">
     <verse num="40" />
-    <text>You shall have olive trees throughout all your borders, but you shall not anoint yourself with the oil; for your olive shall cast [its fruit].</text>
+    <text>You shall have olive trees throughout all your borders, but you shall not anoint yourself with the oil; for your olive shall cast its fruit.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="41" characterId="Moses">
     <verse num="41" />
@@ -3123,7 +3123,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="45" characterId="Moses">
     <verse num="45" />
-    <text>All these curses shall come on you, and shall pursue you, and overtake you, until you are destroyed; because you didn't listen to the voice of God your God, to keep his commandments and his statutes which he commanded you:</text>
+    <text>All these curses shall come on you, and shall pursue you, and overtake you, until you are destroyed; because you didn’t listen to the voice of God your God, to keep his commandments and his statutes which he commanded you:</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="46" characterId="Moses">
     <verse num="46" />
@@ -3131,7 +3131,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="47" characterId="Moses">
     <verse num="47" />
-    <text>Because you didn't serve God your God with joyfulness, and with gladness of heart, by reason of the abundance of all things;</text>
+    <text>Because you didn’t serve God your God with joyfulness, and with gladness of heart, by reason of the abundance of all things;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="48" characterId="Moses">
     <verse num="48" />
@@ -3187,7 +3187,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="62" characterId="Moses">
     <verse num="62" />
-    <text>You shall be left few in number, whereas you were as the stars of the sky for multitude; because you didn't listen to the voice of God your God.</text>
+    <text>You shall be left few in number, whereas you were as the stars of the sky for multitude; because you didn’t listen to the voice of God your God.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="63" characterId="Moses">
     <verse num="63" />
@@ -3317,7 +3317,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="23" characterId="Moses">
     <verse num="23" />
-    <text>[and that] the whole land of it is sulfur, and salt, [and] a burning, [that] it is not sown, nor bears, nor any grass grows therein, like the overthrow of Sodom and Gomorrah, Admah and Zeboiim, which God overthrew in his anger, and in his wrath:</text>
+    <text>and that the whole land of it is sulfur, and salt, and a burning, that it is not sown, nor bears, nor any grass grows therein, like the overthrow of Sodom and Gomorrah, Admah and Zeboiim, which God overthrew in his anger, and in his wrath:</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
@@ -3333,7 +3333,7 @@
   <block style="p" chapter="29" initialStartVerse="25" characterId="Moses">
     <text>“Because they forsook the covenant of God, the God of their fathers, which he made with them when he brought them forth out of the land of Egypt, </text>
     <verse num="26" />
-    <text>and went and served other gods, and worshiped them, gods that they didn't know, and that he had not given to them:</text>
+    <text>and went and served other gods, and worshiped them, gods that they didn’t know, and that he had not given to them:</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
@@ -3364,7 +3364,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
-    <text>If [any of] your outcasts are in the uttermost parts of the heavens, from there will God your God gather you, and from there he will bring you back:</text>
+    <text>If any of your outcasts are in the uttermost parts of the heavens, from there will God your God gather you, and from there he will bring you back:</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
@@ -3442,11 +3442,11 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="2" characterId="Moses">
-    <text>“I am one hundred twenty years old this day; I can no more go out and come in: and God has said to me, 'You shall not go over this Jordan.'</text>
+    <text>“I am one hundred twenty years old this day; I can no more go out and come in: and God has said to me, ‹You shall not go over this Jordan.›</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>God your God, he will go over before you; he will destroy these nations from before you, and you shall dispossess them: [and] Joshua, he shall go over before you, as God has spoken.</text>
+    <text>God your God, he will go over before you; he will destroy these nations from before you, and you shall dispossess them: and Joshua, he shall go over before you, as God has spoken.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
@@ -3458,7 +3458,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>Be strong and courageous, don't be afraid, nor be scared of them: for God your God, he it is who does go with you; he will not fail you, nor forsake you.”</text>
+    <text>Be strong and courageous, don’t be afraid, nor be scared of them: for God your God, he it is who does go with you; he will not fail you, nor forsake you.”</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="7" characterId="narrator-DEU">
     <verse num="7" />
@@ -3469,7 +3469,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="8" characterId="Moses">
     <verse num="8" />
-    <text>God, he it is who does go before you; he will be with you, he will not fail you, neither forsake you: don't be afraid, neither be dismayed.”</text>
+    <text>God, he it is who does go before you; he will be with you, he will not fail you, neither forsake you: don’t be afraid, neither be dismayed.”</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="9" characterId="narrator-DEU">
     <verse num="9" />
@@ -3480,7 +3480,7 @@
     <text>Moses commanded them, saying,</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="10" characterId="Moses">
-    <text>“At the end of [every] seven years, in the set time of the year of release, in the feast of tents, </text>
+    <text>“At the end of every seven years, in the set time of the year of release, in the feast of tents, </text>
     <verse num="11" />
     <text>when all Israel is come to appear before God your God in the place which he shall choose, you shall read this law before all Israel in their hearing.</text>
   </block>
@@ -3511,7 +3511,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>Then my anger shall be kindled against them in that day, and I will forsake them, and I will hide my face from them, and they shall be devoured, and many evils and troubles shall come on them; so that they will say in that day, 'Haven't these evils come on us because our God is not among us?'</text>
+    <text>Then my anger shall be kindled against them in that day, and I will forsake them, and I will hide my face from them, and they shall be devoured, and many evils and troubles shall come on them; so that they will say in that day, ‹Haven’t these evils come on us because our God is not among us?›</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="18" characterId="God">
     <verse num="18" />
@@ -3587,11 +3587,11 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="5" characterId="Moses">
     <verse num="5" />
-    <text>They have dealt corruptly with him, [they are] not his children, [it is] their blemish. [They are] a perverse and crooked generation.</text>
+    <text>They have dealt corruptly with him, they are not his children, it is their blemish. They are a perverse and crooked generation.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>Do you thus requite God, foolish people and unwise? Isn't he your father who has bought you? He has made you, and established you.</text>
+    <text>Do you thus requite God, foolish people and unwise? Isn’t he your father who has bought you? He has made you, and established you.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -3603,7 +3603,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>For God's portion is his people. Jacob is the lot of his inheritance.</text>
+    <text>For God’s portion is his people. Jacob is the lot of his inheritance.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
@@ -3631,11 +3631,11 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="16" characterId="Moses">
     <verse num="16" />
-    <text>They moved him to jealousy with strange [gods]. They provoked him to anger with abominations.</text>
+    <text>They moved him to jealousy with strange gods. They provoked him to anger with abominations.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>They sacrificed to demons, [which were] no God, to gods that they didn't know, to new [gods] that came up of late, which your fathers didn't dread.</text>
+    <text>They sacrificed to demons, which were no God, to gods that they didn’t know, to new gods that came up of late, which your fathers didn’t dread.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="18" characterId="Moses">
     <verse num="18" />
@@ -3643,7 +3643,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
-    <text>God saw [it], and abhorred [them], because of the provocation of his sons and his daughters.</text>
+    <text>God saw it, and abhorred them, because of the provocation of his sons and his daughters.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
@@ -3663,7 +3663,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
-    <text>[They shall be] wasted with hunger, and devoured with burning heat and bitter destruction. I will send the teeth of animals on them, With the poison of crawling things of the dust.</text>
+    <text>They shall be wasted with hunger, and devoured with burning heat and bitter destruction. I will send the teeth of animals on them, With the poison of crawling things of the dust.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="25" characterId="Moses">
     <verse num="25" />
@@ -3675,7 +3675,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
-    <text>were it not that I feared the provocation of the enemy, lest their adversaries should judge wrongly, lest they should say, 'Our hand is exalted, God has not done all this.'</text>
+    <text>were it not that I feared the provocation of the enemy, lest their adversaries should judge wrongly, lest they should say, ‹Our hand is exalted, God has not done all this.›</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="28" characterId="Moses">
     <verse num="28" />
@@ -3703,7 +3703,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="34" characterId="Moses">
     <verse num="34" />
-    <text>Isn't this laid up in store with me, sealed up among my treasures?</text>
+    <text>Isn’t this laid up in store with me, sealed up among my treasures?</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="35" characterId="Moses">
     <verse num="35" />
@@ -3711,7 +3711,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="36" characterId="Moses">
     <verse num="36" />
-    <text>For God will judge his people, and have compassion on his servants, when he sees that [their] power is gone, There is none [remaining], shut up or left at large. </text>
+    <text>For God will judge his people, and have compassion on his servants, when he sees that their power is gone, There is none remaining, shut up or left at large. </text>
     <verse num="37" />
     <text>He will say,</text>
   </block>
@@ -3738,7 +3738,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="43" characterId="Moses">
     <verse num="43" />
-    <text>Rejoice, you nations, [with] his people, for he will avenge the blood of his servants. He will render vengeance to his adversaries, And will make expiation for his land, for his people.</text>
+    <text>Rejoice, you nations, with his people, for he will avenge the blood of his servants. He will render vengeance to his adversaries, And will make expiation for his land, for his people.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="44" characterId="narrator-DEU">
     <verse num="44" />
@@ -3751,7 +3751,7 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="46" characterId="Moses">
-    <text>“Set your heart to all the words which I testify to you this day, which you shall command your children to observe to do, [even] all the words of this law.</text>
+    <text>“Set your heart to all the words which I testify to you this day, which you shall command your children to observe to do, even all the words of this law.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="47" characterId="Moses">
     <verse num="47" />
@@ -3771,7 +3771,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="51" characterId="God">
     <verse num="51" />
-    <text>because you trespassed against me in the midst of the children of Israel at the waters of Meribah of Kadesh, in the wilderness of Zin; because you didn't sanctify me in the midst of the children of Israel.</text>
+    <text>because you trespassed against me in the midst of the children of Israel at the waters of Meribah of Kadesh, in the wilderness of Zin; because you didn’t sanctify me in the midst of the children of Israel.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="52" characterId="God">
     <verse num="52" />
@@ -3791,7 +3791,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>Yes, he loves the people. All his saints are in your hand. They sat down at your feet; [Everyone] shall receive of your words.</text>
+    <text>Yes, he loves the people. All his saints are in your hand. They sat down at your feet; Everyone shall receive of your words.</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
@@ -3807,7 +3807,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="7" characterId="narrator-DEU">
     <verse num="7" />
-    <text>This is [the blessing] of Judah: and he said,</text>
+    <text>This is the blessing of Judah: and he said,</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="7" characterId="Moses">
     <text>“Hear, God, the voice of Judah. Bring him in to his people. With his hands he contended for himself. You shall be a help against his adversaries.”</text>
@@ -3821,7 +3821,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>who said of his father, and of his mother, 'I have not seen him;' Neither did he acknowledge his brothers, Nor did he know his own children: For they have observed your word, and keep your covenant.</text>
+    <text>who said of his father, and of his mother, ‹I have not seen him;› Neither did he acknowledge his brothers, Nor did he know his own children: For they have observed your word, and keep your covenant.</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
@@ -3849,11 +3849,11 @@
     <verse num="15" />
     <text>for the chief things of the ancient mountains, for the precious things of the everlasting hills, </text>
     <verse num="16" />
-    <text>for the precious things of the earth and its fullness, the good will of him who lived in the bush. Let [the blessing] come on the head of Joseph, On the crown of the head of him who was separate from his brothers.</text>
+    <text>for the precious things of the earth and its fullness, the good will of him who lived in the bush. Let the blessing come on the head of Joseph, On the crown of the head of him who was separate from his brothers.</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
-    <text>The firstborn of his herd, majesty is his. His horns are the horns of the wild ox. With them he shall push the peoples all of them, [even] the ends of the earth: They are the ten thousands of Ephraim. They are the thousands of Manasseh.”</text>
+    <text>The firstborn of his herd, majesty is his. His horns are the horns of the wild ox. With them he shall push the peoples all of them, even the ends of the earth: They are the ten thousands of Ephraim. They are the thousands of Manasseh.”</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="18" characterId="narrator-DEU">
     <verse num="18" />
@@ -3875,7 +3875,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="21" characterId="Moses">
     <verse num="21" />
-    <text>He provided the first part for himself, for there was the lawgiver's portion reserved. He came [with] the heads of the people. He executed the righteousness of God, His ordinances with Israel.”</text>
+    <text>He provided the first part for himself, for there was the lawgiver’s portion reserved. He came with the heads of the people. He executed the righteousness of God, His ordinances with Israel.”</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="22" characterId="narrator-DEU">
     <verse num="22" />
@@ -3908,7 +3908,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="27" characterId="Moses">
     <verse num="27" />
-    <text>The eternal God is [your] dwelling place. Underneath are the everlasting arms. He thrust out the enemy from before you, and said, 'Destroy!'</text>
+    <text>The eternal God is your dwelling place. Underneath are the everlasting arms. He thrust out the enemy from before you, and said, ‹Destroy!›</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="28" characterId="Moses">
     <verse num="28" />
@@ -3936,7 +3936,7 @@
     <text>God said to him,</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="4" characterId="God">
-    <text>“This is the land which I swore to Abraham, to Isaac, and to Jacob, saying, 'I will give it to your seed.' I have caused you to see it with your eyes, but you shall not go over there.”</text>
+    <text>“This is the land which I swore to Abraham, to Isaac, and to Jacob, saying, ‹I will give it to your seed.› I have caused you to see it with your eyes, but you shall not go over there.”</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="5" characterId="narrator-DEU">
     <verse num="5" />
