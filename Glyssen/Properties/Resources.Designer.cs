@@ -131,23 +131,6 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	152
-        ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
-        ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
-        ///GEN	1	3	God		God (the LORD)	Normal		
-        ///GEN	1	5	narrator-GEN			Quotation		
-        ///#Languages which do not allow indirect speech may have God speak to assign the names of things in vv. 5, 8, and 10.
-        ///GEN	1	5	God			Indirect		
-        ///GEN	1	6	God		God (the LORD)	Normal		
-        ///GEN	1	8	narrator-GEN			Quotation	 [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string CharacterVerseData {
-            get {
-                return ResourceManager.GetString("CharacterVerseData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap DecreaseSize {
@@ -267,19 +250,6 @@ namespace Glyssen.Properties {
             get {
                 object obj = ResourceManager.GetObject("MoveArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
-        ///&lt;!--The entries in this file are somewhat similar to the entries in CharacterVerse.txt marked as &quot;Implicit&quot;. The distinction is that
-        ///implicit speech is normally found in the context of a historical narrative, introduced explicitly by the narrator and could/should
-        ///be in quotes, but might not be for practical/stylistic reasons. Whereas, narrator overrides are books or passages where the author
-        ///is using first-person speech to give a historical account, relate a poem, [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string NarratorOverrides {
-            get {
-                return ResourceManager.GetString("NarratorOverrides", resourceCulture);
             }
         }
         
