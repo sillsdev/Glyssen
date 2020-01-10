@@ -1,5 +1,5 @@
 ﻿
-namespace Glyssen
+namespace GlyssenEngine
 {
 	public interface IScrBook
 	{

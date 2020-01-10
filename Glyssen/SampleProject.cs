@@ -2,10 +2,10 @@
 using System.IO;
 using System.Xml;
 using Glyssen.Bundle;
-using Glyssen.Quote;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Quote;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.WritingSystems;
