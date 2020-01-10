@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="JOL" singlevoice="false" pageheader="Joel">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JOL">
+  <block style="mt" chapter="0" book="JOL" initialStartVerse="0" characterId="BC-JOL">
     <text>Joel</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JOL" initialStartVerse="0" characterId="BC-JOL">
@@ -10,158 +10,163 @@
     <verse num="1" />
     <text>The Word of God that came to Joel, the son of Pethuel.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-JOL">
     <verse num="2" />
     <text>Hear this, you elders, And listen, all you inhabitants of the land. Has this ever happened in your days, or in the days of your fathers?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-JOL">
     <verse num="3" />
     <text>Tell your children about it, and have your children tell their children, and their children, another generation.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-JOL">
     <verse num="4" />
     <text>What the swarming locust has left, the great locust has eaten. What the great locust has left, the grasshopper has eaten. What the grasshopper has left, the caterpillar has eaten.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-JOL">
     <verse num="5" />
     <text>Wake up, you drunkards, and weep! Wail, all you drinkers of wine, because of the sweet wine; for it is cut off from your mouth.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-JOL">
     <verse num="6" />
     <text>For a nation has come up on my land, strong, and without number. His teeth are the teeth of a lion, and he has the fangs of a lioness.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JOL">
     <verse num="7" />
     <text>He has laid my vine waste, and stripped my fig tree. He has stripped its bark, and thrown it away. Its branches are made white.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-JOL">
     <verse num="8" />
     <text>Mourn like a virgin dressed in sackcloth for the husband of her youth!</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
-    <text>The meal offering and the drink offering are cut off from God's house. The priests, God's ministers, mourn.</text>
+    <text>The meal offering and the drink offering are cut off from God’s house. The priests, God’s ministers, mourn.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-JOL">
     <verse num="10" />
     <text>The field is laid waste. The land mourns, for the grain is destroyed, The new wine has dried up, and the oil languishes.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-JOL">
     <verse num="11" />
     <text>Be confounded, you farmers! Wail, you vineyard keepers; for the wheat and for the barley; for the harvest of the field has perished.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-JOL">
     <verse num="12" />
     <text>The vine has dried up, and the fig tree withered; the pomegranate tree, the palm tree also, and the apple tree, even all of the trees of the field are withered; for joy has withered away from the sons of men.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-JOL">
     <verse num="13" />
-    <text>Put on sackcloth and mourn, you priests! Wail, you ministers of the altar. Come, lie all night in sackcloth, you ministers of my God, for the meal offering and the drink offering are withheld from your God's house.</text>
+    <text>Put on sackcloth and mourn, you priests! Wail, you ministers of the altar. Come, lie all night in sackcloth, you ministers of my God, for the meal offering and the drink offering are withheld from your God’s house.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-JOL">
     <verse num="14" />
     <text>Sanctify a fast. Call a solemn assembly. Gather the elders, and all the inhabitants of the land, to the house of God, your God, and cry to God.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="15" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-JOL">
     <verse num="15" />
     <text>Alas for the day! For the day of God is at hand, and it will come as destruction from the Almighty.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="16" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
-    <text>Isn't the food cut off before our eyes; joy and gladness from the house of our God?</text>
+    <text>Isn’t the food cut off before our eyes; joy and gladness from the house of our God?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-JOL">
     <verse num="17" />
     <text>The seeds rot under their clods. The granaries are laid desolate. The barns are broken down, for the grain has withered.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="18" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-JOL">
     <verse num="18" />
     <text>How the animals groan! The herds of livestock are perplexed, because they have no pasture. Yes, the flocks of sheep are made desolate.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="19" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-JOL">
     <verse num="19" />
     <text>God, I cry to you, For the fire has devoured the pastures of the wilderness, and the flame has burned all the trees of the field.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="20" characterId="Joel">
+  <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-JOL">
     <verse num="20" />
     <text>Yes, the animals of the field pant to you, for the water brooks have dried up, And the fire has devoured the pastures of the wilderness.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JOL" initialStartVerse="0" characterId="BC-JOL">
     <text>2</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-JOL">
     <verse num="1" />
     <text>Blow the trumpet in Zion, and sound an alarm in my holy mountain! Let all the inhabitants of the land tremble, for the day of God comes, for it is close at hand:</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-JOL">
     <verse num="2" />
     <text>A day of darkness and gloominess, a day of clouds and thick darkness. As the dawn spreading on the mountains, a great and strong people; there has never been the like, neither will there be any more after them, even to the years of many generations.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-JOL">
     <verse num="3" />
     <text>A fire devours before them, and behind them, a flame burns. The land is as the garden of Eden before them, and behind them, a desolate wilderness. Yes, and no one has escaped them.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-JOL">
     <verse num="4" />
     <text>The appearance of them is as the appearance of horses, and as horsemen, so do they run.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-JOL">
     <verse num="5" />
     <text>Like the noise of chariots on the tops of the mountains do they leap, like the noise of a flame of fire that devours the stubble, as a strong people set in battle array.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-JOL">
     <verse num="6" />
     <text>At their presence the peoples are in anguish. All faces have grown pale.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-JOL">
     <verse num="7" />
-    <text>They run like mighty men. They climb the wall like warriors. They each march in his line, and they don't swerve off course.</text>
+    <text>They run like mighty men. They climb the wall like warriors. They each march in his line, and they don’t swerve off course.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-JOL">
     <verse num="8" />
-    <text>Neither does one jostle another; they march everyone in his path, and they burst through the defenses, and don't break ranks.</text>
+    <text>Neither does one jostle another; they march everyone in his path, and they burst through the defenses, and don’t break ranks.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
     <text>They rush on the city. They run on the wall. They climb up into the houses. They enter in at the windows like thieves.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="10" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-JOL">
     <verse num="10" />
     <text>The earth quakes before them. The heavens tremble. The sun and the moon are darkened, and the stars withdraw their shining.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JOL">
     <verse num="11" />
-    <text>God thunders his voice before his army; for his forces are very great; for he is strong who obeys his command; for the day of God is great and very awesome, and who can endure it? </text>
+    <text>God thunders his voice before his army; for his forces are very great; for he is strong who obeys his command; for the day of God is great and very awesome, and who can endure it?</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="12" characterId="God">
     <verse num="12" />
+    <text>“Yet even now,”</text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JOL">
     <text>says God,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="God">
-    <text>Yet even now, “turn to me with all your heart, and with fasting, and with weeping, and with mourning.”</text>
+    <text>“turn to me with all your heart, and with fasting, and with weeping, and with mourning.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-JOL">
     <verse num="13" />
     <text>Tear your heart, and not your garments, and turn to God, your God; for he is gracious and merciful, slow to anger, and abundant in loving kindness, and relents from sending calamity.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-JOL">
     <verse num="14" />
     <text>Who knows? He may turn and relent, and leave a blessing behind him, even a meal offering and a drink offering to God, your God.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-JOL">
     <verse num="15" />
     <text>Blow the trumpet in Zion! Sanctify a fast. Call a solemn assembly.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
     <text>Gather the people. Sanctify the assembly. Assemble the elders. Gather the children, and those who nurse from breasts. Let the bridegroom go forth from his room, and the bride out of her room.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-JOL">
     <verse num="17" />
     <text>Let the priests, the ministers of God, weep between the porch and the altar, and let them say,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="priests" delivery="weeping, pleading">
-    <text>“Spare your people, God, and don't give your heritage to reproach, that the nations should rule over them. Why should they say among the peoples, ‘Where is their God?’”</text>
+    <text>“Spare your people, God, and don’t give your heritage to reproach, that the nations should rule over them. Why should they say among the peoples, ‹Where is their God?› ”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-JOL">
     <verse num="18" />
     <text>Then God was jealous for his land, And had pity on his people. </text>
     <verse num="19" />
@@ -174,20 +179,20 @@
     <verse num="20" />
     <text>But I will remove the northern army far away from you, and will drive it into a barren and desolate land, its front into the eastern sea, and its back into the western sea; and its stench will come up, and its bad smell will rise.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="21" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-JOL">
     <text>Surely he has done great things. </text>
     <verse num="21" />
     <text>Land, don't be afraid. Be glad and rejoice, for God has done great things.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="22" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-JOL">
     <verse num="22" />
-    <text>Don't be afraid, you animals of the field; for the pastures of the wilderness spring up, for the tree bears its fruit. The fig tree and the vine yield their strength.</text>
+    <text>Don’t be afraid, you animals of the field; for the pastures of the wilderness spring up, for the tree bears its fruit. The fig tree and the vine yield their strength.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-JOL">
     <verse num="23" />
     <text>Be glad then, you children of Zion, and rejoice in God, your God; for he gives you the former rain in just measure, and he causes the rain to come down for you, the former rain and the latter rain, as before.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="24" characterId="Joel">
+  <block style="p" chapter="2" initialStartVerse="24" characterId="narrator-JOL">
     <verse num="24" />
     <text>The threshing floors will be full of wheat, and the vats will overflow with new wine and oil.</text>
   </block>
@@ -258,26 +263,23 @@
     <verse num="8" />
     <text>and I will sell your sons and your daughters into the hands of the children of Judah, and they will sell them to the men of Sheba, to a faraway nation, for God has spoken it.”</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-JOL">
     <verse num="9" />
     <text>Proclaim this among the nations:</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="you (hypothetical)">
-    <text>“Prepare for war!</text>
+    <text>“Prepare for war! Stir up the mighty men. Let all the warriors draw near. Let them come up.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="God">
-    <text>Stir up the mighty men. Let all the warriors draw near. Let them come up.</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="10" characterId="God">
+  <block style="p" chapter="3" initialStartVerse="10" characterId="you (hypothetical)">
     <verse num="10" />
-    <text>Beat your plowshares into swords, and your pruning hooks into spears. Let the weak say,</text>
+    <text>Beat your plowshares into swords, and your pruning hooks into spears. Let the weak say, ‹I am strong.›</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="10" characterId="weakling">
-    <text>‘I am strong.’</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="11" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="11" characterId="you (hypothetical)">
     <verse num="11" />
-    <text>Hurry and come, all you surrounding nations, and gather yourselves together.” Cause your mighty ones to come down there, God.</text>
+    <text>Hurry and come, all you surrounding nations, and gather yourselves together.”</text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="11" characterId="narrator-JOL">
+    <text>Cause your mighty ones to come down there, God.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="God">
     <verse num="12" />
@@ -287,15 +289,15 @@
     <verse num="13" />
     <text>Put in the sickle; for the harvest is ripe. Come, tread, for the winepress is full, the vats overflow, for their wickedness is great.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="14" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-JOL">
     <verse num="14" />
     <text>Multitudes, multitudes in the valley of decision! For the day of God is near, in the valley of decision.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="15" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-JOL">
     <verse num="15" />
     <text>The sun and the moon are darkened, and the stars withdraw their shining.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="16" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-JOL">
     <verse num="16" />
     <text>God will roar from Zion, and thunder from Jerusalem; and the heavens and the earth will shake; but God will be a refuge to his people, and a stronghold to the children of Israel.</text>
   </block>
@@ -303,15 +305,15 @@
     <verse num="17" />
     <text>So you will know that I am God, your God, dwelling in Zion, my holy mountain. Then Jerusalem will be holy, and no strangers will pass through her any more.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-JOL">
     <verse num="18" />
     <text>It will happen in that day, that the mountains will drop down sweet wine, the hills will flow with milk, all the brooks of Judah will flow with waters, and a fountain will come forth from the house of God, and will water the valley of Shittim.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-JOL">
     <verse num="19" />
     <text>Egypt will be a desolation, and Edom will be a desolate wilderness, for the violence done to the children of Judah, because they have shed innocent blood in their land.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="20" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-JOL">
     <verse num="20" />
     <text>But Judah will be inhabited forever, and Jerusalem from generation to generation.</text>
   </block>
@@ -319,7 +321,7 @@
     <verse num="21" />
     <text>I will cleanse their blood, that I have not cleansed,</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="21" characterId="Joel">
+  <block style="p" chapter="3" initialStartVerse="21" characterId="narrator-JOL">
     <text>for God dwells in Zion.</text>
   </block>
   <UnappliedSplits />
