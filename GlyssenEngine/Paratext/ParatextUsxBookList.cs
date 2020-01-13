@@ -7,7 +7,7 @@ namespace GlyssenEngine.Paratext
 {
 	class ParatextUsxBookList : IEnumerable<UsxDocument>
 	{
-		private class ParatextUsxBookInfo
+		public class ParatextUsxBookInfo
 		{
 			internal UsxDocument UsxDoc { get; set; }
 			internal string CheckSum { get; set; }
