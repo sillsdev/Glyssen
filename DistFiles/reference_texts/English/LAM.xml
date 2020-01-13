@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="LAM" singlevoice="false" pageheader="Lamentations">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-LAM">
+  <block style="mt" chapter="0" book="LAM" initialStartVerse="0" characterId="BC-LAM">
     <text>Lamentations</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="LAM" initialStartVerse="0" characterId="BC-LAM">
@@ -40,7 +40,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
-    <text>Her filthiness was in her skirts; she didn't remember her latter end; therefore is she come down wonderfully; she has no comforter:</text>
+    <text>Her filthiness was in her skirts; she didn’t remember her latter end; therefore is she come down wonderfully; she has no comforter:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="daughter of Zion">
     <text>see, God, my affliction; for the enemy has magnified himself.</text>
@@ -58,7 +58,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="daughter of Zion">
     <verse num="12" />
-    <text>Is it nothing to you, all you who pass by? Look, and see if there be any sorrow like my sorrow, which is brought on me, With which God has afflicted [me] in the day of his fierce anger.</text>
+    <text>Is it nothing to you, all you who pass by? Look, and see if there be any sorrow like my sorrow, which is brought on me, With which God has afflicted me in the day of his fierce anger.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="daughter of Zion">
     <verse num="13" />
@@ -86,7 +86,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="daughter of Zion">
     <verse num="19" />
-    <text>I called for my lovers, [but] they deceived me: My priests and my elders gave up the spirit in the city, While they sought them food to refresh their souls.</text>
+    <text>I called for my lovers, but they deceived me: My priests and my elders gave up the spirit in the city, While they sought them food to refresh their souls.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="daughter of Zion">
     <verse num="20" />
@@ -105,7 +105,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-LAM">
     <verse num="1" />
-    <text>How has the Lord covered the daughter of Zion with a cloud in his anger! He has cast down from heaven to the earth the beauty of Israel, And hasn't remembered his footstool in the day of his anger.</text>
+    <text>How has the Lord covered the daughter of Zion with a cloud in his anger! He has cast down from heaven to the earth the beauty of Israel, And hasn’t remembered his footstool in the day of his anger.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-LAM">
     <verse num="2" />
@@ -143,7 +143,7 @@
     <verse num="10" />
     <text>The elders of the daughter of Zion sit on the ground, they keep silence; They have cast up dust on their heads; they have clothed themselves with sackcloth: The virgins of Jerusalem hang down their heads to the ground.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-LAM">
     <verse num="11" />
     <text>My eyes do fail with tears, my heart is troubled; My liver is poured on the earth, because of the destruction of the daughter of my people, Because the young children and the infants swoon in the streets of the city. </text>
     <verse num="12" />
@@ -152,43 +152,43 @@
   <block style="p" chapter="2" initialStartVerse="12" characterId="children of Zion (Jerusalem)">
     <text>Where is grain and wine?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="Jeremiah">
-    <text>When they swoon as the wounded in the streets of the city, when their soul is poured out into their mothers' bosom.</text>
+  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-LAM">
+    <text>When they swoon as the wounded in the streets of the city, when their soul is poured out into their mothers’ bosom.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-LAM">
     <verse num="13" />
     <text>What shall I testify to you? what shall I liken to you, daughter of Jerusalem? What shall I compare to you, that I may comfort you, virgin daughter of Zion? For your breach is great like the sea: who can heal you?</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-LAM">
     <verse num="14" />
     <text>Your prophets have seen for you false and foolish visions; They have not uncovered your iniquity, to bring back your captivity, but have seen for you false oracles and causes of banishment.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-LAM">
     <verse num="15" />
-    <text>All that pass by clap their hands at you. They hiss and wag their head at the daughter of Jerusalem, [saying],</text>
+    <text>All that pass by clap their hands at you. They hiss and wag their head at the daughter of Jerusalem, saying,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="passers by">
-    <text>Is this the city that men called ‘The perfection of beauty, the joy of the whole earth’?”</text>
+    <text>“Is this the city that men called ‘The perfection of beauty, The joy of the whole earth’?”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-LAM">
     <verse num="16" />
-    <text>All your enemies have opened their mouth wide against you; They hiss and gnash the teeth; they say,</text>
+    <text>All your enemies have opened their mouth wide against you. They hiss and gnash the teeth. They say,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="enemies of God">
-    <text>“We have swallowed her up; Certainly this is the day that we looked for. We have found it. We have seen it.”</text>
+    <text>“We have swallowed her up. Certainly this is the day that we looked for. We have found it. We have seen it.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-LAM">
     <verse num="17" />
-    <text>God has done that which he purposed; he has fulfilled his word that he commanded in the days of old; He has thrown down, and has not pitied: He has caused the enemy to rejoice over you; he has exalted the horn of your adversaries.</text>
+    <text>God has done that which he planned. He has fulfilled his word that he commanded in the days of old. He has thrown down, and has not pitied. He has caused the enemy to rejoice over you. He has exalted the horn of your adversaries.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-LAM">
     <verse num="18" />
     <text>Their heart cried to the Lord:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="daughter of Zion">
     <text>O wall of the daughter of Zion, let tears run down like a river day and night. Give yourself no relief. Don’t let your eyes rest.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="19" characterId="Jeremiah">
+  <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-LAM">
     <verse num="19" />
     <text>Arise, cry out in the night, at the beginning of the watches! Pour out your heart like water before the face of the Lord. Lift up your hands toward him for the life of your young children, who faint for hunger at the head of every street.</text>
   </block>
@@ -198,419 +198,419 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="daughter of Zion">
     <verse num="21" />
-    <text>The youth and the old man lie on the ground in the streets; My virgins and my young men are fallen by the sword: You have killed them in the day of your anger; you have slaughtered, [and] not pitied.</text>
+    <text>The youth and the old man lie on the ground in the streets; My virgins and my young men are fallen by the sword: You have killed them in the day of your anger; you have slaughtered, and not pitied.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="daughter of Zion">
     <verse num="22" />
-    <text>You have called, as in the day of a solemn assembly, my terrors on every side; There was none that escaped or remained in the day of God's anger: Those that I have dandled and brought up has my enemy consumed.</text>
+    <text>You have called, as in the day of a solemn assembly, my terrors on every side; There was none that escaped or remained in the day of God’s anger: Those that I have dandled and brought up has my enemy consumed.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="LAM" initialStartVerse="0" characterId="BC-LAM">
     <text>3</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="1" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-LAM">
     <verse num="1" />
     <text>I am the man that has seen affliction by the rod of his wrath.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="2" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-LAM">
     <verse num="2" />
     <text>He has led me and caused me to walk in darkness, and not in light.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="3" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-LAM">
     <verse num="3" />
     <text>Surely against me he turns his hand again and again all the day.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-LAM">
     <verse num="4" />
     <text>My flesh and my skin has he made old; he has broken my bones.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="5" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-LAM">
     <verse num="5" />
     <text>He has built against me, and surrounded me with gall and travail.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="6" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-LAM">
     <verse num="6" />
     <text>He has made me to dwell in dark places, as those that have been long dead.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="7" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-LAM">
     <verse num="7" />
-    <text>He has walled me about, that I can't go forth; he has made my chain heavy.</text>
+    <text>He has walled me about, that I can’t go forth; he has made my chain heavy.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-LAM">
     <verse num="8" />
     <text>Yes, when I cry, and call for help, he shuts out my prayer.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="9" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
     <text>He has walled up my ways with cut stone; he has made my paths crooked.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="10" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-LAM">
     <verse num="10" />
     <text>He is to me as a bear lying in wait, as a lion in secret places. </text>
     <verse num="11" />
     <text>He has turned aside my ways, and pulled me in pieces; he has made me desolate.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="12" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="12" characterId="narrator-LAM">
     <verse num="12" />
     <text>He has bent his bow, and set me as a mark for the arrow.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-LAM">
     <verse num="13" />
     <text>He has caused the shafts of his quiver to enter into my kidneys. </text>
     <verse num="14" />
     <text>I am become a derision to all my people, and their song all the day.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="15" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-LAM">
     <verse num="15" />
     <text>He has filled me with bitterness, he has sated me with wormwood.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="16" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-LAM">
     <verse num="16" />
-    <text>He has also broken my teeth with gravel stones; he has covered me with ashes. </text>
+    <text>He has also broken my teeth with gravel. He has covered me with ashes. </text>
     <verse num="17" />
-    <text>You have removed my soul far off from peace; I forgot prosperity.</text>
+    <text>You have removed my soul far off from peace. I forgot prosperity.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-LAM">
     <verse num="18" />
-    <text>I said, My strength is perished, and my expectation from God.</text>
+    <text>I said, “My strength has perished, along with my expectation from God.”</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="19" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-LAM">
     <verse num="19" />
-    <text>Remember my affliction and my misery, the wormwood and the gall. </text>
+    <text>Remember my affliction and my misery, the wormwood and the bitterness. </text>
     <verse num="20" />
     <text>My soul still remembers them, and is bowed down within me. </text>
     <verse num="21" />
     <text>This I recall to my mind; therefore have I hope.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="22" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="22" characterId="narrator-LAM">
     <verse num="22" />
-    <text>[It is of] God's loving kindnesses that we are not consumed, because his compassion doesn't fail. </text>
+    <text>It is of God’s loving kindnesses that we are not consumed, because his compassion doesn’t fail. </text>
     <verse num="23" />
     <text>They are new every morning; great is your faithfulness.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="24" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="24" characterId="narrator-LAM">
     <verse num="24" />
     <text>God is my portion, says my soul; therefore will I hope in him.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="25" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="25" characterId="narrator-LAM">
     <verse num="25" />
     <text>God is good to those who wait for him, to the soul that seeks him. </text>
     <verse num="26" />
     <text>It is good that a man should hope and quietly wait for the salvation of God.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="27" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="27" characterId="narrator-LAM">
     <verse num="27" />
     <text>It is good for a man that he bear the yoke in his youth.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="28" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="28" characterId="narrator-LAM">
     <verse num="28" />
     <text>Let him sit alone and keep silence, because he has laid it on him. </text>
     <verse num="29" />
     <text>Let him put his mouth in the dust, if so be there may be hope.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="30" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="30" characterId="narrator-LAM">
     <verse num="30" />
     <text>Let him give his cheek to him who strikes him; let him be filled full with reproach.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="31" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="31" characterId="narrator-LAM">
     <verse num="31" />
     <text>For the Lord will not cast off forever.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="32" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="32" characterId="narrator-LAM">
     <verse num="32" />
     <text>For though he cause grief, yet he will have compassion according to the multitude of his loving kindnesses.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="33" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="33" characterId="narrator-LAM">
     <verse num="33" />
     <text>For he does not afflict willingly, nor grieve the children of men.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="34" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="34" characterId="narrator-LAM">
     <verse num="34" />
     <text>To crush under foot all the prisoners of the earth, </text>
     <verse num="35" />
     <text>To turn aside the right of a man before the face of the Most High, </text>
     <verse num="36" />
-    <text>To subvert a man in his cause, the Lord doesn't approve.</text>
+    <text>To subvert a man in his cause, the Lord doesn’t approve.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="37" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="37" characterId="narrator-LAM">
     <verse num="37" />
-    <text>Who is he who says, and it comes to pass, when the Lord doesn't command it?</text>
+    <text>Who is he who says, and it comes to pass, when the Lord doesn’t command it?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="38" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="38" characterId="narrator-LAM">
     <verse num="38" />
-    <text>Doesn't evil and good come out of the mouth of the Most High? </text>
+    <text>Doesn’t evil and good come out of the mouth of the Most High? </text>
     <verse num="39" />
     <text>Why does a living man complain, a man for the punishment of his sins?</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="40" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="40" characterId="narrator-LAM">
     <verse num="40" />
     <text>Let us search and try our ways, and turn again to God. </text>
     <verse num="41" />
     <text>Let us lift up our heart with our hands to God in the heavens.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="42" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="42" characterId="narrator-LAM">
     <verse num="42" />
     <text>We have transgressed and have rebelled; you have not pardoned.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="43" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="43" characterId="narrator-LAM">
     <verse num="43" />
     <text>You have covered with anger and pursued us; you have killed, you have not pitied.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="44" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="44" characterId="narrator-LAM">
     <verse num="44" />
     <text>You have covered yourself with a cloud, so that no prayer can pass through. </text>
     <verse num="45" />
     <text>You have made us an off-scouring and refuse in the midst of the peoples.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="46" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="46" characterId="narrator-LAM">
     <verse num="46" />
     <text>All our enemies have opened their mouth wide against us. </text>
     <verse num="47" />
     <text>Fear and the pit are come on us, devastation and destruction.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="48" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="48" characterId="narrator-LAM">
     <verse num="48" />
     <text>My eye runs down with streams of water, for the destruction of the daughter of my people.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="49" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="49" characterId="narrator-LAM">
     <verse num="49" />
-    <text>My eye pours down, and doesn't cease, without any intermission, </text>
+    <text>My eye pours down, and doesn’t cease, without any intermission, </text>
     <verse num="50" />
     <text>Until God look down, and see from heaven. </text>
     <verse num="51" />
     <text>My eye affects my soul, because of all the daughters of my city.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="52" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="52" characterId="narrator-LAM">
     <verse num="52" />
     <text>They have chased me relentlessly like a bird, those who are my enemies without cause.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="53" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="53" characterId="narrator-LAM">
     <verse num="53" />
     <text>They have cut off my life in the dungeon, and have cast a stone on me. </text>
     <verse num="54" />
     <text>Waters flowed over my head; I said, I am cut off.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="55" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="55" characterId="narrator-LAM">
     <verse num="55" />
     <text>I called on your name, God, out of the lowest dungeon. </text>
     <verse num="56" />
-    <text>You heard my voice; don't hide your ear at my breathing, at my cry.</text>
+    <text>You heard my voice; don’t hide your ear at my breathing, at my cry.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="57" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="57" characterId="narrator-LAM">
     <verse num="57" />
     <text>You drew near in the day that I called on you; you said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="57" characterId="God">
     <text>“Don’t be afraid.”</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="58" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="58" characterId="narrator-LAM">
     <verse num="58" />
     <text>Lord, you have pleaded the causes of my soul; you have redeemed my life.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="59" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="59" characterId="narrator-LAM">
     <verse num="59" />
     <text>God, you have seen my wrong. Judge my cause.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="60" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="60" characterId="narrator-LAM">
     <verse num="60" />
     <text>You have seen all their vengeance and all their plans against me.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="61" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="61" characterId="narrator-LAM">
     <verse num="61" />
     <text>You have heard their reproach, God, and all their plans against me, </text>
     <verse num="62" />
     <text>The lips of those that rose up against me, and their plots against me all the day.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="63" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="63" characterId="narrator-LAM">
     <verse num="63" />
     <text>You see their sitting down, and their rising up. I am their song.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="64" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="64" characterId="narrator-LAM">
     <verse num="64" />
     <text>You will pay them back, God, according to the work of their hands. </text>
     <verse num="65" />
     <text>You will give them hardness of heart, your curse to them.</text>
   </block>
-  <block style="p" chapter="3" initialStartVerse="66" characterId="Jeremiah">
+  <block style="p" chapter="3" initialStartVerse="66" characterId="narrator-LAM">
     <verse num="66" />
     <text>You will pursue them in anger, and destroy them from under the heavens of God.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="LAM" initialStartVerse="0" characterId="BC-LAM">
     <text>4</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="1" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-LAM">
     <verse num="1" />
-    <text>How is the gold become dim! [how] is the most pure gold changed! The stones of the sanctuary are poured out at the head of every street.</text>
+    <text>How is the gold become dim! how is the most pure gold changed! The stones of the sanctuary are poured out at the head of every street.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-LAM">
     <verse num="2" />
     <text>The precious sons of Zion, comparable to fine gold, How are they esteemed as earthen pitchers, the work of the hands of the potter!</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="3" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-LAM">
     <verse num="3" />
     <text>Even the jackals draw out the breast, they nurse their young ones: The daughter of my people has become cruel, like the ostriches in the wilderness.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-LAM">
     <verse num="4" />
     <text>The tongue of the nursing child clings to the roof of his mouth for thirst: The young children ask bread, and no man breaks it to them.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="5" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-LAM">
     <verse num="5" />
     <text>Those who did feed delicately are desolate in the streets: Those who were brought up in scarlet embrace dunghills.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-LAM">
     <verse num="6" />
     <text>For the iniquity of the daughter of my people is greater than the sin of Sodom, That was overthrown as in a moment, and no hands were laid on her.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="7" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-LAM">
     <verse num="7" />
     <text>Her nobles were purer than snow, they were whiter than milk; They were more ruddy in body than rubies, their polishing was as of sapphire.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-LAM">
     <verse num="8" />
     <text>Their appearance is blacker than a coal; they are not known in the streets: Their skin clings to their bones; it is withered, it is become like a stick.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="9" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
     <text>Those who are killed with the sword are better than those who are killed with hunger; For these pine away, stricken through, for want of the fruits of the field.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="10" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-LAM">
     <verse num="10" />
     <text>The hands of the pitiful women have boiled their own children; They were their food in the destruction of the daughter of my people.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="11" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-LAM">
     <verse num="11" />
     <text>God has accomplished his wrath, he has poured out his fierce anger; He has kindled a fire in Zion, which has devoured its foundations.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="12" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-LAM">
     <verse num="12" />
-    <text>The kings of the earth didn't believe, neither all the inhabitants of the world, That the adversary and the enemy would enter into the gates of Jerusalem.</text>
+    <text>The kings of the earth didn’t believe, neither all the inhabitants of the world, That the adversary and the enemy would enter into the gates of Jerusalem.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-LAM">
     <verse num="13" />
-    <text>[It is] because of the sins of her prophets, [and] the iniquities of her priests, That have shed the blood of the just in the midst of her.</text>
+    <text>It is because of the sins of her prophets, and the iniquities of her priests, That have shed the blood of the just in the midst of her.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-LAM">
     <verse num="14" />
-    <text>They wander as blind men in the streets, they are polluted with blood, So that men can't touch their garments.</text>
+    <text>They wander as blind men in the streets, they are polluted with blood, So that men can’t touch their garments.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="men">
     <verse num="15" />
     <text>“Go away!”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="15" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-LAM">
     <text>they cried to them,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="men">
     <text>“Unclean! Go away! Go away! Don’t touch!”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="15" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-LAM">
     <text>When they fled away and wandered, men said among the nations,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="15" characterId="men">
-    <text>“They can’t live [here] any more.”</text>
+    <text>“They can't live here any more.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-LAM">
     <verse num="16" />
-    <text>The anger of God has scattered them; he will no more regard them: They didn't respect the persons of the priests, they didn't favor the elders.</text>
+    <text>The anger of God has scattered them; he will no more regard them: They didn’t respect the persons of the priests, they didn’t favor the elders.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="17" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-LAM">
     <verse num="17" />
-    <text>Our eyes do yet fail [in looking] for our vain help: In our watching we have watched for a nation that could not save.</text>
+    <text>Our eyes do yet fail in looking for our vain help: In our watching we have watched for a nation that could not save.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="18" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-LAM">
     <verse num="18" />
-    <text>They hunt our steps, so that we can't go in our streets: Our end is near, our days are fulfilled; for our end is come.</text>
+    <text>They hunt our steps, so that we can’t go in our streets: Our end is near, our days are fulfilled; for our end is come.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="19" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-LAM">
     <verse num="19" />
     <text>Our pursuers were swifter than the eagles of the sky: They chased us on the mountains, they laid wait for us in the wilderness.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="20" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-LAM">
     <verse num="20" />
     <text>The breath of our nostrils, the anointed of God, was taken in their pits; Of whom we said, Under his shadow we shall live among the nations.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="21" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="21" characterId="narrator-LAM">
     <verse num="21" />
     <text>Rejoice and be glad, daughter of Edom, that dwell in the land of Uz: The cup shall pass through to you also; you shall be drunken, and shall make yourself naked.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="22" characterId="Jeremiah">
+  <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-LAM">
     <verse num="22" />
     <text>The punishment of your iniquity is accomplished, daughter of Zion; he will no more carry you away into captivity: He will visit your iniquity, daughter of Edom; he will uncover your sins.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="LAM" initialStartVerse="0" characterId="BC-LAM">
     <text>5</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="1" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-LAM">
     <verse num="1" />
     <text>Remember, God, what has come on us: Look, and see our reproach.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-LAM">
     <verse num="2" />
     <text>Our inheritance is turned to strangers, Our houses to aliens.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-LAM">
     <verse num="3" />
     <text>We are orphans and fatherless; Our mothers are as widows.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="4" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="4" characterId="narrator-LAM">
     <verse num="4" />
     <text>We have drunken our water for money; Our wood is sold to us.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="5" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="5" characterId="narrator-LAM">
     <verse num="5" />
     <text>Our pursuers are on our necks: We are weary, and have no rest.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-LAM">
     <verse num="6" />
     <text>We have given the hand to the Egyptians, To the Assyrians, to be satisfied with bread.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-LAM">
     <verse num="7" />
     <text>Our fathers sinned, and are no more; We have borne their iniquities.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-LAM">
     <verse num="8" />
     <text>Servants rule over us: There is none to deliver us out of their hand.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-LAM">
     <verse num="9" />
     <text>We get our bread at the peril of our lives, Because of the sword of the wilderness. </text>
     <verse num="10" />
     <text>Our skin is black like an oven, Because of the burning heat of famine.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-LAM">
     <verse num="11" />
     <text>They ravished the women in Zion, The virgins in the cities of Judah. </text>
     <verse num="12" />
     <text>Princes were hanged up by their hand: The faces of elders were not honored.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-LAM">
     <verse num="13" />
     <text>The young men bare the mill; The children stumbled under the wood. </text>
     <verse num="14" />
     <text>The elders have ceased from the gate, The young men from their music.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-LAM">
     <verse num="15" />
     <text>The joy of our heart is ceased; Our dance is turned into mourning.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="16" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="16" characterId="narrator-LAM">
     <verse num="16" />
     <text>The crown is fallen from our head: Woe to us! for we have sinned.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="17" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="17" characterId="narrator-LAM">
     <verse num="17" />
     <text>For this our heart is faint; For these things our eyes are dim; </text>
     <verse num="18" />
     <text>For the mountain of Zion, which is desolate: The foxes walk on it.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="narrator-LAM">
     <verse num="19" />
     <text>You, God, remain forever; Your throne is from generation to generation. </text>
     <verse num="20" />
-    <text>Why do you forget us forever, [And] forsake us so long time?</text>
+    <text>Why do you forget us forever, And forsake us so long time?</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="21" characterId="Jeremiah">
+  <block style="p" chapter="5" initialStartVerse="21" characterId="narrator-LAM">
     <verse num="21" />
     <text>Turn us to yourself, God, and we shall be turned. Renew our days as of old. </text>
     <verse num="22" />
