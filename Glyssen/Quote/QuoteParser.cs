@@ -12,6 +12,7 @@ using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;

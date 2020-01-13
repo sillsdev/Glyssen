@@ -6,10 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;
@@ -1390,7 +1389,7 @@ namespace Glyssen.RefTextDevUtilities
 			// Note that technically we should be constructing the reference from the referenceTextRow rather than using the block because the
 			// the block may cover more verses and therefore fail to find a narrator override. This should be rare enough that hooking it up manually
 			// won't be a huge burden.
-			var overrideCharacter = NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
+			var overrideCharacter = GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
 				.FirstOrDefault(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
 			// REVIEW: There are four possible strategies for reference text blocks that are part of a passage which has a narrator override:
 			// 1) Have all blocks that should be spoken by the override character assigned to the narrator.
@@ -1407,6 +1406,19 @@ namespace Glyssen.RefTextDevUtilities
 			//return overrideCharacter != null && block.CharacterIs(BCVRef.NumberToBookCode(bookNum), CharacterVerseData.StandardCharacter.Narrator) ?
 			//	block.CharacterId : overrideCharacter;
 		}
+
+		/// <summary>
+		/// Gets the character to use in the script for a narrator block in the reference range of the given block. Note
+		/// that this code does not bother to check whether the given block is actually a narrator block. Typically, there
+		/// will only be one override character in the list, but if this is a verse that has an a/b split, then there can be
+		/// two.
+		/// This code was moved from Glyssen\Character\NarratorOverrides.cs during the GlyssenEngine refactoring
+		/// </summary>
+		public static IEnumerable<string> GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
+        {
+            return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)
+                ?.Select(d => d.Character);
+        }
 
 		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId, string alias = null, string defaultCharacter = null)
 		{

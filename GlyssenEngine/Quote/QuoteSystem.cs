@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-using Glyssen.Properties;
 using SIL.ObjectModel;
 using SIL.WritingSystems;
 using SIL.Xml;
 
-namespace Glyssen.Quote
+namespace GlyssenEngine.Quote
 {
 	[XmlRoot]
 	public class QuoteSystem

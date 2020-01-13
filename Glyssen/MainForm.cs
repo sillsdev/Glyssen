@@ -15,6 +15,8 @@ using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Bundle;
+using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Utilities;
 using L10NSharp;
@@ -167,6 +169,7 @@ namespace Glyssen
 			UpdateLocalizedText();
 			if (m_project != null)
 				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
+			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
 		}
 
 		private void RememberButtonFormats()

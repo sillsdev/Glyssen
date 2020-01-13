@@ -25,6 +25,9 @@
     <None Remove="Resources\Annotations.txt" />
     <None Remove="Resources\BiblicalAuthors.txt" />
     <None Remove="Resources\CharacterDetail.txt" />
+    <None Remove="Resources\CharacterVerse.txt" />
+    <None Remove="Resources\NarratorOverrides.xml" />
+    <None Remove="Resources\quoteSystems.xml" />
     <None Remove="Resources\RelatedCharacters.xml" />
   </ItemGroup>
 
@@ -81,6 +84,9 @@
     <Content Include="Resources\Annotations.txt" />
     <Content Include="Resources\BiblicalAuthors.txt" />
     <Content Include="Resources\CharacterDetail.txt" />
+    <Content Include="Resources\CharacterVerse.txt" />
+    <Content Include="Resources\NarratorOverrides.xml" />
+    <Content Include="Resources\quoteSystems.xml" />
     <Content Include="Resources\RelatedCharacters.xml" />
   </ItemGroup>
 

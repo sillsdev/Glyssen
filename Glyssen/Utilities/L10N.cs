@@ -3,7 +3,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Glyssen.Shared;
-using L10NSharp;
 using SIL;
 using SIL.Scripture;
 

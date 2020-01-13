@@ -5,13 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using SIL.Scripture;
 
-namespace Glyssen.Quote
+namespace GlyssenEngine.Quote
 {
 	public class QuoteSystemGuesser
 	{

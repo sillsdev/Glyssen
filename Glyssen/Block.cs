@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -9,7 +8,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
-using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using GlyssenEngine;

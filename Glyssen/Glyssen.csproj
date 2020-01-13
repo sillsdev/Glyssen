@@ -338,7 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\ProjectAnalysis.cs" />
-    <Compile Include="Character\NarratorOverrides.cs" />
     <Compile Include="BlockMatchup.cs" />
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BlockSplitData.cs" />
@@ -353,9 +352,7 @@
     <Compile Include="Character\CharacterGroupTemplate.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
     <Compile Include="Character\CombinedCharacterVerseData.cs" />
-    <Compile Include="Character\ControlCharacterVerseData.cs" />
     <Compile Include="Character\ICharacterGroupSource.cs" />
-    <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
@@ -541,7 +538,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilities\L10N.cs" />
-    <Compile Include="Utilities\MessageBoxStrings.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
@@ -616,12 +612,8 @@
     <Compile Include="Dialogs\ProjectSettingsDlg.Designer.cs">
       <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="IScrBook.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="Quote\QuoteUtils.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
-    <Compile Include="Quote\QuoteSystem.cs" />
-    <Compile Include="Quote\QuoteSystemGuesser.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -772,11 +764,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\quoteSystems.xml">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Alert.png" />
     <Content Include="Firefox\AccessibleHandler.dll" />
     <Content Include="Firefox\AccessibleMarshal.dll" />
@@ -804,7 +791,6 @@
     <Content Include="icu64\icudt54.dll" />
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
-    <Content Include="Resources\NarratorOverrides.xml" />
     <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
     <None Include="Resources\Silent.wav" />
@@ -818,7 +804,6 @@
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
     <Content Include="Resources\BlockSplit.css" />
-    <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />
