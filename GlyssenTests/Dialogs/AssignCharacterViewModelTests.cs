@@ -79,7 +79,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Narrator_CurrentBookIsMark_ToStringIncludesBookName()
 		{
-			Assert.AreEqual("narrator (MRK)", AssignCharacterViewModel.Character.Narrator.ToString());
+			Assert.AreEqual("narrator (MRK)", GlyssenEngine.Character.Character.Narrator.ToString());
 		}
 
 		[Test]
@@ -174,7 +174,7 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(10, 49);
 			m_model.SetCharacterAndDelivery(m_model.GetUniqueCharactersForCurrentReference().First(c => c.CharacterId == "Jesus"),
-				new AssignCharacterViewModel.Delivery("ordering"));
+				new Delivery("ordering"));
 			m_model.SetMode(m_model.Mode, true);
 
 			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
@@ -372,7 +372,7 @@ namespace GlyssenTests.Dialogs
 		{
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
 
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Jesus"), AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(new GlyssenEngine.Character.Character("Jesus"), Delivery.Normal);
 
 			Assert.AreEqual(1, m_model.CompletedBlockCount);
 
@@ -437,9 +437,9 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(5, 9);
 			m_model.GetUniqueCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit")).ToArray();
+			var deliveries = m_model.GetDeliveriesForCharacter(new GlyssenEngine.Character.Character("man with evil spirit")).ToArray();
 			Assert.AreEqual(1, deliveries.Count());
-			Assert.AreEqual(AssignCharacterViewModel.Delivery.Normal, deliveries.First());
+			Assert.AreEqual(Delivery.Normal, deliveries.First());
 		}
 
 		[Test]
@@ -447,10 +447,10 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(5, 9);
 			m_model.GetUniqueCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("Jesus")).ToArray();
+			var deliveries = m_model.GetDeliveriesForCharacter(new GlyssenEngine.Character.Character("Jesus")).ToArray();
 			Assert.AreEqual(2, deliveries.Count());
-			Assert.Contains(new AssignCharacterViewModel.Delivery("questioning"), deliveries.ToList());
-			Assert.Contains(AssignCharacterViewModel.Delivery.Normal, deliveries.ToList());
+			Assert.Contains(new Delivery("questioning"), deliveries.ToList());
+			Assert.Contains(Delivery.Normal, deliveries.ToList());
 		}
 
 		[Test]
@@ -473,7 +473,7 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(5, 7);
 			m_model.GetUniqueCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new GlyssenEngine.Character.Character("demons (Legion)/man delivered from Legion of demons"));
 			Assert.AreEqual(2, deliveries.Count());
 			var uniqueDeliveries = m_model.GetUniqueDeliveries();
 			Assert.AreEqual(259, uniqueDeliveries.Count());
@@ -485,7 +485,7 @@ namespace GlyssenTests.Dialogs
 			m_model.SetMode(BlocksToDisplay.AllScripture);
 			FindRefInMark(5, 7);
 			m_model.GetUniqueCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new GlyssenEngine.Character.Character("demons (Legion)/man delivered from Legion of demons"));
 			Assert.AreEqual(2, deliveries.Count());
 			var uniqueDeliveries = m_model.GetUniqueDeliveries("shrieking");
 			Assert.AreEqual(2, uniqueDeliveries.Count());
@@ -498,9 +498,9 @@ namespace GlyssenTests.Dialogs
 
 			var block1 = m_model.CurrentBlock;
 			m_model.CurrentBlock.Delivery = null;
-			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), AssignCharacterViewModel.Delivery.Normal));
+			Assert.IsFalse(m_model.IsModified(new GlyssenEngine.Character.Character(block1.CharacterId), Delivery.Normal));
 			m_model.CurrentBlock.Delivery = string.Empty;
-			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), AssignCharacterViewModel.Delivery.Normal));
+			Assert.IsFalse(m_model.IsModified(new GlyssenEngine.Character.Character(block1.CharacterId), Delivery.Normal));
 		}
 
 		[Test]
@@ -508,7 +508,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var block1 = m_model.CurrentBlock;
 			block1.Delivery = null;
-			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("Ferdinand"), AssignCharacterViewModel.Delivery.Normal));
+			Assert.IsTrue(m_model.IsModified(new GlyssenEngine.Character.Character("Ferdinand"), Delivery.Normal));
 		}
 
 		[Test]
@@ -516,7 +516,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var block1 = m_model.CurrentBlock;
 			m_model.CurrentBlock.Delivery = "annoyed";
-			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), AssignCharacterViewModel.Delivery.Normal));
+			Assert.IsTrue(m_model.IsModified(new GlyssenEngine.Character.Character(block1.CharacterId), Delivery.Normal));
 		}
 
 		[Test]
@@ -524,7 +524,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var block1 = m_model.CurrentBlock;
 			m_model.CurrentBlock.Delivery = null;
-			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), new AssignCharacterViewModel.Delivery("peeved")));
+			Assert.IsTrue(m_model.IsModified(new GlyssenEngine.Character.Character(block1.CharacterId), new Delivery("peeved")));
 		}
 
 		[Test]
@@ -566,14 +566,14 @@ namespace GlyssenTests.Dialogs
 		{
 			// NOTE: This scenario should not be possible via the UI.
 			var block1 = m_model.CurrentBlock;
-			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), null));
+			Assert.IsTrue(m_model.IsModified(new GlyssenEngine.Character.Character(block1.CharacterId), null));
 		}
 
 		[Test]
 		public void IsModified_CharacterChangedDeliveryNull_ReturnsTrue()
 		{
 			m_model.CurrentBlock.Delivery = null;
-			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("Ralph W Emerson"), null));
+			Assert.IsTrue(m_model.IsModified(new GlyssenEngine.Character.Character("Ralph W Emerson"), null));
 		}
 
 		[Test]
@@ -582,7 +582,7 @@ namespace GlyssenTests.Dialogs
 			var block1 = m_model.CurrentBlock;
 			block1.CharacterId = "extra-MRK";
 			block1.Delivery = "foo";
-			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character("extra-MRK"), null));
+			Assert.IsFalse(m_model.IsModified(new GlyssenEngine.Character.Character("extra-MRK"), null));
 		}
 
 		[Test]
@@ -591,7 +591,7 @@ namespace GlyssenTests.Dialogs
 			var block1 = m_model.CurrentBlock;
 			block1.CharacterId = "Theodore";
 			block1.Delivery = null;
-			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("narrator-MRK"), null));
+			Assert.IsTrue(m_model.IsModified(new GlyssenEngine.Character.Character("narrator-MRK"), null));
 		}
 
 		[Test]
@@ -600,7 +600,7 @@ namespace GlyssenTests.Dialogs
 			var block1 = m_model.CurrentBlock;
 			block1.CharacterId = "narrator-MRK";
 			block1.Delivery = null;
-			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character("narrator-MRK"), AssignCharacterViewModel.Delivery.Normal));
+			Assert.IsFalse(m_model.IsModified(new GlyssenEngine.Character.Character("narrator-MRK"), Delivery.Normal));
 		}
 
 		[Test]
@@ -1434,7 +1434,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003010))); // This block has verses 7-11
 			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			Assert.IsTrue(characters.Count > 1, "Test setup: expected conditions not met");
-			Assert.AreEqual(AssignCharacterViewModel.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
+			Assert.AreEqual(GlyssenEngine.Character.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
 		}
 
 		[Test]
@@ -1444,7 +1444,7 @@ namespace GlyssenTests.Dialogs
 			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			Assert.AreEqual(1, characters.Count, "Test setup: expected conditions not met");
 			Assert.IsTrue(characters[0].IsNarrator, "Test setup: expected conditions not met");
-			Assert.AreEqual(AssignCharacterViewModel.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
+			Assert.AreEqual(GlyssenEngine.Character.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
 		}
 
 		[Test]
@@ -1465,7 +1465,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
 			while (m_model.CurrentBlock.CharacterId != "Jesus")
 				m_model.LoadNextRelevantBlock();
-			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(new List<AssignCharacterViewModel.Character>()));
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(new List<GlyssenEngine.Character.Character>()));
 		}
 
 		[Test]
@@ -1488,7 +1488,7 @@ namespace GlyssenTests.Dialogs
 			var possibleCharactersForMark59 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			var possibleSpeakingCharactersForMark59 = possibleCharactersForMark59.Where(c => !c.IsNarrator).ToList();
 			Assert.AreEqual(2, possibleSpeakingCharactersForMark59.Count);
-			m_model.SetCharacterAndDelivery(possibleSpeakingCharactersForMark59[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(possibleSpeakingCharactersForMark59[indexOfCharacterToAssignToFirstBlock], Delivery.Normal);
 			possibleSpeakingCharactersForMark59.RemoveAt(indexOfCharacterToAssignToFirstBlock);
 			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
 			m_model.LoadNextRelevantBlock();
@@ -1509,7 +1509,7 @@ namespace GlyssenTests.Dialogs
 			var possibleCharactersForMark541 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			var unusedCharactersForMark541 = possibleCharactersForMark541.ToList();
 			Assert.AreEqual(2, unusedCharactersForMark541.Count);
-			m_model.SetCharacterAndDelivery(unusedCharactersForMark541[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(unusedCharactersForMark541[indexOfCharacterToAssignToFirstBlock], Delivery.Normal);
 			unusedCharactersForMark541.RemoveAt(indexOfCharacterToAssignToFirstBlock);
 			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
 			m_model.LoadNextRelevantBlock();
@@ -1540,7 +1540,7 @@ namespace GlyssenTests.Dialogs
 				var possibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 				Assert.AreEqual(3, possibleCharactersForActs837.Count);
 				m_model.SetCharacterAndDelivery(possibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
-					AssignCharacterViewModel.Delivery.Normal);
+					Delivery.Normal);
 				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear);
 				m_model.LoadNextRelevantBlock();
 				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear);
@@ -1652,8 +1652,8 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
-				AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(new GlyssenEngine.Character.Character("Larry"),
+				Delivery.Normal);
 			Assert.IsTrue(m_model.GetUniqueCharacters("Larry").Any(c => c.CharacterId == "Larry"));
 		}
 
@@ -1662,8 +1662,8 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
-				AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(new GlyssenEngine.Character.Character("Larry"),
+				Delivery.Normal);
 			Assert.Throws<ArgumentException>(() =>
 			{
 				m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
@@ -1684,8 +1684,8 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
-				AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(new GlyssenEngine.Character.Character("Larry"),
+				Delivery.Normal);
 			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
 			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
@@ -1696,8 +1696,8 @@ namespace GlyssenTests.Dialogs
 			m_fullProjectRefreshRequired = true;
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.YoungAdult);
-			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
-				AssignCharacterViewModel.Delivery.Normal);
+			m_model.SetCharacterAndDelivery(new GlyssenEngine.Character.Character("Larry"),
+				Delivery.Normal);
 			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
@@ -1726,11 +1726,11 @@ namespace GlyssenTests.Dialogs
 			FindRefInMark(8, 5);
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
 			m_model.StoreCharacterDetail("Christ", CharacterGender.Male, CharacterAge.Adult);
-			var newCharacterChrist = new AssignCharacterViewModel.Character("Christ");
+			var newCharacterChrist = new GlyssenEngine.Character.Character("Christ");
 			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1];
-			m_model.AddPendingProjectCharacterVerseData(block, newCharacterChrist, new AssignCharacterViewModel.Delivery(block.Delivery));
-			m_model.SetReferenceTextMatchupDelivery(3, AssignCharacterViewModel.Delivery.Normal);
-			var newCharacterThadsWife = new AssignCharacterViewModel.Character("Thaddeus' wife");
+			m_model.AddPendingProjectCharacterVerseData(block, newCharacterChrist, new Delivery(block.Delivery));
+			m_model.SetReferenceTextMatchupDelivery(3, Delivery.Normal);
+			var newCharacterThadsWife = new GlyssenEngine.Character.Character("Thaddeus' wife");
 			m_model.AddPendingProjectCharacterVerseData(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[3], newCharacterThadsWife, null);
 			m_model.StoreCharacterDetail("Thaddeus' wife", CharacterGender.Female, CharacterAge.YoungAdult);
 			m_model.SetReferenceTextMatchupCharacter(1, newCharacterChrist);
@@ -1783,8 +1783,8 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(13, lastVerseNumOfBlockFollowingMatchup,
 				"Sanity check: in this test, we were expecting the block after the matchup to end at verse 13.");
 			m_model.StoreCharacterDetail(charChrist, CharacterGender.Male, CharacterAge.Adult);
-			var newCharacterChrist = new AssignCharacterViewModel.Character(charChrist);
-			var newDelivery = delivery == null ? null : new AssignCharacterViewModel.Delivery(delivery);
+			var newCharacterChrist = new GlyssenEngine.Character.Character(charChrist);
+			var newDelivery = delivery == null ? null : new Delivery(delivery);
 			m_model.AddPendingProjectCharacterVerseData(block, newCharacterChrist, newDelivery);
 			m_model.SetReferenceTextMatchupCharacter(1, newCharacterChrist);
 			if (newDelivery != null)
@@ -1920,8 +1920,8 @@ namespace GlyssenTests.Dialogs
  			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchupForMark85.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchupForMark85.CorrelatedBlocks[1].CharacterIsUnclear);
-			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Bartimaeus (a blind man)"));
-			m_model.SetReferenceTextMatchupDelivery(1, new AssignCharacterViewModel.Delivery("shouting", false));
+			m_model.SetReferenceTextMatchupCharacter(1, new GlyssenEngine.Character.Character("Bartimaeus (a blind man)"));
+			m_model.SetReferenceTextMatchupDelivery(1, new Delivery("shouting", false));
 
 			try
 			{
@@ -1951,7 +1951,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(1, matchupForMark1215.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(1, matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear));
 			Assert.IsTrue(matchupForMark1215.CorrelatedBlocks.All(b => b.MatchesReferenceText));
-			m_model.SetReferenceTextMatchupCharacter(4, new AssignCharacterViewModel.Character("Jesus"));
+			m_model.SetReferenceTextMatchupCharacter(4, new GlyssenEngine.Character.Character("Jesus"));
 
 			try
 			{
@@ -2293,7 +2293,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(continuationBlocks.Any());
 			m_indicesOfChangedBlocks.Clear();
 
-			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, AssignCharacterViewModel.Character.Narrator);
+			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, GlyssenEngine.Character.Character.Narrator);
 
 			Assert.IsTrue(startBlock.CharacterIs(m_model.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.None, startBlock.MultiBlockQuote);
@@ -2328,7 +2328,7 @@ namespace GlyssenTests.Dialogs
 			var startBlock = matchup.CorrelatedBlocks[indexOfQuoteStartBlock];
 			m_indicesOfChangedBlocks.Clear();
 
-			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, new AssignCharacterViewModel.Character("Martin"));
+			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, new GlyssenEngine.Character.Character("Martin"));
 
 			Assert.AreEqual("Martin", startBlock.CharacterId);
 			Assert.IsFalse(m_indicesOfChangedBlocks.Any());

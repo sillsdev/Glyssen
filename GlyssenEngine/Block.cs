@@ -1,10 +1,4 @@
-﻿using Glyssen.Shared;  // Merged
-using GlyssenEngine;
-using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
-using SIL.Scripture;
-using SIL.Xml;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -14,10 +8,16 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
+using Glyssen.Shared;
+using GlyssenEngine;
+using GlyssenEngine.Character;
+using GlyssenEngine.Utilities;
+using SIL.Scripture;
+using SIL.Xml;
 using static System.Char;
 using static System.String;
 
-namespace Glyssen
+namespace GlyssenEngine
 {
 	[XmlRoot("block")]
 	public class Block
@@ -31,13 +31,21 @@ namespace Glyssen
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		public const string kLeadingPunctuationHtmlStart = "<span class=\"leading-punctuation\">";
+		public const string kLeadingPunctuationHtmlEnd = "</span>";
+
 		private static readonly Regex s_regexFollowOnParagraphStyles;
 		internal static Regex s_regexInterruption;
 
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
+		public const string kSplitElementIdPrefix = "split";
+		private const string kSplitLineFrame = "<div id=\"" + kSplitElementIdPrefix + "{0}\" class=\"split-line\"><div class=\"split-line-top\"></div></div>";
 		private const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
 		private const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
+
+		/// <summary>Random string which will (hopefully) never appear in real text</summary>
+		private const string kAwooga = "^~^";
 
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
@@ -45,6 +53,7 @@ namespace Glyssen
 		private string m_characterIdInScriptOverride;
 		private string m_delivery;
 		private bool m_matchesReferenceText;
+		private static string s_characterSelect;
 		private static readonly Regex s_verseNumbersOrSounds;
 		private static readonly Regex s_emptyVerseText;
 
@@ -693,7 +702,7 @@ namespace Glyssen
 			return bldr.ToString();
 		}
 
-		public string GetLeadingPunctuation()
+		private string GetLeadingPunctuation()
 		{
 			if (BlockElements.FirstOrDefault() is ScriptText initialScriptText &&
 			    BlockElements.Skip(1).FirstOrDefault() is Verse initialVerse &&
@@ -705,7 +714,102 @@ namespace Glyssen
 			return null;
 		}
 
-		public string BuildVerseNumber(string verseNumber, bool rightToLeftScript)
+		public string GetSplitTextAsHtml(int blockId, bool rightToLeftScript, IEnumerable<BlockSplitData> blockSplits, bool showCharacters)
+		{
+			var bldr = new StringBuilder();
+			var currVerse = InitialVerseNumberOrBridge;
+			var verseNumberHtml = Empty;
+			string leadingPunctuationHtml = null;
+			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{4}{0}{1}</div>";
+			const string leadingPunctuationTemplate = kLeadingPunctuationHtmlStart + "{0}" + kLeadingPunctuationHtmlEnd;
+
+			// Look for special case where verse has leading punctuation before the verse number such as
+			// ({1} This verse is surrounded by parentheses)
+			// This can only happen at the beginning of a block.
+			// If we have it, we basically want to do the split as if it wasn't there at all. i.e. Split the main part of the verse only, and
+			// do not include the leading punctuation as part of the offset.
+			var leadingPunctuation = GetLeadingPunctuation();
+			if (leadingPunctuation != null)
+				leadingPunctuationHtml = Format(leadingPunctuationTemplate, leadingPunctuation);
+
+			foreach (var blockElement in BlockElements.Skip(leadingPunctuationHtml != null ? 1 : 0))
+			{
+				// add verse marker
+				if (blockElement is Verse verse)
+				{
+					verseNumberHtml = BuildVerseNumber(verse.Number, rightToLeftScript);
+					currVerse = verse.Number;
+					continue;
+				}
+
+				// add verse text
+				var text = blockElement as ScriptText;
+				if (text == null) continue;
+
+				var encodedContent = Format(splitTextTemplate, verseNumberHtml, HttpUtility.HtmlEncode(text.Content), blockId, currVerse, leadingPunctuationHtml);
+
+				if ((blockSplits != null) && blockSplits.Any())
+				{
+					var preEncodedContent = text.Content;
+
+					var allContentToInsert = new List<string>();
+					foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit, s.VerseToSplit }))
+					{
+
+						var sortedGroupOfSplits = groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataOffsetComparer);
+						foreach (var blockSplit in sortedGroupOfSplits)
+						{
+							var offsetToInsertExtra = blockSplit.CharacterOffsetToSplit;
+							if (blockSplit.VerseToSplit == currVerse)
+							{
+								if (offsetToInsertExtra == PortionScript.kSplitAtEndOfVerse)
+									offsetToInsertExtra = preEncodedContent.Length;
+
+								if (offsetToInsertExtra < 0 || offsetToInsertExtra > preEncodedContent.Length)
+								{
+									throw new IndexOutOfRangeException("Value of offsetToInsertExtra must be greater than or equal to 0 and less " +
+									                                   $"than or equal to the length ({preEncodedContent.Length}) of the content of verse {currVerse}");
+								}
+
+								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + (showCharacters ? CharacterSelect(blockSplit.Id) : ""));
+								preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
+							}
+						}
+					}
+
+					if (preEncodedContent != text.Content)
+					{
+						encodedContent = HttpUtility.HtmlEncode(preEncodedContent);
+
+						// wrap each text segment in a splittext div
+						var segments = encodedContent.Split(new[] { kAwooga }, StringSplitOptions.None);
+						var newSegments = new List<string>();
+						foreach (var segment in segments)
+						{
+							newSegments.Add(Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse, leadingPunctuationHtml));
+							verseNumberHtml = Empty;
+							leadingPunctuationHtml = null;
+						}
+
+						encodedContent = Join(kAwooga, newSegments);
+
+						foreach (var contentToInsert in allContentToInsert)
+							encodedContent = encodedContent.ReplaceFirst(kAwooga, contentToInsert);
+					}
+				}
+
+				bldr.Append(encodedContent);
+
+				// reset verse number element
+				verseNumberHtml = Empty;
+
+				leadingPunctuationHtml = null;
+			}
+
+			return bldr.ToString();
+		}
+
+		private string BuildVerseNumber(string verseNumber, bool rightToLeftScript)
 		{
 			const string template = "<sup>{1}{0}&#160;{1}</sup>";
 			var rtl = rightToLeftScript ? "&rlm;" : "";
@@ -900,6 +1004,56 @@ namespace Glyssen
 			// the tests use a mocked call and they set up the mock for the other version.
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, new [] { (InitialVerseNumberBridgeFromBlock)this }, scrVers, true)
 				.FirstOrDefault(c => c.Character == CharacterId);
+		}
+
+		public static string BuildSplitLineHtml(int id)
+		{
+			return Format(kSplitLineFrame, id);
+		}
+
+		public string CharacterSelect(int splitId, IEnumerable<GlyssenEngine.Character.Character> characters = null)
+		{
+			if ((characters == null) && !IsNullOrEmpty(s_characterSelect))
+				return Format(s_characterSelect, splitId);
+
+			const string optionTemplate = "<option value=\"{0}\">{1}</option>";
+			var sb = new StringBuilder("<select class=\"select-character\" data-splitid=\"{0}\"><option value=\"\"></option>");
+
+			if (characters != null)
+			{
+				foreach (var character in characters)
+				{
+					if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
+					{
+
+					}
+					if (character.IsNarrator)
+					{
+						sb.AppendFormat(optionTemplate,
+							CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
+							character.LocalizedDisplay);
+					}
+					else
+					{
+						var stdCharacterType = CharacterVerseData.GetStandardCharacterType(character.CharacterId);
+						if (stdCharacterType == CharacterVerseData.StandardCharacter.NonStandard)
+						{
+							sb.AppendFormat(optionTemplate, character.CharacterId, character.LocalizedDisplay);
+						}
+						else
+						{
+							sb.AppendFormat(optionTemplate,
+								CharacterVerseData.GetStandardCharacterId(BookCode, stdCharacterType),
+								character.LocalizedDisplay);
+						}
+					}
+				}
+			}
+
+			sb.Append("</select>");
+			s_characterSelect = sb.ToString();
+
+			return Format(s_characterSelect, splitId);
 		}
 
 		public static Block CombineBlocks(Block blockA, Block blockB)

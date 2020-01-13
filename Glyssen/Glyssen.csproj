@@ -519,7 +519,6 @@
     <Compile Include="Paratext\IParatextScrTextWrapper.cs" />
     <Compile Include="Paratext\NoSupportedBooksException.cs" />
     <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
-    <Compile Include="PortionScript.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
     <Compile Include="Quote\ParserCharacterRepository.cs" />

@@ -5,21 +5,13 @@ using System.IO;
 using System.Linq;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen
 {
-
-	public interface IReferenceLanguageInfo
-	{
-		bool HasSecondaryReferenceText { get; }
-		IReferenceLanguageInfo BackingReferenceLanguage { get; }
-		string HeSaidText { get; }
-		string WordSeparator { get; }
-	}
-
 	public class ReferenceText : ProjectBase, IReferenceLanguageInfo
 	{
 		protected readonly ReferenceTextType m_referenceTextType;
