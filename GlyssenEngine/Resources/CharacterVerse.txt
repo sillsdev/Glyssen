@@ -10348,9 +10348,9 @@ JER	3	13	God		God (the LORD)	Normal
 JER	3	14	God		God (the LORD)	Normal		
 JER	3	15	God		God (the LORD)	Normal		
 JER	3	16	God		God (the LORD)	Normal		
-# See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character
-#JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
-JER	3	16	you (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
+# See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character (FCBH changed to have this spoekn by God.)
+JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
+JER	3	16	you (hypothetical)			Hypothetical		
 # expression: "The throne of God"
 JER	3	17	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	3	18	God		God (the LORD)	Implicit		
@@ -10432,7 +10432,6 @@ JER	5	10	God		God (the LORD)	Implicit
 JER	5	11	God		God (the LORD)	Normal		
 JER	5	12	God		God (the LORD)	Potential		
 JER	5	12	Israel/Judah, people of		house of Israel/house of Judah	Quotation		
-# See: https://trello.com/c/aqDV8YfB/47-jer-513-all-but-a-couple-looser-translations-agree-that-this-is-a-continuation-of-the-peoples-words-from-v-12
 JER	5	13	Israel/Judah, people of		house of Israel/house of Judah	Quotation		
 JER	5	14	God		God (the LORD)	Normal		
 JER	5	15	God		God (the LORD)	Normal		
@@ -10442,8 +10441,8 @@ JER	5	18	God		God (the LORD)	Normal
 JER	5	19	God		God (the LORD)	Normal		
 JER	5	19	you (hypothetical)			Hypothetical		
 JER	5	20	God		God (the LORD)	Implicit		
-JER	5	21	Jeremiah			Normal		
-JER	5	21	God		God (the LORD)	Alternate		
+JER	5	21	God		God (the LORD)	Normal		
+JER	5	21	Jeremiah			Alternate		
 JER	5	22	God		God (the LORD)	Normal		
 JER	5	23	God		God (the LORD)	Implicit		
 JER	5	24	God		God (the LORD)	Normal		
@@ -10453,8 +10452,8 @@ JER	5	26	God		God (the LORD)	Implicit
 JER	5	27	God		God (the LORD)	Implicit		
 JER	5	28	God		God (the LORD)	Implicit		
 JER	5	29	God		God (the LORD)	Normal		
-JER	5	30	God		God (the LORD)	Potential		
-JER	5	31	God		God (the LORD)	Potential		
+JER	5	30	God		God (the LORD)	Implicit		
+JER	5	31	God		God (the LORD)	Implicit		
 JER	6	1	God		God (the LORD)	Implicit		
 JER	6	1	Jeremiah			Alternate		
 JER	6	1	person warning people of Benjamin to flee			Alternate		
@@ -10582,7 +10581,7 @@ JER	8	15	Jeremiah			Potential
 JER	8	15	God	saying what the people will say	God (the LORD)	Alternate		
 JER	8	15	people			Hypothetical		
 JER	8	16	Jeremiah			Normal		
-JER	8	16	God	saying what the people will say	God (the LORD)	Normal		
+JER	8	16	God	saying what the people will say	God (the LORD)	Alternate		
 JER	8	16	people			Hypothetical		
 JER	8	17	God		God (the LORD)	Normal		
 JER	8	17	Jeremiah			Potential		
@@ -10632,8 +10631,13 @@ JER	9	20	Jeremiah			Potential
 JER	9	20	God		God (the LORD)	Potential		
 JER	9	21	Jeremiah			Potential		
 JER	9	21	God		God (the LORD)	Potential		
+JER	9	21	daughter of Zion	wailing		Hypothetical		
 JER	9	22	Jeremiah			Normal		
 JER	9	22	God		God (the LORD)	Normal		
+# Although FCBH has this verse broken out and assigned according to a reasonable interpretation of the quotation marks in te WEB,
+# most other translations appear to break it up differently. We can leave the reference text unambiguous, but rather than risk an
+# accidental match-up that doesn't really reflect the vernacular, lets have the parser merk this verse for review.
+JER	9	22	Needs Review			Implicit		
 JER	9	23	Jeremiah			Potential		
 JER	9	23	God		God (the LORD)	Normal		
 JER	9	24	God		God (the LORD)	Normal		
@@ -10760,23 +10764,25 @@ JER	13	25	God		God (the LORD)	Normal
 JER	13	25	Jeremiah			Potential		
 JER	13	26	God		God (the LORD)	Implicit		
 JER	13	27	God		God (the LORD)	Implicit		
-# Review: Should vv. 2-6 default to God or Jeremiah (implicit vs. Alternate)?
-JER	14	2	God		God (the LORD)	Normal		
-JER	14	2	Jeremiah			Normal		
-JER	14	3	God		God (the LORD)	Normal		
-JER	14	3	Jeremiah			Normal		
-JER	14	4	God		God (the LORD)	Normal		
-JER	14	4	Jeremiah			Normal		
-JER	14	5	God		God (the LORD)	Normal		
-JER	14	5	Jeremiah			Normal		
-JER	14	6	God		God (the LORD)	Normal		
-JER	14	6	Jeremiah			Normal		
-JER	14	7	Jeremiah			Implicit		
-JER	14	7	people, repentant			Alternate		
-JER	14	8	Jeremiah			Implicit		
-JER	14	8	people, repentant			Alternate		
-JER	14	9	Jeremiah			Implicit		
-JER	14	9	people, repentant			Alternate		
+JER	14	2	God		God (the LORD)	Alternate		
+JER	14	2	Jeremiah			Implicit		
+JER	14	3	God		God (the LORD)	Alternate		
+JER	14	3	Jeremiah			Implicit		
+JER	14	4	God		God (the LORD)	Alternate		
+JER	14	4	Jeremiah			Implicit		
+JER	14	5	God		God (the LORD)	Alternate		
+JER	14	5	Jeremiah			Implicit		
+JER	14	6	God		God (the LORD)	Alternate		
+JER	14	6	Jeremiah			Implicit		
+JER	14	7	Jeremiah			Alternate		
+JER	14	7	people, repentant			Implicit		
+JER	14	7	Needs Review			Alternate		
+JER	14	8	Jeremiah			Alternate		
+JER	14	8	people, repentant			Implicit		
+JER	14	8	Needs Review			Alternate		
+JER	14	9	Jeremiah			Alternate		
+JER	14	9	people, repentant			Implicit		
+JER	14	9	Needs Review			Alternate		
 JER	14	10	God		God (the LORD)	Normal		
 JER	14	11	God		God (the LORD)	Normal		
 JER	14	12	God		God (the LORD)	Implicit		
@@ -10953,6 +10959,8 @@ JER	20	8	Jeremiah			Potential
 JER	20	8	narrator-JER			Quotation		
 JER	20	9	Jeremiah			Potential		
 JER	20	9	narrator-JER			Quotation		
+# Depending on the wording of the (narator) text, the hypothetical speak in v. 10 could be spoken by a single character or by
+# two different groups (known enemies and supposed friends).
 JER	20	10	Jeremiah			Potential		
 JER	20	10	Jeremiah's enemies			Hypothetical		
 JER	20	10	Jeremiah's friends (bad)			Hypothetical		
@@ -11048,7 +11056,7 @@ JER	23	4	God		God (the LORD)	Normal
 JER	23	4	Jeremiah			Potential		
 JER	23	5	God		God (the LORD)	Normal		
 JER	23	5	Jeremiah			Potential		
-JER	23	6	God		God (the LORD)	Implicit		
+JER	23	6	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	23	7	God		God (the LORD)	Normal		
 JER	23	7	Jeremiah			Potential		
 JER	23	7	saying about God's deliverance	no more be said		Hypothetical		JER 16.14;JER 23.7
@@ -11057,7 +11065,10 @@ JER	23	8	saying about God's deliverance			Hypothetical		JER 16.15;JER 23.8
 JER	23	9	Jeremiah			Potential		
 JER	23	10	Jeremiah			Potential		
 JER	23	10	God		God (the LORD)	Potential		
+JER	23	10	Needs Review			Implicit		
 JER	23	11	God		God (the LORD)	Normal		
+JER	23	11	Jeremiah			Rare		
+JER	23	11	Needs Review			Potential		
 JER	23	12	God		God (the LORD)	Normal		
 JER	23	13	God		God (the LORD)	Implicit		
 JER	23	14	God		God (the LORD)	Implicit		
@@ -11078,7 +11089,7 @@ JER	23	23	Jeremiah			Potential
 JER	23	24	God		God (the LORD)	Normal		
 JER	23	24	Jeremiah			Potential		
 JER	23	25	God		God (the LORD)	Normal		
-JER	23	25	false prophets			Hypothetical		
+JER	23	25	false prophets			Quotation		
 JER	23	26	God		God (the LORD)	Implicit		
 JER	23	27	God		God (the LORD)	Implicit		
 JER	23	28	God		God (the LORD)	Normal		
@@ -11173,10 +11184,17 @@ JER	26	16	officials/people, all the			Normal
 JER	26	18	elders of the land			Normal		
 JER	26	18	Micah, prophet			Quotation		
 JER	26	19	elders of the land			Implicit		
+# Most translations (including WEB) do not have vv. 20-23 in quotes. It is a commentary by the narrator (some make it parenthetical).
+# However, FCBH has the elders of the land speak this chunk, and it may be that other projects will want to follow suit even if it is
+# not in quotes.
 JER	26	20	elders of the land			Potential		
+JER	26	20	Needs Review			Potential		
 JER	26	21	elders of the land			Potential		
+JER	26	21	Needs Review			Potential		
 JER	26	22	elders of the land			Potential		
+JER	26	22	Needs Review			Potential		
 JER	26	23	elders of the land			Potential		
+JER	26	23	Needs Review			Potential		
 JER	27	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	2	God		God (the LORD)	Normal		
 JER	27	3	God		God (the LORD)	Implicit		
@@ -11729,7 +11747,7 @@ JER	45	2	Jeremiah			Normal
 JER	45	3	God		God (the LORD)	Implicit		
 JER	45	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	45	4	God		God (the LORD)	Normal		
-JER	45	4	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	45	4	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	45	5	God		God (the LORD)	Normal		
 JER	45	5	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	46	2	Jeremiah		Jeremiah (the LORD says)	Potential		

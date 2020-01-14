@@ -808,11 +808,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="invaders">
     <verse num="4" />
-    <text>Prepare war against her; arise, and let us go up at noon. Woe to us! For the day declines, for the shadows of the evening are stretched out.</text>
+    <text>“Prepare war against her; arise, and let us go up at noon. Woe to us! For the day declines, for the shadows of the evening are stretched out.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="5" characterId="invaders">
     <verse num="5" />
-    <text>Arise, and let us go up by night, and let us destroy her palaces.</text>
+    <text>Arise, and let us go up by night, and let us destroy her palaces.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-JER">
     <verse num="6" />
@@ -1339,7 +1339,7 @@
     <verse num="14" />
     <text>but have walked after the stubbornness of their own heart, and after the Baals, which their fathers taught them;</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="15" characterId="God">
+  <block style="p" chapter="9" initialStartVerse="15" characterId="narrator-JER">
     <verse num="15" />
     <text>therefore thus says God of Armies, the God of Israel,</text>
   </block>
@@ -1355,26 +1355,26 @@
     <text>Thus says God of Armies,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="17" characterId="God">
-    <text>Consider, and call for the mourning women, that they may come; and send for the skillful women, that they may come:</text>
+    <text>“Consider, and call for the mourning women, that they may come. Send for the skillful women, that they may come.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>and let them make haste, and take up a wailing for us, that our eyes may run down with tears, and our eyelids gush out with waters. </text>
+    <text>Let them make haste and take up a wailing for us, that our eyes may run down with tears and our eyelids gush out with waters. </text>
     <verse num="19" />
     <text>For a voice of wailing is heard out of Zion,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="daughter of Zion" delivery="wailing">
-    <text>How are we ruined! we are greatly confounded, because we have forsaken the land, because they have cast down our dwellings.</text>
+    <text>‹How are we ruined! we are greatly confounded, because we have forsaken the land, because they have cast down our dwellings.›”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="narrator-JER">
     <verse num="20" />
-    <text>Yet hear the word of God, you women, and let your ear receive the word of his mouth; and teach your daughters wailing, and everyone her neighbor lamentation.</text>
+    <text>Yet hear God’s word, you women. Let your ear receive the word of his mouth. Teach your daughters wailing. Everyone teach her neighbor a lamentation.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="21" characterId="narrator-JER">
     <verse num="21" />
     <text>For death is come up into our windows, it is entered into our palaces; to cut off the children from outside, and the young men from the streets. </text>
     <verse num="22" />
-    <text>Speak, Thus says God,</text>
+    <text>Speak, God says,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="22" characterId="God">
     <text>The dead bodies of men shall fall as dung on the open field, and as the handful after the harvester; and none shall gather them.</text>
@@ -2170,15 +2170,15 @@
     <text>God, my strength, and my stronghold, and my refuge in the day of affliction, to you shall the nations come from the ends of the earth, and shall say,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="19" characterId="nations">
-    <text>Our fathers have inherited nothing but lies, even vanity and things in which there is no profit.</text>
+    <text>“Our fathers have inherited nothing but lies, vanity and things in which there is no profit.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="nations">
     <verse num="20" />
-    <text>Shall a man make to himself gods, which yet are no gods?</text>
+    <text>Should a man make to himself gods which yet are no gods?”</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>Therefore, behold, I will cause them to know, this once will I cause them to know my hand and my might; and they shall know that my name is God.</text>
+    <text>“Therefore, behold, I will cause them to know, this once will I cause them to know my hand and my might. Then they will know that my name is God.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="JER" initialStartVerse="0" characterId="BC-JER">
     <text>17</text>
@@ -2918,7 +2918,7 @@
     <text>that they shall no more say,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="7" characterId="saying about God's deliverance" delivery="no more be said">
-    <text>As God lives, who brought up the children of Israel out of the land of Egypt;</text>
+    <text>‹As God lives, who brought up the children of Israel out of the land of Egypt;›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -2930,11 +2930,11 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="10" characterId="narrator-JER">
     <verse num="10" />
-    <text>For the land is full of adulterers; for because of swearing the land mourns; the pastures of the wilderness are dried up. Their course is evil, and their might is not right;</text>
+    <text>For the land is full of adulterers; for because of the curse the land mourns. The pastures of the wilderness have dried up. Their course is evil, and their might is not right;</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>for both prophet and priest are profane; yes, in my house have I found their wickedness,</text>
+    <text>for both prophet and priest are profane. Yes, in my house I have found their wickedness,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="11" characterId="narrator-JER">
     <text>says God.</text>
@@ -2973,13 +2973,13 @@
     <text>They say continually to those who despise me,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="17" characterId="false prophets">
-    <text>God has said, You shall have peace;</text>
+    <text>‹God has said, You shall have peace;›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="17" characterId="God">
     <text>and to everyone who walks in the stubbornness of his own heart they say,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="17" characterId="false prophets">
-    <text>No evil shall come on you.</text>
+    <text>‹No evil shall come on you.›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="18" characterId="narrator-JER">
     <verse num="18" />
@@ -3027,7 +3027,7 @@
     <text>I have heard what the prophets have said, who prophesy lies in my name, saying,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="25" characterId="false prophets">
-    <text>I have dreamed, I have dreamed.</text>
+    <text>‹I have dreamed, I have dreamed.›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="26" characterId="God">
     <verse num="26" />
@@ -3081,7 +3081,7 @@
     <text>says God,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="32" characterId="God">
-    <text>and do tell them, and cause my people to err by their lies, and by their vain boasting: yet I didn’t send them, nor commanded them; neither do they profit this people at all,</text>
+    <text>and do tell them, and cause my people to err by their lies, and by their vain boasting; yet I didn’t send them, nor commanded them. They don’t profit this people at all,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="32" characterId="narrator-JER">
     <text>says God.</text>
@@ -3091,24 +3091,24 @@
     <text>When this people, or the prophet, or a priest, shall ask you, saying,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="33" characterId="people/false prophets/priest" characterIdOverrideForScript="false prophets">
-    <text>What is the burden of God?</text>
+    <text>‹What is the burden of God?›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="33" characterId="God">
-    <text>Then you shall tell them, What burden! I will cast you off,</text>
+    <text>Then you shall tell them, ‹What burden! I will cast you off,›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="33" characterId="narrator-JER">
     <text>says God.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="34" characterId="God">
     <verse num="34" />
-    <text>As for the prophet, and the priest, and the people, who shall say, The burden of God, I will even punish that man and his house.</text>
+    <text>As for the prophet, and the priest, and the people, who shall say, ‹The burden of God›, I will even punish that man and his house.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="35" characterId="God">
     <verse num="35" />
     <text>You shall say everyone to his neighbor, and everyone to his brother,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="35" characterId="you (hypothetical)">
-    <text>What has God answered? and, What has God spoken?</text>
+    <text>‹What has God answered?› and, ‹What has God spoken?›</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="36" characterId="narrator-JER">
     <verse num="36" />
@@ -3593,10 +3593,10 @@
     <text>Also I spoke to the priests and to all this people, saying, Thus says God:</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="God">
-    <text>Don’t listen to the words of your prophets who prophesy to you, saying,</text>
+    <text>“Don’t listen to the words of your prophets who prophesy to you, saying,</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="false prophets">
-    <text>Behold, the vessels of God’s house shall now shortly be brought again from Babylon;</text>
+    <text>‹Behold, the vessels of God’s house shall now shortly be brought again from Babylon;›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="God">
     <text>for they prophesy a lie to you.</text>
@@ -3615,7 +3615,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="20" characterId="narrator-JER">
     <verse num="20" />
-    <text>which Nebuchadnezzar king of Babylon didn’t take, when he carried away captive Jeconiah the son of Jehoiakim, king of Judah, from Jerusalem to Babylon, and all the nobles of Judah and Jerusalem;</text>
+    <text>which Nebuchadnezzar king of Babylon didn’t take, when he carried away captive Jeconiah the son of Jehoiakim, king of Judah, from Jerusalem to Babylon, and all the nobles of Judah and Jerusalem—</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="21" characterId="narrator-JER">
     <verse num="21" />
@@ -3623,13 +3623,13 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>They shall be carried to Babylon, and there shall they be, until the day that I visit them,</text>
+    <text>‹They shall be carried to Babylon, and there shall they be, until the day that I visit them,›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="22" characterId="narrator-JER">
     <text>says God;</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="22" characterId="God">
-    <text>then will I bring them up, and restore them to this place.</text>
+    <text>‹then will I bring them up, and restore them to this place.› ”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="JER" initialStartVerse="0" characterId="BC-JER">
     <text>28</text>
@@ -4579,26 +4579,26 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Thus says God, the God of Israel, Go, and speak to Zedekiah king of Judah, and tell him,</text>
+    <text>“God, the God of Israel, says, ‹Go, and speak to Zedekiah king of Judah, and tell him,</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="2" characterId="narrator-JER">
-    <text>Thus says God,</text>
+    <text>God says,</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="2" characterId="God">
-    <text>Behold, I will give this city into the hand of the king of Babylon, and he shall burn it with fire:</text>
+    <text>“Behold, I will give this city into the hand of the king of Babylon and he will burn it with fire.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>and you shall not escape out of his hand, but shall surely be taken, and delivered into his hand; and your eyes shall see the eyes of the king of Babylon, and he shall speak with you mouth to mouth, and you shall go to Babylon.</text>
+    <text>You won’t escape out of his hand, but will surely be taken and delivered into his hand. Your eyes will see the eyes of the king of Babylon, and he will speak with you mouth to mouth. You will go to Babylon.” ›</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="4" characterId="narrator-JER">
     <verse num="4" />
     <text>Yet hear the word of God, O Zedekiah king of Judah: thus says God concerning you,</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="4" characterId="God">
-    <text>You shall not die by the sword; </text>
+    <text>You won’t die by the sword. </text>
     <verse num="5" />
-    <text>you shall die in peace; and with the burnings of your fathers, the former kings who were before you, so shall they make a burning for you; and they shall lament you, saying, “Ah Lord!” for I have spoken the word,</text>
+    <text>You will die in peace; and with the burnings of your fathers, the former kings who were before you, so they will make a burning for you. They will lament you, saying, “Ah Lord!” for I have spoken the word,›</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="5" characterId="narrator-JER">
     <text>says God.</text>
