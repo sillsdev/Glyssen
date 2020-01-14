@@ -3447,14 +3447,14 @@
   </block>
   <block style="p" chapter="40" initialStartVerse="1" characterId="God">
     <verse num="1" />
-    <text>Comfort, comfort my people,</text>
+    <text>“Comfort, comfort my people,”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="1" characterId="narrator-ISA">
     <text>says your God.</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Speak comfortably to Jerusalem; and call out to her that her warfare is accomplished, that her iniquity is pardoned, that she has received of God’s hand double for all her sins.</text>
+    <text>“Speak comfortably to Jerusalem; and call out to her that her warfare is accomplished, that her iniquity is pardoned, that she has received of God’s hand double for all her sins.”</text>
   </block>
   <block style="p" chapter="40" initialStartVerse="3" characterId="narrator-ISA">
     <verse num="3" />
@@ -4274,7 +4274,7 @@
   </block>
   <block style="p" chapter="47" initialStartVerse="4" characterId="narrator-ISA">
     <verse num="4" />
-    <text>Our Redeemer, God of Armies is his name, the Holy One of Israel.</text>
+    <text>Our Redeemer, God of Armies is his name, is the Holy One of Israel.</text>
   </block>
   <block style="p" chapter="47" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -4464,7 +4464,7 @@
   </block>
   <block style="p" chapter="49" initialStartVerse="5" characterId="narrator-ISA">
     <verse num="5" />
-    <text>Now says God who formed me from the womb to be his servant, to bring Jacob again to him, and that Israel be gathered to him (for I am honorable in the eyes of God, and my God is become my strength); </text>
+    <text>Now God, he who formed me from the womb to be his servant, says to bring Jacob again to him, and to gather Israel to him, for I am honorable in God’s eyes, and my God has become my strength. </text>
     <verse num="6" />
     <text>Indeed, he says,</text>
   </block>

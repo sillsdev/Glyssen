@@ -9168,20 +9168,15 @@ ISA	10	6	God		God (the LORD)	Implicit
 ISA	10	7	God		God (the LORD)	Potential		
 ISA	10	8	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	8	God		God (the LORD)	Potential		
-ISA	10	8	Isaiah			Potential		
 ISA	10	9	Sennacherib, king of Assyria		king of Assyria	Quotation		
-ISA	10	9	Isaiah			Potential		
 ISA	10	9	God		God (the LORD)	Potential		
 ISA	10	10	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	10	God		God (the LORD)	Potential		
-ISA	10	10	Isaiah			Potential		
 ISA	10	10	Needs Review			Normal		
 ISA	10	11	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	11	God		God (the LORD)	Potential		
-ISA	10	11	Isaiah			Potential		
 ISA	10	11	Needs Review			Normal		
 ISA	10	12	Needs Review			Implicit		
-ISA	10	12	Isaiah			Potential		
 ISA	10	12	God		God (the LORD)	Potential		
 ISA	10	13	Needs Review			Implicit		
 ISA	10	13	God		God (the LORD)	Potential		
@@ -9341,6 +9336,15 @@ ISA	14	32	Needs Review			Implicit
 ISA	14	32	God		God (the LORD)	Alternate		
 ISA	14	32	Isaiah			Alternate		
 ISA	14	32	answer from Israel			Hypothetical		
+ISA	15	1	Isaiah			Potential		
+ISA	15	2	Isaiah			Potential		
+ISA	15	3	Isaiah			Potential		
+ISA	15	4	Isaiah			Potential		
+ISA	15	5	Isaiah			Potential		
+ISA	15	6	Isaiah			Potential		
+ISA	15	7	Isaiah			Potential		
+ISA	15	8	Isaiah			Potential		
+ISA	15	9	Isaiah			Potential		
 ISA	16	3	Moabites			Hypothetical		
 ISA	16	3	Moabitesses (female)			Hypothetical		
 ISA	16	3	Needs Review			Implicit		
@@ -9483,19 +9487,19 @@ ISA	29	1	God		God (the LORD)	Implicit
 ISA	29	2	God		God (the LORD)	Implicit		
 ISA	29	3	God		God (the LORD)	Implicit		
 ISA	29	4	God		God (the LORD)	Potential		
-ISA	29	4	Isaiah			Potential		
+ISA	29	4	Isaiah			Alternate		
 ISA	29	4	Needs Review			Implicit		
-ISA	29	5	Isaiah			Potential		
+ISA	29	5	Isaiah			Alternate		
 ISA	29	5	God		God (the LORD)	Potential		
 ISA	29	5	Needs Review			Implicit		
-ISA	29	6	Isaiah			Potential		
-ISA	29	6	God		God (the LORD)	Alternate		
-ISA	29	7	Isaiah			Potential		
-ISA	29	7	God		God (the LORD)	Alternate		
-ISA	29	8	Isaiah			Potential		
-ISA	29	8	God		God (the LORD)	Alternate		
-ISA	29	9	Isaiah			Potential		
-ISA	29	9	God		God (the LORD)	Alternate		
+ISA	29	6	Isaiah			Alternate		
+ISA	29	6	God		God (the LORD)	Potential		
+ISA	29	7	Isaiah			Alternate		
+ISA	29	7	God		God (the LORD)	Potential		
+ISA	29	8	Isaiah			Alternate		
+ISA	29	8	God		God (the LORD)	Potential		
+ISA	29	9	Isaiah			Alternate		
+ISA	29	9	God		God (the LORD)	Potential		
 ISA	29	10	Isaiah			Potential		
 ISA	29	10	God		God (the LORD)	Alternate		
 ISA	29	11	Isaiah			Potential		
@@ -9532,7 +9536,6 @@ ISA	30	6	Isaiah			Alternate
 ISA	30	7	God		God (the LORD)	Potential		
 ISA	30	7	Isaiah			Alternate		
 ISA	30	8	God		God (the LORD)	Potential		
-ISA	30	8	Isaiah			Alternate		
 ISA	30	9	God		God (the LORD)	Potential		
 ISA	30	9	Isaiah			Alternate		
 ISA	30	10	God		God (the LORD)	Potential		
@@ -9768,12 +9771,12 @@ ISA	42	16	God		God (the LORD)	Implicit
 ISA	42	17	God		God (the LORD)	Implicit		
 ISA	42	18	God		God (the LORD)	Implicit		
 ISA	42	19	God		God (the LORD)	Implicit		
-ISA	42	20	Isaiah			Potential		
-ISA	42	20	God		God (the LORD)	Alternate		
-ISA	42	21	Isaiah			Potential		
-ISA	42	21	God		God (the LORD)	Alternate		
-ISA	42	22	Isaiah			Potential		
-ISA	42	22	God		God (the LORD)	Alternate		
+ISA	42	20	God		God (the LORD)	Potential		
+ISA	42	20	Isaiah			Alternate		
+ISA	42	21	God		God (the LORD)	Potential		
+ISA	42	21	Isaiah			Alternate		
+ISA	42	22	God		God (the LORD)	Potential		
+ISA	42	22	Isaiah			Alternate		
 ISA	42	22	narrator-ISA			Hypothetical		
 ISA	42	23	Isaiah			Potential		
 ISA	42	23	God		God (the LORD)	Alternate		
@@ -9865,6 +9868,9 @@ ISA	45	14	God		God (the LORD)	Normal
 ISA	45	14	Egyptians/Ethiopians/Sabeans			Hypothetical		
 ISA	45	15	Needs Review			Implicit		
 ISA	45	15	Isaiah			Potential		
+# If the text has the hypothetical speech by the Egyptians, Ethiopians and Sabeans continue through v. 15 and the
+# scripter wants to have God speak it, then He needs to be an option in this verse.
+ISA	45	15	God		God (the LORD)	Potential		
 ISA	45	15	Egyptians/Ethiopians/Sabeans			Hypothetical		
 ISA	45	18	God		God (the LORD)	Normal		
 ISA	45	19	God		God (the LORD)	Implicit		
@@ -10083,10 +10089,9 @@ ISA	55	9	God		God (the LORD)	Normal
 ISA	55	10	God		God (the LORD)	Implicit		
 ISA	55	11	God		God (the LORD)	Implicit		
 ISA	55	12	God		God (the LORD)	Normal		
-# If FCBH changes DG to have vv. 12-13 spoken by God, change Isaiah to Alternate for these 2 verses.
-ISA	55	12	Isaiah			Potential		
+ISA	55	12	Isaiah			Alternate		
 ISA	55	13	God		God (the LORD)	Normal		
-ISA	55	13	Isaiah			Potential		
+ISA	55	13	Isaiah			Alternate		
 ISA	56	1	God		God (the LORD)	Normal		
 ISA	56	2	God		God (the LORD)	Normal		
 ISA	56	3	narrator-ISA			Hypothetical		
