@@ -236,7 +236,7 @@ Daniel	1	Male	Adult			DAN 1:12 <-(98 more)-> DAN 10:19
 Danites	-1		Adult			JDG 18:2 <-(2 more)-> JDG 18:25
 Darius, king of Medes and Persians	1	Male	Adult			EZR 6:1 <-(15 more)-> DAN 6:27
 Dathan	1	Male			son of Eliab (Reubenite)	NUM 16:3 <-(2 more)-> NUM 16:14
-daughter of Zion	1	Female				JER 4:31 <-(17 more)-> LAM 2:22
+daughter of Zion	1	Female				JER 4:31 <-(18 more)-> LAM 2:22
 daughters of Philip the evangelist	4	Female				ACT 20:12
 daughters of Zelophehad	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4	Daughter of Zelophehad (female)
 David	1	Male	Adult			1SA 17:26 <-(401 more)-> PRO 4:9
@@ -337,7 +337,7 @@ expert in religious law	1	Male			also "lawyer" (Gr. nomikos)	MAT 22:33 <-(7 more
 experts in religious law, one of the	1	Male			also "lawyer" (Gr. nomikos)	LUK 11:45
 explorers, ten	10	Male				NUM 13:27 <-(4 more)-> NUM 13:33
 eye	1	Neuter				1CO 12:21
-Ezekiel	1	Male				EZK 3:27 <-(653 more)-> EZK 47:23
+Ezekiel	1	Male				EZK 3:27 <-(657 more)-> EZK 48:29
 Ezra, priest and teacher	1	Male				EZR 5:4 <-(15 more)-> NEH 8:15	Ezra
 false prophets	-1	Male				JER 14:13 <-(15 more)-> ZEC 13:6
 false teachers	-1					1TI 4:3
@@ -388,7 +388,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10	Elder
 Gilead, leaders of	-1	Male				JDG 10:18	Elder
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6	Gileadite
-God	1	Male		Y		GEN 1:3 <-(5829 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5830 more)-> REV 21:8
 God's chosen (beloved) friend or ally	1	Male				ISA 48:16
 Gog	1	Male				EZK 38:11 & EZK 38:12
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
@@ -438,7 +438,7 @@ holy one (in vision)	1	Male				DAN 4:14 <-(3 more)-> DAN 8:14
 Holy Spirit, the	1	Male		Y		EZK 3:24 <-(41 more)-> REV 22:17
 horseman, first	1	Male				2KI 9:18
 horseman, second	1	Male				2KI 9:19
-horses (or their angelic riders) (in vision)	-1	PreferMale				ZEC 1:11
+angelic riders (in vision)	-1	PreferMale				ZEC 1:11
 Hosea	1	Male				HOS 2:13 <-(20 more)-> HOS 9:17
 house of Aaron, the	-1	Male				PSA 118:3
 Huldah, prophetess	1	Female				2KI 22:15 <-(10 more)-> 2CH 34:28
@@ -459,7 +459,7 @@ invalid for 38 years	1	Male				JHN 5:7 <-(2 more)-> JHN 5:15
 Irijah, captain of the guard of Judah	1	Male				JER 37:13
 Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> HEB 11:20
 Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
-Isaiah	1	Male				2KI 19:6 <-(412 more)-> ISA 66:6
+Isaiah	1	Male				2KI 19:6 <-(415 more)-> ISA 66:6
 Ish-Bosheth, son of Saul	1	Male				2SA 3:7
 Ishmael, son of Nethaniah (murderer)	1	Male				JER 41:6
 Issachar	1	Male	Adult			GEN 37:8 <-(33 more)-> GEN 50:18
@@ -510,7 +510,7 @@ Jehudi	1	Male				JER 36:14
 Jephthah	1	Male				JDG 11:7 <-(6 more)-> JDG 12:3
 Jephthah's daughter	1	Female	YoungAdult		youth	JDG 11:36 & JDG 11:37
 Jephthah's half-brothers	-1	Male				JDG 11:2	Son of Gilead
-Jeremiah	1	Male				JER 1:6 <-(706 more)-> LAM 3:66
+Jeremiah	1	Male				JER 1:6 <-(707 more)-> LAM 3:66
 Jeremiah's enemies	-1	Male				JER 17:15 <-(1 more)-> JER 20:10
 Jeremiah's friends (bad)	-1	PreferMale				JER 20:10
 Jeroboam	1	Male				1KI 12:4 <-(10 more)-> 2CH 10:16
@@ -566,7 +566,7 @@ Josiah, king of Judah	1	Male				2KI 22:4 <-(12 more)-> 2CH 35:23
 Jotham, son of Gideon (Jerubbaal)	1	Male				JDG 9:7 <-(12 more)-> JDG 9:20
 Judah	1	Male				GEN 37:8 <-(66 more)-> GEN 50:18
 Judah, all	-1	Either			Personification of Judah as adulteress	JER 13:12 & JER 13:22
-Judah, fathers of	-1	Male				ZEC 1:6
+Judah, repentant leaders	-1	Male				ZEC 1:6
 Judah, leaders of	-1	Male				ZEC 12:5
 Judah, men of	-1	Male				JDG 1:3 <-(8 more)-> JER 18:12	Judean
 Judah, people in	-1					NEH 4:10
@@ -630,7 +630,7 @@ Malachi	1	Male				MAL 1:9
 Malta islanders	-1					ACT 28:4 & ACT 28:6
 man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17
 man (Hebrew fighting)	1	Male				EXO 2:14	Hebrew
-man (hypothetical)	1	Male				ISA 3:6 <-(2 more)-> ZEC 13:6
+man (hypothetical)	1	Male				ISA 3:6 <-(3 more)-> ZEC 13:6
 man all alone	1	Male				ECC 4:8
 man answered David	1	Male				2SA 11:3
 man delivered from Legion of demons	1	Male			Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.	MAT 8:29 <-(12 more)-> LUK 8:38
@@ -931,7 +931,7 @@ proclamation	1	Male				EZR 10:7 & EZR 10:8
 prophet	1	Male				JDG 6:8 <-(1 more)-> JDG 6:10
 prophet of the LORD	1	Male				1KI 20:13 <-(4 more)-> 2CH 25:16
 prophet who confronts Ahab	1	Male				1KI 20:35 <-(4 more)-> 1KI 20:42
-prophets	-1					JER 25:5 <-(3 more)-> ZEC 1:4
+prophets	-1				Former prophets (generically), quoted	JER 25:5 <-(3 more)-> ZEC 1:4
 prophets (speaking the word of the LORD)	-1					2KI 21:11 <-(3 more)-> 2KI 21:15
 prophets and teachers at Antioch	-1	Male				ACT 13:3
 prophets of Baal	-1					1KI 18:26	Prophet of Baal
@@ -1229,7 +1229,7 @@ Zalmunna	1	Male				JDG 8:18 & JDG 8:21
 Zebah	1	Male				JDG 8:18 & JDG 8:21
 Zebul, governor of Shechem	1	Male				JDG 9:31 <-(3 more)-> JDG 9:38
 Zebulun	1	Male				GEN 37:8 <-(33 more)-> GEN 50:18
-Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(113 more)-> ZEC 13:9
+Zechariah the prophet, son of Berechiah	1	Male				ZEC 1:2 <-(118 more)-> ZEC 13:9
 Zechariah, son of Jehoiada the priest	1	Male				2CH 24:20 & 2CH 24:22
 Zedekiah, king of Judah	1	Male				JER 32:3 <-(16 more)-> JER 38:26	Zedekiah (king)
 Zedekiah, son of Hananiah	1	Male				JER 36:15 <-(2 more)-> JER 36:19
