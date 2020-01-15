@@ -1279,17 +1279,17 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="1" characterId="narrator-EZK">
     <verse num="1" />
-    <text>Then came certain of the elders of Israel to me, and sat before me. </text>
+    <text>Then some of the elders of Israel came to me and sat before me. </text>
     <verse num="2" />
     <text>God’s word came to me, saying,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>Son of man, these men have taken their idols into their heart, and put the stumbling block of their iniquity before their face: should I be inquired of at all by them?</text>
+    <text>“Son of man, these men have taken their idols into their heart, and put the stumbling block of their iniquity before their face. Should I be inquired of at all by them?</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Therefore speak to them, and tell them,</text>
+    <text>Therefore speak to them and tell them,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="Ezekiel">
     <text>‘The Lord God says:</text>
@@ -1332,7 +1332,7 @@
     <text>that the house of Israel may no more go astray from me, neither defile themselves any more with all their transgressions; but that they may be my people, and I may be their God,”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="11" characterId="narrator-EZK">
-    <text>says the Lord God. </text>
+    <text>says the Lord God.’ ” </text>
     <verse num="12" />
     <text>God’s word came to me, saying,</text>
   </block>

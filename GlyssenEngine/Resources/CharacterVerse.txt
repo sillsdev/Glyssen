@@ -13917,50 +13917,44 @@ EZK	47	22	God		God (the LORD)	Implicit
 EZK	47	22	Ezekiel		Ezekiel (the LORD says, in vision)	Alternate		
 EZK	47	23	God		God (the LORD)	Normal		
 EZK	47	23	Ezekiel		Ezekiel (the LORD says, in vision)	Potential		
-EZK	48	1	God		God (the LORD)	Normal		
-EZK	48	2	God		God (the LORD)	Normal		
-EZK	48	3	God		God (the LORD)	Normal		
-EZK	48	4	God		God (the LORD)	Normal		
-EZK	48	5	God		God (the LORD)	Normal		
-EZK	48	6	God		God (the LORD)	Normal		
-EZK	48	7	God		God (the LORD)	Normal		
-EZK	48	8	God		God (the LORD)	Normal		
+EZK	48	1	God		God (the LORD)	Implicit		
+EZK	48	2	God		God (the LORD)	Implicit		
+EZK	48	3	God		God (the LORD)	Implicit		
+EZK	48	4	God		God (the LORD)	Implicit		
+EZK	48	5	God		God (the LORD)	Implicit		
+EZK	48	6	God		God (the LORD)	Implicit		
+EZK	48	7	God		God (the LORD)	Implicit		
+EZK	48	8	God		God (the LORD)	Implicit		
+# Most version have vv. 1-29a in explicit quotes. Just in case they don't do that, I'll leave 9-15 as "Normal" since these
+# verses contain 3rd-person references to God, even though the whole thing is almost certainly to be spoken by God.
 EZK	48	9	God		God (the LORD)	Normal		
 EZK	48	10	God		God (the LORD)	Normal		
 EZK	48	11	God		God (the LORD)	Normal		
 EZK	48	12	God		God (the LORD)	Normal		
 EZK	48	13	God		God (the LORD)	Normal		
 EZK	48	14	God		God (the LORD)	Normal		
-EZK	48	15	God		God (the LORD)	Normal		
-EZK	48	16	God		God (the LORD)	Normal		
-EZK	48	17	God		God (the LORD)	Normal		
-EZK	48	18	God		God (the LORD)	Normal		
-EZK	48	19	God		God (the LORD)	Normal		
-EZK	48	20	God		God (the LORD)	Normal		
-EZK	48	21	God		God (the LORD)	Normal		
-EZK	48	22	God		God (the LORD)	Normal		
-EZK	48	23	God		God (the LORD)	Normal		
-EZK	48	24	God		God (the LORD)	Normal		
-EZK	48	25	God		God (the LORD)	Normal		
-EZK	48	26	God		God (the LORD)	Normal		
-EZK	48	27	God		God (the LORD)	Normal		
-EZK	48	28	God		God (the LORD)	Normal		
+EZK	48	15	God		God (the LORD)	Implicit		
+EZK	48	16	God		God (the LORD)	Implicit		
+EZK	48	17	God		God (the LORD)	Implicit		
+EZK	48	18	God		God (the LORD)	Implicit		
+EZK	48	19	God		God (the LORD)	Implicit		
+EZK	48	20	God		God (the LORD)	Implicit		
+EZK	48	21	God		God (the LORD)	Implicit		
+EZK	48	22	God		God (the LORD)	Implicit		
+EZK	48	23	God		God (the LORD)	Implicit		
+EZK	48	24	God		God (the LORD)	Implicit		
+EZK	48	25	God		God (the LORD)	Implicit		
+EZK	48	26	God		God (the LORD)	Implicit		
+EZK	48	27	God		God (the LORD)	Implicit		
+EZK	48	28	God		God (the LORD)	Implicit		
 EZK	48	29	God		God (the LORD)	Normal		
-EZK	48	30	God		God (the LORD)	Normal		
-EZK	48	31	God		God (the LORD)	Normal		
-EZK	48	32	God		God (the LORD)	Normal		
-EZK	48	33	God		God (the LORD)	Normal		
-EZK	48	34	God		God (the LORD)	Normal		
-EZK	48	35	God		God (the LORD)	Normal		
-# Although FCBH has assigned all of 48:30-35 to God, we don't mark it Implicit, because
-# there is a slight possibility that different translations might use explicit quotes to
-# assign more limited portions of the text to God. If God is speaking v. 35, then He should
-# definitely speak the name "The LORD is there" (Yahweh Shammah). But if the narrator is
-# speaking, then it should just be treated as a narrator quote. To eliminate the next line
-# would mean that if there are no explicit quotes around the whole passage but there are quotes
-# around the name, then the name would be assigned (unambiguously) to be spoken by God. That's
-# not right, so better to include this line and deal with the ambiguity.
-EZK	48	35	narrator-EZK			Quotation		
+EZK	48	29	Ezekiel		Ezekiel (the LORD says, in vision)	Normal		
+EZK	48	30	God		God (the LORD)	Implicit		
+EZK	48	31	God		God (the LORD)	Implicit		
+EZK	48	32	God		God (the LORD)	Implicit		
+EZK	48	33	God		God (the LORD)	Implicit		
+EZK	48	34	God		God (the LORD)	Implicit		
+EZK	48	35	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 DAN	1	10	chief official			Normal		
 DAN	1	12	Daniel			Normal		
 DAN	1	13	Daniel			Normal		
