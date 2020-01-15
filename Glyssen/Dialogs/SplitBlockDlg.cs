@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,6 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
-using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine.Utilities;
 using SIL.Reporting;
@@ -17,35 +15,19 @@ namespace Glyssen.Dialogs
 {
 	public partial class SplitBlockDlg : FormWithPersistedSettings
 	{
-		private string m_style;
-		private readonly List<Block> m_originalBlocks;
-		private readonly FontProxy m_font;
-		private readonly List<BlockSplitData> m_splitLocations = new List<BlockSplitData>();
+		private readonly SplitBlockViewModel m_model;
 		private string m_htmlFilePath;
-		private int m_blockSplitIdCounter = 1;  // zero is reserved for assigning a character id to the first segment
-		private readonly IEnumerable<AssignCharacterViewModel.Character> m_characters;
-		private readonly string m_css = Resources.BlockSplitCss;
 
 		// For purposes of splitting, anyway, we treat leading punctuation as if is permanently attached to the
 		// beginning of the verse just as much as the verse number is. So the user may not split within
 		// (or just after) the leading punctuation. This means the split index is always without regard to
 		// the presence or absence of leading punctuation.
 		// This was perhaps more of an ease-of-implementation decision rather than a decision made on its merits.
-		private readonly Regex m_verseNumberRegex = new Regex(@"(" + Regex.Escape(Block.kLeadingPunctuationHtmlStart) + ".*?" + Regex.Escape(Block.kLeadingPunctuationHtmlEnd) + ")?<sup>.*?</sup>");
+		private readonly Regex m_verseNumberRegex = new Regex(@"(" + Regex.Escape(SplitBlockViewModel.kLeadingPunctuationHtmlStart) + ".*?" + Regex.Escape(SplitBlockViewModel.kLeadingPunctuationHtmlEnd) + ")?<sup>.*?</sup>");
 
-		public SplitBlockDlg(FontProxy fontProxy, IEnumerable<Block> originalBlocks,
-			IEnumerable<AssignCharacterViewModel.Character> charactersForCurrentReference,
-			string currentBookId)
+		public SplitBlockDlg(SplitBlockViewModel model)
 		{
-			m_font = fontProxy;
-			m_originalBlocks = originalBlocks.ToList();
-
-			m_characters = charactersForCurrentReference;
-			foreach (var block in m_originalBlocks)
-			{
-				if (block.BookCode == null)
-					block.BookCode = currentBookId;
-			}
+			m_model = model;
 
 			InitializeComponent();
 
@@ -62,53 +44,14 @@ namespace Glyssen.Dialogs
 		{
 			base.OnLoad(e);
 			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
-			m_style = string.Format(Block.kCssFrame, m_font.FontFamily, m_font.Size) + m_css;
 
 			SetHtml();
 		}
 
 		private void SetHtml()
 		{
-			const string htmlFrame = "<html><head><meta charset=\"UTF-8\">" +
-									"<style>{0}</style></head><body {1}>{2}</body></html>";
-
-			var bldr = new StringBuilder();
-			for (int index = 0; index < m_originalBlocks.Count; index++)
-			{
-				Block block = m_originalBlocks[index];
-				bldr.Append(BuildHtml(block, index));
-			}
-
-			var bodyAttributes = m_font.RightToLeftScript ? "class=\"right-to-left\"" : "";
-			File.WriteAllText(m_htmlFilePath, String.Format(htmlFrame, m_style, bodyAttributes, bldr));
+			File.WriteAllText(m_htmlFilePath, m_model.Html);
 			m_blocksDisplayBrowser.Navigate(m_htmlFilePath);
-		}
-
-		private string BuildHtml(Block block, int id)
-		{
-			var bldr = new StringBuilder();
-
-			if ((id == 0) && (SplitLocations.Count != 0))
-				bldr.Append(block.GetHtmlSelectCodeForDropdown(0, m_characters));
-			List<BlockSplitData> splitLocationsForThisBlock = SplitLocations.Where(s => s.BlockToSplit == block).ToList();
-			if (splitLocationsForThisBlock.Count > 0)
-			{
-				bool processedFirstBlock = false;
-				if (splitLocationsForThisBlock[0].VerseToSplit == null)
-				{
-					Debug.Assert(splitLocationsForThisBlock[0].CharacterOffsetToSplit == 0);
-					bldr.Append(Block.BuildSplitLineHtml(splitLocationsForThisBlock[0].Id));
-					bldr.Append(block.GetHtmlSelectCodeForDropdown(splitLocationsForThisBlock[0].Id));
-					processedFirstBlock = true;
-				}
-				bldr.Append(block.GetSplitTextAsHtml(id, m_font.RightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0).ToList(), true));
-			}
-			else
-			{
-				bldr.Append(block.GetSplitTextAsHtml(id, m_font.RightToLeftScript, null, true));
-			}
-
-			return bldr.ToString();
 		}
 
 		private void HandleClick(object sender, DomMouseEventArgs e)
@@ -123,9 +66,9 @@ namespace Glyssen.Dialogs
 				}
 				else if (IsElementSplitLine(geckoElement, out splitId))
 				{
-					m_splitLocations.Remove(m_splitLocations.Single(s => s.Id == splitId));
+					m_model.RemoveSplitLocation(splitId);
 					SetHtml();
-					m_btnOk.Enabled = m_splitLocations.Any();
+					m_btnOk.Enabled = m_model.SplitLocations.Any();
 					m_lblInvalidSplitLocation.Visible = false;
 				}
 				else if (DetermineSplitLocation(geckoElement))
@@ -140,7 +83,7 @@ namespace Glyssen.Dialogs
 					{
 						m_lblInvalidSplitLocation.Visible = true;
 						Logger.WriteError(exception);
-						m_splitLocations.Remove(m_splitLocations.Last());
+						m_model.RemoveLastSplitLocation();
 					}
 
 				}
@@ -167,7 +110,7 @@ namespace Glyssen.Dialogs
 			if (geckoElement is GeckoHtmlElement geckoHtmlElement && geckoHtmlElement.TagName.Equals("DIV", StringComparison.OrdinalIgnoreCase) && geckoHtmlElement.ClassName.StartsWith("split-line"))
 			{
 				string splitIdStr = geckoHtmlElement.ClassName.Equals("split-line") ? geckoHtmlElement.Id : geckoHtmlElement.Parent.Id;
-				string splitIdNumber = splitIdStr.Substring(Block.kSplitElementIdPrefix.Length);
+				string splitIdNumber = splitIdStr.Substring(SplitBlockViewModel.kSplitElementIdPrefix.Length);
 				splitId = Int32.Parse(splitIdNumber);
 				return true;
 			}
@@ -250,30 +193,7 @@ namespace Glyssen.Dialogs
 			// calculate the offset from the beginning of the block
 			var actualOffset = GetSplitIndexInVerse(newOffset, blockIndex, verseToSplit, targetElement, splitAtEnd);
 
-			// check for duplicate splits
-			if (IsDuplicateSplit(blockIndex, verseToSplit, actualOffset))
-				return false;
-
-			var blockSplitData = new BlockSplitData(m_blockSplitIdCounter++, m_originalBlocks[blockIndex], verseToSplit, actualOffset);
-			m_splitLocations.Add(blockSplitData);
-			return true;
-		}
-
-		private bool IsDuplicateSplit(int blockIndex, string verseNumberStr, int characterOffest)
-		{
-			// if this is the first split, it isn't a duplicate
-			if (m_splitLocations.Count == 0)
-				return false;
-
-			// check for 2 splits in same location
-			if (m_splitLocations.Any(splitLocation => (splitLocation.BlockToSplit == m_originalBlocks[blockIndex])
-												   && (splitLocation.VerseToSplit == verseNumberStr)
-												   && (splitLocation.CharacterOffsetToSplit == characterOffest)))
-			{
-				return true;
-			}
-
-			return false;
+			return m_model.AddSplitIfNotDuplicate(blockIndex, verseToSplit, actualOffset);
 		}
 
 		// ReSharper disable once SuggestBaseTypeForParameter
@@ -333,7 +253,7 @@ namespace Glyssen.Dialogs
 		private bool SplitIsAtEndOfLastBlock(int subOffset, int blockIndex, GeckoHtmlElement selectedDivElement)
 		{
 			// not if this is not the last block
-			if (blockIndex < m_originalBlocks.Count - 1)
+			if (blockIndex < m_model.OriginalBlockCount - 1)
 				return false;
 
 			// not if offset is not at end of segment
@@ -355,10 +275,7 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		public IReadOnlyList<BlockSplitData> SplitLocations
-		{
-			get { return m_splitLocations; }
-		}
+		public IReadOnlyList<BlockSplitData> SplitLocations => m_model.SplitLocations;
 
 		private void SplitBlockDlg_FormClosing(object sender, FormClosingEventArgs e)
 		{

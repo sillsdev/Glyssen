@@ -311,6 +311,7 @@
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
     <Compile Include="Character\NarratorOverridesTests.cs" />
+    <Compile Include="Dialogs\SplitBlockViewModelTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
     <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
     <Compile Include="ProjectCharacterDetailDataTests.cs" />
