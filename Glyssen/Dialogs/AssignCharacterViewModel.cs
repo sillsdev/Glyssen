@@ -649,7 +649,7 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Character class
-		public class Character
+		public class Character : ICharacter
 		{
 			private static Character s_narrator;
 			private static string s_bookChapterCharacter;

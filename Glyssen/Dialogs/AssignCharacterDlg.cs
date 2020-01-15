@@ -18,7 +18,6 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -1194,8 +1193,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 				blockToSplit = m_viewModel.CurrentBlock;
-			using (var dlg = new SplitBlockDlg(m_viewModel.Font, m_viewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
-				m_viewModel.GetUniqueCharactersForCurrentReference(), m_viewModel.CurrentBookId))
+			using (var dlg = new SplitBlockDlg(new SplitBlockViewModel(m_viewModel, blockToSplit)))
 			{
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
