@@ -8,7 +8,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
@@ -772,7 +771,7 @@ namespace Glyssen
 									                                   $"than or equal to the length ({preEncodedContent.Length}) of the content of verse {currVerse}");
 								}
 
-								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + (showCharacters ? CharacterSelect(blockSplit.Id) : ""));
+								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + (showCharacters ? GetHtmlSelectCodeForDropdown(blockSplit.Id) : ""));
 								preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
 							}
 						}
@@ -1012,11 +1011,20 @@ namespace Glyssen
 			return Format(kSplitLineFrame, id);
 		}
 
-		public string CharacterSelect(int splitId, IEnumerable<AssignCharacterViewModel.Character> characters = null)
+		public string GetHtmlSelectCodeForDropdown(int splitId)
 		{
-			if ((characters == null) && !IsNullOrEmpty(s_characterSelect))
-				return Format(s_characterSelect, splitId);
+			if (s_characterSelect == null)
+				s_characterSelect = GetHtmlSelectCodeForDropdownFmt(null);
+			return Format(s_characterSelect, splitId);
+		}
 
+		public string GetHtmlSelectCodeForDropdown(int splitId, IEnumerable<ICharacter> characters)
+		{
+			return Format(GetHtmlSelectCodeForDropdownFmt(characters), splitId);
+		}
+
+		private string GetHtmlSelectCodeForDropdownFmt(IEnumerable<ICharacter> characters)
+		{
 			const string optionTemplate = "<option value=\"{0}\">{1}</option>";
 			var sb = new StringBuilder("<select class=\"select-character\" data-splitid=\"{0}\"><option value=\"\"></option>");
 
@@ -1024,10 +1032,6 @@ namespace Glyssen
 			{
 				foreach (var character in characters)
 				{
-					if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
-					{
-
-					}
 					if (character.IsNarrator)
 					{
 						sb.AppendFormat(optionTemplate,
@@ -1052,9 +1056,7 @@ namespace Glyssen
 			}
 
 			sb.Append("</select>");
-			s_characterSelect = sb.ToString();
-
-			return Format(s_characterSelect, splitId);
+			return sb.ToString();
 		}
 
 		public static Block CombineBlocks(Block blockA, Block blockB)

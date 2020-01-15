@@ -89,7 +89,7 @@ namespace Glyssen.Dialogs
 			var bldr = new StringBuilder();
 
 			if ((id == 0) && (SplitLocations.Count != 0))
-				bldr.Append(block.CharacterSelect(0, m_characters));
+				bldr.Append(block.GetHtmlSelectCodeForDropdown(0, m_characters));
 			List<BlockSplitData> splitLocationsForThisBlock = SplitLocations.Where(s => s.BlockToSplit == block).ToList();
 			if (splitLocationsForThisBlock.Count > 0)
 			{
@@ -98,7 +98,7 @@ namespace Glyssen.Dialogs
 				{
 					Debug.Assert(splitLocationsForThisBlock[0].CharacterOffsetToSplit == 0);
 					bldr.Append(Block.BuildSplitLineHtml(splitLocationsForThisBlock[0].Id));
-					bldr.Append(block.CharacterSelect(splitLocationsForThisBlock[0].Id));
+					bldr.Append(block.GetHtmlSelectCodeForDropdown(splitLocationsForThisBlock[0].Id));
 					processedFirstBlock = true;
 				}
 				bldr.Append(block.GetSplitTextAsHtml(id, m_font.RightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0).ToList(), true));
