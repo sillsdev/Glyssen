@@ -184,9 +184,12 @@ namespace Glyssen.RefTextDevUtilities
 			 * My process, after running in this mode, was to
 			 * 1) Do a bunch of checking, including making use of the output files in DevTools/Resources/temporary.
 			 * 2) Copy the book files files into a real Glyssen project which would not run a quote parse (version matched control file).
-			 * 3) Run the books through Identify Speaking Parts.
-			 * 4) Copy the files to DistFiles/reference_texts/English.
-			 * 5) Remove all userConfirmed="true"> from the book files.
+			 * 3) Disambigute books using Identify Speaking Parts.
+			 * 4) For any verse that has Needs Review Implicit (in CharacterVerse.txt), mark it accordingly in Identify Speaking Parts.
+			 *    (I considered whether this could be automated, but a few of the verses only need to have some of their blocks marked Needs Review in
+			 *    the reference text.)
+			 * 5) Copy the files to DistFiles/reference_texts/English.
+			 * 6) Remove all userConfirmed="true"> from the book files.
 			 */
 			GenerateEnglish
 		}
@@ -362,7 +365,7 @@ namespace Glyssen.RefTextDevUtilities
 					// This will only occur if a new character is added and the dev tool is not run to populate
 					// the ReferenceComment field, or if this a character that is only used as a narrator
 					// override (see ENHANCE comment in CharacterDetailProcessing.PopulateReferences).
-					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment))
+					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment) || string.IsNullOrEmpty(kvp.Value.DefaultFCBHCharacter))
 						return false;
 					return kvp.Value.LastReference.Book >= minBook && kvp.Value.FirstReference.Book <= maxBook;
 				}).ToDictionary(e => e.Key, e => e.Value);
@@ -616,15 +619,19 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
-						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock);
-						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
-							// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
-							// https://jira.sil.org/browse/PG-1215?focusedCommentId=215067&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-215067
-							(characterIdBasedOnExcelEntry == CharacterVerseData.kUnexpectedCharacter && 
-							existingCharacterId == "scripture"))
+						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock, referenceTextRow.Verse);
+						if (mode != Mode.GenerateEnglish)
 						{
-							characterIdBasedOnExcelEntry = existingCharacterId;
+							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
+								// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
+								// https://jira.sil.org/browse/PG-1215?focusedCommentId=215067&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-215067
+								(characterIdBasedOnExcelEntry == CharacterVerseData.kUnexpectedCharacter &&
+									existingCharacterId == "scripture"))
+							{
+								characterIdBasedOnExcelEntry = existingCharacterId;
+							}
 						}
+
 						var characterIdChanged = existingCharacterId != characterIdBasedOnExcelEntry;
 						if (characterIdChanged)
 						{
@@ -1244,7 +1251,7 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 
-		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
+		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block, string overrideVerseNum = null)
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
@@ -1265,7 +1272,7 @@ namespace Glyssen.RefTextDevUtilities
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			else
 				characters.RemoveAll(c => c.Character == CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
-			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
+			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, overrideVerseNum == null ? block.InitialStartVerseNumber : Int32.Parse(overrideVerseNum));
 			string overrideChar;
 			switch (characters.Count)
 			{
@@ -1418,6 +1425,9 @@ namespace Glyssen.RefTextDevUtilities
 			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId) || glyssenCharacterId == CharacterVerseData.kNeedsReview || glyssenCharacterId.StartsWith("interruption-"))
 				return MatchLikelihood.Mismatch; // Before we call this, we've already checked to see if the FCBH character is the narrator. Can't auto-map any other character to that.
 
+			// In the Glyssen control file, we always use straight quotes, but the FCBH Director's Guide is inconsistent
+			fcbhCharacterLabel = fcbhCharacterLabel.Replace("’", "'");
+
 			if (glyssenCharacterId == fcbhCharacterLabel)
 				return MatchLikelihood.Reliable; // Exact match
 
@@ -1556,6 +1566,7 @@ namespace Glyssen.RefTextDevUtilities
 					glyssenCharacterId == "Zechariah the prophet, son of Berechiah";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
+				case "King of Syria": return glyssenCharacterId == "Ben-Hadad, king of Aram";
 				case "Man": return glyssenCharacterId.StartsWith("men");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
@@ -2151,7 +2162,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private const string k3Bars = @"\|\|\|";
 		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
-		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ", RegexOptions.Compiled);
+		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ?", RegexOptions.Compiled);
 		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);
 		// For splitting, the regular expression is wrapped in parentheses to tell Split method to include the capturing group as one of the strings in the resulting array.
 		// See explanation here: https://stackoverflow.com/questions/27999449/c-sharp-regex-match-vs-split-for-same-string

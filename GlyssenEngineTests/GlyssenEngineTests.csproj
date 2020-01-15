@@ -269,7 +269,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TestRelatedCharacters.xml" />
+    <Content Include="Resources\TestRelatedCharacters.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="icu4c.readme.txt" />
