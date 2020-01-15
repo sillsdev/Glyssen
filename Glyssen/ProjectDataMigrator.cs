@@ -335,7 +335,7 @@ namespace Glyssen
 
 		/// <summary>
 		/// This migration fixes a problem caused when a manual split operation that broke a block up into multiple pieces (all with the same split ID)
-		/// was followed by further programatic splitting (at verse breaks) to align the blocks to the reference text. Those splits should have (and now
+		/// was followed by further programmatic splitting (at verse breaks) to align the blocks to the reference text. Those splits should have (and now
 		/// do) copied the split id to all intervening blocks because if the user ends up applying the reference text matchup, we need for the whole
 		/// sequence to be treated as a single manual split operation. (This is mainly to allow us to re-apply user decisions in the event of a parser
 		/// change or an updated data set.)
@@ -494,7 +494,7 @@ namespace Glyssen
 							var error = "Unexpected block data encountered in Data migration: Block starts with an element having no word-forming" +
 								$"characters and has no subsequent {typeof(Verse).Name} element. Block: {block.ToString(true, book.BookId)}";
 							Logger.WriteEvent(error);
-							Debug.Fail("error");
+							Debug.Fail(error);
 						}
 						else
 						{

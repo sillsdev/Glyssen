@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen;
-using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
@@ -35,6 +34,7 @@ namespace GlyssenTests
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			NarratorOverrides.NarratorOverridesXmlData = Resources.TestNarratorOverrides;
 
 			using (TempFile tempFile = new TempFile())
 			{

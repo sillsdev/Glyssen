@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="NEH" singlevoice="false" pageheader="Nehemiah">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-NEH">
+  <block style="mt" chapter="0" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>Nehemiah</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="NEH" initialStartVerse="0" characterId="BC-NEH">
@@ -10,10 +10,10 @@
     <verse num="1" />
     <text>The words of Nehemiah the son of Hacaliah.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="1" characterId="Nehemiah">
+  <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-NEH">
     <text>Now it happened in the month Chislev, in the twentieth year, as I was in Shushan the palace,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="Nehemiah">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
     <text>that Hanani, one of my brothers, came, he and certain men out of Judah; and I asked them concerning the Jews who had escaped, who were left of the captivity, and concerning Jerusalem. </text>
     <verse num="3" />
@@ -22,154 +22,154 @@
   <block style="p" chapter="1" initialStartVerse="3" characterId="Hanani, brother of Nehemiah/Judah, men of">
     <text>“The remnant who are left of the captivity there in the province are in great affliction and reproach. The wall of Jerusalem also is broken down, and its gates are burned with fire.”</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="4" characterId="Nehemiah">
+  <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
     <text>It happened, when I heard these words, that I sat down and wept, and mourned certain days; and I fasted and prayed before the God of heaven,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-NEH" delivery="praying">
     <verse num="5" />
     <text>and said, “I beg you, God, the God of heaven, the great and awesome God, who keeps covenant and loving kindness with those who love him and keep his commandments:</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-NEH" delivery="praying">
     <verse num="6" />
-    <text>Let your ear now be attentive, and your eyes open, that you may listen to the prayer of your servant, which I pray before you at this time, day and night, for the children of Israel your servants while I confess the sins of the children of Israel, which we have sinned against you. Yes, I and my father's house have sinned.</text>
+    <text>Let your ear now be attentive, and your eyes open, that you may listen to the prayer of your servant, which I pray before you at this time, day and night, for the children of Israel your servants while I confess the sins of the children of Israel, which we have sinned against you. Yes, I and my father’s house have sinned.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-NEH" delivery="praying">
     <verse num="7" />
     <text>We have dealt very corruptly against you, and have not kept the commandments, nor the statutes, nor the ordinances, which you commanded your servant Moses.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-NEH" delivery="praying">
     <verse num="8" />
-    <text>Remember, I beg you, the word that you commanded your servant Moses, saying, 'If you trespass, I will scatter you abroad among the peoples;</text>
+    <text>Remember, I beg you, the word that you commanded your servant Moses, saying, ‹If you trespass, I will scatter you abroad among the peoples;</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-NEH" delivery="praying">
     <verse num="9" />
-    <text>but if you return to me, and keep my commandments and do them, though your outcasts were in the uttermost part of the heavens, yet will I gather them from there, and will bring them to the place that I have chosen, to cause my name to dwell there.'</text>
+    <text>but if you return to me, and keep my commandments and do them, though your outcasts were in the uttermost part of the heavens, yet will I gather them from there, and will bring them to the place that I have chosen, to cause my name to dwell there.›</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-NEH" delivery="praying">
     <verse num="10" />
     <text>Now these are your servants and your people, whom you have redeemed by your great power, and by your strong hand.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-NEH" delivery="praying">
     <verse num="11" />
     <text>Lord, I beg you, let your ear be attentive now to the prayer of your servant, and to the prayer of your servants, who delight to fear your name; and please prosper your servant this day, and grant him mercy in the sight of this man.” Now I was cup bearer to the king.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>2</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="1" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
-    <text>It happened in the month Nisan, in the twentieth year of Artaxerxes the king, when wine was before him, that I took up the wine, and gave it to the king. Now I had not been [before] sad in his presence. </text>
+    <text>It happened in the month Nisan, in the twentieth year of Artaxerxes the king, when wine was before him, that I took up the wine, and gave it to the king. Now I had not been before sad in his presence. </text>
     <verse num="2" />
     <text>The king said to me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="Artaxerxes, king of Persia">
     <text>“Why is your face sad, since you are not sick? This is nothing else but sorrow of heart.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="2" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-NEH">
     <text>Then I was very much afraid. </text>
     <verse num="3" />
     <text>I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="Nehemiah" delivery="sad, very afraid, with respect">
-    <text>“Let the king live forever! Why shouldn't my face be sad, when the city, the place of my fathers' tombs, lies waste, and its gates have been consumed with fire?”</text>
+  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-NEH" delivery="sad, very afraid, with respect">
+    <text>“Let the king live forever! Why shouldn’t my face be sad, when the city, the place of my fathers’ tombs, lies waste, and its gates have been consumed with fire?”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
     <text>Then the king said to me,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="Artaxerxes, king of Persia">
     <text>“For what do you make request?”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-NEH">
     <text>So I prayed to the God of heaven. </text>
     <verse num="5" />
     <text>I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="5" characterId="Nehemiah">
-    <text>“If it pleases the king, and if your servant has found favor in your sight, that you would send me to Judah, to the city of my fathers' tombs, that I may build it.”</text>
+  <block style="p" chapter="2" initialStartVerse="5" characterId="narrator-NEH">
+    <text>“If it pleases the king, and if your servant has found favor in your sight, that you would send me to Judah, to the city of my fathers’ tombs, that I may build it.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
     <text>The king said to me (the queen was also sitting by him),</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="Artaxerxes, king of Persia">
     <text>“For how long shall your journey be? And when will you return?”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-NEH">
     <text>So it pleased the king to send me; and I set him a time. </text>
     <verse num="7" />
     <text>Moreover I said to the king,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-NEH">
     <text>“If it pleases the king, let letters be given me to the governors beyond the River, that they may let me pass through until I come to Judah;</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
-    <text>and a letter to Asaph the keeper of the king's forest, that he may give me timber to make beams for the gates of the citadel by the temple, for the wall of the city, and for the house that I shall enter into.”</text>
+    <text>and a letter to Asaph the keeper of the king’s forest, that he may give me timber to make beams for the gates of the citadel by the temple, for the wall of the city, and for the house that I shall enter into.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-NEH">
     <text>The king granted my requests, because of the good hand of my God on me.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
-    <text>Then I came to the governors beyond the River, and gave them the king's letters. Now the king had sent with me captains of the army and horsemen.</text>
+    <text>Then I came to the governors beyond the River, and gave them the king’s letters. Now the king had sent with me captains of the army and horsemen.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="10" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
     <text>When Sanballat the Horonite, and Tobiah the servant, the Ammonite, heard of it, it grieved them exceedingly, because a man had come to seek the welfare of the children of Israel.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>So I came to Jerusalem, and was there three days.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
     <text>I arose in the night, I and some few men with me; neither told I any man what my God put into my heart to do for Jerusalem; neither was there any animal with me, except the animal that I rode on.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="13" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
-    <text>I went out by night by the valley gate, even toward the jackal's well, and to the dung gate, and viewed the walls of Jerusalem, which were broken down, and its gates were consumed with fire.</text>
+    <text>I went out by night by the valley gate, even toward the jackal’s well, and to the dung gate, and viewed the walls of Jerusalem, which were broken down, and its gates were consumed with fire.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
-    <text>Then I went on to the spring gate and to the king's pool: but there was no place for the animal that was under me to pass.</text>
+    <text>Then I went on to the spring gate and to the king’s pool: but there was no place for the animal that was under me to pass.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="15" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
     <text>Then went I up in the night by the brook, and viewed the wall; and I turned back, and entered by the valley gate, and so returned.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
-    <text>The rulers didn't know where I went, or what I did; neither had I as yet told it to the Jews, nor to the priests, nor to the nobles, nor to the rulers, nor to the rest who did the work. </text>
+    <text>The rulers didn’t know where I went, or what I did; neither had I as yet told it to the Jews, nor to the priests, nor to the nobles, nor to the rulers, nor to the rest who did the work. </text>
     <verse num="17" />
     <text>Then I said to them,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-NEH">
     <text>“You see the evil case that we are in, how Jerusalem lies waste, and its gates are burned with fire. Come, let us build up the wall of Jerusalem, that we won't be disgraced.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
-    <text>I told them of the hand of my God which was good on me, as also of the king's words that he had spoken to me. They said,</text>
+    <text>I told them of the hand of my God which was good on me, as also of the king’s words that he had spoken to me. They said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="Jews, the/priests/nobles and officials (Jewish)">
     <text>“Let's rise up and build.”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-NEH">
     <text>So they strengthened their hands for the good work.</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="19" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
     <text>But when Sanballat the Horonite, and Tobiah the servant, the Ammonite, and Geshem the Arabian, heard it, they ridiculed us, and despised us, and said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab" delivery="mocking">
     <text>“What is this thing that you are doing? Will you rebel against the king?”</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="20" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
     <text>Then answered I them, and said to them,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="20" characterId="Nehemiah">
+  <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-NEH">
     <text>“The God of heaven will prosper us. Therefore we, his servants, will arise and build; but you have no portion, nor right, nor memorial, in Jerusalem.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="NEH" initialStartVerse="0" characterId="BC-NEH">
@@ -193,7 +193,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
-    <text>Next to them the Tekoites repaired; but their nobles didn't put their necks to the work of their lord.</text>
+    <text>Next to them the Tekoites repaired; but their nobles didn’t put their necks to the work of their lord.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
@@ -201,7 +201,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
-    <text>Next to them repaired Melatiah the Gibeonite, and Jadon the Meronothite, the men of Gibeon, and of Mizpah, [that appertained] to the throne of the governor beyond the River.</text>
+    <text>Next to them repaired Melatiah the Gibeonite, and Jadon the Meronothite, the men of Gibeon, and of Mizpah, that appertained to the throne of the governor beyond the River.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
@@ -233,7 +233,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
-    <text>The spring gate repaired Shallun the son of Colhozeh, the ruler of the district of Mizpah; he built it, and covered it, and set up its doors, its bolts, and its bars, and the wall of the pool of Shelah by the king's garden, even to the stairs that go down from the city of David.</text>
+    <text>The spring gate repaired Shallun the son of Colhozeh, the ruler of the district of Mizpah; he built it, and covered it, and set up its doors, its bolts, and its bars, and the wall of the pool of Shelah by the king’s garden, even to the stairs that go down from the city of David.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
@@ -249,11 +249,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
-    <text>Next to him repaired Ezer the son of Jeshua, the ruler of Mizpah, another portion, over against the ascent to the armory at the turning [of the wall].</text>
+    <text>Next to him repaired Ezer the son of Jeshua, the ruler of Mizpah, another portion, over against the ascent to the armory at the turning of the wall.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
-    <text>After him Baruch the son of Zabbai earnestly repaired another portion, from the turning [of the wall] to the door of the house of Eliashib the high priest.</text>
+    <text>After him Baruch the son of Zabbai earnestly repaired another portion, from the turning of the wall to the door of the house of Eliashib the high priest.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
@@ -269,11 +269,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="24" characterId="narrator-NEH">
     <verse num="24" />
-    <text>After him repaired Binnui the son of Henadad another portion, from the house of Azariah to the turning [of the wall], and to the corner.</text>
+    <text>After him repaired Binnui the son of Henadad another portion, from the house of Azariah to the turning of the wall, and to the corner.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="25" characterId="narrator-NEH">
     <verse num="25" />
-    <text>Palal the son of Uzai [repaired] over against the turning [of the wall], and the tower that stands out from the upper house of the king, which is by the court of the guard. After him Pedaiah the son of Parosh [repaired].</text>
+    <text>Palal the son of Uzai repaired over against the turning of the wall, and the tower that stands out from the upper house of the king, which is by the court of the guard. After him Pedaiah the son of Parosh repaired.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="26" characterId="narrator-NEH">
     <verse num="26" />
@@ -306,11 +306,11 @@
   <block style="c" paragraphStart="true" chapter="4" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>4</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="1" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
     <text>But it happened that when Sanballat heard that we were building the wall, he was angry, and took great indignation, and mocked the Jews.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="2" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
     <text>He spoke before his brothers and the army of Samaria, and said,</text>
   </block>
@@ -324,27 +324,27 @@
   <block style="p" chapter="4" initialStartVerse="3" characterId="Tobiah the Ammonite official" delivery="mocking">
     <text>“What they are building, if a fox climbed up it, he would break down their stone wall.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="4" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-NEH" delivery="praying">
     <verse num="4" />
     <text>Hear, our God; for we are despised; and turn back their reproach on their own head, give them up for a spoil in a land of captivity;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="5" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-NEH" delivery="praying">
     <verse num="5" />
-    <text>don't cover their iniquity, and don't let their sin be blotted out from before you; for they have insulted the builders.</text>
+    <text>don’t cover their iniquity, and don’t let their sin be blotted out from before you; for they have insulted the builders.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
-    <text>So we built the wall; and all the wall was joined together to half [the height] of it: for the people had a mind to work.</text>
+    <text>So we built the wall; and all the wall was joined together to half the height of it: for the people had a mind to work.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="7" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
-    <text>But it happened that when Sanballat, Tobiah, the Arabians, the Ammonites, and the Ashdodites heard that the repairing of the walls of Jerusalem went forward, [and] that the breaches began to be stopped, then they were very angry;</text>
+    <text>But it happened that when Sanballat, Tobiah, the Arabians, the Ammonites, and the Ashdodites heard that the repairing of the walls of Jerusalem went forward, and that the breaches began to be stopped, then they were very angry;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="8" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
     <text>and they conspired all of them together to come and fight against Jerusalem, and to cause confusion therein.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="9" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
     <text>But we made our prayer to our God, and set a watch against them day and night, because of them. </text>
     <verse num="10" />
@@ -353,64 +353,64 @@
   <block style="p" chapter="4" initialStartVerse="10" characterId="Judah, people in">
     <text>“The strength of the bearers of burdens is fading, and there is much rubbish; so that we are not able to build the wall.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="11" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>Our adversaries said,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="enemies of Judah and Benjamin" delivery="threatening">
     <text>“They shall not know, neither see, until we come into the midst of them, and kill them, and cause the work to cease.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="12" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
     <text>It happened that when the Jews who lived by them came, they said to us ten times from all places,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="12" characterId="Jews, the" delivery="desperate">
     <text>“Wherever you turn, they will attack us.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
-    <text>Therefore set I in the lowest parts of the space behind the wall, in the open places, I set [there] the people after their families with their swords, their spears, and their bows.</text>
+    <text>Therefore set I in the lowest parts of the space behind the wall, in the open places, I set there the people after their families with their swords, their spears, and their bows.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
     <text>I looked, and rose up, and said to the nobles, and to the rulers, and to the rest of the people,</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="14" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-NEH">
     <text>“Don't be afraid of them! Remember the Lord, who is great and awesome, and fight for your brothers, your sons, and your daughters, your wives, and your houses.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="15" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
     <text>It happened, when our enemies heard that it was known to us, and God had brought their counsel to nothing, that we returned all of us to the wall, everyone to his work.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="16" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
     <text>It happened from that time forth, that half of my servants worked in the work, and half of them held the spears, the shields, and the bows, and the coats of mail; and the rulers were behind all the house of Judah.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="17" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="17" characterId="narrator-NEH">
     <verse num="17" />
     <text>They all built the wall and those who bore burdens loaded themselves; everyone with one of his hands worked in the work, and with the other held his weapon;</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="18" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
     <text>and the builders, everyone wore his sword at his side, and so built. He who sounded the trumpet was by me.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="19" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
     <text>I said to the nobles, and to the rulers and to the rest of the people, “The work is great and large, and we are separated on the wall, one far from another.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="20" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
     <text>Wherever you hear the sound of the trumpet, rally there to us. Our God will fight for us.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="21" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
     <text>So we worked in the work: and half of them held the spears from the rising of the morning until the stars appeared.</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="22" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
     <text>Likewise at the same time said I to the people, “Let everyone with his servant lodge within Jerusalem, that in the night they may be a guard to us, and may labor in the day.”</text>
   </block>
-  <block style="p" chapter="4" initialStartVerse="23" characterId="Nehemiah">
+  <block style="p" chapter="4" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
     <text>So neither I, nor my brothers, nor my servants, nor the men of the guard who followed me, none of us took off our clothes. Everyone took his weapon to the water.</text>
   </block>
@@ -444,27 +444,27 @@
     <verse num="5" />
     <text>Yet now our flesh is as the flesh of our brothers, our children as their children. Behold, we bring into bondage our sons and our daughters to be servants, and some of our daughters have been brought into bondage. Neither is it in our power to help it; for other men have our fields and our vineyards.”</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
     <text>I was very angry when I heard their cry and these words.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
     <text>Then I consulted with myself, and contended with the nobles and the rulers, and said to them, “You exact usury, everyone of his brother.” I held a great assembly against them.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
     <text>I said to them, “We, after our ability, have redeemed our brothers the Jews that were sold to the nations; and would you even sell your brothers, and should they be sold to us?” Then they held their peace, and found never a word.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
     <text>Also I said, “The thing that you do is not good. Ought you not to walk in the fear of our God, because of the reproach of the nations our enemies?</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
     <text>I likewise, my brothers and my servants, lend them money and grain. Please let us stop this usury.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>Please restore to them, even this day, their fields, their vineyards, their olive groves, and their houses, also the hundredth part of the money, and of the grain, the new wine, and the oil, that you are charging them.” </text>
     <verse num="12" />
@@ -473,63 +473,66 @@
   <block style="p" chapter="5" initialStartVerse="12" characterId="nobles and officials (Jewish)">
     <text>“We will restore them, and will require nothing of them; so will we do, even as you say.”</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-NEH">
     <text>Then I called the priests, and took an oath of them, that they would do according to this promise.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
-    <text>Also I shook out my lap, and said, “So may God shake out every man from his house, and from his labor, that doesn't perform this promise; even thus be he shaken out, and emptied.” All the assembly said, “Amen,”</text>
+    <text>Also I shook out my lap, and said, “So may God shake out every man from his house, and from his labor, that doesn’t perform this promise; even thus be he shaken out, and emptied.” All the assembly said,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="assembly, whole">
+    <text>“Amen,”</text>
+  </block>
+  <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-NEH">
     <text>and praised God. The people did according to this promise. </text>
     <verse num="14" />
-    <text>Moreover from the time that I was appointed to be their governor in the land of Judah, from the twentieth year even to the two and thirtieth year of Artaxerxes the king, [that is], twelve years, I and my brothers have not eaten the bread of the governor.</text>
+    <text>Moreover from the time that I was appointed to be their governor in the land of Judah, from the twentieth year even to the two and thirtieth year of Artaxerxes the king, that is, twelve years, I and my brothers have not eaten the bread of the governor.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
-    <text>But the former governors who were before me were supported by the people, and took bread and wine from them, besides forty shekels of silver; yes, even their servants ruled over the people: but I didn't do so, because of the fear of God.</text>
+    <text>But the former governors who were before me were supported by the people, and took bread and wine from them, besides forty shekels of silver; yes, even their servants ruled over the people: but I didn’t do so, because of the fear of God.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="16" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
     <text>Yes, also I continued in the work of this wall, neither bought we any land: and all my servants were gathered there to the work.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="17" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="17" characterId="narrator-NEH">
     <verse num="17" />
     <text>Moreover there were at my table, of the Jews and the rulers, one hundred fifty men, besides those who came to us from among the nations that were around us.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="18" characterId="Nehemiah">
+  <block style="p" chapter="5" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
-    <text>Now that which was prepared for one day was one ox and six choice sheep; also fowls were prepared for me, and once in ten days store of all sorts of wine: yet for all this I didn't demand the bread of the governor, because the bondage was heavy on this people.</text>
+    <text>Now that which was prepared for one day was one ox and six choice sheep; also fowls were prepared for me, and once in ten days store of all sorts of wine: yet for all this I didn’t demand the bread of the governor, because the bondage was heavy on this people.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="narrator-NEH" delivery="praying">
     <verse num="19" />
     <text>Remember to me, my God, for good, all that I have done for this people.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>6</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="1" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
     <text>Now it happened, when it was reported to Sanballat and Tobiah, and to Geshem the Arabian, and to the rest of our enemies, that I had built the wall, and that there was no breach left therein; (though even to that time I had not set up the doors in the gates;) </text>
     <verse num="2" />
     <text>that Sanballat and Geshem sent to me, saying,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="Sanballat the Horonite/Geshem the Arab" delivery="message, scheming">
-    <text>“Come, let us meet together in [one of] the villages in the plain of Ono.”</text>
+    <text>“Come, let us meet together in one of the villages in the plain of Ono.”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-NEH">
     <text>But they intended to harm me. </text>
     <verse num="3" />
     <text>I sent messengers to them, saying,</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="Nehemiah" delivery="message">
+  <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-NEH" delivery="message">
     <text>“I am doing a great work, so that I can't come down. Why should the work cease, while I leave it, and come down to you?”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="4" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
     <text>They sent to me four times after this sort; and I answered them the same way.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
     <text>Then Sanballat sent his servant to me the same way the fifth time with an open letter in his hand, </text>
     <verse num="6" />
@@ -540,79 +543,79 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="Sanballat the Horonite" delivery="letter">
     <verse num="7" />
-    <text>You have also appointed prophets to preach of you at Jerusalem, saying, 'There is a king in Judah!' Now it will be reported to the king according to these words. Come now therefore, and let us take counsel together.”</text>
+    <text>You have also appointed prophets to preach of you at Jerusalem, saying, ‹There is a king in Judah!› Now it will be reported to the king according to these words. Come now therefore, and let us take counsel together.”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="8" characterId="Nehemiah" delivery="message">
+  <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-NEH" delivery="message">
     <verse num="8" />
     <text>Then I sent to him, saying, “There are no such things done as you say, but you imagine them out of your own heart.”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-NEH" delivery="praying">
     <verse num="9" />
-    <text>For they all would have made us afraid, saying, “Their hands will be weakened from the work, that it not be done.” But now, [God], strengthen my hands.</text>
+    <text>For they all would have made us afraid, saying, “Their hands will be weakened from the work, that it not be done.” But now, God, strengthen my hands.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="10" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
     <text>I went to the house of Shemaiah the son of Delaiah the son of Mehetabel, who was shut in at his home; and he said,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="10" characterId="Shemaiah, son of Delaiah">
     <text>“Let us meet together in the house of God, within the temple, and let us shut the doors of the temple; for they will come to kill you; yes, in the night will they come to kill you.”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="11" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>I said, “Should such a man as I flee? Who is there that, being such as I, would go into the temple to save his life? I will not go in.”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
     <text>I discerned, and behold, God had not sent him; but he pronounced this prophecy against me. Tobiah and Sanballat had hired him.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
     <text>He hired so that I would be afraid, do so, and sin, and that they might have material for an evil report, that they might reproach me.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="14" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-NEH" delivery="praying">
     <verse num="14" />
     <text>Remember, my God, Tobiah and Sanballat according to these their works, and also the prophetess Noadiah, and the rest of the prophets, that would have put me in fear.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="15" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
-    <text>So the wall was finished in the twenty-fifth [day] of [the month] Elul, in fifty-two days.</text>
+    <text>So the wall was finished in the twenty-fifth day of the month Elul, in fifty-two days.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="16" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
-    <text>It happened, when all our enemies heard [of it], that all the nations that were about us feared, and were much cast down in their own eyes; for they perceived that this work was worked of our God.</text>
+    <text>It happened, when all our enemies heard of it, that all the nations that were about us feared, and were much cast down in their own eyes; for they perceived that this work was worked of our God.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="17" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="17" characterId="narrator-NEH">
     <verse num="17" />
-    <text>Moreover in those days the nobles of Judah sent many letters to Tobiah, and [the letters] of Tobiah came to them.</text>
+    <text>Moreover in those days the nobles of Judah sent many letters to Tobiah, and the letters of Tobiah came to them.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="18" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
     <text>For there were many in Judah sworn to him, because he was the son-in-law of Shecaniah the son of Arah; and his son Jehohanan had taken the daughter of Meshullam the son of Berechiah as wife.</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="19" characterId="Nehemiah">
+  <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
     <text>Also they spoke of his good deeds before me, and reported my words to him. Tobiah sent letters to put me in fear.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>7</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="1" characterId="Nehemiah">
+  <block style="p" chapter="7" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
     <text>Now it happened, when the wall was built, and I had set up the doors, and the porters and the singers and the Levites were appointed,</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="2" characterId="Nehemiah">
+  <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
     <text>that I put my brother Hanani, and Hananiah the governor of the castle, in charge of Jerusalem; for he was a faithful man, and feared God above many.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="3" characterId="Nehemiah">
+  <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>I said to them, “Don't let the gates of Jerusalem be opened until the sun is hot; and while they stand guard, let them shut the doors, and you bar them: and appoint watches of the inhabitants of Jerusalem, everyone in his watch, with everyone near his house.”</text>
+    <text>I said to them, “Don’t let the gates of Jerusalem be opened until the sun is hot; and while they stand guard, let them shut the doors, and you bar them: and appoint watches of the inhabitants of Jerusalem, everyone in his watch, with everyone near his house.”</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="4" characterId="Nehemiah">
+  <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
     <text>Now the city was wide and large; but the people were few therein, and the houses were not built.</text>
   </block>
-  <block style="p" chapter="7" initialStartVerse="5" characterId="Nehemiah">
+  <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
     <text>My God put into my heart to gather together the nobles, and the rulers, and the people, that they might be reckoned by genealogy. I found the book of the genealogy of those who came up at the first, and I found written therein:</text>
   </block>
@@ -638,7 +641,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
-    <text>The children of Pahathmoab, of the children of Jeshua and Joab, two thousand eight hundred [and] eighteen.</text>
+    <text>The children of Pahathmoab, of the children of Jeshua and Joab, two thousand eight hundred and eighteen.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
@@ -762,7 +765,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="42" characterId="narrator-NEH">
     <verse num="42" />
-    <text>The children of Harim, one thousand [and] seventeen.</text>
+    <text>The children of Harim, one thousand and seventeen.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="43" characterId="narrator-NEH">
     <verse num="43" />
@@ -804,7 +807,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="57" characterId="narrator-NEH">
     <verse num="57" />
-    <text>The children of Solomon's servants: the children of Sotai, the children of Sophereth, the children of Perida, </text>
+    <text>The children of Solomon’s servants: the children of Sotai, the children of Sophereth, the children of Perida, </text>
     <verse num="58" />
     <text>the children of Jaala, the children of Darkon, the children of Giddel, </text>
     <verse num="59" />
@@ -812,11 +815,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="60" characterId="narrator-NEH">
     <verse num="60" />
-    <text>All the Nethinim, and the children of Solomon's servants, were three hundred ninety-two.</text>
+    <text>All the Nethinim, and the children of Solomon’s servants, were three hundred ninety-two.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="61" characterId="narrator-NEH">
     <verse num="61" />
-    <text>These were those who went up from Tel Melah, Tel Harsha, Cherub, Addon, and Immer; but they could not show their fathers' houses, nor their seed, whether they were of Israel:</text>
+    <text>These were those who went up from Tel Melah, Tel Harsha, Cherub, Addon, and Immer; but they could not show their fathers’ houses, nor their seed, whether they were of Israel:</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="62" characterId="narrator-NEH">
     <verse num="62" />
@@ -828,7 +831,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="64" characterId="narrator-NEH">
     <verse num="64" />
-    <text>These sought their register [among] those who were reckoned by genealogy, but it was not found: therefore were they deemed polluted and put from the priesthood.</text>
+    <text>These sought their register among those who were reckoned by genealogy, but it was not found: therefore were they deemed polluted and put from the priesthood.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="65" characterId="narrator-NEH">
     <verse num="65" />
@@ -846,19 +849,19 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="69" characterId="narrator-NEH">
     <verse num="69" />
-    <text>[their] camels, four hundred thirty-five; [their] donkeys, six thousand seven hundred twenty.</text>
+    <text>their camels, four hundred thirty-five; their donkeys, six thousand seven hundred twenty.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="70" characterId="narrator-NEH">
     <verse num="70" />
-    <text>Some from among the heads of fathers' [houses] gave to the work. The governor gave to the treasury one thousand darics of gold, fifty basins, and five hundred thirty priests' garments.</text>
+    <text>Some from among the heads of fathers’ houses gave to the work. The governor gave to the treasury one thousand darics of gold, fifty basins, and five hundred thirty priests’ garments.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="71" characterId="narrator-NEH">
     <verse num="71" />
-    <text>Some of the heads of fathers' [houses] gave into the treasury of the work twenty thousand darics of gold, and two thousand two hundred minas of silver.</text>
+    <text>Some of the heads of fathers’ houses gave into the treasury of the work twenty thousand darics of gold, and two thousand two hundred minas of silver.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="72" characterId="narrator-NEH">
     <verse num="72" />
-    <text>That which the rest of the people gave was twenty thousand darics of gold, and two thousand minas of silver, and sixty-seven priests' garments.</text>
+    <text>That which the rest of the people gave was twenty thousand darics of gold, and two thousand minas of silver, and sixty-seven priests’ garments.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="73" characterId="narrator-NEH">
     <verse num="73" />
@@ -877,11 +880,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>He read therein before the broad place that was before the water gate from early morning until midday, in the presence of the men and the women, and of those who could understand; and the ears of all the people were [attentive] to the book of the law.</text>
+    <text>He read therein before the broad place that was before the water gate from early morning until midday, in the presence of the men and the women, and of those who could understand; and the ears of all the people were attentive to the book of the law.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
-    <text>Ezra the scribe stood on a pulpit of wood, which they had made for the purpose; and beside him stood Mattithiah, and Shema, and Anaiah, and Uriah, and Hilkiah, and Maaseiah, on his right hand; and on his left hand, Pedaiah, and Mishael, and Malchijah, and Hashum, and Hashbaddanah, Zechariah, [and] Meshullam.</text>
+    <text>Ezra the scribe stood on a pulpit of wood, which they had made for the purpose; and beside him stood Mattithiah, and Shema, and Anaiah, and Uriah, and Hilkiah, and Maaseiah, on his right hand; and on his left hand, Pedaiah, and Mishael, and Malchijah, and Hashum, and Hashbaddanah, Zechariah, and Meshullam.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
@@ -899,7 +902,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
-    <text>Also Jeshua, and Bani, and Sherebiah, Jamin, Akkub, Shabbethai, Hodiah, Maaseiah, Kelita, Azariah, Jozabad, Hanan, Pelaiah, and the Levites, caused the people to understand the law: and the people [stood] in their place.</text>
+    <text>Also Jeshua, and Bani, and Sherebiah, Jamin, Akkub, Shabbethai, Hodiah, Maaseiah, Kelita, Azariah, Jozabad, Hanan, Pelaiah, and the Levites, caused the people to understand the law: and the people stood in their place.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
@@ -933,7 +936,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
-    <text>On the second day were gathered together the heads of fathers' [houses] of all the people, the priests, and the Levites, to Ezra the scribe, even to give attention to the words of the law.</text>
+    <text>On the second day were gathered together the heads of fathers’ houses of all the people, the priests, and the Levites, to Ezra the scribe, even to give attention to the words of the law.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-NEH">
     <verse num="14" />
@@ -971,18 +974,21 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>They stood up in their place, and read in the book of the law of God their God a fourth part of the day; and [another] fourth part they confessed, and worshiped God their God.</text>
+    <text>They stood up in their place, and read in the book of the law of God their God a fourth part of the day; and another fourth part they confessed, and worshiped God their God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
-    <text>Then stood up on the stairs of the Levites, Jeshua, and Bani, Kadmiel, Shebaniah, Bunni, Sherebiah, Bani, [and] Chenani, and cried with a loud voice to God their God.</text>
+    <text>Then stood up on the stairs of the Levites, Jeshua, and Bani, Kadmiel, Shebaniah, Bunni, Sherebiah, Bani, and Chenani, and cried with a loud voice to God their God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-NEH">
     <verse num="5" />
-    <text>Then the Levites, Jeshua, and Kadmiel, Bani, Hashabneiah, Sherebiah, Hodiah, Shebaniah, [and] Pethahiah, said,</text>
+    <text>Then the Levites, Jeshua, and Kadmiel, Bani, Hashabneiah, Sherebiah, Hodiah, Shebaniah, and Pethahiah, said,</text>
   </block>
-  <block style="p" chapter="9" initialStartVerse="5" characterId="Levites">
-    <text>“Stand up and bless God your God from everlasting to everlasting! Bessed be your glorious name, which is exalted above all blessing and praise!</text>
+  <block style="p" chapter="9" initialStartVerse="5" characterId="Levites" delivery="call to worship">
+    <text>“Stand up and bless God your God from everlasting to everlasting!</text>
+  </block>
+  <block style="p" chapter="9" initialStartVerse="5" characterId="Levites" delivery="praying">
+    <text>Bessed be your glorious name, which is exalted above all blessing and praise!</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="Levites" delivery="praying">
     <verse num="6" />
@@ -1020,25 +1026,25 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="16" characterId="Levites" delivery="praying">
     <verse num="16" />
-    <text>But they and our fathers dealt proudly and hardened their neck, didn't listen to your commandments, </text>
+    <text>But they and our fathers dealt proudly and hardened their neck, didn’t listen to your commandments, </text>
     <verse num="17" />
-    <text>and refused to obey, neither were they mindful of your wonders that you did among them, but hardened their neck, and in their rebellion appointed a captain to return to their bondage. But you are a God ready to pardon, gracious and merciful, slow to anger, and abundant in loving kindness, and didn't forsake them.</text>
+    <text>and refused to obey, neither were they mindful of your wonders that you did among them, but hardened their neck, and in their rebellion appointed a captain to return to their bondage. But you are a God ready to pardon, gracious and merciful, slow to anger, and abundant in loving kindness, and didn’t forsake them.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="Levites" delivery="praying">
     <verse num="18" />
-    <text>Yes, when they had made them a molten calf, and said, 'This is your God who brought you up out of Egypt,' and had committed awful blasphemies;</text>
+    <text>Yes, when they had made them a molten calf, and said, ‹This is your God who brought you up out of Egypt,› and had committed awful blasphemies;</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="Levites" delivery="praying">
     <verse num="19" />
-    <text>yet you in your manifold mercies didn't forsake them in the wilderness: the pillar of cloud didn't depart from over them by day, to lead them in the way; neither the pillar of fire by night, to show them light, and the way in which they should go.</text>
+    <text>yet you in your manifold mercies didn’t forsake them in the wilderness: the pillar of cloud didn’t depart from over them by day, to lead them in the way; neither the pillar of fire by night, to show them light, and the way in which they should go.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="Levites" delivery="praying">
     <verse num="20" />
-    <text>You gave also your good Spirit to instruct them, and didn't withhold your manna from their mouth, and gave them water for their thirst.</text>
+    <text>You gave also your good Spirit to instruct them, and didn’t withhold your manna from their mouth, and gave them water for their thirst.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="21" characterId="Levites" delivery="praying">
     <verse num="21" />
-    <text>Yes, forty years you sustained them in the wilderness. They lacked nothing. Their clothes didn't grow old, and their feet didn't swell.</text>
+    <text>Yes, forty years you sustained them in the wilderness. They lacked nothing. Their clothes didn’t grow old, and their feet didn’t swell.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="22" characterId="Levites" delivery="praying">
     <verse num="22" />
@@ -1068,7 +1074,7 @@
     <verse num="28" />
     <text>But after they had rest, they did evil again before you; therefore left you them in the hand of their enemies, so that they had the dominion over them; yet when they returned, and cried to you, you heard from heaven; and many times you delivered them according to your mercies, </text>
     <verse num="29" />
-    <text>and testified against them, that you might bring them again to your law. Yet they dealt proudly, and didn't listen to your commandments, but sinned against your ordinances, (which if a man does, he shall live in them), turned their backs, stiffened their neck, and would not hear.</text>
+    <text>and testified against them, that you might bring them again to your law. Yet they dealt proudly, and didn’t listen to your commandments, but sinned against your ordinances, (which if a man does, he shall live in them), turned their backs, stiffened their neck, and would not hear.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="30" characterId="Levites" delivery="praying">
     <verse num="30" />
@@ -1080,7 +1086,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="32" characterId="Levites" delivery="praying">
     <verse num="32" />
-    <text>Now therefore, our God, the great, the mighty, and the awesome God, who keeps covenant and loving kindness, don't let all the travail seem little before you, that has come on us, on our kings, on our princes, and on our priests, and on our prophets, and on our fathers, and on all your people, since the time of the kings of Assyria to this day.</text>
+    <text>Now therefore, our God, the great, the mighty, and the awesome God, who keeps covenant and loving kindness, don’t let all the travail seem little before you, that has come on us, on our kings, on our princes, and on our priests, and on our prophets, and on our fathers, and on all your people, since the time of the kings of Assyria to this day.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="33" characterId="Levites" delivery="praying">
     <verse num="33" />
@@ -1104,7 +1110,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="38" characterId="Levites">
     <verse num="38" />
-    <text>Yet for all this, we make a sure covenant, and write it; and our princes, our Levites, [and] our priests, seal to it.”</text>
+    <text>Yet for all this, we make a sure covenant, and write it; and our princes, our Levites, and our priests, seal to it.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>10</text>
@@ -1191,7 +1197,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="29" characterId="narrator-NEH">
     <verse num="29" />
-    <text>they joined with their brothers, their nobles, and entered into a curse, and into an oath, to walk in God's law, which was given by Moses the servant of God, and to observe and do all the commandments of God our Lord, and his ordinances and his statutes;</text>
+    <text>they joined with their brothers, their nobles, and entered into a curse, and into an oath, to walk in God’s law, which was given by Moses the servant of God, and to observe and do all the commandments of God our Lord, and his ordinances and his statutes;</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="30" characterId="priests/Levites/people">
     <verse num="30" />
@@ -1211,7 +1217,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="34" characterId="priests/Levites/people">
     <verse num="34" />
-    <text>We cast lots, the priests, the Levites, and the people, for the wood offering, to bring it into the house of our God, according to our fathers' houses, at times appointed, year by year, to burn on the altar of God our God, as it is written in the law;</text>
+    <text>We cast lots, the priests, the Levites, and the people, for the wood offering, to bring it into the house of our God, according to our fathers’ houses, at times appointed, year by year, to burn on the altar of God our God, as it is written in the law;</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="35" characterId="priests/Levites/people">
     <verse num="35" />
@@ -1238,7 +1244,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="1" characterId="narrator-NEH">
     <verse num="1" />
-    <text>The princes of the people lived in Jerusalem: the rest of the people also cast lots, to bring one of ten to dwell in Jerusalem the holy city, and nine parts in the [other] cities.</text>
+    <text>The princes of the people lived in Jerusalem: the rest of the people also cast lots, to bring one of ten to dwell in Jerusalem the holy city, and nine parts in the other cities.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
@@ -1246,7 +1252,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
-    <text>Now these are the chiefs of the province who lived in Jerusalem: but in the cities of Judah lived everyone in his possession in their cities, [to wit], Israel, the priests, and the Levites, and the Nethinim, and the children of Solomon's servants.</text>
+    <text>Now these are the chiefs of the province who lived in Jerusalem: but in the cities of Judah lived everyone in his possession in their cities, to wit, Israel, the priests, and the Levites, and the Nethinim, and the children of Solomon’s servants.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="4" characterId="narrator-NEH">
     <verse num="4" />
@@ -1280,7 +1286,7 @@
     <verse num="12" />
     <text>and their brothers who did the work of the house, eight hundred twenty-two; and Adaiah the son of Jeroham, the son of Pelaliah, the son of Amzi, the son of Zechariah, the son of Pashhur, the son of Malchijah, </text>
     <verse num="13" />
-    <text>and his brothers, chiefs of fathers' [houses], two hundred forty-two; and Amashsai the son of Azarel, the son of Ahzai, the son of Meshillemoth, the son of Immer, </text>
+    <text>and his brothers, chiefs of fathers’ houses, two hundred forty-two; and Amashsai the son of Azarel, the son of Ahzai, the son of Meshillemoth, the son of Immer, </text>
     <verse num="14" />
     <text>and their brothers, mighty men of valor, one hundred twenty-eight; and their overseer was Zabdiel, the son of Haggedolim.</text>
   </block>
@@ -1322,7 +1328,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="24" characterId="narrator-NEH">
     <verse num="24" />
-    <text>Pethahiah the son of Meshezabel, of the children of Zerah the son of Judah, was at the king's hand in all matters concerning the people.</text>
+    <text>Pethahiah the son of Meshezabel, of the children of Zerah the son of Judah, was at the king’s hand in all matters concerning the people.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="25" characterId="narrator-NEH">
     <verse num="25" />
@@ -1340,7 +1346,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="31" characterId="narrator-NEH">
     <verse num="31" />
-    <text>The children of Benjamin also [lived] from Geba [onward], at Michmash and Aija, and at Bethel and its towns, </text>
+    <text>The children of Benjamin also lived from Geba onward, at Michmash and Aija, and at Bethel and its towns, </text>
     <verse num="32" />
     <text>at Anathoth, Nob, Ananiah, </text>
     <verse num="33" />
@@ -1352,7 +1358,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="36" characterId="narrator-NEH">
     <verse num="36" />
-    <text>Of the Levites, certain divisions in Judah [were joined] to Benjamin.</text>
+    <text>Of the Levites, certain divisions in Judah were joined to Benjamin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>12</text>
@@ -1387,7 +1393,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
-    <text>Moreover the Levites: Jeshua, Binnui, Kadmiel, Sherebiah, Judah, [and] Mattaniah, who was over the thanksgiving, he and his brothers.</text>
+    <text>Moreover the Levites: Jeshua, Binnui, Kadmiel, Sherebiah, Judah, and Mattaniah, who was over the thanksgiving, he and his brothers.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
@@ -1401,7 +1407,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
-    <text>In the days of Joiakim were priests, heads of fathers' [houses]: of Seraiah, Meraiah; of Jeremiah, Hananiah;</text>
+    <text>In the days of Joiakim were priests, heads of fathers’ houses: of Seraiah, Meraiah; of Jeremiah, Hananiah;</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
@@ -1441,11 +1447,11 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
-    <text>As for the Levites, in the days of Eliashib, Joiada, and Johanan, and Jaddua, there were recorded the heads of fathers' [houses]; also the priests, in the reign of Darius the Persian.</text>
+    <text>As for the Levites, in the days of Eliashib, Joiada, and Johanan, and Jaddua, there were recorded the heads of fathers’ houses; also the priests, in the reign of Darius the Persian.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
-    <text>The sons of Levi, heads of fathers' [houses], were written in the book of the chronicles, even until the days of Johanan the son of Eliashib.</text>
+    <text>The sons of Levi, heads of fathers’ houses, were written in the book of the chronicles, even until the days of Johanan the son of Eliashib.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="24" characterId="narrator-NEH">
     <verse num="24" />
@@ -1475,11 +1481,11 @@
     <verse num="30" />
     <text>The priests and the Levites purified themselves; and they purified the people, and the gates, and the wall.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="31" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="31" characterId="narrator-NEH">
     <verse num="31" />
-    <text>Then I brought up the princes of Judah on the wall, and appointed two great companies who gave thanks and went in procession. [One went] on the right hand on the wall toward the dung gate;</text>
+    <text>Then I brought up the princes of Judah on the wall, and appointed two great companies who gave thanks and went in procession. One went on the right hand on the wall toward the dung gate;</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="32" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="32" characterId="narrator-NEH">
     <verse num="32" />
     <text>and after them went Hoshaiah, and half of the princes of Judah, </text>
     <verse num="33" />
@@ -1487,31 +1493,31 @@
     <verse num="34" />
     <text>Judah, and Benjamin, and Shemaiah, and Jeremiah, </text>
     <verse num="35" />
-    <text>and certain of the priests' sons with trumpets: Zechariah the son of Jonathan, the son of Shemaiah, the son of Mattaniah, the son of Micaiah, the son of Zaccur, the son of Asaph;</text>
+    <text>and certain of the priests’ sons with trumpets: Zechariah the son of Jonathan, the son of Shemaiah, the son of Mattaniah, the son of Micaiah, the son of Zaccur, the son of Asaph;</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="36" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="36" characterId="narrator-NEH">
     <verse num="36" />
     <text>and his brothers, Shemaiah, and Azarel, Milalai, Gilalai, Maai, Nethanel, and Judah, Hanani, with the musical instruments of David the man of God; and Ezra the scribe was before them.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="37" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="37" characterId="narrator-NEH">
     <verse num="37" />
     <text>By the spring gate, and straight before them, they went up by the stairs of the city of David, at the ascent of the wall, above the house of David, even to the water gate eastward.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="38" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="38" characterId="narrator-NEH">
     <verse num="38" />
     <text>The other company of those who gave thanks went to meet them, and I after them, with the half of the people, on the wall, above the tower of the furnaces, even to the broad wall, </text>
     <verse num="39" />
     <text>and above the gate of Ephraim, and by the old gate, and by the fish gate, and the tower of Hananel, and the tower of Hammeah, even to the sheep gate: and they stood still in the gate of the guard.</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="40" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="40" characterId="narrator-NEH">
     <verse num="40" />
     <text>So stood the two companies of those who gave thanks in the house of God, and I, and the half of the rulers with me;</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="41" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="41" characterId="narrator-NEH">
     <verse num="41" />
     <text>and the priests, Eliakim, Maaseiah, Miniamin, Micaiah, Elioenai, Zechariah, and Hananiah, with trumpets;</text>
   </block>
-  <block style="p" chapter="12" initialStartVerse="42" characterId="Nehemiah">
+  <block style="p" chapter="12" initialStartVerse="42" characterId="narrator-NEH">
     <verse num="42" />
     <text>and Maaseiah, and Shemaiah, and Eleazar, and Uzzi, and Jehohanan, and Malchijah, and Elam, and Ezer. The singers sang loud, with Jezrahiah their overseer.</text>
   </block>
@@ -1525,7 +1531,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="45" characterId="narrator-NEH">
     <verse num="45" />
-    <text>They performed the duty of their God, and the duty of the purification, and [so did] the singers and the porters, according to the commandment of David, and of Solomon his son.</text>
+    <text>They performed the duty of their God, and the duty of the purification, and so did the singers and the porters, according to the commandment of David, and of Solomon his son.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="46" characterId="narrator-NEH">
     <verse num="46" />
@@ -1533,7 +1539,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="47" characterId="narrator-NEH">
     <verse num="47" />
-    <text>All Israel in the days of Zerubbabel, and in the days of Nehemiah, gave the portions of the singers and the porters, as every day required: and they set apart [that which was] for the Levites; and the Levites set apart [that which was] for the sons of Aaron.</text>
+    <text>All Israel in the days of Zerubbabel, and in the days of Nehemiah, gave the portions of the singers and the porters, as every day required: and they set apart that which was for the Levites; and the Levites set apart that which was for the sons of Aaron.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="NEH" initialStartVerse="0" characterId="BC-NEH">
     <text>13</text>
@@ -1544,7 +1550,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="narrator-NEH">
     <verse num="2" />
-    <text>because they didn't meet the children of Israel with bread and with water, but hired Balaam against them, to curse them: however our God turned the curse into a blessing.</text>
+    <text>because they didn’t meet the children of Israel with bread and with water, but hired Balaam against them, to curse them: however our God turned the curse into a blessing.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-NEH">
     <verse num="3" />
@@ -1558,107 +1564,107 @@
     <verse num="5" />
     <text>had prepared for him a great room, where before they laid the meal offerings, the frankincense, and the vessels, and the tithes of the grain, the new wine, and the oil, which were given by commandment to the Levites, and the singers, and the porters; and the wave offerings for the priests.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="6" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="6" characterId="narrator-NEH">
     <verse num="6" />
-    <text>But in all this [time] I was not at Jerusalem; for in the two and thirtieth year of Artaxerxes king of Babylon I went to the king: and after certain days asked I leave of the king,</text>
+    <text>But in all this time I was not at Jerusalem; for in the two and thirtieth year of Artaxerxes king of Babylon I went to the king: and after certain days asked I leave of the king,</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="7" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="7" characterId="narrator-NEH">
     <verse num="7" />
     <text>and I came to Jerusalem, and understood the evil that Eliashib had done for Tobiah, in preparing him a room in the courts of the house of God.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="8" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="8" characterId="narrator-NEH">
     <verse num="8" />
     <text>It grieved me severely: therefore I cast forth all the household stuff of Tobiah out of the room.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="9" characterId="narrator-NEH">
     <verse num="9" />
     <text>Then I commanded, and they cleansed the rooms: and there brought I again the vessels of the house of God, with the meal offerings and the frankincense.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="10" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-NEH">
     <verse num="10" />
     <text>I perceived that the portions of the Levites had not been given them; so that the Levites and the singers, who did the work, had fled everyone to his field.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-NEH">
     <verse num="11" />
     <text>Then I contended with the rulers, and said, “Why is the house of God forsaken?” I gathered them together, and set them in their place.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="12" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-NEH">
     <verse num="12" />
     <text>Then brought all Judah the tithe of the grain and the new wine and the oil to the treasuries.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="13" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-NEH">
     <verse num="13" />
     <text>I made treasurers over the treasuries, Shelemiah the priest, and Zadok the scribe, and of the Levites, Pedaiah: and next to them was Hanan the son of Zaccur, the son of Mattaniah; for they were counted faithful, and their business was to distribute to their brothers.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="14" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-NEH" delivery="praying">
     <verse num="14" />
-    <text>Remember me, my God, concerning this, and don't wipe out my good deeds that I have done for the house of my God, and for its observances.</text>
+    <text>Remember me, my God, concerning this, and don’t wipe out my good deeds that I have done for the house of my God, and for its observances.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="15" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="15" characterId="narrator-NEH">
     <verse num="15" />
-    <text>In those days saw I in Judah some men treading winepresses on the Sabbath, and bringing in sheaves, and loading donkeys [therewith]; as also wine, grapes, and figs, and all kinds of burdens, which they brought into Jerusalem on the Sabbath day: and I testified [against them] in the day in which they sold food.</text>
+    <text>In those days saw I in Judah some men treading winepresses on the Sabbath, and bringing in sheaves, and loading donkeys therewith; as also wine, grapes, and figs, and all kinds of burdens, which they brought into Jerusalem on the Sabbath day: and I testified against them in the day in which they sold food.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="16" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-NEH">
     <verse num="16" />
     <text>There lived men of Tyre also therein, who brought in fish, and all kinds of wares, and sold on the Sabbath to the children of Judah, and in Jerusalem.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="17" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="17" characterId="narrator-NEH">
     <verse num="17" />
     <text>Then I contended with the nobles of Judah, and said to them, “What evil thing is this that you do, and profane the Sabbath day?</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="18" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-NEH">
     <verse num="18" />
-    <text>Didn't your fathers do thus, and didn't our God bring all this evil on us, and on this city? Yet you bring more wrath on Israel by profaning the Sabbath.”</text>
+    <text>Didn’t your fathers do thus, and didn’t our God bring all this evil on us, and on this city? Yet you bring more wrath on Israel by profaning the Sabbath.”</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="19" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="19" characterId="narrator-NEH">
     <verse num="19" />
     <text>It came to pass that, when the gates of Jerusalem began to be dark before the Sabbath, I commanded that the doors should be shut, and commanded that they should not be opened until after the Sabbath. I set some of my servants over the gates, that no burden should be brought in on the Sabbath day.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="20" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="20" characterId="narrator-NEH">
     <verse num="20" />
     <text>So the merchants and sellers of all kinds of wares lodged outside of Jerusalem once or twice.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="21" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="21" characterId="narrator-NEH">
     <verse num="21" />
-    <text>Then I testified against them, and said to them, “Why do you stay around the wall? If you do so again, I will lay hands on you.” From that time on, they didn't come on the Sabbath.</text>
+    <text>Then I testified against them, and said to them, “Why do you stay around the wall? If you do so again, I will lay hands on you.” From that time on, they didn’t come on the Sabbath.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="22" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="22" characterId="narrator-NEH">
     <verse num="22" />
     <text>I commanded the Levites that they should purify themselves, and that they should come and keep the gates, to sanctify the Sabbath day. Remember to me, my God, this also, and spare me according to the greatness of your loving kindness.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="23" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="23" characterId="narrator-NEH">
     <verse num="23" />
-    <text>In those days also saw I the Jews who had married women of Ashdod, of Ammon, [and] of Moab:</text>
+    <text>In those days also saw I the Jews who had married women of Ashdod, of Ammon, and of Moab:</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="24" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="24" characterId="narrator-NEH">
     <verse num="24" />
-    <text>and their children spoke half in the speech of Ashdod, and could not speak in the Jews' language, but according to the language of each people.</text>
+    <text>and their children spoke half in the speech of Ashdod, and could not speak in the Jews’ language, but according to the language of each people.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="25" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="25" characterId="narrator-NEH">
     <verse num="25" />
-    <text>I contended with them, and cursed them, and struck certain of them, and plucked off their hair, and made them swear by God, [saying], “You shall not give your daughters to their sons, nor take their daughters for your sons, or for yourselves.</text>
+    <text>I contended with them, and cursed them, and struck certain of them, and plucked off their hair, and made them swear by God, saying, “You shall not give your daughters to their sons, nor take their daughters for your sons, or for yourselves.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="26" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="26" characterId="narrator-NEH">
     <verse num="26" />
-    <text>Didn't Solomon king of Israel sin by these things? Yet among many nations was there no king like him, and he was beloved of his God, and God made him king over all Israel. Nevertheless foreign women caused even him to sin.</text>
+    <text>Didn’t Solomon king of Israel sin by these things? Yet among many nations was there no king like him, and he was beloved of his God, and God made him king over all Israel. Nevertheless foreign women caused even him to sin.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="27" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="27" characterId="narrator-NEH">
     <verse num="27" />
     <text>Shall we then listen to you to do all this great evil, to trespass against our God in marrying foreign women?”</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="28" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="28" characterId="narrator-NEH">
     <verse num="28" />
     <text>One of the sons of Joiada, the son of Eliashib the high priest, was son-in-law to Sanballat the Horonite: therefore I chased him from me.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="29" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-NEH" delivery="praying">
     <verse num="29" />
     <text>Remember them, my God, because they have defiled the priesthood, and the covenant of the priesthood, and of the Levites.</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="30" characterId="Nehemiah">
+  <block style="p" chapter="13" initialStartVerse="30" characterId="narrator-NEH">
     <verse num="30" />
     <text>Thus I cleansed them from all foreigners, and appointed duties for the priests and for the Levites, everyone in his work;</text>
   </block>
-  <block style="p" chapter="13" initialStartVerse="31" characterId="Nehemiah" delivery="praying">
+  <block style="p" chapter="13" initialStartVerse="31" characterId="narrator-NEH" delivery="praying">
     <verse num="31" />
     <text>and for the wood offering, at times appointed, and for the first fruits. Remember me, my God, for good.</text>
   </block>

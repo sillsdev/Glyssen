@@ -84,10 +84,12 @@ namespace Glyssen.Shared
 		// I didn't want to run the risk of accidentally deleting a verse that
 		// might have all PUA characters, but upon further consideration, I decided
 		// that was extremely unlikely, and there was probably a greater risk of
-		// some other symbol, number, separator, etc. being the only thing in the
+		// some other symbol, separator, etc. being the only thing in the
 		// text. And it would be slow and unwieldy to check all the other possibilities
 		// and something might still fall through the cracks.
-		public bool ContainsNoWords => !Content.Any(IsLetter);
+		// This used to be !Content.Any(IsLetter), but there are (unusual) situations where a ScriptText
+		// can be just a numeric "word."
+		public bool ContainsNoWords => !Content.Any(IsLetterOrDigit);
 
 		public bool StartsWithEllipsis => s_startsWithEllipsis.IsMatch(Content);
 

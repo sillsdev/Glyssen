@@ -446,6 +446,7 @@
     <None Include="Resources\TestPHM.xml" />
     <None Include="Resources\TestREV.xml" />
     <None Include="Resources\TestMATcuk.xml" />
+    <Content Include="Resources\TestNarratorOverrides.xml" />
     <Content Include="Resources\TestOBAwithInterestingVerseNums.xml" />
     <Content Include="Resources\TestRUT.xml" />
     <None Include="Resources\TestReferenceTextJUD.xml" />

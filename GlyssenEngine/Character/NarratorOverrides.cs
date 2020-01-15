@@ -13,7 +13,23 @@ namespace GlyssenEngine.Character
 	public class NarratorOverrides
 	{
 		private static NarratorOverrides s_singleton;
+		private static string s_NarratorOverridesXmlData;
 		private Dictionary<string, List<NarratorOverrideDetail>> m_dictionary;
+
+		internal static string NarratorOverridesXmlData
+		{
+			get => s_NarratorOverridesXmlData;
+			set
+			{
+				s_NarratorOverridesXmlData = value;
+				s_singleton?.Dispose();
+			}
+		}
+
+		private void Dispose()
+		{
+			s_singleton = null;
+		}
 
 		public static NarratorOverrides Singleton
 		{
@@ -21,7 +37,11 @@ namespace GlyssenEngine.Character
 			{
 				if (s_singleton == null)
 				{
-					s_singleton = XmlSerializationHelper.DeserializeFromString<NarratorOverrides>(Resources.NarratorOverrides);
+					// Tests can set this before accessing the Singleton.
+					if (NarratorOverridesXmlData == null)
+						NarratorOverridesXmlData = Resources.NarratorOverrides;
+
+					s_singleton = XmlSerializationHelper.DeserializeFromString<NarratorOverrides>(NarratorOverridesXmlData);
 					s_singleton.m_dictionary = s_singleton.Books.ToDictionary(b => b.Id, b => b.Overrides);
 					foreach (var book in s_singleton.Books)
 					{

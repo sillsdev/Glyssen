@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1KI" singlevoice="false" pageheader="1 Kings">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1KI">
+  <block style="mt" chapter="0" book="1KI" initialStartVerse="0" characterId="BC-1KI">
     <text>1 Kings</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1KI" initialStartVerse="0" characterId="BC-1KI">
@@ -8,7 +8,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>Now king David was old and stricken in years; and they covered him with clothes, but he couldn't keep warm. </text>
+    <text>Now king David was old and stricken in years; and they covered him with clothes, but he couldn’t keep warm. </text>
     <verse num="2" />
     <text>Therefore his servants said to him,</text>
   </block>
@@ -21,7 +21,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
-    <text>The young lady was very beautiful; and she cherished the king, and ministered to him; but the king didn't know her intimately.</text>
+    <text>The young lady was very beautiful; and she cherished the king, and ministered to him; but the king didn’t know her intimately.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-1KI">
     <verse num="5" />
@@ -32,14 +32,10 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-1KI">
     <text>Then he prepared him chariots and horsemen, and fifty men to run before him.</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-1KI">
     <verse num="6" />
-    <text>His father had not displeased him at any time in saying,</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-1KI">
-    <text>“Why have you done so?”</text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-1KI">
-    <text>and he was also a very handsome man; and he was born after Absalom.</text>
+    <text>His father had not displeased him at any time in saying, “Why have you done so?” and he was also a very handsome man; and he was born after Absalom.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
@@ -51,9 +47,9 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-1KI">
     <verse num="9" />
-    <text>Adonijah killed sheep and cattle and fatlings by the stone of Zoheleth, which is beside En Rogel; and he called all his brothers, the king's sons, and all the men of Judah, the king's servants: </text>
+    <text>Adonijah killed sheep and cattle and fatlings by the stone of Zoheleth, which is beside En Rogel; and he called all his brothers, the king’s sons, and all the men of Judah, the king’s servants: </text>
     <verse num="10" />
-    <text>but Nathan the prophet, and Benaiah, and the mighty men, and Solomon his brother, he didn't call.</text>
+    <text>but Nathan the prophet, and Benaiah, and the mighty men, and Solomon his brother, he didn’t call.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
@@ -68,7 +64,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="Nathan">
     <verse num="13" />
-    <text>Go in to king David, and tell him, 'Didn't you, my lord, king, swear to your handmaid, saying, Assuredly Solomon your son shall reign after me, and he shall sit on my throne? Why then does Adonijah reign?'</text>
+    <text>Go in to king David, and tell him, ‹Didn’t you, my lord, king, swear to your handmaid, saying, Assuredly Solomon your son shall reign after me, and he shall sit on my throne? Why then does Adonijah reign?›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="Nathan">
     <verse num="14" />
@@ -90,15 +86,15 @@
     <text>She said to him,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="Bathsheba">
-    <text>“My lord, you swore by God your God to your handmaid, 'Assuredly Solomon your son shall reign after me, and he shall sit on my throne.'</text>
+    <text>“My lord, you swore by God your God to your handmaid, ‹Assuredly Solomon your son shall reign after me, and he shall sit on my throne.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="Bathsheba">
     <verse num="18" />
-    <text>Now, behold, Adonijah reigns; and you, my lord the king, don't know it.</text>
+    <text>Now, behold, Adonijah reigns; and you, my lord the king, don’t know it.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="Bathsheba">
     <verse num="19" />
-    <text>He has slain cattle and fatlings and sheep in abundance, and has called all the sons of the king, and Abiathar the priest, and Joab the captain of the army; but he hasn't called Solomon your servant.</text>
+    <text>He has slain cattle and fatlings and sheep in abundance, and has called all the sons of the king, and Abiathar the priest, and Joab the captain of the army; but he hasn’t called Solomon your servant.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="Bathsheba">
     <verse num="20" />
@@ -123,19 +119,19 @@
     <text>Nathan said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="24" characterId="Nathan">
-    <text>“My lord, king, have you said, 'Adonijah shall reign after me, and he shall sit on my throne?'</text>
+    <text>“My lord, king, have you said, ‹Adonijah shall reign after me, and he shall sit on my throne?›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="25" characterId="Nathan">
     <verse num="25" />
-    <text>For he is gone down this day, and has slain cattle and fatlings and sheep in abundance, and has called all the king's sons, and the captains of the army, and Abiathar the priest. Behold, they are eating and drinking before him, and say, 'Long live king Adonijah!'</text>
+    <text>For he is gone down this day, and has slain cattle and fatlings and sheep in abundance, and has called all the king’s sons, and the captains of the army, and Abiathar the priest. Behold, they are eating and drinking before him, and say, ‹Long live king Adonijah!›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="26" characterId="Nathan">
     <verse num="26" />
-    <text>But he hasn't called me, even me your servant, and Zadok the priest, and Benaiah the son of Jehoiada, and your servant Solomon.</text>
+    <text>But he hasn’t called me, even me your servant, and Zadok the priest, and Benaiah the son of Jehoiada, and your servant Solomon.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="27" characterId="Nathan">
     <verse num="27" />
-    <text>Is this thing done by my lord the king, and you haven't shown to your servants who should sit on the throne of my lord the king after him?”</text>
+    <text>Is this thing done by my lord the king, and you haven’t shown to your servants who should sit on the throne of my lord the king after him?”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
@@ -145,14 +141,14 @@
     <text>“Call to me Bathsheba.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="28" characterId="narrator-1KI">
-    <text>She came into the king's presence, and stood before the king. </text>
+    <text>She came into the king’s presence, and stood before the king. </text>
     <verse num="29" />
     <text>The king swore, and said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="29" characterId="David (old)" delivery="very old">
     <text>“As God lives, who has redeemed my soul out of all adversity, </text>
     <verse num="30" />
-    <text>most certainly as I swore to you by God, the God of Israel, saying, 'Assuredly Solomon your son shall reign after me, and he shall sit on my throne in my place;' most certainly so will I do this day.”</text>
+    <text>most certainly as I swore to you by God, the God of Israel, saying, ‹Assuredly Solomon your son shall reign after me, and he shall sit on my throne in my place;› most certainly so will I do this day.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="31" characterId="narrator-1KI">
     <verse num="31" />
@@ -178,7 +174,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="34" characterId="David (old)" delivery="very old">
     <verse num="34" />
-    <text>Let Zadok the priest and Nathan the prophet anoint him there king over Israel. Blow the trumpet, and say, 'Long live king Solomon!'</text>
+    <text>Let Zadok the priest and Nathan the prophet anoint him there king over Israel. Blow the trumpet, and say, ‹Long live king Solomon!›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="35" characterId="David (old)" delivery="very old">
     <verse num="35" />
@@ -197,7 +193,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="38" characterId="narrator-1KI">
     <verse num="38" />
-    <text>So Zadok the priest, and Nathan the prophet, and Benaiah the son of Jehoiada, and the Cherethites and the Pelethites, went down, and caused Solomon to ride on king David's mule, and brought him to Gihon.</text>
+    <text>So Zadok the priest, and Nathan the prophet, and Benaiah the son of Jehoiada, and the Cherethites and the Pelethites, went down, and caused Solomon to ride on king David’s mule, and brought him to Gihon.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="39" characterId="narrator-1KI">
     <verse num="39" />
@@ -233,7 +229,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="44" characterId="Jonathan, son of Abiathar">
     <verse num="44" />
-    <text>The king has sent with him Zadok the priest, Nathan the prophet, Benaiah the son of Jehoiada, and the Cherethites and the Pelethites; and they have caused him to ride on the king's mule.</text>
+    <text>The king has sent with him Zadok the priest, Nathan the prophet, Benaiah the son of Jehoiada, and the Cherethites and the Pelethites; and they have caused him to ride on the king’s mule.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="45" characterId="Jonathan, son of Abiathar">
     <verse num="45" />
@@ -245,11 +241,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="47" characterId="Jonathan, son of Abiathar">
     <verse num="47" />
-    <text>Moreover the king's servants came to bless our lord king David, saying, May your God make the name of Solomon better than your name, and make his throne greater than your throne;' and the king bowed himself on the bed.</text>
+    <text>Moreover the king’s servants came to bless our lord king David, saying, May your God make the name of Solomon better than your name, and make his throne greater than your throne;› and the king bowed himself on the bed.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="48" characterId="Jonathan, son of Abiathar">
     <verse num="48" />
-    <text>Also thus said the king, 'Blessed be God, the God of Israel, who has given one to sit on my throne this day, my eyes even seeing it.'”</text>
+    <text>Also thus said the king, ‹Blessed be God, the God of Israel, who has given one to sit on my throne this day, my eyes even seeing it.› ”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="49" characterId="narrator-1KI">
     <verse num="49" />
@@ -262,7 +258,7 @@
     <text>It was told Solomon, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="51" characterId="informer">
-    <text>“Behold, Adonijah fears king Solomon; for, behold, he has laid hold on the horns of the altar, saying, 'Let king Solomon swear to me first that he will not kill his servant with the sword.'”</text>
+    <text>“Behold, Adonijah fears king Solomon; for, behold, he has laid hold on the horns of the altar, saying, ‹Let king Solomon swear to me first that he will not kill his servant with the sword.› ”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="52" characterId="narrator-1KI">
     <verse num="52" />
@@ -295,7 +291,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="David (old)" delivery="very old">
     <verse num="4" />
-    <text>That God may establish his word which he spoke concerning me, saying, 'If your children take heed to their way, to walk before me in truth with all their heart and with all their soul, there shall not fail you,' he said, 'a man on the throne of Israel.'</text>
+    <text>That God may establish his word which he spoke concerning me, saying, ‹If your children take heed to their way, to walk before me in truth with all their heart and with all their soul, there shall not fail you,› he said, ‹a man on the throne of Israel.›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="David (old)" delivery="very old">
     <verse num="5" />
@@ -303,7 +299,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="6" characterId="David (old)" delivery="very old">
     <verse num="6" />
-    <text>Do therefore according to your wisdom, and don't let his gray head go down to Sheol in peace.</text>
+    <text>Do therefore according to your wisdom, and don’t let his gray head go down to Sheol in peace.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="David (old)" delivery="very old">
     <verse num="7" />
@@ -311,11 +307,11 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="David (old)" delivery="very old">
     <verse num="8" />
-    <text>Behold, there is with you Shimei the son of Gera, the Benjamite, of Bahurim, who cursed me with a grievous curse in the day when I went to Mahanaim; but he came down to meet me at the Jordan, and I swore to him by God, saying, 'I will not put you to death with the sword.'</text>
+    <text>Behold, there is with you Shimei the son of Gera, the Benjamite, of Bahurim, who cursed me with a grievous curse in the day when I went to Mahanaim; but he came down to meet me at the Jordan, and I swore to him by God, saying, ‹I will not put you to death with the sword.›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="David (old)" delivery="very old">
     <verse num="9" />
-    <text>Now therefore don't hold him guiltless, for you are a wise man; and you will know what you ought to do to him, and you shall bring his gray head down to Sheol with blood.</text>
+    <text>Now therefore don’t hold him guiltless, for you are a wise man; and you will know what you ought to do to him, and you shall bring his gray head down to Sheol with blood.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-1KI">
     <verse num="10" />
@@ -364,7 +360,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="Adonijah, son of David">
     <verse num="16" />
-    <text>Now I ask one petition of you. Don't deny me.”</text>
+    <text>Now I ask one petition of you. Don’t deny me.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-1KI">
     <text>She said to him,</text>
@@ -377,7 +373,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="Adonijah, son of David">
-    <text>“Please speak to Solomon the king (for he will not tell you 'no'), that he give me Abishag the Shunammite as wife.”</text>
+    <text>“Please speak to Solomon the king (for he will not tell you ‹no›), that he give me Abishag the Shunammite as wife.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
@@ -388,7 +384,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-1KI">
     <verse num="19" />
-    <text>Bathsheba therefore went to king Solomon, to speak to him for Adonijah. The king rose up to meet her, and bowed himself to her, and sat down on his throne, and caused a throne to be set for the king's mother; and she sat on his right hand. </text>
+    <text>Bathsheba therefore went to king Solomon, to speak to him for Adonijah. The king rose up to meet her, and bowed himself to her, and sat down on his throne, and caused a throne to be set for the king’s mother; and she sat on his right hand. </text>
     <verse num="20" />
     <text>Then she said,</text>
   </block>
@@ -441,7 +437,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
-    <text>The news came to Joab; for Joab had turned after Adonijah, though he didn't turn after Absalom. Joab fled to the Tent of God, and caught hold on the horns of the altar.</text>
+    <text>The news came to Joab; for Joab had turned after Adonijah, though he didn’t turn after Absalom. Joab fled to the Tent of God, and caught hold on the horns of the altar.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
@@ -461,7 +457,7 @@
     <text>Benaiah came to the Tent of God, and said to him,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="30" characterId="Benaiah, son of Jehoiada">
-    <text>“Thus says the king, 'Come forth!'”</text>
+    <text>“Thus says the king, ‹Come forth!› ”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="30" characterId="narrator-1KI">
     <text>He said,</text>
@@ -484,7 +480,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="32" characterId="Solomon, king">
     <verse num="32" />
-    <text>God will return his blood on his own head, because he fell on two men more righteous and better than he, and killed them with the sword, and my father David didn't know it: Abner the son of Ner, captain of the army of Israel, and Amasa the son of Jether, captain of the army of Judah.</text>
+    <text>God will return his blood on his own head, because he fell on two men more righteous and better than he, and killed them with the sword, and my father David didn’t know it: Abner the son of Ner, captain of the army of Israel, and Amasa the son of Jether, captain of the army of Judah.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="33" characterId="Solomon, king">
     <verse num="33" />
@@ -537,7 +533,7 @@
     <text>The king sent and called for Shimei, and said to him,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="42" characterId="Solomon, king">
-    <text>“Didn't I adjure you by God, and warn you, saying, 'Know for certain, that on the day you go out, and walk abroad any where, you shall surely die?' You said to me, 'The saying that I have heard is good.'</text>
+    <text>“Didn’t I adjure you by God, and warn you, saying, ‹Know for certain, that on the day you go out, and walk abroad any where, you shall surely die?› You said to me, ‹The saying that I have heard is good.›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="43" characterId="Solomon, king">
     <verse num="43" />
@@ -563,7 +559,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>Solomon made affinity with Pharaoh king of Egypt, and took Pharaoh's daughter, and brought her into the city of David, until he had made an end of building his own house, and the house of God, and the wall of Jerusalem all around.</text>
+    <text>Solomon made affinity with Pharaoh king of Egypt, and took Pharaoh’s daughter, and brought her into the city of David, until he had made an end of building his own house, and the house of God, and the wall of Jerusalem all around.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
@@ -593,11 +589,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="7" characterId="Solomon, king">
     <verse num="7" />
-    <text>Now, God my God, you have made your servant king instead of David my father. I am but a little child. I don't know how to go out or come in.</text>
+    <text>Now, God my God, you have made your servant king instead of David my father. I am but a little child. I don’t know how to go out or come in.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="8" characterId="Solomon, king">
     <verse num="8" />
-    <text>Your servant is in the midst of your people which you have chosen, a great people, that can't be numbered nor counted for multitude.</text>
+    <text>Your servant is in the midst of your people which you have chosen, a great people, that can’t be numbered nor counted for multitude.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="Solomon, king">
     <verse num="9" />
@@ -643,7 +639,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="19" characterId="prostitute, one">
     <verse num="19" />
-    <text>This woman's child died in the night, because she lay on it.</text>
+    <text>This woman’s child died in the night, because she lay on it.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="20" characterId="prostitute, one">
     <verse num="20" />
@@ -672,7 +668,7 @@
     <text>Then the king said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="23" characterId="Solomon, king">
-    <text>“The one says, 'This is my son who lives, and your son is the dead;' and the other says, 'No; but your son is the dead one, and my son is the living one.'”</text>
+    <text>“The one says, ‹This is my son who lives, and your son is the dead;› and the other says, ‹No; but your son is the dead one, and my son is the living one.› ”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="24" characterId="narrator-1KI">
     <verse num="24" />
@@ -734,7 +730,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="5" characterId="narrator-1KI">
     <verse num="5" />
-    <text>and Azariah the son of Nathan was over the officers; and Zabud the son of Nathan was chief minister, [and] the king's friend;</text>
+    <text>and Azariah the son of Nathan was over the officers; and Zabud the son of Nathan was chief minister, and the king’s friend;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-1KI">
     <verse num="6" />
@@ -754,7 +750,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-1KI">
     <verse num="10" />
-    <text>Ben Hesed, in Arubboth (to him [pertained] Socoh, and all the land of Hepher);</text>
+    <text>Ben Hesed, in Arubboth (to him pertained Socoh, and all the land of Hepher);</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
@@ -766,7 +762,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="13" characterId="narrator-1KI">
     <verse num="13" />
-    <text>Ben Geber, in Ramoth Gilead (to him [pertained] the towns of Jair the son of Manasseh, which are in Gilead; [even] to him [pertained] the region of Argob, which is in Bashan, sixty great cities with walls and bronze bars);</text>
+    <text>Ben Geber, in Ramoth Gilead (to him pertained the towns of Jair the son of Manasseh, which are in Gilead; even to him pertained the region of Argob, which is in Bashan, sixty great cities with walls and bronze bars);</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="14" characterId="narrator-1KI">
     <verse num="14" />
@@ -790,7 +786,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="narrator-1KI">
     <verse num="19" />
-    <text>Geber the son of Uri, in the land of Gilead, the country of Sihon king of the Amorites and of Og king of Bashan; and [he was] the only officer who was in the land.</text>
+    <text>Geber the son of Uri, in the land of Gilead, the country of Sihon king of the Amorites and of Og king of Bashan; and he was the only officer who was in the land.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
@@ -802,13 +798,13 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-1KI">
     <verse num="22" />
-    <text>Solomon's provision for one day was thirty measures of fine flour, and sixty measures of meal, </text>
+    <text>Solomon’s provision for one day was thirty measures of fine flour, and sixty measures of meal, </text>
     <verse num="23" />
     <text>ten head of fat cattle, and twenty head of cattle out of the pastures, and one hundred sheep, besides harts, and gazelles, and roebucks, and fattened fowl.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="24" characterId="narrator-1KI">
     <verse num="24" />
-    <text>For he had dominion over all [the region] on this side the River, from Tiphsah even to Gaza, over all the kings on this side the River: and he had peace on all sides around him.</text>
+    <text>For he had dominion over all the region on this side the River, from Tiphsah even to Gaza, over all the kings on this side the River: and he had peace on all sides around him.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="25" characterId="narrator-1KI">
     <verse num="25" />
@@ -820,11 +816,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="27" characterId="narrator-1KI">
     <verse num="27" />
-    <text>Those officers provided food for king Solomon, and for all who came to king Solomon's table, every man in his month; they let nothing be lacking.</text>
+    <text>Those officers provided food for king Solomon, and for all who came to king Solomon’s table, every man in his month; they let nothing be lacking.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
-    <text>Barley also and straw for the horses and swift steeds brought they to the place where [the officers] were, every man according to his duty.</text>
+    <text>Barley also and straw for the horses and swift steeds brought they to the place where the officers were, every man according to his duty.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
@@ -832,7 +828,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="30" characterId="narrator-1KI">
     <verse num="30" />
-    <text>Solomon's wisdom excelled the wisdom of all the children of the east, and all the wisdom of Egypt.</text>
+    <text>Solomon’s wisdom excelled the wisdom of all the children of the east, and all the wisdom of Egypt.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="31" characterId="narrator-1KI">
     <verse num="31" />
@@ -871,7 +867,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="5" characterId="Solomon, king" delivery="sent message">
     <verse num="5" />
-    <text>Behold, I purpose to build a house for the name of God my God, as God spoke to David my father, saying, 'Your son, whom I will set on your throne in your place, he shall build the house for my name.'</text>
+    <text>Behold, I purpose to build a house for the name of God my God, as God spoke to David my father, saying, ‹Your son, whom I will set on your throne in your place, he shall build the house for my name.›</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="Solomon, king" delivery="sent message">
     <verse num="6" />
@@ -919,7 +915,7 @@
     <verse num="15" />
     <text>Solomon had seventy thousand who bore burdens, and eighty thousand who were stone cutters in the mountains; </text>
     <verse num="16" />
-    <text>besides Solomon's chief officers who were over the work, three thousand and three hundred, who bore rule over the people who labored in the work.</text>
+    <text>besides Solomon’s chief officers who were over the work, three thousand and three hundred, who bore rule over the people who labored in the work.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
@@ -927,22 +923,22 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
-    <text>Solomon's builders and Hiram's builders and the Gebalites did fashion them, and prepared the timber and the stones to build the house.</text>
+    <text>Solomon’s builders and Hiram’s builders and the Gebalites did fashion them, and prepared the timber and the stones to build the house.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1KI" initialStartVerse="0" characterId="BC-1KI">
     <text>6</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>It happened in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon's reign over Israel, in the month Ziv, which is the second month, that he began to build the house of God.</text>
+    <text>It happened in the four hundred and eightieth year after the children of Israel were come out of the land of Egypt, in the fourth year of Solomon’s reign over Israel, in the month Ziv, which is the second month, that he began to build the house of God.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
-    <text>The house which king Solomon built for God, its length was sixty cubits, and its breadth twenty [cubits], and its height thirty cubits.</text>
+    <text>The house which king Solomon built for God, its length was sixty cubits, and its breadth twenty cubits, and its height thirty cubits.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-1KI">
     <verse num="3" />
-    <text>The porch before the temple of the house, twenty cubits was its length, according to the breadth of the house; [and] ten cubits was its breadth before the house.</text>
+    <text>The porch before the temple of the house, twenty cubits was its length, according to the breadth of the house; and ten cubits was its breadth before the house.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
@@ -954,7 +950,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="6" characterId="narrator-1KI">
     <verse num="6" />
-    <text>The nethermost story was five cubits broad, and the middle was six cubits broad, and the third was seven cubits broad; for on the outside he made offsets [in the wall] of the house all around, that [the beams] should not have hold in the walls of the house.</text>
+    <text>The nethermost story was five cubits broad, and the middle was six cubits broad, and the third was seven cubits broad; for on the outside he made offsets in the wall of the house all around, that the beams should not have hold in the walls of the house.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
@@ -962,7 +958,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="narrator-1KI">
     <verse num="8" />
-    <text>The door for the middle side rooms was in the right side of the house: and they went up by winding stairs into the middle [story], and out of the middle into the third.</text>
+    <text>The door for the middle side rooms was in the right side of the house: and they went up by winding stairs into the middle story, and out of the middle into the third.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-1KI">
     <verse num="9" />
@@ -994,11 +990,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="16" characterId="narrator-1KI">
     <verse num="16" />
-    <text>He built twenty cubits on the hinder part of the house with boards of cedar from the floor to the walls [of the ceiling]: he built [them] for it within, for an oracle, even for the most holy place.</text>
+    <text>He built twenty cubits on the hinder part of the house with boards of cedar from the floor to the walls of the ceiling: he built them for it within, for an oracle, even for the most holy place.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
-    <text>The house, that is, the temple before [the oracle], was forty cubits [long].</text>
+    <text>The house, that is, the temple before the oracle, was forty cubits long.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
@@ -1010,7 +1006,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
-    <text>Within the oracle was [a space of] twenty cubits in length, and twenty cubits in breadth, and twenty cubits in its height; and he overlaid it with pure gold: and he covered the altar with cedar.</text>
+    <text>Within the oracle was a space of twenty cubits in length, and twenty cubits in breadth, and twenty cubits in its height; and he overlaid it with pure gold: and he covered the altar with cedar.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="21" characterId="narrator-1KI">
     <verse num="21" />
@@ -1054,15 +1050,15 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="31" characterId="narrator-1KI">
     <verse num="31" />
-    <text>For the entrance of the oracle he made doors of olive wood: the lintel [and] door posts were a fifth part [of the wall].</text>
+    <text>For the entrance of the oracle he made doors of olive wood: the lintel and door posts were a fifth part of the wall.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="32" characterId="narrator-1KI">
     <verse num="32" />
-    <text>So [he made] two doors of olive wood; and he carved on them carvings of cherubim and palm trees and open flowers, and overlaid them with gold; and he spread the gold on the cherubim, and on the palm trees.</text>
+    <text>So he made two doors of olive wood; and he carved on them carvings of cherubim and palm trees and open flowers, and overlaid them with gold; and he spread the gold on the cherubim, and on the palm trees.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="33" characterId="narrator-1KI">
     <verse num="33" />
-    <text>So also made he for the entrance of the temple door posts of olive wood, out of a fourth part [of the wall];</text>
+    <text>So also made he for the entrance of the temple door posts of olive wood, out of a fourth part of the wall;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="34" characterId="narrator-1KI">
     <verse num="34" />
@@ -1070,7 +1066,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="35" characterId="narrator-1KI">
     <verse num="35" />
-    <text>He carved [thereon] cherubim and palm trees and open flowers; and he overlaid them with gold fitted on the engraved work.</text>
+    <text>He carved thereon cherubim and palm trees and open flowers; and he overlaid them with gold fitted on the engraved work.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="36" characterId="narrator-1KI">
     <verse num="36" />
@@ -1117,7 +1113,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-1KI">
     <verse num="8" />
-    <text>His house where he was to dwell, the other court within the porch, was of the like work. He made also a house for Pharaoh's daughter (whom Solomon had taken as wife), like this porch.</text>
+    <text>His house where he was to dwell, the other court within the porch, was of the like work. He made also a house for Pharaoh’s daughter (whom Solomon had taken as wife), like this porch.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-1KI">
     <verse num="9" />
@@ -1273,7 +1269,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="47" characterId="narrator-1KI">
     <verse num="47" />
-    <text>Solomon left all the vessels [unweighed], because they were exceeding many: the weight of the brass could not be found out.</text>
+    <text>Solomon left all the vessels unweighed, because they were exceeding many: the weight of the brass could not be found out.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="48" characterId="narrator-1KI">
     <verse num="48" />
@@ -1285,18 +1281,18 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="50" characterId="narrator-1KI">
     <verse num="50" />
-    <text>and the cups, and the snuffers, and the basins, and the spoons, and the fire pans, of pure gold; and the hinges, both for the doors of the inner house, the most holy place, and for the doors of the house, [to wit], of the temple, of gold.</text>
+    <text>and the cups, and the snuffers, and the basins, and the spoons, and the fire pans, of pure gold; and the hinges, both for the doors of the inner house, the most holy place, and for the doors of the house, to wit, of the temple, of gold.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="51" characterId="narrator-1KI">
     <verse num="51" />
-    <text>Thus all the work that king Solomon worked in the house of God was finished. Solomon brought in the things which David his father had dedicated, [even] the silver, and the gold, and the vessels, and put them in the treasuries of the house of God.</text>
+    <text>Thus all the work that king Solomon worked in the house of God was finished. Solomon brought in the things which David his father had dedicated, even the silver, and the gold, and the vessels, and put them in the treasuries of the house of God.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="1KI" initialStartVerse="0" characterId="BC-1KI">
     <text>8</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>Then Solomon assembled the elders of Israel, and all the heads of the tribes, the princes of the fathers' [houses] of the children of Israel, to king Solomon in Jerusalem, to bring up the ark of the covenant of God out of the city of David, which is Zion.</text>
+    <text>Then Solomon assembled the elders of Israel, and all the heads of the tribes, the princes of the fathers’ houses of the children of Israel, to king Solomon in Jerusalem, to bring up the ark of the covenant of God out of the city of David, which is Zion.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
@@ -1354,7 +1350,7 @@
   <block style="p" chapter="8" initialStartVerse="15" characterId="Solomon, king" delivery="blessing">
     <text>“Blessed is God, the God of Israel, who spoke with his mouth to David your father, and has with his hand fulfilled it, saying, </text>
     <verse num="16" />
-    <text>'Since the day that I brought forth my people Israel out of Egypt, I chose no city out of all the tribes of Israel to build a house, that my name might be there; but I chose David to be over my people Israel.'</text>
+    <text>’since the day that I brought forth my people Israel out of Egypt, I chose no city out of all the tribes of Israel to build a house, that my name might be there; but I chose David to be over my people Israel.›</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="17" characterId="Solomon, king" delivery="blessing">
     <verse num="17" />
@@ -1362,11 +1358,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="18" characterId="Solomon, king" delivery="blessing">
     <verse num="18" />
-    <text>But God said to David my father, 'Whereas it was in your heart to build a house for my name, you did well that it was in your heart.</text>
+    <text>But God said to David my father, ‹Whereas it was in your heart to build a house for my name, you did well that it was in your heart.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="19" characterId="Solomon, king" delivery="blessing">
     <verse num="19" />
-    <text>Nevertheless, you shall not build the house; but your son who shall come forth out of your body, he shall build the house for my name.'</text>
+    <text>Nevertheless, you shall not build the house; but your son who shall come forth out of your body, he shall build the house for my name.›</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="20" characterId="Solomon, king" delivery="blessing">
     <verse num="20" />
@@ -1391,7 +1387,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="25" characterId="Solomon, king" delivery="praying">
     <verse num="25" />
-    <text>Now therefore, may God, the God of Israel, keep with your servant David my father that which you have promised him, saying, 'There shall not fail you a man in my sight to sit on the throne of Israel, if only your children take heed to their way, to walk before me as you have walked before me.'</text>
+    <text>Now therefore, may God, the God of Israel, keep with your servant David my father that which you have promised him, saying, ‹There shall not fail you a man in my sight to sit on the throne of Israel, if only your children take heed to their way, to walk before me as you have walked before me.›</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="26" characterId="Solomon, king" delivery="praying">
     <verse num="26" />
@@ -1399,7 +1395,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="27" characterId="Solomon, king" delivery="praying">
     <verse num="27" />
-    <text>But will God in very deed dwell on the earth? Behold, heaven and the heaven of heavens can't contain you; how much less this house that I have built!</text>
+    <text>But will God in very deed dwell on the earth? Behold, heaven and the heaven of heavens can’t contain you; how much less this house that I have built!</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="28" characterId="Solomon, king" delivery="praying">
     <verse num="28" />
@@ -1407,7 +1403,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="29" characterId="Solomon, king" delivery="praying">
     <verse num="29" />
-    <text>that your eyes may be open toward this house night and day, even toward the place of which you have said, 'My name shall be there;' to listen to the prayer which your servant shall pray toward this place.</text>
+    <text>that your eyes may be open toward this house night and day, even toward the place of which you have said, ‹My name shall be there;› to listen to the prayer which your servant shall pray toward this place.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="30" characterId="Solomon, king" delivery="praying">
     <verse num="30" />
@@ -1455,7 +1451,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="41" characterId="Solomon, king" delivery="praying">
     <verse num="41" />
-    <text>Moreover concerning the foreigner, who is not of your people Israel, when he shall come out of a far country for your name's sake</text>
+    <text>Moreover concerning the foreigner, who is not of your people Israel, when he shall come out of a far country for your name’s sake</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="42" characterId="Solomon, king" delivery="praying">
     <verse num="42" />
@@ -1475,11 +1471,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="46" characterId="Solomon, king" delivery="praying">
     <verse num="46" />
-    <text>If they sin against you (for there is no man who doesn't sin), and you are angry with them, and deliver them to the enemy, so that they carry them away captive to the land of the enemy, far off or near;</text>
+    <text>If they sin against you (for there is no man who doesn’t sin), and you are angry with them, and deliver them to the enemy, so that they carry them away captive to the land of the enemy, far off or near;</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="47" characterId="Solomon, king" delivery="praying">
     <verse num="47" />
-    <text>yet if they shall repent in the land where they are carried captive, and turn again, and make supplication to you in the land of those who carried them captive, saying, 'We have sinned, and have done perversely; we have dealt wickedly;'</text>
+    <text>yet if they shall repent in the land where they are carried captive, and turn again, and make supplication to you in the land of those who carried them captive, saying, ‹We have sinned, and have done perversely; we have dealt wickedly;›</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="48" characterId="Solomon, king" delivery="praying">
     <verse num="48" />
@@ -1560,7 +1556,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-1KI">
     <verse num="1" />
-    <text>It happened, when Solomon had finished the building of the house of God, and the king's house, and all Solomon's desire which he was pleased to do,</text>
+    <text>It happened, when Solomon had finished the building of the house of God, and the king’s house, and all Solomon’s desire which he was pleased to do,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
@@ -1577,7 +1573,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>then I will establish the throne of your kingdom over Israel forever, according as I promised to David your father, saying, 'There shall not fail you a man on the throne of Israel.'</text>
+    <text>then I will establish the throne of your kingdom over Israel forever, according as I promised to David your father, saying, ‹There shall not fail you a man on the throne of Israel.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="God">
     <verse num="6" />
@@ -1589,15 +1585,15 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Though this house is so high, yet shall everyone who passes by it be astonished, and shall hiss; and they shall say, 'Why has God done thus to this land, and to this house?'</text>
+    <text>Though this house is so high, yet shall everyone who passes by it be astonished, and shall hiss; and they shall say, ‹Why has God done thus to this land, and to this house?›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>and they shall answer, 'Because they forsook God their God, who brought forth their fathers out of the land of Egypt, and laid hold of other gods, and worshiped them, and served them. Therefore God has brought all this evil on them.'”</text>
+    <text>and they shall answer, ‹Because they forsook God their God, who brought forth their fathers out of the land of Egypt, and laid hold of other gods, and worshiped them, and served them. Therefore God has brought all this evil on them.› ”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-1KI">
     <verse num="10" />
-    <text>It happened at the end of twenty years, in which Solomon had built the two houses, the house of God and the king's house</text>
+    <text>It happened at the end of twenty years, in which Solomon had built the two houses, the house of God and the king’s house</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
@@ -1605,7 +1601,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="narrator-1KI">
     <verse num="12" />
-    <text>Hiram came out from Tyre to see the cities which Solomon had given him; and they didn't please him. </text>
+    <text>Hiram came out from Tyre to see the cities which Solomon had given him; and they didn’t please him. </text>
     <verse num="13" />
     <text>He said,</text>
   </block>
@@ -1623,7 +1619,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="16" characterId="narrator-1KI">
     <verse num="16" />
-    <text>Pharaoh king of Egypt had gone up, and taken Gezer, and burnt it with fire, and slain the Canaanites who lived in the city, and given it for a portion to his daughter, Solomon's wife.</text>
+    <text>Pharaoh king of Egypt had gone up, and taken Gezer, and burnt it with fire, and slain the Canaanites who lived in the city, and given it for a portion to his daughter, Solomon’s wife.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
@@ -1647,15 +1643,15 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="23" characterId="narrator-1KI">
     <verse num="23" />
-    <text>These were the chief officers who were over Solomon's work, five hundred fifty, who bore rule over the people who labored in the work.</text>
+    <text>These were the chief officers who were over Solomon’s work, five hundred fifty, who bore rule over the people who labored in the work.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="24" characterId="narrator-1KI">
     <verse num="24" />
-    <text>But Pharaoh's daughter came up out of the city of David to her house which [Solomon] had built for her: then did he build Millo.</text>
+    <text>But Pharaoh’s daughter came up out of the city of David to her house which Solomon had built for her: then did he build Millo.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="25" characterId="narrator-1KI">
     <verse num="25" />
-    <text>Three times a year did Solomon offer burnt offerings and peace offerings on the altar which he built to God, burning incense therewith, [on the altar] that was before God. So he finished the house.</text>
+    <text>Three times a year did Solomon offer burnt offerings and peace offerings on the altar which he built to God, burning incense therewith, on the altar that was before God. So he finished the house.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="26" characterId="narrator-1KI">
     <verse num="26" />
@@ -1682,7 +1678,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="3" characterId="narrator-1KI">
     <verse num="3" />
-    <text>Solomon told her all her questions: there was not anything hidden from the king which he didn't tell her.</text>
+    <text>Solomon told her all her questions: there was not anything hidden from the king which he didn’t tell her.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
@@ -1699,7 +1695,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="queen of Sheba">
     <verse num="7" />
-    <text>However I didn't believe the words, until I came, and my eyes had seen it. Behold, the half was not told me! Your wisdom and prosperity exceed the fame which I heard.</text>
+    <text>However I didn’t believe the words, until I came, and my eyes had seen it. Behold, the half was not told me! Your wisdom and prosperity exceed the fame which I heard.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="queen of Sheba">
     <verse num="8" />
@@ -1719,7 +1715,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="12" characterId="narrator-1KI">
     <verse num="12" />
-    <text>The king made of the almug trees pillars for the house of God, and for the king's house, harps also and stringed instruments for the singers: there came no such almug trees, nor were seen, to this day.</text>
+    <text>The king made of the almug trees pillars for the house of God, and for the king’s house, harps also and stringed instruments for the singers: there came no such almug trees, nor were seen, to this day.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-1KI">
     <verse num="13" />
@@ -1729,15 +1725,15 @@
     <verse num="14" />
     <text>Now the weight of gold that came to Solomon in one year was six hundred sixty-six talents of gold, </text>
     <verse num="15" />
-    <text>besides [that which] the traders [brought], and the traffic of the merchants, and of all the kings of the mixed people, and of the governors of the country.</text>
+    <text>besides that which the traders brought, and the traffic of the merchants, and of all the kings of the mixed people, and of the governors of the country.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="16" characterId="narrator-1KI">
     <verse num="16" />
-    <text>King Solomon made two hundred bucklers of beaten gold; six hundred [shekels] of gold went to one buckler.</text>
+    <text>King Solomon made two hundred bucklers of beaten gold; six hundred shekels of gold went to one buckler.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
-    <text>[he made] three hundred shields of beaten gold; three minas of gold went to one shield: and the king put them in the house of the forest of Lebanon.</text>
+    <text>he made three hundred shields of beaten gold; three minas of gold went to one shield: and the king put them in the house of the forest of Lebanon.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
@@ -1753,7 +1749,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="21" characterId="narrator-1KI">
     <verse num="21" />
-    <text>All king Solomon's drinking vessels were of gold, and all the vessels of the house of the forest of Lebanon were of pure gold: none were of silver; it was nothing accounted of in the days of Solomon.</text>
+    <text>All king Solomon’s drinking vessels were of gold, and all the vessels of the house of the forest of Lebanon were of pure gold: none were of silver; it was nothing accounted of in the days of Solomon.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="22" characterId="narrator-1KI">
     <verse num="22" />
@@ -1781,11 +1777,11 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
-    <text>The horses which Solomon had were brought out of Egypt; and the king's merchants received them in droves, each drove at a price.</text>
+    <text>The horses which Solomon had were brought out of Egypt; and the king’s merchants received them in droves, each drove at a price.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
-    <text>A chariot came up and went out of Egypt for six hundred [shekels] of silver, and a horse for one hundred fifty; and so for all the kings of the Hittites, and for the kings of Syria, did they bring them out by their means.</text>
+    <text>A chariot came up and went out of Egypt for six hundred shekels of silver, and a horse for one hundred fifty; and so for all the kings of the Hittites, and for the kings of Syria, did they bring them out by their means.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="1KI" initialStartVerse="0" characterId="BC-1KI">
     <text>11</text>
@@ -1818,7 +1814,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="6" characterId="narrator-1KI">
     <verse num="6" />
-    <text>Solomon did that which was evil in the sight of God, and didn't go fully after God, as did David his father.</text>
+    <text>Solomon did that which was evil in the sight of God, and didn’t go fully after God, as did David his father.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
@@ -1832,7 +1828,7 @@
     <verse num="9" />
     <text>God was angry with Solomon, because his heart was turned away from God, the God of Israel, who had appeared to him twice, </text>
     <verse num="10" />
-    <text>and had commanded him concerning this thing, that he should not go after other gods: but he didn't keep that which God commanded. </text>
+    <text>and had commanded him concerning this thing, that he should not go after other gods: but he didn’t keep that which God commanded. </text>
     <verse num="11" />
     <text>Therefore God said to Solomon,</text>
   </block>
@@ -1841,15 +1837,15 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Notwithstanding I will not do it in your days, for David your father's sake; but I will tear it out of the hand of your son.</text>
+    <text>Notwithstanding I will not do it in your days, for David your father’s sake; but I will tear it out of the hand of your son.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>However I will not tear away all the kingdom; but I will give one tribe to your son, for David my servant's sake, and for Jerusalem's sake which I have chosen.”</text>
+    <text>However I will not tear away all the kingdom; but I will give one tribe to your son, for David my servant’s sake, and for Jerusalem’s sake which I have chosen.”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="14" characterId="narrator-1KI">
     <verse num="14" />
-    <text>God raised up an adversary to Solomon, Hadad the Edomite: he was of the king's seed in Edom.</text>
+    <text>God raised up an adversary to Solomon, Hadad the Edomite: he was of the king’s seed in Edom.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="15" characterId="narrator-1KI">
     <verse num="15" />
@@ -1861,7 +1857,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
-    <text>that Hadad fled, he and certain Edomites of his father's servants with him, to go into Egypt, Hadad being yet a little child.</text>
+    <text>that Hadad fled, he and certain Edomites of his father’s servants with him, to go into Egypt, Hadad being yet a little child.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
@@ -1873,7 +1869,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
-    <text>The sister of Tahpenes bore him Genubath his son, whom Tahpenes weaned in Pharaoh's house; and Genubath was in Pharaoh's house among the sons of Pharaoh.</text>
+    <text>The sister of Tahpenes bore him Genubath his son, whom Tahpenes weaned in Pharaoh’s house; and Genubath was in Pharaoh’s house among the sons of Pharaoh.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="21" characterId="narrator-1KI">
     <verse num="21" />
@@ -1897,19 +1893,19 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="23" characterId="narrator-1KI">
     <verse num="23" />
-    <text>God raised up [another] adversary to him, Rezon the son of Eliada, who had fled from his lord Hadadezer king of Zobah.</text>
+    <text>God raised up another adversary to him, Rezon the son of Eliada, who had fled from his lord Hadadezer king of Zobah.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="24" characterId="narrator-1KI">
     <verse num="24" />
-    <text>He gathered men to him, and became captain over a troop, when David killed them [of Zobah]: and they went to Damascus, and lived therein, and reigned in Damascus.</text>
+    <text>He gathered men to him, and became captain over a troop, when David killed them of Zobah: and they went to Damascus, and lived therein, and reigned in Damascus.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="25" characterId="narrator-1KI">
     <verse num="25" />
-    <text>He was an adversary to Israel all the days of Solomon, besides the mischief that Hadad [did]: and he abhorred Israel, and reigned over Syria.</text>
+    <text>He was an adversary to Israel all the days of Solomon, besides the mischief that Hadad did: and he abhorred Israel, and reigned over Syria.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="26" characterId="narrator-1KI">
     <verse num="26" />
-    <text>Jeroboam the son of Nebat, an Ephraimite of Zeredah, a servant of Solomon, whose mother's name was Zeruah, a widow, he also lifted up his hand against the king.</text>
+    <text>Jeroboam the son of Nebat, an Ephraimite of Zeredah, a servant of Solomon, whose mother’s name was Zeruah, a widow, he also lifted up his hand against the king.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="27" characterId="narrator-1KI">
     <verse num="27" />
@@ -1921,7 +1917,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
-    <text>It happened at that time, when Jeroboam went out of Jerusalem, that the prophet Ahijah the Shilonite found him in the way; now [Ahijah] had clad himself with a new garment; and they two were alone in the field.</text>
+    <text>It happened at that time, when Jeroboam went out of Jerusalem, that the prophet Ahijah the Shilonite found him in the way; now Ahijah had clad himself with a new garment; and they two were alone in the field.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="30" characterId="narrator-1KI">
     <verse num="30" />
@@ -1930,23 +1926,23 @@
     <text>He said to Jeroboam,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="31" characterId="Ahijah the prophet">
-    <text>“Take ten pieces; for thus says God, the God of Israel, 'Behold, I will tear the kingdom out of the hand of Solomon, and will give ten tribes to you</text>
+    <text>“Take ten pieces; for thus says God, the God of Israel, ‹Behold, I will tear the kingdom out of the hand of Solomon, and will give ten tribes to you</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="32" characterId="Ahijah the prophet">
     <verse num="32" />
-    <text>(but he shall have one tribe, for my servant David's sake and for Jerusalem's sake, the city which I have chosen out of all the tribes of Israel);</text>
+    <text>(but he shall have one tribe, for my servant David’s sake and for Jerusalem’s sake, the city which I have chosen out of all the tribes of Israel);</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="33" characterId="Ahijah the prophet">
     <verse num="33" />
-    <text>because that they have forsaken me, and have worshiped Ashtoreth the goddess of the Sidonians, Chemosh the god of Moab, and Milcom the god of the children of Ammon. They have not walked in my ways, to do that which is right in my eyes, and [to keep] my statutes and my ordinances, as David his father did.</text>
+    <text>because that they have forsaken me, and have worshiped Ashtoreth the goddess of the Sidonians, Chemosh the god of Moab, and Milcom the god of the children of Ammon. They have not walked in my ways, to do that which is right in my eyes, and to keep my statutes and my ordinances, as David his father did.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="34" characterId="Ahijah the prophet">
     <verse num="34" />
-    <text>However I will not take the whole kingdom out of his hand; but I will make him prince all the days of his life, for David my servant's sake whom I chose, who kept my commandments and my statutes;</text>
+    <text>However I will not take the whole kingdom out of his hand; but I will make him prince all the days of his life, for David my servant’s sake whom I chose, who kept my commandments and my statutes;</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="35" characterId="Ahijah the prophet">
     <verse num="35" />
-    <text>but I will take the kingdom out of his son's hand, and will give it to you, even ten tribes.</text>
+    <text>but I will take the kingdom out of his son’s hand, and will give it to you, even ten tribes.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="36" characterId="Ahijah the prophet">
     <verse num="36" />
@@ -1962,7 +1958,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="39" characterId="Ahijah the prophet">
     <verse num="39" />
-    <text>I will for this afflict the seed of David, but not forever.'</text>
+    <text>I will for this afflict the seed of David, but not forever.›</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="40" characterId="narrator-1KI">
     <verse num="40" />
@@ -1970,7 +1966,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="41" characterId="narrator-1KI">
     <verse num="41" />
-    <text>Now the rest of the acts of Solomon, and all that he did, and his wisdom, aren't they written in the book of the acts of Solomon?</text>
+    <text>Now the rest of the acts of Solomon, and all that he did, and his wisdom, aren’t they written in the book of the acts of Solomon?</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="42" characterId="narrator-1KI">
     <verse num="42" />
@@ -2028,18 +2024,18 @@
     <text>He said to them,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="Rehoboam, king">
-    <text>“What counsel do you give, that we may return answer to this people, who have spoken to me, saying, 'Make the yoke that your father did put on us lighter?'”</text>
+    <text>“What counsel do you give, that we may return answer to this people, who have spoken to me, saying, ‹Make the yoke that your father did put on us lighter?› ”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="10" characterId="narrator-1KI">
     <verse num="10" />
     <text>The young men who had grown up with him spoke to him, saying,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="10" characterId="young men (advisors of Rehoboam)">
-    <text>“Thus you shall tell this people who spoke to you, saying, 'Your father made our yoke heavy, but make it lighter to us;' you shall say to them, 'My little finger is thicker than my father's waist.</text>
+    <text>“Thus you shall tell this people who spoke to you, saying, ‹Your father made our yoke heavy, but make it lighter to us;› you shall say to them, ‹My little finger is thicker than my father’s waist.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="11" characterId="young men (advisors of Rehoboam)">
     <verse num="11" />
-    <text>Now whereas my father burdened you with a heavy yoke, I will add to your yoke: my father chastised you with whips, but I will chastise you with scorpions.'”</text>
+    <text>Now whereas my father burdened you with a heavy yoke, I will add to your yoke: my father chastised you with whips, but I will chastise you with scorpions.› ”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="12" characterId="narrator-1KI">
     <verse num="12" />
@@ -2059,11 +2055,11 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="15" characterId="narrator-1KI">
     <verse num="15" />
-    <text>So the king didn't listen to the people; for it was a thing brought about of God, that he might establish his word, which God spoke by Ahijah the Shilonite to Jeroboam the son of Nebat.</text>
+    <text>So the king didn’t listen to the people; for it was a thing brought about of God, that he might establish his word, which God spoke by Ahijah the Shilonite to Jeroboam the son of Nebat.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="16" characterId="narrator-1KI">
     <verse num="16" />
-    <text>When all Israel saw that the king didn't listen to them, the people answered the king, saying,</text>
+    <text>When all Israel saw that the king didn’t listen to them, the people answered the king, saying,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="16" characterId="Jeroboam">
     <text>“What portion have we in David? Neither do we have an inheritance in the son of Jesse. To your tents, Israel! Now see to your own house, David.”</text>
@@ -2122,7 +2118,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="30" characterId="narrator-1KI">
     <verse num="30" />
-    <text>This thing became a sin; for the people went [to worship] before the one, even to Dan.</text>
+    <text>This thing became a sin; for the people went to worship before the one, even to Dan.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="31" characterId="narrator-1KI">
     <verse num="31" />
@@ -2146,7 +2142,7 @@
     <text>He cried against the altar by the word of God, and said,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="man of God from Judah">
-    <text>“Altar, altar, thus says God: 'Behold, a son shall be born to the house of David, Josiah by name. On you he shall sacrifice the priests of the high places who burn incense on you, and they will burn men's bones on you.'”</text>
+    <text>“Altar, altar, thus says God: ‹Behold, a son shall be born to the house of David, Josiah by name. On you he shall sacrifice the priests of the high places who burn incense on you, and they will burn men’s bones on you.› ”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-1KI">
     <verse num="3" />
@@ -2175,7 +2171,7 @@
     <text>“Now entreat the favor of God your God, and pray for me, that my hand may be restored me again.”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="6" characterId="narrator-1KI">
-    <text>The man of God entreated God, and the king's hand was restored him again, and became as it was before. </text>
+    <text>The man of God entreated God, and the king’s hand was restored him again, and became as it was before. </text>
     <verse num="7" />
     <text>The king said to the man of God,</text>
   </block>
@@ -2191,11 +2187,11 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="9" characterId="man of God from Judah">
     <verse num="9" />
-    <text>for so was it commanded me by the word of God, saying, 'You shall eat no bread, nor drink water, neither return by the way that you came.'”</text>
+    <text>for so was it commanded me by the word of God, saying, ‹You shall eat no bread, nor drink water, neither return by the way that you came.› ”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-1KI">
     <verse num="10" />
-    <text>So he went another way, and didn't return by the way that he came to Bethel.</text>
+    <text>So he went another way, and didn’t return by the way that he came to Bethel.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
@@ -2244,14 +2240,14 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="17" characterId="man of God from Judah">
     <verse num="17" />
-    <text>For it was said to me by the word of God, 'You shall eat no bread nor drink water there, nor turn again to go by the way that you came.'”</text>
+    <text>For it was said to me by the word of God, ‹You shall eat no bread nor drink water there, nor turn again to go by the way that you came.› ”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
     <text>He said to him,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="old prophet in Bethel" delivery="deceitful">
-    <text>“I also am a prophet as you are; and an angel spoke to me by the word of God, saying, 'Bring him back with you into your house, that he may eat bread and drink water.'”</text>
+    <text>“I also am a prophet as you are; and an angel spoke to me by the word of God, saying, ‹Bring him back with you into your house, that he may eat bread and drink water.› ”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="18" characterId="narrator-1KI">
     <text>He lied to him. </text>
@@ -2265,9 +2261,9 @@
     <text>and he cried to the man of God who came from Judah, saying,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="21" characterId="old prophet in Bethel">
-    <text>“Thus says God, 'Because you have been disobedient to the mouth of God, and have not kept the commandment which God your God commanded you, </text>
+    <text>“Thus says God, ‹Because you have been disobedient to the mouth of God, and have not kept the commandment which God your God commanded you, </text>
     <verse num="22" />
-    <text>but came back, and have eaten bread and drunk water in the place of which he said to you, “Eat no bread, and drink no water;” your body shall not come to the tomb of your fathers.'”</text>
+    <text>but came back, and have eaten bread and drunk water in the place of which he said to you, “Eat no bread, and drink no water;” your body shall not come to the tomb of your fathers.› ”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="23" characterId="narrator-1KI">
     <verse num="23" />
@@ -2324,7 +2320,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="33" characterId="narrator-1KI">
     <verse num="33" />
-    <text>After this thing Jeroboam didn't return from his evil way, but again made priests of the high places from among all the people. Whoever wanted to, he consecrated him, that there might be priests of the high places.</text>
+    <text>After this thing Jeroboam didn’t return from his evil way, but again made priests of the high places from among all the people. Whoever wanted to, he consecrated him, that there might be priests of the high places.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="34" characterId="narrator-1KI">
     <verse num="34" />
@@ -2348,7 +2344,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
-    <text>Jeroboam's wife did so, and arose, and went to Shiloh, and came to the house of Ahijah. Now Ahijah could not see; for his eyes were set by reason of his age. </text>
+    <text>Jeroboam’s wife did so, and arose, and went to Shiloh, and came to the house of Ahijah. Now Ahijah could not see; for his eyes were set by reason of his age. </text>
     <verse num="5" />
     <text>God said to Ahijah,</text>
   </block>
@@ -2364,7 +2360,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="Ahijah the prophet">
     <verse num="7" />
-    <text>Go, tell Jeroboam, 'Thus says God, the God of Israel: “Because I exalted you from among the people, and made you prince over my people Israel,</text>
+    <text>Go, tell Jeroboam, ‹Thus says God, the God of Israel: “Because I exalted you from among the people, and made you prince over my people Israel,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="8" characterId="Ahijah the prophet">
     <verse num="8" />
@@ -2404,7 +2400,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
-    <text>Jeroboam's wife arose, and departed, and came to Tirzah. As she came to the threshold of the house, the child died.</text>
+    <text>Jeroboam’s wife arose, and departed, and came to Tirzah. As she came to the threshold of the house, the child died.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
@@ -2420,7 +2416,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="21" characterId="narrator-1KI">
     <verse num="21" />
-    <text>Rehoboam the son of Solomon reigned in Judah. Rehoboam was forty-one years old when he began to reign, and he reigned seventeen years in Jerusalem, the city which God had chosen out of all the tribes of Israel, to put his name there: and his mother's name was Naamah the Ammonitess.</text>
+    <text>Rehoboam the son of Solomon reigned in Judah. Rehoboam was forty-one years old when he began to reign, and he reigned seventeen years in Jerusalem, the city which God had chosen out of all the tribes of Israel, to put his name there: and his mother’s name was Naamah the Ammonitess.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="22" characterId="narrator-1KI">
     <verse num="22" />
@@ -2440,11 +2436,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="26" characterId="narrator-1KI">
     <verse num="26" />
-    <text>and he took away the treasures of the house of God, and the treasures of the king's house; he even took away all: and he took away all the shields of gold which Solomon had made.</text>
+    <text>and he took away the treasures of the house of God, and the treasures of the king’s house; he even took away all: and he took away all the shields of gold which Solomon had made.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="27" characterId="narrator-1KI">
     <verse num="27" />
-    <text>King Rehoboam made in their place shields of brass, and committed them to the hands of the captains of the guard, who kept the door of the king's house.</text>
+    <text>King Rehoboam made in their place shields of brass, and committed them to the hands of the captains of the guard, who kept the door of the king’s house.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
@@ -2452,7 +2448,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
-    <text>Now the rest of the acts of Rehoboam, and all that he did, aren't they written in the book of the chronicles of the kings of Judah?</text>
+    <text>Now the rest of the acts of Rehoboam, and all that he did, aren’t they written in the book of the chronicles of the kings of Judah?</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="30" characterId="narrator-1KI">
     <verse num="30" />
@@ -2460,7 +2456,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="31" characterId="narrator-1KI">
     <verse num="31" />
-    <text>Rehoboam slept with his fathers, and was buried with his fathers in the city of David: and his mother's name was Naamah the Ammonitess. Abijam his son reigned in his place.</text>
+    <text>Rehoboam slept with his fathers, and was buried with his fathers in the city of David: and his mother’s name was Naamah the Ammonitess. Abijam his son reigned in his place.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="1KI" initialStartVerse="0" characterId="BC-1KI">
     <text>15</text>
@@ -2471,7 +2467,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="narrator-1KI">
     <verse num="2" />
-    <text>Three years reigned he in Jerusalem: and his mother's name was Maacah the daughter of Abishalom.</text>
+    <text>Three years reigned he in Jerusalem: and his mother’s name was Maacah the daughter of Abishalom.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="narrator-1KI">
     <verse num="3" />
@@ -2479,11 +2475,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
-    <text>Nevertheless for David's sake did God his God give him a lamp in Jerusalem, to set up his son after him, and to establish Jerusalem;</text>
+    <text>Nevertheless for David’s sake did God his God give him a lamp in Jerusalem, to set up his son after him, and to establish Jerusalem;</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="5" characterId="narrator-1KI">
     <verse num="5" />
-    <text>because David did that which was right in the eyes of God, and didn't turn aside from anything that he commanded him all the days of his life, except only in the matter of Uriah the Hittite.</text>
+    <text>because David did that which was right in the eyes of God, and didn’t turn aside from anything that he commanded him all the days of his life, except only in the matter of Uriah the Hittite.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="6" characterId="narrator-1KI">
     <verse num="6" />
@@ -2491,7 +2487,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
-    <text>The rest of the acts of Abijam, and all that he did, aren't they written in the book of the chronicles of the kings of Judah? There was war between Abijam and Jeroboam.</text>
+    <text>The rest of the acts of Abijam, and all that he did, aren’t they written in the book of the chronicles of the kings of Judah? There was war between Abijam and Jeroboam.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="8" characterId="narrator-1KI">
     <verse num="8" />
@@ -2503,7 +2499,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="narrator-1KI">
     <verse num="10" />
-    <text>Forty-one years reigned he in Jerusalem: and his mother's name was Maacah the daughter of Abishalom.</text>
+    <text>Forty-one years reigned he in Jerusalem: and his mother’s name was Maacah the daughter of Abishalom.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
@@ -2535,7 +2531,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
-    <text>Then Asa took all the silver and the gold that were left in the treasures of the house of God, and the treasures of the king's house, and delivered them into the hand of his servants; and king Asa sent them to Ben Hadad, the son of Tabrimmon, the son of Hezion, king of Syria, who lived at Damascus, saying,</text>
+    <text>Then Asa took all the silver and the gold that were left in the treasures of the house of God, and the treasures of the king’s house, and delivered them into the hand of his servants; and king Asa sent them to Ben Hadad, the son of Tabrimmon, the son of Hezion, king of Syria, who lived at Damascus, saying,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="Asa, king of Judah">
     <verse num="19" />
@@ -2555,7 +2551,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="23" characterId="narrator-1KI">
     <verse num="23" />
-    <text>Now the rest of all the acts of Asa, and all his might, and all that he did, and the cities which he built, aren't they written in the book of the chronicles of the kings of Judah? But in the time of his old age he was diseased in his feet.</text>
+    <text>Now the rest of all the acts of Asa, and all his might, and all that he did, and the cities which he built, aren’t they written in the book of the chronicles of the kings of Judah? But in the time of his old age he was diseased in his feet.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="24" characterId="narrator-1KI">
     <verse num="24" />
@@ -2579,7 +2575,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
-    <text>It happened that, as soon as he was king, he struck all the house of Jeroboam: he didn't leave to Jeroboam any who breathed, until he had destroyed him; according to the saying of God, which he spoke by his servant Ahijah the Shilonite;</text>
+    <text>It happened that, as soon as he was king, he struck all the house of Jeroboam: he didn’t leave to Jeroboam any who breathed, until he had destroyed him; according to the saying of God, which he spoke by his servant Ahijah the Shilonite;</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="30" characterId="narrator-1KI">
     <verse num="30" />
@@ -2587,7 +2583,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="31" characterId="narrator-1KI">
     <verse num="31" />
-    <text>Now the rest of the acts of Nadab, and all that he did, aren't they written in the book of the chronicles of the kings of Israel?</text>
+    <text>Now the rest of the acts of Nadab, and all that he did, aren’t they written in the book of the chronicles of the kings of Israel?</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="32" characterId="narrator-1KI">
     <verse num="32" />
@@ -2595,7 +2591,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="33" characterId="narrator-1KI">
     <verse num="33" />
-    <text>In the third year of Asa king of Judah began Baasha the son of Ahijah to reign over all Israel in Tirzah, [and reigned] twenty-four years.</text>
+    <text>In the third year of Asa king of Judah began Baasha the son of Ahijah to reign over all Israel in Tirzah, and reigned twenty-four years.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="34" characterId="narrator-1KI">
     <verse num="34" />
@@ -2618,11 +2614,11 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>The dogs will eat Baasha's descendants who die in the city; and he who dies of his in the field the birds of the sky will eat.</text>
+    <text>The dogs will eat Baasha’s descendants who die in the city; and he who dies of his in the field the birds of the sky will eat.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="5" characterId="narrator-1KI">
     <verse num="5" />
-    <text>Now the rest of the acts of Baasha, and what he did, and his might, aren't they written in the book of the chronicles of the kings of Israel?</text>
+    <text>Now the rest of the acts of Baasha, and what he did, and his might, aren’t they written in the book of the chronicles of the kings of Israel?</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="6" characterId="narrator-1KI">
     <verse num="6" />
@@ -2634,7 +2630,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="8" characterId="narrator-1KI">
     <verse num="8" />
-    <text>In the twenty-sixth year of Asa king of Judah began Elah the son of Baasha to reign over Israel in Tirzah, [and reigned] two years.</text>
+    <text>In the twenty-sixth year of Asa king of Judah began Elah the son of Baasha to reign over Israel in Tirzah, and reigned two years.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="9" characterId="narrator-1KI">
     <verse num="9" />
@@ -2646,7 +2642,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
-    <text>It happened, when he began to reign, as soon as he sat on his throne, that he struck all the house of Baasha: he didn't leave him a single one who urinates on a wall, neither of his relatives, nor of his friends.</text>
+    <text>It happened, when he began to reign, as soon as he sat on his throne, that he struck all the house of Baasha: he didn’t leave him a single one who urinates on a wall, neither of his relatives, nor of his friends.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="12" characterId="narrator-1KI">
     <verse num="12" />
@@ -2656,7 +2652,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="14" characterId="narrator-1KI">
     <verse num="14" />
-    <text>Now the rest of the acts of Elah, and all that he did, aren't they written in the book of the chronicles of the kings of Israel?</text>
+    <text>Now the rest of the acts of Elah, and all that he did, aren’t they written in the book of the chronicles of the kings of Israel?</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="15" characterId="narrator-1KI">
     <verse num="15" />
@@ -2672,13 +2668,13 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
-    <text>It happened, when Zimri saw that the city was taken, that he went into the castle of the king's house, and burnt the king's house over him with fire, and died, </text>
+    <text>It happened, when Zimri saw that the city was taken, that he went into the castle of the king’s house, and burnt the king’s house over him with fire, and died, </text>
     <verse num="19" />
     <text>for his sins which he sinned in doing that which was evil in the sight of God, in walking in the way of Jeroboam, and in his sin which he did, to make Israel to sin.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
-    <text>Now the rest of the acts of Zimri, and his treason that he did, aren't they written in the book of the chronicles of the kings of Israel?</text>
+    <text>Now the rest of the acts of Zimri, and his treason that he did, aren’t they written in the book of the chronicles of the kings of Israel?</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="21" characterId="narrator-1KI">
     <verse num="21" />
@@ -2690,7 +2686,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="23" characterId="narrator-1KI">
     <verse num="23" />
-    <text>In the thirty-first year of Asa king of Judah began Omri to reign over Israel, [and reigned] twelve years: six years reigned he in Tirzah.</text>
+    <text>In the thirty-first year of Asa king of Judah began Omri to reign over Israel, and reigned twelve years: six years reigned he in Tirzah.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="24" characterId="narrator-1KI">
     <verse num="24" />
@@ -2706,7 +2702,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="27" characterId="narrator-1KI">
     <verse num="27" />
-    <text>Now the rest of the acts of Omri which he did, and his might that he showed, aren't they written in the book of the chronicles of the kings of Israel?</text>
+    <text>Now the rest of the acts of Omri which he did, and his might that he showed, aren’t they written in the book of the chronicles of the kings of Israel?</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
@@ -2808,15 +2804,15 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="14" characterId="Elijah">
     <verse num="14" />
-    <text>For thus says God, the God of Israel, 'The jar of meal shall not empty, neither shall the jar of oil fail, until the day that God sends rain on the earth.'”</text>
+    <text>For thus says God, the God of Israel, ‹The jar of meal shall not empty, neither shall the jar of oil fail, until the day that God sends rain on the earth.› ”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="15" characterId="narrator-1KI">
     <verse num="15" />
-    <text>She went and did according to the saying of Elijah: and she, and he, and her house, ate [many] days.</text>
+    <text>She went and did according to the saying of Elijah: and she, and he, and her house, ate many days.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="16" characterId="narrator-1KI">
     <verse num="16" />
-    <text>The jar of meal didn't empty, neither did the jar of oil fail, according to the word of God, which he spoke by Elijah.</text>
+    <text>The jar of meal didn’t empty, neither did the jar of oil fail, according to the word of God, which he spoke by Elijah.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="17" characterId="narrator-1KI">
     <verse num="17" />
@@ -2910,7 +2906,7 @@
     <text>He answered him,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="8" characterId="Elijah">
-    <text>“It is I. Go, tell your lord, 'Behold, Elijah is here!'”</text>
+    <text>“It is I. Go, tell your lord, ‹Behold, Elijah is here!› ”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="9" characterId="narrator-1KI">
     <verse num="9" />
@@ -2921,23 +2917,23 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="10" characterId="Obadiah, manager of Ahab's palace">
     <verse num="10" />
-    <text>As God your God lives, there is no nation or kingdom, where my lord has not sent to seek you. When they said, 'He is not here,' he took an oath of the kingdom and nation, that they didn't find you.</text>
+    <text>As God your God lives, there is no nation or kingdom, where my lord has not sent to seek you. When they said, ‹He is not here,› he took an oath of the kingdom and nation, that they didn’t find you.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="11" characterId="Obadiah, manager of Ahab's palace">
     <verse num="11" />
-    <text>Now you say, 'Go, tell your lord, “Behold, Elijah is here.”</text>
+    <text>Now you say, ‹Go, tell your lord, “Behold, Elijah is here.”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="12" characterId="Obadiah, manager of Ahab's palace">
     <verse num="12" />
-    <text>It will happen, as soon as I am gone from you, that the Spirit of God will carry you I don't know where; and so when I come and tell Ahab, and he can't find you, he will kill me. But I, your servant, have feared God from my youth.</text>
+    <text>It will happen, as soon as I am gone from you, that the Spirit of God will carry you I don’t know where; and so when I come and tell Ahab, and he can’t find you, he will kill me. But I, your servant, have feared God from my youth.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="13" characterId="Obadiah, manager of Ahab's palace">
     <verse num="13" />
-    <text>Wasn't it told my lord what I did when Jezebel killed the prophets of God, how I hid one hundred men of God's prophets with fifty to a cave, and fed them with bread and water?</text>
+    <text>Wasn’t it told my lord what I did when Jezebel killed the prophets of God, how I hid one hundred men of God’s prophets with fifty to a cave, and fed them with bread and water?</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="14" characterId="Obadiah, manager of Ahab's palace">
     <verse num="14" />
-    <text>Now you say, 'Go, tell your lord, “Behold, Elijah is here;” and he will kill me.”</text>
+    <text>Now you say, ‹Go, tell your lord, “Behold, Elijah is here;” and he will kill me.”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="15" characterId="narrator-1KI">
     <verse num="15" />
@@ -2966,7 +2962,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="19" characterId="Elijah">
     <verse num="19" />
-    <text>Now therefore send, and gather to me all Israel to Mount Carmel, and four hundred fifty of the prophets of Baal, and four hundred of the prophets of the Asherah, who eat at Jezebel's table.”</text>
+    <text>Now therefore send, and gather to me all Israel to Mount Carmel, and four hundred fifty of the prophets of Baal, and four hundred of the prophets of the Asherah, who eat at Jezebel’s table.”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
@@ -3144,7 +3140,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="44" characterId="Elijah">
-    <text>“Go up, tell Ahab, 'Get ready and go down, so that the rain doesn't stop you.'”</text>
+    <text>“Go up, tell Ahab, ‹Get ready and go down, so that the rain doesn’t stop you.› ”</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="45" characterId="narrator-1KI">
     <verse num="45" />
@@ -3172,7 +3168,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
-    <text>But he himself went a day's journey into the wilderness, and came and sat down under a juniper tree: and he requested for himself that he might die, and said,</text>
+    <text>But he himself went a day’s journey into the wilderness, and came and sat down under a juniper tree: and he requested for himself that he might die, and said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="Elijah">
     <text>“It is enough. Now, O God, take away my life; for I am not better than my fathers.”</text>
@@ -3262,7 +3258,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="19" characterId="narrator-1KI">
     <verse num="19" />
-    <text>So he departed there, and found Elisha the son of Shaphat, who was plowing, with twelve yoke [of oxen] before him, and he with the twelfth: and Elijah passed over to him, and cast his mantle on him.</text>
+    <text>So he departed there, and found Elisha the son of Shaphat, who was plowing, with twelve yoke of oxen before him, and he with the twelfth: and Elijah passed over to him, and cast his mantle on him.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
@@ -3295,7 +3291,7 @@
   <block style="p" chapter="20" initialStartVerse="2" characterId="messengers of Ben-Hadad, king of Aram">
     <text>“Thus says Ben Hadad, </text>
     <verse num="3" />
-    <text>Your silver and your gold is mine. Your wives also and your children, even the best, are mine.'”</text>
+    <text>Your silver and your gold is mine. Your wives also and your children, even the best, are mine.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="4" characterId="narrator-1KI">
     <verse num="4" />
@@ -3309,7 +3305,7 @@
     <text>The messengers came again, and said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="5" characterId="messengers of Ben-Hadad, king of Aram">
-    <text>“Ben Hadad says, 'I sent indeed to you, saying, “You shall deliver me your silver, and your gold, and your wives, and your children;</text>
+    <text>“Ben Hadad says, ‹I sent indeed to you, saying, “You shall deliver me your silver, and your gold, and your wives, and your children;</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="6" characterId="messengers of Ben-Hadad, king of Aram">
     <verse num="6" />
@@ -3334,14 +3330,14 @@
     <text>Therefore he said to the messengers of Ben Hadad,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="9" characterId="Ahab, king of Israel">
-    <text>“Tell my lord the king, 'All that you sent for to your servant at the first I will do; but this thing I cannot do.'”</text>
+    <text>“Tell my lord the king, ‹All that you sent for to your servant at the first I will do; but this thing I cannot do.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="9" characterId="narrator-1KI">
     <text>The messengers departed, and brought him back the message. </text>
     <verse num="10" />
     <text>Ben Hadad sent to him, and said,</text>
   </block>
-  <block style="p" chapter="20" initialStartVerse="10" characterId="messengers of Ben-Hadad, king of Aram">
+  <block style="p" chapter="20" initialStartVerse="10" characterId="Ben-Hadad, king of Aram">
     <text>“The gods do so to me, and more also, if the dust of Samaria shall suffice for handfuls for all the people who follow me.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="11" characterId="narrator-1KI">
@@ -3349,7 +3345,7 @@
     <text>The king of Israel answered,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="11" characterId="Ahab, king of Israel">
-    <text>“Tell him, 'Don't let him who puts on his armor brag like he who takes it off.'”</text>
+    <text>“Tell him, ‹Don’t let him who puts on his armor brag like he who takes it off.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="12" characterId="narrator-1KI">
     <verse num="12" />
@@ -3364,7 +3360,7 @@
     <text>Behold, a prophet came near to Ahab king of Israel, and said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="13" characterId="prophet of the LORD">
-    <text>“Thus says God, 'Have you seen all this great multitude? Behold, I will deliver it into your hand this day; and you shall know that I am God.'”</text>
+    <text>“Thus says God, ‹Have you seen all this great multitude? Behold, I will deliver it into your hand this day; and you shall know that I am God.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="14" characterId="narrator-1KI">
     <verse num="14" />
@@ -3377,7 +3373,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="14" characterId="prophet of the LORD">
-    <text>“Thus says God, 'By the young men of the princes of the provinces.'”</text>
+    <text>“Thus says God, ‹By the young men of the princes of the provinces.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="14" characterId="narrator-1KI">
     <text>Then he said,</text>
@@ -3457,7 +3453,7 @@
     <text>A man of God came near and spoke to the king of Israel, and said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="28" characterId="prophet of the LORD">
-    <text>“Thus says God, 'Because the Syrians have said, “God is a god of the hills, but he is not a god of the valleys;” therefore I will deliver all this great multitude into your hand, and you shall know that I am God.'”</text>
+    <text>“Thus says God, ‹Because the Syrians have said, “God is a god of the hills, but he is not a god of the valleys;” therefore I will deliver all this great multitude into your hand, and you shall know that I am God.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="29" characterId="narrator-1KI">
     <verse num="29" />
@@ -3479,7 +3475,7 @@
     <text>So they put sackcloth on their bodies and ropes on their heads, and came to the king of Israel, and said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="32" characterId="officials of Ben-Hadad, king of Aram">
-    <text>“Your servant Ben Hadad says, 'Please let me live.'”</text>
+    <text>“Your servant Ben Hadad says, ‹Please let me live.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="32" characterId="narrator-1KI">
     <text>He said,</text>
@@ -3548,7 +3544,7 @@
     <text>As the king passed by, he cried to the king; and he said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="39" characterId="prophet who confronts Ahab">
-    <text>“Your servant went out into the midst of the battle; and behold, a man turned aside, and brought a man to me, and said, 'Guard this man! If by any means he be missing, then your life shall be for his life, or else you shall pay a talent of silver.'</text>
+    <text>“Your servant went out into the midst of the battle; and behold, a man turned aside, and brought a man to me, and said, ‹Guard this man! If by any means he be missing, then your life shall be for his life, or else you shall pay a talent of silver.›</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="40" characterId="prophet who confronts Ahab">
     <verse num="40" />
@@ -3567,7 +3563,7 @@
     <text>He said to him,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="42" characterId="prophet who confronts Ahab">
-    <text>“Thus says God, 'Because you have let go out of your hand the man whom I had devoted to destruction, therefore your life shall go for his life, and your people for his people.'”</text>
+    <text>“Thus says God, ‹Because you have let go out of your hand the man whom I had devoted to destruction, therefore your life shall go for his life, and your people for his people.› ”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="43" characterId="narrator-1KI">
     <verse num="43" />
@@ -3612,7 +3608,7 @@
     <text>He said to her,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="6" characterId="Ahab, king of Israel">
-    <text>“Because I spoke to Naboth the Jezreelite, and said to him, 'Give me your vineyard for money; or else, if it pleases you, I will give you another vineyard for it.' He answered, 'I will not give you my vineyard.'”</text>
+    <text>“Because I spoke to Naboth the Jezreelite, and said to him, ‹Give me your vineyard for money; or else, if it pleases you, I will give you another vineyard for it.› He answered, ‹I will not give you my vineyard.› ”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="7" characterId="narrator-1KI">
     <verse num="7" />
@@ -3623,7 +3619,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="8" characterId="narrator-1KI">
     <verse num="8" />
-    <text>So she wrote letters in Ahab's name, and sealed them with his seal, and sent the letters to the elders and to the nobles who were in his city, who lived with Naboth. </text>
+    <text>So she wrote letters in Ahab’s name, and sealed them with his seal, and sent the letters to the elders and to the nobles who were in his city, who lived with Naboth. </text>
     <verse num="9" />
     <text>She wrote in the letters, saying,</text>
   </block>
@@ -3632,7 +3628,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="10" characterId="Jezebel">
     <verse num="10" />
-    <text>Set two men, base fellows, before him, and let them testify against him, saying, 'You cursed God and the king!' Then carry him out, and stone him to death.”</text>
+    <text>Set two men, base fellows, before him, and let them testify against him, saying, ‹You cursed God and the king!› Then carry him out, and stone him to death.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="narrator-1KI">
     <verse num="11" />
@@ -3678,7 +3674,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>You shall speak to him, saying, 'Thus says God, Have you killed and also taken possession?” You shall speak to him, saying, 'Thus says God, “In the place where dogs licked the blood of Naboth, dogs will lick your blood, even yours.”</text>
+    <text>You shall speak to him, saying, ‹Thus says God, Have you killed and also taken possession?” You shall speak to him, saying, ‹Thus says God, “In the place where dogs licked the blood of Naboth, dogs will lick your blood, even yours.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="20" characterId="narrator-1KI">
     <verse num="20" />
@@ -3727,7 +3723,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="29" characterId="God">
     <verse num="29" />
-    <text>See how Ahab humbles himself before me? Because he humbles himself before me, I will not bring the evil in his days; but in his son's days will I bring the evil on his house.</text>
+    <text>See how Ahab humbles himself before me? Because he humbles himself before me, I will not bring the evil in his days; but in his son’s days will I bring the evil on his house.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="1KI" initialStartVerse="0" characterId="BC-1KI">
     <text>22</text>
@@ -3814,7 +3810,7 @@
     <text>Zedekiah the son of Chenaanah made him horns of iron, and said,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="11" characterId="Zedekiah, son of Kenaanah, false prophet">
-    <text>“Thus says God, 'With these you shall push the Syrians, until they are consumed.'”</text>
+    <text>“Thus says God, ‹With these you shall push the Syrians, until they are consumed.› ”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="12" characterId="narrator-1KI">
     <verse num="12" />
@@ -3862,7 +3858,7 @@
     <text>He said,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="17" characterId="Micaiah, prophet of the LORD">
-    <text>“I saw all Israel scattered on the mountains, as sheep that have no shepherd. God said, 'These have no master. Let them each return to his house in peace.'”</text>
+    <text>“I saw all Israel scattered on the mountains, as sheep that have no shepherd. God said, ‹These have no master. Let them each return to his house in peace.› ”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="18" characterId="narrator-1KI">
     <verse num="18" />
@@ -3880,15 +3876,15 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="20" characterId="Micaiah, prophet of the LORD">
     <verse num="20" />
-    <text>God said, 'Who shall entice Ahab, that he may go up and fall at Ramoth Gilead?' One said one thing; and another said another.</text>
+    <text>God said, ‹Who shall entice Ahab, that he may go up and fall at Ramoth Gilead?› One said one thing; and another said another.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="21" characterId="Micaiah, prophet of the LORD">
     <verse num="21" />
-    <text>A spirit came out and stood before God, and said, 'I will entice him.'</text>
+    <text>A spirit came out and stood before God, and said, ‹I will entice him.›</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="22" characterId="Micaiah, prophet of the LORD">
     <verse num="22" />
-    <text>God said to him, 'How?' He said, 'I will go out and will be a lying spirit in the mouth of all his prophets.' He said, 'You will entice him, and will also prevail. Go out and do so.'</text>
+    <text>God said to him, ‹How?› He said, ‹I will go out and will be a lying spirit in the mouth of all his prophets.› He said, ‹You will entice him, and will also prevail. Go out and do so.›</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="23" characterId="Micaiah, prophet of the LORD">
     <verse num="23" />
@@ -3917,7 +3913,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="27" characterId="Ahab, king of Israel">
     <verse num="27" />
-    <text>Say, 'Thus says the king, “Put this fellow in the prison, and feed him with bread of affliction and with water of affliction, until I come in peace.”</text>
+    <text>Say, ‹Thus says the king, “Put this fellow in the prison, and feed him with bread of affliction and with water of affliction, until I come in peace.”</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="28" characterId="narrator-1KI">
     <verse num="28" />
@@ -3991,7 +3987,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="39" characterId="narrator-1KI">
     <verse num="39" />
-    <text>Now the rest of the acts of Ahab, and all that he did, and the ivory house which he built, and all the cities that he built, aren't they written in the book of the chronicles of the kings of Israel?</text>
+    <text>Now the rest of the acts of Ahab, and all that he did, and the ivory house which he built, and all the cities that he built, aren’t they written in the book of the chronicles of the kings of Israel?</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="40" characterId="narrator-1KI">
     <verse num="40" />
@@ -4003,11 +3999,11 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="42" characterId="narrator-1KI">
     <verse num="42" />
-    <text>Jehoshaphat was thirty-five years old when he began to reign; and he reigned twenty-five years in Jerusalem. His mother's name was Azubah the daughter of Shilhi.</text>
+    <text>Jehoshaphat was thirty-five years old when he began to reign; and he reigned twenty-five years in Jerusalem. His mother’s name was Azubah the daughter of Shilhi.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="43" characterId="narrator-1KI">
     <verse num="43" />
-    <text>He walked in all the way of Asa his father; He didn't turn aside from it, doing that which was right in the eyes of God: however the high places were not taken away; the people still sacrificed and burnt incense in the high places.</text>
+    <text>He walked in all the way of Asa his father; He didn’t turn aside from it, doing that which was right in the eyes of God: however the high places were not taken away; the people still sacrificed and burnt incense in the high places.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="44" characterId="narrator-1KI">
     <verse num="44" />
@@ -4015,7 +4011,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="45" characterId="narrator-1KI">
     <verse num="45" />
-    <text>Now the rest of the acts of Jehoshaphat, and his might that he showed, and how he warred, aren't they written in the book of the chronicles of the kings of Judah?</text>
+    <text>Now the rest of the acts of Jehoshaphat, and his might that he showed, and how he warred, aren’t they written in the book of the chronicles of the kings of Judah?</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="46" characterId="narrator-1KI">
     <verse num="46" />
@@ -4027,7 +4023,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="48" characterId="narrator-1KI">
     <verse num="48" />
-    <text>Jehoshaphat made ships of Tarshish to go to Ophir for gold: but they didn't go; for the ships were broken at Ezion Geber.</text>
+    <text>Jehoshaphat made ships of Tarshish to go to Ophir for gold: but they didn’t go; for the ships were broken at Ezion Geber.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="49" characterId="narrator-1KI">
     <verse num="49" />
