@@ -10765,15 +10765,15 @@ JER	13	25	Jeremiah			Potential
 JER	13	26	God		God (the LORD)	Implicit		
 JER	13	27	God		God (the LORD)	Implicit		
 JER	14	2	God		God (the LORD)	Alternate		
-JER	14	2	Jeremiah			Implicit		
+JER	14	2	Jeremiah			Potential		
 JER	14	3	God		God (the LORD)	Alternate		
-JER	14	3	Jeremiah			Implicit		
+JER	14	3	Jeremiah			Potential		
 JER	14	4	God		God (the LORD)	Alternate		
-JER	14	4	Jeremiah			Implicit		
+JER	14	4	Jeremiah			Potential		
 JER	14	5	God		God (the LORD)	Alternate		
-JER	14	5	Jeremiah			Implicit		
+JER	14	5	Jeremiah			Potential		
 JER	14	6	God		God (the LORD)	Alternate		
-JER	14	6	Jeremiah			Implicit		
+JER	14	6	Jeremiah			Potential		
 JER	14	7	Jeremiah			Alternate		
 JER	14	7	people, repentant			Implicit		
 JER	14	7	Needs Review			Alternate		
@@ -11068,7 +11068,7 @@ JER	23	10	God		God (the LORD)	Potential
 JER	23	10	Needs Review			Implicit		
 JER	23	11	God		God (the LORD)	Normal		
 JER	23	11	Jeremiah			Rare		
-JER	23	11	Needs Review			Potential		
+JER	23	11	Needs Review			Rare		
 JER	23	12	God		God (the LORD)	Normal		
 JER	23	13	God		God (the LORD)	Implicit		
 JER	23	14	God		God (the LORD)	Implicit		
