@@ -279,7 +279,7 @@ namespace Glyssen.RefTextDevUtilities
 
 			try
 			{
-				ProcessReferenceTextData(mode, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null, ntData, otData);
+				ProcessReferenceTextData(mode, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null, otData, ntData);
 			}
 			catch (Exception e)
 			{
@@ -759,12 +759,6 @@ namespace Glyssen.RefTextDevUtilities
 						newBlocks.Add(newBlock);
 					}
 
-					if (mode == Mode.CreateCharacterMapping)
-					{
-						WriteCharacterMappingFiles(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
-						return;
-					}
-
 					if (mode == Mode.Generate || mode == Mode.GenerateEnglish)
 					{
 						newBooks.Add(new BookScript(newBlocks[0].BookCode, newBlocks, existingEnglishRefBook.Versification) {PageHeader = currentTitleAndChapterLabelInfo.PageHeader });
@@ -780,52 +774,56 @@ namespace Glyssen.RefTextDevUtilities
 				}
 			}
 
-			if (mode == Mode.Generate)
+			switch (mode)
 			{
-				if (languagesToProcess.Any(l => !l.IsEnglish))
-					WriteOutput("Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version is " +
-						"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
+				case Mode.CreateCharacterMapping:
+					WriteCharacterMappingFiles(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
+					break;
+				case Mode.Generate:
+					if (languagesToProcess.Any(l => !l.IsEnglish))
+						WriteOutput("Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version is " +
+							"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
 
-				if (annotationsToOutput.Any()) // If not, we probably didn't process English data
-					WriteAnnotationsFile(annotationsToOutput);
-			}
+					if (annotationsToOutput.Any()) // If not, we probably didn't process English data
+						WriteAnnotationsFile(annotationsToOutput);
+					break;
+				case Mode.GenerateEnglish:
+					var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
+					Directory.CreateDirectory(temporaryPathRoot);
 
-			if (mode == Mode.GenerateEnglish)
-			{
-				var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
-				Directory.CreateDirectory(temporaryPathRoot);
+					var sortedUnmatchedStr = s_unmatchedCharacterIds.OrderByDescending(t => t.Item1).ThenBy(t => t.Item2).Select(t => $"{t.Item1}\t{t.Item2}\t{t.Item3}");
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "unmatched.txt"), sortedUnmatchedStr);
 
-				var sortedUnmatchedStr = s_unmatchedCharacterIds.OrderByDescending(t => t.Item1).ThenBy(t => t.Item2).Select(t => $"{t.Item1}\t{t.Item2}\t{t.Item3}");
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "unmatched.txt"), sortedUnmatchedStr);
+					var sortedMatched = s_characterIdsMatchedByControlFile.Select(t => $"{t.Item1} => {t.Item2}").ToList();
+					sortedMatched.Sort();
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileWOref.txt"), sortedMatched);
 
-				var sortedMatched = s_characterIdsMatchedByControlFile.Select(t => $"{t.Item1} => {t.Item2}").ToList();
-				sortedMatched.Sort();
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileWOref.txt"), sortedMatched);
+					var matchedSortedByRefStr = s_characterIdsMatchedByControlFile.OrderBy(t => t.Item3).ThenBy(t => t.Item1).Select(t =>
+					{
+						var extra = t.Item4.Contains("/") ? $"\t\t({t.Item4})" : "";
+						return $"{t.Item3}\t-- {t.Item1} => {t.Item2}{extra}";
+					});
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileSortedByRef.txt"), matchedSortedByRefStr);
 
-				var matchedSortedByRefStr = s_characterIdsMatchedByControlFile.OrderBy(t => t.Item3).ThenBy(t => t.Item1).Select(t =>
-				{
-					var extra = t.Item4.Contains("/") ? $"\t\t({t.Item4})" : "";
-					return $"{t.Item3}\t-- {t.Item1} => {t.Item2}{extra}";
-				});
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileSortedByRef.txt"), matchedSortedByRefStr);
+					var sortedMatchedStr = s_characterIdsMatchedByControlFileStr.ToList();
+					sortedMatchedStr.Sort();
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFile.txt"), sortedMatchedStr);
 
-				var sortedMatchedStr = s_characterIdsMatchedByControlFileStr.ToList();
-				sortedMatchedStr.Sort();
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFile.txt"), sortedMatchedStr);
+					if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
+					{
+						var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
+						WriteOutput($"{kCharacterDetailTxtFilename} contains some FCBH character labels that were not found in the " +
+							$"source Director's Guide. See {filename} for details.", true);
+						File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
+							.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
+					}
 
-				if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
-				{
-					var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
-					WriteOutput($"{kCharacterDetailTxtFilename} contains some FCBH character labels that were not found in the " +
-						$"source Director's Guide. See {filename} for details.", true);
-					File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
-						.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
-				}
-			}
+					break;
 
-			if (!ErrorsOccurred && mode == Mode.CreateBookTitleAndChapterLabelSummary)
-			{
-				WriteTitleAndChapterSummaryResults(resultSummary);
+				case Mode.CreateBookTitleAndChapterLabelSummary:
+					if (!ErrorsOccurred)
+						WriteTitleAndChapterSummaryResults(resultSummary);
+					break;
 			}
 
 			WriteOutput("Done!");
