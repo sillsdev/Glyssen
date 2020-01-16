@@ -23,13 +23,15 @@ namespace Glyssen.Quote
 {
 	public class QuoteParser
 	{
-		public static void ParseProject(Project project, BackgroundWorker projectWorker)
+		public static void ParseProject(Project project, BackgroundWorker projectWorker, IEnumerable<string> bookIdsToParse)
 		{
 			var cvInfo = new ParserCharacterRepository(new CombinedCharacterVerseData(project), project.ReferenceText);
 
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
-			Parallel.ForEach(project.Books, book =>
+			IEnumerable<BookScript> books = bookIdsToParse == null ? project.Books :
+				project.Books.Where(b => bookIdsToParse.Contains(b.BookId));
+			Parallel.ForEach(books, book =>
 			{
 				var nodeList = book.GetScriptBlocks();
 				blocksInBook.AddOrUpdate(book, nodeList, (script, list) => nodeList);

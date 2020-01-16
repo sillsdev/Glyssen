@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;

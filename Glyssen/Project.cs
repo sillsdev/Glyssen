@@ -1572,7 +1572,7 @@ namespace Glyssen
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemReadyForParse)
-				DoQuoteParse();
+				DoQuoteParse(bookScripts.Select(b => b.BookId));
 		}
 
 		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1617,7 +1617,7 @@ namespace Glyssen
 			OnReport(pe);
 		}
 
-		private void DoQuoteParse()
+		private void DoQuoteParse(IEnumerable<string> booksToParse = null)
 		{
 			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 			ProjectState = ProjectState.Parsing;
@@ -1625,12 +1625,14 @@ namespace Glyssen
 			quoteWorker.DoWork += QuoteWorker_DoWork;
 			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
 			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
-			quoteWorker.RunWorkerAsync();
+			object[] parameters = { booksToParse };
+			quoteWorker.RunWorkerAsync(parameters);
 		}
 
-		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs doWorkEventArgs)
+		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			QuoteParser.ParseProject(this, sender as BackgroundWorker);
+			var bookIds = (IEnumerable<string>)((object[])e.Argument)[0];
+			QuoteParser.ParseProject(this, sender as BackgroundWorker, bookIds);
 		}
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
