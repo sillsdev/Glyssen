@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Glyssen.Character;
+using GlyssenEngine.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;

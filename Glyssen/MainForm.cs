@@ -7,18 +7,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Bundle;
-using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL;
@@ -36,6 +35,7 @@ using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {

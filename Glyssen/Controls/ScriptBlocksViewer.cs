@@ -6,27 +6,16 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using L10NSharp;
 using SIL;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using BlockNavigatorViewModel = Glyssen.Dialogs.BlockNavigatorViewModel;
 
 namespace Glyssen.Controls
 {
-	public enum ScriptBlocksViewType
-	{
-		Html,
-		Grid,
-	}
-
-	public enum BlockGroupingType
-	{
-		Quote,
-		BlockCorrelation,
-	}
-
 	public partial class ScriptBlocksViewer : UserControl
 	{
 		private const int kContextBlocksBackward = 10;

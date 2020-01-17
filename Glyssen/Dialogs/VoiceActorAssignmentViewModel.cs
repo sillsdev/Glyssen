@@ -6,17 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Glyssen.Character;
 using Glyssen.Controls;
-using Glyssen.Properties;
 using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.VoiceActor;
-using L10NSharp;
 using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen.Dialogs
 {

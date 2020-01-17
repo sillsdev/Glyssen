@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen;
-using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests.Rules
 {

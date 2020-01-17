@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared.Script;
+using GlyssenEngine;
 using SIL.Xml;
 
 namespace Glyssen

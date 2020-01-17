@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.ViewModels;
 using SIL;
 
 namespace Glyssen.Dialogs

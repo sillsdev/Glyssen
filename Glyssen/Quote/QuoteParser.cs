@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;   // Merged
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;

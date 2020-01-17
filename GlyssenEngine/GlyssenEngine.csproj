@@ -24,11 +24,15 @@
   <ItemGroup>
     <None Remove="Resources\Annotations.txt" />
     <None Remove="Resources\BiblicalAuthors.txt" />
+    <None Remove="Resources\BlockSplit.css" />
     <None Remove="Resources\CharacterDetail.txt" />
     <None Remove="Resources\CharacterVerse.txt" />
+    <None Remove="Resources\EnglishVersification.txt" />
     <None Remove="Resources\NarratorOverrides.xml" />
     <None Remove="Resources\quoteSystems.xml" />
     <None Remove="Resources\RelatedCharacters.xml" />
+    <None Remove="Resources\SampleMRK.xml" />
+    <None Remove="Resources\Silent.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,6 +67,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="SelectExistingProjectDlg.resx">
+      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -83,11 +90,21 @@
   <ItemGroup>
     <Content Include="Resources\Annotations.txt" />
     <Content Include="Resources\BiblicalAuthors.txt" />
+    <Content Include="Resources\BlockSplit.css" />
     <Content Include="Resources\CharacterDetail.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
+    <Content Include="Resources\EnglishVersification.txt" />
     <Content Include="Resources\NarratorOverrides.xml" />
     <Content Include="Resources\quoteSystems.xml" />
     <Content Include="Resources\RelatedCharacters.xml" />
+    <Content Include="Resources\SampleMRK.xml" />
+    <Content Include="Resources\Silent.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

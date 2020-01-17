@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
-using L10NSharp;
+using GlyssenEngine;
+using GlyssenEngine.Character;
 using SIL;
 
 namespace Glyssen.Dialogs

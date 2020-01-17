@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen;
-using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;

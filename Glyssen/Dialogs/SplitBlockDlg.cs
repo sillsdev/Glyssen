@@ -8,8 +8,11 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using SIL.Reporting;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen.Dialogs
 {

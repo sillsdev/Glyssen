@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
-using Glyssen.Character;
-using Glyssen.Dialogs;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs

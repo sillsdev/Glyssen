@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
+using GlyssenEngine;
 using NUnit.Framework;
 
 namespace GlyssenTests

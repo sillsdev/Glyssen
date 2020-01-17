@@ -2,10 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Xml;
-using Glyssen;
+using GlyssenEngine;
 using SIL.DblBundle.Usx;
 using SIL.Scripture;
-using SIL.Xml;
 
 namespace DevTools
 {

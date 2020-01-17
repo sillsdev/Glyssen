@@ -12,6 +12,7 @@ using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
@@ -21,11 +22,11 @@ using PtxUtils;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
-using SIL.Windows.Forms.FileSystem;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
 using Analytics = GlyssenEngine.Utilities.Analytics;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
 using Glyssen.Shared;
-using L10NSharp;
+using GlyssenEngine;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
+using GlyssenEngine;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
@@ -151,7 +151,7 @@ namespace GlyssenTests
 	{
 		public static string BookSummary(this IEnumerable<string> bookStrs)
 		{
-			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)).BookSummary();
+			return BookSummary(bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)));
 		}
 
 		public static IEnumerable<BookScript> ToBookScriptEnumerable(this IEnumerable<string> bookStrs)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 

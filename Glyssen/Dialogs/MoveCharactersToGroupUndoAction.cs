@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
-using L10NSharp;
+using GlyssenEngine;
+using GlyssenEngine.Character;
 using SIL;
 using SIL.Extensions;
 

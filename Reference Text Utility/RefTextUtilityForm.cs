@@ -5,11 +5,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Bundle;
 using Glyssen.ReferenceTextUtility.Properties;
 using Glyssen.RefTextDevUtilities;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Bundle;
 using SIL.DblBundle.Text;
 using SIL.Xml;
 

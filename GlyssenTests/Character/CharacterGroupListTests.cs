@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using Glyssen;
-using Glyssen.Character;
+﻿using GlyssenEngine;
+using GlyssenEngine.Character;
 using NUnit.Framework;
 
 namespace GlyssenTests.Character

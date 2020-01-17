@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using GlyssenEngine.Character;
+using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Utilities
 {
@@ -23,7 +24,7 @@ namespace Glyssen.Utilities
 		Color SpeechNonCharacter { get; }
 
 		Color GetMatchColor(int i);
-		Color GetForeColorByCharacter(GlyssenEngine.Character.Character character);
+		Color GetForeColorByCharacter(AssignCharacterViewModel.Character character);
 		Color GetForeColorByCharacterId(string characterId);
 	}
 
@@ -67,7 +68,7 @@ namespace Glyssen.Utilities
 			return MaxContrastColorList[i % MaxContrastColorList.Count];
 		}
 
-		public virtual Color GetForeColorByCharacter(GlyssenEngine.Character.Character character)
+		public virtual Color GetForeColorByCharacter(AssignCharacterViewModel.Character character)
 		{
 			if (character == null || string.IsNullOrWhiteSpace(character.CharacterId))
 				return SpeechNonCharacter;

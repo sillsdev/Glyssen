@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using Glyssen;
-using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 using SIL.Scripture;
 

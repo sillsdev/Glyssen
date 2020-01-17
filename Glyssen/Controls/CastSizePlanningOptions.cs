@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Controls
 {

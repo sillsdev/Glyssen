@@ -5,7 +5,8 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
-using GlyssenEngine.Character;
+using GlyssenEngine;
+using GlyssenEngine.ViewModels;
 using static System.String;
 
 namespace Glyssen.Dialogs
@@ -29,20 +30,20 @@ namespace Glyssen.Dialogs
 			m_txtCharacterFilter.Focus();
 		}
 
-		public GlyssenEngine.Character.Character SelectedCharacter =>
-			m_listBoxCharacters.SelectedItem as GlyssenEngine.Character.Character;
+		public AssignCharacterViewModel.Character SelectedCharacter =>
+			m_listBoxCharacters.SelectedItem as AssignCharacterViewModel.Character;
 
-		public Delivery SelectedDelivery =>
-			m_listBoxDeliveries.SelectedItem as Delivery;
+		public AssignCharacterViewModel.Delivery SelectedDelivery =>
+			m_listBoxDeliveries.SelectedItem as AssignCharacterViewModel.Delivery;
 
-		private IEnumerable<GlyssenEngine.Character.Character> CurrentContextCharacters =>
-			m_listBoxCharacters.Items.Cast<GlyssenEngine.Character.Character>();
+		private IEnumerable<AssignCharacterViewModel.Character> CurrentContextCharacters =>
+			m_listBoxCharacters.Items.Cast<AssignCharacterViewModel.Character>();
 
 		private bool IsCharacterAndDeliverySelectionComplete =>
 			m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 
-		private bool IsDirty => m_viewModel.IsModified((GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem,
-			(Delivery)m_listBoxDeliveries.SelectedItem);
+		private bool IsDirty => m_viewModel.IsModified((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
+			(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 
 		private void m_icnDeliveryFilter_Click(object sender, EventArgs e)
 		{
@@ -52,7 +53,7 @@ namespace Glyssen.Dialogs
 		private void m_txtDeliveryFilter_TextChanged(object sender, EventArgs e)
 		{
 			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries(m_txtDeliveryFilter.Text),
-				(Delivery)m_listBoxDeliveries.SelectedItem);
+				(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 		}
 
 		private void m_btnAddCharacter_Click(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace Glyssen.Dialogs
 				m_viewModel.StoreCharacterDetail(character, dlg.Gender, dlg.Age);
 			}
 
-			var newItem = new GlyssenEngine.Character.Character(character, projectSpecific: true);
+			var newItem = new AssignCharacterViewModel.Character(character, projectSpecific: true);
 			m_listBoxCharacters.Items.Add(newItem);
 			m_listBoxCharacters.SelectedItem = newItem;
 		}
@@ -95,11 +96,11 @@ namespace Glyssen.Dialogs
 		{
 			if (IsNullOrWhiteSpace(delivery))
 				return;
-			m_listBoxDeliveries.SelectedItem = m_listBoxDeliveries.Items.Cast<GlyssenEngine.Character.Delivery>()
+			m_listBoxDeliveries.SelectedItem = m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>()
 				.FirstOrDefault(d => d.Text == delivery);
 			if (m_listBoxDeliveries.SelectedItem != null)
 				return;
-			var newItem = new GlyssenEngine.Character.Delivery(delivery);
+			var newItem = new AssignCharacterViewModel.Delivery(delivery);
 			m_listBoxDeliveries.Items.Add(newItem);
 			m_listBoxDeliveries.SelectedItem = newItem;
 		}
@@ -116,7 +117,7 @@ namespace Glyssen.Dialogs
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			var selectedCharacter = (GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem;
+			var selectedCharacter = (AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem;
 
 			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
@@ -159,7 +160,7 @@ namespace Glyssen.Dialogs
 				if (m_characterListHoveredIndex > -1)
 				{
 					m_characterListToolTip.Active = false;
-					var hoveredCharacter = ((GlyssenEngine.Character.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
+					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
 					if (!IsNullOrEmpty(hoveredCharacter.LocalizedAlias))
 					{
 						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.LocalizedCharacterId);
@@ -172,7 +173,7 @@ namespace Glyssen.Dialogs
 		private void m_llMoreDel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ShowDeliveryFilter();
-			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries(), (Delivery)m_listBoxDeliveries.SelectedItem);
+			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries(), (AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 			m_txtDeliveryFilter.Focus();
 			var fc = this.FindFocusedControl();
 			if (fc != null)
@@ -184,7 +185,7 @@ namespace Glyssen.Dialogs
 			LoadCharacterListBox(m_viewModel.GetUniqueCharacters());
 		}
 
-		private void LoadCharacterListBox(IEnumerable<GlyssenEngine.Character.Character> characters)
+		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
 		{
 			m_listBoxCharacters.BeginUpdate();
 
@@ -222,7 +223,7 @@ namespace Glyssen.Dialogs
 			m_llMoreDel.Enabled = true;
 		}
 
-		private void LoadDeliveryListBox(IEnumerable<Delivery> deliveries, Delivery selectedItem = null)
+		private void LoadDeliveryListBox(IEnumerable<AssignCharacterViewModel.Delivery> deliveries, AssignCharacterViewModel.Delivery selectedItem = null)
 		{
 			m_listBoxDeliveries.BeginUpdate();
 			m_listBoxDeliveries.Items.Clear();
@@ -234,20 +235,20 @@ namespace Glyssen.Dialogs
 			m_listBoxDeliveries.EndUpdate();
 		}
 
-		private void SelectDelivery(Delivery previouslySelectedDelivery)
+		private void SelectDelivery(AssignCharacterViewModel.Delivery previouslySelectedDelivery)
 		{
 			if (m_listBoxCharacters.Items.Count == 0 || m_listBoxDeliveries.Items.Count == 0 || m_listBoxCharacters.SelectedItem == null)
 				return;
 			Block currentBlock = m_viewModel.CurrentBlock;
-			string currentDelivery = IsNullOrEmpty(currentBlock.Delivery) ? Delivery.Normal.Text : currentBlock.Delivery;
+			string currentDelivery = IsNullOrEmpty(currentBlock.Delivery) ? AssignCharacterViewModel.Delivery.Normal.Text : currentBlock.Delivery;
 
 			if (m_listBoxDeliveries.Items.Count == 1)
 				m_listBoxDeliveries.SelectedIndex = 0;
 			else
 			{
-				if (currentBlock.CharacterId == ((GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem).CharacterId)
+				if (currentBlock.CharacterId == ((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).CharacterId)
 				{
-					foreach (var delivery in m_listBoxDeliveries.Items.Cast<Delivery>())
+					foreach (var delivery in m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>())
 					{
 						if (delivery.Text == currentDelivery)
 						{
@@ -262,7 +263,7 @@ namespace Glyssen.Dialogs
 
 			if (m_listBoxDeliveries.SelectedItem == null && previouslySelectedDelivery != null)
 			{
-				if (m_listBoxDeliveries.Items.Cast<Delivery>().Any(delivery => delivery == previouslySelectedDelivery))
+				if (m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>().Any(delivery => delivery == previouslySelectedDelivery))
 				{
 					m_listBoxDeliveries.SelectedItem = previouslySelectedDelivery;
 				}

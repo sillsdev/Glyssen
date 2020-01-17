@@ -1,9 +1,11 @@
-﻿using Glyssen.Utilities;
-using L10NSharp.TMXUtils;
+﻿using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using GlyssenEngine;
+using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Dialogs
 {

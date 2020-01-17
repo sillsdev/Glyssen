@@ -7,6 +7,7 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;

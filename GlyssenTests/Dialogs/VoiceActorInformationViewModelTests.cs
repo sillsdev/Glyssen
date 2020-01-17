@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
-using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Dialogs;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenTests.Properties;
 using NUnit.Framework;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests.Dialogs
 {

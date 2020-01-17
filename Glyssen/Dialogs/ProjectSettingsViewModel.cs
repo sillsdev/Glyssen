@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Glyssen.Paratext;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Paratext;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
 
@@ -32,7 +33,7 @@ namespace Glyssen.Dialogs
 			};
 
 			RecordingProjectName = project.Name;
-		    AudioStockNumber = project.AudioStockNumber;
+			AudioStockNumber = project.AudioStockNumber;
 			BundlePath = project.OriginalBundlePath;
 			ParatextProjectName = project.ParatextProjectName;
 			IsLiveParatextProject = project.IsLiveParatextProject;
@@ -87,8 +88,8 @@ namespace Glyssen.Dialogs
 		public string LanguageName { get; private set; }
 		public string IsoCode { get; private set; }
 		public string PublicationName { get; private set; }
-        public string RecordingProjectName { get; set; }
-        public string AudioStockNumber { get; set; }
+		public string RecordingProjectName { get; set; }
+		public string AudioStockNumber { get; set; }
 		public string BundlePath { get; set; }
 		public string ParatextProjectName { get; set; }
 		public bool IsLiveParatextProject { get; set; }

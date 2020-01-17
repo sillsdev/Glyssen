@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Utilities;
 using SIL;
 using SIL.DblBundle;
@@ -14,6 +15,7 @@ using SIL.IO;
 using SIL.Scripture;
 using SIL.Reporting;
 using SIL.Xml;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {

@@ -1,8 +1,7 @@
 ﻿using System.Linq;
-using Glyssen.Character;
-using Glyssen.Dialogs;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.ViewModels;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 
@@ -56,7 +55,7 @@ namespace GlyssenTests.Dialogs
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(Glyssen.Project project, int maleNarrators, int femaleNarrators)
+		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(GlyssenEngine.Project project, int maleNarrators, int femaleNarrators)
 		{
 			var model = new CastSizePlanningViewModel(project);
 			model.NarratorOption = NarratorsOption.Custom;

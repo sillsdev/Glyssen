@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Glyssen.Bundle;
+using GlyssenEngine.Bundle;
 using SIL.DblBundle.Tests.Text;
 using SIL.IO;
 

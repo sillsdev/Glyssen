@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Utilities;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

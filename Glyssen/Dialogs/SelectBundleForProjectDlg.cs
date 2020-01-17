@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Glyssen.Bundle;
 using Glyssen.Properties;
-using L10NSharp;
+using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using SIL;
 using SIL.DblBundle;
 using static System.IO.Path;

@@ -4,11 +4,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using DesktopAnalytics;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using SIL.Reporting;
 using SIL.Scripture;
+using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Controls
 {

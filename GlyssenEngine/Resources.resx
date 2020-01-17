@@ -124,11 +124,17 @@
   <data name="BiblicalAuthors" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\BiblicalAuthors.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="BlockSplitCss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\BlockSplit.css;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="CharacterDetail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\CharacterDetail.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="CharacterVerseData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\CharacterVerse.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="EnglishVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\EnglishVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
   </data>
   <data name="NarratorOverrides" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\NarratorOverrides.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -138,5 +144,11 @@
   </data>
   <data name="RelatedCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\RelatedCharacters.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SampleMRK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SampleMRK.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Silent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Silent.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

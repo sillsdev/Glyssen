@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
 using SIL.Xml;
-using GlyssenTests.Properties;
 using Rhino.Mocks;
 using SIL.IO;
 using static GlyssenEngine.Character.CharacterVerseData;
+using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
 {

@@ -17,7 +17,10 @@ using System.Windows.Forms;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -137,7 +140,7 @@ namespace Glyssen.Dialogs
 					m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
 
 			m_blocksViewer.Initialize(m_viewModel,
-				GlyssenEngine.Character.Character.GetCharacterIdForUi,
+				AssignCharacterViewModel.Character.GetCharacterIdForUi,
 				block => block.Delivery);
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
@@ -424,13 +427,13 @@ namespace Glyssen.Dialogs
 
 			if (m_viewModel.CurrentReferenceTextMatchup != null)
 			{
-				foreach (GlyssenEngine.Character.Character character in m_viewModel.GetCharactersForCurrentReferenceTextMatchup())
+				foreach (AssignCharacterViewModel.Character character in m_viewModel.GetCharactersForCurrentReferenceTextMatchup())
 					colCharacter.Items.Add(character);
 
 				colCharacter.ReadOnly = colCharacter.Items.Count == 1 &&
 					!m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear);
 
-				foreach (Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
+				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
@@ -462,7 +465,7 @@ namespace Glyssen.Dialogs
 						SetDeliveryCellValue(row, correlatedBlock);
 					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 
-					var character = (GlyssenEngine.Character.Character) row.Cells[colCharacter.Index].Value;
+					var character = (AssignCharacterViewModel.Character) row.Cells[colCharacter.Index].Value;
 					SetReferenceTextForeColor(row, character);
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
@@ -487,7 +490,7 @@ namespace Glyssen.Dialogs
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
 
-		private void SetReferenceTextForeColor(DataGridViewRow row, GlyssenEngine.Character.Character character)
+		private void SetReferenceTextForeColor(DataGridViewRow row, AssignCharacterViewModel.Character character)
 		{
 			var foreColor = GlyssenColorPalette.ColorScheme.GetForeColorByCharacter(character);
 			if (colPrimary.Visible)
@@ -501,10 +504,10 @@ namespace Glyssen.Dialogs
 			if (IsNullOrEmpty(delivery))
 				delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
 			if (IsNullOrEmpty(delivery))
-				delivery = ((Delivery)colDelivery.Items[0]).LocalizedDisplay;
+				delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
 			row.Cells[colDelivery.Index].Value = delivery;
 			row.Cells[colDelivery.Index].ReadOnly =
-				(row.Cells[colCharacter.Index].Value as GlyssenEngine.Character.Character) == GlyssenEngine.Character.Character.Narrator;
+				(row.Cells[colCharacter.Index].Value as AssignCharacterViewModel.Character) == AssignCharacterViewModel.Character.Narrator;
 		}
 
 		private void SetCharacterCellValue(DataGridViewRow row, Block correlatedBlock)
@@ -515,13 +518,13 @@ namespace Glyssen.Dialogs
 			if (CharacterVerseData.IsCharacterStandard(characterId))
 			{
 				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-					row.Cells[colCharacter.Index].Value = (GlyssenEngine.Character.Character)colCharacter.Items[0];
+					row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
 				else
 					row.Cells[colCharacter.Index].ReadOnly = true;
 			}
 			else
 			{
-				foreach (GlyssenEngine.Character.Character character in colCharacter.Items)
+				foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
 				{
 					if (character.CharacterId == characterId)
 					{
@@ -619,8 +622,8 @@ namespace Glyssen.Dialogs
 			{
 				if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
 				{
-					return m_viewModel.IsModified((GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem,
-						(Delivery)m_listBoxDeliveries.SelectedItem);
+					return m_viewModel.IsModified((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
+						(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 				}
 				return m_viewModel.CurrentReferenceTextMatchup != null && m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
 			}
@@ -631,7 +634,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.LoadNextRelevantBlock();
 		}
 
-		private void LoadCharacterListBox(IEnumerable<GlyssenEngine.Character.Character> characters)
+		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
 		{
 			m_listBoxCharacters.BeginUpdate();
 
@@ -654,10 +657,10 @@ namespace Glyssen.Dialogs
 				m_listBoxCharacters.SelectedItem = character;
 		}
 
-		private IEnumerable<GlyssenEngine.Character.Character> CurrentContextCharacters =>
-			m_listBoxCharacters.Items.Cast<GlyssenEngine.Character.Character>();
+		private IEnumerable<AssignCharacterViewModel.Character> CurrentContextCharacters =>
+			m_listBoxCharacters.Items.Cast<AssignCharacterViewModel.Character>();
 
-		private void LoadDeliveryListBox(IEnumerable<Delivery> deliveries, Delivery selectedItem = null)
+		private void LoadDeliveryListBox(IEnumerable<AssignCharacterViewModel.Delivery> deliveries, AssignCharacterViewModel.Delivery selectedItem = null)
 		{
 			m_listBoxDeliveries.BeginUpdate();
 			m_listBoxDeliveries.Items.Clear();
@@ -669,20 +672,20 @@ namespace Glyssen.Dialogs
 			m_listBoxDeliveries.EndUpdate();
 		}
 
-		private void SelectDelivery(Delivery previouslySelectedDelivery)
+		private void SelectDelivery(AssignCharacterViewModel.Delivery previouslySelectedDelivery)
 		{
 			if (m_listBoxCharacters.Items.Count == 0 || m_listBoxDeliveries.Items.Count == 0 || m_listBoxCharacters.SelectedItem == null)
 				return;
 			Block currentBlock = m_viewModel.CurrentBlock;
-			string currentDelivery = IsNullOrEmpty(currentBlock.Delivery) ? Delivery.Normal.Text : currentBlock.Delivery;
+			string currentDelivery = IsNullOrEmpty(currentBlock.Delivery) ? AssignCharacterViewModel.Delivery.Normal.Text : currentBlock.Delivery;
 
 			if (m_listBoxDeliveries.Items.Count == 1)
 				m_listBoxDeliveries.SelectedIndex = 0;
 			else
 			{
-				if (currentBlock.CharacterId == ((GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem).CharacterId)
+				if (currentBlock.CharacterId == ((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).CharacterId)
 				{
-					foreach (var delivery in m_listBoxDeliveries.Items.Cast<Delivery>())
+					foreach (var delivery in m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>())
 					{
 						if (delivery.Text == currentDelivery)
 						{
@@ -697,7 +700,7 @@ namespace Glyssen.Dialogs
 
 			if (m_listBoxDeliveries.SelectedItem == null && previouslySelectedDelivery != null)
 			{
-				if (m_listBoxDeliveries.Items.Cast<Delivery>().Any(delivery => delivery == previouslySelectedDelivery))
+				if (m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>().Any(delivery => delivery == previouslySelectedDelivery))
 				{
 					m_listBoxDeliveries.SelectedItem = previouslySelectedDelivery;
 				}
@@ -706,8 +709,8 @@ namespace Glyssen.Dialogs
 
 		private void SaveSelections()
 		{
-			m_viewModel.SetCharacterAndDelivery((GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem,
-				(Delivery)m_listBoxDeliveries.SelectedItem);
+			m_viewModel.SetCharacterAndDelivery((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
+				(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 		}
 
 		private bool IsOkayToLeaveBlock()
@@ -796,7 +799,7 @@ namespace Glyssen.Dialogs
 				m_viewModel.StoreCharacterDetail(character, dlg.Gender, dlg.Age);
 			}
 
-			var newItem = new GlyssenEngine.Character.Character(character);
+			var newItem = new AssignCharacterViewModel.Character(character);
 			m_listBoxCharacters.Items.Add(newItem);
 			m_listBoxCharacters.SelectedItem = newItem;
 		}
@@ -805,11 +808,11 @@ namespace Glyssen.Dialogs
 		{
 			if (IsNullOrWhiteSpace(delivery))
 				return;
-			m_listBoxDeliveries.SelectedItem = m_listBoxDeliveries.Items.Cast<Delivery>()
+			m_listBoxDeliveries.SelectedItem = m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>()
 				.FirstOrDefault(d => d.Text == delivery);
 			if (m_listBoxDeliveries.SelectedItem != null)
 				return;
-			var newItem = new Delivery(delivery);
+			var newItem = new AssignCharacterViewModel.Delivery(delivery);
 			m_listBoxDeliveries.Items.Add(newItem);
 			m_listBoxDeliveries.SelectedItem = newItem;
 		}
@@ -968,7 +971,7 @@ namespace Glyssen.Dialogs
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			var selectedCharacter = (GlyssenEngine.Character.Character)m_listBoxCharacters.SelectedItem;
+			var selectedCharacter = (AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem;
 
 			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
@@ -992,7 +995,7 @@ namespace Glyssen.Dialogs
 		private void m_llMoreDel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ShowDeliveryFilter();
-			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries(), (Delivery)m_listBoxDeliveries.SelectedItem);
+			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries(), (AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 			m_txtDeliveryFilter.Focus();
 		}
 
@@ -1009,7 +1012,7 @@ namespace Glyssen.Dialogs
 		private void m_txtDeliveryFilter_TextChanged(object sender, EventArgs e)
 		{
 			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries(m_txtDeliveryFilter.Text),
-				(Delivery)m_listBoxDeliveries.SelectedItem);
+				(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 		}
 
 		private void m_icnCharacterFilter_Click(object sender, EventArgs e)
@@ -1270,7 +1273,7 @@ namespace Glyssen.Dialogs
 				if (m_characterListHoveredIndex > -1)
 				{
 					m_characterListToolTip.Active = false;
-					var hoveredCharacter = ((GlyssenEngine.Character.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
+					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
 					if (!IsNullOrEmpty(hoveredCharacter.LocalizedAlias))
 					{
 						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.LocalizedCharacterId);
@@ -1445,12 +1448,12 @@ namespace Glyssen.Dialogs
 			if (e.ColumnIndex == colDelivery.Index)
 			{
 				Debug.Assert(colDelivery.Visible);
-				var selectedDelivery = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as Delivery;
+				var selectedDelivery = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Delivery;
 				if (selectedDelivery == null)
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 					selectedDelivery =
-						colDelivery.Items.Cast<Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
+						colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
 					if (selectedDelivery == null)
 					{
 						var block = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[e.RowIndex];
@@ -1477,12 +1480,12 @@ namespace Glyssen.Dialogs
 				{
 					Debug.Assert(e.ColumnIndex == colCharacter.Index);
 					var selectedCharacter = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex]
-						.Value as GlyssenEngine.Character.Character;
+						.Value as AssignCharacterViewModel.Character;
 					if (selectedCharacter == null)
 					{
 						var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 						if (newValue != null)
-							selectedCharacter = colCharacter.Items.Cast<GlyssenEngine.Character.Character>()
+							selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>()
 								.First(c => c.LocalizedDisplay == newValue);
 					}
 
@@ -1497,7 +1500,7 @@ namespace Glyssen.Dialogs
 						Logger.WriteMinorEvent($"Setting character to {characterIdForLog} for " +
 							$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
 
-						if (selectedCharacter == GlyssenEngine.Character.Character.Narrator && colDelivery.Visible)
+						if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
 						{
 							// Narrators are never allowed to have a delivery other than normal.
 							// Unfortunately, by the time we call IsBlockAssignedToUnknownCharacterDeliveryPair below,
@@ -1505,10 +1508,10 @@ namespace Glyssen.Dialogs
 							// the delivery. This leaves the UI out of synch with the data in the block, so we need
 							// to fix that first.
 							var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
-							if (deliveryCell.Value as string != Delivery.Normal.LocalizedDisplay)
+							if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
 							{
 								Logger.WriteMinorEvent("Character is Narrator. Forcing delivery to normal.");
-								deliveryCell.Value = Delivery.Normal.LocalizedDisplay;
+								deliveryCell.Value = AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
 							}
 						}
 					}
@@ -1519,10 +1522,10 @@ namespace Glyssen.Dialogs
 						// The first one should always be "normal" - we want a more specific one, if any.
 						var existingValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value;
 						var delivery = m_viewModel.GetDeliveriesForCharacterInCurrentReferenceTextMatchup(selectedCharacter).LastOrDefault();
-						if (existingValue != null || (delivery != null && delivery != Delivery.Normal))
+						if (existingValue != null || (delivery != null && delivery != AssignCharacterViewModel.Delivery.Normal))
 						{
 							string deliveryAsString = delivery == null
-								? Delivery.Normal.LocalizedDisplay
+								? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
 								: delivery.LocalizedDisplay;
 							if (existingValue as string != deliveryAsString)
 							{
@@ -1535,7 +1538,7 @@ namespace Glyssen.Dialogs
 					if (colDelivery.Visible)
 					{
 						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].ReadOnly =
-							selectedCharacter == GlyssenEngine.Character.Character.Narrator;
+							selectedCharacter == AssignCharacterViewModel.Character.Narrator;
 					}
 
 					SetReferenceTextForeColor(m_dataGridReferenceText.Rows[e.RowIndex], selectedCharacter);
@@ -1561,7 +1564,7 @@ namespace Glyssen.Dialogs
 				var adjust = (new DataGridViewComboBoxEditingControl()).Margin.Top;
 				cellBounds.Height -= adjust;
 				cellBounds.Y += adjust;
-				TextRenderer.DrawText(e.Graphics, GlyssenEngine.Character.Character.GetCharacterIdForUi(characterId),
+				TextRenderer.DrawText(e.Graphics, AssignCharacterViewModel.Character.GetCharacterIdForUi(characterId),
 					e.CellStyle.Font, cellBounds, e.CellStyle.ForeColor,
 					TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding);
 				e.Handled = true;
@@ -1760,7 +1763,7 @@ namespace Glyssen.Dialogs
 			if (text != null) // This means it was only a character change (for a former continuation block)
 				m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
 			if (!colCharacter.ReadOnly)
-				m_dataGridReferenceText.Rows[iRow].Cells[colCharacter.Index].Value = (GlyssenEngine.Character.Character)colCharacter.Items[0];
+				m_dataGridReferenceText.Rows[iRow].Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
 
@@ -1917,8 +1920,8 @@ namespace Glyssen.Dialogs
 					m_viewModel.AddPendingProjectCharacterVerseData(block, dlg.SelectedCharacter, dlg.SelectedDelivery);
 					AddNewDeliveryIfNeeded(dlg.SelectedDelivery);
 
-					GlyssenEngine.Character.Character newCharacter = dlg.SelectedCharacter;
-					foreach (GlyssenEngine.Character.Character character in colCharacter.Items)
+					AssignCharacterViewModel.Character newCharacter = dlg.SelectedCharacter;
+					foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
 					{
 						if (character == newCharacter)
 						{
@@ -1935,11 +1938,11 @@ namespace Glyssen.Dialogs
 					if (currentCharacterCell == m_dataGridReferenceText.CurrentCell && m_dataGridReferenceText.IsCurrentCellInEditMode)
 					{
 						m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.CurrentRow.Cells[colEnglish.Index];
-						if (currentCharacterCell.Value as GlyssenEngine.Character.Character != dlg.SelectedCharacter)
+						if (currentCharacterCell.Value as AssignCharacterViewModel.Character != dlg.SelectedCharacter)
 							currentCharacterCell.Value = dlg.SelectedCharacter;
 						m_dataGridReferenceText.CurrentCell = currentCharacterCell;
 					}
-					if (currentCharacterCell.Value as GlyssenEngine.Character.Character != dlg.SelectedCharacter)
+					if (currentCharacterCell.Value as AssignCharacterViewModel.Character != dlg.SelectedCharacter)
 						currentCharacterCell.Value = dlg.SelectedCharacter;
 
 					m_addingCharacterDelivery = false;
@@ -1947,12 +1950,12 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void AddNewDeliveryIfNeeded(Delivery selectedDelivery)
+		private void AddNewDeliveryIfNeeded(AssignCharacterViewModel.Delivery selectedDelivery)
 		{
-			Delivery newDelivery = selectedDelivery;
+			AssignCharacterViewModel.Delivery newDelivery = selectedDelivery;
 			if (colDelivery.Visible)
 			{
-				foreach (Delivery delivery in colDelivery.Items)
+				foreach (AssignCharacterViewModel.Delivery delivery in colDelivery.Items)
 				{
 					if (delivery == newDelivery)
 					{
@@ -1963,12 +1966,12 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				if (newDelivery == Delivery.Normal)
+				if (newDelivery == AssignCharacterViewModel.Delivery.Normal)
 					return;
 
 				colDelivery.Items.Clear();
 				colDelivery.Visible = true;
-				colDelivery.Items.Add(Delivery.Normal);
+				colDelivery.Items.Add(AssignCharacterViewModel.Delivery.Normal);
 			}
 
 			if (newDelivery != null)
@@ -1984,7 +1987,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				if (currentDeliveryCell.Value as Delivery != selectedDelivery)
+				if (currentDeliveryCell.Value as AssignCharacterViewModel.Delivery != selectedDelivery)
 					currentDeliveryCell.Value = selectedDelivery;
 			}
 		}

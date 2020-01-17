@@ -5,8 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
-using Glyssen;
-using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;

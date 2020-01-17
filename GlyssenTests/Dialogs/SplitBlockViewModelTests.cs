@@ -1,9 +1,9 @@
 ﻿using System;
-using Glyssen;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs

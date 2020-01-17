@@ -8,19 +8,20 @@ using System.Media;
 using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Character;
-using L10NSharp;
+using GlyssenEngine.ViewModels;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
 using SIL.Reporting;
 using SIL.Extensions;
 using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen.Dialogs
 {

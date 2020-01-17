@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using OfficeOpenXml;
