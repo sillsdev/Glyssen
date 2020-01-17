@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="HAG" singlevoice="false" pageheader="Haggai">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-HAG">
+  <block style="mt" chapter="0" book="HAG" initialStartVerse="0" characterId="BC-HAG">
     <text>Haggai</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="HAG" initialStartVerse="0" characterId="BC-HAG">
@@ -10,12 +10,12 @@
     <verse num="1" />
     <text>In the second year of Darius the king, in the sixth month, in the first day of the month, the Word of God came by Haggai, the prophet, to Zerubbabel, the son of Shealtiel, governor of Judah, and to Joshua, the son of Jehozadak, the high priest, saying,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="Haggai">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-HAG">
     <verse num="2" />
     <text>This is what God of Armies says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
-    <text>These people say, 'The time hasn't yet come, the time for God's house to be built.'</text>
+    <text>These people say, ‹The time hasn’t yet come, the time for God’s house to be built.›</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-HAG">
     <verse num="3" />
@@ -25,16 +25,16 @@
     <verse num="4" />
     <text>Is it a time for you yourselves to dwell in your paneled houses, while this house lies waste?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="Haggai">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-HAG">
     <verse num="5" />
     <text>Now therefore this is what God of Armies says:</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="God">
     <text>Consider your ways. </text>
     <verse num="6" />
-    <text>You have sown much, and bring in little. You eat, but you don't have enough. You drink, but you aren't filled with drink. You clothe yourselves, but no one is warm, and he who earns wages earns wages to put them into a bag with holes in it.</text>
+    <text>You have sown much, and bring in little. You eat, but you don’t have enough. You drink, but you aren’t filled with drink. You clothe yourselves, but no one is warm, and he who earns wages earns wages to put them into a bag with holes in it.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="Haggai">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-HAG">
     <verse num="7" />
     <text>This is what God of Armies says:</text>
   </block>
@@ -43,14 +43,14 @@
     <verse num="8" />
     <text>Go up to the mountain, bring wood, and build the house. I will take pleasure in it, and I will be glorified,”</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="Haggai">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-HAG">
     <text>says God.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>You looked for much, and, behold, it came to little; and when you brought it home, I blew it away. Why?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="Haggai">
+  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-HAG">
     <text>says God of Armies,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="9" characterId="God">
@@ -70,12 +70,12 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-HAG">
     <verse num="13" />
-    <text>Then Haggai, God's messenger, spoke God's message to the people, saying,</text>
+    <text>Then Haggai, God’s messenger, spoke God’s message to the people, saying,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="God">
     <text>“I am with you,”</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="Haggai">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-HAG">
     <text>says God.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-HAG">
@@ -97,32 +97,32 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="Haggai">
     <verse num="3" />
-    <text>Who is left among you who saw this house in its former glory? How do you see it now? Isn't it in your eyes as nothing?</text>
+    <text>Who is left among you who saw this house in its former glory? How do you see it now? Isn’t it in your eyes as nothing?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Yet now be strong, Zerubbabel,'</text>
+    <text>Yet now be strong, Zerubbabel,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-HAG">
     <text>says God.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
-    <text>'Be strong, Joshua, son of Jehozadak, the high priest. Be strong, all you people of the land,'</text>
+    <text>‹Be strong, Joshua, son of Jehozadak, the high priest. Be strong, all you people of the land,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-HAG">
     <text>says God,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="God">
-    <text>'and work, for I am with you,'</text>
+    <text>‹and work, for I am with you,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="4" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-HAG">
     <text>says God of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>This is the word that I covenanted with you when you came out of Egypt, and my Spirit lived among you. 'Don't be afraid.'</text>
+    <text>This is the word that I covenanted with you when you came out of Egypt, and my Spirit lived among you. ‹Don’t be afraid.›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="6" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="6" characterId="narrator-HAG">
     <verse num="6" />
     <text>For this is what God of Armies says:</text>
   </block>
@@ -133,43 +133,43 @@
     <verse num="7" />
     <text>and I will shake all nations. The precious things of all nations will come, and I will fill this house with glory,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="7" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="7" characterId="narrator-HAG">
     <text>says God of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>The silver is mine, and the gold is mine,'</text>
+    <text>The silver is mine, and the gold is mine,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="8" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-HAG">
     <text>says God of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>The latter glory of this house will be greater than the former,'</text>
+    <text>The latter glory of this house will be greater than the former,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-HAG">
     <text>says God of Armies;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="God">
-    <text>and in this place will I give peace,'</text>
+    <text>and in this place will I give peace,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="9" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="9" characterId="narrator-HAG">
     <text>says God of Armies.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-HAG">
     <verse num="10" />
     <text>In the twenty-fourth day of the ninth month, in the second year of Darius, the Word of God came by Haggai the prophet, saying,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-HAG">
     <verse num="11" />
     <text>Thus says God of Armies:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="God">
     <text>Ask now the priests concerning the law, saying,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="12" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-HAG">
     <verse num="12" />
-    <text>If someone carries holy meat in the fold of his garment, and with his fold touches bread, stew, wine, oil, or any food, will it become holy?'</text>
+    <text>If someone carries holy meat in the fold of his garment, and with his fold touches bread, stew, wine, oil, or any food, will it become holy?›</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="12" characterId="narrator-HAG">
     <text>The priests answered,</text>
@@ -195,13 +195,13 @@
     <text>Then Haggai answered,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="God">
-    <text>“'So is this people, and so is this nation before me,'</text>
+    <text>“‹So is this people, and so is this nation before me,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="14" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="14" characterId="narrator-HAG">
     <text>says God;</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="14" characterId="God">
-    <text>'and so is every work of their hands. That which they offer there is unclean.</text>
+    <text>‹and so is every work of their hands. That which they offer there is unclean.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -213,18 +213,18 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>I struck you with blight, mildew, and hail in all the work of your hands; yet you didn't turn to me,'</text>
+    <text>I struck you with blight, mildew, and hail in all the work of your hands; yet you didn’t turn to me,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="17" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-HAG">
     <text>says God.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Consider, please, from this day and backward, from the twenty-fourth day of the ninth month, since the day that the foundation of God's temple was laid, consider it.</text>
+    <text>Consider, please, from this day and backward, from the twenty-fourth day of the ninth month, since the day that the foundation of God’s temple was laid, consider it.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="God">
     <verse num="19" />
-    <text>Is the seed yet in the barn? Yes, the vine, the fig tree, the pomegranate, and the olive tree haven't brought forth. From this day will I bless you.'”</text>
+    <text>Is the seed yet in the barn? Yes, the vine, the fig tree, the pomegranate, and the olive tree haven’t brought forth. From this day will I bless you.› ”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-HAG">
     <verse num="20" />
@@ -232,7 +232,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="God">
     <verse num="21" />
-    <text>Speak to Zerubbabel, governor of Judah, saying,  'I will shake the heavens and the earth.</text>
+    <text>Speak to Zerubbabel, governor of Judah, saying, ‹I will shake the heavens and the earth.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="God">
     <verse num="22" />
@@ -240,19 +240,19 @@
     <verse num="23" />
     <text>In that day,</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-HAG">
     <text>says God of Armies,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="23" characterId="God">
-    <text>will I take you, Zerubbabel, my servant, the son of Shealtiel,'</text>
+    <text>will I take you, Zerubbabel, my servant, the son of Shealtiel,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-HAG">
     <text>says God,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="23" characterId="God">
-    <text>'and will make you as a signet, for I have chosen you,'</text>
+    <text>‹and will make you as a signet, for I have chosen you,›</text>
   </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="Haggai">
+  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-HAG">
     <text>says God of Armies.</text>
   </block>
   <UnappliedSplits />

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Glyssen.Quote;
+using GlyssenEngine.Quote;
 using NUnit.Framework;
 using SIL.WritingSystems;
 

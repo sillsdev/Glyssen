@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;

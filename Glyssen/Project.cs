@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -21,12 +19,12 @@ using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using Glyssen.Utilities;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.VoiceActor;
-using L10NSharp;
 using Paratext.Data;
 using SIL;
 using SIL.DblBundle;
@@ -36,8 +34,6 @@ using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
-using SIL.Windows.Forms;
-using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
@@ -141,7 +137,7 @@ namespace Glyssen
 			}
 
 			if (installFonts)
-				InstallFontsIfNecessary();
+				Fonts.InstallIfNecessary(m_projectMetadata.FontFamily, LanguageFolder, ref m_fontInstallationAttempted);
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -160,7 +156,7 @@ namespace Glyssen
 					Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
 					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
 
-			InstallFontsIfNecessary();
+			Fonts.InstallIfNecessary(m_projectMetadata.FontFamily, LanguageFolder, ref m_fontInstallationAttempted);
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
 			{
@@ -1250,14 +1246,9 @@ namespace Glyssen
 			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
-		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, bool confirmAndRecycle = false)
+		private static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder)
 		{
-			if (confirmAndRecycle)
-			{
-				if (!ConfirmRecycleDialog.ConfirmThenRecycle(Format("Standard format project \"{0}\"", projectFolder), projectFolder))
-					return;
-			}
-			else if (Directory.Exists(projectFolder))
+			if (Directory.Exists(projectFolder))
 				Directory.Delete(projectFolder, true);
 			var parent = Path.GetDirectoryName(projectFolder);
 			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
@@ -1581,7 +1572,7 @@ namespace Glyssen
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemReadyForParse)
-				DoQuoteParse();
+				DoQuoteParse(bookScripts.Select(b => b.BookId));
 		}
 
 		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1626,7 +1617,7 @@ namespace Glyssen
 			OnReport(pe);
 		}
 
-		private void DoQuoteParse()
+		private void DoQuoteParse(IEnumerable<string> booksToParse = null)
 		{
 			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 			ProjectState = ProjectState.Parsing;
@@ -1634,12 +1625,14 @@ namespace Glyssen
 			quoteWorker.DoWork += QuoteWorker_DoWork;
 			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
 			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
-			quoteWorker.RunWorkerAsync();
+			object[] parameters = { booksToParse };
+			quoteWorker.RunWorkerAsync(parameters);
 		}
 
-		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs doWorkEventArgs)
+		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			QuoteParser.ParseProject(this, sender as BackgroundWorker);
+			var bookIds = (IEnumerable<string>)((object[])e.Argument)[0];
+			QuoteParser.ParseProject(this, sender as BackgroundWorker, bookIds);
 		}
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -2221,64 +2214,6 @@ namespace Glyssen
 		{
 			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
-		}
-
-		private void InstallFontsIfNecessary()
-		{
-			if (m_fontInstallationAttempted || FontHelper.FontInstalled(m_projectMetadata.FontFamily))
-				return;
-
-			List<string> ttfFilesToInstall = new List<string>();
-			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
-			foreach (var ttfFile in Directory.GetFiles(LanguageFolder, "*.ttf"))
-			{
-				using (PrivateFontCollection fontCol = new PrivateFontCollection())
-				{
-					fontCol.AddFontFile(ttfFile);
-					if (fontCol.Families[0].Name == m_projectMetadata.FontFamily)
-						ttfFilesToInstall.Add(ttfFile);
-				}
-			}
-			int count = ttfFilesToInstall.Count;
-			if (count > 0)
-			{
-				m_fontInstallationAttempted = true;
-
-				if (count > 1)
-					MessageModal.Show(
-						Format(
-							Localizer.GetString("Font.InstallInstructionsMultipleStyles",
-								"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
-							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
-				else
-					MessageModal.Show(
-						Format(
-							Localizer.GetString("Font.InstallInstructions",
-								"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
-							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
-
-				foreach (var ttfFile in ttfFilesToInstall)
-				{
-					try
-					{
-						Process.Start(ttfFile);
-					}
-					catch (Exception ex)
-					{
-						Logger.WriteError("There was a problem launching the font preview. Please install the font manually:" + ttfFile, ex);
-						MessageModal.Show(
-							Format(
-								Localizer.GetString("Font.UnableToLaunchFontPreview",
-									"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
-					}
-				}
-			}
-			else
-				MessageModal.Show(
-					Format(
-						Localizer.GetString("Font.FontFilesNotFound",
-							"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
-						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()

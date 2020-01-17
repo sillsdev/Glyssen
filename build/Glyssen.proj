@@ -49,7 +49,7 @@
 	<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
 
 	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="1.2.$(BuildCounter)">
+	<CreateProperty Value="1.3.$(BuildCounter)">
 		<Output PropertyName="Version" TaskParameter="Value"/>
 	</CreateProperty>
 	<CreateProperty Value="$(Version).$(BuildHash)">
@@ -121,9 +121,10 @@
 			<Output ItemName="TestAssemblies" TaskParameter="Include" />
 		</CreateItem>
 		<NUnitTeamCity
+			Platform="x64"
 			Assemblies="@(TestAssemblies)"
 			ExcludeCategory="SkipOnTeamCity;ByHand"
-			NUnitVersion="NUnit-2.5.5" />
+			NUnitVersion="NUnit-2.5.8" />
 	</Target>
 
 	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
@@ -223,7 +224,7 @@
 		<MakeWixForDirTree
 			DirectoryReferenceId="XulRunnerDir"
 			ComponentGroupId="XulRunner"
-			RootDirectory="$(RootDir)\lib\xulrunner"
+			RootDirectory="$(RootDir)\packages\Geckofx60.64.60.0.44\content\Firefox"
 			InstallerSourceDirectory="$(RootDir)\Installer"
 			OutputFilePath="$(RootDir)\output\installer\GeneratedXulRunner.wxs"
 			MatchRegExPattern=".*"

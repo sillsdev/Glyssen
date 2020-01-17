@@ -1,4 +1,4 @@
-Control File Version	151
+Control File Version	153
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
 GEN	1	3	God		God (the LORD)	Normal		
@@ -234,17 +234,17 @@ GEN	19	32	older daughter of Lot			Implicit
 GEN	19	34	older daughter of Lot			Normal		
 GEN	20	2	Abraham (Abram)			Normal		
 GEN	20	3	God		God (the LORD) (in vision)	Normal		
-GEN	20	4	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
-GEN	20	5	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	4	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	5	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	20	6	God		God (the LORD) (in vision)	Normal		
 GEN	20	7	God		God (the LORD) (in vision)	Normal		
-GEN	20	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
-GEN	20	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	9	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	10	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	20	11	Abraham (Abram)			Normal		
 GEN	20	12	Abraham (Abram)			Normal		
 GEN	20	13	Abraham (Abram)			Normal		
-GEN	20	15	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
-GEN	20	16	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	15	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
+GEN	20	16	Abimelech 1, king of the Philistines (in Gerar)		Abimelech, king of Gerar	Normal		
 GEN	21	6	Sarah (Sarai) (old)			Normal		
 GEN	21	7	Sarah (Sarai) (old)			Normal		
 GEN	21	10	Sarah (Sarai) (old)			Normal		
@@ -253,11 +253,11 @@ GEN	21	13	God		God (the LORD)	Normal
 GEN	21	16	Hagar, Sarai's maid			Normal		
 GEN	21	17	angel of the LORD, the		angel of God	Normal	Jesus	
 GEN	21	18	angel of the LORD, the		angel of God	Normal	Jesus	
-GEN	21	22	Abimelech, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
-GEN	21	23	Abimelech, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
+GEN	21	22	Abimelech 1, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
+GEN	21	23	Abimelech 1, king of the Philistines (in Gerar)/Phicol		Abimelech and Phicol	Normal		
 GEN	21	24	Abraham (Abram)			Normal		
-GEN	21	26	Abimelech, king of the Philistines (in Gerar)		Abimelech	Normal		
-GEN	21	29	Abimelech, king of the Philistines (in Gerar)		Abimelech	Normal		
+GEN	21	26	Abimelech 1, king of the Philistines (in Gerar)		Abimelech	Normal		
+GEN	21	29	Abimelech 1, king of the Philistines (in Gerar)		Abimelech	Normal		
 GEN	21	30	Abraham (Abram)			Normal		
 GEN	22	1	Abraham (Abram)			Normal		
 GEN	22	1	God		God (the LORD)	Normal		
@@ -349,17 +349,17 @@ GEN	26	7	Isaac	deceiving		Normal
 GEN	26	7	Isaac	thought		Normal		
 #The words that Isaac was afraid to say (i.e., "my wife") should be spoken by the narrator
 GEN	26	7	narrator-GEN			Hypothetical		
-GEN	26	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	9	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	9	Isaac			Normal		
-GEN	26	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
-GEN	26	11	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
-GEN	26	16	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	10	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	11	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	16	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	20	herdsman	angry, quarreling		Normal		
 GEN	26	22	Isaac			Normal		
 GEN	26	24	God		God (the LORD)	Normal		
 GEN	26	27	Isaac			Normal		
-GEN	26	28	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
-GEN	26	29	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	28	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	29	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	32	servants of Isaac			Normal		
 GEN	26	33	narrator-GEN			Quotation		
 GEN	27	1	Esau			Normal		
@@ -552,9 +552,13 @@ GEN	34	14	Simeon/Levi		Jacob's sons	Normal
 GEN	34	15	Simeon/Levi		Jacob's sons	Normal		
 GEN	34	16	Simeon/Levi		Jacob's sons	Normal		
 GEN	34	17	Simeon/Levi		Jacob's sons	Normal		
-GEN	34	21	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Hamor, Hivite ruler	
-GEN	34	22	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Hamor, Hivite ruler	
-GEN	34	23	Hamor, Hivite ruler/Shechem, son of Hamor			Normal	Shechem, son of Hamor	
+GEN	34	21	Hamor, Hivite ruler/Shechem, son of Hamor			Normal		
+GEN	34	22	Hamor, Hivite ruler/Shechem, son of Hamor			Normal		
+# We used to default this verse to Shechem, son of Hamor mainly for dramatic reasons but also because it
+# seemed somewhat likely for it to be spoken by an impetuous young man. But since it will alsmot always
+# be part of the same quotation in the preceding verses and since FCBH does not do it this way in their DG,
+# I'm removing the explicit default character specifications.
+GEN	34	23	Hamor, Hivite ruler/Shechem, son of Hamor			Normal		
 GEN	34	30	Jacob (Israel)			Normal		
 GEN	34	31	Simeon/Levi			Normal	Simeon	
 GEN	35	1	God		God (the LORD)	Normal		
@@ -566,7 +570,7 @@ GEN	35	12	God		God (the LORD)	Normal
 GEN	35	17	midwife of Rachel			Normal		
 GEN	37	6	Joseph			Normal		
 GEN	37	7	Joseph			Normal		
-GEN	37	8	Joseph's brothers			Normal	Simeon	
+GEN	37	8	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Levi	
 GEN	37	9	Joseph			Normal		
 GEN	37	10	Jacob (Israel)			Normal		
 GEN	37	13	Jacob (Israel)			Normal		
@@ -575,15 +579,16 @@ GEN	37	14	Jacob (Israel)			Normal
 GEN	37	15	man (at Shechem)			Normal		
 GEN	37	16	Joseph			Normal		
 GEN	37	17	man (at Shechem)			Normal		
-GEN	37	19	Jacob's sons			Normal	Levi	
-GEN	37	20	Jacob's sons			Normal	Simeon	
+GEN	37	18	Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Potential	Levi	
+GEN	37	19	Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Levi	
+GEN	37	20	Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Levi	
 GEN	37	21	Reuben			Normal		
 GEN	37	22	Reuben			Normal		
 GEN	37	26	Judah			Normal		
 GEN	37	27	Judah			Normal		
-GEN	37	27	Jacob's sons			Indirect		
+GEN	37	27	Simeon/Levi/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Judah's brothers	Indirect		
 GEN	37	30	Reuben			Normal		
-GEN	37	32	Jacob's sons			Normal	Simeon	
+GEN	37	32	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons	Normal	Levi	
 GEN	37	33	Jacob (Israel)			Normal		
 GEN	37	35	Jacob (Israel)			Normal		
 GEN	38	3	Shua (Judah's wife)			Indirect		
@@ -675,12 +680,12 @@ GEN	42	1	Jacob (Israel)			Normal
 GEN	42	2	Jacob (Israel)			Normal		
 GEN	42	4	Jacob (Israel)			Indirect		
 GEN	42	7	Joseph			Normal		
-GEN	42	7	Jacob's sons		Joseph's brothers	Normal	Reuben	
+GEN	42	7	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Reuben	
 GEN	42	9	Joseph			Normal		
-GEN	42	10	Jacob's sons		Joseph's brothers	Normal	Judah	
-GEN	42	11	Jacob's sons		Joseph's brothers	Normal	Judah	
+GEN	42	10	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Reuben	
+GEN	42	11	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Reuben	
 GEN	42	12	Joseph			Normal		
-GEN	42	13	Jacob's sons		Joseph's brothers	Normal	Reuben	
+GEN	42	13	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Judah	
 GEN	42	14	Joseph			Normal		
 GEN	42	15	Joseph			Normal		
 GEN	42	16	Joseph			Normal		
@@ -688,18 +693,20 @@ GEN	42	18	Joseph			Normal
 GEN	42	19	Joseph			Normal		
 GEN	42	20	Joseph			Normal		
 #see Gen 37:2, 35:25 but either Dan or Judah OK								
-GEN	42	21	Jacob's sons			Normal	Judah	
+GEN	42	21	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Joseph's brothers	Normal	Dan	
 GEN	42	22	Reuben			Normal		
 GEN	42	24	Joseph			Indirect		
 GEN	42	25	Joseph			Indirect		
-GEN	42	28	Jacob's son (one who discovered his silver in his sack)		brother who discovered his silver in his sack	Normal	Dan	
-GEN	42	28	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Levi	
-#either Reuben or Judah OK								
-GEN	42	30	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	31	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	32	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	33	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	34	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
+#Even though the two lists of brothers contain the same people, I have changed the order to force Glyssen to see them as distinct.
+#Otherwise only one of them appears in the UI. It is okay to use the same speaker for both lines (as it is in the FCBH Director's Guide),
+#but having two distinct entries like allows for better dramatic effect (if Nitro/Vessel support it).
+GEN	42	28	Dan/Reuben/Levi/Judah/Issachar/Zebulun/Naphtali/Gad/Asher	surprised	brother who discovered his silver in his sack	Normal	Dan	
+GEN	42	28	Levi/Reuben/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	trembling	Jospeh's brothers (not Simeon or Benjamin)	Normal	Levi	
+GEN	42	30	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	31	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	32	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	33	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
+GEN	42	34	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Dan	
 GEN	42	36	Jacob (Israel)			Normal		
 GEN	42	37	Reuben			Normal		
 GEN	42	38	Jacob (Israel)			Normal		
@@ -708,7 +715,7 @@ GEN	43	3	Judah			Normal
 GEN	43	4	Judah			Normal		
 GEN	43	5	Judah			Normal		
 GEN	43	6	Jacob (Israel)			Normal		
-GEN	43	7	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
+GEN	43	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jacob's sons (not Simeon, Joseph, or Benjamin)	Normal	Reuben	
 GEN	43	8	Judah			Normal		
 GEN	43	9	Judah			Normal		
 GEN	43	10	Judah			Normal		
@@ -717,15 +724,15 @@ GEN	43	12	Jacob (Israel)			Normal
 GEN	43	13	Jacob (Israel)			Normal		
 GEN	43	14	Jacob (Israel)			Normal		
 GEN	43	16	Joseph			Normal		
-GEN	43	18	Jacob's sons (not Simeon, Joseph, or Benjamin)	thought		Normal	Levi	
-GEN	43	20	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	43	21	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-#Either Dan or Reuben OK								
-GEN	43	22	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Dan	
+GEN	43	18	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher	thought	Jospeh's brothers (not Simeon or Benjamin)	Normal	Dan	
+GEN	43	19	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Potential	Reuben	
+GEN	43	20	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Reuben	
+GEN	43	21	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Reuben	
+GEN	43	22	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers (not Simeon or Benjamin)	Normal	Reuben	
 GEN	43	23	steward of Joseph's house			Normal		
 GEN	43	25	steward of Joseph's house			Indirect		
 GEN	43	27	Joseph			Normal		
-GEN	43	28	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
+GEN	43	28	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Jospeh's brothers (not Simeon)	Normal	Dan	
 GEN	43	29	Joseph			Normal		
 GEN	43	31	Joseph			Normal		
 GEN	44	1	Joseph			Normal		
@@ -733,10 +740,12 @@ GEN	44	2	Joseph			Normal
 GEN	44	4	Joseph			Normal		
 GEN	44	5	Joseph			Normal		
 GEN	44	6	steward of Joseph's house			Indirect		
-GEN	44	7	Jacob's sons			Normal	Reuben	
-#doesn't matter whether Reuben, Levi or Simeon								
-GEN	44	8	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	44	9	Jacob's sons			Normal	Judah	
+#In theory, v. 7 and/or 9 could have been spoken by Benjamin (though very unlikely as the youngest) or by Simeon. But since 7-9 is
+#likely to be a single quotation and v. 8 could not have been spoken by Simeon or Benjamin, we'll omit them from the list of possibilities
+# for all three verses.
+GEN	44	7	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
+GEN	44	8	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
+GEN	44	9	Reuben/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher		Jospeh's brothers	Normal	Dan	
 GEN	44	10	steward of Joseph's house			Normal		
 GEN	44	15	Joseph			Normal		
 GEN	44	16	Judah			Normal		
@@ -776,7 +785,7 @@ GEN	45	18	Pharaoh (2nd)		Pharaoh	Normal
 GEN	45	19	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	45	20	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	45	24	Joseph			Normal		
-GEN	45	26	Joseph's brothers			Normal	Benjamin	
+GEN	45	26	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Jacob's sons	Normal	Reuben	
 GEN	45	28	Jacob (Israel)			Normal		
 GEN	46	2	God		God (in vision)	Normal		
 GEN	46	2	Jacob (Israel)			Normal		
@@ -789,8 +798,8 @@ GEN	46	33	Joseph			Normal
 GEN	46	34	Joseph			Normal		
 GEN	47	1	Joseph			Normal		
 GEN	47	3	Pharaoh (2nd)			Normal		
-GEN	47	3	Joseph's brothers			Normal	Benjamin	
-GEN	47	4	Joseph's brothers			Normal	Reuben	
+GEN	47	3	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers (five representatives)	Normal	Dan	
+GEN	47	4	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers (five representatives)	Normal	Dan	
 GEN	47	5	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	47	6	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	47	7	Joseph			Indirect		
@@ -862,10 +871,10 @@ GEN	50	4	Joseph			Normal
 GEN	50	5	Joseph			Normal		
 GEN	50	6	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	50	11	Canaanites			Normal		
-GEN	50	15	Joseph's brothers			Normal	Reuben	
-GEN	50	16	Joseph's brothers			Normal	Simeon	
-GEN	50	17	Joseph's brothers			Normal	Simeon	
-GEN	50	18	Joseph's brothers			Normal	Dan	
+GEN	50	15	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
+GEN	50	16	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
+GEN	50	17	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
+GEN	50	18	Reuben/Simeon/Levi/Judah/Issachar/Zebulun/Dan/Naphtali/Gad/Asher/Benjamin		Joseph's brothers	Normal	Levi	
 GEN	50	19	Joseph			Normal		
 GEN	50	20	Joseph			Normal		
 GEN	50	21	Joseph			Normal		
@@ -4761,7 +4770,8 @@ JDG	18	18	Levite, young, from Bethlehem			Normal
 JDG	18	19	warriors from Zorah and Eshtaol, five			Normal		
 JDG	18	23	Danites			Normal		
 JDG	18	24	Micah of Ephraim			Normal		
-JDG	18	25	Danites			Normal		
+JDG	18	25	Danites			Alternate		
+JDG	18	25	warriors from Zorah and Eshtaol, five			Normal		
 JDG	19	5	father of concubine			Normal		
 JDG	19	6	father of concubine			Normal		
 JDG	19	8	father of concubine			Normal		
@@ -5412,17 +5422,17 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	30	26	David			Normal		
 1SA	31	4	Saul	critically wounded		Normal		
 2SA	1	3	David		David, king	Normal		
-2SA	1	3	man from Saul's camp (young)			Normal		
+2SA	1	3	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	4	David		David, king	Normal		
-2SA	1	4	man from Saul's camp (young)			Normal		
+2SA	1	4	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	5	David			Normal		
-2SA	1	6	man from Saul's camp (young)			Normal		
-2SA	1	7	man from Saul's camp (young)			Normal		
-2SA	1	8	man from Saul's camp (young)			Normal		
-2SA	1	9	man from Saul's camp (young)			Normal		
-2SA	1	10	man from Saul's camp (young)			Normal		
+2SA	1	6	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	7	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	8	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	9	Amalekite (young man from Saul's camp)			Normal		
+2SA	1	10	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	13	David			Normal		
-2SA	1	13	man from Saul's camp (young)			Normal		
+2SA	1	13	Amalekite (young man from Saul's camp)			Normal		
 2SA	1	14	David			Normal		
 2SA	1	15	David			Normal		
 2SA	1	16	David			Normal		
@@ -5471,7 +5481,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	3	35	David		David, king	Normal		
 2SA	3	38	David		David, king	Normal		
 2SA	3	39	David		David, king	Normal		
-2SA	4	8	Recab/Baanah			Normal		
+2SA	4	8	Rechab/Baanah			Normal		
 2SA	4	9	David		David, king	Normal		
 2SA	4	10	David		David, king	Normal		
 2SA	4	11	David		David, king	Normal		
@@ -5640,6 +5650,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	15	7	Absalom, son of David			Normal		
 2SA	15	8	Absalom, son of David			Normal		
 2SA	15	9	David		David, king	Normal		
+2SA	15	10	Absalom, son of David			Normal		
 2SA	15	10	Absalom's secret messengers			Normal		
 2SA	15	13	messenger to David			Normal		
 2SA	15	14	David		David, king	Normal		
@@ -5693,7 +5704,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	17	16	Hushai, David's friend			Normal		
 2SA	17	20	Absalom's men			Normal		
 2SA	17	20	woman in Bahurim			Normal		
-2SA	17	21	Jonathan, son of Abiathar/Ahimaaz (messenger)			Normal	Jonathan, son of Abiathar	
+2SA	17	21	Jonathan, son of Abiathar/Ahimaaz (messenger)			Normal	Ahimaaz (messenger)	
 2SA	17	29	Shobi/Makir/Barzillai			Normal	Shobi	
 2SA	18	2	David		David, king	Normal		
 2SA	18	3	men of David			Normal		
@@ -6052,8 +6063,9 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	12	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
 1KI	12	12	Rehoboam, king			Quotation		
 1KI	12	14	Rehoboam, king			Normal		
-1KI	12	16	Israel, all			Normal		
-1KI	12	16	Jeroboam			Alternate		
+#Even though the text says "all Israel," FCBH wants Jeroboam to speak this.
+1KI	12	16	Israel, all			Normal		1KI 12.16;2CH 10.16
+1KI	12	16	Jeroboam			Alternate		1KI 12.16;2CH 10.16
 1KI	12	23	God		God (the LORD)	Normal		
 1KI	12	24	God		God (the LORD)	Normal		
 1KI	12	26	Jeroboam	thought	Jeroboam, king of Israel	Normal		
@@ -6174,6 +6186,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	20	8	elders/Israelites			Normal		
 1KI	20	9	Ahab, king of Israel			Normal		
 1KI	20	10	messengers of Ben-Hadad, king of Aram			Normal		
+1KI	20	10	Ben-Hadad, king of Aram			Normal		
 1KI	20	11	Ahab, king of Israel			Normal		
 1KI	20	12	Ben-Hadad, king of Aram			Normal		
 1KI	20	13	prophet of the LORD			Normal		
@@ -6230,7 +6243,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	8	Ahab, king of Israel			Normal		
 1KI	22	8	Jehoshaphat, king of Judah			Normal		
 1KI	22	9	Ahab, king of Israel			Normal		
-1KI	22	11	Zedekiah, son of Kenaanah, false prophet			Normal		
+1KI	22	11	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.11;2CH 18.10
 1KI	22	12	prophets, 400 false			Normal		1KI 22.12;2CH 18.11
 1KI	22	13	messenger of Ahab, king of Israel			Normal		
 1KI	22	14	Micaiah, prophet of the LORD			Normal		
@@ -6244,7 +6257,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	21	Micaiah, prophet of the LORD			Normal		
 1KI	22	22	Micaiah, prophet of the LORD			Normal		
 1KI	22	23	Micaiah, prophet of the LORD			Normal		
-1KI	22	24	Zedekiah, son of Kenaanah, false prophet			Normal		
+1KI	22	24	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.24;2CH 18.23
 1KI	22	25	Micaiah, prophet of the LORD			Normal		
 1KI	22	26	Ahab, king of Israel			Normal		
 1KI	22	27	Ahab, king of Israel			Normal		
@@ -6296,15 +6309,15 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	2	21	Elisha			Normal		
 2KI	2	23	boys	jeering		Normal		
 2KI	3	7	Jehoshaphat, king of Judah			Normal		
-2KI	3	7	Joram, king of Israel			Normal		
+2KI	3	7	Joram (Jehoram), king of Israel			Normal		
 2KI	3	8	Jehoshaphat, king of Judah	questioning		Normal		
-2KI	3	8	Joram, king of Israel			Normal		
-2KI	3	10	Joram, king of Israel			Normal		
+2KI	3	8	Joram (Jehoram), king of Israel			Normal		
+2KI	3	10	Joram (Jehoram), king of Israel			Normal		
 2KI	3	11	Jehoshaphat, king of Judah			Normal		
 2KI	3	11	officer of King Jehoshaphat of Israel			Normal		
 2KI	3	12	Jehoshaphat, king of Judah			Normal		
 2KI	3	13	Elisha			Normal		
-2KI	3	13	Joram, king of Israel			Normal		
+2KI	3	13	Joram (Jehoram), king of Israel			Normal		
 2KI	3	14	Elisha			Normal		
 2KI	3	15	Elisha			Normal		
 2KI	3	16	Elisha			Normal		
@@ -6358,7 +6371,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	5	4	Needs Review			Normal		
 2KI	5	5	Ben-Hadad, king of Aram			Normal		
 2KI	5	6	Ben-Hadad, king of Aram	letter		Normal		
-2KI	5	7	Joram, king of Israel			Normal		
+2KI	5	7	Joram (Jehoram), king of Israel			Normal		
 2KI	5	8	Elisha			Normal		
 2KI	5	10	Elisha's messenger			Normal		
 2KI	5	10	Gehazi			Alternate		
@@ -6398,16 +6411,16 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	6	18	Elisha			Normal		
 2KI	6	19	Elisha			Normal		
 2KI	6	20	Elisha			Normal		
-2KI	6	21	Joram, king of Israel			Normal		
+2KI	6	21	Joram (Jehoram), king of Israel			Normal		
 2KI	6	22	Elisha			Normal		
 2KI	6	26	woman in famine	calling out		Normal		
-2KI	6	27	Joram, king of Israel			Normal		
-2KI	6	28	Joram, king of Israel			Normal		
+2KI	6	27	Joram (Jehoram), king of Israel			Normal		
+2KI	6	28	Joram (Jehoram), king of Israel			Normal		
 2KI	6	28	woman in famine			Normal		
 2KI	6	29	woman in famine			Normal		
-2KI	6	31	Joram, king of Israel			Normal		
+2KI	6	31	Joram (Jehoram), king of Israel			Normal		
 2KI	6	32	Elisha			Normal		
-2KI	6	33	Joram, king of Israel			Normal		
+2KI	6	33	Joram (Jehoram), king of Israel			Normal		
 2KI	7	1	Elisha			Normal		
 2KI	7	2	Elisha			Normal		
 2KI	7	2	officer of king of Israel, on whose arm the king leaned			Normal		
@@ -6416,16 +6429,17 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	7	6	Aramean soldiers			Normal		
 2KI	7	9	men with leprosy, four			Normal		
 2KI	7	10	men with leprosy, four			Normal		
-2KI	7	12	Joram, king of Israel			Normal		
+2KI	7	12	Joram (Jehoram), king of Israel			Normal		
 2KI	7	13	officer of King Joram of Israel			Normal		
-2KI	7	14	Joram, king of Israel			Normal		
+2KI	7	14	Joram (Jehoram), king of Israel			Normal		
 2KI	7	18	Elisha		Elisha (had said)	Quotation		
 2KI	7	19	Elisha		Elisha (had said)	Quotation		
 2KI	7	19	officer of king of Israel, on whose arm the king leaned			Quotation		
 2KI	8	1	Elisha		Elisha (had said)	Normal		
-2KI	8	4	Joram, king of Israel			Normal		
+2KI	8	4	Joram (Jehoram), king of Israel			Normal		
 2KI	8	5	Gehazi		Gehazi, servant of Elisha	Normal		
-2KI	8	6	Joram, king of Israel			Normal		
+2KI	8	5	Shunammite woman			Indirect		
+2KI	8	6	Joram (Jehoram), king of Israel			Normal		
 2KI	8	7	person who told king of Aram of Elisha's arrival			Normal		
 2KI	8	8	Ben-Hadad, king of Aram			Normal		
 2KI	8	9	Hazael of Aram			Normal		
@@ -6452,7 +6466,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	12	Jehu, son of Nimshi			Normal		
 2KI	9	13	army officers			Normal		
 2KI	9	15	Jehu, son of Nimshi			Normal		
-2KI	9	17	Joram, king of Israel			Normal		
+2KI	9	17	Joram (Jehoram), king of Israel			Normal		
 2KI	9	17	lookout in Jezreel			Normal		
 2KI	9	18	horseman, first			Normal		
 2KI	9	18	Jehu, son of Nimshi			Normal		
@@ -6460,10 +6474,10 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	19	horseman, second			Normal		
 2KI	9	19	Jehu, son of Nimshi			Normal		
 2KI	9	20	lookout in Jezreel			Normal		
-2KI	9	21	Joram, king of Israel			Normal		
+2KI	9	21	Joram (Jehoram), king of Israel			Normal		
 2KI	9	22	Jehu, son of Nimshi			Normal		
-2KI	9	22	Joram, king of Israel			Normal		
-2KI	9	23	Joram, king of Israel			Normal		
+2KI	9	22	Joram (Jehoram), king of Israel			Normal		
+2KI	9	23	Joram (Jehoram), king of Israel			Normal		
 2KI	9	25	Jehu, son of Nimshi			Normal		
 2KI	9	26	Jehu, son of Nimshi			Normal		
 2KI	9	27	Jehu, son of Nimshi			Normal		
@@ -6475,8 +6489,9 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	37	Jehu, son of Nimshi	letter		Normal		
 2KI	10	2	Jehu, son of Nimshi	letter		Normal		
 2KI	10	3	Jehu, son of Nimshi	letter		Normal		
-2KI	10	4	officials of Samaria			Normal		
-2KI	10	5	officials of Samaria			Normal		
+2KI	10	4	officials of Samaria/guardians of Ahab's sons		officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons	Normal		
+2KI	10	5	palace administrator and overseer (elder) of the city			Normal		
+2KI	10	5	officials of Samaria/guardians of Ahab's sons		officials (elders) of Samaria (Jezreel) and the guardians of Ahab's sons	Normal		
 2KI	10	6	Jehu, son of Nimshi			Normal		
 2KI	10	8	Jehu, son of Nimshi			Normal		
 2KI	10	8	messenger from guardians of Ahab's children			Normal		
@@ -6485,7 +6500,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	10	13	Jehu, son of Nimshi			Normal		
 2KI	10	13	relatives of Ahaziah, king of Judah			Normal		
 2KI	10	14	Jehu, son of Nimshi			Normal		
-2KI	10	15	Jehonadab, son of Recab			Normal		
+2KI	10	15	Jehonadab, son of Rechab			Normal		
 2KI	10	15	Jehu, son of Nimshi			Normal		
 2KI	10	16	Jehu, son of Nimshi			Normal		
 2KI	10	18	Jehu, son of Nimshi			Normal		
@@ -6503,10 +6518,10 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	11	12	people at coronation of King Joash	shouting		Normal		
 2KI	11	14	Athaliah, mother of Ahaziah (Queen)		Athaliah	Normal		
 2KI	11	15	Jehoiada the priest			Normal		
-2KI	12	4	Joash, king of Judah			Normal		
-2KI	12	5	Joash, king of Judah			Normal		
-2KI	12	7	Joash, king of Judah			Normal		
-2KI	13	14	Jehoash, king of Israel			Normal		
+2KI	12	4	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
+2KI	12	5	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
+2KI	12	7	Joash, king of Judah		Jehoash (Joash), king of Judah	Normal		
+2KI	13	14	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
 2KI	13	15	Elisha (old)			Normal		
 2KI	13	16	Elisha (old)			Normal		
 2KI	13	17	Elisha (old)			Normal		
@@ -6861,7 +6876,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
 2CH	10	12	Rehoboam, king			Quotation		
 2CH	10	14	Rehoboam, king			Normal		
-2CH	10	16	Israel, all			Normal		
+#Even though the text says "all Israel," FCBH wants Jeroboam to speak this.
+2CH	10	16	Israel, all			Normal		1KI 12.16;2CH 10.16
+2CH	10	16	Jeroboam			Alternate		1KI 12.16;2CH 10.16
 2CH	11	3	God		God (the LORD)	Normal		
 2CH	11	4	God		God (the LORD)	Normal		
 2CH	11	4	Shemaiah, prophet			Alternate		
@@ -6899,7 +6916,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	7	Ahab, king of Israel			Normal		
 2CH	18	7	Jehoshaphat, king of Judah			Normal		
 2CH	18	8	Ahab, king of Israel			Normal		
-2CH	18	10	Zedekiah, son of Kenaanah, false prophet			Normal		
+2CH	18	10	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.11;2CH 18.10
 2CH	18	11	prophets, 400 false			Normal		1KI 22.12;2CH 18.11
 2CH	18	12	messenger			Normal		
 2CH	18	13	Micaiah, prophet of the LORD			Normal		
@@ -6913,7 +6930,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	20	Micaiah, prophet of the LORD			Normal		
 2CH	18	21	Micaiah, prophet of the LORD			Normal		
 2CH	18	22	Micaiah, prophet of the LORD			Normal		
-2CH	18	23	Zedekiah, son of Kenaanah, false prophet			Normal		
+2CH	18	23	Zedekiah, son of Kenaanah, false prophet			Normal		1KI 22.24;2CH 18.23
 2CH	18	24	Micaiah, prophet of the LORD			Normal		
 2CH	18	25	Ahab, king of Israel			Normal		
 2CH	18	26	Ahab, king of Israel			Normal		
@@ -6973,8 +6990,8 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	25	16	Amaziah, king of Judah			Normal		
 2CH	25	16	prophet of the LORD		prophet	Normal		
 2CH	25	17	Amaziah, king of Judah			Normal		
-2CH	25	18	Jehoash, king of Israel			Normal		
-2CH	25	19	Jehoash, king of Israel			Normal		
+2CH	25	18	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
+2CH	25	19	Jehoash, king of Israel		Joash (Jehoash), king of Israel	Normal		
 2CH	26	18	Azariah the priest (during reign of Uzziah)/eighty other priests	courageous	Azariah the priest/eighty other priests	Normal	Azariah the priest (during reign of Uzziah)	
 2CH	26	23	people			Normal		
 2CH	28	9	Oded, prophet of the Lord			Normal		
@@ -7337,12 +7354,12 @@ JOB	1	9	Satan (Devil)			Normal
 JOB	1	10	Satan (Devil)			Normal		
 JOB	1	11	Satan (Devil)			Normal		
 JOB	1	12	God		God (the LORD)	Normal		
-JOB	1	14	messenger			Normal		
-JOB	1	15	messenger			Normal		
-JOB	1	16	messenger, another			Normal		
-JOB	1	17	messenger, still another			Normal		
-JOB	1	18	messenger, yet another			Normal		
-JOB	1	19	messenger, yet another			Normal		
+JOB	1	14	messenger to Job			Normal		
+JOB	1	15	messenger to Job			Normal		
+JOB	1	16	messenger to Job, another			Normal		
+JOB	1	17	messenger to Job, still another			Normal		
+JOB	1	18	messenger to Job, yet another			Normal		
+JOB	1	19	messenger to Job, yet another			Normal		
 JOB	1	21	Job			Normal		
 JOB	2	2	God		God (the LORD)	Normal		
 JOB	2	2	Satan (Devil)			Normal		
@@ -8407,7 +8424,7 @@ PSA	42	3	sons of Korah's enemies			Normal
 PSA	42	3	sons of Korah			Quotation		
 PSA	42	3	narrator-PSA			Quotation		
 PSA	42	9	sons of Korah	praying		Normal		
-PSA	42	9	narrator-PSA	praying		Quotation		
+PSA	42	9	narrator-PSA			Quotation		
 PSA	42	10	David's enemies			Normal		
 PSA	45	0	narrator-PSA			Quotation		
 PSA	46	10	God		God (the LORD)	Normal		
@@ -8676,7 +8693,7 @@ PRO	25	7	king			Hypothetical
 PRO	26	13	sluggard			Hypothetical		
 PRO	30	1	Agur			Potential		
 # Because of the difficult textual/translation issue in v. 1, if there are not explicit
-# quotes, it should be reviewed. The English refernce text takes the traditional interpretation,
+# quotes, it should be reviewed. The English reference text takes the traditional interpretation,
 # but even in that interpretation, the portion following the colon could be spoken by Agur
 PRO	30	1	Needs Review			Implicit		
 PRO	30	2-33	Agur			Potential		
@@ -9151,20 +9168,15 @@ ISA	10	6	God		God (the LORD)	Implicit
 ISA	10	7	God		God (the LORD)	Potential		
 ISA	10	8	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	8	God		God (the LORD)	Potential		
-ISA	10	8	Isaiah			Potential		
 ISA	10	9	Sennacherib, king of Assyria		king of Assyria	Quotation		
-ISA	10	9	Isaiah			Potential		
 ISA	10	9	God		God (the LORD)	Potential		
 ISA	10	10	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	10	God		God (the LORD)	Potential		
-ISA	10	10	Isaiah			Potential		
 ISA	10	10	Needs Review			Normal		
 ISA	10	11	Sennacherib, king of Assyria		king of Assyria	Quotation		
 ISA	10	11	God		God (the LORD)	Potential		
-ISA	10	11	Isaiah			Potential		
 ISA	10	11	Needs Review			Normal		
 ISA	10	12	Needs Review			Implicit		
-ISA	10	12	Isaiah			Potential		
 ISA	10	12	God		God (the LORD)	Potential		
 ISA	10	13	Needs Review			Implicit		
 ISA	10	13	God		God (the LORD)	Potential		
@@ -9261,25 +9273,25 @@ ISA	14	1	Isaiah			Potential
 ISA	14	2	Isaiah			Potential		
 ISA	14	3	Isaiah			Potential		
 ISA	14	4	you (people of Zion, restored)			Hypothetical		
-ISA	14	4	Isaiah			Alternate		
+ISA	14	4	Isaiah			Potential		
 ISA	14	5	you (people of Zion, restored)			Hypothetical		
-ISA	14	5	Isaiah			Alternate		
+ISA	14	5	Isaiah			Potential		
 ISA	14	6	you (people of Zion, restored)			Hypothetical		
-ISA	14	6	Isaiah			Alternate		
+ISA	14	6	Isaiah			Potential		
 ISA	14	7	you (people of Zion, restored)			Hypothetical		
-ISA	14	7	Isaiah			Alternate		
+ISA	14	7	Isaiah			Potential		
 ISA	14	8	you (people of Zion, restored)			Hypothetical		
 ISA	14	8	pine trees and cedars of Lebanon			Hypothetical		
-ISA	14	8	Isaiah			Alternate		
+ISA	14	8	Isaiah			Potential		
 ISA	14	9	you (people of Zion, restored)			Hypothetical		
-ISA	14	9	Isaiah			Alternate		
+ISA	14	9	Isaiah			Potential		
 ISA	14	10	you (people of Zion, restored)			Hypothetical		
 ISA	14	10	kings over the nations			Hypothetical		
-ISA	14	10	Isaiah			Alternate		
+ISA	14	10	Isaiah			Potential		
 ISA	14	11	you (people of Zion, restored)			Hypothetical		
-ISA	14	11	Isaiah			Alternate		
+ISA	14	11	Isaiah			Potential		
 ISA	14	12	you (people of Zion, restored)			Hypothetical		
-ISA	14	12	Isaiah			Alternate		
+ISA	14	12	Isaiah			Potential		
 ISA	14	13	you (people of Zion, restored)			Hypothetical		
 ISA	14	13	king of Babylon		son of the morning (king of Babylon)	Quotation		
 ISA	14	13	Isaiah			Alternate		
@@ -9287,27 +9299,33 @@ ISA	14	14	king of Babylon		son of the morning (king of Babylon)	Quotation
 ISA	14	14	you (people of Zion, restored)			Alternate		
 ISA	14	14	Isaiah			Alternate		
 ISA	14	15	you (people of Zion, restored)			Hypothetical		
-ISA	14	15	Isaiah			Alternate		
+ISA	14	15	Isaiah			Potential		
 ISA	14	16	you (people of Zion, restored)			Hypothetical		
 ISA	14	16	onlookers			Hypothetical		
-ISA	14	16	Isaiah			Alternate		
+ISA	14	16	Isaiah			Potential		
 ISA	14	17	onlookers			Hypothetical		
 ISA	14	17	you (people of Zion, restored)			Alternate		
 ISA	14	17	Isaiah			Alternate		
 ISA	14	18	you (people of Zion, restored)			Hypothetical		
-ISA	14	18	Isaiah			Alternate		
+ISA	14	18	Isaiah			Potential		
 ISA	14	19	you (people of Zion, restored)			Hypothetical		
-ISA	14	19	Isaiah			Alternate		
+ISA	14	19	Isaiah			Potential		
 ISA	14	20	you (people of Zion, restored)			Hypothetical		
-ISA	14	20	Isaiah			Alternate		
+ISA	14	20	Isaiah			Potential		
 ISA	14	21	Isaiah			Potential		
 ISA	14	21	God		God (the LORD)	Alternate		
 ISA	14	22	God		God (the LORD)	Normal		
+ISA	14	22	Isaiah			Alternate		
 ISA	14	23	God		God (the LORD)	Normal		
+ISA	14	23	Isaiah			Alternate		
 ISA	14	24	God		God (the LORD)	Normal		
+ISA	14	24	Isaiah			Alternate		
 ISA	14	25	God		God (the LORD)	Implicit		
-ISA	14	26	God		God (the LORD)	Potential		
-ISA	14	27	God		God (the LORD)	Potential		
+ISA	14	25	Isaiah			Alternate		
+ISA	14	26	Isaiah			Potential		
+ISA	14	26	God		God (the LORD)	Alternate		
+ISA	14	27	Isaiah			Potential		
+ISA	14	27	God		God (the LORD)	Alternate		
 ISA	14	29	God		God (the LORD)	Implicit		
 ISA	14	29	Isaiah			Alternate		
 ISA	14	30	God		God (the LORD)	Implicit		
@@ -9318,6 +9336,15 @@ ISA	14	32	Needs Review			Implicit
 ISA	14	32	God		God (the LORD)	Alternate		
 ISA	14	32	Isaiah			Alternate		
 ISA	14	32	answer from Israel			Hypothetical		
+ISA	15	1	Isaiah			Potential		
+ISA	15	2	Isaiah			Potential		
+ISA	15	3	Isaiah			Potential		
+ISA	15	4	Isaiah			Potential		
+ISA	15	5	Isaiah			Potential		
+ISA	15	6	Isaiah			Potential		
+ISA	15	7	Isaiah			Potential		
+ISA	15	8	Isaiah			Potential		
+ISA	15	9	Isaiah			Potential		
 ISA	16	3	Moabites			Hypothetical		
 ISA	16	3	Moabitesses (female)			Hypothetical		
 ISA	16	3	Needs Review			Implicit		
@@ -9460,19 +9487,19 @@ ISA	29	1	God		God (the LORD)	Implicit
 ISA	29	2	God		God (the LORD)	Implicit		
 ISA	29	3	God		God (the LORD)	Implicit		
 ISA	29	4	God		God (the LORD)	Potential		
-ISA	29	4	Isaiah			Potential		
+ISA	29	4	Isaiah			Alternate		
 ISA	29	4	Needs Review			Implicit		
-ISA	29	5	Isaiah			Potential		
+ISA	29	5	Isaiah			Alternate		
 ISA	29	5	God		God (the LORD)	Potential		
 ISA	29	5	Needs Review			Implicit		
-ISA	29	6	Isaiah			Potential		
-ISA	29	6	God		God (the LORD)	Alternate		
-ISA	29	7	Isaiah			Potential		
-ISA	29	7	God		God (the LORD)	Alternate		
-ISA	29	8	Isaiah			Potential		
-ISA	29	8	God		God (the LORD)	Alternate		
-ISA	29	9	Isaiah			Potential		
-ISA	29	9	God		God (the LORD)	Alternate		
+ISA	29	6	Isaiah			Alternate		
+ISA	29	6	God		God (the LORD)	Potential		
+ISA	29	7	Isaiah			Alternate		
+ISA	29	7	God		God (the LORD)	Potential		
+ISA	29	8	Isaiah			Alternate		
+ISA	29	8	God		God (the LORD)	Potential		
+ISA	29	9	Isaiah			Alternate		
+ISA	29	9	God		God (the LORD)	Potential		
 ISA	29	10	Isaiah			Potential		
 ISA	29	10	God		God (the LORD)	Alternate		
 ISA	29	11	Isaiah			Potential		
@@ -9509,12 +9536,13 @@ ISA	30	6	Isaiah			Alternate
 ISA	30	7	God		God (the LORD)	Potential		
 ISA	30	7	Isaiah			Alternate		
 ISA	30	8	God		God (the LORD)	Potential		
-ISA	30	8	Isaiah			Alternate		
 ISA	30	9	God		God (the LORD)	Potential		
 ISA	30	9	Isaiah			Alternate		
 ISA	30	10	God		God (the LORD)	Potential		
 ISA	30	10	Isaiah			Alternate		
 ISA	30	10	rebels			Hypothetical		
+ISA	30	11	God		God (the LORD)	Potential		
+ISA	30	11	Isaiah			Alternate		
 ISA	30	11	rebels			Hypothetical		
 ISA	30	12	God		God (Holy One of Israel)	Normal		
 ISA	30	13	God		God (Holy One of Israel)	Implicit		
@@ -9556,6 +9584,8 @@ ISA	32	18	God		God (the LORD)	Implicit
 ISA	32	18	Isaiah			Alternate		
 ISA	32	19	God		God (the LORD)	Implicit		
 ISA	32	19	Isaiah			Alternate		
+ISA	32	20	God		God (the LORD)	Implicit		
+ISA	32	20	Isaiah			Alternate		
 ISA	33	10	God		God (the LORD)	Normal		
 ISA	33	11	God		God (the LORD)	Implicit		
 ISA	33	12	God		God (the LORD)	Implicit		
@@ -9741,12 +9771,12 @@ ISA	42	16	God		God (the LORD)	Implicit
 ISA	42	17	God		God (the LORD)	Implicit		
 ISA	42	18	God		God (the LORD)	Implicit		
 ISA	42	19	God		God (the LORD)	Implicit		
-ISA	42	20	Isaiah			Potential		
-ISA	42	20	God		God (the LORD)	Alternate		
-ISA	42	21	Isaiah			Potential		
-ISA	42	21	God		God (the LORD)	Alternate		
-ISA	42	22	Isaiah			Potential		
-ISA	42	22	God		God (the LORD)	Alternate		
+ISA	42	20	God		God (the LORD)	Potential		
+ISA	42	20	Isaiah			Alternate		
+ISA	42	21	God		God (the LORD)	Potential		
+ISA	42	21	Isaiah			Alternate		
+ISA	42	22	God		God (the LORD)	Potential		
+ISA	42	22	Isaiah			Alternate		
 ISA	42	22	narrator-ISA			Hypothetical		
 ISA	42	23	Isaiah			Potential		
 ISA	42	23	God		God (the LORD)	Alternate		
@@ -9838,6 +9868,9 @@ ISA	45	14	God		God (the LORD)	Normal
 ISA	45	14	Egyptians/Ethiopians/Sabeans			Hypothetical		
 ISA	45	15	Needs Review			Implicit		
 ISA	45	15	Isaiah			Potential		
+# If the text has the hypothetical speech by the Egyptians, Ethiopians and Sabeans continue through v. 15 and the
+# scripter wants to have God speak it, then He needs to be an option in this verse.
+ISA	45	15	God		God (the LORD)	Potential		
 ISA	45	15	Egyptians/Ethiopians/Sabeans			Hypothetical		
 ISA	45	18	God		God (the LORD)	Normal		
 ISA	45	19	God		God (the LORD)	Implicit		
@@ -9898,6 +9931,7 @@ ISA	48	15	God		God (the LORD)	Implicit
 ISA	48	16	Needs Review			Implicit		
 ISA	48	16	Jesus			Potential		
 ISA	48	16	God		God (the LORD)	Potential		
+ISA	48	16	voice (Messiah?)			Potential		
 ISA	48	16	Cyrus, king of Persia			Potential		
 ISA	48	16	God's chosen (beloved) friend or ally			Potential		
 ISA	48	17	God		God (the LORD)	Potential		
@@ -10055,10 +10089,9 @@ ISA	55	9	God		God (the LORD)	Normal
 ISA	55	10	God		God (the LORD)	Implicit		
 ISA	55	11	God		God (the LORD)	Implicit		
 ISA	55	12	God		God (the LORD)	Normal		
-# If FCBH changes DG to have vv. 12-13 spoken by God, change Isaiah to Alternate for these 2 verses.
-ISA	55	12	Isaiah			Potential		
+ISA	55	12	Isaiah			Alternate		
 ISA	55	13	God		God (the LORD)	Normal		
-ISA	55	13	Isaiah			Potential		
+ISA	55	13	Isaiah			Alternate		
 ISA	56	1	God		God (the LORD)	Normal		
 ISA	56	2	God		God (the LORD)	Normal		
 ISA	56	3	narrator-ISA			Hypothetical		
@@ -10315,9 +10348,9 @@ JER	3	13	God		God (the LORD)	Normal
 JER	3	14	God		God (the LORD)	Normal		
 JER	3	15	God		God (the LORD)	Normal		
 JER	3	16	God		God (the LORD)	Normal		
-# See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character
-#JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
-JER	3	16	you (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
+# See https://trello.com/c/CScL1Jgx/44-jer-316-maybe-use-a-different-hypothetical-character (FCBH changed to have this spoekn by God.)
+JER	3	16	man (hypothetical)	won't say	they (future people of Israel)	Hypothetical		
+JER	3	16	you (hypothetical)			Hypothetical		
 # expression: "The throne of God"
 JER	3	17	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	3	18	God		God (the LORD)	Implicit		
@@ -10399,7 +10432,6 @@ JER	5	10	God		God (the LORD)	Implicit
 JER	5	11	God		God (the LORD)	Normal		
 JER	5	12	God		God (the LORD)	Potential		
 JER	5	12	Israel/Judah, people of		house of Israel/house of Judah	Quotation		
-# See: https://trello.com/c/aqDV8YfB/47-jer-513-all-but-a-couple-looser-translations-agree-that-this-is-a-continuation-of-the-peoples-words-from-v-12
 JER	5	13	Israel/Judah, people of		house of Israel/house of Judah	Quotation		
 JER	5	14	God		God (the LORD)	Normal		
 JER	5	15	God		God (the LORD)	Normal		
@@ -10409,8 +10441,8 @@ JER	5	18	God		God (the LORD)	Normal
 JER	5	19	God		God (the LORD)	Normal		
 JER	5	19	you (hypothetical)			Hypothetical		
 JER	5	20	God		God (the LORD)	Implicit		
-JER	5	21	Jeremiah			Normal		
-JER	5	21	God		God (the LORD)	Alternate		
+JER	5	21	God		God (the LORD)	Normal		
+JER	5	21	Jeremiah			Alternate		
 JER	5	22	God		God (the LORD)	Normal		
 JER	5	23	God		God (the LORD)	Implicit		
 JER	5	24	God		God (the LORD)	Normal		
@@ -10420,8 +10452,8 @@ JER	5	26	God		God (the LORD)	Implicit
 JER	5	27	God		God (the LORD)	Implicit		
 JER	5	28	God		God (the LORD)	Implicit		
 JER	5	29	God		God (the LORD)	Normal		
-JER	5	30	God		God (the LORD)	Potential		
-JER	5	31	God		God (the LORD)	Potential		
+JER	5	30	God		God (the LORD)	Implicit		
+JER	5	31	God		God (the LORD)	Implicit		
 JER	6	1	God		God (the LORD)	Implicit		
 JER	6	1	Jeremiah			Alternate		
 JER	6	1	person warning people of Benjamin to flee			Alternate		
@@ -10549,7 +10581,7 @@ JER	8	15	Jeremiah			Potential
 JER	8	15	God	saying what the people will say	God (the LORD)	Alternate		
 JER	8	15	people			Hypothetical		
 JER	8	16	Jeremiah			Normal		
-JER	8	16	God	saying what the people will say	God (the LORD)	Normal		
+JER	8	16	God	saying what the people will say	God (the LORD)	Alternate		
 JER	8	16	people			Hypothetical		
 JER	8	17	God		God (the LORD)	Normal		
 JER	8	17	Jeremiah			Potential		
@@ -10599,8 +10631,13 @@ JER	9	20	Jeremiah			Potential
 JER	9	20	God		God (the LORD)	Potential		
 JER	9	21	Jeremiah			Potential		
 JER	9	21	God		God (the LORD)	Potential		
+JER	9	21	daughter of Zion	wailing		Hypothetical		
 JER	9	22	Jeremiah			Normal		
 JER	9	22	God		God (the LORD)	Normal		
+# Although FCBH has this verse broken out and assigned according to a reasonable interpretation of the quotation marks in te WEB,
+# most other translations appear to break it up differently. We can leave the reference text unambiguous, but rather than risk an
+# accidental match-up that doesn't really reflect the vernacular, lets have the parser merk this verse for review.
+JER	9	22	Needs Review			Implicit		
 JER	9	23	Jeremiah			Potential		
 JER	9	23	God		God (the LORD)	Normal		
 JER	9	24	God		God (the LORD)	Normal		
@@ -10727,23 +10764,25 @@ JER	13	25	God		God (the LORD)	Normal
 JER	13	25	Jeremiah			Potential		
 JER	13	26	God		God (the LORD)	Implicit		
 JER	13	27	God		God (the LORD)	Implicit		
-# Review: Should vv. 2-6 default to God or Jeremiah (implicit vs. Alternate)?
-JER	14	2	God		God (the LORD)	Normal		
-JER	14	2	Jeremiah			Normal		
-JER	14	3	God		God (the LORD)	Normal		
-JER	14	3	Jeremiah			Normal		
-JER	14	4	God		God (the LORD)	Normal		
-JER	14	4	Jeremiah			Normal		
-JER	14	5	God		God (the LORD)	Normal		
-JER	14	5	Jeremiah			Normal		
-JER	14	6	God		God (the LORD)	Normal		
-JER	14	6	Jeremiah			Normal		
-JER	14	7	Jeremiah			Implicit		
-JER	14	7	people, repentant			Alternate		
-JER	14	8	Jeremiah			Implicit		
-JER	14	8	people, repentant			Alternate		
-JER	14	9	Jeremiah			Implicit		
-JER	14	9	people, repentant			Alternate		
+JER	14	2	God		God (the LORD)	Alternate		
+JER	14	2	Jeremiah			Potential		
+JER	14	3	God		God (the LORD)	Alternate		
+JER	14	3	Jeremiah			Potential		
+JER	14	4	God		God (the LORD)	Alternate		
+JER	14	4	Jeremiah			Potential		
+JER	14	5	God		God (the LORD)	Alternate		
+JER	14	5	Jeremiah			Potential		
+JER	14	6	God		God (the LORD)	Alternate		
+JER	14	6	Jeremiah			Potential		
+JER	14	7	Jeremiah			Alternate		
+JER	14	7	people, repentant			Implicit		
+JER	14	7	Needs Review			Alternate		
+JER	14	8	Jeremiah			Alternate		
+JER	14	8	people, repentant			Implicit		
+JER	14	8	Needs Review			Alternate		
+JER	14	9	Jeremiah			Alternate		
+JER	14	9	people, repentant			Implicit		
+JER	14	9	Needs Review			Alternate		
 JER	14	10	God		God (the LORD)	Normal		
 JER	14	11	God		God (the LORD)	Normal		
 JER	14	12	God		God (the LORD)	Implicit		
@@ -10920,9 +10959,12 @@ JER	20	8	Jeremiah			Potential
 JER	20	8	narrator-JER			Quotation		
 JER	20	9	Jeremiah			Potential		
 JER	20	9	narrator-JER			Quotation		
+# Depending on the wording of the (narator) text, the hypothetical speak in v. 10 could be spoken by a single character or by
+# two different groups (known enemies and supposed friends).
 JER	20	10	Jeremiah			Potential		
 JER	20	10	Jeremiah's enemies			Hypothetical		
 JER	20	10	Jeremiah's friends (bad)			Hypothetical		
+JER	20	10	Needs Review			Implicit		
 JER	20	11	Jeremiah			Potential		
 JER	20	12	Jeremiah			Potential		
 JER	20	13	Jeremiah			Potential		
@@ -11014,7 +11056,7 @@ JER	23	4	God		God (the LORD)	Normal
 JER	23	4	Jeremiah			Potential		
 JER	23	5	God		God (the LORD)	Normal		
 JER	23	5	Jeremiah			Potential		
-JER	23	6	God		God (the LORD)	Implicit		
+JER	23	6	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 JER	23	7	God		God (the LORD)	Normal		
 JER	23	7	Jeremiah			Potential		
 JER	23	7	saying about God's deliverance	no more be said		Hypothetical		JER 16.14;JER 23.7
@@ -11023,7 +11065,10 @@ JER	23	8	saying about God's deliverance			Hypothetical		JER 16.15;JER 23.8
 JER	23	9	Jeremiah			Potential		
 JER	23	10	Jeremiah			Potential		
 JER	23	10	God		God (the LORD)	Potential		
+JER	23	10	Needs Review			Implicit		
 JER	23	11	God		God (the LORD)	Normal		
+JER	23	11	Jeremiah			Rare		
+JER	23	11	Needs Review			Rare		
 JER	23	12	God		God (the LORD)	Normal		
 JER	23	13	God		God (the LORD)	Implicit		
 JER	23	14	God		God (the LORD)	Implicit		
@@ -11044,7 +11089,7 @@ JER	23	23	Jeremiah			Potential
 JER	23	24	God		God (the LORD)	Normal		
 JER	23	24	Jeremiah			Potential		
 JER	23	25	God		God (the LORD)	Normal		
-JER	23	25	false prophets			Hypothetical		
+JER	23	25	false prophets			Quotation		
 JER	23	26	God		God (the LORD)	Implicit		
 JER	23	27	God		God (the LORD)	Implicit		
 JER	23	28	God		God (the LORD)	Normal		
@@ -11139,10 +11184,17 @@ JER	26	16	officials/people, all the			Normal
 JER	26	18	elders of the land			Normal		
 JER	26	18	Micah, prophet			Quotation		
 JER	26	19	elders of the land			Implicit		
+# Most translations (including WEB) do not have vv. 20-23 in quotes. It is a commentary by the narrator (some make it parenthetical).
+# However, FCBH has the elders of the land speak this chunk, and it may be that other projects will want to follow suit even if it is
+# not in quotes.
 JER	26	20	elders of the land			Potential		
+JER	26	20	Needs Review			Potential		
 JER	26	21	elders of the land			Potential		
+JER	26	21	Needs Review			Potential		
 JER	26	22	elders of the land			Potential		
+JER	26	22	Needs Review			Potential		
 JER	26	23	elders of the land			Potential		
+JER	26	23	Needs Review			Potential		
 JER	27	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	27	2	God		God (the LORD)	Normal		
 JER	27	3	God		God (the LORD)	Implicit		
@@ -11493,12 +11545,12 @@ JER	34	22	God		God (the LORD)	Normal
 JER	34	22	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	35	2	God		God (the LORD)	Implicit		
 JER	35	5	Jeremiah			Quotation		
-JER	35	6	Recabite family, men of			Normal		
-JER	35	7	Recabite family, men of			Implicit		
-JER	35	8	Recabite family, men of			Implicit		
-JER	35	9	Recabite family, men of			Implicit		
-JER	35	10	Recabite family, men of			Implicit		
-JER	35	11	Recabite family, men of			Implicit		
+JER	35	6	Rechabite family, men of			Normal		
+JER	35	7	Rechabite family, men of			Implicit		
+JER	35	8	Rechabite family, men of			Implicit		
+JER	35	9	Rechabite family, men of			Implicit		
+JER	35	10	Rechabite family, men of			Implicit		
+JER	35	11	Rechabite family, men of			Implicit		
 JER	35	13	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	35	13	God		God (the LORD)	Normal		
 JER	35	14	God		God (the LORD)	Implicit		
@@ -11510,6 +11562,7 @@ JER	35	16	Jeremiah		Jeremiah (the LORD says)	Alternate
 JER	35	17	Jeremiah		Jeremiah (the LORD says)	Potential		
 JER	35	17	God		God (the LORD)	Normal		
 JER	35	18	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	35	18	God		God (the LORD)	Normal		
 JER	35	19	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	35	19	God		God (the LORD)	Normal		
 JER	36	2	God		God (the LORD)	Implicit		
@@ -11694,7 +11747,7 @@ JER	45	2	Jeremiah			Normal
 JER	45	3	God		God (the LORD)	Implicit		
 JER	45	3	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	45	4	God		God (the LORD)	Normal		
-JER	45	4	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	45	4	Jeremiah		Jeremiah (the LORD says)	Alternate		
 JER	45	5	God		God (the LORD)	Normal		
 JER	45	5	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	46	2	Jeremiah		Jeremiah (the LORD says)	Potential		
@@ -12581,8 +12634,11 @@ EZK	17	10	God		God (the LORD)	Implicit
 EZK	17	12	God		God (the LORD)	Normal		
 EZK	17	12	Ezekiel		Ezekiel (the LORD says)	Normal		
 EZK	17	13	God		God (the LORD)	Implicit		
+EZK	17	13	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	17	14	God		God (the LORD)	Implicit		
+EZK	17	14	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	17	15	God		God (the LORD)	Implicit		
+EZK	17	15	Ezekiel		Ezekiel (the LORD says)	Alternate		
 EZK	17	16	God		God (the LORD)	Normal		
 EZK	17	16	Ezekiel		Ezekiel (the LORD says)	Potential		
 EZK	17	17	God		God (the LORD)	Implicit		
@@ -13861,50 +13917,44 @@ EZK	47	22	God		God (the LORD)	Implicit
 EZK	47	22	Ezekiel		Ezekiel (the LORD says, in vision)	Alternate		
 EZK	47	23	God		God (the LORD)	Normal		
 EZK	47	23	Ezekiel		Ezekiel (the LORD says, in vision)	Potential		
-EZK	48	1	God		God (the LORD)	Normal		
-EZK	48	2	God		God (the LORD)	Normal		
-EZK	48	3	God		God (the LORD)	Normal		
-EZK	48	4	God		God (the LORD)	Normal		
-EZK	48	5	God		God (the LORD)	Normal		
-EZK	48	6	God		God (the LORD)	Normal		
-EZK	48	7	God		God (the LORD)	Normal		
-EZK	48	8	God		God (the LORD)	Normal		
+EZK	48	1	God		God (the LORD)	Implicit		
+EZK	48	2	God		God (the LORD)	Implicit		
+EZK	48	3	God		God (the LORD)	Implicit		
+EZK	48	4	God		God (the LORD)	Implicit		
+EZK	48	5	God		God (the LORD)	Implicit		
+EZK	48	6	God		God (the LORD)	Implicit		
+EZK	48	7	God		God (the LORD)	Implicit		
+EZK	48	8	God		God (the LORD)	Implicit		
+# Most version have vv. 1-29a in explicit quotes. Just in case they don't do that, I'll leave 9-15 as "Normal" since these
+# verses contain 3rd-person references to God, even though the whole thing is almost certainly to be spoken by God.
 EZK	48	9	God		God (the LORD)	Normal		
 EZK	48	10	God		God (the LORD)	Normal		
 EZK	48	11	God		God (the LORD)	Normal		
 EZK	48	12	God		God (the LORD)	Normal		
 EZK	48	13	God		God (the LORD)	Normal		
 EZK	48	14	God		God (the LORD)	Normal		
-EZK	48	15	God		God (the LORD)	Normal		
-EZK	48	16	God		God (the LORD)	Normal		
-EZK	48	17	God		God (the LORD)	Normal		
-EZK	48	18	God		God (the LORD)	Normal		
-EZK	48	19	God		God (the LORD)	Normal		
-EZK	48	20	God		God (the LORD)	Normal		
-EZK	48	21	God		God (the LORD)	Normal		
-EZK	48	22	God		God (the LORD)	Normal		
-EZK	48	23	God		God (the LORD)	Normal		
-EZK	48	24	God		God (the LORD)	Normal		
-EZK	48	25	God		God (the LORD)	Normal		
-EZK	48	26	God		God (the LORD)	Normal		
-EZK	48	27	God		God (the LORD)	Normal		
-EZK	48	28	God		God (the LORD)	Normal		
+EZK	48	15	God		God (the LORD)	Implicit		
+EZK	48	16	God		God (the LORD)	Implicit		
+EZK	48	17	God		God (the LORD)	Implicit		
+EZK	48	18	God		God (the LORD)	Implicit		
+EZK	48	19	God		God (the LORD)	Implicit		
+EZK	48	20	God		God (the LORD)	Implicit		
+EZK	48	21	God		God (the LORD)	Implicit		
+EZK	48	22	God		God (the LORD)	Implicit		
+EZK	48	23	God		God (the LORD)	Implicit		
+EZK	48	24	God		God (the LORD)	Implicit		
+EZK	48	25	God		God (the LORD)	Implicit		
+EZK	48	26	God		God (the LORD)	Implicit		
+EZK	48	27	God		God (the LORD)	Implicit		
+EZK	48	28	God		God (the LORD)	Implicit		
 EZK	48	29	God		God (the LORD)	Normal		
-EZK	48	30	God		God (the LORD)	Normal		
-EZK	48	31	God		God (the LORD)	Normal		
-EZK	48	32	God		God (the LORD)	Normal		
-EZK	48	33	God		God (the LORD)	Normal		
-EZK	48	34	God		God (the LORD)	Normal		
-EZK	48	35	God		God (the LORD)	Normal		
-# Although FCBH has assigned all of 48:30-35 to God, we don't mark it Implicit, because
-# there is a slight possibility that different translations might use explicit quotes to
-# assign more limited portions of the text to God. If God is speaking v. 35, then He should
-# definitely speak the name "The LORD is there" (Yahweh Shammah). But if the narrator is
-# speaking, then it should just be treated as a narrator quote. To eliminate the next line
-# would mean that if there are no explicit quotes around the whole passage but there are quotes
-# around the name, then the name would be assigned (unambiguously) to be spoken by God. That's
-# not right, so better to include this line and deal with the ambiguity.
-EZK	48	35	narrator-EZK			Quotation		
+EZK	48	29	Ezekiel		Ezekiel (the LORD says, in vision)	Normal		
+EZK	48	30	God		God (the LORD)	Implicit		
+EZK	48	31	God		God (the LORD)	Implicit		
+EZK	48	32	God		God (the LORD)	Implicit		
+EZK	48	33	God		God (the LORD)	Implicit		
+EZK	48	34	God		God (the LORD)	Implicit		
+EZK	48	35	God		God (the LORD)	ImplicitWithPotentialSelfQuote		
 DAN	1	10	chief official			Normal		
 DAN	1	12	Daniel			Normal		
 DAN	1	13	Daniel			Normal		
@@ -14379,10 +14429,10 @@ HOS	12	13	God		God (the LORD)	Potential
 HOS	12	14	God		God (the LORD)	Potential		
 HOS	13	1	God		God (the LORD)	Potential		
 HOS	13	2	God		God (the LORD)	Potential		
-#It is confusing if those speaking are the idolaters or if they are speaking of the idolaters
-HOS	13	2	saying about idolaters			Quotation		
-HOS	13	2	Ephraim		idolaters of Ephraim	Quotation		
-HOS	13	2	Needs Review			Quotation		
+#It is confusing if those speaking are the idolaters or if they are speaking of the idolaters, but since FCBH doesn't
+#want this to be spoken by the "Ephraim" character (see 12:8), it doesn't really matter, so we'll use a single generic
+#character that covers either case and thereby avoid a disambiguation issue.
+HOS	13	2	saying about (or by) idolaters			Quotation		
 HOS	13	3	God		God (the LORD)	Potential		
 HOS	13	4	God		God (the LORD)	Implicit		
 HOS	13	5	God		God (the LORD)	Implicit		
@@ -15087,12 +15137,12 @@ ZEC	1	3	God		God (the LORD)	Normal
 ZEC	1	3	Zechariah the prophet, son of Berechiah			Normal		
 ZEC	1	4	God		God (the LORD)	Normal		
 ZEC	1	4	Zechariah the prophet, son of Berechiah			Potential		
-ZEC	1	4	prophets			Quotation		
+ZEC	1	4	prophets		former prophets	Quotation		
 ZEC	1	5	God		God (the LORD)	Implicit		
 ZEC	1	5	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
 ZEC	1	6	God		God (the LORD)	Normal		
 ZEC	1	6	Zechariah the prophet, son of Berechiah		Zechariah (the LORD says)	Alternate		
-ZEC	1	6	Judah, fathers of		your fathers	Hypothetical		
+ZEC	1	6	Judah, repentant leaders			Normal		
 ZEC	1	8	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	9	narrator-ZEC			Quotation		
 ZEC	1	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
@@ -15100,32 +15150,38 @@ ZEC	1	9	angel who talked with Zechariah		angel who talked with Zechariah (in vis
 ZEC	1	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	10	angel who talked with Zechariah	vision	man standing among myrtle trees (angel who talked with Zechariah)	Normal		
 ZEC	1	11	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	1	11	horses (or their angelic riders) (in vision)			Normal		
+ZEC	1	11	angelic riders (in vision)			Normal		
 ZEC	1	12	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	12	angel who talked with Zechariah		angel of the LORD (who talked with Zechariah)	Normal		
 ZEC	1	13	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	13	God		God (the LORD)	Potential		
+ZEC	1	14	Zechariah the prophet, son of Berechiah	(relating the events in the vision)	Zechariah (in vision)	Potential		
 ZEC	1	14	Zechariah the prophet, son of Berechiah	proclamation	Zechariah (in vision)	Normal		
 ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	14	God	angry	God (the LORD)	Normal		
-ZEC	1	15	God	angry	God (the LORD)	Implicit		
-ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	1	14	Needs Review			Normal		
+ZEC	1	15	God	angry	God (the LORD)	Alternate		
+ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Implicit		
 ZEC	1	15	Zechariah the prophet, son of Berechiah	proclamation	Zechariah (in vision)	Alternate		
-ZEC	1	16	God		God (the LORD)	Normal		
-ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	1	16	God		God (the LORD)	Alternate		
+ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	16	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
-ZEC	1	17	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
-ZEC	1	17	Zechariah the prophet, son of Berechiah	proclamation	Zechariah (in vision)	Normal		
-ZEC	1	17	God		God (the LORD)	Normal		
+ZEC	1	17	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Implicit		
+ZEC	1	17	Zechariah the prophet, son of Berechiah	proclamation	Zechariah (in vision)	Alternate		
+ZEC	1	17	God		God (the LORD)	Alternate		
+ZEC	1	18	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	19	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	19	narrator-ZEC			Quotation		
 ZEC	1	19	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
+ZEC	1	20	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
+ZEC	1	21	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Potential		
 ZEC	1	21	narrator-ZEC			Quotation		
-ZEC	1	21	God		God (the LORD)	Normal		
 # The original text just says "he", which presumably refers to God (see v. 20). However, because the
 # angel has been explaining things in the vision to Zechariah, it would make sense for him to do the
 # talking in v. 21 as well. Some translations (e.g., NLT) may explicitly say that the angel replied,
-# in which case it should be dramatized that way.
-ZEC	1	21	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+# in which case it should definitely be dramatized that way.
+ZEC	1	21	God		God (the LORD)	Normal		
+ZEC	1	21	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		
 ZEC	1	21	Needs Review			Normal		
 ZEC	2	2	narrator-ZEC			Quotation		
 ZEC	2	2	man with measuring line (in vision)			Normal		
@@ -15186,9 +15242,11 @@ ZEC	4	7	Zerubbabel			Hypothetical
 ZEC	4	9	Needs Review			Implicit		
 ZEC	4	9	God		God (the LORD)	Alternate		
 ZEC	4	9	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	4	9	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Alternate		
 ZEC	4	10	Needs Review			Implicit		
 ZEC	4	10	God		God (the LORD)	Alternate		
 ZEC	4	10	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Alternate		
+ZEC	4	10	Zechariah the prophet, son of Berechiah		Zechariah (in vision)	Alternate		
 ZEC	4	11	narrator-ZEC			Quotation		
 ZEC	4	12	narrator-ZEC			Quotation		
 ZEC	4	13	angel who talked with Zechariah		angel who talked with Zechariah (in vision)	Normal		

@@ -7,6 +7,7 @@ using Glyssen.Quote;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using GlyssenTests.Utilities;
 using NUnit.Framework;
 using SIL.Extensions;

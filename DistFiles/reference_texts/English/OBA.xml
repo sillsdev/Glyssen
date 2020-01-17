@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="OBA" singlevoice="false">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-OBA">
-    <text>Obadiah</text>
+<book id="OBA" singlevoice="false" pageheader="Obadiah">
+  <block style="mt" chapter="0" book="OBA" initialStartVerse="0" characterId="BC-OBA">
+    <text>Obadiah
+</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="OBA" initialStartVerse="0" characterId="BC-OBA">
     <text>1</text>
@@ -13,78 +14,88 @@
   <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-OBA">
     <text>This is what the Lord God says about Edom. We have heard news from God, and an ambassador is sent among the nations, saying,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="1" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="1" characterId="ambassador">
     <text>“Arise, and let's rise up against her in battle.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="2" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="2" characterId="God">
     <verse num="2" />
     <text>Behold, I have made you small among the nations. You are greatly despised.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>The pride of your heart has deceived you, you who dwell in the clefts of the rock, whose habitation is high, who says in his heart, 'Who will bring me down to the ground?'</text>
+    <text>The pride of your heart has deceived you, you who dwell in the clefts of the rock, whose habitation is high, who says in his heart, ‹Who will bring me down to the ground?›</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="4" characterId="God">
+    <verse num="4" />
+    <text>Though you mount on high as the eagle, and though your nest is set among the stars, I will bring you down from there,”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-OBA">
-    <verse num="4" />
-    <text>Though you mount on high as the eagle, and though your nest is set among the stars, I will bring you down from there,” says God.</text>
+    <text>says God.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="5" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="5" characterId="God">
     <verse num="5" />
-    <text>If thieves came to you, if robbers by night--oh, what disaster awaits you--wouldn't they only steal until they had enough? If grape pickers came to you, wouldn't they leave some gleaning grapes?</text>
+    <text>If thieves came to you, if robbers by night--oh, what disaster awaits you--wouldn’t they only steal until they had enough? If grape pickers came to you, wouldn’t they leave some gleaning grapes?</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="6" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="6" characterId="God">
     <verse num="6" />
     <text>How Esau will be ransacked! How his hidden treasures are sought out!</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="7" characterId="God">
     <verse num="7" />
     <text>All the men of your alliance have brought you on your way, even to the border. The men who were at peace with you have deceived you, and prevailed against you. Friends who eat your bread lay a snare under you. There is no understanding in him.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Won't I in that day, says God, “destroy the wise men out of Edom, and understanding out of the mountain of Esau?</text>
+    <text>Won’t I in that day,</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="9" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="8" characterId="narrator-OBA">
+    <text>says God,</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="8" characterId="God">
+    <text>“destroy the wise men out of Edom, and understanding out of the mountain of Esau?</text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="9" characterId="God">
     <verse num="9" />
     <text>Your mighty men, Teman, will be dismayed, to the end that everyone may be cut off from the mountain of Esau by slaughter.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="10" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="10" characterId="God">
     <verse num="10" />
     <text>For the violence done to your brother Jacob, shame will cover you, and you will be cut off forever.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="11" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="11" characterId="God">
     <verse num="11" />
     <text>In the day that you stood on the other side, in the day that strangers carried away his substance, and foreigners entered into his gates, and cast lots for Jerusalem, even you were like one of them.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>But don't look down on your brother in the day of his disaster, and don't rejoice over the children of Judah in the day of their destruction. Don't speak proudly in the day of distress.</text>
+    <text>But don’t look down on your brother in the day of his disaster, and don’t rejoice over the children of Judah in the day of their destruction. Don’t speak proudly in the day of distress.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Don't enter into the gate of my people in the day of their calamity. Don't look down on their affliction in the day of their calamity, neither seize their wealth on the day of their calamity.</text>
+    <text>Don’t enter into the gate of my people in the day of their calamity. Don’t look down on their affliction in the day of their calamity, neither seize their wealth on the day of their calamity.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>Don't stand in the crossroads to cut off those of his who escape. Don't deliver up those of his who remain in the day of distress.</text>
+    <text>Don’t stand in the crossroads to cut off those of his who escape. Don’t deliver up those of his who remain in the day of distress.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="15" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="15" characterId="God">
     <verse num="15" />
     <text>For the day of God is near all the nations! As you have done, it will be done to you. Your deeds will return upon your own head.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="16" characterId="God">
     <verse num="16" />
     <text>For as you have drunk on my holy mountain, so will all the nations drink continually. Yes, they will drink, swallow down, and will be as though they had not been.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="17" characterId="God">
     <verse num="17" />
     <text>But in Mount Zion, there will be those who escape, and it will be holy. The house of Jacob will possess their possessions.</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>The house of Jacob will be a fire, the house of Joseph a flame, and the house of Esau for stubble. They will burn among them, and devour them. There will not be any remaining to the house of Esau.” Indeed, God has spoken.</text>
+    <text>The house of Jacob will be a fire, the house of Joseph a flame, and the house of Esau for stubble. They will burn among them, and devour them. There will not be any remaining to the house of Esau.”</text>
   </block>
-  <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-OBA">
+  <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-OBA">
+    <text>Indeed, God has spoken. </text>
     <verse num="19" />
     <text>Those of the South will possess the mountain of Esau, and those of the lowland, the Philistines. They will possess the field of Ephraim, and the field of Samaria. Benjamin will possess Gilead.</text>
   </block>
@@ -94,7 +105,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="narrator-OBA">
     <verse num="21" />
-    <text>Saviors will go up on Mount Zion to judge the mountains of Esau, and the kingdom will be God's.</text>
+    <text>Saviors will go up on Mount Zion to judge the mountains of Esau, and the kingdom will be God’s.</text>
   </block>
   <UnappliedSplits />
 </book>

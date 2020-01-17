@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Properties;
 using GlyssenEngine.Character;
 using NUnit.Framework;
 

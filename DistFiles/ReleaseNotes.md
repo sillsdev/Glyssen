@@ -46,6 +46,12 @@ back-up plan.)
 
 # Release Notes
 
+## December 2019 Glyssen 1.3.0
+As of this version, Glyssen is now a 64-bit application and will not run on 32-bit versions of Windows.
+
+## October 14 2019 Glyssen 1.2.0
+Complete Old Testament reference text available in English.
+
 ## April 2019 Glyssen 1.1.10
 Improved support for right-to-left text in Excel output.
 
