@@ -14,13 +14,10 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using DesktopAnalytics;
-using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -29,6 +26,7 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using static System.String;
+using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Dialogs
 {
@@ -1195,8 +1193,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 				blockToSplit = m_viewModel.CurrentBlock;
-			using (var dlg = new SplitBlockDlg(m_viewModel.Font, m_viewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
-				m_viewModel.GetUniqueCharactersForCurrentReference(), m_viewModel.CurrentBookId))
+			using (var dlg = new SplitBlockDlg(new SplitBlockViewModel(m_viewModel, blockToSplit)))
 			{
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
@@ -1769,7 +1766,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleResetMatchupClick(object sender, EventArgs e)
 		{
-			m_viewModel.SetBlockMatchupForCurrentVerse();
+			m_viewModel.SetBlockMatchupForCurrentLocation();
 		}
 
 		private void HandleMouseEnterInsertHeSaidButton(object sender, EventArgs e)

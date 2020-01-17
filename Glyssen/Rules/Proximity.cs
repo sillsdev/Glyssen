@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Glyssen.Bundle;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 

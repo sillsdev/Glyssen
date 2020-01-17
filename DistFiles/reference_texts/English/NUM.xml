@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="NUM" singlevoice="false" pageheader="Numbers">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-NUM">
+  <block style="mt" chapter="0" book="NUM" initialStartVerse="0" characterId="BC-NUM">
     <text>Numbers</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="NUM" initialStartVerse="0" characterId="BC-NUM">
@@ -12,7 +12,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Take a census of all the congregation of the children of Israel, by their families, by their fathers' houses, according to the number of the names, every male, one by one;</text>
+    <text>Take a census of all the congregation of the children of Israel, by their families, by their fathers’ houses, according to the number of the names, every male, one by one;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -20,7 +20,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>With you there shall be a man of every tribe; everyone head of his fathers' house.</text>
+    <text>With you there shall be a man of every tribe; everyone head of his fathers’ house.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -76,7 +76,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-NUM">
     <verse num="18" />
-    <text>They assembled all the congregation together on the first day of the second month; and they declared their ancestry by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, one by one.</text>
+    <text>They assembled all the congregation together on the first day of the second month; and they declared their ancestry by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, one by one.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-NUM">
     <verse num="19" />
@@ -84,7 +84,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-NUM">
     <verse num="20" />
-    <text>The children of Reuben, Israel's firstborn, their generations, by their families, by their fathers' houses, according to the number of the names, one by one, every male from twenty years old and upward, all who were able to go out to war;</text>
+    <text>The children of Reuben, Israel’s firstborn, their generations, by their families, by their fathers’ houses, according to the number of the names, one by one, every male from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="21" characterId="narrator-NUM">
     <verse num="21" />
@@ -92,7 +92,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="22" characterId="narrator-NUM">
     <verse num="22" />
-    <text>Of the children of Simeon, their generations, by their families, by their fathers' houses, those who were numbered of it, according to the number of the names, one by one, every male from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Simeon, their generations, by their families, by their fathers’ houses, those who were numbered of it, according to the number of the names, one by one, every male from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-NUM">
     <verse num="23" />
@@ -100,7 +100,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="24" characterId="narrator-NUM">
     <verse num="24" />
-    <text>Of the children of Gad, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Gad, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
@@ -108,7 +108,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="26" characterId="narrator-NUM">
     <verse num="26" />
-    <text>Of the children of Judah, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Judah, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="27" characterId="narrator-NUM">
     <verse num="27" />
@@ -116,7 +116,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="28" characterId="narrator-NUM">
     <verse num="28" />
-    <text>Of the children of Issachar, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Issachar, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="29" characterId="narrator-NUM">
     <verse num="29" />
@@ -124,7 +124,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="30" characterId="narrator-NUM">
     <verse num="30" />
-    <text>Of the children of Zebulun, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Zebulun, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="31" characterId="narrator-NUM">
     <verse num="31" />
@@ -132,7 +132,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="32" characterId="narrator-NUM">
     <verse num="32" />
-    <text>Of the children of Joseph, of the children of Ephraim, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Joseph, of the children of Ephraim, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="33" characterId="narrator-NUM">
     <verse num="33" />
@@ -140,7 +140,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="34" characterId="narrator-NUM">
     <verse num="34" />
-    <text>Of the children of Manasseh, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Manasseh, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="35" characterId="narrator-NUM">
     <verse num="35" />
@@ -148,7 +148,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="36" characterId="narrator-NUM">
     <verse num="36" />
-    <text>Of the children of Benjamin, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
+    <text>Of the children of Benjamin, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go out to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="37" characterId="narrator-NUM">
     <verse num="37" />
@@ -156,7 +156,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="38" characterId="narrator-NUM">
     <verse num="38" />
-    <text>Of the children of Dan, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go forth to war;</text>
+    <text>Of the children of Dan, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go forth to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="39" characterId="narrator-NUM">
     <verse num="39" />
@@ -164,7 +164,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="40" characterId="narrator-NUM">
     <verse num="40" />
-    <text>Of the children of Asher, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go forth to war;</text>
+    <text>Of the children of Asher, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go forth to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="41" characterId="narrator-NUM">
     <verse num="41" />
@@ -172,7 +172,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="42" characterId="narrator-NUM">
     <verse num="42" />
-    <text>Of the children of Naphtali, their generations, by their families, by their fathers' houses, according to the number of the names, from twenty years old and upward, all who were able to go forth to war;</text>
+    <text>Of the children of Naphtali, their generations, by their families, by their fathers’ houses, according to the number of the names, from twenty years old and upward, all who were able to go forth to war;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="43" characterId="narrator-NUM">
     <verse num="43" />
@@ -180,11 +180,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="44" characterId="narrator-NUM">
     <verse num="44" />
-    <text>These are those who were numbered, whom Moses and Aaron numbered, and the princes of Israel, being twelve men: they were each one for his fathers' house.</text>
+    <text>These are those who were numbered, whom Moses and Aaron numbered, and the princes of Israel, being twelve men: they were each one for his fathers’ house.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="45" characterId="narrator-NUM">
     <verse num="45" />
-    <text>So all those who were numbered of the children of Israel by their fathers' houses, from twenty years old and upward, all who were able to go out to war in Israel;</text>
+    <text>So all those who were numbered of the children of Israel by their fathers’ houses, from twenty years old and upward, all who were able to go out to war in Israel;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="46" characterId="narrator-NUM">
     <verse num="46" />
@@ -229,7 +229,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>The children of Israel shall encamp every man by his own standard, with the banners of their fathers' houses: at a distance from the Tent of Meeting shall they encamp around it.</text>
+    <text>The children of Israel shall encamp every man by his own standard, with the banners of their fathers’ houses: at a distance from the Tent of Meeting shall they encamp around it.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -349,7 +349,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="32" characterId="narrator-NUM">
     <verse num="32" />
-    <text>These are those who were numbered of the children of Israel by their fathers' houses. All who were numbered of the camps according to their armies were six hundred three thousand five hundred fifty.</text>
+    <text>These are those who were numbered of the children of Israel by their fathers’ houses. All who were numbered of the camps according to their armies were six hundred three thousand five hundred fifty.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="33" characterId="narrator-NUM">
     <verse num="33" />
@@ -357,7 +357,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="34" characterId="narrator-NUM">
     <verse num="34" />
-    <text>Thus the children of Israel did. According to all that God commanded Moses, so they encamped by their standards, and so they set out, everyone by their families, according to their fathers' houses.</text>
+    <text>Thus the children of Israel did. According to all that God commanded Moses, so they encamped by their standards, and so they set out, everyone by their families, according to their fathers’ houses.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="NUM" initialStartVerse="0" characterId="BC-NUM">
     <text>3</text>
@@ -372,11 +372,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-NUM">
     <verse num="3" />
-    <text>These are the names of the sons of Aaron, the priests who were anointed, whom he consecrated to minister in the priest's office.</text>
+    <text>These are the names of the sons of Aaron, the priests who were anointed, whom he consecrated to minister in the priest’s office.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-NUM">
     <verse num="4" />
-    <text>Nadab and Abihu died before God, when they offered strange fire before God, in the wilderness of Sinai, and they had no children. Eleazar and Ithamar ministered in the priest's office in the presence of Aaron their father.</text>
+    <text>Nadab and Abihu died before God, when they offered strange fire before God, in the wilderness of Sinai, and they had no children. Eleazar and Ithamar ministered in the priest’s office in the presence of Aaron their father.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-NUM">
     <verse num="5" />
@@ -420,7 +420,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>Count the children of Levi by their fathers' houses, by their families. You shall count every male from a month old and upward.</text>
+    <text>Count the children of Levi by their fathers’ houses, by their families. You shall count every male from a month old and upward.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-NUM">
     <verse num="16" />
@@ -440,7 +440,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="20" characterId="narrator-NUM">
     <verse num="20" />
-    <text>The sons of Merari by their families: Mahli and Mushi. These are the families of the Levites according to their fathers' houses.</text>
+    <text>The sons of Merari by their families: Mahli and Mushi. These are the families of the Levites according to their fathers’ houses.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="21" characterId="narrator-NUM">
     <verse num="21" />
@@ -456,7 +456,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="24" characterId="narrator-NUM">
     <verse num="24" />
-    <text>The prince of the fathers' house of the Gershonites shall be Eliasaph the son of Lael.</text>
+    <text>The prince of the fathers’ house of the Gershonites shall be Eliasaph the son of Lael.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
@@ -478,7 +478,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="30" characterId="narrator-NUM">
     <verse num="30" />
-    <text>The prince of the fathers' house of the families of the Kohathites shall be Elizaphan the son of Uzziel.</text>
+    <text>The prince of the fathers’ house of the families of the Kohathites shall be Elizaphan the son of Uzziel.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="31" characterId="narrator-NUM">
     <verse num="31" />
@@ -498,11 +498,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="35" characterId="narrator-NUM">
     <verse num="35" />
-    <text>The prince of the fathers' house of the families of Merari was Zuriel the son of Abihail. They shall encamp on the north side of the tabernacle.</text>
+    <text>The prince of the fathers’ house of the families of Merari was Zuriel the son of Abihail. They shall encamp on the north side of the tabernacle.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="36" characterId="narrator-NUM">
     <verse num="36" />
-    <text>The appointed duty of the sons of Merari shall be the tabernacle's boards, its bars, its pillars, its sockets, all its instruments, all its service, </text>
+    <text>The appointed duty of the sons of Merari shall be the tabernacle’s boards, its bars, its pillars, its sockets, all its instruments, all its service, </text>
     <verse num="37" />
     <text>the pillars of the court around it, their sockets, their pins, and their cords.</text>
   </block>
@@ -570,7 +570,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Take a census of the sons of Kohath from among the sons of Levi, by their families, by their fathers' houses,</text>
+    <text>Take a census of the sons of Kohath from among the sons of Levi, by their families, by their fathers’ houses,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -634,7 +634,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Don't cut off the tribe of the families of the Kohathites from among the Levites;</text>
+    <text>Don’t cut off the tribe of the families of the Kohathites from among the Levites;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -650,7 +650,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="God">
     <verse num="22" />
-    <text>Take a census of the sons of Gershon also, by their fathers' houses, by their families;</text>
+    <text>Take a census of the sons of Gershon also, by their fathers’ houses, by their families;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="23" characterId="God">
     <verse num="23" />
@@ -676,13 +676,13 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="29" characterId="God">
     <verse num="29" />
-    <text>As for the sons of Merari, you shall number them by their families, by their fathers' houses; </text>
+    <text>As for the sons of Merari, you shall number them by their families, by their fathers’ houses; </text>
     <verse num="30" />
     <text>you shall count them from thirty years old and upward even to fifty years old, everyone who enters on the service, to do the work of the Tent of Meeting.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="31" characterId="God">
     <verse num="31" />
-    <text>This is the duty of their burden, according to all their service in the Tent of Meeting: the tabernacle's boards, its bars, its pillars, its sockets, </text>
+    <text>This is the duty of their burden, according to all their service in the Tent of Meeting: the tabernacle’s boards, its bars, its pillars, its sockets, </text>
     <verse num="32" />
     <text>and the pillars of the court around it, and their sockets, and their pins, and their cords, with all their instruments, and with all their service: and by name you shall appoint the instruments of the duty of their burden.</text>
   </block>
@@ -692,7 +692,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="34" characterId="narrator-NUM">
     <verse num="34" />
-    <text>Moses and Aaron and the princes of the congregation numbered the sons of the Kohathites by their families, and by their fathers' houses, </text>
+    <text>Moses and Aaron and the princes of the congregation numbered the sons of the Kohathites by their families, and by their fathers’ houses, </text>
     <verse num="35" />
     <text>from thirty years old and upward even to fifty years old, everyone who entered into the service, for work in the Tent of Meeting.</text>
   </block>
@@ -706,11 +706,11 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="38" characterId="narrator-NUM">
     <verse num="38" />
-    <text>Those who were numbered of the sons of Gershon, their families, and by their fathers' houses, </text>
+    <text>Those who were numbered of the sons of Gershon, their families, and by their fathers’ houses, </text>
     <verse num="39" />
     <text>from thirty years old and upward even to fifty years old, everyone who entered into the service, for work in the Tent of Meeting, </text>
     <verse num="40" />
-    <text>even those who were numbered of them, by their families, by their fathers' houses, were two thousand six hundred thirty.</text>
+    <text>even those who were numbered of them, by their families, by their fathers’ houses, were two thousand six hundred thirty.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="41" characterId="narrator-NUM">
     <verse num="41" />
@@ -718,7 +718,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="42" characterId="narrator-NUM">
     <verse num="42" />
-    <text>Those who were numbered of the families of the sons of Merari, by their families, by their fathers' houses, </text>
+    <text>Those who were numbered of the families of the sons of Merari, by their families, by their fathers’ houses, </text>
     <verse num="43" />
     <text>from thirty years old and upward even to fifty years old, everyone who entered into the service, for work in the Tent of Meeting, </text>
     <verse num="44" />
@@ -730,7 +730,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="46" characterId="narrator-NUM">
     <verse num="46" />
-    <text>All those who were numbered of the Levites, whom Moses and Aaron and the princes of Israel numbered, by their families, and by their fathers' houses, </text>
+    <text>All those who were numbered of the Levites, whom Moses and Aaron and the princes of Israel numbered, by their families, and by their fathers’ houses, </text>
     <verse num="47" />
     <text>from thirty years old and upward even to fifty years old, everyone who entered in to do the work of service, and the work of bearing burdens in the Tent of Meeting, </text>
     <verse num="48" />
@@ -765,7 +765,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Speak to the children of Israel: 'When a man or woman commits any sin that men commit, so as to trespass against God, and that soul is guilty;</text>
+    <text>Speak to the children of Israel: ‹When a man or woman commits any sin that men commit, so as to trespass against God, and that soul is guilty;</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -773,7 +773,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>But if the man has no kinsman to whom restitution may be made for the guilt, the restitution for guilt which is made to God shall be the priest's; besides the ram of the atonement, by which atonement shall be made for him.</text>
+    <text>But if the man has no kinsman to whom restitution may be made for the guilt, the restitution for guilt which is made to God shall be the priest’s; besides the ram of the atonement, by which atonement shall be made for him.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -781,7 +781,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Every man's holy things shall be his: whatever any man gives the priest, it shall be his.'</text>
+    <text>Every man’s holy things shall be his: whatever any man gives the priest, it shall be his.›</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-NUM">
     <verse num="11" />
@@ -789,13 +789,13 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Speak to the children of Israel, and tell them: 'If any man's wife goes astray, and is unfaithful to him, </text>
+    <text>Speak to the children of Israel, and tell them: ‹If any man’s wife goes astray, and is unfaithful to him, </text>
     <verse num="13" />
-    <text>and a man lies with her carnally, and it is hidden from the eyes of her husband, and is kept close, and she is defiled, and there is no witness against her, and she isn't taken in the act;</text>
+    <text>and a man lies with her carnally, and it is hidden from the eyes of her husband, and is kept close, and she is defiled, and there is no witness against her, and she isn’t taken in the act;</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="God">
     <verse num="14" />
-    <text>and the spirit of jealousy comes on him, and he is jealous of his wife, and she is defiled: or if the spirit of jealousy comes on him, and he is jealous of his wife, and she isn't defiled:</text>
+    <text>and the spirit of jealousy comes on him, and he is jealous of his wife, and she is defiled: or if the spirit of jealousy comes on him, and he is jealous of his wife, and she isn’t defiled:</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="God">
     <verse num="15" />
@@ -809,7 +809,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>The priest shall set the woman before God, and let the hair of the woman's head go loose, and put the meal offering of memorial in her hands, which is the meal offering of jealousy. The priest shall have in his hand the water of bitterness that brings a curse.</text>
+    <text>The priest shall set the woman before God, and let the hair of the woman’s head go loose, and put the meal offering of memorial in her hands, which is the meal offering of jealousy. The priest shall have in his hand the water of bitterness that brings a curse.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -849,7 +849,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="25" characterId="God">
     <verse num="25" />
-    <text>The priest shall take the meal offering of jealousy out of the woman's hand, and shall wave the meal offering before God, and bring it to the altar.</text>
+    <text>The priest shall take the meal offering of jealousy out of the woman’s hand, and shall wave the meal offering before God, and bring it to the altar.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="26" characterId="God">
     <verse num="26" />
@@ -861,7 +861,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>If the woman isn't defiled, but is clean; then she shall be free, and shall conceive seed.</text>
+    <text>If the woman isn’t defiled, but is clean; then she shall be free, and shall conceive seed.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="29" characterId="God">
     <verse num="29" />
@@ -884,7 +884,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Speak to the children of Israel, and tell them: 'When either man or woman shall make a special vow, the vow of a Nazirite, to separate himself to God,</text>
+    <text>Speak to the children of Israel, and tell them: ‹When either man or woman shall make a special vow, the vow of a Nazirite, to separate himself to God,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -964,7 +964,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="23" characterId="God">
     <verse num="23" />
-    <text>Speak to Aaron and to his sons, saying, 'This is how you shall bless the children of Israel.' You shall tell them, </text>
+    <text>Speak to Aaron and to his sons, saying, ‹This is how you shall bless the children of Israel.› You shall tell them, </text>
     <verse num="24" />
     <text>God bless you, and keep you.</text>
   </block>
@@ -974,7 +974,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>God lift up his face toward you, and give you peace.'</text>
+    <text>God lift up his face toward you, and give you peace.›</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="27" characterId="God">
     <verse num="27" />
@@ -989,7 +989,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-NUM">
     <verse num="2" />
-    <text>that the princes of Israel, the heads of their fathers' houses, offered. These were the princes of the tribes. These are they who were over those who were numbered:</text>
+    <text>that the princes of Israel, the heads of their fathers’ houses, offered. These were the princes of the tribes. These are they who were over those who were numbered:</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-NUM">
     <verse num="3" />
@@ -1347,7 +1347,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Speak to Aaron, and tell him, 'When you light the lamps, the seven lamps shall give light in front of the lampstand.'</text>
+    <text>Speak to Aaron, and tell him, ‹When you light the lamps, the seven lamps shall give light in front of the lampstand.›</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="3" characterId="narrator-NUM">
     <verse num="3" />
@@ -1484,7 +1484,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Say to the children of Israel, 'If any man of you or of your generations is unclean by reason of a dead body, or is on a journey far away, he shall still keep the Passover to God.</text>
+    <text>Say to the children of Israel, ‹If any man of you or of your generations is unclean by reason of a dead body, or is on a journey far away, he shall still keep the Passover to God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="God">
     <verse num="11" />
@@ -1496,7 +1496,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>But the man who is clean, and is not on a journey, and fails to keep the Passover, that soul shall be cut off from his people. Because he didn't offer the offering of God in its appointed season, that man shall bear his sin.</text>
+    <text>But the man who is clean, and is not on a journey, and fails to keep the Passover, that soul shall be cut off from his people. Because he didn’t offer the offering of God in its appointed season, that man shall bear his sin.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -1520,7 +1520,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="narrator-NUM">
     <verse num="19" />
-    <text>When the cloud stayed on the tabernacle many days, then the children of Israel kept God's command, and didn't travel.</text>
+    <text>When the cloud stayed on the tabernacle many days, then the children of Israel kept God’s command, and didn’t travel.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="narrator-NUM">
     <verse num="20" />
@@ -1532,11 +1532,11 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="22" characterId="narrator-NUM">
     <verse num="22" />
-    <text>Whether it was two days, or a month, or a year that the cloud stayed on the tabernacle, remaining on it, the children of Israel remained encamped, and didn't travel; but when it was taken up, they traveled.</text>
+    <text>Whether it was two days, or a month, or a year that the cloud stayed on the tabernacle, remaining on it, the children of Israel remained encamped, and didn’t travel; but when it was taken up, they traveled.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="23" characterId="narrator-NUM">
     <verse num="23" />
-    <text>At the commandment of God they encamped, and at the commandment of God they traveled. They kept God's command, at the commandment of God by Moses.</text>
+    <text>At the commandment of God they encamped, and at the commandment of God they traveled. They kept God’s command, at the commandment of God by Moses.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="NUM" initialStartVerse="0" characterId="BC-NUM">
     <text>10</text>
@@ -1655,10 +1655,10 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="29" characterId="narrator-NUM">
     <verse num="29" />
-    <text>Moses said to Hobab, the son of Reuel the Midianite, Moses' father-in-law,</text>
+    <text>Moses said to Hobab, the son of Reuel the Midianite, Moses’ father-in-law,</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="29" characterId="Moses">
-    <text>“We are journeying to the place of which God said, 'I will give it to you.' Come with us, and we will treat you well; for God has spoken good concerning Israel.”</text>
+    <text>“We are journeying to the place of which God said, ‹I will give it to you.› Come with us, and we will treat you well; for God has spoken good concerning Israel.”</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="30" characterId="narrator-NUM">
     <verse num="30" />
@@ -1680,7 +1680,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="33" characterId="narrator-NUM">
     <verse num="33" />
-    <text>They set forward from the Mount of God three days' journey. The ark of the covenant of God went before them three days' journey, to seek out a resting place for them.</text>
+    <text>They set forward from the Mount of God three days’ journey. The ark of the covenant of God went before them three days’ journey, to seek out a resting place for them.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="34" characterId="narrator-NUM">
     <verse num="34" />
@@ -1705,7 +1705,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="1" characterId="narrator-NUM">
     <verse num="1" />
-    <text>The people were complaining in the ears of God. When God heard it, his anger was kindled; and God's fire burnt among them, and consumed some of the outskirts of the camp.</text>
+    <text>The people were complaining in the ears of God. When God heard it, his anger was kindled; and God’s fire burnt among them, and consumed some of the outskirts of the camp.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-NUM">
     <verse num="2" />
@@ -1713,7 +1713,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-NUM">
     <verse num="3" />
-    <text>The name of that place was called Taberah, because God's fire burnt among them.</text>
+    <text>The name of that place was called Taberah, because God’s fire burnt among them.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="4" characterId="narrator-NUM">
     <verse num="4" />
@@ -1753,11 +1753,11 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
-    <text>Have I conceived all this people? Have I brought them forth, that you should tell me, 'Carry them in your bosom, as a nurse carries a nursing infant, to the land which you swore to their fathers?'</text>
+    <text>Have I conceived all this people? Have I brought them forth, that you should tell me, ‹Carry them in your bosom, as a nurse carries a nursing infant, to the land which you swore to their fathers?›</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
-    <text>Where could I get meat to give to all this people? For they weep to me, saying, 'Give us meat, that we may eat.'</text>
+    <text>Where could I get meat to give to all this people? For they weep to me, saying, ‹Give us meat, that we may eat.›</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="14" characterId="Moses">
     <verse num="14" />
@@ -1765,7 +1765,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>If you treat me this way, please kill me right now, if I have found favor in your sight; and don't let me see my wretchedness.”</text>
+    <text>If you treat me this way, please kill me right now, if I have found favor in your sight; and don’t let me see my wretchedness.”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="16" characterId="narrator-NUM">
     <verse num="16" />
@@ -1780,7 +1780,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Say to the people, 'Sanctify yourselves against tomorrow, and you will eat flesh; for you have wept in the ears of God, saying, Who will give us flesh to eat? For it was well with us in Egypt.” Therefore God will give you flesh, and you will eat.</text>
+    <text>Say to the people, ‹Sanctify yourselves against tomorrow, and you will eat flesh; for you have wept in the ears of God, saying, Who will give us flesh to eat? For it was well with us in Egypt.” Therefore God will give you flesh, and you will eat.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="19" characterId="God">
     <verse num="19" />
@@ -1793,7 +1793,7 @@
     <text>Moses said,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="21" characterId="Moses">
-    <text>“The people, among whom I am, are six hundred thousand men on foot; and you have said, 'I will give them flesh, that they may eat a whole month.'</text>
+    <text>“The people, among whom I am, are six hundred thousand men on foot; and you have said, ‹I will give them flesh, that they may eat a whole month.›</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="22" characterId="Moses">
     <verse num="22" />
@@ -1845,7 +1845,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="31" characterId="narrator-NUM">
     <verse num="31" />
-    <text>A wind from God went out and brought quails from the sea, and let them fall by the camp, about a day's journey on this side, and a day's journey on the other side, around the camp, and about two cubits above the surface of the earth.</text>
+    <text>A wind from God went out and brought quails from the sea, and let them fall by the camp, about a day’s journey on this side, and a day’s journey on the other side, around the camp, and about two cubits above the surface of the earth.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="32" characterId="narrator-NUM">
     <verse num="32" />
@@ -1907,7 +1907,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>With him I will speak mouth to mouth, even plainly, and not in riddles; and he shall see God's form. Why then were you not afraid to speak against my servant, against Moses?”</text>
+    <text>With him I will speak mouth to mouth, even plainly, and not in riddles; and he shall see God’s form. Why then were you not afraid to speak against my servant, against Moses?”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="9" characterId="narrator-NUM">
     <verse num="9" />
@@ -1924,7 +1924,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="12" characterId="Aaron">
     <verse num="12" />
-    <text>Let her not, I pray, be as one dead, of whom the flesh is half consumed when he comes out of his mother's womb.”</text>
+    <text>Let her not, I pray, be as one dead, of whom the flesh is half consumed when he comes out of his mother’s womb.”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="13" characterId="narrator-NUM">
     <verse num="13" />
@@ -1942,7 +1942,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="15" characterId="narrator-NUM">
     <verse num="15" />
-    <text>Miriam was shut up outside of the camp seven days, and the people didn't travel until Miriam was brought in again.</text>
+    <text>Miriam was shut up outside of the camp seven days, and the people didn’t travel until Miriam was brought in again.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="16" characterId="narrator-NUM">
     <verse num="16" />
@@ -1993,7 +1993,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-NUM">
     <verse num="11" />
-    <text>Of the tribe of Joseph, [namely], of the tribe of Manasseh, Gaddi the son of Susi.</text>
+    <text>Of the tribe of Joseph, namely, of the tribe of Manasseh, Gaddi the son of Susi.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="narrator-NUM">
     <verse num="12" />
@@ -2044,7 +2044,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="23" characterId="narrator-NUM">
     <verse num="23" />
-    <text>They came to the valley of Eshcol, and cut down from there a branch with one cluster of grapes, and they bore it on a staff between two; [they brought] also of the pomegranates, and of the figs.</text>
+    <text>They came to the valley of Eshcol, and cut down from there a branch with one cluster of grapes, and they bore it on a staff between two; they brought also of the pomegranates, and of the figs.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="24" characterId="narrator-NUM">
     <verse num="24" />
@@ -2065,7 +2065,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="28" characterId="explorers, ten">
     <verse num="28" />
-    <text>However the people who dwell in the land are strong, and the cities are fortified, [and] very great: and moreover we saw the children of Anak there.</text>
+    <text>However the people who dwell in the land are strong, and the cities are fortified, and very great: and moreover we saw the children of Anak there.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="29" characterId="explorers, ten">
     <verse num="29" />
@@ -2112,7 +2112,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="Israelite community" delivery="grumbling">
     <verse num="3" />
-    <text>Why does God bring us to this land, to fall by the sword? Our wives and our little ones will be a prey: wouldn't it be better for us to return into Egypt?”</text>
+    <text>Why does God bring us to this land, to fall by the sword? Our wives and our little ones will be a prey: wouldn’t it be better for us to return into Egypt?”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-NUM">
     <verse num="4" />
@@ -2134,13 +2134,13 @@
   <block style="p" chapter="14" initialStartVerse="7" characterId="Joshua/Caleb" characterIdOverrideForScript="Caleb">
     <text>“The land, which we passed through to spy it out, is an exceeding good land.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="8" characterId="Joshua/Caleb" characterIdOverrideForScript="Caleb">
+  <block style="p" chapter="14" initialStartVerse="8" characterId="Joshua/Caleb">
     <verse num="8" />
     <text>If God delights in us, then he will bring us into this land, and give it to us; a land which flows with milk and honey.</text>
   </block>
-  <block style="p" chapter="14" initialStartVerse="9" characterId="Joshua/Caleb" characterIdOverrideForScript="Caleb">
+  <block style="p" chapter="14" initialStartVerse="9" characterId="Joshua/Caleb">
     <verse num="9" />
-    <text>Only don't rebel against God, neither fear the people of the land; for they are bread for us: their defense is removed from over them, and God is with us. Don't fear them.”</text>
+    <text>Only don’t rebel against God, neither fear the people of the land; for they are bread for us: their defense is removed from over them, and God is with us. Don’t fear them.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="narrator-NUM">
     <verse num="10" />
@@ -2170,13 +2170,13 @@
     <verse num="15" />
     <text>Now if you killed this people as one man, then the nations which have heard the fame of you will speak, saying, </text>
     <verse num="16" />
-    <text>Because God was not able to bring this people into the land which he swore to them, therefore he has slain them in the wilderness.'</text>
+    <text>Because God was not able to bring this people into the land which he swore to them, therefore he has slain them in the wilderness.›</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="17" characterId="Moses">
     <verse num="17" />
     <text>Now please let the power of the Lord be great, according as you have spoken, saying, </text>
     <verse num="18" />
-    <text>God is slow to anger, and abundant in loving kindness, forgiving iniquity and disobedience; and that will by no means clear [the guilty], visiting the iniquity of the fathers on the children, on the third and on the fourth generation.'</text>
+    <text>God is slow to anger, and abundant in loving kindness, forgiving iniquity and disobedience; and that will by no means clear the guilty, visiting the iniquity of the fathers on the children, on the third and on the fourth generation.›</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="19" characterId="Moses">
     <verse num="19" />
@@ -2215,11 +2215,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="27" characterId="God">
     <verse num="27" />
-    <text>How long [shall I bear] with this evil congregation, that murmur against me? I have heard the murmurings of the children of Israel, which they murmur against me.</text>
+    <text>How long shall I bear with this evil congregation, that murmur against me? I have heard the murmurings of the children of Israel, which they murmur against me.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>Tell them, 'As I live, says God, surely as you have spoken in my ears, so will I do to you:</text>
+    <text>Tell them, ‹As I live, says God, surely as you have spoken in my ears, so will I do to you:</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="29" characterId="God">
     <verse num="29" />
@@ -2239,7 +2239,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="34" characterId="God">
     <verse num="34" />
-    <text>After the number of the days in which you spied out the land, even forty days, for every day a year, you will bear your iniquities, even forty years, and you will know my alienation.'</text>
+    <text>After the number of the days in which you spied out the land, even forty days, for every day a year, you will bear your iniquities, even forty years, and you will know my alienation.›</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="35" characterId="God">
     <verse num="35" />
@@ -2275,7 +2275,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="42" characterId="Moses">
     <verse num="42" />
-    <text>Don't go up, for God isn't among you; that you not be struck down before your enemies.</text>
+    <text>Don’t go up, for God isn’t among you; that you not be struck down before your enemies.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="43" characterId="Moses">
     <verse num="43" />
@@ -2283,7 +2283,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="44" characterId="narrator-NUM">
     <verse num="44" />
-    <text>But they presumed to go up to the top of the mountain: nevertheless the ark of the covenant of God, and Moses, didn't depart out of the camp.</text>
+    <text>But they presumed to go up to the top of the mountain: nevertheless the ark of the covenant of God, and Moses, didn’t depart out of the camp.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="45" characterId="narrator-NUM">
     <verse num="45" />
@@ -2298,7 +2298,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Speak to the children of Israel, and tell them, 'When you have come into the land of your habitations, which I give to you,</text>
+    <text>Speak to the children of Israel, and tell them, ‹When you have come into the land of your habitations, which I give to you,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -2306,7 +2306,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>then he who offers his offering shall offer to God a meal offering of a tenth part [of an ephah] of fine flour mixed with the fourth part of a hin of oil:</text>
+    <text>then he who offers his offering shall offer to God a meal offering of a tenth part of an ephah of fine flour mixed with the fourth part of a hin of oil:</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -2314,7 +2314,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>Or for a ram, you shall prepare for a meal offering two tenth parts [of an ephah] of fine flour mixed with the third part of a hin of oil:</text>
+    <text>Or for a ram, you shall prepare for a meal offering two tenth parts of an ephah of fine flour mixed with the third part of a hin of oil:</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -2326,7 +2326,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>then shall he offer with the bull a meal offering of three tenth parts [of an ephah] of fine flour mixed with half a hin of oil:</text>
+    <text>then shall he offer with the bull a meal offering of three tenth parts of an ephah of fine flour mixed with half a hin of oil:</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -2350,11 +2350,11 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="15" characterId="God">
     <verse num="15" />
-    <text>For the assembly, there shall be one statute for you, and for the stranger who lives as a foreigner [with you], a statute forever throughout your generations: as you are, so shall the foreigner be before God.</text>
+    <text>For the assembly, there shall be one statute for you, and for the stranger who lives as a foreigner with you, a statute forever throughout your generations: as you are, so shall the foreigner be before God.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>One law and one ordinance shall be for you, and for the stranger who lives as a foreigner with you.'</text>
+    <text>One law and one ordinance shall be for you, and for the stranger who lives as a foreigner with you.›</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="17" characterId="narrator-NUM">
     <verse num="17" />
@@ -2362,7 +2362,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="18" characterId="God">
     <verse num="18" />
-    <text>Speak to the children of Israel, and tell them, 'When you come into the land where I bring you, </text>
+    <text>Speak to the children of Israel, and tell them, ‹When you come into the land where I bring you, </text>
     <verse num="19" />
     <text>then it shall be that when you eat of the bread of the land, you shall offer up a wave offering to God.</text>
   </block>
@@ -2456,7 +2456,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="1" characterId="narrator-NUM">
     <verse num="1" />
-    <text>Now Korah, the son of Izhar, the son of Kohath, the son of Levi, with Dathan and Abiram, the sons of Eliab, and On, the son of Peleth, sons of Reuben, took [men]:</text>
+    <text>Now Korah, the son of Izhar, the son of Kohath, the son of Levi, with Dathan and Abiram, the sons of Eliab, and On, the son of Peleth, sons of Reuben, took men:</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="narrator-NUM">
     <verse num="2" />
@@ -2509,14 +2509,14 @@
     <verse num="12" />
     <text>Moses sent to call Dathan and Abiram, the sons of Eliab; and they said,</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="12" characterId="Dathan/Abiram" characterIdOverrideForScript="Dathan">
-    <text>“We won't come up: </text>
+  <block style="p" chapter="16" initialStartVerse="12" characterId="Dathan/Abiram">
+    <text>“We won’t come up: </text>
     <verse num="13" />
     <text>is it a small thing that you have brought us up out of a land flowing with milk and honey, to kill us in the wilderness, but you must also make yourself a prince over us?</text>
   </block>
-  <block style="p" chapter="16" initialStartVerse="14" characterId="Dathan/Abiram" characterIdOverrideForScript="Dathan">
+  <block style="p" chapter="16" initialStartVerse="14" characterId="Dathan/Abiram">
     <verse num="14" />
-    <text>Moreover you haven't brought us into a land flowing with milk and honey, nor given us inheritance of fields and vineyards: will you put out the eyes of these men? We won't come up.”</text>
+    <text>Moreover you haven’t brought us into a land flowing with milk and honey, nor given us inheritance of fields and vineyards: will you put out the eyes of these men? We won’t come up.”</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="15" characterId="narrator-NUM">
     <verse num="15" />
@@ -2565,7 +2565,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>Speak to the congregation, saying, 'Get away from around the tent of Korah, Dathan, and Abiram!'</text>
+    <text>Speak to the congregation, saying, ‹Get away from around the tent of Korah, Dathan, and Abiram!›</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
@@ -2583,11 +2583,11 @@
     <text>Moses said,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="28" characterId="Moses">
-    <text>“Hereby you shall know that God has sent me to do all these works; for [I have] not [done them] of my own mind.</text>
+    <text>“Hereby you shall know that God has sent me to do all these works; for I have not done them of my own mind.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="29" characterId="Moses">
     <verse num="29" />
-    <text>If these men die the common death of all men, or if they be visited after the visitation of all men; then God hasn't sent me.</text>
+    <text>If these men die the common death of all men, or if they be visited after the visitation of all men; then God hasn’t sent me.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="30" characterId="Moses">
     <verse num="30" />
@@ -2626,7 +2626,7 @@
     <verse num="39" />
     <text>Eleazar the priest took the bronze censers, which those who were burnt had offered; and they beat them out for a covering of the altar, </text>
     <verse num="40" />
-    <text>to be a memorial to the children of Israel, to the end that no stranger, who isn't of the seed of Aaron, comes near to burn incense before God; that he not be as Korah, and as his company: as God spoke to him by Moses.</text>
+    <text>to be a memorial to the children of Israel, to the end that no stranger, who isn’t of the seed of Aaron, comes near to burn incense before God; that he not be as Korah, and as his company: as God spoke to him by Moses.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="41" characterId="narrator-NUM">
     <verse num="41" />
@@ -2682,11 +2682,11 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Speak to the children of Israel, and take of them rods, one for each fathers' house, of all their princes according to their fathers' houses, twelve rods: write every man's name on his rod.</text>
+    <text>Speak to the children of Israel, and take of them rods, one for each fathers’ house, of all their princes according to their fathers’ houses, twelve rods: write every man’s name on his rod.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>You shall write Aaron's name on the rod of Levi; for there shall be one rod for each head of their fathers' houses.</text>
+    <text>You shall write Aaron’s name on the rod of Levi; for there shall be one rod for each head of their fathers’ houses.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -2698,7 +2698,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="6" characterId="narrator-NUM">
     <verse num="6" />
-    <text>Moses spoke to the children of Israel; and all their princes gave him rods, for each prince one, according to their fathers' houses, even twelve rods: and the rod of Aaron was among their rods.</text>
+    <text>Moses spoke to the children of Israel; and all their princes gave him rods, for each prince one, according to their fathers’ houses, even twelve rods: and the rod of Aaron was among their rods.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="narrator-NUM">
     <verse num="7" />
@@ -2738,7 +2738,7 @@
     <text>God said to Aaron,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="1" characterId="God">
-    <text>“You and your sons and your fathers' house with you shall bear the iniquity of the sanctuary; and you and your sons with you shall bear the iniquity of your priesthood.</text>
+    <text>“You and your sons and your fathers’ house with you shall bear the iniquity of the sanctuary; and you and your sons with you shall bear the iniquity of your priesthood.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="2" characterId="God">
     <verse num="2" />
@@ -2773,7 +2773,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>This shall be yours of the most holy things, [reserved] from the fire: every offering of theirs, even every meal offering of theirs, and every sin offering of theirs, and every trespass offering of theirs, which they shall render to me, shall be most holy for you and for your sons.</text>
+    <text>This shall be yours of the most holy things, reserved from the fire: every offering of theirs, even every meal offering of theirs, and every sin offering of theirs, and every trespass offering of theirs, which they shall render to me, shall be most holy for you and for your sons.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -2836,7 +2836,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="24" characterId="God">
     <verse num="24" />
-    <text>For the tithe of the children of Israel, which they offer as a wave offering to God, I have given to the Levites for an inheritance: therefore I have said to them, 'Among the children of Israel they shall have no inheritance.'</text>
+    <text>For the tithe of the children of Israel, which they offer as a wave offering to God, I have given to the Levites for an inheritance: therefore I have said to them, ‹Among the children of Israel they shall have no inheritance.›</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
@@ -2844,7 +2844,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>Moreover you shall speak to the Levites, and tell them, 'When you take of the children of Israel the tithe which I have given you from them for your inheritance, then you shall offer up a wave offering of it for God, a tithe of the tithe.</text>
+    <text>Moreover you shall speak to the Levites, and tell them, ‹When you take of the children of Israel the tithe which I have given you from them for your inheritance, then you shall offer up a wave offering of it for God, a tithe of the tithe.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="27" characterId="God">
     <verse num="27" />
@@ -2852,15 +2852,15 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>Thus you also shall offer a wave offering to God of all your tithes, which you receive of the children of Israel; and of it you shall give God's wave offering to Aaron the priest.</text>
+    <text>Thus you also shall offer a wave offering to God of all your tithes, which you receive of the children of Israel; and of it you shall give God’s wave offering to Aaron the priest.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="29" characterId="God">
     <verse num="29" />
-    <text>Out of all your gifts you shall offer every wave offering of God, of all its best, even the holy part of it out of it.'</text>
+    <text>Out of all your gifts you shall offer every wave offering of God, of all its best, even the holy part of it out of it.›</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="30" characterId="God">
     <verse num="30" />
-    <text>Therefore you shall tell them, 'When you heave its best from it, then it shall be reckoned to the Levites as the increase of the threshing floor, and as the increase of the winepress.</text>
+    <text>Therefore you shall tell them, ‹When you heave its best from it, then it shall be reckoned to the Levites as the increase of the threshing floor, and as the increase of the winepress.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="31" characterId="God">
     <verse num="31" />
@@ -2879,7 +2879,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>This is the statute of the law which God has commanded: Speak to the children of Israel, that they bring you a red heifer without spot, in which is no blemish, [and] on which never came yoke.</text>
+    <text>This is the statute of the law which God has commanded: Speak to the children of Israel, that they bring you a red heifer without spot, in which is no blemish, and on which never came yoke.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -2919,11 +2919,11 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>the same shall purify himself with water on the third day, and on the seventh day he shall be clean: but if he doesn't purify himself the third day, then the seventh day he shall not be clean.</text>
+    <text>the same shall purify himself with water on the third day, and on the seventh day he shall be clean: but if he doesn’t purify himself the third day, then the seventh day he shall not be clean.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="13" characterId="God">
     <verse num="13" />
-    <text>Whoever touches a dead person, the body of a man who has died, and doesn't purify himself, defiles the tabernacle of God; and that soul shall be cut off from Israel: because the water for impurity was not sprinkled on him, he shall be unclean; his uncleanness is yet on him.</text>
+    <text>Whoever touches a dead person, the body of a man who has died, and doesn’t purify himself, defiles the tabernacle of God; and that soul shall be cut off from Israel: because the water for impurity was not sprinkled on him, he shall be unclean; his uncleanness is yet on him.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="14" characterId="God">
     <verse num="14" />
@@ -3038,7 +3038,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="17" characterId="messengers Moses sent to king of Edom">
     <verse num="17" />
-    <text>Please let us pass through your land: we will not pass through field or through vineyard, neither will we drink of the water of the wells: we will go along the king's highway; we will not turn aside to the right hand nor to the left, until we have passed your border.</text>
+    <text>Please let us pass through your land: we will not pass through field or through vineyard, neither will we drink of the water of the wells: we will go along the king’s highway; we will not turn aside to the right hand nor to the left, until we have passed your border.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="18" characterId="narrator-NUM">
     <verse num="18" />
@@ -3052,7 +3052,7 @@
     <text>The children of Israel said to him,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="19" characterId="messengers Moses sent to king of Edom">
-    <text>“We will go up by the highway; and if we drink of your water, I and my livestock, then will I give its price: let me only, without [doing] anything [else], pass through on my feet.”</text>
+    <text>“We will go up by the highway; and if we drink of your water, I and my livestock, then will I give its price: let me only, without doing anything else, pass through on my feet.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="20" characterId="narrator-NUM">
     <verse num="20" />
@@ -3086,7 +3086,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>and strip Aaron of his garments, and put them on Eleazar his son: and Aaron shall be gathered [to his people], and shall die there.</text>
+    <text>and strip Aaron of his garments, and put them on Eleazar his son: and Aaron shall be gathered to his people, and shall die there.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="27" characterId="narrator-NUM">
     <verse num="27" />
@@ -3192,7 +3192,7 @@
     <text>the well, which the princes dug, which the nobles of the people dug, with the scepter, and with their poles.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="18" characterId="narrator-NUM">
-    <text>From the wilderness [they traveled] to Mattanah; </text>
+    <text>From the wilderness they traveled to Mattanah; </text>
     <verse num="19" />
     <text>and from Mattanah to Nahaliel; and from Nahaliel to Bamoth; </text>
     <verse num="20" />
@@ -3204,7 +3204,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="22" characterId="messengers Israel sent to Amorite king Sihon">
     <verse num="22" />
-    <text>Let me pass through your land: we will not turn aside into field, or into vineyard; we will not drink of the water of the wells: we will go by the king's highway, until we have passed your border.</text>
+    <text>Let me pass through your land: we will not turn aside into field, or into vineyard; we will not drink of the water of the wells: we will go by the king’s highway, until we have passed your border.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="23" characterId="narrator-NUM">
     <verse num="23" />
@@ -3314,7 +3314,7 @@
     <text>Balaam said to God,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="10" characterId="Balaam">
-    <text>“Balak the son of Zippor, king of Moab, has sent to me, [saying], </text>
+    <text>“Balak the son of Zippor, king of Moab, has sent to me, saying, </text>
     <verse num="11" />
     <text>Behold, the people that is come out of Egypt, it covers the surface of the earth: now, come curse me them; perhaps I shall be able to fight against them, and shall drive them out.”</text>
   </block>
@@ -3346,7 +3346,7 @@
     <text>They came to Balaam, and said to him,</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="16" characterId="Moabite officials, more distinguished">
-    <text>“Thus says Balak the son of Zippor, 'Please let nothing hinder you from coming to me: </text>
+    <text>“Thus says Balak the son of Zippor, ‹Please let nothing hinder you from coming to me: </text>
     <verse num="17" />
     <text>for I will promote you to very great honor, and whatever you say to me I will do. Please come therefore, and curse this people for me.”</text>
   </block>
@@ -3374,7 +3374,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="22" characterId="narrator-NUM">
     <verse num="22" />
-    <text>God's anger was kindled because he went; and the angel of God placed himself in the way for an adversary against him. Now he was riding on his donkey, and his two servants were with him.</text>
+    <text>God’s anger was kindled because he went; and the angel of God placed himself in the way for an adversary against him. Now he was riding on his donkey, and his two servants were with him.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="23" characterId="narrator-NUM">
     <verse num="23" />
@@ -3386,7 +3386,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
-    <text>The donkey saw the angel of God, and she thrust herself to the wall, and crushed Balaam's foot against the wall: and he struck her again.</text>
+    <text>The donkey saw the angel of God, and she thrust herself to the wall, and crushed Balaam’s foot against the wall: and he struck her again.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="26" characterId="narrator-NUM">
     <verse num="26" />
@@ -3394,7 +3394,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="27" characterId="narrator-NUM">
     <verse num="27" />
-    <text>The donkey saw the angel of God, and she lay down under Balaam: and Balaam's anger was kindled, and he struck the donkey with his staff.</text>
+    <text>The donkey saw the angel of God, and she lay down under Balaam: and Balaam’s anger was kindled, and he struck the donkey with his staff.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="28" characterId="narrator-NUM">
     <verse num="28" />
@@ -3512,7 +3512,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="5" characterId="narrator-NUM">
     <verse num="5" />
-    <text>God put a word in Balaam's mouth, and said,</text>
+    <text>God put a word in Balaam’s mouth, and said,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="5" characterId="God">
     <text>“Return to Balak, and thus you shall speak.”</text>
@@ -3568,7 +3568,7 @@
     <text>He said to Balak,</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="15" characterId="Balaam">
-    <text>“Stand here by your burnt offering, while I meet [God] yonder.”</text>
+    <text>“Stand here by your burnt offering, while I meet God yonder.”</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="16" characterId="narrator-NUM">
     <verse num="16" />
@@ -3597,7 +3597,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="20" characterId="Balaam">
     <verse num="20" />
-    <text>Behold, I have received a command to bless. He has blessed, and I can't reverse it.</text>
+    <text>Behold, I have received a command to bless. He has blessed, and I can’t reverse it.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="21" characterId="Balaam">
     <verse num="21" />
@@ -3654,7 +3654,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="1" characterId="narrator-NUM">
     <verse num="1" />
-    <text>When Balaam saw that it pleased God to bless Israel, he didn't go, as at the other times, to meet with enchantments, but he set his face toward the wilderness.</text>
+    <text>When Balaam saw that it pleased God to bless Israel, he didn’t go, as at the other times, to meet with enchantments, but he set his face toward the wilderness.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="narrator-NUM">
     <verse num="2" />
@@ -3693,7 +3693,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="10" characterId="narrator-NUM">
     <verse num="10" />
-    <text>Balak's anger was kindled against Balaam, and he struck his hands together; and Balak said to Balaam,</text>
+    <text>Balak’s anger was kindled against Balaam, and he struck his hands together; and Balak said to Balaam,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="10" characterId="Balak">
     <text>“I called you to curse my enemies, and, behold, you have altogether blessed them these three times.</text>
@@ -3707,13 +3707,13 @@
     <text>Balaam said to Balak,</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="12" characterId="Balaam">
-    <text>“Didn't I also tell your messengers who you sent to me, saying, </text>
+    <text>“Didn’t I also tell your messengers who you sent to me, saying, </text>
     <verse num="13" />
-    <text>If Balak would give me his house full of silver and gold, I can't go beyond the word of God, to do either good or bad of my own mind. I will say what God says'?</text>
+    <text>‹If Balak would give me his house full of silver and gold, I can’t go beyond the word of God, to do either good or bad of my own mind. I will say what God says’ ?</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="14" characterId="Balaam">
     <verse num="14" />
-    <text>Now, behold, I go to my people: come, [and] I will inform you what this people shall do to your people in the latter days.”</text>
+    <text>Now, behold, I go to my people: come, and I will inform you what this people shall do to your people in the latter days.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="15" characterId="narrator-NUM">
     <verse num="15" />
@@ -3765,7 +3765,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="Balaam">
     <verse num="24" />
-    <text>But ships [shall come] from the coast of Kittim. They shall afflict Asshur, and shall afflict Eber. He also shall come to destruction.”</text>
+    <text>But ships shall come from the coast of Kittim. They shall afflict Asshur, and shall afflict Eber. He also shall come to destruction.”</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
@@ -3818,21 +3818,21 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>Phinehas, the son of Eleazar, the son of Aaron the priest, has turned my wrath away from the children of Israel, in that he was jealous with my jealousy among them, so that I didn't consume the children of Israel in my jealousy.</text>
+    <text>Phinehas, the son of Eleazar, the son of Aaron the priest, has turned my wrath away from the children of Israel, in that he was jealous with my jealousy among them, so that I didn’t consume the children of Israel in my jealousy.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>Therefore say, 'Behold, I give to him my covenant of peace: </text>
+    <text>Therefore say, ‹Behold, I give to him my covenant of peace: </text>
     <verse num="13" />
-    <text>and it shall be to him, and to his seed after him, the covenant of an everlasting priesthood; because he was jealous for his God, and made atonement for the children of Israel.'</text>
+    <text>and it shall be to him, and to his seed after him, the covenant of an everlasting priesthood; because he was jealous for his God, and made atonement for the children of Israel.›</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="14" characterId="narrator-NUM">
     <verse num="14" />
-    <text>Now the name of the man of Israel that was slain, who was slain with the Midianite woman, was Zimri, the son of Salu, a prince of a fathers' house among the Simeonites.</text>
+    <text>Now the name of the man of Israel that was slain, who was slain with the Midianite woman, was Zimri, the son of Salu, a prince of a fathers’ house among the Simeonites.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="15" characterId="narrator-NUM">
     <verse num="15" />
-    <text>The name of the Midianite woman who was slain was Cozbi, the daughter of Zur; he was head of the people of a fathers' house in Midian. </text>
+    <text>The name of the Midianite woman who was slain was Cozbi, the daughter of Zur; he was head of the people of a fathers’ house in Midian. </text>
     <verse num="16" />
     <text>God spoke to Moses, saying,</text>
   </block>
@@ -3851,22 +3851,22 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Take a census of all the congregation of the children of Israel, from twenty years old and upward, by their fathers' houses, all who are able to go forth to war in Israel.</text>
+    <text>Take a census of all the congregation of the children of Israel, from twenty years old and upward, by their fathers’ houses, all who are able to go forth to war in Israel.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="3" characterId="narrator-NUM">
     <verse num="3" />
     <text>Moses and Eleazar the priest spoke with them in the plains of Moab by the Jordan at Jericho, saying,</text>
   </block>
-  <block style="p" chapter="26" initialStartVerse="4" characterId="Moses/Eleazar the priest, son of Aaron" characterIdOverrideForScript="Moses">
+  <block style="p" chapter="26" initialStartVerse="4" characterId="Moses/Eleazar the priest, son of Aaron">
     <verse num="4" />
-    <text>[Take a census of the people], from twenty years old and upward; as God commanded Moses and the children of Israel.</text>
+    <text>Take a census of the people, from twenty years old and upward; as God commanded Moses and the children of Israel.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="4" characterId="narrator-NUM">
     <text>These are those that came out of the land of Egypt.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="5" characterId="narrator-NUM">
     <verse num="5" />
-    <text>Reuben, the firstborn of Israel; the sons of Reuben: [of] Hanoch, the family of the Hanochites; of Pallu, the family of the Palluites;</text>
+    <text>Reuben, the firstborn of Israel; the sons of Reuben: of Hanoch, the family of the Hanochites; of Pallu, the family of the Palluites;</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="6" characterId="narrator-NUM">
     <verse num="6" />
@@ -3888,7 +3888,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="11" characterId="narrator-NUM">
     <verse num="11" />
-    <text>Notwithstanding, the sons of Korah didn't die.</text>
+    <text>Notwithstanding, the sons of Korah didn’t die.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="12" characterId="narrator-NUM">
     <verse num="12" />
@@ -3936,7 +3936,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="23" characterId="narrator-NUM">
     <verse num="23" />
-    <text>The sons of Issachar after their families: [of] Tola, the family of the Tolaites; of Puvah, the family of the Punites;</text>
+    <text>The sons of Issachar after their families: of Tola, the family of the Tolaites; of Puvah, the family of the Punites;</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="24" characterId="narrator-NUM">
     <verse num="24" />
@@ -3964,15 +3964,15 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="30" characterId="narrator-NUM">
     <verse num="30" />
-    <text>These are the sons of Gilead: [of] Iezer, the family of the Iezerites; of Helek, the family of the Helekites;</text>
+    <text>These are the sons of Gilead: of Iezer, the family of the Iezerites; of Helek, the family of the Helekites;</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="31" characterId="narrator-NUM">
     <verse num="31" />
-    <text>and [of] Asriel, the family of the Asrielites; and [of] Shechem, the family of the Shechemites;</text>
+    <text>and of Asriel, the family of the Asrielites; and of Shechem, the family of the Shechemites;</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="32" characterId="narrator-NUM">
     <verse num="32" />
-    <text>and [of] Shemida, the family of the Shemidaites; and [of] Hepher, the family of the Hepherites.</text>
+    <text>and of Shemida, the family of the Shemidaites; and of Hepher, the family of the Hepherites.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="33" characterId="narrator-NUM">
     <verse num="33" />
@@ -4004,7 +4004,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="40" characterId="narrator-NUM">
     <verse num="40" />
-    <text>The sons of Bela were Ard and Naaman: [of Ard], the family of the Ardites; of Naaman, the family of the Naamites.</text>
+    <text>The sons of Bela were Ard and Naaman: of Ard, the family of the Ardites; of Naaman, the family of the Naamites.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="41" characterId="narrator-NUM">
     <verse num="41" />
@@ -4080,7 +4080,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="59" characterId="narrator-NUM">
     <verse num="59" />
-    <text>The name of Amram's wife was Jochebed, the daughter of Levi, who was born to Levi in Egypt: and she bore to Amram Aaron and Moses, and Miriam their sister.</text>
+    <text>The name of Amram’s wife was Jochebed, the daughter of Levi, who was born to Levi in Egypt: and she bore to Amram Aaron and Moses, and Miriam their sister.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="60" characterId="narrator-NUM">
     <verse num="60" />
@@ -4135,11 +4135,11 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>The daughters of Zelophehad speak right: you shall surely give them a possession of an inheritance among their father's brothers; and you shall cause the inheritance of their father to pass to them.</text>
+    <text>The daughters of Zelophehad speak right: you shall surely give them a possession of an inheritance among their father’s brothers; and you shall cause the inheritance of their father to pass to them.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>You shall speak to the children of Israel, saying, 'If a man dies, and has no son, then you shall cause his inheritance to pass to his daughter.</text>
+    <text>You shall speak to the children of Israel, saying, ‹If a man dies, and has no son, then you shall cause his inheritance to pass to his daughter.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="9" characterId="God">
     <verse num="9" />
@@ -4147,11 +4147,11 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>If he has no brothers, then you shall give his inheritance to his father's brothers.</text>
+    <text>If he has no brothers, then you shall give his inheritance to his father’s brothers.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="11" characterId="God">
     <verse num="11" />
-    <text>If his father has no brothers, then you shall give his inheritance to his kinsman who is next to him of his family, and he shall possess it: and it shall be to the children of Israel a statute [and] ordinance, as God commanded Moses.'</text>
+    <text>If his father has no brothers, then you shall give his inheritance to his kinsman who is next to him of his family, and he shall possess it: and it shall be to the children of Israel a statute and ordinance, as God commanded Moses.›</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="12" characterId="narrator-NUM">
     <verse num="12" />
@@ -4215,11 +4215,11 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Command the children of Israel, and tell them, 'My offering, my food for my offerings made by fire, of a pleasant aroma to me, you shall observe to offer to me in their due season.'</text>
+    <text>Command the children of Israel, and tell them, ‹My offering, my food for my offerings made by fire, of a pleasant aroma to me, you shall observe to offer to me in their due season.›</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="3" characterId="God">
     <verse num="3" />
-    <text>You shall tell them, 'This is the offering made by fire which you shall offer to God: male lambs a year old without blemish, two day by day, for a continual burnt offering.</text>
+    <text>You shall tell them, ‹This is the offering made by fire which you shall offer to God: male lambs a year old without blemish, two day by day, for a continual burnt offering.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="4" characterId="God">
     <verse num="4" />
@@ -4243,7 +4243,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="9" characterId="God">
     <verse num="9" />
-    <text>On the Sabbath day two male lambs a year old without blemish, and two tenth parts [of an ephah] of fine flour for a meal offering, mixed with oil, and the drink offering of it:</text>
+    <text>On the Sabbath day two male lambs a year old without blemish, and two tenth parts of an ephah of fine flour for a meal offering, mixed with oil, and the drink offering of it:</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="10" characterId="God">
     <verse num="10" />
@@ -4255,7 +4255,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="12" characterId="God">
     <verse num="12" />
-    <text>and three tenth parts [of an ephah] of fine flour for a meal offering, mixed with oil, for each bull; and two tenth parts of fine flour for a meal offering, mixed with oil, for the one ram;</text>
+    <text>and three tenth parts of an ephah of fine flour for a meal offering, mixed with oil, for each bull; and two tenth parts of fine flour for a meal offering, mixed with oil, for the one ram;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="13" characterId="God">
     <verse num="13" />
@@ -4271,7 +4271,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="16" characterId="God">
     <verse num="16" />
-    <text>In the first month, on the fourteenth day of the month, is God's Passover.</text>
+    <text>In the first month, on the fourteenth day of the month, is God’s Passover.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="17" characterId="God">
     <verse num="17" />
@@ -4311,7 +4311,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>Also in the day of the first fruits, when you offer a new meal offering to God in your [feast of] weeks, you shall have a holy convocation; you shall do no servile work;</text>
+    <text>Also in the day of the first fruits, when you offer a new meal offering to God in your feast of weeks, you shall have a holy convocation; you shall do no servile work;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="27" characterId="God">
     <verse num="27" />
@@ -4396,7 +4396,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="17" characterId="God">
     <verse num="17" />
-    <text>On the second day [you shall offer] twelve young bulls, two rams, fourteen male lambs a year old without blemish;</text>
+    <text>On the second day you shall offer twelve young bulls, two rams, fourteen male lambs a year old without blemish;</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="18" characterId="God">
     <verse num="18" />
@@ -4506,7 +4506,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="3" characterId="Moses">
     <verse num="3" />
-    <text>Also when a woman vows a vow to God, and binds herself by a bond, being in her father's house, in her youth,</text>
+    <text>Also when a woman vows a vow to God, and binds herself by a bond, being in her father’s house, in her youth,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="4" characterId="Moses">
     <verse num="4" />
@@ -4518,7 +4518,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="6" characterId="Moses">
     <verse num="6" />
-    <text>If she is [married] to a husband, while her vows are on her, or the rash utterance of her lips, with which she has bound her soul,</text>
+    <text>If she is married to a husband, while her vows are on her, or the rash utterance of her lips, with which she has bound her soul,</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="7" characterId="Moses">
     <verse num="7" />
@@ -4530,13 +4530,13 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="9" characterId="Moses">
     <verse num="9" />
-    <text>But the vow of a widow, or of her who is divorced, [even] everything with which she has bound her soul, shall stand against her.</text>
+    <text>But the vow of a widow, or of her who is divorced, even everything with which she has bound her soul, shall stand against her.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
-    <text>If she vowed in her husband's house, or bound her soul by a bond with an oath, </text>
+    <text>If she vowed in her husband’s house, or bound her soul by a bond with an oath, </text>
     <verse num="11" />
-    <text>and her husband heard it, and held his peace at her, and didn't disallow her; then all her vows shall stand, and every bond with which she bound her soul shall stand.</text>
+    <text>and her husband heard it, and held his peace at her, and didn’t disallow her; then all her vows shall stand, and every bond with which she bound her soul shall stand.</text>
   </block>
   <block style="p" chapter="30" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
@@ -4556,7 +4556,7 @@
   </block>
   <block style="p" chapter="30" initialStartVerse="16" characterId="narrator-NUM">
     <verse num="16" />
-    <text>These are the statutes, which God commanded Moses, between a man and his wife, between a father and his daughter, being in her youth, in her father's house.</text>
+    <text>These are the statutes, which God commanded Moses, between a man and his wife, between a father and his daughter, being in her youth, in her father’s house.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="31" book="NUM" initialStartVerse="0" characterId="BC-NUM">
     <text>31</text>
@@ -4641,7 +4641,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="20" characterId="Moses">
     <verse num="20" />
-    <text>As to every garment, and all that is made of skin, and all work of goats' [hair], and all things made of wood, you shall purify yourselves.</text>
+    <text>As to every garment, and all that is made of skin, and all work of goats’ hair, and all things made of wood, you shall purify yourselves.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="21" characterId="narrator-NUM">
     <verse num="21" />
@@ -4654,7 +4654,7 @@
     <verse num="22" />
     <text>however the gold, and the silver, the brass, the iron, the tin, and the lead, </text>
     <verse num="23" />
-    <text>everything that may withstand the fire, you shall make to go through the fire, and it shall be clean; nevertheless it shall be purified with the water for impurity: and all that doesn't withstand the fire you shall make to go through the water.</text>
+    <text>everything that may withstand the fire, you shall make to go through the fire, and it shall be clean; nevertheless it shall be purified with the water for impurity: and all that doesn’t withstand the fire you shall make to go through the water.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="24" characterId="Eleazar the priest, son of Aaron">
     <verse num="24" />
@@ -4666,7 +4666,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="26" characterId="God">
     <verse num="26" />
-    <text>Take the sum of the prey that was taken, both of man and of animal, you, and Eleazar the priest, and the heads of the fathers' [houses] of the congregation;</text>
+    <text>Take the sum of the prey that was taken, both of man and of animal, you, and Eleazar the priest, and the heads of the fathers’ houses of the congregation;</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="27" characterId="God">
     <verse num="27" />
@@ -4674,15 +4674,15 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="28" characterId="God">
     <verse num="28" />
-    <text>Levy a tribute to God of the men of war who went out to battle: one soul of five hundred, [both] of the persons, and of the cattle, and of the donkeys, and of the flocks:</text>
+    <text>Levy a tribute to God of the men of war who went out to battle: one soul of five hundred, both of the persons, and of the cattle, and of the donkeys, and of the flocks:</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="29" characterId="God">
     <verse num="29" />
-    <text>take it of their half, and give it to Eleazar the priest, for God's wave offering.</text>
+    <text>take it of their half, and give it to Eleazar the priest, for God’s wave offering.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="30" characterId="God">
     <verse num="30" />
-    <text>Of the children of Israel's half, you shall take one drawn out of every fifty, of the persons, of the cattle, of the donkeys, and of the flocks, [even] of all the livestock, and give them to the Levites, who perform the duty of the tabernacle of God.</text>
+    <text>Of the children of Israel’s half, you shall take one drawn out of every fifty, of the persons, of the cattle, of the donkeys, and of the flocks, even of all the livestock, and give them to the Levites, who perform the duty of the tabernacle of God.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="31" characterId="narrator-NUM">
     <verse num="31" />
@@ -4704,31 +4704,31 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="37" characterId="narrator-NUM">
     <verse num="37" />
-    <text>and God's tribute of the sheep was six hundred seventy-five.</text>
+    <text>and God’s tribute of the sheep was six hundred seventy-five.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="38" characterId="narrator-NUM">
     <verse num="38" />
-    <text>The cattle were thirty-six thousand; of which God's tribute was seventy-two.</text>
+    <text>The cattle were thirty-six thousand; of which God’s tribute was seventy-two.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="39" characterId="narrator-NUM">
     <verse num="39" />
-    <text>The donkeys were thirty thousand five hundred; of which God's tribute was sixty-one.</text>
+    <text>The donkeys were thirty thousand five hundred; of which God’s tribute was sixty-one.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="40" characterId="narrator-NUM">
     <verse num="40" />
-    <text>The persons were sixteen thousand; of whom God's tribute was thirty-two persons.</text>
+    <text>The persons were sixteen thousand; of whom God’s tribute was thirty-two persons.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="41" characterId="narrator-NUM">
     <verse num="41" />
-    <text>Moses gave the tribute, which was God's wave offering, to Eleazar the priest, as God commanded Moses.</text>
+    <text>Moses gave the tribute, which was God’s wave offering, to Eleazar the priest, as God commanded Moses.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="42" characterId="narrator-NUM">
     <verse num="42" />
-    <text>Of the children of Israel's half, which Moses divided off from the men who warred</text>
+    <text>Of the children of Israel’s half, which Moses divided off from the men who warred</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="43" characterId="narrator-NUM">
     <verse num="43" />
-    <text>(now the congregation's half was three hundred thirty-seven thousand five hundred sheep, </text>
+    <text>(now the congregation’s half was three hundred thirty-seven thousand five hundred sheep, </text>
     <verse num="44" />
     <text>and thirty-six thousand head of cattle, </text>
     <verse num="45" />
@@ -4736,7 +4736,7 @@
     <verse num="46" />
     <text>and sixteen thousand persons), </text>
     <verse num="47" />
-    <text>even of the children of Israel's half, Moses took one drawn out of every fifty, both of man and of animal, and gave them to the Levites, who performed the duty of the tabernacle of God; as God commanded Moses.</text>
+    <text>even of the children of Israel’s half, Moses took one drawn out of every fifty, both of man and of animal, and gave them to the Levites, who performed the duty of the tabernacle of God; as God commanded Moses.</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="48" characterId="narrator-NUM">
     <verse num="48" />
@@ -4749,7 +4749,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="50" characterId="Israelite army commanding officers">
     <verse num="50" />
-    <text>We have brought God's offering, what every man has gotten, of jewels of gold, armlets, and bracelets, signet rings, earrings, and necklaces, to make atonement for our souls before God.”</text>
+    <text>We have brought God’s offering, what every man has gotten, of jewels of gold, armlets, and bracelets, signet rings, earrings, and necklaces, to make atonement for our souls before God.”</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="51" characterId="narrator-NUM">
     <verse num="51" />
@@ -4761,7 +4761,7 @@
   </block>
   <block style="p" chapter="31" initialStartVerse="53" characterId="narrator-NUM">
     <verse num="53" />
-    <text>([For] the men of war had taken booty, every man for himself.)</text>
+    <text>(For the men of war had taken booty, every man for himself.)</text>
   </block>
   <block style="p" chapter="31" initialStartVerse="54" characterId="narrator-NUM">
     <verse num="54" />
@@ -4778,13 +4778,13 @@
     <verse num="2" />
     <text>the children of Gad and the children of Reuben came and spoke to Moses, and to Eleazar the priest, and to the princes of the congregation, saying,</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="3" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="3" characterId="Gadites/Reubenites">
     <verse num="3" />
-    <text>Ataroth, and Dibon, and Jazer, and Nimrah, and Heshbon, and Elealeh, and Sebam, and Nebo, and Beon,</text>
+    <text>“Ataroth, and Dibon, and Jazer, and Nimrah, and Heshbon, and Elealeh, and Sebam, and Nebo, and Beon,</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="4" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="4" characterId="Gadites/Reubenites">
     <verse num="4" />
-    <text>the land which God struck before the congregation of Israel, is a land for livestock; and your servants have livestock.</text>
+    <text>the land which God struck before the congregation of Israel, is a land for livestock; and your servants have livestock.”</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="5" characterId="narrator-NUM">
     <verse num="5" />
@@ -4814,23 +4814,23 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="10" characterId="Moses">
     <verse num="10" />
-    <text>God's anger was kindled in that day, and he swore, saying, </text>
+    <text>God’s anger was kindled in that day, and he swore, saying, </text>
     <verse num="11" />
-    <text>'Surely none of the men who came up out of Egypt, from twenty years old and upward, shall see the land which I swore to Abraham, to Isaac, and to Jacob; because they have not wholly followed me: </text>
+    <text>‹Surely none of the men who came up out of Egypt, from twenty years old and upward, shall see the land which I swore to Abraham, to Isaac, and to Jacob; because they have not wholly followed me: </text>
     <verse num="12" />
-    <text>except Caleb the son of Jephunneh the Kenizzite, and Joshua the son of Nun; because they have followed God completely.'</text>
+    <text>except Caleb the son of Jephunneh the Kenizzite, and Joshua the son of Nun; because they have followed God completely.›</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="13" characterId="Moses">
     <verse num="13" />
-    <text>God's anger was kindled against Israel, and he made them wander back and forth in the wilderness forty years, until all the generation, who had done evil in the sight of God, was consumed.</text>
+    <text>God’s anger was kindled against Israel, and he made them wander back and forth in the wilderness forty years, until all the generation, who had done evil in the sight of God, was consumed.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="14" characterId="Moses">
     <verse num="14" />
-    <text>Behold, you have risen up in your fathers' place, an increase of sinful men, to augment yet the fierce anger of God toward Israel.</text>
+    <text>Behold, you have risen up in your fathers’ place, an increase of sinful men, to augment yet the fierce anger of God toward Israel.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
-    <text>For if you turn away from after him, he will yet again leave them in the wilderness; and you will destroy all this people.</text>
+    <text>For if you turn away from after him, he will yet again leave them in the wilderness; and you will destroy all this people.”</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="16" characterId="narrator-NUM">
     <verse num="16" />
@@ -4839,15 +4839,15 @@
   <block style="p" chapter="32" initialStartVerse="16" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
     <text>“We will build sheepfolds here for our livestock, and cities for our little ones:</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="17" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="17" characterId="Gadites/Reubenites">
     <verse num="17" />
     <text>but we ourselves will be ready armed to go before the children of Israel, until we have brought them to their place: and our little ones shall dwell in the fortified cities because of the inhabitants of the land.</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="18" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="18" characterId="Gadites/Reubenites">
     <verse num="18" />
     <text>We will not return to our houses, until the children of Israel have inherited every man his inheritance.</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="19" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="19" characterId="Gadites/Reubenites">
     <verse num="19" />
     <text>For we will not inherit with them on the other side of the Jordan, and forward; because our inheritance is fallen to us on this side of the Jordan eastward.”</text>
   </block>
@@ -4868,7 +4868,7 @@
   </block>
   <block style="p" chapter="32" initialStartVerse="24" characterId="Moses">
     <verse num="24" />
-    <text>Build cities for your little ones, and folds for your sheep; and do that which has proceeded out of your mouth.</text>
+    <text>Build cities for your little ones, and folds for your sheep; and do that which has proceeded out of your mouth.”</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="25" characterId="narrator-NUM">
     <verse num="25" />
@@ -4877,17 +4877,17 @@
   <block style="p" chapter="32" initialStartVerse="25" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
     <text>“Your servants will do as my lord commands.</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="26" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="26" characterId="Gadites/Reubenites">
     <verse num="26" />
     <text>Our little ones, our wives, our flocks, and all our livestock, shall be there in the cities of Gilead;</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="27" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="27" characterId="Gadites/Reubenites">
     <verse num="27" />
     <text>but your servants will pass over, every man who is armed for war, before God to battle, as my lord says.”</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="28" characterId="narrator-NUM">
     <verse num="28" />
-    <text>So Moses commanded concerning them to Eleazar the priest, and to Joshua the son of Nun, and to the heads of the fathers' [houses] of the tribes of the children of Israel. </text>
+    <text>So Moses commanded concerning them to Eleazar the priest, and to Joshua the son of Nun, and to the heads of the fathers’ houses of the tribes of the children of Israel. </text>
     <verse num="29" />
     <text>Moses said to them,</text>
   </block>
@@ -4905,13 +4905,13 @@
   <block style="p" chapter="32" initialStartVerse="31" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
     <text>“As God has said to your servants, so will we do.</text>
   </block>
-  <block style="p" chapter="32" initialStartVerse="32" characterId="Gadites/Reubenites" characterIdOverrideForScript="Gadites">
+  <block style="p" chapter="32" initialStartVerse="32" characterId="Gadites/Reubenites">
     <verse num="32" />
-    <text>We will pass over armed before God into the land of Canaan, and the possession of our inheritance [shall remain] with us beyond the Jordan.”</text>
+    <text>We will pass over armed before God into the land of Canaan, and the possession of our inheritance shall remain with us beyond the Jordan.”</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="33" characterId="narrator-NUM">
     <verse num="33" />
-    <text>Moses gave to them, even to the children of Gad, and to the children of Reuben, and to the half-tribe of Manasseh the son of Joseph, the kingdom of Sihon king of the Amorites, and the kingdom of Og king of Bashan, the land, according to the cities of it with [their] borders, even the cities of the surrounding land.</text>
+    <text>Moses gave to them, even to the children of Gad, and to the children of Reuben, and to the half-tribe of Manasseh the son of Joseph, the kingdom of Sihon king of the Amorites, and the kingdom of Og king of Bashan, the land, according to the cities of it with their borders, even the cities of the surrounding land.</text>
   </block>
   <block style="p" chapter="32" initialStartVerse="34" characterId="narrator-NUM">
     <verse num="34" />
@@ -4976,7 +4976,7 @@
   </block>
   <block style="p" chapter="33" initialStartVerse="8" characterId="narrator-NUM">
     <verse num="8" />
-    <text>They traveled from before Hahiroth, and passed through the midst of the sea into the wilderness: and they went three days' journey in the wilderness of Etham, and encamped in Marah.</text>
+    <text>They traveled from before Hahiroth, and passed through the midst of the sea into the wilderness: and they went three days’ journey in the wilderness of Etham, and encamped in Marah.</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="9" characterId="narrator-NUM">
     <verse num="9" />
@@ -5151,7 +5151,7 @@
   <block style="p" chapter="33" initialStartVerse="51" characterId="God">
     <text>“When you pass over the Jordan into the land of Canaan, </text>
     <verse num="52" />
-    <text>then you shall drive out all the inhabitants of the land from before you, and destroy all their figured [stones], and destroy all their molten images, and demolish all their high places:</text>
+    <text>then you shall drive out all the inhabitants of the land from before you, and destroy all their figured stones, and destroy all their molten images, and demolish all their high places:</text>
   </block>
   <block style="p" chapter="33" initialStartVerse="53" characterId="God">
     <verse num="53" />
@@ -5178,7 +5178,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Command the children of Israel, and tell them, 'When you come into the land of Canaan (this is the land that shall fall to you for an inheritance, even the land of Canaan according to its borders),</text>
+    <text>Command the children of Israel, and tell them, ‹When you come into the land of Canaan (this is the land that shall fall to you for an inheritance, even the land of Canaan according to its borders),</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -5194,7 +5194,7 @@
   </block>
   <block style="p" chapter="34" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>For the western border, you shall have the great sea and the border [of it]: this shall be your west border.</text>
+    <text>For the western border, you shall have the great sea and the border of it: this shall be your west border.</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="7" characterId="God">
     <verse num="7" />
@@ -5223,7 +5223,7 @@
   <block style="p" chapter="34" initialStartVerse="13" characterId="Moses">
     <text>“This is the land which you shall inherit by lot, which God has commanded to give to the nine tribes, and to the half-tribe; </text>
     <verse num="14" />
-    <text>for the tribe of the children of Reuben according to their fathers' houses, and the tribe of the children of Gad according to their fathers' houses, have received, and the half-tribe of Manasseh have received, their inheritance:</text>
+    <text>for the tribe of the children of Reuben according to their fathers’ houses, and the tribe of the children of Gad according to their fathers’ houses, have received, and the half-tribe of Manasseh have received, their inheritance:</text>
   </block>
   <block style="p" chapter="34" initialStartVerse="15" characterId="Moses">
     <verse num="15" />
@@ -5294,7 +5294,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="2" characterId="God">
     <verse num="2" />
-    <text>Command the children of Israel that they give to the Levites of the inheritance of their possession cities to dwell in; and you shall give suburbs for the cities around them to the Levites.</text>
+    <text>“Command the children of Israel that they give to the Levites of the inheritance of their possession cities to dwell in; and you shall give suburbs for the cities around them to the Levites.</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -5318,7 +5318,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="8" characterId="God">
     <verse num="8" />
-    <text>Concerning the cities which you shall give of the possession of the children of Israel, from the many you shall take many; and from the few you shall take few: everyone according to his inheritance which he inherits shall give of his cities to the Levites.</text>
+    <text>Concerning the cities which you shall give of the possession of the children of Israel, from the many you shall take many; and from the few you shall take few: everyone according to his inheritance which he inherits shall give of his cities to the Levites.”</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="9" characterId="narrator-NUM">
     <verse num="9" />
@@ -5326,7 +5326,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="10" characterId="God">
     <verse num="10" />
-    <text>Speak to the children of Israel, and tell them, 'When you pass over the Jordan into the land of Canaan, </text>
+    <text>“Speak to the children of Israel, and tell them, ‹When you pass over the Jordan into the land of Canaan, </text>
     <verse num="11" />
     <text>then you shall appoint you cities to be cities of refuge for you, that the manslayer who kills any person unwittingly may flee there.</text>
   </block>
@@ -5392,7 +5392,7 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="29" characterId="God">
     <verse num="29" />
-    <text>These things shall be for a statute [and] ordinance to you throughout your generations in all your dwellings.</text>
+    <text>These things shall be for a statute and ordinance to you throughout your generations in all your dwellings.</text>
   </block>
   <block style="p" chapter="35" initialStartVerse="30" characterId="God">
     <verse num="30" />
@@ -5412,14 +5412,14 @@
   </block>
   <block style="p" chapter="35" initialStartVerse="34" characterId="God">
     <verse num="34" />
-    <text>You shall not defile the land which you inhabit, in the midst of which I dwell: for I, God, dwell in the midst of the children of Israel.'</text>
+    <text>You shall not defile the land which you inhabit, in the midst of which I dwell: for I, God, dwell in the midst of the children of Israel.› ”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="36" book="NUM" initialStartVerse="0" characterId="BC-NUM">
     <text>36</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="1" characterId="narrator-NUM">
     <verse num="1" />
-    <text>The heads of the fathers' [houses] of the family of the children of Gilead, the son of Machir, the son of Manasseh, of the families of the sons of Joseph, came near, and spoke before Moses, and before the princes, the heads of the fathers' [houses] of the children of Israel: </text>
+    <text>The heads of the fathers’ houses of the family of the children of Gilead, the son of Machir, the son of Manasseh, of the families of the sons of Joseph, came near, and spoke before Moses, and before the princes, the heads of the fathers’ houses of the children of Israel: </text>
     <verse num="2" />
     <text>and they said,</text>
   </block>
@@ -5428,7 +5428,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="3" characterId="family heads of Gilead">
     <verse num="3" />
-    <text>If they are married to any of the sons of the [other] tribes of the children of Israel, then will their inheritance be taken away from the inheritance of our fathers, and will be added to the inheritance of the tribe whereunto they shall belong: so will it be taken away from the lot of our inheritance.</text>
+    <text>If they are married to any of the sons of the other tribes of the children of Israel, then will their inheritance be taken away from the inheritance of our fathers, and will be added to the inheritance of the tribe whereunto they shall belong: so will it be taken away from the lot of our inheritance.</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="4" characterId="family heads of Gilead">
     <verse num="4" />
@@ -5463,7 +5463,7 @@
   </block>
   <block style="p" chapter="36" initialStartVerse="11" characterId="narrator-NUM">
     <verse num="11" />
-    <text>for Mahlah, Tirzah, and Hoglah, and Milcah, and Noah, the daughters of Zelophehad, were married to their father's brothers' sons.</text>
+    <text>for Mahlah, Tirzah, and Hoglah, and Milcah, and Noah, the daughters of Zelophehad, were married to their father’s brothers’ sons.</text>
   </block>
   <block style="p" chapter="36" initialStartVerse="12" characterId="narrator-NUM">
     <verse num="12" />

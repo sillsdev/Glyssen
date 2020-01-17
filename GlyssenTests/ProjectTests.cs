@@ -7,12 +7,15 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Paratext;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using Glyssen.Utilities;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
+using GlyssenEngine.Quote;
+using GlyssenEngine.Utilities;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
@@ -837,7 +840,7 @@ namespace GlyssenTests
 			}
 		}
 
-		[Test]
+		[Test, Timeout(10000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -1275,6 +1278,7 @@ namespace GlyssenTests
 		[Test]
 		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
 		{
+            Fonts.Default = new WinFormsFonts();
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			Assert.IsTrue(testProject.SpeechDistributionScoreByCharacterId["Boaz"] >= 7);

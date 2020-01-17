@@ -3,18 +3,33 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.Properties;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Int32;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	[XmlRoot("NarratorOverrides")]
 	public class NarratorOverrides
 	{
 		private static NarratorOverrides s_singleton;
+		private static string s_NarratorOverridesXmlData;
 		private Dictionary<string, List<NarratorOverrideDetail>> m_dictionary;
+
+		internal static string NarratorOverridesXmlData
+		{
+			get => s_NarratorOverridesXmlData;
+			set
+			{
+				s_NarratorOverridesXmlData = value;
+				s_singleton?.Dispose();
+			}
+		}
+
+		private void Dispose()
+		{
+			s_singleton = null;
+		}
 
 		public static NarratorOverrides Singleton
 		{
@@ -22,7 +37,11 @@ namespace Glyssen.Character
 			{
 				if (s_singleton == null)
 				{
-					s_singleton = XmlSerializationHelper.DeserializeFromString<NarratorOverrides>(Resources.NarratorOverrides);
+					// Tests can set this before accessing the Singleton.
+					if (NarratorOverridesXmlData == null)
+						NarratorOverridesXmlData = Resources.NarratorOverrides;
+
+					s_singleton = XmlSerializationHelper.DeserializeFromString<NarratorOverrides>(NarratorOverridesXmlData);
 					s_singleton.m_dictionary = s_singleton.Books.ToDictionary(b => b.Id, b => b.Overrides);
 					foreach (var book in s_singleton.Books)
 					{
@@ -44,18 +63,6 @@ namespace Glyssen.Character
 
 			var bookNum = BCVRef.BookToNumber(bookId);
 			return details.Select(t => t.WithVersification(bookNum, targetVersification));
-		}
-
-		/// <summary>
-		/// Gets the character to use in the script for a narrator block in the reference range of the given block. Note
-		/// that this code does not bother to check whether the given block is actually a narrator block. Typically, there
-		/// will only be one override character in the list, but if this is a verse that has an a/b split, then there can be
-		/// two.
-		/// </summary>
-		public static IEnumerable<string> GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
-		{
-			return GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)
-				?.Select(d => d.Character);
 		}
 
 		public static IEnumerable<NarratorOverrideDetail> GetCharacterOverrideDetailsForRefRange(VerseRef startRef, int endVerse)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1CH" singlevoice="false" pageheader="1 Chronicles">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CH">
+  <block style="mt" chapter="0" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>1 Chronicles</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1CH" initialStartVerse="0" characterId="BC-1CH">
@@ -72,7 +72,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
-    <text>To Eber were born two sons: the name of the one was Peleg; for in his days the earth was divided; and his brother's name was Joktan.</text>
+    <text>To Eber were born two sons: the name of the one was Peleg; for in his days the earth was divided; and his brother’s name was Joktan.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
@@ -108,7 +108,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="32" characterId="narrator-1CH">
     <verse num="32" />
-    <text>The sons of Keturah, Abraham's concubine: she bore Zimran, and Jokshan, and Medan, and Midian, and Ishbak, and Shuah. The sons of Jokshan: Sheba, and Dedan.</text>
+    <text>The sons of Keturah, Abraham’s concubine: she bore Zimran, and Jokshan, and Medan, and Midian, and Ishbak, and Shuah. The sons of Jokshan: Sheba, and Dedan.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="33" characterId="narrator-1CH">
     <verse num="33" />
@@ -136,7 +136,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="39" characterId="narrator-1CH">
     <verse num="39" />
-    <text>The sons of Lotan: Hori, and Homam; and Timna was Lotan's sister.</text>
+    <text>The sons of Lotan: Hori, and Homam; and Timna was Lotan’s sister.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="40" characterId="narrator-1CH">
     <verse num="40" />
@@ -180,7 +180,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="50" characterId="narrator-1CH">
     <verse num="50" />
-    <text>Baal Hanan died, and Hadad reigned in his place; and the name of his city was Pai: and his wife's name was Mehetabel, the daughter of Matred, the daughter of Mezahab.</text>
+    <text>Baal Hanan died, and Hadad reigned in his place; and the name of his city was Pai: and his wife’s name was Mehetabel, the daughter of Matred, the daughter of Mezahab.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="51" characterId="narrator-1CH">
     <verse num="51" />
@@ -205,7 +205,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>The sons of Judah: Er, and Onan, and Shelah; which three were born to him of Shua's daughter the Canaanitess. Er, Judah's firstborn, was wicked in the sight of God; and he killed him.</text>
+    <text>The sons of Judah: Er, and Onan, and Shelah; which three were born to him of Shua’s daughter the Canaanitess. Er, Judah’s firstborn, was wicked in the sight of God; and he killed him.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -259,7 +259,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
-    <text>Caleb the son of Hezron became the father of [children] of Azubah [his] wife, and of Jerioth; and these were her sons: Jesher, and Shobab, and Ardon.</text>
+    <text>Caleb the son of Hezron became the father of children of Azubah his wife, and of Jerioth; and these were her sons: Jesher, and Shobab, and Ardon.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
@@ -271,7 +271,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="21" characterId="narrator-1CH">
     <verse num="21" />
-    <text>Afterward Hezron went in to the daughter of Machir the father of Gilead, whom he took [as wife] when he was sixty years old; and she bore him Segub.</text>
+    <text>Afterward Hezron went in to the daughter of Machir the father of Gilead, whom he took as wife when he was sixty years old; and she bore him Segub.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-1CH">
     <verse num="22" />
@@ -283,7 +283,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
-    <text>After that Hezron was dead in Caleb Ephrathah, then Abijah Hezron's wife bore him Ashhur the father of Tekoa.</text>
+    <text>After that Hezron was dead in Caleb Ephrathah, then Abijah Hezron’s wife bore him Ashhur the father of Tekoa.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="25" characterId="narrator-1CH">
     <verse num="25" />
@@ -361,7 +361,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="46" characterId="narrator-1CH">
     <verse num="46" />
-    <text>Ephah, Caleb's concubine, bore Haran, and Moza, and Gazez; and Haran became the father of Gazez.</text>
+    <text>Ephah, Caleb’s concubine, bore Haran, and Moza, and Gazez; and Haran became the father of Gazez.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="47" characterId="narrator-1CH">
     <verse num="47" />
@@ -369,7 +369,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="48" characterId="narrator-1CH">
     <verse num="48" />
-    <text>Maacah, Caleb's concubine, bore Sheber and Tirhanah.</text>
+    <text>Maacah, Caleb’s concubine, bore Sheber and Tirhanah.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="49" characterId="narrator-1CH">
     <verse num="49" />
@@ -438,7 +438,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
-    <text>Solomon's son was Rehoboam, Abijah his son, Asa his son, Jehoshaphat his son, </text>
+    <text>Solomon’s son was Rehoboam, Abijah his son, Asa his son, Jehoshaphat his son, </text>
     <verse num="11" />
     <text>Joram his son, Ahaziah his son, Joash his son, </text>
     <verse num="12" />
@@ -499,7 +499,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>These were [the sons of] the father of Etam: Jezreel, and Ishma, and Idbash; and the name of their sister was Hazzelelponi;</text>
+    <text>These were the sons of the father of Etam: Jezreel, and Ishma, and Idbash; and the name of their sister was Hazzelelponi;</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -604,7 +604,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="27" characterId="narrator-1CH">
     <verse num="27" />
-    <text>Shimei had sixteen sons and six daughters; but his brothers didn't have many children, neither did all their family multiply like the children of Judah.</text>
+    <text>Shimei had sixteen sons and six daughters; but his brothers didn’t have many children, neither did all their family multiply like the children of Judah.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="28" characterId="narrator-1CH">
     <verse num="28" />
@@ -636,7 +636,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="38" characterId="narrator-1CH">
     <verse num="38" />
-    <text>these mentioned by name were princes in their families: and their fathers' houses increased greatly.</text>
+    <text>these mentioned by name were princes in their families: and their fathers’ houses increased greatly.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="39" characterId="narrator-1CH">
     <verse num="39" />
@@ -663,11 +663,11 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>The sons of Reuben the firstborn of Israel (for he was the firstborn; but, because he defiled his father's couch, his birthright was given to the sons of Joseph the son of Israel; and the genealogy is not to be reckoned after the birthright.</text>
+    <text>The sons of Reuben the firstborn of Israel (for he was the firstborn; but, because he defiled his father’s couch, his birthright was given to the sons of Joseph the son of Israel; and the genealogy is not to be reckoned after the birthright.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>For Judah prevailed above his brothers, and of him came the prince; but the birthright was Joseph's:)</text>
+    <text>For Judah prevailed above his brothers, and of him came the prince; but the birthright was Joseph’s)</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -699,7 +699,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
-    <text>In the days of Saul, they made war with the Hagrites, who fell by their hand; and they lived in their tents throughout all the [land] east of Gilead.</text>
+    <text>In the days of Saul, they made war with the Hagrites, who fell by their hand; and they lived in their tents throughout all the land east of Gilead.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
@@ -711,7 +711,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>Their brothers of their fathers' houses: Michael, and Meshullam, and Sheba, and Jorai, and Jacan, and Zia, and Eber, seven.</text>
+    <text>Their brothers of their fathers’ houses: Michael, and Meshullam, and Sheba, and Jorai, and Jacan, and Zia, and Eber, seven.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -719,7 +719,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="15" characterId="narrator-1CH">
     <verse num="15" />
-    <text>Ahi the son of Abdiel, the son of Guni, chief of their fathers' houses.</text>
+    <text>Ahi the son of Abdiel, the son of Guni, chief of their fathers’ houses.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="16" characterId="narrator-1CH">
     <verse num="16" />
@@ -755,7 +755,7 @@
   </block>
   <block style="p" chapter="5" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
-    <text>These were the heads of their fathers' houses: even Epher, and Ishi, and Eliel, and Azriel, and Jeremiah, and Hodaviah, and Jahdiel, mighty men of valor, famous men, heads of their fathers' houses.</text>
+    <text>These were the heads of their fathers’ houses: even Epher, and Ishi, and Eliel, and Azriel, and Jeremiah, and Hodaviah, and Jahdiel, mighty men of valor, famous men, heads of their fathers’ houses.</text>
   </block>
   <block style="p" chapter="5" initialStartVerse="25" characterId="narrator-1CH">
     <verse num="25" />
@@ -804,7 +804,7 @@
     <verse num="9" />
     <text>and Ahimaaz became the father of Azariah, and Azariah became the father of Johanan, </text>
     <verse num="10" />
-    <text>and Johanan became the father of Azariah, (he it is who executed the priest's office in the house that Solomon built in Jerusalem), </text>
+    <text>and Johanan became the father of Azariah, (he it is who executed the priest’s office in the house that Solomon built in Jerusalem), </text>
     <verse num="11" />
     <text>and Azariah became the father of Amariah, and Amariah became the father of Ahitub, </text>
     <verse num="12" />
@@ -816,7 +816,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="15" characterId="narrator-1CH">
     <verse num="15" />
-    <text>Jehozadak went [into captivity], when God carried away Judah and Jerusalem by the hand of Nebuchadnezzar.</text>
+    <text>Jehozadak went into captivity, when God carried away Judah and Jerusalem by the hand of Nebuchadnezzar.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="16" characterId="narrator-1CH">
     <verse num="16" />
@@ -832,7 +832,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
-    <text>The sons of Merari: Mahli and Mushi. These are the families of the Levites according to their fathers' [houses].</text>
+    <text>The sons of Merari: Mahli and Mushi. These are the families of the Levites according to their fathers’ houses.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
@@ -860,7 +860,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="28" characterId="narrator-1CH">
     <verse num="28" />
-    <text>The sons of Samuel: the firstborn [Joel], and the second Abijah.</text>
+    <text>The sons of Samuel: the firstborn Joel, and the second Abijah.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="29" characterId="narrator-1CH">
     <verse num="29" />
@@ -932,7 +932,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="54" characterId="narrator-1CH">
     <verse num="54" />
-    <text>Now these are their dwelling places according to their encampments in their borders: to the sons of Aaron, of the families of the Kohathites (for theirs was the [first] lot), </text>
+    <text>Now these are their dwelling places according to their encampments in their borders: to the sons of Aaron, of the families of the Kohathites (for theirs was the first lot), </text>
     <verse num="55" />
     <text>to them they gave Hebron in the land of Judah, and its suburbs around it;</text>
   </block>
@@ -954,7 +954,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="61" characterId="narrator-1CH">
     <verse num="61" />
-    <text>To the rest of the sons of Kohath [were given] by lot, out of the family of the tribe, out of the half-tribe, the half of Manasseh, ten cities.</text>
+    <text>To the rest of the sons of Kohath were given by lot, out of the family of the tribe, out of the half-tribe, the half of Manasseh, ten cities.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="62" characterId="narrator-1CH">
     <verse num="62" />
@@ -962,7 +962,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="63" characterId="narrator-1CH">
     <verse num="63" />
-    <text>To the sons of Merari [were given] by lot, according to their families, out of the tribe of Reuben, and out of the tribe of Gad, and out of the tribe of Zebulun, twelve cities.</text>
+    <text>To the sons of Merari were given by lot, according to their families, out of the tribe of Reuben, and out of the tribe of Gad, and out of the tribe of Zebulun, twelve cities.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="64" characterId="narrator-1CH">
     <verse num="64" />
@@ -990,7 +990,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="71" characterId="narrator-1CH">
     <verse num="71" />
-    <text>To the sons of Gershom [were given], out of the family of the half-tribe of Manasseh, Golan in Bashan with its suburbs, and Ashtaroth with its suburbs;</text>
+    <text>To the sons of Gershom were given, out of the family of the half-tribe of Manasseh, Golan in Bashan with its suburbs, and Ashtaroth with its suburbs;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="72" characterId="narrator-1CH">
     <verse num="72" />
@@ -1010,11 +1010,11 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="77" characterId="narrator-1CH">
     <verse num="77" />
-    <text>To the rest of [the Levites], the sons of Merari, [were given], out of the tribe of Zebulun, Rimmono with its suburbs, Tabor with its suburbs;</text>
+    <text>To the rest of the Levites, the sons of Merari, were given, out of the tribe of Zebulun, Rimmono with its suburbs, Tabor with its suburbs;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="78" characterId="narrator-1CH">
     <verse num="78" />
-    <text>and beyond the Jordan at Jericho, on the east side of the Jordan, [were given them], out of the tribe of Reuben, Bezer in the wilderness with its suburbs, and Jahzah with its suburbs, </text>
+    <text>and beyond the Jordan at Jericho, on the east side of the Jordan, were given them, out of the tribe of Reuben, Bezer in the wilderness with its suburbs, and Jahzah with its suburbs, </text>
     <verse num="79" />
     <text>and Kedemoth with its suburbs, and Mephaath with its suburbs; </text>
     <verse num="80" />
@@ -1031,7 +1031,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>The sons of Tola: Uzzi, and Rephaiah, and Jeriel, and Jahmai, and Ibsam, and Shemuel, heads of their fathers' houses, [to wit], of Tola; mighty men of valor in their generations: their number in the days of David was twenty-two thousand six hundred.</text>
+    <text>The sons of Tola: Uzzi, and Rephaiah, and Jeriel, and Jahmai, and Ibsam, and Shemuel, heads of their fathers’ houses, to wit, of Tola; mighty men of valor in their generations: their number in the days of David was twenty-two thousand six hundred.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -1039,7 +1039,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>With them, by their generations, after their fathers' houses, were bands of the army for war, thirty-six thousand; for they had many wives and sons.</text>
+    <text>With them, by their generations, after their fathers’ houses, were bands of the army for war, thirty-six thousand; for they had many wives and sons.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
@@ -1047,11 +1047,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>[The sons of] Benjamin: Bela, and Becher, and Jediael, three.</text>
+    <text>The sons of Benjamin: Bela, and Becher, and Jediael, three.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>The sons of Bela: Ezbon, and Uzzi, and Uzziel, and Jerimoth, and Iri, five; heads of fathers' houses, mighty men of valor; and they were reckoned by genealogy twenty-two thousand thirty-four.</text>
+    <text>The sons of Bela: Ezbon, and Uzzi, and Uzziel, and Jerimoth, and Iri, five; heads of fathers’ houses, mighty men of valor; and they were reckoned by genealogy twenty-two thousand thirty-four.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
@@ -1059,7 +1059,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
-    <text>They were reckoned by genealogy, after their generations, heads of their fathers' houses, mighty men of valor, twenty thousand two hundred.</text>
+    <text>They were reckoned by genealogy, after their generations, heads of their fathers’ houses, mighty men of valor, twenty thousand two hundred.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
@@ -1067,7 +1067,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
-    <text>All these were sons of Jediael, according to the heads of their fathers' [houses], mighty men of valor, seventeen thousand and two hundred, who were able to go forth in the army for war.</text>
+    <text>All these were sons of Jediael, according to the heads of their fathers’ houses, mighty men of valor, seventeen thousand and two hundred, who were able to go forth in the army for war.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="12" characterId="narrator-1CH">
     <verse num="12" />
@@ -1083,7 +1083,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="15" characterId="narrator-1CH">
     <verse num="15" />
-    <text>and Machir took a wife of Huppim and Shuppim, whose sister's name was Maacah; and the name of the second was Zelophehad: and Zelophehad had daughters.</text>
+    <text>and Machir took a wife of Huppim and Shuppim, whose sister’s name was Maacah; and the name of the second was Zelophehad: and Zelophehad had daughters.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="16" characterId="narrator-1CH">
     <verse num="16" />
@@ -1175,7 +1175,7 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="40" characterId="narrator-1CH">
     <verse num="40" />
-    <text>All these were the children of Asher, heads of the fathers' houses, choice and mighty men of valor, chief of the princes. The number of them reckoned by genealogy for service in war was twenty-six thousand men.</text>
+    <text>All these were the children of Asher, heads of the fathers’ houses, choice and mighty men of valor, chief of the princes. The number of them reckoned by genealogy for service in war was twenty-six thousand men.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>8</text>
@@ -1202,7 +1202,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>These are the sons of Ehud: these are the heads of fathers' [houses] of the inhabitants of Geba, and they carried them captive to Manahath:</text>
+    <text>These are the sons of Ehud: these are the heads of fathers’ houses of the inhabitants of Geba, and they carried them captive to Manahath:</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
@@ -1216,7 +1216,7 @@
     <verse num="9" />
     <text>He became the father of Hodesh his wife, Jobab, and Zibia, and Mesha, and Malcam, </text>
     <verse num="10" />
-    <text>and Jeuz, and Shachia, and Mirmah. These were his sons, heads of fathers' [houses].</text>
+    <text>and Jeuz, and Shachia, and Mirmah. These were his sons, heads of fathers’ houses.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
@@ -1228,7 +1228,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>and Beriah, and Shema, who were heads of fathers' [houses] of the inhabitants of Aijalon, who put to flight the inhabitants of Gath;</text>
+    <text>and Beriah, and Shema, who were heads of fathers’ houses of the inhabitants of Aijalon, who put to flight the inhabitants of Gath;</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -1262,11 +1262,11 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="28" characterId="narrator-1CH">
     <verse num="28" />
-    <text>These were heads of fathers' [houses] throughout their generations, chief men: these lived in Jerusalem.</text>
+    <text>These were heads of fathers’ houses throughout their generations, chief men: these lived in Jerusalem.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="29" characterId="narrator-1CH">
     <verse num="29" />
-    <text>In Gibeon there lived the father of Gibeon, [Jeiel], whose wife's name was Maacah;</text>
+    <text>In Gibeon there lived the father of Gibeon, Jeiel, whose wife’s name was Maacah;</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="30" characterId="narrator-1CH">
     <verse num="30" />
@@ -1308,7 +1308,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="40" characterId="narrator-1CH">
     <verse num="40" />
-    <text>The sons of Ulam were mighty men of valor, archers, and had many sons, and sons' sons, one hundred fifty. All these were of the sons of Benjamin.</text>
+    <text>The sons of Ulam were mighty men of valor, archers, and had many sons, and sons’ sons, one hundred fifty. All these were of the sons of Benjamin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>9</text>
@@ -1347,7 +1347,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
-    <text>and their brothers, according to their generations, nine hundred fifty-six. All these men were heads of fathers' [houses] by their fathers' houses.</text>
+    <text>and their brothers, according to their generations, nine hundred fifty-six. All these men were heads of fathers’ houses by their fathers’ houses.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
@@ -1361,7 +1361,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>and their brothers, heads of their fathers' houses, one thousand seven hundred sixty; very able men for the work of the service of the house of God.</text>
+    <text>and their brothers, heads of their fathers’ houses, one thousand seven hundred sixty; very able men for the work of the service of the house of God.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -1377,15 +1377,15 @@
     <verse num="17" />
     <text>The porters: Shallum, and Akkub, and Talmon, and Ahiman, and their brothers (Shallum was the chief), </text>
     <verse num="18" />
-    <text>who hitherto [waited] in the king's gate eastward: they were the porters for the camp of the children of Levi.</text>
+    <text>who hitherto waited in the king’s gate eastward: they were the porters for the camp of the children of Levi.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
-    <text>Shallum the son of Kore, the son of Ebiasaph, the son of Korah, and his brothers, of his father's house, the Korahites, were over the work of the service, keepers of the thresholds of the tent: and their fathers had been over the camp of God, keepers of the entry.</text>
+    <text>Shallum the son of Kore, the son of Ebiasaph, the son of Korah, and his brothers, of his father’s house, the Korahites, were over the work of the service, keepers of the thresholds of the tent: and their fathers had been over the camp of God, keepers of the entry.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
-    <text>Phinehas the son of Eleazar was ruler over them in time past, [and] God was with him.</text>
+    <text>Phinehas the son of Eleazar was ruler over them in time past, and God was with him.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="21" characterId="narrator-1CH">
     <verse num="21" />
@@ -1437,15 +1437,15 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="33" characterId="narrator-1CH">
     <verse num="33" />
-    <text>These are the singers, heads of fathers' [houses] of the Levites, [who lived] in the rooms [and were] free [from other service]; for they were employed in their work day and night.</text>
+    <text>These are the singers, heads of fathers’ houses of the Levites, who lived in the rooms and were free from other service; for they were employed in their work day and night.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="34" characterId="narrator-1CH">
     <verse num="34" />
-    <text>These were heads of fathers' [houses] of the Levites, throughout their generations, chief men: these lived at Jerusalem.</text>
+    <text>These were heads of fathers’ houses of the Levites, throughout their generations, chief men: these lived at Jerusalem.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="35" characterId="narrator-1CH">
     <verse num="35" />
-    <text>In Gibeon there lived the father of Gibeon, Jeiel, whose wife's name was Maacah:</text>
+    <text>In Gibeon there lived the father of Gibeon, Jeiel, whose wife’s name was Maacah:</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="36" characterId="narrator-1CH">
     <verse num="36" />
@@ -1467,7 +1467,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="41" characterId="narrator-1CH">
     <verse num="41" />
-    <text>The sons of Micah: Pithon, and Melech, and Tahrea, [and Ahaz].</text>
+    <text>The sons of Micah: Pithon, and Melech, and Tahrea, and Ahaz.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="42" characterId="narrator-1CH">
     <verse num="42" />
@@ -1536,9 +1536,9 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>So Saul died for his trespass which he committed against God, because of the word of God, which he didn't keep; and also because he asked counsel of one who had a familiar spirit, to inquire [thereby], </text>
+    <text>So Saul died for his trespass which he committed against God, because of the word of God, which he didn’t keep; and also because he asked counsel of one who had a familiar spirit, to inquire thereby, </text>
     <verse num="14" />
-    <text>and didn't inquire of God: therefore he killed him, and turned the kingdom to David the son of Jesse.</text>
+    <text>and didn’t inquire of God: therefore he killed him, and turned the kingdom to David the son of Jesse.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>11</text>
@@ -1552,7 +1552,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="Israel, all">
     <verse num="2" />
-    <text>In times past, even when Saul was king, it was you who led out and brought in Israel. God your God said to you, 'You shall be shepherd of my people Israel, and you shall be prince over my people Israel.'”</text>
+    <text>In times past, even when Saul was king, it was you who led out and brought in Israel. God your God said to you, ‹You shall be shepherd of my people Israel, and you shall be prince over my people Israel.› ”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -1641,15 +1641,15 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="21" characterId="narrator-1CH">
     <verse num="21" />
-    <text>Of the three, he was more honorable than the two, and was made their captain: however he didn't attain to the [first] three.</text>
+    <text>Of the three, he was more honorable than the two, and was made their captain: however he didn’t attain to the first three.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="22" characterId="narrator-1CH">
     <verse num="22" />
-    <text>Benaiah the son of Jehoiada, the son of a valiant man of Kabzeel, who had done mighty deeds, he killed the two [sons of] Ariel of Moab: he went down also and killed a lion in the midst of a pit in time of snow.</text>
+    <text>Benaiah the son of Jehoiada, the son of a valiant man of Kabzeel, who had done mighty deeds, he killed the two sons of Ariel of Moab: he went down also and killed a lion in the midst of a pit in time of snow.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="23" characterId="narrator-1CH">
     <verse num="23" />
-    <text>He killed an Egyptian, a man of great stature, five cubits high; and in the Egyptian's hand was a spear like a weaver's beam; and he went down to him with a staff, and plucked the spear out of the Egyptian's hand, and killed him with his own spear.</text>
+    <text>He killed an Egyptian, a man of great stature, five cubits high; and in the Egyptian’s hand was a spear like a weaver’s beam; and he went down to him with a staff, and plucked the spear out of the Egyptian’s hand, and killed him with his own spear.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
@@ -1657,7 +1657,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="25" characterId="narrator-1CH">
     <verse num="25" />
-    <text>Behold, he was more honorable than the thirty, but he didn't attain to the [first] three: and David set him over his guard.</text>
+    <text>Behold, he was more honorable than the thirty, but he didn’t attain to the first three: and David set him over his guard.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="26" characterId="narrator-1CH">
     <verse num="26" />
@@ -1714,7 +1714,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>They were armed with bows, and could use both the right hand and the left in slinging stones and in shooting arrows from the bow: they were of Saul's brothers of Benjamin.</text>
+    <text>They were armed with bows, and could use both the right hand and the left in slinging stones and in shooting arrows from the bow: they were of Saul’s brothers of Benjamin.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -1771,7 +1771,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
-    <text>Then the Spirit came on Amasai, who was chief of the thirty, [and he said],</text>
+    <text>Then the Spirit came on Amasai, who was chief of the thirty, and he said,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="18" characterId="Amasai, chief of thirty">
     <text>“We are yours, David, and on your side, you son of Jesse: peace, peace be to you, and peace be to your helpers; for your God helps you.”</text>
@@ -1781,7 +1781,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
-    <text>Of Manasseh also there fell away some to David, when he came with the Philistines against Saul to battle; but they didn't help them; for the lords of the Philistines sent him away after consultation, saying,</text>
+    <text>Of Manasseh also there fell away some to David, when he came with the Philistines against Saul to battle; but they didn’t help them; for the lords of the Philistines sent him away after consultation, saying,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="19" characterId="Philistine rulers">
     <text>“He will fall away to his master Saul to the jeopardy of our heads.”</text>
@@ -1816,9 +1816,9 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="27" characterId="narrator-1CH">
     <verse num="27" />
-    <text>Jehoiada was the leader of [the house of] Aaron; and with him were three thousand and seven hundred, </text>
+    <text>Jehoiada was the leader of the house of Aaron; and with him were three thousand and seven hundred, </text>
     <verse num="28" />
-    <text>and Zadok, a young man mighty of valor, and of his father's house twenty-two captains.</text>
+    <text>and Zadok, a young man mighty of valor, and of his father’s house twenty-two captains.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="29" characterId="narrator-1CH">
     <verse num="29" />
@@ -1826,7 +1826,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="30" characterId="narrator-1CH">
     <verse num="30" />
-    <text>Of the children of Ephraim twenty thousand eight hundred, mighty men of valor, famous men in their fathers' houses.</text>
+    <text>Of the children of Ephraim twenty thousand eight hundred, mighty men of valor, famous men in their fathers’ houses.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="31" characterId="narrator-1CH">
     <verse num="31" />
@@ -1838,7 +1838,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="33" characterId="narrator-1CH">
     <verse num="33" />
-    <text>Of Zebulun, such as were able to go out in the army, who could set the battle in array, with all kinds of instruments of war, fifty thousand, and who could order [the battle array, and were] not of double heart.</text>
+    <text>Of Zebulun, such as were able to go out in the army, who could set the battle in array, with all kinds of instruments of war, fifty thousand, and who could order the battle array, and were not of double heart.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="34" characterId="narrator-1CH">
     <verse num="34" />
@@ -1866,7 +1866,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="40" characterId="narrator-1CH">
     <verse num="40" />
-    <text>Moreover those who were near to them, [even] as far as Issachar and Zebulun and Naphtali, brought bread on donkeys, and on camels, and on mules, and on oxen, food of meal, cakes of figs, and clusters of raisins, and wine, and oil, and cattle, and sheep in abundance: for there was joy in Israel.</text>
+    <text>Moreover those who were near to them, even as far as Issachar and Zebulun and Naphtali, brought bread on donkeys, and on camels, and on mules, and on oxen, food of meal, cakes of figs, and clusters of raisins, and wine, and oil, and cattle, and sheep in abundance: for there was joy in Israel.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>13</text>
@@ -1882,7 +1882,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="David">
     <verse num="3" />
-    <text>and let us bring again the ark of our God to us. For we didn't seek it in the days of Saul.”</text>
+    <text>and let us bring again the ark of our God to us. For we didn’t seek it in the days of Saul.”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -1890,15 +1890,15 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>So David assembled all Israel together, from the Shihor [the brook] of Egypt even to the entrance of Hamath, to bring the ark of God from Kiriath Jearim.</text>
+    <text>So David assembled all Israel together, from the Shihor the brook of Egypt even to the entrance of Hamath, to bring the ark of God from Kiriath Jearim.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>David went up, and all Israel, to Baalah, [that is], to Kiriath Jearim, which belonged to Judah, to bring up from there the ark of God God that sits [above] the cherubim, that is called by the Name.</text>
+    <text>David went up, and all Israel, to Baalah, that is, to Kiriath Jearim, which belonged to Judah, to bring up from there the ark of God God that sits above the cherubim, that is called by the Name.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>They carried the ark of God on a new cart, [and brought it] out of the house of Abinadab: and Uzza and Ahio drove the cart.</text>
+    <text>They carried the ark of God on a new cart, and brought it out of the house of Abinadab: and Uzza and Ahio drove the cart.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
@@ -1923,7 +1923,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>So David didn't move the ark to him into the city of David, but carried it aside into the house of Obed-Edom the Gittite.</text>
+    <text>So David didn’t move the ark to him into the city of David, but carried it aside into the house of Obed-Edom the Gittite.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -1938,7 +1938,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>David perceived that God had established him king over Israel; for his kingdom was exalted on high, for his people Israel's sake.</text>
+    <text>David perceived that God had established him king over Israel; for his kingdom was exalted on high, for his people Israel’s sake.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -2019,7 +2019,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>[David] made him houses in the city of David; and he prepared a place for the ark of God, and pitched for it a tent. </text>
+    <text>David made him houses in the city of David; and he prepared a place for the ark of God, and pitched for it a tent. </text>
     <verse num="2" />
     <text>Then David said,</text>
   </block>
@@ -2065,11 +2065,11 @@
     <text>and said to them,</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="12" characterId="David">
-    <text>“You are the heads of the fathers' [houses] of the Levites. Sanctify yourselves, both you and your brothers, that you may bring up the ark of God, the God of Israel, to the place that I have prepared for it.</text>
+    <text>“You are the heads of the fathers’ houses of the Levites. Sanctify yourselves, both you and your brothers, that you may bring up the ark of God, the God of Israel, to the place that I have prepared for it.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="13" characterId="David">
     <verse num="13" />
-    <text>For because you didn't carry it at first, God our God made broke out against us, because we didn't seek him according to the ordinance.”</text>
+    <text>For because you didn’t carry it at first, God our God made broke out against us, because we didn’t seek him according to the ordinance.”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -2093,7 +2093,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
-    <text>So the singers, Heman, Asaph, and Ethan, [were appointed] with cymbals of brass to sound aloud;</text>
+    <text>So the singers, Heman, Asaph, and Ethan, were appointed with cymbals of brass to sound aloud;</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
@@ -2125,7 +2125,7 @@
   </block>
   <block style="p" chapter="15" initialStartVerse="27" characterId="narrator-1CH">
     <verse num="27" />
-    <text>David was clothed with a robe of fine linen, and all the Levites who bore the ark, and the singers, and Chenaniah the master of the song [with] the singers: and David had on him an ephod of linen.</text>
+    <text>David was clothed with a robe of fine linen, and all the Levites who bore the ark, and the singers, and Chenaniah the master of the song with the singers: and David had on him an ephod of linen.</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="28" characterId="narrator-1CH">
     <verse num="28" />
@@ -2148,7 +2148,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>He dealt to everyone of Israel, both man and woman, to every one a loaf of bread, and a portion [of flesh], and a cake of raisins.</text>
+    <text>He dealt to everyone of Israel, both man and woman, to every one a loaf of bread, and a portion of flesh, and a cake of raisins.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -2196,7 +2196,7 @@
     <verse num="15" />
     <text>Remember his covenant forever, the word which he commanded to a thousand generations, </text>
     <verse num="16" />
-    <text>[the covenant] which he made with Abraham, his oath to Isaac.</text>
+    <text>the covenant which he made with Abraham, his oath to Isaac.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="17" characterId="David" delivery="psalm">
     <verse num="17" />
@@ -2216,7 +2216,7 @@
     <verse num="21" />
     <text>He allowed no man to do them wrong. Yes, he reproved kings for their sakes, </text>
     <verse num="22" />
-    <text>Don't touch my anointed ones! Do my prophets no harm!</text>
+    <text>Don’t touch my anointed ones! Do my prophets no harm!</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="23" characterId="David" delivery="psalm">
     <verse num="23" />
@@ -2248,7 +2248,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="30" characterId="David" delivery="psalm">
     <verse num="30" />
-    <text>Tremble before him, all the earth. The world also is established that it can't be moved.</text>
+    <text>Tremble before him, all the earth. The world also is established that it can’t be moved.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="31" characterId="David" delivery="psalm">
     <verse num="31" />
@@ -2280,7 +2280,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="37" characterId="narrator-1CH">
     <verse num="37" />
-    <text>So he left there, before the ark of the covenant of God, Asaph and his brothers, to minister before the ark continually, as every day's work required;</text>
+    <text>So he left there, before the ark of the covenant of God, Asaph and his brothers, to minister before the ark continually, as every day’s work required;</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="38" characterId="narrator-1CH">
     <verse num="38" />
@@ -2298,7 +2298,7 @@
   </block>
   <block style="p" chapter="16" initialStartVerse="42" characterId="narrator-1CH">
     <verse num="42" />
-    <text>and with them Heman and Jeduthun [with] trumpets and cymbals for those that should sound aloud, and [with] instruments for the songs of God; and the sons of Jeduthun to be at the gate.</text>
+    <text>and with them Heman and Jeduthun with trumpets and cymbals for those that should sound aloud, and with instruments for the songs of God; and the sons of Jeduthun to be at the gate.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="43" characterId="narrator-1CH">
     <verse num="43" />
@@ -2327,7 +2327,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="God">
     <verse num="4" />
-    <text>Go and tell David my servant, 'Thus says God, You shall not build me a house to dwell in;</text>
+    <text>Go and tell David my servant, ‹Thus says God, You shall not build me a house to dwell in;</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="5" characterId="God">
     <verse num="5" />
@@ -2335,11 +2335,11 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="6" characterId="God">
     <verse num="6" />
-    <text>In all places in which I have walked with all Israel, did I speak a word with any of the judges of Israel, whom I commanded to be shepherd of my people, saying, 'Why have you not built me a house of cedar?'”</text>
+    <text>In all places in which I have walked with all Israel, did I speak a word with any of the judges of Israel, whom I commanded to be shepherd of my people, saying, ‹Why have you not built me a house of cedar?› ”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="7" characterId="God">
     <verse num="7" />
-    <text>Now therefore, you shall tell my servant David, 'Thus says God of Armies, I took you from the sheep pen, from following the sheep, that you should be prince over my people Israel.</text>
+    <text>Now therefore, you shall tell my servant David, ‹Thus says God of Armies, I took you from the sheep pen, from following the sheep, that you should be prince over my people Israel.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="God">
     <verse num="8" />
@@ -2378,7 +2378,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="17" characterId="David">
     <verse num="17" />
-    <text>This was a small thing in your eyes, God; but you have spoken of your servant's house for a great while to come, and have respected me according to the estate of a man of high degree, God.</text>
+    <text>This was a small thing in your eyes, God; but you have spoken of your servant’s house for a great while to come, and have respected me according to the estate of a man of high degree, God.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="18" characterId="David">
     <verse num="18" />
@@ -2386,7 +2386,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="19" characterId="David">
     <verse num="19" />
-    <text>God, for your servant's sake, and according to your own heart, you have worked all this greatness, to make known all these great things.</text>
+    <text>God, for your servant’s sake, and according to your own heart, you have worked all this greatness, to make known all these great things.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="20" characterId="David">
     <verse num="20" />
@@ -2406,7 +2406,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="24" characterId="David">
     <verse num="24" />
-    <text>Let your name be established and magnified forever, saying, 'God of Armies is the God of Israel, even a God to Israel. The house of David your servant is established before you.'</text>
+    <text>Let your name be established and magnified forever, saying, ‹God of Armies is the God of Israel, even a God to Israel. The house of David your servant is established before you.›</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="25" characterId="David">
     <verse num="25" />
@@ -2445,7 +2445,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>Then David put [garrisons] in Syria of Damascus; and the Syrians became servants to David, and brought tribute. God gave victory to David wherever he went.</text>
+    <text>Then David put garrisons in Syria of Damascus; and the Syrians became servants to David, and brought tribute. God gave victory to David wherever he went.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
@@ -2459,7 +2459,7 @@
     <verse num="9" />
     <text>When Tou king of Hamath heard that David had struck all the army of Hadadezer king of Zobah, </text>
     <verse num="10" />
-    <text>he sent Hadoram his son to king David, to Greet him, and to bless him, because he had fought against Hadadezer and struck him; (for Hadadezer had wars with Tou;) and [he had with him] all kinds of vessels of gold and silver and brass.</text>
+    <text>he sent Hadoram his son to king David, to Greet him, and to bless him, because he had fought against Hadadezer and struck him; (for Hadadezer had wars with Tou;) and he had with him all kinds of vessels of gold and silver and brass.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
@@ -2502,7 +2502,7 @@
     <text>“I will show kindness to Hanun the son of Nahash, because his father showed kindness to me.”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="narrator-1CH">
-    <text>So David sent messengers to comfort him concerning his father. David's servants came into the land of the children of Ammon to Hanun, to comfort him. </text>
+    <text>So David sent messengers to comfort him concerning his father. David’s servants came into the land of the children of Ammon to Hanun, to comfort him. </text>
     <verse num="3" />
     <text>But the princes of the children of Ammon said to Hanun,</text>
   </block>
@@ -2511,7 +2511,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>So Hanun took David's servants, and shaved them, and cut off their garments in the middle, even to their buttocks, and sent them away.</text>
+    <text>So Hanun took David’s servants, and shaved them, and cut off their garments in the middle, even to their buttocks, and sent them away.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
@@ -2571,7 +2571,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
-    <text>The Syrians fled before Israel; and David killed of the Syrians [the men of] seven thousand chariots, and forty thousand footmen, and killed Shophach the captain of the army.</text>
+    <text>The Syrians fled before Israel; and David killed of the Syrians the men of seven thousand chariots, and forty thousand footmen, and killed Shophach the captain of the army.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
@@ -2582,15 +2582,15 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>It happened, at the time of the return of the year, at the time when kings go out [to battle], that Joab led forth the army, and wasted the country of the children of Ammon, and came and besieged Rabbah. But David stayed at Jerusalem. Joab struck Rabbah, and overthrew it.</text>
+    <text>It happened, at the time of the return of the year, at the time when kings go out to battle, that Joab led forth the army, and wasted the country of the children of Ammon, and came and besieged Rabbah. But David stayed at Jerusalem. Joab struck Rabbah, and overthrew it.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>David took the crown of their king from off his head, and found it to weigh a talent of gold, and there were precious stones in it; and it was set on David's head: and he brought forth the spoil of the city, exceeding much.</text>
+    <text>David took the crown of their king from off his head, and found it to weigh a talent of gold, and there were precious stones in it; and it was set on David’s head: and he brought forth the spoil of the city, exceeding much.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>He brought forth the people who were therein, and cut [them] with saws, and with iron picks, and with axes. David did so to all the cities of the children of Ammon. David and all the people returned to Jerusalem.</text>
+    <text>He brought forth the people who were therein, and cut them with saws, and with iron picks, and with axes. David did so to all the cities of the children of Ammon. David and all the people returned to Jerusalem.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -2598,15 +2598,15 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>There was again war with the Philistines; and Elhanan the son of Jair killed Lahmi the brother of Goliath the Gittite, the staff of whose spear was like a weaver's beam.</text>
+    <text>There was again war with the Philistines; and Elhanan the son of Jair killed Lahmi the brother of Goliath the Gittite, the staff of whose spear was like a weaver’s beam.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>There was again war at Gath, where there was a man of great stature, whose fingers and toes were twenty-four, six [on each hand], and six [on each foot]; and he also was born to the giant.</text>
+    <text>There was again war at Gath, where there was a man of great stature, whose fingers and toes were twenty-four, six on each hand, and six on each foot; and he also was born to the giant.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>When he defied Israel, Jonathan the son of Shimea David's brother killed him.</text>
+    <text>When he defied Israel, Jonathan the son of Shimea David’s brother killed him.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
@@ -2633,7 +2633,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>Nevertheless the king's word prevailed against Joab. Therefore Joab departed, and went throughout all Israel, and came to Jerusalem.</text>
+    <text>Nevertheless the king’s word prevailed against Joab. Therefore Joab departed, and went throughout all Israel, and came to Jerusalem.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
@@ -2641,7 +2641,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>But he didn't count Levi and Benjamin among them; for the king's word was abominable to Joab.</text>
+    <text>But he didn’t count Levi and Benjamin among them; for the king’s word was abominable to Joab.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
@@ -2654,18 +2654,18 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
-    <text>God spoke to Gad, David's seer, saying, </text>
+    <text>God spoke to Gad, David’s seer, saying, </text>
     <verse num="10" />
-    <text>Go and speak to David, saying, 'Thus says God, I offer you three things. Choose one of them, that I may do it to you.”</text>
+    <text>Go and speak to David, saying, ‹Thus says God, I offer you three things. Choose one of them, that I may do it to you.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
     <text>So Gad came to David, and said to him,</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="11" characterId="Gad the prophet, David's seer">
-    <text>“Thus says God, 'Take your choice: </text>
+    <text>“Thus says God, ‹Take your choice: </text>
     <verse num="12" />
-    <text>either three years of famine; or three months to be consumed before your foes, while the sword of your enemies overtakes you; or else three days the sword of God, even pestilence in the land, and the angel of God destroying throughout all the borders of Israel. Now therefore consider what answer I shall return to him who sent me.'”</text>
+    <text>either three years of famine; or three months to be consumed before your foes, while the sword of your enemies overtakes you; or else three days the sword of God, even pestilence in the land, and the angel of God destroying throughout all the borders of Israel. Now therefore consider what answer I shall return to him who sent me.› ”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
@@ -2754,7 +2754,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="30" characterId="narrator-1CH">
     <verse num="30" />
-    <text>But David couldn't go before it to inquire of God; for he was afraid because of the sword of the angel of God.</text>
+    <text>But David couldn’t go before it to inquire of God; for he was afraid because of the sword of the angel of God.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>22</text>
@@ -2797,7 +2797,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="8" characterId="David">
     <verse num="8" />
-    <text>But the word of God came to me, saying, 'You have shed blood abundantly, and have made great wars. You shall not build a house to my name, because you have shed much blood on the earth in my sight.</text>
+    <text>But the word of God came to me, saying, ‹You have shed blood abundantly, and have made great wars. You shall not build a house to my name, because you have shed much blood on the earth in my sight.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="9" characterId="David">
     <verse num="9" />
@@ -2805,7 +2805,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="10" characterId="David">
     <verse num="10" />
-    <text>He shall build a house for my name; and he shall be my son, and I will be his father; and I will establish the throne of his kingdom over Israel for ever.'</text>
+    <text>He shall build a house for my name; and he shall be my son, and I will be his father; and I will establish the throne of his kingdom over Israel for ever.›</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="11" characterId="David">
     <verse num="11" />
@@ -2817,7 +2817,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="13" characterId="David">
     <verse num="13" />
-    <text>Then you will prosper, if you observe to do the statutes and the ordinances which God gave Moses concerning Israel. Be strong, and courageous. Don't be afraid, neither be dismayed.</text>
+    <text>Then you will prosper, if you observe to do the statutes and the ordinances which God gave Moses concerning Israel. Be strong, and courageous. Don’t be afraid, neither be dismayed.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="14" characterId="David">
     <verse num="14" />
@@ -2835,7 +2835,7 @@
   </block>
   <block style="p" chapter="22" initialStartVerse="18" characterId="David">
     <verse num="18" />
-    <text>Isn't God your God with you? Hasn't he given you rest on every side? For he has delivered the inhabitants of the land into my hand; and the land is subdued before God, and before his people.</text>
+    <text>Isn’t God your God with you? Hasn’t he given you rest on every side? For he has delivered the inhabitants of the land into my hand; and the land is subdued before God, and before his people.</text>
   </block>
   <block style="p" chapter="22" initialStartVerse="19" characterId="David">
     <verse num="19" />
@@ -2879,7 +2879,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
-    <text>The sons of Shimei: Shelomoth, and Haziel, and Haran, three. These were the heads of the fathers' [houses] of Ladan.</text>
+    <text>The sons of Shimei: Shelomoth, and Haziel, and Haran, three. These were the heads of the fathers’ houses of Ladan.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
@@ -2887,7 +2887,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
-    <text>Jahath was the chief, and Zizah the second: but Jeush and Beriah didn't have many sons; therefore they became a fathers' house in one reckoning.</text>
+    <text>Jahath was the chief, and Zizah the second: but Jeush and Beriah didn’t have many sons; therefore they became a fathers’ house in one reckoning.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="12" characterId="narrator-1CH">
     <verse num="12" />
@@ -2931,7 +2931,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="22" characterId="narrator-1CH">
     <verse num="22" />
-    <text>Eleazar died, and had no sons, but daughters only: and their brothers the sons of Kish took them [to wife].</text>
+    <text>Eleazar died, and had no sons, but daughters only: and their brothers the sons of Kish took them to wife.</text>
   </block>
   <block style="p" chapter="23" initialStartVerse="23" characterId="narrator-1CH">
     <verse num="23" />
@@ -2939,7 +2939,7 @@
   </block>
   <block style="p" chapter="23" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
-    <text>These were the sons of Levi after their fathers' houses, even the heads of the fathers' houses of those who were counted individually, in the number of names by their polls, who did the work for the service of the house of God, from twenty years old and upward. </text>
+    <text>These were the sons of Levi after their fathers’ houses, even the heads of the fathers’ houses of those who were counted individually, in the number of names by their polls, who did the work for the service of the house of God, from twenty years old and upward. </text>
     <verse num="25" />
     <text>For David said,</text>
   </block>
@@ -2983,7 +2983,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
-    <text>But Nadab and Abihu died before their father, and had no children: therefore Eleazar and Ithamar executed the priest's office.</text>
+    <text>But Nadab and Abihu died before their father, and had no children: therefore Eleazar and Ithamar executed the priest’s office.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
@@ -2991,7 +2991,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
-    <text>There were more chief men found of the sons of Eleazar than of the sons of Ithamar; and [thus] were they divided: of the sons of Eleazar there were sixteen, heads of fathers' houses; and of the sons of Ithamar, according to their fathers' houses, eight.</text>
+    <text>There were more chief men found of the sons of Eleazar than of the sons of Ithamar; and thus were they divided: of the sons of Eleazar there were sixteen, heads of fathers’ houses; and of the sons of Ithamar, according to their fathers’ houses, eight.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
@@ -2999,7 +2999,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>Shemaiah the son of Nethanel the scribe, who was of the Levites, wrote them in the presence of the king, and the princes, and Zadok the priest, and Ahimelech the son of Abiathar, and the heads of the fathers' [houses] of the priests and of the Levites; one fathers' house being taken for Eleazar, and one taken for Ithamar.</text>
+    <text>Shemaiah the son of Nethanel the scribe, who was of the Levites, wrote them in the presence of the king, and the princes, and Zadok the priest, and Ahimelech the son of Abiathar, and the heads of the fathers’ houses of the priests and of the Levites; one fathers’ house being taken for Eleazar, and one taken for Ithamar.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
@@ -3033,7 +3033,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="19" characterId="narrator-1CH">
     <verse num="19" />
-    <text>This was the ordering of them in their service, to come into the house of God according to the ordinance [given] to them by Aaron their father, as God, the God of Israel, had commanded him.</text>
+    <text>This was the ordering of them in their service, to come into the house of God according to the ordinance given to them by Aaron their father, as God, the God of Israel, had commanded him.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="20" characterId="narrator-1CH">
     <verse num="20" />
@@ -3049,7 +3049,7 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="23" characterId="narrator-1CH">
     <verse num="23" />
-    <text>The sons [of Hebron]: Jeriah [the chief], Amariah the second, Jahaziel the third, Jekameam the fourth.</text>
+    <text>The sons of Hebron: Jeriah the chief, Amariah the second, Jahaziel the third, Jekameam the fourth.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
@@ -3077,11 +3077,11 @@
   </block>
   <block style="p" chapter="24" initialStartVerse="30" characterId="narrator-1CH">
     <verse num="30" />
-    <text>The sons of Mushi: Mahli, and Eder, and Jerimoth. These were the sons of the Levites after their fathers' houses.</text>
+    <text>The sons of Mushi: Mahli, and Eder, and Jerimoth. These were the sons of the Levites after their fathers’ houses.</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="31" characterId="narrator-1CH">
     <verse num="31" />
-    <text>These likewise cast lots even as their brothers the sons of Aaron in the presence of David the king, and Zadok, and Ahimelech, and the heads of the fathers' [houses] of the priests and of the Levites; the fathers' [houses] of the chief even as those of his younger brother.</text>
+    <text>These likewise cast lots even as their brothers the sons of Aaron in the presence of David the king, and Zadok, and Ahimelech, and the heads of the fathers’ houses of the priests and of the Levites; the fathers’ houses of the chief even as those of his younger brother.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="25" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>25</text>
@@ -3104,7 +3104,7 @@
   </block>
   <block style="p" chapter="25" initialStartVerse="5" characterId="narrator-1CH">
     <verse num="5" />
-    <text>All these were the sons of Heman the king's seer in the words of God, to lift up the horn. God gave to Heman fourteen sons and three daughters.</text>
+    <text>All these were the sons of Heman the king’s seer in the words of God, to lift up the horn. God gave to Heman fourteen sons and three daughters.</text>
   </block>
   <block style="p" chapter="25" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
@@ -3261,7 +3261,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>They cast lots, the small as well as the great, according to their fathers' houses, for every gate.</text>
+    <text>They cast lots, the small as well as the great, according to their fathers’ houses, for every gate.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
@@ -3293,7 +3293,7 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="21" characterId="narrator-1CH">
     <verse num="21" />
-    <text>The sons of Ladan, the sons of the Gershonites belonging to Ladan, the heads of the fathers' [houses] belonging to Ladan the Gershonite: Jehieli.</text>
+    <text>The sons of Ladan, the sons of the Gershonites belonging to Ladan, the heads of the fathers’ houses belonging to Ladan the Gershonite: Jehieli.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="22" characterId="narrator-1CH">
     <verse num="22" />
@@ -3309,11 +3309,11 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="25" characterId="narrator-1CH">
     <verse num="25" />
-    <text>His brothers: of Eliezer [came] Rehabiah his son, and Jeshaiah his son, and Joram his son, and Zichri his son, and Shelomoth his son.</text>
+    <text>His brothers: of Eliezer came Rehabiah his son, and Jeshaiah his son, and Joram his son, and Zichri his son, and Shelomoth his son.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="26" characterId="narrator-1CH">
     <verse num="26" />
-    <text>This Shelomoth and his brothers were over all the treasures of the dedicated things, which David the king, and the heads of the fathers' [houses], the captains over thousands and hundreds, and the captains of the army, had dedicated.</text>
+    <text>This Shelomoth and his brothers were over all the treasures of the dedicated things, which David the king, and the heads of the fathers’ houses, the captains over thousands and hundreds, and the captains of the army, had dedicated.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="27" characterId="narrator-1CH">
     <verse num="27" />
@@ -3333,18 +3333,18 @@
   </block>
   <block style="p" chapter="26" initialStartVerse="31" characterId="narrator-1CH">
     <verse num="31" />
-    <text>Of the Hebronites was Jerijah the chief, even of the Hebronites, according to their generations by fathers' [houses]. In the fortieth year of the reign of David they were sought for, and there were found among them mighty men of valor at Jazer of Gilead.</text>
+    <text>Of the Hebronites was Jerijah the chief, even of the Hebronites, according to their generations by fathers’ houses. In the fortieth year of the reign of David they were sought for, and there were found among them mighty men of valor at Jazer of Gilead.</text>
   </block>
   <block style="p" chapter="26" initialStartVerse="32" characterId="narrator-1CH">
     <verse num="32" />
-    <text>His brothers, men of valor, were two thousand seven hundred, heads of fathers' [houses], whom king David made overseers over the Reubenites, and the Gadites, and the half-tribe of the Manassites, for every matter pertaining to God, and for the affairs of the king.</text>
+    <text>His brothers, men of valor, were two thousand seven hundred, heads of fathers’ houses, whom king David made overseers over the Reubenites, and the Gadites, and the half-tribe of the Manassites, for every matter pertaining to God, and for the affairs of the king.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>27</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="1" characterId="narrator-1CH">
     <verse num="1" />
-    <text>Now the children of Israel after their number, the heads of fathers' [houses] and the captains of thousands and of hundreds, and their officers who served the king, in any matter of the divisions which came in and went out month by month throughout all the months of the year--of every division were twenty-four thousand.</text>
+    <text>Now the children of Israel after their number, the heads of fathers’ houses and the captains of thousands and of hundreds, and their officers who served the king, in any matter of the divisions which came in and went out month by month throughout all the months of the year--of every division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="2" characterId="narrator-1CH">
     <verse num="2" />
@@ -3352,7 +3352,7 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="3" characterId="narrator-1CH">
     <verse num="3" />
-    <text>[He was] of the children of Perez, the chief of all the captains of the army for the first month.</text>
+    <text>He was of the children of Perez, the chief of all the captains of the army for the first month.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="4" characterId="narrator-1CH">
     <verse num="4" />
@@ -3364,11 +3364,11 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>This is that Benaiah, who was the mighty man of the thirty, and over the thirty: and [of] his division was Ammizabad his son.</text>
+    <text>This is that Benaiah, who was the mighty man of the thirty, and over the thirty: and of his division was Ammizabad his son.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
-    <text>The fourth [captain] for the fourth month was Asahel the brother of Joab, and Zebadiah his son after him: and in his division were twenty-four thousand.</text>
+    <text>The fourth captain for the fourth month was Asahel the brother of Joab, and Zebadiah his son after him: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
@@ -3376,31 +3376,31 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
-    <text>The sixth [captain] for the sixth month was Ira the son of Ikkesh the Tekoite: and in his division were twenty-four thousand.</text>
+    <text>The sixth captain for the sixth month was Ira the son of Ikkesh the Tekoite: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="10" characterId="narrator-1CH">
     <verse num="10" />
-    <text>The seventh [captain] for the seventh month was Helez the Pelonite, of the children of Ephraim: and in his division were twenty-four thousand.</text>
+    <text>The seventh captain for the seventh month was Helez the Pelonite, of the children of Ephraim: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
-    <text>The eighth [captain] for the eighth month was Sibbecai the Hushathite, of the Zerahites: and in his division were twenty-four thousand.</text>
+    <text>The eighth captain for the eighth month was Sibbecai the Hushathite, of the Zerahites: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="12" characterId="narrator-1CH">
     <verse num="12" />
-    <text>The ninth [captain] for the ninth month was Abiezer the Anathothite, of the Benjamites: and in his division were twenty-four thousand.</text>
+    <text>The ninth captain for the ninth month was Abiezer the Anathothite, of the Benjamites: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="13" characterId="narrator-1CH">
     <verse num="13" />
-    <text>The tenth [captain] for the tenth month was Maharai the Netophathite, of the Zerahites: and in his division were Twenty-four thousand.</text>
+    <text>The tenth captain for the tenth month was Maharai the Netophathite, of the Zerahites: and in his division were Twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
-    <text>The eleventh [captain] for the eleventh month was Benaiah the Pirathonite, of the children of Ephraim: and in his division were twenty-four thousand.</text>
+    <text>The eleventh captain for the eleventh month was Benaiah the Pirathonite, of the children of Ephraim: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="15" characterId="narrator-1CH">
     <verse num="15" />
-    <text>The twelfth [captain] for the twelfth month was Heldai the Netophathite, of Othniel: and in his division were twenty-four thousand.</text>
+    <text>The twelfth captain for the twelfth month was Heldai the Netophathite, of Othniel: and in his division were twenty-four thousand.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="16" characterId="narrator-1CH">
     <verse num="16" />
@@ -3432,15 +3432,15 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="23" characterId="narrator-1CH">
     <verse num="23" />
-    <text>But David didn't take the number of them from twenty years old and under, because God had said he would increase Israel like the stars of the sky.</text>
+    <text>But David didn’t take the number of them from twenty years old and under, because God had said he would increase Israel like the stars of the sky.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="24" characterId="narrator-1CH">
     <verse num="24" />
-    <text>Joab the son of Zeruiah began to number, but didn't finish; and there came wrath for this on Israel; neither was the number put into the account in the chronicles of king David.</text>
+    <text>Joab the son of Zeruiah began to number, but didn’t finish; and there came wrath for this on Israel; neither was the number put into the account in the chronicles of king David.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="25" characterId="narrator-1CH">
     <verse num="25" />
-    <text>Over the king's treasures was Azmaveth the son of Adiel: and over the treasures in the fields, in the cities, and in the villages, and in the towers, was Jonathan the son of Uzziah:</text>
+    <text>Over the king’s treasures was Azmaveth the son of Adiel: and over the treasures in the fields, in the cities, and in the villages, and in the towers, was Jonathan the son of Uzziah:</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="26" characterId="narrator-1CH">
     <verse num="26" />
@@ -3464,19 +3464,19 @@
   </block>
   <block style="p" chapter="27" initialStartVerse="31" characterId="narrator-1CH">
     <verse num="31" />
-    <text>All these were the rulers of the substance which was king David's.</text>
+    <text>All these were the rulers of the substance which was king David’s.</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="32" characterId="narrator-1CH">
     <verse num="32" />
-    <text>Also Jonathan, David's uncle, was a counselor, a man of understanding, and a scribe: and Jehiel the son of Hachmoni was with the king's sons:</text>
+    <text>Also Jonathan, David’s uncle, was a counselor, a man of understanding, and a scribe: and Jehiel the son of Hachmoni was with the king’s sons:</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="33" characterId="narrator-1CH">
     <verse num="33" />
-    <text>Ahithophel was the king's counselor: and Hushai the Archite was the king's friend:</text>
+    <text>Ahithophel was the king’s counselor: and Hushai the Archite was the king’s friend:</text>
   </block>
   <block style="p" chapter="27" initialStartVerse="34" characterId="narrator-1CH">
     <verse num="34" />
-    <text>and after Ahithophel was Jehoiada the son of Benaiah, and Abiathar: and the captain of the king's army was Joab.</text>
+    <text>and after Ahithophel was Jehoiada the son of Benaiah, and Abiathar: and the captain of the king’s army was Joab.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="1CH" initialStartVerse="0" characterId="BC-1CH">
     <text>28</text>
@@ -3494,7 +3494,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="3" characterId="David">
     <verse num="3" />
-    <text>But God said to me, 'You shall not build a house for my name, because you are a man of war, and have shed blood.'</text>
+    <text>But God said to me, ‹You shall not build a house for my name, because you are a man of war, and have shed blood.›</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="4" characterId="David">
     <verse num="4" />
@@ -3502,15 +3502,15 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="5" characterId="David">
     <verse num="5" />
-    <text>Of all my sons (for God has given me many sons), he has chosen Solomon my son to sit on the throne of God's kingdom over Israel.</text>
+    <text>Of all my sons (for God has given me many sons), he has chosen Solomon my son to sit on the throne of God’s kingdom over Israel.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="6" characterId="David">
     <verse num="6" />
-    <text>He said to me, 'Solomon, your son, shall build my house and my courts; for I have chosen him to be my son, and I will be his father.</text>
+    <text>He said to me, ‹Solomon, your son, shall build my house and my courts; for I have chosen him to be my son, and I will be his father.</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="7" characterId="David">
     <verse num="7" />
-    <text>I will establish his kingdom forever, if he continues to do my commandments and my ordinances, as at this day.'</text>
+    <text>I will establish his kingdom forever, if he continues to do my commandments and my ordinances, as at this day.›</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="8" characterId="David">
     <verse num="8" />
@@ -3526,7 +3526,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="11" characterId="narrator-1CH">
     <verse num="11" />
-    <text>Then David gave to Solomon his son the pattern of the porch [of the temple], and of its houses, and of its treasuries, and of the upper rooms of it, and of the inner rooms of it, and of the place of the mercy seat;</text>
+    <text>Then David gave to Solomon his son the pattern of the porch of the temple, and of its houses, and of its treasuries, and of the upper rooms of it, and of the inner rooms of it, and of the place of the mercy seat;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="12" characterId="narrator-1CH">
     <verse num="12" />
@@ -3538,11 +3538,11 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="14" characterId="narrator-1CH">
     <verse num="14" />
-    <text>of gold by weight for the [vessels of] gold, for all vessels of every kind of service; [of silver] for all the vessels of silver by weight, for all vessels of every kind of service;</text>
+    <text>of gold by weight for the vessels of gold, for all vessels of every kind of service; of silver for all the vessels of silver by weight, for all vessels of every kind of service;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="15" characterId="narrator-1CH">
     <verse num="15" />
-    <text>by weight also for the lampstands of gold, and for its lamps, of gold, by weight for every lampstand and for its lamps; and for the lampstands of silver, [silver] by weight for [every] lampstand and for its lamps, according to the use of every lampstand;</text>
+    <text>by weight also for the lampstands of gold, and for its lamps, of gold, by weight for every lampstand and for its lamps; and for the lampstands of silver, silver by weight for every lampstand and for its lamps, according to the use of every lampstand;</text>
   </block>
   <block style="p" chapter="28" initialStartVerse="16" characterId="narrator-1CH">
     <verse num="16" />
@@ -3554,7 +3554,7 @@
   </block>
   <block style="p" chapter="28" initialStartVerse="18" characterId="narrator-1CH">
     <verse num="18" />
-    <text>and for the altar of incense refined gold by weight; and gold for the pattern of the chariot, [even] the cherubim, that spread out [their wings], and covered the ark of the covenant of God. </text>
+    <text>and for the altar of incense refined gold by weight; and gold for the pattern of the chariot, even the cherubim, that spread out their wings, and covered the ark of the covenant of God. </text>
     <verse num="19" />
     <text>All this, said David,</text>
   </block>
@@ -3584,7 +3584,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="2" characterId="David">
     <verse num="2" />
-    <text>Now I have prepared with all my might for the house of my God the gold for the [things of] gold, and the silver for the [things of] silver, and the brass for the [things of] brass, the iron for the [things of] iron, and wood for the [things of] wood; onyx stones, and [stones] to be set, stones for inlaid work, and of various colors, and all kinds of precious stones, and marble stones in abundance.</text>
+    <text>Now I have prepared with all my might for the house of my God the gold for the things of gold, and the silver for the things of silver, and the brass for the things of brass, the iron for the things of iron, and wood for the things of wood; onyx stones, and stones to be set, stones for inlaid work, and of various colors, and all kinds of precious stones, and marble stones in abundance.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="3" characterId="David">
     <verse num="3" />
@@ -3596,11 +3596,11 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="5" characterId="David">
     <verse num="5" />
-    <text>of gold for the [things of] gold, and of silver for the [things of] silver, and for all kinds of work [to be made] by the hands of artificers. Who then offers willingly to consecrate himself this day to God?”</text>
+    <text>of gold for the things of gold, and of silver for the things of silver, and for all kinds of work to be made by the hands of artificers. Who then offers willingly to consecrate himself this day to God?”</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="6" characterId="narrator-1CH">
     <verse num="6" />
-    <text>Then the princes of the fathers' [houses], and the princes of the tribes of Israel, and the captains of thousands and of hundreds, with the rulers over the king's work, offered willingly;</text>
+    <text>Then the princes of the fathers’ houses, and the princes of the tribes of Israel, and the captains of thousands and of hundreds, with the rulers over the king’s work, offered willingly;</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="7" characterId="narrator-1CH">
     <verse num="7" />
@@ -3608,7 +3608,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="8" characterId="narrator-1CH">
     <verse num="8" />
-    <text>They with whom [precious] stones were found gave them to the treasure of the house of God, under the hand of Jehiel the Gershonite.</text>
+    <text>They with whom precious stones were found gave them to the treasure of the house of God, under the hand of Jehiel the Gershonite.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="9" characterId="narrator-1CH">
     <verse num="9" />
@@ -3691,7 +3691,7 @@
   </block>
   <block style="p" chapter="29" initialStartVerse="27" characterId="narrator-1CH">
     <verse num="27" />
-    <text>The time that he reigned over Israel was forty years; he reigned seven years in Hebron, and thirty-three [years] reigned he in Jerusalem.</text>
+    <text>The time that he reigned over Israel was forty years; he reigned seven years in Hebron, and thirty-three years reigned he in Jerusalem.</text>
   </block>
   <block style="p" chapter="29" initialStartVerse="28" characterId="narrator-1CH">
     <verse num="28" />

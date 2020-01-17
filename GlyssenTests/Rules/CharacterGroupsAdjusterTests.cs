@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.VoiceActor;
 using GlyssenTests.Properties;

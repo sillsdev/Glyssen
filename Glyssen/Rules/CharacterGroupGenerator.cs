@@ -8,6 +8,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
@@ -124,7 +125,7 @@ namespace Glyssen.Rules
 					{
 						var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
 							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
-						MessageBox.Show(msg);
+						MessageModal.Show(msg);
 					}
 
 					saveGroups = true;

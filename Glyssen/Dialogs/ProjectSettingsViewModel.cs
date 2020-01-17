@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Paratext;
 using Glyssen.Shared;
-using Paratext.Data;
+using GlyssenEngine.Bundle;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
 

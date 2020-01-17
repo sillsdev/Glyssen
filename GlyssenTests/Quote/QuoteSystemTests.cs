@@ -1,4 +1,4 @@
-﻿using Glyssen.Quote;
+﻿using GlyssenEngine.Quote;
 using NUnit.Framework;
 using SIL.WritingSystems;
 using SIL.Xml;

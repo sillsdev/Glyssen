@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using L10NSharp;
 using SIL;
 using SIL.WritingSystems;
 
-namespace Glyssen.Quote
+namespace GlyssenEngine.Quote
 {
 	public static class QuoteUtils
 	{

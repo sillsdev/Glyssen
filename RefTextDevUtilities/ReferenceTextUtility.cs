@@ -6,10 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;
@@ -19,7 +18,8 @@ namespace Glyssen.RefTextDevUtilities
 {
 	public static class ReferenceTextUtility
 	{
-		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
+		public const string kCharacterDetailTxtFilename = @"CharacterDetail.txt";
+		private const string kOutputFileForAnnotations = @"..\..\GlyssenEngine\Resources\Annotations.txt";
 		public const string kDirectorGuideInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDES.xlsx";
 		public const string kDirectorGuideOTInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDE_OT.xlsx";
 		public const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
@@ -184,9 +184,12 @@ namespace Glyssen.RefTextDevUtilities
 			 * My process, after running in this mode, was to
 			 * 1) Do a bunch of checking, including making use of the output files in DevTools/Resources/temporary.
 			 * 2) Copy the book files files into a real Glyssen project which would not run a quote parse (version matched control file).
-			 * 3) Run the books through Identify Speaking Parts.
-			 * 4) Copy the files to DistFiles/reference_texts/English.
-			 * 5) Remove all userConfirmed="true"> from the book files.
+			 * 3) Disambigute books using Identify Speaking Parts.
+			 * 4) For any verse that has Needs Review Implicit (in CharacterVerse.txt), mark it accordingly in Identify Speaking Parts.
+			 *    (I considered whether this could be automated, but a few of the verses only need to have some of their blocks marked Needs Review in
+			 *    the reference text.)
+			 * 5) Copy the files to DistFiles/reference_texts/English.
+			 * 6) Remove all userConfirmed="true"> from the book files.
 			 */
 			GenerateEnglish
 		}
@@ -276,7 +279,7 @@ namespace Glyssen.RefTextDevUtilities
 
 			try
 			{
-				ProcessReferenceTextData(mode, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null, ntData, otData);
+				ProcessReferenceTextData(mode, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null, otData, ntData);
 			}
 			catch (Exception e)
 			{
@@ -362,7 +365,7 @@ namespace Glyssen.RefTextDevUtilities
 					// This will only occur if a new character is added and the dev tool is not run to populate
 					// the ReferenceComment field, or if this a character that is only used as a narrator
 					// override (see ENHANCE comment in CharacterDetailProcessing.PopulateReferences).
-					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment))
+					if (kvp.Value.DefaultFCBHCharacter == null || string.IsNullOrEmpty(kvp.Value.ReferenceComment) || string.IsNullOrEmpty(kvp.Value.DefaultFCBHCharacter))
 						return false;
 					return kvp.Value.LastReference.Book >= minBook && kvp.Value.FirstReference.Book <= maxBook;
 				}).ToDictionary(e => e.Key, e => e.Value);
@@ -616,15 +619,19 @@ namespace Glyssen.RefTextDevUtilities
 						}
 
 						var existingCharacterId = (existingRefBlockForLanguage ?? existingEnglishRefBlock)?.CharacterId;
-						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock);
-						if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
-							// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
-							// https://jira.sil.org/browse/PG-1215?focusedCommentId=215067&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-215067
-							(characterIdBasedOnExcelEntry == CharacterVerseData.kUnexpectedCharacter && 
-							existingCharacterId == "scripture"))
+						var characterIdBasedOnExcelEntry = GetCharacterIdFromFCBHCharacterLabel(referenceTextRow.CharacterId, currBookId, existingEnglishRefBlock, referenceTextRow.Verse);
+						if (mode != Mode.GenerateEnglish)
 						{
-							characterIdBasedOnExcelEntry = existingCharacterId;
+							if (characterIdBasedOnExcelEntry == CharacterVerseData.kAmbiguousCharacter ||
+								// REVIEW: The following condition may only be needed temporarily, depending on how we decide to handle this:
+								// https://jira.sil.org/browse/PG-1215?focusedCommentId=215067&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-215067
+								(characterIdBasedOnExcelEntry == CharacterVerseData.kUnexpectedCharacter &&
+									existingCharacterId == "scripture"))
+							{
+								characterIdBasedOnExcelEntry = existingCharacterId;
+							}
 						}
+
 						var characterIdChanged = existingCharacterId != characterIdBasedOnExcelEntry;
 						if (characterIdChanged)
 						{
@@ -752,12 +759,6 @@ namespace Glyssen.RefTextDevUtilities
 						newBlocks.Add(newBlock);
 					}
 
-					if (mode == Mode.CreateCharacterMapping)
-					{
-						WriteCharacterMappingFiles(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
-						return;
-					}
-
 					if (mode == Mode.Generate || mode == Mode.GenerateEnglish)
 					{
 						newBooks.Add(new BookScript(newBlocks[0].BookCode, newBlocks, existingEnglishRefBook.Versification) {PageHeader = currentTitleAndChapterLabelInfo.PageHeader });
@@ -773,61 +774,56 @@ namespace Glyssen.RefTextDevUtilities
 				}
 			}
 
-			if (mode == Mode.Generate)
+			switch (mode)
 			{
-				if (languagesToProcess.Any(l => !l.IsEnglish))
-					WriteOutput("Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version is " +
-						"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
+				case Mode.CreateCharacterMapping:
+					WriteCharacterMappingFiles(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
+					break;
+				case Mode.Generate:
+					if (languagesToProcess.Any(l => !l.IsEnglish))
+						WriteOutput("Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version is " +
+							"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
 
-				if (annotationsToOutput.Any()) // If not, we probably didn't process English data
-					WriteAnnotationsFile(annotationsToOutput);
-			}
+					if (annotationsToOutput.Any()) // If not, we probably didn't process English data
+						WriteAnnotationsFile(annotationsToOutput);
+					break;
+				case Mode.GenerateEnglish:
+					var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
+					Directory.CreateDirectory(temporaryPathRoot);
 
-			if (mode == Mode.GenerateEnglish)
-			{
-				var temporaryPathRoot = @"..\..\DevTools\Resources\temporary";
-				Directory.CreateDirectory(temporaryPathRoot);
+					var sortedUnmatchedStr = s_unmatchedCharacterIds.OrderByDescending(t => t.Item1).ThenBy(t => t.Item2).Select(t => $"{t.Item1}\t{t.Item2}\t{t.Item3}");
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "unmatched.txt"), sortedUnmatchedStr);
 
-				var sortedUnmatchedStr = s_unmatchedCharacterIds.OrderByDescending(t => t.Item1).ThenBy(t => t.Item2).Select(t => $"{t.Item1}\t{t.Item2}\t{t.Item3}");
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "unmatched.txt"), sortedUnmatchedStr);
+					var sortedMatched = s_characterIdsMatchedByControlFile.Select(t => $"{t.Item1} => {t.Item2}").ToList();
+					sortedMatched.Sort();
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileWOref.txt"), sortedMatched);
 
-				var sortedMatched = s_characterIdsMatchedByControlFile.Select(t => $"{t.Item1} => {t.Item2}").ToList();
-				sortedMatched.Sort();
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileWOref.txt"), sortedMatched);
+					var matchedSortedByRefStr = s_characterIdsMatchedByControlFile.OrderBy(t => t.Item3).ThenBy(t => t.Item1).Select(t =>
+					{
+						var extra = t.Item4.Contains("/") ? $"\t\t({t.Item4})" : "";
+						return $"{t.Item3}\t-- {t.Item1} => {t.Item2}{extra}";
+					});
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileSortedByRef.txt"), matchedSortedByRefStr);
 
-				var matchedSortedByRefStr = s_characterIdsMatchedByControlFile.OrderBy(t => t.Item3).ThenBy(t => t.Item1).Select(t =>
-				{
-					var extra = t.Item4.Contains("/") ? $"\t\t({t.Item4})" : "";
-					return $"{t.Item3}\t-- {t.Item1} => {t.Item2}{extra}";
-				});
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFileSortedByRef.txt"), matchedSortedByRefStr);
+					var sortedMatchedStr = s_characterIdsMatchedByControlFileStr.ToList();
+					sortedMatchedStr.Sort();
+					File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFile.txt"), sortedMatchedStr);
 
-				var sortedMatchedStr = s_characterIdsMatchedByControlFileStr.ToList();
-				sortedMatchedStr.Sort();
-				File.WriteAllLines(Path.Combine(temporaryPathRoot, "matchedByControlFile.txt"), sortedMatchedStr);
+					if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
+					{
+						var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
+						WriteOutput($"{kCharacterDetailTxtFilename} contains some FCBH character labels that were not found in the " +
+							$"source Director's Guide. See {filename} for details.", true);
+						File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
+							.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
+					}
 
-				if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
-				{
-					var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
-					WriteOutput("CharacterDetail.txt contains some FCBH character labels that were not found in the " +
-						$"source Director's Guide. See {filename} for details.", true);
-					File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
-						.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
-				}
+					break;
 
-				if (s_characterDetailsWithUnmatchedFCBHCharacterLabel.Any())
-				{
-					var filename = Path.Combine(temporaryPathRoot, "FCBHCharacterLabelsNotMatched.txt");
-					WriteOutput($"CharacterDetail.txt contains some FCBH character labels that were not found in the " +
-						$"source Director's Guide. See {filename} for details.", true);
-					File.WriteAllLines(filename, s_characterDetailsWithUnmatchedFCBHCharacterLabel.Values
-						.Select(d => $"{d.CharacterId} => {d.DefaultFCBHCharacter}"));
-				}
-			}
-
-			if (!ErrorsOccurred && mode == Mode.CreateBookTitleAndChapterLabelSummary)
-			{
-				WriteTitleAndChapterSummaryResults(resultSummary);
+				case Mode.CreateBookTitleAndChapterLabelSummary:
+					if (!ErrorsOccurred)
+						WriteTitleAndChapterSummaryResults(resultSummary);
+					break;
 			}
 
 			WriteOutput("Done!");
@@ -1253,7 +1249,7 @@ namespace Glyssen.RefTextDevUtilities
 		static readonly Regex s_matchFcbhProperNameWithLabel = new Regex(@"\w+: (?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 		static readonly Regex s_matchGlyssenFirstWordCapitalized = new Regex(@"^(?<name>([A-Z](\w|-|')+))", RegexOptions.Compiled);
 
-		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block)
+		private static string GetCharacterIdFromFCBHCharacterLabel(string fcbhCharacterLabel, string bookId, Block block, string overrideVerseNum = null)
 		{
 			if (s_FcbhNarrator.IsMatch(fcbhCharacterLabel))
 				return CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator);
@@ -1274,7 +1270,7 @@ namespace Glyssen.RefTextDevUtilities
 				characters.RemoveAll(c => c != implicitChar && c.Character == implicitChar.Character && c.Delivery == implicitChar.Delivery);
 			else
 				characters.RemoveAll(c => c.Character == CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
-			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
+			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, overrideVerseNum == null ? block.InitialStartVerseNumber : Int32.Parse(overrideVerseNum));
 			string overrideChar;
 			switch (characters.Count)
 			{
@@ -1391,7 +1387,7 @@ namespace Glyssen.RefTextDevUtilities
 			// Note that technically we should be constructing the reference from the referenceTextRow rather than using the block because the
 			// the block may cover more verses and therefore fail to find a narrator override. This should be rare enough that hooking it up manually
 			// won't be a huge burden.
-			var overrideCharacter = NarratorOverrides.GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
+			var overrideCharacter = GetCharacterOverrideForBlock(bookNum, block, ScrVers.English)
 				.FirstOrDefault(oc => IsReliableMatch(fcbhCharacterLabel, fcbhCharacterLabelSansNumber, oc) == MatchLikelihood.Reliable);
 			// REVIEW: There are four possible strategies for reference text blocks that are part of a passage which has a narrator override:
 			// 1) Have all blocks that should be spoken by the override character assigned to the narrator.
@@ -1409,10 +1405,26 @@ namespace Glyssen.RefTextDevUtilities
 			//	block.CharacterId : overrideCharacter;
 		}
 
+		/// <summary>
+		/// Gets the character to use in the script for a narrator block in the reference range of the given block. Note
+		/// that this code does not bother to check whether the given block is actually a narrator block. Typically, there
+		/// will only be one override character in the list, but if this is a verse that has an a/b split, then there can be
+		/// two.
+		/// This code was moved from Glyssen\Character\NarratorOverrides.cs during the GlyssenEngine refactoring
+		/// </summary>
+		public static IEnumerable<string> GetCharacterOverrideForBlock(int bookNum, Block block, ScrVers versification)
+        {
+            return NarratorOverrides.GetCharacterOverrideDetailsForRefRange(block.StartRef(bookNum, versification), block.LastVerseNum)
+                ?.Select(d => d.Character);
+        }
+
 		private static MatchLikelihood IsReliableMatch(string fcbhCharacterLabel, string fcbhCharacterLabelSansNumber, string glyssenCharacterId, string alias = null, string defaultCharacter = null)
 		{
 			if (CharacterVerseData.IsCharacterStandard(glyssenCharacterId) || glyssenCharacterId == CharacterVerseData.kNeedsReview || glyssenCharacterId.StartsWith("interruption-"))
 				return MatchLikelihood.Mismatch; // Before we call this, we've already checked to see if the FCBH character is the narrator. Can't auto-map any other character to that.
+
+			// In the Glyssen control file, we always use straight quotes, but the FCBH Director's Guide is inconsistent
+			fcbhCharacterLabel = fcbhCharacterLabel.Replace("’", "'");
 
 			if (glyssenCharacterId == fcbhCharacterLabel)
 				return MatchLikelihood.Reliable; // Exact match
@@ -1552,6 +1564,7 @@ namespace Glyssen.RefTextDevUtilities
 					glyssenCharacterId == "Zechariah the prophet, son of Berechiah";
 				case "Israelite in Egypt": return glyssenCharacterId.StartsWith("idolaters from Judah");
 				case "Hebrew": return glyssenCharacterId.StartsWith("Israelite");
+				case "King of Syria": return glyssenCharacterId == "Ben-Hadad, king of Aram";
 				case "Man": return glyssenCharacterId.StartsWith("men");
 				case "Gilead": return glyssenCharacterId.StartsWith("family heads of Gilead");
 				case "Leader": return glyssenCharacterId.EndsWith(", leaders of");
@@ -2147,7 +2160,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private const string k3Bars = @"\|\|\|";
 		private static readonly Regex s_annotationInCurlyBracesRegex = new Regex("{[^0-9]+.*?}", RegexOptions.Compiled);
-		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ", RegexOptions.Compiled);
+		private static readonly Regex s_annotationDelimitedWith3VerticalBarsRegex = new Regex($" {k3Bars}.*?{k3Bars} ?", RegexOptions.Compiled);
 		private static readonly Regex s_anyAnnotationRegex = new Regex($"{RegexEscapedDoNotCombine}{s_annotationInCurlyBracesRegex}|{s_annotationInCurlyBracesRegex}|{s_annotationDelimitedWith3VerticalBarsRegex}", RegexOptions.Compiled);
 		// For splitting, the regular expression is wrapped in parentheses to tell Split method to include the capturing group as one of the strings in the resulting array.
 		// See explanation here: https://stackoverflow.com/questions/27999449/c-sharp-regex-match-vs-split-for-same-string

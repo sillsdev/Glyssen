@@ -2,12 +2,11 @@
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Bundle;
 using Glyssen.Controls;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Utilities;
-using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;

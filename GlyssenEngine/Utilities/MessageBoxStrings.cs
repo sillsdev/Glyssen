@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 #endif
 
-namespace Glyssen.Utilities
+namespace GlyssenEngine.Utilities
 {
 	public static class MessageBoxStrings
 	{

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -17,6 +15,8 @@ using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine.Bundle;
+using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Utilities;
 using L10NSharp;
@@ -35,6 +35,7 @@ using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
+using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen
 {
@@ -168,6 +169,7 @@ namespace Glyssen
 			UpdateLocalizedText();
 			if (m_project != null)
 				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
+			ControlCharacterVerseData.Singleton.HandleStringsLocalized();
 		}
 
 		private void RememberButtonFormats()
