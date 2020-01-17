@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
 

@@ -10,6 +10,7 @@ using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;
 using static System.String;
+using static GlyssenTests.ReferenceTextTests;
 using Resources = GlyssenTests.Properties.Resources;
 
 namespace GlyssenTests
@@ -817,8 +818,8 @@ namespace GlyssenTests
 				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
 				BlockElements = new List<BlockElement>(new[] { new ScriptText("16") })
 			});
-			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(23, "Jesus rebuked him, saying:", true,  16));
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "«Get the behind me Satan! ")
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Jesus rebuked him, saying:", true,  16));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "«Get the behind me Satan! ")
 				.AddVerse(24, "If you disciples are serious about following me, this is the deal.");
 
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
@@ -1919,6 +1920,42 @@ namespace GlyssenTests
 		}
 		#endregion
 
+		#region PG-1311
+
+
+		[TestCase("[ ", "37", 37, 0)]
+		[TestCase("?» ", "37", 37, 0)]
+		[TestCase(". ", "36-37", 36, 37)]
+		public void MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation_InitialStartVerseNumberCorrected(string trailingPunctuation,
+			string verseRef, int expectedInitialStartVerse, int expectedInitialEndVerse)
+		{
+			var origBlocks = new List<Block>();
+			origBlocks.Add(CreateChapterBlock("LUK", 17, "c", true));
+			origBlocks.Add(CreateBlockForVerse("Jesus", 31, "«Dœ olonœ asœmœ, uzu á nœ ye sœ ɓa sœnda, tshe ye ga mangba ye nene. ", false, 17)
+				.AddVerse(32, "'E gbetshelœ 'e tœ upu nœ awo Lota kane. ")
+				.AddVerse(33, "Uzu neke á tshe para awa ndœ kœgbɔndœ soro tshu; kashe tsheneke nœ nene dá she. ")
+				.AddVerse(34, "Mœ sœ 'e, lœ butshɔnœ asœmœ, ayakoshe: endje za anga bale, yé anga œ sœpe. ")
+				.AddVerse(35, "Ayashe bisha œ sœ kœtɔ œrœ tœ œsœnœ bale: endje za anga bale, yé anga œ sœpe. "));
+			// The following call sets up the bogus data condition because it sets the Initial start/end verse numbers to 35.
+			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kUnexpectedCharacter, trailingPunctuation, "p")
+				.AddVerse(verseRef, "Ayambarœ nœ Yisu yu she adœke:");
+			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kUnexpectedCharacter, " «Œrœnœ atamœ œ mbœrœtœ endje kpœta Gbozu?» ", "p");
+			AddNarratorBlockForVerseInProgress(origBlocks, "é tshe kœgi fœ endje adœke: ", "LUK");
+			AddBlockForVerseInProgress(origBlocks, CharacterVerseData.kAmbiguousCharacter, "«Osho á oko sœ tœnœ, œ kœngbɔtœ endje ɓa zœ.»", "p");
+			var book = new BookScript("LUK", origBlocks, ScrVers.English);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			for (int i = 2; i < resultingBlocks.Count; i++)
+			{
+				Assert.AreEqual(expectedInitialStartVerse, resultingBlocks[i].InitialStartVerseNumber);
+				Assert.AreEqual(expectedInitialEndVerse, resultingBlocks[i].InitialEndVerseNumber);
+			}
+		}
+		#endregion
+
 		private void SetDummyReferenceText(IEnumerable<Block> blocks)
 		{
 			foreach (var block in blocks)
@@ -1962,7 +1999,7 @@ namespace GlyssenTests
 			};
 		}
 
-		private Block CreateChapterBlock(string bookId, int chapter, string styleTag)
+		private Block CreateChapterBlock(string bookId, int chapter, string styleTag, bool omitLabel = false)
 		{
 			var chapterVerse = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 
@@ -1971,7 +2008,7 @@ namespace GlyssenTests
 				CharacterId = chapterVerse,
 				CharacterIdInScript = chapterVerse,
 				StyleTag = styleTag,
-				BlockElements = new List<BlockElement> {new ScriptText("Chapter " + chapter)}
+				BlockElements = new List<BlockElement> {new ScriptText((omitLabel ? "" : "Chapter ") + chapter)}
 			};
 		}
 	}

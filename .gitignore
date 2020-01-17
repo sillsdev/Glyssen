@@ -27,3 +27,4 @@ lib/dotnet/MarkdownDeep.dll
 /DistFiles/reference_texts/NewEnglish/
 ~$*.xlsx
 /DevTools/Resources/*.xlsm
+/Glyssen/Firefox/*

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="RUT" singlevoice="false" pageheader="Ruth">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-RUT">
+  <block style="mt" chapter="0" book="RUT" initialStartVerse="0" characterId="BC-RUT">
     <text>Ruth</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="RUT" initialStartVerse="0" characterId="BC-RUT">
@@ -16,7 +16,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="3" characterId="narrator-RUT">
     <verse num="3" />
-    <text>Elimelech, Naomi's husband, died; and she was left, and her two sons.</text>
+    <text>Elimelech, Naomi’s husband, died; and she was left, and her two sons.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="4" characterId="narrator-RUT">
     <verse num="4" />
@@ -62,7 +62,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="12" characterId="Naomi">
     <verse num="12" />
-    <text>Go back, my daughters, go your way; for I am too old to have a husband. If I should say, 'I have hope,' if I should even have a husband tonight, and should also bear sons; </text>
+    <text>Go back, my daughters, go your way; for I am too old to have a husband. If I should say, ‹I have hope,› if I should even have a husband tonight, and should also bear sons; </text>
     <verse num="13" />
     <text>would you then wait until they were grown? Would you then refrain from having husbands? No, my daughters, for it grieves me much for your sakes, for the hand of God has gone out against me.”</text>
   </block>
@@ -92,7 +92,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-RUT">
     <verse num="19" />
-    <text>So they two went until they came to Bethlehem. It happened, when they were come to Bethlehem, that all the city was moved about them, and [the women] said,</text>
+    <text>So they two went until they came to Bethlehem. It happened, when they were come to Bethlehem, that all the city was moved about them, and the women said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="women of Bethlehem">
     <text>“Is this Naomi?”</text>
@@ -117,7 +117,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="narrator-RUT">
     <verse num="1" />
-    <text>Naomi had a kinsman of her husband's, a mighty man of wealth, of the family of Elimelech, and his name was Boaz.</text>
+    <text>Naomi had a kinsman of her husband’s, a mighty man of wealth, of the family of Elimelech, and his name was Boaz.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="narrator-RUT">
     <verse num="2" />
@@ -165,7 +165,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="7" characterId="foreman">
     <verse num="7" />
-    <text>She said, 'Please let me glean and gather after the reapers among the sheaves.' So she came, and has continued even from the morning until now, except that she stayed a little in the house.”</text>
+    <text>She said, ‹Please let me glean and gather after the reapers among the sheaves.› So she came, and has continued even from the morning until now, except that she stayed a little in the house.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="8" characterId="narrator-RUT">
     <verse num="8" />
@@ -176,7 +176,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="9" characterId="Boaz">
     <verse num="9" />
-    <text>Let your eyes be on the field that they reap, and go after them. Haven't I commanded the young men not to touch you? When you are thirsty, go to the vessels, and drink from that which the young men have drawn.”</text>
+    <text>Let your eyes be on the field that they reap, and go after them. Haven’t I commanded the young men not to touch you? When you are thirsty, go to the vessels, and drink from that which the young men have drawn.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-RUT">
     <verse num="10" />
@@ -222,7 +222,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="16" characterId="Boaz">
     <verse num="16" />
-    <text>Also pull out some for her from the bundles, and leave it, and let her glean, and don't rebuke her.”</text>
+    <text>Also pull out some for her from the bundles, and leave it, and let her glean, and don’t rebuke her.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-RUT">
     <verse num="17" />
@@ -286,11 +286,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="Naomi">
     <verse num="2" />
-    <text>Now isn't Boaz our kinsman, with whose maidens you were? Behold, he winnows barley tonight in the threshing floor.</text>
+    <text>Now isn’t Boaz our kinsman, with whose maidens you were? Behold, he winnows barley tonight in the threshing floor.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="Naomi">
     <verse num="3" />
-    <text>Therefore wash yourself, anoint yourself, get dressed, and go down to the threshing floor, but don't make yourself known to the man until he has finished eating and drinking.</text>
+    <text>Therefore wash yourself, anoint yourself, get dressed, and go down to the threshing floor, but don’t make yourself known to the man until he has finished eating and drinking.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="Naomi">
     <verse num="4" />
@@ -335,7 +335,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="11" characterId="Boaz">
     <verse num="11" />
-    <text>Now, my daughter, don't be afraid; I will do to you all that you say; for all the city of my people does know that you are a worthy woman.</text>
+    <text>Now, my daughter, don’t be afraid; I will do to you all that you say; for all the city of my people does know that you are a worthy woman.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="12" characterId="Boaz">
     <verse num="12" />
@@ -343,7 +343,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="Boaz">
     <verse num="13" />
-    <text>Stay this night, and it shall be in the morning, that if he will perform for you the part of a kinsman, well; let him do the kinsman's part. But if he will not do the part of a kinsman for you, then will I do the part of a kinsman for you, as God lives. Lie down until the morning.”</text>
+    <text>Stay this night, and it shall be in the morning, that if he will perform for you the part of a kinsman, well; let him do the kinsman’s part. But if he will not do the part of a kinsman for you, then will I do the part of a kinsman for you, as God lives. Lie down until the morning.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="narrator-RUT">
     <verse num="14" />
@@ -360,7 +360,7 @@
     <text>“Bring the mantle that is on you, and hold it.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="15" characterId="narrator-RUT">
-    <text>She held it; and he measured six [measures] of barley, and laid it on her; and he went into the city.</text>
+    <text>She held it; and he measured six measures of barley, and laid it on her; and he went into the city.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="16" characterId="narrator-RUT">
     <verse num="16" />
@@ -375,7 +375,7 @@
     <text>She said,</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="17" characterId="Ruth">
-    <text>“He gave me these six [measures] of barley; for he said, Don't go empty to your mother-in-law.”</text>
+    <text>“He gave me these six measures of barley; for he said, Don’t go empty to your mother-in-law.”</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="narrator-RUT">
     <verse num="18" />
@@ -412,7 +412,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="Boaz">
     <verse num="4" />
-    <text>I thought to disclose it to you, saying, 'Buy it before those who sit here, and before the elders of my people.' If you will redeem it, redeem it; but if you will not redeem it, then tell me, that I may know. For there is no one to redeem it besides you; and I am after you.”</text>
+    <text>I thought to disclose it to you, saying, ‹Buy it before those who sit here, and before the elders of my people.› If you will redeem it, redeem it; but if you will not redeem it, then tell me, that I may know. For there is no one to redeem it besides you; and I am after you.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="4" characterId="narrator-RUT">
     <text>He said,</text>
@@ -436,7 +436,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="narrator-RUT">
     <verse num="7" />
-    <text>Now this was [the custom] in former time in Israel concerning redeeming and concerning exchanging, to confirm all things: a man took off his shoe, and gave it to his neighbor; and this was the [way of] attestation in Israel. </text>
+    <text>Now this was the custom in former time in Israel concerning redeeming and concerning exchanging, to confirm all things: a man took off his shoe, and gave it to his neighbor; and this was the way of attestation in Israel. </text>
     <verse num="8" />
     <text>So the near kinsman said to Boaz,</text>
   </block>

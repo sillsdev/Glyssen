@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- These variables define the Windows Installer product version, product code and upgrade code. They   -->
-<!-- will be used later on in this file.  this value should be B U I LD_SCRIPT_MUST_REPLACE_AT_RUNTIME (in quotes) -->
+<!-- These variables define the Windows Installer product version, product code and upgrade code.
+     They will be used later on in this file. -->
+<!-- This value should be B U I LD_SCRIPT_MUST_REPLACE_AT_RUNTIME (in quotes). If you build the
+     Installer locally, this will be replaced by an actual version number. Do not check in that change! -->
 <?define Property_ProductVersion = "BUILD_SCRIPT_MUST_REPLACE_AT_RUNTIME" ?>
 <!--this is replaced at build time by the msbuild 'package' target -->
 <?define Property_ProductCode = "*" ?>
-<!-- auto-generate a new guid each time -->
+<!-- auto-generate a new GUID each time -->
 <?define Property_UpgradeCode = "{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" ?>
 <!--Don't even think of EVER changing this -->
 
@@ -18,13 +20,13 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
              Version="$(var.Property_ProductVersion)" Manufacturer="FCBH-SIL"
              UpgradeCode="$(var.Property_UpgradeCode)">
 
-    <Package  Compressed="yes" InstallerVersion="200" />
+    <Package Platform="x64" Compressed="yes" InstallerVersion="200" />
 
     <!-- changed schedule from afterInstallInitialize, to afterInstallValidate, hopes that upgrades which have some library (e.g. palaso) with a lower version won't leave us
         with no palaso at all, as afterInstallInitialize was doing. But it's not clear whether even this will work, as it depends on when the "costing" happens:
         http://msdn.microsoft.com/en-us/library/aa371197.aspx -->
-    <MajorUpgrade   Schedule="afterInstallValidate"
-  DowngradeErrorMessage="A later version of Glyssen is already installed. If you really want to downgrade, first uninstall Glyssen, then do this install again."/>
+    <MajorUpgrade Schedule="afterInstallValidate"
+		DowngradeErrorMessage="A later version of Glyssen is already installed. If you really want to downgrade, first uninstall Glyssen, then do this install again."/>
 
     <Upgrade Id ="$(var.Property_UpgradeCode)" >
       <UpgradeVersion Minimum ="$(var.Property_ProductVersion)" OnlyDetect ="yes" Property ="NEWVERSIONDETECTED" />
@@ -42,12 +44,12 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
     <!--
     "from the list: Don't use Advertise="yes" Advertised shortcuts are designed to allow
 users to install just the shortcut for your app, then demand-install the
-rest of the app the first time the icon is run.  If this is not behavior you
-are trying to support, you're better off using non-advertised shortcuts. "-->
+rest of the app the first time the icon is run. If this is not behavior you
+are trying to support, you're better off using non-advertised shortcuts." -->
 
 	<PropertyRef Id="NETFRAMEWORK45"/>
 	<Condition Message="Glyssen requires .NET Framework 4.7.2 or later. You need to install Microsoft's free .NET Framework then run this installer again. More information about Glyssen's requirements can be found at https://software.sil.org/glyssen/download/ ">
-    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
+		<![CDATA[Installed OR (NETFRAMEWORK45 >= "#461808")]]>
 	</Condition>
 
     <!--because of bug, this needs to be 1 -->
@@ -55,254 +57,209 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <Directory Id="TARGETDIR" Name="SourceDir">
 
-        <Directory Id="CommonAppDataFolder">
-          <Directory Id="FCBHSILCommonAppData" Name="FCBH-SIL">
-            <Directory Id="GlyssenCommonAppData" Name="Glyssen"/>
-          </Directory>
-        </Directory>
-
-        <Directory Id="DesktopFolder" Name="Desktop"/>
-
-      <Directory Id='ProgramMenuFolder' Name='Programs'>
-        <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
-          <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
-            <RemoveFolder Id ="shortcutDirRemover" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="create" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
-              <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
-            </RegistryKey>
-          </Component>
+      <Directory Id="CommonAppDataFolder">
+        <Directory Id="FCBHSILCommonAppData" Name="FCBH-SIL">
+          <Directory Id="GlyssenCommonAppData" Name="Glyssen"/>
         </Directory>
       </Directory>
 
-      <Directory Id="ProgramFilesFolder" Name="PFiles">
+      <Directory Id="DesktopFolder" Name="Desktop">
+		<Component Id="ComponentDesktopShortcut" Guid="*" >
+          <Shortcut Id="desktopShortcut" Name="Glyssen"
+                 WorkingDirectory="INSTALLDIR" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
+		  <!--Remove desktop shortcut on uninstall-->
+		  <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+			<RegistryValue Root="HKCU" Key="SOFTWARE\SIL-FCBH\Glyssen" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+          </Component>
+	  </Directory>
+
+	  <Directory Id='ProgramMenuFolder'/>
+
+	  <Directory Id="ProgramFiles64Folder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">
-          <Directory Id="XulRunnerDir" Name="XulRunner"/>
+          <Directory Id="XulRunnerDir" Name="Firefox64"/>
 
-          <Component Id="Glyssen.exe" Guid="{A3493892-C68A-4f01-93BC-5F92B380CF89}">
-            <Registry Root="HKCU" Key="SOFTWARE\Glyssen\Components\Glyssen.exe" KeyPath="yes" />
-            <File Id="Glyssen.exe" Name="Glyssen.exe"  Source="..\output\release\Glyssen.exe" />
+          <Component Id="Glyssen.exe" Guid="*" Win64="yes">
+            <File Id="Glyssen.exe" Name="Glyssen.exe" Source="..\output\release\Glyssen.exe" ProcessorArchitecture="x64"/>
+		  </Component>
 
-            <Shortcut Id="startmenuShortcut" Directory="GlyssenShortcutDir" Name="Glyssen"
-                 WorkingDirectory="ProgramDir" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
-            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Glyssen"
-                 WorkingDirectory="INSTALLDIR" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
-
-          </Component>
-
-          <Component Id="Glyssen.pdb" Guid="{36b433dd-6260-48cb-8649-eb30f0b2fe27}">
+          <Component Id="Glyssen.pdb" Guid="*">
             <File Id="Glyssen.pdb" Name="Glyssen.pdb" KeyPath="yes" Source="..\output\release\Glyssen.pdb" />
           </Component>
 
-          <Component Id="Glyssen.exe.config" Guid="{5173C7E9-39FD-4438-B1C1-BA187907AA35}">
+          <Component Id="Glyssen.exe.config" Guid="*">
             <File Id="Glyssen.exe.config" Name="Glyssen.exe.config" KeyPath="yes" Source="..\output\release\Glyssen.exe.config" />
           </Component>
 
-          <Component Id="GlyssenShared.dll" Guid="{2615db6d-fc08-4b08-95cd-e0999d81d310}">
-            <File Id="GlyssenShared.dll" Name="GlyssenShared.dll" KeyPath="yes" Source="..\output\release\GlyssenShared.dll" />
+          <Component Id="GlyssenShared.dll" Guid="*" Win64="yes">
+            <File Id="GlyssenShared.dll" Name="GlyssenShared.dll" KeyPath="yes" Source="..\output\release\GlyssenShared.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="GlyssenShared.pdb" Guid="{7f7ffc3e-09d6-49ca-a9f4-cd3120377dbf}">
+          <Component Id="GlyssenShared.pdb" Guid="*">
             <File Id="GlyssenShared.pdb" Name="GlyssenShared.pdb" KeyPath="yes" Source="..\output\release\GlyssenShared.pdb" />
           </Component>
 
-          <Component Id="GlyssenEngine.dll" Guid="{3ebdbb48-e80b-4253-a66d-1a27928074f4}">
-            <File Id="GlyssenEngine.dll" Name="GlyssenEngine.dll" KeyPath="yes" Source="..\output\release\GlyssenEngine.dll" />
+          <Component Id="GlyssenEngine.dll" Guid="*" Win64="yes">
+            <File Id="GlyssenEngine.dll" Name="GlyssenEngine.dll" KeyPath="yes" Source="..\output\release\GlyssenEngine.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="GlyssenEngine.pdb" Guid="{4277efdb-86a8-4e6e-ae1b-79cdef4e0ad3}">
+          <Component Id="GlyssenEngine.pdb" Guid="*">
             <File Id="GlyssenEngine.pdb" Name="GlyssenEngine.pdb" KeyPath="yes" Source="..\output\release\GlyssenEngine.pdb" />
           </Component>
 
-          <Component Id="SIL.Core.dll" Guid="{b85eba03-ba56-40b9-9c7f-ae166748f6f5}">
-            <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" />
+          <Component Id="SIL.Core.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.Core.pdb" Guid="{f4954c64-33f6-48e4-a6bc-453cc552925d}">
-            <File Id="SIL.Core.pdb" Name="SIL.Core.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.pdb" />
+          <Component Id="SIL.Core.Desktop.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Core.Desktop.dll" Name="SIL.Core.Desktop.dll" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.Core.Desktop.dll" Guid="{41c29210-a1ce-476b-bf04-c2b2fdb8862e}">
-            <File Id="SIL.Core.Desktop.dll" Name="SIL.Core.Desktop.dll" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.dll" />
+          <Component Id="SIL.Windows.Forms.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.Core.Desktop.pdb" Guid="{edae9768-e53a-4d8d-b41e-68c835ceba1f}">
-            <File Id="SIL.Core.Desktop.pdb" Name="SIL.Core.Desktop.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.Desktop.pdb" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
-            <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.pdb" Guid="{98277eee-bb92-47ac-a967-0ae65a25ae6e}">
-            <File Id="SIL.Windows.Forms.pdb" Name="SIL.Windows.Forms.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.pdb" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Guid="{d5efb16d-09a1-41e4-b46b-7bd1cc44abfd}">
+		  <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Guid="*" Win64="yes">
             <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Name="SIL.Windows.Forms.GeckoBrowserAdapter.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.dll" />
           </Component>
 
-          <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb" Guid="{9b296fcb-4d8c-48a0-8c1c-29a2324cee46}">
-            <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb" Name="SIL.Windows.Forms.GeckoBrowserAdapter.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.pdb" />
+          <Component Id="SIL.Windows.Forms.Keyboarding.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.Windows.Forms.Keyboarding.dll" Guid="{c7e9afe7-3d60-4171-a11e-73f68ba455d2}">
-            <File Id="SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.dll" />
+          <Component Id="SIL.WritingSystems.dll" Guid="*" Win64="yes">
+            <File Id="SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.Windows.Forms.Keyboarding.pdb" Guid="{b042f205-62a9-4980-96b9-923c53d5432c}">
-            <File Id="SIL.Windows.Forms.Keyboarding.pdb" Name="SIL.Windows.Forms.Keyboarding.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.pdb" />
+          <Component Id="SIL.DblBundle.dll" Guid="*" Win64="yes">
+            <File Id="SIL.DblBundle.dll" Name="SIL.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.DblBundle.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.WritingSystems.dll" Guid="{2e0d8b57-3d08-45e7-be4c-01adc1838449}">
-            <File Id="SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.dll" />
+          <Component Id="SIL.Windows.Forms.DblBundle.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Windows.Forms.DblBundle.dll" Name="SIL.Windows.Forms.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.DblBundle.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.WritingSystems.pdb" Guid="{8dc07d50-101c-4f4f-8012-71ea0f8f01b2}">
-            <File Id="SIL.WritingSystems.pdb" Name="SIL.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.pdb" />
+          <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.DblBundle.dll" Guid="{4e2e8963-1413-411f-96b7-9190ca968b7c}">
-            <File Id="SIL.DblBundle.dll" Name="SIL.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.DblBundle.dll" />
+          <Component Id="SIL.Scripture.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Scripture.dll" Name="SIL.Scripture.dll" KeyPath="yes" Source="..\output\release\SIL.Scripture.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.DblBundle.pdb" Guid="{7ebcedc8-9eee-4413-9146-b50865a1efba}">
-            <File Id="SIL.DblBundle.pdb" Name="SIL.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.DblBundle.pdb" />
+          <Component Id="SIL.Windows.Forms.Scripture.dll" Guid="*" Win64="yes">
+            <File Id="SIL.Windows.Forms.Scripture.dll" Name="SIL.Windows.Forms.Scripture.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Scripture.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="SIL.Windows.Forms.DblBundle.dll" Guid="{9c400b77-dc96-475b-8b6a-2a3a9af001f7}">
-            <File Id="SIL.Windows.Forms.DblBundle.dll" Name="SIL.Windows.Forms.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.DblBundle.dll" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.DblBundle.pdb" Guid="{0917a125-6bab-42bc-8aaf-a1cb79167cdd}">
-            <File Id="SIL.Windows.Forms.DblBundle.pdb" Name="SIL.Windows.Forms.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.DblBundle.pdb" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
-            <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.WritingSystems.pdb" Guid="{c4ac3141-061d-4c1c-b4a3-e2ccdeca7a29}">
-            <File Id="SIL.Windows.Forms.WritingSystems.pdb" Name="SIL.Windows.Forms.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.pdb" />
-          </Component>
-
-          <Component Id="SIL.Scripture.dll" Guid="{386eb5b9-c3ef-4640-9400-e5efb3fc83c4}">
-            <File Id="SIL.Scripture.dll" Name="SIL.Scripture.dll" KeyPath="yes" Source="..\output\release\SIL.Scripture.dll" />
-          </Component>
-
-          <Component Id="SIL.Scripture.pdb" Guid="{d321b0a0-9e51-401f-a020-fb0d985cbe62}">
-            <File Id="SIL.Scripture.pdb" Name="SIL.Scripture.pdb" KeyPath="yes" Source="..\output\release\SIL.Scripture.pdb" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.Scripture.dll" Guid="{3211eeca-71be-4e26-a4fa-22b9e15a15ad}">
-            <File Id="SIL.Windows.Forms.Scripture.dll" Name="SIL.Windows.Forms.Scripture.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Scripture.dll" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.Scripture.pdb" Guid="{53fcb487-efda-4cf7-80a8-cd73af8b7f28}">
-            <File Id="SIL.Windows.Forms.Scripture.pdb" Name="SIL.Windows.Forms.Scripture.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Scripture.pdb" />
-          </Component>
-
-          <Component Id="Geckofx_Core.dll" Guid="{55db00fb-4a1f-437e-a14e-22c562aecd5a}">
+		  <Component Id="Geckofx_Core.dll" Guid="*">
             <File Id="Geckofx_Core.dll" Name="Geckofx-Core.dll" KeyPath="yes" Source="..\output\release\Geckofx-Core.dll" />
           </Component>
 
-          <Component Id="Geckofx_Core.pdb" Guid="{c09b154c-2494-45ca-a42d-d978117f0141}">
+		  <Component Id="Geckofx_Core.pdb" Guid="*">
             <File Id="Geckofx_Core.pdb" Name="Geckofx-Core.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Core.pdb" />
           </Component>
 
-          <Component Id="Geckofx_Winforms.dll" Guid="{69cbecdc-dfc8-4f96-a947-5fca98f72c04}">
+          <Component Id="Geckofx_Winforms.dll" Guid="*">
             <File Id="Geckofx_Winforms.dll" Name="Geckofx-Winforms.dll" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.dll" />
           </Component>
 
-          <Component Id="Geckofx_Winforms.pdb" Guid="{13dbf7d2-8f14-40e3-a6cf-8f1a9fcff9cc}">
+          <Component Id="Geckofx_Winforms.pdb" Guid="*">
             <File Id="Geckofx_Winforms.pdb" Name="Geckofx-Winforms.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.pdb" />
           </Component>
 
-		  <Component Id="MarkdownDeep.dll" Guid="{066537FE-B008-4CAE-A65D-A259278FE54E}">
-			<File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
-		  </Component>
+          <Component Id="MarkdownDeep.dll" Guid="*">
+            <File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
+          </Component>
 
-		  <Component Id="NetSparkle.Net40.dll" Guid="{01cc5878-5e51-454b-9128-0d779751bc47}">
-			<File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" />
-		  </Component>
+          <Component Id="NetSparkle.Net40.dll" Guid="*" Win64="yes">
+            <File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" ProcessorArchitecture="x64"/>
+          </Component>
 
-          <Component Id="icu.net.dll" Guid="{a145070d-4fae-49ab-a7f5-4980895f62ba}">
+          <Component Id="icu.net.dll" Guid="*">
             <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
           </Component>
 
-          <Component Id="icudt56.dll" Guid="{73ee4690-c094-4aee-9ac2-b90ea1657887}">
-            <File Id="icudt56.dll" Name="icudt56.dll" KeyPath="yes" Source="..\output\release\icudt56.dll" />
+          <Component Id="icudt59.dll" Guid="*">
+            <File Id="icudt59.dll" Name="icudt59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icudt59.dll" />
           </Component>
 
-          <Component Id="icuin56.dll" Guid="{fa40a15c-a057-4436-9f8c-a15bc154d36e}">
-            <File Id="icuin56.dll" Name="icuin56.dll" KeyPath="yes" Source="..\output\release\icuin56.dll" />
+          <Component Id="icuin59.dll" Guid="*">
+            <File Id="icuin59.dll" Name="icuin59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icuin59.dll" />
           </Component>
 
-          <Component Id="icuuc56.dll" Guid="{7c312256-e864-40d6-bbcb-2f5b02d44557}">
-            <File Id="icuuc56.dll" Name="icuuc56.dll" KeyPath="yes" Source="..\output\release\icuuc56.dll" />
+          <Component Id="icuuc59.dll" Guid="*">
+            <File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icuuc59.dll" />
           </Component>
 
-          <Component Id="System.ValueTuple.dll" Guid="{F9E2AC5A-447B-46AC-96ED-A3F5B27E6559}">
+          <Component Id="System.ValueTuple.dll" Guid="*">
             <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
           </Component>
 
-          <Component Id="ParatextData.dll" Guid="{64b44ac8-6ebd-4b0f-a0ec-27d4f289af34}">
-            <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" />
+          <Component Id="ParatextData.dll" Guid="*" Win64="yes">
+            <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" ProcessorArchitecture="x64"/>
           </Component>
-
-          <!--Component Id="ParatextData.pdb" Guid="{ac4e433e-961f-4dd5-94e5-41e8799a204b}">
-            <File Id="ParatextData.pdb" Name="ParatextData.pdb" KeyPath="yes" Source="..\output\release\ParatextData.pdb" />
-          </Component-->
 
           <!--Needed for ParatextData-->
-          <Component Id="PtxUtils.dll" Guid="{a93e8f57-72aa-46a0-9993-32e47b27c24d}">
-            <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" />
+          <Component Id="PtxUtils.dll" Guid="*" Win64="yes">
+            <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" ProcessorArchitecture="x64"/>
           </Component>
-
-          <!--Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
-            <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
-          </Component-->
           <!--End Needed for ParatextData-->
 
-		  <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="{4F176733-6461-40FE-BCF6-7C9ED31D1E2F}">
-            <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" />
+		  <Component Id="Microsoft.DotNet.PlatformAbstractions.dll" Guid="*" Win64="yes">
+            <File Id="Microsoft.DotNet.PlatformAbstractions.dll" Name="Microsoft.DotNet.PlatformAbstractions.dll" KeyPath="yes" Source="..\output\release\Microsoft.DotNet.PlatformAbstractions.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="{FF456908-3726-45C2-BA15-F7ED76630988}">
-            <File Id="Microsoft.Extensions.DependencyModel.dll" Name="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="..\output\release\Microsoft.Extensions.DependencyModel.dll" />
+          <Component Id="Microsoft.Extensions.DependencyModel.dll" Guid="*" Win64="yes">
+            <File Id="Microsoft.Extensions.DependencyModel.dll" Name="Microsoft.Extensions.DependencyModel.dll" KeyPath="yes" Source="..\output\release\Microsoft.Extensions.DependencyModel.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="DotNetZip.dll" Guid="{C2D40B5E-3B57-4B70-AA3F-28876E44DCAB}">
-            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" />
+          <Component Id="Microsoft.Win32.Registry.dll" Guid="*" Win64="yes">
+            <File Id="Microsoft.Win32.Registry.dll" Name="Microsoft.Win32.Registry.dll" KeyPath="yes" Source="..\output\release\Microsoft.Win32.Registry.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
-            <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" />
+          <Component Id="Microsoft.Win32.SystemEvents.dll" Guid="*" Win64="yes">
+            <File Id="Microsoft.Win32.SystemEvents.dll" Name="Microsoft.Win32.SystemEvents.dll" KeyPath="yes" Source="..\output\release\Microsoft.Win32.SystemEvents.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="L10NSharp.pdb" Guid="{c6477c66-b26f-4362-8c1e-6d77b0c70494}">
-            <File Id="L10NSharp.pdb" Name="L10NSharp.pdb" KeyPath="yes" Source="..\output\release\L10NSharp.pdb" />
+          <Component Id="DotNetZip.dll" Guid="*" Win64="yes">
+            <File Id="DotNetZip.dll" Name="DotNetZip.dll" KeyPath="yes" Source="..\output\release\DotNetZip.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="Analytics.NET.dll" Guid="{908f0bda-1c18-4c4f-ae2c-778bb2ae5b34}">
-            <File Id="Analytics.NET.dll" Name="Analytics.NET.dll" KeyPath="yes" Source="..\output\release\Analytics.NET.dll" />
+          <Component Id="L10NSharp.dll" Guid="*" Win64="yes">
+            <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="DesktopAnalytics.dll" Guid="{45850fe5-ff09-472c-97fd-a05c970ede0e}">
-            <File Id="DesktopAnalytics.dll" Name="DesktopAnalytics.dll" KeyPath="yes" Source="..\output\release\DesktopAnalytics.dll" />
+          <Component Id="Analytics.NET.dll" Guid="*" Win64="yes">
+            <File Id="Analytics.NET.dll" Name="Analytics.NET.dll" KeyPath="yes" Source="..\output\release\Analytics.NET.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="Newtonsoft.Json.dll" Guid="{ed358f71-1c89-4570-9387-fea8f669bb3a}">
-            <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" KeyPath="yes" Source="..\output\release\Newtonsoft.Json.dll" />
+          <Component Id="DesktopAnalytics.dll" Guid="*" Win64="yes">
+            <File Id="DesktopAnalytics.dll" Name="DesktopAnalytics.dll" KeyPath="yes" Source="..\output\release\DesktopAnalytics.dll" ProcessorArchitecture="x64"/>
           </Component>
 
-          <Component Id="EPPlus.dll" Guid="{c3f465db-6bea-4579-9378-e49b53e43b89}">
-            <File Id="EPPlus.dll" Name="EPPlus.dll" KeyPath="yes" Source="..\output\release\EPPlus.dll" />
+          <Component Id="Newtonsoft.Json.dll" Guid="*" Win64="yes">
+            <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" KeyPath="yes" Source="..\output\release\Newtonsoft.Json.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
+          <Component Id="EPPlus.dll" Guid="*" Win64="yes">
+            <File Id="EPPlus.dll" Name="EPPlus.dll" KeyPath="yes" Source="..\output\release\EPPlus.dll" ProcessorArchitecture="x64"/>
           </Component>
 
         </Directory>
       </Directory>
     </Directory>
+	
+	<DirectoryRef Id="ProgramMenuFolder">
+	  <Component Id="GlyssenShortcut" Guid="{B8000306-EB15-4458-8264-97C1F888AD1E}">
+		<Shortcut Id="GlyssenStartMenuShortcut"
+				  Name="Glyssen"
+				  WorkingDirectory="ProgramDir"
+				  Target="[!Glyssen.exe]"
+				  Icon="Glyssen.exe" />
+		<RegistryValue Root="HKCU" Key="SOFTWARE\SIL-FCBH\Glyssen" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+	  </Component>
+	</DirectoryRef>
 
     <Component Id="CreateGlyssenAppDataFolder" Guid="{C5B67418-083A-4AE5-85E3-B0E23EAFD342}" Directory="GlyssenCommonAppData">
       <CreateFolder />
@@ -310,7 +267,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
       <ComponentRef Id="CreateGlyssenAppDataFolder"/>
-      <ComponentRef Id ="removeShortcutDir"/>
       <ComponentRef Id="SIL.Core.dll"/>
       <ComponentRef Id="SIL.Core.Desktop.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
@@ -327,17 +283,21 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="MarkdownDeep.dll"/>
       <ComponentRef Id="NetSparkle.Net40.dll"/>
       <ComponentRef Id="icu.net.dll"/>
-      <ComponentRef Id="icudt56.dll"/>
-      <ComponentRef Id="icuin56.dll"/>
-      <ComponentRef Id="icuuc56.dll"/>
+      <ComponentRef Id="icudt59.dll"/>
+      <ComponentRef Id="icuin59.dll"/>
+      <ComponentRef Id="icuuc59.dll"/>
 	  <ComponentRef Id="System.ValueTuple.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
 	  <ComponentRef Id="DotNetZip.dll"/>
       <ComponentRef Id="Microsoft.DotNet.PlatformAbstractions.dll"/>
       <ComponentRef Id="Microsoft.Extensions.DependencyModel.dll"/>
+      <ComponentRef Id="Microsoft.Win32.Registry.dll"/>
+	  <ComponentRef Id="Microsoft.Win32.SystemEvents.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
+	  <ComponentRef Id="ComponentDesktopShortcut" />
+      <ComponentRef Id="GlyssenShortcut" />
       <ComponentRef Id="Glyssen.exe.config" />
       <ComponentRef Id="GlyssenShared.dll"/>
       <ComponentRef Id="GlyssenEngine.dll"/>
@@ -346,22 +306,9 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Newtonsoft.Json.dll"/>
       <ComponentRef Id="EPPlus.dll"/>
 
-      <ComponentRef Id="SIL.Core.pdb"/>
-      <ComponentRef Id="SIL.Core.Desktop.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
-      <ComponentRef Id="SIL.WritingSystems.pdb"/>
-      <ComponentRef Id="SIL.DblBundle.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.DblBundle.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
-      <ComponentRef Id="SIL.Scripture.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
-      <!--ComponentRef Id="ParatextData.pdb"/>
-      <ComponentRef Id="PtxUtils.pdb"/-->
-      <ComponentRef Id="L10NSharp.pdb"/>
+
       <ComponentRef Id="Glyssen.pdb" />
       <ComponentRef Id="GlyssenShared.pdb" />
       <ComponentRef Id="GlyssenEngine.pdb" />

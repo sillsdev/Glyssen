@@ -241,7 +241,7 @@ namespace Glyssen.Controls
 					HideToolTip();
 					return;
 				}
-				else if (checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
+				if (checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
 					checkElement = checkElement.Parent;
 				else
 					break;
@@ -249,6 +249,7 @@ namespace Glyssen.Controls
 
 			if (m_toolTip == null)
 			{
+				Debug.Assert(checkElement != null);
 				m_toolTip = new ToolTip { IsBalloon = true };
 				string toolTipText = m_getCharacterIdForUi(checkElement.GetAttribute(BlockNavigatorViewModel.kDataCharacter));
 
@@ -271,19 +272,17 @@ namespace Glyssen.Controls
 			if (!m_blocksDisplayBrowser.Window.Selection.IsCollapsed)
 				return;
 
-			GeckoElement geckoElement;
-			if (GeckoUtilities.ParseDomEventTargetAsGeckoElement(e.Target, out geckoElement))
+			if (GeckoUtilities.ParseDomEventTargetAsGeckoElement(e.Target, out var geckoElement))
 			{
-				var geckoDivElement = geckoElement as GeckoDivElement;
+				var geckoHtmlElement = geckoElement as GeckoHtmlElement;
 
-				while (geckoDivElement != null && !geckoDivElement.ClassName.Contains("block scripture"))
-					geckoDivElement = geckoDivElement.Parent as GeckoDivElement;
-				if (geckoDivElement == null)
+				while (geckoHtmlElement != null && !geckoHtmlElement.ClassName.Contains("block scripture"))
+					geckoHtmlElement = geckoHtmlElement.Parent;
+				if (geckoHtmlElement == null)
 					return;
 
-				int blockIndexInBook;
-				GeckoNode blockIndexInBookAttr = geckoDivElement.Attributes["data-block-index-in-book"];
-				if (blockIndexInBookAttr == null || !Int32.TryParse(blockIndexInBookAttr.NodeValue, out blockIndexInBook))
+				GeckoNode blockIndexInBookAttr = geckoHtmlElement.Attributes["data-block-index-in-book"];
+				if (blockIndexInBookAttr == null || !Int32.TryParse(blockIndexInBookAttr.NodeValue, out var blockIndexInBook))
 					return;
 				m_viewModel.CurrentBlockIndexInBook = blockIndexInBook;
 			}

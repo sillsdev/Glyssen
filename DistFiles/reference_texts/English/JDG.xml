@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="JDG" singlevoice="false" pageheader="Judges">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JDG">
+  <block style="mt" chapter="0" book="JDG" initialStartVerse="0" characterId="BC-JDG">
     <text>Judges</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JDG" initialStartVerse="0" characterId="BC-JDG">
@@ -45,7 +45,7 @@
     <text>Adoni-Bezek said,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="Adoni-Bezek">
-    <text>“Seventy kings, having their thumbs and their great toes cut off, gathered [their food] under my table: as I have done, so God has requited me.”</text>
+    <text>“Seventy kings, having their thumbs and their great toes cut off, gathered their food under my table: as I have done, so God has requited me.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="7" characterId="narrator-JDG">
     <text>They brought him to Jerusalem, and he died there.</text>
@@ -73,11 +73,11 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-JDG">
     <verse num="13" />
-    <text>Othniel the son of Kenaz, Caleb's younger brother, took it: and he gave him Achsah his daughter as wife.</text>
+    <text>Othniel the son of Kenaz, Caleb’s younger brother, took it: and he gave him Achsah his daughter as wife.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="narrator-JDG">
     <verse num="14" />
-    <text>It happened, when she came [to him], that she moved him to ask of her father a field: and she alighted from off her donkey; and Caleb said to her,</text>
+    <text>It happened, when she came to him, that she moved him to ask of her father a field: and she alighted from off her donkey; and Caleb said to her,</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="14" characterId="Caleb">
     <text>“What would you like?”</text>
@@ -94,7 +94,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="16" characterId="narrator-JDG">
     <verse num="16" />
-    <text>The children of the Kenite, Moses' brother-in-law, went up out of the city of palm trees with the children of Judah into the wilderness of Judah, which is in the south of Arad; and they went and lived with the people.</text>
+    <text>The children of the Kenite, Moses’ brother-in-law, went up out of the city of palm trees with the children of Judah into the wilderness of Judah, which is in the south of Arad; and they went and lived with the people.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-JDG">
     <verse num="17" />
@@ -106,7 +106,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-JDG">
     <verse num="19" />
-    <text>God was with Judah; and drove out [the inhabitants of] the hill country; for he could not drive out the inhabitants of the valley, because they had chariots of iron.</text>
+    <text>God was with Judah; and drove out the inhabitants of the hill country; for he could not drive out the inhabitants of the valley, because they had chariots of iron.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-JDG">
     <verse num="20" />
@@ -139,7 +139,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="27" characterId="narrator-JDG">
     <verse num="27" />
-    <text>Manasseh did not drive out [the inhabitants of] Beth Shean and its towns, nor [of] Taanach and its towns, nor the inhabitants of Dor and its towns, nor the inhabitants of Ibleam and its towns, nor the inhabitants of Megiddo and its towns; but the Canaanites would dwell in that land.</text>
+    <text>Manasseh did not drive out the inhabitants of Beth Shean and its towns, nor of Taanach and its towns, nor the inhabitants of Dor and its towns, nor the inhabitants of Ibleam and its towns, nor the inhabitants of Megiddo and its towns; but the Canaanites would dwell in that land.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="28" characterId="narrator-JDG">
     <verse num="28" />
@@ -147,15 +147,15 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="29" characterId="narrator-JDG">
     <verse num="29" />
-    <text>Ephraim didn't drive out the Canaanites who lived in Gezer; but the Canaanites lived in Gezer among them.</text>
+    <text>Ephraim didn’t drive out the Canaanites who lived in Gezer; but the Canaanites lived in Gezer among them.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="30" characterId="narrator-JDG">
     <verse num="30" />
-    <text>Zebulun didn't drive out the inhabitants of Kitron, nor the inhabitants of Nahalol; but the Canaanites lived among them, and became subject to forced labor.</text>
+    <text>Zebulun didn’t drive out the inhabitants of Kitron, nor the inhabitants of Nahalol; but the Canaanites lived among them, and became subject to forced labor.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="31" characterId="narrator-JDG">
     <verse num="31" />
-    <text>Asher didn't drive out the inhabitants of Acco, nor the inhabitants of Sidon, nor of Ahlab, nor of Achzib, nor of Helbah, nor of Aphik, nor of Rehob;</text>
+    <text>Asher didn’t drive out the inhabitants of Acco, nor the inhabitants of Sidon, nor of Ahlab, nor of Achzib, nor of Helbah, nor of Aphik, nor of Rehob;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="32" characterId="narrator-JDG">
     <verse num="32" />
@@ -163,7 +163,7 @@
   </block>
   <block style="p" chapter="1" initialStartVerse="33" characterId="narrator-JDG">
     <verse num="33" />
-    <text>Naphtali didn't drive out the inhabitants of Beth Shemesh, nor the inhabitants of Beth Anath; but he lived among the Canaanites, the inhabitants of the land: nevertheless the inhabitants of Beth Shemesh and of Beth Anath became subject to forced labor.</text>
+    <text>Naphtali didn’t drive out the inhabitants of Beth Shemesh, nor the inhabitants of Beth Anath; but he lived among the Canaanites, the inhabitants of the land: nevertheless the inhabitants of Beth Shemesh and of Beth Anath became subject to forced labor.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="34" characterId="narrator-JDG">
     <verse num="34" />
@@ -185,15 +185,15 @@
     <text>The angel of God came up from Gilgal to Bochim. He said,</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="1" characterId="angel of the LORD, the">
-    <text>“I made you to go up out of Egypt, and have brought you to the land which I swore to your fathers; and I said, 'I will never break my covenant with you:</text>
+    <text>“I made you to go up out of Egypt, and have brought you to the land which I swore to your fathers; and I said, ‹I will never break my covenant with you:</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="2" characterId="angel of the LORD, the">
     <verse num="2" />
-    <text>and you shall make no covenant with the inhabitants of this land; you shall break down their altars.' But you have not listened to my voice: why have you done this?</text>
+    <text>and you shall make no covenant with the inhabitants of this land; you shall break down their altars.› But you have not listened to my voice: why have you done this?</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="3" characterId="angel of the LORD, the">
     <verse num="3" />
-    <text>Therefore I also said, I will not drive them out from before you; but they shall be [as thorns] in your sides, and their gods shall be a snare to you.”</text>
+    <text>Therefore I also said, I will not drive them out from before you; but they shall be as thorns in your sides, and their gods shall be a snare to you.”</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
@@ -221,7 +221,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="10" characterId="narrator-JDG">
     <verse num="10" />
-    <text>Also all that generation were gathered to their fathers: and there arose another generation after them, who didn't know God, nor yet the work which he had worked for Israel.</text>
+    <text>Also all that generation were gathered to their fathers: and there arose another generation after them, who didn’t know God, nor yet the work which he had worked for Israel.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-JDG">
     <verse num="11" />
@@ -247,7 +247,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="17" characterId="narrator-JDG">
     <verse num="17" />
-    <text>Yet they didn't listen to their judges; for they played the prostitute after other gods, and bowed themselves down to them: they turned aside quickly out of the way in which their fathers walked, obeying the commandments of God; [but] they didn't do so.</text>
+    <text>Yet they didn’t listen to their judges; for they played the prostitute after other gods, and bowed themselves down to them: they turned aside quickly out of the way in which their fathers walked, obeying the commandments of God; but they didn’t do so.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-JDG">
     <verse num="18" />
@@ -255,7 +255,7 @@
   </block>
   <block style="p" chapter="2" initialStartVerse="19" characterId="narrator-JDG">
     <verse num="19" />
-    <text>But it happened, when the judge was dead, that they turned back, and dealt more corruptly than their fathers, in following other gods to serve them, and to bow down to them; they didn't cease from their doings, nor from their stubborn way.</text>
+    <text>But it happened, when the judge was dead, that they turned back, and dealt more corruptly than their fathers, in following other gods to serve them, and to bow down to them; they didn’t cease from their doings, nor from their stubborn way.</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="20" characterId="narrator-JDG">
     <verse num="20" />
@@ -281,7 +281,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="1" characterId="narrator-JDG">
     <verse num="1" />
-    <text>Now these are the nations which God left, to prove Israel by them, even as many [of Israel] as had not known all the wars of Canaan;</text>
+    <text>Now these are the nations which God left, to prove Israel by them, even as many of Israel as had not known all the wars of Canaan;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="2" characterId="narrator-JDG">
     <verse num="2" />
@@ -289,11 +289,11 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="3" characterId="narrator-JDG">
     <verse num="3" />
-    <text>[namely], the five lords of the Philistines, and all the Canaanites, and the Sidonians, and the Hivites who lived on Mount Lebanon, from Mount Baal Hermon to the entrance of Hamath.</text>
+    <text>namely, the five lords of the Philistines, and all the Canaanites, and the Sidonians, and the Hivites who lived on Mount Lebanon, from Mount Baal Hermon to the entrance of Hamath.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
-    <text>They were [left], to prove Israel by them, to know whether they would listen to the commandments of God, which he commanded their fathers by Moses.</text>
+    <text>They were left, to prove Israel by them, to know whether they would listen to the commandments of God, which he commanded their fathers by Moses.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
@@ -313,7 +313,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="9" characterId="narrator-JDG">
     <verse num="9" />
-    <text>When the children of Israel cried to God, God raised up a savior to the children of Israel, who saved them, even Othniel the son of Kenaz, Caleb's younger brother.</text>
+    <text>When the children of Israel cried to God, God raised up a savior to the children of Israel, who saved them, even Othniel the son of Kenaz, Caleb’s younger brother.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="10" characterId="narrator-JDG">
     <verse num="10" />
@@ -377,7 +377,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="22" characterId="narrator-JDG">
     <verse num="22" />
-    <text>and the handle also went in after the blade; and the fat closed on the blade, for he didn't draw the sword out of his body; and it came out behind.</text>
+    <text>and the handle also went in after the blade; and the fat closed on the blade, for he didn’t draw the sword out of his body; and it came out behind.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="23" characterId="narrator-JDG">
     <verse num="23" />
@@ -392,7 +392,7 @@
   </block>
   <block style="p" chapter="3" initialStartVerse="25" characterId="narrator-JDG">
     <verse num="25" />
-    <text>They waited until they were ashamed; and behold, he didn't open the doors of the upper room: therefore they took the key, and opened [them], and behold, their lord was fallen down dead on the earth.</text>
+    <text>They waited until they were ashamed; and behold, he didn’t open the doors of the upper room: therefore they took the key, and opened them, and behold, their lord was fallen down dead on the earth.</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="26" characterId="narrator-JDG">
     <verse num="26" />
@@ -450,11 +450,11 @@
     <text>She sent and called Barak the son of Abinoam out of Kedesh Naphtali, and said to him,</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="6" characterId="Deborah">
-    <text>“Hasn't God, the God of Israel, commanded, 'Go and draw to Mount Tabor, and take with you ten thousand men of the children of Naphtali and of the children of Zebulun?</text>
+    <text>“Hasn’t God, the God of Israel, commanded, ‹Go and draw to Mount Tabor, and take with you ten thousand men of the children of Naphtali and of the children of Zebulun?</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="7" characterId="Deborah">
     <verse num="7" />
-    <text>I will draw to you, to the river Kishon, Sisera, the captain of Jabin's army, with his chariots and his multitude; and I will deliver him into your hand.”</text>
+    <text>I will draw to you, to the river Kishon, Sisera, the captain of Jabin’s army, with his chariots and his multitude; and I will deliver him into your hand.”</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
@@ -532,7 +532,7 @@
   </block>
   <block style="p" chapter="4" initialStartVerse="21" characterId="narrator-JDG">
     <verse num="21" />
-    <text>Then Jael Heber's wife took a tent peg, and took a hammer in her hand, and went softly to him, and struck the pin into his temples, and it pierced through into the ground; for he was in a deep sleep; so he swooned and died.</text>
+    <text>Then Jael Heber’s wife took a tent peg, and took a hammer in her hand, and went softly to him, and struck the pin into his temples, and it pierced through into the ground; for he was in a deep sleep; so he swooned and died.</text>
   </block>
   <block style="p" chapter="4" initialStartVerse="22" characterId="narrator-JDG">
     <verse num="22" />
@@ -559,121 +559,121 @@
     <verse num="1" />
     <text>Then Deborah and Barak the son of Abinoam sang on that day, saying,</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="2" characterId="Deborah/Barak" delivery="singing">
     <verse num="2" />
     <text>Because the leaders took the lead in Israel, because the people offered themselves willingly, be blessed, God!</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="3" characterId="Deborah/Barak" delivery="singing">
     <verse num="3" />
-    <text>Hear, you kings! Give ear, you princes! I, [even] I, will sing to God. I will sing praise to God, the God of Israel.</text>
+    <text>Hear, you kings! Give ear, you princes! I, even I, will sing to God. I will sing praise to God, the God of Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="4" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="4" characterId="Deborah/Barak" delivery="singing">
     <verse num="4" />
     <text>God, when you went forth out of Seir, when you marched out of the field of Edom, the earth trembled, the sky also dropped. Yes, the clouds dropped water.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="5" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="5" characterId="Deborah/Barak" delivery="singing">
     <verse num="5" />
     <text>The mountains quaked at the presence of God, even Sinai, at the presence of God, the God of Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="6" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="6" characterId="Deborah/Barak" delivery="singing">
     <verse num="6" />
     <text>In the days of Shamgar the son of Anath, in the days of Jael, the highways were unoccupied. The travelers walked through byways.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="7" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="7" characterId="Deborah/Barak" delivery="singing">
     <verse num="7" />
     <text>The rulers ceased in Israel. They ceased until I, Deborah, arose; Until I arose a mother in Israel.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="8" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="8" characterId="Deborah/Barak" delivery="singing">
     <verse num="8" />
     <text>They chose new gods. Then war was in the gates. Was there a shield or spear seen among forty thousand in Israel?</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="9" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="9" characterId="Deborah/Barak" delivery="singing">
     <verse num="9" />
     <text>My heart is toward the governors of Israel, who offered themselves willingly among the people. Bless God!</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="10" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="10" characterId="Deborah/Barak" delivery="singing">
     <verse num="10" />
-    <text>Tell [of it], you who ride on white donkeys, you who sit on rich carpets, and you who walk by the way.</text>
+    <text>Tell of it, you who ride on white donkeys, you who sit on rich carpets, and you who walk by the way.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="11" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="11" characterId="Deborah/Barak" delivery="singing">
     <verse num="11" />
-    <text>Far from the noise of archers, in the places of drawing water, there they will rehearse the righteous acts of God, [Even] the righteous acts of his rule in Israel. Then the people of God went down to the gates.</text>
+    <text>Far from the noise of archers, in the places of drawing water, there they will rehearse the righteous acts of God, Even the righteous acts of his rule in Israel. Then the people of God went down to the gates.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="12" characterId="Deborah/Barak" delivery="singing">
     <verse num="12" />
-    <text>'Awake, awake, Deborah! Awake, awake, utter a song! Arise, Barak, and lead away your captives, you son of Abinoam.'</text>
+    <text>‹Awake, awake, Deborah! Awake, awake, utter a song! Arise, Barak, and lead away your captives, you son of Abinoam.›</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="13" characterId="Deborah/Barak" delivery="singing">
     <verse num="13" />
-    <text>Then a remnant of the nobles [and] the people came down. God came down for me against the mighty.</text>
+    <text>Then a remnant of the nobles and the people came down. God came down for me against the mighty.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="14" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="14" characterId="Deborah/Barak" delivery="singing">
     <verse num="14" />
-    <text>Those whose root is in Amalek came out of Ephraim, after you, Benjamin, among your peoples. Governors come down out of Machir. Those who handle the marshal's staff came out of Zebulun.</text>
+    <text>Those whose root is in Amalek came out of Ephraim, after you, Benjamin, among your peoples. Governors come down out of Machir. Those who handle the marshal’s staff came out of Zebulun.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="15" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="15" characterId="Deborah/Barak" delivery="singing">
     <verse num="15" />
     <text>The princes of Issachar were with Deborah. As was Issachar, so was Barak. They rushed into the valley at his feet. By the watercourses of Reuben, there were great resolves of heart.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="16" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="16" characterId="Deborah/Barak" delivery="singing">
     <verse num="16" />
     <text>Why did you sit among the sheepfolds, To hear the whistling for the flocks? At the watercourses of Reuben There were great searchings of heart.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="17" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="17" characterId="Deborah/Barak" delivery="singing">
     <verse num="17" />
     <text>Gilead lived beyond the Jordan. Why did Dan remain in ships? Asher sat still at the haven of the sea, and lived by his creeks.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="18" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="18" characterId="Deborah/Barak" delivery="singing">
     <verse num="18" />
     <text>Zebulun was a people that jeopardized their lives to the deaths; Naphtali also, on the high places of the field.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="19" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="19" characterId="Deborah/Barak" delivery="singing">
     <verse num="19" />
     <text>The kings came and fought, then the kings of Canaan fought at Taanach by the waters of Megiddo. They took no plunder of silver.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="20" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="20" characterId="Deborah/Barak" delivery="singing">
     <verse num="20" />
     <text>From the sky the stars fought. From their courses, they fought against Sisera.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="21" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="21" characterId="Deborah/Barak" delivery="singing">
     <verse num="21" />
     <text>The river Kishon swept them away, that ancient river, the river Kishon. My soul, march on with strength.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="22" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="22" characterId="Deborah/Barak" delivery="singing">
     <verse num="22" />
     <text>Then the horse hoofs stamped because of the prancings, the prancings of their strong ones.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="23" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="23" characterId="Deborah/Barak" delivery="singing">
     <verse num="23" />
-    <text>Curse Meroz,' said the angel of God. 'Curse bitterly its inhabitants, because they didn't come to help God, to help God against the mighty.'</text>
+    <text>Curse Meroz,› said the angel of God. ‹Curse bitterly its inhabitants, because they didn’t come to help God, to help God against the mighty.›</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="24" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="24" characterId="Deborah/Barak" delivery="singing">
     <verse num="24" />
     <text>Jael shall be blessed above women, the wife of Heber the Kenite; blessed shall she be above women in the tent.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="25" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="25" characterId="Deborah/Barak" delivery="singing">
     <verse num="25" />
     <text>He asked for water. She gave him milk. She brought him butter in a lordly dish.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="26" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="26" characterId="Deborah/Barak" delivery="singing">
     <verse num="26" />
-    <text>She put her hand to the tent peg, and her right hand to the workmen's hammer. With the hammer she struck Sisera. She struck through his head. Yes, she pierced and struck through his temples.</text>
+    <text>She put her hand to the tent peg, and her right hand to the workmen’s hammer. With the hammer she struck Sisera. She struck through his head. Yes, she pierced and struck through his temples.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="27" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="27" characterId="Deborah/Barak" delivery="singing">
     <verse num="27" />
     <text>At her feet he bowed, he fell, he lay. At her feet he bowed, he fell. Where he bowed, there he fell down dead.</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="28" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="28" characterId="Deborah/Barak" delivery="singing">
     <verse num="28" />
-    <text>Through the window she looked out, and cried: Sisera's mother looked through the lattice. 'Why is his chariot so long in coming? Why do the wheels of his chariots wait?'</text>
+    <text>Through the window she looked out, and cried: Sisera’s mother looked through the lattice. ‹Why is his chariot so long in coming? Why do the wheels of his chariots wait?›</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="29" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="29" characterId="Deborah/Barak" delivery="singing">
     <verse num="29" />
     <text>Her wise ladies answered her, Yes, she returned answer to herself, </text>
     <verse num="30" />
-    <text>'Have they not found, have they not divided the spoil? A lady, two ladies to every man; to Sisera a spoil of dyed garments, a spoil of dyed garments embroidered, of dyed garments embroidered on both sides, on the necks of the spoil?'</text>
+    <text>‹Have they not found, have they not divided the spoil? A lady, two ladies to every man; to Sisera a spoil of dyed garments, a spoil of dyed garments embroidered, of dyed garments embroidered on both sides, on the necks of the spoil?›</text>
   </block>
-  <block style="p" chapter="5" initialStartVerse="31" characterId="Deborah/Barak" characterIdOverrideForScript="Deborah" delivery="singing">
+  <block style="p" chapter="5" initialStartVerse="31" characterId="Deborah/Barak" delivery="singing">
     <verse num="31" />
     <text>So let all your enemies perish, God, but let those who love him be as the sun when it rises forth in its strength.</text>
   </block>
@@ -714,7 +714,7 @@
     <text>that God sent a prophet to the children of Israel: and he said to them,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="8" characterId="prophet">
-    <text>“Thus says God, the God of Israel, 'I brought you up from Egypt, and brought you forth out of the house of bondage;</text>
+    <text>“Thus says God, the God of Israel, ‹I brought you up from Egypt, and brought you forth out of the house of bondage;</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="9" characterId="prophet">
     <verse num="9" />
@@ -740,7 +740,7 @@
     <text>Gideon said to him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="13" characterId="Gideon (Jerubbaal)">
-    <text>“Oh, my lord, if God is with us, why then has all this happened to us? Where are all his wondrous works which our fathers told us of, saying, 'Didn't God bring us up from Egypt?' But now God has cast us off, and delivered us into the hand of Midian.”</text>
+    <text>“Oh, my lord, if God is with us, why then has all this happened to us? Where are all his wondrous works which our fathers told us of, saying, ‹Didn’t God bring us up from Egypt?› But now God has cast us off, and delivered us into the hand of Midian.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="14" characterId="narrator-JDG">
     <verse num="14" />
@@ -772,7 +772,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="18" characterId="Gideon (Jerubbaal)">
     <verse num="18" />
-    <text>Please don't go away, until I come to you, and bring out my present, and lay it before you.”</text>
+    <text>Please don’t go away, until I come to you, and bring out my present, and lay it before you.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-JDG">
     <text>He said,</text>
@@ -825,7 +825,7 @@
   </block>
   <block style="p" chapter="6" initialStartVerse="27" characterId="narrator-JDG">
     <verse num="27" />
-    <text>Then Gideon took ten men of his servants, and did as God had spoken to him: and it happened, because he feared his father's household and the men of the city, so that he could not do it by day, that he did it by night.</text>
+    <text>Then Gideon took ten men of his servants, and did as God had spoken to him: and it happened, because he feared his father’s household and the men of the city, so that he could not do it by day, that he did it by night.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="28" characterId="narrator-JDG">
     <verse num="28" />
@@ -856,14 +856,11 @@
     <text>Joash said to all who stood against him,</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="31" characterId="Joash, father of Gideon (Jerubbaal)">
-    <text>“Will you contend for Baal? Or will you save him? He who will contend for him, let him be put to death while [it is yet] morning. If he is a god, let him contend for himself, because someone has broken down his altar.”</text>
+    <text>“Will you contend for Baal? Or will you save him? He who will contend for him, let him be put to death while it is yet morning. If he is a god, let him contend for himself, because someone has broken down his altar.”</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="32" characterId="narrator-JDG">
     <verse num="32" />
-    <text>Therefore on that day he named him Jerub-Baal, saying,</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="32" characterId="Joash, father of Gideon (Jerubbaal)">
-    <text>“Let Baal contend against him, because he has broken down his altar.”</text>
+    <text>Therefore on that day he named him Jerub-Baal, saying, “Let Baal contend against him,” because he has broken down his altar.</text>
   </block>
   <block style="p" chapter="6" initialStartVerse="33" characterId="narrator-JDG">
     <verse num="33" />
@@ -907,7 +904,7 @@
     <text>God said to Gideon,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="2" characterId="God">
-    <text>“The people who are with you are too many for me to give the Midianites into their hand, lest Israel vaunt themselves against me, saying, 'My own hand has saved me.'</text>
+    <text>“The people who are with you are too many for me to give the Midianites into their hand, lest Israel vaunt themselves against me, saying, ‹My own hand has saved me.›</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="3" characterId="God">
     <verse num="3" />
@@ -919,7 +916,7 @@
     <text>God said to Gideon,</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="4" characterId="God">
-    <text>“The people are still too many. Bring them down to the water, and I will test them for you there. It shall be, that of whom I tell you, 'This shall go with you,' the same shall go with you; and of whoever I tell you, 'This shall not go with you,' the same shall not go.”</text>
+    <text>“The people are still too many. Bring them down to the water, and I will test them for you there. It shall be, that of whom I tell you, ‹This shall go with you,› the same shall go with you; and of whoever I tell you, ‹This shall not go with you,› the same shall not go.”</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
@@ -1008,11 +1005,11 @@
   </block>
   <block style="p" chapter="7" initialStartVerse="21" characterId="narrator-JDG">
     <verse num="21" />
-    <text>They stood every man in his place around the camp; and all the army ran; and they shouted, and put [them] to flight.</text>
+    <text>They stood every man in his place around the camp; and all the army ran; and they shouted, and put them to flight.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="22" characterId="narrator-JDG">
     <verse num="22" />
-    <text>They blew the three hundred trumpets, and God set every man's sword against his fellow, and against all the army; and the army fled as far as Beth Shittah toward Zererah, as far as the border of Abel Meholah, by Tabbath.</text>
+    <text>They blew the three hundred trumpets, and God set every man’s sword against his fellow, and against all the army; and the army fled as far as Beth Shittah toward Zererah, as far as the border of Abel Meholah, by Tabbath.</text>
   </block>
   <block style="p" chapter="7" initialStartVerse="23" characterId="narrator-JDG">
     <verse num="23" />
@@ -1059,7 +1056,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
-    <text>Gideon came to the Jordan, [and] passed over, he, and the three hundred men who were with him, faint, yet pursuing. </text>
+    <text>Gideon came to the Jordan, and passed over, he, and the three hundred men who were with him, faint, yet pursuing. </text>
     <verse num="5" />
     <text>He said to the men of Succoth,</text>
   </block>
@@ -1150,7 +1147,7 @@
     <text>“Get up, and kill them!”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="20" characterId="narrator-JDG">
-    <text>But the youth didn't draw his sword; for he was afraid, because he was yet a youth. </text>
+    <text>But the youth didn’t draw his sword; for he was afraid, because he was yet a youth. </text>
     <verse num="21" />
     <text>Then Zebah and Zalmunna said,</text>
   </block>
@@ -1158,7 +1155,7 @@
     <text>“Rise and fall on us; for as the man is, so is his strength.”</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="21" characterId="narrator-JDG">
-    <text>Gideon arose, and killed Zebah and Zalmunna, and took the crescents that were on their camels' necks. </text>
+    <text>Gideon arose, and killed Zebah and Zalmunna, and took the crescents that were on their camels’ necks. </text>
     <verse num="22" />
     <text>Then the men of Israel said to Gideon,</text>
   </block>
@@ -1192,7 +1189,7 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="26" characterId="narrator-JDG">
     <verse num="26" />
-    <text>The weight of the golden earrings that he requested was one thousand and seven hundred [shekels] of gold, besides the crescents, and the pendants, and the purple clothing that was on the kings of Midian, and besides the chains that were about their camels' necks.</text>
+    <text>The weight of the golden earrings that he requested was one thousand and seven hundred shekels of gold, besides the crescents, and the pendants, and the purple clothing that was on the kings of Midian, and besides the chains that were about their camels’ necks.</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="27" characterId="narrator-JDG">
     <verse num="27" />
@@ -1224,37 +1221,37 @@
   </block>
   <block style="p" chapter="8" initialStartVerse="34" characterId="narrator-JDG">
     <verse num="34" />
-    <text>The children of Israel didn't remember God their God, who had delivered them out of the hand of all their enemies on every side;</text>
+    <text>The children of Israel didn’t remember God their God, who had delivered them out of the hand of all their enemies on every side;</text>
   </block>
   <block style="p" chapter="8" initialStartVerse="35" characterId="narrator-JDG">
     <verse num="35" />
-    <text>neither did they show kindness to the house of Jerubbaal, [who is] Gideon, according to all the goodness which he had shown to Israel.</text>
+    <text>neither did they show kindness to the house of Jerubbaal, who is Gideon, according to all the goodness which he had shown to Israel.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="JDG" initialStartVerse="0" characterId="BC-JDG">
     <text>9</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="1" characterId="narrator-JDG">
     <verse num="1" />
-    <text>Abimelech the son of Jerubbaal went to Shechem to his mother's brothers, and spoke with them, and with all the family of the house of his mother's father, saying,</text>
+    <text>Abimelech the son of Jerubbaal went to Shechem to his mother’s brothers, and spoke with them, and with all the family of the house of his mother’s father, saying,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="2" characterId="Abimelech, son of Gideon (Jerubbaal)">
     <verse num="2" />
-    <text>Please speak in the ears of all the men of Shechem, 'Is it better for you that all the sons of Jerubbaal, who are seventy persons, rule over you, or that one rule over you?' Remember also that I am your bone and your flesh.</text>
+    <text>Please speak in the ears of all the men of Shechem, ‹Is it better for you that all the sons of Jerubbaal, who are seventy persons, rule over you, or that one rule over you?› Remember also that I am your bone and your flesh.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="narrator-JDG">
     <verse num="3" />
-    <text>His mother's brothers spoke of him in the ears of all the men of Shechem all these words: and their hearts inclined to follow Abimelech; for they said,</text>
+    <text>His mother’s brothers spoke of him in the ears of all the men of Shechem all these words: and their hearts inclined to follow Abimelech; for they said,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="3" characterId="citizens of Shechem">
     <text>“He is our brother.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
-    <text>They gave him seventy [pieces] of silver out of the house of Baal Berith, with which Abimelech hired vain and light fellows, who followed him.</text>
+    <text>They gave him seventy pieces of silver out of the house of Baal Berith, with which Abimelech hired vain and light fellows, who followed him.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
-    <text>He went to his father's house at Ophrah, and killed his brothers the sons of Jerubbaal, being seventy persons, on one stone: but Jotham the youngest son of Jerubbaal was left; for he hid himself.</text>
+    <text>He went to his father’s house at Ophrah, and killed his brothers the sons of Jerubbaal, being seventy persons, on one stone: but Jotham the youngest son of Jerubbaal was left; for he hid himself.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="6" characterId="narrator-JDG">
     <verse num="6" />
@@ -1269,35 +1266,35 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="8" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="8" />
-    <text>The trees went forth on a time to anoint a king over them; and they said to the olive tree, 'Reign over us.'</text>
+    <text>The trees went forth on a time to anoint a king over them; and they said to the olive tree, ‹Reign over us.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="9" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="9" />
-    <text>But the olive tree said to them, 'Should I leave my fatness, with which by me they honor God and man, and go to wave back and forth over the trees?'</text>
+    <text>But the olive tree said to them, ‹Should I leave my fatness, with which by me they honor God and man, and go to wave back and forth over the trees?›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="10" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="10" />
-    <text>The trees said to the fig tree, 'Come and reign over us.'</text>
+    <text>The trees said to the fig tree, ‹Come and reign over us.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="11" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="11" />
-    <text>But the fig tree said to them, 'Should I leave my sweetness, and my good fruit, and go to wave back and forth over the trees?'</text>
+    <text>But the fig tree said to them, ‹Should I leave my sweetness, and my good fruit, and go to wave back and forth over the trees?›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="12" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="12" />
-    <text>The trees said to the vine, 'Come and reign over us.'</text>
+    <text>The trees said to the vine, ‹Come and reign over us.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="13" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="13" />
-    <text>The vine said to them, 'Should I leave my new wine, which cheers God and man, and go to wave back and forth over the trees?'</text>
+    <text>The vine said to them, ‹Should I leave my new wine, which cheers God and man, and go to wave back and forth over the trees?›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="14" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="14" />
-    <text>Then all the trees said to the bramble, 'Come and reign over us.'</text>
+    <text>Then all the trees said to the bramble, ‹Come and reign over us.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="15" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="15" />
-    <text>The bramble said to the trees, 'If in truth you anoint me king over you, then come and take refuge in my shade; and if not, let fire come out of the bramble, and devour the cedars of Lebanon.'</text>
+    <text>The bramble said to the trees, ‹If in truth you anoint me king over you, then come and take refuge in my shade; and if not, let fire come out of the bramble, and devour the cedars of Lebanon.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="16" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="16" />
@@ -1309,7 +1306,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="18" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="18" />
-    <text>and you have risen up against my father's house this day, and have slain his sons, seventy persons, on one stone, and have made Abimelech, the son of his female servant, king over the men of Shechem, because he is your brother);</text>
+    <text>and you have risen up against my father’s house this day, and have slain his sons, seventy persons, on one stone, and have made Abimelech, the son of his female servant, king over the men of Shechem, because he is your brother);</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="19" characterId="Jotham, son of Gideon (Jerubbaal)">
     <verse num="19" />
@@ -1345,7 +1342,7 @@
   </block>
   <block style="p" chapter="9" initialStartVerse="27" characterId="narrator-JDG">
     <verse num="27" />
-    <text>They went out into the field, and gathered their vineyards, and trod [the grapes], and held festival, and went into the house of their god, and did eat and drink, and cursed Abimelech. </text>
+    <text>They went out into the field, and gathered their vineyards, and trod the grapes, and held festival, and went into the house of their god, and did eat and drink, and cursed Abimelech. </text>
     <verse num="28" />
     <text>Gaal the son of Ebed said,</text>
   </block>
@@ -1371,7 +1368,7 @@
     <text>He sent messengers to Abimelech craftily, saying,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="31" characterId="Zebul, governor of Shechem">
-    <text>“Behold, Gaal the son of Ebed and his brothers are come to Shechem; and behold, they constrain the city [to take part] against you.</text>
+    <text>“Behold, Gaal the son of Ebed and his brothers are come to Shechem; and behold, they constrain the city to take part against you.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="32" characterId="Zebul, governor of Shechem">
     <verse num="32" />
@@ -1414,7 +1411,7 @@
     <text>Then Zebul said to him,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="38" characterId="Zebul, governor of Shechem">
-    <text>“Now where is your mouth, that you said, 'Who is Abimelech, that we should serve him?' Isn't this the people that you have despised? Please go out now and fight with them.”</text>
+    <text>“Now where is your mouth, that you said, ‹Who is Abimelech, that we should serve him?› Isn’t this the people that you have despised? Please go out now and fight with them.”</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="39" characterId="narrator-JDG">
     <verse num="39" />
@@ -1478,14 +1475,14 @@
     <verse num="52" />
     <text>Abimelech came to the tower, and fought against it, and drew near to the door of the tower to burn it with fire. </text>
     <verse num="53" />
-    <text>A certain woman cast an upper millstone on Abimelech's head, and broke his skull.</text>
+    <text>A certain woman cast an upper millstone on Abimelech’s head, and broke his skull.</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="54" characterId="narrator-JDG">
     <verse num="54" />
     <text>Then he called hastily to the young man his armor bearer, and said to him,</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="54" characterId="Abimelech, son of Gideon (Jerubbaal)">
-    <text>“Draw your sword, and kill me, that men not say of me, 'A woman killed him.'</text>
+    <text>“Draw your sword, and kill me, that men not say of me, ‹A woman killed him.›</text>
   </block>
   <block style="p" chapter="9" initialStartVerse="54" characterId="narrator-JDG">
     <text>His young man thrust him through, and he died.” </text>
@@ -1525,7 +1522,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="6" characterId="narrator-JDG">
     <verse num="6" />
-    <text>The children of Israel again did that which was evil in the sight of God, and served the Baals, and the Ashtaroth, and the gods of Syria, and the gods of Sidon, and the gods of Moab, and the gods of the children of Ammon, and the gods of the Philistines; and they forsook God, and didn't serve him.</text>
+    <text>The children of Israel again did that which was evil in the sight of God, and served the Baals, and the Ashtaroth, and the gods of Syria, and the gods of Sidon, and the gods of Moab, and the gods of the children of Ammon, and the gods of the Philistines; and they forsook God, and didn’t serve him.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="7" characterId="narrator-JDG">
     <verse num="7" />
@@ -1533,7 +1530,7 @@
   </block>
   <block style="p" chapter="10" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
-    <text>They troubled and oppressed the children of Israel that year: eighteen years [oppressed they] all the children of Israel that were beyond the Jordan in the land of the Amorites, which is in Gilead.</text>
+    <text>They troubled and oppressed the children of Israel that year: eighteen years oppressed they all the children of Israel that were beyond the Jordan in the land of the Amorites, which is in Gilead.</text>
   </block>
   <block style="p" chapter="10" initialStartVerse="9" characterId="narrator-JDG">
     <verse num="9" />
@@ -1596,7 +1593,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="narrator-JDG">
     <verse num="2" />
-    <text>Gilead's wife bore him sons; and when his wife's sons grew up, they drove out Jephthah, and said to him,</text>
+    <text>Gilead’s wife bore him sons; and when his wife’s sons grew up, they drove out Jephthah, and said to him,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="2" characterId="Jephthah's half-brothers">
     <text>“You shall not inherit in our father's house; for you are the son of another woman.”</text>
@@ -1662,7 +1659,7 @@
     <text>The king of the children of Ammon answered to the messengers of Jephthah,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="13" characterId="king of the Ammonites">
-    <text>“Because Israel took away my land, when he came up out of Egypt, from the Arnon even to the Jabbok, and to the Jordan: now therefore restore those [lands] again peaceably.”</text>
+    <text>“Because Israel took away my land, when he came up out of Egypt, from the Arnon even to the Jabbok, and to the Jordan: now therefore restore those lands again peaceably.”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="14" characterId="narrator-JDG">
     <verse num="14" />
@@ -1671,25 +1668,25 @@
     <text>and he said to him,</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="15" characterId="messengers from Jephthah">
-    <text>“Thus says Jephthah: Israel didn't take away the land of Moab, nor the land of the children of Ammon, </text>
+    <text>“Thus says Jephthah: Israel didn’t take away the land of Moab, nor the land of the children of Ammon, </text>
     <verse num="16" />
     <text>but when they came up from Egypt, and Israel went through the wilderness to the Red Sea, and came to Kadesh;</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="17" characterId="messengers from Jephthah">
     <verse num="17" />
-    <text>then Israel sent messengers to the king of Edom, saying, 'Please let me pass through your land;' but the king of Edom didn't listen. In the same way, he sent to the king of Moab; but he would not: and Israel stayed in Kadesh.</text>
+    <text>then Israel sent messengers to the king of Edom, saying, ‹Please let me pass through your land;› but the king of Edom didn’t listen. In the same way, he sent to the king of Moab; but he would not: and Israel stayed in Kadesh.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="18" characterId="messengers from Jephthah">
     <verse num="18" />
-    <text>Then they went through the wilderness, and went around the land of Edom, and the land of Moab, and came by the east side of the land of Moab, and they encamped on the other side of the Arnon; but they didn't come within the border of Moab, for the Arnon was the border of Moab.</text>
+    <text>Then they went through the wilderness, and went around the land of Edom, and the land of Moab, and came by the east side of the land of Moab, and they encamped on the other side of the Arnon; but they didn’t come within the border of Moab, for the Arnon was the border of Moab.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="19" characterId="messengers from Jephthah">
     <verse num="19" />
-    <text>Israel sent messengers to Sihon king of the Amorites, the king of Heshbon; and Israel said to him, 'Please let us pass through your land to my place.'</text>
+    <text>Israel sent messengers to Sihon king of the Amorites, the king of Heshbon; and Israel said to him, ‹Please let us pass through your land to my place.›</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="20" characterId="messengers from Jephthah">
     <verse num="20" />
-    <text>But Sihon didn't trust Israel to pass through his border; but Sihon gathered all his people together, and encamped in Jahaz, and fought against Israel.</text>
+    <text>But Sihon didn’t trust Israel to pass through his border; but Sihon gathered all his people together, and encamped in Jahaz, and fought against Israel.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="21" characterId="messengers from Jephthah">
     <verse num="21" />
@@ -1705,7 +1702,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="24" characterId="messengers from Jephthah">
     <verse num="24" />
-    <text>Won't you possess that which Chemosh your god gives you to possess? So whoever God our God has dispossessed from before us, them will we possess.</text>
+    <text>Won’t you possess that which Chemosh your god gives you to possess? So whoever God our God has dispossessed from before us, them will we possess.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="25" characterId="messengers from Jephthah">
     <verse num="25" />
@@ -1713,7 +1710,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="26" characterId="messengers from Jephthah">
     <verse num="26" />
-    <text>While Israel lived in Heshbon and its towns, and in Aroer and its towns, and in all the cities that are along by the side of the Arnon, three hundred years; why didn't you recover them within that time?</text>
+    <text>While Israel lived in Heshbon and its towns, and in Aroer and its towns, and in all the cities that are along by the side of the Arnon, three hundred years; why didn’t you recover them within that time?</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="27" characterId="messengers from Jephthah">
     <verse num="27" />
@@ -1721,7 +1718,7 @@
   </block>
   <block style="p" chapter="11" initialStartVerse="28" characterId="narrator-JDG">
     <verse num="28" />
-    <text>However the king of the children of Ammon didn't listen to the words of Jephthah which he sent him.</text>
+    <text>However the king of the children of Ammon didn’t listen to the words of Jephthah which he sent him.</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="29" characterId="narrator-JDG">
     <verse num="29" />
@@ -1734,7 +1731,7 @@
   <block style="p" chapter="11" initialStartVerse="30" characterId="Jephthah">
     <text>“If you will indeed deliver the children of Ammon into my hand, </text>
     <verse num="31" />
-    <text>then it shall be, that whatever comes forth from the doors of my house to meet me, when I return in peace from the children of Ammon, it shall be God's, and I will offer it up for a burnt offering.”</text>
+    <text>then it shall be, that whatever comes forth from the doors of my house to meet me, when I return in peace from the children of Ammon, it shall be God’s, and I will offer it up for a burnt offering.”</text>
   </block>
   <block style="p" chapter="11" initialStartVerse="32" characterId="narrator-JDG">
     <verse num="32" />
@@ -1804,18 +1801,18 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="3" characterId="Jephthah">
     <verse num="3" />
-    <text>When I saw that you didn't save me, I put my life in my hand, and passed over against the children of Ammon, and God delivered them into my hand. Why then have you come up to me this day, to fight against me?”</text>
+    <text>When I saw that you didn’t save me, I put my life in my hand, and passed over against the children of Ammon, and God delivered them into my hand. Why then have you come up to me this day, to fight against me?”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
     <text>Then Jephthah gathered together all the men of Gilead, and fought with Ephraim; and the men of Gilead struck Ephraim, because they said,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="4" characterId="Ephraimites">
-    <text>“You are fugitives of Ephraim, you Gileadites, in the midst of Ephraim, [and] in the midst of Manasseh.”</text>
+    <text>“You are fugitives of Ephraim, you Gileadites, in the midst of Ephraim, and in the midst of Manasseh.”</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
-    <text>The Gileadites took the fords of the Jordan against the Ephraimites. It was so, that when [any of] the fugitives of Ephraim said,</text>
+    <text>The Gileadites took the fords of the Jordan against the Ephraimites. It was so, that when any of the fugitives of Ephraim said,</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="5" characterId="Ephraimites">
     <text>Let me go over,</text>
@@ -1850,7 +1847,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="7" characterId="narrator-JDG">
     <verse num="7" />
-    <text>Jephthah judged Israel six years. Then died Jephthah the Gileadite, and was buried in [one of] the cities of Gilead.</text>
+    <text>Jephthah judged Israel six years. Then died Jephthah the Gileadite, and was buried in one of the cities of Gilead.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
@@ -1878,7 +1875,7 @@
   </block>
   <block style="p" chapter="12" initialStartVerse="14" characterId="narrator-JDG">
     <verse num="14" />
-    <text>He had forty sons and thirty sons' sons, who rode on seventy donkey colts: and he judged Israel eight years.</text>
+    <text>He had forty sons and thirty sons’ sons, who rode on seventy donkey colts: and he judged Israel eight years.</text>
   </block>
   <block style="p" chapter="12" initialStartVerse="15" characterId="narrator-JDG">
     <verse num="15" />
@@ -1893,7 +1890,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="2" characterId="narrator-JDG">
     <verse num="2" />
-    <text>There was a certain man of Zorah, of the family of the Danites, whose name was Manoah; and his wife was barren, and didn't bear.</text>
+    <text>There was a certain man of Zorah, of the family of the Danites, whose name was Manoah; and his wife was barren, and didn’t bear.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="3" characterId="narrator-JDG">
     <verse num="3" />
@@ -1904,7 +1901,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="4" characterId="angel of the LORD, the">
     <verse num="4" />
-    <text>Now therefore please beware and drink no wine nor strong drink, and don't eat any unclean thing:</text>
+    <text>Now therefore please beware and drink no wine nor strong drink, and don’t eat any unclean thing:</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="5" characterId="angel of the LORD, the">
     <verse num="5" />
@@ -1930,14 +1927,14 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="9" characterId="narrator-JDG">
     <verse num="9" />
-    <text>God listened to the voice of Manoah; and the angel of God came again to the woman as she sat in the field: but Manoah, her husband, wasn't with her.</text>
+    <text>God listened to the voice of Manoah; and the angel of God came again to the woman as she sat in the field: but Manoah, her husband, wasn’t with her.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="10" characterId="narrator-JDG">
     <verse num="10" />
     <text>The woman made haste, and ran, and told her husband, and said to him,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="10" characterId="Manoah's wife, mother of Samson">
-    <text>“Behold, the man has appeared to me, who came to me the [other] day.”</text>
+    <text>“Behold, the man has appeared to me, who came to me the other day.”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-JDG">
     <verse num="11" />
@@ -1957,7 +1954,7 @@
     <text>Manoah said,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="12" characterId="Manoah, father of Samson">
-    <text>“Now let your words happen. What shall be the ordering of the child, and [how] shall we do to him?”</text>
+    <text>“Now let your words happen. What shall be the ordering of the child, and how shall we do to him?”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="13" characterId="narrator-JDG">
     <verse num="13" />
@@ -1985,7 +1982,7 @@
     <text>“Though you detain me, I won't eat of your bread; and if you will prepare a burnt offering, you must offer it to God.”</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="16" characterId="narrator-JDG">
-    <text>For Manoah didn't know that he was the angel of God. </text>
+    <text>For Manoah didn’t know that he was the angel of God. </text>
     <verse num="17" />
     <text>Manoah said to the angel of God,</text>
   </block>
@@ -2001,7 +1998,7 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="19" characterId="narrator-JDG">
     <verse num="19" />
-    <text>So Manoah took the young goat with the meal offering, and offered it on the rock to God: and [the angel] did wondrously, and Manoah and his wife looked on.</text>
+    <text>So Manoah took the young goat with the meal offering, and offered it on the rock to God: and the angel did wondrously, and Manoah and his wife looked on.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="20" characterId="narrator-JDG">
     <verse num="20" />
@@ -2060,7 +2057,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
-    <text>But his father and his mother didn't know that it was of God; for he sought an occasion against the Philistines. Now at that time the Philistines had rule over Israel.</text>
+    <text>But his father and his mother didn’t know that it was of God; for he sought an occasion against the Philistines. Now at that time the Philistines had rule over Israel.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
@@ -2068,7 +2065,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="6" characterId="narrator-JDG">
     <verse num="6" />
-    <text>The Spirit of God came mightily on him, and he tore him as he would have torn a young goat; and he had nothing in his hand: but he didn't tell his father or his mother what he had done.</text>
+    <text>The Spirit of God came mightily on him, and he tore him as he would have torn a young goat; and he had nothing in his hand: but he didn’t tell his father or his mother what he had done.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="7" characterId="narrator-JDG">
     <verse num="7" />
@@ -2080,7 +2077,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="9" characterId="narrator-JDG">
     <verse num="9" />
-    <text>He took it into his hands, and went on, eating as he went; and he came to his father and mother, and gave to them, and they ate: but he didn't tell them that he had taken the honey out of the body of the lion.</text>
+    <text>He took it into his hands, and went on, eating as he went; and he came to his father and mother, and gave to them, and they ate: but he didn’t tell them that he had taken the honey out of the body of the lion.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="10" characterId="narrator-JDG">
     <verse num="10" />
@@ -2097,7 +2094,7 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="Samson">
     <verse num="13" />
-    <text>but if you can't declare it to me, then you shall give me thirty linen garments and thirty changes of clothing.”</text>
+    <text>but if you can’t declare it to me, then you shall give me thirty linen garments and thirty changes of clothing.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="13" characterId="narrator-JDG">
     <text>They said to him,</text>
@@ -2113,16 +2110,16 @@
     <text>“Out of the eater came forth food. Out of the strong came forth sweetness.”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="14" characterId="narrator-JDG">
-    <text>They couldn't in three days declare the riddle. </text>
+    <text>They couldn’t in three days declare the riddle. </text>
     <verse num="15" />
-    <text>It happened on the seventh day, that they said to Samson's wife,</text>
+    <text>It happened on the seventh day, that they said to Samson’s wife,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="15" characterId="Samson's 30 Philistine companions">
-    <text>“Entice your husband, that he may declare to us the riddle, lest we burn you and your father's house with fire. Have you called us to impoverish us? Is it not [so]?”</text>
+    <text>“Entice your husband, that he may declare to us the riddle, lest we burn you and your father’s house with fire. Have you called us to impoverish us? Is it not so?”</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="narrator-JDG">
     <verse num="16" />
-    <text>Samson's wife wept before him, and said,</text>
+    <text>Samson’s wife wept before him, and said,</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="16" characterId="Samson's Philistine wife">
     <text>“You just hate me, and don't love me. You have put forth a riddle to the children of my people, and haven't told it me.”</text>
@@ -2152,11 +2149,11 @@
   </block>
   <block style="p" chapter="14" initialStartVerse="19" characterId="narrator-JDG">
     <verse num="19" />
-    <text>The Spirit of God came mightily on him, and he went down to Ashkelon, and struck thirty men of them, and took their spoil, and gave the changes [of clothing] to those who declared the riddle. His anger was kindled, and he went up to his father's house.</text>
+    <text>The Spirit of God came mightily on him, and he went down to Ashkelon, and struck thirty men of them, and took their spoil, and gave the changes of clothing to those who declared the riddle. His anger was kindled, and he went up to his father’s house.</text>
   </block>
   <block style="p" chapter="14" initialStartVerse="20" characterId="narrator-JDG">
     <verse num="20" />
-    <text>But Samson's wife was [given] to his companion, whom he had used as his friend.</text>
+    <text>But Samson’s wife was given to his companion, whom he had used as his friend.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="JDG" initialStartVerse="0" characterId="BC-JDG">
     <text>15</text>
@@ -2169,7 +2166,7 @@
     <text>“I will go in to my wife into the room.”</text>
   </block>
   <block style="p" chapter="15" initialStartVerse="1" characterId="narrator-JDG">
-    <text>But her father wouldn't allow him to go in. </text>
+    <text>But her father wouldn’t allow him to go in. </text>
     <verse num="2" />
     <text>Her father said,</text>
   </block>
@@ -2306,7 +2303,7 @@
     <verse num="1" />
     <text>Samson went to Gaza, and saw there a prostitute, and went in to her. </text>
     <verse num="2" />
-    <text>[It was told] the Gazites, saying,</text>
+    <text>It was told the Gazites, saying,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="person who informed people of Gaza">
     <text>“Samson is here!”</text>
@@ -2315,7 +2312,7 @@
     <text>They surrounded him, and laid wait for him all night in the gate of the city, and were quiet all the night, saying,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="2" characterId="Gaza, people of (wicked)">
-    <text>[Let be] until morning light, then we will kill him.</text>
+    <text>Let be until morning light, then we will kill him.</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="3" characterId="narrator-JDG">
     <verse num="3" />
@@ -2330,7 +2327,7 @@
     <text>The lords of the Philistines came up to her, and said to her,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="5" characterId="Philistine rulers">
-    <text>“Entice him, and see in which his great strength lies, and by what means we may prevail against him, that we may bind him to afflict him; and we will each give you eleven hundred [pieces] of silver.”</text>
+    <text>“Entice him, and see in which his great strength lies, and by what means we may prevail against him, that we may bind him to afflict him; and we will each give you eleven hundred pieces of silver.”</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="6" characterId="narrator-JDG">
     <verse num="6" />
@@ -2406,7 +2403,7 @@
     <text>She said to him,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="15" characterId="Delilah">
-    <text>“How can you say, 'I love you,' when your heart is not with me? You have mocked me these three times, and have not told me where your great strength lies.”</text>
+    <text>“How can you say, ‹I love you,› when your heart is not with me? You have mocked me these three times, and have not told me where your great strength lies.”</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="16" characterId="narrator-JDG">
     <verse num="16" />
@@ -2521,7 +2518,7 @@
     <text>He said to his mother,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="Micah of Ephraim">
-    <text>“The eleven hundred [pieces] of silver that were taken from you, about which you uttered a curse, and also spoke it in my ears, behold, the silver is with me; I took it.”</text>
+    <text>“The eleven hundred pieces of silver that were taken from you, about which you uttered a curse, and also spoke it in my ears, behold, the silver is with me; I took it.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="2" characterId="narrator-JDG">
     <text>His mother said,</text>
@@ -2531,14 +2528,14 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="narrator-JDG">
     <verse num="3" />
-    <text>He restored the eleven hundred [pieces] of silver to his mother; and his mother said,</text>
+    <text>He restored the eleven hundred pieces of silver to his mother; and his mother said,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="3" characterId="Micah's mother">
     <text>“I most certainly dedicate the silver to God from my hand for my son, to make an engraved image and a molten image. Now therefore I will restore it to you.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
-    <text>When he restored the money to his mother, his mother took two hundred [pieces] of silver, and gave them to the founder, who made of it an engraved image and a molten image: and it was in the house of Micah.</text>
+    <text>When he restored the money to his mother, his mother took two hundred pieces of silver, and gave them to the founder, who made of it an engraved image and a molten image: and it was in the house of Micah.</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
@@ -2554,7 +2551,7 @@
   </block>
   <block style="p" chapter="17" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
-    <text>The man departed out of the city, out of Bethlehem Judah, to live where he could find [a place], and he came to the hill country of Ephraim to the house of Micah, as he traveled. </text>
+    <text>The man departed out of the city, out of Bethlehem Judah, to live where he could find a place, and he came to the hill country of Ephraim to the house of Micah, as he traveled. </text>
     <verse num="9" />
     <text>Micah said to him,</text>
   </block>
@@ -2572,7 +2569,7 @@
     <text>Micah said to him,</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="10" characterId="Micah of Ephraim">
-    <text>“Dwell with me, and be to me a father and a priest, and I will give you ten [pieces] of silver per year, a suit of clothing, and your food.”</text>
+    <text>“Dwell with me, and be to me a father and a priest, and I will give you ten pieces of silver per year, a suit of clothing, and your food.”</text>
   </block>
   <block style="p" chapter="17" initialStartVerse="10" characterId="narrator-JDG">
     <text>So the Levite went in. </text>
@@ -2593,7 +2590,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="1" characterId="narrator-JDG">
     <verse num="1" />
-    <text>In those days there was no king in Israel: and in those days the tribe of the Danites sought them an inheritance to dwell in; for to that day [their] inheritance had not fallen to them among the tribes of Israel.</text>
+    <text>In those days there was no king in Israel: and in those days the tribe of the Danites sought them an inheritance to dwell in; for to that day their inheritance had not fallen to them among the tribes of Israel.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="2" characterId="narrator-JDG">
     <verse num="2" />
@@ -2635,7 +2632,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="7" characterId="narrator-JDG">
     <verse num="7" />
-    <text>Then the five men departed, and came to Laish, and saw the people who were therein, how they lived in security, in the way of the Sidonians, quiet and secure; for there was none in the land, possessing authority, that might put [them] to shame in anything, and they were far from the Sidonians, and had no dealings with any man.</text>
+    <text>Then the five men departed, and came to Laish, and saw the people who were therein, how they lived in security, in the way of the Sidonians, quiet and secure; for there was none in the land, possessing authority, that might put them to shame in anything, and they were far from the Sidonians, and had no dealings with any man.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
@@ -2688,7 +2685,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="18" characterId="narrator-JDG">
     <verse num="18" />
-    <text>When these went into Micah's house, and fetched the engraved image, the ephod, and the teraphim, and the molten image, the priest said to them,</text>
+    <text>When these went into Micah’s house, and fetched the engraved image, the ephod, and the teraphim, and the molten image, the priest said to them,</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="18" characterId="Levite, young, from Bethlehem">
     <text>“What are you doing?”</text>
@@ -2702,7 +2699,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="20" characterId="narrator-JDG">
     <verse num="20" />
-    <text>The priest's heart was glad, and he took the ephod, and the teraphim, and the engraved image, and went in the midst of the people.</text>
+    <text>The priest’s heart was glad, and he took the ephod, and the teraphim, and the engraved image, and went in the midst of the people.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="21" characterId="narrator-JDG">
     <verse num="21" />
@@ -2710,7 +2707,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="22" characterId="narrator-JDG">
     <verse num="22" />
-    <text>When they were a good way from the house of Micah, the men who were in the houses near to Micah's house were gathered together, and overtook the children of Dan.</text>
+    <text>When they were a good way from the house of Micah, the men who were in the houses near to Micah’s house were gathered together, and overtook the children of Dan.</text>
   </block>
   <block style="p" chapter="18" initialStartVerse="23" characterId="narrator-JDG">
     <verse num="23" />
@@ -2755,7 +2752,7 @@
   </block>
   <block style="p" chapter="18" initialStartVerse="31" characterId="narrator-JDG">
     <verse num="31" />
-    <text>So they set them up Micah's engraved image which he made, all the time that the house of God was in Shiloh.</text>
+    <text>So they set them up Micah’s engraved image which he made, all the time that the house of God was in Shiloh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="JDG" initialStartVerse="0" characterId="BC-JDG">
     <text>19</text>
@@ -2766,26 +2763,26 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="2" characterId="narrator-JDG">
     <verse num="2" />
-    <text>His concubine played the prostitute against him, and went away from him to her father's house to Bethlehem Judah, and was there the space of four months.</text>
+    <text>His concubine played the prostitute against him, and went away from him to her father’s house to Bethlehem Judah, and was there the space of four months.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="3" characterId="narrator-JDG">
     <verse num="3" />
-    <text>Her husband arose, and went after her, to speak kindly to her, to bring her again, having his servant with him, and a couple of donkeys: and she brought him into her father's house; and when the father of the young lady saw him, he rejoiced to meet him.</text>
+    <text>Her husband arose, and went after her, to speak kindly to her, to bring her again, having his servant with him, and a couple of donkeys: and she brought him into her father’s house; and when the father of the young lady saw him, he rejoiced to meet him.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="4" characterId="narrator-JDG">
     <verse num="4" />
-    <text>His father-in-law, the young lady's father, retained him; and he stayed with him three days: so they ate and drink, and lodged there.</text>
+    <text>His father-in-law, the young lady’s father, retained him; and he stayed with him three days: so they ate and drink, and lodged there.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="narrator-JDG">
     <verse num="5" />
-    <text>It happened on the fourth day, that they arose early in the morning, and he rose up to depart: and the young lady's father said to his son-in-law,</text>
+    <text>It happened on the fourth day, that they arose early in the morning, and he rose up to depart: and the young lady’s father said to his son-in-law,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="5" characterId="father of concubine">
     <text>“Strengthen your heart with a morsel of bread, and afterward you shall go your way.”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="6" characterId="narrator-JDG">
     <verse num="6" />
-    <text>So they sat down, ate, and drank, both of them together: and the young lady's father said to the man,</text>
+    <text>So they sat down, ate, and drank, both of them together: and the young lady’s father said to the man,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="6" characterId="father of concubine">
     <text>“Please be pleased to stay all night, and let your heart be merry.”</text>
@@ -2796,7 +2793,7 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-JDG">
     <verse num="8" />
-    <text>He arose early in the morning on the fifth day to depart; and the young lady's father said,</text>
+    <text>He arose early in the morning on the fifth day to depart; and the young lady’s father said,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="father of concubine">
     <text>“Please strengthen your heart and stay until the day declines;”</text>
@@ -2804,14 +2801,14 @@
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-JDG">
     <text>and they both ate. </text>
     <verse num="9" />
-    <text>When the man rose up to depart, he, and his concubine, and his servant, his father-in-law, the young lady's father, said to him,</text>
+    <text>When the man rose up to depart, he, and his concubine, and his servant, his father-in-law, the young lady’s father, said to him,</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="9" characterId="father of concubine">
     <text>“Behold, now the day draws toward evening, please stay all night: behold, the day grows to an end, lodge here, that your heart may be merry; and tomorrow go on your way early, that you may go home.”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="10" characterId="narrator-JDG">
     <verse num="10" />
-    <text>But the man wouldn't stay that night, but he rose up and departed, and came over against Jebus (the same is Jerusalem): and there were with him a couple of donkeys saddled; his concubine also was with him.</text>
+    <text>But the man wouldn’t stay that night, but he rose up and departed, and came over against Jebus (the same is Jerusalem): and there were with him a couple of donkeys saddled; his concubine also was with him.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="11" characterId="narrator-JDG">
     <verse num="11" />
@@ -2891,15 +2888,15 @@
   </block>
   <block style="p" chapter="19" initialStartVerse="24" characterId="old man in Gibeah">
     <verse num="24" />
-    <text>Behold, here is my virgin daughter and his concubine. I will bring them out now. Humble them, and do with them what seems good to you; but to this man don't do any such folly.”</text>
+    <text>Behold, here is my virgin daughter and his concubine. I will bring them out now. Humble them, and do with them what seems good to you; but to this man don’t do any such folly.”</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="25" characterId="narrator-JDG">
     <verse num="25" />
-    <text>But the men wouldn't listen to him: so the man laid hold of his concubine, and brought her out to them; and they had sex with her, and abused her all night until the morning: and when the day began to dawn, they let her go.</text>
+    <text>But the men wouldn’t listen to him: so the man laid hold of his concubine, and brought her out to them; and they had sex with her, and abused her all night until the morning: and when the day began to dawn, they let her go.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="26" characterId="narrator-JDG">
     <verse num="26" />
-    <text>Then came the woman in the dawning of the day, and fell down at the door of the man's house where her lord was, until it was light.</text>
+    <text>Then came the woman in the dawning of the day, and fell down at the door of the man’s house where her lord was, until it was light.</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="27" characterId="narrator-JDG">
     <verse num="27" />
@@ -2970,7 +2967,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="9" characterId="Israelites">
     <verse num="9" />
-    <text>But now this is the thing which we will do to Gibeah: [we will go up] against it by lot;</text>
+    <text>But now this is the thing which we will do to Gibeah: we will go up against it by lot;</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="10" characterId="Israelites">
     <verse num="10" />
@@ -3021,7 +3018,7 @@
     <text>God said,</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="18" characterId="God">
-    <text>“Judah [shall go up] first.”</text>
+    <text>“Judah shall go up first.”</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="19" characterId="narrator-JDG">
     <verse num="19" />
@@ -3110,7 +3107,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="34" characterId="narrator-JDG">
     <verse num="34" />
-    <text>There came over against Gibeah ten thousand chosen men out of all Israel, and the battle was severe; but they didn't know that evil was close on them.</text>
+    <text>There came over against Gibeah ten thousand chosen men out of all Israel, and the battle was severe; but they didn’t know that evil was close on them.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="35" characterId="narrator-JDG">
     <verse num="35" />
@@ -3149,11 +3146,11 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="43" characterId="narrator-JDG">
     <verse num="43" />
-    <text>They surrounded the Benjamites, chased them, [and] trod them down at [their] resting place, as far as over against Gibeah toward the sunrise.</text>
+    <text>They surrounded the Benjamites, chased them, and trod them down at their resting place, as far as over against Gibeah toward the sunrise.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="44" characterId="narrator-JDG">
     <verse num="44" />
-    <text>There fell of Benjamin eighteen thousand men; all these [were] men of valor.</text>
+    <text>There fell of Benjamin eighteen thousand men; all these were men of valor.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="45" characterId="narrator-JDG">
     <verse num="45" />
@@ -3161,7 +3158,7 @@
   </block>
   <block style="p" chapter="20" initialStartVerse="46" characterId="narrator-JDG">
     <verse num="46" />
-    <text>So that all who fell that day of Benjamin were twenty-five thousand men who drew the sword; all these [were] men of valor.</text>
+    <text>So that all who fell that day of Benjamin were twenty-five thousand men who drew the sword; all these were men of valor.</text>
   </block>
   <block style="p" chapter="20" initialStartVerse="47" characterId="narrator-JDG">
     <verse num="47" />
@@ -3251,7 +3248,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="14" characterId="narrator-JDG">
     <verse num="14" />
-    <text>Benjamin returned at that time; and they gave them the women whom they had saved alive of the women of Jabesh Gilead: and yet so they weren't enough for them.</text>
+    <text>Benjamin returned at that time; and they gave them the women whom they had saved alive of the women of Jabesh Gilead: and yet so they weren’t enough for them.</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="15" characterId="narrator-JDG">
     <verse num="15" />
@@ -3293,7 +3290,7 @@
   </block>
   <block style="p" chapter="21" initialStartVerse="22" characterId="Israelite assembly, elders of">
     <verse num="22" />
-    <text>It shall be, when their fathers or their brothers come to complain to us, that we will say to them, Grant them graciously to us, because we didn't take for each man his wife in battle, neither did you give them to them, otherwise you would now be guilty.”</text>
+    <text>It shall be, when their fathers or their brothers come to complain to us, that we will say to them, Grant them graciously to us, because we didn’t take for each man his wife in battle, neither did you give them to them, otherwise you would now be guilty.”</text>
   </block>
   <block style="p" chapter="21" initialStartVerse="23" characterId="narrator-JDG">
     <verse num="23" />

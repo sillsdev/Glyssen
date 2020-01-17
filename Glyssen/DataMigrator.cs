@@ -4,12 +4,10 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
-using L10NSharp;
+using GlyssenEngine.Utilities;
 using SIL;
 using SIL.DblBundle;
 using SIL.IO;
@@ -24,8 +22,7 @@ namespace Glyssen
 		private const string kOldProjectExtension = ".pgproj";
 		public static void UpgradeToCurrentDataFormatVersion()
 		{
-			Exception error;
-			var settings = ApplicationMetadata.Load(out error);
+			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
 			if (UpgradeToCurrentDataFormatVersion(settings))
@@ -104,44 +101,26 @@ namespace Glyssen
 									Exception exception;
 									var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 									var origBundlePath = metadata.OriginalReleaseBundlePath;
-									if (string.IsNullOrEmpty(origBundlePath))
+
+									var bundle = new GlyssenBundle(origBundlePath);
+									var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
+									bundle.CopyVersificationFile(versificationPath);
+									try
 									{
-										// Note: We didn't support Paratext-based projects until settings version 3 (Glyssen 1.1),
-										// so for this step in the migration process (going from 0 to 1), any project without
-										// OriginalReleaseBundlePath set is invalid (possibly from a really early version of Glyssen
-										// or some g;itch arising from development activity or external mangling of the file). So
-										// we should be able to safely blow this away.
-										try
-										{
-											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);
-										}
-										catch (Exception)
-										{
-											// Oh, well, we tried. Not the end of the world.
-										}
+										ProjectBase.LoadVersification(versificationPath);
 									}
-									else
+									catch (InvalidVersificationLineException ex)
 									{
-										var bundle = new GlyssenBundle(origBundlePath);
-										var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
-										bundle.CopyVersificationFile(versificationPath);
-										try
-										{
-											ProjectBase.LoadVersification(versificationPath);
-										}
-										catch (InvalidVersificationLineException ex)
-										{
-											var msg = string.Format(Localizer.GetString("DataMigration.InvalidVersificationFile",
-													"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
-													"attempts to open this project will fail.\r\n" +
-													"Project: {0}\r\n" +
-													"Text release Bundle: {1}\r\n" +
-													"Versification file: {2}\r\n" +
-													"Error: {3}"),
-												projectFilePath, origBundlePath, versificationPath, ex.Message);
-											MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-											File.WriteAllText(errorlogPath, msg);
-										}
+										var msg = string.Format(Localizer.GetString("DataMigration.InvalidVersificationFile",
+												"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
+												"attempts to open this project will fail.\r\n" +
+												"Project: {0}\r\n" +
+												"Text release Bundle: {1}\r\n" +
+												"Versification file: {2}\r\n" +
+												"Error: {3}"),
+											projectFilePath, origBundlePath, versificationPath, ex.Message);
+										MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Warning);
+										File.WriteAllText(errorlogPath, msg);
 									}
 								}
 							}
@@ -271,8 +250,7 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(safeReplacements.Count) +
 							String.Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct);
-						if (DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
-							MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
+						if (MessageResult.Yes == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Exclamation, DefaultButton.Button2))
 						{
 							foreach (var replacement in safeReplacements)
 							{
@@ -311,7 +289,7 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
 							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
-						MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Exclamation);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;

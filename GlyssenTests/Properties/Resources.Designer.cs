@@ -603,6 +603,23 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
+        ///&lt;!-- This test version allows us to write unit tests against a known version of this file so that subsequent improvements won&apos;t break existing tests. --&gt;
+        ///&lt;NarratorOverrides&gt;
+        ///    &lt;Book id=&quot;EZR&quot;&gt;
+        ///      &lt;Override startChapter=&quot;7&quot; startVerse=&quot;27&quot; endChapter=&quot;9&quot; character=&quot;Ezra, priest and teacher&quot;/&gt;
+        ///    &lt;/Book&gt;
+        ///    &lt;Book id=&quot;NEH&quot;&gt;
+        ///        &lt;Override startChapter=&quot;1&quot; startVerse=&quot;1&quot; startBlock=&quot;2&quot; endChapter=&quot;2&quot; character=&quot;Nehemiah&quot;/&gt;
+        ///        &lt;Override startChapter=&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestNarratorOverrides {
+            get {
+                return ResourceManager.GetString("TestNarratorOverrides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.5&quot;&gt;
         ///  &lt;book code=&quot;OBA&quot; style=&quot;id&quot;&gt;O&lt;/book&gt;

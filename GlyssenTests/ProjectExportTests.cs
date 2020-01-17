@@ -10,6 +10,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.Shared;
+using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.VoiceActor;
 using NUnit.Framework;

@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen;
-using Glyssen.Character;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Utilities;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.IO;
@@ -33,6 +34,7 @@ namespace GlyssenTests
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			NarratorOverrides.NarratorOverridesXmlData = Resources.TestNarratorOverrides;
 
 			using (TempFile tempFile = new TempFile())
 			{
@@ -1246,6 +1248,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetCloneWithJoinedBlocks_SingleVoiceWithReferenceTexts_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
 		{
+            Fonts.Default = new WinFormsFonts();
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			var jude = testProject.IncludedBooks.Single();
 			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
