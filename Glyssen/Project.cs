@@ -978,7 +978,7 @@ namespace Glyssen
 					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
 					if (!compatible && canInteractWithUser)
 					{
-						var msg = Format(LocalizationManager.GetString("Project.ParatextProjectIdChangedMsg",
+						var msg = Format(Localizer.GetString("Project.ParatextProjectIdChangedMsg",
 								"The ID of the {0} project {1} does not match the one expected by the {2} project. " +
 								"This usually happens when the {0} and {2} projects have been restored from backups " +
 								"(for example, to move them to a different computer). If this is the case, you can " +
@@ -990,7 +990,7 @@ namespace Glyssen
 							ParatextScrTextWrapper.kParatextProgramName,
 							ParatextProjectName,
 							GlyssenInfo.kProduct);
-						var question = Format(LocalizationManager.GetString("Project.UpdateParatextProjectIdQuestion",
+						var question = Format(Localizer.GetString("Project.UpdateParatextProjectIdQuestion",
 							"Do you want to continue, updating the {0} project to use the new {1} project ID?",
 							"Param 0: \"Glyssen\" (product name); " +
 							"Param 1: \"Paratext\" (product name)"),
@@ -1858,7 +1858,7 @@ namespace Glyssen
 
 			m_metadata.Id = newPubId;
 
-			string FailureMessage() => LocalizationManager.GetString("Project.ChangeMetadataIdFailure",
+			string FailureMessage() => Localizer.GetString("Project.ChangeMetadataIdFailure",
 				"An error occurred attempting to change the publication ID for this project:");
 
 			try
@@ -1899,7 +1899,7 @@ namespace Glyssen
 				m_metadata.Id = restoreId;
 				
 				throw new Exception(FailureMessage() + Environment.NewLine + error + Environment.NewLine + Environment.NewLine +
-					LocalizationManager.GetString("Project.ChangeMetadataIdCatastrophicFailure",
+					Localizer.GetString("Project.ChangeMetadataIdCatastrophicFailure",
 						"During the attempt to recover and revert to the original ID, a catastrophic error occurred that has probably left " +
 						"this project in a corrupted state. Please contact support."), moveFolderBackError);
 			}
