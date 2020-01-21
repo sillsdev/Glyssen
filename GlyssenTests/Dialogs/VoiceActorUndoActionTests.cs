@@ -4,6 +4,7 @@ using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.VoiceActor;
+using GlyssenEngineTests;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs

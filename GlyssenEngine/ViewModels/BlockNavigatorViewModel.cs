@@ -30,7 +30,7 @@ namespace GlyssenEngine.ViewModels
 		internal const string kMainQuoteElementId = "main-quote-text";
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
-		private FontProxy m_font;
+		private IAdjustableFontInfo m_font;
 		private readonly Dictionary<ReferenceText, FontProxy> m_referenceTextFonts = new Dictionary<ReferenceText, FontProxy>();
 		private BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
@@ -50,12 +50,12 @@ namespace GlyssenEngine.ViewModels
 
 		protected BookScript CurrentBook => BlockAccessor.CurrentBook;
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectSettingsViewModel settingsViewModel = null)
-			: this(project, mode, null, settingsViewModel)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, IAdjustableFontInfo fontInfo = null, ProjectSettingsViewModel settingsViewModel = null)
+			: this(project, mode, null, fontInfo, settingsViewModel)
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectSettingsViewModel settingsViewModel = null)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo fontInfo = null, ProjectSettingsViewModel settingsViewModel = null)
 		{
 			m_project = project;
 			m_project.QuoteParseCompleted += HandleProjectQuoteParseCompleted;
@@ -65,15 +65,7 @@ namespace GlyssenEngine.ViewModels
 			m_includedBooks = project.IncludedBookIds;
 			Versification = project.Versification;
 
-			if (settingsViewModel != null)
-			{
-				m_font = new FontProxy(settingsViewModel.WsModel.CurrentDefaultFontName,
-					(int)settingsViewModel.WsModel.CurrentDefaultFontSize, settingsViewModel.WsModel.CurrentRightToLeftScript);
-			}
-			else
-			{
-				m_font = new FontProxy(project.FontFamily, project.FontSizeInPoints, project.RightToLeftScript);
-			}
+			m_font = fontInfo;
 			CacheReferenceTextFonts(project.ReferenceText);
 
 			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
@@ -132,13 +124,14 @@ namespace GlyssenEngine.ViewModels
 		{
 			if (m_project != null)
 			{
-				m_project.FontSizeUiAdjustment = FontSizeUiAdjustment;
+				if (m_font != null)
+					m_project.FontSizeUiAdjustment = FontSizeUiAdjustment;
 				m_project.QuoteParseCompleted -= HandleProjectQuoteParseCompleted;
 			}
 
 			if (m_font != null)
 			{
-				m_font.Dispose();
+				(m_font as IDisposable)?.Dispose();
 				m_font = null;
 			}
 
@@ -187,7 +180,7 @@ namespace GlyssenEngine.ViewModels
 		public bool IsCurrentLocationRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
 
 		public IEnumerable<string> IncludedBooks => m_includedBooks;
-		public FontProxy Font => m_font;
+		public IFontInfo Font => m_font;
 		public FontProxy PrimaryReferenceTextFont => m_referenceTextFonts[m_project.ReferenceText];
 		public FontProxy EnglishReferenceTextFont
 		{
@@ -200,15 +193,15 @@ namespace GlyssenEngine.ViewModels
 		}
 		public int FontSizeUiAdjustment
 		{
-			get { return m_font.FontSizeUiAdjustment; }
+			get => m_font.FontSizeUiAdjustment;
 			set
 			{
-				m_font.AdjustFontSize(value, true);
+				if (m_font != null)
+					m_font.FontSizeUiAdjustment = value;
 				foreach (var fontProxy in m_referenceTextFonts.Values)
-					fontProxy.AdjustFontSize(value, true);
+					fontProxy.FontSizeUiAdjustment = value;
 
-				if (UiFontSizeChanged != null)
-					UiFontSizeChanged(this, new EventArgs());
+				UiFontSizeChanged?.Invoke(this, new EventArgs());
 			}
 		}
 

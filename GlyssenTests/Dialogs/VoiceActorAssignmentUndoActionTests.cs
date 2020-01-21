@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngineTests;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs

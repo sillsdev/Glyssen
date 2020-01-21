@@ -6,6 +6,7 @@ using Glyssen.Rules;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngineTests;
 using NUnit.Framework;
 using Resources = GlyssenTests.Properties.Resources;
 

@@ -17,6 +17,7 @@ using L10NSharp.UI;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
+using SIL.Windows.Forms.WritingSystems;
 using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Dialogs
@@ -24,6 +25,7 @@ namespace Glyssen.Dialogs
 	public partial class ProjectSettingsDlg : FormWithPersistedSettings
 	{
 		private ProjectSettingsViewModel m_model;
+		private WritingSystemSetupModel m_wsViewModel;
 
 		private class ChapterAnnouncementItem
 		{
@@ -42,7 +44,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public ProjectSettingsDlg(ProjectSettingsViewModel model)
+		public ProjectSettingsDlg(ProjectSettingsViewModel model, WritingSystemSetupModel wsViewModel)
 		{
 			InitializeComponent();
 
@@ -63,7 +65,7 @@ namespace Glyssen.Dialogs
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized;
-			ProjectSettingsViewModel = model;
+			SetViewModel(model, wsViewModel);
 			HandleStringsLocalized();
 		}
 
@@ -90,10 +92,10 @@ namespace Glyssen.Dialogs
 		{
 			base.OnVisibleChanged(e);
 			var project = m_model.Project;
-			if (IsHandleCreated && Visible && project.IsLiveParatextProject &&
+			if (IsHandleCreated && Visible && m_model.IsLiveParatextProject &&
 				(project.QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0)
 			{
-				var paratextProj = project.GetLiveParatextDataIfCompatible(false, "", false);
+				var paratextProj = project.GetParatextScrTextWrapper();
 				if (paratextProj != null &&
 					!project.WritingSystem.QuotationMarks.SequenceEqual(project.GetQuotationMarksWithFullySpecifiedContinuers(paratextProj.QuotationMarks)))
 				{
@@ -105,7 +107,7 @@ namespace Glyssen.Dialogs
 							"Param 2: \"Glyssen\" (product name); " +
 							"Param 3: localized name of the \"Update\" button"),
 						ParatextScrTextWrapper.kParatextProgramName,
-						m_model.Project.ParatextProjectName,
+						m_model.ParatextProjectName,
 						GlyssenInfo.kProduct,
 						LocalizedUpdateButtonName);
 					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
@@ -194,62 +196,60 @@ namespace Glyssen.Dialogs
 
 		public string ReferenceTextTabPageName { get { return m_tabPageReferenceTexts.Text; } }
 
-		private ProjectSettingsViewModel ProjectSettingsViewModel
+		private void SetViewModel(ProjectSettingsViewModel projectSettingsViewModel, WritingSystemSetupModel wsViewModel)
 		{
-			set
+			m_model = projectSettingsViewModel;
+			m_wsViewModel = wsViewModel;
+			RecordingProjectName = m_model.RecordingProjectName;
+			AudioStockNumber = m_model.AudioStockNumber;
+			m_txtOriginalSource.Text = m_model.IsLiveParatextProject ? m_model.ParatextProjectName : m_model.BundlePath;
+			LanguageName = m_model.LanguageName;
+			IsoCode = m_model.IsoCode;
+			PublicationName = m_model.PublicationName;
+			PublicationId = m_model.PublicationId;
+			m_txtVersification.Text = m_model.Versification.Name;
+			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
+
+			m_wsFontControl.BindToModel(wsViewModel);
+
+			if (!string.IsNullOrWhiteSpace(m_model.SampleText))
+				m_wsFontControl.TestAreaText = m_model.SampleText;
+
+			// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
+			var enableControls = m_model.Project.ProjectFileIsWritable;
+			m_btnUpdateFromSource.Enabled =
+				m_txtRecordingProjectName.Enabled =
+					m_txtAudioStockNumber.Enabled = enableControls && !m_model.Project.IsSampleProject;
+			m_btnQuoteMarkSettings.Enabled = enableControls;
+			m_btnOk.Enabled = enableControls;
+			m_wsFontControl.Enabled = enableControls;
+			var i = GetIndexOfItemFromBookMarkerCombo(m_model.ChapterAnnouncementStyle);
+			if (m_model.ChapterAnnouncementStyle == ChapterAnnouncement.ChapterLabel || i < 0)
 			{
-				m_model = value;
-                RecordingProjectName = value.RecordingProjectName;
-                AudioStockNumber = value.AudioStockNumber;
-				m_txtOriginalSource.Text = value.IsLiveParatextProject ? value.ParatextProjectName : value.BundlePath;
-				LanguageName = value.LanguageName;
-				IsoCode = value.IsoCode;
-				PublicationName = value.PublicationName;
-				PublicationId = value.PublicationId;
-				m_txtVersification.Text = value.Versification.Name;
-				m_lblQuoteMarkSummary.Text = value.Project.QuoteSystem.ShortSummary;
-
-				m_wsFontControl.BindToModel(m_model.WsModel);
-
-				if (!string.IsNullOrWhiteSpace(m_model.SampleText))
-					m_wsFontControl.TestAreaText = m_model.SampleText;
-
-				// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
-                var enableControls = m_model.Project.ProjectFileIsWritable;
-                m_btnUpdateFromSource.Enabled =
-                    m_txtRecordingProjectName.Enabled =
-                    m_txtAudioStockNumber.Enabled = enableControls && !m_model.Project.IsSampleProject;
-                m_btnQuoteMarkSettings.Enabled = enableControls;
-				m_btnOk.Enabled = enableControls;
-				m_wsFontControl.Enabled = enableControls;
-			    var i = GetIndexOfItemFromBookMarkerCombo(m_model.ChapterAnnouncementStyle);
-				if (m_model.ChapterAnnouncementStyle == ChapterAnnouncement.ChapterLabel || i < 0)
-				{
-					m_rdoChapterLabel.Checked = true;
-					m_cboBookMarker.SelectedIndex = 0;
-				}
-				else
-					m_cboBookMarker.SelectedIndex = i;
-
-				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
-				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
-
-				foreach (KeyValuePair<string, ReferenceTextProxy> kvp in m_ReferenceText.Items)
-				{
-					if (kvp.Value == m_model.Project.ReferenceTextProxy)
-					{
-						m_ReferenceText.SelectedItem = kvp;
-						break;
-					}
-				}
-
-				m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
-				m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
-				m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
+				m_rdoChapterLabel.Checked = true;
+				m_cboBookMarker.SelectedIndex = 0;
 			}
+			else
+				m_cboBookMarker.SelectedIndex = i;
+
+			m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
+			m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
+
+			foreach (KeyValuePair<string, ReferenceTextProxy> kvp in m_ReferenceText.Items)
+			{
+				if (kvp.Value == m_model.Project.ReferenceTextProxy)
+				{
+					m_ReferenceText.SelectedItem = kvp;
+					break;
+				}
+			}
+
+			m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
+			m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
+			m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
 		}
 
-        private string RecordingProjectName
+		private string RecordingProjectName
         {
             get { return m_txtRecordingProjectName.Text.Trim(); }
             set { m_txtRecordingProjectName.Text = value.Trim(); }
@@ -407,7 +407,7 @@ namespace Glyssen.Dialogs
 		private void m_btnQuoteMarkSettings_Click(object sender, EventArgs e)
 		{
 			var reparseOkay = false;
-			if (m_model.Project.IsLiveParatextProject)
+			if (m_model.IsLiveParatextProject)
 			{
 				reparseOkay = m_model.Project.QuoteSystemStatus != QuoteSystemStatus.Obtained;
 			}
@@ -431,8 +431,10 @@ namespace Glyssen.Dialogs
 			BlockNavigatorViewModel viewModel = null;
 			try
 			{
+				var font = new FontProxy(m_wsViewModel.CurrentDefaultFontName,
+					(int)m_wsViewModel.CurrentDefaultFontSize, m_wsViewModel.CurrentRightToLeftScript);
 				if (m_model.Project.IncludedBooks.Any())
-					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, m_model);
+					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, font, m_model);
 				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay, this))
 				{
 					MainForm.LogDialogDisplay(dlg);
@@ -597,8 +599,8 @@ namespace Glyssen.Dialogs
 				m_lblExampleSubsequentChapterAnnouncement.Font =
 				m_lblExampleTitleForMultipleChapterBook.Font =
 				m_lblExampleTitleForSingleChapterBook.Font =
-					new Font(m_model.WsModel.CurrentDefaultFontName,
-						(float)Math.Min(m_lblBookTitleHeading.Font.SizeInPoints * 1.1, m_model.WsModel.CurrentDefaultFontSize));
+					new Font(m_wsViewModel.CurrentDefaultFontName,
+						(float)Math.Min(m_lblBookTitleHeading.Font.SizeInPoints * 1.1, m_wsViewModel.CurrentDefaultFontSize));
 			}
 		}
 

@@ -6,4 +6,9 @@
 		string FontFamily { get; }
 		int Size { get; }
 	}
+
+	public interface IAdjustableFontInfo : IFontInfo
+	{
+		int FontSizeUiAdjustment { get; set; }
+	}
 }

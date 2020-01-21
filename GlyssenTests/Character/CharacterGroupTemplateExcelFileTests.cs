@@ -2,6 +2,7 @@
 using System.IO;
 using Glyssen.Character;
 using GlyssenEngine.Character;
+using GlyssenEngineTests;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;

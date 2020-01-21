@@ -47,6 +47,7 @@ namespace GlyssenEngine
 
 	public class ProjectExporter
 	{
+		private readonly IDefaultDirectoryProvider m_defaultDirectoryProvider;
 		private const string kExcelLineBreak = "\r\n"; ///????????????????????
 		private const string kTabFileAnnotationElementSeparator = " ";
 		public const string kTabDelimitedFileExtension = ".txt";
@@ -58,8 +59,9 @@ namespace GlyssenEngine
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
 
-		public ProjectExporter(Project project)
+		public ProjectExporter(Project project, IDefaultDirectoryProvider defaultDirectoryProvider = null)
 		{
+			m_defaultDirectoryProvider = defaultDirectoryProvider;
 			Project = project;
 			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
@@ -82,7 +84,7 @@ namespace GlyssenEngine
 		{
 			get
 			{
-				var defaultDirectory = Settings.Default.DefaultExportDirectory;
+				var defaultDirectory = m_defaultDirectoryProvider?.DefaultDirectory;
 				if (IsNullOrWhiteSpace(defaultDirectory))
 				{
 					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), GlyssenInfo.kProduct);
@@ -180,8 +182,8 @@ namespace GlyssenEngine
 			if (!IsNullOrEmpty(m_customFileName))
 			{
 				// if the directory is not the stored default directory, make the new directory the default
-				if (!DirectoryHelper.AreEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
-					Settings.Default.DefaultExportDirectory = Project.Status.LastExportLocation;
+				if (m_defaultDirectoryProvider != null && !DirectoryHelper.AreEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
+					m_defaultDirectoryProvider.DefaultDirectory = Project.Status.LastExportLocation;
 			}
 
 			if (IncludeActorBreakdown)

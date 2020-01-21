@@ -18,7 +18,9 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
+using JetBrains.Annotations;
 using Paratext.Data;
 using SIL;
 using SIL.DblBundle;
@@ -475,7 +477,7 @@ namespace GlyssenEngine
 			return itemToRemove != null && ProjectCharacterDetail.Remove(itemToRemove);
 		}
 
-		public void UpdateSettings(ProjectSettingsViewModel model)
+		public void UpdateSettings(ProjectSettingsViewModel model, string defaultFontFamily, int defaultFontSizeInPoints, bool rightToLeftScript)
 		{
 			Debug.Assert(!IsNullOrEmpty(model.RecordingProjectName));
 			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
@@ -485,9 +487,9 @@ namespace GlyssenEngine
 				m_recordingProjectName = model.RecordingProjectName;
 			}
 			m_projectMetadata.AudioStockNumber = model.AudioStockNumber;
-			m_projectMetadata.FontFamily = model.WsModel.CurrentDefaultFontName;
-			m_projectMetadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
-			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
+			m_projectMetadata.FontFamily = defaultFontFamily;
+			m_projectMetadata.FontSizeInPoints = defaultFontSizeInPoints;
+			m_metadata.Language.ScriptDirection = rightToLeftScript ? "RTL" : "LTR";
 			ChapterAnnouncementStyle = model.ChapterAnnouncementStyle;
 			m_projectMetadata.IncludeChapterAnnouncementForFirstChapter = !model.SkipChapterAnnouncementForFirstChapter;
 			m_projectMetadata.IncludeChapterAnnouncementForSingleChapterBooks = !model.SkipChapterAnnouncementForSingleChapterBooks;
@@ -762,7 +764,7 @@ namespace GlyssenEngine
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
-		public static Project Load(string projectFilePath)
+		public static Project Load(string projectFilePath, Func<Project, bool> handleMissingBundleNeededForUpgrade = null)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
@@ -784,7 +786,7 @@ namespace GlyssenEngine
 					existingProject.ProjectState = ProjectState.QuoteParseComplete;
 				}
 				Project upgradedProject = existingProject.IsBundleBasedProject ?
-					AttemptToUpgradeByReparsingBundleData(existingProject) :
+					AttemptToUpgradeByReparsingBundleData(existingProject, handleMissingBundleNeededForUpgrade) :
 					AttemptToUpgradeByReparsingParatextData(existingProject);
 
 				if (upgradedProject != null)
@@ -826,25 +828,18 @@ namespace GlyssenEngine
 			}
 		}
 
-		private static string ParserUpgradeMessage => Localizer.GetString("Project.ParserVersionUpgraded",
+		public static string ParserUpgradeMessage => Localizer.GetString("Project.ParserVersionUpgraded",
 			"The splitting engine has been upgraded.") + " ";
 
-		private static Project AttemptToUpgradeByReparsingBundleData(Project existingProject)
+		private static Project AttemptToUpgradeByReparsingBundleData(Project existingProject, [CanBeNull] Func<Project, bool> handleMissingBundleNeededForUpgrade)
 		{
 			if (!RobustFile.Exists(existingProject.OriginalBundlePath))
 			{
 				bool upgradeProject = false;
 				if (kParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
 				{
-					string msg = ParserUpgradeMessage + " " + Format(
-							Localizer.GetString("Project.ParserUpgradeBundleMissingMsg",
-								"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
-							existingProject.OriginalBundlePath) +
-						Environment.NewLine + Environment.NewLine +
-						Localizer.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
-					string caption = Localizer.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
-					if (MessageResult.Yes == MessageModal.Show(msg, caption, Buttons.YesNo))
-						upgradeProject = SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+					if (handleMissingBundleNeededForUpgrade != null)
+						upgradeProject = handleMissingBundleNeededForUpgrade(existingProject);
 					if (!upgradeProject)
 						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = kParserVersion;
 				}
@@ -888,6 +883,11 @@ namespace GlyssenEngine
 				{"newParserVersion", kParserVersion.ToString(CultureInfo.InvariantCulture)}
 			});
 			return existingProject.UpdateProjectFromParatextData(scrTextWrapper);
+		}
+
+		public ParatextScrTextWrapper GetParatextScrTextWrapper(bool forceReload = false)
+		{
+			return GetLiveParatextDataIfCompatible(false, "", false, forceReload);
 		}
 
 		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
@@ -2161,7 +2161,7 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				var scrTextWrapper = GetLiveParatextDataIfCompatible(false, "", false);
+				var scrTextWrapper = GetParatextScrTextWrapper();
 				if (scrTextWrapper != null && QuoteSystem != null)
 				{
 					scrTextWrapper.IncludeOverriddenBooksFromProject(copyOfExistingProject);

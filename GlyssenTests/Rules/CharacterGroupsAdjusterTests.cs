@@ -4,6 +4,7 @@ using Glyssen.Rules;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.VoiceActor;
+using GlyssenEngineTests;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;

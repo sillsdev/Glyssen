@@ -1,5 +1,6 @@
 ﻿using Glyssen.Character;
 using GlyssenEngine.Character;
+using GlyssenEngineTests;
 using NUnit.Framework;
 
 namespace GlyssenTests.Character

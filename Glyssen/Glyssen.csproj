@@ -496,6 +496,7 @@
     <Compile Include="Dialogs\YesNoApplyToAllDlg.Designer.cs">
       <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlyssenSettingsProvider.cs" />
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="ScriptExporter.cs" />
     <Compile Include="Utilities\AlertImpl.cs" />
@@ -517,7 +518,6 @@
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="DataMigrator.cs" />
-    <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
     <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -758,7 +758,6 @@
     <Content Include="Resources\EnglishVersification.txt" />
     <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
-    <None Include="Resources\Silent.wav" />
     <None Include="Resources\UpdateGroups.png" />
     <None Include="Resources\splitGroup.png" />
     <None Include="Resources\undo.png" />
@@ -768,7 +767,6 @@
     <None Include="Resources\bluelock.png" />
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
-    <Content Include="Resources\BlockSplit.css" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />
@@ -787,7 +785,6 @@
     <Content Include="Resources\HtmlMsg.html" />
     <None Include="Resources\rainbow.png" />
     <Content Include="Resources\search_glyph.png" />
-    <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">

@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace GlyssenEngine.Utilities
 {
-	public class FontProxy : IFontInfo, IDisposable
+	public class FontProxy : IAdjustableFontInfo, IDisposable
 	{
 		private const int kMinFontSize = 3;
 
@@ -12,7 +13,7 @@ namespace GlyssenEngine.Utilities
 		private readonly FontStyle m_style;
 		private readonly string m_fontFamilyName;
 		private readonly float m_baseFontSizeInPoints;
-		private readonly bool m_rightToLeftScript;
+		private readonly bool m_clientResponsibleForDisposing;
 
 		private int m_fontSizeUiAdjustment;
 
@@ -20,7 +21,8 @@ namespace GlyssenEngine.Utilities
 		{
 			m_fontFamilyName = fontFamilyName;
 			m_baseFontSizeInPoints = baseFontSizeInPoints;
-			m_rightToLeftScript = rightToLeftScript;
+			RightToLeftScript = rightToLeftScript;
+			m_clientResponsibleForDisposing = false;
 		}
 
 		public FontProxy(Font originalFont)
@@ -29,7 +31,8 @@ namespace GlyssenEngine.Utilities
 			m_style = originalFont.Style;
 			m_baseFontSizeInPoints = originalFont.SizeInPoints;
 			m_baseFontSizeInPoints = originalFont.SizeInPoints;
-			m_rightToLeftScript = false;
+			RightToLeftScript = false;
+			m_clientResponsibleForDisposing = true;
 		}
 
 		public Font Font
@@ -42,48 +45,35 @@ namespace GlyssenEngine.Utilities
 			}
 		}
 
-		public bool RightToLeftScript
-		{
-			get { return m_rightToLeftScript; }
-		}
+		public bool RightToLeftScript { get; }
 
-		public string FontFamily
-		{
-			get { return m_fontFamilyName ?? m_fontFamily.Name; }
-		}
+		public string FontFamily => m_fontFamilyName ?? m_fontFamily.Name;
 
-		public int Size
-		{
-			get { return (int)AdjustedFontSize; }
-		}
+		public int Size => (int)AdjustedFontSize;
 
-		private float AdjustedFontSize
-		{
-			get { return Math.Max(m_baseFontSizeInPoints + m_fontSizeUiAdjustment, kMinFontSize); }
-		}
+		private float AdjustedFontSize => Math.Max(m_baseFontSizeInPoints + m_fontSizeUiAdjustment, kMinFontSize);
 
 		public int FontSizeUiAdjustment
 		{
-			get { return m_fontSizeUiAdjustment; }
+			get => m_fontSizeUiAdjustment;
+			set 
+			{
+				if (m_clientResponsibleForDisposing)
+					m_font = null;
+				else
+					Dispose();
+				m_fontSizeUiAdjustment = value;
+			}
 		}
 
 		public void Dispose()
 		{
 			if (m_font != null)
 			{
+				Debug.Assert(m_clientResponsibleForDisposing);
 				m_font.Dispose();
 				m_font = null;
 			}
-		}
-
-		public Font AdjustFontSize(int newAdjustedFontSize, bool disposeOldFont = false)
-		{
-			if (disposeOldFont)
-				Dispose();
-			else
-				m_font = null;
-			m_fontSizeUiAdjustment = newAdjustedFontSize;
-			return Font;
 		}
 
 		public static implicit operator Font(FontProxy fontProxy)

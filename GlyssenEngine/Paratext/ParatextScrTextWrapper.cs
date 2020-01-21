@@ -16,7 +16,7 @@ using SIL.WritingSystems;
 
 namespace GlyssenEngine.Paratext
 {
-	internal class ParatextScrTextWrapper : IParatextScrTextWrapper
+	public class ParatextScrTextWrapper : IParatextScrTextWrapper
 	{
 		internal const string kLiveParatextProjectType = "live Paratext project";
 		public const string kParatextProgramName = "Paratext";

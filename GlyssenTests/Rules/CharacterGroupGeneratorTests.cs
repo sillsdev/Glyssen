@@ -9,6 +9,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
+using GlyssenEngineTests;
 using NUnit.Framework;
 using SIL.Extensions;
 using Resources = GlyssenTests.Properties.Resources;

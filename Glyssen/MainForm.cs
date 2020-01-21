@@ -33,6 +33,7 @@ using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
+using SIL.Windows.Forms.WritingSystems;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
 using Resources = Glyssen.Properties.Resources;
@@ -368,6 +369,20 @@ namespace Glyssen
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
+		}
+
+		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
+		{
+			string msg = ParserUpgradeMessage + " " + Format(
+					Localizer.GetString("Project.ParserUpgradeBundleMissingMsg",
+						"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
+					existingProject.OriginalBundlePath) +
+				Environment.NewLine + Environment.NewLine +
+				Localizer.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
+			string caption = Localizer.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+			if (MessageResult.Yes == MessageModal.Show(msg, caption, Buttons.YesNo))
+				return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+			return false;
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -914,7 +929,8 @@ namespace Glyssen
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 			var model = new ProjectSettingsViewModel(m_project);
-			using (var dlg = new ProjectSettingsDlg(model))
+			var wsModel = ProjectWritingSystemSetupModel;
+			using (var dlg = new ProjectSettingsDlg(model, wsModel))
 			{
 				LogDialogDisplay(dlg);
 				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated = null;
@@ -924,7 +940,8 @@ namespace Glyssen
 				if (result != DialogResult.OK)
 					return;
 
-				m_project.UpdateSettings(model);
+				m_project.UpdateSettings(model, wsModel.CurrentDefaultFontName, (int)wsModel.CurrentDefaultFontSize,
+					wsModel.CurrentRightToLeftScript);
 				SaveCurrentProject();
 				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = null;
 
@@ -1078,6 +1095,14 @@ namespace Glyssen
 			}
 		}
 
+		private WritingSystemSetupModel ProjectWritingSystemSetupModel =>
+			new WritingSystemSetupModel(m_project.WritingSystem)
+			{
+				CurrentDefaultFontName = m_project.FontFamily,
+				CurrentDefaultFontSize = m_project.FontSizeInPoints,
+				CurrentRightToLeftScript = m_project.RightToLeftScript
+			};
+
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
 			bool launchAssignVoiceActors = false;
@@ -1112,7 +1137,7 @@ namespace Glyssen
 
 			try
 			{
-				var exporter = new ProjectExporter(m_project);
+				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsprovider);
 
 				if (!IsOkToExport(exporter))
 					return;
@@ -1138,7 +1163,7 @@ namespace Glyssen
 
 			var model = new ProjectSettingsViewModel(m_project);
 			string projectSettingsDlgTitle, referenceTextTabName;
-			using (var dlg = new ProjectSettingsDlg(model))
+			using (var dlg = new ProjectSettingsDlg(model, ProjectWritingSystemSetupModel))
 			{
 				projectSettingsDlgTitle = dlg.Text;
 				referenceTextTabName = dlg.ReferenceTextTabPageName;

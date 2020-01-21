@@ -7,6 +7,7 @@ using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.ViewModels;
+using GlyssenEngineTests;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;

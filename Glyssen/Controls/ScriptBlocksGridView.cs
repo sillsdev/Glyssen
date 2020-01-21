@@ -409,8 +409,9 @@ namespace Glyssen.Controls
 
 		private void SetFontsFromViewModel()
 		{
-			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
-			DefaultCellStyle.Font = m_originalDefaultFont.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			m_colText.DefaultCellStyle.Font = m_viewModel.Font as Font;
+			m_originalDefaultFont.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			DefaultCellStyle.Font = m_originalDefaultFont;
 		}
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)

@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.ViewModels;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;

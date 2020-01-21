@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Shared;
 using GlyssenEngine;
+using GlyssenEngineTests;
 using NUnit.Framework;
 
 namespace GlyssenTests

@@ -378,7 +378,7 @@ namespace Glyssen.Dialogs
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new RolesForVoiceActorsSaveAsDialog(new ProjectExporter(m_project)))
+			using (var dlg = new RolesForVoiceActorsSaveAsDialog(new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsprovider)))
 				dlg.ShowDialog(this);
 		}
 
