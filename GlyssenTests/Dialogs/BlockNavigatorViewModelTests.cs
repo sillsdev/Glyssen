@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using GlyssenEngine;
@@ -1406,7 +1405,7 @@ namespace GlyssenTests.Dialogs
 				b.AllVerses.Skip(1).Any() &&
 				b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			// We have to manually split the block to separate the initial verses which already don't match
-			// the reference text from the last two verse, which are just plain narrator verses in both the
+			// the reference text from the last two verses, which are just plain narrator verses in both the
 			// Vernacular and the English reference text.
 			lastBlockInChapter = mark.SplitBlock(lastBlockInChapter,
 				((Verse)(lastBlockInChapter.AllVerses.Reverse().ElementAt(2))).Number,
