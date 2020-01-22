@@ -624,7 +624,7 @@ namespace Glyssen
 		/// This handles the common case where the first Block Element is a Verse and the more
 		/// unusual case where there is a preceding Script Text consisting only of an opening square
 		/// bracket (which indicates a verse that is often omitted because of weak manuscript evidence).
-		/// Technically, any preceding SciptText element that consists entirely of punctuation will be
+		/// Technically, any preceding ScriptText element that consists entirely of punctuation will be
 		/// considered as being part of the following verse.)
 		/// </summary>
 		public bool StartsAtVerseStart => !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
