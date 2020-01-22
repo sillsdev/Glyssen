@@ -4014,6 +4014,49 @@ namespace GlyssenTests
 			}
 		}
 
+		/// <summary>
+		/// PG-1315
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernacularVerseMapsIntoMultiVerseRefBlockInPreviousChapter_MatchupCrossesChapterBoundary()
+		{
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var numbers = englishRefText.GetBook("NUM");
+			var num16v36Block = numbers.GetBlocksForVerse(16, 36).Single();
+			if (num16v36Block.InitialStartVerseNumber != 35)
+			{
+				// This is a semi-dangerous hack. Since we can't get the lock, this isn't thread-safe. But most tests don't access NUM, so we're probably okay.
+				var modifiedBooks = (HashSet<string>)ReflectionHelper.GetField(englishRefText, "m_modifiedBooks");
+				modifiedBooks.Add("NUM");
+				var num16v35Block = numbers.GetBlocksForVerse(16, 35).Single();
+				numbers.Blocks.Remove(num16v35Block);
+				num16v36Block.BlockElements.AddRange(num16v35Block.BlockElements);
+			}
+			
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(34, "Tất cả những tiếng họ kêu chạy, và nói :", true, 16, "NUM"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Israelites", "“Coi chừng đất ta bây giờ !”");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(35, "ĐỨC CHÚA cho  trọn năm đã hương.", true, 16, "NUM"));
+			vernacularBlocks.Add(NewChapterBlock("NUM", 17));
+			vernacularBlocks.Add(new Block("s1", 17) { CharacterId = CharacterVerseData.GetStandardCharacterId("NUM", CharacterVerseData.StandardCharacter.ExtraBiblical) }
+				.AddText("Bình hương"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "ĐỨC CHÚA phán với ông Mô-sê :", true, 17, "NUM"));
+			vernacularBlocks.Add(CreateBlockForVerse("God", 2, "“Ngươi hãy nói với E-la-da, con A-ha-ron, bình hương trên đám hất lửa ấy ra xa. ")
+				.AddVerse(3, "Dù những bình hương đó là của những kẻ mà phải chết, nên tấm đồng mỏng bàn thờ. Quả ĐỨC CHÚA, và đã thánh hiến chúng ; cảnh cái Ít-ra-en.”"));
+			var testProject = TestProject.CreateTestProject(Resources.OriginalVersification, TestProject.TestBook.NUM);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			for (var i = 0; i < vernacularBlocks.Count; i++)
+			{
+				var block = vernacularBlocks[i];
+				if (!block.IsScripture)
+					continue;
+				var matchup = primaryReferenceText.GetBlocksForVerseMatchedToReferenceText(testProject.Books.First(), i);
+				Assert.AreEqual(matchup.OriginalBlocks.First().ChapterNumber, matchup.OriginalBlocks.Last().ChapterNumber);
+			}
+		}
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{

@@ -9,10 +9,12 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Utilities;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
@@ -26,6 +28,7 @@ namespace GlyssenTests
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
 		{
+			NUM,
 			JOS,
 			RUT,
 			PSA_NoData,
@@ -60,6 +63,11 @@ namespace GlyssenTests
 		}
 
 		private const string kTest = "test~~";
+
+		static TestProject()
+		{
+			Fonts.Default = new WinFormsFonts();
+		}
 
 		public static void DeleteTestProjectFolder()
 		{

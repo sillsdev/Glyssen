@@ -743,7 +743,7 @@ namespace Glyssen
 								if (refTextVerseSplitLocations == null)
 									refTextVerseSplitLocations = m_referenceText.GetVerseSplitLocations(book.BookId);
 								var matchup = new BlockMatchup(book, i, null,
-									nextVerse => m_referenceText.IsOkayToSplitAtVerse(nextVerse, Versification, refTextVerseSplitLocations),
+									candidate => m_referenceText.IsOkayToSplitBeforeBlock(book, candidate, refTextVerseSplitLocations),
 									m_referenceText);
 								foreach (var blockToClear in matchup.OriginalBlocks)
 									blockToClear.ClearReferenceText();
