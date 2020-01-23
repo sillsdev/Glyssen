@@ -1170,7 +1170,13 @@ namespace Glyssen
 
 			if (!referenceText.HasSecondaryReferenceText)
 			{
-				SetMatchedReferenceBlock(existingReferenceText.ReferenceBlocks.Single());
+				// PG-1319: We are switching to English (or *hypothetically* some other reference language that is not backed by English).
+				// So whatever we have should have English as its second level. If we don't find a second level, we'll play it
+				// safe and just keep what we have. Most likely it is English, leftover from a previous change (to something
+				// other than English) where the user opted to not blow away the existing reference text.
+				var r = existingReferenceText.ReferenceBlocks.OnlyOrDefault();
+				if (r != null)
+					SetMatchedReferenceBlock(r);
 				return true;
 			}
 
