@@ -232,4 +232,10 @@
   <data name="TestNarratorOverrides" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestNarratorOverrides.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
   </data>
+  <data name="TestNUM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestNUM.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="OriginalVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OriginalVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

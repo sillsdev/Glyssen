@@ -172,6 +172,12 @@ namespace GlyssenTests
 
 			switch (testBook)
 			{
+				case TestBook.NUM:
+					book.Code = "NUM";
+					book.LongName = "Numbers";
+					book.ShortName = "Numbers";
+					xmlDocument.LoadXml(Properties.Resources.TestNUM);
+					break;
 				case TestBook.JOS:
 					book.Code = "JOS";
 					book.LongName = "Joshua";

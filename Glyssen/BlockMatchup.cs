@@ -42,30 +42,33 @@ namespace Glyssen
 					indexOfAnchorBlockInVerse = 0;
 				}
 				m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
+				var firstIncludedScriptureBlock = blocksForVersesCoveredByBlock.First();
 				while (m_iStartBlock > 0)
 				{
-					var firstIncludedBlock = blocksForVersesCoveredByBlock.First();
-					if (firstIncludedBlock.InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-						!firstIncludedBlock.IsVerseBreak)
+					if (firstIncludedScriptureBlock.InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+						!firstIncludedScriptureBlock.IsVerseBreak)
 					{
 						var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-							firstIncludedBlock.InitialStartVerseNumber).ToList();
+							firstIncludedScriptureBlock.InitialStartVerseNumber).ToList();
 						if (prepend.Count > 1)
 						{
 							prepend.RemoveAt(prepend.Count - 1);
 							m_iStartBlock -= prepend.Count;
 							blocksForVersesCoveredByBlock.InsertRange(0, prepend);
-							firstIncludedBlock = blocksForVersesCoveredByBlock.First();
+							firstIncludedScriptureBlock = blocksForVersesCoveredByBlock.First();
 						}
 					}
 					// PG-1297: In the unusual case where our "anchor" verse is verse 0, we definitely don't want to include earlier verses (from previous chapter).
-					if (m_iStartBlock == 0 || isOkayToBreakBeforeBlock(firstIncludedBlock) || firstIncludedBlock.InitialStartVerseNumber == 0)
+					if (m_iStartBlock == 0 || isOkayToBreakBeforeBlock(firstIncludedScriptureBlock) || firstIncludedScriptureBlock.InitialStartVerseNumber == 0)
 					{
 						break;
 					}
 
 					m_iStartBlock--;
-					blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
+					var blockToInsert = blocks[m_iStartBlock];
+					if (blockToInsert.IsScripture)
+						firstIncludedScriptureBlock = blockToInsert;
+					blocksForVersesCoveredByBlock.Insert(0, blockToInsert);
 				}
 				int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
 				int i = iLastBlock;

@@ -436,6 +436,7 @@
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
     <None Include="Resources\RussianOrthodoxVersification.txt" />
+    <Content Include="Resources\OriginalVersification.txt" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />
@@ -448,6 +449,7 @@
     <None Include="Resources\TestREV.xml" />
     <None Include="Resources\TestMATcuk.xml" />
     <Content Include="Resources\TestNarratorOverrides.xml" />
+    <Content Include="Resources\TestNUM.xml" />
     <Content Include="Resources\TestOBAwithInterestingVerseNums.xml" />
     <Content Include="Resources\TestRUT.xml" />
     <None Include="Resources\TestReferenceTextJUD.xml" />

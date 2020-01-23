@@ -177,6 +177,29 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;Original&quot; 
+        ///# Version=1.200
+        ///# (not a very good name but I have not heard a better suggestion)
+        ///#
+        ///# modifications by Studge 26/June/2009
+        ///#
+        ///# BHS versification for OT, UBS GNT versification for NT
+        ///# following the Masoretic order
+        ///# OT translations using Masorteic verse structures should map onto this text
+        ///# NT versifications maps onto Nestle-Aland
+        ///#
+        ///# List of books, chapters, verses
+        ///# One line per book.
+        ///# One entry for each chapter.
+        ///# Verse number is the maximum verse number for t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OriginalVersification {
+            get {
+                return ResourceManager.GetString("OriginalVersification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;Russian Orthodox&quot;
         ///# Version=1.3
         ///#
@@ -616,6 +639,26 @@ namespace GlyssenTests.Properties {
         internal static string TestNarratorOverrides {
             get {
                 return ResourceManager.GetString("TestNarratorOverrides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;book id=&quot;NUM&quot; singlevoice=&quot;false&quot; pageheader=&quot;Ds&quot;&gt;
+        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-NUM&quot;&gt;
+        ///    &lt;text&gt;SÁCH DÂN SỐ&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;NUM&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-NUM&quot;&gt;
+        ///    &lt;text&gt;1&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;ms&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; initialStartVerse=&quot;0&quot; characterId=&quot;extra-NUM&quot;&gt;
+        ///    &lt;text&gt;I. KIỂM TRA DÂN SỐ&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestNUM {
+            get {
+                return ResourceManager.GetString("TestNUM", resourceCulture);
             }
         }
         
