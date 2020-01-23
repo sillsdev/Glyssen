@@ -9,11 +9,13 @@ using Glyssen.Character;
 using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Utilities;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
@@ -51,6 +53,7 @@ namespace GlyssenTests
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
+			Fonts.Default = new WinFormsFonts();
 
 			// Clean up anything from previously aborted tests
 			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
@@ -790,6 +793,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(9000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
