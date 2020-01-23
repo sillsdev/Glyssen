@@ -4,10 +4,8 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
@@ -303,7 +301,6 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AssignAll_FreshlyParsedProject_AssignAllChangesNothing()
 		{
-            Fonts.Default = new WinFormsFonts();
 			var booksToIncludeInTestProject = Enum.GetValues(typeof(TestProject.TestBook)).Cast<TestProject.TestBook>().ToArray();
 			var freshTestProject = TestProject.CreateTestProject(booksToIncludeInTestProject);
 			var testProjectToAssign = TestProject.CreateTestProject(booksToIncludeInTestProject);
