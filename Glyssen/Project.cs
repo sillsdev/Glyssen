@@ -810,6 +810,13 @@ namespace Glyssen
 		{
 			get
 			{
+				// PG-1315: If the Versification was changed in Paratext, we should redo the quote parsing because guesses about
+				// appropriate character assignments are heavily tied to verse references. However, versification mappings in the
+				// New Testament and rare and very limited even when they do occur. So if we're including only NT books, we can
+				// skip this.
+				if (IsLiveParatextProject && m_projectMetadata.Versification != Versification.Name && IncludedBooks.First().BookNumber < 40)
+					return true;
+
 				if (m_projectMetadata.ParserVersion >= Settings.Default.ParserVersion)
 					return false;
 				switch (Settings.Default.ParserVersion)
