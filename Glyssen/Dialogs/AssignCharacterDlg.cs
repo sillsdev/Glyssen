@@ -467,18 +467,23 @@ namespace Glyssen.Dialogs
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
-				if (cellToMakeCurrent.ReadOnly)
+
+				if (cellToMakeCurrent != null) // PG-1320: m_dataGridReferenceText may not be shown yet, in which case there is no first "displayed" cell
 				{
-					int c = cellToMakeCurrent.ColumnIndex + 1;
-					while (c < m_dataGridReferenceText.ColumnCount &&
-					(m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly ||
-						!m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].Visible))
-						c++;
-					if (c < m_dataGridReferenceText.ColumnCount)
-						cellToMakeCurrent = m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c];
+					if (cellToMakeCurrent.ReadOnly)
+					{
+						int c = cellToMakeCurrent.ColumnIndex + 1;
+						while (c < m_dataGridReferenceText.ColumnCount &&
+							(m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly ||
+								!m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].Visible))
+							c++;
+						if (c < m_dataGridReferenceText.ColumnCount)
+							cellToMakeCurrent = m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c];
+					}
+
+					m_dataGridReferenceText.CurrentCell = cellToMakeCurrent;
+					m_dataGridReferenceText.BeginEdit(true);
 				}
-				m_dataGridReferenceText.CurrentCell = cellToMakeCurrent;
-				m_dataGridReferenceText.BeginEdit(true);
 			}
 
 			UpdateInsertHeSaidButtonState();
@@ -1112,7 +1117,8 @@ namespace Glyssen.Dialogs
 				{
 					m_labelXofY.Visible = false;
 					UpdateNavigationButtonState();
-					m_blocksViewer.ShowNothingMatchesFilterMessage();
+					if (Visible)
+						m_blocksViewer.ShowNothingMatchesFilterMessage();
 				}
 
 				UpdateProgressBarForMode();
