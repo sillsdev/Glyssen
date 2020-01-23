@@ -58,7 +58,7 @@ namespace Glyssen
 							firstIncludedBlock = blocksForVersesCoveredByBlock.First();
 						}
 					}
-					// PG-1297: In the unusual case where our "anchor" verse is verse 0, we definitely don't want to earlier verses (from previous chapter).
+					// PG-1297: In the unusual case where our "anchor" verse is verse 0, we definitely don't want to include earlier verses (from previous chapter).
 					if (m_iStartBlock == 0 || isOkayToBreakBeforeBlock(firstIncludedBlock) || firstIncludedBlock.InitialStartVerseNumber == 0)
 					{
 						break;
