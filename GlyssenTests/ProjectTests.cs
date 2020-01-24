@@ -30,7 +30,7 @@ using Rhino.Mocks;
 
 namespace GlyssenTests
 {
-	[TestFixture, Timeout(60000)]
+	[TestFixture, Timeout(70000)]
 	class ProjectTests
 	{
 		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
@@ -823,6 +823,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -885,6 +886,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -1113,6 +1115,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
 		{
 			// Setup
@@ -1278,6 +1281,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(8000)]
 		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);

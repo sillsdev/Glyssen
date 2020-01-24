@@ -221,12 +221,11 @@ namespace Glyssen
 			return Books.Any(b => b.BookId == vernacularBook.BookId);
 		}
 
-		public bool IsOkayToSplitAtVerse(VerseRef nextVerse, ScrVers vernacularVersification, List<VerseSplitLocation> verseSplitLocationsBasedOnRef)
+		public bool IsOkayToSplitBeforeBlock(BookScript vernBook, Block block, List<VerseSplitLocation> verseSplitLocationsBasedOnRef)
 		{
-			if (nextVerse.VerseNum == 0) // This is unusual, but there can be verse text before verse 1
-				return true; // and it is always valid (indeed required) to split at a chapter break.
-			nextVerse.Versification = vernacularVersification;
-			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
+			VerseRef startVerse = block.StartRef(vernBook);
+			startVerse.ChangeVersification(Versification); // faster to do this once up-front.
+			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(startVerse) == 0);
 		}
 
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock,
@@ -247,7 +246,7 @@ namespace Glyssen
 			} : (Action < PortionScript >)null;
 
 			var matchup = new BlockMatchup(vernacularBook, iBlock, splitBlocks,
-				nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularBook.Versification, verseSplitLocationsBasedOnRef),
+				block => IsOkayToSplitBeforeBlock(vernacularBook, block, verseSplitLocationsBasedOnRef),
 				this, predeterminedBlockCount);
 
 			if (!matchup.AllScriptureBlocksMatch)

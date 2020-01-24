@@ -28,6 +28,7 @@ namespace GlyssenTests
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
 		{
+			NUM,
 			JOS,
 			RUT,
 			PSA_NoData,
@@ -171,6 +172,12 @@ namespace GlyssenTests
 
 			switch (testBook)
 			{
+				case TestBook.NUM:
+					book.Code = "NUM";
+					book.LongName = "Numbers";
+					book.ShortName = "Numbers";
+					xmlDocument.LoadXml(Properties.Resources.TestNUM);
+					break;
 				case TestBook.JOS:
 					book.Code = "JOS";
 					book.LongName = "Joshua";
