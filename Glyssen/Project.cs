@@ -774,7 +774,7 @@ namespace Glyssen
 			if (existingProject == null)
 				return null;
 
-			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteParserUpgrade)
+			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteReparse)
 			{
 				Debug.Assert(existingProject.Books.Any());
 				if (existingProject.ProjectState != ProjectState.FullyInitialized)
@@ -801,12 +801,14 @@ namespace Glyssen
 		}
 
 		/// <summary>
-		/// Returns true if the project was parsed with a quote parser that is older than the current parser version.
-		/// However, in some circumstances, if we know that the new version would not result in improved parsing, this
-		/// property has the side-effect of just updating the project's parser version to the current version number
-		/// and returning false.
+		/// Returns true if the project needs to be reparsed, typically because it was parsed with an older version of the quote
+		/// parser, but also for other more obscure reasons. (Can have non-readonly side-effects - see remarks.)
 		/// </summary>
-		private bool NeedsQuoteParserUpgrade
+		/// <remarks>Note that in some circumstances, if we know that the new parser version would not result in improved parsing,
+		/// this property has the side-effect of just updating the project's parser version to the current version number and
+		/// returning false.
+		/// </remarks>
+		private bool NeedsQuoteReparse
 		{
 			get
 			{
