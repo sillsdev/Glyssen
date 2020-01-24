@@ -501,6 +501,7 @@
     <Compile Include="ScriptExporter.cs" />
     <Compile Include="Utilities\AlertImpl.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
+    <Compile Include="Utilities\FontProxy.cs" />
     <Compile Include="Utilities\FormWithPersistedSettings.cs">
       <SubType>Form</SubType>
     </Compile>

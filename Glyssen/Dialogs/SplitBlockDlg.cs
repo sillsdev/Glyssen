@@ -10,9 +10,9 @@ using Gecko.DOM;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Utilities;
-using GlyssenEngine.ViewModels;
 using SIL.Reporting;
 using Resources = Glyssen.Properties.Resources;
+using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {

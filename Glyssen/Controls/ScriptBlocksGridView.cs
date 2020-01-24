@@ -7,9 +7,12 @@ using System.Windows.Forms;
 using Glyssen.Utilities;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
+using Pango;
 using SIL.Reporting;
 using SIL.Scripture;
 using Analytics = DesktopAnalytics.Analytics;
+using Color = System.Drawing.Color;
+using Font = System.Drawing.Font;
 
 namespace Glyssen.Controls
 {
@@ -18,7 +21,7 @@ namespace Glyssen.Controls
 		private bool m_updatingContext = true;
 		private DataGridViewTextBoxColumn m_colReference;
 		private DataGridViewTextBoxColumn m_colText;
-		private BlockNavigatorViewModel m_viewModel;
+		private BlockNavigatorViewModel<Font> m_viewModel;
 		private FontProxy m_originalDefaultFont;
 
 		private bool m_userIsResizingColumns;
@@ -133,7 +136,7 @@ namespace Glyssen.Controls
 
 		protected override void OnCellPainting(DataGridViewCellPaintingEventArgs e)
 		{
-			if (!e.Handled && m_viewModel != null && m_viewModel.Font.RightToLeftScript && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
+			if (!e.Handled && m_viewModel != null && m_viewModel.RightToLeftScript && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
 			{
 				e.PaintBackground(e.CellBounds, true);
 				TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(),
@@ -164,7 +167,7 @@ namespace Glyssen.Controls
 		#endregion
 
 		#region public methods
-		public void Initialize(BlockNavigatorViewModel viewModel)
+		public void Initialize(BlockNavigatorViewModel<Font> viewModel)
 		{
 			m_colReference = (DataGridViewTextBoxColumn)Columns[0];
 			m_colText = (DataGridViewTextBoxColumn)Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None);
@@ -347,7 +350,7 @@ namespace Glyssen.Controls
 			{
 				Debug.Assert(CellBorderStyle == DataGridViewCellBorderStyle.Single);
 				const int borderWidth = 1;
-				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.RightToLeftScript);
 				m_colReference.Width = DataGridViewCell.MeasureTextWidth(g, refString,
 					cellStyle.Font ?? DefaultCellStyle.Font, Int32.MaxValue, flags) +
 					cellStyle.Padding.Horizontal + borderWidth;
@@ -409,7 +412,7 @@ namespace Glyssen.Controls
 
 		private void SetFontsFromViewModel()
 		{
-			m_colText.DefaultCellStyle.Font = m_viewModel.Font as Font;
+			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
 			m_originalDefaultFont.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
 			DefaultCellStyle.Font = m_originalDefaultFont;
 		}

@@ -1,6 +1,7 @@
 ﻿using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using GlyssenEngine;
@@ -17,10 +18,10 @@ namespace Glyssen.Dialogs
 		private string m_style;
 		private readonly string m_projectName;
 		private readonly UnappliedSplitsViewModel m_model;
-		private readonly FontProxy m_font;
+		private readonly IFontInfo<Font> m_font;
 		private string m_htmlFilePath;
 
-		public UnappliedSplitsDlg(string projectName, FontProxy fontProxy, UnappliedSplitsViewModel model)
+		public UnappliedSplitsDlg(string projectName, IFontInfo<Font> fontProxy, UnappliedSplitsViewModel model)
 		{
 			m_projectName = projectName;
 			m_font = fontProxy;

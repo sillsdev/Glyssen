@@ -19,6 +19,7 @@ using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.WritingSystems;
 using Analytics = DesktopAnalytics.Analytics;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {
@@ -433,8 +434,10 @@ namespace Glyssen.Dialogs
 			{
 				var font = new FontProxy(m_wsViewModel.CurrentDefaultFontName,
 					(int)m_wsViewModel.CurrentDefaultFontSize, m_wsViewModel.CurrentRightToLeftScript);
+				Func<ReferenceText, IAdjustableFontInfo<Font>> getFontProxyForReferenceText = referenceText => new FontProxy(referenceText.FontFamily,
+					referenceText.FontSizeInPoints, referenceText.RightToLeftScript);
 				if (m_model.Project.IncludedBooks.Any())
-					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, font, m_model);
+					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, font, getFontProxyForReferenceText, m_model);
 				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay, this))
 				{
 					MainForm.LogDialogDisplay(dlg);

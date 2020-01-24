@@ -1,7 +1,6 @@
 ﻿using System;  // Merged
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
@@ -9,28 +8,29 @@ using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
-//using Analytics = DesktopAnalytics.Analytics;
 
 namespace GlyssenEngine.ViewModels
 {
-	public class AssignCharacterViewModel : BlockNavigatorViewModel
+	public class AssignCharacterViewModel<TFont> : BlockNavigatorViewModel<TFont>
 	{
 		#region Data members and events
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
-		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
+		private readonly Dictionary<string, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
 		private readonly HashSet<ICharacterDeliveryInfo> m_pendingCharacterDeliveryAdditions = new HashSet<ICharacterDeliveryInfo>();
 		private ISet<ICharacterDeliveryInfo> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
-		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment);
+		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel<TFont> sender, int increment);
 		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
-		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel sender, int index);
+		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel<TFont> sender, int index);
 		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
+		public delegate void SettingBlockCharacterHandler(AssignCharacterViewModel<TFont> sender, Block block, ICharacter character);
+		public event SettingBlockCharacterHandler SettingBlockCharacter;
 
 		#endregion
 
@@ -107,13 +107,6 @@ namespace GlyssenEngine.ViewModels
 			ResetFilter(CurrentBlock);
 
 			OnSaveCurrentBook();
-
-			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
-			{
-				{ "book", CurrentBookId },
-				{ "singleVoice", singleVoice.ToString() },
-				{ "method", "AssignCharacterViewModel.SetCurrentBookSingleVoice" }
-			});
 		}
 
 		public void StoreCharacterDetail(string characterId, CharacterGender gender, CharacterAge age)
@@ -151,8 +144,7 @@ namespace GlyssenEngine.ViewModels
 
 		private void OnSaveCurrentBook()
 		{
-			if (CurrentBookSaved != null)
-				CurrentBookSaved(this, EventArgs.Empty);
+			CurrentBookSaved?.Invoke(this, EventArgs.Empty);
 		}
 
 		private void OnAssignedBlocksIncremented(int increment)
@@ -404,16 +396,6 @@ namespace GlyssenEngine.ViewModels
 		{
 			if (CharacterVerseData.IsCharacterUnclear(selectedCharacter.CharacterId))
 				throw new ArgumentException("Character cannot be confirmed as ambiguous or unknown.", nameof(selectedCharacter));
-			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
-			if (!selectedCharacter.IsNarrator && !block.IsQuote)
-				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
-				{
-					{ "book", CurrentBookId },
-					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
-					{ "character", selectedCharacter.CharacterId }
-				});
 
 			SetCharacter(block, selectedCharacter);
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
@@ -423,6 +405,8 @@ namespace GlyssenEngine.ViewModels
 
 		private void SetCharacter(Block block, Character selectedCharacter)
 		{
+			SettingBlockCharacter?.Invoke(this, block, selectedCharacter);
+
 			if (selectedCharacter == null)
 			{
 				block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
@@ -448,14 +432,6 @@ namespace GlyssenEngine.ViewModels
 
 			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlockInOriginal))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
-
-			// This code was added to make a test pass, but that test was testing this method in a situation
-			// where it would never actually be used in production:
-			//if (CurrentReferenceTextMatchup != null && CurrentReferenceTextMatchup.HasOutstandingChangesToApply)
-			//{
-			//	foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
-			//		SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
-			//}
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
@@ -691,7 +667,7 @@ namespace GlyssenEngine.ViewModels
 				s_extraCharacter = extraCharacter;
 			}
 
-			internal Character(string characterId, string localizedCharacterId = null, string alias = null, string localizedAlias = null, bool projectSpecific = true)
+			public Character(string characterId, string localizedCharacterId = null, string alias = null, string localizedAlias = null, bool projectSpecific = true)
 			{
 				m_characterId = CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ?
 					s_narrator.CharacterId : characterId;
@@ -840,7 +816,7 @@ namespace GlyssenEngine.ViewModels
 				s_normalDelivery = new Delivery(normalDelivery, false);
 			}
 
-			internal Delivery(string text, bool projectSpecific = true)
+			public Delivery(string text, bool projectSpecific = true)
 			{
 				m_text = text;
 				m_projectSpecific = projectSpecific;

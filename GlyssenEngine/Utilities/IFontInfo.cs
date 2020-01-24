@@ -1,13 +1,14 @@
 ﻿namespace GlyssenEngine.Utilities
 {
-	public interface IFontInfo
+	public interface IFontInfo<TFont>
 	{
 		bool RightToLeftScript { get; }
 		string FontFamily { get; }
 		int Size { get; }
+		TFont Font { get; }
 	}
 
-	public interface IAdjustableFontInfo : IFontInfo
+	public interface IAdjustableFontInfo<TFont> : IFontInfo<TFont>
 	{
 		int FontSizeUiAdjustment { get; set; }
 	}

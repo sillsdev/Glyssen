@@ -12,14 +12,14 @@ using static System.String;
 
 namespace GlyssenEngine.ViewModels
 {
-	public class SplitBlockViewModel
+	public class SplitBlockViewModel<TFont>
 	{
 		public const string kLeadingPunctuationHtmlStart = "<span class=\"leading-punctuation\">";
 		public const string kLeadingPunctuationHtmlEnd = "</span>";
 		public const string kSplitElementIdPrefix = "split";
 		private const string kSplitLineFrame = "<div id=\"" + kSplitElementIdPrefix + "{0}\" class=\"split-line\"><div class=\"split-line-top\"></div></div>";
 
-		private readonly IFontInfo m_font;
+		private readonly IFontInfo<TFont> m_font;
 		private readonly List<Block> m_originalBlocks;
 		private readonly string m_style;
 		private readonly string m_css = Resources.BlockSplitCss;
@@ -29,13 +29,13 @@ namespace GlyssenEngine.ViewModels
 		/// <summary>Random string which will (hopefully) never appear in real text</summary>
 		private const string kAwooga = "^~^";
 
-		public SplitBlockViewModel(AssignCharacterViewModel assignCharacterViewModel, Block blockToSplit) :
-			this(assignCharacterViewModel.Font, assignCharacterViewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
+		public SplitBlockViewModel(AssignCharacterViewModel<TFont> assignCharacterViewModel, Block blockToSplit) :
+			this(assignCharacterViewModel.FontInfo, assignCharacterViewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
 				assignCharacterViewModel.GetUniqueCharactersForCurrentReference(), assignCharacterViewModel.CurrentBookId)
 		{
 		}
 
-		public SplitBlockViewModel(IFontInfo fontProxy, IEnumerable<Block> originalBlocks,
+		public SplitBlockViewModel(IFontInfo<TFont> fontProxy, IEnumerable<Block> originalBlocks,
 			IEnumerable<ICharacter> charactersForCurrentReference, string currentBookId)
 		{
 			m_font = fontProxy;

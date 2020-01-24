@@ -19,8 +19,6 @@ using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
-using GlyssenEngine.ViewModels;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -30,6 +28,8 @@ using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
+using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {
@@ -145,6 +145,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
 			m_viewModel.CorrelatedBlockCharacterAssignmentChanged += HandleCorrelatedBlockCharacterAssignmentChanged;
+			m_viewModel.SettingBlockCharacter += OnSettingBlockCharacter;
 
 			UpdateProgressBarForMode();
 
@@ -220,6 +221,20 @@ namespace Glyssen.Dialogs
 					m_progressBar.Increment(increment);
 				}
 			}, GetType().FullName + ".m_viewModel_AssignedBlocksIncremented");
+		}
+
+		private void OnSettingBlockCharacter(AssignCharacterViewModel sender, Block block, ICharacter character)
+		{
+			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
+			if (!character.IsNarrator && !block.IsQuote)
+				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
+				{
+					{ "book", sender.CurrentBookId },
+					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
+					{ "character", character.CharacterId }
+				});
 		}
 
 		private void UpdateProgressBarForMode()
@@ -824,16 +839,16 @@ namespace Glyssen.Dialogs
 
 		private void SetFontsFromViewModel(object sender, EventArgs args)
 		{
-			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_originalDefaultFontForLists.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			m_originalDefaultFontForLists.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_viewModel.Font;
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 
-			if (m_primaryReferenceTextFont != null)
-				m_primaryReferenceTextFont.Dispose();
+			m_primaryReferenceTextFont?.Dispose();
 
-			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont;
-			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont;
-			m_dataGridReferenceText.DefaultCellStyle.Font =
-				m_originalDefaultFontForCharacterAndDeliveryColumns.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont.Font;
+			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont.Font;
+			m_originalDefaultFontForCharacterAndDeliveryColumns.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_dataGridReferenceText.DefaultCellStyle.Font = m_originalDefaultFontForCharacterAndDeliveryColumns.Font;
 		}
 
 		private void UpdateSavedText(object obj, EventArgs e)
@@ -1240,6 +1255,13 @@ namespace Glyssen.Dialogs
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
+			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+			{
+				{ "book", m_viewModel.CurrentBookId },
+				{ "singleVoice", m_chkSingleVoice.Checked.ToString() },
+				{ "method", "AssignCharacterViewModel.SetCurrentBookSingleVoice" }
+			});
+
 			UpdateProgressBarForMode();
 			if (!m_chkSingleVoice.Checked && m_viewModel.InTaskMode && !m_viewModel.IsCurrentTaskComplete)
 				m_promptToCloseWhenTaskIsComplete = true;
@@ -1648,7 +1670,7 @@ namespace Glyssen.Dialogs
 						{
 							using (Graphics g = CreateGraphics())
 							{
-								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.RightToLeftScript);
 								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
 										clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
 										m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +

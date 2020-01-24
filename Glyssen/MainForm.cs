@@ -37,6 +37,7 @@ using SIL.Windows.Forms.WritingSystems;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
 using Resources = Glyssen.Properties.Resources;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
 
 namespace Glyssen
 {
@@ -136,7 +137,7 @@ namespace Glyssen
 			{
 				if (m_project.HasUnappliedSplits())
 					using (var viewModel = new AssignCharacterViewModel(m_project))
-					using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font,
+					using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.FontInfo,
 						new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 					{
 						LogDialogDisplay(dlg);

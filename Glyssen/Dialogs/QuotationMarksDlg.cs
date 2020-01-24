@@ -13,7 +13,6 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
-using GlyssenEngine.ViewModels;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL;
@@ -23,6 +22,7 @@ using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
 using Analytics = DesktopAnalytics.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {

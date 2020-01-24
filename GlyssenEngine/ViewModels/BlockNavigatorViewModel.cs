@@ -13,7 +13,7 @@ using SIL.Scripture;
 
 namespace GlyssenEngine.ViewModels
 {
-	public class BlockNavigatorViewModel : IDisposable
+	public class BlockNavigatorViewModel<TFont> : IDisposable
 	{
 		protected readonly Project m_project;
 		internal const string kDataCharacter = "data-character";
@@ -30,8 +30,9 @@ namespace GlyssenEngine.ViewModels
 		internal const string kMainQuoteElementId = "main-quote-text";
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
-		private IAdjustableFontInfo m_font;
-		private readonly Dictionary<ReferenceText, FontProxy> m_referenceTextFonts = new Dictionary<ReferenceText, FontProxy>();
+		private IAdjustableFontInfo<TFont> m_font;
+		public Func<ReferenceText, IAdjustableFontInfo<TFont>> GetFontProxy { get; }
+		private readonly Dictionary<ReferenceText, IAdjustableFontInfo<TFont>> m_referenceTextFonts = new Dictionary<ReferenceText, IAdjustableFontInfo<TFont>>();
 		private BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
 		protected List<BookBlockIndices> m_relevantBookBlockIndices;
@@ -50,13 +51,16 @@ namespace GlyssenEngine.ViewModels
 
 		protected BookScript CurrentBook => BlockAccessor.CurrentBook;
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, IAdjustableFontInfo fontInfo = null, ProjectSettingsViewModel settingsViewModel = null)
-			: this(project, mode, null, fontInfo, settingsViewModel)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, IAdjustableFontInfo<TFont> fontInfo = null,
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getFontProxy = null, ProjectSettingsViewModel settingsViewModel = null)
+			: this(project, mode, null, fontInfo, getFontProxy, settingsViewModel)
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo fontInfo = null, ProjectSettingsViewModel settingsViewModel = null)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo<TFont> fontInfo = null,
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getFontProxy = null, ProjectSettingsViewModel settingsViewModel = null)
 		{
+			GetFontProxy = getFontProxy;
 			m_project = project;
 			m_project.QuoteParseCompleted += HandleProjectQuoteParseCompleted;
 
@@ -93,8 +97,9 @@ namespace GlyssenEngine.ViewModels
 
 		private void CacheReferenceTextFonts(ReferenceText referenceText)
 		{
-			m_referenceTextFonts[referenceText] = new FontProxy(referenceText.FontFamily,
-				referenceText.FontSizeInPoints, referenceText.RightToLeftScript);
+			if (GetFontProxy == null)
+				return;
+			m_referenceTextFonts[referenceText] = GetFontProxy(referenceText);
 
 			if (referenceText.HasSecondaryReferenceText)
 				CacheReferenceTextFonts(referenceText.SecondaryReferenceText);
@@ -135,23 +140,19 @@ namespace GlyssenEngine.ViewModels
 				m_font = null;
 			}
 
-			foreach (var fontProxy in m_referenceTextFonts.Values)
+			foreach (var fontProxy in m_referenceTextFonts.Values.OfType<IDisposable>())
 				fontProxy.Dispose();
 			m_referenceTextFonts.Clear();
 		}
 		#endregion
 
 		#region Public properties
-		public ScrVers Versification { get; private set; }
-		public int BlockCountForCurrentBook
-		{
-			get
-			{
-				var actualCount = BlockAccessor.CurrentBook.GetScriptBlocks().Count;
-				var adjustment = BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
-				return actualCount + adjustment;
-			}
-		}
+		public ScrVers Versification { get; }
+
+		public int BlockCountForCurrentBook => BlockAccessor.CurrentBook.GetScriptBlocks().Count + CountOfBlocksAddedByCurrentMatchup;
+
+		private int CountOfBlocksAddedByCurrentMatchup => BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
+
 		public int RelevantBlockCount => m_relevantBookBlockIndices.Count;
 
 		/// <summary>
@@ -180,9 +181,11 @@ namespace GlyssenEngine.ViewModels
 		public bool IsCurrentLocationRelevant =>  m_relevantBookBlockIndices.Any(i => i.Contains(BlockAccessor.GetIndices()));
 
 		public IEnumerable<string> IncludedBooks => m_includedBooks;
-		public IFontInfo Font => m_font;
-		public FontProxy PrimaryReferenceTextFont => m_referenceTextFonts[m_project.ReferenceText];
-		public FontProxy EnglishReferenceTextFont
+		public TFont Font => m_font.Font;
+		public IFontInfo<TFont> FontInfo => m_font;
+		public bool RightToLeftScript => m_font.RightToLeftScript;
+		public IFontInfo<TFont> PrimaryReferenceTextFont => m_referenceTextFonts[m_project.ReferenceText];
+		public IFontInfo<TFont> EnglishReferenceTextFont
 		{
 			get
 			{
@@ -446,35 +449,13 @@ namespace GlyssenEngine.ViewModels
 		#region Methods for dealing with multi-block groups/quotes
 		public IEnumerable<Block> GetAllBlocksWhichContinueTheQuoteStartedByBlock(Block firstBlock)
 		{
-			switch (firstBlock.MultiBlockQuote)
-			{
-				case MultiBlockQuote.Start:
-					yield return firstBlock;
-					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock))
-						yield return BlockAccessor.CurrentBook[i];
-					break;
-				case MultiBlockQuote.Continuation:
-					// These should all be brought in through a Start block, so don't do anything with them here
-					break;
-				default:
-					// Not part of a multi-block quote. Just return the base-line block
-					yield return firstBlock;
-					break;
-			}
+			return m_navigator.GetAllBlocksWhichContinueTheQuoteStartedByBlock(firstBlock, CountOfBlocksAddedByCurrentMatchup);
 		}
 
 		public IEnumerable<int> GetIndicesOfQuoteContinuationBlocks(Block startQuoteBlock)
 		{
 			// Note this method assumes the startQuoteBlock is in the navigator's current book.
-			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
-
-			for (int j = BlockAccessor.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
-			{
-				Block block = BlockAccessor.CurrentBook[j];
-				if (block == null || !block.IsContinuationOfPreviousBlockQuote)
-					break;
-				yield return j;
-			}
+			return m_navigator.GetIndicesOfQuoteContinuationBlocks(startQuoteBlock, CountOfBlocksAddedByCurrentMatchup);
 		}
 
 		public int IndexOfFirstBlockInCurrentGroup

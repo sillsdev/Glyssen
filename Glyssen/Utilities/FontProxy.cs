@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using GlyssenEngine.Utilities;
 
-namespace GlyssenEngine.Utilities
+namespace Glyssen.Utilities
 {
-	public class FontProxy : IAdjustableFontInfo, IDisposable
+	public class FontProxy : IAdjustableFontInfo<Font>, IDisposable
 	{
 		private const int kMinFontSize = 3;
 
