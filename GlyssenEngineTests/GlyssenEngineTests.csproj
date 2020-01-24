@@ -271,6 +271,7 @@
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
+    <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="ReferenceTextTests.cs" />
     <Compile Include="Script\BlockMatchupTests.cs" />
     <Compile Include="Script\BlockNavigatorTests.cs" />

@@ -811,6 +811,7 @@ namespace GlyssenEngine
 					return false;
 				switch (kParserVersion)
 				{
+#pragma warning disable CS0162 // Unreachable code detected
 					case 43:
 						if (m_projectMetadata.ParserVersion < 42 || QuoteSystem.QuotationDashMarker?.FirstOrDefault() == ':')
 							return true;
@@ -822,6 +823,7 @@ namespace GlyssenEngine
 							return true;
 						m_projectMetadata.ParserVersion = kParserVersion;
 						return false;
+#pragma warning restore CS0162 // Unreachable code detected
 					default:
 						return true;
 				}

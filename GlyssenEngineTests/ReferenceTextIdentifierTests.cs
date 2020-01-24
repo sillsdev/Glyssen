@@ -3,10 +3,9 @@ using System.IO;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
-using GlyssenEngineTests;
 using NUnit.Framework;
 
-namespace GlyssenTests
+namespace GlyssenEngineTests
 {
 	[TestFixture]
 	class ReferenceTextIdentifierTests

@@ -323,7 +323,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
     <Compile Include="Rules\ProximityTests.cs" />
