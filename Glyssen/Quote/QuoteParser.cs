@@ -945,9 +945,9 @@ namespace Glyssen.Quote
 							// be conservative and just prune the list down by character.
 							characterSpeakingDetails.RemoveAll(cv => cv.Character != prevQuoteBlock.CharacterId);
 							Debug.Assert(characterSpeakingDetails.Any(),
-								"We are in the middle of a quote and we have no speakers left who were possible when this quote " +
-								"opened. Unless we're missing some useful entries in the CharacterVerse control file, the logic for " +
-								"m_possibleCharactersForCurrentQuote should have kept us from running off the rails like this.");
+								$"(See PG-1321) We are in the middle of a quote in {m_bookId} {m_workingBlock.ChapterNumber}:{m_workingBlock.InitialStartVerseNumber} " +
+								"and we have no speakers left who were possible when this quote opened. Unless we're missing some useful entries in the CharacterVerse " +
+								$"control file, the logic for {nameof(m_possibleCharactersForCurrentQuote)} should have kept us from running off the rails like this.");
 						}
 					}
 					m_workingBlock.SetCharacterAndDelivery(characterSpeakingDetails);

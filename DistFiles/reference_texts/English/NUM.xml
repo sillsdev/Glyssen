@@ -2613,6 +2613,8 @@
   <block style="p" chapter="16" initialStartVerse="35" characterId="narrator-NUM">
     <verse num="35" />
     <text>Fire came forth from God, and devoured the two hundred fifty men who offered the incense. </text>
+  </block>
+  <block style="p" chapter="16" initialStartVerse="36" characterId="narrator-NUM">
     <verse num="36" />
     <text>God spoke to Moses, saying,</text>
   </block>
