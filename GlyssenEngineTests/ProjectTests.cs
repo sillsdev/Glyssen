@@ -47,6 +47,7 @@ namespace GlyssenEngineTests
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
+			Fonts.Default = new WinFormsFonts();
 
 			// Clean up anything from previously aborted tests
 			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
@@ -786,6 +787,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
+		[Timeout(9000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -1272,8 +1274,6 @@ namespace GlyssenEngineTests
 		[Test]
 		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
 		{
-			Assert.Fail("REVIEW: I don't think this next line should be needed for tests. The default no-op implementation should suffice.");
-            //Fonts.Default = new WinFormsFonts();
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			Assert.IsTrue(testProject.SpeechDistributionScoreByCharacterId["Boaz"] >= 7);

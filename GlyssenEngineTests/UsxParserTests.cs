@@ -484,6 +484,31 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
+		public void Parse_PoetryParagraphsWithQuotedText_QtMarkersgnored()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
+				"<verse number=\"23\" style=\"v\" />" +
+				"<char style=\"qt\">N'qe, sinboriwo</char></para>" +
+				"<para style =\"q1\">" +
+				"<char style=\"qt\">wi baga laala taa</char></para>" +
+				"<para style =\"q2\">" +
+				"<char style=\"qt\">be nagabile sii</char>,</para>" +
+				"<para style =\"q1\">" +
+				"<char style=\"qt\">pe beri wi yeri</char></para>" +
+				"<para style =\"q\">" +
+				"<char style=\"qt\">Emanuweli</char>. Kire wi jo “Kulocelie ye ne we ni.” " +
+				"<verse number=\"24\" style=\"v\" />" +
+				"Ba Yusufu wi keni ye ngonimo ne be.</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(7, blocks.Count, "Should have a chapter block, 4 \"scripture\" blocks, and one regular \\q block.");
+			Assert.IsTrue(blocks.Skip(1).Take(4).All(b => b.CharacterId == "scripture"));
+			Assert.IsTrue(blocks[5].GetText(true).StartsWith("Emanuweli."), "Period should get pulled into the \"scripture\" block with \"Emanuweli.\" " +
+				"We probably don't really care if the trailing space is retained or not.");
+			Assert.AreEqual("Kire wi jo “Kulocelie ye ne we ni.” {24}\u00A0Ba Yusufu wi keni ye ngonimo ne be.", blocks.Last().GetText(true));
+		}
+
+		[Test]
 		public void Parse_ParaStartsWithVerseNumber_BlocksGetCorrectChapterAndVerseNumbers()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +

@@ -623,7 +623,7 @@ namespace GlyssenEngine
 		/// This handles the common case where the first Block Element is a Verse and the more
 		/// unusual case where there is a preceding Script Text consisting only of an opening square
 		/// bracket (which indicates a verse that is often omitted because of weak manuscript evidence).
-		/// Technically, any preceding SciptText element that consists entirely of punctuation will be
+		/// Technically, any preceding ScriptText element that consists entirely of punctuation will be
 		/// considered as being part of the following verse.)
 		/// </summary>
 		public bool StartsAtVerseStart
@@ -1169,7 +1169,13 @@ namespace GlyssenEngine
 
 			if (!referenceText.HasSecondaryReferenceText)
 			{
-				SetMatchedReferenceBlock(existingReferenceText.ReferenceBlocks.Single());
+				// PG-1319: We are switching to English (or *hypothetically* some other reference language that is not backed by English).
+				// So whatever we have should have English as its second level. If we don't find a second level, we'll play it
+				// safe and just keep what we have. Most likely it is English, leftover from a previous change (to something
+				// other than English) where the user opted to not blow away the existing reference text.
+				var r = existingReferenceText.ReferenceBlocks.OnlyOrDefault();
+				if (r != null)
+					SetMatchedReferenceBlock(r);
 				return true;
 			}
 

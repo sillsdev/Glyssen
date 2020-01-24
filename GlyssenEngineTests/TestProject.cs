@@ -5,10 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
+using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Utilities;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.WritingSystems;
@@ -55,6 +57,11 @@ namespace GlyssenEngineTests
 		}
 
 		private const string kTest = "test~~";
+
+		static TestProject()
+		{
+			Fonts.Default = new WinFormsFonts();
+		}
 
 		public static void DeleteTestProjectFolder()
 		{

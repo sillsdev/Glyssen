@@ -26,7 +26,8 @@ namespace GlyssenEngine
             NoOp,
             Partial,
             Complete,
-        }
+            UpToDate,
+		}
 
         public static MigrationResult MigrateProjectData(Project project, int fromControlFileVersion)
         {
@@ -36,10 +37,13 @@ namespace GlyssenEngine
             if (!project.Books.Any())
                 return MigrationResult.NoOp;
 
-            Logger.WriteEvent($"Migrating project {project.ProjectFilePath} from {fromControlFileVersion} to {ControlCharacterVerseData.Singleton.ControlFileVersion}");
+            if (fromControlFileVersion == ControlCharacterVerseData.Singleton.ControlFileVersion)
+	            return MigrationResult.UpToDate;
 
-            if (s_lastProjectMigrated != project)
+			if (s_lastProjectMigrated != project)
                 s_migrationsRun = 0;
+
+            Logger.WriteEvent($"Migrating project {project.ProjectFilePath} from {fromControlFileVersion} to {ControlCharacterVerseData.Singleton.ControlFileVersion}");
 
             var result = MigrationResult.Partial;
 
@@ -238,7 +242,8 @@ namespace GlyssenEngine
 
                 foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
                     block.CharacterId != CharacterVerseData.kUnexpectedCharacter &&
-                    !CharacterVerseData.IsCharacterStandard(block.CharacterId)))
+                    block.CharacterId != CharacterVerseData.kNeedsReview &&
+					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
                 {
                     if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
                     {

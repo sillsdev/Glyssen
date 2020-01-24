@@ -1245,8 +1245,6 @@ namespace GlyssenEngineTests.Script
 		[Test]
 		public void GetCloneWithJoinedBlocks_SingleVoiceWithReferenceTexts_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
 		{
-			Assert.Fail("REVIEW: I don't think this next line should be needed for tests. The default no-op implementation should suffice.");
-			//Fonts.Default = new WinFormsFonts();
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
 			var jude = testProject.IncludedBooks.Single();
 			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));

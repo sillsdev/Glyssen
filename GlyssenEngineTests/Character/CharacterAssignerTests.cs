@@ -299,8 +299,6 @@ namespace GlyssenEngineTests.Character
 		[Test]
 		public void AssignAll_FreshlyParsedProject_AssignAllChangesNothing()
 		{
-			Assert.Fail("REVIEW: I don't think this next line should be needed for tests. The default no-op implementation should suffice.");
-			//Fonts.Default = new WinFormsFonts();
 			var booksToIncludeInTestProject = Enum.GetValues(typeof(TestProject.TestBook)).Cast<TestProject.TestBook>().ToArray();
 			var freshTestProject = TestProject.CreateTestProject(booksToIncludeInTestProject);
 			var testProjectToAssign = TestProject.CreateTestProject(booksToIncludeInTestProject);

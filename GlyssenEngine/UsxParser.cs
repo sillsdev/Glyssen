@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 using Glyssen.Shared;
@@ -95,6 +96,8 @@ namespace GlyssenEngine
 		private int m_currentChapter;
 		private int m_currentStartVerse;
 		private int m_currentEndVerse;
+
+		private readonly Regex m_regexStartsWithClosingPunctuation = new Regex(@"^(\p{Pd}|\p{Pe}|\p{Pf}|\p{Po})+\s+");
 
 		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
@@ -219,12 +222,25 @@ namespace GlyssenEngine
 									var textToAppend = childNode.InnerText;
 									if (ControlCharacterVerseData.IsCharStyleThatMapsToSpecificCharacter(block.StyleTag) && textToAppend.Any(IsLetter))
 									{
-										if (sb.Length > 0 && sb[sb.Length - 1] != ' ' && textToAppend.StartsWith(" "))
+										if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
 										{
-											// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
-											// leading spaces, it might look funny in some places in the display.
-											sb.Append(" ");
-											textToAppend = textToAppend.TrimStart();
+											if (textToAppend.StartsWith(" "))
+											{
+												// Not terribly important (in fact, we don't even need the trailing space either), but if blocks have
+												// leading spaces, it might look funny in some places in the display.
+												sb.Append(" ");
+												textToAppend = textToAppend.TrimStart();
+											}
+											else
+											{
+												// This logic implements PG-1298
+												var match = m_regexStartsWithClosingPunctuation.Match(textToAppend);
+												if (match.Success)
+												{
+													sb.Append(match.Value);
+													textToAppend = textToAppend.Remove(0, match.Length);
+												}
+											}
 										}
 										FinalizeCharacterStyleBlock(sb, ref block, blocks, usxPara.StyleTag);
 									}
