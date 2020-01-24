@@ -48,7 +48,7 @@ namespace GlyssenEngine
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
 		private const int kMaxDefaultProjectNameLength = 150;
 		private const int kMaxPath = 260;
-        private const int kParserVersion = 1;
+        private const int kParserVersion = 49;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
