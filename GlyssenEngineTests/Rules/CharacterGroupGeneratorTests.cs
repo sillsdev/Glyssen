@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Rules;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
-using GlyssenEngineTests;
 using NUnit.Framework;
 using SIL.Extensions;
-using Resources = GlyssenTests.Properties.Resources;
+using Resources = GlyssenEngineTests.Properties.Resources;
 
-namespace GlyssenTests.Rules
+namespace GlyssenEngineTests.Rules
 {
 	[TestFixture]
 	class CharacterGroupGeneratorTestsWithTwoBooksWithNoChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase

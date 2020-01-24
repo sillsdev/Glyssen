@@ -4,7 +4,7 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
 
-namespace GlyssenTests.Rules
+namespace GlyssenEngineTests.Rules
 {
 	[TestFixture]
 	class AuthorStatsTests

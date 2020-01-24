@@ -4,11 +4,11 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngine.ViewModels;
 using GlyssenEngineTests.Script;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Scripture;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
 
 namespace GlyssenEngineTests.ViewModelTests
 {

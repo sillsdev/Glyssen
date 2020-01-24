@@ -4,12 +4,12 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngine.ViewModels;
 using GlyssenEngineTests.Script;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
 using SIL.Scripture;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<Rhino.Mocks.Interfaces.IMockedObject>;
 
 namespace GlyssenEngineTests.ViewModelTests
 {

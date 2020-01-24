@@ -8,6 +8,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
 using GlyssenEngineTests.Script;

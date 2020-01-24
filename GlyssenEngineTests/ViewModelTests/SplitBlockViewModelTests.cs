@@ -3,19 +3,20 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
-using GlyssenEngine.ViewModels;
 using NUnit.Framework;
+using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<object>;
 
 namespace GlyssenEngineTests.ViewModelTests
 {
 	[TestFixture]
 	class SplitBlockViewModelTests
 	{
-		private class TestFont : IFontInfo
+		private class TestFont : IFontInfo<object>
 		{
 			public bool RightToLeftScript => false;
 			public string FontFamily => "Charis SIL";
 			public int Size => 12;
+			public object Font => new object();
 		}
 
 		[Test]

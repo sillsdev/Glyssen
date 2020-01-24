@@ -84,6 +84,8 @@ namespace GlyssenEngine
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
 
+		public static IFontRepository s_fontRepository { get; set; }
+
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
@@ -134,7 +136,7 @@ namespace GlyssenEngine
 			}
 
 			if (installFonts)
-				Fonts.InstallIfNecessary(m_projectMetadata.FontFamily, LanguageFolder, ref m_fontInstallationAttempted);
+				InstallIfNecessary();
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -153,7 +155,7 @@ namespace GlyssenEngine
 					Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
 					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
 
-			Fonts.InstallIfNecessary(m_projectMetadata.FontFamily, LanguageFolder, ref m_fontInstallationAttempted);
+			InstallIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
 			{
@@ -372,6 +374,30 @@ namespace GlyssenEngine
 					: CastSizeOption.Recommended;
 			}
 		}
+
+		public void InstallIfNecessary()
+		{
+			Debug.Assert(s_fontRepository != null, "Font repository implementation should be set before attempting to load a project.");
+
+			string fontFamily = m_projectMetadata.FontFamily;
+			if (m_fontInstallationAttempted || s_fontRepository.IsFontInstalled(fontFamily))
+				return;
+
+			string languageFolder = LanguageFolder;
+
+			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
+			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
+				.Where(ttf => s_fontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
+
+			if (ttfFilesToInstall.Count > 0)
+			{
+				m_fontInstallationAttempted = true;
+				s_fontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
+			}
+			else
+				s_fontRepository.ReportMissingFontFamily(fontFamily);
+		}
+
 
 		public void SetCharacterGroupGenerationPreferencesToValidValues()
 		{
@@ -838,10 +864,9 @@ namespace GlyssenEngine
 			if (!RobustFile.Exists(existingProject.OriginalBundlePath))
 			{
 				bool upgradeProject = false;
-				if (kParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
+				if (kParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion && handleMissingBundleNeededForUpgrade != null)
 				{
-					if (handleMissingBundleNeededForUpgrade != null)
-						upgradeProject = handleMissingBundleNeededForUpgrade(existingProject);
+					upgradeProject = handleMissingBundleNeededForUpgrade(existingProject);
 					if (!upgradeProject)
 						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = kParserVersion;
 				}
@@ -892,7 +917,7 @@ namespace GlyssenEngine
 			return GetLiveParatextDataIfCompatible(false, "", false, forceReload);
 		}
 
-		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
+		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingbool canInteractWithUser = true,
 			string contextMessage = "", bool checkForChangesInAvailableBooks = true, bool forceReload = false)
 		{
 			ParatextScrTextWrapper scrTextWrapper = null;

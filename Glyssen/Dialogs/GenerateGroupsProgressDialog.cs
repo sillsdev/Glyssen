@@ -4,8 +4,10 @@ using System.Linq;
 using System.Windows.Forms;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using SIL;
+using SIL.Progress;
 
 namespace Glyssen.Dialogs
 {
@@ -90,6 +92,43 @@ namespace Glyssen.Dialogs
 			Name = "GenerateGroupsProgressDialog";
 			ResumeLayout(false);
 			PerformLayout();
+		}
+
+		public static void GenerateGroupsWithProgress(Project project, bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, CastSizeRowValues ghostCastSize = null, bool cancelLink = false)
+		{
+			var castSizeOption = project.CharacterGroupGenerationPreferences.CastSizeOption;
+			if (forceMatchToActors)
+				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
+			bool saveGroups = false;
+			using (var progressDialog = new GenerateGroupsProgressDialog(project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
+			{
+				var generator = new CharacterGroupGenerator(project, ghostCastSize, progressDialog.BackgroundWorker);
+				progressDialog.ProgressState.Arguments = generator;
+
+				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+				{
+					var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
+					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+
+					if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+					{
+						var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+						MessageBox.Show(msg);
+					}
+
+					saveGroups = true;
+				}
+				else if (forceMatchToActors)
+					project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
+			}
+			project.Save(saveGroups);
+		}
+
+		private static void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
 		}
 	}
 }

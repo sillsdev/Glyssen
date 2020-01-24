@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 
-namespace Glyssen.Rules
+namespace GlyssenEngine.Rules
 {
 	public class Proximity
 	{

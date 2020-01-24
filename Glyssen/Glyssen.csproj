@@ -497,7 +497,6 @@
       <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="GlyssenSettingsProvider.cs" />
-    <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="ScriptExporter.cs" />
     <Compile Include="Utilities\AlertImpl.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
@@ -589,11 +588,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\CharacterGroupGenerator.cs" />
-    <Compile Include="Rules\Proximity.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="Utilities\WinFormsAnalytics.cs" />
-    <Compile Include="Utilities\WinFormsFonts.cs" />
+    <Compile Include="Utilities\WinFormsFontRepositoryAdapter.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>

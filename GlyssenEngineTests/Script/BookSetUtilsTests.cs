@@ -151,7 +151,7 @@ namespace GlyssenEngineTests.Script
 	{
 		public static string BookSummary(this IEnumerable<string> bookStrs)
 		{
-			return BookSummary(bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)));
+			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>(), null)).BookSummary();
 		}
 
 		public static IEnumerable<BookScript> ToBookScriptEnumerable(this IEnumerable<string> bookStrs)

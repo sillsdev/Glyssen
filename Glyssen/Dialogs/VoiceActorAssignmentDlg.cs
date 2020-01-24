@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Controls;
 using Glyssen.Properties;
-using Glyssen.Rules;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -497,7 +497,7 @@ namespace Glyssen.Dialogs
 				? FirstSelectedCharacterGroup.GroupId : null;
 
 			m_actorAssignmentViewModel.RegenerateGroups(() => {
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project,
+				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project,
 					true, false, true, null, m_programmaticClickOfUpdateGroups);
 			});
 			m_programmaticClickOfUpdateGroups = false;

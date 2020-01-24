@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Rules;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using GlyssenEngineTests;
 using NUnit.Framework;

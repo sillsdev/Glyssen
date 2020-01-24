@@ -273,6 +273,11 @@
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="ReferenceTextTests.cs" />
+    <Compile Include="Rules\AuthorStatsTests.cs" />
+    <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
+    <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
+    <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
     <Compile Include="Script\BlockMatchupTests.cs" />
     <Compile Include="Script\BlockNavigatorTests.cs" />
     <Compile Include="Script\BlockTests.cs" />

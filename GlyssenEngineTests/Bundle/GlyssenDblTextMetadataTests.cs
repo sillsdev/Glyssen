@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
 using NUnit.Framework;
+using SIL.TestUtilities;
 
 namespace GlyssenEngineTests.Bundle
 {

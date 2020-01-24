@@ -1,15 +1,13 @@
 ﻿using System.Linq;
-using Glyssen.Character;
-using Glyssen.Rules;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Rules;
 using GlyssenEngine.VoiceActor;
-using GlyssenEngineTests;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
+using Resources = GlyssenEngineTests.Properties.Resources;
 
-namespace GlyssenTests.Rules
+namespace GlyssenEngineTests.Rules
 {
 	[TestFixture]
 	class CharacterGroupsAdjusterTests : CharacterGroupGeneratorAndAdjusterTestBase

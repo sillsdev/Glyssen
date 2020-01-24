@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Windows.Forms;
-using Glyssen.Dialogs;
-using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
-using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
-using SIL;
 using SIL.Extensions;
-using SIL.Progress;
- using SIL.Reporting;
+using SIL.Reporting;
 
-namespace Glyssen.Rules
+namespace GlyssenEngine.Rules
 {
 	public class CharacterGroupGenerator
 	{
@@ -103,43 +97,6 @@ namespace Glyssen.Rules
 			}
 		}
 
-		public static void GenerateGroupsWithProgress(Project project, bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, CastSizeRowValues ghostCastSize = null, bool cancelLink = false)
-		{
-			var castSizeOption = project.CharacterGroupGenerationPreferences.CastSizeOption;
-			if (forceMatchToActors)
-				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
-			bool saveGroups = false;
-			using (var progressDialog = new GenerateGroupsProgressDialog(project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
-			{
-				var generator = new CharacterGroupGenerator(project, ghostCastSize, progressDialog.BackgroundWorker);
-				progressDialog.ProgressState.Arguments = generator;
-
-				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
-				{
-					var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
-					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
-
-					if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
-					{
-						var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
-							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
-						MessageModal.Show(msg);
-					}
-
-					saveGroups = true;
-				}
-				else if (forceMatchToActors)
-					project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
-			}
-			project.Save(saveGroups);
-		}
-
-		private static void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
-		}
-
 		private static void LogAndOutputToDebugConsole(string message)
 		{
 			Debug.WriteLine(message);
@@ -150,8 +107,8 @@ namespace Glyssen.Rules
 		{
 			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
-			List<VoiceActor> actorsForGeneration;
-			List<VoiceActor> realActorsToReset = null;
+			List<VoiceActor.VoiceActor> actorsForGeneration;
+			List<VoiceActor.VoiceActor> realActorsToReset = null;
 			if (GroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList)
 				actorsForGeneration = m_project.VoiceActorList.ActiveActors.ToList();
 			else
@@ -174,7 +131,7 @@ namespace Glyssen.Rules
 				return GeneratedGroups = characterGroups; // REVIEW: Maybe we should throw an exception instead.
 			}
 
-			List<VoiceActor> nonCameoActors = actorsForGeneration.Where(a => !a.IsCameo).ToList();
+			List<VoiceActor.VoiceActor> nonCameoActors = actorsForGeneration.Where(a => !a.IsCameo).ToList();
 
 			if (m_worker.CancellationPending)
 			{
@@ -203,7 +160,7 @@ namespace Glyssen.Rules
 			// In the first loop, we're looking for actors that could only possibly play one character role.
 			// Since we're not doing strict age matching, this is most likely only to find any candidates in
 			// the case of children (and then only if the project includes a limited selection of books)
-			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor>>();
+			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor.VoiceActor>>();
 			foreach (var actor in nonCameoActors)
 			{
 				// After we find the second match, we can quit looking because we're only interested in unique matches.
@@ -213,7 +170,7 @@ namespace Glyssen.Rules
 					if (characterDetailsUniquelyMatchedToActors.ContainsKey(uniqueMatch))
 						characterDetailsUniquelyMatchedToActors[uniqueMatch].Add(actor);
 					else
-						characterDetailsUniquelyMatchedToActors[uniqueMatch] = new List<VoiceActor> { actor };
+						characterDetailsUniquelyMatchedToActors[uniqueMatch] = new List<VoiceActor.VoiceActor> { actor };
 				}
 			}
 
@@ -393,13 +350,13 @@ namespace Glyssen.Rules
 			return GetFinalizedGroups(bestConfiguration, actorsWithRealAssignments, realActorsToReset);
 		}
 
-		private void EnsureActorListIsSetToRealActors(List<VoiceActor> realActorsToReset)
+		private void EnsureActorListIsSetToRealActors(List<VoiceActor.VoiceActor> realActorsToReset)
 		{
 			if (realActorsToReset != null)
 				m_project.VoiceActorList.AllActors = realActorsToReset;
 		}
 
-		private List<CharacterGroup> GetFinalizedGroups(TrialGroupConfiguration configuration, List<int> actorsWithRealAssignments, List<VoiceActor> realActorsToReset)
+		private List<CharacterGroup> GetFinalizedGroups(TrialGroupConfiguration configuration, List<int> actorsWithRealAssignments, List<VoiceActor.VoiceActor> realActorsToReset)
 		{
 			List<CharacterGroup> groups = configuration.Groups;
 
@@ -428,7 +385,7 @@ namespace Glyssen.Rules
 			return GeneratedGroups;
 		}
 
-		private List<CharacterGroup> CreateGroupsForActors(IEnumerable<VoiceActor> actors)
+		private List<CharacterGroup> CreateGroupsForActors(IEnumerable<VoiceActor.VoiceActor> actors)
 		{
 			List<CharacterGroup> groups = new List<CharacterGroup>();
 			bool? projectHasChildRole = null;
@@ -468,19 +425,19 @@ namespace Glyssen.Rules
 			return groups;
 		}
 
-		private IEnumerable<VoiceActor> CreateGhostCastActors()
+		private IEnumerable<VoiceActor.VoiceActor> CreateGhostCastActors()
 		{
-			List<VoiceActor> ghostCastActors = new List<VoiceActor>();
+			List<VoiceActor.VoiceActor> ghostCastActors = new List<VoiceActor.VoiceActor>();
 			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Male, ActorAge.Adult, m_ghostCastSize.Male, ghostCastActors.Count));
 			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Female, ActorAge.Adult, m_ghostCastSize.Female, ghostCastActors.Count));
 			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Male, ActorAge.Child, m_ghostCastSize.Child, ghostCastActors.Count));
 			return ghostCastActors;
 		}
 
-		private IEnumerable<VoiceActor> CreateGhostCastActors(ActorGender gender, ActorAge age, int number, int startingIdNumber)
+		private IEnumerable<VoiceActor.VoiceActor> CreateGhostCastActors(ActorGender gender, ActorAge age, int number, int startingIdNumber)
 		{
 			for (int i = 0; i < number; i++)
-				yield return new VoiceActor
+				yield return new VoiceActor.VoiceActor
 				{
 					Id = startingIdNumber++,
 					Gender = gender,

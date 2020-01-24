@@ -9,13 +9,13 @@ using System.Text;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
-using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
+using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using L10NSharp;
@@ -57,6 +57,8 @@ namespace Glyssen
 		public MainForm(IReadOnlyList<string> args)
 		{
 			InitializeComponent();
+
+			Project.s_fontRepository = new WinFormsFontRepositoryAdapter();
 
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
@@ -361,7 +363,7 @@ namespace Glyssen
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(filePath));
+				SetProject(Project.Load(filePath, HandleMissingBundleNeededForProjectUpgrade));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -374,10 +376,9 @@ namespace Glyssen
 
 		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
 		{
-			string msg = ParserUpgradeMessage + " " + Format(
-					Localizer.GetString("Project.ParserUpgradeBundleMissingMsg",
-						"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
-					existingProject.OriginalBundlePath) +
+			string msg = Project.ParserUpgradeMessage + " " + Format(Localizer.GetString("Project.ParserUpgradeBundleMissingMsg",
+				"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
+				existingProject.OriginalBundlePath) +
 				Environment.NewLine + Environment.NewLine +
 				Localizer.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 			string caption = Localizer.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -1056,9 +1057,9 @@ namespace Glyssen
 				EnsureGroupsAreInSynchWithCharactersInUse();
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
 			else if (regenerateGroups)
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, true, false, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project, true, false, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
 
 			bool launchCastSizePlanning;
 			using (var dlg = new VoiceActorAssignmentDlg(new VoiceActorAssignmentViewModel(m_project)))

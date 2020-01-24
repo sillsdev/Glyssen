@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Glyssen;
-using Glyssen.Character;
-using Glyssen.Rules;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
-using GlyssenEngineTests;
+using GlyssenEngine.Rules;
 using NUnit.Framework;
-using Resources = GlyssenTests.Properties.Resources;
+using Resources = GlyssenEngineTests.Properties.Resources;
 
-namespace GlyssenTests.Rules
+namespace GlyssenEngineTests.Rules
 {
 	[TestFixture]
 	class ProximityTests

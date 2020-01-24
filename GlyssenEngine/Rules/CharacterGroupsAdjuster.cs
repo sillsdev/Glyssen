@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL.Extensions;
 
-namespace Glyssen.Rules
+namespace GlyssenEngine.Rules
 {
-	class CharacterGroupsAdjuster
+	public class CharacterGroupsAdjuster
 	{
 		private readonly Project m_project;
 		private readonly HashSet<string> m_charactersNotCoveredByAnyGroup;
@@ -21,8 +20,9 @@ namespace Glyssen.Rules
 			m_charactersNoLongerInUse = new HashSet<string>(characterGroups.SelectMany(g => g.CharacterIds).Where(c => !charactersInProject.Contains(c)));
 		}
 
-		public IEnumerable<string> CharactersNotCoveredByAnyGroup { get { return m_charactersNotCoveredByAnyGroup; } }
-		public IEnumerable<string> CharactersNoLongerInUse { get { return m_charactersNoLongerInUse; } }
+		public IEnumerable<string> CharactersNotCoveredByAnyGroup => m_charactersNotCoveredByAnyGroup;
+		public IEnumerable<string> CharactersNoLongerInUse => m_charactersNoLongerInUse;
+
 		public IEnumerable<CharacterGroup> CharacterGroupsToRemove
 		{
 			get
@@ -52,7 +52,7 @@ namespace Glyssen.Rules
 
 		/// <summary>
 		/// For now, this is only used in tests. If we decide that we need to distinguish between different cases to decide how strongly
-		/// to recommned doing a full regeneration, we'll need to look at the specifics here to see if they meet the need.
+		/// to recommend doing a full regeneration, we'll need to look at the specifics here to see if they meet the need.
 		/// </summary>
 		public bool FullRegenerateRecommended
 		{
