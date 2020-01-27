@@ -147,6 +147,29 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;Original&quot; 
+        ///# Version=1.200
+        ///# (not a very good name but I have not heard a better suggestion)
+        ///#
+        ///# modifications by Studge 26/June/2009
+        ///# TomB removed deuterocanical books not needed by Glyssen&apos;s tests
+        ///#
+        ///# BHS versification for OT, UBS GNT versification for NT
+        ///# following the Masoretic order
+        ///# OT translations using Masorteic verse structures should map onto this text
+        ///# NT versifications maps onto Nestle-Aland
+        ///#
+        ///# List of books, chapters, verses
+        ///# One line per book.
+        ///# One entry  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OriginalVersification {
+            get {
+                return ResourceManager.GetString("OriginalVersification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;Russian Orthodox&quot;
         ///# Version=1.3
         ///#
@@ -604,6 +627,24 @@ namespace GlyssenEngineTests.Properties {
         internal static string TestNarratorOverrides1 {
             get {
                 return ResourceManager.GetString("TestNarratorOverrides1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;NUM&quot; style=&quot;id&quot;&gt;Some Bible from Asia&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;SÁCH DÂN SỐ&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;SÁCH DÂN SỐ&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;SÁCH DÂN SỐ&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;ms&quot;&gt;I. KIỂM TRA DÂN SỐ&lt;/para&gt;
+        ///  &lt;para style=&quot;p&quot;&gt;
+        ///    &lt;verse number=&quot;1&quot; style=&quot;v&quot; /&gt;Tại sa mạc Xi-nai ngày mồng một hai năm hai kể từ khi cái Ít-ra-en ra khỏi đất Ai-cập, ĐỨC CHÚA phán với ông Mô-sê trong Lều Hội Ngộ rằng [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestNUM {
+            get {
+                return ResourceManager.GetString("TestNUM", resourceCulture);
             }
         }
         

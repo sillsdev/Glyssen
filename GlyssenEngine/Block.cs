@@ -626,13 +626,12 @@ namespace GlyssenEngine
 		/// Technically, any preceding ScriptText element that consists entirely of punctuation will be
 		/// considered as being part of the following verse.)
 		/// </summary>
-		public bool StartsAtVerseStart
-		{
-			get
-			{
-				return !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
-			}
-		}
+		public bool StartsAtVerseStart => !(BlockElements.First() is ScriptText) || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
+
+		/// <summary>
+		/// <see cref="StartsAtVerseStart"/> or <see cref="IsChapterAnnouncement"/>
+		/// </summary>
+		public bool IsVerseBreak => StartsAtVerseStart || IsChapterAnnouncement;
 
 		/// <summary>
 		/// Gets the <see cref="Verse"/> objects covered by this block. This may be single
@@ -1144,6 +1143,11 @@ namespace GlyssenEngine
 				newRowBValue = newRowBValue.Substring(match.Length);
 			}
 			newRowAValue = leadingVerse + rowB;
+		}
+
+		public VerseRef StartRef(BookScript book)
+		{
+			return StartRef(book.BookNumber, book.Versification);
 		}
 
 		public VerseRef StartRef(int bookNum, ScrVers versification)

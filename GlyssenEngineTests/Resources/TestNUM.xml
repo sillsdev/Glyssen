@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<usx version="2.0">
+  <book code="NUM" style="id">Some Bible from Asia</book>
+  <para style="h">SÁCH DÂN SỐ</para>
+  <para style="toc1">SÁCH DÂN SỐ</para>
+  <para style="mt1">SÁCH DÂN SỐ</para>
+  <chapter number="1" style="c" />
+  <para style="ms">I. KIỂM TRA DÂN SỐ</para>
+  <para style="p">
+    <verse number="1" style="v" />Tại sa mạc Xi-nai ngày mồng một hai năm hai kể từ khi cái Ít-ra-en ra khỏi đất Ai-cập, ĐỨC CHÚA phán với ông Mô-sê trong Lều Hội Ngộ rằng :</para>
+  <chapter number="16" style="c" />
+  <para style="p">
+    <verse number="34" style="v" />Tất cả những tiếng họ kêu chạy, và nói : “Coi chừng đất ta bây giờ !”</para>
+  <para style="p">
+    <verse number="35" style="v" />ĐỨC CHÚA cho  trọn năm đã hương.</para>
+  <chapter number="17" style="c" />
+  <para style="s">Bình hương</para>
+  <para style="p">
+    <verse number="1" style="v" />ĐỨC CHÚA phán với ông Mô-sê :</para>
+  <para style="p">
+    <verse number="2" style="v" />“Ngươi hãy nói với E-la-da, con A-ha-ron, bình hương trên đám hất lửa ấy ra xa. <verse number="3" style="v" />Dù những bình hương đó là của những kẻ mà phải chết, nên tấm đồng mỏng bàn thờ. Quả ĐỨC CHÚA, và đã thánh hiến chúng ; cảnh cái Ít-ra-en.”</para>
+</usx>

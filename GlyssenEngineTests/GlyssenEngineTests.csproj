@@ -342,6 +342,7 @@
     <None Include="Resources\Test3JN.xml" />
     <None Include="Resources\TestACT.xml" />
     <None Include="Resources\TestEmptyBook.xml" />
+    <Content Include="Resources\OriginalVersification.txt" />
     <Content Include="Resources\TestLUK.xml" />
     <None Include="Resources\TestMATcuk.xml" />
     <None Include="Resources\TestMRK.xml" />
@@ -349,6 +350,7 @@
     <None Include="Resources\TestPHM.xml" />
     <None Include="Resources\TestREV.xml" />
     <None Include="Resources\TestRUT.xml" />
+    <Content Include="Resources\TestNUM.xml" />
     <Content Include="Resources\TestVersification.txt" />
     <Content Include="TestNarratorOverrides.xml" />
     <None Include="Resources\TestCharacterDetailOct2015.txt" />

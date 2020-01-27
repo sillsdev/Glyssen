@@ -988,7 +988,7 @@ namespace GlyssenEngine.ViewModels
 						// TODO (PG-784): If a book is single-voice, no block in it should match this filter.
 						//if (!CurrentBookIsSingleVoice)
 						if (matchup.OriginalBlocks.Any(b => IsRelevant(b)) ||
-							((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && matchup.CorrelatedBlocks.Count > 1 && !matchup.AllScriptureBlocksMatch))
+							((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && !matchup.AllScriptureBlocksMatch))
 						{
 							foreach (var relevantBlock in matchup.OriginalBlocks)
 								RelevantBlockAdded(relevantBlock);

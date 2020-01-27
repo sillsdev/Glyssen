@@ -133,6 +133,9 @@
   <data name="FrenchMRKRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FrenchMRKRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="OriginalVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OriginalVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="RussianOrthodoxVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RussianOrthodoxVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -204,6 +207,9 @@
   </data>
   <data name="TestNarratorOverrides1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestNarratorOverrides.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="TestNUM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestNUM.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TestOBAwithInterestingVerseNums" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestOBAwithInterestingVerseNums.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

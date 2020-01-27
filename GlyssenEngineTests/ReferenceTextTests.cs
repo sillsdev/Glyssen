@@ -4013,6 +4013,38 @@ namespace GlyssenEngineTests
 			}
 		}
 
+		/// <summary>
+		/// PG-1315
+		/// </summary>
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernacularVerseMapsIntoMultiVerseRefBlockInPreviousChapter_MatchupCrossesChapterBoundary()
+		{
+			var testProject = TestProject.CreateTestProject(Resources.OriginalVersification, TestProject.TestBook.NUM);
+
+			var numbersVern = testProject.GetBook("NUM");
+			var iNum16V35VernBlock = numbersVern.GetIndexOfFirstBlockForVerse(16, 35);
+			var iNum17V1VernBlock = numbersVern.GetIndexOfFirstBlockForVerse(17, 1);
+			Assert.IsTrue(iNum16V35VernBlock < iNum17V1VernBlock);
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var numbersEng = englishRefText.GetBook("NUM");
+			var num16V36Block = numbersEng.GetBlocksForVerse(16, 36).Single();
+			if (num16V36Block.InitialStartVerseNumber != 35)
+			{
+				// This is a semi-dangerous hack. Since we can't get the lock, this isn't thread-safe. But most tests don't access NUM, so we're probably okay.
+				var modifiedBooks = (HashSet<string>)ReflectionHelper.GetField(englishRefText, "m_modifiedBooks");
+				modifiedBooks.Add("NUM");
+				var num16V35Block = numbersEng.GetBlocksForVerse(16, 35).Single();
+				num16V36Block.BlockElements.InsertRange(0, num16V35Block.BlockElements);
+				num16V36Block.InitialStartVerseNumber = 35;
+				num16V35Block.BlockElements.Clear();
+				num16V35Block.BlockElements.Add(new ScriptText("This is the new ending for verse thirty-four."));
+				num16V35Block.InitialStartVerseNumber = 34;
+			}
+			var matchup16V35 = englishRefText.GetBlocksForVerseMatchedToReferenceText(numbersVern, iNum16V35VernBlock);
+			var matchup17V1 = englishRefText.GetBlocksForVerseMatchedToReferenceText(numbersVern, iNum17V1VernBlock);
+			Assert.IsTrue(matchup16V35.OriginalBlocks.Select(b => b.GetText(true)).SequenceEqual(matchup17V1.OriginalBlocks.Select(b => b.GetText(true))));
+		}
+
 		#region private helper methods
 		private Block NewChapterBlock(string bookId, int chapterNum, string text = null)
 		{

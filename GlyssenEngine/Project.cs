@@ -33,7 +33,6 @@ using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
-//using Resources = Glyssen.Properties.Resources;
 
 namespace GlyssenEngine
 {
@@ -766,7 +765,7 @@ namespace GlyssenEngine
 								if (refTextVerseSplitLocations == null)
 									refTextVerseSplitLocations = m_referenceText.GetVerseSplitLocations(book.BookId);
 								var matchup = new BlockMatchup(book, i, null,
-									nextVerse => m_referenceText.IsOkayToSplitAtVerse(nextVerse, Versification, refTextVerseSplitLocations),
+									candidate => m_referenceText.IsOkayToSplitBeforeBlock(book, candidate, refTextVerseSplitLocations),
 									m_referenceText);
 								foreach (var blockToClear in matchup.OriginalBlocks)
 									blockToClear.ClearReferenceText();
@@ -797,7 +796,7 @@ namespace GlyssenEngine
 			if (existingProject == null)
 				return null;
 
-			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteParserUpgrade)
+			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteReparse)
 			{
 				Debug.Assert(existingProject.Books.Any());
 				if (existingProject.ProjectState != ProjectState.FullyInitialized)
@@ -824,15 +823,24 @@ namespace GlyssenEngine
 		}
 
 		/// <summary>
-		/// Returns true if the project was parsed with a quote parser that is older than the current parser version.
-		/// However, in some circumstances, if we know that the new version would not result in improved parsing, this
-		/// property has the side-effect of just updating the project's parser version to the current version number
-		/// and returning false.
+		/// Returns true if the project needs to be reparsed, typically because it was parsed with an older version of the quote
+		/// parser, but also for other more obscure reasons. (Can have non-readonly side-effects - see remarks.)
 		/// </summary>
-		private bool NeedsQuoteParserUpgrade
+		/// <remarks>Note that in some circumstances, if we know that the new parser version would not result in improved parsing,
+		/// this property has the side-effect of just updating the project's parser version to the current version number and
+		/// returning false.
+		/// </remarks>
+		private bool NeedsQuoteReparse
 		{
 			get
 			{
+				// PG-1315: If the Versification was changed in Paratext, we should redo the quote parsing because guesses about
+				// appropriate character assignments are heavily tied to verse references. However, versification mappings in the
+				// New Testament are rare and very limited even when they do occur. So if we're including only NT books, we can
+				// skip this.
+				if (IsLiveParatextProject && m_projectMetadata.Versification != Versification.Name && IncludedBooks.First().BookNumber < 40)
+					return true;
+
 				if (m_projectMetadata.ParserVersion >= kParserVersion)
 					return false;
 				switch (kParserVersion)
