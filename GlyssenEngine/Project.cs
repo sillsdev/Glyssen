@@ -1341,7 +1341,7 @@ namespace GlyssenEngine
 			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books,
+				new CharacterAssigner(new CombinedCharacterVerseData(this), QuoteSystem).AssignAll(m_books,
 					m_projectMetadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 
 				UpdateControlFileVersion();

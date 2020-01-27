@@ -5,11 +5,13 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.IO;
 using SIL.Scripture;
 using SIL.TestUtilities;
+using SIL.WritingSystems;
 using SIL.Xml;
 using static GlyssenEngine.Character.CharacterVerseData;
 using Resources = GlyssenEngineTests.Properties.Resources;
@@ -20,6 +22,7 @@ namespace GlyssenEngineTests.Script
 	class BlockTests
 	{
 		private ScrVers m_testVersification;
+		private IQuoteInterruptionFinder m_interruptionFinder;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -32,6 +35,8 @@ namespace GlyssenEngineTests.Script
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
 				m_testVersification = Versification.Table.Implementation.Load(tempFile.Path);
 			}
+
+			m_interruptionFinder = new QuoteSystem(new QuotationMark("—", "—", null, 1, QuotationMarkingSystemType.Narrative));
 		}
 
 		[SetUp]
@@ -687,7 +692,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { JesusQuestioning });
+			block.SetCharacterAndDelivery(m_interruptionFinder, new[] { JesusQuestioning });
 			Assert.AreEqual("Jesus", block.CharacterId);
 			Assert.AreEqual("Questioning", block.Delivery);
 		}
@@ -700,7 +705,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(new CharacterSpeakingMode[0]);
+			block.SetCharacterAndDelivery(m_interruptionFinder, new CharacterSpeakingMode[0]);
 			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
@@ -713,7 +718,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(new [] { JesusCommanding, JesusQuestioning, Andrew });
+			block.SetCharacterAndDelivery(m_interruptionFinder, new [] { JesusCommanding, JesusQuestioning, Andrew });
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
@@ -724,7 +729,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
+			block.SetCharacterAndDelivery(m_interruptionFinder, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Mary", block.CharacterIdInScript);
 		}
@@ -737,7 +742,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Mary/Martha";
 			block.CharacterIdInScript = "Martha";
-			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(m_interruptionFinder, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Martha", block.CharacterIdInScript);
 		}
@@ -749,7 +754,7 @@ namespace GlyssenEngineTests.Script
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Mary/Martha";
-			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(m_interruptionFinder, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Mary", block.CharacterIdInScript);
 		}
@@ -760,7 +765,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4, 6);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verses four through seven. "));
-			block.SetCharacterAndDelivery(new[]
+			block.SetCharacterAndDelivery(m_interruptionFinder, new[]
 			{
 				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Martha"),
 				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Jews"),
@@ -776,7 +781,7 @@ namespace GlyssenEngineTests.Script
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { JesusQuestioning });
+			block.SetCharacterAndDelivery(m_interruptionFinder, new[] { JesusQuestioning });
 			Assert.IsFalse(block.CharacterIsStandard);
 		}
 
@@ -1629,7 +1634,7 @@ namespace GlyssenEngineTests.Script
 		public void ProbablyDoesNotContainInterruption_ApparentInterruptions_ReturnsFalse(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.False(block.ProbablyDoesNotContainInterruption);
+			Assert.False(block.ProbablyDoesNotContainInterruption(m_interruptionFinder));
 		}
 
 		[TestCase("a b-c d-e")]
@@ -1639,7 +1644,7 @@ namespace GlyssenEngineTests.Script
 		public void ProbablyDoesNotContainInterruption_WordMedialOrUnmatchedDashes_ReturnsTrue(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.True(block.ProbablyDoesNotContainInterruption);
+			Assert.True(block.ProbablyDoesNotContainInterruption(m_interruptionFinder));
 		}
 
 		[TestCase("a (bcd) e", ExpectedResult = "(bcd) ")]
@@ -1652,7 +1657,7 @@ namespace GlyssenEngineTests.Script
 		public string GetNextInterruption_InterruptionFoundCorrectly(string text)
 		{
 			var block = GetBlockWithText(text);
-			return block.GetNextInterruption().Item1.Value;
+			return block.GetNextInterruption(m_interruptionFinder).Item1.Value;
 		}
 
 		[TestCase("a b-c-d e")]
@@ -1660,7 +1665,7 @@ namespace GlyssenEngineTests.Script
 		public void GetNextInterruption_WordMedialDashes_NoInterruptionFound(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.Null(block.GetNextInterruption());
+			Assert.Null(block.GetNextInterruption(m_interruptionFinder));
 		}
 
 		private Block GetBlockWithText(string text)

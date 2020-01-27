@@ -385,11 +385,11 @@ namespace GlyssenEngineTests.ViewModelTests
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
-			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).Select(a => a.Item1).ToList();
-			Assert.AreEqual(actorA, actorList[0]);
-			Assert.AreEqual(actorB, actorList[1]);
-			Assert.AreEqual(actorC, actorList[2]);
-			Assert.AreEqual(null, actorList[3]); // The "Unassigned" option
+			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).ToList();
+			Assert.AreEqual(actorA, actorList[0].Item1);
+			Assert.AreEqual(actorB, actorList[1].Item1);
+			Assert.AreEqual(actorC, actorList[2].Item1);
+			Assert.IsTrue(actorList.Select(a => a.Item2).All(available => available));
 		}
 
 		[Test]
@@ -405,11 +405,13 @@ namespace GlyssenEngineTests.ViewModelTests
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actorA.Id, group);
 
-			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).Select(a => a.Item1).ToList();
-			Assert.AreEqual(actorB, actorList[0]);
-			Assert.AreEqual(actorC, actorList[1]);
-			Assert.AreEqual(null, actorList[2]); // The "Unassigned" option
-			Assert.AreEqual(actorA, actorList[3]);
+			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).ToList();
+			Assert.AreEqual(actorB, actorList[0].Item1);
+			Assert.IsTrue(actorList[0].Item2);
+			Assert.AreEqual(actorC, actorList[1].Item1);
+			Assert.IsTrue(actorList[1].Item2);
+			Assert.AreEqual(actorA, actorList[2].Item1);
+			Assert.IsFalse(actorList[2].Item2);
 		}
 
 		[Test]

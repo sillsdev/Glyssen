@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
+using GlyssenEngine.Quote;
 using static System.Char;
 using static System.String;
 
@@ -31,7 +32,6 @@ namespace GlyssenEngine
 						".scripttext {{display:inline}}";
 
 		private static readonly Regex s_regexFollowOnParagraphStyles;
-		internal static Regex s_regexInterruption;
 
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
@@ -58,28 +58,6 @@ namespace GlyssenEngine
 			// "qa", which is an acrostic header and should not be treated like other poetry markers. As the standard is changed in the future,
 			// any new markers that should be treated as "follow on" paragraphs will need to be added here.
 			s_regexFollowOnParagraphStyles = new Regex("^((q((m?\\d?)|[rc])?)|m|mi|(pi\\d?)|(l(f|(i(m?)\\d?))))$", RegexOptions.Compiled);
-			InitializeInterruptionRegEx(false);
-		}
-
-		internal static void InitializeInterruptionRegEx(bool excludeLongDashes)
-		{
-			//                                   interruption in parentheses
-			//                                                  |||        OR interruption in square brackets
-			//                                                  |||                |||
-			//                                                  |||                |||         OR interruption set off by single or double
-			//                                                  vvv                vvv            (non word-medial) dashes
-			StringBuilder pattern = new StringBuilder(@"((\(\w+[^)(\[\]]*\))|(\[\w+[^)(\[\]]*\])|((^|\B)-{1,2}[^-]*[-\w]+[^-]*-{1,2}(\Z|\B))");
-			if (!excludeLongDashes)
-			{
-				// Long dashes should never be word-forming, so even if there is no surrounding whitespace,
-				// they can safely be treated as punctuation dashes that could indicate an interruption.
-				// Hence, the simpler regex (compared to the above regex for normal dashes).
-				const String longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
-				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2014");
-				pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2015");
-			}
-			pattern.Append(@")[^\w]*");
-			s_regexInterruption = new Regex(pattern.ToString(), RegexOptions.Compiled);
 		}
 
 		internal Block()
@@ -791,7 +769,7 @@ namespace GlyssenEngine
 			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
 		}
 
-		public void SetCharacterAndDelivery(IReadOnlyCollection<CharacterSpeakingMode> characters)
+		public void SetCharacterAndDelivery(IQuoteInterruptionFinder interruptionFinder, IReadOnlyCollection<CharacterSpeakingMode> characters)
 		{
 			var characterList = characters.ToList();
 			if (characterList.Count == 1)
@@ -818,7 +796,7 @@ namespace GlyssenEngine
 					CharacterSpeakingMode nonInterruption;
 					if (characterList.Count(cd => cd.QuoteType == QuoteType.Interruption) == 1 &&
 						(nonInterruption = characterList.OnlyOrDefault(cd => cd.QuoteType != QuoteType.Interruption)) != null &&
-						ProbablyDoesNotContainInterruption)
+						ProbablyDoesNotContainInterruption(interruptionFinder))
 					{
 						// Since this block does not appear to be an interruption, we can safely assign the character from
 						// the one and only cv record that is not an "Interruption" type.
@@ -834,17 +812,13 @@ namespace GlyssenEngine
 			}
 		}
 
-		public bool ProbablyDoesNotContainInterruption
+		public bool ProbablyDoesNotContainInterruption(IQuoteInterruptionFinder interruptionFinder)
 		{
-			get
-			{
-				var textElement = BlockElements.OnlyOrDefault() as ScriptText;
-				if (textElement == null)
-					return true;
-				var text = textElement.Content;//.Trim();
-				var match = s_regexInterruption.Match(text);
-				return !match.Success;
-			}
+			var textElement = BlockElements.OnlyOrDefault() as ScriptText;
+			if (textElement == null)
+				return true;
+			var text = textElement.Content;//.Trim();
+			return interruptionFinder.ProbablyDoesNotContainInterruption(text);
 		}
 
 		public void SetCharacterIdAndCharacterIdInScript(string characterId, int bookNumber, ScrVers scrVers = null)
@@ -1274,7 +1248,7 @@ namespace GlyssenEngine
 			return true;
 		}
 
-		public Tuple<Match, string> GetNextInterruption(int startCharIndex = 1)
+		public Tuple<QuoteInterruption, string> GetNextInterruption(IQuoteInterruptionFinder interruptionFinder, int startCharIndex = 1)
 		{
 			var verse = InitialVerseNumberOrBridge;
 			foreach (var element in BlockElements)
@@ -1282,9 +1256,9 @@ namespace GlyssenEngine
 				var text = element as ScriptText;
 				if (text != null)
 				{
-					var match = s_regexInterruption.Match(text.Content, startCharIndex);
-					if (match.Success)
-						return new Tuple<Match, string>(match, verse);
+					var interruption = interruptionFinder.GetNextInterruption(text.Content, startCharIndex);
+					if (interruption != null)
+						return new Tuple<QuoteInterruption, string>(interruption, verse);
 					startCharIndex = 1;
 				}
 				else

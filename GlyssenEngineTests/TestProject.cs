@@ -25,7 +25,7 @@ namespace GlyssenEngineTests
 		{
 			public bool IsFontInstalled(string fontFamilyIdentifier)
 			{
-				throw new NotImplementedException();
+				return true;
 			}
 
 			public bool DoesTrueTypeFontFileContainFontFamily(string ttfFile, string fontFamilyIdentifier)

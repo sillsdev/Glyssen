@@ -51,7 +51,6 @@ namespace GlyssenEngine.Quote
 		public static void SetQuoteSystem(QuoteSystem quoteSystem)
 		{
 			s_quoteSystem = quoteSystem;
-			Block.InitializeInterruptionRegEx(quoteSystem.QuotationDashMarker != null && quoteSystem.QuotationDashMarker.Any(c => c == '\u2014' || c == '\u2015'));
 		}
 
 		private readonly ICharacterVerseRepository m_cvInfo;
@@ -947,7 +946,7 @@ namespace GlyssenEngine.Quote
 								"m_possibleCharactersForCurrentQuote should have kept us from running off the rails like this.");
 						}
 					}
-					m_workingBlock.SetCharacterAndDelivery(characterSpeakingDetails);
+					m_workingBlock.SetCharacterAndDelivery(s_quoteSystem, characterSpeakingDetails);
 				}
 				else
 				{
@@ -1023,7 +1022,7 @@ namespace GlyssenEngine.Quote
 		/// <returns>Any portion of the block following the (last) interruption we detect</returns>
 		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, IReadOnlyCollection<CharacterSpeakingMode> characterSpeakingDetails)
 		{
-			var nextInterruption = m_workingBlock.GetNextInterruption();
+			var nextInterruption = m_workingBlock.GetNextInterruption(s_quoteSystem);
 			if (nextInterruption == null)
 				return null;
 
@@ -1039,13 +1038,13 @@ namespace GlyssenEngine.Quote
 			{
 				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
 				if (originalQuoteBlock.CharacterId == null)
-					originalQuoteBlock.SetCharacterAndDelivery(characterSpeakingDetails);
+					originalQuoteBlock.SetCharacterAndDelivery(s_quoteSystem, characterSpeakingDetails);
 				var startCharIndex = nextInterruption.Item1.Length;
 				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
 				{
 					blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
 					startCharIndex = 1;
-					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
+					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(s_quoteSystem, startCharIndex);
 					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote && nextInterruption == null ? MultiBlockQuote.Start : MultiBlockQuote.None;
 					blockFollowingLastInterruption.SetCharacterInfo(originalQuoteBlock);
 					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
@@ -1053,11 +1052,11 @@ namespace GlyssenEngine.Quote
 				else
 				{
 					blockFollowingLastInterruption = null;
-					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
+					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(s_quoteSystem, startCharIndex);
 				}
 				if (nextInterruption == null)
 					break;
-				m_workingBlock.SetCharacterAndDelivery(characterSpeakingDetails);
+				m_workingBlock.SetCharacterAndDelivery(s_quoteSystem, characterSpeakingDetails);
 				m_workingBlock = blocks.GetScriptBlocks().Last();
 			}
 

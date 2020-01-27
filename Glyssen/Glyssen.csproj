@@ -573,7 +573,6 @@
     <Compile Include="Dialogs\ProjectSettingsDlg.Designer.cs">
       <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

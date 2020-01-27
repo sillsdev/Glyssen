@@ -299,7 +299,7 @@ namespace GlyssenEngine
                                         block.CharacterIdInScript = match.ResolvedDefaultCharacter;
                                     }
                                     else
-                                        block.SetCharacterAndDelivery(characters);
+                                        block.SetCharacterAndDelivery(project.QuoteSystem, characters);
                                     numberOfChangesMade++;
                                 }
                             }
