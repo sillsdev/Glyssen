@@ -2,7 +2,7 @@
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 
-namespace Glyssen.Dialogs
+namespace GlyssenEngine.UndoActions
 {
 	public interface ICharacterGroupsUndoAction : IUndoAction
 	{

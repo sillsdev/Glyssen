@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngine.UndoActions;
-using GlyssenEngine.ViewModels;
-using L10NSharp;
+using SIL;
 using SIL.Extensions;
 
-namespace Glyssen.Dialogs
+namespace GlyssenEngine.UndoActions
 {
 	public class MoveCharactersToGroupUndoAction : CharacterGroupsUndoAction
 	{
@@ -67,15 +64,15 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (IsSplit)
-					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.SplitGroup", "Split group");
+					return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.SplitGroup", "Split group");
 				if (string.IsNullOrEmpty(m_destGroupId))
-					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToNewGroup", "Create new group");
+					return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToNewGroup", "Create new group");
 
 				var destGroup = m_project.CharacterGroupList.GetGroupById(m_destGroupId);
 				// This can probably never be null, but just in case, use this as a really lame fall-back.
 				var groupIdForDisplay = destGroup == null ? m_destGroupId : destGroup.GroupIdForUiDisplay;
 				return string.Format(
-					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToGroup", "Move characters to {0} group"),
+					Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.MoveCharactersToGroup", "Move characters to {0} group"),
 					groupIdForDisplay); }
 		}
 

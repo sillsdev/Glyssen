@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngineTests;
+using GlyssenEngine.UndoActions;
 using NUnit.Framework;
 
-namespace GlyssenTests.Dialogs
+namespace GlyssenEngineTests.UndoActionsTests
 {
 	[TestFixture]
 	internal class VoiceActorAssignmentUndoActionTests

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Glyssen.Properties;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
-using SIL;
+using L10NSharp;
 using SIL.DblBundle;
 using static System.IO.Path;
 using static System.String;
@@ -29,7 +29,7 @@ namespace Glyssen.Dialogs
 			set => Settings.Default.DefaultBundleDirectory = value;
 		}
 
-		private string Title => Format(Localizer.GetString("DialogBoxes.SelectProjectDlg.LocateTextReleaseBundleTitle", "Locate Text Release Bundle for project: {0}",
+		private string Title => Format(LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.LocateTextReleaseBundleTitle", "Locate Text Release Bundle for project: {0}",
 			"Parameter is the project name for which the user is to try to locate the original or updated Text Release Bundle."),
 			m_projectNameAssociatedWithBundle);
 
@@ -72,9 +72,9 @@ namespace Glyssen.Dialogs
 				InitialDirectory = defaultDir,
 				FileName = FileName,
 				Filter = Format("{0} ({1})|{1}|{2} ({3})|{3}",
-					Localizer.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
+					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
 					"*" + DblBundleFileUtils.kDblBundleExtension,
-					Localizer.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
+					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
 					"*.*"),
 				DefaultExt = DblBundleFileUtils.kDblBundleExtension
 			};
@@ -105,8 +105,8 @@ namespace Glyssen.Dialogs
 		{
 			if (TryGetBundleName(project.Name, project.OriginalBundlePath, out string bundlePath))
 			{
-				string invalidMessage = Localizer.GetString("File.InvalidBundleMsg", "The selected file is not a valid text release bundle. Would you like to try again?");
-				string invalidCaption = Localizer.GetString("File.InvalidBundleMsg", "Invalid Bundle");
+				string invalidMessage = LocalizationManager.GetString("File.InvalidBundleMsg", "The selected file is not a valid Text Release Bundle. Would you like to try again?");
+				string invalidCaption = LocalizationManager.GetString("File.InvalidBundleMsg", "Invalid Bundle");
 				if (GetExtension(bundlePath) == DblBundleFileUtils.kDblBundleExtension)
 				{
 					try
@@ -114,8 +114,8 @@ namespace Glyssen.Dialogs
 						var bundle = new GlyssenBundle(bundlePath);
 						if (bundle.Id != project.Id)
 						{
-							string message = Localizer.GetString("File.WrongBundleMsg", "The ID of the selected text release bundle does not match this project. Would you like to try again?");
-							string caption = Localizer.GetString("File.WrongBundle", "Wrong Bundle");
+							string message = LocalizationManager.GetString("File.WrongBundleMsg", "The ID of the selected Text Release Bundle does not match this project. Would you like to try again?");
+							string caption = LocalizationManager.GetString("File.WrongBundle", "Wrong Bundle");
 							return ErrorMessageWithRetry(message, caption, project);
 						}
 

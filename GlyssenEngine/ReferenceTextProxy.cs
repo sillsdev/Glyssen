@@ -9,6 +9,7 @@ using SIL.IO;
 using SIL.Reporting;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Utilities;
 using static System.String;
 
@@ -268,19 +269,17 @@ namespace GlyssenEngine
 		}
 
 		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
-			string referenceProjectFilePath,
-			Action<Exception, string, string> reportError = null)
+			string referenceProjectFilePath, Action<Exception, string, string> reportError = null)
 		{
 			Exception exception;
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
 			if (exception != null)
 			{
-				Analytics.ReportException(exception);
+				NonFatalErrorHandler.HandleException(exception);
 				string token = referenceTextType.ToString();
 				if (reportError == null)
 					throw new ReferenceTextMetadataLoadException(GetLoadErrorMessage(token, referenceProjectFilePath), exception);
-				else
-					reportError(exception, token, referenceProjectFilePath);
+				reportError(exception, token, referenceProjectFilePath);
 				return null;
 			}
 			return metadata;

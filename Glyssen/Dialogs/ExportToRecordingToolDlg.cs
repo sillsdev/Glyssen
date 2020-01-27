@@ -2,10 +2,10 @@
 using System.Windows.Forms;
 using Glyssen.Shared;
 using GlyssenEngine;
+using GlyssenEngine.Export;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -44,7 +44,7 @@ namespace Glyssen.Dialogs
 		{
 			using (var dlg = new SaveFileDialog())
 			{
-				dlg.Title = Localizer.GetString("DialogBoxes.ViewScriptDlg.ExportToHearThis.SaveFileDialog.Title", "Choose File Location");
+				dlg.Title = LocalizationManager.GetString("DialogBoxes.ViewScriptDlg.ExportToHearThis.SaveFileDialog.Title", "Choose File Location");
 				dlg.FileName = m_viewModel.Project.Name + Constants.kGlyssenScriptFileExtension;
 				dlg.Filter = string.Format("{0} ({1})|{1}", "Glyssenscript files", "*" + Constants.kGlyssenScriptFileExtension);
 				dlg.DefaultExt = Constants.kGlyssenScriptFileExtension;

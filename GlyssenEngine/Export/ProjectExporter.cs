@@ -9,17 +9,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Utilities;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using SIL;
 using SIL.IO;
-using SIL.Reporting;
 using SIL.Scripture;
 using static System.String;
 //using Resources = Glyssen.Properties.Resources;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Export
 {
 	public enum ExportFileType
 	{
@@ -54,7 +54,7 @@ namespace GlyssenEngine
 
 		private string m_customFileName;
 		private int m_numberOfFilesSuccessfullyExported;
-		private readonly bool m_includeDelivery;
+		public bool IncludeDelivery { get; }
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
@@ -65,7 +65,7 @@ namespace GlyssenEngine
 			Project = project;
 			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
-			m_includeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
+			IncludeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
 		}
 
 		public Project Project { get; }
@@ -75,7 +75,7 @@ namespace GlyssenEngine
 		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
 
-		internal ExportFileType SelectedFileType { get; set; }
+		public ExportFileType SelectedFileType { get; set; }
 
 		internal string RecordingScriptFileNameSuffix =>
 			Localizer.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
@@ -195,11 +195,10 @@ namespace GlyssenEngine
 				}
 				catch (Exception ex)
 				{
-					Analytics.ReportException(ex);
-					ErrorReport.NotifyUserOfProblem(ex,
+					NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
 						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
-								"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
-							ActorDirectory));
+						"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
+						ActorDirectory));
 				}
 			}
 			if (IncludeBookBreakdown)
@@ -211,8 +210,7 @@ namespace GlyssenEngine
 				}
 				catch (Exception ex)
 				{
-					Analytics.ReportException(ex);
-					ErrorReport.NotifyUserOfProblem(ex,
+					NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
 						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 							"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
 				}
@@ -259,7 +257,7 @@ namespace GlyssenEngine
 			}
 			catch (Exception ex)
 			{
-				Analytics.ReportException(ex);
+				NonFatalErrorHandler.HandleException(ex);
 				// Oh well, probably not worth bugging the user with a yellow screen.
 			}
 		}
@@ -279,13 +277,6 @@ namespace GlyssenEngine
 
 		private IEnumerable<Tuple<string, string>> GenerateMasterScriptFile(string path)
 		{
-			Analytics.Track("Export", new Dictionary<string, string>
-				{
-					{ "exportType", SelectedFileType.ToString() },
-					{ "includeVoiceActors", IncludeVoiceActors.ToString() },
-					{ "includeDelivery", m_includeDelivery.ToString() }
-				});
-
 			return GenerateFile(path, () => GetExportData(), true);
 		}
 
@@ -303,7 +294,7 @@ namespace GlyssenEngine
 			}
 			catch (Exception ex)
 			{
-				Analytics.ReportException(ex);
+				NonFatalErrorHandler.HandleException(ex);
 				caughtException = ex;
 			}
 			if (caughtException != null)
@@ -375,8 +366,7 @@ namespace GlyssenEngine
 					}
 					catch (Exception ex)
 					{
-						Analytics.ReportException(ex);
-						ErrorReport.NotifyUserOfProblem(ex,
+						NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
 							Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
 								"Error writing file: {0}. Creation of clip files aborted.", "{0} is a WAV file path."), fileName));
 						return;
@@ -387,8 +377,7 @@ namespace GlyssenEngine
 
 		private static void ReportClipDirectoryCreationError(Exception ex, string folder)
 		{
-			Analytics.ReportException(ex);
-			ErrorReport.NotifyUserOfProblem(ex,
+			NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
 				Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
 					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}
@@ -457,7 +446,7 @@ namespace GlyssenEngine
 					sheet.Column(columnNum++).Hidden = true;
 
 				// No special formatting for the delivery column, unless we're hiding it
-				if (m_includeDelivery)
+				if (IncludeDelivery)
 					columnNum++;
 				else
 					sheet.Column(columnNum++).Hidden = true;
@@ -648,7 +637,7 @@ namespace GlyssenEngine
 							pendingMismatchedReferenceBlocks = null;
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
-							IncludeVoiceActors, m_includeDelivery,
+							IncludeVoiceActors, IncludeDelivery,
 							Project.ReferenceText.HasSecondaryReferenceText, clipDirectory, projectClipFileId, getBlockElements));
 
 						// At least for now, if getBlockElements is true, we don't want any blocks which don't have vernacular text
@@ -797,7 +786,7 @@ namespace GlyssenEngine
 				VerseNumber = refBlock.InitialStartVerseNumber,
 				CharacterId = refBlock.CharacterId,
 			};
-			if (m_includeDelivery)
+			if (IncludeDelivery)
 				exportData.Delivery = refBlock.Delivery;
 
 			if (Project.ReferenceText.HasSecondaryReferenceText)

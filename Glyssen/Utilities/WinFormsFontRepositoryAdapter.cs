@@ -33,15 +33,15 @@ namespace Glyssen.Utilities
 		public void TryToInstall(string fontFamilyIdentifier, IReadOnlyCollection<string> ttfFiles)
 		{
 			if (ttfFiles.Count > 1)
-				MessageModal.Show(
+				MessageBox.Show(
 					Format(
-						Localizer.GetString("Font.InstallInstructionsMultipleStyles",
+						LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
 							"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
 						fontFamilyIdentifier, GlyssenInfo.kProduct));
 			else
-				MessageModal.Show(
+				MessageBox.Show(
 					Format(
-						Localizer.GetString("Font.InstallInstructions",
+						LocalizationManager.GetString("Font.InstallInstructions",
 							"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
 						fontFamilyIdentifier, GlyssenInfo.kProduct));
 
@@ -54,7 +54,7 @@ namespace Glyssen.Utilities
 				catch (Exception ex)
 				{
 					Logger.WriteError("There was a problem launching the font preview. Please install the font manually:" + ttfFile, ex);
-					MessageModal.Show(Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview",
+					MessageBox.Show(Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview",
 						"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
 				}
 			}

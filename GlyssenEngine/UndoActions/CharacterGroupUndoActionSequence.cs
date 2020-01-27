@@ -3,7 +3,7 @@ using System.Linq;
 using GlyssenEngine.Character;
 using GlyssenEngine.Utilities;
 
-namespace Glyssen.Dialogs
+namespace GlyssenEngine.UndoActions
 {
 	public class CharacterGroupUndoActionSequence : UndoActionSequence<CharacterGroupsUndoAction>, ICharacterGroupsUndoAction
 	{

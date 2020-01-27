@@ -4,7 +4,6 @@ using GlyssenEngine.Character;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -65,12 +64,12 @@ namespace Glyssen.Dialogs
 		{
 			switch (characterGender)
 			{
-				case CharacterGender.Male: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Male", "Male");
-				case CharacterGender.Female: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Female", "Female");
-				case CharacterGender.PreferMale: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.PreferMale", "Either (Male Preferred)");
-				case CharacterGender.PreferFemale: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.PreferFemale", "Either (Female Preferred)");
-				case CharacterGender.Neuter: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Neuter", "Neuter");
-				default: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Either", "Either");
+				case CharacterGender.Male: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Male", "Male");
+				case CharacterGender.Female: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Female", "Female");
+				case CharacterGender.PreferMale: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.PreferMale", "Either (Male Preferred)");
+				case CharacterGender.PreferFemale: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.PreferFemale", "Either (Female Preferred)");
+				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Neuter", "Neuter");
+				default: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterGender.Either", "Either");
 			}
 		}
 
@@ -90,10 +89,10 @@ namespace Glyssen.Dialogs
 		{
 			switch (characterAge)
 			{
-				case CharacterAge.Child: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.Child", "Child");
-				case CharacterAge.Elder: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.Elder", "Elder");
-				case CharacterAge.YoungAdult: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.YoungAdult", "Young Adult");
-				default: return Localizer.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.Adult", "Adult");
+				case CharacterAge.Child: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.Child", "Child");
+				case CharacterAge.Elder: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.Elder", "Elder");
+				case CharacterAge.YoungAdult: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.YoungAdult", "Young Adult");
+				default: return LocalizationManager.GetString("DialogBoxes.NewCharacterDlg.CharacterAge.Adult", "Adult");
 			}
 		}
 

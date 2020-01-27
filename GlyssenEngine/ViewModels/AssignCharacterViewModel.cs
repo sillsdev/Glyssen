@@ -31,6 +31,8 @@ namespace GlyssenEngine.ViewModels
 		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
 		public delegate void SettingBlockCharacterHandler(AssignCharacterViewModel<TFont> sender, Block block, ICharacter character);
 		public event SettingBlockCharacterHandler SettingBlockCharacter;
+		public delegate void ProjectCharacterVerseDataAddedHandler(AssignCharacterViewModel<TFont> sender, string reference, string characterId, string delivery);
+		public event ProjectCharacterVerseDataAddedHandler ProjectCharacterVerseDataAdded;
 
 		#endregion
 
@@ -526,7 +528,8 @@ namespace GlyssenEngine.ViewModels
 				m_pendingCharacterDetails.Remove(detail.CharacterId);
 			}
 
-			m_project.ProjectCharacterVerseData.AddEntriesFor(CurrentBookNumber, block);
+			if (m_project.ProjectCharacterVerseData.AddEntriesFor(CurrentBookNumber, block))
+				ProjectCharacterVerseDataAdded?.Invoke(this, block.GetReferenceString(BCVRef.NumberToBookCode(CurrentBookNumber)), block.CharacterId, block.Delivery);
 			m_project.SaveProjectCharacterVerseData();
 		}
 

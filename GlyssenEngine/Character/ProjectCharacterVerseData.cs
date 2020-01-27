@@ -26,7 +26,7 @@ namespace GlyssenEngine.Character
 				LoadData("");
 		}
 
-		public virtual void AddEntriesFor(int bookNumber, Block block)
+		public virtual bool AddEntriesFor(int bookNumber, Block block)
 		{
 			bool added = false;
 			foreach (var verse in block.AllVerses)
@@ -43,15 +43,7 @@ namespace GlyssenEngine.Character
 				}
 			}
 
-			if (added)
-			{
-				Analytics.Track("AddCharacter", new Dictionary<string, string>
-				{
-					{"verseReference", block.GetReferenceString(BCVRef.NumberToBookCode(bookNumber))},
-					{"characterId", block.CharacterId},
-					{"delivery", block.Delivery}
-				});
-			}
+			return added;
 		}
 
 		/// <summary>

@@ -88,7 +88,7 @@
 			this.m_linkTextReleaseBundle.Size = new System.Drawing.Size(211, 13);
 			this.m_linkTextReleaseBundle.TabIndex = 3;
 			this.m_linkTextReleaseBundle.TabStop = true;
-			this.m_linkTextReleaseBundle.Text = "Create new project from text release bundle";
+			this.m_linkTextReleaseBundle.Text = "Create new project from Text Release Bundle";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkTextReleaseBundle, true);
 			this.m_linkTextReleaseBundle.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);

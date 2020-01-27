@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
-using Glyssen.Dialogs;
-using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.UndoActions;
 using GlyssenEngine.VoiceActor;
-using L10NSharp;
 using SIL;
 using SIL.Extensions;
 
-namespace Glyssen.Controls
+namespace GlyssenEngine.ViewModels
 {
 	#region SortBy enumeration
 	public enum VoiceActorsSortedBy
@@ -30,7 +27,7 @@ namespace Glyssen.Controls
 		private readonly Project m_project;
 		private int m_currentId;
 		private readonly HashSet<int> m_removedActorIds = new HashSet<int>();
-		private readonly List<Tuple<VoiceActor, CharacterGroup>> m_originalActors = new List<Tuple<VoiceActor, CharacterGroup>>();
+		private readonly List<Tuple<VoiceActor.VoiceActor, CharacterGroup>> m_originalActors = new List<Tuple<VoiceActor.VoiceActor, CharacterGroup>>();
 
 		public IEnumerable<IVoiceActorUndoAction> Changes
 		{
@@ -74,7 +71,7 @@ namespace Glyssen.Controls
 			foreach (var actor in Actors)
 			{
 				var characterGroup = project.CharacterGroupList.GetGroupsAssignedToActor(actor.Id).FirstOrDefault();
-				m_originalActors.Add(new Tuple<VoiceActor, CharacterGroup>(actor.MakeCopy(), characterGroup));
+				m_originalActors.Add(new Tuple<VoiceActor.VoiceActor, CharacterGroup>(actor.MakeCopy(), characterGroup));
 			}
 		}
 
@@ -89,9 +86,9 @@ namespace Glyssen.Controls
 			get { return Changes.Any(c => !c.JustChangedName) || Actors.Any(a => a.IsCameo); }
 		}
 
-		public List<VoiceActor> Actors { get { return m_project.VoiceActorList.AllActors; } }
+		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.AllActors; } }
 
-		public IEnumerable<VoiceActor> ActiveActors { get { return m_project.VoiceActorList.ActiveActors; } }
+		public IEnumerable<VoiceActor.VoiceActor> ActiveActors { get { return m_project.VoiceActorList.ActiveActors; } }
 
 		public void SaveVoiceActorInformation()
 		{
@@ -104,19 +101,19 @@ namespace Glyssen.Controls
 				Saved(this, EventArgs.Empty);
 		}
 
-		public VoiceActor AddNewActor()
+		public VoiceActor.VoiceActor AddNewActor()
 		{
-			var actor = new VoiceActor { Id = m_currentId++ };
+			var actor = new VoiceActor.VoiceActor { Id = m_currentId++ };
 			Actors.Add(actor);
 			return actor;
 		}
 
-		public bool IsActorAssigned(VoiceActor actor)
+		public bool IsActorAssigned(VoiceActor.VoiceActor actor)
 		{
 			return m_project.CharacterGroupList.HasVoiceActorAssigned(actor.Id);
 		}
 
-		public bool DeleteVoiceActors(ISet<VoiceActor> actors)
+		public bool DeleteVoiceActors(ISet<VoiceActor.VoiceActor> actors)
 		{
 			if (!actors.Any())
 				return false;
@@ -140,7 +137,7 @@ namespace Glyssen.Controls
 			return true;
 		}
 
-		public void SetInactive(VoiceActor actor, bool inactive)
+		public void SetInactive(VoiceActor.VoiceActor actor, bool inactive)
 		{
 			if (actor.IsInactive == inactive)
 				return;
@@ -190,12 +187,12 @@ namespace Glyssen.Controls
 			return table;
 		}
 
-		public bool IsDuplicateActorName(VoiceActor editedVoiceActor, string newActorName)
+		public bool IsDuplicateActorName(VoiceActor.VoiceActor editedVoiceActor, string newActorName)
 		{
 			return Actors.Where(a => a != editedVoiceActor).Any(actor => actor.Name == newActorName);
 		}
 
-		public int CountOfAssignedActors(HashSet<VoiceActor> actorsToRemove)
+		public int CountOfAssignedActors(HashSet<VoiceActor.VoiceActor> actorsToRemove)
 		{
 			return actorsToRemove.Count(IsActorAssigned);
 		}
@@ -212,7 +209,7 @@ namespace Glyssen.Controls
 
 		public void Sort(VoiceActorsSortedBy by, bool sortAscending)
 		{
-			Comparison<VoiceActor> how;
+			Comparison<VoiceActor.VoiceActor> how;
 			int direction = sortAscending ? kAscending : kDescending;
 			switch (by)
 			{

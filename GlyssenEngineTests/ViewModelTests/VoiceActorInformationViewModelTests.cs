@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Controls;
-using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngineTests;
+using GlyssenEngine.UndoActions;
+using GlyssenEngine.ViewModels;
 using NUnit.Framework;
-using Resources = GlyssenTests.Properties.Resources;
+using Resources = GlyssenEngineTests.Properties.Resources;
 
-namespace GlyssenTests.Dialogs
+namespace GlyssenEngineTests.ViewModelTests
 {
 	[TestFixture]
 	class VoiceActorInformationViewModelTests

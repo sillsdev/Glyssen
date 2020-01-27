@@ -9042,7 +9042,7 @@
     </tu>
     <tu tuid="DialogBoxes.OpenProjectDlg.CreateNewProject">
       <tuv xml:lang="en">
-        <seg>Create new project from text release bundle</seg>
+        <seg>Create new project from Text Release Bundle</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Crear nuevo proyecto basado en un paquete de descarga de texto</seg>
@@ -9686,7 +9686,7 @@
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.BundleQuoteMarks">
       <tuv xml:lang="en">
-        <seg>Quote mark information was provided by the text release bundle and should not normally be changed.</seg>
+        <seg>Quote mark information was provided by the Text Release Bundle and should not normally be changed.</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Las reglas de comillas fueron proporcionadas por el paquete de descarga de texto, por lo que normalmente no se deben cambiar.</seg>
@@ -11375,7 +11375,7 @@
     </tu>
     <tu tuid="File.InvalidBundleMsg">
       <tuv xml:lang="en">
-        <seg>The selected file is not a valid text release bundle. Would you like to try again?</seg>
+        <seg>The selected file is not a valid Text Release Bundle. Would you like to try again?</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>El archivo seleccionado no es un válido paquete de descarga de texto. ¿Desea intentar de nuevo?</seg>
@@ -11407,7 +11407,7 @@
     </tu>
     <tu tuid="File.WrongBundleMsg">
       <tuv xml:lang="en">
-        <seg>The ID of the selected text release bundle does not match this project. Would you like to try again?</seg>
+        <seg>The ID of the selected Text Release Bundle does not match this project. Would you like to try again?</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>La ID del paquete de descarga de texto seleccionado no coincide con este proyecto. ¿Desea intentar de nuevo?</seg>
@@ -11839,7 +11839,7 @@
     </tu>
     <tu tuid="Project.InvalidVersificationFile">
       <tuv xml:lang="en">
-        <seg>Invalid versification file in text release bundle. Unable to create project.\nText release Bundle: {0}\nVersification file: {1}\nError: {2}</seg>
+        <seg>Invalid versification file in Text Release Bundle. Unable to create project.\nText release Bundle: {0}\nVersification file: {1}\nError: {2}</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>El archivo de versificación en el paquete de descarga de texto no es válido. No se puede crear el proyecto. \nPaquete de descarga de texto: {0}\nArchivo de versificación: {1}\nError: {2}</seg>
@@ -11856,7 +11856,7 @@
     </tu>
     <tu tuid="Project.LocateBundleYourself">
       <tuv xml:lang="en">
-        <seg>Would you like to locate the text release bundle yourself?</seg>
+        <seg>Would you like to locate the Text Release Bundle yourself?</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>¿Desea localizar el paquete de descarga de texto usted mismo?</seg>
@@ -12023,7 +12023,7 @@
     </tu>
     <tu tuid="Project.ParserUpgradeBundleMissingMsg">
       <tuv xml:lang="en">
-        <seg>To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0}).</seg>
+        <seg>To make use of the new engine, the original Text Release Bundle must be available, but it is not in the original location ({0}).</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Para hacer uso del nuevo motor de análisis, el paquete de descarga de texto original debe estar disponible, pero no está en la carpeta original ({0}).</seg>
@@ -12082,7 +12082,7 @@
     </tu>
     <tu tuid="Project.UnableToLocateTextBundleMsg">
       <tuv xml:lang="en">
-        <seg>The original text release bundle for the project is no longer in its original location ({0}). The Quote Mark Settings cannot be modified without access to it.</seg>
+        <seg>The original Text Release Bundle for the project is no longer in its original location ({0}). The Quote Mark Settings cannot be modified without access to it.</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>El paquete de descarga de texto original para este proyecto ya no está en su carpeta original ({0}). Las reglas de comillas no se pueden modificar sin acceso a él.</seg>
@@ -12155,7 +12155,7 @@
     </tu>
     <tu tuid="Project.UpdateFromBundle.UpdatedBundleMismatch">
       <tuv xml:lang="en">
-        <seg>The metadata of the selected text release bundle does not match the current project. If you continue with this update, the following metadata will be changed:</seg>
+        <seg>The metadata of the selected Text Release Bundle does not match the current project. If you continue with this update, the following metadata will be changed:</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Los metadatos del paquete de descarga de texto seleccionado no coinciden con el proyecto actual. Si se continúa con esta actualización, se cambiarán los siguientes metadatos:</seg>

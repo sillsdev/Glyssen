@@ -118,31 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TestCharacterDetail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterDetail.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterDetailOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterDetailOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="TestCharacterGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestCharacterGroups.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TestCharacterVerse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterVerse.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterVerseOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterVerseOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="azeri" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\azeri.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="english" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\english.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="french" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\french.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="spanish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spanish.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

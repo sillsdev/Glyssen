@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace GlyssenEngine.Utilities
+{
+	public interface IParatextProjectLoadingAssistant
+	{
+		Project Project { get; set; }
+		bool SilentMode { get; set; }
+		string ParatextProjectName { get; set; }
+		bool RetryWhenProjectNotFound();
+		bool ForceReload { get; }
+		bool RetryWhenReloadFails(string error);
+		void ReportApplicationError(ApplicationException exception);
+		bool ConfirmUpdateThatWouldExcludeExistingBooks(IReadOnlyCollection<string> noLongerAvailableBookIds, IReadOnlyCollection<string> noLongerPassingListBookIds);
+	}
+}

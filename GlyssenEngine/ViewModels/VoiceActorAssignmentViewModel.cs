@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using Glyssen.Controls;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
+using GlyssenEngine.UndoActions;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.VoiceActor;
 using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
-using Resources = Glyssen.Properties.Resources;
 
-namespace Glyssen.Dialogs
+namespace GlyssenEngine.ViewModels
 {
 	#region SortBy enumeration
 	public enum SortedBy
@@ -83,28 +79,6 @@ namespace Glyssen.Dialogs
 				case CharacterAge.Child: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
 				case CharacterAge.Elder: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
 				case CharacterAge.YoungAdult: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
-				default: return string.Empty;
-			}
-		}
-
-		private static string GetUiStringForActorGender(ActorGender actorGender)
-		{
-			switch (actorGender)
-			{
-				case ActorGender.Male: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Male", "Male");
-				case ActorGender.Female: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female", "Female");
-				default: return string.Empty;
-			}
-		}
-
-		private static string GetUiStringForActorAge(ActorAge actorAge)
-		{
-			switch (actorAge)
-			{
-				case ActorAge.Adult: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult", "Adult");
-				case ActorAge.Child: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
-				case ActorAge.Elder: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
-				case ActorAge.YoungAdult: return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
 				default: return string.Empty;
 			}
 		}
@@ -270,7 +244,7 @@ namespace Glyssen.Dialogs
 					var dlgTitle = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
 						"Confirm");
 
-					if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
+					if (MessageModal.Show(dlgMessage, dlgTitle, Buttons.YesNo) != MessageResult.Yes)
 					{
 						Logger.WriteEvent("User cancelled move of characters.");
 						return false;
@@ -301,59 +275,20 @@ namespace Glyssen.Dialogs
 			return null;
 		}
 
-		public DataTable GetMultiColumnActorDataTable(CharacterGroup group)
+		public IEnumerable<Tuple<VoiceActor.VoiceActor, bool>> GetActorsSortedByAvailabilityAndName(CharacterGroup group)
 		{
-			var table = new DataTable();
-			table.Columns.Add("ID", typeof(int));
-			table.Columns.Add("Category");
-			table.Columns.Add("Icon", typeof(Image));
-			table.Columns.Add("Name");
-			table.Columns.Add("Gender");
-			table.Columns.Add("Age");
-			table.Columns.Add("Cameo");
-			table.Columns.Add("SpecialUse");
-
 			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				table.Rows.Add(GetDataTableRow(actor, Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
+				yield return new Tuple<VoiceActor.VoiceActor, bool>(actor, true);
 			}
-
-			table.Rows.Add(
-				-1,
-				null,
-				Resources.RemoveActor,
-				"",
-				//Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
-				"",
-				"",
-				"",
-				Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				table.Rows.Add(GetDataTableRow(actor, Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
-					"Assigned to a Character Group:")));
+				yield return new Tuple<VoiceActor.VoiceActor, bool>(actor, false);
 			}
-
-			return table;
-		}
-
-		private object[] GetDataTableRow(VoiceActor actor, string category)
-		{
-			return new object[]
-			{
-				actor.Id,
-				category,
-				null,
-				actor.Name,
-				GetUiStringForActorGender(actor.Gender),
-				GetUiStringForActorAge(actor.Age),
-				actor.IsCameo ? Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : "",
-				null
-			};
 		}
 
 		public void Sort(SortedBy by, bool sortAscending)
@@ -480,12 +415,12 @@ namespace Glyssen.Dialogs
 
 		public void CreateNewActorAndAssignToGroup(string voiceActorName, CharacterGroup group)
 		{
-			var actor = new VoiceActor { Id = 99, Name = voiceActorName };
+			var actor = new VoiceActor.VoiceActor { Id = 99, Name = voiceActorName };
 			m_project.VoiceActorList.AllActors.Add(actor);
 			AssignActorToGroup(actor.Id, group);
 		}
 
-		public VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
+		public VoiceActor.VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
 		{
 			Debug.Assert(!group.AssignedToCameoActor);
 

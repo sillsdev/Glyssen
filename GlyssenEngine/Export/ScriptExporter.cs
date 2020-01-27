@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared.Script;
-using GlyssenEngine;
 using SIL.Xml;
 
-namespace Glyssen
+namespace GlyssenEngine.Export
 {
 	/// <summary>
 	/// Handles the generation of an xml-based script which can be provided to other applications (e.g. HearThis)

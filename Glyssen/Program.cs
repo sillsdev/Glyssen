@@ -25,7 +25,7 @@ using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
-using Analytics = GlyssenEngine.Utilities.Analytics;
+using static System.String;
 using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
@@ -59,7 +59,7 @@ namespace Glyssen
 			}
 
 			MessageModal.Default = new WinFormsMessageBox();
-			Analytics.Default = new WinFormsAnalytics();
+			GlyssenEngine.ErrorHandling.NonFatalErrorHandler.Default = new WinFormsErrorAnalytics();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -175,7 +175,25 @@ namespace Glyssen
 
 				SetUpLocalization();
 
-				DataMigrator.UpgradeToCurrentDataFormatVersion();
+				bool HandleMissingBundleNeededForUpgrade(Project existingProject)
+				{
+					string msg = Format(LocalizationManager.GetString("Project.DataFormatMigrationBundleMissingMsg",
+						"To upgrade the {0} project to the current {1} data format, the original Text Release Bundle must be available, " +
+						"but it is not in the original location ({2}).",
+						"Param 0: Glyssen recording project name;" +
+						"Param 1: \"Glyssen\" (product name); " +
+						"Param 2: Path to the original location of the Text Release Bundle"),
+						existingProject.Name,
+						GlyssenInfo.kProduct,
+						existingProject.OriginalBundlePath) +
+						LocateBundleYourselfQuestion;
+					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+						return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+					return false;
+				}
+
+				DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade);
 
 				SampleProject.CreateSampleProjectIfNeeded();
 
@@ -183,7 +201,7 @@ namespace Glyssen
 				// it also detects corruption and deletes it if needed so we don't crash.
 				string userConfigSettingsPath = GetUserConfigFilePath();
 
-				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
+				if ((Control.ModifierKeys & Keys.Shift) > 0 && !IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
 
 				// This might also be needed if Glyssen and ParatextData use different versions of SIL.WritingSystems.dll
@@ -202,6 +220,9 @@ namespace Glyssen
 				}
 			}
 		}
+
+		public static string LocateBundleYourselfQuestion => Environment.NewLine + Environment.NewLine +
+			LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the Text Release Bundle yourself?");
 
 		public static string GetUserConfigFilePath()
 		{
@@ -284,7 +305,7 @@ namespace Glyssen
 
 		private static void HandleDeleteUserSettings(string userConfigSettingsPath)
 		{
-				var confirmationString = Localizer.GetString("Program.ConfirmDeleteUserSettingsFile",
+				var confirmationString = LocalizationManager.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
 				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
@@ -317,7 +338,7 @@ namespace Glyssen
 			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
-			if (string.IsNullOrEmpty(desiredUiLangId))
+			if (IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
 					using (var dlg = new LanguageChoosingSimpleDialog(Resources.glyssenIcon))
 						if (DialogResult.OK == dlg.ShowDialog())
@@ -328,7 +349,7 @@ namespace Glyssen
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
 
-			var uiLanguage = Localizer.UILanguageId;
+			var uiLanguage = LocalizationManager.UILanguageId;
 			LocalizationManager.Create(TranslationMemory.Tmx, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");

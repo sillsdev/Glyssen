@@ -1,16 +1,22 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Windows.Forms;
+using Glyssen;
+using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using GlyssenEngineTests;
+using L10NSharp;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;
+using static System.String;
 
 namespace GlyssenTests.Dialogs
 {
@@ -44,7 +50,7 @@ namespace GlyssenTests.Dialogs
 			try
 			{
 				m_project =
-					Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen");
+					Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen", null, null);
 				TestProject.SimulateDisambiguationForAllBooks(m_project);
 				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 			}
@@ -181,10 +187,9 @@ namespace GlyssenTests.Dialogs
 			Sldr.Initialize();
 			try
 			{
-				//Change this to Kuna and finish tests for OT books
-				m_project =
-					Project.Load(
-						@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen");
+				m_project = Project.Load(
+					@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen",
+					HandleMissingBundleNeededForProjectUpgrade, null);
 				TestProject.SimulateDisambiguationForAllBooks(m_project);
 				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 
@@ -235,6 +240,18 @@ namespace GlyssenTests.Dialogs
 					Debug.WriteLine("break;");
 				}
 			}
+		}
+
+		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
+		{
+			string msg = "The parser has been upgraded " +
+					$"To make use of the new engine, the original Text Release Bundle must be available, but it is not in the original location ({existingProject.OriginalBundlePath})." +
+					Environment.NewLine +
+					"Would you like to locate the Text Release Bundle yourself?";
+			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+			if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+				return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+			return false;
 		}
 
 		[Category("ByHand")]

@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GlyssenEngine;
 using GlyssenEngine.Character;
-using GlyssenEngine.UndoActions;
 using GlyssenEngine.Utilities;
-using GlyssenEngine.ViewModels;
-using GlyssenEngine.VoiceActor;
-using L10NSharp;
 using SIL;
 
-namespace Glyssen.Dialogs
+namespace GlyssenEngine.UndoActions
 {
 	public interface IVoiceActorUndoAction : IUndoAction
 	{
@@ -21,8 +16,8 @@ namespace Glyssen.Dialogs
 	public class VoiceActorEditUndoAction : IVoiceActorUndoAction
 	{
 		private readonly Project m_project;
-		private readonly VoiceActor m_affectedActorInformation;
-		private readonly VoiceActor m_previousActorInformation;
+		private readonly VoiceActor.VoiceActor m_affectedActorInformation;
+		private readonly VoiceActor.VoiceActor m_previousActorInformation;
 
 		public string ActorAffected
 		{
@@ -44,7 +39,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public VoiceActorEditUndoAction(Project project, VoiceActor previousActorInformation)
+		public VoiceActorEditUndoAction(Project project, VoiceActor.VoiceActor previousActorInformation)
 		{
 			if (previousActorInformation == null)
 				throw new ArgumentNullException("previousActorInformation");
@@ -66,7 +61,7 @@ namespace Glyssen.Dialogs
 					return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorNameChange",
 						"Change name of voice actor from {0} to {1}"), PreviousNameOfActor, ActorAffected);
 				}
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditSingleVoiceActor",
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditSingleVoiceActor",
 					"Edit voice actor {0}"), ActorAffected);
 			}
 		}
@@ -102,7 +97,7 @@ namespace Glyssen.Dialogs
 	public class VoiceActorDeletedUndoAction : IVoiceActorUndoAction
 	{
 		private readonly Project m_project;
-		private readonly VoiceActor m_deletedActor;
+		private readonly VoiceActor.VoiceActor m_deletedActor;
 		private readonly IList<string> m_characterIdsOfAssignedGroup;
 
 		public string ActorAffected
@@ -120,7 +115,7 @@ namespace Glyssen.Dialogs
 			get { return false; }
 		}
 
-		public VoiceActorDeletedUndoAction(Project project, VoiceActor deletedActor, CharacterGroup assignedGroup = null)
+		public VoiceActorDeletedUndoAction(Project project, VoiceActor.VoiceActor deletedActor, CharacterGroup assignedGroup = null)
 		{
 			if (deletedActor == null)
 				throw new ArgumentNullException("deletedActor");
@@ -135,7 +130,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.DeleteVoiceActor",
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.DeleteVoiceActor",
 					"Delete voice actor {0}"), DeletedActorName);
 			}
 		}
@@ -187,7 +182,7 @@ namespace Glyssen.Dialogs
 	public class VoiceActorAddedUndoAction : IVoiceActorUndoAction
 	{
 		private readonly Project m_project;
-		private readonly VoiceActor m_addedActorInformation;
+		private readonly VoiceActor.VoiceActor m_addedActorInformation;
 
 		public string ActorAffected
 		{
@@ -218,7 +213,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.AddVoiceActor",
+				return string.Format(Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.AddVoiceActor",
 					"Add voice actor {0}"), ActorAffected);
 			}
 		}
@@ -262,7 +257,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (Actions.Count > 1)
-					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditMultipleVoiceActors", "Edit voice actors");
+					return Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.EditMultipleVoiceActors", "Edit voice actors");
 
 				return base.Description;
 			}

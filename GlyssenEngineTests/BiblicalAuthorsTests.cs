@@ -1,10 +1,9 @@
-﻿using Glyssen;
-using GlyssenEngine;
+﻿using GlyssenEngine;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Xml;
 
-namespace GlyssenTests
+namespace GlyssenEngineTests
 {
 	class BiblicalAuthorsTests
 	{

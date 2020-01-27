@@ -4,12 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Shared;
 using GlyssenEngine;
+using GlyssenEngine.Export;
 using GlyssenEngine.Utilities;
+using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -145,7 +147,7 @@ namespace Glyssen.Dialogs
 				var folder = Path.GetDirectoryName(m_lblFileName.Text) ?? string.Empty;
 				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_viewModel.Project.PublicationName;
 
-				var clipListFilenameSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ClipListFileNameSuffix",
+				var clipListFilenameSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ClipListFileNameSuffix",
 					"Clip List");
 
 				if (filename.Contains(m_viewModel.RecordingScriptFileNameSuffix))
@@ -170,7 +172,7 @@ namespace Glyssen.Dialogs
 		private void UpdateOpenForMeDisplay()
 		{
 			if (m_checkIncludeActorBreakdown.Checked || m_checkIncludeBookBreakdown.Checked || m_checkIncludeClipListFile.Checked)
-				m_checkOpenForMe.Text = Localizer.GetString("DialogBoxes.ExportDlg.OpenFolderForMe", "Open the folder for me");
+				m_checkOpenForMe.Text = LocalizationManager.GetString("DialogBoxes.ExportDlg.OpenFolderForMe", "Open the folder for me");
 			else
 				m_checkOpenForMe.Text = m_openFileForMeText;
 		}
@@ -179,14 +181,14 @@ namespace Glyssen.Dialogs
 		{
 			using (var dlg = new SaveFileDialog())
 			{
-				dlg.Title = Localizer.GetString("DialogBoxes.ExportDlg.SaveFileDialog.Title", "Choose File Location");
+				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.SaveFileDialog.Title", "Choose File Location");
 				dlg.OverwritePrompt = false;
 				dlg.InitialDirectory = m_viewModel.CurrentBaseFolder;
 				dlg.FileName = Path.GetFileName(m_lblFileName.Text);
 				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
-					Localizer.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
-					Localizer.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"), "*" + ProjectExporter.kTabDelimitedFileExtension,
-					Localizer.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
+					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"), "*" + ProjectExporter.kTabDelimitedFileExtension,
+					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
 				dlg.DefaultExt = Constants.kExcelFileExtension;
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
@@ -243,6 +245,14 @@ namespace Glyssen.Dialogs
 				try
 				{
 					Cursor.Current = Cursors.WaitCursor;
+
+					Analytics.Track("Export", new Dictionary<string, string>
+					{
+						{ "exportType", m_viewModel.SelectedFileType.ToString() },
+						{ "includeVoiceActors", m_viewModel.IncludeVoiceActors.ToString() },
+						{ "includeDelivery", m_viewModel.IncludeDelivery.ToString() }
+					});
+
 					lockedFiles = m_viewModel.ExportNow(m_checkOpenForMe.Checked);
 					if (!lockedFiles.Any())
 					{
@@ -256,19 +266,19 @@ namespace Glyssen.Dialogs
 					Cursor.Current = Cursors.Default;
 				}
 
-				var bldr = new StringBuilder(String.Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExport",
+				var bldr = new StringBuilder(String.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
 					"Export failed to write one or more files. Try closing any applications that have these files open, and then click {0}. Details:",
 					"Param is \"Retry\" button label."),
 					MessageBoxStrings.RetryButton));
 				foreach (var key in lockedFiles.Keys)
 				{
 					bldr.Append("\r\n\r\n");
-					bldr.AppendFormat(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportProblemExplanationLabel",
+					bldr.AppendFormat(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportProblemExplanationLabel",
 						"Error: {0}"), key);
 					if (lockedFiles[key].Count > 1 || !key.Contains(lockedFiles[key][0]))
 					{
 						bldr.Append("\r\n");
-						bldr.Append(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportProblemFilesLabel",
+						bldr.Append(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportProblemFilesLabel",
 							"Files affected:"));
 						foreach (var file in lockedFiles[key])
 						{

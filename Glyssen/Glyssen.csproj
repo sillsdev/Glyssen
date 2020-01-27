@@ -397,7 +397,6 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
-    <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
     <Compile Include="Dialogs\AddCharacterDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,7 +454,6 @@
       <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
-    <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,7 +480,6 @@
     </Compile>
     <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
     <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
-    <Compile Include="Dialogs\CharacterGroupUndoActionSequence.cs" />
     <Compile Include="Dialogs\NarrationOptionsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,7 +494,6 @@
       <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="GlyssenSettingsProvider.cs" />
-    <Compile Include="ScriptExporter.cs" />
     <Compile Include="Utilities\AlertImpl.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
     <Compile Include="Utilities\FontProxy.cs" />
@@ -509,8 +505,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilities\L10N.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -589,8 +583,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
-    <Compile Include="Utilities\WinFormsAnalytics.cs" />
+    <Compile Include="Utilities\WinFormsErrorAnalytics.cs" />
     <Compile Include="Utilities\WinFormsFontRepositoryAdapter.cs" />
+    <Compile Include="Utilities\WinformsParatextProjectLoadingAssistant.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>

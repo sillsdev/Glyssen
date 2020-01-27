@@ -15,6 +15,7 @@ using Glyssen.Shared.Bundle;
 using GlyssenEngine.Analysis;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
@@ -47,7 +48,7 @@ namespace GlyssenEngine
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
 		private const int kMaxDefaultProjectNameLength = 150;
 		private const int kMaxPath = 260;
-        private const int kParserVersion = 49;
+        public const int kParserVersion = 49;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -82,6 +83,7 @@ namespace GlyssenEngine
 		public event EventHandler AnalysisCompleted;
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
+		public static EventHandler UpgradingProjectToNewParserVersion;
 
 		public static IFontRepository s_fontRepository { get; set; }
 
@@ -219,11 +221,12 @@ namespace GlyssenEngine
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
-		internal bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
+		public bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
 
 		internal bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
 
-		internal string ParatextProjectName => m_projectMetadata.ParatextProjectId;
+		public string ParatextProjectName => m_projectMetadata.ParatextProjectId;
+		public int ParserVersionWhenLastParsed => m_projectMetadata.ParserVersion;
 
 		/// <summary>
 		/// Gets the live Paratext project associated with this Glyssen project
@@ -523,7 +526,7 @@ namespace GlyssenEngine
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
 			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " +
+				throw new InvalidOperationException("Project not in a valid state to update from Text Release Bundle. ProjectState = " +
 													ProjectState);
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
@@ -789,7 +792,7 @@ namespace GlyssenEngine
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
-		public static Project Load(string projectFilePath, Func<Project, bool> handleMissingBundleNeededForUpgrade = null)
+		public static Project Load(string projectFilePath, Func<Project, bool> handleMissingBundleNeededForUpgrade, IParatextProjectLoadingAssistant loadingAssistant)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
@@ -812,7 +815,7 @@ namespace GlyssenEngine
 				}
 				Project upgradedProject = existingProject.IsBundleBasedProject ?
 					AttemptToUpgradeByReparsingBundleData(existingProject, handleMissingBundleNeededForUpgrade) :
-					AttemptToUpgradeByReparsingParatextData(existingProject);
+					AttemptToUpgradeByReparsingParatextData(existingProject, loadingAssistant);
 
 				if (upgradedProject != null)
 					return upgradedProject;
@@ -864,9 +867,6 @@ namespace GlyssenEngine
 			}
 		}
 
-		public static string ParserUpgradeMessage => Localizer.GetString("Project.ParserVersionUpgraded",
-			"The splitting engine has been upgraded.") + " ";
-
 		private static Project AttemptToUpgradeByReparsingBundleData(Project existingProject, [CanBeNull] Func<Project, bool> handleMissingBundleNeededForUpgrade)
 		{
 			if (!RobustFile.Exists(existingProject.OriginalBundlePath))
@@ -886,49 +886,42 @@ namespace GlyssenEngine
 				var upgradedProject = new Project(existingProject.m_projectMetadata, existingProject.m_recordingProjectName,
 					ws: existingProject.WritingSystem);
 
-				Analytics.Track("UpgradeBundleProject", new Dictionary<string, string>
-				{
-					{"language", existingProject.LanguageIsoCode},
-					{"ID", existingProject.Id},
-					{"recordingProjectName", existingProject.Name},
-					{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
-					{"newParserVersion", kParserVersion.ToString(CultureInfo.InvariantCulture)}
-				});
+				UpgradingProjectToNewParserVersion(existingProject, new EventArgs());
 
 				return UpgradeProject(existingProject, upgradedProject, () => upgradedProject.PopulateAndParseBooks(bundle));
 			}
 		}
 
-		public static Project AttemptToUpgradeByReparsingParatextData(Project existingProject)
+		private static Project AttemptToUpgradeByReparsingParatextData(Project existingProject, IParatextProjectLoadingAssistant loadingAssistant)
 		{
-			var scrTextWrapper = existingProject.GetLiveParatextDataIfCompatible(
-				kParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion, ParserUpgradeMessage);
+			if (loadingAssistant != null)
+			{
+				loadingAssistant.Project = existingProject;
+				loadingAssistant.ParatextProjectName = existingProject.ParatextProjectName;
+				loadingAssistant.SilentMode = kParserVersion <= existingProject.m_projectMetadata.ParserUpgradeOptOutVersion;
+			}
+
+			var scrTextWrapper = existingProject.GetLiveParatextDataIfCompatible(loadingAssistant);
 			if (scrTextWrapper == null)
 			{
 				existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = kParserVersion;
 				return null;
 			}
-			Analytics.Track("UpgradeParatextProject", new Dictionary<string, string>
-			{
-				{"language", existingProject.LanguageIsoCode},
-				{"ID", existingProject.Id},
-				{"ParatextProjectName", existingProject.ParatextProjectName},
-				{"recordingProjectName", existingProject.Name},
-				{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
-				{"newParserVersion", kParserVersion.ToString(CultureInfo.InvariantCulture)}
-			});
+
+			UpgradingProjectToNewParserVersion?.Invoke(existingProject, new EventArgs());
+
 			return existingProject.UpdateProjectFromParatextData(scrTextWrapper);
 		}
 
 		public ParatextScrTextWrapper GetParatextScrTextWrapper(bool forceReload = false)
 		{
-			return GetLiveParatextDataIfCompatible(false, "", false, forceReload);
+			return GetLiveParatextDataIfCompatible(null);
 		}
 
-		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingbool canInteractWithUser = true,
-			string contextMessage = "", bool checkForChangesInAvailableBooks = true, bool forceReload = false)
+		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true/*bool canInteractWithUser = true,
+			string contextMessage = "", bool forceReload = false*/)
 		{
-			ParatextScrTextWrapper scrTextWrapper = null;
+			ParatextScrTextWrapper scrTextWrapper;
 			ScrText sourceScrText = null;
 			do
 			{
@@ -938,32 +931,14 @@ namespace GlyssenEngine
 				}
 				catch (ProjectNotFoundException e)
 				{
-					if (canInteractWithUser)
-					{
-						string msg = contextMessage + Format(
-								Localizer.GetString("Project.ParatextProjectMissingMsg",
-									"To update the {0} project, the {1} project {2} must be available, but it is not.",
-									"Param 0: Glyssen recording project name; " +
-									"Param 1: \"Paratext\" (product name); " +
-									"Param 2: Paratext project short name (unique project identifier)"),
-								Name, ParatextScrTextWrapper.kParatextProgramName, e.ProjectName) +
-							Environment.NewLine + Environment.NewLine +
-							Format(Localizer.GetString("Project.RestoreParatextProject",
-									"If possible, you can restore the {0} project and retry; otherwise, you can cancel and {1} will continue to work with the existing project data.",
-									"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name)"),
-								ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
+					if (loadingAssistant != null && loadingAssistant.RetryWhenProjectNotFound())
+						continue;
 
-						string caption = Format(Localizer.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
-								"Param is \"Paratext\" (product name)"),
-							ParatextScrTextWrapper.kParatextProgramName);
-						if (MessageResult.Retry == MessageModal.Show(msg, caption, Buttons.RetryCancel))
-							continue;
-					}
 					return null;
 				}
 			} while (sourceScrText == null); // retry
 
-			if (forceReload)
+			if (loadingAssistant != null && loadingAssistant.ForceReload)
 			{
 				bool reloadSucceeded = false;
 				do
@@ -975,19 +950,8 @@ namespace GlyssenEngine
 					}
 					catch (Exception e)
 					{
-						if (canInteractWithUser)
-						{
-							string msg = contextMessage + Format(
-								Localizer.GetString("Project.ParatextProjectReloadFailure",
-									"An error occurred reloading the {0} project {1}:\r\n{2}\r\n\r\n" +
-									"If you cannot fix the problem, you can cancel and continue to work with the existing project data.",
-									"Param 0: \"Paratext\" (product name); " +
-									"Param 1: Paratext project short name (unique project identifier); " +
-									"Param 2: Specific error message"),
-								ParatextScrTextWrapper.kParatextProgramName, ParatextProjectName, e.Message);
-							if (MessageResult.Retry == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.RetryCancel))
-								continue;
-						}
+						if (loadingAssistant.RetryWhenReloadFails(e.Message))
+							continue;
 						return null;
 					}
 				} while (!reloadSucceeded);
@@ -1011,31 +975,16 @@ namespace GlyssenEngine
 			}
 			catch (ApplicationException e)
 			{
-				if (canInteractWithUser)
-				{
-					string msg = contextMessage + Format(Localizer.GetString("Project.ParatextProjectUpdateErrorMsg",
-						"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
-						"Param 0: Glyssen recording project name; " +
-						"Param 1: \"Glyssen\" (product name); " +
-						"Param 2: \"Paratext\" (product name); " +
-						"Param 3: Paratext project short name (unique project identifier)"),
-						Name,
-						GlyssenInfo.kProduct,
-						ParatextScrTextWrapper.kParatextProgramName,
-						sourceScrText.Name) +
-						Environment.NewLine + e.Message;
-
-					MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Exclamation);
-				}
+				loadingAssistant?.ReportApplicationError(e);
 				return null;
 			}
 
 			return !checkForChangesInAvailableBooks ||
-				!FoundUnacceptableChangesInAvailableBooks(scrTextWrapper, contextMessage, canInteractWithUser) ?
+				!FoundUnacceptableChangesInAvailableBooks(scrTextWrapper, loadingAssistant) ?
 				scrTextWrapper : null;
 		}
 
-		private bool FoundUnacceptableChangesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper, string contextMessage, bool canInteractWithUser)
+		private bool FoundUnacceptableChangesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper, IParatextProjectLoadingAssistant loadingAssistant)
 		{
 			// Any of the following scenarios is possible:
 			// 1) Exactly the same books are available and passing checks (or were previously added by overiding the
@@ -1057,7 +1006,7 @@ namespace GlyssenEngine
 			//          include them in the project if we were previously including all available books.
 			//    b) Checks fail
 			//       => We will add the new books as available but not parse them or include them in the project.
-			if (canInteractWithUser)
+			if (loadingAssistant != null && !loadingAssistant.SilentMode)
 			{
 				var noLongerAvailableBookIds = new List<string>();
 				var noLongerPassingListBookIds = new List<string>();
@@ -1069,47 +1018,7 @@ namespace GlyssenEngine
 				if (!noLongerAvailableBookIds.Any() && !noLongerPassingListBookIds.Any())
 					return false;
 
-				string msg = contextMessage + Format(Localizer.GetString("Project.ParatextProjectUpdateExcludedBooksWarning",
-						"{1} detected changes in the {2} project {3} that would result in the exclusion " +
-						"of books from the {0} project that were previously included:",
-						"Param 0: \"Glyssen\" (product name); " +
-						"Param 1: \"Paratext\" (product name); " +
-						"Param 2: Paratext project short name (unique project identifier); " +
-						"Param 3: Glyssen recording project name"),
-					GlyssenInfo.kProduct,
-					ParatextScrTextWrapper.kParatextProgramName,
-					ParatextProjectName,
-					Name);
-
-				if (noLongerAvailableBookIds.Any())
-				{
-					msg += Environment.NewLine + Localizer.GetString("Project.ParatextBooksNoLongerAvailable",
-							"The following books are no longer available:") + Environment.NewLine + "   " +
-						Join(Localizer.GetString("Common.SimpleListSeparator", ", "), noLongerAvailableBookIds);
-				}
-				if (noLongerPassingListBookIds.Any())
-				{
-					var scriptureRangeSelectionDlgName = Localizer.GetString(
-						"DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle", "Select Books - {0}", "{0} is the project name");
-					Debug.Assert(Localizer.UILanguageId != "en" || scriptureRangeSelectionDlgName == "Select Books - {0}",
-						"Dev alert: this localized string and ID MUST be kept in sync with the version in ScriptureRangeSelectionDlg.Designer.cs!");
-					scriptureRangeSelectionDlgName = Format(scriptureRangeSelectionDlgName, "");
-					while (!Char.IsLetter(scriptureRangeSelectionDlgName.Last()))
-						scriptureRangeSelectionDlgName = scriptureRangeSelectionDlgName.Remove(scriptureRangeSelectionDlgName.Length - 1);
-					msg += Environment.NewLine + Format(Localizer.GetString("Project.ParatextBooksNoLongerPassChecks",
-							"The following books no longer appear to pass the basic checks:\r\n   {0}\r\n" +
-							"(If needed, you can include these books again later in the {1} dialog box.)",
-							"Param 0: list of 3-letter book IDs; " +
-							"Param 1: Name of the \"Select Books\" dialog box."),
-						Join(Localizer.GetString("Common.SimpleListSeparator", ", "), noLongerPassingListBookIds),
-						scriptureRangeSelectionDlgName);
-				}
-
-				msg += Environment.NewLine + Environment.NewLine +
-					Localizer.GetString("Project.ParatextProjectUpdateConfirmExcludeBooks",
-						"Would you like to proceed with the update?");
-
-				return MessageResult.No == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Exclamation);
+				return loadingAssistant.ConfirmUpdateThatWouldExcludeExistingBooks(noLongerAvailableBookIds, noLongerPassingListBookIds);
 			}
 
 			try
@@ -1266,9 +1175,8 @@ namespace GlyssenEngine
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
-				Analytics.ReportException(exception);
-				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-					Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
+				NonFatalErrorHandler.HandleException(exception, ErrorHandlingOptions.Report,
+					Format(Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath));
 				return;
 			}
 			metadata.Inactive = hidden;
@@ -1314,9 +1222,8 @@ namespace GlyssenEngine
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
-				Analytics.ReportException(exception);
-				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-					Localizer.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
+				NonFatalErrorHandler.HandleException(exception, ErrorHandlingOptions.Report,
+					Format(Localizer.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath));
 				return null;
 			}
 
@@ -1796,20 +1703,7 @@ namespace GlyssenEngine
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
-
-			Analytics.Track("ProjectAnalysis", new Dictionary<string, string>
-			{
-				{"language", LanguageIsoCode},
-				{"ID", Id},
-				{"recordingProjectName", Name},
-				{"TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
-				{"UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture)}
-			});
-
-			if (AnalysisCompleted != null)
-				AnalysisCompleted(this, new EventArgs());
+			AnalysisCompleted?.Invoke(this, new EventArgs());
 		}
 
 		internal void PrepareForExport()
@@ -1984,10 +1878,8 @@ namespace GlyssenEngine
 							}
 							catch (Exception exRestoreBackup)
 							{
-								Logger.WriteError(exRestoreBackup);
-								Analytics.Track("Failed to rename LDML backup", new Dictionary<string, string>
+								NonFatalErrorHandler.HandleException(exRestoreBackup, ErrorHandlingOptions.Default, "Failed to rename LDML backup", new Dictionary<string, string>
 								{
-									{"exceptionMessage", exRestoreBackup.Message},
 									{"LdmlFilePath", LdmlFilePath},
 								});
 							}
@@ -2113,10 +2005,9 @@ namespace GlyssenEngine
 			catch (Exception exMakeBackup)
 			{
 				// Oh, well. Hope for the best...
-				Logger.WriteError("Failed to create LDML backup", exMakeBackup);
-				Analytics.Track("Failed to create LDML backup", new Dictionary<string, string>
+				NonFatalErrorHandler.HandleException(exMakeBackup, ErrorHandlingOptions.Log, "Failed to create LDML backup",
+					new Dictionary<string, string>
 				{
-					{"exceptionMessage", exMakeBackup.Message},
 					{"LdmlFilePath", LdmlFilePath},
 				});
 				backupPath = null;
@@ -2133,10 +2024,9 @@ namespace GlyssenEngine
 			}
 			catch (Exception exSave)
 			{
-				Logger.WriteError("Writing System Save Failure", exSave);
-				Analytics.Track("Writing System Save Failure", new Dictionary<string, string>
+				NonFatalErrorHandler.HandleException(exSave, ErrorHandlingOptions.Log, "Writing System Save Failure",
+					new Dictionary<string, string>
 				{
-					{"exceptionMessage", exSave.Message},
 					{"CurrentProjectPath", projectPath},
 				});
 				if (backupPath != null)
@@ -2161,10 +2051,9 @@ namespace GlyssenEngine
 					}
 					catch (Exception exRecover)
 					{
-						Logger.WriteError("Recovery from backup Writing System File Failed.", exRecover);
-						Analytics.Track("Recovery from backup Writing System File Failed.", new Dictionary<string, string>
+						NonFatalErrorHandler.HandleException(exRecover, ErrorHandlingOptions.Log,
+							"Recovery from backup Writing System File Failed.", new Dictionary<string, string>
 						{
-							{"exceptionMessage", exRecover.Message},
 							{"CurrentProjectPath", projectPath},
 						});
 						throw exSave;
@@ -2514,7 +2403,7 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				var scrTextWrapper = GetLiveParatextDataIfCompatible(false);
+				var scrTextWrapper = GetLiveParatextDataIfCompatible(null);
 				if (scrTextWrapper == null)
 				{
 					Logger.WriteEvent("Paratext project is unavailable or is no longer compatible! Cannot test quote system.");

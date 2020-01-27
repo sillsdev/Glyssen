@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using DesktopAnalytics;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using GlyssenEngine;
@@ -22,16 +23,16 @@ namespace Glyssen
 	internal static class DataMigrator
 	{
 		private const string kOldProjectExtension = ".pgproj";
-		public static void UpgradeToCurrentDataFormatVersion()
+		public static void UpgradeToCurrentDataFormatVersion(Func<Project, bool> handleMissingBundleNeededForUpgrade)
 		{
 			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
-			if (UpgradeToCurrentDataFormatVersion(settings))
+			if (UpgradeToCurrentDataFormatVersion(settings, handleMissingBundleNeededForUpgrade))
 				settings.Save();
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info)
+		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<Project, bool> handleMissingBundleNeededForUpgrade)
 		{
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
@@ -193,7 +194,8 @@ namespace Glyssen
 										continue;
 									try
 									{
-										var projToBackUp = Project.Load(correctProjectFilePath);
+										// This bug/fix predates "live" Paratext projects, so there is definitely no need for a Paratext loading assistant.
+										var projToBackUp = Project.Load(correctProjectFilePath, handleMissingBundleNeededForUpgrade, null);
 										projToBackUp.CreateBackup("Overwritten by migration 3-4");
 									}
 									catch (Exception e)

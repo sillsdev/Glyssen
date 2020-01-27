@@ -61,6 +61,16 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] azeri {
+            get {
+                object obj = ResourceManager.GetObject("azeri", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;book id=&quot;JUD&quot; singlevoice=&quot;false&quot; pageheader=&quot;YӘHUDA&quot;&gt;
         ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot; matchesReferenceText=&quot;true&quot;&gt;
@@ -95,6 +105,16 @@ namespace GlyssenEngineTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] english {
+            get {
+                object obj = ResourceManager.GetObject("english", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;English&quot;
         ///# Version=1.9
         ///#
@@ -109,6 +129,16 @@ namespace GlyssenEngineTests.Properties {
         internal static string EnglishVersification {
             get {
                 return ResourceManager.GetString("EnglishVersification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] french {
+            get {
+                object obj = ResourceManager.GetObject("french", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -185,6 +215,16 @@ namespace GlyssenEngineTests.Properties {
         internal static string RussianOrthodoxVersification {
             get {
                 return ResourceManager.GetString("RussianOrthodoxVersification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] spanish {
+            get {
+                object obj = ResourceManager.GetObject("spanish", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

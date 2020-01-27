@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using SIL;
 
-namespace Glyssen.Dialogs
+namespace GlyssenEngine.UndoActions
 {
 	public class VoiceActorAssignmentUndoAction : CharacterGroupsUndoAction
 	{

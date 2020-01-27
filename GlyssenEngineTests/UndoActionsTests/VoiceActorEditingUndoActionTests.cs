@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.UndoActions;
 using GlyssenEngine.VoiceActor;
-using GlyssenEngineTests;
 using NUnit.Framework;
 using SIL.Extensions;
 
-namespace GlyssenTests.Dialogs
+namespace GlyssenEngineTests.UndoActionsTests
 {
 	[TestFixture]
 	class VoiceActorEditingUndoActionTests

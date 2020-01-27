@@ -150,7 +150,7 @@ namespace GlyssenEngineTests
 
 		public static Project LoadExistingTestProject()
 		{
-			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)));
+			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)), null, null);
 		}
 
 		public static Project CreateBasicTestProject()

@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
+using GlyssenEngine.Utilities;
 using SIL.Scripture;
 
 namespace GlyssenEngine.ViewModels
@@ -157,9 +158,9 @@ namespace GlyssenEngine.ViewModels
 				ChapterAnnouncementStyle = Project.ChapterAnnouncementStyle;
 		}
 
-		public ParatextScrTextWrapper GetUpdatedParatextData()
+		public ParatextScrTextWrapper GetUpdatedParatextData(IParatextProjectLoadingAssistant loadingAssistant)
 		{
-			return Project.GetLiveParatextDataIfCompatible(forceReload:true);
+			return Project.GetLiveParatextDataIfCompatible(loadingAssistant);
 		}
 	}
 }

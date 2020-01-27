@@ -8,7 +8,7 @@ using Gecko.Events;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.ViewModels;
-using SIL;
+using L10NSharp;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
 using Font = System.Drawing.Font;
@@ -154,7 +154,7 @@ namespace Glyssen.Controls
 
 		public void ShowNothingMatchesFilterMessage()
 		{
-			string msg = Localizer.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
+			string msg = LocalizationManager.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
 			MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		#endregion

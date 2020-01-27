@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Glyssen.Controls;
 using Glyssen.Utilities;
+using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -47,7 +46,7 @@ namespace Glyssen.Dialogs
 
 			m_lblActorsEnteredSoFar.Text = string.Format(m_lblActorsEnteredSoFar.Text, m_viewModel.InitialActorCount);
 			if (m_viewModel.DataHasChanged)
-				m_btnCancelClose.Text = Localizer.GetString("Common.Close", "Close");
+				m_btnCancelClose.Text = LocalizationManager.GetString("Common.Close", "Close");
 			UpdateTally();
 
 			Text = string.Format(Text, m_viewModel.Project.Name);
@@ -68,12 +67,12 @@ namespace Glyssen.Dialogs
 
 			if (m_viewModel.DataHasChanged)
 			{
-				m_btnCancelClose.Text = Localizer.GetString("Common.Close", "Close");
+				m_btnCancelClose.Text = LocalizationManager.GetString("Common.Close", "Close");
 			}
 
 			m_btnOk.Text = m_viewModel.DataHasChangedInWaysThatMightAffectGroupGeneration && m_changeOkToGenerateGroups ?
-				Localizer.GetString("DialogBoxes.VoiceActorInformation.GenerateGroupsButton", "Generate Groups") :
-				Localizer.GetString("Common.OK", "OK");
+				LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.GenerateGroupsButton", "Generate Groups") :
+				LocalizationManager.GetString("Common.OK", "OK");
 
 			// ENHANCE: This is likely too much overhead and not worth it, but maybe we should kick off group generation here and
 			// when it completes, we check to see if the groups are identical or not. If not, we display the Generate Groups button

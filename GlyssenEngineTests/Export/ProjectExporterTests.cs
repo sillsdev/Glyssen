@@ -8,6 +8,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Export;
 using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
@@ -16,7 +17,7 @@ using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
 
-namespace GlyssenEngineTests
+namespace GlyssenEngineTests.Export
 {
 	[TestFixture]
 	class ProjectExporterTests

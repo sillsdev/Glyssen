@@ -1642,7 +1642,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
 			Assert.IsFalse(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1685,7 +1685,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
 			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1697,7 +1697,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.YoungAdult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
@@ -1737,7 +1737,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
 
 			var christ = reloadedProject.AllCharacterDetailDictionary["Christ"];
 			Assert.AreEqual(CharacterAge.Adult, christ.Age);
@@ -1800,7 +1800,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
 
 			var cvData = new CombinedCharacterVerseData(reloadedProject);
 
