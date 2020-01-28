@@ -31,11 +31,11 @@ namespace GlyssenEngine.Utilities
     public enum MessageResult
     {
 		None,
-        Abort,
-        Ignore,
-        OK,
-        Retry,
-    }
+        Abort, // TODO: If possible, let's eliminate the need for this
+		Ignore, // TODO: If possible, let's eliminate the need for this
+		OK,
+        Retry, // TODO: If possible, let's eliminate the need for this
+	}
 
     public enum Icon
     {
@@ -46,10 +46,11 @@ namespace GlyssenEngine.Utilities
     public enum Buttons
     {
         OK,
-		AbortRetryIgnore,
+		AbortRetryIgnore, // TODO: If possible, let's eliminate the need for this
     }
 
-    public enum DefaultButton
+    // TODO: If possible, let's eliminate the need for this enumeration.
+	public enum DefaultButton
     {
         Button1,
         Button2,

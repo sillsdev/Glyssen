@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using GlyssenEngine.Utilities;
 
 namespace Glyssen.Dialogs
@@ -17,25 +18,26 @@ namespace Glyssen.Dialogs
 					messageBoxButtons = MessageBoxButtons.AbortRetryIgnore;
 					break;
 				case Buttons.OK:
-				default:
 					messageBoxButtons = MessageBoxButtons.OK;
 					break;
+				default:
+					throw new NotImplementedException("Unexpected MessageModal button!");
 			}
 
 			switch (icon)
 			{
-				default:
 				case Icon.None:
 					messageBoxIcon = MessageBoxIcon.None;
 					break;
 				case Icon.Warning:
 					messageBoxIcon = MessageBoxIcon.Warning;
 					break;
+				default:
+					throw new NotImplementedException("Unexpected MessageModal icon!");
 			}
 
 			switch (defaultButton)
 			{
-				default:
 				case DefaultButton.Button1:
 					messageBoxDefaultButton = MessageBoxDefaultButton.Button1;
 					break;
@@ -45,6 +47,8 @@ namespace Glyssen.Dialogs
 				case DefaultButton.Button3:
 					messageBoxDefaultButton = MessageBoxDefaultButton.Button3;
 					break;
+				default:
+					throw new NotImplementedException("Unexpected MessageModal default button!");
 			}
 
 			DialogResult result = MessageBox.Show(text, caption, messageBoxButtons, messageBoxIcon, messageBoxDefaultButton);
@@ -59,10 +63,10 @@ namespace Glyssen.Dialogs
 					return MessageResult.OK;
 				case DialogResult.Retry:
 					return MessageResult.Retry;
-				default:
 				case DialogResult.None:
 					return MessageResult.None;
-
+				default:
+					throw new NotImplementedException("Unexpected dialog result!");
 			}
 		}
 	}
