@@ -11,7 +11,6 @@ using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Script;
-using GlyssenEngine.Utilities;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using SIL;

@@ -3,7 +3,6 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
-using GlyssenEngine.Utilities;
 using SIL.Scripture;
 
 namespace GlyssenEngine.ViewModels

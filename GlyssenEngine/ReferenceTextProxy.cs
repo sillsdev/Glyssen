@@ -10,7 +10,6 @@ using SIL.Reporting;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.ErrorHandling;
-using GlyssenEngine.Utilities;
 using static System.String;
 
 namespace GlyssenEngine

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen;
 using Glyssen.Dialogs;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
@@ -16,7 +15,6 @@ using L10NSharp;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;
-using static System.String;
 
 namespace GlyssenTests.Dialogs
 {

@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.Events;
 using Glyssen.Utilities;
-using GlyssenEngine;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using L10NSharp;

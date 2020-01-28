@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Xml;
-using GlyssenEngine;
 using GlyssenEngine.Script;
 using SIL.DblBundle.Usx;
 using SIL.Scripture;

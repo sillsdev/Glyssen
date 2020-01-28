@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
 
 namespace GlyssenEngine.UndoActions
 {

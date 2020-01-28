@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
 using SIL;
 
 namespace GlyssenEngine.UndoActions

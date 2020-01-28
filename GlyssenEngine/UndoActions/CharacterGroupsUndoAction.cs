@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
 
 namespace GlyssenEngine.UndoActions
 {
