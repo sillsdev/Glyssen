@@ -71,7 +71,7 @@ namespace Glyssen.Utilities
 		{
 			if (m_font != null)
 			{
-				Debug.Assert(m_clientResponsibleForDisposing);
+				Debug.Assert(!m_clientResponsibleForDisposing);
 				m_font.Dispose();
 				m_font = null;
 			}
