@@ -25,7 +25,7 @@ using SIL.WritingSystems;
 
 namespace GlyssenEngineTests
 {
-	[TestFixture, Timeout(70000)]
+	[TestFixture, Timeout(90000)]
 	class ProjectTests
 	{
 		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
@@ -241,7 +241,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(9000)]
+		[Timeout(11000)]
 		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -280,7 +280,7 @@ namespace GlyssenEngineTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -340,7 +340,7 @@ namespace GlyssenEngineTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -396,7 +396,7 @@ namespace GlyssenEngineTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(10000)]
+		[Timeout(11000)]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -787,7 +787,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(9000)]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -817,7 +817,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -837,7 +837,7 @@ namespace GlyssenEngineTests
 			}
 		}
 
-		[Test, Timeout(10000)]
+		[Test, Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -858,7 +858,7 @@ namespace GlyssenEngineTests
 			}
 		}
 
-		[Test, Timeout(10000)]
+		[Test, Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -880,7 +880,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -902,7 +902,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -1109,7 +1109,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
 		{
 			// Setup
@@ -1275,7 +1275,7 @@ namespace GlyssenEngineTests
 		}
 
 		[Test]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
