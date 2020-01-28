@@ -365,7 +365,6 @@
     <None Include="Resources\TestRUT.xml" />
     <Content Include="Resources\TestNUM.xml" />
     <Content Include="Resources\TestVersification.txt" />
-    <Content Include="TestNarratorOverrides.xml" />
     <None Include="Resources\TestCharacterDetailOct2015.txt" />
     <None Include="Resources\TestCharacterDetail.txt" />
     <None Include="Resources\TestCharacterVerse.txt" />
