@@ -18,7 +18,7 @@ namespace GlyssenEngine
 
 		public static string SampleProjectFilePath
 		{
-			get { return GlyssenInfo.GetProjectFilePath(kSample, kSample, Project.GetDefaultRecordingProjectName(kSampleProjectName)); }
+			get { return Project.GetProjectFilePath(kSample, kSample, Project.GetDefaultRecordingProjectName(kSampleProjectName)); }
 		}
 
 		public static void CreateSampleProjectIfNeeded()
