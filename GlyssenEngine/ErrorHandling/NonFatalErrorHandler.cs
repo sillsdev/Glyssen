@@ -16,7 +16,7 @@ namespace GlyssenEngine.ErrorHandling
 		Report,
 	}
 
-    public abstract class NonFatalErrorHandler
+    public static class NonFatalErrorHandler
     {
         public static IErrorHandler Default { get; set; }
 
