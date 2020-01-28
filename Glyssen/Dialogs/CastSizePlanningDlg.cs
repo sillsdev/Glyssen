@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Controls;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Bundle;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Utilities

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Character;
 using GlyssenEngine.Character;
 using GlyssenEngine.ViewModels;
 

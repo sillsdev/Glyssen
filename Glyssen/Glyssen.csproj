@@ -454,7 +454,6 @@
     <Compile Include="Dialogs\ViewScriptDlg.Designer.cs">
       <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -479,8 +478,6 @@
     <Compile Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.Designer.cs">
       <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
-    <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
     <Compile Include="Dialogs\NarrationOptionsDlg.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Paratext;
-using GlyssenEngine.Utilities;
 using L10NSharp;
 using SIL.Reporting;
 using static System.String;

@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing.Text;
-using System.IO;
 using System.Windows.Forms;
 using Glyssen.Shared;
 using GlyssenEngine.Utilities;
 using L10NSharp;
-using SIL;
 using SIL.Reporting;
 using SIL.Windows.Forms;
 using static System.String;

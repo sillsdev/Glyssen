@@ -6,7 +6,6 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Export;
 using GlyssenEngine.Utilities;
 using L10NSharp;

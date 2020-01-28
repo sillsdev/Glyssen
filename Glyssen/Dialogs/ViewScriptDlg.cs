@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using Glyssen.Shared;
 using Glyssen.Utilities;
-using GlyssenEngine;
 using GlyssenEngine.Export;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

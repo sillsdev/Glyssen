@@ -4,9 +4,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using GlyssenEngine;
 using GlyssenEngine.Script;
-using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Dialogs

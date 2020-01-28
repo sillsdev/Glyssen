@@ -17,7 +17,6 @@ using System.Windows.Forms;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
