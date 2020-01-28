@@ -2,16 +2,16 @@
 using System.IO;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using Glyssen.Properties;
 using Glyssen.Shared;
 using SIL.Xml;
 
-namespace Glyssen
+namespace GlyssenEngine
 {
 	[XmlRoot("ProtoscriptGeneratorMetadata")]
 	public class ApplicationMetadata
 	{
 		private const string kFilename = "ApplicationMetadata.xml";
+		internal const int kDataFormatVersion = 4;
 
 		[XmlAttribute("dataVersion")]
 		public int DataVersion { get; set; }
@@ -35,7 +35,7 @@ namespace Glyssen
 					// However, on a developer machine (or in the event that a user has blown away or
 					// renamed the folder), we need to force its creation now.
 					Directory.CreateDirectory(GlyssenInfo.BaseDataFolder);
-					metadata.DataVersion = Settings.Default.DataFormatVersion;
+					metadata.DataVersion = kDataFormatVersion;
 					metadata.Save();
 				}
 			}

@@ -10,10 +10,9 @@ namespace GlyssenEngine.Export
 	/// </summary>
 	public static class ScriptExporter
 	{
-		public static void MakeGlyssenScriptFile(Project project, IEnumerable<ProjectExporter.ExportBlock> data,
-			string outputPath)
+		public static void MakeGlyssenScriptFile(ProjectExporter exporter, string outputPath)
 		{
-			var glyssenScript = CreateGlyssenScript(project, data);
+			var glyssenScript = CreateGlyssenScript(exporter.Project, exporter.GetExportData(getBlockElements: true));
 			XmlSerializationHelper.SerializeToFile(outputPath, glyssenScript);
 		}
 

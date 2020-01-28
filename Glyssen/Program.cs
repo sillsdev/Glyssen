@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -193,7 +194,22 @@ namespace Glyssen
 					return false;
 				}
 
-				DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade);
+				void HandleProjectPathChanged(string previousPath, string newPath)
+				{
+					if (Settings.Default.CurrentProject == previousPath)
+						Settings.Default.CurrentProject = newPath;
+				}
+
+				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
+					HandleProjectPathChanged);
+				if (upgradeInfo != null)
+				{
+					Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>
+					{
+						{ "old", upgradeInfo.Item1.ToString(CultureInfo.InvariantCulture) },
+						{ "new", upgradeInfo.Item2.ToString(CultureInfo.InvariantCulture) }
+					});
+				}
 
 				SampleProject.CreateSampleProjectIfNeeded();
 

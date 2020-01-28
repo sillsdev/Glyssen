@@ -6,7 +6,7 @@ using Glyssen.Shared;
 using SIL.Scripture;
 using SIL.Xml;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Export
 {
 	class ControlAnnotations
 	{

@@ -1,4 +1,5 @@
-﻿using Paratext.Data;
+﻿using GlyssenEngine.Paratext;
+using Paratext.Data;
 using SIL.IO;
 
 namespace GlyssenEngine

@@ -4,6 +4,7 @@ using System.Xml;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using GlyssenEngineTests.Script;
 using NUnit.Framework;

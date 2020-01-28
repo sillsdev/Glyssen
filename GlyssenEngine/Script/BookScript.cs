@@ -7,6 +7,7 @@ using System.Text;
 using System.Xml.Serialization;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using SIL.Extensions;
 using SIL.Scripture;
@@ -15,7 +16,7 @@ using SIL.Xml;
 using static System.Char;
 using static System.String;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	[XmlRoot("book")]
 	public class BookScript : PortionScript, IScrBook

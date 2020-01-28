@@ -12,6 +12,7 @@ using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
+using GlyssenEngine.Script;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

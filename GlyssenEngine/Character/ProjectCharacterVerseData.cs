@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Shared;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;

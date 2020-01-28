@@ -6,7 +6,7 @@ using Glyssen.Shared;
 using GlyssenEngine.Character;
 using SIL.Scripture;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	public class PortionScript
 	{

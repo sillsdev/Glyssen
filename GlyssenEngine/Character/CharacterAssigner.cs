@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using SIL.Scripture;
 
 namespace GlyssenEngine.Character

@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenEngine.ErrorHandling;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -77,7 +78,7 @@ namespace GlyssenEngine.Export
 
 		public ExportFileType SelectedFileType { get; set; }
 
-		internal string RecordingScriptFileNameSuffix =>
+		public string RecordingScriptFileNameSuffix =>
 			Localizer.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 
 		private string DefaultDirectory
@@ -96,12 +97,9 @@ namespace GlyssenEngine.Export
 			}
 		}
 
-		internal string CurrentBaseFolder
-		{
-			get { return Path.GetDirectoryName(FullFileName); }
-		}
+		public string CurrentBaseFolder => Path.GetDirectoryName(FullFileName);
 
-		internal string FullFileName
+		public string FullFileName
 		{
 			get
 			{
@@ -119,42 +117,17 @@ namespace GlyssenEngine.Export
 		private string OutputName => Project.Name +
 			(!IsNullOrWhiteSpace(Project.AudioStockNumber) ? " " + Project.AudioStockNumber : Empty);
 
-		private string FileNameWithoutExtension
-		{
-			get { return Path.GetFileNameWithoutExtension(FullFileName); }
-		}
+		private string FileNameWithoutExtension => Path.GetFileNameWithoutExtension(FullFileName);
 
-		internal string ActorDirectory
-		{
-			get
-			{
-				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors");
-				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
-			}
-		}
+		public string ActorDirectory => GetSubfolder(Localizer.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors"));
 
-		internal string BookDirectory
-		{
-			get
-			{
-				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
-				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
-			}
-		}
+		public string BookDirectory => GetSubfolder(Localizer.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books"));
 
-		internal string ClipDirectory
-		{
-			get
-			{
-				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips");
-				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
-			}
-		}
+		public string ClipDirectory => GetSubfolder(Localizer.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips"));
 
-		public string AnnotationElementSeparator
-		{
-			get { return SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator; }
-		}
+		private string GetSubfolder(string dirSuffix) => Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
+
+		public string AnnotationElementSeparator => SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator;
 
 		//internal  GetListOfFilesInUse()
 		//{
@@ -169,7 +142,7 @@ namespace GlyssenEngine.Export
 		//	return lockedFiles;
 		//}
 
-		internal IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
+		public IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
 		{
 			var lockedFiles = new List<Tuple<string, string>>();
 
@@ -262,7 +235,7 @@ namespace GlyssenEngine.Export
 			}
 		}
 
-		internal DataTable GeneratePreviewTable()
+		public DataTable GeneratePreviewTable()
 		{
 			var dt = new DataTable();
 

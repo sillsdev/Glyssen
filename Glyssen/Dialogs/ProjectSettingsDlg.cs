@@ -10,6 +10,7 @@ using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using L10NSharp;

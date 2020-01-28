@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using NUnit.Framework;
 using SIL.Scripture;
 

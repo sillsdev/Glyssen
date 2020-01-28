@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
 using GlyssenEngine;
+using GlyssenEngine.Script;
 using static System.String;
 using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
 

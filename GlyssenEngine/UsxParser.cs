@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;

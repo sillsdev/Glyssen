@@ -6,6 +6,7 @@ using System.Linq;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using SIL.Reporting;
 using SIL.Scripture;
 

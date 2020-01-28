@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GlyssenEngine.Utilities
+namespace GlyssenEngine.Paratext
 {
 	public interface IParatextProjectLoadingAssistant
 	{

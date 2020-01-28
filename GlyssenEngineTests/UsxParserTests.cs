@@ -5,6 +5,7 @@ using System.Xml;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using NUnit.Framework;
 using Paratext.Data;
 using SIL.DblBundle;

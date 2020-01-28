@@ -1,49 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
-using Glyssen.Properties;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL;
 using SIL.DblBundle;
 using SIL.IO;
-using SIL.Scripture;
 using SIL.Reporting;
+using SIL.Scripture;
 using SIL.Xml;
-using Resources = Glyssen.Properties.Resources;
 
-namespace Glyssen
+namespace GlyssenEngine
 {
-	internal static class DataMigrator
+	public static class DataMigrator
 	{
+		private static bool s_alreadyCalled = false;
 		private const string kOldProjectExtension = ".pgproj";
-		public static void UpgradeToCurrentDataFormatVersion(Func<Project, bool> handleMissingBundleNeededForUpgrade)
+		public static Tuple<int, int> UpgradeToCurrentDataFormatVersion(Func<Project, bool> handleMissingBundleNeededForUpgrade,
+			Action<string, string> handleProjectPathChanged)
 		{
+			if (s_alreadyCalled)
+				return null;
 			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
-			if (UpgradeToCurrentDataFormatVersion(settings, handleMissingBundleNeededForUpgrade))
+			s_alreadyCalled = true;
+			int from = settings.DataVersion;
+			if (UpgradeToCurrentDataFormatVersion(settings, handleMissingBundleNeededForUpgrade, handleProjectPathChanged))
+			{
 				settings.Save();
+				return new Tuple<int, int>(from, settings.DataVersion);
+			}
+			return null;
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<Project, bool> handleMissingBundleNeededForUpgrade)
+		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<Project, bool> handleMissingBundleNeededForUpgrade,
+			Action<string, string> handleProjectPathChanged)
 		{
-			if (info.DataVersion >= Settings.Default.DataFormatVersion)
+			if (info.DataVersion >= ApplicationMetadata.kDataFormatVersion)
 				return false;
 
 			bool retVal = true;
-
-			Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>
-			{
-				{ "old", info.DataVersion.ToString(CultureInfo.InvariantCulture) },
-				{ "new", Settings.Default.DataFormatVersion.ToString(CultureInfo.InvariantCulture) }
-			});
 
 			switch (info.DataVersion)
 			{
@@ -77,11 +78,7 @@ namespace Glyssen
 							Directory.CreateDirectory(recordingProjectFolder);
 							foreach (var file in filesToMove)
 								File.Move(file, Path.Combine(recordingProjectFolder, Path.GetFileName(file)));
-							if (Settings.Default.CurrentProject == projectFilePath)
-							{
-								Settings.Default.CurrentProject = Path.Combine(recordingProjectFolder,
-									Path.GetFileName(projectFilePath));
-							}
+							handleProjectPathChanged(projectFilePath, Path.Combine(recordingProjectFolder, Path.GetFileName(projectFilePath)));
 						}
 					}
 					goto case 1;
@@ -135,8 +132,7 @@ namespace Glyssen
 					{
 						var newName = Path.ChangeExtension(pgProjFile, Constants.kProjectFileExtension);
 						File.Move(pgProjFile, newName);
-						if (Settings.Default.CurrentProject == pgProjFile)
-							Settings.Default.CurrentProject = newName;
+						handleProjectPathChanged(pgProjFile, newName);
 					}
 					break; // No need to go to case 3, since the problem it fixes would only have been caused by a version of Glyssen with data version 3 
 				case 3:
@@ -303,7 +299,7 @@ namespace Glyssen
 			}
 
 			if (retVal)
-				info.DataVersion = Settings.Default.DataFormatVersion;
+				info.DataVersion = ApplicationMetadata.kDataFormatVersion;
 			return retVal;
 		}
 

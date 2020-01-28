@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	[Flags]
 	public enum BlocksToDisplay

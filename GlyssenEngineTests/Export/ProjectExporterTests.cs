@@ -10,6 +10,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Export;
 using GlyssenEngine.Rules;
+using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
 using GlyssenEngineTests.Script;

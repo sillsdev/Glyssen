@@ -1,4 +1,5 @@
 ﻿using GlyssenEngine;
+using GlyssenEngine.Script;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Xml;

@@ -26,12 +26,8 @@ namespace GlyssenEngine.ViewModels
 		private int m_customMaleNarratorCount;
 		private int m_customFemaleNarratorCount;
 		private readonly Dictionary<CastSizeOption, CastSizeRowValues> m_baseRowValues = new Dictionary<CastSizeOption, CastSizeRowValues>();
-		private Project m_project;
 
-		internal Project Project
-		{
-			get { return m_project; }
-		}
+		public Project Project { get; }
 
 		public int MaleNarrators
 		{
@@ -94,20 +90,14 @@ namespace GlyssenEngine.ViewModels
 			}
 		}
 
-		internal int MinimumActorCount
-		{
-			get { return GetCastSizeRowValues(CastSizeOption.Small).Total; }
-		}
+		public int MinimumActorCount => GetCastSizeRowValues(CastSizeOption.Small).Total;
 
-		internal int RecommendedActorCount
-		{
-			get { return GetCastSizeRowValues(CastSizeOption.Recommended).Total; }
-		}
+		public int RecommendedActorCount => GetCastSizeRowValues(CastSizeOption.Recommended).Total;
 
 		public CastSizePlanningViewModel(Project project)
 		{
-			m_project = project;
-			var prefs = m_project.CharacterGroupGenerationPreferences;
+			Project = project;
+			var prefs = Project.CharacterGroupGenerationPreferences;
 
 			m_narratorsOption = prefs.NarratorsOption;
 			// if not yet specified, use "Narration by Author"
@@ -123,14 +113,14 @@ namespace GlyssenEngine.ViewModels
 			{
 				m_customMaleNarratorCount = prefs.NumberOfMaleNarrators;
 				m_customFemaleNarratorCount = m_narratorsOption == NarratorsOption.NarrationByAuthor ? 0 : prefs.NumberOfFemaleNarrators;
-				m_project.EnsureNarratorPreferencesAreValid(m_narratorsOption,
+				Project.EnsureNarratorPreferencesAreValid(m_narratorsOption,
 					(v) => m_customMaleNarratorCount = v, (v) => m_customFemaleNarratorCount = v);
 			}
 
 			var smallCast = new CastSizeRowValues(2, 2, 0);
 			int extraCharacterCount = 0;
 
-			foreach (var bookId in m_project.IncludedBooks.Where(b => !b.SingleVoice).Select(b => b.BookId))
+			foreach (var bookId in Project.IncludedBooks.Where(b => !b.SingleVoice).Select(b => b.BookId))
 			{
 				extraCharacterCount = 1;
 				// OT numbers are based on actual generation from Kuna San Blas project
@@ -315,7 +305,7 @@ namespace GlyssenEngine.ViewModels
 						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "HEB":
-						switch (m_project.DramatizationPreferences.ScriptureQuotationsShouldBeSpokenBy)
+						switch (Project.DramatizationPreferences.ScriptureQuotationsShouldBeSpokenBy)
 						{
 							case DramatizationOption.DedicatedCharacter:
 								smallCast.Male = Math.Max(smallCast.Male, 1);
@@ -388,9 +378,9 @@ namespace GlyssenEngine.ViewModels
 
 			if (smallCast.Female == 0)
 			{
-				if ((m_project.DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor) ||
-				    (m_project.DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor) ||
-				    (m_project.DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor))
+				if ((Project.DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor) ||
+				    (Project.DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor) ||
+				    (Project.DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor))
 				{
 					smallCast.Female = 1;
 				}
@@ -413,12 +403,9 @@ namespace GlyssenEngine.ViewModels
 			m_updatedCustomActorCounts = new CastSizeRowValues(prefs.NumberOfMaleActors, prefs.NumberOfFemaleActors, prefs.NumberOfChildActors);
 		}
 
-		public CastSizeRowValues SelectedCastSize
-		{
-			get { return GetCastSizeRowValues(CastSizeOption); }
-		}
+		public CastSizeRowValues SelectedCastSize => GetCastSizeRowValues(CastSizeOption);
 
-		internal CastSizeRowValues GetCastSizeRowValues(CastSizeOption row)
+		public CastSizeRowValues GetCastSizeRowValues(CastSizeOption row)
 		{
 			//if (Project.CalculatedCastSizeRowValues == null)
 			//	Project.CalculateCastSizeRowValues();
@@ -444,11 +431,11 @@ namespace GlyssenEngine.ViewModels
 			throw new InvalidEnumArgumentException(@"row", (int)row, typeof(CastSizeOption));
 		}
 
-		internal int MaximumNarratorsValue => m_narratorsOption == NarratorsOption.Custom ? Project.IncludedBooks.Count : Project.AuthorCount;
+		public int MaximumNarratorsValue => m_narratorsOption == NarratorsOption.Custom ? Project.IncludedBooks.Count : Project.AuthorCount;
 
-		internal NarratorsOption NarratorOption
+		public NarratorsOption NarratorOption
 		{
-			get { return m_narratorsOption; }
+			get => m_narratorsOption;
 			set
 			{
 				if (m_narratorsOption == value)
@@ -469,7 +456,7 @@ namespace GlyssenEngine.ViewModels
 			}
 		}
 
-		internal CastSizeOption CastSizeOption
+		public CastSizeOption CastSizeOption
 		{
 			get
 			{
@@ -483,36 +470,28 @@ namespace GlyssenEngine.ViewModels
 				// if not yet specified, use "Recommended"
 				return m_updatedCastSizeOption = currentValue == CastSizeOption.NotSet ? CastSizeOption.Recommended : currentValue;
 			}
-			set { m_updatedCastSizeOption = value; }
+			set => m_updatedCastSizeOption = value;
 		}
 
-		internal bool HasVoiceActors
-		{
-			get { return Project.VoiceActorList.AllActors.Any(); }
-		}
+		public bool HasVoiceActors => Project.VoiceActorList.AllActors.Any();
 
-		internal int VoiceActorCount
-		{
-			get { return Project.VoiceActorList.AllActors.Count; }
-		}
+		public int VoiceActorCount => Project.VoiceActorList.AllActors.Count;
 
-		internal void SetCustomVoiceActorValues(CastSizeRowValues values)
+		public void SetCustomVoiceActorValues(CastSizeRowValues values)
 		{
 			m_updatedCustomActorCounts = new CastSizeRowValues(values);
 
-			if (CastSizeRowValuesChanged != null)
-				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeOption.Custom, values, false));
+			CastSizeRowValuesChanged?.Invoke(this, new CastSizeValueChangedEventArgs(CastSizeOption.Custom, values, false));
 		}
 
-		internal void SetVoiceActorListValues(CastSizeRowValues values, bool keepSelection)
+		public void SetVoiceActorListValues(CastSizeRowValues values, bool keepSelection)
 		{
 			m_actualActorCounts = new CastSizeRowValues(values);
 
-			if (CastSizeRowValuesChanged != null)
-				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeOption.MatchVoiceActorList, values, keepSelection));
+			CastSizeRowValuesChanged?.Invoke(this, new CastSizeValueChangedEventArgs(CastSizeOption.MatchVoiceActorList, values, keepSelection));
 		}
 
-		internal void Save()
+		public void Save()
 		{
 			var prefs = Project.CharacterGroupGenerationPreferences;
 			prefs.IsSetByUser = true;
@@ -535,10 +514,7 @@ namespace GlyssenEngine.ViewModels
 		public int Female { get; set; }
 		public int Child { get; set; }
 
-		public int Total
-		{
-			get { return Male + Female + Child; }
-		}
+		public int Total => Male + Female + Child;
 
 		public CastSizeRowValues(int male, int female, int child)
 		{

@@ -8,7 +8,7 @@ using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	public class BlockMatchup
 	{

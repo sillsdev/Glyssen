@@ -8,6 +8,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.IO;

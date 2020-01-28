@@ -5,6 +5,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;

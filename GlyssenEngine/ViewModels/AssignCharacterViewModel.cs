@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;

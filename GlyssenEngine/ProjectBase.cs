@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Script;
 using SIL;
 using SIL.DblBundle;
 using SIL.Scripture;

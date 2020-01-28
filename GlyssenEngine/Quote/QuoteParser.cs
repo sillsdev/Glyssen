@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;

@@ -1,4 +1,4 @@
-﻿namespace GlyssenEngine.Utilities
+﻿namespace GlyssenEngine.UndoActions
 {
 	public interface IUndoAction
 	{

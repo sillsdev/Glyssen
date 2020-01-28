@@ -7,6 +7,7 @@ using System.Web;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using static System.String;
 

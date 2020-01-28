@@ -1,8 +1,4 @@
-﻿using Glyssen.Shared;  // Merged
-using GlyssenEngine.Character;
-using GlyssenEngine.Utilities;
-using SIL.Scripture;
-using SIL.Xml;
+﻿// Merged
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +9,16 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
+using Glyssen.Shared;
+using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Utilities;
+using SIL.Scripture;
+using SIL.Xml;
 using static System.Char;
 using static System.String;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	[XmlRoot("block")]
 	public class Block

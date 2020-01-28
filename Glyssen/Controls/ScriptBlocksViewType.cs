@@ -5,9 +5,4 @@
 		Html,
 		Grid,
 	}
-	public enum BlockGroupingType
-	{
-		Quote,
-		BlockCorrelation,
-	}
 }

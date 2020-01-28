@@ -1,4 +1,4 @@
-﻿namespace GlyssenEngine.Utilities
+﻿namespace GlyssenEngine.ViewModels
 {
 	public interface IFontInfo<TFont>
 	{

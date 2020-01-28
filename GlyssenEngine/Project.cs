@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,9 +17,11 @@ using GlyssenEngine.Character;
 using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
 using GlyssenEngine.VoiceActor;
+using Ionic.Zip;
 using JetBrains.Annotations;
 using Paratext.Data;
 using SIL;
@@ -42,13 +43,15 @@ namespace GlyssenEngine
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
+
 		private const string kCharacterGroupFileName = "CharacterGroups.xml";
+
 		// Total path limit is 260 characters. Need to allow for:
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
 		private const int kMaxDefaultProjectNameLength = 150;
 		private const int kMaxPath = 260;
-        public const int kParserVersion = 49;
+		public const int kParserVersion = 49;
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -65,7 +68,9 @@ namespace GlyssenEngine
 		private ProjectState m_projectState;
 		private ProjectAnalysis m_analysis;
 		private WritingSystemDefinition m_wsDefinition;
+
 		private QuoteSystem m_quoteSystem;
+
 		// Don't want to hound the user more than once per launch per project
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
@@ -88,6 +93,13 @@ namespace GlyssenEngine
 		public static IFontRepository s_fontRepository { get; set; }
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
+
+		static Project()
+		{
+			Debug.Assert(DataMigrator.UpgradeToCurrentDataFormatVersion(null, (prev, renamed) => { }) == null,
+				"It is strongly advised that any client of GlyssenEngine that instantiates projects explicitly call " +
+				"(DataMigrator.UpgradeToCurrentDataFormatVersion with appropriate handlers.");
+		}
 
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
@@ -119,13 +131,13 @@ namespace GlyssenEngine
 						else
 						{
 							MessageModal.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
-								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
-								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
-								"for this project, some things will not work as expected.",
-								"Param 0: \"Paratext\" (product name); " +
-								"Param 1: Paratext project short name (unique project identifier); " +
-								"Param 2: Glyssen recording project name; " +
-								"Param 3: “English” (versification mame)"),
+									"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
+									"therefore, the {3} versification is being used by default. If this is not the correct versification " +
+									"for this project, some things will not work as expected.",
+									"Param 0: \"Paratext\" (product name); " +
+									"Param 1: Paratext project short name (unique project identifier); " +
+									"Param 2: Glyssen recording project name; " +
+									"Param 3: “English” (versification mame)"),
 								ParatextScrTextWrapper.kParatextProgramName,
 								ParatextProjectName,
 								Name,
@@ -168,11 +180,12 @@ namespace GlyssenEngine
 				DeleteProjectFolderAndEmptyContainingFolders(ProjectFolder);
 				throw;
 			}
+
 			UserDecisionsProject = projectBeingUpdated;
 			PopulateAndParseBooks(bundle);
 		}
 
-		internal Project(ParatextScrTextWrapper paratextProject) :
+		public Project(ParatextScrTextWrapper paratextProject) :
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
@@ -223,7 +236,7 @@ namespace GlyssenEngine
 
 		public bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
 
-		internal bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
+		public bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
 
 		public string ParatextProjectName => m_projectMetadata.ParatextProjectId;
 		public int ParserVersionWhenLastParsed => m_projectMetadata.ParserVersion;
@@ -276,6 +289,7 @@ namespace GlyssenEngine
 					GetBookName = bookId => m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId)?.LongName;
 					break;
 			}
+
 			Block.FormatChapterAnnouncement = GetFormattedChapterAnnouncement;
 		}
 
@@ -297,7 +311,7 @@ namespace GlyssenEngine
 					DoQuoteParse();
 				}
 				else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
-						(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
+					(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
 						ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
 				{
 					// These need to happen in this order
@@ -369,6 +383,7 @@ namespace GlyssenEngine
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
 				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			}
+
 			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 			{
 				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any()
@@ -514,6 +529,7 @@ namespace GlyssenEngine
 				Directory.Move(ProjectFolder, newPath);
 				m_recordingProjectName = model.RecordingProjectName;
 			}
+
 			m_projectMetadata.AudioStockNumber = model.AudioStockNumber;
 			m_projectMetadata.FontFamily = defaultFontFamily;
 			m_projectMetadata.FontSizeInPoints = defaultFontSizeInPoints;
@@ -527,7 +543,7 @@ namespace GlyssenEngine
 		{
 			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
 				throw new InvalidOperationException("Project not in a valid state to update from Text Release Bundle. ProjectState = " +
-													ProjectState);
+					ProjectState);
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
@@ -583,6 +599,7 @@ namespace GlyssenEngine
 						}
 					}
 				}
+
 				if (copy)
 				{
 					targetWs.QuotationMarks.Clear();
@@ -715,6 +732,7 @@ namespace GlyssenEngine
 						}
 					}
 				}
+
 				return m_referenceText;
 			}
 			set
@@ -728,10 +746,7 @@ namespace GlyssenEngine
 
 		public ReferenceTextProxy ReferenceTextProxy
 		{
-			get
-			{
-				return ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
-			}
+			get { return ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier); }
 			set
 			{
 				if (value.Type == m_projectMetadata.ReferenceTextType && value.CustomIdentifier == m_projectMetadata.ProprietaryReferenceTextIdentifier)
@@ -786,7 +801,7 @@ namespace GlyssenEngine
 			return IncludedBooks.Any(b => b.UnappliedSplits.Any());
 		}
 
-		internal void ClearAssignCharacterStatus()
+		public void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NotAlignedToReferenceText;
 			Status.AssignCharacterBlock = new BookBlockIndices();
@@ -813,6 +828,7 @@ namespace GlyssenEngine
 					// that doesn't abide by the current expectations.
 					existingProject.ProjectState = ProjectState.QuoteParseComplete;
 				}
+
 				Project upgradedProject = existingProject.IsBundleBasedProject ?
 					AttemptToUpgradeByReparsingBundleData(existingProject, handleMissingBundleNeededForUpgrade) :
 					AttemptToUpgradeByReparsingParatextData(existingProject, loadingAssistant);
@@ -878,9 +894,11 @@ namespace GlyssenEngine
 					if (!upgradeProject)
 						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = kParserVersion;
 				}
+
 				if (!upgradeProject)
 					return null;
 			}
+
 			using (var bundle = new GlyssenBundle(existingProject.OriginalBundlePath))
 			{
 				var upgradedProject = new Project(existingProject.m_projectMetadata, existingProject.m_recordingProjectName,
@@ -918,7 +936,7 @@ namespace GlyssenEngine
 			return GetLiveParatextDataIfCompatible(null);
 		}
 
-		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true/*bool canInteractWithUser = true,
+		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true /*bool canInteractWithUser = true,
 			string contextMessage = "", bool forceReload = false*/)
 		{
 			ParatextScrTextWrapper scrTextWrapper;
@@ -963,11 +981,11 @@ namespace GlyssenEngine
 				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
 				{
 					throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectMetadataChangedMsg",
-						"The settings of the {0} project {1} no longer appear to correspond to the {2} project. " +
-						"This is an unusual situation. If you do not understand how this happened, please contact support.",
-						"Param 0: \"Paratext\" (product name); " +
-						"Param 1: Paratext project short name (unique project identifier); " +
-						"Param 2: \"Glyssen\" (product name)"),
+							"The settings of the {0} project {1} no longer appear to correspond to the {2} project. " +
+							"This is an unusual situation. If you do not understand how this happened, please contact support.",
+							"Param 0: \"Paratext\" (product name); " +
+							"Param 1: Paratext project short name (unique project identifier); " +
+							"Param 2: \"Glyssen\" (product name)"),
 						ParatextScrTextWrapper.kParatextProgramName,
 						ParatextProjectName,
 						GlyssenInfo.kProduct));
@@ -981,7 +999,7 @@ namespace GlyssenEngine
 
 			return !checkForChangesInAvailableBooks ||
 				!FoundUnacceptableChangesInAvailableBooks(scrTextWrapper, loadingAssistant) ?
-				scrTextWrapper : null;
+					scrTextWrapper : null;
 		}
 
 		private bool FoundUnacceptableChangesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper, IParatextProjectLoadingAssistant loadingAssistant)
@@ -1064,9 +1082,11 @@ namespace GlyssenEngine
 						}
 						else
 							foundInBoth?.Invoke(existingAvailable[x].Code);
+
 						x++;
 						continue;
 					}
+
 					if (existingBookNum < nowAvailableBookNum)
 					{
 						if (existingAvailable[x].IncludeInScript)
@@ -1085,7 +1105,7 @@ namespace GlyssenEngine
 			}
 		}
 
-		internal Project UpdateProjectFromParatextData(IParatextScrTextWrapper scrTextWrapper)
+		public Project UpdateProjectFromParatextData(IParatextScrTextWrapper scrTextWrapper)
 		{
 			var existingAvailable = m_projectMetadata.AvailableBooks;
 			var upgradedProject = new Project(m_projectMetadata, Name);
@@ -1109,11 +1129,11 @@ namespace GlyssenEngine
 			// we assume we want to include anything new as well.
 			var excludeNewBooks = existingAvailable.Any(b => b.IncludeInScript == false);
 			Action<string> handleNewPassingBook = (bookCode) =>
-				{
-					if (excludeNewBooks)
-						booksToExcludeFromProject.Add(bookCode);
-					foundDataChange = true;
-				};
+			{
+				if (excludeNewBooks)
+					booksToExcludeFromProject.Add(bookCode);
+				foundDataChange = true;
+			};
 
 			if (upgradedProject.QuoteSystemStatus == QuoteSystemStatus.Obtained && scrTextWrapper.HasQuotationRulesSet)
 			{
@@ -1144,6 +1164,7 @@ namespace GlyssenEngine
 							foundDataChange = true;
 					}
 				}
+
 				if (foundDataChange)
 					upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
 
@@ -1152,10 +1173,7 @@ namespace GlyssenEngine
 
 			upgradedProject.QuoteParseCompleted += OnUpgradedProjectOnQuoteParseCompleted;
 
-			UpgradeProject(this, upgradedProject, () =>
-			{
-				upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
-			});
+			UpgradeProject(this, upgradedProject, () => { upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet); });
 
 			return upgradedProject;
 		}
@@ -1179,6 +1197,7 @@ namespace GlyssenEngine
 					Format(Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath));
 				return;
 			}
+
 			metadata.Inactive = hidden;
 			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
 			// TODO: preserve WritingSystemRecoveryInProcess flag
@@ -1205,7 +1224,7 @@ namespace GlyssenEngine
 		{
 			return
 				PercentInitialized =
-					(int) (m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
+					(int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 		}
 
 		private static Project LoadExistingProject(string projectFilePath)
@@ -1232,19 +1251,20 @@ namespace GlyssenEngine
 			{
 				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
 			}
-			catch(ProjectNotFoundException e)
+			catch (ProjectNotFoundException e)
 			{
 				throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectNotFound",
-					"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
-					"Param 0: \"Paratext\" (product name); " +
-					"Param 1: Paratext project short name (unique project identifier); " +
-					"Param 2: \"Glyssen\" (product name); " +
-					"Param 3: Glyssen recording project name"),
+						"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: Paratext project short name (unique project identifier); " +
+						"Param 2: \"Glyssen\" (product name); " +
+						"Param 3: Glyssen recording project name"),
 					ParatextScrTextWrapper.kParatextProgramName,
 					metadata.ParatextProjectId,
 					GlyssenInfo.kProduct,
 					metadata.Name), e);
 			}
+
 			project.ProjectFileIsWritable = isWritable;
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
@@ -1293,6 +1313,7 @@ namespace GlyssenEngine
 									Logger.WriteError($"Paratext project not found. Removing {m_metadata.AvailableBooks[i].Code}.", e);
 								}
 							}
+
 							if (sourceParatextProject != null && sourceParatextProject.BookPresent(Canon.BookIdToNumber(m_metadata.AvailableBooks[i].Code)))
 								m_metadata.AvailableBooks[i].IncludeInScript = false;
 							else
@@ -1321,6 +1342,7 @@ namespace GlyssenEngine
 				UpdateControlFileVersion();
 				return;
 			}
+
 			m_guessPercentComplete = 100;
 
 			if (IsSampleProject)
@@ -1337,6 +1359,7 @@ namespace GlyssenEngine
 				ProjectState = ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 				return;
 			}
+
 			m_quotePercentComplete = 100;
 			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
@@ -1346,6 +1369,7 @@ namespace GlyssenEngine
 
 				UpdateControlFileVersion();
 			}
+
 			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
 			UpdateControlFileVersion();
@@ -1375,6 +1399,7 @@ namespace GlyssenEngine
 					targetBookScript.ApplyUserDecisions(sourceBookScript, ReferenceText);
 				}
 			}
+
 			Analyze();
 		}
 
@@ -1409,11 +1434,11 @@ namespace GlyssenEngine
 					return;
 				}
 			}
+
 			m_books.Insert(i, book);
 		}
 
-		internal void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers,
-			Action<BookScript> postParseAction)
+		public void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers, Action<BookScript> postParseAction)
 		{
 			wrapper.IncludeBooks(bookNumbers.Select(BCVRef.NumberToBookCode));
 			var usxBookInfoList = wrapper.GetUsxDocumentsForIncludedParatextBooks(bookNumbers);
@@ -1452,10 +1477,10 @@ namespace GlyssenEngine
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			var parameters = (object[]) e.Argument;
-			var books = (IEnumerable<UsxDocument>) parameters[0];
-			var stylesheet = (IStylesheet) parameters[1];
-			var postParseAction = parameters.Length > 2 ? (Action <BookScript> )parameters[2] : null;
+			var parameters = (object[])e.Argument;
+			var books = (IEnumerable<UsxDocument>)parameters[0];
+			var stylesheet = (IStylesheet)parameters[1];
+			var postParseAction = parameters.Length > 2 ? (Action<BookScript>)parameters[2] : null;
 
 			var backgroundWorker = (BackgroundWorker)sender;
 
@@ -1466,6 +1491,7 @@ namespace GlyssenEngine
 				foreach (var book in parsedBooks)
 					postParseAction(book);
 			}
+
 			e.Result = parsedBooks;
 		}
 
@@ -1474,7 +1500,7 @@ namespace GlyssenEngine
 			if (e.Error != null)
 				throw e.Error;
 
-			var bookScripts = (List<BookScript>) e.Result;
+			var bookScripts = (List<BookScript>)e.Result;
 
 			foreach (var bookScript in bookScripts)
 			{
@@ -1542,7 +1568,7 @@ namespace GlyssenEngine
 				throw e.Error;
 
 			QuoteSystemStatus = QuoteSystemStatus.Guessed;
-			QuoteSystem = (QuoteSystem) e.Result;
+			QuoteSystem = (QuoteSystem)e.Result;
 
 			Save();
 		}
@@ -1562,7 +1588,7 @@ namespace GlyssenEngine
 			quoteWorker.DoWork += QuoteWorker_DoWork;
 			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
 			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
-			object[] parameters = { booksToParse };
+			object[] parameters = {booksToParse};
 			quoteWorker.RunWorkerAsync(parameters);
 		}
 
@@ -1617,7 +1643,7 @@ namespace GlyssenEngine
 			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle.Name));
 		}
 
-		internal static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
+		public static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
 		{
 			return GetProjectFilePath(textWrapper.LanguageIso3Code, textWrapper.GlyssenDblTextMetadata.Id, GetDefaultRecordingProjectName(textWrapper.ProjectFullName));
 		}
@@ -1697,6 +1723,7 @@ namespace GlyssenEngine
 					ErrorReport.ReportNonFatalException(error);
 				return bookScript;
 			}
+
 			return null;
 		}
 
@@ -1706,7 +1733,7 @@ namespace GlyssenEngine
 			AnalysisCompleted?.Invoke(this, new EventArgs());
 		}
 
-		internal void PrepareForExport()
+		private void PrepareForExport()
 		{
 			if (!HasVersificationFile)
 			{
@@ -1721,9 +1748,39 @@ namespace GlyssenEngine
 			}
 		}
 
-		internal void ExportCompleted()
+		public string ExportShare(Action<string> handleCustomReferenceText)
 		{
-			RobustFile.Delete(FallbackVersificationFilePath);
+			PrepareForExport();
+
+			try
+			{
+				var sourceDir = Path.GetDirectoryName(ProjectFilePath);
+
+				Debug.Assert(sourceDir != null);
+				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
+
+				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
+
+				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
+				Directory.CreateDirectory(share);
+
+				var saveAsName = Path.Combine(share, LanguageIsoCode + "_" + Name) + ProjectBase.kShareFileExtension;
+
+				using (var zip = new ZipFile())
+				{
+					zip.AddDirectory(sourceDir, nameInZip);
+					zip.Save(saveAsName);
+				}
+
+				if (ReferenceTextProxy.Type == ReferenceTextType.Custom)
+					handleCustomReferenceText?.Invoke(ReferenceTextProxy.CustomIdentifier);
+
+				return saveAsName;
+			}
+			finally
+			{
+				RobustFile.Delete(FallbackVersificationFilePath);
+			}
 		}
 
 		public void Save(bool saveCharacterGroups = false)
@@ -1743,7 +1800,7 @@ namespace GlyssenEngine
 				return;
 			}
 
-            foreach (var book in m_books)
+			foreach (var book in m_books)
 				SaveBook(book);
 			SaveProjectCharacterVerseData();
 			SaveProjectCharacterDetailData();
@@ -1839,6 +1896,7 @@ namespace GlyssenEngine
 								break;
 						}
 					}
+
 					CharacterGroupGenerationPreferences.NumberOfMaleActors += CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
 					CharacterGroupGenerationPreferences.NumberOfFemaleActors += CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
 				}
@@ -1884,9 +1942,11 @@ namespace GlyssenEngine
 								});
 							}
 						}
+
 						if (!RobustFile.Exists(LdmlFilePath))
 							break;
 					}
+
 					try
 					{
 						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
@@ -1908,10 +1968,10 @@ namespace GlyssenEngine
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
 								"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
 						var msg3 = Format(Localizer.GetString("Project.IgnoreToRepairLdmlFile",
-							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
-							"so check the quote system and font settings carefully.",
-							"Param 0: \"Ignore\" button label; " +
-							"Param 1: \"Glyssen\" (product name)"),
+								"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
+								"so check the quote system and font settings carefully.",
+								"Param 0: \"Ignore\" button label; " +
+								"Param 1: \"Glyssen\" (product name)"),
 							MessageBoxStrings.IgnoreButton, GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
@@ -1938,8 +1998,10 @@ namespace GlyssenEngine
 										Logger.WriteError(exReplaceCorruptedLdmlWithBackup);
 										// We'll come back around and display the "self-repair" version of the message.
 									}
+
 									attemptToUseBackup = false;
 								}
+
 								retry = true;
 								break;
 							case MessageResult.Abort:
@@ -1978,6 +2040,7 @@ namespace GlyssenEngine
 						}
 					}
 				}
+
 				if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !IsNullOrEmpty(m_metadata.Language.Name))
 				{
 					// TODO: Strip off the first dash and anything following???
@@ -2007,18 +2070,19 @@ namespace GlyssenEngine
 				// Oh, well. Hope for the best...
 				NonFatalErrorHandler.HandleException(exMakeBackup, ErrorHandlingOptions.Log, "Failed to create LDML backup",
 					new Dictionary<string, string>
-				{
-					{"LdmlFilePath", LdmlFilePath},
-				});
+					{
+						{"LdmlFilePath", LdmlFilePath},
+					});
 				backupPath = null;
 			}
+
 			try
 			{
 				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
 				// Now test to see if what we wrote is actually readable...
 				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
 			}
-			catch(FileLoadException)
+			catch (FileLoadException)
 			{
 				throw; // Don't want to ignore this error - should never happen on valid installation.
 			}
@@ -2026,9 +2090,9 @@ namespace GlyssenEngine
 			{
 				NonFatalErrorHandler.HandleException(exSave, ErrorHandlingOptions.Log, "Writing System Save Failure",
 					new Dictionary<string, string>
-				{
-					{"CurrentProjectPath", projectPath},
-				});
+					{
+						{"CurrentProjectPath", projectPath},
+					});
 				if (backupPath != null)
 				{
 					// If we ended up with an unreadable file, revert to backup???
@@ -2053,9 +2117,9 @@ namespace GlyssenEngine
 					{
 						NonFatalErrorHandler.HandleException(exRecover, ErrorHandlingOptions.Log,
 							"Recovery from backup Writing System File Failed.", new Dictionary<string, string>
-						{
-							{"CurrentProjectPath", projectPath},
-						});
+							{
+								{"CurrentProjectPath", projectPath},
+							});
 						throw exSave;
 					}
 				}
@@ -2110,29 +2174,31 @@ namespace GlyssenEngine
 				} while (Directory.Exists(newDirectoryPath));
 			}
 
-            try
-            {
-                DirectoryHelper.Copy(ProjectFolder, newDirectoryPath);
+			try
+			{
+				DirectoryHelper.Copy(ProjectFolder, newDirectoryPath);
 
-                if (hidden)
-                {
-                    var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + Constants.kProjectFileExtension).FirstOrDefault();
-                    if (newFilePath != null)
-                        SetHiddenFlag(newFilePath, true);
-                }
-            }
+				if (hidden)
+				{
+					var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + Constants.kProjectFileExtension).FirstOrDefault();
+					if (newFilePath != null)
+						SetHiddenFlag(newFilePath, true);
+				}
+			}
 			catch
-            {
-                try
-                {
-                    if (!Directory.Exists(newDirectoryPath))
-                        return;
+			{
+				try
+				{
+					if (!Directory.Exists(newDirectoryPath))
+						return;
 
-                    // Clean up by removing the partially copied directory.
-                    Directory.Delete(newDirectoryPath, true);
-                }
-                catch { }
-            }
+					// Clean up by removing the partially copied directory.
+					Directory.Delete(newDirectoryPath, true);
+				}
+				catch
+				{
+				}
+			}
 		}
 
 		// Note: For live Paratext projects, the only proper way to change the quote system is via Paratext.
@@ -2146,7 +2212,7 @@ namespace GlyssenEngine
 
 		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
 
-		internal static string GetDefaultRecordingProjectName(string publicationName)
+		public static string GetDefaultRecordingProjectName(string publicationName)
 		{
 			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
@@ -2202,7 +2268,7 @@ namespace GlyssenEngine
 			internal int LastChapter { get; set; }
 		}
 
-		internal void ClearCharacterStatistics()
+		public void ClearCharacterStatistics()
 		{
 			m_keyStrokesByCharacterId = null;
 			m_speechDistributionScore = null;
@@ -2261,6 +2327,7 @@ namespace GlyssenEngine
 						m_keyStrokesByCharacterId.Add(character, 0);
 						m_speechDistributionScore.Add(character, 0);
 					}
+
 					m_keyStrokesByCharacterId[character] += block.Length;
 
 					DistributionScoreBookStats stats;
@@ -2283,8 +2350,10 @@ namespace GlyssenEngine
 							stats.NonContiguousBlocksInCurrentChapter++;
 						}
 					}
+
 					prevCharacter = character;
 				}
+
 				foreach (var characterStatsInfo in bookDistributionScoreStats)
 				{
 					var stats = characterStatsInfo.Value;
@@ -2304,6 +2373,7 @@ namespace GlyssenEngine
 						m_speechDistributionScore[characterStatsInfo.Key] = resultInBook;
 				}
 			}
+
 			Debug.Assert(m_keyStrokesByCharacterId.Values.All(v => v != 0));
 		}
 
@@ -2342,6 +2412,7 @@ namespace GlyssenEngine
 							continue;
 						}
 					}
+
 					yield return level;
 					oneLevelUp = level;
 				}
@@ -2409,9 +2480,11 @@ namespace GlyssenEngine
 					Logger.WriteEvent("Paratext project is unavailable or is no longer compatible! Cannot test quote system.");
 					return new BookScript[] { };
 				}
+
 				usxDocsForBooksToInclude = scrTextWrapper.UsxDocumentsForIncludedBooks;
 				stylesheet = scrTextWrapper.Stylesheet;
 			}
+
 			var books = UsxParser.ParseBooks(usxDocsForBooksToInclude, stylesheet, null);
 
 			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
@@ -2462,12 +2535,14 @@ namespace GlyssenEngine
 						iCharacter = 0;
 						charactersForVerse = null;
 					}
+
 					if (block.MultiBlockQuote == MultiBlockQuote.Start)
 						blocksForMultiBlockQuote = new List<Block>();
 					else if (block.MultiBlockQuote == MultiBlockQuote.None)
 					{
 						ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 					}
+
 					if (block.CharacterId == CharacterVerseData.kUnexpectedCharacter)
 					{
 						block.SetNonDramaticCharacterId(book.NarratorCharacterId);
@@ -2494,11 +2569,13 @@ namespace GlyssenEngine
 							characterForMultiBlockQuote = cvEntry;
 							continue;
 						}
+
 						block.SetCharacterIdAndCharacterIdInScript(cvEntry.Character, bookNum, Versification);
 						block.Delivery = cvEntry.Delivery;
 						block.UserConfirmed = true;
 					}
 				}
+
 				ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
 
 #if DEBUG
@@ -2519,6 +2596,7 @@ namespace GlyssenEngine
 					blockForMultiBlockQuote.Delivery = characterForMultiBlockQuote.Delivery;
 					blockForMultiBlockQuote.UserConfirmed = true;
 				}
+
 				blocksForMultiBlockQuote = null;
 				characterForMultiBlockQuote = null;
 			}

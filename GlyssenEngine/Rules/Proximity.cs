@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using SIL.Scripture;
 
 namespace GlyssenEngine.Rules

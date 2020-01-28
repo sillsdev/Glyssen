@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using Glyssen.Controls;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -16,18 +16,18 @@ namespace GlyssenEngine.ViewModels
 	public class BlockNavigatorViewModel<TFont> : IDisposable
 	{
 		protected readonly Project m_project;
-		internal const string kDataCharacter = "data-character";
+		public const string kDataCharacter = "data-character";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
 		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
-		internal const string kCssClassContext = "context";
+		public const string kCssClassContext = "context";
 		private const string kCssFrame = Block.kCssFrame +
 										".highlight{{background-color:highlight;color:highlighttext}}" +
 										"." + kCssClassContext + ":hover{{background-color:#E1F0FF}}" +
 										".block-spacer{{height:30px}}" +
 										".section-header{{text-align:center;font-weight:bold}}" +
 										".chapter-label{{font-weight:bold;font-size:150%}}";
-		internal const string kMainQuoteElementId = "main-quote-text";
+		public const string kMainQuoteElementId = "main-quote-text";
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private IAdjustableFontInfo<TFont> m_font;
@@ -522,6 +522,12 @@ namespace GlyssenEngine.ViewModels
 		#endregion
 
 		#region Navigation methods
+		public void UpdateNavigatorForIncludedBooks(IEnumerable<string> filteredListOfBookIds = null)
+		{
+			BlockNavigator = new BlockNavigator(filteredListOfBookIds == null ? m_project.IncludedBooks :
+				m_project.IncludedBooks.Where(ib => filteredListOfBookIds.Contains(ib.BookId)).ToList());
+		}
+
 		public Block GetNthBlockInCurrentBook(int i)
 		{
 			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)

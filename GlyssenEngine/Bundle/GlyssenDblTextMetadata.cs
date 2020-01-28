@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine.Script;
 using SIL.Xml;
 
 namespace GlyssenEngine.Bundle

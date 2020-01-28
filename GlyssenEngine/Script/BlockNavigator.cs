@@ -5,7 +5,7 @@ using System.Linq;
 using SIL.Extensions;
 using SIL.Scripture;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	public class BlockNavigator : IBlockAccessor
 	{

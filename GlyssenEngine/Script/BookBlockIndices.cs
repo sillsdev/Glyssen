@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using SIL.Reporting;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	[XmlRoot]
 	public class BookBlockIndices : IEquatable<BookBlockIndices>, IComparable<BookBlockIndices>

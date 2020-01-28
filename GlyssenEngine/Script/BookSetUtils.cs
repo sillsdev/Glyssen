@@ -4,7 +4,7 @@ using SIL;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 
-namespace GlyssenEngine
+namespace GlyssenEngine.Script
 {
 	public static class BookSetUtils
 	{

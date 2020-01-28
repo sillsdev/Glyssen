@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using GlyssenEngine.Utilities;
+using GlyssenEngine.UndoActions;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace GlyssenEngineTests.Utilities
+namespace GlyssenEngineTests.UndoActionsTests
 {
 	[TestFixture]
 	class UndoStackTests

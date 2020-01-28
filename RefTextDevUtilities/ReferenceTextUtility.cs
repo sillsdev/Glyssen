@@ -10,6 +10,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;

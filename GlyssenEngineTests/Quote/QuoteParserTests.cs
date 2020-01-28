@@ -5,6 +5,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
 using GlyssenEngineTests.Utilities;
 using NUnit.Framework;

@@ -2,7 +2,9 @@
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using NUnit.Framework;
 using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<object>;
 

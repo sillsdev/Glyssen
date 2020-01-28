@@ -10,6 +10,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using GlyssenEngineTests.Bundle;
 using NUnit.Framework;
 using Rhino.Mocks;

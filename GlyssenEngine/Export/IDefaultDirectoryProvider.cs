@@ -1,4 +1,4 @@
-﻿namespace GlyssenEngine.Utilities
+﻿namespace GlyssenEngine.Export
 {
 	public interface IDefaultDirectoryProvider
 	{

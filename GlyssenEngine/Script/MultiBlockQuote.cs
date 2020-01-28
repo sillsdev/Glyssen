@@ -1,4 +1,4 @@
-﻿namespace GlyssenEngine
+﻿namespace GlyssenEngine.Script
 {
 	public enum MultiBlockQuote
 	{

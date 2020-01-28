@@ -396,6 +396,7 @@
     <Compile Include="Controls\ScriptBlocksViewer.Designer.cs">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ScriptBlocksViewType.cs" />
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Dialogs\AddCharacterDlg.cs">
       <SubType>Form</SubType>
@@ -511,7 +512,6 @@
     <Compile Include="Controls\VoiceActorInformationGrid.Designer.cs">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataMigrator.cs" />
     <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -541,7 +541,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationMetadata.cs" />
     <Compile Include="Dialogs\AssignCharacterDlg.cs">
       <SubType>Form</SubType>
     </Compile>
