@@ -4,9 +4,11 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
+using SIL.WritingSystems;
 using SIL.Xml;
 
 namespace GlyssenEngineTests.Character
@@ -16,6 +18,13 @@ namespace GlyssenEngineTests.Character
 	{
 		private static readonly int kMATbookNum = BCVRef.BookToNumber("MAT");
 		private static readonly int kMRKbookNum = BCVRef.BookToNumber("MRK");
+		private IQuoteInterruptionFinder m_interruptionFinder;
+
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			m_interruptionFinder = new QuoteSystem(new QuotationMark("—", "—", null, 1, QuotationMarkingSystemType.Narrative));
+		}
 
 		private BookScript GetSimpleBookScript()
 		{
@@ -73,7 +82,7 @@ namespace GlyssenEngineTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "Jesus");
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, false);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
 			Assert.AreEqual("King Saul", bookScript[1].CharacterId);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterIdInScript);
@@ -87,7 +96,7 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "John the Baptist");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, true);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
 			Assert.AreEqual("John the Baptist", bookScript[1].CharacterId);
 			Assert.AreEqual("King Saul", bookScript[2].CharacterId);
 		}
@@ -100,7 +109,7 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") });
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "James/John");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, true, true);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, true, true);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[1].CharacterId);
 			Assert.AreEqual("Andrew", bookScript[1].CharacterIdInScript);
 			Assert.AreEqual("James/John", bookScript[2].CharacterId);
@@ -118,7 +127,7 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "Made Up Guy");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English,
 				new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false) }, true);
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, true, false);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, true, false);
 			Assert.AreEqual("Made Up Guy", bookScript[1].CharacterId);
 			Assert.AreEqual("Made Up Guy", bookScript[1].CharacterIdInScript);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
@@ -136,7 +145,7 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "Made Up Guy");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English,
 				new[] { new CharacterSpeakingMode("Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") }, true);
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, true, false);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, true, false);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[2].CharacterId);
 			Assert.AreEqual("Andrew", bookScript[2].CharacterIdInScript);
 		}
@@ -149,7 +158,7 @@ namespace GlyssenEngineTests.Character
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 4, ScrVers.English, "John the Baptist");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 5, ScrVers.English, "King Saul");
 			StubGetCharactersForSingleVerse(cvInfo, kMRKbookNum, 1, 6, ScrVers.English, new CharacterSpeakingMode[0]);
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, true);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
 			Assert.AreEqual("narrator-MRK", bookScript[0].CharacterId);
 		}
 
@@ -169,7 +178,7 @@ namespace GlyssenEngineTests.Character
 			Assert.True(bookScript[2].UserConfirmed);
 			Assert.True(bookScript[3].UserConfirmed);
 
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, true);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, true);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[2].CharacterId);
 			Assert.False(bookScript[2].UserConfirmed);
 			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, bookScript[3].CharacterId);
@@ -187,7 +196,7 @@ namespace GlyssenEngineTests.Character
 			Assert.True(bookScript[0].UserConfirmed);
 			Assert.True(bookScript[1].UserConfirmed);
 
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, false);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[0].CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[1].CharacterId);
 			Assert.AreEqual("firstCharacter", bookScript[2].CharacterId);
@@ -229,7 +238,7 @@ namespace GlyssenEngineTests.Character
 
 			Assert.IsFalse(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed));
 
-			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, false, false);
+			new CharacterAssigner(cvInfo, m_interruptionFinder).AssignAll(new[] { bookScript }, false, false);
 			Assert.AreEqual("Jesus", bookScript[0].CharacterId);
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[1].CharacterId);
 			Assert.AreEqual("Jesus", bookScript[2].CharacterId);
@@ -287,7 +296,7 @@ namespace GlyssenEngineTests.Character
 			Assert.AreEqual(MultiBlockQuote.Start, bookScript.Blocks[0].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, bookScript.Blocks[1].MultiBlockQuote);
 
-			var characterAssigner = new CharacterAssigner(cvInfo);
+			var characterAssigner = new CharacterAssigner(cvInfo, m_interruptionFinder);
 			characterAssigner.AssignAll(new[] { bookScript }, false);
 
 			Assert.AreEqual("Jesus", bookScript.Blocks[0].CharacterId);
@@ -303,7 +312,7 @@ namespace GlyssenEngineTests.Character
 			var freshTestProject = TestProject.CreateTestProject(booksToIncludeInTestProject);
 			var testProjectToAssign = TestProject.CreateTestProject(booksToIncludeInTestProject);
 
-			var characterAssigner = new CharacterAssigner(ControlCharacterVerseData.Singleton);
+			var characterAssigner = new CharacterAssigner(ControlCharacterVerseData.Singleton, m_interruptionFinder);
 			characterAssigner.AssignAll(testProjectToAssign.Books.ToList(), false);
 
 			var expected = freshTestProject.Books;

@@ -7,10 +7,12 @@ using System.Text;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Scripture;
+using SIL.WritingSystems;
 using SIL.Xml;
 using Resources = GlyssenEngineTests.Properties.Resources;
 
@@ -25,6 +27,7 @@ namespace GlyssenEngineTests.Script
 		private string m_curStyleTag;
 
 		private ScrVers m_testVersification;
+		private IQuoteInterruptionFinder m_interruptionFinder;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -38,6 +41,8 @@ namespace GlyssenEngineTests.Script
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
 				m_testVersification = Versification.Table.Implementation.Load(tempFile.Path);
 			}
+
+			m_interruptionFinder = new QuoteSystem(new QuotationMark("—", "—", null, 1, QuotationMarkingSystemType.Narrative));
 		}
 
 		#region GetVerseText Tests
@@ -4291,7 +4296,7 @@ namespace GlyssenEngineTests.Script
 			mrkBlocks.Add(NewPara("q1", "«Yo envío a mi mensajero delante de ti, El cual preparará tu camino.")
 				.AddVerse(3, "Una voz clama en el desierto: “Preparen el camino del Señor; Enderecen sus sendas.”»"));
 			m_curSetupVerse = 3;
-			mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
+			mrkBlocks.Last().SetCharacterAndDelivery(m_interruptionFinder, new CharacterVerse[0]);
 			mrkBlocks.Add(NewSingleVersePara(4, "Juan se presentó en el desierto, y bautizaba y proclamaba el bautismo de arrepentimiento para el perdón de pecados. ", "MRK")
 				.AddVerse(5, "Toda la gente de la provincia de Judea y de Jerusalén acudía a él, y allí en el río Jordán confesaban sus pecados, y Juan los bautizaba."));
 			m_curSetupVerse = 5;
@@ -4307,7 +4312,7 @@ namespace GlyssenEngineTests.Script
 						"«Después de mí viene uno más poderoso que yo. ¡Yo no soy digno de inclinarme ante él para desatarle la correa de su calzado! ")
 						.AddVerse(8, "A ustedes yo los he bautizado con agua, pero él los bautizará con el Espíritu Santo.»"));
 				m_curSetupVerse = 8;
-				mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
+				mrkBlocks.Last().SetCharacterAndDelivery(m_interruptionFinder, new CharacterVerse[0]);
 			}
 
 			mrkBlocks.Add(NewPara("s", "El bautismo de Jesús", "MRK"));
@@ -4316,7 +4321,7 @@ namespace GlyssenEngineTests.Script
 				.AddVerse(11, "Y desde los cielos se oyó una voz que decía: "));
 			m_curSetupVerse = 11;
 			mrkBlocks.Add(NewBlock("«Tú eres mi Hijo amado, en quien me complazco.»"));
-			mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
+			mrkBlocks.Last().SetCharacterAndDelivery(m_interruptionFinder, new CharacterVerse[0]);
 
 			if (includeExtraVersesInChapter1)
 			{
@@ -4325,7 +4330,7 @@ namespace GlyssenEngineTests.Script
 					.AddVerse(15, "Decía: "));
 				m_curSetupVerse = 15;
 				mrkBlocks.Add(NewBlock("«El tiempo se ha cumplido, y el reino de Dios se ha acercado. ¡Arrepiéntanse, y crean en el evangelio!»"));
-				mrkBlocks.Last().SetCharacterAndDelivery(new CharacterVerse[0]);
+				mrkBlocks.Last().SetCharacterAndDelivery(m_interruptionFinder, new CharacterVerse[0]);
 			}
 
 			return mrkBlocks;
