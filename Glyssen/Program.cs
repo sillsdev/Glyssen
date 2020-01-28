@@ -200,8 +200,42 @@ namespace Glyssen
 						Settings.Default.CurrentProject = newPath;
 				}
 
+				bool ConfirmSafeAudioAudioReplacements(IReadOnlyList<Tuple<string, string>> safeReplacements)
+				{
+					string fmt;
+					if (safeReplacements.Count == 1)
+					{
+						fmt = Localizer.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
+							"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
+							"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
+							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+							"this action, you can either clean up the problem project yourself or verify that is is safe and then restart " +
+							"{0}. You will be asked about this each time you start the program as long as this problem remains unresolved.\r\n" +
+							"Confirm overwriting?",
+							"Param: \"Glyssen\" (product name); " +
+							"This follows the \"AudioAudioProblemPreambleSingle\".");
+					}
+					else
+					{
+						fmt = Localizer.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+							"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
+							"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
+							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+							"this action, you can either clean up the problem projects yourself or verify that is is safe and then restart " +
+							"{0}. You will be asked about this each time you start the program as long as these problems remains unresolved.\r\n" +
+							"Confirm overwriting?",
+							"Param: \"Glyssen\" (product name); " +
+							"This follows the \"AudioAudioProblemPreambleMultiple\".");
+					}
+
+					var msg = DataMigrator.GetAudioAudioProblemPreamble(safeReplacements.Count) +
+						Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
+						Format(fmt, GlyssenInfo.kProduct);
+					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+				}
+
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
-					HandleProjectPathChanged);
+					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);
 				if (upgradeInfo != null)
 				{
 					Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>

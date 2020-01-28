@@ -96,7 +96,7 @@ namespace GlyssenEngine
 
 		static Project()
 		{
-			Debug.Assert(DataMigrator.UpgradeToCurrentDataFormatVersion(null, (prev, renamed) => { }) == null,
+			Debug.Assert(DataMigrator.UpgradeToCurrentDataFormatVersion(null, (prev, renamed) => { }, null) == null,
 				"It is strongly advised that any client of GlyssenEngine that instantiates projects explicitly call " +
 				"(DataMigrator.UpgradeToCurrentDataFormatVersion with appropriate handlers.");
 		}
@@ -947,7 +947,7 @@ namespace GlyssenEngine
 				{
 					sourceScrText = GetSourceParatextProject();
 				}
-				catch (ProjectNotFoundException e)
+				catch (ProjectNotFoundException)
 				{
 					if (loadingAssistant != null && loadingAssistant.RetryWhenProjectNotFound())
 						continue;

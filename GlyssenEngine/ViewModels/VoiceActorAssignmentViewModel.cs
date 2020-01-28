@@ -178,7 +178,7 @@ namespace GlyssenEngine.ViewModels
 			Save();
 		}
 
-		private CharacterGroup GetSourceGroupForMove(IList<string> characterIds, CharacterGroup destGroup)
+		private CharacterGroup GetSourceGroupForMove(IReadOnlyList<string> characterIds, CharacterGroup destGroup)
 		{
 			if (characterIds.Count == 0)
 				throw new ArgumentException(@"At least one characterId must be provided", "characterIds");
@@ -198,19 +198,20 @@ namespace GlyssenEngine.ViewModels
 			return sourceGroup;
 		}
 
-		public bool CanMoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup)
+		public bool CanMoveCharactersToGroup(IReadOnlyList<string> characterIds, CharacterGroup destGroup)
 		{
 			return GetSourceGroupForMove(characterIds, destGroup) != null;
 		}
 
-		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool warnUserAboutProximity = false)
+		public bool MoveCharactersToGroup(IReadOnlyList<string> characterIds, CharacterGroup destGroup,
+			Func<int, string, string, string, string, string, IReadOnlyList<string>, bool> confirmCriticalProximityDegradation = null)
 		{
 			CharacterGroup sourceGroup = GetSourceGroupForMove(characterIds, destGroup);
 
 			if (sourceGroup == null)
 				return false;
 
-			if (destGroup != null && warnUserAboutProximity && destGroup.CharacterIds.Count > 0)
+			if (destGroup != null && confirmCriticalProximityDegradation != null && destGroup.CharacterIds.Count > 0)
 			{
 				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
 				var resultsBefore = ProjectProximity.CalculateMinimumProximity(testGroup);
@@ -220,33 +221,11 @@ namespace GlyssenEngine.ViewModels
 
 				if (resultsBefore.IsBetterThan(resultsAfter) && !resultsAfter.IsAcceptable())
 				{
-					var firstReference = resultsAfter.FirstReference;
-					var secondReference = resultsAfter.SecondReference;
-
-					var dlgMessageFormat1 = (firstReference == secondReference) ?
-						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
-						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
-					var dlgMessagePart1 = string.Format(dlgMessageFormat1,
-						resultsAfter.NumberOfBlocks,
+					if (!confirmCriticalProximityDegradation(resultsAfter.NumberOfBlocks,
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondCharacterId),
-						firstReference, secondReference);
-
-					Logger.WriteEvent($"{dlgMessagePart1}\r\n>>>Moving {characterIds.Count} characters to group {destGroup.GroupId}:\r\n   {String.Join("\r\n   ", characterIds)}");
-
-					var dlgMessagePart2 =
-						Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
-							"Do you want to continue with this move?");
-
-					var dlgMessage = dlgMessagePart1 + Environment.NewLine + Environment.NewLine + dlgMessagePart2;
-					var dlgTitle = Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
-						"Confirm");
-
-					if (MessageModal.Show(dlgMessage, dlgTitle, Buttons.YesNo) != MessageResult.Yes)
+						resultsAfter.FirstReference, resultsAfter.SecondReference, destGroup.GroupId, characterIds))
 					{
-						Logger.WriteEvent("User cancelled move of characters.");
 						return false;
 					}
 				}

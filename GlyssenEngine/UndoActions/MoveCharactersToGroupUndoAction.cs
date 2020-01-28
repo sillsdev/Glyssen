@@ -12,12 +12,12 @@ namespace GlyssenEngine.UndoActions
 	{
 		private readonly Project m_project;
 		private readonly string m_destGroupId;
-		private readonly IList<string> m_characterIdsMoved;
+		private readonly IReadOnlyList<string> m_characterIdsMoved;
 		private readonly IList<string> m_remainingCharacterIdsInSource;
 		private readonly int m_destGroupActor;
 		private readonly int m_sourceGroupActor;
 
-		public MoveCharactersToGroupUndoAction(Project project, CharacterGroup sourceGroup, CharacterGroup destGroup, IList<string> characterIds)
+		public MoveCharactersToGroupUndoAction(Project project, CharacterGroup sourceGroup, CharacterGroup destGroup, IReadOnlyList<string> characterIds)
 		{
 			m_project = project;
 			m_characterIdsMoved = characterIds;

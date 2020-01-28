@@ -21,7 +21,7 @@ namespace GlyssenEngine
 		private static bool s_alreadyCalled = false;
 		private const string kOldProjectExtension = ".pgproj";
 		public static Tuple<int, int> UpgradeToCurrentDataFormatVersion(Func<Project, bool> handleMissingBundleNeededForUpgrade,
-			Action<string, string> handleProjectPathChanged)
+			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (s_alreadyCalled)
 				return null;
@@ -30,7 +30,7 @@ namespace GlyssenEngine
 				throw error;
 			s_alreadyCalled = true;
 			int from = settings.DataVersion;
-			if (UpgradeToCurrentDataFormatVersion(settings, handleMissingBundleNeededForUpgrade, handleProjectPathChanged))
+			if (UpgradeToCurrentDataFormatVersion(settings, handleMissingBundleNeededForUpgrade, handleProjectPathChanged, confirmSafeAudioAudioReplacements))
 			{
 				settings.Save();
 				return new Tuple<int, int>(from, settings.DataVersion);
@@ -39,7 +39,7 @@ namespace GlyssenEngine
 		}
 
 		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<Project, bool> handleMissingBundleNeededForUpgrade,
-			Action<string, string> handleProjectPathChanged)
+			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (info.DataVersion >= ApplicationMetadata.kDataFormatVersion)
 				return false;
@@ -222,35 +222,7 @@ namespace GlyssenEngine
 
 					if (safeReplacements.Any())
 					{
-						string fmt;
-						if (safeReplacements.Count == 1)
-						{
-							fmt = Localizer.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
-								"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
-								"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
-								"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
-								"this action, you can either clean up the problem project yourself or verify that is is safe and then restart " +
-								"{0}. You will be asked about this each time you start the program as long as this problem remains unresolved.\r\n" +
-								"Confirm overwriting?",
-								"Param: \"Glyssen\" (product name); " +
-								"This follows the \"AudioAudioProblemPreambleSingle\".");
-						}
-						else
-						{
-							fmt = Localizer.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
-								"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
-								"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
-								"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
-								"this action, you can either clean up the problem projects yourself or verify that is is safe and then restart " +
-								"{0}. You will be asked about this each time you start the program as long as these problems remains unresolved.\r\n" +
-								"Confirm overwriting?",
-								"Param: \"Glyssen\" (product name); " +
-								"This follows the \"AudioAudioProblemPreambleMultiple\".");
-						}
-						var msg = GetAudioAudioProblemPreamble(safeReplacements.Count) +
-							String.Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
-							String.Format(fmt, GlyssenInfo.kProduct);
-						if (MessageResult.Yes == MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.YesNo, Icon.Exclamation, DefaultButton.Button2))
+						if (confirmSafeAudioAudioReplacements != null && !confirmSafeAudioAudioReplacements(safeReplacements))
 						{
 							foreach (var replacement in safeReplacements)
 							{
@@ -289,7 +261,7 @@ namespace GlyssenEngine
 						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
 							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
-						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Exclamation);
+						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Warning);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;
@@ -303,7 +275,7 @@ namespace GlyssenEngine
 			return retVal;
 		}
 
-		private static string GetAudioAudioProblemPreamble(int count)
+		public static string GetAudioAudioProblemPreamble(int count)
 		{
 			string fmt;
 			if (count == 1)

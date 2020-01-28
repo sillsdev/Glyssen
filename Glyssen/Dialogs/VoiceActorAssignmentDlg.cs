@@ -361,12 +361,45 @@ namespace Glyssen.Dialogs
 			var cameoGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.VoiceActorId == (int) menuItem.Tag);
 
 			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds.ToList(),
-				m_actorAssignmentViewModel.CharacterGroups[cameoGroupIndex], true))
+				m_actorAssignmentViewModel.CharacterGroups[cameoGroupIndex], ConfirmCriticalProximityDegradation))
 			{
 				// Need to get this again because a group higher up in the list might have been deleted as a side-effect of the move.
 				cameoGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.VoiceActorId == (int)menuItem.Tag);
 				m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[cameoGroupIndex].Cells[CharacterIdsCol.Name];
 			}
+		}
+
+		private bool ConfirmCriticalProximityDegradation(int newProximity, string firstCharacterId, string secondCharacterId,
+			string firstReference, string secondReference, string destGroupId, IReadOnlyList<string> characterIds)
+		{
+			var dlgMessageFormat1 = (firstReference == secondReference) ?
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+					"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+					"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
+			var dlgMessagePart1 = string.Format(dlgMessageFormat1,
+				newProximity,
+				firstCharacterId,
+				secondCharacterId,
+				firstReference, secondReference);
+
+			Logger.WriteEvent($"{dlgMessagePart1}\r\n>>>Moving {characterIds.Count} characters to group {destGroupId}:\r\n   {String.Join("\r\n   ", characterIds)}");
+
+			var dlgMessagePart2 =
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
+					"Do you want to continue with this move?");
+
+			var dlgMessage = dlgMessagePart1 + Environment.NewLine + Environment.NewLine + dlgMessagePart2;
+			var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
+				"Confirm");
+
+			if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
+			{
+				Logger.WriteEvent("User cancelled move of characters.");
+				return false;
+			}
+
+			return true;
 		}
 
 		private void m_menuItemMoveToAnotherGroup_Click(object sender, EventArgs e)
@@ -426,7 +459,7 @@ namespace Glyssen.Dialogs
 			int rowIndexOfTargetGroup = m_characterGroupGrid.SelectedRows[0].Index;
 			var selectedGroup = m_actorAssignmentViewModel.CharacterGroups[rowIndexOfTargetGroup];
 
-			if (m_actorAssignmentViewModel.MoveCharactersToGroup(m_pendingMoveCharacters, selectedGroup, true))
+			if (m_actorAssignmentViewModel.MoveCharactersToGroup(m_pendingMoveCharacters, selectedGroup, ConfirmCriticalProximityDegradation))
 			{
 				// Need to get this again because a group higher up in the list might have been deleted as a side-effect of the move.
 				rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(selectedGroup);
@@ -469,7 +502,7 @@ namespace Glyssen.Dialogs
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup, true))
+					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters.ToReadOnlyList(), characterGroup, ConfirmCriticalProximityDegradation))
 					{
 						var rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(characterGroup);
 						m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[rowIndexOfTargetGroup].Cells[CharacterIdsCol.Name];
@@ -671,7 +704,7 @@ namespace Glyssen.Dialogs
 			// Do this before creating the new group because it causes RowCount to go back down to reflect the number of non-empty rows.
 			m_characterGroupGrid.AllowUserToAddRows = false;
 
-			m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup, true);
+			m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds.ToReadOnlyList(), dropGroup, ConfirmCriticalProximityDegradation);
 		}
 
 		private void m_characterGroupGrid_DragDrop(object sender, DragEventArgs e)
@@ -1131,7 +1164,7 @@ namespace Glyssen.Dialogs
 						null,
 						Resources.RemoveActor,
 						"",
-						//Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+						//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 						"",
 						"",
 						"",

@@ -30,37 +30,23 @@ namespace GlyssenEngine.Utilities
 
     public enum MessageResult
     {
+		None,
         Abort,
-        Cancel,
         Ignore,
-        No,
-        None,
         OK,
         Retry,
-        Yes
     }
 
     public enum Icon
     {
-        Asterisk,
-        Error,
-        Exclamation,
-        Hand,
-        Information,
         None,
-        Question,
-        Stop,
-        Warning
+        Warning,
     }
 
     public enum Buttons
     {
-        AbortRetryIgnore,
         OK,
-        OKCancel,
-        RetryCancel,
-        YesNo,
-        YesNoCancel
+		AbortRetryIgnore,
     }
 
     public enum DefaultButton
