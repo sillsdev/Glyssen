@@ -145,7 +145,7 @@ namespace GlyssenTests
 			var firstBook = project.Books[0];
 			var block = firstBook.GetScriptBlocks().Last();
 			var verseRef = new BCVRef(BCVRef.BookToNumber(firstBook.BookId), block.ChapterNumber, block.InitialStartVerseNumber);
-			block.SetCharacterAndDelivery(new List<CharacterVerse>(
+			block.SetCharacterAndDelivery(project.QuoteSystem, new List<CharacterVerse>(
 				new [] { new CharacterVerse(verseRef, "Wilma", "agitated beyond belief", null, true) }));
 			block.UserConfirmed = true;
 

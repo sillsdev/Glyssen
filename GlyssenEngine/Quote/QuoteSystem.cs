@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 using SIL.ObjectModel;
@@ -12,9 +13,11 @@ using SIL.Xml;
 namespace GlyssenEngine.Quote
 {
 	[XmlRoot]
-	public class QuoteSystem
+	public class QuoteSystem : IQuoteInterruptionFinder
 	{
 		public static IComparer<QuotationMark> QuotationMarkTypeAndLevelComparer = new TypeAndLevelComparer();
+
+		private Regex m_regexInterruption;
 
 		/// <summary>
 		/// This is deprecated and should only be used for upgrading from old data
@@ -120,7 +123,11 @@ namespace GlyssenEngine.Quote
 		public BulkObservableList<QuotationMark> AllLevels
 		{
 			get { return m_allLevels; }
-			set { m_allLevels = value; }
+			set
+			{
+				m_allLevels = value;
+				m_regexInterruption = null;
+			}
 		}
 
 		[XmlIgnore]
@@ -133,7 +140,7 @@ namespace GlyssenEngine.Quote
 		}
 
 		[XmlIgnore]
-		public QuotationMark FirstLevel { get { return AllLevels[0]; } }
+		public QuotationMark FirstLevel => AllLevels[0];
 
 		[XmlElement("StartQuoteMarker")]
 		public string StartQuoteMarker_DeprecatedXml
@@ -237,6 +244,39 @@ namespace GlyssenEngine.Quote
 			}
 		}
 
+		private Regex RegexInterruption
+		{
+			get
+			{
+				if (m_regexInterruption == null)
+				{
+					bool excludeLongDashes = QuotationDashMarker != null && QuotationDashMarker.Any(c => c == '\u2014' || c == '\u2015');
+
+					//                                   interruption in parentheses
+					//                                                  |||        OR interruption in square brackets
+					//                                                  |||                |||
+					//                                                  |||                |||         OR interruption set off by single or double
+					//                                                  vvv                vvv            (non word-medial) dashes
+					StringBuilder pattern = new StringBuilder(@"((\(\w+[^)(\[\]]*\))|(\[\w+[^)(\[\]]*\])|((^|\B)-{1,2}[^-]*[-\w]+[^-]*-{1,2}(\Z|\B))");
+					if (!excludeLongDashes)
+					{
+						// Long dashes should never be word-forming, so even if there is no surrounding whitespace,
+						// they can safely be treated as punctuation dashes that could indicate an interruption.
+						// Hence, the simpler regex (compared to the above regex for normal dashes).
+						const String longDashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
+						pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2014");
+						pattern.AppendFormat(longDashStyleInterruptionFmt, "\u2015");
+					}
+
+					pattern.Append(@")[^\w]*");
+
+					m_regexInterruption = new Regex(pattern.ToString(), RegexOptions.Compiled);
+				}
+
+				return m_regexInterruption;
+			}
+		}
+
 		public string ShortSummary
 		{
 			get
@@ -331,6 +371,19 @@ namespace GlyssenEngine.Quote
 					return result;
 				return x.Level.CompareTo(y.Level);
 			}
+		}
+
+		public bool ProbablyDoesNotContainInterruption(string text)
+		{
+			return !RegexInterruption.Match(text).Success;
+		}
+
+		public QuoteInterruption GetNextInterruption(string text, int startCharIndex)
+		{
+			var match = RegexInterruption.Match(text, startCharIndex);
+			if (match.Success)
+				return new QuoteInterruption(match.Index, match.Length, match.Value);
+			return null;
 		}
 	}
 }
