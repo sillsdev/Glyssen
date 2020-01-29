@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using GlyssenEngine.Bundle;
-using SIL;
+using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
@@ -15,24 +15,24 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
-			Text = Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Generating Groups");
+			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Generating Groups");
 
 			CharacterGroupGenerationPreferences groupGenerationPreferences = project.CharacterGroupGenerationPreferences;
 			int numCharacters = project.TotalCharacterCount;
 			int numActors = groupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList ?
 				project.VoiceActorList.ActiveActors.Count() :
 				new CastSizePlanningViewModel(project).GetCastSizeRowValues(groupGenerationPreferences.CastSizeOption).Total;
-			string firstLineOfText = string.Format(Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text1",
+			string firstLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text1",
 				"The recording project has {0} distinct Biblical character roles."), numCharacters);
 			m_sizeInfo = groupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList ?
-				string.Format(Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.MatchActors",
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.MatchActors",
 				"The voice actor list has {0} voice actors."), numActors) :
-				string.Format(Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.CastSize",
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.CastSize",
 				"The planned cast size is {0} voice actors."), numActors);
 			string firstLineOfStatusText = groupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList ?
-				string.Format(Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.MatchActors",
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.MatchActors",
 					"{0} is creating optimized groups of character roles to match the voice actor list."), ProductName) :
-				string.Format(Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.CastSize",
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.CastSize",
 					"{0} is creating optimized groups of character roles to match the cast size."), ProductName);
 
 			Overview = firstLineOfText + Environment.NewLine + m_sizeInfo;
@@ -42,18 +42,18 @@ namespace Glyssen.Dialogs
 				StatusText =
 					firstLineOfStatusText +
 					Environment.NewLine +
-					string.Format(Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text2.SubsequentRun",
+					string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text2.SubsequentRun",
 						"{0} will attempt to maintain any existing voice actor assignments."),
 						ProductName);
 
-			OkButtonText = firstRun ? Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.Continue", "Continue") :
-				Localizer.GetString("Common.OK", "OK");
+			OkButtonText = firstRun ? LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Continue", "Continue") :
+				LocalizationManager.GetString("Common.OK", "OK");
 			ShowInTaskbar = false;
 			CanCancel = !firstRun;
 			ReplaceCancelButtonWithLink = replaceCancelButtonWithLink;
-			CancelLinkText = Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.CancelLinkText",
+			CancelLinkText = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.CancelLinkText",
 				"No! Let me group character roles manually.");
-			ProgressLabelTextWhenComplete = Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.Complete",
+			ProgressLabelTextWhenComplete = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Complete",
 				"Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
 			BackgroundWorker worker = new BackgroundWorker();
@@ -68,7 +68,7 @@ namespace Glyssen.Dialogs
 			{
 				if (!CanCancel)
 					throw e.Error;
-				var msg = Localizer.GetString("DialogBoxes.GenerateGroupsProgressDialog.GenerationFailed",
+				var msg = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.GenerationFailed",
 					"New character groups could not be generated to satisfy the project settings for the current cast size. ({0})",
 					"Parameter is a statement about the number of voice actors or planned cast size.");
 					MessageBox.Show(this, String.Format(msg, m_sizeInfo), Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
