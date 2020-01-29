@@ -179,11 +179,11 @@ namespace Glyssen
 				bool HandleMissingBundleNeededForUpgrade(Project existingProject)
 				{
 					string msg = Format(LocalizationManager.GetString("Project.DataFormatMigrationBundleMissingMsg",
-						"To upgrade the {0} project to the current {1} data format, the original Text Release Bundle must be available, " +
+						"To upgrade the {0} project to the current {1} data format, the original text release bundle must be available, " +
 						"but it is not in the original location ({2}).",
 						"Param 0: Glyssen recording project name;" +
 						"Param 1: \"Glyssen\" (product name); " +
-						"Param 2: Path to the original location of the Text Release Bundle"),
+						"Param 2: Path to the original location of the text release bundle"),
 						existingProject.Name,
 						GlyssenInfo.kProduct,
 						existingProject.OriginalBundlePath) +
@@ -272,7 +272,7 @@ namespace Glyssen
 		}
 
 		public static string LocateBundleYourselfQuestion => Environment.NewLine + Environment.NewLine +
-			LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the Text Release Bundle yourself?");
+			LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 
 		public static string GetUserConfigFilePath()
 		{

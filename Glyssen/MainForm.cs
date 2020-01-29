@@ -418,7 +418,7 @@ namespace Glyssen
 		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
 		{
 			string msg = ParserUpgradeMessage + " " + Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
-				"To make use of the new engine, the original Text Release Bundle must be available, but it is not in the original location ({0})."),
+				"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
 				existingProject.OriginalBundlePath) +
 				Program.LocateBundleYourselfQuestion;
 			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -497,7 +497,7 @@ namespace Glyssen
 				if (i > 0)
 					error = error.Substring(0, i);
 				var msg = Format(LocalizationManager.GetString("Project.InvalidVersificationFile",
-					"Invalid versification file in Text Release Bundle. Unable to create project.\r\n" +
+					"Invalid versification file in text release bundle. Unable to create project.\r\n" +
 					"Text release Bundle: {0}\r\n" +
 					"Versification file: {1}\r\n" +
 					"Error: {2}"),

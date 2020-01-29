@@ -542,7 +542,7 @@ namespace GlyssenEngine
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
 			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-				throw new InvalidOperationException("Project not in a valid state to update from Text Release Bundle. ProjectState = " +
+				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " +
 					ProjectState);
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new

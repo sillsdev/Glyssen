@@ -243,9 +243,9 @@ namespace GlyssenTests.Dialogs
 		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
 		{
 			string msg = "The parser has been upgraded " +
-					$"To make use of the new engine, the original Text Release Bundle must be available, but it is not in the original location ({existingProject.OriginalBundlePath})." +
+					$"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({existingProject.OriginalBundlePath})." +
 					Environment.NewLine +
-					"Would you like to locate the Text Release Bundle yourself?";
+					"Would you like to locate the text release bundle yourself?";
 			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 			if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
 				return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);

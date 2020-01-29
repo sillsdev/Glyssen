@@ -421,7 +421,7 @@ namespace Glyssen.Dialogs
 				else
 				{
 					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
-							"The original Text Release Bundle for the project is no longer in its original location ({0}). " +
+							"The original text release bundle for the project is no longer in its original location ({0}). " +
 							"The Quote Mark Settings cannot be modified without access to it."), m_model.Project.OriginalBundlePath) +
 						Program.LocateBundleYourselfQuestion;
 					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle", "Message caption");
@@ -541,7 +541,7 @@ namespace Glyssen.Dialogs
 			{
 				msg.Insert(0, Environment.NewLine);
 				msg.Insert(0, LocalizationManager.GetString("Project.UpdateFromBundle.UpdatedBundleMismatch",
-					"The metadata of the selected Text Release Bundle does not match the current project. If you continue with this update, the following metadata will be changed:"));
+					"The metadata of the selected text release bundle does not match the current project. If you continue with this update, the following metadata will be changed:"));
 
 				// This isn't necessarily "required" or "expected", but it seems useful to report
 				if (bundle.Name != m_model.PublicationName)
