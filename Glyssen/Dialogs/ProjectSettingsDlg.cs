@@ -16,7 +16,6 @@ using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.WritingSystems;
@@ -56,7 +55,7 @@ namespace Glyssen.Dialogs
 			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
 			{
 				var chapterAnnouncement = (ChapterAnnouncement)i;
-				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(Localizer.GetDynamicString(GlyssenInfo.kApplicationId,
+				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId,
 					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
 					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
 			}
