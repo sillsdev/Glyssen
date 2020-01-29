@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using L10NSharp;
-using SIL;
 
 namespace Glyssen.Dialogs
 {
@@ -30,9 +29,9 @@ namespace Glyssen.Dialogs
 
 			if ((numMaleNarrators == 0 && numFemaleNarrators == 0) || (numMaleNarrators + numFemaleNarrators > m_includedBooksCount))
 			{
-				string caption = Localizer.GetString("DialogBoxes.NarrationOptionsDlg.InvalidNumNarrators.Caption",
+				string caption = LocalizationManager.GetString("DialogBoxes.NarrationOptionsDlg.InvalidNumNarrators.Caption",
 					"Invalid Number Of Narrators Requested");
-				string msg = string.Format(Localizer.GetString("DialogBoxes.NarrationOptionsDlg.InvalidNumNarrators.MessageText",
+				string msg = string.Format(LocalizationManager.GetString("DialogBoxes.NarrationOptionsDlg.InvalidNumNarrators.MessageText",
 					"Total number of narrators must be more than zero and less than or equal to the number of books ({0} for this script)."), m_includedBooksCount);
 				MessageBox.Show(msg, caption);
 				DialogResult = DialogResult.None;
