@@ -1688,7 +1688,6 @@ namespace GlyssenEngineTests.Script
 		[TestCase("a -- b-c -- d", ExpectedResult = "-- b-c -- ")]
 		public string GetNextInterruption_QuoteSystemWithoutLongDashDialogueQuotes_InterruptionFoundCorrectly(string text)
 		{
-			
 			var block = GetBlockWithText(text);
 			return block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes)?.Item1.Value;
 		}
@@ -1704,7 +1703,6 @@ namespace GlyssenEngineTests.Script
 				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
 
 			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
-
 		}
 
 		private Block GetBlockWithText(string text)
