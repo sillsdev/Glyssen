@@ -1255,13 +1255,15 @@ namespace Glyssen.Dialogs
 
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
-			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
-			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+			if (m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked))
 			{
-				{ "book", m_viewModel.CurrentBookId },
-				{ "singleVoice", m_chkSingleVoice.Checked.ToString() },
-				{ "method", "AssignCharacterViewModel.SetCurrentBookSingleVoice" }
-			});
+				Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+				{
+					{"book", m_viewModel.CurrentBookId},
+					{"singleVoice", m_chkSingleVoice.Checked.ToString()},
+					{"method", "AssignCharacterViewModel.SetCurrentBookSingleVoice"}
+				});
+			}
 
 			UpdateProgressBarForMode();
 			if (!m_chkSingleVoice.Checked && m_viewModel.InTaskMode && !m_viewModel.IsCurrentTaskComplete)

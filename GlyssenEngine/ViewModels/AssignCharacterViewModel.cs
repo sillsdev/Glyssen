@@ -93,10 +93,16 @@ namespace GlyssenEngine.ViewModels
 			Delivery.SetNormalDelivery(normalDelivery);
 		}
 
-		public void SetCurrentBookSingleVoice(bool singleVoice)
+		/// <summary>
+		/// Updates the current book to have the specified value, saves the project ti reflect the change,
+		/// and resets the state of the model (filter, etc.) accordingly.
+		/// </summary>
+		/// <param name="singleVoice"></param>
+		/// <returns><c>true</c> if the value was changed</returns>
+		public bool SetCurrentBookSingleVoice(bool singleVoice)
 		{
 			if (CurrentBook.SingleVoice == singleVoice)
-				return;
+				return false;
 
 			CurrentBook.SingleVoice = singleVoice;
 			m_project.SaveBook(CurrentBook);
@@ -110,6 +116,7 @@ namespace GlyssenEngine.ViewModels
 			ResetFilter(CurrentBlock);
 
 			OnSaveCurrentBook();
+			return true;
 		}
 
 		public void StoreCharacterDetail(string characterId, CharacterGender gender, CharacterAge age)

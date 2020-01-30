@@ -110,7 +110,7 @@ namespace GlyssenEngine.Export
 
 				return Path.Combine(DefaultDirectory, defaultFileName.Trim());
 			}
-			set { m_customFileName = value; }
+			set => m_customFileName = value;
 		}
 
 		private string OutputName => Project.Name +
@@ -127,19 +127,6 @@ namespace GlyssenEngine.Export
 		private string GetSubfolder(string dirSuffix) => Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 
 		public string AnnotationElementSeparator => SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator;
-
-		//internal  GetListOfFilesInUse()
-		//{
-		//	try
-		//	{
-		//		lockedFiles.AddRange(ProcessMasterScriptFile(FullFileName));
-		//		if (IncludeActorBreakdown && Directory.Exists(ActorDirectory))
-		//			lockedFiles.AddRange(ProcessActorFiles(ActorDirectory));
-		//		if (IncludeBookBreakdown && Directory.Exists(BookDirectory))
-		//			lockedFiles.AddRange(ProcessBookFiles(BookDirectory));
-		//	}
-		//	return lockedFiles;
-		//}
 
 		public IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
 		{
