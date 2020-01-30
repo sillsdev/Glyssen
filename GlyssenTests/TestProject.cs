@@ -9,7 +9,6 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
@@ -24,6 +23,34 @@ namespace GlyssenTests
 {
 	static class TestProject
 	{
+		public class TestFontRepository : IFontRepository
+		{
+			public bool IsFontInstalled(string fontFamilyIdentifier)
+			{
+				return true;
+			}
+
+			public bool DoesTrueTypeFontFileContainFontFamily(string ttfFile, string fontFamilyIdentifier)
+			{
+				throw new NotImplementedException();
+			}
+
+			public void TryToInstall(string fontFamilyIdentifier, IReadOnlyCollection<string> ttfFile)
+			{
+				throw new NotImplementedException();
+			}
+
+			public void ReportMissingFontFamily(string fontFamilyIdentifier)
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		static TestProject()
+		{
+			Project.s_fontRepository = new TestFontRepository();
+		}
+
 		private static Exception m_errorDuringProjectCreation;
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
@@ -64,16 +91,11 @@ namespace GlyssenTests
 
 		private const string kTest = "test~~";
 
-		static TestProject()
-		{
-			Fonts.Default = new WinFormsFonts();
-		}
-
 		public static void DeleteTestProjectFolder()
 		{
 			var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, kTest);
 			if (Directory.Exists(testProjFolder))
-				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
+				RobustIO.DeleteDirectoryAndContents(testProjFolder);
 		}
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)

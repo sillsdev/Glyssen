@@ -629,7 +629,7 @@
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="Utilities\WinFormsAnalytics.cs" />
-    <Compile Include="Utilities\WinFormsFonts.cs" />
+    <Compile Include="Utilities\WinFormsFontRepositoryAdapter.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
