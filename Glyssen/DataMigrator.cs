@@ -289,7 +289,7 @@ namespace Glyssen
 						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
 							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
 							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
-						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Exclamation);
+						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Warning);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;

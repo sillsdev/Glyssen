@@ -42,14 +42,8 @@ namespace GlyssenEngine.Utilities
 
     public enum Icon
     {
-        Asterisk,
-        Error,
         Exclamation,
-        Hand,
-        Information,
         None,
-        Question,
-        Stop,
         Warning
     }
 
@@ -57,10 +51,8 @@ namespace GlyssenEngine.Utilities
     {
         AbortRetryIgnore,
         OK,
-        OKCancel,
         RetryCancel,
         YesNo,
-        YesNoCancel
     }
 
     public enum DefaultButton
