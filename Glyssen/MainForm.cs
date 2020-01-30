@@ -1038,9 +1038,9 @@ namespace Glyssen
 				EnsureGroupsAreInSynchWithCharactersInUse();
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
 			else if (regenerateGroups)
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, true, false, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project, true, false, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
 
 			bool launchCastSizePlanning;
 			using (var dlg = new VoiceActorAssignmentDlg(new VoiceActorAssignmentViewModel(m_project)))
