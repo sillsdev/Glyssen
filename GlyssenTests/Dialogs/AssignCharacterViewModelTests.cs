@@ -609,7 +609,7 @@ namespace GlyssenTests.Dialogs
 			m_fullProjectRefreshRequired = true;
 			m_model.SetCurrentBookSingleVoice(true);
 			Assert.IsTrue(m_model.IsCurrentBookSingleVoice);
-			m_model.SetCurrentBookSingleVoice(true);
+			Assert.IsFalse(m_model.SetCurrentBookSingleVoice(true));
 			Assert.IsTrue(m_model.IsCurrentBookSingleVoice);
 		}
 
@@ -619,7 +619,7 @@ namespace GlyssenTests.Dialogs
 			m_fullProjectRefreshRequired = true;
 			m_model.SetCurrentBookSingleVoice(true);
 			Assert.IsTrue(m_model.IsCurrentBookSingleVoice);
-			m_model.SetCurrentBookSingleVoice(false);
+			Assert.IsTrue(m_model.SetCurrentBookSingleVoice(false));
 			Assert.IsFalse(m_model.IsCurrentBookSingleVoice);
 		}
 
@@ -1411,7 +1411,7 @@ namespace GlyssenTests.Dialogs
 			model.LoadNextRelevantBlock();
 			Assert.AreEqual("LUK", model.CurrentBookId);
 
-			model.SetCurrentBookSingleVoice(true);
+			Assert.IsTrue(model.SetCurrentBookSingleVoice(true));
 			Assert.AreEqual("ACT", model.CurrentBookId);
 		}
 
