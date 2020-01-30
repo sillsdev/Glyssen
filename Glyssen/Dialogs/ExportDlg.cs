@@ -242,6 +242,14 @@ namespace Glyssen.Dialogs
 				try
 				{
 					Cursor.Current = Cursors.WaitCursor;
+
+					Analytics.Track("Export", new Dictionary<string, string>
+					{
+						{ "exportType", m_viewModel.SelectedFileType.ToString() },
+						{ "includeVoiceActors", m_viewModel.IncludeVoiceActors.ToString() },
+						{ "includeDelivery", m_viewModel.IncludeDelivery.ToString() }
+					});
+
 					lockedFiles = m_viewModel.ExportNow(m_checkOpenForMe.Checked);
 					if (!lockedFiles.Any())
 					{
