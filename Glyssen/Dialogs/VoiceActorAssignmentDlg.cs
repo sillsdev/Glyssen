@@ -495,7 +495,7 @@ namespace Glyssen.Dialogs
 				? FirstSelectedCharacterGroup.GroupId : null;
 
 			m_actorAssignmentViewModel.RegenerateGroups(() => {
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project,
+				GenerateGroupsProgressDialog.GenerateGroupsWithProgress(m_project,
 					true, false, true, null, m_programmaticClickOfUpdateGroups);
 			});
 			m_programmaticClickOfUpdateGroups = false;
