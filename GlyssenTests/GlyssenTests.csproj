@@ -310,7 +310,6 @@
     <Compile Include="BlockMatchupTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
-    <Compile Include="Character\NarratorOverridesTests.cs" />
     <Compile Include="Dialogs\SplitBlockViewModelTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
     <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
@@ -345,10 +344,8 @@
     <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="ReferenceTextTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
-    <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
-    <Compile Include="Quote\QuoteSystemTests.cs" />
     <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
     <Compile Include="Rules\ProximityTests.cs" />
     <Compile Include="Rules\AuthorStatsTests.cs" />
@@ -360,8 +357,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />
     <Compile Include="Utilities\VerseRefExtensionsTests.cs" />
-    <Compile Include="VoiceActor\VoiceActorListTests.cs" />
-    <Compile Include="VoiceActor\VoiceActorTests.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

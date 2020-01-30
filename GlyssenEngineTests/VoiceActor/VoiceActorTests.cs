@@ -2,7 +2,7 @@
 using GlyssenEngine.VoiceActor;
 using NUnit.Framework;
 
-namespace GlyssenTests.VoiceActor
+namespace GlyssenEngineTests.VoiceActor
 {
 	class VoiceActorTests
 	{

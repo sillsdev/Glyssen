@@ -4,7 +4,7 @@ using GlyssenEngine.Character;
 using NUnit.Framework;
 using SIL.Scripture;
 
-namespace GlyssenTests.Character
+namespace GlyssenEngineTests.Character
 {
 	// Note: NarratorOverrides does not currently allow the tests to jam in an alternate version of the control-file data in order
 	// to ensure that tests will not be broken by future data changes. My expectation is that the control-file data for the
