@@ -151,16 +151,12 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Public properties
-		public ScrVers Versification { get; private set; }
-		public int BlockCountForCurrentBook
-		{
-			get
-			{
-				var actualCount = BlockAccessor.CurrentBook.GetScriptBlocks().Count;
-				var adjustment = BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
-				return actualCount + adjustment;
-			}
-		}
+		public ScrVers Versification { get; }
+
+		public int BlockCountForCurrentBook => BlockAccessor.CurrentBook.GetScriptBlocks().Count + CountOfBlocksAddedByCurrentMatchup;
+
+		private int CountOfBlocksAddedByCurrentMatchup => BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
+
 		public int RelevantBlockCount => m_relevantBookBlockIndices.Count;
 
 		/// <summary>
@@ -455,35 +451,13 @@ namespace Glyssen.Dialogs
 		#region Methods for dealing with multi-block groups/quotes
 		public IEnumerable<Block> GetAllBlocksWhichContinueTheQuoteStartedByBlock(Block firstBlock)
 		{
-			switch (firstBlock.MultiBlockQuote)
-			{
-				case MultiBlockQuote.Start:
-					yield return firstBlock;
-					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock))
-						yield return BlockAccessor.CurrentBook[i];
-					break;
-				case MultiBlockQuote.Continuation:
-					// These should all be brought in through a Start block, so don't do anything with them here
-					break;
-				default:
-					// Not part of a multi-block quote. Just return the base-line block
-					yield return firstBlock;
-					break;
-			}
+			return m_navigator.GetAllBlocksWhichContinueTheQuoteStartedByBlock(firstBlock, CountOfBlocksAddedByCurrentMatchup);
 		}
 
 		public IEnumerable<int> GetIndicesOfQuoteContinuationBlocks(Block startQuoteBlock)
 		{
 			// Note this method assumes the startQuoteBlock is in the navigator's current book.
-			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
-
-			for (int j = BlockAccessor.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
-			{
-				Block block = BlockAccessor.CurrentBook[j];
-				if (block == null || !block.IsContinuationOfPreviousBlockQuote)
-					break;
-				yield return j;
-			}
+			return m_navigator.GetIndicesOfQuoteContinuationBlocks(startQuoteBlock, CountOfBlocksAddedByCurrentMatchup);
 		}
 
 		public int IndexOfFirstBlockInCurrentGroup
