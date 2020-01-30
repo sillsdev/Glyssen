@@ -15,6 +15,12 @@ using Font = System.Drawing.Font;
 
 namespace Glyssen.Controls
 {
+	public enum ScriptBlocksViewType
+	{
+		Html,
+		Grid,
+	}
+
 	public partial class ScriptBlocksViewer : UserControl
 	{
 		private const int kContextBlocksBackward = 10;
