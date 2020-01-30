@@ -56,7 +56,7 @@ namespace Glyssen
 
 		private string m_customFileName;
 		private int m_numberOfFilesSuccessfullyExported;
-		private readonly bool m_includeDelivery;
+		public bool IncludeDelivery { get; }
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
@@ -66,7 +66,7 @@ namespace Glyssen
 			Project = project;
 			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
-			m_includeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
+			IncludeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
 		}
 
 		public Project Project { get; }
@@ -76,9 +76,9 @@ namespace Glyssen
 		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
 
-		internal ExportFileType SelectedFileType { get; set; }
+		public ExportFileType SelectedFileType { get; set; }
 
-		internal string RecordingScriptFileNameSuffix =>
+		public string RecordingScriptFileNameSuffix =>
 			Localizer.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 
 		private string DefaultDirectory
@@ -97,12 +97,9 @@ namespace Glyssen
 			}
 		}
 
-		internal string CurrentBaseFolder
-		{
-			get { return Path.GetDirectoryName(FullFileName); }
-		}
+		public string CurrentBaseFolder => Path.GetDirectoryName(FullFileName);
 
-		internal string FullFileName
+		public string FullFileName
 		{
 			get
 			{
@@ -114,63 +111,25 @@ namespace Glyssen
 
 				return Path.Combine(DefaultDirectory, defaultFileName.Trim());
 			}
-			set { m_customFileName = value; }
+			set => m_customFileName = value;
 		}
 
 		private string OutputName => Project.Name +
 			(!IsNullOrWhiteSpace(Project.AudioStockNumber) ? " " + Project.AudioStockNumber : Empty);
 
-		private string FileNameWithoutExtension
-		{
-			get { return Path.GetFileNameWithoutExtension(FullFileName); }
-		}
+		private string FileNameWithoutExtension => Path.GetFileNameWithoutExtension(FullFileName);
 
-		internal string ActorDirectory
-		{
-			get
-			{
-				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors");
-				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
-			}
-		}
+		public string ActorDirectory => GetSubfolder(Localizer.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors"));
 
-		internal string BookDirectory
-		{
-			get
-			{
-				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
-				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
-			}
-		}
+		public string BookDirectory => GetSubfolder(Localizer.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books"));
 
-		internal string ClipDirectory
-		{
-			get
-			{
-				var dirSuffix = Localizer.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips");
-				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
-			}
-		}
+		public string ClipDirectory => GetSubfolder(Localizer.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips"));
 
-		public string AnnotationElementSeparator
-		{
-			get { return SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator; }
-		}
+		private string GetSubfolder(string dirSuffix) => Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 
-		//internal  GetListOfFilesInUse()
-		//{
-		//	try
-		//	{
-		//		lockedFiles.AddRange(ProcessMasterScriptFile(FullFileName));
-		//		if (IncludeActorBreakdown && Directory.Exists(ActorDirectory))
-		//			lockedFiles.AddRange(ProcessActorFiles(ActorDirectory));
-		//		if (IncludeBookBreakdown && Directory.Exists(BookDirectory))
-		//			lockedFiles.AddRange(ProcessBookFiles(BookDirectory));
-		//	}
-		//	return lockedFiles;
-		//}
+		public string AnnotationElementSeparator => SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator;
 
-		internal IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
+		public IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
 		{
 			var lockedFiles = new List<Tuple<string, string>>();
 
@@ -199,8 +158,8 @@ namespace Glyssen
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
 						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
-								"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
-							ActorDirectory));
+						"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
+						ActorDirectory));
 				}
 			}
 			if (IncludeBookBreakdown)
@@ -265,7 +224,7 @@ namespace Glyssen
 			}
 		}
 
-		internal DataTable GeneratePreviewTable()
+		public DataTable GeneratePreviewTable()
 		{
 			var dt = new DataTable();
 
@@ -280,13 +239,6 @@ namespace Glyssen
 
 		private IEnumerable<Tuple<string, string>> GenerateMasterScriptFile(string path)
 		{
-			Analytics.Track("Export", new Dictionary<string, string>
-				{
-					{ "exportType", SelectedFileType.ToString() },
-					{ "includeVoiceActors", IncludeVoiceActors.ToString() },
-					{ "includeDelivery", m_includeDelivery.ToString() }
-				});
-
 			return GenerateFile(path, () => GetExportData(), true);
 		}
 
@@ -458,7 +410,7 @@ namespace Glyssen
 					sheet.Column(columnNum++).Hidden = true;
 
 				// No special formatting for the delivery column, unless we're hiding it
-				if (m_includeDelivery)
+				if (IncludeDelivery)
 					columnNum++;
 				else
 					sheet.Column(columnNum++).Hidden = true;
@@ -649,7 +601,7 @@ namespace Glyssen
 							pendingMismatchedReferenceBlocks = null;
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
-							IncludeVoiceActors, m_includeDelivery,
+							IncludeVoiceActors, IncludeDelivery,
 							Project.ReferenceText.HasSecondaryReferenceText, clipDirectory, projectClipFileId, getBlockElements));
 
 						// At least for now, if getBlockElements is true, we don't want any blocks which don't have vernacular text
@@ -798,7 +750,7 @@ namespace Glyssen
 				VerseNumber = refBlock.InitialStartVerseNumber,
 				CharacterId = refBlock.CharacterId,
 			};
-			if (m_includeDelivery)
+			if (IncludeDelivery)
 				exportData.Delivery = refBlock.Delivery;
 
 			if (Project.ReferenceText.HasSecondaryReferenceText)

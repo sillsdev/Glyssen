@@ -1801,20 +1801,7 @@ namespace Glyssen
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
-
-			Analytics.Track("ProjectAnalysis", new Dictionary<string, string>
-			{
-				{"language", LanguageIsoCode},
-				{"ID", Id},
-				{"recordingProjectName", Name},
-				{"TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
-				{"UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture)}
-			});
-
-			if (AnalysisCompleted != null)
-				AnalysisCompleted(this, new EventArgs());
+			AnalysisCompleted?.Invoke(this, new EventArgs());
 		}
 
 		internal void PrepareForExport()

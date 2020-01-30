@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -98,6 +99,7 @@ namespace Glyssen
 				m_project.CharacterGroupCollectionChanged -= UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged -= ClearCastSizePlanningViewModel;
 				m_project.CharacterStatisticsCleared -= ClearCastSizePlanningViewModel;
+				m_project.AnalysisCompleted -= ProjectQuoteParseAnalysisCompleted;
 			}
 
 			m_projectCastSizePlanningViewModel = null;
@@ -111,6 +113,7 @@ namespace Glyssen
 				m_project.CharacterGroupCollectionChanged += UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged += ClearCastSizePlanningViewModel;
 				m_project.CharacterStatisticsCleared += ClearCastSizePlanningViewModel;
+				m_project.AnalysisCompleted += ProjectQuoteParseAnalysisCompleted;
 			}
 
 			ResetUi();
@@ -137,11 +140,14 @@ namespace Glyssen
 			{
 				if (m_project.HasUnappliedSplits())
 					using (var viewModel = new AssignCharacterViewModel(m_project))
-					using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font,
-						new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 					{
-						LogDialogDisplay(dlg);
-						dlg.ShowDialog(this);
+						viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
+						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font,
+							new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
+						{
+							LogDialogDisplay(dlg);
+							dlg.ShowDialog(this);
+						}
 					}
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
@@ -160,6 +166,22 @@ namespace Glyssen
 		private void ClearCastSizePlanningViewModel(object sender, EventArgs e)
 		{
 			m_projectCastSizePlanningViewModel = null;
+		}
+
+		private void ProjectQuoteParseAnalysisCompleted(object sender, EventArgs e)
+		{
+			var project = (Project)sender;
+			var analysis = project.ProjectAnalysis;
+			Analytics.Track("ProjectAnalysis", new Dictionary<string, string>
+			{
+				{"language", project.LanguageIsoCode},
+				{"ID", project.Id},
+				{"recordingProjectName", Name},
+				{"TotalBlocks", analysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
+				{"UserPercentAssigned", analysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
+				{"TotalPercentAssigned", analysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
+				{"PercentUnknown", analysis.PercentUnknown.ToString(CultureInfo.InvariantCulture)}
+			});
 		}
 
 		private void HandleStringsLocalized()
@@ -884,16 +906,30 @@ namespace Glyssen
 			Cursor = Cursors.WaitCursor;
 
 			using (var viewModel = new AssignCharacterViewModel(m_project))
-			using (var dlg = new AssignCharacterDlg(viewModel))
 			{
-				LogDialogDisplay(dlg);
-				dlg.ShowDialog(this);
+				viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
+				using (var dlg = new AssignCharacterDlg(viewModel))
+				{
+					LogDialogDisplay(dlg);
+					dlg.ShowDialog(this);
+				}
 			}
+
 			Cursor = origCursor;
 
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
 			SaveCurrentProject(true);
+		}
+
+		private void HandleProjectCharacterAdded(AssignCharacterViewModel sender, string reference, string characterId, string delivery)
+		{
+			Analytics.Track("AddCharacter", new Dictionary<string, string>
+			{
+				{"verseReference", reference},
+				{"characterId", characterId},
+				{"delivery", delivery}
+			});
 		}
 
 		private void SelectBooks_Click(object sender, EventArgs e)
