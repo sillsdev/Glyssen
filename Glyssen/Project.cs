@@ -87,7 +87,7 @@ namespace Glyssen
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
 
-		public static IFontRepository s_fontRepository { get; set; }
+		public static IFontRepository FontRepository { get; set; }
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
@@ -380,25 +380,25 @@ namespace Glyssen
 
 		public void InstallIfNecessary()
 		{
-			Debug.Assert(s_fontRepository != null, "Font repository implementation should be set before attempting to load a project.");
+			Debug.Assert(FontRepository != null, "Font repository implementation should be set before attempting to load a project.");
 
 			string fontFamily = m_projectMetadata.FontFamily;
-			if (m_fontInstallationAttempted || s_fontRepository.IsFontInstalled(fontFamily))
+			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
 				return;
 
 			string languageFolder = LanguageFolder;
 
 			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
 			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
-				.Where(ttf => s_fontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
+				.Where(ttf => FontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
 
 			if (ttfFilesToInstall.Count > 0)
 			{
 				m_fontInstallationAttempted = true;
-				s_fontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
+				FontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
 			}
 			else
-				s_fontRepository.ReportMissingFontFamily(fontFamily);
+				FontRepository.ReportMissingFontFamily(fontFamily);
 		}
 
 

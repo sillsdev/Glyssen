@@ -57,7 +57,7 @@ namespace Glyssen
 		{
 			InitializeComponent();
 
-			Project.s_fontRepository = new WinFormsFontRepositoryAdapter();
+			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
