@@ -383,11 +383,11 @@ namespace GlyssenEngine.Script
 			{
 				case MultiBlockQuote.Start:
 					yield return firstBlock;
-					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock))
+					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock, adjustmentToBlockCount))
 						yield return CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
-					// These should all be brought in through a Start block, so don't do anything with them here - Should this throw an exception?
+					// These should all be brought in through a Start block, so don't do anything with them here.
 					break;
 				default:
 					// Not part of a multi-block quote. Just return the base-line block
