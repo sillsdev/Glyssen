@@ -142,6 +142,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
 			m_viewModel.CorrelatedBlockCharacterAssignmentChanged += HandleCorrelatedBlockCharacterAssignmentChanged;
+			m_viewModel.SettingBlockCharacter += OnSettingBlockCharacter;
 
 			UpdateProgressBarForMode();
 
@@ -217,6 +218,20 @@ namespace Glyssen.Dialogs
 					m_progressBar.Increment(increment);
 				}
 			}, GetType().FullName + ".m_viewModel_AssignedBlocksIncremented");
+		}
+
+		private void OnSettingBlockCharacter(AssignCharacterViewModel sender, Block block, ICharacter character)
+		{
+			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
+			if (!character.IsNarrator && !block.IsQuote)
+				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
+				{
+					{ "book", sender.CurrentBookId },
+					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
+					{ "character", character.CharacterId }
+				});
 		}
 
 		private void UpdateProgressBarForMode()
@@ -1237,6 +1252,13 @@ namespace Glyssen.Dialogs
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
+			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+			{
+				{ "book", m_viewModel.CurrentBookId },
+				{ "singleVoice", m_chkSingleVoice.Checked.ToString() },
+				{ "method", "AssignCharacterViewModel.SetCurrentBookSingleVoice" }
+			});
+
 			UpdateProgressBarForMode();
 			if (!m_chkSingleVoice.Checked && m_viewModel.InTaskMode && !m_viewModel.IsCurrentTaskComplete)
 				m_promptToCloseWhenTaskIsComplete = true;
