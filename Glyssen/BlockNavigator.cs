@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using GlyssenEngine;
 using SIL.Extensions;
@@ -375,6 +376,41 @@ namespace Glyssen
 		//	m_currentIndices.MultiBlockCount = 0;
 		//	return CurrentBlock;
 		//}
+
+		#region Methods for dealing with multi-block groups/quotes
+		public IEnumerable<Block> GetAllBlocksWhichContinueTheQuoteStartedByBlock(Block firstBlock, int adjustmentToBlockCount = 0)
+		{
+			switch (firstBlock.MultiBlockQuote)
+			{
+				case MultiBlockQuote.Start:
+					yield return firstBlock;
+					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock))
+						yield return CurrentBook[i];
+					break;
+				case MultiBlockQuote.Continuation:
+					// These should all be brought in through a Start block, so don't do anything with them here - Should this throw an exception?
+					break;
+				default:
+					// Not part of a multi-block quote. Just return the base-line block
+					yield return firstBlock;
+					break;
+			}
+		}
+
+		public IEnumerable<int> GetIndicesOfQuoteContinuationBlocks(Block startQuoteBlock, int adjustmentToBlockCount = 0)
+		{
+			// Note this method assumes the startQuoteBlock is in the navigator's current book.
+			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
+
+			for (int j = GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < CurrentBook.GetScriptBlocks().Count + adjustmentToBlockCount; j++)
+			{
+				Block block = CurrentBook[j];
+				if (block == null || !block.IsContinuationOfPreviousBlockQuote)
+					break;
+				yield return j;
+			}
+		}
+		#endregion
 
 		public void ExtendCurrentBlockGroup(uint additionalBlocks)
 		{
