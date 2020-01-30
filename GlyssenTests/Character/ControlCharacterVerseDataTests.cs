@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Linq;
-using Glyssen.Character;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
 using GlyssenTests.Properties;
@@ -16,7 +15,7 @@ namespace GlyssenTests.Character
 	/// they're really testing the Load method.
 	/// </summary>
 	[TestFixture]
-	class CharacterVerseDataTests
+	class ControlCharacterVerseDataTests
 	{
 		private static readonly int kGENbookNum = BCVRef.BookToNumber("GEN");
 		private static readonly int k1SAbookNum = BCVRef.BookToNumber("1SA");
@@ -214,7 +213,7 @@ namespace GlyssenTests.Character
 	}
 
 	[TestFixture]
-	class CharacterVerseDataTests_Oct2015
+	class ControlCharacterVerseDataTests_Oct2015
 	{
 		[TestFixtureSetUp]
 		public void FixtureSetup()
