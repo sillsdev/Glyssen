@@ -6,9 +6,9 @@ using Glyssen.Character;
 using Glyssen.Rules;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
-using GlyssenEngine.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
 using Resources = GlyssenTests.Properties.Resources;
@@ -667,7 +667,7 @@ namespace GlyssenTests.Rules
 			SetVoiceActors(m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 
 			var groups = new List<CharacterGroup>(m_testProject.VoiceActorList.AllActors.Count);
-			foreach (GlyssenEngine.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
+			foreach (VoiceActor actor in m_testProject.VoiceActorList.AllActors)
 			{
 				var group = new CharacterGroup(m_testProject);
 				group.AssignVoiceActor(actor.Id);
@@ -887,7 +887,7 @@ namespace GlyssenTests.Rules
 			SetVoiceActors(m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 
 			var groups = new List<CharacterGroup>(m_testProject.VoiceActorList.AllActors.Count);
-			foreach (GlyssenEngine.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
+			foreach (VoiceActor actor in m_testProject.VoiceActorList.AllActors)
 			{
 				var group = new CharacterGroup(m_testProject);
 				group.AssignVoiceActor(actor.Id);

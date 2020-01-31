@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Utilities;
-using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using SIL;
 
