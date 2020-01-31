@@ -4177,7 +4177,7 @@ namespace GlyssenTests
 				return;
 
 			if (Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation))
-				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
+				RobustIO.DeleteDirectoryAndContents(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
 
 			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = null;
 		}

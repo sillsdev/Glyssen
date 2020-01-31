@@ -13,12 +13,12 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Paratext;
 using Glyssen.Properties;
-using Glyssen.Rules;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
+using Glyssen.Rules;
 using GlyssenEngine.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
@@ -56,6 +56,8 @@ namespace Glyssen
 		public MainForm(IReadOnlyList<string> args)
 		{
 			InitializeComponent();
+
+			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");

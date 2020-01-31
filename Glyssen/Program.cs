@@ -58,7 +58,6 @@ namespace Glyssen
 
 			MessageModal.Default = new WinFormsMessageBox();
 			Analytics.Default = new WinFormsAnalytics();
-			Fonts.Default = new WinFormsFonts();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
