@@ -1153,10 +1153,11 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("SpecialUse");
 
 			string category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:");
+			bool rowForRemoveActorAdded = false;
 			foreach (Tuple<GlyssenEngine.VoiceActor.VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
 			{
-				if (!actorInfo.Item2)
-				{
+				if (!actorInfo.Item2 && !rowForRemoveActorAdded)
+				{ 
 					table.Rows.Add(
 						-1,
 						null,
@@ -1169,9 +1170,10 @@ namespace Glyssen.Dialogs
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 					category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 						"Assigned to a Character Group:");
+					rowForRemoveActorAdded = true;
 				}
-				table.Rows.Add(GetDataTableRow(actorInfo.Item1, category));
 
+				table.Rows.Add(GetDataTableRow(actorInfo.Item1, category));
 			}
 
 			return table;
