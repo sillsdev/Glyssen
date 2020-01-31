@@ -21,7 +21,7 @@ namespace Glyssen
 		private ScrVers m_versification;
 
 		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks,
-			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider, uint predeterminedBlockCount = 0)
+			Func<Block, bool> isOkayToBreakBeforeBlock, IReferenceLanguageInfo heSaidProvider, uint predeterminedBlockCount = 0)
 		{
 			m_vernacularBook = vernacularBook;
 			int bookNum = m_vernacularBook.BookNumber;
@@ -38,43 +38,49 @@ namespace Glyssen
 					Logger.WriteEvent($"Anchor block not found in verse: {BookId} {originalAnchorBlock.ChapterNumber}:" +
 						$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
 					// REVIEW: This logic assumes that the repeated verse is wholly contained in this one block.
-					blocksForVersesCoveredByBlock = new List<Block>() {originalAnchorBlock};
+					blocksForVersesCoveredByBlock = new List<Block> {originalAnchorBlock};
 					indexOfAnchorBlockInVerse = 0;
 				}
 				m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
+				var firstIncludedScriptureBlock = blocksForVersesCoveredByBlock.First();
 				while (m_iStartBlock > 0)
 				{
-					var firstIncludedBlock = blocksForVersesCoveredByBlock.First();
-					if (firstIncludedBlock.InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-						!firstIncludedBlock.StartsAtVerseStart && !firstIncludedBlock.IsChapterAnnouncement)
+					if (firstIncludedScriptureBlock.InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+						!firstIncludedScriptureBlock.IsVerseBreak)
 					{
 						var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-							firstIncludedBlock.InitialStartVerseNumber).ToList();
+							firstIncludedScriptureBlock.InitialStartVerseNumber).ToList();
 						if (prepend.Count > 1)
 						{
 							prepend.RemoveAt(prepend.Count - 1);
 							m_iStartBlock -= prepend.Count;
 							blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+							firstIncludedScriptureBlock = blocksForVersesCoveredByBlock.First();
 						}
 					}
-					if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
-						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
+					// PG-1297: In the unusual case where our "anchor" verse is verse 0, we definitely don't want to include earlier verses (from previous chapter).
+					if (m_iStartBlock == 0 || isOkayToBreakBeforeBlock(firstIncludedScriptureBlock) || firstIncludedScriptureBlock.InitialStartVerseNumber == 0)
 					{
 						break;
 					}
 
 					m_iStartBlock--;
-					blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
+					var blockToInsert = blocks[m_iStartBlock];
+					if (blockToInsert.IsScripture)
+						firstIncludedScriptureBlock = blockToInsert;
+					blocksForVersesCoveredByBlock.Insert(0, blockToInsert);
 				}
 				int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
 				int i = iLastBlock;
-				AdvanceToCleanVerseBreak(blocks,
-					verseNum => isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum)),
-					ref i);
+				AdvanceToCleanVerseBreak(blocks, isOkayToBreakBeforeBlock, ref i);
 				if (i > iLastBlock)
 					blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
-				while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
-					blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
+				else
+				{
+					// AdvanceToCleanVerseBreak already took care of this.
+					while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
+				}
 				m_portion = new PortionScript(vernacularBook, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
 
 				try
@@ -273,15 +279,28 @@ namespace Glyssen
 			return newRefBlock;
 		}
 
-		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, Func<int, bool> isOkayToBreakAtVerse, ref int i)
+		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, Func<Block, bool> isOkayToBreakBeforeBlock, ref int i)
 		{
 			int initialValue = i;
-			for (; i < blockList.Count - 1 && (!blockList[i + 1].StartsAtVerseStart || !isOkayToBreakAtVerse(blockList[i + 1].InitialStartVerseNumber)) &&
-				!blockList[i + 1].IsChapterAnnouncement; i++)
+			while (i < blockList.Count - 1)
 			{
+				var nextBlock = blockList[i + 1];
+				if (nextBlock.IsScripture) // If it's not Scripture, we take a wait-and-see approach. Add it on for now, but the loop below might strip it off.
+				{
+					if (nextBlock.StartsAtVerseStart && isOkayToBreakBeforeBlock(nextBlock))
+						break;
+				}
+				i++;
 			}
-			// We don't want to include a TRAILING section head.
-			while (CharacterVerseData.IsCharacterOfType(blockList[i].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical) && i > initialValue)
+
+			// We don't want to include a TRAILING section head or chapter number.
+			// PG-1297: This is unusual, but there can be verse text before verse 1 (See JOB 30 in Kuna project for an example). If there
+			// is, we never want to include it with the preceding Scripture blocks unless it happens to be FOLLOWED by additional verses
+			// that map into the previous chapter and needed to be included with the final verse(s) of that chapter (because it was not
+			// a valid split location.
+			// Note: Although the PG-1297 case is rare, we check for it first because that check also catches the common case of a
+			// chapter break and it is very fast.
+			while (i > initialValue && (blockList[i].InitialStartVerseNumber == 0 || CharacterVerseData.IsCharacterExtraBiblical(blockList[i].CharacterId)))
 				i--;
 		}
 

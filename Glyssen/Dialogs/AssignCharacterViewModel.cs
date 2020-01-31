@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Shared;
@@ -11,7 +10,6 @@ using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
-using Analytics = DesktopAnalytics.Analytics;
 
 namespace Glyssen.Dialogs
 {
@@ -22,7 +20,7 @@ namespace Glyssen.Dialogs
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
-		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
+		private readonly Dictionary<string, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
 		private readonly HashSet<ICharacterDeliveryInfo> m_pendingCharacterDeliveryAdditions = new HashSet<ICharacterDeliveryInfo>();
 		private ISet<ICharacterDeliveryInfo> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
@@ -33,6 +31,10 @@ namespace Glyssen.Dialogs
 		public event EventHandler CurrentBookSaved;
 		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel sender, int index);
 		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
+		public delegate void SettingBlockCharacterHandler(AssignCharacterViewModel sender, Block block, ICharacter character);
+		public event SettingBlockCharacterHandler SettingBlockCharacter;
+		public delegate void ProjectCharacterVerseDataAddedHandler(AssignCharacterViewModel sender, string reference, string characterId, string delivery);
+		public event ProjectCharacterVerseDataAddedHandler ProjectCharacterVerseDataAdded;
 
 		#endregion
 
@@ -92,10 +94,16 @@ namespace Glyssen.Dialogs
 			Delivery.SetNormalDelivery(normalDelivery);
 		}
 
-		public void SetCurrentBookSingleVoice(bool singleVoice)
+		/// <summary>
+		/// Updates the current book to have the specified value, saves the project ti reflect the change,
+		/// and resets the state of the model (filter, etc.) accordingly.
+		/// </summary>
+		/// <param name="singleVoice"></param>
+		/// <returns><c>true</c> if the value was changed</returns>
+		public bool SetCurrentBookSingleVoice(bool singleVoice)
 		{
 			if (CurrentBook.SingleVoice == singleVoice)
-				return;
+				return false;
 
 			CurrentBook.SingleVoice = singleVoice;
 			m_project.SaveBook(CurrentBook);
@@ -109,13 +117,7 @@ namespace Glyssen.Dialogs
 			ResetFilter(CurrentBlock);
 
 			OnSaveCurrentBook();
-
-			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
-			{
-				{ "book", CurrentBookId },
-				{ "singleVoice", singleVoice.ToString() },
-				{ "method", "AssignCharacterViewModel.SetCurrentBookSingleVoice" }
-			});
+			return true;
 		}
 
 		public void StoreCharacterDetail(string characterId, CharacterGender gender, CharacterAge age)
@@ -153,8 +155,7 @@ namespace Glyssen.Dialogs
 
 		private void OnSaveCurrentBook()
 		{
-			if (CurrentBookSaved != null)
-				CurrentBookSaved(this, EventArgs.Empty);
+			CurrentBookSaved?.Invoke(this, EventArgs.Empty);
 		}
 
 		private void OnAssignedBlocksIncremented(int increment)
@@ -406,16 +407,6 @@ namespace Glyssen.Dialogs
 		{
 			if (CharacterVerseData.IsCharacterUnclear(selectedCharacter.CharacterId))
 				throw new ArgumentException("Character cannot be confirmed as ambiguous or unknown.", nameof(selectedCharacter));
-			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
-			if (!selectedCharacter.IsNarrator && !block.IsQuote)
-				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
-				{
-					{ "book", CurrentBookId },
-					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
-					{ "character", selectedCharacter.CharacterId }
-				});
 
 			SetCharacter(block, selectedCharacter);
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
@@ -425,6 +416,8 @@ namespace Glyssen.Dialogs
 
 		private void SetCharacter(Block block, Character selectedCharacter)
 		{
+			SettingBlockCharacter?.Invoke(this, block, selectedCharacter);
+
 			if (selectedCharacter == null)
 			{
 				block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
@@ -450,14 +443,6 @@ namespace Glyssen.Dialogs
 
 			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlockInOriginal))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
-
-			// This code was added to make a test pass, but that test was testing this method in a situation
-			// where it would never actually be used in production:
-			//if (CurrentReferenceTextMatchup != null && CurrentReferenceTextMatchup.HasOutstandingChangesToApply)
-			//{
-			//	foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
-			//		SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
-			//}
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
@@ -552,7 +537,8 @@ namespace Glyssen.Dialogs
 				m_pendingCharacterDetails.Remove(detail.CharacterId);
 			}
 
-			m_project.ProjectCharacterVerseData.AddEntriesFor(CurrentBookNumber, block);
+			if (m_project.ProjectCharacterVerseData.AddEntriesFor(CurrentBookNumber, block))
+				ProjectCharacterVerseDataAdded?.Invoke(this, block.GetReferenceString(BCVRef.NumberToBookCode(CurrentBookNumber)), block.CharacterId, block.Delivery);
 			m_project.SaveProjectCharacterVerseData();
 		}
 
@@ -693,7 +679,7 @@ namespace Glyssen.Dialogs
 				s_extraCharacter = extraCharacter;
 			}
 
-			internal Character(string characterId, string localizedCharacterId = null, string alias = null, string localizedAlias = null, bool projectSpecific = true)
+			public Character(string characterId, string localizedCharacterId = null, string alias = null, string localizedAlias = null, bool projectSpecific = true)
 			{
 				m_characterId = CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ?
 					s_narrator.CharacterId : characterId;
@@ -842,7 +828,7 @@ namespace Glyssen.Dialogs
 				s_normalDelivery = new Delivery(normalDelivery, false);
 			}
 
-			internal Delivery(string text, bool projectSpecific = true)
+			public Delivery(string text, bool projectSpecific = true)
 			{
 				m_text = text;
 				m_projectSpecific = projectSpecific;

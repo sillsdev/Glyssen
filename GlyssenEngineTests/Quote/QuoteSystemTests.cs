@@ -3,7 +3,7 @@ using NUnit.Framework;
 using SIL.WritingSystems;
 using SIL.Xml;
 
-namespace GlyssenTests.Quote
+namespace GlyssenEngineTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemTests

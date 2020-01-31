@@ -56,7 +56,7 @@ namespace Glyssen
 				throw new InvalidOperationException($"Invalid attempt to extend a multi-block {GetType()} based on a {matchup.GetType()}.");
 			if (matchup.IndexOfStartBlockInBook != BlockIndex)
 			{
-				Logger.WriteEvent($"Error: matchup.IndexOfStartBlockInBook = {matchup.IndexOfStartBlockInBook}; BlockIndex = {BlockIndex}; BookIndex = {BookIndex}");
+				Logger.WriteEvent($"Error: matchup.IndexOfStartBlockInBook = {matchup.IndexOfStartBlockInBook}; BlockIndex = {BlockIndex}; BookIndex = {BookIndex}.");
 				throw new InvalidOperationException($"This {GetType()} does not correspond to the given {matchup.GetType()}.");
 			}
 			if (matchup.OriginalBlockCount == 1)

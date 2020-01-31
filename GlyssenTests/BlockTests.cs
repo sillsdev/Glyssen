@@ -5,6 +5,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Shared;
 using GlyssenEngine.Character;
+using GlyssenEngine.Quote;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
@@ -12,6 +13,7 @@ using SIL.Xml;
 using GlyssenTests.Properties;
 using Rhino.Mocks;
 using SIL.IO;
+using SIL.WritingSystems;
 using static GlyssenEngine.Character.CharacterVerseData;
 
 namespace GlyssenTests
@@ -20,6 +22,7 @@ namespace GlyssenTests
 	class BlockTests
 	{
 		private ScrVers m_testVersification;
+		private IQuoteInterruptionFinder m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -32,6 +35,8 @@ namespace GlyssenTests
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
 				m_testVersification = Versification.Table.Implementation.Load(tempFile.Path);
 			}
+
+			m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes = new QuoteSystem(QuoteSystem.Default);
 		}
 
 		[SetUp]
@@ -687,7 +692,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { JesusQuestioning });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[] { JesusQuestioning });
 			Assert.AreEqual("Jesus", block.CharacterId);
 			Assert.AreEqual("Questioning", block.Delivery);
 		}
@@ -700,7 +705,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(new CharacterSpeakingMode[0]);
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new CharacterSpeakingMode[0]);
 			Assert.AreEqual(CharacterVerseData.kUnexpectedCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
@@ -713,7 +718,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
-			block.SetCharacterAndDelivery(new [] { JesusCommanding, JesusQuestioning, Andrew });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new [] { JesusCommanding, JesusQuestioning, Andrew });
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
@@ -724,7 +729,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false),  });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Mary", block.CharacterIdInScript);
 		}
@@ -737,7 +742,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Mary/Martha";
 			block.CharacterIdInScript = "Martha";
-			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Martha", block.CharacterIdInScript);
 		}
@@ -749,7 +754,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.CharacterId = "Mary/Martha";
-			block.SetCharacterAndDelivery(new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[] { new CharacterSpeakingMode("Mary/Martha", null, null, false) });
 			Assert.AreEqual("Mary/Martha", block.CharacterId);
 			Assert.AreEqual("Mary", block.CharacterIdInScript);
 		}
@@ -760,7 +765,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4, 6);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verses four through seven. "));
-			block.SetCharacterAndDelivery(new[]
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[]
 			{
 				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Martha"),
 				new CharacterSpeakingMode("Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Jews"),
@@ -776,7 +781,7 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetCharacterAndDelivery(new[] { JesusQuestioning });
+			block.SetCharacterAndDelivery(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes, new[] { JesusQuestioning });
 			Assert.IsFalse(block.CharacterIsStandard);
 		}
 
@@ -1629,7 +1634,17 @@ namespace GlyssenTests
 		public void ProbablyDoesNotContainInterruption_ApparentInterruptions_ReturnsFalse(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.False(block.ProbablyDoesNotContainInterruption);
+			Assert.False(block.ProbablyDoesNotContainInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+		}
+
+		[Test]
+		public void ProbablyDoesNotContainInterruption_PossibleInterruptionUsesLongDashesWhichAreAlsoUsedForDialgueQuotes_ReturnsTrue()
+		{
+			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
+				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
+
+			var block = GetBlockWithText("—a—");
+			Assert.True(block.ProbablyDoesNotContainInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
 		[TestCase("a b-c d-e")]
@@ -1639,7 +1654,28 @@ namespace GlyssenTests
 		public void ProbablyDoesNotContainInterruption_WordMedialOrUnmatchedDashes_ReturnsTrue(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.True(block.ProbablyDoesNotContainInterruption);
+			Assert.True(block.ProbablyDoesNotContainInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+
+			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
+				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
+
+			Assert.True(block.ProbablyDoesNotContainInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
+		}
+
+		[TestCase("a (bcd) e", ExpectedResult = "(bcd) ")]
+		[TestCase("a -b- c", ExpectedResult = "-b- ")]
+		[TestCase("a - b - c", ExpectedResult = "- b - ")]
+		[TestCase("a -- b -- c", ExpectedResult = "-- b -- ")]
+		[TestCase("a —b— c", ExpectedResult = null)]
+		[TestCase("a - b-c - d", ExpectedResult = "- b-c - ")]
+		[TestCase("a -- b-c -- d", ExpectedResult = "-- b-c -- ")]
+		public string GetNextInterruption_QuoteSystemWithLongDashDialogueQuotes_InterruptionFoundCorrectly(string text)
+		{
+			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
+				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
+
+			var block = GetBlockWithText(text);
+			return block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes)?.Item1.Value;
 		}
 
 		[TestCase("a (bcd) e", ExpectedResult = "(bcd) ")]
@@ -1649,10 +1685,10 @@ namespace GlyssenTests
 		[TestCase("a —b— c", ExpectedResult = "—b— ")]
 		[TestCase("a - b-c - d", ExpectedResult = "- b-c - ")]
 		[TestCase("a -- b-c -- d", ExpectedResult = "-- b-c -- ")]
-		public string GetNextInterruption_InterruptionFoundCorrectly(string text)
+		public string GetNextInterruption_QuoteSystemWithoutLongDashDialogueQuotes_InterruptionFoundCorrectly(string text)
 		{
 			var block = GetBlockWithText(text);
-			return block.GetNextInterruption().Item1.Value;
+			return block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes)?.Item1.Value;
 		}
 
 		[TestCase("a b-c-d e")]
@@ -1660,7 +1696,12 @@ namespace GlyssenTests
 		public void GetNextInterruption_WordMedialDashes_NoInterruptionFound(string text)
 		{
 			var block = GetBlockWithText(text);
-			Assert.Null(block.GetNextInterruption());
+			Assert.Null(block.GetNextInterruption(m_interruptionFinderForQuoteSystemWithoutLongDashDialogueQuotes));
+
+			IQuoteInterruptionFinder interruptionFinderForQuoteSystemWithLongDashDialogueQuotes =
+				new QuoteSystem(new QuotationMark("\u2014", "\u2014", null, 1, QuotationMarkingSystemType.Narrative));
+
+			Assert.Null(block.GetNextInterruption(interruptionFinderForQuoteSystemWithLongDashDialogueQuotes));
 		}
 
 		private Block GetBlockWithText(string text)

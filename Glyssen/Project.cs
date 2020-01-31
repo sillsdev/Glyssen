@@ -87,6 +87,8 @@ namespace Glyssen
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
 
+		public static IFontRepository FontRepository { get; set; }
+
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
@@ -137,7 +139,7 @@ namespace Glyssen
 			}
 
 			if (installFonts)
-				Fonts.InstallIfNecessary(m_projectMetadata.FontFamily, LanguageFolder, ref m_fontInstallationAttempted);
+				InstallIfNecessary();
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -156,7 +158,7 @@ namespace Glyssen
 					Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
 					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
 
-			Fonts.InstallIfNecessary(m_projectMetadata.FontFamily, LanguageFolder, ref m_fontInstallationAttempted);
+			InstallIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
 			{
@@ -375,6 +377,30 @@ namespace Glyssen
 					: CastSizeOption.Recommended;
 			}
 		}
+
+		public void InstallIfNecessary()
+		{
+			Debug.Assert(FontRepository != null, "Font repository implementation should be set before attempting to load a project.");
+
+			string fontFamily = m_projectMetadata.FontFamily;
+			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
+				return;
+
+			string languageFolder = LanguageFolder;
+
+			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
+			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
+				.Where(ttf => FontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
+
+			if (ttfFilesToInstall.Count > 0)
+			{
+				m_fontInstallationAttempted = true;
+				FontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
+			}
+			else
+				FontRepository.ReportMissingFontFamily(fontFamily);
+		}
+
 
 		public void SetCharacterGroupGenerationPreferencesToValidValues()
 		{
@@ -743,7 +769,7 @@ namespace Glyssen
 								if (refTextVerseSplitLocations == null)
 									refTextVerseSplitLocations = m_referenceText.GetVerseSplitLocations(book.BookId);
 								var matchup = new BlockMatchup(book, i, null,
-									nextVerse => m_referenceText.IsOkayToSplitAtVerse(nextVerse, Versification, refTextVerseSplitLocations),
+									candidate => m_referenceText.IsOkayToSplitBeforeBlock(book, candidate, refTextVerseSplitLocations),
 									m_referenceText);
 								foreach (var blockToClear in matchup.OriginalBlocks)
 									blockToClear.ClearReferenceText();
@@ -774,7 +800,7 @@ namespace Glyssen
 			if (existingProject == null)
 				return null;
 
-			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteParserUpgrade)
+			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteReparse)
 			{
 				Debug.Assert(existingProject.Books.Any());
 				if (existingProject.ProjectState != ProjectState.FullyInitialized)
@@ -801,15 +827,24 @@ namespace Glyssen
 		}
 
 		/// <summary>
-		/// Returns true if the project was parsed with a quote parser that is older than the current parser version.
-		/// However, in some circumstances, if we know that the new version would not result in improved parsing, this
-		/// property has the side-effect of just updating the project's parser version to the current version number
-		/// and returning false.
+		/// Returns true if the project needs to be reparsed, typically because it was parsed with an older version of the quote
+		/// parser, but also for other more obscure reasons. (Can have non-readonly side-effects - see remarks.)
 		/// </summary>
-		private bool NeedsQuoteParserUpgrade
+		/// <remarks>Note that in some circumstances, if we know that the new parser version would not result in improved parsing,
+		/// this property has the side-effect of just updating the project's parser version to the current version number and
+		/// returning false.
+		/// </remarks>
+		private bool NeedsQuoteReparse
 		{
 			get
 			{
+				// PG-1315: If the Versification was changed in Paratext, we should redo the quote parsing because guesses about
+				// appropriate character assignments are heavily tied to verse references. However, versification mappings in the
+				// New Testament are rare and very limited even when they do occur. So if we're including only NT books, we can
+				// skip this.
+				if (IsLiveParatextProject && m_projectMetadata.Versification != Versification.Name && IncludedBooks.First().BookNumber < 40)
+					return true;
+
 				if (m_projectMetadata.ParserVersion >= Settings.Default.ParserVersion)
 					return false;
 				switch (Settings.Default.ParserVersion)
@@ -1404,7 +1439,7 @@ namespace Glyssen
 			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books,
+				new CharacterAssigner(new CombinedCharacterVerseData(this), QuoteSystem).AssignAll(m_books,
 					m_projectMetadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 
 				UpdateControlFileVersion();
@@ -1766,20 +1801,7 @@ namespace Glyssen
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
-
-			Analytics.Track("ProjectAnalysis", new Dictionary<string, string>
-			{
-				{"language", LanguageIsoCode},
-				{"ID", Id},
-				{"recordingProjectName", Name},
-				{"TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
-				{"UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
-				{"PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture)}
-			});
-
-			if (AnalysisCompleted != null)
-				AnalysisCompleted(this, new EventArgs());
+			AnalysisCompleted?.Invoke(this, new EventArgs());
 		}
 
 		internal void PrepareForExport()

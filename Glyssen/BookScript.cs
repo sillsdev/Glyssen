@@ -920,10 +920,10 @@ namespace Glyssen
 
 		public void CleanUpMultiBlockQuotes()
 		{
-			var model = new BlockNavigatorViewModel(new[] { this }.ToReadOnlyList(), Versification);
+			var navigator = new BlockNavigator(new[] { this }.ToReadOnlyList());
 			foreach (IEnumerable<Block> multiBlock in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
-				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block)))
+				.Select(block => navigator.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block)))
 			{
 				ProcessAssignmentForMultiBlockQuote(BCVRef.BookToNumber(BookId), multiBlock.ToList(), Versification);
 			}

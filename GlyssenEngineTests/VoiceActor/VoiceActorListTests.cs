@@ -4,7 +4,7 @@ using NUnit.Framework;
 using SIL.IO;
 using SIL.TestUtilities;
 
-namespace GlyssenTests.VoiceActor
+namespace GlyssenEngineTests.VoiceActor
 {
 	[TestFixture]
 	class VoiceActorListTests
