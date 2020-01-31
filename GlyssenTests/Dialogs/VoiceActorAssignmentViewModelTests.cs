@@ -375,7 +375,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void GetMultiColumnActorDataTable_NoActorsAssigned_GetsAllActorsInAlphbeticalOrder()
+		public void GetActorsSortedByAvailabilityAndName_NoActorsAssigned_GetsAllActorsInAlphbeticalOrder()
 		{
 			var actorB = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B" };
 			var actorC = new GlyssenEngine.VoiceActor.VoiceActor { Id = 2, Name = "C" };
@@ -385,16 +385,15 @@ namespace GlyssenTests.Dialogs
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
-			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
-			var actorList = GetActorListFromDataTable(dataTable);
-			Assert.AreEqual(actorA, actorList[0]);
-			Assert.AreEqual(actorB, actorList[1]);
-			Assert.AreEqual(actorC, actorList[2]);
-			Assert.AreEqual(null, actorList[3]); // The "Unassigned" option
+			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).ToList();
+			Assert.AreEqual(actorA, actorList[0].Item1);
+			Assert.AreEqual(actorB, actorList[1].Item1);
+			Assert.AreEqual(actorC, actorList[2].Item1);
+			Assert.IsTrue(actorList.Select(a => a.Item2).All(available => available));
 		}
 
 		[Test]
-		public void GetMultiColumnActorDataTable_ActorAssigned_AssignedActorSortsLast()
+		public void GetActorsSortedByAvailabilityAndName_ActorAssigned_AssignedActorSortsLast()
 		{
 			var actorB = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B" };
 			var actorC = new GlyssenEngine.VoiceActor.VoiceActor { Id = 2, Name = "C" };
@@ -406,12 +405,13 @@ namespace GlyssenTests.Dialogs
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actorA.Id, group);
 
-			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
-			var actorList = GetActorListFromDataTable(dataTable);
-			Assert.AreEqual(actorB, actorList[0]);
-			Assert.AreEqual(actorC, actorList[1]);
-			Assert.AreEqual(null, actorList[2]); // The "Unassigned" option
-			Assert.AreEqual(actorA, actorList[3]);
+			var actorList = m_model.GetActorsSortedByAvailabilityAndName(m_model.CharacterGroups[0]).ToList();
+			Assert.AreEqual(actorB, actorList[0].Item1);
+			Assert.IsTrue(actorList[0].Item2);
+			Assert.AreEqual(actorC, actorList[1].Item1);
+			Assert.IsTrue(actorList[1].Item2);
+			Assert.AreEqual(actorA, actorList[2].Item1);
+			Assert.IsFalse(actorList[2].Item2);
 		}
 
 		[Test]
@@ -621,11 +621,6 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(newActor3, group3.VoiceActor);
 			Assert.AreEqual(ActorGender.Male, newActor3.Gender);
 			Assert.AreEqual(ActorAge.Child, newActor3.Age);
-		}
-
-		private List<GlyssenEngine.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
-		{
-			return (from DataRow row in dataTable.Rows select m_testProject.VoiceActorList.GetVoiceActorById((int)row.ItemArray[0])).ToList();
 		}
 
 		private CharacterGroup AddNewGroup(params string[] characterIds)
