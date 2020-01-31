@@ -46,7 +46,7 @@ namespace GlyssenEngineTests
 
 		static TestProject()
 		{
-			Project.s_fontRepository = new TestFontRepository();
+			Project.FontRepository = new TestFontRepository();
 		}
 
 		private static Exception m_errorDuringProjectCreation;

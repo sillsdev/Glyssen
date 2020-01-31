@@ -59,7 +59,8 @@ namespace Glyssen
 		{
 			InitializeComponent();
 
-			Project.s_fontRepository = new WinFormsFontRepositoryAdapter();
+			Project.FontRepository = new WinFormsFontRepositoryAdapter();
+
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
 
 			SetupUiLanguageMenu();
