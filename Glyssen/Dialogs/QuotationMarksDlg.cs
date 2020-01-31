@@ -449,7 +449,7 @@ namespace Glyssen.Dialogs
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{
-						m_navigatorViewModel.BlockNavigator = new BlockNavigator(m_project.IncludedBooks);
+						m_navigatorViewModel.UpdateNavigatorForIncludedBooks();
 						ShowTestResults(percentageOfExpectedQuotesFound, true);
 						DisableForm(false);
 						return;
@@ -851,7 +851,7 @@ namespace Glyssen.Dialogs
 				var parsedBooks = m_project.TestQuoteSystem(CurrentQuoteSystem);
 				if (parsedBooks.Any())
 				{
-					m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks.Where(b => m_project.IncludedBooks.Any(ib => ib.BookId == b.BookId)).ToList());
+					m_navigatorViewModel.UpdateNavigatorForIncludedBooks(parsedBooks.Select(b => b.BookId));
 					ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), changeFilterToShowMissingExpectedQuotes);
 				}
 				else
