@@ -4,13 +4,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Utilities;
 using GlyssenEngine.ViewModels;
 using SIL.Reporting;
 using SIL.Scripture;
-using Analytics = DesktopAnalytics.Analytics;
-using Color = System.Drawing.Color;
-using Font = System.Drawing.Font;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Controls
 {
@@ -19,7 +18,7 @@ namespace Glyssen.Controls
 		private bool m_updatingContext = true;
 		private DataGridViewTextBoxColumn m_colReference;
 		private DataGridViewTextBoxColumn m_colText;
-		private BlockNavigatorViewModel<Font> m_viewModel;
+		private BlockNavigatorViewModel m_viewModel;
 		private FontProxy m_originalDefaultFont;
 
 		private bool m_userIsResizingColumns;
@@ -165,7 +164,7 @@ namespace Glyssen.Controls
 		#endregion
 
 		#region public methods
-		public void Initialize(BlockNavigatorViewModel<Font> viewModel)
+		public void Initialize(BlockNavigatorViewModel viewModel)
 		{
 			m_colReference = (DataGridViewTextBoxColumn)Columns[0];
 			m_colText = (DataGridViewTextBoxColumn)Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None);
