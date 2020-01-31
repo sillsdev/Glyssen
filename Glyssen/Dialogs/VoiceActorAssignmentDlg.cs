@@ -373,9 +373,9 @@ namespace Glyssen.Dialogs
 			string firstReference, string secondReference, string destGroupId, IReadOnlyList<string> characterIds)
 		{
 			var dlgMessageFormat1 = (firstReference == secondReference) ?
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1SameRef",
 					"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1DifferentRef",
 					"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
 			var dlgMessagePart1 = string.Format(dlgMessageFormat1,
 				newProximity,
@@ -1155,10 +1155,11 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("SpecialUse");
 
 			string category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:");
-			foreach (Tuple< GlyssenEngine.VoiceActor.VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
+			bool rowForRemoveActorAdded = false;
+			foreach (Tuple<GlyssenEngine.VoiceActor.VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
 			{
-				if (!actorInfo.Item2)
-				{
+				if (!actorInfo.Item2 && !rowForRemoveActorAdded)
+				{ 
 					table.Rows.Add(
 						-1,
 						null,
@@ -1171,9 +1172,10 @@ namespace Glyssen.Dialogs
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 					category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 						"Assigned to a Character Group:");
+					rowForRemoveActorAdded = true;
 				}
-				table.Rows.Add(GetDataTableRow(actorInfo.Item1, category));
 
+				table.Rows.Add(GetDataTableRow(actorInfo.Item1, category));
 			}
 
 			return table;
@@ -1215,7 +1217,6 @@ namespace Glyssen.Dialogs
 				default: return string.Empty;
 			}
 		}
-
 
 		/// <summary>
 		/// When the drop-down closes, we want to force the change to be committed and get out of edit mode. This gives a better user experience,
