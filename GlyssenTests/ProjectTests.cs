@@ -9,11 +9,13 @@ using Glyssen.Character;
 using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Utilities;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
@@ -28,7 +30,7 @@ using Rhino.Mocks;
 
 namespace GlyssenTests
 {
-	[TestFixture, Timeout(60000)]
+	[TestFixture, Timeout(90000)]
 	class ProjectTests
 	{
 		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
@@ -54,14 +56,14 @@ namespace GlyssenTests
 
 			// Clean up anything from previously aborted tests
 			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
-				DirectoryUtilities.DeleteDirectoryRobust(directory);
+				RobustIO.DeleteDirectoryAndContents(directory);
 		}
 
 		[TestFixtureTearDown]
 		public void TestFixtureTeardown()
 		{
 			foreach (var folder in m_tempProjectFolders)
-				DirectoryUtilities.DeleteDirectoryRobust(folder);
+				RobustIO.DeleteDirectoryAndContents(folder);
 		}
 
 		[Test]
@@ -142,7 +144,7 @@ namespace GlyssenTests
 			var firstBook = project.Books[0];
 			var block = firstBook.GetScriptBlocks().Last();
 			var verseRef = new BCVRef(BCVRef.BookToNumber(firstBook.BookId), block.ChapterNumber, block.InitialStartVerseNumber);
-			block.SetCharacterAndDelivery(new List<CharacterVerse>(
+			block.SetCharacterAndDelivery(project.QuoteSystem, new List<CharacterVerse>(
 				new [] { new CharacterVerse(verseRef, "Wilma", "agitated beyond belief", null, true) }));
 			block.UserConfirmed = true;
 
@@ -244,7 +246,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		[Timeout(9000)]
+		[Timeout(11000)]
 		public void SetQuoteSystem_QuoteParseCompletedCalledWithNewQuoteSystem()
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -283,7 +285,7 @@ namespace GlyssenTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -343,7 +345,7 @@ namespace GlyssenTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -399,7 +401,7 @@ namespace GlyssenTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(10000)]
+		[Timeout(11000)]
 		public void UpdateFromParatextData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
@@ -790,6 +792,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -819,6 +822,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlIsSet_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -838,7 +842,7 @@ namespace GlyssenTests
 			}
 		}
 
-		[Test, Timeout(10000)]
+		[Test, Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -859,7 +863,7 @@ namespace GlyssenTests
 			}
 		}
 
-		[Test, Timeout(10000)]
+		[Test, Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -881,6 +885,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -902,7 +907,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		[Timeout(8000)]
+		[Timeout(11000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
@@ -972,7 +977,7 @@ namespace GlyssenTests
 			{
 				var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, "~~funkyFrogLipsAndStuff");
 				if (Directory.Exists(testProjFolder))
-					DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
+					RobustIO.DeleteDirectoryAndContents(testProjFolder);
 			}
 		}
 
@@ -1109,6 +1114,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(11000)]
 		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
 		{
 			// Setup
@@ -1274,6 +1280,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		[Timeout(11000)]
 		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);

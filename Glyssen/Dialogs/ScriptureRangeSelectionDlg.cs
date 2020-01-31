@@ -11,9 +11,9 @@ using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine.Bundle;
+using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
-using SIL;
 using SIL.DblBundle.Text;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -56,7 +56,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
-			Debug.Assert(Localizer.UILanguageId != "en" || Text == "Select Books - {0}",
+			Debug.Assert(LocalizationManager.UILanguageId != "en" || Text == "Select Books - {0}",
 				"Dev alert: the localized string and ID of this dialog's window title MUST be kept in sync with the version in Project.FoundUnacceptableChangesInAvailableBooks!");
 
 			Text = Format(Text, m_project.Name);
@@ -124,7 +124,7 @@ namespace Glyssen.Dialogs
 				var failedChecksBookCount = m_paratextScrTextWrapper.FailedChecksBooks.Count();
 				if (failedChecksBookCount > 0)
 				{
-					var msg = Format(Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
+					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
 						"{0} did not automatically include {1} of the books in project {2} because {3} is not reporting a " +
 						"current successful status for all the basic checks that {0} usually requires to pass. " +
 						"If you intend to prepare the recording script for any of the excluded books at this time, " +
@@ -149,8 +149,8 @@ namespace Glyssen.Dialogs
 			// set up dropdown column headers
 			var columnOptions = new SortedList<int, string>
 			{
-				{0, Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Select All", "\"All\" refers to Scripture books")},
-				{1, Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ClearAll", "Clear All", "\"All\" refers to Scripture books")}
+				{0, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Select All", "\"All\" refers to Scripture books")},
+				{1, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ClearAll", "Clear All", "\"All\" refers to Scripture books")}
 			};
 
 			m_ntBooksGrid.Columns[2].HeaderCell = CreateDropdownHeaderCell(m_ntBooksGrid.Columns[2].HeaderCell, columnOptions);
@@ -184,7 +184,7 @@ namespace Glyssen.Dialogs
 				var booksWithFailingChecks = m_paratextScrTextWrapper.FailedChecksBooks.Where(b => booksToChange.Contains(b)).ToList();
 				if (booksWithFailingChecks.Any())
 				{
-					var msg = Format(Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
+					var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ExcludedParatextBookExplanation",
 						"{0} is not reporting a current successful status for the following books for all the basic checks that {1} usually requires to pass:" +
 						 "\r\n{2}\r\n\r\n" +
 						"Although you can ignore this warning and proceed to include these books, {1} might fail to process the data " +
@@ -201,7 +201,7 @@ namespace Glyssen.Dialogs
 						"Param 6: Glyssen recording project name"),
 						ParatextScrTextWrapper.kParatextProgramName,
 						GlyssenInfo.kProduct,
-						Join(Localizer.GetString("Common.SimpleListSeparator", ", "), booksWithFailingChecks),
+						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), booksWithFailingChecks),
 						m_project.ParatextProjectName,
 						m_paratextScrTextWrapper.RequiredCheckNames,
 						grid == m_otBooksGrid ? BookSetUtils.OldTestamentLocalizedString : BookSetUtils.NewTestamentLocalizedString,
@@ -342,7 +342,7 @@ namespace Glyssen.Dialogs
 
 			if (result == DialogResult.None)
 			{
-				var msg = Format(Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.Msg",
+				var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.Msg",
 					"{0} has existing data for {1}. However, {2} reports that there is updated content in project {3}. " +
 					"Do you want {0} to use the latest content?",
 					"Param 0: \"Glyssen\" (product name); " +
@@ -353,7 +353,7 @@ namespace Glyssen.Dialogs
 					bookScriptFromExistingFile.BookId,
 					ParatextScrTextWrapper.kParatextProgramName,
 					m_project.ParatextProjectName);
-				var applyToAllText = Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.ApplyToAll",
+				var applyToAllText = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.GetUpdatedContent.ApplyToAll",
 					"Apply to all newly included books");
 				using (var dlg = new YesNoApplyToAllDlg(msg, applyToAllText))
 				{
@@ -434,7 +434,7 @@ namespace Glyssen.Dialogs
 			if (m_paratextScrTextWrapper.DoesBookPassChecks(bookNum, true))
 				return true;
 
-			var failureMessage = Format(Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook",
+			var failureMessage = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.FailedChecksForBook",
 				"{0} is not reporting a current successful status for {1} in project {2} for the following basic checks " +
 				"that {3} usually requires to pass:\r\n{4}",
 				"Param 0: \")Paratext\" (product name); " +
@@ -449,7 +449,7 @@ namespace Glyssen.Dialogs
 				Join(", ", m_paratextScrTextWrapper.GetCheckFailuresForBook(bookCode)));
 
 			var msg = failureMessage + Environment.NewLine + Environment.NewLine +
-				Format(Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks",
+				Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmInclusionOfParatextBookThatDoesNotPassChecks",
 				"Depending on the specific errors, {0} might fail to process the data for this book properly, which could " +
 				"give the appearance of data loss or corruption and could even cause {0} to stop responding. " +
 				"Do you want to include this book in the {1} project anyway?",
@@ -466,7 +466,7 @@ namespace Glyssen.Dialogs
 
 		private void ReportParatextBookNoLongerAvailable(string bookCode)
 		{
-			var msg = Format(Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableMsg",
+			var msg = Format(LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableMsg",
 				"Sorry. {0} is no longer available from {1} project {2}.",
 				"Param 0: 3-letter ID of Scripture book; " +
 				"Param 1: \"Paratext\" (product name); " +
@@ -474,7 +474,7 @@ namespace Glyssen.Dialogs
 				bookCode,
 				ParatextScrTextWrapper.kParatextProgramName,
 				m_project.ParatextProjectName);
-			var caption = Localizer.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableCaption",
+			var caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ParatextBookNoLongerAvailableCaption",
 				"Unable to Include Book");
 			MessageBox.Show(this, msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}

@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Glyssen.Utilities;
 using L10NSharp;
 using Timer = System.Timers.Timer;
-using SIL;
 
 namespace Glyssen.Controls
 {
@@ -27,9 +26,9 @@ namespace Glyssen.Controls
 			InitializeComponent();
 
 			m_savedLabelFmt = m_lbl.Text;
-			m_justSavedLabelFmt = Localizer.GetString("Common.SaveStatus.JustSaved", "Saved on {0:d} at {0:t}");
-			m_savingLabelFmt = Localizer.GetString("Common.SaveStatus.Saving", "Saving...");
-			m_savingLongWaitLabelFmt = Localizer.GetString("Common.SaveStatus.SavingLongWait", "Saving... (taking longer than expected)");
+			m_justSavedLabelFmt = LocalizationManager.GetString("Common.SaveStatus.JustSaved", "Saved on {0:d} at {0:t}");
+			m_savingLabelFmt = LocalizationManager.GetString("Common.SaveStatus.Saving", "Saving...");
+			m_savingLongWaitLabelFmt = LocalizationManager.GetString("Common.SaveStatus.SavingLongWait", "Saving... (taking longer than expected)");
 		}
 
 		public override Color BackColor

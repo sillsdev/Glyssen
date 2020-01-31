@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using GlyssenEngine.Utilities;
 
 namespace Glyssen.Dialogs
@@ -19,49 +20,29 @@ namespace Glyssen.Dialogs
 				case Buttons.OK:
 					messageBoxButtons = MessageBoxButtons.OK;
 					break;
-				case Buttons.OKCancel:
-					messageBoxButtons = MessageBoxButtons.OKCancel;
-					break;
 				case Buttons.RetryCancel:
 					messageBoxButtons = MessageBoxButtons.RetryCancel;
 					break;
 				case Buttons.YesNo:
 					messageBoxButtons = MessageBoxButtons.YesNo;
 					break;
-				default: // Buttons.YesNoCancel
-					messageBoxButtons = MessageBoxButtons.YesNoCancel;
-					break;
+				default:
+					throw new NotImplementedException("Unexpected MessageModal button!");
 			}
 
 			switch (icon)
 			{
-				case Icon.Asterisk:
-					messageBoxIcon = MessageBoxIcon.Asterisk;
-					break;
-				case Icon.Error:
-					messageBoxIcon = MessageBoxIcon.Error;
-					break;
 				case Icon.Exclamation:
 					messageBoxIcon = MessageBoxIcon.Exclamation;
-					break;
-				case Icon.Hand:
-					messageBoxIcon = MessageBoxIcon.Hand;
-					break;
-				case Icon.Information:
-					messageBoxIcon = MessageBoxIcon.Information;
 					break;
 				case Icon.None:
 					messageBoxIcon = MessageBoxIcon.None;
 					break;
-				case Icon.Question:
-					messageBoxIcon = MessageBoxIcon.Question;
-					break;
-				case Icon.Stop:
-					messageBoxIcon = MessageBoxIcon.Stop;
-					break;
-				default: // Icon.Warning
+				case Icon.Warning:
 					messageBoxIcon = MessageBoxIcon.Warning;
 					break;
+				default:
+					throw new NotImplementedException("Unexpected MessageModal icon!");
 			}
 
 			switch (defaultButton)
@@ -72,9 +53,11 @@ namespace Glyssen.Dialogs
 				case DefaultButton.Button2:
 					messageBoxDefaultButton = MessageBoxDefaultButton.Button2;
 					break;
-				default: // DefaultButton.Button3
+				case DefaultButton.Button3:
 					messageBoxDefaultButton = MessageBoxDefaultButton.Button3;
 					break;
+				default:
+					throw new NotImplementedException("Unexpected MessageModal default button!");
 			}
 
 			DialogResult result = MessageBox.Show(text, caption, messageBoxButtons, messageBoxIcon, messageBoxDefaultButton);
