@@ -269,6 +269,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Quote\NewTestamentBooksFirstComparerTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
