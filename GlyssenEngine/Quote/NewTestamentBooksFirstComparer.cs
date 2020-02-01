@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace GlyssenEngine.Utilities
+namespace GlyssenEngine.Quote
 {
-	public class NewTestamentBooksFirstComparer : IComparer<int>
+	internal class NewTestamentBooksFirstComparer : IComparer<int>
 	{
 		public int Compare(int x, int y)
 		{
