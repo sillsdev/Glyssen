@@ -10810,12 +10810,20 @@
         <seg>&amp;Mover</seg>
       </tuv>
     </tu>
-    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1">
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1DifferentRef">
       <tuv xml:lang="en">
         <seg>This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Como resultado de este cambio, el mismo doblador estaría asignado a los roles de estos dos personajes que hablan muy próximos en el texto: [{1}] en {3} y [{2}] en {4}. Esto no es ideal. (Proximidad: {0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1SameRef">
+      <tuv xml:lang="en">
+        <seg>This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Como resultado de este cambio, el mismo doblador estaría asignado a los roles de estos dos personajes que hablan muy próximos en el texto: [{1}] y [{2}] en {3}. Esto no es ideal. (Proximidad: {0})</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2">
