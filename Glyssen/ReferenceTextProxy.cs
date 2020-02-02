@@ -279,8 +279,8 @@ namespace Glyssen
 				string token = referenceTextType.ToString();
 				if (reportError == null)
 					throw new ReferenceTextMetadataLoadException(GetLoadErrorMessage(token, referenceProjectFilePath), exception);
-				else
-					reportError(exception, token, referenceProjectFilePath);
+				reportError(exception, token, referenceProjectFilePath);
+
 				return null;
 			}
 			return metadata;
