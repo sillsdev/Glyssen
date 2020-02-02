@@ -25,6 +25,7 @@ using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Utilities;
+using Ionic.Zip;
 using Paratext.Data;
 using SIL;
 using SIL.DblBundle;
@@ -174,7 +175,7 @@ namespace Glyssen
 			PopulateAndParseBooks(bundle);
 		}
 
-		internal Project(ParatextScrTextWrapper paratextProject) :
+		public Project(ParatextScrTextWrapper paratextProject) :
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
@@ -223,11 +224,11 @@ namespace Glyssen
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
-		internal bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
+		public bool IsLiveParatextProject => m_projectMetadata.Type == ParatextScrTextWrapper.kLiveParatextProjectType;
 
-		internal bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
+		public bool IsBundleBasedProject => !IsNullOrEmpty(OriginalBundlePath);
 
-		internal string ParatextProjectName => m_projectMetadata.ParatextProjectId;
+		public string ParatextProjectName => m_projectMetadata.ParatextProjectId;
 
 		/// <summary>
 		/// Gets the live Paratext project associated with this Glyssen project
@@ -277,6 +278,7 @@ namespace Glyssen
 					GetBookName = bookId => m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId)?.LongName;
 					break;
 			}
+
 			Block.FormatChapterAnnouncement = GetFormattedChapterAnnouncement;
 		}
 
@@ -298,8 +300,8 @@ namespace Glyssen
 					DoQuoteParse();
 				}
 				else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
-						(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
-						ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
+					(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
+					ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
 				{
 					// These need to happen in this order
 					Save();
@@ -370,6 +372,7 @@ namespace Glyssen
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
 				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			}
+
 			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 			{
 				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any()
@@ -527,8 +530,7 @@ namespace Glyssen
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
 			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " +
-													ProjectState);
+				throw new InvalidOperationException($"Project not in a valid state to update from text release bundle. ProjectState = {ProjectState}");
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
@@ -584,6 +586,7 @@ namespace Glyssen
 						}
 					}
 				}
+
 				if (copy)
 				{
 					targetWs.QuotationMarks.Clear();
@@ -596,18 +599,15 @@ namespace Glyssen
 			}
 		}
 
-		private int PercentInitialized { get; set; }
-
 		public ProjectState ProjectState
 		{
-			get { return m_projectState; }
+			get => m_projectState;
 			private set
 			{
 				if (m_projectState == value)
 					return;
 				m_projectState = value;
-				if (ProjectStateChanged != null)
-					ProjectStateChanged(this, new ProjectStateChangedEventArgs {ProjectState = m_projectState});
+				ProjectStateChanged?.Invoke(this, new ProjectStateChangedEventArgs {ProjectState = m_projectState});
 			}
 		}
 
@@ -729,10 +729,7 @@ namespace Glyssen
 
 		public ReferenceTextProxy ReferenceTextProxy
 		{
-			get
-			{
-				return ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
-			}
+			get => ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
 			set
 			{
 				if (value.Type == m_projectMetadata.ReferenceTextType && value.CustomIdentifier == m_projectMetadata.ProprietaryReferenceTextIdentifier)
@@ -787,7 +784,7 @@ namespace Glyssen
 			return IncludedBooks.Any(b => b.UnappliedSplits.Any());
 		}
 
-		internal void ClearAssignCharacterStatus()
+		public void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NotAlignedToReferenceText;
 			Status.AssignCharacterBlock = new BookBlockIndices();
@@ -888,9 +885,11 @@ namespace Glyssen
 					if (!upgradeProject)
 						existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 				}
+
 				if (!upgradeProject)
 					return null;
 			}
+
 			using (var bundle = new GlyssenBundle(existingProject.OriginalBundlePath))
 			{
 				var upgradedProject = new Project(existingProject.m_projectMetadata, existingProject.m_recordingProjectName,
@@ -930,7 +929,7 @@ namespace Glyssen
 			return existingProject.UpdateProjectFromParatextData(scrTextWrapper);
 		}
 
-		internal ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
+		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(bool canInteractWithUser = true,
 			string contextMessage = "", bool checkForChangesInAvailableBooks = true, bool forceReload = false)
 		{
 			ParatextScrTextWrapper scrTextWrapper = null;
@@ -1163,6 +1162,7 @@ namespace Glyssen
 						x++;
 						continue;
 					}
+
 					if (existingBookNum < nowAvailableBookNum)
 					{
 						if (existingAvailable[x].IncludeInScript)
@@ -1181,7 +1181,7 @@ namespace Glyssen
 			}
 		}
 
-		internal Project UpdateProjectFromParatextData(IParatextScrTextWrapper scrTextWrapper)
+		public Project UpdateProjectFromParatextData(IParatextScrTextWrapper scrTextWrapper)
 		{
 			var existingAvailable = m_projectMetadata.AvailableBooks;
 			var upgradedProject = new Project(m_projectMetadata, Name);
@@ -1240,6 +1240,7 @@ namespace Glyssen
 							foundDataChange = true;
 					}
 				}
+
 				if (foundDataChange)
 					upgradedProject.m_projectMetadata.Revision++; // See note on GlyssenDblTextMetadata.RevisionOrChangesetId
 
@@ -1248,10 +1249,7 @@ namespace Glyssen
 
 			upgradedProject.QuoteParseCompleted += OnUpgradedProjectOnQuoteParseCompleted;
 
-			UpgradeProject(this, upgradedProject, () =>
-			{
-				upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
-			});
+			UpgradeProject(this, upgradedProject, () => { upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet); });
 
 			return upgradedProject;
 		}
@@ -1276,6 +1274,7 @@ namespace Glyssen
 					Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
 				return;
 			}
+
 			metadata.Inactive = hidden;
 			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
 			// TODO: preserve WritingSystemRecoveryInProcess flag
@@ -1298,12 +1297,7 @@ namespace Glyssen
 			return path.GetContainingFolderName();
 		}
 
-		private int UpdatePercentInitialized()
-		{
-			return
-				PercentInitialized =
-					(int) (m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
-		}
+		private int PercentInitialized  => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 
 		private static Project LoadExistingProject(string projectFilePath)
 		{
@@ -1330,7 +1324,7 @@ namespace Glyssen
 			{
 				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
 			}
-			catch(ProjectNotFoundException e)
+			catch (ProjectNotFoundException e)
 			{
 				throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectNotFound",
 					"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
@@ -1343,6 +1337,7 @@ namespace Glyssen
 					GlyssenInfo.kProduct,
 					metadata.Name), e);
 			}
+
 			project.ProjectFileIsWritable = isWritable;
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
@@ -1419,6 +1414,7 @@ namespace Glyssen
 				UpdateControlFileVersion();
 				return;
 			}
+
 			m_guessPercentComplete = 100;
 
 			if (IsSampleProject)
@@ -1431,10 +1427,10 @@ namespace Glyssen
 			if (!IsQuoteSystemReadyForParse)
 			{
 				m_quotePercentComplete = 0;
-				UpdatePercentInitialized();
 				ProjectState = ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 				return;
 			}
+
 			m_quotePercentComplete = 100;
 			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
@@ -1444,7 +1440,7 @@ namespace Glyssen
 
 				UpdateControlFileVersion();
 			}
-			UpdatePercentInitialized();
+
 			ProjectState = ProjectState.FullyInitialized;
 			UpdateControlFileVersion();
 			Analyze();
@@ -1510,7 +1506,7 @@ namespace Glyssen
 			m_books.Insert(i, book);
 		}
 
-		internal void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers,
+		public void IncludeBooksFromParatext(ParatextScrTextWrapper wrapper, ISet<int> bookNumbers,
 			Action<BookScript> postParseAction)
 		{
 			wrapper.IncludeBooks(bookNumbers.Select(BCVRef.NumberToBookCode));
@@ -1550,10 +1546,10 @@ namespace Glyssen
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			var parameters = (object[]) e.Argument;
-			var books = (IEnumerable<UsxDocument>) parameters[0];
-			var stylesheet = (IStylesheet) parameters[1];
-			var postParseAction = parameters.Length > 2 ? (Action <BookScript> )parameters[2] : null;
+			var parameters = (object[])e.Argument;
+			var books = (IEnumerable<UsxDocument>)parameters[0];
+			var stylesheet = (IStylesheet)parameters[1];
+			var postParseAction = parameters.Length > 2 ? (Action<BookScript>)parameters[2] : null;
 
 			var backgroundWorker = (BackgroundWorker)sender;
 
@@ -1572,7 +1568,7 @@ namespace Glyssen
 			if (e.Error != null)
 				throw e.Error;
 
-			var bookScripts = (List<BookScript>) e.Result;
+			var bookScripts = (List<BookScript>)e.Result;
 
 			foreach (var bookScript in bookScripts)
 			{
@@ -1613,7 +1609,7 @@ namespace Glyssen
 		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			m_usxPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
 			OnReport(pe);
 		}
 
@@ -1640,7 +1636,7 @@ namespace Glyssen
 				throw e.Error;
 
 			QuoteSystemStatus = QuoteSystemStatus.Guessed;
-			QuoteSystem = (QuoteSystem) e.Result;
+			QuoteSystem = (QuoteSystem)e.Result;
 
 			Save();
 		}
@@ -1648,7 +1644,7 @@ namespace Glyssen
 		private void GuessWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			m_guessPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
 			OnReport(pe);
 		}
 
@@ -1699,7 +1695,7 @@ namespace Glyssen
 		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			m_quotePercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
 			OnReport(pe);
 		}
 
@@ -1715,7 +1711,7 @@ namespace Glyssen
 			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle.Name));
 		}
 
-		internal static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
+		public static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
 		{
 			return GetProjectFilePath(textWrapper.LanguageIso3Code, textWrapper.GlyssenDblTextMetadata.Id, GetDefaultRecordingProjectName(textWrapper.ProjectFullName));
 		}
@@ -1804,7 +1800,7 @@ namespace Glyssen
 			AnalysisCompleted?.Invoke(this, new EventArgs());
 		}
 
-		internal void PrepareForExport()
+		private void PrepareForExport()
 		{
 			if (!HasVersificationFile)
 			{
@@ -1819,9 +1815,42 @@ namespace Glyssen
 			}
 		}
 
-		internal void ExportCompleted()
+		public string ExportShare(Action<string> handleCustomReferenceText)
 		{
-			RobustFile.Delete(FallbackVersificationFilePath);
+			{
+				RobustFile.Delete(FallbackVersificationFilePath);
+				PrepareForExport();
+
+				try
+				{
+					var sourceDir = Path.GetDirectoryName(ProjectFilePath);
+
+					Debug.Assert(sourceDir != null);
+					Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
+
+					var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
+
+					var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
+					Directory.CreateDirectory(share);
+
+					var saveAsName = Path.Combine(share, LanguageIsoCode + "_" + Name) + ProjectBase.kShareFileExtension;
+
+					using (var zip = new ZipFile())
+					{
+						zip.AddDirectory(sourceDir, nameInZip);
+						zip.Save(saveAsName);
+					}
+
+					if (ReferenceTextProxy.Type == ReferenceTextType.Custom)
+						handleCustomReferenceText?.Invoke(ReferenceTextProxy.CustomIdentifier);
+
+					return saveAsName;
+				}
+				finally
+				{
+					RobustFile.Delete(FallbackVersificationFilePath);
+				}
+			}
 		}
 
 		public void Save(bool saveCharacterGroups = false)
@@ -2113,13 +2142,14 @@ namespace Glyssen
 				});
 				backupPath = null;
 			}
+
 			try
 			{
 				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
 				// Now test to see if what we wrote is actually readable...
 				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
 			}
-			catch(FileLoadException)
+			catch (FileLoadException)
 			{
 				throw; // Don't want to ignore this error - should never happen on valid installation.
 			}
@@ -2232,7 +2262,7 @@ namespace Glyssen
 
 		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
 
-		internal static string GetDefaultRecordingProjectName(string publicationName)
+		public static string GetDefaultRecordingProjectName(string publicationName)
 		{
 			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
@@ -2288,7 +2318,7 @@ namespace Glyssen
 			internal int LastChapter { get; set; }
 		}
 
-		internal void ClearCharacterStatistics()
+		public void ClearCharacterStatistics()
 		{
 			m_keyStrokesByCharacterId = null;
 			m_speechDistributionScore = null;
@@ -2390,6 +2420,7 @@ namespace Glyssen
 						m_speechDistributionScore[characterStatsInfo.Key] = resultInBook;
 				}
 			}
+
 			Debug.Assert(m_keyStrokesByCharacterId.Values.All(v => v != 0));
 		}
 

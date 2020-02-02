@@ -1240,45 +1240,25 @@ namespace Glyssen
 		/// <param name="e"></param>
 		private void Export_Click(object sender, EventArgs e)
 		{
+			void HandleCustomReferenceText(string customIdentifier)
+			{
+				var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
+					"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
+					"should be installed on the other computer before importing.");
+				MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
+					ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 			try
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
-				m_project.PrepareForExport();
-
-				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
-
-				Debug.Assert(sourceDir != null);
-				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
-
-				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
-
-				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				Directory.CreateDirectory(share);
-
-				var saveAsName = Path.Combine(share, m_project.LanguageIsoCode + "_" + m_project.Name) + ProjectBase.kShareFileExtension;
-
-				using (var zip = new ZipFile())
-				{
-					zip.AddDirectory(sourceDir, nameInZip);
-					zip.Save(saveAsName);
-				}
-
-				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
-				{
-					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
-						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
-						"should be installed on the other computer before importing.");
-					MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
-						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-
+				m_project.ExportShare(HandleCustomReferenceText);
+				var saveAsName = m_project.ExportShare(HandleCustomReferenceText);
 				PathUtilities.SelectFileInExplorer(saveAsName);
 				Logger.WriteEvent($"Project exported to {saveAsName}");
 			}
 			finally
 			{
-				m_project.ExportCompleted();
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}

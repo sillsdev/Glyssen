@@ -5,7 +5,6 @@ using Glyssen.Bundle;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Paratext;
-using L10NSharp;
 using Paratext.Data;
 using Paratext.Data.Checking;
 using Paratext.Data.ProjectSettingsAccess;
@@ -19,7 +18,7 @@ using SIL.WritingSystems;
 
 namespace Glyssen.Paratext
 {
-	internal class ParatextScrTextWrapper : IParatextScrTextWrapper
+	public class ParatextScrTextWrapper : IParatextScrTextWrapper
 	{
 		internal const string kLiveParatextProjectType = "live Paratext project";
 		public const string kParatextProgramName = "Paratext";
