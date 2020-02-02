@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using GlyssenEngine.VoiceActor;
+using GlyssenEngine.Casting;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.TestUtilities;
 
-namespace GlyssenEngineTests.VoiceActor
+namespace GlyssenEngineTests.Casting
 {
 	[TestFixture]
 	class VoiceActorListTests
@@ -15,10 +15,10 @@ namespace GlyssenEngineTests.VoiceActor
 			using (TempFile tempFile = new TempFile())
 			{
 				VoiceActorList list = new VoiceActorList();
-				list.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor>
+				list.AllActors = new List<VoiceActor>
 				{
-					new GlyssenEngine.VoiceActor.VoiceActor{Id = 0, Name = "A", Gender = ActorGender.Female, Age = ActorAge.Elder},
-					new GlyssenEngine.VoiceActor.VoiceActor{Id = 1, Name = "B"}
+					new VoiceActor{Id = 0, Name = "A", Gender = ActorGender.Female, Age = ActorAge.Elder},
+					new VoiceActor{Id = 1, Name = "B"}
 				};
 
 				// Generates file correctly
@@ -39,24 +39,24 @@ namespace GlyssenEngineTests.VoiceActor
 		[Test]
 		public void MigrateDeprecatedGenderAndAgeStrings()
 		{
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0, Name = "A", GenderDeprecatedString = "M - Male", AgeDeprecatedString = "O - Old" };
+			var actor = new VoiceActor { Id = 0, Name = "A", GenderDeprecatedString = "M - Male", AgeDeprecatedString = "O - Old" };
 			Assert.AreEqual(ActorAge.Elder, actor.Age);
 			Assert.AreEqual(ActorGender.Male, actor.Gender);
 
-			actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0, Name = "B", GenderDeprecatedString = "F - Female", AgeDeprecatedString = "E - Elder" };
+			actor = new VoiceActor { Id = 0, Name = "B", GenderDeprecatedString = "F - Female", AgeDeprecatedString = "E - Elder" };
 			Assert.AreEqual(ActorAge.Elder, actor.Age);
 			Assert.AreEqual(ActorGender.Female, actor.Gender);
 
-			actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0, Name = "C", AgeDeprecatedString = "C - Child" };
+			actor = new VoiceActor { Id = 0, Name = "C", AgeDeprecatedString = "C - Child" };
 			Assert.AreEqual(ActorAge.Child, actor.Age);
 
-			actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0, Name = "D", AgeDeprecatedString = "M - Middle Adult" };
+			actor = new VoiceActor { Id = 0, Name = "D", AgeDeprecatedString = "M - Middle Adult" };
 			Assert.AreEqual(ActorAge.Adult, actor.Age);
 
-			actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young" };
+			actor = new VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young" };
 			Assert.AreEqual(ActorAge.YoungAdult, actor.Age);
 
-			actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young Adult" };
+			actor = new VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young Adult" };
 			Assert.AreEqual(ActorAge.YoungAdult, actor.Age);
 		}
 	}

@@ -3,7 +3,7 @@ using System.Linq;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.UndoActions;
-using GlyssenEngine.VoiceActor;
+using GlyssenEngine.Casting;
 using NUnit.Framework;
 using SIL.Extensions;
 
@@ -39,8 +39,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 		[Test]
 		public void Contructor_SingleEditingActionForUnassignedActor_AffectedGroupsIsEmpty()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
-			var replacedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			m_testProject.VoiceActorList.AllActors.Add(new VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
+			var replacedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 		}
@@ -51,9 +51,9 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var assignedGroup = AddCharacterGroup("Moses", "John");
 			var anotherGroup = AddCharacterGroup("Mary", "Ruth");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(anotherGroup);
-			var affectedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
-			var replacedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
-			m_testProject.VoiceActorList.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor> { affectedActor };
+			var affectedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
+			var replacedActor = new VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { affectedActor };
 			assignedGroup.AssignVoiceActor(1);
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
 			Assert.AreEqual(assignedGroup, action.GroupsAffectedByLastOperation.Single());
@@ -71,14 +71,14 @@ namespace GlyssenEngineTests.UndoActionsTests
 			var anotherGroup = AddCharacterGroup("Pharisees", "ear");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(anotherGroup);
 
-			var affectedActorA = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "A", Age = ActorAge.YoungAdult };
-			var replacedActorA = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "A" };
-			var affectedActorB = new GlyssenEngine.VoiceActor.VoiceActor { Id = 2, Name = "B", Gender = ActorGender.Female };
-			var replacedActorB = new GlyssenEngine.VoiceActor.VoiceActor { Id = 2, Name = "B"};
-			var addedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 3, Name = "C", Age = ActorAge.YoungAdult };
-			var removedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 4, Name = "D", Age = ActorAge.YoungAdult };
-			var unchangedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 5, Name = "E", Age = ActorAge.Child };
-			m_testProject.VoiceActorList.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor> { affectedActorA, affectedActorB, addedActor, unchangedActor };
+			var affectedActorA = new VoiceActor { Id = 1, Name = "A", Age = ActorAge.YoungAdult };
+			var replacedActorA = new VoiceActor { Id = 1, Name = "A" };
+			var affectedActorB = new VoiceActor { Id = 2, Name = "B", Gender = ActorGender.Female };
+			var replacedActorB = new VoiceActor { Id = 2, Name = "B"};
+			var addedActor = new VoiceActor { Id = 3, Name = "C", Age = ActorAge.YoungAdult };
+			var removedActor = new VoiceActor { Id = 4, Name = "D", Age = ActorAge.YoungAdult };
+			var unchangedActor = new VoiceActor { Id = 5, Name = "E", Age = ActorAge.Child };
+			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> { affectedActorA, affectedActorB, addedActor, unchangedActor };
 
 			maleGroup.AssignVoiceActor(1);
 			femaleGroup.AssignVoiceActor(2);
@@ -97,7 +97,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 		[Test]
 		public void Description_SingleActorDeleted_DeletedActorReferencedByName()
 		{
-			var removedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[]
 			{
@@ -109,7 +109,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 		[Test]
 		public void Description_SingleActorAdded_AddedActorReferencedByName()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new GlyssenEngine.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+			m_testProject.VoiceActorList.AllActors.Add(new VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[]
 			{
@@ -121,8 +121,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 		[Test]
 		public void Description_ChangedNameOfSingleActor_NameChangeIndicated()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
-			var oldName = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Prince" };
+			m_testProject.VoiceActorList.AllActors.Add(new VoiceActor { Id = 1, Name = "Icon" });
+			var oldName = new VoiceActor { Id = 1, Name = "Prince" };
 
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[]
 			{
@@ -135,8 +135,8 @@ namespace GlyssenEngineTests.UndoActionsTests
 		public void Description_ChangedNameAndDetailsOfSingleActor_NameChangeIndicated()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
-			var replacedActor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child};
+				new VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
+			var replacedActor = new VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child};
 
 			var action = new VoiceActorEditingUndoAction(m_testProject, new[]
 			{

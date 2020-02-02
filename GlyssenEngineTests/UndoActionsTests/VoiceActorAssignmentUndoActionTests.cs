@@ -3,6 +3,7 @@ using System.Linq;
 using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.UndoActions;
+using GlyssenEngine.Casting;
 using NUnit.Framework;
 
 namespace GlyssenEngineTests.UndoActionsTests
@@ -23,10 +24,10 @@ namespace GlyssenEngineTests.UndoActionsTests
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			var actor1 = new GlyssenEngine.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
-			var actor2 = new GlyssenEngine.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
-			var actor3 = new GlyssenEngine.VoiceActor.VoiceActor {Id = 3, Name = "Threesa Hawkins"};
-			m_testProject.VoiceActorList.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor> {actor1, actor2, actor3};
+			var actor1 = new VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
+			var actor2 = new VoiceActor {Id = 2, Name = "Paul Twomey"};
+			var actor3 = new VoiceActor {Id = 3, Name = "Threesa Hawkins"};
+			m_testProject.VoiceActorList.AllActors = new List<VoiceActor> {actor1, actor2, actor3};
 
 			AddCharacterGroup("Jesus");
 		}
@@ -68,7 +69,7 @@ namespace GlyssenEngineTests.UndoActionsTests
 
 			try
 			{
-				m_testProject.VoiceActorList.AllActors.Add(new GlyssenEngine.VoiceActor.VoiceActor() {Id = 400, Name = "Bruce Bliss"});
+				m_testProject.VoiceActorList.AllActors.Add(new VoiceActor() {Id = 400, Name = "Bruce Bliss"});
 				action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 400);
 				descriptionBeforeDelete = action.Description;
 				Assert.AreEqual("Assign voice actor Bruce Bliss", descriptionBeforeDelete);

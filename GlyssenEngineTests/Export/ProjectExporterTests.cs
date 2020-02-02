@@ -7,12 +7,12 @@ using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Export;
 using GlyssenEngine.Rules;
 using GlyssenEngine.Script;
 using GlyssenEngine.ViewModels;
-using GlyssenEngine.VoiceActor;
 using GlyssenEngineTests.Script;
 using NUnit.Framework;
 using SIL.Extensions;
@@ -55,9 +55,9 @@ namespace GlyssenEngineTests.Export
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
-			project.VoiceActorList.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<VoiceActor>
 			{
-				new GlyssenEngine.VoiceActor.VoiceActor {Id = 1, Name = "Ralphy"}
+				new VoiceActor {Id = 1, Name = "Ralphy"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -227,9 +227,9 @@ namespace GlyssenEngineTests.Export
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			project.IncludedBooks[0].SingleVoice = false;
-			project.VoiceActorList.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<VoiceActor>
 			{
-				new GlyssenEngine.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"}
+				new VoiceActor {Id = 1, Name = "Marlon"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -253,10 +253,10 @@ namespace GlyssenEngineTests.Export
 			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.JUD);
 			project.IncludedBooks[0].SingleVoice = true;
 			project.IncludedBooks[1].SingleVoice = true;
-			project.VoiceActorList.AllActors = new List<GlyssenEngine.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<VoiceActor>
 			{
-				new GlyssenEngine.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"},
-				new GlyssenEngine.VoiceActor.VoiceActor {Id = 2, Name = "Aiden"}
+				new VoiceActor {Id = 1, Name = "Marlon"},
+				new VoiceActor {Id = 2, Name = "Aiden"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -922,7 +922,7 @@ namespace GlyssenEngineTests.Export
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
@@ -944,7 +944,7 @@ namespace GlyssenEngineTests.Export
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
@@ -968,7 +968,7 @@ namespace GlyssenEngineTests.Export
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true, true, includeSecondaryReferenceText, null, null).AsObjectArray().ToList()));
@@ -992,7 +992,7 @@ namespace GlyssenEngineTests.Export
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, false, null, null).AsObjectArray().ToList()));
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new VoiceActor {Name = "ActorGuy1"};
 			expectedLine.Insert(2, "ActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, false, null, null).AsObjectArray().ToList()));
@@ -1011,7 +1011,7 @@ namespace GlyssenEngineTests.Export
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\t\tp\tMRK\t4\t1\tFred/Marko\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t\t");
@@ -1036,7 +1036,7 @@ namespace GlyssenEngineTests.Export
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
@@ -1059,7 +1059,7 @@ namespace GlyssenEngineTests.Export
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Texto de versiculos uno y dos en harmonia y bondad."));
 			block.ReferenceBlocks.Single().SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
@@ -1083,7 +1083,7 @@ namespace GlyssenEngineTests.Export
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Texto de versiculos uno y dos en harmonia y bondad."));
 
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\t\tWith great gusto and quivering frustration\t" +
@@ -1103,7 +1103,7 @@ namespace GlyssenEngineTests.Export
 			block.BlockElements.Add(new ScriptText("Texto de versos uno y dos. "));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new VoiceActor {Name = "ActorGuy1"};
 
 			var data = ProjectExporter.GetExportDataForBlock(block, 465, "MRK", actor, null, true, true, true, @"c:\wherever\whenever\however", "MyProject").AsObjectArray();
 			Assert.AreEqual(14, data.Length);
@@ -1126,8 +1126,8 @@ namespace GlyssenEngineTests.Export
 			foreach (var group in project.CharacterGroupList.CharacterGroups)
 			{
 				var actor = (group.ContainsCharacterWithGender(CharacterGender.Female)) ?
-					new GlyssenEngine.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
-					new GlyssenEngine.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
+					new VoiceActor() { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
+					new VoiceActor() { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
 				project.VoiceActorList.AllActors.Add(actor);
 				group.VoiceActorId = actor.Id;
 			}

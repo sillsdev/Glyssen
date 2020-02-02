@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 
 namespace GlyssenEngine.ViewModels
@@ -11,12 +12,12 @@ namespace GlyssenEngine.ViewModels
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private readonly List<CharacterDetail> m_availableCharacters;
 		private List<CharacterDetail> m_filteredCharacters;
-		private readonly VoiceActor.VoiceActor m_cameoActor;
+		private readonly VoiceActor m_cameoActor;
 
 		public AddCharactersToGroupViewModel(IReadOnlyDictionary<string, CharacterDetail> characterDetailDictionary,
 			Dictionary<string, int> keyStrokesByCharacterId,
 			ISet<string> existingCharactersInGroup,
-			VoiceActor.VoiceActor cameoActor = null)
+			VoiceActor cameoActor = null)
 		{
 			m_characterDetailDictionary = characterDetailDictionary;
 			m_keyStrokesByCharacterId = keyStrokesByCharacterId;

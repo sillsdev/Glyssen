@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
-using GlyssenEngine.VoiceActor;
 using NUnit.Framework;
 using SIL.Scripture;
 using Resources = GlyssenEngineTests.Properties.Resources;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GlyssenEngine.Character;
+using GlyssenEngine.Casting;
 using SIL;
 
 namespace GlyssenEngine.UndoActions
@@ -15,8 +16,8 @@ namespace GlyssenEngine.UndoActions
 	public class VoiceActorEditUndoAction : IVoiceActorUndoAction
 	{
 		private readonly Project m_project;
-		private readonly VoiceActor.VoiceActor m_affectedActorInformation;
-		private readonly VoiceActor.VoiceActor m_previousActorInformation;
+		private readonly VoiceActor m_affectedActorInformation;
+		private readonly VoiceActor m_previousActorInformation;
 
 		public string ActorAffected
 		{
@@ -38,7 +39,7 @@ namespace GlyssenEngine.UndoActions
 			}
 		}
 
-		public VoiceActorEditUndoAction(Project project, VoiceActor.VoiceActor previousActorInformation)
+		public VoiceActorEditUndoAction(Project project, VoiceActor previousActorInformation)
 		{
 			if (previousActorInformation == null)
 				throw new ArgumentNullException("previousActorInformation");
@@ -96,7 +97,7 @@ namespace GlyssenEngine.UndoActions
 	public class VoiceActorDeletedUndoAction : IVoiceActorUndoAction
 	{
 		private readonly Project m_project;
-		private readonly VoiceActor.VoiceActor m_deletedActor;
+		private readonly VoiceActor m_deletedActor;
 		private readonly IList<string> m_characterIdsOfAssignedGroup;
 
 		public string ActorAffected
@@ -114,7 +115,7 @@ namespace GlyssenEngine.UndoActions
 			get { return false; }
 		}
 
-		public VoiceActorDeletedUndoAction(Project project, VoiceActor.VoiceActor deletedActor, CharacterGroup assignedGroup = null)
+		public VoiceActorDeletedUndoAction(Project project, VoiceActor deletedActor, CharacterGroup assignedGroup = null)
 		{
 			if (deletedActor == null)
 				throw new ArgumentNullException("deletedActor");
@@ -181,7 +182,7 @@ namespace GlyssenEngine.UndoActions
 	public class VoiceActorAddedUndoAction : IVoiceActorUndoAction
 	{
 		private readonly Project m_project;
-		private readonly VoiceActor.VoiceActor m_addedActorInformation;
+		private readonly VoiceActor m_addedActorInformation;
 
 		public string ActorAffected
 		{

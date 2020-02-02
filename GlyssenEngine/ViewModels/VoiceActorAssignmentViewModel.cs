@@ -4,11 +4,11 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using GlyssenEngine.UndoActions;
 using GlyssenEngine.Utilities;
-using GlyssenEngine.VoiceActor;
 using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
@@ -254,19 +254,19 @@ namespace GlyssenEngine.ViewModels
 			return null;
 		}
 
-		public IEnumerable<Tuple<VoiceActor.VoiceActor, bool>> GetActorsSortedByAvailabilityAndName(CharacterGroup group)
+		public IEnumerable<Tuple<VoiceActor, bool>> GetActorsSortedByAvailabilityAndName(CharacterGroup group)
 		{
 			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				yield return new Tuple<VoiceActor.VoiceActor, bool>(actor, true);
+				yield return new Tuple<VoiceActor, bool>(actor, true);
 			}
 
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				yield return new Tuple<VoiceActor.VoiceActor, bool>(actor, false);
+				yield return new Tuple<VoiceActor, bool>(actor, false);
 			}
 		}
 
@@ -394,12 +394,12 @@ namespace GlyssenEngine.ViewModels
 
 		public void CreateNewActorAndAssignToGroup(string voiceActorName, CharacterGroup group)
 		{
-			var actor = new VoiceActor.VoiceActor { Id = 99, Name = voiceActorName };
+			var actor = new VoiceActor { Id = 99, Name = voiceActorName };
 			m_project.VoiceActorList.AllActors.Add(actor);
 			AssignActorToGroup(actor.Id, group);
 		}
 
-		public VoiceActor.VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
+		public VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
 		{
 			Debug.Assert(!group.AssignedToCameoActor);
 

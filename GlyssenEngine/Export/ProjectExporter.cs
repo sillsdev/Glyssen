@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Script;
@@ -579,7 +580,7 @@ namespace GlyssenEngine.Export
 					if (!Project.DramatizationPreferences.IncludeCharacter(block.CharacterId))
 						continue;
 
-					VoiceActor.VoiceActor voiceActor = null;
+					VoiceActor voiceActor = null;
 					bool includeInOutput = true;
 					if (IncludeVoiceActors)
 					{
@@ -791,7 +792,7 @@ namespace GlyssenEngine.Export
 		}
 
 		internal static ExportBlock GetExportDataForBlock(Block block, int blockNumber, string bookId,
-			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
+			VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
 			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId,
 			bool getBlockElements = false)
 		{
@@ -867,9 +868,9 @@ namespace GlyssenEngine.Export
 			return null;
 		}
 
-		private VoiceActor.VoiceActor GetDummyActor()
+		private VoiceActor GetDummyActor()
 		{
-			return new VoiceActor.VoiceActor{Id = -1};
+			return new VoiceActor{Id = -1};
 		}
 
 		#region Roles for Voice Actors

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Glyssen.Utilities;
+using GlyssenEngine.Casting;
 using GlyssenEngine.ViewModels;
-using GlyssenEngine.VoiceActor;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;

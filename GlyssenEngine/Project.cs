@@ -13,6 +13,7 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Analysis;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Paratext;
@@ -20,7 +21,6 @@ using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
-using GlyssenEngine.VoiceActor;
 using Ionic.Zip;
 using JetBrains.Annotations;
 using Paratext.Data;
@@ -705,7 +705,7 @@ namespace GlyssenEngine
 			get { return CharacterGroupList.AssignedGroups.All(g => g.CharacterIds.Count != 0); }
 		}
 
-		public IEnumerable<VoiceActor.VoiceActor> UnusedActors
+		public IEnumerable<VoiceActor> UnusedActors
 		{
 			get { return VoiceActorList.ActiveActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
@@ -1902,7 +1902,7 @@ namespace GlyssenEngine
 			}
 		}
 
-		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
+		public VoiceActor GetVoiceActorForCharacter(string characterId)
 		{
 			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
 			if (charGroup == null)

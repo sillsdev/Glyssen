@@ -5,10 +5,10 @@ using System.Diagnostics;
 using System.Linq;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
-using GlyssenEngine.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
 using Resources = GlyssenEngineTests.Properties.Resources;
@@ -685,7 +685,7 @@ namespace GlyssenEngineTests.Rules
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
-			var actor4 = new GlyssenEngine.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
+			var actor4 = new VoiceActor { Id = 4, IsCameo = true };
 			m_testProject.VoiceActorList.AllActors.Add(actor4);
 			var cameoGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
@@ -2168,16 +2168,16 @@ namespace GlyssenEngineTests.Rules
 		protected Project m_testProject;
 		protected void SetVoiceActors(int numberOfAdultMales, int numberOfAdultFemales = 0, int numberOfMaleChildren = 0, int numberOfFemaleChildren = 0)
 		{
-			var actorList = new List<GlyssenEngine.VoiceActor.VoiceActor>();
+			var actorList = new List<VoiceActor>();
 			int actorNumber = 0;
 			for (int i = 0; i < numberOfAdultMales; i++)
-				actorList.Add(new GlyssenEngine.VoiceActor.VoiceActor { Id = actorNumber++ } );
+				actorList.Add(new VoiceActor { Id = actorNumber++ } );
 			for (int i = 0; i < numberOfAdultFemales; i++)
-				actorList.Add(new GlyssenEngine.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female });
+				actorList.Add(new VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female });
 			for (int i = 0; i < numberOfMaleChildren; i++)
-				actorList.Add(new GlyssenEngine.VoiceActor.VoiceActor {  Id = actorNumber++, Age = ActorAge.Child });
+				actorList.Add(new VoiceActor {  Id = actorNumber++, Age = ActorAge.Child });
 			for (int i = 0; i < numberOfFemaleChildren; i++)
-				actorList.Add(new GlyssenEngine.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female, Age = ActorAge.Child });
+				actorList.Add(new VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female, Age = ActorAge.Child });
 			m_testProject.VoiceActorList.AllActors = actorList;
 		}
 

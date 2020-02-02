@@ -12,6 +12,7 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Export;
 using GlyssenEngine.ViewModels;
@@ -1156,7 +1157,7 @@ namespace Glyssen.Dialogs
 
 			string category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:");
 			bool rowForRemoveActorAdded = false;
-			foreach (Tuple<GlyssenEngine.VoiceActor.VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
+			foreach (Tuple<VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
 			{
 				if (!actorInfo.Item2 && !rowForRemoveActorAdded)
 				{ 
@@ -1181,7 +1182,7 @@ namespace Glyssen.Dialogs
 			return table;
 		}
 
-		private object[] GetDataTableRow(GlyssenEngine.VoiceActor.VoiceActor actor, string category)
+		private object[] GetDataTableRow(VoiceActor actor, string category)
 		{
 			return new object[]
 			{
@@ -1196,24 +1197,24 @@ namespace Glyssen.Dialogs
 			};
 		}
 
-		private static string GetUiStringForActorGender(GlyssenEngine.VoiceActor.ActorGender actorGender)
+		private static string GetUiStringForActorGender(ActorGender actorGender)
 		{
 			switch (actorGender)
 			{
-				case GlyssenEngine.VoiceActor.ActorGender.Male: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Male", "Male");
-				case GlyssenEngine.VoiceActor.ActorGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female", "Female");
+				case ActorGender.Male: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Male", "Male");
+				case ActorGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorGender.Female", "Female");
 				default: return string.Empty;
 			}
 		}
 
-		private static string GetUiStringForActorAge(GlyssenEngine.VoiceActor.ActorAge actorAge)
+		private static string GetUiStringForActorAge(ActorAge actorAge)
 		{
 			switch (actorAge)
 			{
-				case GlyssenEngine.VoiceActor.ActorAge.Adult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult", "Adult");
-				case GlyssenEngine.VoiceActor.ActorAge.Child: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
-				case GlyssenEngine.VoiceActor.ActorAge.Elder: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
-				case GlyssenEngine.VoiceActor.ActorAge.YoungAdult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
+				case ActorAge.Adult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Adult", "Adult");
+				case ActorAge.Child: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
+				case ActorAge.Elder: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
+				case ActorAge.YoungAdult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
 				default: return string.Empty;
 			}
 		}

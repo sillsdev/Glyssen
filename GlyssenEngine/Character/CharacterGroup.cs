@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Rules;
-using GlyssenEngine.VoiceActor;
 using SIL;
 using SIL.Reporting;
 
@@ -206,7 +206,7 @@ namespace GlyssenEngine.Character
 			}
 		}
 
-		public VoiceActor.VoiceActor VoiceActor
+		public VoiceActor VoiceActor
 		{
 			get
 			{
@@ -320,7 +320,7 @@ namespace GlyssenEngine.Character
 				GroupIdLabel = Label.Narrator;
 			else if (IsVoiceActorAssigned)
 			{
-				VoiceActor.VoiceActor actor = VoiceActor;
+				VoiceActor actor = VoiceActor;
 				if (actor.Age == ActorAge.Child)
 					GroupIdLabel = Label.Child;
 				else if (actor.Gender == ActorGender.Male)

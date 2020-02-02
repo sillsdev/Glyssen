@@ -1,4 +1,5 @@
 ﻿using GlyssenEngine;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using NUnit.Framework;
@@ -366,7 +367,7 @@ namespace GlyssenEngineTests.Character
 		[Test]
 		public void SetGroupIdLabelBasedOnCharacterIds_CameoActorAssigned_GroupIdLabelIsOtherAndTextSet()
 		{
-			var actor = new GlyssenEngine.VoiceActor.VoiceActor { Id = 1, Name = "Cameo Name", IsCameo = true };
+			var actor = new VoiceActor { Id = 1, Name = "Cameo Name", IsCameo = true };
 			m_project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Andrew");

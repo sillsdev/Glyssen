@@ -297,6 +297,8 @@
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
     <Compile Include="UndoActionsTests\UndoActionSequenceTests.cs" />
     <Compile Include="UndoActionsTests\UndoStackTests.cs" />
+    <Compile Include="Casting\VoiceActorListTests.cs" />
+    <Compile Include="Casting\VoiceActorTests.cs" />
     <Compile Include="Utilities\VerseBridge.cs" />
     <Compile Include="ViewModelTests\AddCharactersToGroupViewModelTests.cs" />
     <Compile Include="ViewModelTests\AssignCharacterViewModelTests.cs" />
@@ -307,8 +309,6 @@
     <Compile Include="ViewModelTests\UnappliedSplitsViewModelTests.cs" />
     <Compile Include="ViewModelTests\VoiceActorAssignmentViewModelTests.cs" />
     <Compile Include="ViewModelTests\VoiceActorInformationViewModelTests.cs" />
-    <Compile Include="VoiceActor\VoiceActorListTests.cs" />
-    <Compile Include="VoiceActor\VoiceActorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
