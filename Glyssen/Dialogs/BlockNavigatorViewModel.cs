@@ -524,6 +524,12 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Navigation methods
+		public void UpdateNavigatorForIncludedBooks(IEnumerable<string> filteredListOfBookIds = null)
+		{
+			BlockNavigator = new BlockNavigator(filteredListOfBookIds == null ? m_project.IncludedBooks :
+				m_project.IncludedBooks.Where(ib => filteredListOfBookIds.Contains(ib.BookId)).ToList());
+		}
+
 		public Block GetNthBlockInCurrentBook(int i)
 		{
 			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
