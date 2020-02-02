@@ -54,23 +54,11 @@ namespace GlyssenEngine.Rules
 		/// For now, this is only used in tests. If we decide that we need to distinguish between different cases to decide how strongly
 		/// to recommend doing a full regeneration, we'll need to look at the specifics here to see if they meet the need.
 		/// </summary>
-		public bool FullRegenerateRecommended
-		{
-			get
-			{
-				return NewBooksHaveBeenIncluded || BooksHaveBeenExcluded || CharacterGroupsToRemove.Any() ||
-					CharactersNotCoveredByAnyGroup.Count() + CharactersNoLongerInUse.Count() > 4;
-			}
-		}
+		public bool FullRegenerateRecommended => NewBooksHaveBeenIncluded || BooksHaveBeenExcluded || CharacterGroupsToRemove.Any() ||
+			CharactersNotCoveredByAnyGroup.Count() + CharactersNoLongerInUse.Count() > 4;
 
-		public bool GroupsAreNotInSynchWithData
-		{
-			get
-			{
-				return NewBooksHaveBeenIncluded || BooksHaveBeenExcluded || CharacterGroupsToRemove.Any() ||
-					CharactersNotCoveredByAnyGroup.Any() || CharactersNoLongerInUse.Any();
-			}
-		}
+		public bool GroupsAreNotInSynchWithData => NewBooksHaveBeenIncluded || BooksHaveBeenExcluded || CharacterGroupsToRemove.Any() ||
+			CharactersNotCoveredByAnyGroup.Any() || CharactersNoLongerInUse.Any();
 
 		public void MakeMinimalAdjustments()
 		{

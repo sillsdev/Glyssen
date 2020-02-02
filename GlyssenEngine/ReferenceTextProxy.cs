@@ -279,6 +279,7 @@ namespace GlyssenEngine
 				if (reportError == null)
 					throw new ReferenceTextMetadataLoadException(GetLoadErrorMessage(token, referenceProjectFilePath), exception);
 				reportError(exception, token, referenceProjectFilePath);
+
 				return null;
 			}
 			return metadata;
