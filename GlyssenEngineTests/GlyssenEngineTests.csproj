@@ -257,8 +257,8 @@
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
     <Compile Include="Utilities\UndoActionSequenceTests.cs" />
     <Compile Include="Utilities\UndoStackTests.cs" />
-    <Compile Include="VoiceActor\VoiceActorListTests.cs" />
-    <Compile Include="VoiceActor\VoiceActorTests.cs" />
+    <Compile Include="Casting\VoiceActorListTests.cs" />
+    <Compile Include="Casting\VoiceActorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">

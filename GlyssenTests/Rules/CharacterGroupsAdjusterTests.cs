@@ -2,8 +2,8 @@
 using Glyssen.Character;
 using Glyssen.Rules;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
-using GlyssenEngine.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;

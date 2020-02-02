@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using GlyssenEngine.VoiceActor;
+using GlyssenEngine.Casting;
 using L10NSharp;
 using SIL;
 using SIL.Extensions;
