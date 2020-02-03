@@ -1818,7 +1818,6 @@ namespace Glyssen
 		public string ExportShare(Action<string> handleCustomReferenceText)
 		{
 			{
-				RobustFile.Delete(FallbackVersificationFilePath);
 				PrepareForExport();
 
 				try
