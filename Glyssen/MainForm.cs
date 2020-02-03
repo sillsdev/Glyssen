@@ -1293,7 +1293,6 @@ namespace Glyssen
 				MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
 					ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
-			}
 			try
 			{
 				m_tableLayoutPanel.Enabled = false;
