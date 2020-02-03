@@ -67,9 +67,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="SelectExistingProjectDlg.resx">
-      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
