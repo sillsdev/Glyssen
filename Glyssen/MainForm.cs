@@ -1252,7 +1252,6 @@ namespace Glyssen
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
-				m_project.ExportShare(HandleCustomReferenceText);
 				var saveAsName = m_project.ExportShare(HandleCustomReferenceText);
 				PathUtilities.SelectFileInExplorer(saveAsName);
 				Logger.WriteEvent($"Project exported to {saveAsName}");
