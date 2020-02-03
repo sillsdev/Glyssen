@@ -312,7 +312,7 @@ namespace GlyssenEngine
 				}
 				else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
 					(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
-						ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
+					ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
 				{
 					// These need to happen in this order
 					Save();
@@ -541,8 +541,7 @@ namespace GlyssenEngine
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
 			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " +
-					ProjectState);
+				throw new InvalidOperationException($"Project not in a valid state to update from text release bundle. ProjectState = {ProjectState}");
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
@@ -611,18 +610,15 @@ namespace GlyssenEngine
 			}
 		}
 
-		private int PercentInitialized { get; set; }
-
 		public ProjectState ProjectState
 		{
-			get { return m_projectState; }
+			get => m_projectState;
 			private set
 			{
 				if (m_projectState == value)
 					return;
 				m_projectState = value;
-				if (ProjectStateChanged != null)
-					ProjectStateChanged(this, new ProjectStateChangedEventArgs {ProjectState = m_projectState});
+				ProjectStateChanged?.Invoke(this, new ProjectStateChangedEventArgs {ProjectState = m_projectState});
 			}
 		}
 
@@ -745,7 +741,7 @@ namespace GlyssenEngine
 
 		public ReferenceTextProxy ReferenceTextProxy
 		{
-			get { return ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier); }
+			get => ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
 			set
 			{
 				if (value.Type == m_projectMetadata.ReferenceTextType && value.CustomIdentifier == m_projectMetadata.ProprietaryReferenceTextIdentifier)
@@ -1219,12 +1215,7 @@ namespace GlyssenEngine
 			return path.GetContainingFolderName();
 		}
 
-		private int UpdatePercentInitialized()
-		{
-			return
-				PercentInitialized =
-					(int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
-		}
+		private int PercentInitialized  => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 
 		private static Project LoadExistingProject(string projectFilePath)
 		{
@@ -1354,7 +1345,6 @@ namespace GlyssenEngine
 			if (!IsQuoteSystemReadyForParse)
 			{
 				m_quotePercentComplete = 0;
-				UpdatePercentInitialized();
 				ProjectState = ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 				return;
 			}
@@ -1369,7 +1359,6 @@ namespace GlyssenEngine
 				UpdateControlFileVersion();
 			}
 
-			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
 			UpdateControlFileVersion();
 			Analyze();
@@ -1540,7 +1529,7 @@ namespace GlyssenEngine
 		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			m_usxPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
 			OnReport(pe);
 		}
 
@@ -1575,7 +1564,7 @@ namespace GlyssenEngine
 		private void GuessWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			m_guessPercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
 			OnReport(pe);
 		}
 
@@ -1626,7 +1615,7 @@ namespace GlyssenEngine
 		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			m_quotePercentComplete = e.ProgressPercentage;
-			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			var pe = new ProgressChangedEventArgs(PercentInitialized, null);
 			OnReport(pe);
 		}
 

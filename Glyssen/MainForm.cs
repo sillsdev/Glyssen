@@ -1287,13 +1287,12 @@ namespace Glyssen
 		{
 			void HandleCustomReferenceText(string customIdentifier)
 			{
-				{
-					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
-						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
-						"should be installed on the other computer before importing.");
-					MessageBox.Show(this, Format(msg,customIdentifier),
-						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
+				var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
+					"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
+					"should be installed on the other computer before importing.");
+				MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
+					ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 			}
 			try
 			{
