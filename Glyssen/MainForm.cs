@@ -1042,16 +1042,15 @@ namespace Glyssen
 		}
 
 		private string BlocksNeedReviewMessage =>
-			(m_project.ProjectAnalysis.NeedsReviewBlocks > 1 ?
+			m_project.ProjectAnalysis.NeedsReviewBlocks > 1 ?
 			Format(LocalizationManager.GetString("MainForm.BlocksNeedReviewMessage",
-			"There are {0} blocks in this project that need review before finalizing the script.")) :
+			"There are {0} blocks in this project that need review before finalizing the script."), m_project.ProjectAnalysis.NeedsReviewBlocks) :
 			LocalizationManager.GetString("MainForm.OneBlockNeedReviewMessage",
-				"There is one block in this project that needs review before finalizing the script."));
+				"There is one block in this project that needs review before finalizing the script.");
 
 		private string UseNeedsReviewFilterHint =>
 			LocalizationManager.GetString("MainForm.UseNeedsReviewFilterHint",
-			"(You can use the \"Needs review\" filter in Identify Speaking Parts to see which blocks still need attention.)")
-			;
+			"(You can use the \"Needs review\" filter in Identify Speaking Parts to see which blocks still need attention.)");
 
 		private void AssignVoiceActors_Click(object sender, EventArgs e)
 		{
