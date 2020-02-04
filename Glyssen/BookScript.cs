@@ -400,7 +400,7 @@ namespace Glyssen
 			Debug.Assert(insertionIndex > 0);
 			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum =>
 				chapterNum > m_blocks[insertionIndex - 1].ChapterNumber).ToList();
-			foreach (var chapterNum in  chapterNumbersToIncrement)
+			foreach (var chapterNum in chapterNumbersToIncrement)
 				m_chapterStartBlockIndices[chapterNum] += countOfInsertedBlocks;
 
 			m_blockCount += countOfInsertedBlocks;

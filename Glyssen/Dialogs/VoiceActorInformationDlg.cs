@@ -76,7 +76,7 @@ namespace Glyssen.Dialogs
 
 			// ENHANCE: This is likely too much overhead and not worth it, but maybe we should kick off group generation here and
 			// when it completes, we check to see if the groups are identical or not. If not, we display the Generate Groups button
-			// instead of OK. Otherwise, the onus is on the view model to correctly determine whether  the groups are going to
+			// instead of OK. Otherwise, the onus is on the view model to correctly determine whether the groups are going to
 			// change based on the data changes it knows about.
 
 			UpdateTally();

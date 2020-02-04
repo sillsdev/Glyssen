@@ -3180,7 +3180,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(new Block("ms", 16, 8)
 			{
 				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				BlockElements = new List<BlockElement> { new ScriptText("Nyaa pɔ́g echě  Kálag e Makɔsɛ ésógé") }
+				BlockElements = new List<BlockElement> { new ScriptText("Nyaa pɔ́g echě Kálag e Makɔsɛ ésógé") }
 			});
 			vernacularBlocks.Add(new Block("mr", 16, 8)
 			{
@@ -3192,7 +3192,7 @@ namespace GlyssenTests
 				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
 				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté Maria Magdalɛnɛ yə̌l") }
 			});
-			vernacularBlocks.Add(CreateNarratorBlockForVerse(9, "Áde Yesuɛ  bé mbéb saámbé áte. ", true, 16, "MRK")
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(9, "Áde Yesuɛ bé mbéb saámbé áte. ", true, 16, "MRK")
 				.AddVerse(10, "Hɛ́ɛ ane mmwaád ákíí boŋ álāŋgē bad ábe bɔ́ɔbɛ Yesuɛ bébágéʼáá. Antán nɛ́ɛ béchyɛʼɛ́ kwééd eche Yesuɛ. ")
 				.AddVerse(11, "Boŋ áde béwógé bán Yesuɛ adé á aloŋgé, bán ane mmwaád anyíné-ʼɛ mɔ́, bénkêndúbɛ́ɛ́."));
 			vernacularBlocks.Add(new Block("s", 16, 11)
