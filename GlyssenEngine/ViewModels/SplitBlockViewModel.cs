@@ -70,7 +70,7 @@ namespace GlyssenEngine.ViewModels
 				}
 
 				var bodyAttributes = m_font.RightToLeftScript ? "class=\"right-to-left\"" : "";
-				return  Format(htmlFrame, m_style, bodyAttributes, bldr);
+				return Format(htmlFrame, m_style, bodyAttributes, bldr);
 			}
 		}
 

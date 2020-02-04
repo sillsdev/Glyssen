@@ -1206,7 +1206,7 @@ namespace GlyssenEngine
 			return path.GetContainingFolderName();
 		}
 
-		private int PercentInitialized  => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
+		private int PercentInitialized => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 
 		private static Project LoadExistingProject(string projectFilePath)
 		{

@@ -229,7 +229,7 @@ namespace ControlDataIntegrityTests
 				if (!parallelPassageVersesForCurrentDatum.Contains(cv.BcvRef))
 					referenceDoesntMatchLineFailures.Add(string.Format("{0}  =>  {1}", cv.BcvRef, cv.ParallelPassageReferences));
 
-				if (checkCharacters && !allParallelPassageData.Any(p => (p.BookCode != cv.BookCode || p.Chapter != cv.Chapter  || p.Verse != cv.Verse) &&
+				if (checkCharacters && !allParallelPassageData.Any(p => (p.BookCode != cv.BookCode || p.Chapter != cv.Chapter || p.Verse != cv.Verse) &&
 					(p.Character == cv.Character || p.Character == cv.DefaultCharacter || p.DefaultCharacter == cv.Character) &&
 					parallelPassageVersesForCurrentDatum.Contains(p.BcvRef)))
 					charactersNotEqualFailures.Add(string.Format("{0}  =>  {1}  =>  {2}", cv.BcvRef, cv.Character, cv.ParallelPassageReferences));

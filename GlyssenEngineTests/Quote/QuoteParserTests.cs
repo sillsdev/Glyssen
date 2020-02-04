@@ -5651,7 +5651,7 @@ namespace GlyssenEngineTests.Quote
 			var block6 = new Block("p", 23, 23) { IsParagraphStart = true }.AddVerse(23, "Soldadokunapa capitanninkunata qayaykuspan kamachirqa:");
 			// Note: In verse 24, the quote really should end right before the word "nispan", but we would need to implement PG-487 to support that.
 			var block7 = new Block("p", 23, 23) { IsParagraphStart = true }.AddText("Iskay pachak alistaychik, chaynapi llaqtaman rinankupaq. ")
-				.AddVerse(24, "Alistaychiktaqyá  Pablo sillakunanpaq, chaynapi sanollata Felixman chayachinaykichikpaq, nispan.");
+				.AddVerse(24, "Alistaychiktaqyá Pablo sillakunanpaq, chaynapi sanollata Felixman chayachinaykichikpaq, nispan.");
 			var block8 = new Block("p", 23, 25) { IsParagraphStart = true }.AddVerse(25, "Paykunawanmi kayna niq cartata apachirqa:");
 			var block9 = new Block("p", 23, 26) { IsParagraphStart = true }
 				.AddVerse(26, "“Ancha reqsisqa prefecto Félix, ñoqa Claudio Lisiasmi saludamuyki. ")
@@ -5720,7 +5720,7 @@ namespace GlyssenEngineTests.Quote
 
 			block = output[i++];
 			Assert.AreEqual("Iskay pachak alistaychik, chaynapi llaqtaman rinankupaq. " +
-				"{24}\u00A0Alistaychiktaqyá  Pablo sillakunanpaq, chaynapi sanollata Felixman chayachinaykichikpaq, nispan.", block.GetText(true));
+				"{24}\u00A0Alistaychiktaqyá Pablo sillakunanpaq, chaynapi sanollata Felixman chayachinaykichikpaq, nispan.", block.GetText(true));
 			Assert.AreEqual("commander of Roman troops in Jerusalem", block.CharacterId);
 
 			block = output[i++];

@@ -1185,7 +1185,7 @@ namespace Glyssen
 				if (m_temporaryRefTextOverrideForExporting != null)
 					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
 				else if (!ResolveNullReferenceText(Format(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
-					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label  (in the current Windows locale)"),
+					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label (in the current Windows locale)"),
 					MessageBoxStrings.IgnoreButton)))
 				{
 					return;
