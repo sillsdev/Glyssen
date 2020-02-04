@@ -269,7 +269,7 @@ namespace Glyssen.Dialogs
 					{
 						throw new ArgumentException("You must set BackgroundWorker before accessing this property.");
 					}
-					ProgressState  = new BackgroundWorkerState(m_backgroundWorker);
+					ProgressState = new BackgroundWorkerState(m_backgroundWorker);
 				}
 				return m_progressState;
 			}
