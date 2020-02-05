@@ -127,17 +127,17 @@ namespace GlyssenEngine.ViewModels
 					bldr.Append(Format(m_characterSelectFmt, splitLocationsForThisBlock[0].Id));
 					processedFirstBlock = true;
 				}
-				bldr.Append(GetSplitTextAsHtml(block, id, m_font.RightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0).ToList(), Format(m_characterSelectFmt, id)));
+				bldr.Append(GetSplitTextAsHtml(block, id, m_font.RightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0).ToList(), splitId => Format(m_characterSelectFmt, splitId)));
 			}
 			else
 			{
-				bldr.Append(GetSplitTextAsHtml(block, id, m_font.RightToLeftScript, null, Format(m_characterSelectFmt, id)));
+				bldr.Append(GetSplitTextAsHtml(block, id, m_font.RightToLeftScript, null, splitId => Format(m_characterSelectFmt, splitId)));
 			}
 
 			return bldr.ToString();
 		}
 
-		internal string GetSplitTextAsHtml(Block block, int blockId, bool rightToLeftScript, IReadOnlyCollection<BlockSplitData> blockSplits, string characterSelectCode = null)
+		internal string GetSplitTextAsHtml(Block block, int blockId, bool rightToLeftScript, IReadOnlyCollection<BlockSplitData> blockSplits, Func<int, string> getCharacterSelectCode = null)
 		{
 			var bldr = new StringBuilder();
 			var currVerse = block.InitialVerseNumberOrBridge;
@@ -194,7 +194,7 @@ namespace GlyssenEngine.ViewModels
 																	   $"than or equal to the length ({preEncodedContent.Length}) of the content of verse {currVerse}");
 								}
 
-								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + characterSelectCode);
+								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + getCharacterSelectCode?.Invoke(blockSplit.Id));
 								preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
 							}
 						}

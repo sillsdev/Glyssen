@@ -134,7 +134,9 @@ namespace GlyssenEngine.Script
 						realBlock.Delivery != correlatedBlock.Delivery ||
 						realBlock.GetPrimaryReferenceText() != correlatedBlock.GetPrimaryReferenceText() ||
 						!realBlock.ReferenceBlocks.Select(r => r.GetPrimaryReferenceText()).SequenceEqual(correlatedBlock.ReferenceBlocks.Select(r => r.GetPrimaryReferenceText())))
-					return true;
+					{
+						return true;
+					}
 				}
 				return false;
 			}
@@ -221,9 +223,17 @@ namespace GlyssenEngine.Script
 			else
 				m_numberOfBlocksAddedBySplitting = 0;
 
-			Debug.Assert(origBlocks.Skip(m_iStartBlock).Take(CorrelatedBlocks.Count)
-				.All(b => !b.CharacterIsStandard || b.MultiBlockQuote == MultiBlockQuote.None),
-				"Applying block matchup resulted in an illegal multi-block quote chain.");
+			for (int i = m_iStartBlock; i < m_iStartBlock + CorrelatedBlocks.Count; i++)
+			{
+				if (origBlocks[i].MultiBlockQuote == MultiBlockQuote.Start)
+				{
+					if (i + 1 == origBlocks.Count || origBlocks[i + 1].MultiBlockQuote != MultiBlockQuote.Continuation)
+						origBlocks[i].MultiBlockQuote = MultiBlockQuote.None;
+				}
+
+				Debug.Assert(!origBlocks[i].CharacterIsStandard || origBlocks[i].MultiBlockQuote == MultiBlockQuote.None,
+					"Applying block matchup resulted in an illegal multi-block quote chain (includes a \"standard\" character block).");
+			}
 		}
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)

@@ -47,6 +47,26 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
 		}
 
+		[Test]
+		public void GetSplitTextAsHtml_WithCharacterSelectFunc_InsertsSelectElement()
+		{
+			var block = new Block("p", 43, 1);
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("The Lord says: This is what I say. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+			var model = new SplitBlockViewModel(new TestFont(), new[] { block }, new ICharacter[0], "ISA");
+
+			string GetSelectCharacter(int splitId) => "<select class=\"select-character\" data-splitid=\"" + splitId + "\"><option value=\"\"></option><option value=\"narrator-ISA\">" +
+				"narrator (ISA)</option><option value=\"God\">God (the LORD)</option><option value=\"Isaiah\">Isaiah</option></select>";
+
+			var expectedToContain = "<div class=\"split-line-top\"></div></div>" + GetSelectCharacter(42) + "<div class=\"splittext\" data-blockid=\"99\"";
+
+			var actual = model.GetSplitTextAsHtml(block, 99, false, new[] { new BlockSplitData(42, block, "1", 15) }, GetSelectCharacter);
+
+			Assert.IsTrue(actual.Contains(expectedToContain), string.Format("The output string did not contain: {0}", expectedToContain));
+		}
+
 		[TestCase("[", "]")]
 		[TestCase("{", "}")]
 		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits(string open, string close)
