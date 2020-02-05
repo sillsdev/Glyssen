@@ -532,10 +532,10 @@ namespace GlyssenTests
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(new Block("c", 1)
-				{
-					CharacterId = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.BookOrChapter),
-					BlockElements = new List<BlockElement>(new [] {new ScriptText("1") })
-				});
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.BookOrChapter),
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("1") })
+			});
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(20, "This ", true, 1, "ROM"));
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnexpectedCharacter, "«opener« has no closer.");
 			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
@@ -565,6 +565,54 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, resultingBlocks[5].MultiBlockQuote); // v. 23
 			Assert.AreEqual(MultiBlockQuote.Start, resultingBlocks[6].MultiBlockQuote); // vv. 24-25
 			Assert.AreEqual(MultiBlockQuote.Continuation, resultingBlocks[7].MultiBlockQuote); // vv. 26-27
+		}
+
+		// PG-1325
+		[Test]
+		public void Apply_FirstBlockOfQuoteChainGoesFromAmbiguousToSpeakerButSubsequentBlocksAreNarrator_QuoteChainCleared()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(new Block("c", 18)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.BookOrChapter),
+				BlockElements = new List<BlockElement>(new[] { new ScriptText("1") })
+			});
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(15, "I komersiante ira nga ibinunga ta masikan;", true, 18, "REV", "q2"));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 16, "<<Anakkoy! Anakkoy ka gapa! ", true, 18, "q1"));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "Madumu-rumug nga siudad na Babilonia!", "q2");
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "Nabbisti ta lino, granate, anna bata nga mangina!", "q1");
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 17, "Ngem ngamin danaw laman i nikapawan na!>>", true, 18, "q1"));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			var vernBook = new BookScript("REV", vernacularBlocks, ScrVers.English);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 2);
+			matchup.MatchAllBlocks(refText.Versification);
+
+			var narrator = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			foreach (var blockInV16 in matchup.CorrelatedBlocks.Where(b => b.InitialStartVerseNumber == 16))
+			{
+				switch (blockInV16.MultiBlockQuote)
+				{
+					case MultiBlockQuote.Start:
+						blockInV16.SetCharacterIdAndCharacterIdInScript("merchants of the earth", vernBook.BookNumber, vernBook.Versification);
+						blockInV16.Delivery = "weeping";
+						break;
+					case MultiBlockQuote.Continuation:
+						blockInV16.SetNonDramaticCharacterId(narrator);
+						break;
+					default:
+						Assert.Fail("Setup problem: All blocks in verse 16 should be part of multi-block quote chain.");
+						break;
+				}
+			}
+
+			matchup.Apply();
+			var resultingBlocks = vernBook.GetScriptBlocks().ToList();
+			Assert.IsTrue(resultingBlocks.All(b => b.MultiBlockQuote == MultiBlockQuote.None));
 		}
 
 		[Test]
