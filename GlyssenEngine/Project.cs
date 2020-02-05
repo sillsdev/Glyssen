@@ -918,7 +918,7 @@ namespace GlyssenEngine
 			return existingProject.UpdateProjectFromParatextData(scrTextWrapper);
 		}
 
-		public ParatextScrTextWrapper GetParatextScrTextWrapper(bool forceReload = false)
+		public ParatextScrTextWrapper GetParatextScrTextWrapper()
 		{
 			return GetLiveParatextDataIfCompatible(null);
 		}
