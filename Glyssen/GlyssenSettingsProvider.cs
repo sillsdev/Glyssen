@@ -4,7 +4,7 @@ namespace Glyssen
 {
 	internal static class GlyssenSettingsProvider
 	{
-		private class ExportSettingsProvider : IDefaultDirectoryProvider
+		private class GlyssenExportSettingsProvider : IDefaultDirectoryProvider
 		{
 			public string DefaultDirectory
 			{
@@ -13,6 +13,6 @@ namespace Glyssen
 			}
 		}
 
-		public static IDefaultDirectoryProvider ExportSettingsprovider => new ExportSettingsProvider();
+		public static IDefaultDirectoryProvider ExportSettingsProvider => new GlyssenExportSettingsProvider();
 	}
 }

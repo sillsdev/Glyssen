@@ -7,7 +7,7 @@ namespace Glyssen.Utilities
 {
 	class WinFormsErrorAnalytics : IErrorHandler
 	{
-		private const string kExceptionMsgKey = "exceptionMessage";
+		public const string kExceptionMsgKey = "exceptionMessage";
 		public void HandleException(Exception e, string context = null, Dictionary<string, string> details = null)
 		{
 			if (context == null)

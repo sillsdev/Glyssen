@@ -222,7 +222,7 @@ namespace GlyssenEngine
 
 					if (safeReplacements.Any())
 					{
-						if (confirmSafeAudioAudioReplacements != null && !confirmSafeAudioAudioReplacements(safeReplacements))
+						if (confirmSafeAudioAudioReplacements != null && confirmSafeAudioAudioReplacements(safeReplacements))
 						{
 							foreach (var replacement in safeReplacements)
 							{

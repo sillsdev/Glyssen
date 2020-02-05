@@ -372,7 +372,7 @@ namespace Glyssen
 				{
 					Analytics.Track("Project Load Failure", new Dictionary<string, string>
 					{
-						{"exceptionMessage", ex.Message},
+						{WinFormsErrorAnalytics.kExceptionMsgKey, ex.Message},
 						{"CurrentProjectPath", Settings.Default.CurrentProject},
 					});
 					throw;
@@ -1193,7 +1193,7 @@ namespace Glyssen
 
 			try
 			{
-				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsprovider);
+				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsProvider);
 
 				if (!IsOkToExport(exporter))
 					return;

@@ -108,7 +108,7 @@ namespace Glyssen.Utilities
 				LocalizationManager.GetString("Project.ParatextProjectUpdateConfirmExcludeBooks",
 					"Would you like to proceed with the update?");
 
-			return DialogResult.No == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+			return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 		}
 
 		public void ReportApplicationError(ApplicationException exception)

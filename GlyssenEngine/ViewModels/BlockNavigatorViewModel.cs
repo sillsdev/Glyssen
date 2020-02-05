@@ -31,7 +31,7 @@ namespace GlyssenEngine.ViewModels
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private IAdjustableFontInfo<TFont> m_font;
-		public Func<ReferenceText, IAdjustableFontInfo<TFont>> GetFontProxy { get; }
+		public Func<ReferenceText, IAdjustableFontInfo<TFont>> GetAdjustableFontInfoForReferenceText { get; }
 		private readonly Dictionary<ReferenceText, IAdjustableFontInfo<TFont>> m_referenceTextFonts = new Dictionary<ReferenceText, IAdjustableFontInfo<TFont>>();
 		private BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
@@ -58,9 +58,9 @@ namespace GlyssenEngine.ViewModels
 		}
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo<TFont> fontInfo = null,
-			Func<ReferenceText, IAdjustableFontInfo<TFont>> getFontProxy = null, ProjectSettingsViewModel settingsViewModel = null)
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText = null, ProjectSettingsViewModel settingsViewModel = null)
 		{
-			GetFontProxy = getFontProxy;
+			GetAdjustableFontInfoForReferenceText = getAdjustableFontInfoForReferenceText;
 			m_project = project;
 			m_project.QuoteParseCompleted += HandleProjectQuoteParseCompleted;
 
@@ -97,9 +97,9 @@ namespace GlyssenEngine.ViewModels
 
 		private void CacheReferenceTextFonts(ReferenceText referenceText)
 		{
-			if (GetFontProxy == null)
+			if (GetAdjustableFontInfoForReferenceText == null)
 				return;
-			m_referenceTextFonts[referenceText] = GetFontProxy(referenceText);
+			m_referenceTextFonts[referenceText] = GetAdjustableFontInfoForReferenceText(referenceText);
 
 			if (referenceText.HasSecondaryReferenceText)
 				CacheReferenceTextFonts(referenceText.SecondaryReferenceText);

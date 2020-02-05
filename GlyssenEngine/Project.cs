@@ -923,8 +923,7 @@ namespace GlyssenEngine
 			return GetLiveParatextDataIfCompatible(null);
 		}
 
-		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true /*bool canInteractWithUser = true,
-			string contextMessage = "", bool forceReload = false*/)
+		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true)
 		{
 			ParatextScrTextWrapper scrTextWrapper;
 			ScrText sourceScrText = null;
@@ -1023,7 +1022,7 @@ namespace GlyssenEngine
 				if (!noLongerAvailableBookIds.Any() && !noLongerPassingListBookIds.Any())
 					return false;
 
-				return loadingAssistant.ConfirmUpdateThatWouldExcludeExistingBooks(noLongerAvailableBookIds, noLongerPassingListBookIds);
+				return !loadingAssistant.ConfirmUpdateThatWouldExcludeExistingBooks(noLongerAvailableBookIds, noLongerPassingListBookIds);
 			}
 
 			try
@@ -1909,7 +1908,7 @@ namespace GlyssenEngine
 							}
 							catch (Exception exRestoreBackup)
 							{
-								NonFatalErrorHandler.HandleException(exRestoreBackup, ErrorHandlingOptions.Default, "Failed to rename LDML backup", new Dictionary<string, string>
+								NonFatalErrorHandler.HandleException(exRestoreBackup, ErrorHandlingOptions.Log, "Failed to rename LDML backup", new Dictionary<string, string>
 								{
 									{"LdmlFilePath", LdmlFilePath},
 								});
