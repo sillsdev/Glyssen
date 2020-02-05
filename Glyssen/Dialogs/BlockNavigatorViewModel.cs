@@ -9,6 +9,7 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Character;
+using SIL;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -476,7 +477,17 @@ namespace Glyssen.Dialogs
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
 				{
 					if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
-						return GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last();
+					{
+						var continuationIndices = GetIndicesOfQuoteContinuationBlocks(CurrentBlock).LastOrDefault();
+						if (continuationIndices != 0)
+							return continuationIndices;
+
+						// This is a serious data corruption. If this ever happens, in addition to finding and fixing the cause of it, a
+						// ProjectDataMigration step will be required (most likely, calling CleanUpOrphanedMultiBlockQuoteStati).
+						ErrorReport.ReportNonFatalMessageWithStackTrace(Localizer.GetString("Project.StartBlockWithoutContinuation",
+							"Data problem: Start block has no subsequent continuation blocks: {0}"), CurrentBlock.ToString(true, CurrentBookId));
+						return CurrentBlockIndexInBook;
+					}
 					return IndexOfFirstBlockInCurrentGroup;
 				}
 				return m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count - 1;

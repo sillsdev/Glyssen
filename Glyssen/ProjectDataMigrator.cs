@@ -62,7 +62,7 @@ namespace Glyssen
 			{
 				if (fromControlFileVersion < 96)
 					MigrateInvalidMultiBlockQuoteData(project.Books);
-				if (fromControlFileVersion < 138)
+				if (fromControlFileVersion < 155)
 				{
 					// This method was originally called for the < 96 case above, but we found new cases
 					// for which it is needed. Therefore, we call it here to keep it in the same order
