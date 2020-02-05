@@ -11,7 +11,6 @@ namespace Glyssen.Dialogs
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\"/>" +
 								"<style>{0}</style></head><body>{1}</body></html>";
 
-		private string m_style;
 		private readonly IEnumerable<BookScript> m_books;
 		private readonly bool m_rightToLeft;
 
@@ -27,7 +26,7 @@ namespace Glyssen.Dialogs
 			foreach (var book in m_books.Where(b => b.UnappliedSplits.Any()))
 				bldr.Append(BuildBookHtml(book));
 
-			return Format(kHtmlFrame, m_style, bldr);
+			return Format(kHtmlFrame, Empty, bldr);
 		}
 
 		private string BuildBookHtml(BookScript book)
