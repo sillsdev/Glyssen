@@ -337,23 +337,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analysis\ProjectAnalysis.cs" />
-    <Compile Include="BlockMatchup.cs" />
-    <Compile Include="BlockNavigator.cs" />
-    <Compile Include="BlockSplitData.cs" />
-    <Compile Include="BookBlockIndices.cs" />
-    <Compile Include="BookScript.cs" />
-    <Compile Include="BookSetUtils.cs" />
-    <Compile Include="Block.cs" />
-    <Compile Include="Bundle\GlyssenBundle.cs" />
-    <Compile Include="Bundle\GlyssenDblTextMetadata.cs" />
-    <Compile Include="Character\CharacterAssigner.cs" />
-    <Compile Include="Character\CharacterGroup.cs" />
     <Compile Include="Character\CharacterGroupTemplate.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
-    <Compile Include="Character\CombinedCharacterVerseData.cs" />
     <Compile Include="Character\ICharacterGroupSource.cs" />
-    <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -411,28 +397,24 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
-    <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
     <Compile Include="Dialogs\AddCharacterDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\AddCharacterDlg.Designer.cs">
       <DependentUpon>AddCharacterDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\AddCharactersToGroupViewModel.cs" />
     <Compile Include="Dialogs\AddCharacterToGroupDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\BlocksToDisplay.cs" />
     <Compile Include="Dialogs\CastSizePlanningDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\CastSizePlanningDlg.Designer.cs">
       <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\CastSizePlanningViewModel.cs" />
     <Compile Include="Dialogs\ExportToRecordingToolDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,8 +441,6 @@
     </Compile>
     <Compile Include="Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
     <Compile Include="Dialogs\SelectBundleForProjectDlg.cs" />
-    <Compile Include="Dialogs\SplitBlockViewModel.cs" />
-    <Compile Include="Dialogs\UnappliedSplitsViewModel.cs" />
     <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,8 +453,6 @@
     <Compile Include="Dialogs\ViewScriptDlg.Designer.cs">
       <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
-    <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -499,9 +477,6 @@
     <Compile Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.Designer.cs">
       <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
-    <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
-    <Compile Include="Dialogs\CharacterGroupUndoActionSequence.cs" />
     <Compile Include="Dialogs\NarrationOptionsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -515,19 +490,7 @@
     <Compile Include="Dialogs\YesNoApplyToAllDlg.Designer.cs">
       <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="IBlockAccessor.cs" />
-    <Compile Include="Paratext\IParatextScrTextWrapper.cs" />
-    <Compile Include="Paratext\NoSupportedBooksException.cs" />
-    <Compile Include="Paratext\ParatextScrTextWrapper.cs" />
-    <Compile Include="PortionScript.cs" />
-    <Compile Include="ProjectBase.cs" />
-    <Compile Include="ProjectDataMigrator.cs" />
-    <Compile Include="Quote\ParserCharacterRepository.cs" />
-    <Compile Include="ReferenceText.cs" />
-    <Compile Include="ReferenceTextProxy.cs" />
-    <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
-    <Compile Include="SampleProject.cs" />
-    <Compile Include="ScriptExporter.cs" />
+    <Compile Include="GlyssenSettingsProvider.cs" />
     <Compile Include="Utilities\AlertImpl.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
     <Compile Include="Utilities\FontProxy.cs" />
@@ -539,16 +502,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilities\L10N.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\VoiceActorInformationGrid.Designer.cs">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataMigrator.cs" />
-    <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
     <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -573,21 +532,17 @@
     <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectExporter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationMetadata.cs" />
     <Compile Include="Dialogs\AssignCharacterDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\AssignCharacterDlg.Designer.cs">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\AssignCharacterViewModel.cs" />
-    <Compile Include="Dialogs\BlockNavigatorViewModel.cs" />
     <Compile Include="Dialogs\OpenProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -613,8 +568,6 @@
     <Compile Include="Dialogs\ProjectSettingsDlg.Designer.cs">
       <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Project.cs" />
-    <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -623,13 +576,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\CharacterGroupGenerator.cs" />
-    <Compile Include="Rules\Proximity.cs" />
-    <Compile Include="UsxParser.cs" />
-    <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
-    <Compile Include="Utilities\WinFormsAnalytics.cs" />
+    <Compile Include="Utilities\WinFormsErrorAnalytics.cs" />
     <Compile Include="Utilities\WinFormsFontRepositoryAdapter.cs" />
+    <Compile Include="Utilities\WinformsParatextProjectLoadingAssistant.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
@@ -792,9 +742,9 @@
     <Content Include="icu64\icudt54.dll" />
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
+    <Content Include="Resources\EnglishVersification.txt" />
     <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
-    <None Include="Resources\Silent.wav" />
     <None Include="Resources\UpdateGroups.png" />
     <None Include="Resources\splitGroup.png" />
     <None Include="Resources\undo.png" />
@@ -804,12 +754,10 @@
     <None Include="Resources\bluelock.png" />
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
-    <Content Include="Resources\BlockSplit.css" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />
     <None Include="Resources\IncreaseSize.png" />
-    <None Include="Resources\EnglishVersification.txt" />
     <None Include="Resources\green-check.png" />
     <None Include="Resources\glyssen.ico" />
     <None Include="Resources\helpSmall.png" />
@@ -824,7 +772,6 @@
     <Content Include="Resources\HtmlMsg.html" />
     <None Include="Resources\rainbow.png" />
     <Content Include="Resources\search_glyph.png" />
-    <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">

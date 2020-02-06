@@ -8,19 +8,21 @@ using System.Media;
 using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
-using Glyssen.Rules;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Casting;
 using GlyssenEngine.Character;
+using GlyssenEngine.Export;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using SIL.Reporting;
 using SIL.Extensions;
 using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen.Dialogs
 {
@@ -410,7 +412,7 @@ namespace Glyssen.Dialogs
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new RolesForVoiceActorsSaveAsDialog(new ProjectExporter(m_project)))
+			using (var dlg = new RolesForVoiceActorsSaveAsDialog(new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsProvider)))
 				dlg.ShowDialog(this);
 		}
 

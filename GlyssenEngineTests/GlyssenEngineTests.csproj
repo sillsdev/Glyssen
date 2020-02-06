@@ -77,6 +77,9 @@
     <Reference Include="Microsoft.Win32.SystemEvents, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.SystemEvents.4.7.0\lib\net461\Microsoft.Win32.SystemEvents.dll</HintPath>
     </Reference>
+    <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099, processorArchitecture=MSIL">
+      <HintPath>..\packages\NDesk.DBus.0.15.0\lib\NDesk.DBus.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -100,6 +103,9 @@
     </Reference>
     <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0037\lib\net461\SIL.DblBundle.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DblBundle.Tests, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\SIL.DblBundle.Tests.8.0.0-beta0037\lib\net461\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Scripture.8.0.0-beta0037\lib\net461\SIL.Scripture.dll</HintPath>
@@ -241,9 +247,22 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BiblicalAuthorsTests.cs" />
+    <Compile Include="Bundle\GlyssenBundleTests.cs" />
+    <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
+    <Compile Include="Character\CharacterAssignerTests.cs" />
+    <Compile Include="Character\CharacterGroupListTests.cs" />
+    <Compile Include="Character\CharacterGroupTests.cs" />
     <Compile Include="Character\CharacterVerseDataTests.cs" />
+    <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
     <Compile Include="Character\NarratorOverridesTests.cs" />
+    <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Character\RelatedCharactersTests.cs" />
+    <Compile Include="Export\ScriptExporterTests.cs" />
+    <Compile Include="ProjectCharacterDetailDataTests.cs" />
+    <Compile Include="ProjectDataMigratorTests.cs" />
+    <Compile Include="Export\ProjectExporterTests.cs" />
+    <Compile Include="ProjectTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -251,19 +270,54 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Quote\NewTestamentBooksFirstComparerTests.cs" />
+    <Compile Include="Quote\QuoteParserTests.cs" />
+    <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
+    <Compile Include="ReferenceTextIdentifierTests.cs" />
+    <Compile Include="ReferenceTextTests.cs" />
+    <Compile Include="Rules\AuthorStatsTests.cs" />
+    <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
+    <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
+    <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
+    <Compile Include="Script\BlockMatchupTests.cs" />
+    <Compile Include="Script\BlockNavigatorTests.cs" />
+    <Compile Include="Script\BlockTests.cs" />
+    <Compile Include="Script\BookScriptTests.cs" />
+    <Compile Include="Script\BookSetUtilsTests.cs" />
+    <Compile Include="TestProject.cs" />
+    <Compile Include="UndoActionsTests\MoveCharactersToGroupUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\VoiceActorAssignmentUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\VoiceActorEditingUndoActionTests.cs" />
+    <Compile Include="UndoActionsTests\VoiceActorUndoActionTests.cs" />
+    <Compile Include="UsxParserTests.cs" />
     <Compile Include="Utilities\FileSystemUtilsTests.cs" />
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
-    <Compile Include="Utilities\UndoActionSequenceTests.cs" />
-    <Compile Include="Utilities\UndoStackTests.cs" />
+    <Compile Include="UndoActionsTests\UndoActionSequenceTests.cs" />
+    <Compile Include="UndoActionsTests\UndoStackTests.cs" />
     <Compile Include="Casting\VoiceActorListTests.cs" />
     <Compile Include="Casting\VoiceActorTests.cs" />
+    <Compile Include="Utilities\VerseBridge.cs" />
+    <Compile Include="ViewModelTests\AddCharactersToGroupViewModelTests.cs" />
+    <Compile Include="ViewModelTests\AssignCharacterViewModelTests.cs" />
+    <Compile Include="ViewModelTests\BlockNavigatorViewModelTests.cs" />
+    <Compile Include="ViewModelTests\CastSizePlanningViewModelTests.cs" />
+    <Compile Include="ViewModelTests\ProjectSettingsViewModelTests.cs" />
+    <Compile Include="ViewModelTests\SplitBlockViewModelTests.cs" />
+    <Compile Include="ViewModelTests\UnappliedSplitsViewModelTests.cs" />
+    <Compile Include="ViewModelTests\VoiceActorAssignmentViewModelTests.cs" />
+    <Compile Include="ViewModelTests\VoiceActorInformationViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
       <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
       <Name>GlyssenEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
+      <Project>{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}</Project>
+      <Name>GlyssenShared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -278,6 +332,45 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\azeri.glyssen" />
+    <None Include="Resources\english.glyssen" />
+    <None Include="Resources\french.glyssen" />
+    <None Include="Resources\spanish.glyssen" />
+    <None Include="Resources\TestReferenceTextJUD.xml" />
+    <None Include="Resources\RussianOrthodoxVersification.txt" />
+    <None Include="Resources\AzeriJUDRefText.xml" />
+    <None Include="Resources\FrenchMATRefText.xml" />
+    <None Include="Resources\FrenchMRKRefText.xml" />
+    <None Include="Resources\SpanishMATRefText.xml" />
+    <None Include="Resources\AzeriREVRefText.xml" />
+    <None Include="Resources\EnglishVersification.txt" />
+    <None Include="Resources\TestJOS.xml" />
+    <None Include="Resources\TestJUD.xml" />
+    <None Include="Resources\TestJHN.xml" />
+    <None Include="Resources\TestHEB.xml" />
+    <None Include="Resources\TestGAL.xml" />
+    <None Include="Resources\TestEPH.xml" />
+    <None Include="Resources\Test1CO.xml" />
+    <None Include="Resources\Test1JN.xml" />
+    <None Include="Resources\Test2JN.xml" />
+    <None Include="Resources\Test3JN.xml" />
+    <None Include="Resources\TestACT.xml" />
+    <None Include="Resources\TestEmptyBook.xml" />
+    <Content Include="Resources\OriginalVersification.txt" />
+    <Content Include="Resources\TestLUK.xml" />
+    <None Include="Resources\TestMATcuk.xml" />
+    <None Include="Resources\TestMRK.xml" />
+    <None Include="Resources\TestOBAwithInterestingVerseNums.xml" />
+    <None Include="Resources\TestPHM.xml" />
+    <None Include="Resources\TestREV.xml" />
+    <None Include="Resources\TestRUT.xml" />
+    <Content Include="Resources\TestNUM.xml" />
+    <Content Include="Resources\TestVersification.txt" />
+    <None Include="Resources\TestCharacterDetailOct2015.txt" />
+    <None Include="Resources\TestCharacterDetail.txt" />
+    <None Include="Resources\TestCharacterVerse.txt" />
+    <Content Include="Resources\TestCharacterVerseOct2015.txt" />
+    <Content Include="Resources\TestNarratorOverrides.xml" />
     <Content Include="Resources\TestRelatedCharacters.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -300,8 +393,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets'))" />
     <Error Condition="!Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets'))" />
+    <Error Condition="!Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets'))" />
     <Error Condition="!Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets'))" />
   </Target>
   <Import Project="..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets" Condition="Exists('..\packages\Icu4c.Win.Min.59.1.7\build\Icu4c.Win.Min.targets')" />
+  <Import Project="..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets" Condition="Exists('..\packages\NDesk.DBus.0.15.0\build\NDesk.DBus.targets')" />
   <Import Project="..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets" Condition="Exists('..\packages\Mono.Posix.5.4.0.201\build\net45\Mono.Posix.targets')" />
 </Project>

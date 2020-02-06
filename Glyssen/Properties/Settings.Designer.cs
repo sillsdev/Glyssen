@@ -126,15 +126,6 @@ namespace Glyssen.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int DataFormatVersion {
-            get {
-                return ((int)(this["DataFormatVersion"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings OpenProjectDlgFormSettings {

@@ -6,7 +6,7 @@ using SIL;
 
 namespace GlyssenEngine.Paratext
 {
-	internal class ParatextProjectBookInfo
+	public class ParatextProjectBookInfo
 	{
 		public enum BookState
 		{

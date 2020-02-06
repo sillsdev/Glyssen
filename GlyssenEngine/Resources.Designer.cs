@@ -123,6 +123,26 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///select {
+        ///    float: right;
+        ///    margin-bottom: 6px;
+        ///}
+        ///
+        ///.splittext {
+        ///    cursor: col-resize;
+        ///}
+        ///
+        ///.split-line {
+        ///    cursor: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAK3RFWHRDcmVhdGlvbiBUaW1lAFR1ZSA0IERlYyAyMDA3IDIyOjA4OjM1IC0wNTAwrRqIvgAAAAd0SU1FB9gDBQQwNlUytbYAAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAACx0lEQVR42t1WTWsTURQ90zh+1TY1fkaUQhWrCyFB0apbl/0DLl2JuFEEpaC/okZEuhD8D66suBXFlQhuBBdGRGqspKbamOe5mfvic5h5SZ12Cl44Gcgb5px37sd7AQBDHCC+EZuJn8QScopABUiME9uJJtFQI [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BlockSplitCss {
+            get {
+                return ResourceManager.GetString("BlockSplitCss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference	FCBH Character
         ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	JHN 21:3 &amp; JHN 21:5
         ///250 Israelite leaders	250	Male	Adult			NUM 16:3
@@ -139,7 +159,7 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	152
+        ///   Looks up a localized string similar to Control File Version	153
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
         ///GEN	1	3	God		God (the LORD)	Normal		
@@ -152,6 +172,25 @@ namespace GlyssenEngine {
         internal static string CharacterVerseData {
             get {
                 return ResourceManager.GetString("CharacterVerseData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;Sample&quot;
+        ///# Version=2.0
+        ///#
+        ///# modifications by Reinier de Blois 13/March/2012
+        ///# modified mappings Psalms by adding verse #0 to the mappings
+        ///# many of the subscripts that are part of verses 1,2 in the original text end up as verse #0 in English translations
+        ///
+        ///# modifications by Studge 26/June/2009
+        ///# book definitions are for all books printed in any English of Spanish Bible
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EnglishVersification {
+            get {
+                return ResourceManager.GetString("EnglishVersification", resourceCulture);
             }
         }
         
@@ -208,6 +247,34 @@ namespace GlyssenEngine {
         internal static string RelatedCharacters {
             get {
                 return ResourceManager.GetString("RelatedCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;MRK&quot; style=&quot;id&quot;&gt;- Sea Island Creole English (Gullah) NT -USA 2005 (DBL 2013)&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;Mark&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;De Good Nyews Bout Jedus Christ Wa Mark Write&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Mark&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Mr&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;De Good Nyews Bout Jedus Christ Wa Mark Write&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s&quot;&gt;John wa Bactize People Mek de Way&lt;/para&gt;
+        ///  &lt;para st [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleMRK {
+            get {
+                return ResourceManager.GetString("SampleMRK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Silent {
+            get {
+                return ResourceManager.GetStream("Silent", resourceCulture);
             }
         }
     }

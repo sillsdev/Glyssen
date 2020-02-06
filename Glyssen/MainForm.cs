@@ -8,18 +8,18 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Bundle;
-using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Export;
 using GlyssenEngine.Paratext;
-using Glyssen.Rules;
+using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle;
@@ -34,8 +34,11 @@ using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
+using SIL.Windows.Forms.WritingSystems;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
+using Resources = Glyssen.Properties.Resources;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
 
 namespace Glyssen
 {
@@ -58,6 +61,8 @@ namespace Glyssen
 
 			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
+			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
+
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
 
@@ -74,6 +79,22 @@ namespace Glyssen
 			{
 				ImportShare(args[0]);
 			}
+		}
+
+		private void UpgradingProjectToNewParserVersion(object sender, EventArgs e)
+		{
+			var existingProject = (Project)sender;
+			var details = new Dictionary<string, string>
+			{
+				{"language", existingProject.LanguageIsoCode},
+				{"ID", existingProject.Id},
+				{"recordingProjectName", existingProject.Name},
+				{"oldParserVersion", existingProject.ParserVersionWhenLastParsed.ToString(CultureInfo.InvariantCulture)},
+				{"newParserVersion", Project.kParserVersion.ToString(CultureInfo.InvariantCulture)}
+			};
+			if (existingProject.IsLiveParatextProject)
+				details.Add("ParatextProjectName", existingProject.ParatextProjectName);
+			Analytics.Track("UpgradeParatextProject", details);
 		}
 
 		public static void SetChildFormLocation(Form childForm)
@@ -141,7 +162,7 @@ namespace Glyssen
 					using (var viewModel = new AssignCharacterViewModel(m_project))
 					{
 						viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
-						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font,
+						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.FontInfo,
 							new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 						{
 							LogDialogDisplay(dlg);
@@ -351,7 +372,7 @@ namespace Glyssen
 				{
 					Analytics.Track("Project Load Failure", new Dictionary<string, string>
 					{
-						{"exceptionMessage", ex.Message},
+						{WinFormsErrorAnalytics.kExceptionMsgKey, ex.Message},
 						{"CurrentProjectPath", Settings.Default.CurrentProject},
 					});
 					throw;
@@ -382,7 +403,7 @@ namespace Glyssen
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(filePath));
+				SetProject(Project.Load(filePath, HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -391,6 +412,20 @@ namespace Glyssen
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
+		}
+
+		public static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded", "The splitting engine has been upgraded.") + " ";
+
+		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
+		{
+			string msg = ParserUpgradeMessage + " " + Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
+				"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
+				existingProject.OriginalBundlePath) +
+				Program.LocateBundleYourselfQuestion;
+			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+			if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+				return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+			return false;
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -951,7 +986,8 @@ namespace Glyssen
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 			var model = new ProjectSettingsViewModel(m_project);
-			using (var dlg = new ProjectSettingsDlg(model))
+			var wsModel = ProjectWritingSystemSetupModel;
+			using (var dlg = new ProjectSettingsDlg(model, wsModel))
 			{
 				LogDialogDisplay(dlg);
 				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated = null;
@@ -961,7 +997,8 @@ namespace Glyssen
 				if (result != DialogResult.OK)
 					return;
 
-				m_project.UpdateSettings(model);
+				m_project.UpdateSettings(model, wsModel.CurrentDefaultFontName, (int)wsModel.CurrentDefaultFontSize,
+					wsModel.CurrentRightToLeftScript);
 				SaveCurrentProject();
 				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = null;
 
@@ -1114,6 +1151,14 @@ namespace Glyssen
 			}
 		}
 
+		private WritingSystemSetupModel ProjectWritingSystemSetupModel =>
+			new WritingSystemSetupModel(m_project.WritingSystem)
+			{
+				CurrentDefaultFontName = m_project.FontFamily,
+				CurrentDefaultFontSize = m_project.FontSizeInPoints,
+				CurrentRightToLeftScript = m_project.RightToLeftScript
+			};
+
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
 			bool launchAssignVoiceActors = false;
@@ -1148,7 +1193,7 @@ namespace Glyssen
 
 			try
 			{
-				var exporter = new ProjectExporter(m_project);
+				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsProvider);
 
 				if (!IsOkToExport(exporter))
 					return;
@@ -1174,7 +1219,7 @@ namespace Glyssen
 
 			var model = new ProjectSettingsViewModel(m_project);
 			string projectSettingsDlgTitle, referenceTextTabName;
-			using (var dlg = new ProjectSettingsDlg(model))
+			using (var dlg = new ProjectSettingsDlg(model, ProjectWritingSystemSetupModel))
 			{
 				projectSettingsDlgTitle = dlg.Text;
 				referenceTextTabName = dlg.ReferenceTextTabPageName;
@@ -1260,7 +1305,6 @@ namespace Glyssen
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}
-
 		}
 
 		private void Import_Click(object sender, EventArgs e)

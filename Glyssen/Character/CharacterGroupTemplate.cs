@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using GlyssenEngine;
+using GlyssenEngine.Character;
 
 namespace Glyssen.Character
 {

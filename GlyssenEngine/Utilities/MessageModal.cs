@@ -30,32 +30,27 @@ namespace GlyssenEngine.Utilities
 
     public enum MessageResult
     {
-        Abort,
-        Cancel,
-        Ignore,
-        No,
-        None,
-        OK,
-        Retry,
-        Yes
-    }
+		None,
+        Abort, // TODO: If possible, let's eliminate the need for this
+		Ignore, // TODO: If possible, let's eliminate the need for this
+		OK,
+        Retry, // TODO: If possible, let's eliminate the need for this
+	}
 
     public enum Icon
     {
-        Exclamation,
         None,
-        Warning
+        Warning,
     }
 
     public enum Buttons
     {
-        AbortRetryIgnore,
         OK,
-        RetryCancel,
-        YesNo,
+		AbortRetryIgnore, // TODO: If possible, let's eliminate the need for this
     }
 
-    public enum DefaultButton
+    // TODO: If possible, let's eliminate the need for this enumeration.
+	public enum DefaultButton
     {
         Button1,
         Button2,

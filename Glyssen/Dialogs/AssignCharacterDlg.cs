@@ -18,6 +18,8 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -27,6 +29,8 @@ using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
+using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {
@@ -836,16 +840,16 @@ namespace Glyssen.Dialogs
 
 		private void SetFontsFromViewModel(object sender, EventArgs args)
 		{
-			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_originalDefaultFontForLists.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			m_originalDefaultFontForLists.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_viewModel.Font;
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 
-			if (m_primaryReferenceTextFont != null)
-				m_primaryReferenceTextFont.Dispose();
+			m_primaryReferenceTextFont?.Dispose();
 
-			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont;
-			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont;
-			m_dataGridReferenceText.DefaultCellStyle.Font =
-				m_originalDefaultFontForCharacterAndDeliveryColumns.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont.Font;
+			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont.Font;
+			m_originalDefaultFontForCharacterAndDeliveryColumns.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_dataGridReferenceText.DefaultCellStyle.Font = m_originalDefaultFontForCharacterAndDeliveryColumns.Font;
 		}
 
 		private void UpdateSavedText(object obj, EventArgs e)
@@ -1669,7 +1673,7 @@ namespace Glyssen.Dialogs
 						{
 							using (Graphics g = CreateGraphics())
 							{
-								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.RightToLeftScript);
 								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
 										clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
 										m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +

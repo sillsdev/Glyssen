@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Rules;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Rules;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using SIL.Progress;
 

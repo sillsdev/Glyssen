@@ -29,9 +29,6 @@
     <Setting Name="QuoteMarksDialogShowGridView" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="DataFormatVersion" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">4</Value>
-    </Setting>
     <Setting Name="OpenProjectDlgFormSettings" Type="SIL.Windows.Forms.PortableSettingsProvider.FormSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

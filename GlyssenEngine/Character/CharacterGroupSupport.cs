@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
-using GlyssenEngine.Character;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character
 {
 	#region CharacterGroupAttribute Definition
 	public class CharacterGroupAttributeSet<T> : SortedSet<CharacterGroupAttribute<T>> where T: struct, IConvertible

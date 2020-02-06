@@ -5,14 +5,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
-using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -22,6 +23,7 @@ using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
 using Analytics = DesktopAnalytics.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {
@@ -80,7 +82,7 @@ namespace Glyssen.Dialogs
 
 			if (m_project.IsLiveParatextProject && readOnly)
 			{
-				var wrapper = m_project.GetLiveParatextDataIfCompatible(false, checkForChangesInAvailableBooks: false);
+				var wrapper = m_project.GetLiveParatextDataIfCompatible(null, false);
 				m_linkOverride.Visible = m_allowOverride = wrapper == null || !wrapper.UserCanEditProject;
 			}
 
