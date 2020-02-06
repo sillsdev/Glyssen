@@ -1178,7 +1178,7 @@ namespace GlyssenEngine
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
-				NonFatalErrorHandler.HandleException(exception, ErrorHandlingOptions.Report,
+				NonFatalErrorHandler.ReportAndHandleException(exception,
 					Format(Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath));
 				return;
 			}
@@ -1221,7 +1221,7 @@ namespace GlyssenEngine
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
-				NonFatalErrorHandler.HandleException(exception, ErrorHandlingOptions.Report,
+				NonFatalErrorHandler.ReportAndHandleException(exception,
 					Format(Localizer.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath));
 				return null;
 			}
@@ -1908,7 +1908,7 @@ namespace GlyssenEngine
 							}
 							catch (Exception exRestoreBackup)
 							{
-								NonFatalErrorHandler.HandleException(exRestoreBackup, ErrorHandlingOptions.Log, "Failed to rename LDML backup", new Dictionary<string, string>
+								NonFatalErrorHandler.LogAndHandleException(exRestoreBackup, "Failed to rename LDML backup", new Dictionary<string, string>
 								{
 									{"LdmlFilePath", LdmlFilePath},
 								});
@@ -2035,7 +2035,7 @@ namespace GlyssenEngine
 			catch (Exception exMakeBackup)
 			{
 				// Oh, well. Hope for the best...
-				NonFatalErrorHandler.HandleException(exMakeBackup, ErrorHandlingOptions.Log, "Failed to create LDML backup",
+				NonFatalErrorHandler.LogAndHandleException(exMakeBackup, "Failed to create LDML backup",
 					new Dictionary<string, string>
 					{
 						{"LdmlFilePath", LdmlFilePath},
@@ -2055,7 +2055,7 @@ namespace GlyssenEngine
 			}
 			catch (Exception exSave)
 			{
-				NonFatalErrorHandler.HandleException(exSave, ErrorHandlingOptions.Log, "Writing System Save Failure",
+				NonFatalErrorHandler.LogAndHandleException(exSave, "Writing System Save Failure",
 					new Dictionary<string, string>
 					{
 						{"CurrentProjectPath", projectPath},
@@ -2082,7 +2082,7 @@ namespace GlyssenEngine
 					}
 					catch (Exception exRecover)
 					{
-						NonFatalErrorHandler.HandleException(exRecover, ErrorHandlingOptions.Log,
+						NonFatalErrorHandler.LogAndHandleException(exRecover,
 							"Recovery from backup Writing System File Failed.", new Dictionary<string, string>
 							{
 								{"CurrentProjectPath", projectPath},

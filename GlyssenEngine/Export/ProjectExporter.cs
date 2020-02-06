@@ -155,7 +155,7 @@ namespace GlyssenEngine.Export
 				}
 				catch (Exception ex)
 				{
-					NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
+					NonFatalErrorHandler.ReportAndHandleException(ex,
 						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
 						"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
 						ActorDirectory));
@@ -170,7 +170,7 @@ namespace GlyssenEngine.Export
 				}
 				catch (Exception ex)
 				{
-					NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
+					NonFatalErrorHandler.ReportAndHandleException(ex,
 						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 							"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
 				}
@@ -326,7 +326,7 @@ namespace GlyssenEngine.Export
 					}
 					catch (Exception ex)
 					{
-						NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
+						NonFatalErrorHandler.ReportAndHandleException(ex,
 							Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
 								"Error writing file: {0}. Creation of clip files aborted.", "{0} is a WAV file path."), fileName));
 						return;
@@ -337,7 +337,7 @@ namespace GlyssenEngine.Export
 
 		private static void ReportClipDirectoryCreationError(Exception ex, string folder)
 		{
-			NonFatalErrorHandler.HandleException(ex, ErrorHandlingOptions.Report,
+			NonFatalErrorHandler.ReportAndHandleException(ex,
 				Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
 					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}

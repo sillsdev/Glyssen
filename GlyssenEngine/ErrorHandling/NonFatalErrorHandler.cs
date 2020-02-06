@@ -9,31 +9,34 @@ namespace GlyssenEngine.ErrorHandling
         void HandleException(Exception e, string context = null, Dictionary<string, string> details = null);
     }
 
-	public enum ErrorHandlingOptions
-	{
-		Default,
-		Log,
-		Report,
-	}
-
-    public static class NonFatalErrorHandler
+	public static class NonFatalErrorHandler
     {
         public static IErrorHandler Default { get; set; }
 
-        public static void HandleException(Exception e, ErrorHandlingOptions options = ErrorHandlingOptions.Default, string message = null, Dictionary<string, string> details = null)
+        public static void HandleException(Exception e, string message = null, Dictionary<string, string> details = null)
         {
-			if (options == ErrorHandlingOptions.Log)
-				Logger.WriteError(e);
-			else if (options == ErrorHandlingOptions.Report)
-			{
-				ErrorReport.NotifyUserOfProblem(e, message);
+	        Default?.HandleException(e, message, details);
+		}
 
-				// If the message was reported to the user, we assume it contains details that might not be appropriate to
-				// pass along to the "outside" world (e.g., Analytics)
-				Default?.HandleException(e);
-				return;
-			}
-			Default?.HandleException(e, message, details);
+		public static void LogAndHandleException(Exception e, string message, Dictionary<string, string> details = null)
+		{
+			Logger.WriteError(e);
+			HandleException(e, message, details);
+		}
+
+		/// <summary>
+		/// When reporting an exception to the user, we assume that they will normally (when appropriate) communicate
+		/// the problem back to the development team, so we will have all the details to be able to follow up as needed.
+		/// We intentionally omit the <paramref name="message"/> when passing the exception along to the default
+		/// exception handler because it likely contains details that might not be appropriate to pass along to the
+		/// "outside" world (e.g., Analytics).
+		/// </summary>
+		/// <param name="e">The exception</param>
+		/// <param name="message">Additional explanatory information to report</param>
+		public static void ReportAndHandleException(Exception e, string message)
+        {
+			ErrorReport.NotifyUserOfProblem(e, message);
+			HandleException(e);
         }
 	}
 }
