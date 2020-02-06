@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -72,7 +71,6 @@ namespace GlyssenEngine
 		private VoiceActorList m_voiceActorList;
 		private CharacterGroupList m_characterGroupList;
 		private ISet<CharacterDetail> ProjectCharacterDetail { get; }
-		private bool m_projectFileIsWritable = true;
 		private ReferenceText m_referenceText;
 
 		private Dictionary<string, int> m_speechDistributionScore;
@@ -152,8 +150,7 @@ namespace GlyssenEngine
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
-			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null &&
-				bundle.WritingSystemDefinition.QuotationMarks.Any())
+			if (bundle.WritingSystemDefinition?.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(bundle.WritingSystemDefinition.QuotationMarks);
@@ -327,48 +324,45 @@ namespace GlyssenEngine
 
 		public QuoteSystemStatus QuoteSystemStatus
 		{
-			get { return m_projectMetadata.ProjectStatus.QuoteSystemStatus; }
-			set { m_projectMetadata.ProjectStatus.QuoteSystemStatus = value; }
+			get => Status.QuoteSystemStatus;
+			set => Status.QuoteSystemStatus = value;
 		}
 
 		public bool IsQuoteSystemReadyForParse => (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0;
 
-		public DateTime QuoteSystemDate => m_projectMetadata.ProjectStatus.QuoteSystemDate;
+		public DateTime QuoteSystemDate => Status.QuoteSystemDate;
 
 		public BookSelectionStatus BookSelectionStatus
 		{
 			get
 			{
-				// don't make the user open the select books dialog if there is only 1 book
-				if ((m_projectMetadata.ProjectStatus.BookSelectionStatus == BookSelectionStatus.UnReviewed) &&
-					(AvailableBooks.Count == 1) && (IncludedBooks.Count == 1))
-				{
-					m_projectMetadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
-				}
+				// Don't make the user open the select books dialog if there is only 1 book.
+				if (Status.BookSelectionStatus == BookSelectionStatus.UnReviewed && AvailableBooks.Count == 1 && IncludedBooks.Count == 1)
+					Status.BookSelectionStatus = BookSelectionStatus.Reviewed;
 
-				return m_projectMetadata.ProjectStatus.BookSelectionStatus;
+				return Status.BookSelectionStatus;
 			}
-			set { m_projectMetadata.ProjectStatus.BookSelectionStatus = value; }
+			set => Status.BookSelectionStatus = value;
 		}
 
 		public ProjectSettingsStatus ProjectSettingsStatus
 		{
-			get { return m_projectMetadata.ProjectStatus.ProjectSettingsStatus; }
-			set { m_projectMetadata.ProjectStatus.ProjectSettingsStatus = value; }
+			get => Status.ProjectSettingsStatus;
+			set => Status.ProjectSettingsStatus = value;
 		}
 
 		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
 		{
-			get { return m_projectMetadata.CharacterGroupGenerationPreferences; }
-			set { m_projectMetadata.CharacterGroupGenerationPreferences = value; }
+			get => m_projectMetadata.CharacterGroupGenerationPreferences;
+			set => m_projectMetadata.CharacterGroupGenerationPreferences = value;
 		}
 
 		// TODO: Implement this feature. Currently, this setting is not exposed in the UI and it is
 		// only used for estimating cast size.
 		public ProjectDramatizationPreferences DramatizationPreferences
 		{
-			get { return m_projectMetadata.DramatizationPreferences; }
-			set { m_projectMetadata.DramatizationPreferences = value; }
+			get => m_projectMetadata.DramatizationPreferences;
+			set => m_projectMetadata.DramatizationPreferences = value;
 		}
 
 		public void SetDefaultCharacterGroupGenerationPreferences()
@@ -714,8 +708,7 @@ namespace GlyssenEngine
 						// just use it. The custom one has likely been removed because now it has become a
 						// standard one.
 						Debug.Assert(ReferenceTextProxy.Type == ReferenceTextType.Custom);
-						ReferenceTextType type;
-						if (Enum.TryParse(ReferenceTextProxy.CustomIdentifier, out type))
+						if (Enum.TryParse(ReferenceTextProxy.CustomIdentifier, out ReferenceTextType type))
 						{
 							ChangeReferenceTextIdentifier(ReferenceTextProxy.GetOrCreate(type));
 						}
@@ -757,7 +750,6 @@ namespace GlyssenEngine
 			foreach (var book in m_books)
 			{
 				List<ReferenceText.VerseSplitLocation> refTextVerseSplitLocations = null;
-				var bookNum = BCVRef.BookToNumber(book.BookId);
 				var scriptBlocks = book.GetScriptBlocks();
 				for (var i = 0; i < scriptBlocks.Count; i++)
 				{
@@ -849,26 +841,27 @@ namespace GlyssenEngine
 
 				if (m_projectMetadata.ParserVersion >= kParserVersion)
 					return false;
-				switch (kParserVersion)
-				{
-#pragma warning disable CS0162 // Unreachable code detected
-					case 43:
-						if (m_projectMetadata.ParserVersion < 42 || QuoteSystem.QuotationDashMarker?.FirstOrDefault() == ':')
-							return true;
-						m_projectMetadata.ParserVersion = kParserVersion;
-						return false;
-					case 46:
-						// This change only affects the way the \qa marker is handled, and that marker is most likely only used in Psalm 119
-						if (m_projectMetadata.ParserVersion < 45 || AvailableBooks.Any(b => b.Code == "PSA"))
-							return true;
-						m_projectMetadata.ParserVersion = kParserVersion;
-						return false;
-#pragma warning restore CS0162 // Unreachable code detected
-					default:
-						return true;
-				}
+				// Examples of past versions that did not necessarily require a re-parse. Good idea to comment these out to keep track
+				// of the history, but once the setting (which is now a const) is incremented, there is no need to continue to execute
+				// the code to check for these versions.
+				//if (kParserVersion == 43)
+				//{
+				//	if (m_projectMetadata.ParserVersion < 42 || QuoteSystem.QuotationDashMarker?.FirstOrDefault() == ':')
+				//		return true;
+				//	m_projectMetadata.ParserVersion = kParserVersion;
+				//	return false;
+				// }
+				//if (kParserVersion == 46)
+				//{
+				//	// This change only affects the way the \qa marker is handled, and that marker is most likely only used in Psalm 119
+				//	if (m_projectMetadata.ParserVersion < 45 || AvailableBooks.Any(b => b.Code == "PSA"))
+				//		return true;
+				//	m_projectMetadata.ParserVersion = kParserVersion;
+				//	return false;
+				// }
+				return true;
 			}
-		}
+	}
 
 		private static Project AttemptToUpgradeByReparsingBundleData(Project existingProject, [CanBeNull] Func<Project, bool> handleMissingBundleNeededForUpgrade)
 		{
@@ -991,7 +984,7 @@ namespace GlyssenEngine
 		private bool FoundUnacceptableChangesInAvailableBooks(ParatextScrTextWrapper scrTextWrapper, IParatextProjectLoadingAssistant loadingAssistant)
 		{
 			// Any of the following scenarios is possible:
-			// 1) Exactly the same books are available and passing checks (or were previously added by overiding the
+			// 1) Exactly the same books are available and passing checks (or were previously added by overriding the
 			//    check status). This is the happy path!
 			// 2) Some of the "Available", but not "Included" books in the existing project are no longer available.
 			//    => We can just remove them from the list of available books and delete the corresponding file (if any)
@@ -1100,25 +1093,27 @@ namespace GlyssenEngine
 			// Add metadata for any books that are available in scrTextWrapper but not in the
 			// existing project. Remove metadata for any books formerly available that are not now.
 			bool foundDataChange = false;
-			Action<string> nowMissing = bookCode =>
+
+			void NowMissing(string bookCode)
 			{
 				var origPath = GetBookDataFilePath(bookCode);
 				RobustFile.Move(origPath, origPath + ".nolongeravailable");
 				foundDataChange = true;
-			};
+			}
 
-			List<String> booksToExcludeFromProject = new List<string>();
-			Action<string> exclude = bookCode => booksToExcludeFromProject.Add(bookCode);
+			var booksToExcludeFromProject = new List<string>();
+			void Exclude(string bookCode) => booksToExcludeFromProject.Add(bookCode);
 
 			// For any newly available book that passes checks, if all existing books are included,
 			// we assume we want to include anything new as well.
 			var excludeNewBooks = existingAvailable.Any(b => b.IncludeInScript == false);
-			Action<string> handleNewPassingBook = (bookCode) =>
-				{
-					if (excludeNewBooks)
-						booksToExcludeFromProject.Add(bookCode);
-					foundDataChange = true;
-				};
+
+			void HandleNewPassingBook(string bookCode)
+			{
+				if (excludeNewBooks)
+					booksToExcludeFromProject.Add(bookCode);
+				foundDataChange = true;
+			}
 
 			if (upgradedProject.QuoteSystemStatus == QuoteSystemStatus.Obtained && scrTextWrapper.HasQuotationRulesSet)
 			{
@@ -1128,8 +1123,8 @@ namespace GlyssenEngine
 			else
 				CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
-			HandleDifferencesInAvailableBooks(scrTextWrapper, nowMissing, nowMissing,
-				exclude, handleNewPassingBook, exclude);
+			HandleDifferencesInAvailableBooks(scrTextWrapper, NowMissing, NowMissing,
+				Exclude, HandleNewPassingBook, Exclude);
 
 			void OnUpgradedProjectOnQuoteParseCompleted(object sender, EventArgs e)
 			{
@@ -1158,7 +1153,9 @@ namespace GlyssenEngine
 
 			upgradedProject.QuoteParseCompleted += OnUpgradedProjectOnQuoteParseCompleted;
 
-			UpgradeProject(this, upgradedProject, () => { upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet); });
+			void ParseAndSetBooksForUpgradedProject() => upgradedProject.ParseAndSetBooks(scrTextWrapper.UsxDocumentsForIncludedBooks, scrTextWrapper.Stylesheet);
+
+			UpgradeProject(this, upgradedProject, ParseAndSetBooksForUpgradedProject);
 
 			return upgradedProject;
 		}
@@ -1174,8 +1171,7 @@ namespace GlyssenEngine
 
 		public static void SetHiddenFlag(string projectFilePath, bool hidden)
 		{
-			Exception exception;
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
 			if (exception != null)
 			{
 				NonFatalErrorHandler.ReportAndHandleException(exception,
@@ -1217,8 +1213,7 @@ namespace GlyssenEngine
 					"The project file is not writable. No changes will be saved."));
 			}
 
-			Exception exception;
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
 			if (exception != null)
 			{
 				NonFatalErrorHandler.ReportAndHandleException(exception,
@@ -1387,7 +1382,7 @@ namespace GlyssenEngine
 		/// <summary>
 		/// Inserts the specified book into its proper location in the list of existing included books
 		/// </summary>
-		/// <param name="book">The bookscript, either from a prior call to FluffUpBookFromFileIfPossible or as newly created by
+		/// <param name="book">The <see cref="BookScript"/>, either from a prior call to FluffUpBookFromFileIfPossible or as newly created by
 		/// the USX parser</param>
 		/// <exception cref="InvalidOperationException">The project is not in a valid state for the book to be included.</exception>
 		public void IncludeExistingBook(BookScript book)
@@ -1395,9 +1390,9 @@ namespace GlyssenEngine
 			Debug.Assert(IsLiveParatextProject, "Heads up! This might not be a problem, but we really only anticipated this method being used for Paratext-based projects.");
 			var bookMetadata = AvailableBooks.SingleOrDefault(b => b.Code == book.BookId);
 			if (bookMetadata == null)
-				throw new InvalidOperationException($"Attempt to include the bookscript for {book.BookId}, but the project contains no metadata for the book.");
+				throw new InvalidOperationException($"Attempt to include the {nameof(BookScript)} for {book.BookId}, but the project contains no metadata for the book.");
 			if (!bookMetadata.IncludeInScript)
-				throw new InvalidOperationException($"Attempt to include the bookscript for {book.BookId}, but the metadata for the book indicates that it should not be included.");
+				throw new InvalidOperationException($"Attempt to include the {nameof(BookScript)} for {book.BookId}, but the metadata for the book indicates that it should not be included.");
 
 			int i;
 			for (i = 0; i < m_books.Count; i++)
@@ -1479,13 +1474,13 @@ namespace GlyssenEngine
 			foreach (var bookScript in bookScripts)
 			{
 				// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
-				if (bookScript == null || bookScript.BookId == null)
+				if (bookScript?.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
 					var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
-					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage,
-						bookScripts.Count, nonNullBookScriptsStr));
+					throw new ApplicationException($"{initialMessage} Number of BookScripts: {bookScripts.Count}. " +
+						$"BookScripts which are NOT null: {nonNullBookScriptsStr}");
 				}
 
 				bookScript.Initialize(Versification);
@@ -1531,8 +1526,7 @@ namespace GlyssenEngine
 
 		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			bool certain;
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain,
+			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out _,
 				sender as BackgroundWorker);
 		}
 
@@ -1574,9 +1568,10 @@ namespace GlyssenEngine
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			if (e.Error != null)
+			Exception innerException;
+			if ((innerException = e.Error?.InnerException) != null)
 			{
-				Debug.WriteLine(e.Error.InnerException.Message + e.Error.InnerException.StackTrace);
+				Debug.WriteLine(innerException.Message + innerException.StackTrace);
 				throw e.Error;
 			}
 
@@ -1638,16 +1633,6 @@ namespace GlyssenEngine
 			return Path.Combine(ProjectsBaseFolder, bundle.LanguageIso, bundle.Id);
 		}
 
-		public static string GetPublicationFolderPath(ScrText scrText)
-		{
-			return Path.Combine(ProjectsBaseFolder, scrText.Language.LanguageId.Iso6393Code, scrText.Name);
-		}
-
-		public static string GetLanguageFolderPath(IBundle bundle)
-		{
-			return Path.Combine(ProjectsBaseFolder, bundle.LanguageIso);
-		}
-
 		public static string GetLanguageFolderPath(string langId)
 		{
 			return Path.Combine(ProjectsBaseFolder, langId);
@@ -1663,10 +1648,10 @@ namespace GlyssenEngine
 		{
 			get
 			{
-				string languagecode = LanguageIsoCode;
-				if (!IetfLanguageTag.IsValid(languagecode))
-					languagecode = WellKnownSubtags.UnlistedLanguage;
-				return Path.Combine(ProjectFolder, languagecode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
+				var languageCode = LanguageIsoCode;
+				if (!IetfLanguageTag.IsValid(languageCode))
+					languageCode = WellKnownSubtags.UnlistedLanguage;
+				return Path.Combine(ProjectFolder, languageCode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
 			}
 		}
 
@@ -1691,8 +1676,7 @@ namespace GlyssenEngine
 			var path = GetBookDataFilePath(bookId);
 			if (RobustFile.Exists(path))
 			{
-				Exception error;
-				var bookScript = BookScript.Deserialize(GetBookDataFilePath(bookId), Versification, out error);
+				var bookScript = BookScript.Deserialize(GetBookDataFilePath(bookId), Versification, out var error);
 				if (error != null)
 					ErrorReport.ReportNonFatalException(error);
 				return bookScript;
@@ -1758,15 +1742,14 @@ namespace GlyssenEngine
 
 		public void Save(bool saveCharacterGroups = false)
 		{
-			if (!m_projectFileIsWritable)
+			if (!ProjectFileIsWritable)
 				return;
 
 			Directory.CreateDirectory(ProjectFolder);
 
 			m_metadata.LastModified = DateTime.Now;
 			var projectPath = ProjectFilePath;
-			Exception error;
-			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
+			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out var error);
 			if (error != null)
 			{
 				MessageModal.Show(error.Message);
@@ -1787,12 +1770,9 @@ namespace GlyssenEngine
 
 		public void SaveBook(BookScript book)
 		{
-			Exception error;
-			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out error);
+			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out var error);
 			if (error != null)
-			{
 				MessageModal.Show(error.Message);
-			}
 		}
 
 		public void SaveProjectCharacterVerseData()
@@ -1821,15 +1801,9 @@ namespace GlyssenEngine
 			m_characterGroupList = RobustFile.Exists(path)
 				? CharacterGroupList.LoadCharacterGroupListFromFile(path, this)
 				: new CharacterGroupList();
-			m_characterGroupList.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
+			m_characterGroupList.CharacterGroups.CollectionChanged += (o, args) => CharacterGroupCollectionChanged?.Invoke(this, new EventArgs());
 			if (m_voiceActorList != null)
 				EnsureCastSizeOptionValid();
-		}
-
-		void CharacterGroups_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-		{
-			if (CharacterGroupCollectionChanged != null)
-				CharacterGroupCollectionChanged(this, new EventArgs());
 		}
 
 		private void LoadVoiceActorInformationData()
@@ -2152,8 +2126,9 @@ namespace GlyssenEngine
 						SetHiddenFlag(newFilePath, true);
 				}
 			}
-			catch
+			catch (Exception exceptionWhenCreatingBackup)
 			{
+				Logger.WriteError(exceptionWhenCreatingBackup);
 				try
 				{
 					if (!Directory.Exists(newDirectoryPath))
@@ -2162,8 +2137,9 @@ namespace GlyssenEngine
 					// Clean up by removing the partially copied directory.
 					Directory.Delete(newDirectoryPath, true);
 				}
-				catch
+				catch (Exception exceptionWhenCleaningUpFailedBackup)
 				{
+					Logger.WriteError(exceptionWhenCleaningUpFailedBackup);
 				}
 			}
 		}
@@ -2231,7 +2207,7 @@ namespace GlyssenEngine
 			internal int NonContiguousBlocksInMaxChapter { get; set; }
 			internal int NonContiguousBlocksInCurrentChapter { get; set; }
 			internal int NumberOfChapters { get; set; }
-			internal int FirstChapter { get; set; }
+			internal int FirstChapter { get; }
 			internal int LastChapter { get; set; }
 		}
 
@@ -2268,7 +2244,7 @@ namespace GlyssenEngine
 
 						if (character == null)
 						{
-							throw new Exception($"Block has character set to null. This should never happen! " +
+							throw new Exception("Block has character set to null. This should never happen! " +
 								$"Block ({book.BookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}): {block}");
 						}
 
@@ -2296,8 +2272,7 @@ namespace GlyssenEngine
 					}
 					m_keyStrokesByCharacterId[character] += block.Length;
 
-					DistributionScoreBookStats stats;
-					if (!bookDistributionScoreStats.TryGetValue(character, out stats))
+					if (!bookDistributionScoreStats.TryGetValue(character, out var stats))
 					{
 						bookDistributionScoreStats.Add(character, new DistributionScoreBookStats(block.ChapterNumber));
 					}
@@ -2332,8 +2307,7 @@ namespace GlyssenEngine
 							stats.NonContiguousBlocksInMaxChapter + (Math.Pow(stats.NumberOfChapters, 3) + stats.LastChapter - stats.FirstChapter) / 2,
 							MidpointRounding.AwayFromZero);
 
-					int resultInMaxBook;
-					if (!m_speechDistributionScore.TryGetValue(characterStatsInfo.Key, out resultInMaxBook) || (resultInBook > resultInMaxBook))
+					if (!m_speechDistributionScore.TryGetValue(characterStatsInfo.Key, out var resultInMaxBook) || (resultInBook > resultInMaxBook))
 						m_speechDistributionScore[characterStatsInfo.Key] = resultInBook;
 				}
 			}
@@ -2398,11 +2372,7 @@ namespace GlyssenEngine
 			WritingSystem.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 
-		public bool ProjectFileIsWritable
-		{
-			get { return m_projectFileIsWritable; }
-			set { m_projectFileIsWritable = value; }
-		}
+		public bool ProjectFileIsWritable { get; set; } = true;
 
 		public int DefaultNarratorCountForNarrationByAuthor
 		{
@@ -2452,10 +2422,10 @@ namespace GlyssenEngine
 
 			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
 			QuoteParser.SetQuoteSystem(altQuoteSystem);
-			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
+			Parallel.ForEach(blocksInBook, bookIdBlocksPair =>
 			{
-				var bookId = bookidBlocksPair.Key;
-				var blocks = new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, Versification).Parse().ToList();
+				var bookId = bookIdBlocksPair.Key;
+				var blocks = new QuoteParser(cvInfo, bookId, bookIdBlocksPair.Value, Versification).Parse().ToList();
 				var parsedBook = new BookScript(bookId, blocks, Versification);
 				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
 			});
