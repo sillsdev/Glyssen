@@ -159,16 +159,14 @@ namespace Glyssen
 			if (m_project != null)
 			{
 				if (m_project.HasUnappliedSplits())
-					using (var viewModel = new AssignCharacterViewModel(m_project))
+				{
+					using (var dlg = new UnappliedSplitsDlg(m_project.Name, new FontProxy(m_project.FontFamily, m_project.FontSizeInPoints, m_project.RightToLeftScript),
+						new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 					{
-						viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
-						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.FontInfo,
-							new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
-						{
-							LogDialogDisplay(dlg);
-							dlg.ShowDialog(this);
-						}
+						LogDialogDisplay(dlg);
+						dlg.ShowDialog(this);
 					}
+				}
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
 				Logger.WriteEvent($"CurrentProject set to {Settings.Default.CurrentProject}");
@@ -939,7 +937,8 @@ namespace Glyssen
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 
-			using (var viewModel = new AssignCharacterViewModel(m_project))
+			var fontProxy = new AdjustableFontProxy(m_project.FontFamily, m_project.FontSizeInPoints, m_project.RightToLeftScript);
+			using (var viewModel = new AssignCharacterViewModel(m_project, fontProxy, AdjustableFontProxy.GetFontProxyForReferenceText))
 			{
 				viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
 				using (var dlg = new AssignCharacterDlg(viewModel))

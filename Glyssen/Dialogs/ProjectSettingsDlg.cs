@@ -432,12 +432,10 @@ namespace Glyssen.Dialogs
 			BlockNavigatorViewModel viewModel = null;
 			try
 			{
-				var font = new FontProxy(m_wsViewModel.CurrentDefaultFontName,
+				var fontProxy = new AdjustableFontProxy(m_wsViewModel.CurrentDefaultFontName,
 					(int)m_wsViewModel.CurrentDefaultFontSize, m_wsViewModel.CurrentRightToLeftScript);
-				Func<ReferenceText, IAdjustableFontInfo<Font>> getFontProxyForReferenceText = referenceText => new FontProxy(referenceText.FontFamily,
-					referenceText.FontSizeInPoints, referenceText.RightToLeftScript);
 				if (m_model.Project.IncludedBooks.Any())
-					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, font, getFontProxyForReferenceText, m_model);
+					viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, fontProxy, AdjustableFontProxy.GetFontProxyForReferenceText);
 				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay, this))
 				{
 					MainForm.LogDialogDisplay(dlg);

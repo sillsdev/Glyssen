@@ -52,13 +52,13 @@ namespace GlyssenEngine.ViewModels
 		protected BookScript CurrentBook => BlockAccessor.CurrentBook;
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, IAdjustableFontInfo<TFont> fontInfo = null,
-			Func<ReferenceText, IAdjustableFontInfo<TFont>> getFontProxy = null, ProjectSettingsViewModel settingsViewModel = null)
-			: this(project, mode, null, fontInfo, getFontProxy, settingsViewModel)
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText = null)
+			: this(project, mode, null, fontInfo, getAdjustableFontInfoForReferenceText)
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo<TFont> fontInfo = null,
-			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText = null, ProjectSettingsViewModel settingsViewModel = null)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo<TFont> fontInfo,
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText)
 		{
 			GetAdjustableFontInfoForReferenceText = getAdjustableFontInfoForReferenceText;
 			m_project = project;

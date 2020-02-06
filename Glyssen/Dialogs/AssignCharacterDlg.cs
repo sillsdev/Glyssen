@@ -43,8 +43,8 @@ namespace Glyssen.Dialogs
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
 		private bool m_formLoading;
-		private readonly FontProxy m_originalDefaultFontForLists;
-		private readonly FontProxy m_originalDefaultFontForCharacterAndDeliveryColumns;
+		private readonly AdjustableFontProxy m_proxyBasedOnFontForLists;
+		private readonly AdjustableFontProxy m_proxyBasedOnFontForCharacterAndDeliveryColumns;
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
@@ -88,7 +88,7 @@ namespace Glyssen.Dialogs
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
 		}
 
-		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
+		public AssignCharacterDlg(AssignCharacterViewModel<Font> viewModel)
 		{
 			InitializeComponent();
 
@@ -155,8 +155,8 @@ namespace Glyssen.Dialogs
 
 			colCharacter.DisplayMember = m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			colDelivery.DisplayMember = m_listBoxDeliveries.DisplayMember = "LocalizedDisplay";
-			m_originalDefaultFontForLists = new FontProxy(m_listBoxCharacters.Font);
-			m_originalDefaultFontForCharacterAndDeliveryColumns = new FontProxy(m_dataGridReferenceText.DefaultCellStyle.Font);
+			m_proxyBasedOnFontForLists = new AdjustableFontProxy(m_listBoxCharacters.Font, viewModel.RightToLeftScript);
+			m_proxyBasedOnFontForCharacterAndDeliveryColumns = new AdjustableFontProxy(m_dataGridReferenceText.DefaultCellStyle.Font, viewModel.RightToLeftScript);
 			SetFontsFromViewModel(this, null);
 
 			m_viewModel.AssignedBlocksIncremented += m_viewModel_AssignedBlocksIncremented;
@@ -840,7 +840,7 @@ namespace Glyssen.Dialogs
 
 		private void SetFontsFromViewModel(object sender, EventArgs args)
 		{
-			m_originalDefaultFontForLists.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_proxyBasedOnFontForLists.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
 			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_viewModel.Font;
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 
@@ -848,8 +848,8 @@ namespace Glyssen.Dialogs
 
 			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont.Font;
 			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont.Font;
-			m_originalDefaultFontForCharacterAndDeliveryColumns.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
-			m_dataGridReferenceText.DefaultCellStyle.Font = m_originalDefaultFontForCharacterAndDeliveryColumns.Font;
+			m_proxyBasedOnFontForCharacterAndDeliveryColumns.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_dataGridReferenceText.DefaultCellStyle.Font = m_proxyBasedOnFontForCharacterAndDeliveryColumns.Font;
 		}
 
 		private void UpdateSavedText(object obj, EventArgs e)

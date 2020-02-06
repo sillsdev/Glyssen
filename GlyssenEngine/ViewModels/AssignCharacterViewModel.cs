@@ -38,13 +38,16 @@ namespace GlyssenEngine.ViewModels
 		#endregion
 
 		#region Constructors
-		public AssignCharacterViewModel(Project project)
-			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NotYetAssigned, project.Status.AssignCharacterBlock)
+		public AssignCharacterViewModel(Project project, IAdjustableFontInfo<TFont> fontInfo = null,
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText = null)
+			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NotYetAssigned,
+				project.Status.AssignCharacterBlock, fontInfo, getAdjustableFontInfoForReferenceText)
 		{
 		}
 
-		public AssignCharacterViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices)
-			: base(project, mode, startingIndices)
+		public AssignCharacterViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, IAdjustableFontInfo<TFont> fontInfo = null,
+			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText = null)
+			: base(project, mode, startingIndices, fontInfo, getAdjustableFontInfoForReferenceText)
 		{
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 
