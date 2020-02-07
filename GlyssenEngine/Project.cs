@@ -289,43 +289,57 @@ namespace GlyssenEngine
 
 		public ProjectAnalysis ProjectAnalysis => m_analysis ?? (m_analysis = new ProjectAnalysis(this));
 
-		public QuoteSystem QuoteSystem
+		public QuoteSystem QuoteSystem => m_quoteSystem != null ? m_quoteSystem : (m_quoteSystem = QuoteSystem.TryCreateFromWritingSystem(WritingSystem));
+
+		/// <summary>
+		/// Setting the quote system has a number of potential side-effects. Most notably, if the project is awaiting quote system
+		/// confirmation and the quote system status is ready for parsing, this kicks off the quote parse. In the event of a later
+		/// change, this can also trigger an automatic backup of the project (because the process of re-applying user decisions when
+		/// the parse changes dramatically can be kind of messy).
+		/// </summary>
+		public void SetQuoteSystem(QuoteSystemStatus status, QuoteSystem system)
 		{
-			get => m_quoteSystem != null ? m_quoteSystem : (m_quoteSystem = QuoteSystem.TryCreateFromWritingSystem(WritingSystem));
-			set
+			Debug.Assert(status != QuoteSystemStatus.Unknown);
+
+			if (ProjectState == ProjectState.Parsing)
+				throw new InvalidOperationException("The quote system cannot be changed while quote parsing is in progress!");
+
+			// Changing the status sets the date, but if the user had previously set thus and is now changing the quote
+			// system, we want to force the date to update.
+			if (QuoteSystemStatus == QuoteSystemStatus.UserSet && status == QuoteSystemStatus.UserSet && QuoteSystem != system)
+				Status.QuoteSystemDate = DateTime.Now;
+			QuoteSystemStatus = status;
+			bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
+			bool quoteSystemChanged = m_quoteSystem != system;
+
+			if (IsQuoteSystemReadyForParse && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 			{
-				bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
-				bool quoteSystemChanged = m_quoteSystem != value;
-
-				if (IsQuoteSystemReadyForParse && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
-				{
-					m_quoteSystem = value;
-					DoQuoteParse();
-				}
-				else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
-					(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
-					ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
-				{
-					// These need to happen in this order
-					Save();
-					CreateBackup("Backup before quote system change");
-					m_quoteSystem = value;
-					HandleQuoteSystemChanged();
-				}
-				else
-				{
-					m_quoteSystem = value;
-				}
-
-				WritingSystem.QuotationMarks.Clear();
-				WritingSystem.QuotationMarks.AddRange(m_quoteSystem.AllLevels);
+				m_quoteSystem = system;
+				DoQuoteParse();
 			}
+			else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
+				(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
+					ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
+			{
+				// These need to happen in this order
+				Save();
+				CreateBackup("Backup before quote system change");
+				m_quoteSystem = system;
+				HandleQuoteSystemChanged();
+			}
+			else
+			{
+				m_quoteSystem = system;
+			}
+
+			WritingSystem.QuotationMarks.Clear();
+			WritingSystem.QuotationMarks.AddRange(m_quoteSystem.AllLevels);
 		}
 
 		public QuoteSystemStatus QuoteSystemStatus
 		{
 			get => Status.QuoteSystemStatus;
-			set => Status.QuoteSystemStatus = value;
+			private set => Status.QuoteSystemStatus = value;
 		}
 
 		public bool IsQuoteSystemReadyForParse => (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0;
@@ -1535,8 +1549,7 @@ namespace GlyssenEngine
 			if (e.Error != null)
 				throw e.Error;
 
-			QuoteSystemStatus = QuoteSystemStatus.Guessed;
-			QuoteSystem = (QuoteSystem)e.Result;
+			SetQuoteSystem(QuoteSystemStatus.Guessed, (QuoteSystem)e.Result);
 
 			Save();
 		}

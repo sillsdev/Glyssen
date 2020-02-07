@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using SIL.DblBundle.Tests.Text;
 using SIL.IO;
@@ -9,6 +10,13 @@ namespace GlyssenEngineTests.Bundle
 	internal static class GlyssenBundleTests
 	{
 		public const string kTestBundleIdPrefix = "test~~ProjectTests";
+
+		static GlyssenBundleTests()
+		{
+			if (Project.FontRepository == null)
+				Project.FontRepository = new TestProject.TestFontRepository();
+		}
+
 		private static string GetUniqueBundleId()
 		{
 			return kTestBundleIdPrefix + Path.GetFileNameWithoutExtension(Path.GetTempFileName());
