@@ -1,9 +1,13 @@
-﻿using Glyssen.Character;
+﻿/// <summary>
+///  This code is not compiled.
+///  Experimental code. Not used at this time.
+/// </summary>
+
 using GlyssenEngine.Character;
-using GlyssenEngineTests;
+using GlyssenEngine.Character.Template;
 using NUnit.Framework;
 
-namespace GlyssenTests.Character
+namespace GlyssenEngineTests.Character.Template
 {
 	[TestFixture]
 	public class CharacterGroupTemplateTests

@@ -1,8 +1,12 @@
-﻿using System;
+﻿/// <summary>
+///  This code is not compiled.
+///  Experimental code. Not used at this time.
+/// </summary>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;

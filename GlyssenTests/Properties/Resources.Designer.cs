@@ -59,15 +59,5 @@ namespace GlyssenTests.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] TestCharacterGroups {
-            get {
-                object obj = ResourceManager.GetObject("TestCharacterGroups", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

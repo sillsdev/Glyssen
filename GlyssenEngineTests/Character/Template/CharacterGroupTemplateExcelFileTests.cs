@@ -1,13 +1,17 @@
-﻿using System;
+﻿/// <summary>
+///  This code is not compiled.
+///  Experimental code. Not used at this time.
+/// </summary>
+
+using System;
 using System.IO;
-using Glyssen.Character;
 using GlyssenEngine.Character;
-using GlyssenEngineTests;
-using GlyssenTests.Properties;
+using GlyssenEngine.Character.Template;
+using GlyssenEngineTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 
-namespace GlyssenTests.Character
+namespace GlyssenEngineTests.Character.Template
 {
 	[TestFixture]
 	public class CharacterGroupTemplateExcelFileTests

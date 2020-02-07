@@ -337,9 +337,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\CharacterGroupTemplate.cs" />
-    <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
-    <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>

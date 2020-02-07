@@ -307,8 +307,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
-    <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
-    <Compile Include="Character\CharacterGroupTemplateTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
