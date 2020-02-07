@@ -1,8 +1,12 @@
-﻿using System;
+﻿/// <summary>
+///  This code is not compiled.
+///  Experimental code. Not used at this time.
+/// </summary>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
@@ -12,7 +16,7 @@ using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
 
-namespace GlyssenEngineTests.Character
+namespace GlyssenEngineTests.Character.Template
 {
 	[TestFixture]
 	public class CharacterAssignerTests
