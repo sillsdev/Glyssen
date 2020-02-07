@@ -329,9 +329,7 @@ namespace GlyssenEngine.Script
 				return "";
 			if (depth == 0)
 				return GetPrimaryReferenceText();
-			if (ReferenceBlocks.Count == 1)
-				return ReferenceBlocks[0].GetReferenceTextAtDepth(depth - 1);
-			return null;
+			return ReferenceBlocks.OnlyOrDefault()?.GetReferenceTextAtDepth(depth - 1);
 		}
 
 		public string GetEmptyVerseReferenceTextAtDepth(int depth)

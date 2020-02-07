@@ -203,7 +203,7 @@ namespace GlyssenEngine.Script
 				var vernBlock = origBlocks[m_iStartBlock + i];
 
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
-				vernBlock.SetMatchedReferenceBlock(refBlock);
+				vernBlock.SetMatchedReferenceBlock(refBlock.Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks));
 				var basedOnBlock = CorrelatedBlocks[i].CharacterIsUnclear ? refBlock : CorrelatedBlocks[i];
 				vernBlock.SetCharacterAndDeliveryInfo(basedOnBlock, bookNum, m_versification);
 				if (vernBlock.CharacterIsStandard)
