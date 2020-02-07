@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
@@ -473,7 +474,14 @@ namespace GlyssenEngine
 							}
 							else
 							{
-								vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+								var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i);
+								if (forceMatch)
+								{
+									// Caller responsible for obtaining lock on m_modifiedBooks
+									CombineRefBlocksToCreateMatch(remainingRefBlocks.ToList(), vernBlockInVerseChunk, m_modifiedBooks.Contains(bookId));
+								}
+								else
+									vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(remainingRefBlocks);
 							}
 							break;
 						}
@@ -537,10 +545,8 @@ namespace GlyssenEngine
 							}
 							else if (forceMatch)
 							{
-								var refBlock = remainingRefBlocksList[0];
-								for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
-									refBlock.CombineWith(remainingRefBlocksList[rb]);
-								vernBlockList[iVernBlock].SetMatchedReferenceBlock(refBlock);
+								// Caller responsible for obtaining lock on m_modifiedBooks
+								CombineRefBlocksToCreateMatch(remainingRefBlocksList, vernBlockList[iVernBlock], m_modifiedBooks.Contains(bookId));
 							}
 							else
 							{
@@ -613,6 +619,16 @@ namespace GlyssenEngine
 				if (vernBlockList[indexOfLastVernVerseInVerseChunk].ReferenceBlocks.Any())
 					iVernBlock = indexOfLastVernVerseInVerseChunk;
 			}
+		}
+
+		private static void CombineRefBlocksToCreateMatch(List<Block> remainingRefBlocksList, Block vernBlock, bool clone)
+		{
+			var refBlock = remainingRefBlocksList[0];
+			if (clone)
+				refBlock.Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
+			for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
+				refBlock.CombineWith(remainingRefBlocksList[rb]);
+			vernBlock.SetMatchedReferenceBlock(refBlock);
 		}
 
 		/// <summary>
