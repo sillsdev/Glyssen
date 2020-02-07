@@ -1,6 +1,6 @@
 ﻿namespace GlyssenEngine.ViewModels
 {
-	public interface IFontInfo<TFont>
+	public interface IFontInfo<out TFont>
 	{
 		bool RightToLeftScript { get; }
 		string FontFamily { get; }
@@ -8,7 +8,7 @@
 		TFont Font { get; }
 	}
 
-	public interface IAdjustableFontInfo<TFont> : IFontInfo<TFont>
+	public interface IAdjustableFontInfo<out TFont> : IFontInfo<TFont>
 	{
 		int FontSizeUiAdjustment { get; set; }
 	}

@@ -1,38 +1,34 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using GlyssenEngine;
 using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Utilities
 {
-	public class FontProxy : IAdjustableFontInfo<Font>, IDisposable
+	public class FontProxy : IFontInfo<Font>, IDisposable
 	{
-		private const int kMinFontSize = 3;
-
-		private Font m_font;
+		protected Font m_font;
 		private readonly FontFamily m_fontFamily;
 		private readonly FontStyle m_style;
 		private readonly string m_fontFamilyName;
-		private readonly float m_baseFontSizeInPoints;
-		private readonly bool m_clientResponsibleForDisposing;
+		private readonly float m_fontSizeInPoints;
+		protected readonly bool m_clientResponsibleForDisposing;
 
-		private int m_fontSizeUiAdjustment;
-
-		public FontProxy(string fontFamilyName, int baseFontSizeInPoints, bool rightToLeftScript)
+		public FontProxy(string fontFamilyName, int fontSizeInPoints, bool rightToLeftScript)
 		{
 			m_fontFamilyName = fontFamilyName;
-			m_baseFontSizeInPoints = baseFontSizeInPoints;
+			m_fontSizeInPoints = fontSizeInPoints;
 			RightToLeftScript = rightToLeftScript;
 			m_clientResponsibleForDisposing = false;
 		}
 
-		public FontProxy(Font originalFont)
+		public FontProxy(Font originalFont, bool rightToLeftScript)
 		{
 			m_fontFamily = originalFont.FontFamily;
 			m_style = originalFont.Style;
-			m_baseFontSizeInPoints = originalFont.SizeInPoints;
-			m_baseFontSizeInPoints = originalFont.SizeInPoints;
-			RightToLeftScript = false;
+			m_fontSizeInPoints = originalFont.SizeInPoints;
+			RightToLeftScript = rightToLeftScript;
 			m_clientResponsibleForDisposing = true;
 		}
 
@@ -41,7 +37,7 @@ namespace Glyssen.Utilities
 			get
 			{
 				if (m_font == null)
-					m_font = m_fontFamily != null ? new Font(m_fontFamily, AdjustedFontSize, m_style) : new Font(m_fontFamilyName, AdjustedFontSize);
+					m_font = m_fontFamily != null ? new Font(m_fontFamily, Size, m_style) : new Font(m_fontFamilyName, Size);
 				return m_font;
 			}
 		}
@@ -50,22 +46,7 @@ namespace Glyssen.Utilities
 
 		public string FontFamily => m_fontFamilyName ?? m_fontFamily.Name;
 
-		public int Size => (int)AdjustedFontSize;
-
-		private float AdjustedFontSize => Math.Max(m_baseFontSizeInPoints + m_fontSizeUiAdjustment, kMinFontSize);
-
-		public int FontSizeUiAdjustment
-		{
-			get => m_fontSizeUiAdjustment;
-			set 
-			{
-				if (m_clientResponsibleForDisposing)
-					m_font = null;
-				else
-					Dispose();
-				m_fontSizeUiAdjustment = value;
-			}
-		}
+		public virtual int Size => (int)m_fontSizeInPoints;
 
 		public void Dispose()
 		{
@@ -81,5 +62,41 @@ namespace Glyssen.Utilities
 		{
 			return fontProxy.Font;
 		}
+	}
+
+	public class AdjustableFontProxy : FontProxy, IAdjustableFontInfo<Font>
+	{
+		private const int kMinFontSize = 3;
+
+		private int m_fontSizeUiAdjustment;
+
+		public AdjustableFontProxy(string fontFamilyName, int baseFontSizeInPoints, bool rightToLeftScript) :
+			base(fontFamilyName, baseFontSizeInPoints, rightToLeftScript)
+		{
+		}
+
+		public AdjustableFontProxy(Font originalFont, bool rightToLeftScript) : base(originalFont, rightToLeftScript)
+		{
+		}
+
+		public override int Size => (int)AdjustedFontSize;
+
+		private float AdjustedFontSize => Math.Max(base.Size + m_fontSizeUiAdjustment, kMinFontSize);
+
+		public int FontSizeUiAdjustment
+		{
+			get => m_fontSizeUiAdjustment;
+			set 
+			{
+				if (m_clientResponsibleForDisposing)
+					m_font = null;
+				else
+					Dispose();
+				m_fontSizeUiAdjustment = value;
+			}
+		}
+
+		public static IAdjustableFontInfo<Font> GetFontProxyForReferenceText(ReferenceText referenceText) =>
+			new AdjustableFontProxy(referenceText.FontFamily, referenceText.FontSizeInPoints, referenceText.RightToLeftScript);
 	}
 }

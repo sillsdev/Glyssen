@@ -19,7 +19,7 @@ namespace Glyssen.Controls
 		private DataGridViewTextBoxColumn m_colReference;
 		private DataGridViewTextBoxColumn m_colText;
 		private BlockNavigatorViewModel m_viewModel;
-		private FontProxy m_originalDefaultFont;
+		private AdjustableFontProxy m_originalDefaultFont;
 
 		private bool m_userIsResizingColumns;
 		private bool m_userResizedRefColumn;
@@ -172,7 +172,7 @@ namespace Glyssen.Controls
 			Debug.Assert(m_colText != null);
 			m_viewModel = viewModel;
 
-			m_originalDefaultFont = new FontProxy(DefaultCellStyle.Font);
+			m_originalDefaultFont = new AdjustableFontProxy(DefaultCellStyle.Font, viewModel.RightToLeftScript);
 			SetFontsFromViewModel();
 
 			m_minimumWidthFromDesigner = MinimumSize.Width;

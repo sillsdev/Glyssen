@@ -159,16 +159,14 @@ namespace Glyssen
 			if (m_project != null)
 			{
 				if (m_project.HasUnappliedSplits())
-					using (var viewModel = new AssignCharacterViewModel(m_project))
+				{
+					using (var dlg = new UnappliedSplitsDlg(m_project.Name, new FontProxy(m_project.FontFamily, m_project.FontSizeInPoints, m_project.RightToLeftScript),
+						new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 					{
-						viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
-						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.FontInfo,
-							new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
-						{
-							LogDialogDisplay(dlg);
-							dlg.ShowDialog(this);
-						}
+						LogDialogDisplay(dlg);
+						dlg.ShowDialog(this);
 					}
+				}
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
 				Logger.WriteEvent($"CurrentProject set to {Settings.Default.CurrentProject}");
@@ -757,11 +755,14 @@ namespace Glyssen
 
 		private void UpdateProjectState()
 		{
-			// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
-			// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
-			// always attempts to open the same (corrupt) project.
-			Settings.Default.CurrentProject = null;
-			Settings.Default.Save();
+			if (m_project == null || Settings.Default.CurrentProject != m_project.ProjectFilePath)
+			{
+				// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
+				// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
+				// always attempts to open the same (corrupt) project.
+				Settings.Default.CurrentProject = null;
+				Settings.Default.Save();
+			}
 			if (m_project != null)
 				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
 		}
@@ -939,7 +940,8 @@ namespace Glyssen
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 
-			using (var viewModel = new AssignCharacterViewModel(m_project))
+			var fontProxy = new AdjustableFontProxy(m_project.FontFamily, m_project.FontSizeInPoints, m_project.RightToLeftScript);
+			using (var viewModel = new AssignCharacterViewModel(m_project, fontProxy, AdjustableFontProxy.GetFontProxyForReferenceText))
 			{
 				viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
 				using (var dlg = new AssignCharacterDlg(viewModel))
@@ -1372,8 +1374,10 @@ namespace Glyssen
 
 				// open the imported project
 				if (RobustFile.Exists(projectFilePath))
-					LoadProject(projectFilePath, () =>
+				{
+					void AdditionalActionAfterSettingProject()
 					{
+						SaveCurrentProject();
 						if (m_project.ReferenceTextProxy.Missing)
 						{
 							var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
@@ -1386,7 +1390,10 @@ namespace Glyssen
 								"file://" + m_project.ReferenceTextProxy.ProjectFolder),
 								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); });
 						}
-					});
+					}
+
+					LoadProject(projectFilePath, AdditionalActionAfterSettingProject);
+				}
 			}
 		}
 	}
