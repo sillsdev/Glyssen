@@ -273,7 +273,7 @@ namespace GlyssenEngine.Bundle
 		[DefaultValue(QuoteSystemStatus.Unknown)]
 		public QuoteSystemStatus QuoteSystemStatus
 		{
-			get { return m_quoteSystemStatus; }
+			get => m_quoteSystemStatus;
 			set
 			{
 				if (m_quoteSystemStatus == value)

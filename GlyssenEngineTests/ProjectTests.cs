@@ -262,7 +262,7 @@ namespace GlyssenEngineTests
 				};
 
 				Assert.AreNotEqual(QuoteSystem.Default, project.QuoteSystem);
-				project.QuoteSystem = QuoteSystem.Default;
+				project.SetQuoteSystem(QuoteSystemStatus.UserSet, QuoteSystem.Default);
 
 				do
 				{
@@ -317,7 +317,9 @@ namespace GlyssenEngineTests
 
 				var origCountOfUserConfirmedBlocks = book.GetScriptBlocks().Count(b => b.UserConfirmed);
 
-				testProject.QuoteSystem = newQuoteSystem;
+				var prevQuoteSystemDate = testProject.QuoteSystemDate;
+				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+				Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
 
 				do
 				{
@@ -331,6 +333,61 @@ namespace GlyssenEngineTests
 					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
 					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
 				}
+			}
+			finally
+			{
+				// Must dispose after because changing the quote system needs access to original bundle file
+				originalBundleAndFile.Item2.Dispose();
+			}
+		}
+		[Test]
+		[Timeout(11000)]
+		public void SetQuoteSystem_ProjectQuoteSystemChanged_QuoteSystemDateUpdated()
+		{
+			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
+			try
+			{
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				var originalBundle = originalBundleAndFile.Item1;
+				var testProject = new Project(originalBundle);
+
+				WaitForProjectInitializationToFinish(testProject, ProjectState.FullyInitialized);
+
+				var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+				newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
+
+				bool complete = false;
+
+				testProject.QuoteParseCompleted += (sender, args) => complete = true;
+
+				void WaitForParsingToComplete()
+				{
+					do
+					{
+						Thread.Sleep(100);
+					} while (!complete);
+				}
+
+				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+
+				WaitForParsingToComplete();
+
+				complete = false;
+
+				var prevQuoteSystemDate = testProject.QuoteSystemDate;
+				var prevProjectState = testProject.ProjectState;
+				// First, demonstrate that setting it to the same value does nothing.
+				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+				Assert.AreEqual(prevQuoteSystemDate, testProject.QuoteSystemDate);
+				Assert.AreEqual(prevProjectState, testProject.ProjectState);
+
+				// Next, demonstrate that setting it to a different value updates the date.
+				newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
+				newQuoteSystem.AllLevels.Add(new QuotationMark("*+", "@!", "~`", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Normal));
+				testProject.SetQuoteSystem(QuoteSystemStatus.UserSet, newQuoteSystem);
+				Assert.IsTrue(prevQuoteSystemDate < testProject.QuoteSystemDate);
+
+				WaitForParsingToComplete();
 			}
 			finally
 			{
