@@ -1,10 +1,14 @@
-﻿using System;
+﻿/// <summary>
+///  This code is not compiled.
+///  Experimental code. Not used at this time.
+/// </summary>
+
+using System;
 using System.Collections.Generic;
 using System.IO;
-using GlyssenEngine;
 using OfficeOpenXml;
 
-namespace Glyssen.Character
+namespace GlyssenEngine.Character.Template
 {
 	public class CharacterGroupTemplateExcelFile : ICharacterGroupSource
 	{
