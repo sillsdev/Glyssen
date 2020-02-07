@@ -458,13 +458,39 @@ namespace GlyssenEngineTests.Script
 			var correspondingVernBlock = vernacularBlocks[iBlock];
 			Assert.AreEqual(correspondingVernBlock.GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
 			var verseNum = correspondingVernBlock.InitialStartVerseNumber;
-			var refBlock = ReferenceTextTests.CreateBlockForVerse("Jesus", verseNum, String.Format("This is verse {0}, ", verseNum), true);
+			var refBlock = ReferenceTextTests.CreateBlockForVerse("Jesus", verseNum, $"This is verse {verseNum}, ", true);
 			matchup.CorrelatedBlocks.Single().SetMatchedReferenceBlock(refBlock);
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 
 			matchup.Apply();
 			Assert.IsFalse(vernacularBlocks.Except(vernacularBlocks.Skip(iBlock).Take(1)).Any(b => b.MatchesReferenceText));
-			Assert.AreEqual(refBlock, vernacularBlocks[iBlock].ReferenceBlocks.Single());
+			VerifyMatchedToCloneOfReferenceBlock(refBlock, vernacularBlocks[iBlock]);
+			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
+		}
+
+		[Test]
+		public void Apply_CorrelatedBlockWithTwoLevelsOfReferenceText_OriginalBlockSetAsMatchWithReferenceBlocksClonedAtBothLevels()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Asi dijo. Despues se fue. ", true));
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
+			var correspondingVernBlock = vernacularBlocks[1];
+			Assert.AreEqual(correspondingVernBlock.GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
+			var verseNum = correspondingVernBlock.InitialStartVerseNumber;
+			var germanofrancolatinRefBlock = ReferenceTextTests.CreateBlockForVerse("Jesus", verseNum, $"Sie est verso {verseNum}, ", true);
+			var englishRefBlock = ReferenceTextTests.CreateBlockForVerse("Jesus", verseNum, $"This is verse {verseNum}, ", true);
+			germanofrancolatinRefBlock.SetMatchedReferenceBlock(englishRefBlock);
+			Assert.AreEqual(englishRefBlock, germanofrancolatinRefBlock.ReferenceBlocks.Single());
+
+			matchup.CorrelatedBlocks.Single().SetMatchedReferenceBlock(germanofrancolatinRefBlock);
+			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
+
+			matchup.Apply();
+			VerifyMatchedToCloneOfReferenceBlock(germanofrancolatinRefBlock, vernacularBlocks[1]);
+			VerifyMatchedToCloneOfReferenceBlock(englishRefBlock, vernacularBlocks[1].ReferenceBlocks.Single());
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
 
@@ -498,11 +524,11 @@ namespace GlyssenEngineTests.Script
 
 			matchup.Apply();
 			Assert.IsFalse(vernacularBlocks[0].MatchesReferenceText);
-			Assert.AreEqual(refBlock1, vernacularBlocks[1].ReferenceBlocks.Single());
+			VerifyMatchedToCloneOfReferenceBlock(refBlock1, vernacularBlocks[1]);
 			Assert.AreEqual(refBlock1.CharacterId, vernacularBlocks[1].CharacterId);
-			Assert.AreEqual(refBlock2, vernacularBlocks[2].ReferenceBlocks.Single());
+			VerifyMatchedToCloneOfReferenceBlock(refBlock2, vernacularBlocks[2]);
 			Assert.AreEqual(refBlock2.CharacterId, vernacularBlocks[2].CharacterId);
-			Assert.AreEqual(refBlock3, vernacularBlocks[3].ReferenceBlocks.Single());
+			VerifyMatchedToCloneOfReferenceBlock(refBlock3, vernacularBlocks[3]);
 			Assert.AreEqual(refBlock3.CharacterId, vernacularBlocks[3].CharacterId);
 			Assert.AreEqual(refBlock3.CharacterIdInScript, vernacularBlocks[3].CharacterIdInScript);
 			Assert.IsFalse(vernacularBlocks[4].MatchesReferenceText);
@@ -709,7 +735,7 @@ namespace GlyssenEngineTests.Script
 			matchup.Apply();
 			var scriptBlocks = vernBook.GetScriptBlocks(); /* This used to have join = true */
 			int i = 1;
-			Assert.AreEqual(refBlock1, scriptBlocks[i].ReferenceBlocks.Single());
+			VerifyMatchedToCloneOfReferenceBlock(refBlock1, scriptBlocks[i]);
 			Assert.AreEqual(refBlock1.CharacterId, scriptBlocks[i].CharacterId);
 			Assert.AreEqual("his friend", scriptBlocks[i].CharacterIdOverrideForScript);
 			Assert.AreEqual(MultiBlockQuote.Start, scriptBlocks[i].MultiBlockQuote);
@@ -760,9 +786,9 @@ namespace GlyssenEngineTests.Script
 			var scriptBlocks = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count + 1, scriptBlocks.Count);
 			Assert.IsFalse(scriptBlocks[0].MatchesReferenceText);
-			Assert.AreEqual(refBlock0, scriptBlocks[1].ReferenceBlocks.Single());
-			Assert.AreEqual(refBlock1, scriptBlocks[2].ReferenceBlocks.Single());
-			Assert.AreEqual(refBlock2, scriptBlocks[3].ReferenceBlocks.Single());
+			VerifyMatchedToCloneOfReferenceBlock(refBlock0, scriptBlocks[1]);
+			VerifyMatchedToCloneOfReferenceBlock(refBlock1, scriptBlocks[2]);
+			VerifyMatchedToCloneOfReferenceBlock(refBlock2, scriptBlocks[3]);
 			Assert.IsFalse(scriptBlocks[4].MatchesReferenceText);
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
@@ -1882,6 +1908,12 @@ namespace GlyssenEngineTests.Script
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsFalse(matchup.CanChangeCharacterAndDeliveryInfo(2, 3));
+		}
+
+		private void VerifyMatchedToCloneOfReferenceBlock(Block origRefBlock, Block vernacularBlock)
+		{
+			Assert.AreNotEqual(origRefBlock, vernacularBlock.ReferenceBlocks.Single(), "Apply should have made a clone of the reference block to avoid nasty cross-linking");
+			Assert.AreEqual(origRefBlock.GetText(true), vernacularBlock.GetPrimaryReferenceText());
 		}
 	}
 }
