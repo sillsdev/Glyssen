@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
-using GlyssenEngine;
-using GlyssenEngine.Character;
+﻿/// <summary>
+///  This code is not compiled.
+///  Experimental code. Not used at this time.
+/// </summary>
 
-namespace Glyssen.Character
+using System.Collections.Generic;
+
+namespace GlyssenEngine.Character.Template
 {
 	public class CharacterGroupTemplate
 	{
