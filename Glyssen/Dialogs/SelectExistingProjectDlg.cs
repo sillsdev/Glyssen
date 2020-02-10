@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Glyssen.Bundle;
 using Glyssen.Shared.Bundle;
+using GlyssenEngine;
+using GlyssenEngine.Bundle;
 using SIL.DblBundle;
 
 namespace Glyssen.Dialogs

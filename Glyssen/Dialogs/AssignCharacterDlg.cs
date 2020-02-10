@@ -18,6 +18,8 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
 using GlyssenEngine.Character;
+using GlyssenEngine.Script;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -27,6 +29,8 @@ using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
+using SplitBlockViewModel = GlyssenEngine.ViewModels.SplitBlockViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {
@@ -39,8 +43,8 @@ namespace Glyssen.Dialogs
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
 		private bool m_formLoading;
-		private readonly FontProxy m_originalDefaultFontForLists;
-		private readonly FontProxy m_originalDefaultFontForCharacterAndDeliveryColumns;
+		private readonly AdjustableFontProxy m_proxyBasedOnFontForLists;
+		private readonly AdjustableFontProxy m_proxyBasedOnFontForCharacterAndDeliveryColumns;
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
@@ -84,7 +88,7 @@ namespace Glyssen.Dialogs
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
 		}
 
-		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
+		public AssignCharacterDlg(AssignCharacterViewModel<Font> viewModel)
 		{
 			InitializeComponent();
 
@@ -151,8 +155,8 @@ namespace Glyssen.Dialogs
 
 			colCharacter.DisplayMember = m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			colDelivery.DisplayMember = m_listBoxDeliveries.DisplayMember = "LocalizedDisplay";
-			m_originalDefaultFontForLists = new FontProxy(m_listBoxCharacters.Font);
-			m_originalDefaultFontForCharacterAndDeliveryColumns = new FontProxy(m_dataGridReferenceText.DefaultCellStyle.Font);
+			m_proxyBasedOnFontForLists = new AdjustableFontProxy(m_listBoxCharacters.Font, viewModel.RightToLeftScript);
+			m_proxyBasedOnFontForCharacterAndDeliveryColumns = new AdjustableFontProxy(m_dataGridReferenceText.DefaultCellStyle.Font, viewModel.RightToLeftScript);
 			SetFontsFromViewModel(this, null);
 
 			m_viewModel.AssignedBlocksIncremented += m_viewModel_AssignedBlocksIncremented;
@@ -836,16 +840,16 @@ namespace Glyssen.Dialogs
 
 		private void SetFontsFromViewModel(object sender, EventArgs args)
 		{
-			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_originalDefaultFontForLists.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			m_proxyBasedOnFontForLists.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_viewModel.Font;
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 
-			if (m_primaryReferenceTextFont != null)
-				m_primaryReferenceTextFont.Dispose();
+			m_primaryReferenceTextFont?.Dispose();
 
-			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont;
-			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont;
-			m_dataGridReferenceText.DefaultCellStyle.Font =
-				m_originalDefaultFontForCharacterAndDeliveryColumns.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			colPrimary.DefaultCellStyle.Font = m_viewModel.PrimaryReferenceTextFont.Font;
+			colEnglish.DefaultCellStyle.Font = m_viewModel.EnglishReferenceTextFont.Font;
+			m_proxyBasedOnFontForCharacterAndDeliveryColumns.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			m_dataGridReferenceText.DefaultCellStyle.Font = m_proxyBasedOnFontForCharacterAndDeliveryColumns.Font;
 		}
 
 		private void UpdateSavedText(object obj, EventArgs e)
@@ -1669,7 +1673,7 @@ namespace Glyssen.Dialogs
 						{
 							using (Graphics g = CreateGraphics())
 							{
-								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.RightToLeftScript);
 								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
 										clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
 										m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +

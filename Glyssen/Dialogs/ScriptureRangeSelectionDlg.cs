@@ -7,10 +7,12 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Controls;
-using Glyssen.Paratext;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenEngine.Paratext;
+using GlyssenEngine.Script;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -103,7 +105,7 @@ namespace Glyssen.Dialogs
 			Debug.Assert(m_project.IsLiveParatextProject);
 			if (m_paratextScrTextWrapper == null)
 			{
-				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(true, "", false);
+				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(new WinformsParatextProjectLoadingAssistant(null, false));
 				if (m_paratextScrTextWrapper == null)
 					return false;
 			}

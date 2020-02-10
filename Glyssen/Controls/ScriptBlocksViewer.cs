@@ -5,11 +5,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.Events;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using GlyssenEngine.Script;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using Font = System.Drawing.Font;
 
 namespace Glyssen.Controls
 {
@@ -19,18 +21,12 @@ namespace Glyssen.Controls
 		Grid,
 	}
 
-	public enum BlockGroupingType
-	{
-		Quote,
-		BlockCorrelation,
-	}
-
 	public partial class ScriptBlocksViewer : UserControl
 	{
 		private const int kContextBlocksBackward = 10;
 		private const int kContextBlocksForward = 10;
 
-		private BlockNavigatorViewModel m_viewModel;
+		private BlockNavigatorViewModel<Font> m_viewModel;
 		private Func<string, string> m_getCharacterIdForUi;
 		private Func<Block, string> m_getDelivery;
 		private ToolTip m_toolTip;
@@ -61,7 +57,7 @@ namespace Glyssen.Controls
 			}
 		}
 
-		public void Initialize(BlockNavigatorViewModel viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
+		public void Initialize(BlockNavigatorViewModel<Font> viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
 		{
 			m_viewModel = viewModel;
 			m_getCharacterIdForUi = getCharacterIdForUi;
@@ -239,7 +235,7 @@ namespace Glyssen.Controls
 					HideToolTip();
 					return;
 				}
-				if (checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
+				if (checkElement.ClassName != BlockNavigatorViewModel<Font>.kCssClassContext)
 					checkElement = checkElement.Parent;
 				else
 					break;
@@ -249,7 +245,7 @@ namespace Glyssen.Controls
 			{
 				Debug.Assert(checkElement != null);
 				m_toolTip = new ToolTip { IsBalloon = true };
-				string toolTipText = m_getCharacterIdForUi(checkElement.GetAttribute(BlockNavigatorViewModel.kDataCharacter));
+				string toolTipText = m_getCharacterIdForUi(checkElement.GetAttribute(BlockNavigatorViewModel<Font>.kDataCharacter));
 
 				// 42 and 43 are the magic numbers which happens to make these display in the correct place
 				// REVIEW: it would be nice to figure out a better way to place these which is more robust. These numbers have changed several times already
@@ -262,7 +258,7 @@ namespace Glyssen.Controls
 
 		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
 		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
+			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel<Font>.kMainQuoteElementId, -225);
 		}
 
 		private void OnMouseClick(object sender, DomMouseEventArgs e)

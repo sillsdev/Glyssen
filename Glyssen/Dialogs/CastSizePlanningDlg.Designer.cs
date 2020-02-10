@@ -506,8 +506,8 @@ namespace Glyssen.Dialogs
 			this.m_castSizePlanningOptions.Size = new System.Drawing.Size(418, 151);
 			this.m_castSizePlanningOptions.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_castSizePlanningOptions, true);
-			this.m_castSizePlanningOptions.CastSizeOptionChanged += new System.EventHandler<Glyssen.Dialogs.CastSizeOptionChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeOptionChanged);
-			this.m_castSizePlanningOptions.CastSizeCustomValueChanged += new System.EventHandler<Glyssen.Dialogs.CastSizeValueChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeCustomValueChanged);
+			this.m_castSizePlanningOptions.CastSizeOptionChanged += new System.EventHandler<GlyssenEngine.ViewModels.CastSizeOptionChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeOptionChanged);
+			this.m_castSizePlanningOptions.CastSizeCustomValueChanged += new System.EventHandler<GlyssenEngine.ViewModels.CastSizeValueChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeCustomValueChanged);
 			// 
 			// m_lblWhenYouClick
 			// 

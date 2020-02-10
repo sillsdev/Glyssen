@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using GlyssenEngine;
 using L10NSharp;
 
 namespace Glyssen.Dialogs

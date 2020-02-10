@@ -5,14 +5,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
-using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
+using GlyssenEngine.Script;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -22,6 +23,7 @@ using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
 using Analytics = DesktopAnalytics.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Dialogs
 {
@@ -80,7 +82,7 @@ namespace Glyssen.Dialogs
 
 			if (m_project.IsLiveParatextProject && readOnly)
 			{
-				var wrapper = m_project.GetLiveParatextDataIfCompatible(false, checkForChangesInAvailableBooks: false);
+				var wrapper = m_project.GetLiveParatextDataIfCompatible(null, false);
 				m_linkOverride.Visible = m_allowOverride = wrapper == null || !wrapper.UserCanEditProject;
 			}
 
@@ -293,6 +295,7 @@ namespace Glyssen.Dialogs
 
 		private bool ReadOnly
 		{
+			get => !m_pnlLevels.Enabled;
 			set
 			{
 				m_pnlLevels.Enabled = !value;
@@ -363,9 +366,8 @@ namespace Glyssen.Dialogs
 			{
 				if ((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0)
 				{
-					m_project.QuoteSystemStatus = QuoteSystemStatus.Reviewed;
-					// Kicks off the quote parse (which we haven't run yet)
-					m_project.QuoteSystem = currentQuoteSystem;
+					// This kicks off the quote parse (which we haven't run yet)
+					m_project.SetQuoteSystem(QuoteSystemStatus.Reviewed, currentQuoteSystem);
 				}
 				else
 					HandleAnalysisCompleted(this, null);
@@ -429,9 +431,7 @@ namespace Glyssen.Dialogs
 				});
 
 			// Want to set the status even if already UserSet because that triggers setting QuoteSystemDate
-			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
-
-			m_project.QuoteSystem = currentQuoteSystem;
+			m_project.SetQuoteSystem(QuoteSystemStatus.UserSet, currentQuoteSystem);
 			// After setting this, the user could get a subsequent dialog box giving them the chance to review the settings,
 			// but since we've already saved their changes, they can't really "Cancel" those saved changes anymore.
 			m_btnCancel.DialogResult = DialogResult.OK;
@@ -696,7 +696,7 @@ namespace Glyssen.Dialogs
 			if (!IsHandleCreated)
 				return;
 
-			if (!m_testResults.Visible)
+			if (!m_testResults.Visible && !ReadOnly)
 				UpdateTestParse(false);
 
 			BlocksToDisplay mode;

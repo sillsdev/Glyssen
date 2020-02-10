@@ -306,67 +306,21 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BiblicalAuthorsTests.cs" />
-    <Compile Include="BlockMatchupTests.cs" />
-    <Compile Include="BlockNavigatorTests.cs" />
-    <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
-    <Compile Include="Dialogs\SplitBlockViewModelTests.cs" />
     <Compile Include="Dialogs\CastSizeCalculationUtilities.cs" />
-    <Compile Include="Dialogs\UnappliedSplitsViewModelTests.cs" />
-    <Compile Include="ProjectCharacterDetailDataTests.cs" />
-    <Compile Include="BlockTests.cs" />
-    <Compile Include="BookSetUtilsTests.cs" />
-    <Compile Include="Bundle\GlyssenBundleTests.cs" />
-    <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
-    <Compile Include="Character\CharacterAssignerTests.cs" />
-    <Compile Include="Character\CharacterGroupListTests.cs" />
-    <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
-    <Compile Include="Character\CharacterGroupTemplateTests.cs" />
-    <Compile Include="Character\CharacterGroupTests.cs" />
-    <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
-    <Compile Include="BookScriptTests.cs" />
-    <Compile Include="Dialogs\AddCharactersToGroupViewModelTests.cs" />
-    <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
-    <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
-    <Compile Include="Dialogs\CastSizePlanningViewModelTests.cs" />
-    <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
-    <Compile Include="Dialogs\MoveCharactersToGroupUndoActionTests.cs" />
-    <Compile Include="Dialogs\ProjectSettingsViewModelTests.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentUndoActionTests.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentViewModelTests.cs" />
-    <Compile Include="Dialogs\VoiceActorUndoActionTests.cs" />
-    <Compile Include="Dialogs\VoiceActorEditingUndoActionTests.cs" />
-    <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />
-    <Compile Include="ProjectDataMigratorTests.cs" />
-    <Compile Include="ProjectExportTests.cs" />
-    <Compile Include="ProjectTests.cs" />
-    <Compile Include="ReferenceTextIdentifierTests.cs" />
-    <Compile Include="ReferenceTextTests.cs" />
-    <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
-    <Compile Include="Quote\QuoteParserTests.cs" />
-    <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
-    <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
-    <Compile Include="Rules\ProximityTests.cs" />
-    <Compile Include="Rules\AuthorStatsTests.cs" />
-    <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
-    <Compile Include="ScriptExporterTests.cs" />
-    <Compile Include="TestProject.cs" />
-    <Compile Include="UsxParserTests.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\VerseBridge.cs" />
     <Compile Include="Utilities\VerseRefExtensionsTests.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -398,31 +352,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\azeri.glyssen" />
-    <None Include="Resources\english.glyssen" />
-    <None Include="Resources\french.glyssen" />
-    <None Include="Resources\spanish.glyssen" />
     <None Include="Resources\TestCharacterGroups.xlsx" />
-    <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TestMRK.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TestJUD.xml" />
-    <None Include="Resources\TestACT.xml" />
-    <None Include="Resources\TestCharacterDetailOct2015.txt" />
-    <None Include="Resources\TestCharacterDetail.txt" />
-    <None Include="Resources\Test1JN.xml" />
-    <None Include="Resources\Test2JN.xml" />
-    <None Include="Resources\Test3JN.xml" />
-    <None Include="Resources\AzeriJUDRefText.xml" />
-    <None Include="Resources\EnglishVersification.txt" />
-    <None Include="Resources\AzeriREVRefText.xml" />
-    <None Include="Resources\FrenchMRKRefText.xml" />
-    <None Include="Resources\FrenchMATRefText.xml" />
-    <None Include="Resources\SpanishMATRefText.xml" />
-    <None Include="Resources\Test1CO.xml" />
     <Content Include="icu32\icudt54.dll" />
     <Content Include="icu32\icuin54.dll" />
     <Content Include="icu32\icuuc54.dll" />
@@ -430,25 +362,6 @@
     <Content Include="icu64\icudt54.dll" />
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
-    <None Include="Resources\RussianOrthodoxVersification.txt" />
-    <Content Include="Resources\OriginalVersification.txt" />
-    <Content Include="Resources\TestCharacterVerseOct2015.txt" />
-    <None Include="Resources\TestEPH.xml" />
-    <None Include="Resources\TestGAL.xml" />
-    <None Include="Resources\TestHEB.xml" />
-    <None Include="Resources\TestJOS.xml" />
-    <None Include="Resources\TestJHN.xml" />
-    <None Include="Resources\TestEmptyBook.xml" />
-    <Content Include="Resources\TestLUK.xml" />
-    <None Include="Resources\TestPHM.xml" />
-    <None Include="Resources\TestREV.xml" />
-    <None Include="Resources\TestMATcuk.xml" />
-    <Content Include="Resources\TestNarratorOverrides.xml" />
-    <Content Include="Resources\TestNUM.xml" />
-    <Content Include="Resources\TestOBAwithInterestingVerseNums.xml" />
-    <Content Include="Resources\TestRUT.xml" />
-    <None Include="Resources\TestReferenceTextJUD.xml" />
-    <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
