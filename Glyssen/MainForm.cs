@@ -8,21 +8,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Bundle;
-using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Paratext;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
+using GlyssenEngine.Export;
 using GlyssenEngine.Paratext;
-using Glyssen.Rules;
+using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
+using GlyssenEngine.ViewModels;
 using L10NSharp;
 using L10NSharp.UI;
-using SIL;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
@@ -35,8 +34,11 @@ using NetSparkle;
 using Paratext.Data;
 using SIL.Scripture;
 using SIL.Windows.Forms.ReleaseNotes;
+using SIL.Windows.Forms.WritingSystems;
 using static System.String;
 using Analytics = DesktopAnalytics.Analytics;
+using Resources = Glyssen.Properties.Resources;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
 
 namespace Glyssen
 {
@@ -59,11 +61,13 @@ namespace Glyssen
 
 			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
+			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
+
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
 
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
-			m_uiLanguageMenu.ToolTipText = Localizer.GetString("MainForm.UILanguage", "User-interface Language");
+			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
 			LocalizeItemDlg<TMXDocument>.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
@@ -75,6 +79,22 @@ namespace Glyssen
 			{
 				ImportShare(args[0]);
 			}
+		}
+
+		private void UpgradingProjectToNewParserVersion(object sender, EventArgs e)
+		{
+			var existingProject = (Project)sender;
+			var details = new Dictionary<string, string>
+			{
+				{"language", existingProject.LanguageIsoCode},
+				{"ID", existingProject.Id},
+				{"recordingProjectName", existingProject.Name},
+				{"oldParserVersion", existingProject.ParserVersionWhenLastParsed.ToString(CultureInfo.InvariantCulture)},
+				{"newParserVersion", Project.kParserVersion.ToString(CultureInfo.InvariantCulture)}
+			};
+			if (existingProject.IsLiveParatextProject)
+				details.Add("ParatextProjectName", existingProject.ParatextProjectName);
+			Analytics.Track("UpgradeParatextProject", details);
 		}
 
 		public static void SetChildFormLocation(Form childForm)
@@ -139,16 +159,14 @@ namespace Glyssen
 			if (m_project != null)
 			{
 				if (m_project.HasUnappliedSplits())
-					using (var viewModel = new AssignCharacterViewModel(m_project))
+				{
+					using (var dlg = new UnappliedSplitsDlg(m_project.Name, new FontProxy(m_project.FontFamily, m_project.FontSizeInPoints, m_project.RightToLeftScript),
+						new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
 					{
-						viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
-						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font,
-							new UnappliedSplitsViewModel(m_project.IncludedBooks, m_project.RightToLeftScript)))
-						{
-							LogDialogDisplay(dlg);
-							dlg.ShowDialog(this);
-						}
+						LogDialogDisplay(dlg);
+						dlg.ShowDialog(this);
 					}
+				}
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
 				Logger.WriteEvent($"CurrentProject set to {Settings.Default.CurrentProject}");
@@ -352,7 +370,7 @@ namespace Glyssen
 				{
 					Analytics.Track("Project Load Failure", new Dictionary<string, string>
 					{
-						{"exceptionMessage", ex.Message},
+						{WinFormsErrorAnalytics.kExceptionMsgKey, ex.Message},
 						{"CurrentProjectPath", Settings.Default.CurrentProject},
 					});
 					throw;
@@ -383,7 +401,7 @@ namespace Glyssen
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(filePath));
+				SetProject(Project.Load(filePath, HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -392,6 +410,20 @@ namespace Glyssen
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
+		}
+
+		public static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded", "The splitting engine has been upgraded.") + " ";
+
+		private bool HandleMissingBundleNeededForProjectUpgrade(Project existingProject)
+		{
+			string msg = ParserUpgradeMessage + " " + Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
+				"To make use of the new engine, the original text release bundle must be available, but it is not in the original location ({0})."),
+				existingProject.OriginalBundlePath) +
+				Program.LocateBundleYourselfQuestion;
+			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+			if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+				return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+			return false;
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -463,7 +495,7 @@ namespace Glyssen
 				int i = error.IndexOf("\n", StringComparison.Ordinal);
 				if (i > 0)
 					error = error.Substring(0, i);
-				var msg = Format(Localizer.GetString("Project.InvalidVersificationFile",
+				var msg = Format(LocalizationManager.GetString("Project.InvalidVersificationFile",
 					"Invalid versification file in text release bundle. Unable to create project.\r\n" +
 					"Text release Bundle: {0}\r\n" +
 					"Versification file: {1}\r\n" +
@@ -490,13 +522,13 @@ namespace Glyssen
 			}
 
 			var optionalObserverInfo = paratextProject.UserCanEditProject ? Empty :
-				Format(Localizer.GetString("Project.NonEditingRole", "(You do not seem to have editing privileges for this {0} project.)",
+				Format(LocalizationManager.GetString("Project.NonEditingRole", "(You do not seem to have editing privileges for this {0} project.)",
 					"Param: \"Paratext\" (product name)"), ParatextScrTextWrapper.kParatextProgramName) +
 				Environment.NewLine;
 
 			if (!paratextProject.HasQuotationRulesSet)
 			{
-				var msg = Format(Localizer.GetString("Project.ParatextQuotationRulesNotDefined",
+				var msg = Format(LocalizationManager.GetString("Project.ParatextQuotationRulesNotDefined",
 						"You are attempting to create a {0} project for {1} project {2}, which does not have its Quotation " +
 						"Rules defined." +
 						"\r\n{3}" +
@@ -531,7 +563,7 @@ namespace Glyssen
 			// was included by default.
 			if (!paratextProject.HasBooksWithoutProblems)
 			{
-				var msg = Format(Localizer.GetString("Project.NoBooksPassedChecks",
+				var msg = Format(LocalizationManager.GetString("Project.NoBooksPassedChecks",
 					"{0} is not reporting a current successful status for any book in the {1} project for the basic checks " +
 					"that {2} usually requires to pass:" +
 					"\r\n   {3}\r\n{4}\r\n" +
@@ -610,7 +642,7 @@ namespace Glyssen
 			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : Empty;
 
 			if (m_project != null && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed)
-				m_lblSettingsInfo.Text = m_project.IsQuoteSystemReadyForParse ? m_project.SettingsSummary : Localizer.GetString("MainForm.QuoteMarksNeedReview", "Quote marks need to be reviewed");
+				m_lblSettingsInfo.Text = m_project.IsQuoteSystemReadyForParse ? m_project.SettingsSummary : LocalizationManager.GetString("MainForm.QuoteMarksNeedReview", "Quote marks need to be reviewed");
 			else
 				m_lblSettingsInfo.Text = Empty;
 
@@ -645,7 +677,7 @@ namespace Glyssen
 				percentAligned = m_project.ProjectAnalysis.AlignmentPercent;
 			}
 			if (m_project.ReferenceText == null)
-				m_lblPercentAssigned.Text = Localizer.GetString("MainForm.ReferenceTextUnavailable", "Reference text unavailable");
+				m_lblPercentAssigned.Text = LocalizationManager.GetString("MainForm.ReferenceTextUnavailable", "Reference text unavailable");
 			else
 			{
 				m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, MathUtilities.FormattedPercent(percentAssigned, 1, 2),
@@ -665,7 +697,7 @@ namespace Glyssen
 			var castSize = m_project.CharacterGroupList.CharacterGroups.Count;
 			var narratorCount = m_project.CharacterGroupList.CharacterGroups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator);
 			string format = (narratorCount > 1) ? m_castSizeFmt :
-				Localizer.GetString("MainForm.CastSizePlanSingleNarrator", "Cast size is {0}, including 1 narrator",
+				LocalizationManager.GetString("MainForm.CastSizePlanSingleNarrator", "Cast size is {0}, including 1 narrator",
 				"{0} is an expression indicating the total cast size");
 
 			var newValue = Format(format, castSize, narratorCount);
@@ -692,22 +724,22 @@ namespace Glyssen
 			}
 			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
 			string format = (actors > 1) ? Format(m_actorsAssignedFmt, actors, "{0}") :
-				Localizer.GetString("MainForm.ActorsAssignedSingle", "1 voice actor identified, {0}",
+				LocalizationManager.GetString("MainForm.ActorsAssignedSingle", "1 voice actor identified, {0}",
 				"{0} is an expression indicating the number of assigned actors");
 
 			string assignedParameter;
 			switch (assigned)
 			{
 				case 0:
-					assignedParameter = Localizer.GetString("MainForm.NoneAssigned", "0 assigned",
+					assignedParameter = LocalizationManager.GetString("MainForm.NoneAssigned", "0 assigned",
 						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
 					break;
 				case 1:
-					assignedParameter = Localizer.GetString("MainForm.OneAssigned", "1 assigned",
+					assignedParameter = LocalizationManager.GetString("MainForm.OneAssigned", "1 assigned",
 						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
 					break;
 				default:
-					assignedParameter = Format(Localizer.GetString("MainForm.MoreThanOneAssigned", "{0} assigned",
+					assignedParameter = Format(LocalizationManager.GetString("MainForm.MoreThanOneAssigned", "{0} assigned",
 						"{0} is the number of actors assigned. The resulting string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle"),
 						assigned);
 					break;
@@ -723,11 +755,14 @@ namespace Glyssen
 
 		private void UpdateProjectState()
 		{
-			// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
-			// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
-			// always attempts to open the same (corrupt) project.
-			Settings.Default.CurrentProject = null;
-			Settings.Default.Save();
+			if (m_project == null || Settings.Default.CurrentProject != m_project.ProjectFilePath)
+			{
+				// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
+				// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
+				// always attempts to open the same (corrupt) project.
+				Settings.Default.CurrentProject = null;
+				Settings.Default.Save();
+			}
 			if (m_project != null)
 				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
 		}
@@ -780,7 +815,7 @@ namespace Glyssen
 
 						if (m_project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
 						{
-							var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+							var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
 								"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
 							MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
 						}
@@ -817,19 +852,19 @@ namespace Glyssen
 			{
 				if (!m_project.IsVoiceActorAssignmentsComplete)
 				{
-					dlgMessage = Localizer.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
 						"One or more character groups have no voice actor assigned. Are you sure you want to export an incomplete script?");
 					scriptIncomplete = true;
 				}
 				else if (!m_project.EveryAssignedGroupHasACharacter)
 				{
-					dlgMessage = Localizer.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
 						"One or more character groups have no characters in them. Are you sure you want to export a script?");
 				}
 			}
 			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
 			{
-				dlgMessage = Format(Localizer.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
+				dlgMessage = Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
 						"Character assignment is {0} complete. Are you sure you want to export a script?", "Parameter is a percentage."),
 					MathUtilities.FormattedPercent(m_project.ProjectAnalysis.UserPercentAssigned, 1, 3));
 				scriptIncomplete = true;
@@ -837,7 +872,7 @@ namespace Glyssen
 			else if (m_project.ProjectAnalysis.NeedsReviewBlocks > 0)
 			{
 				dlgMessage = BlocksNeedReviewMessage + " " + UseNeedsReviewFilterHint + Environment.NewLine +
-					Localizer.GetString("DialogBoxes.ExportIncompleteScript.BlocksNeedReviewMessage",
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.BlocksNeedReviewMessage",
 					"Any block marked for review will not be assigned to a voice actor in the script until an actual biblical " +
 					"character is specified. Are you sure you want to export the script now?");
 			}
@@ -845,11 +880,11 @@ namespace Glyssen
 			if (dlgMessage != null)
 			{
 				string dlgTitle = scriptIncomplete ?
-					Localizer.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?"):
-					Localizer.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?"):
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
 
 				dlgMessage += Environment.NewLine +
-					Localizer.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
 						"(Note: You can export the script again as many times as you want.)");
 				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
@@ -882,7 +917,7 @@ namespace Glyssen
 			}
 
 			m_uiLanguageMenu.DropDownItems.Add(new ToolStripSeparator());
-			var menu = m_uiLanguageMenu.DropDownItems.Add(Localizer.GetString("MainForm.MoreMenuItem",
+			var menu = m_uiLanguageMenu.DropDownItems.Add(LocalizationManager.GetString("MainForm.MoreMenuItem",
 				"More...", "Last item in menu of UI languages"));
 			menu.Click += ((a, b) =>
 			{
@@ -905,7 +940,8 @@ namespace Glyssen
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 
-			using (var viewModel = new AssignCharacterViewModel(m_project))
+			var fontProxy = new AdjustableFontProxy(m_project.FontFamily, m_project.FontSizeInPoints, m_project.RightToLeftScript);
+			using (var viewModel = new AssignCharacterViewModel(m_project, fontProxy, AdjustableFontProxy.GetFontProxyForReferenceText))
 			{
 				viewModel.ProjectCharacterVerseDataAdded += HandleProjectCharacterAdded;
 				using (var dlg = new AssignCharacterDlg(viewModel))
@@ -952,7 +988,8 @@ namespace Glyssen
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 			var model = new ProjectSettingsViewModel(m_project);
-			using (var dlg = new ProjectSettingsDlg(model))
+			var wsModel = ProjectWritingSystemSetupModel;
+			using (var dlg = new ProjectSettingsDlg(model, wsModel))
 			{
 				LogDialogDisplay(dlg);
 				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated = null;
@@ -962,7 +999,8 @@ namespace Glyssen
 				if (result != DialogResult.OK)
 					return;
 
-				m_project.UpdateSettings(model);
+				m_project.UpdateSettings(model, wsModel.CurrentDefaultFontName, (int)wsModel.CurrentDefaultFontSize,
+					wsModel.CurrentRightToLeftScript);
 				SaveCurrentProject();
 				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = null;
 
@@ -1000,7 +1038,7 @@ namespace Glyssen
 			if (m_isOkayToClearExistingRefBlocksThatCannotBeMigrated == null)
 			{
 				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated =
-					MessageBox.Show(this, Format(Localizer.GetString("Project.OkayToClearExistingRefBlocksThatCannotBeMigrated",
+					MessageBox.Show(this, Format(LocalizationManager.GetString("Project.OkayToClearExistingRefBlocksThatCannotBeMigrated",
 					"This project has been changed to use the {0} reference text, but some blocks were already matched to " +
 					"the previous reference text. Some of those matches cannot be migrated, which means that the reference " +
 					"text data for those blocks is not in the correct language. " +
@@ -1043,22 +1081,21 @@ namespace Glyssen
 		}
 
 		private string BlocksNeedReviewMessage =>
-			(m_project.ProjectAnalysis.NeedsReviewBlocks > 1 ?
-			Format(Localizer.GetString("MainForm.BlocksNeedReviewMessage",
-			"There are {0} blocks in this project that need review before finalizing the script.")) :
-			Localizer.GetString("MainForm.OneBlockNeedReviewMessage",
-				"There is one block in this project that needs review before finalizing the script."));
+			m_project.ProjectAnalysis.NeedsReviewBlocks > 1 ?
+			Format(LocalizationManager.GetString("MainForm.BlocksNeedReviewMessage",
+			"There are {0} blocks in this project that need review before finalizing the script."), m_project.ProjectAnalysis.NeedsReviewBlocks) :
+			LocalizationManager.GetString("MainForm.OneBlockNeedReviewMessage",
+				"There is one block in this project that needs review before finalizing the script.");
 
 		private string UseNeedsReviewFilterHint =>
-			Localizer.GetString("MainForm.UseNeedsReviewFilterHint",
-			"(You can use the \"Needs review\" filter in Identify Speaking Parts to see which blocks still need attention.)")
-			;
+			LocalizationManager.GetString("MainForm.UseNeedsReviewFilterHint",
+			"(You can use the \"Needs review\" filter in Identify Speaking Parts to see which blocks still need attention.)");
 
 		private void AssignVoiceActors_Click(object sender, EventArgs e)
 		{
 			if (m_project.ProjectAnalysis.NeedsReviewBlocks > 0)
 			{
-				var msg = Localizer.GetString("Project.BlocksNeedReviewBeforeAssigning",
+				var msg = LocalizationManager.GetString("Project.BlocksNeedReviewBeforeAssigning",
 					"You can work on voice actor assignments now, but any block marked for review will not be assigned to a " +
 					"character group until an actual biblical character is specified. Therefore, character groups and actor " +
 					"assignments to those groups will be tentative until you complete this work in Identify Speaking Parts. ");
@@ -1116,6 +1153,14 @@ namespace Glyssen
 			}
 		}
 
+		private WritingSystemSetupModel ProjectWritingSystemSetupModel =>
+			new WritingSystemSetupModel(m_project.WritingSystem)
+			{
+				CurrentDefaultFontName = m_project.FontFamily,
+				CurrentDefaultFontSize = m_project.FontSizeInPoints,
+				CurrentRightToLeftScript = m_project.RightToLeftScript
+			};
+
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
 			bool launchAssignVoiceActors = false;
@@ -1140,8 +1185,8 @@ namespace Glyssen
 			{
 				if (m_temporaryRefTextOverrideForExporting != null)
 					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
-				else if (!ResolveNullReferenceText(Format(Localizer.GetString("Project.TemporarilyUseEnglishReferenceText",
-					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label  (in the current Windows locale)"),
+				else if (!ResolveNullReferenceText(Format(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
+					"To continue and temporarily use the English reference text, click {0}.", "Param is \"Ignore\" button label (in the current Windows locale)"),
 					MessageBoxStrings.IgnoreButton)))
 				{
 					return;
@@ -1150,7 +1195,7 @@ namespace Glyssen
 
 			try
 			{
-				var exporter = new ProjectExporter(m_project);
+				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsProvider);
 
 				if (!IsOkToExport(exporter))
 					return;
@@ -1176,7 +1221,7 @@ namespace Glyssen
 
 			var model = new ProjectSettingsViewModel(m_project);
 			string projectSettingsDlgTitle, referenceTextTabName;
-			using (var dlg = new ProjectSettingsDlg(model))
+			using (var dlg = new ProjectSettingsDlg(model, ProjectWritingSystemSetupModel))
 			{
 				projectSettingsDlgTitle = dlg.Text;
 				referenceTextTabName = dlg.ReferenceTextTabPageName;
@@ -1189,7 +1234,7 @@ namespace Glyssen
 			while (m_project.ReferenceText == null)
 			{
 				string msg;
-				var msgFmt = Localizer.GetString("Project.UnavailableReferenceText",
+				var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
 					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
 					"to the required reference text files, please put them in" +
 					"\n    {1}\n" +
@@ -1241,49 +1286,27 @@ namespace Glyssen
 		/// <param name="e"></param>
 		private void Export_Click(object sender, EventArgs e)
 		{
+			void HandleCustomReferenceText(string customIdentifier)
+			{
+				var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
+					"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
+					"should be installed on the other computer before importing.");
+				MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
+					ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 			try
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
-				m_project.PrepareForExport();
-
-				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
-
-				Debug.Assert(sourceDir != null);
-				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
-
-				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
-
-				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				Directory.CreateDirectory(share);
-
-				var saveAsName = Path.Combine(share, m_project.LanguageIsoCode + "_" + m_project.Name) + ProjectBase.kShareFileExtension;
-
-				using (var zip = new ZipFile())
-				{
-					zip.AddDirectory(sourceDir, nameInZip);
-					zip.Save(saveAsName);
-				}
-
-				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
-				{
-					var msg = Localizer.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
-						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
-						"should be installed on the other computer before importing.");
-					MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
-						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-
+				var saveAsName = m_project.ExportShare(HandleCustomReferenceText);
 				PathUtilities.SelectFileInExplorer(saveAsName);
 				Logger.WriteEvent($"Project exported to {saveAsName}");
 			}
 			finally
 			{
-				m_project.ExportCompleted();
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}
-
 		}
 
 		private void Import_Click(object sender, EventArgs e)
@@ -1335,7 +1358,7 @@ namespace Glyssen
 				// warn the user if data will be overwritten
 				if (RobustFile.Exists(projectFilePath))
 				{
-					var msg = Localizer.GetString("MainForm.ImportWarning",
+					var msg = LocalizationManager.GetString("MainForm.ImportWarning",
 							"Warning: You are about to import a project that already exists. If you continue, the existing project files will be replaced by the files being imported, which " +
 							"might result in loss of data. Do you want to continue and overwrite the existing files?");
 					Logger.WriteEvent(msg + " " + projectFilePath);
@@ -1351,11 +1374,13 @@ namespace Glyssen
 
 				// open the imported project
 				if (RobustFile.Exists(projectFilePath))
-					LoadProject(projectFilePath, () =>
+				{
+					void AdditionalActionAfterSettingProject()
 					{
+						SaveCurrentProject();
 						if (m_project.ReferenceTextProxy.Missing)
 						{
-							var msg = Localizer.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
+							var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
 								"The imported project uses a custom reference text ({0}) that is not available on this computer.\nFor best results, " +
 								"close {1} and install the reference text here:" +
 								"\n    {2}\n" +
@@ -1365,7 +1390,10 @@ namespace Glyssen
 								"file://" + m_project.ReferenceTextProxy.ProjectFolder),
 								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); });
 						}
-					});
+					}
+
+					LoadProject(projectFilePath, AdditionalActionAfterSettingProject);
+				}
 			}
 		}
 	}

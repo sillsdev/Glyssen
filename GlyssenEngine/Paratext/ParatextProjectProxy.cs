@@ -7,7 +7,7 @@ using SIL.DblBundle.Text;
 
 namespace GlyssenEngine.Paratext
 {
-	internal class ParatextProjectProxy : IProjectInfo
+	public class ParatextProjectProxy : IProjectInfo
 	{
 		public ParatextProjectProxy(ScrText scrText)
 		{

@@ -1,36 +1,35 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
-using GlyssenEngine.Utilities;
+using GlyssenEngine;
+using GlyssenEngine.ViewModels;
 
 namespace Glyssen.Utilities
 {
-	public class FontProxy : IFontInfo, IDisposable
+	public class FontProxy : IFontInfo<Font>, IDisposable
 	{
-		private const int kMinFontSize = 3;
-
-		private Font m_font;
+		protected Font m_font;
 		private readonly FontFamily m_fontFamily;
 		private readonly FontStyle m_style;
 		private readonly string m_fontFamilyName;
-		private readonly float m_baseFontSizeInPoints;
-		private readonly bool m_rightToLeftScript;
+		private readonly float m_fontSizeInPoints;
+		protected readonly bool m_clientResponsibleForDisposing;
 
-		private int m_fontSizeUiAdjustment;
-
-		public FontProxy(string fontFamilyName, int baseFontSizeInPoints, bool rightToLeftScript)
+		public FontProxy(string fontFamilyName, int fontSizeInPoints, bool rightToLeftScript)
 		{
 			m_fontFamilyName = fontFamilyName;
-			m_baseFontSizeInPoints = baseFontSizeInPoints;
-			m_rightToLeftScript = rightToLeftScript;
+			m_fontSizeInPoints = fontSizeInPoints;
+			RightToLeftScript = rightToLeftScript;
+			m_clientResponsibleForDisposing = false;
 		}
 
-		public FontProxy(Font originalFont)
+		public FontProxy(Font originalFont, bool rightToLeftScript)
 		{
 			m_fontFamily = originalFont.FontFamily;
 			m_style = originalFont.Style;
-			m_baseFontSizeInPoints = originalFont.SizeInPoints;
-			m_baseFontSizeInPoints = originalFont.SizeInPoints;
-			m_rightToLeftScript = false;
+			m_fontSizeInPoints = originalFont.SizeInPoints;
+			RightToLeftScript = rightToLeftScript;
+			m_clientResponsibleForDisposing = true;
 		}
 
 		public Font Font
@@ -38,58 +37,66 @@ namespace Glyssen.Utilities
 			get
 			{
 				if (m_font == null)
-					m_font = m_fontFamily != null ? new Font(m_fontFamily, AdjustedFontSize, m_style) : new Font(m_fontFamilyName, AdjustedFontSize);
+					m_font = m_fontFamily != null ? new Font(m_fontFamily, Size, m_style) : new Font(m_fontFamilyName, Size);
 				return m_font;
 			}
 		}
 
-		public bool RightToLeftScript
-		{
-			get { return m_rightToLeftScript; }
-		}
+		public bool RightToLeftScript { get; }
 
-		public string FontFamily
-		{
-			get { return m_fontFamilyName ?? m_fontFamily.Name; }
-		}
+		public string FontFamily => m_fontFamilyName ?? m_fontFamily.Name;
 
-		public int Size
-		{
-			get { return (int)AdjustedFontSize; }
-		}
-
-		private float AdjustedFontSize
-		{
-			get { return Math.Max(m_baseFontSizeInPoints + m_fontSizeUiAdjustment, kMinFontSize); }
-		}
-
-		public int FontSizeUiAdjustment
-		{
-			get { return m_fontSizeUiAdjustment; }
-		}
+		public virtual int Size => (int)m_fontSizeInPoints;
 
 		public void Dispose()
 		{
 			if (m_font != null)
 			{
+				Debug.Assert(!m_clientResponsibleForDisposing);
 				m_font.Dispose();
 				m_font = null;
 			}
-		}
-
-		public Font AdjustFontSize(int newAdjustedFontSize, bool disposeOldFont = false)
-		{
-			if (disposeOldFont)
-				Dispose();
-			else
-				m_font = null;
-			m_fontSizeUiAdjustment = newAdjustedFontSize;
-			return Font;
 		}
 
 		public static implicit operator Font(FontProxy fontProxy)
 		{
 			return fontProxy.Font;
 		}
+	}
+
+	public class AdjustableFontProxy : FontProxy, IAdjustableFontInfo<Font>
+	{
+		private const int kMinFontSize = 3;
+
+		private int m_fontSizeUiAdjustment;
+
+		public AdjustableFontProxy(string fontFamilyName, int baseFontSizeInPoints, bool rightToLeftScript) :
+			base(fontFamilyName, baseFontSizeInPoints, rightToLeftScript)
+		{
+		}
+
+		public AdjustableFontProxy(Font originalFont, bool rightToLeftScript) : base(originalFont, rightToLeftScript)
+		{
+		}
+
+		public override int Size => (int)AdjustedFontSize;
+
+		private float AdjustedFontSize => Math.Max(base.Size + m_fontSizeUiAdjustment, kMinFontSize);
+
+		public int FontSizeUiAdjustment
+		{
+			get => m_fontSizeUiAdjustment;
+			set 
+			{
+				if (m_clientResponsibleForDisposing)
+					m_font = null;
+				else
+					Dispose();
+				m_fontSizeUiAdjustment = value;
+			}
+		}
+
+		public static IAdjustableFontInfo<Font> GetFontProxyForReferenceText(ReferenceText referenceText) =>
+			new AdjustableFontProxy(referenceText.FontFamily, referenceText.FontSizeInPoints, referenceText.RightToLeftScript);
 	}
 }

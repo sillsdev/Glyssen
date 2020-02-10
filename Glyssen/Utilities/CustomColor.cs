@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using Glyssen.Character;
-using Glyssen.Dialogs;
 using GlyssenEngine.Character;
+using AssignCharacterViewModel = GlyssenEngine.ViewModels.AssignCharacterViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Utilities
 {

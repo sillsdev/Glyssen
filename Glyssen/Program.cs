@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -12,6 +13,7 @@ using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using GlyssenEngine;
 using GlyssenEngine.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
@@ -24,7 +26,8 @@ using SIL.Reporting;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
-using Analytics = GlyssenEngine.Utilities.Analytics;
+using static System.String;
+using Resources = Glyssen.Properties.Resources;
 
 namespace Glyssen
 {
@@ -57,7 +60,7 @@ namespace Glyssen
 			}
 
 			MessageModal.Default = new WinFormsMessageBox();
-			Analytics.Default = new WinFormsAnalytics();
+			GlyssenEngine.ErrorHandling.NonFatalErrorHandler.Default = new WinFormsErrorAnalytics();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -173,7 +176,74 @@ namespace Glyssen
 
 				SetUpLocalization();
 
-				DataMigrator.UpgradeToCurrentDataFormatVersion();
+				bool HandleMissingBundleNeededForUpgrade(Project existingProject)
+				{
+					string msg = Format(LocalizationManager.GetString("Project.DataFormatMigrationBundleMissingMsg",
+						"To upgrade the {0} project to the current {1} data format, the original text release bundle must be available, " +
+						"but it is not in the original location ({2}).",
+						"Param 0: Glyssen recording project name;" +
+						"Param 1: \"Glyssen\" (product name); " +
+						"Param 2: Path to the original location of the text release bundle"),
+						existingProject.Name,
+						GlyssenInfo.kProduct,
+						existingProject.OriginalBundlePath) +
+						LocateBundleYourselfQuestion;
+					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+					if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+						return SelectBundleForProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+					return false;
+				}
+
+				void HandleProjectPathChanged(string previousPath, string newPath)
+				{
+					if (Settings.Default.CurrentProject == previousPath)
+						Settings.Default.CurrentProject = newPath;
+				}
+
+				bool ConfirmSafeAudioAudioReplacements(IReadOnlyList<Tuple<string, string>> safeReplacements)
+				{
+					string fmt;
+					if (safeReplacements.Count == 1)
+					{
+						fmt = Localizer.GetString("DataMigration.ConfirmReplacementOfAudioAudio",
+							"Doing this will replace the existing project by the same name, which was originally created by {0}. " +
+							"Since none of the blocks in the project to be overwritten have any user decisions recorded, this seems " +
+							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+							"this action, you can either clean up the problem project yourself or verify that is is safe and then restart " +
+							"{0}. You will be asked about this each time you start the program as long as this problem remains unresolved.\r\n" +
+							"Confirm overwriting?",
+							"Param: \"Glyssen\" (product name); " +
+							"This follows the \"AudioAudioProblemPreambleSingle\".");
+					}
+					else
+					{
+						fmt = Localizer.GetString("DataMigration.ConfirmReplacementsOfAudioAudio",
+							"Doing this will replace the existing projects by the same name, which were originally created by {0}. " +
+							"Since none of the blocks in the projects to be overwritten have any user decisions recorded, this seems " +
+							"to be safe, but since {0} failed to make a backup, you need to confirm this. If you choose not to confirm " +
+							"this action, you can either clean up the problem projects yourself or verify that is is safe and then restart " +
+							"{0}. You will be asked about this each time you start the program as long as these problems remains unresolved.\r\n" +
+							"Confirm overwriting?",
+							"Param: \"Glyssen\" (product name); " +
+							"This follows the \"AudioAudioProblemPreambleMultiple\".");
+					}
+
+					var msg = DataMigrator.GetAudioAudioProblemPreamble(safeReplacements.Count) +
+						Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
+						Format(fmt, GlyssenInfo.kProduct);
+					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+				}
+
+				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
+					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);
+				if (upgradeInfo != null)
+				{
+					Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>
+					{
+						{ "old", upgradeInfo.Item1.ToString(CultureInfo.InvariantCulture) },
+						{ "new", upgradeInfo.Item2.ToString(CultureInfo.InvariantCulture) }
+					});
+				}
 
 				SampleProject.CreateSampleProjectIfNeeded();
 
@@ -181,7 +251,7 @@ namespace Glyssen
 				// it also detects corruption and deletes it if needed so we don't crash.
 				string userConfigSettingsPath = GetUserConfigFilePath();
 
-				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
+				if ((Control.ModifierKeys & Keys.Shift) > 0 && !IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
 
 				// This might also be needed if Glyssen and ParatextData use different versions of SIL.WritingSystems.dll
@@ -200,6 +270,9 @@ namespace Glyssen
 				}
 			}
 		}
+
+		public static string LocateBundleYourselfQuestion => Environment.NewLine + Environment.NewLine +
+			LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text release bundle yourself?");
 
 		public static string GetUserConfigFilePath()
 		{
@@ -315,7 +388,7 @@ namespace Glyssen
 			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
-			if (string.IsNullOrEmpty(desiredUiLangId))
+			if (IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
 					using (var dlg = new LanguageChoosingSimpleDialog(Resources.glyssenIcon))
 						if (DialogResult.OK == dlg.ShowDialog())
@@ -326,7 +399,7 @@ namespace Glyssen
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
 
-			var uiLanguage = Localizer.UILanguageId;
+			var uiLanguage = LocalizationManager.UILanguageId;
 			LocalizationManager.Create(TranslationMemory.Tmx, uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");

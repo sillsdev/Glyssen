@@ -5,10 +5,11 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using GlyssenEngine.ViewModels;
 using SIL.Reporting;
 using SIL.Scripture;
+using BlockNavigatorViewModel = GlyssenEngine.ViewModels.BlockNavigatorViewModel<System.Drawing.Font>;
 
 namespace Glyssen.Controls
 {
@@ -18,7 +19,7 @@ namespace Glyssen.Controls
 		private DataGridViewTextBoxColumn m_colReference;
 		private DataGridViewTextBoxColumn m_colText;
 		private BlockNavigatorViewModel m_viewModel;
-		private FontProxy m_originalDefaultFont;
+		private AdjustableFontProxy m_originalDefaultFont;
 
 		private bool m_userIsResizingColumns;
 		private bool m_userResizedRefColumn;
@@ -132,7 +133,7 @@ namespace Glyssen.Controls
 
 		protected override void OnCellPainting(DataGridViewCellPaintingEventArgs e)
 		{
-			if (!e.Handled && m_viewModel != null && m_viewModel.Font.RightToLeftScript && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
+			if (!e.Handled && m_viewModel != null && m_viewModel.RightToLeftScript && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
 			{
 				e.PaintBackground(e.CellBounds, true);
 				TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(),
@@ -171,7 +172,7 @@ namespace Glyssen.Controls
 			Debug.Assert(m_colText != null);
 			m_viewModel = viewModel;
 
-			m_originalDefaultFont = new FontProxy(DefaultCellStyle.Font);
+			m_originalDefaultFont = new AdjustableFontProxy(DefaultCellStyle.Font, viewModel.RightToLeftScript);
 			SetFontsFromViewModel();
 
 			m_minimumWidthFromDesigner = MinimumSize.Width;
@@ -346,7 +347,7 @@ namespace Glyssen.Controls
 			{
 				Debug.Assert(CellBorderStyle == DataGridViewCellBorderStyle.Single);
 				const int borderWidth = 1;
-				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.RightToLeftScript);
 				m_colReference.Width = DataGridViewCell.MeasureTextWidth(g, refString,
 					cellStyle.Font ?? DefaultCellStyle.Font, Int32.MaxValue, flags) +
 					cellStyle.Padding.Horizontal + borderWidth;
@@ -409,7 +410,8 @@ namespace Glyssen.Controls
 		private void SetFontsFromViewModel()
 		{
 			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
-			DefaultCellStyle.Font = m_originalDefaultFont.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			m_originalDefaultFont.FontSizeUiAdjustment = m_viewModel.FontSizeUiAdjustment;
+			DefaultCellStyle.Font = m_originalDefaultFont;
 		}
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)

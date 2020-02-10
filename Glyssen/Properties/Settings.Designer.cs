@@ -71,15 +71,6 @@ namespace Glyssen.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("49")]
-        public int ParserVersion {
-            get {
-                return ((int)(this["ParserVersion"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -123,15 +114,6 @@ namespace Glyssen.Properties {
             }
             set {
                 this["QuoteMarksDialogShowGridView"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public int DataFormatVersion {
-            get {
-                return ((int)(this["DataFormatVersion"]));
             }
         }
         

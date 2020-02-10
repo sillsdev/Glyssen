@@ -12,20 +12,6 @@ Glyssen is written in C# using Windows Forms.
 
 We have a battery of unit tests written using NUnit.
 
-Getting up-to-date libraries
-====================
-We depend on some libraries built on SIL's TeamCity agents.
-The source contains a script for downloading dependencies from TeamCity.
-
-From the build directory, run the buildUpdate.sh script:
-
-	cd {GlyssenRoot}/build
-	./buildUpdate.sh
-
-If changes are made to the dependencies on TeamCity, the build update script should be regenerated. To automatically generate buildUpdate.sh from a setup on TeamCity, see
-	
-	 {GlyssenRoot}/build/readme - making buildUpdate script.txt
-
 Platform
 ====================
 Glyssen only runs on Windows, but FCBH is working on a new cross-platform product that will use the GlyssenEngine.
