@@ -739,7 +739,6 @@
     <Content Include="icu64\icudt54.dll" />
     <Content Include="icu64\icuin54.dll" />
     <Content Include="icu64\icuuc54.dll" />
-    <Content Include="Resources\EnglishVersification.txt" />
     <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
     <None Include="Resources\UpdateGroups.png" />
