@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
@@ -220,6 +221,20 @@ namespace GlyssenEngine
 			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(startVerse) == 0);
 		}
 
+		/// <summary>
+		/// Given a particular block (identified by index) in a book, returns a "matchup" consisting of all the blocks for all
+		/// the verses in that block, plus any adjoining verses that do not correspond to a clean break location. Note that the
+		/// matchup can include both preceding and following blocks. By design, if the index of any block in the matchup is passed
+		/// to this method, it will always return a matchup covering the same set of blocks (unless a predetermined block count is
+		/// supplied). Matchup objects are not cached for this purpose, however, so it should not be expected to return the
+		/// identical object.
+		/// </summary>
+		/// <param name="vernacularBook">The book</param>
+		/// <param name="iBlock">Index of the "anchor" block for the matchup</param>
+		/// <param name="predeterminedBlockCount">Used to get a fast result if the caller knows the exact extent of the desired
+		/// matchup (typically based on a previous call to this method).</param>
+		/// <param name="allowSplitting">Flag indicating whether existing reference text blocks can be split (at verse breaks) to
+		/// achieve better correspondence to the vernacular blocks.</param>
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock,
 			uint predeterminedBlockCount = 0, bool allowSplitting = true)
 		{
@@ -257,9 +272,30 @@ namespace GlyssenEngine
 			return matchup;
 		}
 
+		/// <summary>
+		/// By examining the blocks (and their currently assigned character IDs) for each verse represented by the given list of
+		/// vernacular blocks, the corresponding reference blocks are matched up to achieve the best
+		/// possible correspondence. Whenever this results in a reliable match to a single block, the correlation is considered
+		/// a "match." Otherwise, the blocks are stored as a sequence (0 or more) of mismatching blocks.
+		/// </summary>
+		/// <param name="vernBlockList">the list of vernacular (i.e., "target language") blocks (typically a whole book's worth -
+		/// and never more than one book's worth). Note that these objects will usually be modified by this method. If that is
+		/// not desirable, a cloned list should be passed.</param>
+		/// <param name="bookId">The standard SIL three-letter book code</param>
+		/// <param name="vernacularVersification">If this is different from the versification used by the reference text (which for
+		/// standard reference texts is always English), this will be used to ensure that the reference blocks for the corresponding
+		/// verses are used.</param>
+		/// <param name="forceMatch">Flag indicating that any block which would otherwise be considered a mismatch should be
+		/// considered a match to the corresponding reference text blocks. If there is more than one correspnding block, these
+		/// will be joined into a single block for this purpose. (A block can never be regarded as a match to more than one
+		/// reference block.)</param>
+		/// <param name="allowSplitting">Flag indicating whether existing reference text blocks can be split (at verse breaks) to
+		/// achieve better correspondence to the vernacular blocks. IMPORTANT: If this is true, the CALLER is responsible for
+		/// obtaining the lock on m_modifiedBooks.</param>
 		private void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification,
 			bool forceMatch = false, bool allowSplitting = true)
 		{
+			Debug.Assert(!allowSplitting || Monitor.IsEntered(m_modifiedBooks), "If allowSplitting is true, caller is responsible for obtaining a lock on m_modifiedBooks.");
 			int bookNum = BCVRef.BookToNumber(bookId);
 			var refBook = Books.Single(b => b.BookId == bookId);
 			var refBlockList = refBook.GetScriptBlocks();
@@ -473,7 +509,15 @@ namespace GlyssenEngine
 							}
 							else
 							{
-								vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+								var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i);
+								if (forceMatch)
+								{
+									// If allowSplitting is true, the caller was responsible for obtaining the lock on m_modifiedBooks,
+									// so we don't need to incur that overhead again here.
+									CombineRefBlocksToCreateMatch(remainingRefBlocks.ToList(), vernBlockInVerseChunk, allowSplitting && m_modifiedBooks.Contains(bookId));
+								}
+								else
+									vernBlockInVerseChunk.SetUnmatchedReferenceBlocks(remainingRefBlocks);
 							}
 							break;
 						}
@@ -537,10 +581,9 @@ namespace GlyssenEngine
 							}
 							else if (forceMatch)
 							{
-								var refBlock = remainingRefBlocksList[0];
-								for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
-									refBlock.CombineWith(remainingRefBlocksList[rb]);
-								vernBlockList[iVernBlock].SetMatchedReferenceBlock(refBlock);
+								// If allowSplitting is true, the caller was responsible for obtaining the lock on m_modifiedBooks,
+								// so we don't need to incur that overhead again here.
+								CombineRefBlocksToCreateMatch(remainingRefBlocksList, vernBlockList[iVernBlock], allowSplitting && m_modifiedBooks.Contains(bookId));
 							}
 							else
 							{
@@ -613,6 +656,16 @@ namespace GlyssenEngine
 				if (vernBlockList[indexOfLastVernVerseInVerseChunk].ReferenceBlocks.Any())
 					iVernBlock = indexOfLastVernVerseInVerseChunk;
 			}
+		}
+
+		private static void CombineRefBlocksToCreateMatch(List<Block> remainingRefBlocksList, Block vernBlock, bool clone)
+		{
+			var refBlock = remainingRefBlocksList[0];
+			if (clone)
+				refBlock.Clone(Block.ReferenceBlockCloningBehavior.CloneListAndAllReferenceBlocks);
+			for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
+				refBlock.CombineWith(remainingRefBlocksList[rb]);
+			vernBlock.SetMatchedReferenceBlock(refBlock);
 		}
 
 		/// <summary>
