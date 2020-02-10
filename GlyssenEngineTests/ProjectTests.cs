@@ -895,7 +895,7 @@ namespace GlyssenEngineTests
 			}
 		}
 
-		[Test, Timeout(11000)]
+		[Test, Timeout(16000)]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();

@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
@@ -2146,6 +2147,46 @@ namespace GlyssenEngineTests
 			Assert.AreEqual("verse 23a in reftext - has no SH", result[0].GetPrimaryReferenceText(true));
 			Assert.Null(result[1].GetPrimaryReferenceText(true));
 			Assert.AreEqual("verse 23b in reftext - has no SH", result[2].GetPrimaryReferenceText(true));
+		}
+
+		// PG-1327
+		[Test]
+		public void ApplyTo_SingleVoice_MoreBlocksInVernacularThanInReferenceText_AppliesCorrectly()
+		{
+			// Mark 6:24
+			var vernacularBlocks = new List<Block>();
+			// This first block simulates the joining of a narrator block and the subsequent (ambiguous) block, which is
+			// what happens in GetBooksWithBlocksConnectedToReferenceText when called from Project Exporter. The second
+			// block is not joined (per current logic) because of the sentence-ending punctuation (?).
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Sara wɨdake' walyuna yaka ganaangevɨ wɨdɨna “Nɨmɨ berɨ'na wɨdɨjɨwana?”", true, 6, "MRK"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kAmbiguousCharacter, "“ ‘Jonɨ Bavɨtaazɨa mɨnyagɨnya' dyaama!’ sara duthana!”");
+			var vernBook = new BookScript("MRK", vernacularBlocks, m_vernVersification);
+			vernBook.SingleVoice = true;
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+
+			refText.ApplyTo(vernBook);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(2, result.Count);
+
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+			var russianRefTextBlock = result[0].ReferenceBlocks.Single();
+			Assert.AreEqual(24, ((Verse)russianRefTextBlock.BlockElements.First()).StartVerse);
+			var englishRefTextBlock = russianRefTextBlock.ReferenceBlocks.Single();
+			Assert.AreEqual(24, ((Verse)englishRefTextBlock.BlockElements.First()).StartVerse);
+			russianRefTextBlock = result[1].ReferenceBlocks.Single();
+			englishRefTextBlock = russianRefTextBlock.ReferenceBlocks.Single();
+			// Not entirely sure this is the best way, but rather than creating a dummy reference text or hard-coding the exact text as it is today,
+			// I'm writing this test using a regex so that it should survive any minor wording changes. Both the Russian and the English reference
+			// texts have the general pattern: Quote by Herod. Narrator introducing the reply. Quote by Herodias' daughter.
+			const string kOpenQuote = "(“|\u00AB)";
+			const string kCloseQuote = "(”|\u00BB)";
+			var combinedQuoteNarratorQuoteRefTextMatcher = new Regex($"^{kOpenQuote}.+\\?{kCloseQuote} .+(:|,) {kOpenQuote}.+\\.{kCloseQuote}$", RegexOptions.Compiled);
+			var russianRefTextPart2 = ((ScriptText)russianRefTextBlock.BlockElements.Single()).Content;
+			var englishRefTextPart2 = ((ScriptText)englishRefTextBlock.BlockElements.Single()).Content;
+			Assert.IsTrue(combinedQuoteNarratorQuoteRefTextMatcher.IsMatch(russianRefTextPart2));
+			Assert.IsTrue(combinedQuoteNarratorQuoteRefTextMatcher.IsMatch(englishRefTextPart2));
 		}
 
 		// PG-1086
