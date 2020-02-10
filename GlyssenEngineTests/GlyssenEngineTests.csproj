@@ -252,6 +252,8 @@
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Character\CharacterAssignerTests.cs" />
     <Compile Include="Character\CharacterGroupListTests.cs" />
+    <None Include="Character\Template\CharacterGroupTemplateExcelFileTests.cs" />
+    <None Include="Character\Template\CharacterGroupTemplateTests.cs" />
     <Compile Include="Character\CharacterGroupTests.cs" />
     <Compile Include="Character\CharacterVerseDataTests.cs" />
     <Compile Include="Character\ControlCharacterVerseDataTests.cs" />
@@ -336,6 +338,7 @@
     <None Include="Resources\english.glyssen" />
     <None Include="Resources\french.glyssen" />
     <None Include="Resources\spanish.glyssen" />
+    <Content Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestReferenceTextJUD.xml" />
     <None Include="Resources\RussianOrthodoxVersification.txt" />
     <None Include="Resources\AzeriJUDRefText.xml" />

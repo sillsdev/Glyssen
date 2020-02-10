@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Character;
 using GlyssenEngine.Character;
 
 namespace DevTools

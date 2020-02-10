@@ -295,6 +295,7 @@ namespace Glyssen.Dialogs
 
 		private bool ReadOnly
 		{
+			get => !m_pnlLevels.Enabled;
 			set
 			{
 				m_pnlLevels.Enabled = !value;
@@ -695,7 +696,7 @@ namespace Glyssen.Dialogs
 			if (!IsHandleCreated)
 				return;
 
-			if (!m_testResults.Visible)
+			if (!m_testResults.Visible && !ReadOnly)
 				UpdateTestParse(false);
 
 			BlocksToDisplay mode;

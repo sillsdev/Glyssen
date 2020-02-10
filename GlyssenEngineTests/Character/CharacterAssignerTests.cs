@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
