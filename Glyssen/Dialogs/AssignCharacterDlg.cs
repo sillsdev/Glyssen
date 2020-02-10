@@ -146,7 +146,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
 			m_viewModel.CorrelatedBlockCharacterAssignmentChanged += HandleCorrelatedBlockCharacterAssignmentChanged;
-			m_viewModel.SettingBlockCharacter += OnSettingBlockCharacter;
+			m_viewModel.SetBlockCharacter += OnSetBlockCharacter;
 
 			UpdateProgressBarForMode();
 
@@ -224,10 +224,12 @@ namespace Glyssen.Dialogs
 			}, GetType().FullName + ".m_viewModel_AssignedBlocksIncremented");
 		}
 
-		private void OnSettingBlockCharacter(AssignCharacterViewModel sender, Block block, ICharacter character)
+		private void OnSetBlockCharacter(AssignCharacterViewModel sender, Block block, ICharacter character)
 		{
-			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
-			if (!character.IsNarrator && !block.IsQuote)
+			// If the user assigns a non-narrator character to a block we marked as narrator, we want to track it
+			// Most likely, the last check (block.UserConfirmed) is redundant and unnecessary, because we would
+			// presumably never automatically set a block this way, but just to be sure...
+			if (character != null && !character.IsNarrator && !block.IsQuote && block.UserConfirmed)
 				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
 				{
 					{ "book", sender.CurrentBookId },
