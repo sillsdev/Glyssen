@@ -111,8 +111,23 @@ namespace Glyssen.Utilities
 			return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 		}
 
-		public bool ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject(string msg)
+		public bool ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject()
 		{
+			var msg = Format(LocalizationManager.GetString("Project.ParatextProjectIdChangedMsg",
+					"The ID of the {0} project {1} does not match the one expected by the {2} project. " +
+					"This usually happens when the {0} and {2} projects have been restored from backups " +
+					"(for example, to move them to a different computer). If this is the case, you can " +
+					"safely update this {2} project to use the ID of the {0} project on this computer. " +
+					"If you do not understand how this mismatch happened, please contact support.",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: \"Glyssen\" (product name)"),
+				ParatextScrTextWrapper.kParatextProgramName,
+				ParatextProjectName,
+				GlyssenInfo.kProduct);
+
+			Logger.WriteEvent(msg);
+
 			if (SilentMode)
 				return false;
 
@@ -134,30 +149,29 @@ namespace Glyssen.Utilities
 
 		public void ReportApplicationError(ApplicationException exception)
 		{
-			if (SilentMode)
-			{
-				Logger.WriteError(exception);
-				return;
-			}
-
 			string msg = Context + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateErrorMsg",
-						"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
-						"Param 0: Glyssen recording project name; " +
-						"Param 1: \"Glyssen\" (product name); " +
-						"Param 2: \"Paratext\" (product name); " +
-						"Param 3: Paratext project short name (unique project identifier)"),
-					Project.Name,
-					GlyssenInfo.kProduct,
-					ParatextScrTextWrapper.kParatextProgramName,
-					ParatextProjectName) +
-				Environment.NewLine + exception.Message;
+					"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
+					"Param 0: Glyssen recording project name; " +
+					"Param 1: \"Glyssen\" (product name); " +
+					"Param 2: \"Paratext\" (product name); " +
+					"Param 3: Paratext project short name (unique project identifier)"),
+				Project.Name,
+				GlyssenInfo.kProduct,
+				ParatextScrTextWrapper.kParatextProgramName,
+				ParatextProjectName);
 
-			var inner = exception.InnerException;
-			while (inner != null)
+			Logger.WriteEvent(msg);
+			Logger.WriteError(exception);
+
+			if (SilentMode)
+				return;
+
+			Exception ex = exception;
+			do
 			{
-				msg += Environment.NewLine + inner.Message;
-				inner = inner.InnerException;
-			}
+				msg += Environment.NewLine + ex.Message;
+				ex = ex.InnerException;
+			} while (ex != null);
 
 			MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}

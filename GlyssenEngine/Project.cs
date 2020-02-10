@@ -936,6 +936,12 @@ namespace GlyssenEngine
 
 		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true)
 		{
+			if (loadingAssistant != null)
+			{
+				loadingAssistant.Project = this;
+				loadingAssistant.ParatextProjectName = ParatextProjectName;
+			}
+
 			ParatextScrTextWrapper scrTextWrapper;
 			ScrText sourceScrText = null;
 			do
@@ -979,28 +985,17 @@ namespace GlyssenEngine
 				if (compatible)
 				{
 					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
-					if (!compatible)
+					if (!compatible && loadingAssistant != null &&
+						!Directory.Exists(GetProjectFolderPath(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name)))
 					{
-						var msg = Format(Localizer.GetString("Project.ParatextProjectIdChangedMsg",
-								"The ID of the {0} project {1} does not match the one expected by the {2} project. " +
-								"This usually happens when the {0} and {2} projects have been restored from backups " +
-								"(for example, to move them to a different computer). If this is the case, you can " +
-								"safely update this {2} project to use the ID of the {0} project on this computer. " +
-								"If you do not understand how this mismatch happened, please contact support.",
-								"Param 0: \"Paratext\" (product name); " +
-								"Param 1: Paratext project short name (unique project identifier); " +
-								"Param 2: \"Glyssen\" (product name)"),
-							ParatextScrTextWrapper.kParatextProgramName,
-							ParatextProjectName,
-							GlyssenInfo.kProduct);
-						if (loadingAssistant != null && loadingAssistant.ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject(msg))
+						if (loadingAssistant.ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject())
 						{
 							ChangePublicationId(scrTextWrapper.GlyssenDblTextMetadata.Id);
 							loadingAssistant.HandleProjectPathChanged();
 							compatible = true;
 						}
 						else
-							throw new ApplicationException(msg);
+							return null;
 					}
 				}
 				if (!compatible)
