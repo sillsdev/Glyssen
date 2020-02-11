@@ -105,7 +105,9 @@ namespace Glyssen.Dialogs
 			Debug.Assert(m_project.IsLiveParatextProject);
 			if (m_paratextScrTextWrapper == null)
 			{
-				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(new WinformsParatextProjectLoadingAssistant(null, false));
+				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(
+					new WinformsParatextProjectLoadingAssistant(null, false)
+						{ AutoConfirmUpdateThatWouldExcludeExistingBooks = true });
 				if (m_paratextScrTextWrapper == null)
 					return false;
 			}

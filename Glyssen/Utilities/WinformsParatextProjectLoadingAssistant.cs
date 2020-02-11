@@ -20,6 +20,7 @@ namespace Glyssen.Utilities
 		public Project Project { get; set; }
 		public bool SilentMode { get; set; }
 		public string ParatextProjectName { get; set; }
+		public bool AutoConfirmUpdateThatWouldExcludeExistingBooks { get; set; }
 
 		public WinformsParatextProjectLoadingAssistant(string context, bool forceReload)
 		{
@@ -68,6 +69,9 @@ namespace Glyssen.Utilities
 
 		public bool ConfirmUpdateThatWouldExcludeExistingBooks(IReadOnlyCollection<string> noLongerAvailableBookIds, IReadOnlyCollection<string> noLongerPassingListBookIds)
 		{
+			if (AutoConfirmUpdateThatWouldExcludeExistingBooks)
+				return true;
+
 			string msg = Context + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateExcludedBooksWarning",
 				"{1} detected changes in the {2} project {3} that would result in the exclusion " +
 				"of books from the {0} project that were previously included:",
