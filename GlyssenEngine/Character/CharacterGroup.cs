@@ -58,7 +58,7 @@ namespace GlyssenEngine.Character
 				ErrorReport.NotifyUserOfProblem(Localizer.GetString("CharacterGroup.InvalidActorId",
 					"Character group {0} is assigned to a voice actor who is no longer part of this project. " +
 					"This might have been caused by a previous failure. {1} will clear this assignment for you now."),
-					GroupIdForUiDisplay, GlyssenInfo.kProduct);
+					GroupIdForUiDisplay, GlyssenInfo.Product);
 				RemoveVoiceActor();
 			}
 			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(characterId => m_project.KeyStrokesByCharacterId[characterId]);

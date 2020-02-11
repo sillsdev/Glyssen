@@ -62,6 +62,7 @@ namespace Glyssen
 			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
+			Project.GetBadLdmlFileRecoveryAction += GetBadLdmlFileRecoveryAction;
 
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
@@ -78,6 +79,38 @@ namespace Glyssen
 			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(ProjectBase.kShareFileExtension))
 			{
 				ImportShare(args[0]);
+			}
+		}
+
+		private BadLdmlFileRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string ldmlFilePath, string error, bool attemptToUseBackup)
+		{
+			var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+					"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
+					"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
+				sender.Name, ldmlFilePath, error);
+			var msg2 = Format(attemptToUseBackup
+				? LocalizationManager.GetString("Project.UseBackupLdmlFile",
+					"To use the automatically created backup (which might be out-of-date), click {0}.",
+					"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
+					"created backup file exists. Param is \"Retry\" button label.")
+				: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
+					"If you can replace it with a valid backup or know how to repair it yourself, do so and then click {0}.",
+					"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
+					"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
+			var msg3 = Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
+					"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
+					"so check the quote system and font settings carefully.",
+					"Param 0: \"Ignore\" button label; " +
+					"Param 1: Product name (e.g., \"Glyssen\")"),
+				MessageBoxStrings.IgnoreButton, GlyssenInfo.Product);
+			var msg = msg1 + "\n\n" + msg2 + msg3;
+			Logger.WriteEvent(msg);
+
+			switch (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+			{
+				default: return BadLdmlFileRecoveryAction.Repair;
+				case DialogResult.Retry: return BadLdmlFileRecoveryAction.Retry;
+				case DialogResult.Abort: return BadLdmlFileRecoveryAction.Abort;
 			}
 		}
 
@@ -502,7 +535,7 @@ namespace Glyssen
 					"Error: {2}"),
 					bundlePath, DblBundleFileUtils.kVersificationFileName, error);
 				Logger.WriteError(msg, ex);
-				MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				SetProject(null);
 			}
 
@@ -540,12 +573,12 @@ namespace Glyssen
 						"Param 2: Paratext project short name (unique project identifier); " +
 						"Param 3: Optional line indicating that user is an observer on the Paratext project; " +
 						"Param 4: Name of the Paratext \"Quotations\" check"),
-					GlyssenInfo.kProduct,
+					GlyssenInfo.Product,
 					ParatextScrTextWrapper.kParatextProgramName,
 					paratextProjId,
 					optionalObserverInfo,
 					ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId));
-				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
 				if (result == DialogResult.Cancel)
 				{
 					Logger.WriteEvent($"User cancelled project creation because {ParatextScrTextWrapper.kParatextProgramName} " +
@@ -575,10 +608,10 @@ namespace Glyssen
 					"Param 4: Optional line indicating that user is an observer on the Paratext project"),
 					ParatextScrTextWrapper.kParatextProgramName,
 					paratextProjId,
-					GlyssenInfo.kProduct,
+					GlyssenInfo.Product,
 					paratextProject.RequiredCheckNames,
 					optionalObserverInfo);
-				var result = MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+				var result = MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 				if (result == DialogResult.No)
 				{
 					Logger.WriteEvent("User cancelled project creation because no books passed recommended checks.");
@@ -1044,7 +1077,7 @@ namespace Glyssen
 					"text data for those blocks is not in the correct language. " +
 					"To avoid probable confusion, would you like to allow {1} to clear the matches that cannot be migrated properly?",
 					"Param 0: name of language of new reference text; " +
-					"Param 1: \"Glyssen\" (product name)"), m_project.UiReferenceTextName, GlyssenInfo.kProduct),
+					"Param 1: \"Glyssen\" (product name)"), m_project.UiReferenceTextName, GlyssenInfo.Product),
 					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
 			}
 			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
@@ -1251,7 +1284,7 @@ namespace Glyssen
 				if (ignoreOptionText != null)
 					msg += "\n\n" + ignoreOptionText;
 				Logger.WriteEvent(msg);
-				switch (FlexibleMessageBox.Show(msg, GlyssenInfo.kProduct,
+				switch (FlexibleMessageBox.Show(msg, GlyssenInfo.Product,
 					ignoreOptionText == null ? MessageBoxButtons.RetryCancel : MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
 					(sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); }))
 				{
@@ -1363,7 +1396,7 @@ namespace Glyssen
 							"might result in loss of data. Do you want to continue and overwrite the existing files?");
 					Logger.WriteEvent(msg + " " + projectFilePath);
 
-					if (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+					if (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
 						return;
 				}
 

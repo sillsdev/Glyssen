@@ -279,7 +279,7 @@ namespace GlyssenEngine.Character
 
 		internal static string GetLocalizedIndividualCharacterString(string character)
 		{
-			return Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + character, character);
+			return Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + character, character);
 		}
 
 		#region Equality Members

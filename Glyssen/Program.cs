@@ -59,6 +59,7 @@ namespace Glyssen
 				return;
 			}
 
+			GlyssenInfo.Product = Application.ProductName;
 			MessageModal.Default = new WinFormsMessageBox();
 			GlyssenEngine.ErrorHandling.NonFatalErrorHandler.Default = new WinFormsErrorAnalytics();
 
@@ -160,7 +161,7 @@ namespace Glyssen
 				_pendingExceptionsToReportToAnalytics.Clear();
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					GlyssenInfo.kCompany, kOldProductName);
+					GlyssenInfo.Company, kOldProductName);
 				var baseDataFolder = GlyssenInfo.BaseDataFolder;
 				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
 					Directory.Move(oldPgBaseFolder, baseDataFolder);
@@ -185,7 +186,7 @@ namespace Glyssen
 						"Param 1: \"Glyssen\" (product name); " +
 						"Param 2: Path to the original location of the text release bundle"),
 						existingProject.Name,
-						GlyssenInfo.kProduct,
+						GlyssenInfo.Product,
 						existingProject.OriginalBundlePath) +
 						LocateBundleYourselfQuestion;
 					string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -230,8 +231,8 @@ namespace Glyssen
 
 					var msg = DataMigrator.GetAudioAudioProblemPreamble(safeReplacements.Count) +
 						Join(Environment.NewLine, safeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
-						Format(fmt, GlyssenInfo.kProduct);
-					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+						Format(fmt, GlyssenInfo.Product);
+					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 				}
 
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
@@ -358,7 +359,7 @@ namespace Glyssen
 				var confirmationString = LocalizationManager.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
-				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
 					File.Delete(userConfigSettingsPath);
 		}
 
@@ -382,10 +383,10 @@ namespace Glyssen
 		{
 			Localizer.Default = new L10NSharpLocalizer();
 			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
-			string targetTmxFilePath = Path.Combine(GlyssenInfo.kCompany, GlyssenInfo.kProduct);
+			string targetTmxFilePath = Path.Combine(GlyssenInfo.Company, GlyssenInfo.Product);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
+			PrimaryLocalizationManager = LocalizationManager.Create(TranslationMemory.Tmx, desiredUiLangId, GlyssenInfo.ApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (IsNullOrEmpty(desiredUiLangId))
