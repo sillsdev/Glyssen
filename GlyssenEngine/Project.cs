@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using Glyssen.Shared;
+﻿using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Analysis;
 using GlyssenEngine.Bundle;
@@ -33,6 +23,16 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
 using static System.String;
 
 namespace GlyssenEngine
@@ -246,6 +246,10 @@ namespace GlyssenEngine
 		{
 			if (m_projectMetadata.Type != ParatextScrTextWrapper.kLiveParatextProjectType)
 				throw new InvalidOperationException("GetSourceParatextProject should only be used for projects based on live Paratext projects.");
+			// TODO (Paratext 9.1): To get a project, we will first need to try to "Find" it using the name and GUID (because in P9.1 it will
+			// be possible to have multiple projects with the same name). If no match, then "Get" by name. If there is exactly one match by name,
+			// Paratext will return it. If there are no matches or multiple matches, Paratext will throw a ProjectNotFoundException, and we'll
+			// have to deal with it as we currently do.
 			return ScrTextCollection.Get(ParatextProjectName);
 		}
 
@@ -935,6 +939,12 @@ namespace GlyssenEngine
 
 		public ParatextScrTextWrapper GetLiveParatextDataIfCompatible(IParatextProjectLoadingAssistant loadingAssistant, bool checkForChangesInAvailableBooks = true)
 		{
+			if (loadingAssistant != null)
+			{
+				loadingAssistant.Project = this;
+				loadingAssistant.ParatextProjectName = ParatextProjectName;
+			}
+
 			ParatextScrTextWrapper scrTextWrapper;
 			ScrText sourceScrText = null;
 			do
@@ -974,7 +984,24 @@ namespace GlyssenEngine
 			try
 			{
 				scrTextWrapper = new ParatextScrTextWrapper(sourceScrText, QuoteSystemStatus != QuoteSystemStatus.Obtained);
-				if (!scrTextWrapper.IsMetadataCompatible(Metadata))
+				bool compatible = scrTextWrapper.GlyssenDblTextMetadata.Language.Iso == Metadata.Language.Iso;
+				if (compatible)
+				{
+					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
+					if (!compatible && loadingAssistant != null &&
+						!Directory.Exists(GetProjectFolderPath(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name)))
+					{
+						if (loadingAssistant.ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject())
+						{
+							ChangePublicationId(scrTextWrapper.GlyssenDblTextMetadata.Id);
+							loadingAssistant.HandleProjectPathChanged();
+							compatible = true;
+						}
+						else
+							return null;
+					}
+				}
+				if (!compatible)
 				{
 					throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectMetadataChangedMsg",
 						"The settings of the {0} project {1} no longer appear to correspond to the {2} project. " +
@@ -1756,6 +1783,63 @@ namespace GlyssenEngine
 			}
 		}
 
+		private void ChangePublicationId(string newPubId)
+		{
+			Debug.Assert(newPubId != m_metadata.Id);
+
+			string origProjectFolder = ProjectFolder;
+			string restoreId = m_metadata.Id;
+
+			m_metadata.Id = newPubId;
+
+			string FailureMessage() => Localizer.GetString("Project.ChangeMetadataIdFailure",
+				"An error occurred attempting to change the publication ID for this project:");
+
+			try
+			{
+				var newProjectFolder = ProjectFolder;
+				Directory.CreateDirectory(Path.GetDirectoryName(newProjectFolder));
+				RobustIO.MoveDirectory(origProjectFolder, newProjectFolder);
+			}
+			catch (Exception inner)
+			{
+				m_metadata.Id = restoreId;
+				throw new ApplicationException(FailureMessage(), inner);
+			}
+
+			SaveProjectFile(out var error);
+			if (error == null)
+			{
+				try
+				{
+					RobustIO.DeleteDirectory(Path.GetDirectoryName(origProjectFolder));
+				}
+				catch (Exception e)
+				{
+					Logger.WriteError(e);
+				}
+				return;
+			}
+
+			var revertFolder = ProjectFolder;
+			m_metadata.Id = restoreId;
+			try
+			{
+				RobustIO.MoveDirectory(revertFolder, ProjectFolder);
+			}
+			catch (Exception moveFolderBackError)
+			{
+				// Uh-oh. We've gotten this project into a corrupted state.
+				m_metadata.Id = restoreId;
+				
+				throw new Exception(FailureMessage() + Environment.NewLine + error + Environment.NewLine + Environment.NewLine +
+					Localizer.GetString("Project.ChangeMetadataIdCatastrophicFailure",
+						"During the attempt to recover and revert to the original ID, a catastrophic error occurred that has probably left " +
+						"this project in a corrupted state. Please contact support."), moveFolderBackError);
+			}
+			throw new ApplicationException(FailureMessage(), error);
+		}
+
 		public void Save(bool saveCharacterGroups = false)
 		{
 			if (!ProjectFileIsWritable)
@@ -1763,9 +1847,7 @@ namespace GlyssenEngine
 
 			Directory.CreateDirectory(ProjectFolder);
 
-			m_metadata.LastModified = DateTime.Now;
-			var projectPath = ProjectFilePath;
-			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out var error);
+			SaveProjectFile(out var error);
 			if (error != null)
 			{
 				MessageModal.Show(error.Message, true);
@@ -1776,12 +1858,19 @@ namespace GlyssenEngine
 				SaveBook(book);
 			SaveProjectCharacterVerseData();
 			SaveProjectCharacterDetailData();
-			SaveWritingSystem(projectPath);
+			SaveWritingSystem();
 			if (saveCharacterGroups)
 				SaveCharacterGroupData();
 			ProjectState = !IsQuoteSystemReadyForParse
 				? ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess)
 				: ProjectState.FullyInitialized;
+		}
+
+		private void SaveProjectFile(out Exception error)
+		{
+			m_metadata.LastModified = DateTime.Now;
+			var projectPath = ProjectFilePath;
+			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
 		}
 
 		public void SaveBook(BookScript book)
@@ -1987,7 +2076,7 @@ namespace GlyssenEngine
 			}
 		}
 
-		private void SaveWritingSystem(string projectPath)
+		private void SaveWritingSystem()
 		{
 			string backupPath = null;
 			try
@@ -2026,7 +2115,7 @@ namespace GlyssenEngine
 				NonFatalErrorHandler.LogAndHandleException(exSave, "Writing System Save Failure",
 					new Dictionary<string, string>
 					{
-						{"CurrentProjectPath", projectPath},
+						{"CurrentProjectPath", ProjectFilePath},
 					});
 				if (backupPath != null)
 				{
@@ -2053,7 +2142,7 @@ namespace GlyssenEngine
 						NonFatalErrorHandler.LogAndHandleException(exRecover,
 							"Recovery from backup Writing System File Failed.", new Dictionary<string, string>
 							{
-								{"CurrentProjectPath", projectPath},
+								{"CurrentProjectPath", ProjectFilePath},
 							});
 						throw exSave;
 					}

@@ -159,7 +159,7 @@ namespace GlyssenEngine {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	153
+        ///   Looks up a localized string similar to Control File Version	155
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
         ///GEN	1	3	God		God (the LORD)	Normal		

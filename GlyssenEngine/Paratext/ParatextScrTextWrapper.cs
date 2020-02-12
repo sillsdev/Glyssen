@@ -238,11 +238,6 @@ namespace GlyssenEngine.Paratext
 			return list;
 		}
 
-		public bool IsMetadataCompatible(IReadOnlyGlyssenDblTextMetadata metadata)
-		{
-			return GlyssenDblTextMetadata.Id == metadata.Id && GlyssenDblTextMetadata.Language.Iso == metadata.Language.Iso;
-		}
-
 		public string GetBookChecksum(int bookNum)
 		{
 			return UnderlyingScrText.GetBookCheckSum(bookNum);
