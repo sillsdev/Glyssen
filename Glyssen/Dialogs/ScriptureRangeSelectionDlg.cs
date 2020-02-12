@@ -100,13 +100,33 @@ namespace Glyssen.Dialogs
 			SetupDropdownHeaderCells();
 		}
 
-		private void GetParatextScrTextWrapperIfNeeded(bool refreshBooksIfExisting = false)
+		/// <summary>
+		/// Attempts to set m_paratextScrTextWrapper (if not set) and optionally updates the information about available books
+		/// and their current checking status. This can fail if the Paratext project cannot be found, so callers should check
+		/// the return value rather than blindly assuming it succeeded. The focus of this dialog is not on getting updated
+		/// content from Paratext, so we don't want to bother the user if that isn't possible. If it is possible, then we ask
+		/// them about including the updated content (when appropriate) when the OK button is clicked. This method will generally
+		/// not initiate interaction with the user, but there is at least one edge case where it might (when the Paratext
+		/// project is found but has a different metadata ID).
+		/// </summary>
+		/// <param name="refreshBooksIfExisting">Flag indicating that GetUpdatedBookInfo should be called to update the checking
+		/// status of books in Paratext when m_paratextScrTextWrapper is already set</param>
+		/// <returns><c>true</c> if m_paratextScrTextWrapper is set; <c>false</c> if m_paratextScrTextWrapper is null</returns>
+		private bool GetParatextScrTextWrapperIfNeeded(bool refreshBooksIfExisting = false)
 		{
 			Debug.Assert(m_project.IsLiveParatextProject);
 			if (m_paratextScrTextWrapper == null)
-				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(new WinformsParatextProjectLoadingAssistant(null, false));
+			{
+				m_paratextScrTextWrapper = m_project.GetLiveParatextDataIfCompatible(
+					new WinformsParatextProjectLoadingAssistant(null, false)
+						{ AutoConfirmUpdateThatWouldExcludeExistingBooks = true });
+				if (m_paratextScrTextWrapper == null)
+					return false;
+			}
 			else if (refreshBooksIfExisting)
 				m_paratextScrTextWrapper.GetUpdatedBookInfo();
+
+			return true;
 		}
 
 		protected override void OnHandleCreated(EventArgs e)
@@ -173,7 +193,8 @@ namespace Glyssen.Dialogs
 
 			if (shouldCheck && m_project.IsLiveParatextProject)
 			{
-				GetParatextScrTextWrapperIfNeeded(true);
+				if (!GetParatextScrTextWrapperIfNeeded(true))
+					return;
 
 				var booksToChange = new HashSet<string>(rowsToChange.Select(r => (string)r.Cells[m_colNTBookCode.Index].Value));
 				var booksWithFailingChecks = m_paratextScrTextWrapper.FailedChecksBooks.Where(b => booksToChange.Contains(b)).ToList();
@@ -303,7 +324,8 @@ namespace Glyssen.Dialogs
 
 			if (bookNumsToAddFromParatext.Any())
 			{
-				GetParatextScrTextWrapperIfNeeded();
+				if (!GetParatextScrTextWrapperIfNeeded())
+					return;
 				m_project.IncludeBooksFromParatext(m_paratextScrTextWrapper, bookNumsToAddFromParatext,
 					bookScript =>
 					{
@@ -325,8 +347,7 @@ namespace Glyssen.Dialogs
 		private bool UserWantsUpdatedContent(BookScript bookScriptFromExistingFile)
 		{
 			// If there is a newer version ask user if they want to get the updated version.
-			GetParatextScrTextWrapperIfNeeded(true);
-			if (m_paratextScrTextWrapper == null || m_paratextScrTextWrapper.GetBookChecksum(bookScriptFromExistingFile.BookNumber) == bookScriptFromExistingFile.ParatextChecksum)
+			if (!GetParatextScrTextWrapperIfNeeded(true) || m_paratextScrTextWrapper.GetBookChecksum(bookScriptFromExistingFile.BookNumber) == bookScriptFromExistingFile.ParatextChecksum)
 				return false;
 			// If the updated version does NOT pass tests but the existing version does (i.e., user didn't override the checking status),
 			// we'll just stick with the version we have. If they want to update it manually later, they can.
@@ -414,7 +435,8 @@ namespace Glyssen.Dialogs
 			if (m_project.DoesBookScriptFileExist(bookCode))
 				return true; // Might try to get an updated version later but this one is valid.
 
-			GetParatextScrTextWrapperIfNeeded();
+			if (!GetParatextScrTextWrapperIfNeeded())
+				return false;
 			var bookNum = Canon.BookIdToNumber(bookCode);
 			if (!m_paratextScrTextWrapper.CanonicalBookNumbersInProject.Contains(bookNum))
 			{

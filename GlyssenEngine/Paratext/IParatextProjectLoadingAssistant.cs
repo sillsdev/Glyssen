@@ -13,5 +13,7 @@ namespace GlyssenEngine.Paratext
 		bool RetryWhenReloadFails(string error);
 		void ReportApplicationError(ApplicationException exception);
 		bool ConfirmUpdateThatWouldExcludeExistingBooks(IReadOnlyCollection<string> noLongerAvailableBookIds, IReadOnlyCollection<string> noLongerPassingListBookIds);
+		bool ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject();
+		void HandleProjectPathChanged();
 	}
 }

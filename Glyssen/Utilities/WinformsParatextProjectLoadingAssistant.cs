@@ -20,6 +20,7 @@ namespace Glyssen.Utilities
 		public Project Project { get; set; }
 		public bool SilentMode { get; set; }
 		public string ParatextProjectName { get; set; }
+		public bool AutoConfirmUpdateThatWouldExcludeExistingBooks { get; set; }
 
 		public WinformsParatextProjectLoadingAssistant(string context, bool forceReload)
 		{
@@ -68,6 +69,9 @@ namespace Glyssen.Utilities
 
 		public bool ConfirmUpdateThatWouldExcludeExistingBooks(IReadOnlyCollection<string> noLongerAvailableBookIds, IReadOnlyCollection<string> noLongerPassingListBookIds)
 		{
+			if (AutoConfirmUpdateThatWouldExcludeExistingBooks)
+				return true;
+
 			string msg = Context + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateExcludedBooksWarning",
 				"{1} detected changes in the {2} project {3} that would result in the exclusion " +
 				"of books from the {0} project that were previously included:",
@@ -111,25 +115,67 @@ namespace Glyssen.Utilities
 			return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 		}
 
+		public bool ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject()
+		{
+			var msg = Format(LocalizationManager.GetString("Project.ParatextProjectIdChangedMsg",
+					"The ID of the {0} project {1} does not match the one expected by the {2} project. " +
+					"This usually happens when the {0} and {2} projects have been restored from backups " +
+					"(for example, to move them to a different computer). If this is the case, you can " +
+					"safely update this {2} project to use the ID of the {0} project on this computer. " +
+					"If you do not understand how this mismatch happened, please contact support.",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: \"Glyssen\" (product name)"),
+				ParatextScrTextWrapper.kParatextProgramName,
+				ParatextProjectName,
+				GlyssenInfo.Product);
+
+			Logger.WriteEvent(msg);
+
+			if (SilentMode)
+				return false;
+
+			var question = Format(LocalizationManager.GetString("Project.UpdateParatextProjectIdQuestion",
+					"Do you want to continue, updating the {0} project to use the new {1} project ID?",
+					"Param 0: \"Glyssen\" (product name); " +
+					"Param 1: \"Paratext\" (product name)"),
+				GlyssenInfo.Product,
+				ParatextScrTextWrapper.kParatextProgramName);
+
+			return MessageBox.Show(msg + Environment.NewLine + Environment.NewLine + question, GlyssenInfo.Product,
+				MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes;
+		}
+
+		public void HandleProjectPathChanged()
+		{
+			Properties.Settings.Default.CurrentProject = Project.ProjectFilePath;
+		}
+
 		public void ReportApplicationError(ApplicationException exception)
 		{
-			if (SilentMode)
-			{
-				Logger.WriteError(exception);
-				return;
-			}
-
 			string msg = Context + Format(LocalizationManager.GetString("Project.ParatextProjectUpdateErrorMsg",
-						"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
-						"Param 0: Glyssen recording project name; " +
-						"Param 1: \"Glyssen\" (product name); " +
-						"Param 2: \"Paratext\" (product name); " +
-						"Param 3: Paratext project short name (unique project identifier)"),
-					Project.Name,
-					GlyssenInfo.Product,
-					ParatextScrTextWrapper.kParatextProgramName,
-					ParatextProjectName) +
-				Environment.NewLine + exception.Message;
+					"To update the {0} project, {1} attempted to get the current text of the books from the {2} project {3}, but there was a problem:",
+					"Param 0: Glyssen recording project name; " +
+					"Param 1: \"Glyssen\" (product name); " +
+					"Param 2: \"Paratext\" (product name); " +
+					"Param 3: Paratext project short name (unique project identifier)"),
+				Project.Name,
+				GlyssenInfo.Product,
+				ParatextScrTextWrapper.kParatextProgramName,
+				ParatextProjectName);
+
+			Logger.WriteEvent(msg);
+			Logger.WriteError(exception);
+
+			if (SilentMode)
+				return;
+
+			Exception ex = exception;
+			do
+			{
+				msg += Environment.NewLine + ex.Message;
+				ex = ex.InnerException;
+			} while (ex != null);
 
 			MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}
