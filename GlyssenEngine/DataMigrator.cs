@@ -38,7 +38,8 @@ namespace GlyssenEngine
 			return null;
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<Project, bool> handleMissingBundleNeededForUpgrade,
+		// internal for testing
+		internal static bool UpgradeToCurrentDataFormatVersion(IDataVersionInfo info, Func<Project, bool> handleMissingBundleNeededForUpgrade,
 			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (info.DataVersion >= ApplicationMetadata.kDataFormatVersion)
@@ -119,7 +120,7 @@ namespace GlyssenEngine
 												"Versification file: {2}\r\n" +
 												"Error: {3}"),
 											projectFilePath, origBundlePath, versificationPath, ex.Message);
-										MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Warning);
+										MessageModal.Show(msg, true);
 										File.WriteAllText(errorlogPath, msg);
 									}
 								}
@@ -260,8 +261,8 @@ namespace GlyssenEngine
 						}
 						var msg = GetAudioAudioProblemPreamble(unsafeReplacements.Count) +
 							String.Join(Environment.NewLine, unsafeReplacements.Select(r => r.Item1)) + Environment.NewLine + Environment.NewLine +
-							String.Format(fmt, GlyssenInfo.kProduct, Constants.kSupportSite);
-						MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.OK, Icon.Warning);
+							String.Format(fmt, GlyssenInfo.Product, Constants.kSupportSite);
+						MessageModal.Show(msg, true);
 					}
 					if (unsafeReplacements.Any() || safeReplacements.Any())
 						retVal = false;
@@ -296,7 +297,7 @@ namespace GlyssenEngine
 					"Param 1: the default recording project suffix (see \"Project.RecordingProjectDefaultSuffix\"); " +
 					"This version of the preamble is for when there are multiple projects (see \"DataMigration.AudioAudioProblemPreambleSingle\"");
 			}
-			return String.Format(fmt, GlyssenInfo.kProduct, Project.DefaultRecordingProjectNameSuffix.TrimStart()) + Environment.NewLine;
+			return String.Format(fmt, GlyssenInfo.Product, Project.DefaultRecordingProjectNameSuffix.TrimStart()) + Environment.NewLine;
 		}
 	}
 }

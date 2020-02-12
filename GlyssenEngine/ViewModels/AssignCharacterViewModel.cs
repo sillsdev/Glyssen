@@ -716,7 +716,7 @@ namespace GlyssenEngine.ViewModels
 						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);
-						characterId = Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
+						characterId = Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + characterId, characterId);
 						if (relevantAlias != null)
 							return characterId + " [" + relevantAlias + "]";
 						return characterId;

@@ -1589,7 +1589,7 @@ namespace Glyssen.RefTextDevUtilities
 		private static void WriteTitleAndChapterSummaryResults(List<BookTitleAndChapterLabelInfo> resultSummary)
 		{
 			var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-				GlyssenInfo.kProduct, "book title and chapter label summary.txt");
+				GlyssenInfo.Product, "book title and chapter label summary.txt");
 			using (var w = new StreamWriter(path))
 			{
 				foreach (var info in resultSummary)

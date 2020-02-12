@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using SIL.DblBundle.Tests.Text;
@@ -15,6 +16,7 @@ namespace GlyssenEngineTests.Bundle
 		{
 			if (Project.FontRepository == null)
 				Project.FontRepository = new TestProject.TestFontRepository();
+			GlyssenInfo.Product = "GlyssenTests";
 		}
 
 		private static string GetUniqueBundleId()

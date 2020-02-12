@@ -216,7 +216,7 @@ namespace GlyssenEngine
 					throw new Exception(
 						Format(Localizer.GetString("ReferenceText.NoReferenceTextsLoaded",
 							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
-							"for more details."), GlyssenInfo.kProduct),
+							"for more details."), GlyssenInfo.Product),
 						firstLoadError.Item1);
 				}
 				if (additionalErrors.Any())

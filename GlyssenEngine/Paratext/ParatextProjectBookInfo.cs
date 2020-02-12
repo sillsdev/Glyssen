@@ -51,7 +51,7 @@ namespace GlyssenEngine.Paratext
 					return Localizer.GetString("ParatextCheck.ChapterVerse", "Chapter/Verse Numbers",
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 				default:
-					return Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "ParatextCheck." + paratextCheckId, paratextCheckId,
+					return Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "ParatextCheck." + paratextCheckId, paratextCheckId,
 						"This should exactly match the localized name of the check in Paratext if it is localized into the target language. Otherwise, probably best not to localize it at all (or put the English name in parentheses).");
 			}
 		}

@@ -13,8 +13,8 @@ namespace GlyssenEngine.Paratext
 				"{0} project {1} has no books which are supported by {2}.",
 				"Param 0: \"Paratext\" (product name); " +
 				"Param 1: Paratext project short name (unique project identifier); " +
-				"Param 2: \"Glyssen\" (product name)"),
-			ParatextScrTextWrapper.kParatextProgramName, projectName, GlyssenInfo.kProduct))
+				"Param 2: Product name (e.g., \"Glyssen\")"),
+			ParatextScrTextWrapper.kParatextProgramName, projectName, GlyssenInfo.Product))
 		{
 			Details = details;
 		}

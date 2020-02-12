@@ -46,13 +46,18 @@ namespace GlyssenEngineTests
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
+			GlyssenInfo.Product = "GlyssenTests";
+
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
 
 			// Clean up anything from previously aborted tests
-			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
-				RobustIO.DeleteDirectoryAndContents(directory);
+			if (Directory.Exists(GlyssenInfo.BaseDataFolder))
+			{
+				foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
+					RobustIO.DeleteDirectoryAndContents(directory);
+			}
 		}
 
 		[TestFixtureTearDown]
@@ -948,6 +953,7 @@ namespace GlyssenEngineTests
 				bundle.Metadata.Language.Iso = "ach-CM";
 				bundle.Metadata.Language.Ldml = "ach%CM***-blah___ickypoo!";
 				var project = new Project(bundle);
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, bundle.Metadata.Language.Ldml));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
