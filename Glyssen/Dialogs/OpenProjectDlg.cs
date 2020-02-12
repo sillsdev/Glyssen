@@ -109,7 +109,7 @@ namespace Glyssen.Dialogs
 											"Param 2: \"Glyssen\" (product name)"),
 										ParatextScrTextWrapper.kParatextProgramName,
 										ParatextInfo.MinSupportedParatextDataVersion,
-										GlyssenInfo.kProduct);
+										GlyssenInfo.Product);
 									break;
 
 								case UnsupportedReason.FutureVersion:
@@ -120,7 +120,7 @@ namespace Glyssen.Dialogs
 											"Param 0: \"Glyssen\" (product name); " +
 											"Param 1: \"Paratext\" (product name); " +
 											"Param 2: Paratext version number"),
-										GlyssenInfo.kProduct,
+										GlyssenInfo.Product,
 										ParatextScrTextWrapper.kParatextProgramName,
 										ScrTextCollection.ScrTexts(IncludeProjects.Everything).First(
 											p => p.Name == errMsgInfo.ProjectName).Settings.MinParatextDataVersion);
@@ -178,7 +178,7 @@ namespace Glyssen.Dialogs
 		{
 			sb.AppendFormat(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLoadError.VersionIncompatibility",
 					"Project {0} is not compatible with this version of {1}.", "Param 0: Paratext project name; Param 1: \"Glyssen\""),
-				errMsgInfo.ProjectName, GlyssenInfo.kProduct).Append(' ');
+				errMsgInfo.ProjectName, GlyssenInfo.Product).Append(' ');
 		}
 
 		private void NotifyUserOfParatextProblem(string message, params string[] additionalInfo)

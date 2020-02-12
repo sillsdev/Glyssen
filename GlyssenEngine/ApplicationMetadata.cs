@@ -7,8 +7,13 @@ using SIL.Xml;
 
 namespace GlyssenEngine
 {
+	public interface IDataVersionInfo
+	{
+		int DataVersion { get; set; }
+	}
+
 	[XmlRoot("ProtoscriptGeneratorMetadata")]
-	public class ApplicationMetadata
+	public class ApplicationMetadata : IDataVersionInfo
 	{
 		private const string kFilename = "ApplicationMetadata.xml";
 		internal const int kDataFormatVersion = 4;

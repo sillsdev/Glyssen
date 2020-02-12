@@ -42,7 +42,7 @@ namespace Glyssen.Utilities
 				Format(LocalizationManager.GetString("Project.RestoreParatextProject",
 						"If possible, you can restore the {0} project and retry; otherwise, you can cancel and {1} will continue to work with the existing project data.",
 						"Param 0: \"Paratext\" (product name); Param 1: \"Glyssen\" (product name)"),
-					ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.kProduct);
+					ParatextScrTextWrapper.kParatextProgramName, GlyssenInfo.Product);
 
 			string caption = Format(LocalizationManager.GetString("Project.ParatextProjectUnavailable", "{0} Project Unavailable",
 					"Param is \"Paratext\" (product name)"),
@@ -63,7 +63,7 @@ namespace Glyssen.Utilities
 					"Param 1: Paratext project short name (unique project identifier); " +
 					"Param 2: Specific error message"),
 				ParatextScrTextWrapper.kParatextProgramName, ParatextProjectName, error);
-			return DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.RetryCancel);
+			return DialogResult.Retry == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.RetryCancel);
 		}
 
 		public bool ConfirmUpdateThatWouldExcludeExistingBooks(IReadOnlyCollection<string> noLongerAvailableBookIds, IReadOnlyCollection<string> noLongerPassingListBookIds)
@@ -75,7 +75,7 @@ namespace Glyssen.Utilities
 				"Param 1: \"Paratext\" (product name); " +
 				"Param 2: Paratext project short name (unique project identifier); " +
 				"Param 3: Glyssen recording project name"),
-			GlyssenInfo.kProduct,
+			GlyssenInfo.Product,
 			ParatextScrTextWrapper.kParatextProgramName,
 			ParatextProjectName,
 			Project.Name);
@@ -108,7 +108,7 @@ namespace Glyssen.Utilities
 				LocalizationManager.GetString("Project.ParatextProjectUpdateConfirmExcludeBooks",
 					"Would you like to proceed with the update?");
 
-			return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+			return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 		}
 
 		public void ReportApplicationError(ApplicationException exception)
@@ -126,12 +126,12 @@ namespace Glyssen.Utilities
 						"Param 2: \"Paratext\" (product name); " +
 						"Param 3: Paratext project short name (unique project identifier)"),
 					Project.Name,
-					GlyssenInfo.kProduct,
+					GlyssenInfo.Product,
 					ParatextScrTextWrapper.kParatextProgramName,
 					ParatextProjectName) +
 				Environment.NewLine + exception.Message;
 
-			MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}
 	}
 }

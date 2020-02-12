@@ -55,7 +55,7 @@ namespace Glyssen.Dialogs
 			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
 			{
 				var chapterAnnouncement = (ChapterAnnouncement)i;
-				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId,
+				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(GlyssenInfo.ApplicationId,
 					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
 					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
 			}
@@ -110,7 +110,7 @@ namespace Glyssen.Dialogs
 							"Param 3: localized name of the \"Update\" button"),
 						ParatextScrTextWrapper.kParatextProgramName,
 						m_model.ParatextProjectName,
-						GlyssenInfo.kProduct,
+						GlyssenInfo.Product,
 						LocalizedUpdateButtonName);
 					MessageBox.Show(msg, Text, MessageBoxButtons.OK);
 				}

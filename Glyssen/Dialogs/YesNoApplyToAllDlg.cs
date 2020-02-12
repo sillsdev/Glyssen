@@ -52,7 +52,7 @@ namespace Glyssen.Dialogs
 		public string Caption
 		{
 			get => Text;
-			set => Text = value ?? GlyssenInfo.kProduct;
+			set => Text = value ?? GlyssenInfo.Product;
 		}
 
 		public bool ApplyToAll

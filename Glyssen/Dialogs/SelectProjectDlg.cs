@@ -17,6 +17,6 @@ namespace Glyssen.Dialogs
 
 		protected override string Title => LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project");
 
-		protected override string ProductName => GlyssenInfo.kProduct;
+		protected override string ProductName => GlyssenInfo.Product;
 	}
 }

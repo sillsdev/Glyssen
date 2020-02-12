@@ -31,7 +31,7 @@ namespace GlyssenEngine.ViewModels
 		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel<TFont> sender, int index);
 		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
 		public delegate void SettingBlockCharacterHandler(AssignCharacterViewModel<TFont> sender, Block block, ICharacter character);
-		public event SettingBlockCharacterHandler SettingBlockCharacter;
+		public event SettingBlockCharacterHandler SetBlockCharacter;
 		public delegate void ProjectCharacterVerseDataAddedHandler(AssignCharacterViewModel<TFont> sender, string reference, string characterId, string delivery);
 		public event ProjectCharacterVerseDataAddedHandler ProjectCharacterVerseDataAdded;
 
@@ -418,8 +418,6 @@ namespace GlyssenEngine.ViewModels
 
 		private void SetCharacter(Block block, Character selectedCharacter)
 		{
-			SettingBlockCharacter?.Invoke(this, block, selectedCharacter);
-
 			if (selectedCharacter == null)
 			{
 				block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
@@ -431,6 +429,7 @@ namespace GlyssenEngine.ViewModels
 				block.SetCharacterIdAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
 					m_project.Versification);
 			block.UserConfirmed = !block.CharacterIsUnclear;
+			SetBlockCharacter?.Invoke(this, block, selectedCharacter);
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
@@ -717,7 +716,7 @@ namespace GlyssenEngine.ViewModels
 						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnexpectedCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);
-						characterId = Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
+						characterId = Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + characterId, characterId);
 						if (relevantAlias != null)
 							return characterId + " [" + relevantAlias + "]";
 						return characterId;

@@ -35,13 +35,13 @@ namespace Glyssen.Utilities
 					Format(
 						LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
 							"The font ({0}) used by this project has not been installed on this computer. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing all the styles, you will need to restart {1} to make use of the font."),
-						fontFamilyIdentifier, GlyssenInfo.kProduct));
+						fontFamilyIdentifier, GlyssenInfo.Product));
 			else
 				MessageBox.Show(
 					Format(
 						LocalizationManager.GetString("Font.InstallInstructions",
 							"The font used by this project ({0}) has not been installed on this computer. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
-						fontFamilyIdentifier, GlyssenInfo.kProduct));
+						fontFamilyIdentifier, GlyssenInfo.Product));
 
 			foreach (var ttfFile in ttfFiles)
 			{
@@ -64,7 +64,7 @@ namespace Glyssen.Utilities
 				"The font ({0}) used by this project has not been installed on this computer, and {1} could not find the relevant font files. " +
 				"Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. " +
 				"After installing the font, you will need to restart {1} to make use of it."),
-				fontFamilyIdentifier, GlyssenInfo.kProduct));
+				fontFamilyIdentifier, GlyssenInfo.Product));
 		}
 	}
 }

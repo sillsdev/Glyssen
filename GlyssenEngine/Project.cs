@@ -84,6 +84,9 @@ namespace GlyssenEngine
 		public event EventHandler CharacterStatisticsCleared;
 		public static EventHandler UpgradingProjectToNewParserVersion;
 
+		public delegate BadLdmlFileRecoveryAction BadLdmlFileHandler(Project sender, string ldmlFilePath, string error, bool attemptToUseBackup);
+		public static BadLdmlFileHandler GetBadLdmlFileRecoveryAction;
+
 		public static IFontRepository FontRepository { get; set; }
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
@@ -135,7 +138,7 @@ namespace GlyssenEngine
 								ParatextScrTextWrapper.kParatextProgramName,
 								ParatextProjectName,
 								Name,
-								"“English”"), GlyssenInfo.kProduct);
+								"“English”"));
 							SetVersification(ScrVers.English);
 						}
 					}
@@ -978,10 +981,10 @@ namespace GlyssenEngine
 						"This is an unusual situation. If you do not understand how this happened, please contact support.",
 						"Param 0: \"Paratext\" (product name); " +
 						"Param 1: Paratext project short name (unique project identifier); " +
-						"Param 2: \"Glyssen\" (product name)"),
+						"Param 2: Product name (e.g., \"Glyssen\")"),
 						ParatextScrTextWrapper.kParatextProgramName,
 						ParatextProjectName,
-						GlyssenInfo.kProduct));
+						GlyssenInfo.Product));
 				}
 			}
 			catch (ApplicationException e)
@@ -1250,7 +1253,7 @@ namespace GlyssenEngine
 					"Param 3: Glyssen recording project name"),
 					ParatextScrTextWrapper.kParatextProgramName,
 					metadata.ParatextProjectId,
-					GlyssenInfo.kProduct,
+					GlyssenInfo.Product,
 					metadata.Name), e);
 			}
 
@@ -1765,7 +1768,7 @@ namespace GlyssenEngine
 			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out var error);
 			if (error != null)
 			{
-				MessageModal.Show(error.Message);
+				MessageModal.Show(error.Message, true);
 				return;
 			}
 
@@ -1785,7 +1788,7 @@ namespace GlyssenEngine
 		{
 			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out var error);
 			if (error != null)
-				MessageModal.Show(error.Message);
+				MessageModal.Show(error.Message, true);
 		}
 
 		public void SaveProjectCharacterVerseData()
@@ -1911,35 +1914,9 @@ namespace GlyssenEngine
 					}
 					catch (XmlException e)
 					{
-						var msg1 = Format(Localizer.GetString("Project.LdmlFileLoadError",
-								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
-								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
-							Name, LdmlFilePath, e.Message);
-						var msg2 = Format(attemptToUseBackup
-							? Localizer.GetString("Project.UseBackupLdmlFile",
-								"To use the automatically created backup (which might be out-of-date), click {0}.",
-								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file exists. Param is \"Retry\" button label.")
-							: Localizer.GetString("Project.AdvancedUserLdmlRepairInstructions",
-								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click {0}.",
-								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file does not exist. Param is \"Retry\" button label."), MessageBoxStrings.RetryButton);
-						var msg3 = Format(Localizer.GetString("Project.IgnoreToRepairLdmlFile",
-							"Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, " +
-							"so check the quote system and font settings carefully.",
-							"Param 0: \"Ignore\" button label; " +
-							"Param 1: \"Glyssen\" (product name)"),
-							MessageBoxStrings.IgnoreButton, GlyssenInfo.kProduct);
-						var msg = msg1 + "\n\n" + msg2 + msg3;
-						Logger.WriteError(msg, e);
-
-						switch (MessageModal.Show(msg, GlyssenInfo.kProduct, Buttons.AbortRetryIgnore, Icon.Warning, DefaultButton.Button2))
+						switch (GetBadLdmlFileRecoveryAction?.Invoke(this, LdmlFilePath, e.Message, attemptToUseBackup))
 						{
-							default:
-								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
-								retry = false;
-								break;
-							case MessageResult.Retry:
+							case BadLdmlFileRecoveryAction.Retry:
 								if (attemptToUseBackup)
 								{
 									try
@@ -1959,7 +1936,11 @@ namespace GlyssenEngine
 								}
 								retry = true;
 								break;
-							case MessageResult.Abort:
+							case BadLdmlFileRecoveryAction.Repair:
+								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
+								retry = false;
+								break;
+							default:
 								throw;
 						}
 					}
@@ -2064,7 +2045,7 @@ namespace GlyssenEngine
 							ErrorReport.ReportNonFatalExceptionWithMessage(exSave, Localizer.GetString("Project.RevertedToOutdatedBackupWs",
 									"The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but " +
 									"since the old settings were different, some things might not work correctly next time you open this project."),
-								GlyssenInfo.kProduct);
+								GlyssenInfo.Product);
 						}
 					}
 					catch (Exception exRecover)
