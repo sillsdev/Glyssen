@@ -100,6 +100,18 @@ namespace Glyssen.Dialogs
 			SetupDropdownHeaderCells();
 		}
 
+		/// <summary>
+		/// Attempts to set m_paratextScrTextWrapper (if not set) and optionally updates the information about available books
+		/// and their current checking status. This can fail if the Paratext project cannot be found, so callers should check
+		/// the return value rather than blindly assuming it succeeded. The focus of this dialog is not on getting updated
+		/// content from Paratext, so we don't want to bother the user if that isn't possible. If it is possible, then we ask
+		/// them about including the updated content (when appropriate) when the OK button is clicked. This method will generally
+		/// not initiate interaction with the user, but there is at least one edge case where it might (when the Paratext
+		/// project is found but has a different metadata ID).
+		/// </summary>
+		/// <param name="refreshBooksIfExisting">Flag indicating that GetUpdatedBookInfo should be called to update the checking
+		/// status of books in Paratext when m_paratextScrTextWrapper is already set</param>
+		/// <returns><c>true</c> if m_paratextScrTextWrapper is set; <c>false</c> if m_paratextScrTextWrapper is null</returns>
 		private bool GetParatextScrTextWrapperIfNeeded(bool refreshBooksIfExisting = false)
 		{
 			Debug.Assert(m_project.IsLiveParatextProject);
