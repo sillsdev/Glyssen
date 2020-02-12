@@ -11837,7 +11837,7 @@
       </tuv>
     </tu>
     <tu tuid="Project.IgnoreToRepairLdmlFile">
-      <note>Param 0: "Ignore" button label; Param 1: "Glyssen" (product name)</note>
+      <note>Param 0: "Ignore" button label; Param 1: Product name (e.g., "Glyssen")</note>
       <tuv xml:lang="en">
         <seg>Otherwise, click {0} and {1} will repair the file for you. Some information might not be recoverable, so check the quote system and font settings carefully.</seg>
       </tuv>
@@ -11880,7 +11880,7 @@
       </tuv>
     </tu>
     <tu tuid="Project.NoSupportedBooksInParatextProject">
-      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name)</note>
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Product name (e.g., "Glyssen")</note>
       <tuv xml:lang="en">
         <seg>{0} project {1} has no books which are supported by {2}.</seg>
       </tuv>
@@ -11932,7 +11932,7 @@
       </tuv>
     </tu>
     <tu tuid="Project.ParatextProjectMetadataChangedMsg">
-      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: "Glyssen" (product name)</note>
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Product name (e.g., "Glyssen")</note>
       <tuv xml:lang="en">
         <seg>The settings of the {0} project {1} no longer appear to correspond to the {2} project. This is an unusual situation. If you do not understand how this happened, please contact support.</seg>
       </tuv>

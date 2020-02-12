@@ -47,6 +47,7 @@ namespace GlyssenEngineTests
 		static TestProject()
 		{
 			Project.FontRepository = new TestFontRepository();
+			GlyssenInfo.Product = "GlyssenTests";
 		}
 
 		private static Exception m_errorDuringProjectCreation;

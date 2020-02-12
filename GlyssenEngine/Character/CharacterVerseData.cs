@@ -150,7 +150,7 @@ namespace GlyssenEngine.Character
 		{
 			var standardCharacterType = GetStandardCharacterType(characterId);
 			string localizedCharacterId = standardCharacterType == StandardCharacter.NonStandard ?
-				Localizer.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId) :
+				Localizer.GetDynamicString(GlyssenInfo.ApplicationId, "CharacterName." + characterId, characterId) :
 				GetStandardCharacterNameForUi(standardCharacterType, GetBookCodeFromStandardCharacterId(characterId));
 			SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId] = characterId;
 

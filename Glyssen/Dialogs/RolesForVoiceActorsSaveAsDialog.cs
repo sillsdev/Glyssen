@@ -30,7 +30,7 @@ namespace Glyssen.Dialogs
 			m_defaultDirectory = Settings.Default.DefaultExportDirectory;
 			if (string.IsNullOrWhiteSpace(m_defaultDirectory))
 			{
-				m_defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), GlyssenInfo.kProduct);
+				m_defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), GlyssenInfo.Product);
 				if (!Directory.Exists(m_defaultDirectory))
 					Directory.CreateDirectory(m_defaultDirectory);
 			}

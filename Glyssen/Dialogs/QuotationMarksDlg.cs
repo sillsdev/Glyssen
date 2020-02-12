@@ -179,7 +179,7 @@ namespace Glyssen.Dialogs
 								"Param 6: Name of the \"General\" tab in the Project Settings dialog box; " +
 								"Param 7: Title of the \"Project Settings\" dialog box; " +
 								"Param 8: Name of the \"Update\" button"),
-							/* 0 */ GlyssenInfo.kProduct,
+							/* 0 */ GlyssenInfo.Product,
 							/* 1 */ ParatextScrTextWrapper.kParatextProgramName,
 							/* 2 */ m_project.ParatextProjectName,
 							/* 3 */ ParatextProjectBookInfo.LocalizedCheckName(ParatextScrTextWrapper.kQuotationCheckId),
@@ -193,11 +193,11 @@ namespace Glyssen.Dialogs
 						promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text release bundle and should not normally be changed.");
 					break;
 				case QuoteSystemStatus.Guessed:
-					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.kProduct);
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.Product);
 					break;
 				case QuoteSystemStatus.Reviewed:
 				case QuoteSystemStatus.UserSet:
-					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.kProduct);
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), GlyssenInfo.Product);
 					break;
 			}
 			m_lblPrompt.Text = promptText;
@@ -392,7 +392,7 @@ namespace Glyssen.Dialogs
 					"Param 0: \"Glyssen\" (product name); " +
 					"Param 1: \"Paratext\" (product name); " +
 					"Param 2: Paratext project short name (unique project identifier)"),
-					GlyssenInfo.kProduct,
+					GlyssenInfo.Product,
 					ParatextScrTextWrapper.kParatextProgramName,
 					m_project.ParatextProjectName));
 			}

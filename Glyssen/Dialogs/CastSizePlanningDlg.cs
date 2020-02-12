@@ -62,7 +62,7 @@ namespace Glyssen.Dialogs
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 
 			Text = string.Format(Text, m_viewModel.Project.Name);
-			m_lblWhenYouClick.Text = string.Format(m_lblWhenYouClick.Text, m_btnGenerate.Text, GlyssenInfo.kProduct);
+			m_lblWhenYouClick.Text = string.Format(m_lblWhenYouClick.Text, m_btnGenerate.Text, GlyssenInfo.Product);
 			if (m_loaded)
 				ShowOrHideNarratorCountWarnings();
 		}

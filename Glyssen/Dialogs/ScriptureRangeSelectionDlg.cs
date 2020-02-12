@@ -137,13 +137,13 @@ namespace Glyssen.Dialogs
 						"Param 1: (integer) number of Scripture books that did not pass basic checks; " +
 						"Param 2: Project short name (unique project identifier); " +
 						"Param 3: \"Paratext\" (product name)"),
-						GlyssenInfo.kProduct,
+						GlyssenInfo.Product,
 						failedChecksBookCount,
 						m_project.ParatextProjectName,
 						ParatextScrTextWrapper.kParatextProgramName) +
 						Environment.NewLine +
 						m_paratextScrTextWrapper.RequiredCheckNames;
-					MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 		}
@@ -204,13 +204,13 @@ namespace Glyssen.Dialogs
 						"Param 5: \"Old Testament\" or \"New Testament\" (as localized); " +
 						"Param 6: Glyssen recording project name"),
 						ParatextScrTextWrapper.kParatextProgramName,
-						GlyssenInfo.kProduct,
+						GlyssenInfo.Product,
 						Join(LocalizationManager.GetString("Common.SimpleListSeparator", ", "), booksWithFailingChecks),
 						m_project.ParatextProjectName,
 						m_paratextScrTextWrapper.RequiredCheckNames,
 						grid == m_otBooksGrid ? BookSetUtils.OldTestamentLocalizedString : BookSetUtils.NewTestamentLocalizedString,
 						m_project.Name);
-					if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo,
+					if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.YesNo,
 						MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
 					{
 						return;
@@ -353,7 +353,7 @@ namespace Glyssen.Dialogs
 					"Param 1: 3-letter Scripture book code; " +
 					"Param 2: \"Paratext\" (product name); " +
 					"Param 3: Paratext project short name (unique project identifier)"),
-					GlyssenInfo.kProduct,
+					GlyssenInfo.Product,
 					bookScriptFromExistingFile.BookId,
 					ParatextScrTextWrapper.kParatextProgramName,
 					m_project.ParatextProjectName);
@@ -449,7 +449,7 @@ namespace Glyssen.Dialogs
 				ParatextScrTextWrapper.kParatextProgramName,
 				bookCode,
 				m_project.ParatextProjectName,
-				GlyssenInfo.kProduct,
+				GlyssenInfo.Product,
 				Join(", ", m_paratextScrTextWrapper.GetCheckFailuresForBook(bookCode)));
 
 			var msg = failureMessage + Environment.NewLine + Environment.NewLine +
@@ -459,10 +459,10 @@ namespace Glyssen.Dialogs
 				"Do you want to include this book in the {1} project anyway?",
 				"Param 0: \"Glyssen\" (product name); " +
 				"Param 1: Glyssen recording project name"),
-				GlyssenInfo.kProduct,
+				GlyssenInfo.Product,
 				m_project.Name);
 
-			if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+			if (DialogResult.No == MessageBox.Show(this, msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
 				return false;
 			Logger.WriteEvent($"Including book {bookCode} even though " + failureMessage);
 			return true;

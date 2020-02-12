@@ -4,15 +4,37 @@ using System.IO;
 namespace Glyssen.Shared
 {
 	/// <summary>
-	/// Information about the Glyssen program which may be needed outside the assembly
+	/// Information about the program which may be needed outside the assembly
 	/// </summary>
 	public static class GlyssenInfo
 	{
-		public const string kCompany = "FCBH-SIL";
-		public const string kProduct = "Glyssen";
-		public const string kApplicationId = "Glyssen";
+		private const string kCompany = "FCBH-SIL";
+		private const string kProduct = "Glyssen";
+		private const string kApplicationId = "Glyssen";
+
+		private static string s_company;
+		private static string s_applicationId;
+		private static string s_product;
+
+		public static string Company
+		{
+			get => s_company ?? kCompany;
+			set => s_company = value;
+		}
+
+		public static string ApplicationId
+		{
+			get => s_applicationId ?? kApplicationId;
+			set => s_applicationId = value;
+		}
+
+		public static string Product
+		{
+			get => s_product ?? kProduct;
+			set => s_product = value;
+		}
 
 		public static string BaseDataFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-			kCompany, kProduct);
+			Company, Product);
 	}
 }
