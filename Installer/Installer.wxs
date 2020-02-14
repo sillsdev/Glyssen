@@ -192,6 +192,10 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="icuuc59.dll" Name="icuuc59.dll" KeyPath="yes" Source="..\output\release\lib\win-x64\icuuc59.dll" />
           </Component>
 
+          <Component Id="System.drawing.common.dll" Guid="*">
+            <File Id="System.drawing.common.dll" Name="System.drawing.common.dll" KeyPath="yes" Source="..\output\release\System.drawing.common.dll" />
+          </Component>
+
           <Component Id="System.ValueTuple.dll" Guid="*">
             <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" KeyPath="yes" Source="..\output\release\System.ValueTuple.dll" />
           </Component>
@@ -287,6 +291,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="icuin59.dll"/>
       <ComponentRef Id="icuuc59.dll"/>
 	  <ComponentRef Id="System.ValueTuple.dll"/>
+	  <ComponentRef Id="System.drawing.common.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
 	  <ComponentRef Id="DotNetZip.dll"/>
