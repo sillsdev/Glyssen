@@ -1268,6 +1268,37 @@ namespace GlyssenEngineTests.Script
 			Assert.IsTrue(jude.GetScriptBlocks().All(b => b.GetPrimaryReferenceText() == "blah"));
 		}
 
+		[Test]
+		public void GetCloneWithJoinedBlocks_SingleVoiceStandardCharacterBlocks_DifferentStandardCharacterBlocksNotCombined()
+		{
+			var sectionHead = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(NewTitleBlock("The gospel according to", "MAT"));
+			vernacularBlocks.Last().StyleTag = "mt2";
+			vernacularBlocks.Add(NewTitleBlock("Saint Matthew", "MAT"));
+			vernacularBlocks.Add(NewChapterBlock(1, "MAT"));
+			vernacularBlocks.Add(new Block("ms", 1) { IsParagraphStart = true, CharacterId = sectionHead });
+			vernacularBlocks.Last().BlockElements.Add(new ScriptText("INTRODUCTION"));
+			vernacularBlocks.Add(new Block("s", 1) { IsParagraphStart = true, CharacterId = sectionHead });
+			vernacularBlocks.Last().BlockElements.Add(new ScriptText("Royal Genealogy of Jesus"));
+			vernacularBlocks.Add(NewSingleVersePara(1, "Este es la genealogia de Jesus:"));
+			vernacularBlocks.Last().CharacterId = narrator;
+			vernacularBlocks.Last().IsParagraphStart = true;
+			vernacularBlocks.Add(NewPara("q", "Abraham fue el primero."));
+			vernacularBlocks.Last().CharacterId = narrator;
+			vernacularBlocks.Last().IsParagraphStart = true;
+			var countOfOrigParagraphs = vernacularBlocks.Count;
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			vernBook.SingleVoice = true;
+
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
+			Assert.AreEqual(countOfOrigParagraphs - 1, result.Count);
+			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
+			Assert.IsFalse(result.Any(b => b.MatchesReferenceText));
+		}
+
 		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]
 		[TestCase(" - ", "p", "{1}   ", "Part 2", "{1}\u00A0Part 2")]
 		[TestCase(",", "pi1", "{1} Part 1.", " ", "{1}\u00A0Part 1.")]

@@ -139,7 +139,7 @@ namespace GlyssenEngine.Script
 					if (!clone.CharacterIsStandard)
 						clone.CharacterIdInScript = narrator;
 				};
-				shouldCombine = (block1, block2) => !block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
+				shouldCombine = ShouldCombineBlocksInSingleVoiceBook;
 			}
 			else
 			{
@@ -178,6 +178,18 @@ namespace GlyssenEngine.Script
 			}
 
 			return clonedBook;
+		}
+
+		private static bool ShouldCombineBlocksInSingleVoiceBook(Block block1, Block block2)
+		{
+			//var standardCharacterTypeOfBlock1 = CharacterVerseData.GetStandardCharacterType(block1.CharacterId);
+			//if (standardCharacterTypeOfBlock1 != CharacterVerseData.StandardCharacter.Narrator && standardCharacterTypeOfBlock1 == CharacterVerseData.StandardCharacter.NonStandard)
+			//{
+			//	if (CharacterVerseData.GetStandardCharacterType(block2.CharacterId) != standardCharacterTypeOfBlock1)
+			//		return false;
+			//}
+
+			return !block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
 		}
 
 		internal bool ShouldCombineBlocksInMultiVoiceBook(Block block1, Block block2)
