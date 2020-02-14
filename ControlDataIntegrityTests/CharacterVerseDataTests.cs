@@ -338,6 +338,26 @@ namespace ControlDataIntegrityTests
 		}
 
 		/// <summary>
+		/// The point of the Hypothetical quote type is to indicate something someone or something (personified) might think or
+		/// say but which they didn't. The Quote Parser treats these as Narrator Quotations unless the reference text actually
+		/// has the hypothetical character speaking (which pretty much never happens in the NT, but it does in the OT). However,
+		/// the hypothetical character is still available as a choice in Identify Speaking Parts. We used to allow the Narrator
+		/// to be listed as the speaker of the hypothetical speech, but since the narrator typically does speak in verses where
+		/// there is hypothetical speech, this totally defeated the purpose of this special logic in verses where the only
+		/// expected speech was by the narrator. In those cases, we really do want the speech to be spoken by the narrator. We
+		/// could accomplish this by having a "no one" character listed as the hypothetical speaker, but this is unnecessary
+		/// and would result in "no one" appearing as a choice in ISP. So this test ensures that we do not allow this illogical
+		/// combination.
+		/// </summary>
+		[Test]
+		public void DataIntegrity_HypotheticalNarratorQuoteNotPermitted()
+		{
+			var hypotheticalNarrators = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(i => i.QuoteType == QuoteType.Hypothetical && i.Character.StartsWith("narrator-")).ToList();
+			Assert.IsFalse(hypotheticalNarrators.Any(), "Hypothetical narrator quotes are not permitted:" + Environment.NewLine +
+				string.Join(Environment.NewLine, hypotheticalNarrators.Select(cv => $"{cv.BcvRef.AsString}")));
+		}
+		 
+		/// <summary>
 		/// The Rare quote type must always be accompanied by a Needs Review entry, because this type of quote nearly always requires
 		/// input from a native speaker to know whether or not to dramatize it as actual spoken words (or thinking out loud) or treat
 		/// it as "hypothetical" speech that should be read by the narrator to convey an attitude, thought or belief of a character.
