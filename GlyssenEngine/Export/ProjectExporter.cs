@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
+//using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -472,7 +472,7 @@ namespace GlyssenEngine.Export
 							//sheet.Cells[i, columnNum].Value = filename;
 							sheet.Cells[i, columnNum].Formula = "HYPERLINK(\"" + filename + "\",\"" + filename + "\")";
 							sheet.Cells[i, columnNum].Style.Font.UnderLine = true;
-							sheet.Cells[i, columnNum].Style.Font.Color.SetColor(SystemColors.HotTrack);
+						//	sheet.Cells[i, columnNum].Style.Font.Color.SetColor(SystemColors.HotTrack);
 						}
 					}
 					// EPPlus doesn't support AutoFit of columns with formulas. The length of a filename + 1 gets us pretty close to the ideal width.
@@ -506,36 +506,36 @@ namespace GlyssenEngine.Export
 
 		private void SetAnnotationColors(ExcelRangeBase cell)
 		{
-			// do nothing if the cell is empty
-			var cellValue = cell.Value as string;
-			if (IsNullOrEmpty(cellValue)) return;
+			//// do nothing if the cell is empty
+			//var cellValue = cell.Value as string;
+			//if (IsNullOrEmpty(cellValue)) return;
 
-			var splits = m_splitRegex.Split(cellValue);
+			//var splits = m_splitRegex.Split(cellValue);
 
-			// list of string beginnings of strings to color blue
-			var blueBeginnings = new[] { "|||" };
+			//// list of string beginnings of strings to color blue
+			//var blueBeginnings = new[] { "|||" };
 
-			// list of string beginnings of strings to color red
-			var redBeginnings = new[] { "{Music", "{F8", "{SFX" };
+			//// list of string beginnings of strings to color red
+			//var redBeginnings = new[] { "{Music", "{F8", "{SFX" };
 
-			cell.RichText.Clear();
-			foreach (var split in splits)
-			{
-				var r = cell.RichText.Add(split);
+			//cell.RichText.Clear();
+			//foreach (var split in splits)
+			//{
+			//	var r = cell.RichText.Add(split);
 
-				if (blueBeginnings.Any(split.StartsWith))
-				{
-					r.Color = Color.Blue;
-				}
-				else if (redBeginnings.Any(split.StartsWith))
-				{
-					r.Color = Color.Red;
-				}
-				else
-				{
-					r.Color = Color.Black;
-				}
-			}
+			//	if (blueBeginnings.Any(split.StartsWith))
+			//	{
+			//		r.Color = Color.Blue;
+			//	}
+			//	else if (redBeginnings.Any(split.StartsWith))
+			//	{
+			//		r.Color = Color.Red;
+			//	}
+			//	else
+			//	{
+			//		r.Color = Color.Black;
+			//	}
+			//}
 		}
 
 		private int GetColumnIndex(ExportColumn column)
