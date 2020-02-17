@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
+using Glyssen.Export;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
@@ -1228,7 +1229,7 @@ namespace Glyssen
 
 			try
 			{
-				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsProvider);
+				var exporter = new ProjectExporter(m_project, GlyssenSettingsProvider.ExportSettingsProvider, new ExcelColorizer());
 
 				if (!IsOkToExport(exporter))
 					return;
