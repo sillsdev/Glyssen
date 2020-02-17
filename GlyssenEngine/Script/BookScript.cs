@@ -180,15 +180,25 @@ namespace GlyssenEngine.Script
 			return clonedBook;
 		}
 
-		private static bool ShouldCombineBlocksInSingleVoiceBook(Block block1, Block block2)
+		private bool ShouldCombineBlocksInSingleVoiceBook(Block block1, Block block2)
 		{
-			//var standardCharacterTypeOfBlock1 = CharacterVerseData.GetStandardCharacterType(block1.CharacterId);
-			//if (standardCharacterTypeOfBlock1 != CharacterVerseData.StandardCharacter.Narrator && standardCharacterTypeOfBlock1 == CharacterVerseData.StandardCharacter.NonStandard)
-			//{
-			//	if (CharacterVerseData.GetStandardCharacterType(block2.CharacterId) != standardCharacterTypeOfBlock1)
-			//		return false;
-			//}
-
+			switch(CharacterVerseData.GetStandardCharacterType(block1.CharacterId))
+			{
+				case CharacterVerseData.StandardCharacter.BookOrChapter:
+					if (block1.IsChapterAnnouncement || block2.IsChapterAnnouncement) // Never join chapter blocks to adjacent blocks (should never have two adjacent chapter blocks)
+						return false;
+					// Adjacent book title blocks should always be joined (should already have happened in USX parser)
+					return block2.CharacterIs(BookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+				// For any other standard character type (except narrator), never combine with next block if it is a different type.
+				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+					if (!block2.CharacterIs(BookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						return false;
+					break;
+				case CharacterVerseData.StandardCharacter.Intro:
+					if (!block2.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Intro))
+						return false;
+					break;
+			}
 			return !block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
 		}
 
