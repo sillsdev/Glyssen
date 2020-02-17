@@ -561,7 +561,9 @@ namespace GlyssenEngine.Quote
 							block.InitialStartVerseNumber, block.InitialEndVerseNumber)
 						{
 							BlockElements = block.BlockElements.Take(iElem).ToList(),
+							IsParagraphStart = block.IsParagraphStart
 						};
+						block.IsParagraphStart = false;
 						m_outputBlocks.Insert(i, newBlock);
 						// Decide how to assign the newly split-off (preceding) block. There are four possibilities.
 						ICharacterDeliveryInfo leadInCharacter;

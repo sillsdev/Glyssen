@@ -82,6 +82,8 @@ namespace GlyssenEngine
                     MigrateDuplicatedReferenceTextFromJoining(project.Books);
                 if (fromControlFileVersion < 152)
                     MigrateInvalidInitialStartVerseNumberFromSplitBeforePunctuation(project.Books);
+                if (fromControlFileVersion < 157 && fromControlFileVersion >= 142)
+	                SetBlocksFollowingSectionHeadToParagraphStart(project.Books);
                 MigrateDeprecatedCharacterIds(project);
 
                 result = MigrationResult.Complete;
@@ -509,5 +511,19 @@ namespace GlyssenEngine
                 }
             }
         }
+
+		public static void SetBlocksFollowingSectionHeadToParagraphStart(IReadOnlyList<BookScript> books)
+		{
+			foreach (var book in books)
+			{
+				bool prevBlockIsSectionHead = false;
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (prevBlockIsSectionHead)
+						block.IsParagraphStart = true;
+					prevBlockIsSectionHead = block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
+				}
+			}
+		}
     }
 }
