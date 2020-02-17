@@ -401,7 +401,7 @@ namespace GlyssenEngine
 		{
 			if (titleBuilder.Length < 1)
 				return;
-			var titleBlock = new Block("mt");
+			var titleBlock = new Block("mt") { IsParagraphStart = true };
 			titleBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			titleBlock.BlockElements.Add(new ScriptText(titleBuilder.ToString().Trim()));
 			blocks.Add(titleBlock);

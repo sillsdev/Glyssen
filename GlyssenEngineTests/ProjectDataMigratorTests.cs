@@ -1921,8 +1921,6 @@ namespace GlyssenEngineTests
 		#endregion
 
 		#region PG-1311
-
-
 		[TestCase("[ ", "37", 37, 0)]
 		[TestCase("?» ", "37", 37, 0)]
 		[TestCase(". ", "36-37", 36, 37)]
@@ -1952,6 +1950,52 @@ namespace GlyssenEngineTests
 			{
 				Assert.AreEqual(expectedInitialStartVerse, resultingBlocks[i].InitialStartVerseNumber);
 				Assert.AreEqual(expectedInitialEndVerse, resultingBlocks[i].InitialEndVerseNumber);
+			}
+		}
+		#endregion
+
+		#region PG-1334
+		[TestCase(true, true)]
+		[TestCase(true, false)]
+		[TestCase(false, true)]
+		[TestCase(false, false)]
+		public void SetBlocksFollowingSectionHeadToParagraphStart_SetsIsParagraphStartTrueForVersesFollowingSectionHeads(
+			bool initialValueForBlocksFollowingSection, bool initialValueForOtherBlocks)
+		{
+			var sectionHead = CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var origBlocks = new List<Block>();
+			var indicesOfVersesFollowingSectionHeads = new List<int>(3);
+			origBlocks.Add(CreateChapterBlock("LEV", 1, "c", true));
+			origBlocks.Add(new Block("s", 1) { CharacterId = sectionHead, IsParagraphStart = initialValueForOtherBlocks });
+			indicesOfVersesFollowingSectionHeads.Add(origBlocks.Count);
+			origBlocks.Add(CreateNarratorBlockForVerse(1, "Verse one.", initialValueForBlocksFollowingSection, 1, "LEV"));
+			origBlocks.Add(CreateBlockForVerse("God", 2, "Verse two.", initialValueForOtherBlocks).AddVerse(3, "Verse three."));
+			origBlocks.Add(CreateBlockForVerse("God", 21, "Verse twenty-one.", initialValueForOtherBlocks));
+			origBlocks.Add(new Block("s2", 1) { CharacterId = sectionHead, IsParagraphStart = initialValueForOtherBlocks });
+			indicesOfVersesFollowingSectionHeads.Add(origBlocks.Count);
+			AddBlockForVerseInProgress(origBlocks, "Moses", "That section head was in the middle of a verse.", "p").IsParagraphStart = initialValueForBlocksFollowingSection;
+			AddBlockForVerseInProgress(origBlocks, "Aaron", "Some other paragraph.", "p").IsParagraphStart = initialValueForOtherBlocks;
+			origBlocks.Add(CreateChapterBlock("LEV", 23, "c", true));
+			origBlocks.Add(new Block("s", 23) { CharacterId = sectionHead, IsParagraphStart = initialValueForOtherBlocks });
+			indicesOfVersesFollowingSectionHeads.Add(origBlocks.Count);
+			origBlocks.Add(CreateNarratorBlockForVerse(1, "Verse one of chapter twenty-three.", initialValueForBlocksFollowingSection, 23, "LEV"));
+			origBlocks.Add(CreateBlockForVerse("God", 2, "Verse two of chapter twenty-three.", initialValueForOtherBlocks, 23).AddVerse(3, "Verse three."));
+
+			var book = new BookScript("LEV", origBlocks, ScrVers.English);
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.SetBlocksFollowingSectionHeadToParagraphStart(books);
+
+			var resultingBlocks = book.GetScriptBlocks();
+			Assert.AreEqual(origBlocks.Count, resultingBlocks.Count);
+			for (var i = 0; i < resultingBlocks.Count; i++)
+			{
+				var block = resultingBlocks[i];
+				if (block.IsChapterAnnouncement)
+					continue;
+				if (indicesOfVersesFollowingSectionHeads.Contains(i))
+					Assert.IsTrue(block.IsParagraphStart);
+				else
+					Assert.AreEqual(initialValueForOtherBlocks, block.IsParagraphStart);
 			}
 		}
 		#endregion
