@@ -857,7 +857,7 @@ namespace GlyssenEngine
 				// appropriate character assignments are heavily tied to verse references. However, versification mappings in the
 				// New Testament are rare and very limited even when they do occur. So if we're including only NT books, we can
 				// skip this.
-				if (IsLiveParatextProject && m_projectMetadata.Versification != Versification.Name && IncludedBooks.First().BookNumber < 40)
+				if (IsLiveParatextProject && m_projectMetadata.Versification != Versification.Name && IncludedBooks.Any() && IncludedBooks.First().BookNumber < 40)
 					return true;
 
 				if (m_projectMetadata.ParserVersion >= kParserVersion)
