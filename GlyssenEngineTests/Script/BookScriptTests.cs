@@ -1268,6 +1268,66 @@ namespace GlyssenEngineTests.Script
 			Assert.IsTrue(jude.GetScriptBlocks().All(b => b.GetPrimaryReferenceText() == "blah"));
 		}
 
+		// PG-1334
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetCloneWithJoinedBlocks_SingleVoiceStandardCharacterBlocks_DifferentStandardCharacterBlocksNotCombined(bool paragraphStart)
+		{
+			var sectionHead = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var intro = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Intro);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(NewTitleBlock("The Gospel According to Saint Matthew", "MAT"));
+			// The case where paragraphStart is false is somewhat contrived. Any intro paragraph should have IsParagraphStart true
+			// (and would most likely end in sentence-ending punctuation).
+			vernacularBlocks.Add(new Block("ip", 1) { IsParagraphStart = paragraphStart, CharacterId = intro });
+			vernacularBlocks.Last().BlockElements.Add(new ScriptText("Matthew's gospel: Jesus the Messianic King"));
+			vernacularBlocks.Add(NewChapterBlock(1, "MAT"));
+			vernacularBlocks.Add(new Block("ms", 1) { IsParagraphStart = true, CharacterId = sectionHead });
+			vernacularBlocks.Last().BlockElements.Add(new ScriptText("INTRODUCTION"));
+			// Again the case where paragraphStart is false is somewhat contrived. Should have IsParagraphStart true.
+			vernacularBlocks.Add(new Block("s", 1) { IsParagraphStart = paragraphStart, CharacterId = sectionHead });
+			vernacularBlocks.Last().BlockElements.Add(new ScriptText("Royal Genealogy of Jesus"));
+			vernacularBlocks.Add(NewSingleVersePara(1, "Este es la genealogia de Jesus:"));
+			vernacularBlocks.Last().CharacterId = narrator;
+			// This one is NOT contrived. This should be true, but the bug in this case is that some paragraph-start
+			// blocks are incorrectly missing this flag.
+			vernacularBlocks.Last().IsParagraphStart = paragraphStart;
+			vernacularBlocks.Add(NewPara("q", "Abraham fue el primero."));
+			vernacularBlocks.Last().CharacterId = narrator;
+			vernacularBlocks.Last().IsParagraphStart = true;
+			var countOfOrigParagraphs = vernacularBlocks.Count;
+
+			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
+			vernBook.SingleVoice = true;
+
+			var result = vernBook.GetCloneWithJoinedBlocks(false).GetScriptBlocks();
+			int iBlock = 0;
+			Assert.AreEqual(result[iBlock], result.Single(b => b.CharacterIs("MAT", CharacterVerseData.StandardCharacter.BookOrChapter) &&
+				!b.IsChapterAnnouncement));
+			Assert.AreEqual("The Gospel According to Saint Matthew", ((ScriptText)result[iBlock].BlockElements.Single()).Content);
+			Assert.AreEqual("Matthew's gospel: Jesus the Messianic King", ((ScriptText)result[++iBlock].BlockElements.Single()).Content);
+			Assert.AreEqual("ip", result[iBlock].StyleTag);
+			Assert.IsTrue(result[++iBlock].IsChapterAnnouncement);
+			if (paragraphStart)
+			{
+				Assert.AreEqual("INTRODUCTION", ((ScriptText)result[++iBlock].BlockElements.Single()).Content);
+				Assert.AreEqual("Royal Genealogy of Jesus", ((ScriptText)result[++iBlock].BlockElements.Single()).Content);
+			}
+			else
+			{
+				Assert.AreEqual("INTRODUCTION Royal Genealogy of Jesus", ((ScriptText)result[++iBlock].BlockElements.Single()).Content);
+			}
+
+			var firstVerse = result[++iBlock];
+			Assert.IsTrue(firstVerse.StartsAtVerseStart);
+			Assert.AreEqual(1, firstVerse.InitialStartVerseNumber);
+			Assert.AreEqual("p", firstVerse.StyleTag);
+			Assert.AreEqual("Este es la genealogia de Jesus: Abraham fue el primero.", ((ScriptText)firstVerse.BlockElements[1]).Content);
+			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
+			Assert.AreEqual(iBlock + 1, result.Count);
+		}
+
 		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]
 		[TestCase(" - ", "p", "{1}   ", "Part 2", "{1}\u00A0Part 2")]
 		[TestCase(",", "pi1", "{1} Part 1.", " ", "{1}\u00A0Part 1.")]
