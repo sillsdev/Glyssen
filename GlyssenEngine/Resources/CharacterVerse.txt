@@ -348,7 +348,7 @@ GEN	26	7	men of Gerar			Indirect
 GEN	26	7	Isaac	deceiving		Normal		
 GEN	26	7	Isaac	thought		Normal		
 #The words that Isaac was afraid to say (i.e., "my wife") should be spoken by the narrator
-GEN	26	7	narrator-GEN			Hypothetical		
+GEN	26	7	narrator-GEN			Quotation		
 GEN	26	9	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	9	Isaac			Normal		
 GEN	26	10	Abimelech 2, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
@@ -5872,7 +5872,8 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	24	24	David		David, king	Normal		
 1KI	1	2	servants of David			Normal		
 1KI	1	5	Adonijah, son of David			Normal		
-1KI	1	6	narrator-1KI			Hypothetical		
+# Since the text says his father had not corrected him, it wouldn't make sense for David to speak this.
+1KI	1	6	narrator-1KI			Quotation		
 1KI	1	11	Nathan		Nathan the prophet	Normal		
 1KI	1	12	Nathan		Nathan the prophet	Normal		
 1KI	1	13	Nathan		Nathan the prophet	Normal		
@@ -8466,8 +8467,8 @@ PSA	60	7	God		God (the LORD)	Normal
 PSA	60	8	God		God (the LORD)	Normal		
 PSA	64	5	David's enemies			Normal		
 PSA	64	6	David's enemies			Normal		
-PSA	66	3	narrator-PSA			Hypothetical		
-PSA	66	4	narrator-PSA			Hypothetical		
+PSA	66	3	you (hypothetical)			Hypothetical		
+PSA	66	4	you (hypothetical)			Hypothetical		
 PSA	68	12	proclaimers of God's word			Normal		
 PSA	68	13	proclaimers of God's word			Potential		
 PSA	68	22	God		God (the LORD)	Quotation		
@@ -8477,7 +8478,7 @@ PSA	70	3	David's enemies			Normal
 PSA	70	4	those who seek God			Normal		
 PSA	71	11	David's enemies			Normal		
 PSA	73	11	people, arrogant wicked			Normal		
-PSA	73	15	narrator-PSA			Hypothetical		
+PSA	73	15	narrator-PSA			Quotation		
 PSA	74	8	enemies of God			Normal		
 PSA	74	8	narrator-PSA			Quotation		
 PSA	75	0	narrator-PSA			Quotation		
@@ -8626,7 +8627,7 @@ PRO	4	9	David		father of Solomon (King David)	Quotation
 PRO	5	12	sons (hypothetical), at end of life			Hypothetical		
 PRO	5	13	sons (hypothetical), at end of life			Hypothetical		
 PRO	5	14	sons (hypothetical), at end of life			Hypothetical		
-PRO	7	4	narrator-PRO			Hypothetical		
+PRO	7	4	son (receiving instructions)			Hypothetical		
 PRO	7	14	immoral woman			Implicit		
 PRO	7	15	immoral woman			Implicit		
 PRO	7	16	immoral woman			Implicit		
@@ -8751,17 +8752,17 @@ ECC	3	19	teacher (Preacher)	said/thought in heart		Normal
 ECC	3	20	teacher (Preacher)	said/thought in heart		Normal		
 ECC	3	21	teacher (Preacher)	said/thought in heart		Normal		
 ECC	4	8	man all alone			Hypothetical		
-ECC	5	6	narrator-ECC			Hypothetical		
+ECC	5	6	narrator-ECC			Quotation		
 ECC	7	10	fool			Hypothetical		
 ECC	7	23	narrator-ECC			Quotation		
 ECC	7	27	narrator-ECC			Quotation		
 ECC	7	28	narrator-ECC			Quotation		
 ECC	7	29	narrator-ECC			Quotation		
 ECC	8	2	narrator-ECC			Quotation		
-ECC	8	4	narrator-ECC			Hypothetical		
+ECC	8	4	narrator-ECC			Quotation		
 ECC	9	16	narrator-ECC			Quotation		
 ECC	10	20	narrator-ECC			Potential		
-ECC	12	1	narrator-ECC			Hypothetical		
+ECC	12	1	you (hypothetical)			Hypothetical		
 ECC	12	8	narrator-ECC			Quotation		
 SNG	1	2	beloved			Potential		
 SNG	1	3	beloved			Potential		
@@ -9005,7 +9006,7 @@ ISA	3	8	God		God (the LORD)	Potential
 ISA	3	8	Isaiah			Potential		
 ISA	3	9	God		God (the LORD)	Potential		
 ISA	3	9	Isaiah			Potential		
-ISA	3	10	narrator-ISA			Hypothetical		
+ISA	3	10	narrator-ISA			Quotation		
 ISA	3	10	God			Potential		
 ISA	3	10	Isaiah			Potential		
 ISA	3	11	God		God (the LORD)	Potential		
@@ -9592,7 +9593,7 @@ ISA	33	12	God		God (the LORD)	Implicit
 ISA	33	13	God		God (the LORD)	Implicit		
 ISA	33	14	sinners			Hypothetical		
 ISA	33	18	you (hypothetical)	thinking		Hypothetical		
-ISA	33	24	narrator-ISA			Hypothetical		
+ISA	33	24	narrator-ISA			Quotation		
 ISA	34	5	God		God (the LORD)	Implicit		
 ISA	34	5	Isaiah			Alternate		
 ISA	35	4	you (hypothetical)			Hypothetical		
@@ -9780,7 +9781,7 @@ ISA	42	21	God		God (the LORD)	Potential
 ISA	42	21	Isaiah			Alternate		
 ISA	42	22	God		God (the LORD)	Potential		
 ISA	42	22	Isaiah			Alternate		
-ISA	42	22	narrator-ISA			Hypothetical		
+ISA	42	22	narrator-ISA			Quotation		
 ISA	42	23	Isaiah			Potential		
 ISA	42	23	God		God (the LORD)	Alternate		
 ISA	42	24	Isaiah			Potential		
@@ -9838,10 +9839,12 @@ ISA	44	17	God		God (the LORD)	Potential
 ISA	44	18	God		God (the LORD)	Potential		
 ISA	44	19	God		God (the LORD)	Potential		
 ISA	44	19	craftsman			Hypothetical		
-ISA	44	19	narrator-ISA			Hypothetical		
+ISA	44	19	narrator-ISA			Quotation		
 ISA	44	20	God		God (the LORD)	Potential		
+# Although this is a "cannot say", since the craftsman is speaking in the preceding verses,
+# it may sound good to have him say this part also.
 ISA	44	20	craftsman			Hypothetical		
-ISA	44	20	narrator-ISA			Hypothetical		
+ISA	44	20	narrator-ISA			Quotation		
 ISA	44	21	God		God (the LORD)	Implicit		
 ISA	44	22	God		God (the LORD)	Implicit		
 ISA	44	23	Isaiah			Potential		
@@ -10097,7 +10100,7 @@ ISA	55	13	God		God (the LORD)	Normal
 ISA	55	13	Isaiah			Alternate		
 ISA	56	1	God		God (the LORD)	Normal		
 ISA	56	2	God		God (the LORD)	Normal		
-ISA	56	3	narrator-ISA			Hypothetical		
+ISA	56	3	narrator-ISA			Quotation		
 ISA	56	3	foreigner who has joined himself to the Lord			Hypothetical		
 ISA	56	3	eunuch			Hypothetical		
 ISA	56	4	God		God (the LORD)	Normal		
@@ -18227,7 +18230,7 @@ JHN	4	23	Jesus			Normal
 JHN	4	24	Jesus			Normal		
 JHN	4	25	woman, Samaritan			Dialogue		
 JHN	4	26	Jesus			Dialogue		
-JHN	4	27	narrator-JHN			Hypothetical		
+JHN	4	27	narrator-JHN			Quotation		
 JHN	4	29	woman, Samaritan			Dialogue		
 JHN	4	31	disciples			Dialogue		
 JHN	4	32	Jesus			Dialogue		
@@ -18887,7 +18890,7 @@ JHN	21	7	John	quotation of John's words, that Peter heard (should be spoken by n
 JHN	21	7	narrator-JHN			Quotation		
 JHN	21	10	Jesus	giving orders		Dialogue		
 JHN	21	12	Jesus			Dialogue		
-JHN	21	12	narrator-JHN			Hypothetical		
+JHN	21	12	narrator-JHN			Quotation		
 JHN	21	15	Jesus	questioning		Dialogue		
 JHN	21	15	Peter (Simon)			Dialogue		
 JHN	21	16	Jesus	questioning		Dialogue		
@@ -19006,7 +19009,7 @@ ACT	4	27	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Pet
 ACT	4	28	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
-ACT	4	32	narrator-ACT			Hypothetical		
+ACT	4	32	narrator-ACT			Quotation		
 ACT	4	33	disciples		apostles	Indirect		
 # "Son of Encouragement"
 ACT	4	36	narrator-ACT			Quotation		
@@ -19766,7 +19769,7 @@ ROM	10	7	scripture			Quotation	Moses
 ROM	10	7	God		righteousness which is of faith (God)	Quotation		
 ROM	10	7	narrator-ROM			Interruption		
 ROM	10	8	scripture			Quotation	Moses	
-ROM	10	9	narrator-ROM			Hypothetical		
+ROM	10	9	you (hypothetical)			Hypothetical		
 ROM	10	11	scripture			Quotation	God	
 ROM	10	12	narrator-ROM			Quotation		
 ROM	10	13	scripture			Quotation	God	
@@ -19806,7 +19809,7 @@ ROM	16	22	Tertius			Implicit
 1CO	1	12	follower of Cephas (Peter)	boasting		Hypothetical		
 1CO	1	12	follower of Paul	boasting		Hypothetical		
 1CO	1	12	follower of Christ	boasting		Hypothetical		
-1CO	1	15	narrator-1CO			Hypothetical		
+1CO	1	15	narrator-1CO			Quotation		
 1CO	1	19	scripture			Quotation	God	
 1CO	1	31	scripture			Quotation	God	
 1CO	2	9	scripture			Quotation	Isaiah	
@@ -19819,16 +19822,16 @@ ROM	16	22	Tertius			Implicit
 1CO	4	6	saying about going beyond what is written			Quotation		
 1CO	5	6	saying about yeast			Quotation		
 1CO	5	13	scripture			Quotation	Moses	
-1CO	6	12	narrator-1CO			Hypothetical		
-1CO	6	13	narrator-1CO			Hypothetical		
+1CO	6	12	saying about doing anything			Hypothetical		
+1CO	6	13	saying about food			Hypothetical		
 1CO	6	16	scripture			Quotation		
 1CO	6	18	scripture			Quotation		
 1CO	7	10	narrator-1CO			Potential		
-1CO	8	1	narrator-1CO			Hypothetical		
+1CO	8	1	narrator-1CO			Quotation		
 1CO	8	5	narrator-1CO			Quotation		
 1CO	9	9	scripture			Quotation	Moses	
 1CO	10	7	scripture			Quotation		
-1CO	10	23	narrator-1CO			Hypothetical		
+1CO	10	23	saying about doing anything			Hypothetical		
 1CO	10	26	scripture			Quotation	David	
 1CO	10	28	anyone			Hypothetical		
 # Some manuscripts have the quote from Psalm 24:1 repeated in v. 28 (in addition to v. 26)
@@ -19839,7 +19842,7 @@ ROM	16	22	Tertius			Implicit
 1CO	10	28	Needs Review			Potential		
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
-1CO	12	3	narrator-1CO			Hypothetical		
+1CO	12	3	narrator-1CO			Quotation		
 1CO	12	15	foot			Hypothetical		
 1CO	12	16	ear			Hypothetical		
 1CO	12	21	eye			Hypothetical		
@@ -19902,7 +19905,7 @@ GAL	3	10	scripture			Quotation	Moses
 GAL	3	11	scripture			Quotation	God	
 GAL	3	12	scripture			Quotation	God	
 GAL	3	13	scripture			Quotation	Moses	
-GAL	3	16	narrator-GAL		God does not say (narrator)	Hypothetical		
+GAL	3	16	narrator-GAL		God does not say (narrator)	Quotation		
 GAL	3	16	scripture		scripture (God)	Quotation	God	
 GAL	3	17	God		God (the LORD)	Rare		
 GAL	3	17	Needs Review			Potential		
@@ -20033,7 +20036,7 @@ HEB	12	29	scripture			Quotation	Moses
 HEB	13	5	scripture			Quotation	God	
 HEB	13	6	scripture			Quotation	psalmist	
 HEB	13	11	narrator-HEB			Quotation		
-JAS	1	13	narrator-JAS			Hypothetical		
+JAS	1	13	narrator-JAS			Quotation		
 JAS	2	3	someone			Hypothetical		
 JAS	2	8	scripture			Quotation	God	
 JAS	2	11	scripture			Quotation	God	
@@ -20077,7 +20080,7 @@ JAS	5	17	Elijah	praying		Indirect
 1JN	1	10	narrator-1JN			Quotation		
 1JN	2	4	man who says 'I know him'			Hypothetical		
 1JN	2	6	man who says 'we remain in union with God'			Hypothetical		
-1JN	2	18	narrator-1JN			Hypothetical		
+1JN	2	18	narrator-1JN			Quotation		
 1JN	4	15	anyone			Hypothetical		
 1JN	4	20	anyone			Hypothetical		
 1JN	4	21	Jesus			Quotation		
