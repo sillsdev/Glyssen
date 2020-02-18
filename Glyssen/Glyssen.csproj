@@ -487,6 +487,7 @@
     <Compile Include="Dialogs\YesNoApplyToAllDlg.Designer.cs">
       <DependentUpon>YesNoApplyToAllDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Export\ExcelColorizer.cs" />
     <Compile Include="GlyssenSettingsProvider.cs" />
     <Compile Include="Utilities\AlertImpl.cs" />
     <Compile Include="Utilities\CustomColor.cs" />

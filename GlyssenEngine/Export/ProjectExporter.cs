@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -49,6 +48,7 @@ namespace GlyssenEngine.Export
 	public class ProjectExporter
 	{
 		private readonly IDefaultDirectoryProvider m_defaultDirectoryProvider;
+		private readonly IExcelColorizer m_excelColorizer;
 		private const string kExcelLineBreak = "\r\n"; ///????????????????????
 		private const string kTabFileAnnotationElementSeparator = " ";
 		public const string kTabDelimitedFileExtension = ".txt";
@@ -60,9 +60,10 @@ namespace GlyssenEngine.Export
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
 
-		public ProjectExporter(Project project, IDefaultDirectoryProvider defaultDirectoryProvider = null)
+		public ProjectExporter(Project project, IDefaultDirectoryProvider defaultDirectoryProvider = null, IExcelColorizer excelColorizer = null)
 		{
 			m_defaultDirectoryProvider = defaultDirectoryProvider;
+			m_excelColorizer = excelColorizer;
 			Project = project;
 			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
@@ -472,7 +473,7 @@ namespace GlyssenEngine.Export
 							//sheet.Cells[i, columnNum].Value = filename;
 							sheet.Cells[i, columnNum].Formula = "HYPERLINK(\"" + filename + "\",\"" + filename + "\")";
 							sheet.Cells[i, columnNum].Style.Font.UnderLine = true;
-							sheet.Cells[i, columnNum].Style.Font.Color.SetColor(SystemColors.HotTrack);
+							m_excelColorizer?.SetCellHotTrackColor(sheet.Cells[i, columnNum]);
 						}
 					}
 					// EPPlus doesn't support AutoFit of columns with formulas. The length of a filename + 1 gets us pretty close to the ideal width.
@@ -506,9 +507,13 @@ namespace GlyssenEngine.Export
 
 		private void SetAnnotationColors(ExcelRangeBase cell)
 		{
+			if (m_excelColorizer == null)
+				return;
+
 			// do nothing if the cell is empty
 			var cellValue = cell.Value as string;
-			if (IsNullOrEmpty(cellValue)) return;
+			if (IsNullOrEmpty(cellValue))
+				return;
 
 			var splits = m_splitRegex.Split(cellValue);
 
@@ -524,17 +529,11 @@ namespace GlyssenEngine.Export
 				var r = cell.RichText.Add(split);
 
 				if (blueBeginnings.Any(split.StartsWith))
-				{
-					r.Color = Color.Blue;
-				}
+					m_excelColorizer.ApplyColor(r, AnnotationColor.Blue);
 				else if (redBeginnings.Any(split.StartsWith))
-				{
-					r.Color = Color.Red;
-				}
+					m_excelColorizer.ApplyColor(r, AnnotationColor.Red);
 				else
-				{
-					r.Color = Color.Black;
-				}
+					m_excelColorizer.ApplyColor(r, AnnotationColor.Black);
 			}
 		}
 
