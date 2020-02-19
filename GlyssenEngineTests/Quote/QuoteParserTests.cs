@@ -5461,8 +5461,8 @@ namespace GlyssenEngineTests.Quote
 
 			var input = new List<Block>
 			{
-				new Block("p", 37, 6).AddVerse(6, "Isaiah told them,"),
-				new Block("p", 37, 6).AddText("Tell your master, God says: Don't fear the blasphemous words of the servants of the king of Assyria.")
+				new Block("p", 37, 6) {IsParagraphStart = true}.AddVerse(6, "Isaiah told them,"),
+				new Block("p", 37, 6) {IsParagraphStart = true}.AddText("Tell your master, God says: Don't fear the blasphemous words of the servants of the king of Assyria.")
 				.AddVerse(7, "Lo I will freak him out with some news to make him go home and get killed there."),
 			};
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
@@ -5470,8 +5470,12 @@ namespace GlyssenEngineTests.Quote
 			Assert.AreEqual(3, output.Count);
 			Assert.IsTrue(output[0].CharacterIs("ISA", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("Isaiah", output[1].CharacterId);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+			Assert.IsTrue(output[1].IsParagraphStart);
 			Assert.IsFalse(output[1].UserConfirmed);
 			Assert.AreEqual("Isaiah", output[2].CharacterId);
+			Assert.AreEqual(7, output[2].InitialStartVerseNumber);
+			Assert.IsFalse(output[2].IsParagraphStart);
 			Assert.IsFalse(output[2].UserConfirmed);
 		}
 

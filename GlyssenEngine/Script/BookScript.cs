@@ -139,7 +139,7 @@ namespace GlyssenEngine.Script
 					if (!clone.CharacterIsStandard)
 						clone.CharacterIdInScript = narrator;
 				};
-				shouldCombine = (block1, block2) => !block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
+				shouldCombine = ShouldCombineBlocksInSingleVoiceBook;
 			}
 			else
 			{
@@ -178,6 +178,28 @@ namespace GlyssenEngine.Script
 			}
 
 			return clonedBook;
+		}
+
+		private bool ShouldCombineBlocksInSingleVoiceBook(Block block1, Block block2)
+		{
+			switch(CharacterVerseData.GetStandardCharacterType(block1.CharacterId))
+			{
+				case CharacterVerseData.StandardCharacter.BookOrChapter:
+					if (block1.IsChapterAnnouncement || block2.IsChapterAnnouncement) // Never join chapter blocks to adjacent blocks (should never have two adjacent chapter blocks)
+						return false;
+					// Adjacent book title blocks should always be joined (should already have happened in USX parser)
+					return block2.CharacterIs(BookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+				// For any other standard character type (except narrator), never combine with next block if it is a different type.
+				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+					if (!block2.CharacterIs(BookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						return false;
+					break;
+				case CharacterVerseData.StandardCharacter.Intro:
+					if (!block2.CharacterIs(BookId, CharacterVerseData.StandardCharacter.Intro))
+						return false;
+					break;
+			}
+			return !block2.IsParagraphStart || (block2.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(block1.GetText(false)));
 		}
 
 		internal bool ShouldCombineBlocksInMultiVoiceBook(Block block1, Block block2)
