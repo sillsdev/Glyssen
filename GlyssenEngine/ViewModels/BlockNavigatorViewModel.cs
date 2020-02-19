@@ -830,7 +830,7 @@ namespace GlyssenEngine.ViewModels
 				currentIndices.BlockIndex, currentIndices.MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
-				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
+				m_currentRefBlockMatchups.MatchAllBlocks();
 				// We might have gotten here by ad-hoc navigation (clicking or using the Verse Reference control). Since we are in "rainbow mode"
 				// the filter holds *groups* of relevant blocks (rather than individual ones), so if the new current matchup corresponds to one
 				// of those groups (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise,
@@ -883,7 +883,7 @@ namespace GlyssenEngine.ViewModels
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
 
-			m_currentRefBlockMatchups.Apply(m_project.Versification);
+			m_currentRefBlockMatchups.Apply();
 			if (insertionIndex < 0)
 			{
 				var indicesOfFirstBlock = BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
