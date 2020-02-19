@@ -137,7 +137,7 @@ namespace GlyssenEngineTests.Script
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(9, "Habiendo resucitado Jesús, apareció a María Magdalena. ")
 				.AddVerse($"10-{leadingVerseBridgeEnd}", "Ella lo hizo saber a los demas, pero no le creian. "));
 			vernacularBlocks.Add(new Block("p", 1, 11, 12) { ChapterNumber = 1, CharacterId = vernacularBlocks.Last().CharacterId,
-				BlockElements = new List<BlockElement>() {new Verse(trailingVerseBridgeStart), new ScriptText("Ellas dieron las instrucciones a los hombres.") }}
+				BlockElements = new List<BlockElement> {new Verse($"{trailingVerseBridgeStart}-12"), new ScriptText("Ellas dieron las instrucciones a los hombres.") }}
 				.AddVerse(13, "Y después, Jesús envió por medio de ellos el mensaje de salvación."));
 			var vernBook = new BookScript("MAT", vernacularBlocks, ScrVers.English);
 			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
