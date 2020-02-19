@@ -653,7 +653,7 @@ namespace GlyssenEngine.Script
 						targetBlock.UserConfirmed = sourceBlock.UserConfirmed;
 					}
 				}
-				targetMatchup.Apply(Versification);
+				targetMatchup.Apply();
 			}
 		}
 

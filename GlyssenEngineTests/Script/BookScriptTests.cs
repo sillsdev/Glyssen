@@ -2341,7 +2341,7 @@ namespace GlyssenEngineTests.Script
 		/// <param name="matchup"></param>
 		private static void MatchUpBlocksAndApplyToSource(BlockMatchup matchup)
 		{
-			matchup.MatchAllBlocks(ScrVers.English);
+			matchup.MatchAllBlocks();
 			var narrator = CharacterVerseData.GetStandardCharacterId(matchup.BookId, CharacterVerseData.StandardCharacter.Narrator);
 			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear ||
 				(b.MultiBlockQuote != MultiBlockQuote.None && b.CharacterIsStandard)))

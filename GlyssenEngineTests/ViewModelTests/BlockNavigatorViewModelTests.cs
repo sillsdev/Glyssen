@@ -1184,7 +1184,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
-			matchup.MatchAllBlocks(m_testProject.Versification);
+			matchup.MatchAllBlocks();
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
@@ -1258,7 +1258,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			var matchup = m_model.CurrentReferenceTextMatchup;
 
 			Assert.IsTrue(m_model.CurrentDisplayIndex >= m_model.RelevantBlockCount);
-			matchup.MatchAllBlocks(m_testProject.Versification);
+			matchup.MatchAllBlocks();
 			foreach (var block in matchup.CorrelatedBlocks.Where(b => b.CharacterIsUnclear))
 				block.SetCharacterIdAndCharacterIdInScript("Paul", m_model.CurrentBookNumber, m_testProject.Versification);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
@@ -1322,7 +1322,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.IsFalse(model.IsCurrentLocationRelevant);
 			var matchup = model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
-			matchup.MatchAllBlocks(m_testProject.Versification);
+			matchup.MatchAllBlocks();
 
 			model.ApplyCurrentReferenceTextMatchup();
 
