@@ -20,7 +20,7 @@ namespace GlyssenEngineTests.Character
 		private static readonly int kMRKbookNum = BCVRef.BookToNumber("MRK");
 		private IQuoteInterruptionFinder m_interruptionFinder;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetup()
 		{
 			m_interruptionFinder = new QuoteSystem(new QuotationMark("—", "—", null, 1, QuotationMarkingSystemType.Narrative));

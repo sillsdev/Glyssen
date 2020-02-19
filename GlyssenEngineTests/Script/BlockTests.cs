@@ -8,7 +8,6 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using NUnit.Framework;
-using SIL.TestUtilities;
 using Rhino.Mocks;
 using SIL.IO;
 using SIL.Scripture;

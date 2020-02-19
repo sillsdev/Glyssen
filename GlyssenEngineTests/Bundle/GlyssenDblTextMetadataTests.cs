@@ -5,8 +5,7 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
 using NUnit.Framework;
-// using SIL.TestUtilities;                This will be used again when libpalaso moves to NUnit 3.12
-using GlyssenSharedTests.TestUtilities; // This will no longer be used when libpalaso moves to NUnit 3.12
+using SIL.TestUtilities;
 
 namespace GlyssenEngineTests.Bundle
 {

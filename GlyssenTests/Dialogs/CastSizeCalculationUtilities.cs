@@ -114,7 +114,7 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 
-		[Category("ByHand")]
+		[Explicit] // This is a utility disguised as a unit test. Only run it by hand.
 		[TestCase("MAT", 6)]
 		[TestCase("MRK", 6)]
 		[TestCase("LUK", 7)]
@@ -252,7 +252,7 @@ namespace GlyssenTests.Dialogs
 			return false;
 		}
 
-		[Category("ByHand")]
+		[Explicit] // This is a utility disguised as a unit test. Only run it by hand.
 		[TestCase("GEN", 7)]
 		[TestCase("EXO", 4)]
 		[TestCase("LEV", 3)]

@@ -466,8 +466,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyBasic(narratorGroups, 5);
 		}
 
-		[Test]
-		[Category("ByHand")]
+		[Test, Explicit] // by hand only
 		public void DistributeBooksAmongNarratorGroups_AllCombinationsOfFewerNarratorsThanAuthors_ManualCheck()
 		{
 			for (int i = 2; i <= 37; i++)
