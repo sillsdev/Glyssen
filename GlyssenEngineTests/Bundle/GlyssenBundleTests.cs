@@ -14,9 +14,9 @@ namespace GlyssenEngineTests.Bundle
 
 		static GlyssenBundleTests()
 		{
+			GlyssenInfo.Product = "GlyssenTests";
 			if (Project.FontRepository == null)
 				Project.FontRepository = new TestProject.TestFontRepository();
-			GlyssenInfo.Product = "GlyssenTests";
 		}
 
 		private static string GetUniqueBundleId()

@@ -308,7 +308,7 @@ namespace GlyssenEngineTests
 				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
 					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
 
-				matchup.Apply(testProject.Versification);
+				matchup.Apply();
 
 				var newQuoteSystem = new QuoteSystem(testProject.QuoteSystem);
 				newQuoteSystem.AllLevels.Add(new QuotationMark("=+", "#$", "^&", newQuoteSystem.FirstLevel.Level, QuotationMarkingSystemType.Narrative));
@@ -425,7 +425,7 @@ namespace GlyssenEngineTests
 				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
 					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
 
-				matchup.Apply(testProject.Versification);
+				matchup.Apply();
 
 				bool complete = false;
 
@@ -481,7 +481,7 @@ namespace GlyssenEngineTests
 				if (!CharacterDetailData.Singleton.GetDictionary().ContainsKey(character))
 					testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = character, Age = CharacterAge.Elder, Gender = CharacterGender.Male });
 
-				matchup.Apply(testProject.Versification);
+				matchup.Apply();
 
 				bool complete = false;
 
@@ -1117,7 +1117,7 @@ namespace GlyssenEngineTests
 			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark8V5);
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
-			matchup.MatchAllBlocks(null);
+			matchup.MatchAllBlocks();
 			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
@@ -1135,7 +1135,7 @@ namespace GlyssenEngineTests
 			var expectedEnglishRefTextForMark9V9 = englishRefBlocks[mark9V9EnglishRefText].GetText(true) + " " +
 				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
 			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
-			matchup.MatchAllBlocks(null);
+			matchup.MatchAllBlocks();
 			matchup.Apply();
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
@@ -1197,7 +1197,7 @@ namespace GlyssenEngineTests
 			matchup.SetReferenceText(3, "This is not going to match the corresponding English text in the French test reference text.");
 			matchup.SetReferenceText(4, englishTextOfLastNarrtorBlock.Substring(iQuoteMark));
 			matchup.CorrelatedBlocks.Last().SetNonDramaticCharacterId(mark.NarratorCharacterId);
-			matchup.MatchAllBlocks(null);
+			matchup.MatchAllBlocks();
 			matchup.Apply();
 			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));

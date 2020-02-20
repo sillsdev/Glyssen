@@ -1,13 +1,14 @@
 ﻿using System.Threading;
 using System.Windows.Forms;
 using Glyssen.Controls;
+using Glyssen.Utilities;
 using NUnit.Framework;
 
 namespace GlyssenTests.Controls
 {
 	[TestFixture]
 	[Apartment(ApartmentState.STA)]
-	class BrowserTests
+	public class BrowserTests
 	{
 		[Test]
 		[Explicit] // By hand
@@ -15,6 +16,8 @@ namespace GlyssenTests.Controls
 		{
 			using (var form = new Form())
 			{
+				GeckoUtilities.InitializeGecko();
+
 				using (var browser = new Browser())
 				{
 					form.Controls.Add(browser);
@@ -30,6 +33,8 @@ namespace GlyssenTests.Controls
 		{
 			using (var form = new Form())
 			{
+				GeckoUtilities.InitializeGecko();
+
 				using (var browser = new Browser())
 				{
 					form.Controls.Add(browser);
