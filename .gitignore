@@ -28,3 +28,4 @@ lib/dotnet/MarkdownDeep.dll
 ~$*.xlsx
 /DevTools/Resources/*.xlsm
 /Glyssen/Firefox/*
+/GlyssenTests/Firefox/*
