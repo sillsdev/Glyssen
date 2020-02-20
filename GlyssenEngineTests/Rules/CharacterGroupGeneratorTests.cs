@@ -1505,7 +1505,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
 		}
 
-		// Comma-separated lists of books which are expected to be grouped together. Each group delimted by a |
+		// Comma-separated lists of books which are expected to be grouped together. Each group delimited by a |
 		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV")]
 		[TestCase("MRK,HEB,JUD,LUK,ACT,1JN,2JN,3JN,REV|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB,1JN,2JN,3JN,REV|LUK,ACT,JUD|GAL,EPH,PHM")]
