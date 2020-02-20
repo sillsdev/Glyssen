@@ -1506,7 +1506,7 @@ namespace GlyssenEngineTests.Rules
 		}
 
 		// Comma-separated lists of books which are expected to be grouped together. Each group delimited by a |
-		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV")]
+		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV"), NonParallelizable]
 		[TestCase("MRK,HEB,JUD,LUK,ACT,1JN,2JN,3JN,REV|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB,1JN,2JN,3JN,REV|LUK,ACT,JUD|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB|LUK,ACT|GAL,EPH,PHM|1JN,2JN,3JN,JUD,REV")]
@@ -1532,7 +1532,10 @@ namespace GlyssenEngineTests.Rules
 				for (int i = 1; i < books.Length; i++)
 				{
 					Assert.IsTrue(narGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId(books[i], CharacterVerseData.StandardCharacter.Narrator)),
-						$"Expected group containing the narrator of {books[0]} to also contain the narrator of {books[i]}.");
+						$"Expected group containing the narrator of {books[0]} to also contain the narrator of {books[i]}. All characters in group containing narrator of {books[0]}:" +
+						Environment.NewLine + String.Join(Environment.NewLine, narGroup.CharacterIds) +
+						Environment.NewLine + $"All characters in group for {books[i]}:" +
+						Environment.NewLine + String.Join(Environment.NewLine, GetNarratorGroupForBook(groups, books[i])));
 				}
 				if (books.Contains("EPH"))
 				{
