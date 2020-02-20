@@ -30,7 +30,7 @@ namespace GlyssenTests.Dialogs
 	///
 	/// AFAIK, test failures should not be considered problems with the code but rather problems with the data.
 	/// </summary>
-	[Category("ByHand")]
+	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
 	class CalculateMinimumCastSizesForNewTestamentBasedOnAcholi
 	{
@@ -168,7 +168,7 @@ namespace GlyssenTests.Dialogs
 		}
 	}
 
-	[Category("ByHand")]
+	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
 	class CalculateMinimumCastSizesForOldTestamentBasedOnKunaSanBlas
 	{
