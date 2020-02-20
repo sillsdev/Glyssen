@@ -79,7 +79,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.8.0.0-beta0037\lib\net461\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0071\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0037\lib\net461\SIL.DblBundle.dll</HintPath>
@@ -91,10 +91,10 @@
       <HintPath>..\packages\SIL.Scripture.8.0.0-beta0037\lib\net461\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.TestUtilities, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.TestUtilities.8.0.0-beta0037\lib\net461\SIL.TestUtilities.dll</HintPath>
+      <HintPath>..\packages\SIL.TestUtilities.8.0.0-beta0071\lib\net461\SIL.TestUtilities.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0037\lib\net461\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0071\lib\net461\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
       <HintPath>..\packages\Spart.1.0.0\lib\net461\Spart.dll</HintPath>
