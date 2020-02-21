@@ -30,15 +30,15 @@ namespace GlyssenTests.Dialogs
 	///
 	/// AFAIK, test failures should not be considered problems with the code but rather problems with the data.
 	/// </summary>
-	[Category("ByHand")]
+	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
 	class CalculateMinimumCastSizesForNewTestamentBasedOnAcholi
 	{
 		private Project m_project;
 		private readonly ConcurrentDictionary<string, CastSizeRowValues> m_results = new ConcurrentDictionary<string, CastSizeRowValues>();
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use the real version of the file because we want the results to be based on the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
@@ -54,14 +54,14 @@ namespace GlyssenTests.Dialogs
 			}
 			catch
 			{
-				// If we have an exception here, TestFixtureTearDown doesn't get called which means we need to call Sldr.Cleanup() now
+				// If we have an exception here, OneTimeTearDown doesn't get called which means we need to call Sldr.Cleanup() now
 				Sldr.Cleanup();
 				throw;
 			}
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			Sldr.Cleanup();
 			var ntBooks = SilBooks.Codes_3Letter.Skip(39).ToArray();
@@ -114,7 +114,7 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 
-		[Category("ByHand")]
+		[Explicit] // This is a utility disguised as a unit test. Only run it by hand.
 		[TestCase("MAT", 6)]
 		[TestCase("MRK", 6)]
 		[TestCase("LUK", 7)]
@@ -168,15 +168,15 @@ namespace GlyssenTests.Dialogs
 		}
 	}
 
-	[Category("ByHand")]
+	[Category("SkipOnTeamCity")] // These tests rely on local files that the developer has to put in place.
 	[TestFixture]
 	class CalculateMinimumCastSizesForOldTestamentBasedOnKunaSanBlas
 	{
 		private Project m_project;
 		private readonly ConcurrentDictionary<string, CastSizeRowValues> m_results = new ConcurrentDictionary<string, CastSizeRowValues>();
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use the real version of the file because we want the results to be based on the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
@@ -194,15 +194,15 @@ namespace GlyssenTests.Dialogs
 			}
 			catch
 			{
-				// If we have an exception here, TestFixtureTearDown doesn't get called which means we need to call Sldr.Cleanup() now.
+				// If we have an exception here, OneTimeTearDown doesn't get called which means we need to call Sldr.Cleanup() now.
 				// This can affect other tests, otherwise.
 				Sldr.Cleanup();
 				throw;
 			}
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			Sldr.Cleanup();
 
@@ -252,7 +252,7 @@ namespace GlyssenTests.Dialogs
 			return false;
 		}
 
-		[Category("ByHand")]
+		[Explicit] // This is a utility disguised as a unit test. Only run it by hand.
 		[TestCase("GEN", 7)]
 		[TestCase("EXO", 4)]
 		[TestCase("LEV", 3)]

@@ -23,8 +23,8 @@ namespace GlyssenEngineTests.Export
 	[TestFixture]
 	class ProjectExporterTests
 	{
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;

@@ -41,16 +41,16 @@ namespace GlyssenEngineTests.ViewModelTests
 			}
 		}
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -304,8 +304,8 @@ namespace GlyssenEngineTests.ViewModelTests
 		}
 
 		[TestCase(DramatizationOption.DedicatedCharacter, 2)]
-		[TestCase(DramatizationOption.DefaultCharacter, 4, Ignore = true, IgnoreReason = "Not fully implemented")]
-		[TestCase(DramatizationOption.Narrator, 1, Ignore = true, IgnoreReason = "Not fully implemented")]
+		[TestCase(DramatizationOption.DefaultCharacter, 4, IgnoreReason = "Not fully implemented")]
+		[TestCase(DramatizationOption.Narrator, 1, IgnoreReason = "Not fully implemented")]
 		public void GetCastSizeRowValues_HebrewsWithLotsOfScriptureQuotes_CastSizeDependsOnHowScriptureQuotationsAreDramatized(DramatizationOption scriptureQuotationsSpokenBy, int expectedBaseNNumberOfMaleActors)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.HEB);
