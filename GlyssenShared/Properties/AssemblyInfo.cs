@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GlyssenShared")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Low-level classes and interfaces shared by all Glyssen-related applications.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("GlyssenShared")]
-[assembly: AssemblyCopyright("Copyright © 2014-2017 Faith Comes By Hearing and SIL International")]
+[assembly: AssemblyCopyright("Copyright © 2014-2020 Faith Comes By Hearing and SIL International")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

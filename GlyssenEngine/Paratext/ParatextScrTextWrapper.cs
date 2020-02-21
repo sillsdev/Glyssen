@@ -13,10 +13,12 @@ using SIL.DblBundle.Usx;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
+// IBundle is probably an unfortunate name. IProjectSourceMetadata would have been a better name.
+using IProjectSourceMetadata = SIL.DblBundle.IBundle;
 
 namespace GlyssenEngine.Paratext
 {
-	public class ParatextScrTextWrapper : IParatextScrTextWrapper
+	public class ParatextScrTextWrapper : IParatextScrTextWrapper, IProjectSourceMetadata
 	{
 		internal const string kLiveParatextProjectType = "live Paratext project";
 		public const string kParatextProgramName = "Paratext";
@@ -276,6 +278,10 @@ namespace GlyssenEngine.Paratext
 		{
 			IncludeBooks(project.IncludedBooks.Select(b => b.BookId));
 		}
+
+		public string Id => GlyssenDblTextMetadata.Id;
+		public string LanguageIso => LanguageIso3Code;
+		public string Name => ProjectFullName;
 	}
 }
 

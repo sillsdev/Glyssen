@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using Glyssen.Shared;
 using SIL.Xml;
 
-namespace GlyssenEngine
+namespace GlyssenFileBasedPersistence
 {
 	public interface IDataVersionInfo
 	{

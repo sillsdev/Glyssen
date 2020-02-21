@@ -7,23 +7,31 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Script;
 using SIL;
-using SIL.DblBundle;
 using SIL.Scripture;
 
 namespace GlyssenEngine
 {
-	public abstract class ProjectBase
+	public abstract class ProjectBase : IProject
 	{
 		public const string kShareFileExtension = ".glyssenshare";
-		public const string kFallbackVersificationPrefix = "fallback_";
 
-		public static ScrVers LoadVersification(string vrsPath)
+		public static IProjectPersistenceReader Reader { get; set; }
+
+		public ScrVers LoadVersification(bool useFallback = false)
 		{
-			return SIL.Scripture.Versification.Table.Implementation.Load(vrsPath, Localizer.GetString("Project.DefaultCustomVersificationName",
-				"custom", "Used as the versification name when the versification file does not contain a name."));
+			var versificationResource = useFallback ? ProjectResource.FallbackVersification : ProjectResource.Versification;
+			using (var versificationReader = Reader.Load(versificationResource, this))
+			{
+				if (versificationReader != null)
+				{
+					return SIL.Scripture.Versification.Table.Implementation.Load(versificationReader,
+						versificationResource.ToString(),
+						Localizer.GetString("Project.DefaultCustomVersificationName",
+						"custom", "Used as the versification name when the versification file does not contain a name."));
+				}
+			}
+			return null;
 		}
-
-		protected static string ProjectsBaseFolder => GlyssenInfo.BaseDataFolder;
 
 		protected readonly GlyssenDblTextMetadataBase m_metadata;
 		protected readonly List<BookScript> m_books = new List<BookScript>();
@@ -48,6 +56,10 @@ namespace GlyssenEngine
 
 		public string LanguageIsoCode => m_metadata.Language.Iso;
 
+		public string MetadataId => m_metadata.Id;
+
+		public abstract string Name { get; }
+
 		public string LanguageLdml => m_metadata.Language.Ldml;
 
 		public string FontFamily => m_metadata.FontFamily;
@@ -61,8 +73,6 @@ namespace GlyssenEngine
 		}
 
 		public bool RightToLeftScript => m_metadata.Language.ScriptDirection == "RTL";
-
-		protected abstract string ProjectFolder { get; }
 
 		protected Func<string, string> GetBookName { get; set; }
 
@@ -101,7 +111,5 @@ namespace GlyssenEngine
 #endif
 		}
 
-		protected string VersificationFilePath => Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName);
-		protected string FallbackVersificationFilePath => Path.Combine(ProjectFolder, kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 	}
 }

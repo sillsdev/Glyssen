@@ -21,6 +21,7 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle;
@@ -474,7 +475,7 @@ namespace Glyssen
 
 			string projFilePath;
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
-			var publicationFolder = Project.GetPublicationFolderPath(bundle);
+			var publicationFolder = ProjectRepository.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
 				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Constants.kProjectFileExtension)
 					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
@@ -492,7 +493,7 @@ namespace Glyssen
 				}
 			}
 			else
-				projFilePath = Project.GetDefaultProjectFilePath(bundle);
+				projFilePath = PersistenceImplementation.GetDefaultProjectFilePath(bundle);
 
 			var recordingProjectName = projFilePath.GetContainingFolderName();
 			if (File.Exists(projFilePath))
@@ -622,7 +623,7 @@ namespace Glyssen
 				Logger.WriteEvent("User proceeding with project creation although no books passed recommended checks.");
 			}
 
-			var projFilePath = Project.GetDefaultProjectFilePath(paratextProject);
+			var projFilePath = PersistenceImplementation.GetDefaultProjectFilePath(paratextProject);
 			if (File.Exists(projFilePath))
 				throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
 

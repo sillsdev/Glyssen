@@ -16,14 +16,11 @@ namespace GlyssenEngine.Character
 	{
 		private readonly ScrVers m_versification;
 
-		public ProjectCharacterVerseData(string fullPath, ScrVers versification)
+		public ProjectCharacterVerseData(TextReader reader, ScrVers versification)
 		{
 			Debug.Assert(versification != null);
 			m_versification = versification;
-			if (File.Exists(fullPath))
-				LoadData(File.ReadAllText(fullPath));
-			else
-				LoadData("");
+			LoadData(reader != null ? reader.ReadToEnd() : "");
 		}
 
 		public virtual bool AddEntriesFor(int bookNumber, Block block)

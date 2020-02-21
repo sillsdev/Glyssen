@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
+using GlyssenFileBasedPersistence;
 using SIL.DblBundle;
 
 namespace Glyssen.Dialogs
@@ -38,7 +39,7 @@ namespace Glyssen.Dialogs
 
 		private void m_linkCreateNewProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			var defaultRecordingProjectName = Project.GetDefaultProjectFilePath(m_bundle);
+			var defaultRecordingProjectName = PersistenceImplementation.GetDefaultProjectFilePath(m_bundle);
 			if (!File.Exists(defaultRecordingProjectName))
 				SelectedProject = defaultRecordingProjectName;
 			else

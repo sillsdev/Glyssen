@@ -113,13 +113,15 @@ namespace GlyssenEngine
 		protected virtual void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			if (File.Exists(VersificationFilePath))
+			var versification = LoadVersification();
+			if (versification != null)
 			{
-				SetVersification(LoadVersification(VersificationFilePath));
+				SetVersification(versification);
 			}
 			else
 			{
-				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versification.");
+				Logger.WriteMinorEvent("Custom versification for proprietary reference text used by " +
+					"this project was not found or could not be loaded. Using standard English versification.");
 				SetVersification(ScrVers.English);
 			}
 		}

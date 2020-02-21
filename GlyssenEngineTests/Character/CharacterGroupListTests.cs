@@ -9,14 +9,14 @@ namespace GlyssenEngineTests.Character
 	{
 		private Project m_project;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_project = TestProject.CreateBasicTestProject();
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			m_project = null;
 			TestProject.DeleteTestProjectFolder();

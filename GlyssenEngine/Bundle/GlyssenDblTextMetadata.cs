@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared;
@@ -256,6 +257,18 @@ namespace GlyssenEngine.Bundle
 				if (sourceProjectBook != null)
 					book.IncludeInScript = sourceProjectBook.IncludeInScript;
 			}
+		}
+
+		public static void SetHiddenFlag(TextReader reader, string recordingProjectName, bool hidden)
+		{
+			
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(reader, out var exception);
+			if (exception != null)
+				throw exception;
+
+			metadata.Inactive = hidden;
+			new Project(metadata, recordingProjectName).Save();
+			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 	}
 

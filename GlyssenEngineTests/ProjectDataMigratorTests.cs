@@ -17,15 +17,15 @@ namespace GlyssenEngineTests
 {
 	class ProjectDataMigratorTests
 	{
-		[TestFixtureSetUp]
-		public void FixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 		}
 
-		[TestFixtureTearDown]
-		public void FixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}

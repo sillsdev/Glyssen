@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
@@ -14,13 +15,13 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Xml;
 
-namespace GlyssenEngine
+namespace GlyssenFileBasedPersistence
 {
 	public static class DataMigrator
 	{
 		private static bool s_alreadyCalled = false;
 		private const string kOldProjectExtension = ".pgproj";
-		public static Tuple<int, int> UpgradeToCurrentDataFormatVersion(Func<Project, bool> handleMissingBundleNeededForUpgrade,
+		public static Tuple<int, int> UpgradeToCurrentDataFormatVersion(Func<IProject, bool> handleMissingBundleNeededForUpgrade,
 			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (s_alreadyCalled)
@@ -39,7 +40,7 @@ namespace GlyssenEngine
 		}
 
 		// internal for testing
-		internal static bool UpgradeToCurrentDataFormatVersion(IDataVersionInfo info, Func<Project, bool> handleMissingBundleNeededForUpgrade,
+		internal static bool UpgradeToCurrentDataFormatVersion(IDataVersionInfo info, Func<IProject, bool> handleMissingBundleNeededForUpgrade,
 			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (info.DataVersion >= ApplicationMetadata.kDataFormatVersion)
@@ -50,7 +51,7 @@ namespace GlyssenEngine
 			switch (info.DataVersion)
 			{
 				case 0:
-					foreach (var publicationFolder in Project.AllPublicationFolders)
+					foreach (var publicationFolder in ProjectRepository.AllPublicationFolders)
 					{
 						var filesToMove = Directory.GetFiles(publicationFolder);
 						if (!filesToMove.Any())
@@ -84,7 +85,7 @@ namespace GlyssenEngine
 					}
 					goto case 1;
 				case 1:
-					foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders.ToList())
+					foreach (var recordingProjectFolder in ProjectRepository.AllRecordingProjectFolders.ToList())
 					{
 						var versificationPath = Path.Combine(recordingProjectFolder, DblBundleFileUtils.kVersificationFileName);
 						if (!File.Exists(versificationPath))
@@ -95,7 +96,7 @@ namespace GlyssenEngine
 							{
 								if (projectFilePath.Equals(SampleProject.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
 								{
-									File.WriteAllText(versificationPath, Resources.EnglishVersification);
+									File.WriteAllText(versificationPath, Project.EnglishVersification);
 								}
 								else
 								{
@@ -129,9 +130,9 @@ namespace GlyssenEngine
 					}
 					goto case 2;
 				case 2:
-					foreach (var pgProjFile in Project.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
+					foreach (var pgProjFile in ProjectRepository.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
 					{
-						var newName = Path.ChangeExtension(pgProjFile, Constants.kProjectFileExtension);
+						var newName = Path.ChangeExtension(pgProjFile, PersistenceImplementation.kProjectFileExtension);
 						File.Move(pgProjFile, newName);
 						handleProjectPathChanged(pgProjFile, newName);
 					}
@@ -147,7 +148,7 @@ namespace GlyssenEngine
 					}
 					var safeReplacements = new List<Tuple<string, string>>();
 					var unsafeReplacements = new List<Tuple<string, string>>();
-					foreach (var folder in Project.AllRecordingProjectFolders.Where(d => d.EndsWith(" Audio Audio")))
+					foreach (var folder in ProjectRepository.AllRecordingProjectFolders.Where(d => d.EndsWith(" Audio Audio")))
 					{
 						// Because of the way this bug (PG-1192) worked, the most likely thing is that the "correct"
 						// version of the project will have been initially created but then all the actual work will
@@ -166,7 +167,7 @@ namespace GlyssenEngine
 						var correctProjectFolder = Path.Combine(baseFolder, correctProjectName);
 						if (Directory.Exists(correctProjectFolder))
 						{
-							var glyssenProjFilename = langCode + Constants.kProjectFileExtension;
+							var glyssenProjFilename = langCode + PersistenceImplementation.kProjectFileExtension;
 							var incorrectProjectFilePath = Path.Combine(folder, glyssenProjFilename);
 							var correctProjectFilePath = Path.Combine(correctProjectFolder, glyssenProjFilename);
 							var finfoIncorrectProject = new FileInfo(incorrectProjectFilePath);

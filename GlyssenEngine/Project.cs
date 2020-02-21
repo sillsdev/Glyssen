@@ -39,15 +39,6 @@ namespace GlyssenEngine
 {
 	public class Project : ProjectBase
 	{
-		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
-		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
-		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
-		private const string kCharacterGroupFileName = "CharacterGroups.xml";
-		// Total path limit is 260 characters. Need to allow for:
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
-		private const int kMaxDefaultProjectNameLength = 150;
-		private const int kMaxPath = 260;
 		public const int kParserVersion = 49;
 
 		private const double kUsxPercent = 0.25;
@@ -88,19 +79,14 @@ namespace GlyssenEngine
 		public static BadLdmlFileHandler GetBadLdmlFileRecoveryAction;
 
 		public static IFontRepository FontRepository { get; set; }
+		public static IProjectPersistenceWriter Writer { get; set; }
+		public static string EnglishVersification => Resources.EnglishVersification;
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
-		static Project()
-		{
-			Debug.Assert(DataMigrator.UpgradeToCurrentDataFormatVersion(null, (prev, renamed) => { }, null) == null,
-				"It is strongly advised that any client of GlyssenEngine that instantiates projects explicitly call " +
-				"(DataMigrator.UpgradeToCurrentDataFormatVersion with appropriate handlers.");
-		}
-
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
-		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
+		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
 			WritingSystemDefinition ws = null, bool loadVersification = true)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
 		{
@@ -108,12 +94,14 @@ namespace GlyssenEngine
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 
-			ProjectCharacterDetail = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
+			using (var reader = Reader.Load(ProjectResource.ProjectCharacterDetailData, this))
+				ProjectCharacterDetail = ProjectCharacterDetailData.Load(reader);
 
 			if (loadVersification)
 			{
-				if (HasVersificationFile)
-					SetVersification(LoadVersification(VersificationFilePath));
+				var versificationReader = Reader.Load(ProjectResource.Versification, this);
+				if (versificationReader != null)
+					SetVersification(LoadVersification(versificationReader));
 				else if (IsLiveParatextProject)
 				{
 					try
@@ -201,7 +189,7 @@ namespace GlyssenEngine
 			: this(metadata, ws: ws)
 		{
 			Directory.CreateDirectory(ProjectFolder);
-			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? Resources.EnglishVersification);
+			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? EnglishVersification);
 			SetVersification(LoadVersification(VersificationFilePath));
 
 			ParseAndSetBooks(books, stylesheet);
@@ -209,23 +197,17 @@ namespace GlyssenEngine
 
 		private bool HasVersificationFile => RobustFile.Exists(VersificationFilePath);
 
-		public static IEnumerable<string> AllPublicationFolders => Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
-
-		public static IEnumerable<string> AllRecordingProjectFolders => AllPublicationFolders.SelectMany(Directory.GetDirectories);
-
 		public string AudioStockNumber => m_projectMetadata.AudioStockNumber;
 
 		public string Id => m_metadata.Id;
 
-		public string Name => m_recordingProjectName;
+		public override string Name => m_recordingProjectName;
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
-		internal static string DefaultRecordingProjectNameSuffix => " " +
+		public static string DefaultRecordingProjectNameSuffix => " " +
 			Localizer.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
 				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
-
-		private static int MaxBaseRecordingNameLength => kMaxDefaultProjectNameLength - DefaultRecordingProjectNameSuffix.Length;
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
@@ -532,12 +514,13 @@ namespace GlyssenEngine
 		public void UpdateSettings(ProjectSettingsViewModel model, string defaultFontFamily, int defaultFontSizeInPoints, bool rightToLeftScript)
 		{
 			Debug.Assert(!IsNullOrEmpty(model.RecordingProjectName));
-			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
-			if (newPath != ProjectFolder)
+
+			if (m_recordingProjectName != model.RecordingProjectName)
 			{
-				Directory.Move(ProjectFolder, newPath);
+				Writer.ChangeProjectName(this, model.RecordingProjectName);
 				m_recordingProjectName = model.RecordingProjectName;
 			}
+			
 			m_projectMetadata.AudioStockNumber = model.AudioStockNumber;
 			m_projectMetadata.FontFamily = defaultFontFamily;
 			m_projectMetadata.FontSizeInPoints = defaultFontSizeInPoints;
@@ -554,7 +537,7 @@ namespace GlyssenEngine
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
-			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
+			bool moving = LanguageIsoCode != bundle.LanguageIso || MetadataId != bundle.Id;
 			if (moving)
 				m_projectMetadata.Inactive = true;
 			Save();
@@ -989,7 +972,7 @@ namespace GlyssenEngine
 				{
 					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
 					if (!compatible && loadingAssistant != null &&
-						!Directory.Exists(GetProjectFolderPath(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name)))
+						!Reader.ProjectExists(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name))
 					{
 						if (loadingAssistant.ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject())
 						{
@@ -1213,21 +1196,6 @@ namespace GlyssenEngine
 			return upgradedProject;
 		}
 
-		public static void SetHiddenFlag(string projectFilePath, bool hidden)
-		{
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
-			if (exception != null)
-			{
-				NonFatalErrorHandler.ReportAndHandleException(exception,
-					Format(Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath));
-				return;
-			}
-
-			metadata.Inactive = hidden;
-			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
-			// TODO: preserve WritingSystemRecoveryInProcess flag
-		}
-
 		private static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder)
 		{
 			if (Directory.Exists(projectFolder))
@@ -1348,7 +1316,8 @@ namespace GlyssenEngine
 		{
 			base.SetVersification(versification);
 
-			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath, Versification);
+			using (var reader = Reader.Load(ProjectResource.ProjectCharacterVerseData, this))
+				ProjectCharacterVerseData = new ProjectCharacterVerseData(reader, Versification);
 		}
 
 		private void InitializeLoadedProject()
@@ -1643,49 +1612,7 @@ namespace GlyssenEngine
 			OnReport(pe);
 		}
 
-		public static string GetProjectFilePath(string langId, string publicationId, string recordingProjectId)
-		{
-			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + Constants.kProjectFileExtension);
-		}
-
-		public string ProjectFileName => LanguageIsoCode + Constants.kProjectFileExtension;
-
-		public static string GetDefaultProjectFilePath(IBundle bundle)
-		{
-			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle.Name));
-		}
-
-		public static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
-		{
-			return GetProjectFilePath(textWrapper.LanguageIso3Code, textWrapper.GlyssenDblTextMetadata.Id, GetDefaultRecordingProjectName(textWrapper.ProjectFullName));
-		}
-
-		// Total path limit is 260 (MAX_PATH) characters. Need to allow for:
-		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
-		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
-		public int MaxProjectNameLength => kMaxPath - Path.Combine(ProjectsBaseFolder, LanguageIsoCode, m_metadata.Id).Length -
-			Math.Max(ProjectFileName.Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
-
-		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectId)
-		{
-			return Path.Combine(ProjectsBaseFolder, langId, publicationId, recordingProjectId);
-		}
-
-		public static string GetPublicationFolderPath(IBundle bundle)
-		{
-			return Path.Combine(ProjectsBaseFolder, bundle.LanguageIso, bundle.Id);
-		}
-
-		public static string GetLanguageFolderPath(string langId)
-		{
-			return Path.Combine(ProjectsBaseFolder, langId);
-		}
-
-		public string ProjectFilePath => GetProjectFilePath(LanguageIsoCode, m_metadata.Id, m_recordingProjectName);
-
-		private string ProjectCharacterVerseDataPath => Path.Combine(ProjectFolder, kProjectCharacterVerseFileName);
-
-		private string ProjectCharacterDetailDataPath => Path.Combine(ProjectFolder, kProjectCharacterDetailFileName);
+		public int MaxProjectNameLength => Writer.GetMaxProjectNameLength(this);
 
 		private string LdmlFilePath
 		{
@@ -1699,10 +1626,6 @@ namespace GlyssenEngine
 		}
 
 		private string LdmlBackupFilePath => Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
-
-		protected override string ProjectFolder => GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName);
-
-		private string LanguageFolder => GetLanguageFolderPath(m_metadata.Language.Iso);
 
 		private string GetBookDataFilePath(string bookId)
 		{
@@ -2183,48 +2106,11 @@ namespace GlyssenEngine
 			}
 		}
 
-		internal void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
+		public void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
 		{
 			if (!m_books.Any(b => b.GetScriptBlocks().Any(sb => sb.UserConfirmed)))
 				return;
-			string newDirectoryPath = GetProjectFolderPath(LanguageIsoCode, Id, Name + " - " + textToAppendToRecordingProjectName);
-			if (Directory.Exists(newDirectoryPath))
-			{
-				string fmt = newDirectoryPath + " ({0})";
-				int n = 1;
-				do
-				{
-					newDirectoryPath = Format(fmt, n++);
-				} while (Directory.Exists(newDirectoryPath));
-			}
-
-			try
-			{
-				DirectoryHelper.Copy(ProjectFolder, newDirectoryPath);
-
-				if (hidden)
-				{
-					var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + Constants.kProjectFileExtension).FirstOrDefault();
-					if (newFilePath != null)
-						SetHiddenFlag(newFilePath, true);
-				}
-			}
-			catch (Exception exceptionWhenCreatingBackup)
-			{
-				Logger.WriteError(exceptionWhenCreatingBackup);
-				try
-				{
-					if (!Directory.Exists(newDirectoryPath))
-						return;
-
-					// Clean up by removing the partially copied directory.
-					Directory.Delete(newDirectoryPath, true);
-				}
-				catch (Exception exceptionWhenCleaningUpFailedBackup)
-				{
-					Logger.WriteError(exceptionWhenCleaningUpFailedBackup);
-				}
-			}
+			Writer.CreateBackup(this, textToAppendToRecordingProjectName, hidden);
 		}
 
 		// Note: For live Paratext projects, the only proper way to change the quote system is via Paratext.
@@ -2240,7 +2126,7 @@ namespace GlyssenEngine
 
 		public static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
+			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, Writer.MaxBaseRecordingNameLength);
 			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
 		}
 

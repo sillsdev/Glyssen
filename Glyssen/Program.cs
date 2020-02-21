@@ -15,6 +15,7 @@ using Glyssen.Shared;
 using Glyssen.Utilities;
 using GlyssenEngine;
 using GlyssenEngine.Utilities;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext.Data;
@@ -235,6 +236,9 @@ namespace Glyssen
 					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 				}
 
+				var persistenceImpl = new PersistenceImplementation();
+				Project.Reader = persistenceImpl;
+				Project.Writer = persistenceImpl;
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
 					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);
 				if (upgradeInfo != null)

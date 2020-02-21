@@ -13,6 +13,7 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -359,7 +360,7 @@ namespace Glyssen.Dialogs
 					return;
 				}
 
-				var existingProjectPath = Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName);
+				var existingProjectPath = ProjectRepository.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName);
 				if (!RobustIO.DeleteDirectoryAndContents(existingProjectPath))
 				{
 					var failedMsg = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed",

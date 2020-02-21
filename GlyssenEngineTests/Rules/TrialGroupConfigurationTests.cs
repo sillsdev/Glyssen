@@ -190,8 +190,8 @@ namespace GlyssenEngineTests.Rules
 		private BiblicalAuthors.Author m_peter;
 		private BiblicalAuthors.Author m_jude;
 
-		[TestFixtureSetUp]
-		public void FixtureSetup()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			m_keyStrokesByBook = new Dictionary<string, int>();
 			m_keyStrokesByBook[GetNarratorId("GEN")] = 50000; // MOSES
@@ -466,8 +466,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyBasic(narratorGroups, 5);
 		}
 
-		[Test]
-		[Category("ByHand")]
+		[Test, Explicit] // by hand only
 		public void DistributeBooksAmongNarratorGroups_AllCombinationsOfFewerNarratorsThanAuthors_ManualCheck()
 		{
 			for (int i = 2; i <= 37; i++)
@@ -555,8 +554,8 @@ namespace GlyssenEngineTests.Rules
 	[TestFixture]
 	class TrialGroupConfigurationConstructorTests : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -576,8 +575,8 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -631,8 +630,8 @@ namespace GlyssenEngineTests.Rules
 		private List<CharacterDetail> m_includedCharacterDetails;
 		private Dictionary<string, CharacterDetail> m_characterDetails;
 
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -654,8 +653,8 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = Int32.MaxValue; // Tests have to set this to a valid value!
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -825,8 +824,8 @@ namespace GlyssenEngineTests.Rules
 		private List<CharacterDetail> m_includedCharacterDetails;
 		private Dictionary<string, CharacterDetail> m_characterDetails;
 
-		[TestFixtureSetUp]
-		public void TextFixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
@@ -874,8 +873,8 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = Int32.MaxValue; // Tests have to set this to a valid value!
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
