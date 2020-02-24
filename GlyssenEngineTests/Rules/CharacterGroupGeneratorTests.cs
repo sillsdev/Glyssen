@@ -1441,7 +1441,7 @@ namespace GlyssenEngineTests.Rules
 		}
 	}
 
-	[TestFixture]
+	[TestFixture, NonParallelizable]
 	public class CharacterGroupGeneratorTestsWithLotsOfBooks : CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		[OneTimeSetUp]
