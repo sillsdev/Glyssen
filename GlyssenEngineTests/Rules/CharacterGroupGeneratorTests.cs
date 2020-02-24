@@ -49,6 +49,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
+		[NonParallelizable]
 		[TestCase(0, 0)]
 		[TestCase(1, 0)]
 		[TestCase(1, 1)]
@@ -67,7 +68,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_SingleNarratorRequested_SingleNarratorGroupGenerated()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
@@ -82,7 +83,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narratorGroup.CharacterIds.Contains("narrator-JUD"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_TwoDifferentAuthors_TenActors_TwoNarratorGroupsGenerated()
 		{
 			SetVoiceActors(10);
@@ -92,6 +93,7 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 		}
 
+		[NonParallelizable]
 		[TestCase(4)]
 		[TestCase(10)]
 		public void GenerateCharacterGroups_SingleExtraBiblicalRequested_SingleExtraBiblicalGroupGenerated(int numberOfMaleActors)
@@ -107,6 +109,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(extraBiblicalGroup.CharacterIds.Contains("BC-JUD"));
 		}
 
+		[NonParallelizable]
 		[TestCase(1, 0)]
 		[TestCase(2, 0)]
 		[TestCase(0, 1)]
@@ -297,6 +300,7 @@ namespace GlyssenEngineTests.Rules
 				AssertThatThereAreTwoDistinctNarratorGroups(groups);
 		}
 
+		[NonParallelizable]
 		[TestCase(8, 2, 3, 0)]
 		[TestCase(10, 5, 1, 0)]
 		[TestCase(15, 5, 1, 0)]
@@ -320,6 +324,7 @@ namespace GlyssenEngineTests.Rules
 				AssertThatThereAreTwoDistinctNarratorGroups(groups);
 		}
 
+		[NonParallelizable]
 		[TestCase(0, 1)]
 		[TestCase(1, 0)]
 		public void GenerateCharacterGroups_SingleNarrator_DifferentGendersOfActors_AppropriateGroupsCreatedForActors(int numberOfMaleNarrators, int numberOfFemaleNarrators)
@@ -355,6 +360,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(femaleGroups.Count <= groups.Count - numberOfMaleNarrators);
 		}
 
+		[NonParallelizable]
 		// This test used to require only 8 male actors and 2 female actors to achieve the desired results.
 		// However, after parser changes for PG-485, that was no longer sufficient, and it was changed to 10 and 2 in order to pass.
 		// See PG-543 for an idea of how to improve the algorithm to keep the required number of actors lower.
@@ -397,7 +403,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(femaleGroups.Count <= groups.Count - numberOfMaleNarrators);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_DifferentGendersAndAgesOfTenActors_AppropriateGroupsCreatedForActorsWhichHaveCorrespondingCharacters()
 		{
 			SetVoiceActors(7, 1, 1, 1);
@@ -427,7 +433,7 @@ namespace GlyssenEngineTests.Rules
 			})), 1);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_DifferentGendersAndAgesOfTwentyActors_AppropriateGroupsCreatedForActorsWhichHaveCorrespondingCharacters()
 		{
 			SetVoiceActors(18, 1, 1);
@@ -458,7 +464,7 @@ namespace GlyssenEngineTests.Rules
 			})), 1);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_IncludesOneCameoActor_GeneratesEmptyGroupAssignedToCameoActor()
 		{
 			SetVoiceActors(10);
@@ -472,7 +478,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(0, groupWithActorAssigned.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_IncludesTwoCameoActors_GeneratesEmptyGroupAssignedToEachCameoActor()
 		{
 			SetVoiceActors(10);
@@ -488,7 +494,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(groupsWithActorAssigned.All(g => g.CharacterIds.Count == 0));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharacter_GroupMaintained()
 		{
 			SetVoiceActors(10);
@@ -506,7 +512,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("centurion at crucifixion"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharactersWithCloseProximity_ProximityOfCameoRolesNotConsidered()
 		{
 			SetVoiceActors(20, 3);
@@ -526,7 +532,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(generator.MinimumProximity.IsAcceptable());
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAssignedToCharacterNoLongerInUse_UnusedCharacterIsRemovedFromGroup()
 		{
 			SetVoiceActors(10);
@@ -543,7 +549,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("Bob the Builder"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToJesus_GroupMaintainedAndJesusNotDuplicated()
 		{
 			SetVoiceActors(10);
@@ -561,7 +567,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("Jesus"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToBc_GroupMaintainedAndBcNotDuplicated()
 		{
 			SetVoiceActors(10);
@@ -579,7 +585,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("BC-MRK"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToExtraBiblical_GroupMaintainedAndExtraBiblicalNotDuplicated()
 		{
 			SetVoiceActors(10);
@@ -597,7 +603,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("extra-MRK"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_OneCharacter_AssignmentMaintained()
 		{
 			SetVoiceActors(5);
@@ -611,7 +617,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
 		{
 			SetVoiceActors(5);
@@ -633,7 +639,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("John").IsVoiceActorAssigned);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
 		{
 			// allow BC and Extra to be in separate or the same group
@@ -677,7 +683,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(m_testProject.VoiceActorList.AllActors[0].Id));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_HasCameoAssignedButAttemptToMaintainAssignmentsIsFalse_MaintainsCameoGroup()
 		{
 			SetVoiceActors(3);
@@ -706,7 +712,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NotEnoughActressesToKeepNarratorAndCharacterRolesDistinct_NarratorGroupForJudeIncludesFemaleCharactersInMark()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -720,6 +726,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "JUD").ContainsCharacterWithGender(CharacterGender.Female));
 		}
 
+		[NonParallelizable]
 		[TestCase(7)]
 		[TestCase(11)]
 		public void GenerateCharacterGroups_NotEnoughActressesForMinimumProximityAndNarratorPreferences_NarratorGroupForJudeIncludesSomeFemaleCharactersInMark(int maleActors)
@@ -737,7 +744,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyProximityAndGenderConstraintsForAllGroups(groups, false, true);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NotEnoughActorsForMinimumProximity_NarratorsDoCharacterRolesInOtherBook()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
@@ -758,7 +765,7 @@ namespace GlyssenEngineTests.Rules
 			}).Any());
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NotEnoughActorsForMinimumProximityAndNarratorPreferences_FallbackToOneNarrator()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
@@ -814,7 +821,7 @@ namespace GlyssenEngineTests.Rules
 		}
 
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_SameCharacterWithTwoAges_CharactersAreGeneratedInTheSameGroup()
 		{
 			SetVoiceActors(10, 5);
@@ -849,7 +856,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_20ActorsOfDifferentGendersAndAges_AppropriateGroupsCreatedForActors()
 		{
 			SetVoiceActors(17, 2, 1);
@@ -884,7 +891,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, maleChildGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_UnneededActors_AppropriateGroupsCreatedForActors()
 		{
 			SetVoiceActors(13, 2, 3, 3);
@@ -939,7 +946,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_21Actors_GodAndJesusAndHolySpiritAndScriptureEachInOwnGroup()
 		{
 			SetVoiceActors(21);
@@ -955,7 +962,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, hsGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AtLeast10Actors_JesusAndHolySpiritEachInOwnGroupAndGodAndScriptureGroupedTogether()
 		{
 			SetVoiceActors(12);
@@ -970,7 +977,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(2, scriptureAndGodGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AtLeast7Actors_GodAndHolySpiritAndScriptureInGroupByThemselves()
 		{
 			SetVoiceActors(8);
@@ -984,7 +991,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(3, dietyGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AtLeast4Actors_GodAndHolySpiritAndScriptureGroupedWithJesus()
 		{
 			SetVoiceActors(6);
@@ -997,7 +1004,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(4, dietyGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_FewerThan4Actors_GodAndHolySpiritAndScriptureAndJesusNotInIsolatedGroups()
 		{
 			SetVoiceActors(3);
@@ -1039,7 +1046,7 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_FewActors_JesusInGroupByHimself()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
@@ -1052,7 +1059,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_BigEnoughCastToAvoidProximityProblems_FemaleRolesAssignedToFemaleGroups()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
@@ -1088,7 +1095,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_OneBookSingleVoice_AllLinesAreNarrator()
 		{
 			SetVoiceActors(7);
@@ -1122,7 +1129,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CastWithMultipleMenWomenAndChild_DistinctScriptureExtraBiblicalAndNarratorGroups()
 		{
 			SetVoiceActors(7, 2, 1);
@@ -1172,6 +1179,7 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
+		[NonParallelizable]
 		[TestCase(2, 0)]
 		[TestCase(1, 1)]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoNarrators_AllLinesForLukeAreNarratorAndLukeNarratorHandlesSomeMaleRolesInActs(int numMale, int numFemale)
@@ -1194,7 +1202,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -1218,7 +1226,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesFemaleCharacterRolesInActsAndMaleGroupHandlesExtraBiblical()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -1242,7 +1250,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsAndMaleExtraWithTooSmallCast_ExtraBiblicalRoleHandledByMaleActorDespiteBadProximity()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -1264,7 +1272,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithMinimalCast_AllLinesForLukeAreNarratorAndLukeNarratorHandlesOneFemaleRoleInActs()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -1285,7 +1293,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(11, groups.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithJustBigEnoughCast_AchievesMinimumProximityByHavingLukeNarratorHandleOneFemaleCharacterRoleInActs()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -1307,6 +1315,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(14, groups.Count);
 		}
 
+		[NonParallelizable]
 		[TestCase(1, 0)]
 		[TestCase(0, 1)]
 		public void GenerateCharacterGroups_ExplicitlyRequestSingleNarrator_AllLinesForLukeAreNarratorAndOnlyOneNarratorGroup(int numMale, int numFemale)
@@ -1325,7 +1334,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(7, groups.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_DefaultNarratorPreferences_AllLinesForSingleVoiceBookAreNarrator()
 		{
 			SetVoiceActors(5, 2);
@@ -1367,7 +1376,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoAssignedToCharacterWhichIsRemovedFromScript_RegenerationDropsCharacter()
 		{
 			SetVoiceActors(7);
@@ -1398,7 +1407,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(0, cameoGroup.CharacterIds.Count);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsAndInScript_ProjectCharacterDetailIncludedInGeneratedGroups()
 		{
 			SetVoiceActors(8, 2);
@@ -1410,7 +1419,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(groups.Any(g => g.CharacterIds.Contains("Bobette")));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_BlockNeedsReview_NeedsReviewCharacterNotIncludedInGeneratedGroups()
 		{
 			SetVoiceActors(8, 2);
@@ -1421,7 +1430,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.False(groups.Any(g => g.CharacterIds.Contains(CharacterVerseData.kNeedsReview)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsButNotInScript_ProjectCharacterDetailNotIncludedInGeneratedGroups()
 		{
 			SetVoiceActors(8, 2);
@@ -1439,6 +1448,9 @@ namespace GlyssenEngineTests.Rules
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			// Note: there are currently only two tests in this fixture that require this:
+			//    GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark
+			//    GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanAuthors_PaulCombinesWithJudeAndHebrewsCombinesWithMark
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			m_testProject = TestProject.CreateTestProject(
@@ -1472,7 +1484,7 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_IsCancelable()
 		{
 			SetVoiceActors(10);
@@ -1481,8 +1493,7 @@ namespace GlyssenEngineTests.Rules
 			group.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[0].Id);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 
-			BackgroundWorker worker = new BackgroundWorker();
-			worker.WorkerSupportsCancellation = true;
+			BackgroundWorker worker = new BackgroundWorker {WorkerSupportsCancellation = true};
 			CharacterGroupGenerator generator = new CharacterGroupGenerator(m_testProject, null, worker);
 			worker.DoWork += (sender, args) =>
 			{
@@ -1505,8 +1516,9 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
 		}
 
+		[NonParallelizable]
 		// Comma-separated lists of books which are expected to be grouped together. Each group delimited by a |
-		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV"), NonParallelizable]
+		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV")]
 		[TestCase("MRK,HEB,JUD,LUK,ACT,1JN,2JN,3JN,REV|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB,1JN,2JN,3JN,REV|LUK,ACT,JUD|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB|LUK,ACT|GAL,EPH,PHM|1JN,2JN,3JN,JUD,REV")]
@@ -1547,7 +1559,7 @@ namespace GlyssenEngineTests.Rules
 			}
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_LargeCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveDistinctNarrationRoles()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
@@ -1580,6 +1592,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, narJude.CharacterIds.Count);
 		}
 
+		[NonParallelizable]
 		[TestCase(2)]
 		[TestCase(4)]
 		[TestCase(6)]
@@ -1621,7 +1634,7 @@ namespace GlyssenEngineTests.Rules
 			}
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_SmallCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveCharacterRolesInOtherBooks()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
@@ -1656,7 +1669,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyGenderConformityInGroups(groups, true);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_TooSmallCast_FourNarrators_AllCharactersConformToGroupGender()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
@@ -1672,7 +1685,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyGenderConformityInGroups(groups, true);
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsOneFewerThanAuthors_HebrewsAndJudeShareNarrators()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 5;
@@ -1703,7 +1716,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanAuthors_PaulCombinesWithJudeAndHebrewsCombinesWithMark()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
@@ -1733,7 +1746,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsThreeFewerThanAuthors_JohnCombinesWithJudeAndHebrewsAndPaulCombinesWithMark()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
@@ -1762,7 +1775,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
@@ -1790,7 +1803,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanBooks_JohanineEpistlesGetCombined()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 8;
@@ -1841,7 +1854,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(4, groups.Except(narrators).Count(n => n.ContainsCharacterWithGender(CharacterGender.Female)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorsAssignedToNarratorRole_NumberOfGeneratedNarratorGroupsReduced()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 8;
@@ -1901,7 +1914,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(4, groups.Except(narrators).Count(n => n.ContainsCharacterWithGender(CharacterGender.Female)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AllNarratorRolesAssignedToCameoActors_NoAdditionalNarratorGroupsReserved()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
@@ -1949,7 +1962,7 @@ namespace GlyssenEngineTests.Rules
 				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorsWithNarratorRolesEqualsNumberOfRequestedNarratorsButNotAllRolesAreAssigned_OneAdditionalNarratorGroupReserved()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
@@ -2003,6 +2016,7 @@ namespace GlyssenEngineTests.Rules
 				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
+		[NonParallelizable]
 		[TestCase(CastSizeOption.Small)]
 		[TestCase(CastSizeOption.Recommended)]
 		[TestCase(CastSizeOption.Large)]
@@ -2024,6 +2038,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(castSizeValues.Male - m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Male));
 		}
 
+		[NonParallelizable]
 		[TestCase(20, 4, 2)]
 		[TestCase(25, 2, 0)]
 		[TestCase(30, 0, 0)]
@@ -2046,7 +2061,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(castSizeValues.Male - m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Male));
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CastSoSmallThatOnlyOneMaleActorIsNotANarratorOrExtra_DietyNotGroupedWithOtherCharacters()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
@@ -2099,7 +2114,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateGroups_AllActorsAreNarrators_NarratorsDoNotCauseProximityClash()
 		{
 			SetVoiceActors(2);
@@ -2146,7 +2161,7 @@ namespace GlyssenEngineTests.Rules
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		[Test]
+		[Test, NonParallelizable]
 		public void GenerateGroups_NarratorSpeaksAllExtra_AllExtraAssignedToNarrator()
 		{
 			SetVoiceActors(8, 2, 2);
@@ -2166,6 +2181,13 @@ namespace GlyssenEngineTests.Rules
 		}
 	}
 
+	/// <summary>
+	/// Important: Subclasses of this base class will set and use m_testProject. Therefore, there is a high
+	/// likelihood that any unit test in a particular fixture could make changes that would affect other
+	/// tests in that same fixture. So it is recommended that individual tests within each subclassed fixture
+	/// use the NonParallelizable attribute to ensure that they are run indepenedently of other tests in the
+	/// fixture. 
+	/// </summary>
 	public abstract class CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		protected Project m_testProject;
