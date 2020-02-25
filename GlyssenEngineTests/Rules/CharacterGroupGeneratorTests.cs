@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -21,6 +22,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
@@ -30,23 +32,30 @@ namespace GlyssenEngineTests.Rules
 
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -57,6 +66,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(0, 2)]
 		public void GenerateCharacterGroups_MoreThanSevenActors_JesusInGroupByHimself(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numberOfMaleNarrators}, {numberOfFemaleNarrators}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -66,11 +76,13 @@ namespace GlyssenEngineTests.Rules
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_SingleNarratorRequested_SingleNarratorGroupGenerated()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
@@ -81,16 +93,19 @@ namespace GlyssenEngineTests.Rules
 			var narratorGroup = GetNarratorGroupForBook(groups, "MRK");
 			Assert.AreEqual(2, narratorGroup.CharacterIds.Count);
 			Assert.IsTrue(narratorGroup.CharacterIds.Contains("narrator-JUD"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_TwoDifferentAuthors_TenActors_TwoNarratorGroupsGenerated()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -98,6 +113,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(10)]
 		public void GenerateCharacterGroups_SingleExtraBiblicalRequested_SingleExtraBiblicalGroupGenerated(int numberOfMaleActors)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + " with " + numberOfMaleActors);
 			SetVoiceActors(numberOfMaleActors);
 
 			//TODO request single extra-Biblical group (this is currently the default)
@@ -107,6 +123,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(extraBiblicalGroup.CharacterIds.Contains("extra-JUD"));
 			Assert.IsTrue(extraBiblicalGroup.CharacterIds.Contains("BC-MRK"));
 			Assert.IsTrue(extraBiblicalGroup.CharacterIds.Contains("BC-JUD"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -117,6 +134,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(0, 2)]
 		public void GenerateCharacterGroups_VariousNumbersOfActors_CreatesEqualNumberOfGroupsUpToMax(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numberOfMaleNarrators}, {numberOfFemaleNarrators}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
@@ -298,6 +316,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(numberOfMaleActors + numberOfFemaleActors, groups.Count);
 			if (numberOfMaleNarrators + numberOfFemaleNarrators == 2)
 				AssertThatThereAreTwoDistinctNarratorGroups(groups);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -311,6 +330,7 @@ namespace GlyssenEngineTests.Rules
 		public void GenerateCharacterGroups_SufficientCast_GroupsDoNotContainMixedGenders(
 			int numberOfMaleActors, int numberOfFemaleActors, int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numberOfMaleActors}, {numberOfFemaleActors}, {numberOfMaleNarrators}, {numberOfFemaleNarrators}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -322,6 +342,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyProximityAndGenderConstraintsForAllGroups(groups);
 			if (numberOfMaleNarrators + numberOfFemaleNarrators == 2)
 				AssertThatThereAreTwoDistinctNarratorGroups(groups);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -329,6 +350,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(1, 0)]
 		public void GenerateCharacterGroups_SingleNarrator_DifferentGendersOfActors_AppropriateGroupsCreatedForActors(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numberOfMaleNarrators}, {numberOfFemaleNarrators}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -358,6 +380,7 @@ namespace GlyssenEngineTests.Rules
 
 			Assert.True(maleGroups.Count <= groups.Count - numberOfFemaleNarrators);
 			Assert.True(femaleGroups.Count <= groups.Count - numberOfMaleNarrators);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -369,6 +392,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(0, 2)]
 		public void GenerateCharacterGroups_MultiNarrator_DifferentGendersOfActors_AppropriateGroupsCreatedForActors(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numberOfMaleNarrators}, {numberOfFemaleNarrators}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -401,11 +425,13 @@ namespace GlyssenEngineTests.Rules
 
 			Assert.True(maleGroups.Count <= groups.Count - numberOfFemaleNarrators);
 			Assert.True(femaleGroups.Count <= groups.Count - numberOfMaleNarrators);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_DifferentGendersAndAgesOfTenActors_AppropriateGroupsCreatedForActorsWhichHaveCorrespondingCharacters()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(7, 1, 1, 1);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 
@@ -431,11 +457,13 @@ namespace GlyssenEngineTests.Rules
 				var gender = CharacterDetailData.Singleton.GetDictionary()[c].Gender;
 				return gender != CharacterGender.Male && gender != CharacterGender.PreferMale;
 			})), 1);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_DifferentGendersAndAgesOfTwentyActors_AppropriateGroupsCreatedForActorsWhichHaveCorrespondingCharacters()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(18, 1, 1);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 
@@ -462,11 +490,13 @@ namespace GlyssenEngineTests.Rules
 				var gender = CharacterDetailData.Singleton.GetDictionary()[c].Gender;
 				return gender != CharacterGender.Male && gender != CharacterGender.PreferMale;
 			})), 1);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_IncludesOneCameoActor_GeneratesEmptyGroupAssignedToCameoActor()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -476,11 +506,13 @@ namespace GlyssenEngineTests.Rules
 			var groupWithActorAssigned = groups.Single(g => g.IsVoiceActorAssigned);
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[0].Id, groupWithActorAssigned.VoiceActorId);
 			Assert.AreEqual(0, groupWithActorAssigned.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_IncludesTwoCameoActors_GeneratesEmptyGroupAssignedToEachCameoActor()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 			m_testProject.VoiceActorList.AllActors[1].IsCameo = true;
@@ -492,11 +524,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(m_testProject.VoiceActorList.AllActors[0].Id));
 			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(m_testProject.VoiceActorList.AllActors[1].Id));
 			Assert.True(groupsWithActorAssigned.All(g => g.CharacterIds.Count == 0));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharacter_GroupMaintained()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -510,11 +544,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("centurion at crucifixion"));
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("centurion at crucifixion"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharactersWithCloseProximity_ProximityOfCameoRolesNotConsidered()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(20, 3);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -530,11 +566,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(2, groupWithActorAssigned.CharacterIds.Count);
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("centurion at crucifixion"));
 			Assert.True(generator.MinimumProximity.IsAcceptable());
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAssignedToCharacterNoLongerInUse_UnusedCharacterIsRemovedFromGroup()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -547,11 +585,13 @@ namespace GlyssenEngineTests.Rules
 			var groupWithActorAssigned = groups.Single(g => g.IsVoiceActorAssigned);
 			Assert.False(groupWithActorAssigned.CharacterIds.Any());
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("Bob the Builder"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToJesus_GroupMaintainedAndJesusNotDuplicated()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -565,11 +605,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("Jesus"));
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("Jesus"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToBc_GroupMaintainedAndBcNotDuplicated()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -583,11 +625,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("BC-MRK"));
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("BC-MRK"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToExtraBiblical_GroupMaintainedAndExtraBiblicalNotDuplicated()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.VoiceActorList.AllActors[0].IsCameo = true;
 
@@ -601,11 +645,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("extra-MRK"));
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("extra-MRK"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_OneCharacter_AssignmentMaintained()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
@@ -615,11 +661,13 @@ namespace GlyssenEngineTests.Rules
 			new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
@@ -637,11 +685,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
 			Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("John").IsVoiceActorAssigned);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// allow BC and Extra to be in separate or the same group
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
@@ -681,11 +731,13 @@ namespace GlyssenEngineTests.Rules
 			// expect the voice actor for extra-MRK has not changed
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[1].Id, extraBiblicalGroup.VoiceActorId);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(m_testProject.VoiceActorList.AllActors[0].Id));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_HasCameoAssignedButAttemptToMaintainAssignmentsIsFalse_MaintainsCameoGroup()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(3);
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
@@ -710,11 +762,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, cameoGroup.CharacterIds.Count);
 			Assert.True(cameoGroup.CharacterIds.Contains("John"));
 			Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NotEnoughActressesToKeepNarratorAndCharacterRolesDistinct_NarratorGroupForJudeIncludesFemaleCharactersInMark()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -724,6 +778,7 @@ namespace GlyssenEngineTests.Rules
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "JUD").ContainsCharacterWithGender(CharacterGender.Female));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -731,6 +786,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(11)]
 		public void GenerateCharacterGroups_NotEnoughActressesForMinimumProximityAndNarratorPreferences_NarratorGroupForJudeIncludesSomeFemaleCharactersInMark(int maleActors)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + " with " + maleActors);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -742,11 +798,13 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "JUD").ContainsCharacterWithGender(CharacterGender.Female));
 			VerifyProximityAndGenderConstraintsForAllGroups(groups, false, true);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NotEnoughActorsForMinimumProximity_NarratorsDoCharacterRolesInOtherBook()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -763,11 +821,13 @@ namespace GlyssenEngineTests.Rules
 				"Enoch",
 				"apostles"
 			}).Any());
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NotEnoughActorsForMinimumProximityAndNarratorPreferences_FallbackToOneNarrator()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -785,6 +845,7 @@ namespace GlyssenEngineTests.Rules
 				"Enoch",
 				"apostles"
 			})).Any());
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		private void AssertThatThereAreTwoDistinctNarratorGroups(List<CharacterGroup> groups)
@@ -801,29 +862,36 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JOS);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_SameCharacterWithTwoAges_CharactersAreGeneratedInTheSameGroup()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10, 5);
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
@@ -831,6 +899,7 @@ namespace GlyssenEngineTests.Rules
 			var joshuaOldGroup = groups.Single(g => g.CharacterIds.Contains("Joshua (old)"));
 
 			Assert.AreEqual(joshuaGroup, joshuaOldGroup);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -840,6 +909,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
@@ -848,17 +918,21 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_20ActorsOfDifferentGendersAndAges_AppropriateGroupsCreatedForActors()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(17, 2, 1);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 
@@ -889,11 +963,13 @@ namespace GlyssenEngineTests.Rules
 			var maleChildGroup = groups.Single(g => g.ContainsCharacterWithGender(CharacterGender.Male) && g.ContainsCharacterWithAge(CharacterAge.Child));
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[19].Id, maleChildGroup.VoiceActorId);
 			Assert.AreEqual(1, maleChildGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_UnneededActors_AppropriateGroupsCreatedForActors()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(13, 2, 3, 3);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 
@@ -921,6 +997,7 @@ namespace GlyssenEngineTests.Rules
 			var maleChildGroup = groups.Single(g => g.ContainsCharacterWithGender(CharacterGender.Male) && g.ContainsCharacterWithAge(CharacterAge.Child));
 			Assert.IsFalse(maleChildGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(1, maleChildGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -930,6 +1007,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
@@ -938,17 +1016,21 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_21Actors_GodAndJesusAndHolySpiritAndScriptureEachInOwnGroup()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(21);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
@@ -960,11 +1042,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, scriptureGroup.CharacterIds.Count);
 			Assert.AreEqual(1, godGroup.CharacterIds.Count);
 			Assert.AreEqual(1, hsGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AtLeast10Actors_JesusAndHolySpiritEachInOwnGroupAndGodAndScriptureGroupedTogether()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(12);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
@@ -975,11 +1059,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
 			Assert.AreEqual(1, holySpiritGroup.CharacterIds.Count);
 			Assert.AreEqual(2, scriptureAndGodGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AtLeast7Actors_GodAndHolySpiritAndScriptureInGroupByThemselves()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(8);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
@@ -989,11 +1075,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.That(dietyGroup.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
 			Assert.AreEqual(3, dietyGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AtLeast4Actors_GodAndHolySpiritAndScriptureGroupedWithJesus()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(6);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
@@ -1002,11 +1090,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.That(dietyGroup.CharacterIds.Contains("Holy Spirit, the"));
 			Assert.That(dietyGroup.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.AreEqual(4, dietyGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_FewerThan4Actors_GodAndHolySpiritAndScriptureAndJesusNotInIsolatedGroups()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(3);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
@@ -1018,6 +1108,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(hsGroup.CharacterIds.Count > 1);
 			var scriptureGroup = groups.Single(g => g.CharacterIds.Contains(CharacterVerse.kScriptureCharacter));
 			Assert.True(scriptureGroup.CharacterIds.Count > 1);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -1027,28 +1118,35 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_FewActors_JesusInGroupByHimself()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
@@ -1057,11 +1155,13 @@ namespace GlyssenEngineTests.Rules
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
 			Assert.AreEqual(1, jesusGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_BigEnoughCastToAvoidProximityProblems_FemaleRolesAssignedToFemaleGroups()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
@@ -1073,6 +1173,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(CharacterGroup.Label.Male, extraGroup.GroupIdLabel);
 
 			VerifyProximityAndGenderConstraintsForAllGroups(groups);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -1082,28 +1183,34 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			m_testProject.IncludedBooks[0].SingleVoice = true;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_OneBookSingleVoice_AllLinesAreNarrator()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(7);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
 			var singleGroup = GetNarratorGroupForBook(groups, "LUK");
 			Assert.AreEqual(1, singleGroup.CharacterIds.Count);
 			Assert.AreEqual(1, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -1113,6 +1220,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
@@ -1121,17 +1229,21 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CastWithMultipleMenWomenAndChild_DistinctScriptureExtraBiblicalAndNarratorGroups()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(7, 2, 1);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
@@ -1146,6 +1258,7 @@ namespace GlyssenEngineTests.Rules
 				CharacterVerseData.GetStandardCharacterId("EPH", CharacterVerseData.StandardCharacter.ExtraBiblical)}
 				));
 			Assert.IsTrue(groups.Except(new[] { extraGroup }).All(g => g.CharacterIds.Count == 1));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -1155,6 +1268,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
@@ -1164,19 +1278,24 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -1184,6 +1303,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(1, 1)]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoNarrators_AllLinesForLukeAreNarratorAndLukeNarratorHandlesSomeMaleRolesInActs(int numMale, int numFemale)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numMale}, {numFemale}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMale;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemale;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1200,11 +1320,13 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1224,11 +1346,13 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesFemaleCharacterRolesInActsAndMaleGroupHandlesExtraBiblical()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1248,11 +1372,13 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsAndMaleExtraWithTooSmallCast_ExtraBiblicalRoleHandledByMaleActorDespiteBadProximity()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1270,11 +1396,13 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithMinimalCast_AllLinesForLukeAreNarratorAndLukeNarratorHandlesOneFemaleRoleInActs()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1291,11 +1419,13 @@ namespace GlyssenEngineTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(11, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithJustBigEnoughCast_AchievesMinimumProximityByHavingLukeNarratorHandleOneFemaleCharacterRoleInActs()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1313,6 +1443,7 @@ namespace GlyssenEngineTests.Rules
 			VerifyProximityAndGenderConstraintsForAllGroups(groups, false, true);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(14, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -1320,6 +1451,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(0, 1)]
 		public void GenerateCharacterGroups_ExplicitlyRequestSingleNarrator_AllLinesForLukeAreNarratorAndOnlyOneNarratorGroup(int numMale, int numFemale)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {numMale}, {numFemale}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMale;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemale;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1332,17 +1464,20 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(narratorLukeGroup.CharacterIds.Contains("narrator-ACT"));
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(7, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_DefaultNarratorPreferences_AllLinesForSingleVoiceBookAreNarrator()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(5, 2);
 			var gen = new CharacterGroupGenerator(m_testProject);
 			var groups = gen.GenerateCharacterGroups();
 			Assert.AreEqual(GetNarratorGroupForBook(groups, "LUK"), GetNarratorGroupForBook(groups, "ACT"));
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(7, groups.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		private void AssertThatThereAreTwoDistinctNarratorGroups(List<CharacterGroup> groups)
@@ -1359,26 +1494,33 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoAssignedToCharacterWhichIsRemovedFromScript_RegenerationDropsCharacter()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(7);
 			var cameoActor = m_testProject.VoiceActorList.AllActors[0];
 			cameoActor.IsCameo = true;
@@ -1405,11 +1547,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(7, groups.Count);
 			Assert.AreEqual(0, groups.Count(g => g.CharacterIds.Contains("Zaccheaus")));
 			Assert.AreEqual(0, cameoGroup.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsAndInScript_ProjectCharacterDetailIncludedInGeneratedGroups()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(8, 2);
 			m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female });
 
@@ -1417,11 +1561,13 @@ namespace GlyssenEngineTests.Rules
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.True(groups.Any(g => g.CharacterIds.Contains("Bobette")));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_BlockNeedsReview_NeedsReviewCharacterNotIncludedInGeneratedGroups()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(8, 2);
 
 			m_testProject.IncludedBooks[0].Blocks[3].CharacterId = CharacterVerseData.kNeedsReview;
@@ -1433,20 +1579,24 @@ namespace GlyssenEngineTests.Rules
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsButNotInScript_ProjectCharacterDetailNotIncludedInGeneratedGroups()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(8, 2);
 			m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female });
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("Bobette")));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
-	[TestFixture, NonParallelizable]
+	[TestFixture]
 	public class CharacterGroupGeneratorTestsWithLotsOfBooks : CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
+
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			// Note: there are currently only two tests in this fixture that require this:
 			//    GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark
@@ -1470,11 +1620,13 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NotSet;
@@ -1482,11 +1634,13 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_IsCancelable()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(10);
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			var group = new CharacterGroup(m_testProject);
@@ -1514,6 +1668,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.Null(generator.GeneratedGroups);
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -1526,6 +1681,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase("MRK|LUK,ACT|GAL,EPH,PHM|HEB|JUD|1JN,2JN,3JN,REV")]
 		public void GenerateCharacterGroups_LargeCast_NarrationByAuthor_NarratorsGroupedByAuthorAndHaveDistinctNarrationRoles(string narratorGroups)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + " with " + narratorGroups);
 			var expectedNarratorGroups = narratorGroups.Split('|');
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = expectedNarratorGroups.Length;
@@ -1557,11 +1713,13 @@ namespace GlyssenEngineTests.Rules
 				else
 					Assert.AreEqual(books.Length, narGroup.CharacterIds.Count);
 			}
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_LargeCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveDistinctNarrationRoles()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -1590,6 +1748,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.AreEqual(1, narJude.CharacterIds.Count);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -1598,6 +1757,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(6)]
 		public void GenerateCharacterGroups_SmallCast_NarrationByAuthor_PaulAndHisBooksSeparateFromOtherNarrators(int numberOfNarrators)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + " with " + numberOfNarrators);
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -1632,11 +1792,13 @@ namespace GlyssenEngineTests.Rules
 						$"{String.Join(", ", booksNarratedInThisGroup)} expected to contain some other roles.");
 				}
 			}
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_SmallCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveCharacterRolesInOtherBooks()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -1667,11 +1829,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJude.CharacterIds.Count > 1);
 
 			VerifyGenderConformityInGroups(groups, true);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_TooSmallCast_FourNarrators_AllCharactersConformToGroupGender()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -1683,11 +1847,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors.Count, groups.Count);
 
 			VerifyGenderConformityInGroups(groups, true);
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsOneFewerThanAuthors_HebrewsAndJudeShareNarrators()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 5;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1714,11 +1880,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanAuthors_PaulCombinesWithJudeAndHebrewsCombinesWithMark()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1744,11 +1912,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsThreeFewerThanAuthors_JohnCombinesWithJudeAndHebrewsAndPaulCombinesWithMark()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1773,11 +1943,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1801,11 +1973,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanBooks_JohanineEpistlesGetCombined()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 8;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1852,11 +2026,13 @@ namespace GlyssenEngineTests.Rules
 				narRev
 			};
 			Assert.AreEqual(4, groups.Except(narrators).Count(n => n.ContainsCharacterWithGender(CharacterGender.Female)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorsAssignedToNarratorRole_NumberOfGeneratedNarratorGroupsReduced()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 8;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1912,11 +2088,13 @@ namespace GlyssenEngineTests.Rules
 				narRev
 			};
 			Assert.AreEqual(4, groups.Except(narrators).Count(n => n.ContainsCharacterWithGender(CharacterGender.Female)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_AllNarratorRolesAssignedToCameoActors_NoAdditionalNarratorGroupsReserved()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1960,11 +2138,13 @@ namespace GlyssenEngineTests.Rules
 			var narrators = new List<CharacterGroup> { narMrk, narHeb };
 			foreach (var grp in groups.Except(narrators))
 				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CameoActorsWithNarratorRolesEqualsNumberOfRequestedNarratorsButNotAllRolesAreAssigned_OneAdditionalNarratorGroupReserved()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -2014,6 +2194,7 @@ namespace GlyssenEngineTests.Rules
 			var narrators = new List<CharacterGroup> { narMrk, narGal, narHeb, narNonCameo };
 			foreach (var grp in groups.Except(narrators))
 				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -2022,6 +2203,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(CastSizeOption.Large)]
 		public void GenerateCharacterGroups_GhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(CastSizeOption castSize)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + " with " + castSize);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = castSize;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -2036,6 +2218,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(castSizeValues.Child, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Child));
 			Assert.AreEqual(castSizeValues.Female - m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Female));
 			Assert.AreEqual(castSizeValues.Male - m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Male));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[NonParallelizable]
@@ -2044,6 +2227,7 @@ namespace GlyssenEngineTests.Rules
 		[TestCase(30, 0, 0)]
 		public void GenerateCharacterGroups_CustomGhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(int maleActors, int femaleActors, int childActors)
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name + $" with {maleActors}, {femaleActors}, {childActors}");
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -2059,11 +2243,13 @@ namespace GlyssenEngineTests.Rules
 			Assert.AreEqual(Math.Min(castSizeValues.Child, numChildCharactersInScript), groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Child));
 			Assert.AreEqual(castSizeValues.Female - m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Female));
 			Assert.AreEqual(castSizeValues.Male - m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Male));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateCharacterGroups_CastSoSmallThatOnlyOneMaleActorIsNotANarratorOrExtra_DietyNotGroupedWithOtherCharacters()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -2077,6 +2263,7 @@ namespace GlyssenEngineTests.Rules
 				{
 					"Jesus", "God", "Holy Spirit, the", CharacterVerse.kScriptureCharacter
 				}));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -2086,6 +2273,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
@@ -2096,27 +2284,33 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateGroups_AllActorsAreNarrators_NarratorsDoNotCauseProximityClash()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(2);
 			var generator = new CharacterGroupGenerator(m_testProject);
 			var groups = generator.GenerateCharacterGroups();
@@ -2125,6 +2319,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(!CharacterVerseData.IsCharacterOfType(generator.MinimumProximity.FirstCharacterId, CharacterVerseData.StandardCharacter.Narrator) ||
 				!CharacterVerseData.IsCharacterOfType(generator.MinimumProximity.SecondCharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.True(generator.MinimumProximity.IsAcceptable());
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
@@ -2134,6 +2329,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
@@ -2142,28 +2338,34 @@ namespace GlyssenEngineTests.Rules
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			TestProject.DeleteTestProjectFolder();
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 
 		[Test, NonParallelizable]
 		public void GenerateGroups_NarratorSpeaksAllExtra_AllExtraAssignedToNarrator()
 		{
+			Console.WriteLine("Starting " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 			SetVoiceActors(8, 2, 2);
 
 			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
@@ -2178,6 +2380,7 @@ namespace GlyssenEngineTests.Rules
 			Assert.True(characterIds.Contains("intro-RUT"));
 			Assert.True(characterIds.Contains("extra-RUT"));
 			Assert.True(characterIds.Contains("BC-RUT"));
+			Console.WriteLine("Ending " + GetType().Name + "." + MethodBase.GetCurrentMethod().Name);
 		}
 	}
 
