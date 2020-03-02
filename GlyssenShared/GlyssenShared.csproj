@@ -5,6 +5,10 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Platforms>AnyCPU;x64</Platforms>
     <RootNamespace>Glyssen.Shared</RootNamespace>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Authors>FCBH-SIL</Authors>
+    <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
+    <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -13,6 +17,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutputPath>..\output\Debug\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -24,9 +29,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0037" />
+    <PackageReference Include="GitVersionTask" Version="5.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0071" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0037" />
+    <PackageReference Include="SIL.ReleaseTasks" Version="2.2.0" />
     <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0037" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
