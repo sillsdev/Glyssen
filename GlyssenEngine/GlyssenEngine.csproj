@@ -3,27 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseFile></PackageLicenseFile>
     <Company>FCBH-SIL</Company>
     <Copyright>Copyright © 2019-2020 Faith Comes By Hearing and SIL International</Copyright>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
     <PackageProjectUrl>https://software.sil.org/glyssen/</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\output\Debug\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutputPath>..\output\Debug\</OutputPath>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\output\Release\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>..\output\Release\</OutputPath>
   </PropertyGroup>
 
@@ -45,10 +38,6 @@
     <None Remove="Resources\RelatedCharacters.xml" />
     <None Remove="Resources\SampleMRK.xml" />
     <None Remove="Resources\Silent.wav" />
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -65,7 +54,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="ParatextData" Version="9.1.2-beta" />
+    <PackageReference Include="ParatextData" Version="9.1.4-beta" />
     <PackageReference Include="SIL.Core" Version="8.0.0-beta0071" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0037" />
     <PackageReference Include="SIL.ReleaseTasks" Version="2.2.0" />

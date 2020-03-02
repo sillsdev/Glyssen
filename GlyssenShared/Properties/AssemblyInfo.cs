@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GlyssenShared")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Interfaces and low-level classes needed by all products that work with Glyssen projects")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("GlyssenShared")]
@@ -28,4 +28,4 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// Semantic versioning is handled by gitversion
+// Semantic versioning is handled by GitVersion
