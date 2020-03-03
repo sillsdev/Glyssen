@@ -30,7 +30,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0071" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0077" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0037" />
     <PackageReference Include="SIL.ReleaseTasks" Version="2.2.0" />
     <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0037" />
