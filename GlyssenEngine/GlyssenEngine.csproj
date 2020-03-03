@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x64</Platforms>
-    <PackageLicenseFile></PackageLicenseFile>
     <Company>FCBH-SIL</Company>
     <Copyright>Copyright © 2019-2020 Faith Comes By Hearing and SIL International</Copyright>
     <RepositoryUrl>https://github.com/sillsdev/glyssen/</RepositoryUrl>
@@ -11,6 +10,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
+	<AppendToReleaseNotesProperty><![CDATA[
+See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.md]]>
+    </AppendToReleaseNotesProperty>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
