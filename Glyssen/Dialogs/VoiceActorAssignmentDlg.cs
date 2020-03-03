@@ -147,13 +147,13 @@ namespace Glyssen.Dialogs
 
 		private void RestoreAutoSizeInfo(Tuple<Dictionary<DataGridViewColumn, DataGridViewAutoSizeColumnMode>, DataGridViewAutoSizeRowsMode> info)
 		{
-			var columnSizeModesToRestore = info.Item1;
-			var autoSizeRowsModeToRestore = info.Item2;
+				var columnSizeModesToRestore = info.Item1;
+				var autoSizeRowsModeToRestore = info.Item2;
 
-			foreach (var kvp in columnSizeModesToRestore)
-				kvp.Key.AutoSizeMode = kvp.Value;
-			m_characterGroupGrid.AutoSizeRowsMode = autoSizeRowsModeToRestore;
-		}
+				foreach (var kvp in columnSizeModesToRestore)
+					kvp.Key.AutoSizeMode = kvp.Value;
+				m_characterGroupGrid.AutoSizeRowsMode = autoSizeRowsModeToRestore;
+			}
 
 		private void HandleStringsLocalized()
 		{
@@ -819,16 +819,15 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			var src = (DataGridView)sender;
 			// ignore most ArgumentExceptions in the VoiceActorCol
 			// this can happen if you type in the name of an existing cameo actor
-			if (e.Exception.GetType().Name == "ArgumentException")
+			if (e.Exception is ArgumentException)
 			{
-				var src = (DataGridView)sender;
 				if (src.CurrentCell.OwningColumn == VoiceActorCol)
 				{
-					int currentVal;
-					var success = int.TryParse(src.CurrentCell.Value.ToString(), out currentVal);
-					if (success && (currentVal > -1))
+					var success = int.TryParse(src.CurrentCell.Value.ToString(), out var currentVal);
+					if (success && currentVal > -1)
 					{
 						e.Cancel = true;
 						return;
@@ -837,6 +836,7 @@ namespace Glyssen.Dialogs
 			}
 
 			Analytics.ReportException(e.Exception);
+			Logger.WriteEvent($"Following error is fatal exception from {src.Name}. Row: {e.RowIndex}; Column: {e.ColumnIndex}");
 			ErrorReport.ReportFatalException(e.Exception);
 			throw e.Exception;
 		}
@@ -1233,8 +1233,12 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.NotifyCurrentCellDirty(true);
 			if (m_characterGroupGrid.IsCurrentCellInEditMode)
 			{
-				SaveActorAssignment(m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString(), m_characterGroupGrid.CurrentCellAddress.Y);
-				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
+				var actorName = m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString();
+				if (actorName != String.Empty)
+				{
+					SaveActorAssignment(m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString(), m_characterGroupGrid.CurrentCellAddress.Y);
+					m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
+				}
 			}
 
 			dropDown.DropDownClosed -= DropDownOnDropDownClosed;
