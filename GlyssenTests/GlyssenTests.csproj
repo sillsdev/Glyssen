@@ -60,6 +60,12 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\glyssen.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AtkSharp, Version=3.22.24.37, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AtkSharp.3.22.24.37\lib\netstandard2.0\AtkSharp.dll</HintPath>
@@ -332,6 +338,7 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Firefox\omni.ja" />
+    <None Include="glyssen.snk" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
