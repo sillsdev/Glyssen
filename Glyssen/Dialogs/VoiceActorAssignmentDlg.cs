@@ -1160,17 +1160,8 @@ namespace Glyssen.Dialogs
 			foreach (Tuple<VoiceActor, bool> actorInfo in m_actorAssignmentViewModel.GetActorsSortedByAvailabilityAndName(group))
 			{
 				if (!actorInfo.Item2 && !rowForRemoveActorAdded)
-				{ 
-					table.Rows.Add(
-						-1,
-						null,
-						Resources.RemoveActor,
-						"",
-						//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
-						"",
-						"",
-						"",
-						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
+				{
+					AddRowForRemoveActor(table);
 					category = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 						"Assigned to a Character Group:");
 					rowForRemoveActorAdded = true;
@@ -1178,8 +1169,24 @@ namespace Glyssen.Dialogs
 
 				table.Rows.Add(GetDataTableRow(actorInfo.Item1, category));
 			}
+			if (!rowForRemoveActorAdded)
+				AddRowForRemoveActor(table);
 
 			return table;
+		}
+
+		private static void AddRowForRemoveActor(DataTable table)
+		{
+			table.Rows.Add(
+				-1,
+				null,
+				Resources.RemoveActor,
+				"",
+				//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+				"",
+				"",
+				"",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 		}
 
 		private object[] GetDataTableRow(VoiceActor actor, string category)
@@ -1233,12 +1240,8 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.NotifyCurrentCellDirty(true);
 			if (m_characterGroupGrid.IsCurrentCellInEditMode)
 			{
-				var actorName = m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString();
-				if (actorName != String.Empty)
-				{
-					SaveActorAssignment(m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString(), m_characterGroupGrid.CurrentCellAddress.Y);
-					m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
-				}
+				SaveActorAssignment(m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString(), m_characterGroupGrid.CurrentCellAddress.Y);
+				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
 			}
 
 			dropDown.DropDownClosed -= DropDownOnDropDownClosed;
