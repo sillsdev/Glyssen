@@ -5,7 +5,7 @@
 @echo //call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
 
 pushd .
-MSbuild /target:installer /property:teamcity_build_checkoutDir=..\ /property:Configuration="Release" /property:teamcity_dotnet_nunitlauncher_msbuild_task="notthere" /property:Platform=x64 /property:BUILD_NUMBER="1.3.7.localtest"
+MSbuild /target:installer /property:teamcity_build_checkoutDir=..\ /property:Configuration="Release" /property:teamcity_dotnet_nunitlauncher_msbuild_task="notthere" /property:Platform=x64 /property:SemVer="1.3.7-local" /property:MajorMinorPatch="1.3.7"
 popd
 PAUSE
 
