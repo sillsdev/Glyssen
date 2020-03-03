@@ -239,6 +239,12 @@ namespace GlyssenEngine.ViewModels
 			return GetUniqueCharacters(expandIfNone);
 		}
 
+		public IEnumerable<Character> GetUniqueCharactersForBlock(Block block, bool expandIfNone = true)
+		{
+			m_currentCharacters = new HashSet<ICharacterDeliveryInfo>(GetUniqueCharacterVerseObjectsForBlock(block));
+			return GetUniqueCharacters(expandIfNone);
+		}
+
 		private IEnumerable<Character> GetUniqueCharacters(bool expandIfNone = true)
 		{
 			var listToReturn = new List<Character>(new SortedSet<Character>(
