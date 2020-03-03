@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Casting;
@@ -1439,6 +1440,9 @@ namespace GlyssenEngineTests.Rules
 		public void OneTimeSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			// Note: there are currently only two tests in this fixture that require this:
+			//    GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark
+			//    GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanAuthors_PaulCombinesWithJudeAndHebrewsCombinesWithMark
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			m_testProject = TestProject.CreateTestProject(
@@ -1481,24 +1485,22 @@ namespace GlyssenEngineTests.Rules
 			group.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[0].Id);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 
-			BackgroundWorker worker = new BackgroundWorker();
-			worker.WorkerSupportsCancellation = true;
+			BackgroundWorker worker = new BackgroundWorker {WorkerSupportsCancellation = true};
 			CharacterGroupGenerator generator = new CharacterGroupGenerator(m_testProject, null, worker);
 			worker.DoWork += (sender, args) =>
 			{
 				generator.GenerateCharacterGroups();
-
-				// REVIEW: Are these assertions valid here? I had one fail when running in debug, but
-				// it didn't seem to make it back across the thread boundary, and the test ended up
-				// passing. But since we check these same things after canceling, does it really matter?
-				// Since GenerateCharacterGroups is supposed to handle the cancelling, it does seem like
-				// these assertions should be okay.
-				Assert.Null(generator.GeneratedGroups);
-				Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-				Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
 			};
+
+			var start = DateTime.Now;
 			worker.RunWorkerAsync();
 			worker.CancelAsync();
+
+			while (worker.IsBusy)
+			{
+				Assert.IsTrue(DateTime.Now.Subtract(start).Seconds < 6, "Failed to cancel within timeout (6 seconds)");
+				Thread.Sleep(100);
+			}
 
 			Assert.Null(generator.GeneratedGroups);
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
@@ -1506,7 +1508,7 @@ namespace GlyssenEngineTests.Rules
 		}
 
 		// Comma-separated lists of books which are expected to be grouped together. Each group delimited by a |
-		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV"), NonParallelizable]
+		[TestCase("MRK,LUK,ACT,GAL,EPH,PHM,HEB,1JN,2JN,3JN,JUD,REV")]
 		[TestCase("MRK,HEB,JUD,LUK,ACT,1JN,2JN,3JN,REV|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB,1JN,2JN,3JN,REV|LUK,ACT,JUD|GAL,EPH,PHM")]
 		[TestCase("MRK,HEB|LUK,ACT|GAL,EPH,PHM|1JN,2JN,3JN,JUD,REV")]

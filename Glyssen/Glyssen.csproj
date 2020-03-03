@@ -130,7 +130,7 @@
       <HintPath>..\packages\icu.net.2.6.0\lib\net451\icu.net.dll</HintPath>
     </Reference>
     <Reference Include="L10NSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=fd0b3e309a5b7c28, processorArchitecture=MSIL">
-      <HintPath>..\packages\L10NSharp.4.0.2\lib\net461\L10NSharp.dll</HintPath>
+      <HintPath>..\packages\L10NSharp.4.0.3\lib\net461\L10NSharp.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownDeep, Version=1.5.6607.21413, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MarkdownDeep.NET.Patched.1.5.0.1\lib\net35\MarkdownDeep.dll</HintPath>
@@ -173,10 +173,10 @@
       <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.8.0.0-beta0037\lib\net461\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0077\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0037\lib\net461\SIL.Core.Desktop.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0077\lib\net461\SIL.Core.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0037\lib\net461\SIL.DblBundle.dll</HintPath>
@@ -185,7 +185,7 @@
       <HintPath>..\packages\SIL.Scripture.8.0.0-beta0037\lib\net461\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Windows.Forms.8.0.0-beta0037\lib\net461\SIL.Windows.Forms.dll</HintPath>
+      <HintPath>..\packages\SIL.Windows.Forms.8.0.0-beta0077\lib\net461\SIL.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.DblBundle, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Windows.Forms.DblBundle.8.0.0-beta0033\lib\net461\SIL.Windows.Forms.DblBundle.dll</HintPath>
@@ -203,7 +203,7 @@
       <HintPath>..\packages\SIL.Windows.Forms.WritingSystems.7.0.0\lib\net461\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0037\lib\net461\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\packages\SIL.WritingSystems.8.0.0-beta0077\lib\net461\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.CodeDom, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
