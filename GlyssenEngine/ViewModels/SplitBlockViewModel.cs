@@ -32,7 +32,7 @@ namespace GlyssenEngine.ViewModels
 
 		public SplitBlockViewModel(AssignCharacterViewModel<TFont> assignCharacterViewModel, Block blockToSplit) :
 			this(assignCharacterViewModel.FontInfo, assignCharacterViewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
-				assignCharacterViewModel.GetUniqueCharactersForCurrentReference(), assignCharacterViewModel.CurrentBookId)
+				assignCharacterViewModel.GetUniqueCharactersForBlock(blockToSplit), assignCharacterViewModel.CurrentBookId)
 		{
 		}
 
