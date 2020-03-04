@@ -203,6 +203,7 @@ namespace Glyssen.Dialogs
 		void HandleDataGridViewDataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			Analytics.ReportException(e.Exception);
+			Logger.WriteEvent($"Following error is fatal exception from {((DataGridView)sender).Name}. Row: {e.RowIndex}; Column: {e.ColumnIndex}");
 			ErrorReport.ReportFatalException(e.Exception);
 			throw e.Exception;
 		}
