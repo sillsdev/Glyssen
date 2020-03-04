@@ -97,8 +97,7 @@ namespace GlyssenEngine.ViewModels
 			m_project.SaveVoiceActorInformationData();
 			DataHasChanged = true;
 
-			if (Saved != null)
-				Saved(this, EventArgs.Empty);
+			Saved?.Invoke(this, EventArgs.Empty);
 		}
 
 		public VoiceActor AddNewActor()
