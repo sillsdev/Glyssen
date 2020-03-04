@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
-## [1.0.1] - 2020-03-03
+## [1.3.6] - 2020-03-04
 
 ### Changed
 
