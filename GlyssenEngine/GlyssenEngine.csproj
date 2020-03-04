@@ -13,6 +13,7 @@
 	<AppendToReleaseNotesProperty><![CDATA[
 See full changelog at https://github.com/sillsdev/Glyssen/blob/master/CHANGELOG.md]]>
     </AppendToReleaseNotesProperty>
+	<Description>Library for working with Glyssen project data, including scripts and casting</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
