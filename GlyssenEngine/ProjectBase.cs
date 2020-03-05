@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Shared;
@@ -20,7 +19,7 @@ namespace GlyssenEngine
 		public ScrVers LoadVersification(bool useFallback = false)
 		{
 			var versificationResource = useFallback ? ProjectResource.FallbackVersification : ProjectResource.Versification;
-			using (var versificationReader = Reader.Load(versificationResource, this))
+			using (var versificationReader = Reader.Load(this, versificationResource))
 			{
 				if (versificationReader != null)
 				{
@@ -55,6 +54,8 @@ namespace GlyssenEngine
 		public string LanguageName => m_metadata.Language.Name;
 
 		public string LanguageIsoCode => m_metadata.Language.Iso;
+
+		public virtual string ValidLanguageIsoCode => LanguageIsoCode;
 
 		public string MetadataId => m_metadata.Id;
 

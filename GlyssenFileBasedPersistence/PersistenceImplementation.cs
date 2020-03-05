@@ -7,7 +7,9 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
+using SIL;
 using SIL.DblBundle;
+using SIL.DblBundle.Text;
 using SIL.IO;
 using SIL.Reporting;
 using static System.String;
@@ -34,6 +36,72 @@ namespace GlyssenFileBasedPersistence
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
 		private const int kMaxDefaultProjectNameLength = 150;
+
+		public void SetUpProjectPersistence(IProject project)
+		{
+			Directory.CreateDirectory(ProjectRepository.GetProjectFolderPath(project));
+		}
+
+		public void SetUpProjectPersistence<TM, TL>(IProject project, TextBundle<TM, TL> bundle)
+			where TM : DblTextMetadata<TL>
+			where TL : DblMetadataLanguage, new()
+		{
+			SetUpProjectPersistence(project);
+
+			var languageFolder = GetLanguageFolder(project.LanguageIsoCode);
+
+
+			int cFontFileCopyFailures = 0;
+			foreach (var font in bundle.GetFonts())
+			{
+				string fontFileName = font.Item1;
+				string targetFontPath = Path.Combine(languageFolder, fontFileName);
+				try
+				{
+					if (!File.Exists(targetFontPath))
+					{
+						using (var targetStream = new FileStream(targetFontPath, FileMode.Create))
+						{
+							font.Item2.CopyTo(targetStream);
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					var message = Format(Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
+						fontFileName, languageFolder);
+					if (cFontFileCopyFailures == 0)
+					{
+						ErrorReport.ReportNonFatalExceptionWithMessage(ex, message);
+					}
+					else
+					{
+						// For any subsequent failures, just log them.
+						Logger.WriteError(message, ex);
+					}
+				}
+			}
+
+			using (var reader = bundle.GetVersification())
+			{
+				File.WriteAllText(GetVersificationFilePath(project), reader.ReadToEnd());
+			}
+		}
+
+		public void DeleteProject(IProject project)
+		{
+			var projectFolder = ProjectRepository.GetProjectFolderPath(project);
+
+			if (Directory.Exists(projectFolder))
+				Directory.Delete(projectFolder, true);
+			// Now also clear out the higher level folders if they are empty.
+			var parent = Path.GetDirectoryName(projectFolder);
+			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
+				Directory.Delete(parent);
+			parent = Path.GetDirectoryName(parent);
+			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
+				Directory.Delete(parent);
+		}
 
 		public void CreateBackup(IProject project, string description, bool hidden)
 		{
@@ -93,12 +161,12 @@ namespace GlyssenFileBasedPersistence
 			Directory.Move(existingProjectFolder, newPath);
 		}
 
-		public void Save(IProject project, ProjectResource resource, string data)
+		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
 		{
-			throw new NotImplementedException();
+			return new StreamWriter(GetPath(resource, project));
 		}
 
-		public void SaveBook(IProject project, string bookId, string data)
+		public void SaveBook(IProject project, string bookId, TextReader data)
 		{
 			throw new NotImplementedException();
 		}
@@ -117,16 +185,11 @@ namespace GlyssenFileBasedPersistence
 		public bool ProjectExists(string languageIsoCode, string metadataId, string name) => 
 			Directory.Exists(ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name));
 
-		public bool ResourceExists(ProjectResource resource, IProject project) =>
-			File.Exists(GetPath(resource, project));
+		public bool ResourceExists(IProject project, ProjectResource resource) =>
+			RobustFile.Exists(GetPath(resource, project));
 
-		public TextReader Load(ProjectResource resource, IProject project)
-		{
-			string fullPath = GetPath(resource, project);
-			return File.Exists(fullPath) ?
-				new StreamReader(new FileStream(fullPath, FileMode.Open)) :
-				null;
-		}
+		public TextReader Load(IProject project, ProjectResource resource) =>
+			GetReader(GetPath(resource, project));
 
 		private string GetPath(ProjectResource resource, IProject project)
 		{
@@ -135,56 +198,58 @@ namespace GlyssenFileBasedPersistence
 				case ProjectResource.Metadata:
 					return GetProjectFilename(project);
 				case ProjectResource.Ldml:
-					return
+					return GetLdmlFilePath(project);
+				case ProjectResource.LdmlBackupFile:
+					return Path.ChangeExtension(GetLdmlFilePath(project), DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
 				case ProjectResource.Versification:
-					break;
+					return GetVersificationFilePath(project);
 				case ProjectResource.FallbackVersification:
 					return GetFallbackVersificationFilePath(project);
-					break;
-				case ProjectResource.ProjectCharacterVerseData:
-					return GetProjectCharacterVerseDataPath(project);
-					break;
-				case ProjectResource.ProjectCharacterDetailData:
-					return GetProjectCharacterDetailDataPath(project);
-					break;
+				case ProjectResource.CharacterVerseData:
+					return GetProjectResourceFilePath(project, kProjectCharacterVerseFileName);
+				case ProjectResource.CharacterDetailData:
+					return GetProjectResourceFilePath(project, kProjectCharacterDetailFileName);
 				case ProjectResource.CharacterGroups:
-					break;
+					return GetProjectResourceFilePath(project, kCharacterGroupFileName);
 				case ProjectResource.VoiceActorInformation:
-					break;
+					return GetProjectResourceFilePath(project, kVoiceActorInformationFileName);
 				default:
 					throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
 			}
 		}
 
-		public TextReader LoadBook(IProject project, string bookId)
+		public TextReader LoadBook(IProject project, string bookId) =>
+			GetReader(GetBookDataFilePath(project, bookId));
+
+		private TextReader GetReader(string fullPath) =>
+			RobustFile.Exists(fullPath) ? new StreamReader(new FileStream(fullPath, FileMode.Open)) : null;
+
+		private string GetBookDataFilePath(IProject project, string bookId)
 		{
-			throw new NotImplementedException();
+			return Path.ChangeExtension(Path.Combine(ProjectRepository.GetProjectFolderPath(project), bookId), "xml");
 		}
 
-
-		//public string GetProjectFilePath(IProject project) => ProjectRepository.GetProjectFilePath(LanguageIsoCode, m_metadata.Id, m_recordingProjectName);
+		public bool BookResourceExists(IProject project, string bookId)
+		{
+			return RobustFile.Exists(GetBookDataFilePath(project, bookId));
+		}
 
 		private string GetProjectResourceFilePath(IProject project, string filename) =>
 			Path.Combine(ProjectRepository.GetProjectFolderPath(project), filename);
-
-		private string GetProjectCharacterVerseDataPath(IProject project) =>
-			GetProjectResourceFilePath(project, kProjectCharacterVerseFileName);
-
-		private string GetProjectCharacterDetailDataPath(IProject project) =>
-			GetProjectResourceFilePath(project, kProjectCharacterDetailFileName);
 
 		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle) => 
 			ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
 				Project.GetDefaultRecordingProjectName(bundle.Name));
 
-
 		protected string GetVersificationFilePath(IProject project) =>
-			Path.Combine(ProjectRepository.GetProjectFolderPath(project), DblBundleFileUtils.kVersificationFileName);
+			GetProjectResourceFilePath(project, DblBundleFileUtils.kVersificationFileName);
+
+		protected string GetLdmlFilePath(IProject project) =>
+			GetProjectResourceFilePath(project, project.ValidLanguageIsoCode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
 
 		protected string GetFallbackVersificationFilePath(IProject project) => 
 			Path.Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 
-
-		//private string LanguageFolder => GetLanguageFolderPath(m_metadata.Language.Iso);
+		private string GetLanguageFolder(string languageIsoCode) => ProjectRepository.GetLanguageFolderPath(languageIsoCode);
 	}
 }

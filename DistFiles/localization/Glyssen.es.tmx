@@ -11949,13 +11949,13 @@
         <seg>Para actualizar el proyecto {0}, el proyecto {2} debe estar disponible en {1}, pero no lo está.</seg>
       </tuv>
     </tu>
-    <tu tuid="Project.ParatextProjectMissingNoFallbackVersificationFile">
-      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: “English” (versification mame)</note>
+    <tu tuid="Project.ParatextProjectMissingNoFallbackVersification">
+      <note>Param 0: "Paratext" (product name); Param 1: Paratext project short name (unique project identifier); Param 2: Glyssen recording project name; Param 3: “English” (versification name)</note>
       <tuv xml:lang="en">
-        <seg>{0} project {1} is not available and project {2} does not have a fallback versification file; therefore, the {3} versification is being used by default. If this is not the correct versification for this project, some things will not work as expected.</seg>
+        <seg>{0} project {1} is not available and project {2} does not have a fallback versification; therefore, the {3} versification is being used by default. If this is not the correct versification for this project, some things will not work as expected.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>El proyecto {0} {1} no está disponible y el proyecto {2} no tiene un archivo de versificación de respaldo. Así que la versificación {3} se usará por defecto. Si ésta no es la correcta versificación para este proyecto, se esperan algunos problemas.</seg>
+        <seg>El proyecto {0} {1} no está disponible y el proyecto {2} no tiene una versificación de respaldo. Así que la versificación {3} se usará por defecto. Si ésta no es la correcta versificación para este proyecto, se esperan algunos problemas.</seg>
       </tuv>
     </tu>
     <tu tuid="Project.ParatextProjectNotFound">

@@ -1288,7 +1288,7 @@ namespace Glyssen
 				Logger.WriteEvent(msg);
 				switch (FlexibleMessageBox.Show(msg, GlyssenInfo.Product,
 					ignoreOptionText == null ? MessageBoxButtons.RetryCancel : MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
-					(sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); }))
+					(sender, e) => { SafeCreateAndOpenFolder(e.LinkText); }))
 				{
 					case DialogResult.Cancel:
 					case DialogResult.Abort: return false;
@@ -1423,12 +1423,25 @@ namespace Glyssen
 								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
 							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
 								"file://" + m_project.ReferenceTextProxy.ProjectFolder),
-								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); });
+								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
 						}
 					}
 
 					LoadProject(projectFilePath, AdditionalActionAfterSettingProject);
 				}
+			}
+		}
+
+		private static void SafeCreateAndOpenFolder(string folderPath)
+		{
+			try
+			{
+				Directory.CreateDirectory(folderPath);
+				Process.Start(folderPath);
+			}
+			catch (Exception)
+			{
+				// Ignore;
 			}
 		}
 	}

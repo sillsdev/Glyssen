@@ -5,10 +5,8 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Gecko;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Shared;
@@ -236,8 +234,10 @@ namespace Glyssen
 					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 				}
 
+				Project.DefaultRecordingProjectNameSuffix = LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
+					"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
 				var persistenceImpl = new PersistenceImplementation();
-				Project.Reader = persistenceImpl;
+				ProjectBase.Reader = persistenceImpl;
 				Project.Writer = persistenceImpl;
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
 					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);

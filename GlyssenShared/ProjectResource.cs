@@ -4,10 +4,11 @@
 	{
 		Metadata,
 		Ldml,
+		LdmlBackupFile,
 		Versification,
 		FallbackVersification,
-		ProjectCharacterVerseData,
-		ProjectCharacterDetailData,
+		CharacterVerseData,
+		CharacterDetailData,
 		CharacterGroups,
 		VoiceActorInformation,
 	}

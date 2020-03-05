@@ -17,6 +17,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0085" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj" />
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
   </ItemGroup>

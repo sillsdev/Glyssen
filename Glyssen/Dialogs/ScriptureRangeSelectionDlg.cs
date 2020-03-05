@@ -307,7 +307,7 @@ namespace Glyssen.Dialogs
 				Debug.Assert(m_project.IsLiveParatextProject);
 				book.IncludeInScript = true;
 
-				BookScript bookScriptFromExistingFile = m_project.FluffUpBookFromFileIfPossible(book.Code);
+				BookScript bookScriptFromExistingFile = m_project.LoadExistingBookIfPossible(book.Code);
 				if (bookScriptFromExistingFile == null || UserWantsUpdatedContent(bookScriptFromExistingFile))
 					bookNumsToAddFromParatext.Add(Canon.BookIdToNumber(book.Code));
 				else

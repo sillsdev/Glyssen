@@ -9,9 +9,9 @@ namespace GlyssenEngine.Character
 {
 	public static class ProjectCharacterDetailData
 	{
-		public static void WriteToFile(ISet<CharacterDetail> projectCharacterDetailData, string fullPath)
+		public static void Write(ISet<CharacterDetail> projectCharacterDetailData, TextWriter textWriter)
 		{
-			File.WriteAllText(fullPath, ToTabDelimited(projectCharacterDetailData));
+			textWriter.Write(ToTabDelimited(projectCharacterDetailData));
 		}
 
 		private static string ToTabDelimited(ISet<CharacterDetail> projectCharacterDetailData)

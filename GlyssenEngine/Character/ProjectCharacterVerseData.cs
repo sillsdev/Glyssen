@@ -115,10 +115,10 @@ namespace GlyssenEngine.Character
 			return null;
 		}
 
-		public void WriteToFile(string fullPath)
+		public void Write(TextWriter textWriter)
 		{
 			RemoveDataAlsoInControlFile();
-			File.WriteAllText(fullPath, ToTabDelimited());
+			textWriter.Write(ToTabDelimited());
 		}
 
 		private string ToTabDelimited()

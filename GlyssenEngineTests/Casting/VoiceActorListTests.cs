@@ -22,7 +22,7 @@ namespace GlyssenEngineTests.Casting
 				};
 
 				// Generates file correctly
-				list.SaveToFile(tempFile.Path);
+				list.Save(tempFile.Path);
 				AssertThatXmlIn.File(tempFile.Path)
 					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor", 2);
 				AssertThatXmlIn.File(tempFile.Path)

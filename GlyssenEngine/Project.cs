@@ -33,6 +33,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 using static System.String;
 
 namespace GlyssenEngine
@@ -94,14 +95,14 @@ namespace GlyssenEngine
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 
-			using (var reader = Reader.Load(ProjectResource.ProjectCharacterDetailData, this))
+			using (var reader = Reader.Load(this, ProjectResource.CharacterDetailData))
 				ProjectCharacterDetail = ProjectCharacterDetailData.Load(reader);
 
 			if (loadVersification)
 			{
-				var versificationReader = Reader.Load(ProjectResource.Versification, this);
-				if (versificationReader != null)
-					SetVersification(LoadVersification(versificationReader));
+				var versification = LoadVersification();
+				if (versification != null)
+					SetVersification(versification);
 				else if (IsLiveParatextProject)
 				{
 					try
@@ -111,59 +112,56 @@ namespace GlyssenEngine
 					catch (ProjectNotFoundException e)
 					{
 						Logger.WriteError("Paratext project not found. Falling back to get usable versification file.", e);
-						if (RobustFile.Exists(FallbackVersificationFilePath))
-							SetVersification(LoadVersification(FallbackVersificationFilePath));
-						else
+						versification = LoadVersification(true);
+						if (versification == null)
 						{
-							MessageModal.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
-								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
+							versification = ScrVers.English;
+							MessageModal.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersification",
+								"{0} project {1} is not available and project {2} does not have a fallback versification; " +
 								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
 								"for this project, some things will not work as expected.",
 								"Param 0: \"Paratext\" (product name); " +
 								"Param 1: Paratext project short name (unique project identifier); " +
 								"Param 2: Glyssen recording project name; " +
-								"Param 3: “English” (versification mame)"),
+								"Param 3: “English” (versification name)"),
 								ParatextScrTextWrapper.kParatextProgramName,
 								ParatextProjectName,
 								Name,
-								"“English”"));
-							SetVersification(ScrVers.English);
+								versification.Name));
+							
 						}
+						SetVersification(versification);
 					}
 				}
 			}
 
 			if (installFonts)
-				InstallIfNecessary();
+				InstallFontsIfNecessary();
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
-			Directory.CreateDirectory(ProjectFolder);
+			Writer.SetUpProjectPersistence(this, bundle);
+			InstallFontsIfNecessary();
+
+			try
+			{
+				SetVersification(LoadVersification());
+			}
+			catch (InvalidVersificationLineException ex)
+			{
+				Logger.WriteError(ex);
+				Writer.DeleteProject(this);
+				throw;
+			}
+
 			if (bundle.WritingSystemDefinition?.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(bundle.WritingSystemDefinition.QuotationMarks);
 			}
 
-			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
-				ErrorReport.ReportNonFatalMessageWithStackTrace(
-					Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
-					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
-
-			InstallIfNecessary();
-			bundle.CopyVersificationFile(VersificationFilePath);
-			try
-			{
-				SetVersification(LoadVersification(VersificationFilePath));
-			}
-			catch (InvalidVersificationLineException ex)
-			{
-				Logger.WriteError(ex);
-				DeleteProjectFolderAndEmptyContainingFolders(ProjectFolder);
-				throw;
-			}
 			UserDecisionsProject = projectBeingUpdated;
 			PopulateAndParseBooks(bundle);
 		}
@@ -171,7 +169,7 @@ namespace GlyssenEngine
 		public Project(ParatextScrTextWrapper paratextProject) :
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
-			Directory.CreateDirectory(ProjectFolder);
+			Writer.SetUpProjectPersistence(this);
 			if (paratextProject.HasQuotationRulesSet)
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
@@ -185,17 +183,14 @@ namespace GlyssenEngine
 		/// Used only for sample project and in tests.
 		/// </summary>
 		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet,
-			WritingSystemDefinition ws, string versificationInfo = null)
-			: this(metadata, ws: ws)
+			WritingSystemDefinition ws, string versificationInfo = null) : this(metadata, ws: ws)
 		{
-			Directory.CreateDirectory(ProjectFolder);
-			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? EnglishVersification);
-			SetVersification(LoadVersification(VersificationFilePath));
+			Writer.SetUpProjectPersistence(this);
+			Writer.Save(this, ProjectResource.Versification, versificationInfo ?? EnglishVersification);
+			SetVersification(LoadVersification());
 
 			ParseAndSetBooks(books, stylesheet);
 		}
-
-		private bool HasVersificationFile => RobustFile.Exists(VersificationFilePath);
 
 		public string AudioStockNumber => m_projectMetadata.AudioStockNumber;
 
@@ -205,9 +200,7 @@ namespace GlyssenEngine
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
-		public static string DefaultRecordingProjectNameSuffix => " " +
-			Localizer.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
-				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
+		public static string DefaultRecordingProjectNameSuffix { get; set; } = "Audio"; // This default can be overriden (and localized)
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
@@ -384,7 +377,7 @@ namespace GlyssenEngine
 			}
 		}
 
-		public void InstallIfNecessary()
+		public void InstallFontsIfNecessary()
 		{
 			Debug.Assert(FontRepository != null, "Font repository implementation should be set before attempting to load a project.");
 
@@ -392,6 +385,7 @@ namespace GlyssenEngine
 			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
 				return;
 
+			Reader.GetFonts(this);
 			string languageFolder = LanguageFolder;
 
 			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
@@ -1196,18 +1190,6 @@ namespace GlyssenEngine
 			return upgradedProject;
 		}
 
-		private static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder)
-		{
-			if (Directory.Exists(projectFolder))
-				Directory.Delete(projectFolder, true);
-			var parent = Path.GetDirectoryName(projectFolder);
-			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
-				Directory.Delete(parent);
-			parent = Path.GetDirectoryName(parent);
-			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
-				Directory.Delete(parent);
-		}
-
 		private static string GetRecordingProjectNameFromProjectFilePath(string path)
 		{
 			return path.GetContainingFolderName();
@@ -1316,7 +1298,7 @@ namespace GlyssenEngine
 		{
 			base.SetVersification(versification);
 
-			using (var reader = Reader.Load(ProjectResource.ProjectCharacterVerseData, this))
+			using (var reader = Reader.Load(this, ProjectResource.CharacterVerseData))
 				ProjectCharacterVerseData = new ProjectCharacterVerseData(reader, Versification);
 		}
 
@@ -1395,7 +1377,7 @@ namespace GlyssenEngine
 		/// <summary>
 		/// Inserts the specified book into its proper location in the list of existing included books
 		/// </summary>
-		/// <param name="book">The <see cref="BookScript"/>, either from a prior call to FluffUpBookFromFileIfPossible or as newly created by
+		/// <param name="book">The <see cref="BookScript"/>, either from a prior call to LoadExistingBookIfPossible or as newly created by
 		/// the USX parser</param>
 		/// <exception cref="InvalidOperationException">The project is not in a valid state for the book to be included.</exception>
 		public void IncludeExistingBook(BookScript book)
@@ -1614,41 +1596,22 @@ namespace GlyssenEngine
 
 		public int MaxProjectNameLength => Writer.GetMaxProjectNameLength(this);
 
-		private string LdmlFilePath
+		public BookScript LoadExistingBookIfPossible(string bookId)
 		{
-			get
+			using (var reader = Reader.LoadBook(this, bookId))
 			{
-				var languageCode = LanguageIsoCode;
-				if (!IetfLanguageTag.IsValid(languageCode))
-					languageCode = WellKnownSubtags.UnlistedLanguage;
-				return Path.Combine(ProjectFolder, languageCode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
-			}
-		}
+				if (reader == null)
+					return null;
 
-		private string LdmlBackupFilePath => Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
-
-		private string GetBookDataFilePath(string bookId)
-		{
-			return Path.ChangeExtension(Path.Combine(ProjectFolder, bookId), "xml");
-		}
-
-		public bool DoesBookScriptFileExist(string bookId)
-		{
-			return RobustFile.Exists(GetBookDataFilePath(bookId));
-		}
-
-		public BookScript FluffUpBookFromFileIfPossible(string bookId)
-		{
-			var path = GetBookDataFilePath(bookId);
-			if (RobustFile.Exists(path))
-			{
-				var bookScript = BookScript.Deserialize(GetBookDataFilePath(bookId), Versification, out var error);
+				var bookScript = BookScript.Deserialize(reader, Versification, out var error);
 				if (error != null)
 					ErrorReport.ReportNonFatalException(error);
 				return bookScript;
 			}
-			return null;
 		}
+
+		public override string ValidLanguageIsoCode => IetfLanguageTag.IsValid(LanguageIsoCode) ?
+			LanguageIsoCode : WellKnownSubtags.UnlistedLanguage;
 
 		public void Analyze()
 		{
@@ -1658,11 +1621,11 @@ namespace GlyssenEngine
 
 		private void PrepareForExport()
 		{
-			if (!HasVersificationFile)
+			if (!Reader.ResourceExists(this, ProjectResource.Versification))
 			{
 				try
 				{
-					Versification.Save(FallbackVersificationFilePath);
+					Versification.Save(Writer.FallbackVersificationFilePath);
 				}
 				catch (Exception e)
 				{
@@ -1792,35 +1755,63 @@ namespace GlyssenEngine
 		private void SaveProjectFile(out Exception error)
 		{
 			m_metadata.LastModified = DateTime.Now;
-			var projectPath = ProjectFilePath;
-			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
+			Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
+		}
+
+		// TODO: This is mostly copied from SerializationHelper. It should implemented there as public method.
+		/// <summary>
+		/// Note: This method will take care of disposing the textWriter. No need to wrap it in a using.
+		/// </summary>
+		public static bool Serialize(TextWriter textWriter, object data, out Exception error)
+		{
+			error = null;
+			try
+			{
+				XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+				namespaces.Add(string.Empty, string.Empty);
+				XmlSerializer xmlSerializer = new XmlSerializer(data.GetType());
+				xmlSerializer.Serialize(textWriter, data, namespaces);
+				textWriter.Close();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				error = ex;
+				return false;
+			}
+			finally
+			{
+				textWriter?.Dispose();
+			}
 		}
 
 		public void SaveBook(BookScript book)
 		{
-			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out var error);
-			if (error != null)
+			if (!Serialize(Writer.GetTextWriter(this, book), book, out var error))
 				MessageModal.Show(error.Message, true);
 		}
 
 		public void SaveProjectCharacterVerseData()
 		{
-			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+			using (var textWriter = Writer.GetTextWriter(this, ProjectResource.CharacterVerseData))
+				ProjectCharacterVerseData.Write(textWriter);
 		}
 
 		public void SaveProjectCharacterDetailData()
 		{
-			ProjectCharacterDetailData.WriteToFile(ProjectCharacterDetail, ProjectCharacterDetailDataPath);
+			using (var textWriter = Writer.GetTextWriter(this, ProjectResource.CharacterDetailData))
+				ProjectCharacterDetailData.Write(ProjectCharacterDetail, textWriter);
 		}
 
 		public void SaveCharacterGroupData()
 		{
-			m_characterGroupList.SaveToFile(Path.Combine(ProjectFolder, kCharacterGroupFileName));
+			Serialize(Writer.GetTextWriter(this, ProjectResource.CharacterGroups),
+				m_characterGroupList, out _);
 		}
 
 		public void SaveVoiceActorInformationData()
 		{
-			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+			m_voiceActorList.Save(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}
 
 		private void LoadCharacterGroupData()
@@ -1899,7 +1890,7 @@ namespace GlyssenEngine
 
 				do
 				{
-					if (!RobustFile.Exists(LdmlFilePath))
+					if (!Reader.ResourceExists(this, ProjectResource.Ldml))
 					{
 						if (attemptToUseBackup)
 						{
