@@ -19,7 +19,7 @@ namespace GlyssenFileBasedPersistence
 
 		public static IEnumerable<string> AllRecordingProjectFolders => AllPublicationFolders.SelectMany(Directory.GetDirectories);
 
-		public static string GetProjectFolderPath(IProject project) =>
+		public static string GetProjectFolderPath(IUserProject project) =>
 			GetProjectFolderPath(project.LanguageIsoCode, project.MetadataId, project.Name);
 
 		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectName) => 
@@ -43,10 +43,10 @@ namespace GlyssenFileBasedPersistence
 			if (!referenceTextType.IsStandard())
 				throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
 
-			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
+			return Path.GetDirectoryName(GetStandardReferenceTextProjectFileLocation(referenceTextType));
 		}
 
-		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
+		private static string GetStandardReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
 		{
 			Debug.Assert(referenceTextType.IsStandard());
 			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + kProjectFileExtension;

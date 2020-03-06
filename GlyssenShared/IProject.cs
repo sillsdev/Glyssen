@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Glyssen.Shared
+﻿namespace Glyssen.Shared
 {
 	public interface IProject
+	{
+		string Name { get; }
+	}
+
+	public interface IUserProject : IProject
 	{
 		string LanguageIsoCode { get; }
 		/// <summary>
@@ -12,6 +13,10 @@ namespace Glyssen.Shared
 		/// </summary>
 		string ValidLanguageIsoCode { get; }
 		string MetadataId { get; }
-		string Name { get; }
+	}
+
+	public interface IReferenceTextProject : IProject
+	{
+		ReferenceTextType Type { get; }
 	}
 }

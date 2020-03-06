@@ -26,7 +26,7 @@ namespace GlyssenEngineTests
 			{
 				var tempFolder = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
 				Assert.IsFalse(Directory.Exists(tempFolder));
-				ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = tempFolder;
+				ReferenceTextProxy.Reader = new TestFilePersistenceImplementation(tempFolder);
 			}
 
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();
@@ -93,6 +93,7 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(idEpl, referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "EsperantoPigLatin"));
 		}
 
+		#region REVIEW: Should we delete these tests? They test a method only used here.
 		[Test]
 		public void IsCustomReferenceAvailable_Yes_ReturnsTrue()
 		{
@@ -120,6 +121,7 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("Spanish"));
 			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
 		}
+		#endregion
 
 		private static void VerifyBuiltInReferenceTexts(IEnumerable<ReferenceTextProxy> referenceTexts)
 		{

@@ -5,19 +5,24 @@ namespace Glyssen.Shared
 {
 	public interface IProjectPersistenceWriter
 	{
+		// These two methods could specify an IUserProject, but I'm keeping them more general
+		// to allow for a situation where an implementation might want to allow a custom
+		// reference text to be created using these methods.
 		void SetUpProjectPersistence(IProject project);
-		void SetUpProjectPersistence<TM, TL>(IProject project, TextBundle<TM, TL> bundle)
-			where TM : DblTextMetadata<TL>
-			where TL : DblMetadataLanguage, new();
-		void DeleteProject(IProject project);
-		void CreateBackup(IProject project, string description, bool hidden);
-		void ChangeProjectName(IProject project, string newName);
-
 		TextWriter GetTextWriter(IProject project, ProjectResource resource);
 		TextWriter GetTextWriter(IProject project, IScrBook book);
-		void ArchiveBookNoLongerAvailable(IProject project, string bookCode);
+		
+		void SetUpProjectPersistence<TM, TL>(IUserProject project, TextBundle<TM, TL> bundle)
+			where TM : DblTextMetadata<TL>
+			where TL : DblMetadataLanguage, new();
 
-		int GetMaxProjectNameLength(IProject project);
+		void DeleteProject(IUserProject project);
+		void CreateBackup(IUserProject project, string description, bool hidden);
+		void ChangeProjectName(IUserProject project, string newName);
+
+		void ArchiveBookNoLongerAvailable(IUserProject project, string bookCode);
+
+		int GetMaxProjectNameLength(IUserProject project);
 		int MaxBaseRecordingNameLength { get; }
 	}
 }

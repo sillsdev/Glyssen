@@ -3,18 +3,18 @@ using System.IO;
 
 namespace Glyssen.Shared
 {
-	public class BookReader : IDisposable
+	public class ResourceReader<IdType> : IDisposable
 	{
-		public string BookId { get; }
+		public IdType Id { get; }
 		private TextReader m_readerImpl;
 
-		public BookReader(string bookId, TextReader readerImpl)
+		public ResourceReader(IdType id, TextReader readerImpl)
 		{
-			BookId = bookId;
+			Id = id;
 			m_readerImpl = readerImpl;
 		}
 
-		public static implicit operator TextReader(BookReader reader)
+		public static implicit operator TextReader(ResourceReader<IdType> reader)
 		{
 			return reader.m_readerImpl;
 		}

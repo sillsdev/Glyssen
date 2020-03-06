@@ -12180,10 +12180,10 @@
     </tu>
     <tu tuid="ReferenceText.CouldNotLoad">
       <tuv xml:lang="en">
-        <seg>The {0} reference text could not be loaded from: {1}</seg>
+        <seg>The {0} reference text could not be loaded.</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>No se pudo cargar el texto de referencia {0} de: {1}</seg>
+        <seg>No se pudo cargar el texto de referencia {0}.</seg>
       </tuv>
     </tu>
     <tu tuid="ReferenceText.MultipleLoadErrors">

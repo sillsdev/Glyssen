@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Glyssen.Shared
@@ -6,7 +7,7 @@ namespace Glyssen.Shared
 	public interface IProjectPersistenceReader
 	{
 		IEnumerable<IProject> AllProjects { get; }
-		IEnumerable<IReferenceTextProxy> AllCustomReferenceTexts { get; }
+		IEnumerable<ResourceReader<string>> GetAllCustomReferenceTexts(Func<string, bool> exclude);
 		bool ProjectExists(string languageIsoCode, string metadataId, string name);
 		bool ResourceExists(IProject project, ProjectResource resource);
 		bool BookResourceExists(IProject project, string bookId);
@@ -15,6 +16,6 @@ namespace Glyssen.Shared
 		/// </summary>
 		TextReader Load(IProject project, ProjectResource resource);
 		TextReader LoadBook(IProject project, string bookId);
-		IEnumerable<BookReader> GetExistingBooks(IProject project);
+		IEnumerable<ResourceReader<string>> GetExistingBooks(IProject project);
 	}
 }

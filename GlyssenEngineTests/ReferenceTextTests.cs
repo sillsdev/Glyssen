@@ -13,6 +13,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
+using GlyssenFileBasedPersistence;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
@@ -4204,24 +4205,17 @@ namespace GlyssenEngineTests
 			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
 		}
 
-		private static bool IsProprietaryReferenceTextLocationOveridden
-		{
-			get
-			{
-				return !ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation.EndsWith(
-					Constants.kLocalReferenceTextDirectoryName);
-			}
-		}
+		private static bool IsProprietaryReferenceTextLocationOveridden =>
+			(ReferenceTextProxy.Reader is TestFilePersistenceImplementation testImpl) &&
+			testImpl.IsProprietaryReferenceTextLocationOveridden;
 
 		public static void DeleteTempCustomReferenceProjectFolder()
 		{
-			if (!IsProprietaryReferenceTextLocationOveridden)
-				return;
+			if (ReferenceTextProxy.Reader is TestFilePersistenceImplementation testImpl)
+				testImpl.CleanTempFiles();
 
-			if (Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation))
-				RobustIO.DeleteDirectoryAndContents(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
-
-			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = null;
+			// REVIEW: Do we want to set this to null or like this: (Or maybe to an in-memory implementation?)
+			ReferenceTextProxy.Reader = new PersistenceImplementation();
 		}
 
 		public static string OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
@@ -4229,7 +4223,7 @@ namespace GlyssenEngineTests
 			if (IsProprietaryReferenceTextLocationOveridden)
 				return;
 			var tempFolder = Path.GetTempFileName();
-			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = tempFolder;
+			ReferenceTextProxy.Reader = new TestFilePersistenceImplementation(tempFolder);
 			File.Delete(tempFolder);
 			Directory.CreateDirectory(tempFolder);
 			return tempFolder;
