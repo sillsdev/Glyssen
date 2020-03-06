@@ -38,9 +38,9 @@ namespace GlyssenEngine.Script
 			OnBlocksReset();
 		}
 
-		public static BookScript Deserialize(TextReader reader, ScrVers versification, out Exception error)
+		public static BookScript Deserialize(TextReader reader, ScrVers versification)
 		{
-			var newBook = XmlSerializationHelper.DeserializeFromString<BookScript>(reader.ReadToEnd(), out error);
+			var newBook = Project.Deserialize<BookScript>(reader);
 			newBook.Initialize(versification);
 			return newBook;
 		}

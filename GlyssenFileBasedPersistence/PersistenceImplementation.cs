@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
-using GlyssenEngine.Paratext;
 using SIL;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.IO;
 using SIL.Reporting;
+using SIL.Scripture;
+using static System.IO.Path;
 using static System.String;
 // IBundle is probably an unfortunate name. IProjectSourceMetadata would have been a better name.
 using IProjectSourceMetadata = SIL.DblBundle.IBundle;
@@ -20,12 +20,23 @@ namespace GlyssenFileBasedPersistence
 {
 	public class PersistenceImplementation : IProjectPersistenceReader, IProjectPersistenceWriter
 	{
+		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
+
+		private static string s_customReferenceTextBaseFolder;
+		
+		#region static internals to support testing
+		protected string ProprietaryReferenceTextProjectFileLocation
+		{
+			get => s_customReferenceTextBaseFolder ?? (s_customReferenceTextBaseFolder = Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName));
+			set => s_customReferenceTextBaseFolder = value;
+		}
+		#endregion
+
 		private const int kMaxPath = 260;
-		public const string kProjectFileExtension = ".glyssen";
 		public const string kGlyssenScriptFileExtension = ".glyssenscript";
 		public const string kGlyssenPackFileExtension = ".glyssenpack";
-		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 		public const string kBookScriptFileExtension = ".xml";
+		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
@@ -55,7 +66,7 @@ namespace GlyssenFileBasedPersistence
 			foreach (var font in bundle.GetFonts())
 			{
 				string fontFileName = font.Item1;
-				string targetFontPath = Path.Combine(languageFolder, fontFileName);
+				string targetFontPath = Combine(languageFolder, fontFileName);
 				try
 				{
 					if (!File.Exists(targetFontPath))
@@ -84,7 +95,24 @@ namespace GlyssenFileBasedPersistence
 
 			using (var reader = bundle.GetVersification())
 			{
-				File.WriteAllText(GetVersificationFilePath(project), reader.ReadToEnd());
+				using (var writer = File.CreateText(GetVersificationFilePath(project)))
+				{
+					// Could use ReadToEnd here because these files are relatively small, but just in case.
+					const int kBufferSize = 4096;
+					var buffer = new char[kBufferSize];
+					var index = 0;
+					do
+					{
+						var read = reader.Read(buffer, index, kBufferSize);
+						if (read > 0)
+						{
+							writer.Write(buffer);
+							index += read;
+						}
+						else
+							break;
+					} while (true);
+				}
 			}
 		}
 
@@ -95,10 +123,10 @@ namespace GlyssenFileBasedPersistence
 			if (Directory.Exists(projectFolder))
 				Directory.Delete(projectFolder, true);
 			// Now also clear out the higher level folders if they are empty.
-			var parent = Path.GetDirectoryName(projectFolder);
+			var parent = GetDirectoryName(projectFolder);
 			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
 				Directory.Delete(parent);
-			parent = Path.GetDirectoryName(parent);
+			parent = GetDirectoryName(parent);
 			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
 				Directory.Delete(parent);
 		}
@@ -123,7 +151,7 @@ namespace GlyssenFileBasedPersistence
 
 				if (hidden)
 				{
-					var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + kProjectFileExtension).FirstOrDefault();
+					var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + ProjectRepository.kProjectFileExtension).FirstOrDefault();
 					if (newFilePath != null)
 					{
 						using (var reader = new StreamReader(new FileStream(newFilePath, FileMode.Open)))
@@ -166,21 +194,27 @@ namespace GlyssenFileBasedPersistence
 			return new StreamWriter(GetPath(resource, project));
 		}
 
-		public void SaveBook(IProject project, string bookId, TextReader data)
+		public TextWriter GetTextWriter(IProject project, IScrBook book)
 		{
-			throw new NotImplementedException();
+			return new StreamWriter(GetBookDataFilePath(project, book.BookId));
+		}
+
+		public void ArchiveBookNoLongerAvailable(IProject project, string bookCode)
+		{
+			var origPath = GetBookDataFilePath(project, bookCode);
+			RobustFile.Move(origPath, origPath + kBookNoLongerAvailableExtension);
 		}
 
 		// Total path limit is 260 (MAX_PATH) characters. Need to allow for:
 		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
 		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
 		public int GetMaxProjectNameLength(IProject project) =>
-			kMaxPath - Path.Combine(ProjectRepository.ProjectsBaseFolder, project.LanguageIsoCode, project.MetadataId).Length -
+			kMaxPath - Combine(ProjectRepository.ProjectsBaseFolder, project.LanguageIsoCode, project.MetadataId).Length -
 			Math.Max(GetProjectFilename(project).Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
 
 		public int MaxBaseRecordingNameLength => kMaxDefaultProjectNameLength - Project.DefaultRecordingProjectNameSuffix.Length;
 
-		private string GetProjectFilename(IProject project) => project.LanguageIsoCode + kProjectFileExtension;
+		private string GetProjectFilename(IProject project) => project.LanguageIsoCode + ProjectRepository.kProjectFileExtension;
 
 		public bool ProjectExists(string languageIsoCode, string metadataId, string name) => 
 			Directory.Exists(ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name));
@@ -200,7 +234,7 @@ namespace GlyssenFileBasedPersistence
 				case ProjectResource.Ldml:
 					return GetLdmlFilePath(project);
 				case ProjectResource.LdmlBackupFile:
-					return Path.ChangeExtension(GetLdmlFilePath(project), DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
+					return ChangeExtension(GetLdmlFilePath(project), DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
 				case ProjectResource.Versification:
 					return GetVersificationFilePath(project);
 				case ProjectResource.FallbackVersification:
@@ -221,12 +255,20 @@ namespace GlyssenFileBasedPersistence
 		public TextReader LoadBook(IProject project, string bookId) =>
 			GetReader(GetBookDataFilePath(project, bookId));
 
+		public IEnumerable<BookReader> GetExistingBooks(IProject project)
+		{
+			var list = new List<BookReader>();
+			ForEachBookFileInProject(GetProjectFolderPath(project),
+				(bookId, fileName) => { list.Add(new BookReader(bookId, new StreamReader(fileName))); });
+			return list;
+		}
+
 		private TextReader GetReader(string fullPath) =>
 			RobustFile.Exists(fullPath) ? new StreamReader(new FileStream(fullPath, FileMode.Open)) : null;
 
 		private string GetBookDataFilePath(IProject project, string bookId)
 		{
-			return Path.ChangeExtension(Path.Combine(ProjectRepository.GetProjectFolderPath(project), bookId), "xml");
+			return ChangeExtension(Combine(GetProjectFolderPath(project), bookId), "xml");
 		}
 
 		public bool BookResourceExists(IProject project, string bookId)
@@ -234,8 +276,32 @@ namespace GlyssenFileBasedPersistence
 			return RobustFile.Exists(GetBookDataFilePath(project, bookId));
 		}
 
+		private string GetProjectFolderPath(IProject project)
+		{
+			if (project is IReferenceTextProxy proxy)
+			{
+				if (proxy.Type == ReferenceTextType.Custom)
+				{
+					var lowercase = proxy.Name.ToLowerInvariant();
+					// TODO: This try (needs a catch) probably doesn't belong here.
+					try
+					{
+						m_metadata = LoadMetadata(Type, Combine(ProjectFolder, lowercase + ProjectRepository.kProjectFileExtension));
+
+						//if (IsStandardReferenceText(Type))
+						//	return GetProjectFolderForStandardReferenceText(Type);
+
+						return Combine(ProprietaryReferenceTextProjectFileLocation, proxy.Name);
+					}
+				}
+				return ProjectRepository.GetProjectFolderForStandardReferenceText(proxy.Type);
+			}
+			else
+				return ProjectRepository.GetProjectFolderPath(project);
+		}
+
 		private string GetProjectResourceFilePath(IProject project, string filename) =>
-			Path.Combine(ProjectRepository.GetProjectFolderPath(project), filename);
+			Combine(GetProjectFolderPath(project), filename);
 
 		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle) => 
 			ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
@@ -248,8 +314,20 @@ namespace GlyssenFileBasedPersistence
 			GetProjectResourceFilePath(project, project.ValidLanguageIsoCode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
 
 		protected string GetFallbackVersificationFilePath(IProject project) => 
-			Path.Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
+			Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 
 		private string GetLanguageFolder(string languageIsoCode) => ProjectRepository.GetLanguageFolderPath(languageIsoCode);
+
+		public static void ForEachBookFileInProject(string projectDir, Action<string, string> action)
+		{
+			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
+			for (int i = 1; i <= BCVRef.LastBook; i++)
+			{
+				string bookCode = BCVRef.NumberToBookCode(i);
+				string possibleFileName = Combine(projectDir, bookCode + kBookScriptFileExtension);
+				if (files.Contains(possibleFileName))
+					action(bookCode, possibleFileName);
+			}
+		}
 	}
 }

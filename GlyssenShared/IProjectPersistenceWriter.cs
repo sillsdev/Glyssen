@@ -15,6 +15,7 @@ namespace Glyssen.Shared
 
 		TextWriter GetTextWriter(IProject project, ProjectResource resource);
 		TextWriter GetTextWriter(IProject project, IScrBook book);
+		void ArchiveBookNoLongerAvailable(IProject project, string bookCode);
 
 		int GetMaxProjectNameLength(IProject project);
 		int MaxBaseRecordingNameLength { get; }

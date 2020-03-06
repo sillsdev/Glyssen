@@ -24,8 +24,9 @@ namespace GlyssenEngineTests
 				TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 			else
 			{
-				ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
-				Assert.IsFalse(Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation));
+				var tempFolder = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
+				Assert.IsFalse(Directory.Exists(tempFolder));
+				ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = tempFolder;
 			}
 
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();

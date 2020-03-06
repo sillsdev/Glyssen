@@ -4224,13 +4224,15 @@ namespace GlyssenEngineTests
 			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = null;
 		}
 
-		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
+		public static string OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
 			if (IsProprietaryReferenceTextLocationOveridden)
 				return;
-			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = Path.GetTempFileName();
-			File.Delete(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
-			Directory.CreateDirectory(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
+			var tempFolder = Path.GetTempFileName();
+			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = tempFolder;
+			File.Delete(tempFolder);
+			Directory.CreateDirectory(tempFolder);
+			return tempFolder;
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)

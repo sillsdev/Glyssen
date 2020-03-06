@@ -477,7 +477,7 @@ namespace Glyssen
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
 			var publicationFolder = ProjectRepository.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
-				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Constants.kProjectFileExtension)
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + ProjectRepository.kProjectFileExtension)
 					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))

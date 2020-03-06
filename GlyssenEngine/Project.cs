@@ -27,9 +27,11 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -186,7 +188,8 @@ namespace GlyssenEngine
 			WritingSystemDefinition ws, string versificationInfo = null) : this(metadata, ws: ws)
 		{
 			Writer.SetUpProjectPersistence(this);
-			Writer.Save(this, ProjectResource.Versification, versificationInfo ?? EnglishVersification);
+			using (var writer = Writer.GetTextWriter(this, ProjectResource.Versification))
+				writer.Write(versificationInfo ?? EnglishVersification);
 			SetVersification(LoadVersification());
 
 			ParseAndSetBooks(books, stylesheet);
@@ -1117,8 +1120,7 @@ namespace GlyssenEngine
 
 			void NowMissing(string bookCode)
 			{
-				var origPath = GetBookDataFilePath(bookCode);
-				RobustFile.Move(origPath, origPath + ".nolongeravailable");
+				Writer.ArchiveBookNoLongerAvailable(this, bookCode);
 				foundDataChange = true;
 			}
 
@@ -1238,8 +1240,9 @@ namespace GlyssenEngine
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
-			ProjectUtilities.ForEachBookFileInProject(projectDir,
-				(bookId, fileName) => project.m_books.Add(BookScript.Deserialize(fileName, project.Versification)));
+			foreach (var bookReader in Reader.GetExistingBooks(project))
+				project.m_books.Add(BookScript.Deserialize(bookReader, project.Versification));
+
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects
@@ -1785,6 +1788,45 @@ namespace GlyssenEngine
 			}
 		}
 
+		// TODO: This is mostly copied from SerializationHelper. It should implemented there as public method.
+		/// <summary>
+		/// Note: This method will take care of disposing the textWriter. No need to wrap it in a using.
+		/// </summary>
+		public static T Deserialize<T>(TextReader reader) where T : class
+		{
+			XmlSerializer xmlSerializer = new XmlSerializer(typeof (T));
+			xmlSerializer.UnknownAttribute += deserializer_UnknownAttribute;
+			return (T) xmlSerializer.Deserialize(reader);
+		}
+
+		// TODO: When the above method is implemented as a public method in SerializationHelper, this method
+		// (which is already a private method in that class) can be deleted.
+		private static void deserializer_UnknownAttribute(object sender, XmlAttributeEventArgs e)
+		{
+			if (e.Attr.LocalName != "lang")
+				return;
+			object beingDeserialized = e.ObjectBeingDeserialized;
+			Type type = beingDeserialized.GetType();
+			foreach (System.Reflection.FieldInfo field in type.GetFields())
+			{
+				object[] customAttributes = field.GetCustomAttributes(typeof (XmlAttributeAttribute), false);
+				if (customAttributes.Length == 1 && ((XmlAttributeAttribute) customAttributes[0]).AttributeName == "xml:lang")
+				{
+					field.SetValue(beingDeserialized, (object) e.Attr.Value);
+					return;
+				}
+			}
+			foreach (System.Reflection.PropertyInfo property in type.GetProperties())
+			{
+				object[] customAttributes = property.GetCustomAttributes(typeof (XmlAttributeAttribute), false);
+				if (customAttributes.Length == 1 && ((XmlAttributeAttribute) customAttributes[0]).AttributeName == "xml:lang")
+				{
+					property.SetValue(beingDeserialized, (object) e.Attr.Value, (object[]) null);
+					break;
+				}
+			}
+		}
+
 		public void SaveBook(BookScript book)
 		{
 			if (!Serialize(Writer.GetTextWriter(this, book), book, out var error))
@@ -1811,7 +1853,8 @@ namespace GlyssenEngine
 
 		public void SaveVoiceActorInformationData()
 		{
-			m_voiceActorList.Save(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+			using (var textWriter = Writer.GetTextWriter(this, ProjectResource.VoiceActorInformation))
+				m_voiceActorList.Save(textWriter);
 		}
 
 		private void LoadCharacterGroupData()

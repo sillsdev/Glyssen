@@ -21,57 +21,44 @@ namespace GlyssenEngine
 	/// </summary>
 	public class ReferenceTextProxy : IReferenceTextProxy
 	{
-		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
-
-		#region static internals to support testing
-		internal static string ProprietaryReferenceTextProjectFileLocation
+		public static IProjectPersistenceReader Reader
 		{
-			get
-			{
-				if (s_proprietaryReferenceTextProjectFileLocation == null)
-					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, Constants.kLocalReferenceTextDirectoryName);
-
-				return s_proprietaryReferenceTextProjectFileLocation;
-			}
-			set
-			{
-				if (s_proprietaryReferenceTextProjectFileLocation == value)
+			get => s_reader;
+			set 
+			{ 
+				if (s_reader == value)
 					return;
 				ClearCache();
-				s_proprietaryReferenceTextProjectFileLocation = value;
+				s_reader = value;
 			}
 		}
+
+		#region static internals to support testing
 		internal static Action<Exception, string, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
 		#endregion
 
 		private static List<ReferenceTextProxy> s_allAvailable;
 		private static bool s_allAvailableLoaded = false;
-		private static string s_proprietaryReferenceTextProjectFileLocation;
+		private static IProjectPersistenceReader s_reader;
 
 		private readonly ReferenceTextType m_referenceTextType;
 		private GlyssenDblTextMetadata m_metadata;
-		private readonly string m_customId;
 
 		public ReferenceTextType Type => m_referenceTextType;
 		public GlyssenDblTextMetadataBase Metadata => m_metadata;
-		public string CustomIdentifier => m_customId;
-		public string Name => m_customId ?? Type.ToString();
+		public string CustomIdentifier { get; }
+		public string LanguageIsoCode => m_metadata?.Language?.Iso;
+		public string ValidLanguageIsoCode => LanguageIsoCode;
+		public string MetadataId => m_metadata?.Id;
+		public string Name => CustomIdentifier ?? Type.ToString();
 
-		public bool Missing
-		{
-			get
-			{
-				if (m_metadata == null)
-					AttemptToLoadMetadataForCustomRefText();
-				return m_metadata == null;
-			}
-		}
+		public bool Missing => (m_metadata == null) ? Reader.ResourceExists(this, ProjectResource.Metadata) : false;
 
 		private ReferenceTextProxy(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
 		{
 			Debug.Assert(IsStandardReferenceText(type));
 			m_referenceTextType = type;
-			m_customId = null;
+			CustomIdentifier = null;
 			m_metadata = metadata ?? LoadMetadata(type);
 		}
 
@@ -80,7 +67,7 @@ namespace GlyssenEngine
 			Debug.Assert(!IsStandardReferenceText(type));
 			Debug.Assert(customId != null);
 			m_referenceTextType = type;
-			m_customId = customId;
+			CustomIdentifier = customId;
 			if (metadata != null)
 				m_metadata = metadata;
 			else
@@ -90,7 +77,11 @@ namespace GlyssenEngine
 		private void AttemptToLoadMetadataForCustomRefText()
 		{
 			Debug.Assert(Type == ReferenceTextType.Custom);
-			var lowercase = m_customId.ToLowerInvariant();
+			using (var reader = Reader.Load(this, ProjectResource.Metadata))
+			{
+
+			}
+			var lowercase = CustomIdentifier.ToLowerInvariant();
 			try
 			{
 				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + Constants.kProjectFileExtension));
@@ -122,7 +113,7 @@ namespace GlyssenEngine
 		public static ReferenceTextProxy GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
 		{
 			ReferenceTextProxy proxy;
-			bool standard = IsStandardReferenceText(referenceTextType);
+			bool standard = referenceTextType.IsStandard();
 			if (s_allAvailable == null)
 			{
 				s_allAvailable = new List<ReferenceTextProxy>();
@@ -170,11 +161,6 @@ namespace GlyssenEngine
 		//	return !Equals(left, right);
 		//}
 
-		private static bool IsStandardReferenceText(ReferenceTextType type)
-		{
-			return (type != ReferenceTextType.Custom && type != ReferenceTextType.Unknown);
-		}
-
 		private static void LoadAllAvailable()
 		{
 			if (s_allAvailable == null)
@@ -189,7 +175,7 @@ namespace GlyssenEngine
 					additionalErrors.Add(token);
 			};
 
-			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => IsStandardReferenceText(t) &&
+			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => t.IsStandard() &&
 				!s_allAvailable.Any(i => i.Type == t)).ToList())
 			{
 				var metadata = LoadMetadata(itm, errorReporter);
@@ -262,7 +248,7 @@ namespace GlyssenEngine
 		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
 			Action<Exception, string, string> reportError = null)
 		{
-			Debug.Assert(IsStandardReferenceText(referenceTextType));
+			Debug.Assert(referenceTextType.IsStandard());
 			var referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
 			return LoadMetadata(referenceTextType, referenceProjectFilePath, reportError);
 		}
@@ -301,21 +287,6 @@ namespace GlyssenEngine
 			return AttemptToAddCustomReferenceTextIdentifier(customId, dir);
 		}
 
-		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
-		{
-			Debug.Assert(IsStandardReferenceText(referenceTextType));
-			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + Constants.kProjectFileExtension;
-			return FileLocationUtilities.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
-		}
-
-		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
-		{
-			if (!IsStandardReferenceText(referenceTextType))
-				throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
-
-			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
-		}
-
 		public string ProjectFolder
 		{
 			get
@@ -323,7 +294,7 @@ namespace GlyssenEngine
 				if (IsStandardReferenceText(Type))
 					return GetProjectFolderForStandardReferenceText(Type);
 
-				return Path.Combine(ProprietaryReferenceTextProjectFileLocation, m_customId);
+				return Path.Combine(ProprietaryReferenceTextProjectFileLocation, CustomIdentifier);
 			}
 		}
 

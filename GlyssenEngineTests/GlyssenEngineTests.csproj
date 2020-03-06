@@ -289,6 +289,7 @@
     <Compile Include="Script\BlockTests.cs" />
     <Compile Include="Script\BookScriptTests.cs" />
     <Compile Include="Script\BookSetUtilsTests.cs" />
+    <Compile Include="TestFilePersistenceImplementation.cs" />
     <Compile Include="TestProject.cs" />
     <Compile Include="UndoActionsTests\MoveCharactersToGroupUndoActionTests.cs" />
     <Compile Include="UndoActionsTests\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
@@ -317,6 +318,10 @@
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj">
       <Project>{FDF9DF2E-776B-4D7C-8E63-61DAD4C39AC3}</Project>
       <Name>GlyssenEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj">
+      <Project>{6664b511-ec4e-47ef-b073-b31ab9c947d4}</Project>
+      <Name>GlyssenFileBasedPersistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}</Project>

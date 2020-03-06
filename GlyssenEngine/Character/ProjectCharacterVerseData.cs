@@ -20,7 +20,17 @@ namespace GlyssenEngine.Character
 		{
 			Debug.Assert(versification != null);
 			m_versification = versification;
-			LoadData(reader != null ? reader.ReadToEnd() : "");
+			LoadData(GetData(reader));
+		}
+
+		private IEnumerable<string> GetData(TextReader reader)
+		{
+			if (reader != null)
+			{
+				string line;
+				while ((line = reader.ReadLine()) != null)
+					yield return line;
+			}
 		}
 
 		public virtual bool AddEntriesFor(int bookNumber, Block block)

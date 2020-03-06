@@ -33,7 +33,7 @@ namespace GlyssenEngine.Casting
 
 		public static VoiceActorList LoadVoiceActorList(TextReader textReader)
 		{
-			return XmlSerializationHelper.DeserializeFrom<VoiceActorList>(filename);
+			return XmlSerializationHelper.Deserialize<VoiceActorList>(textReader);
 		}
 
 		public VoiceActor GetVoiceActorById(int voiceActorId)

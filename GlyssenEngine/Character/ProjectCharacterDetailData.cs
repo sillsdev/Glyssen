@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using SIL.Reporting;
+using static System.String;
 
 namespace GlyssenEngine.Character
 {
@@ -29,28 +30,32 @@ namespace GlyssenEngine.Character
 
 		public static ISet<CharacterDetail> Load(TextReader reader)
 		{
-			if (reader == null)
-				return new HashSet<CharacterDetail>();
-
-			var tabDelimitedCharacterDetailData = reader.ReadToEnd();
 			var list = new HashSet<CharacterDetail>();
-			foreach (var line in tabDelimitedCharacterDetailData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries))
+
+			if (reader != null)
 			{
-				var detail = ProcessLine(line.Split(new[] {"\t"}, StringSplitOptions.None));
-				var existing = list.FirstOrDefault(cd => cd.CharacterId == detail.CharacterId);
-				if (existing != null)
+				string line;
+				while ((line = reader.ReadLine()) != null)
 				{
-					// This should no longer be possible, but because of a prior bug (PG-903) in the software, this used to
-					// be possible, and we don't want Glyssen to crash trying to load projects with this problem.
-					Logger.WriteEvent($"Project character detail file contained a duplicate character ID: {detail.CharacterId} -- ignored!");
-					// Use values from the last duplicate character found
-					existing.MaxSpeakers = detail.MaxSpeakers;
-					existing.Gender = detail.Gender;
-					existing.Age = detail.Age;
+					if (line == Empty)
+						continue;
+					var detail = ProcessLine(line.Split(new[] {"\t"}, StringSplitOptions.None));
+					var existing = list.FirstOrDefault(cd => cd.CharacterId == detail.CharacterId);
+					if (existing != null)
+					{
+						// This should no longer be possible, but because of a prior bug (PG-903) in the software, this used to
+						// be possible, and we don't want Glyssen to crash trying to load projects with this problem.
+						Logger.WriteEvent($"Project character detail file contained a duplicate character ID: {detail.CharacterId} -- ignored!");
+						// Use values from the last duplicate character found
+						existing.MaxSpeakers = detail.MaxSpeakers;
+						existing.Gender = detail.Gender;
+						existing.Age = detail.Age;
+					}
+					else
+						list.Add(detail);
 				}
-				else
-					list.Add(detail);
 			}
+
 			return list;
 		}
 

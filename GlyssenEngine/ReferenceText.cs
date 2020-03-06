@@ -16,7 +16,6 @@ namespace GlyssenEngine
 	public class ReferenceText : ProjectBase, IReferenceLanguageInfo
 	{
 		protected readonly ReferenceTextType m_referenceTextType;
-		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
 		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
@@ -840,7 +839,5 @@ namespace GlyssenEngine
 		{
 			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse >= verse);
 		}
-
-		protected override string ProjectFolder { get { return m_projectFolder; } }
 	}
 }
