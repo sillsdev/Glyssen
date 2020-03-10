@@ -45,13 +45,6 @@ namespace GlyssenEngine.Script
 			return newBook;
 		}
 
-		public static BookScript Deserialize(string fileName, ScrVers versification)
-		{
-			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName);
-			newBook.Initialize(versification);
-			return newBook;
-		}
-
 		[XmlAttribute("singlevoice")]
 		public bool SingleVoice { get; set; }
 

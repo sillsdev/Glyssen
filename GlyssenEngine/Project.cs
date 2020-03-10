@@ -386,19 +386,7 @@ namespace GlyssenEngine
 			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
 				return;
 
-			Reader.GetFonts(this);
-			string languageFolder = LanguageFolder;
-
-			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
-			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
-				.Where(ttf => FontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
-
-			if (ttfFilesToInstall.Count > 0)
-			{
-				m_fontInstallationAttempted = true;
-				FontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
-			}
-			else
+			if (Reader.TryInstallFonts(this, fontFamily, FontRepository))
 				FontRepository.ReportMissingFontFamily(fontFamily);
 		}
 
@@ -967,7 +955,7 @@ namespace GlyssenEngine
 				{
 					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
 					if (!compatible && loadingAssistant != null &&
-						!Reader.ProjectExists(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name))
+						!Reader.ProjectExistsHaving(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name))
 					{
 						if (loadingAssistant.ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject())
 						{
@@ -1604,10 +1592,15 @@ namespace GlyssenEngine
 				if (reader == null)
 					return null;
 
-				var bookScript = BookScript.Deserialize(reader, Versification, out var error);
-				if (error != null)
-					ErrorReport.ReportNonFatalException(error);
-				return bookScript;
+				try
+				{
+					return BookScript.Deserialize(reader, Versification);
+				}
+				catch (Exception e)
+				{
+					ErrorReport.ReportNonFatalException(e);
+					return null;
+				}
 			}
 		}
 
@@ -1618,56 +1611,6 @@ namespace GlyssenEngine
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
 			AnalysisCompleted?.Invoke(this, new EventArgs());
-		}
-
-		private void PrepareForExport()
-		{
-			if (!Reader.ResourceExists(this, ProjectResource.Versification))
-			{
-				try
-				{
-					Versification.Save(Writer.FallbackVersificationFilePath);
-				}
-				catch (Exception e)
-				{
-					Logger.WriteError($"Failed to save fallback versification file to {FallbackVersificationFilePath}", e);
-				}
-			}
-		}
-
-		public string ExportShare(Action<string> handleCustomReferenceText)
-		{
-			PrepareForExport();
-
-			try
-			{
-				var sourceDir = Path.GetDirectoryName(ProjectFilePath);
-
-				Debug.Assert(sourceDir != null);
-				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
-
-				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
-
-				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				Directory.CreateDirectory(share);
-
-				var saveAsName = Path.Combine(share, LanguageIsoCode + "_" + Name) + ProjectBase.kShareFileExtension;
-
-				using (var zip = new ZipFile())
-				{
-					zip.AddDirectory(sourceDir, nameInZip);
-					zip.Save(saveAsName);
-				}
-
-				if (ReferenceTextProxy.Type == ReferenceTextType.Custom)
-					handleCustomReferenceText?.Invoke(ReferenceTextProxy.CustomIdentifier);
-
-				return saveAsName;
-			}
-			finally
-			{
-				RobustFile.Delete(FallbackVersificationFilePath);
-			}
 		}
 
 		private void ChangePublicationId(string newPubId)

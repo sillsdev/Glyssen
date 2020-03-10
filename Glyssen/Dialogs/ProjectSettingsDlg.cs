@@ -349,7 +349,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
-			if (m_model.RecordingProjectName != RecordingProjectName && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
+			if (m_model.RecordingProjectName != RecordingProjectName && ProjectBase.Reader.ProjectExistsHaving(IsoCode, PublicationId, RecordingProjectName))
 			{
 				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectPrompt",
 					"A {0} project with an ID of {1} and a Recording Project Name of {2} already exists for this language. Do you want to overwrite it?"),

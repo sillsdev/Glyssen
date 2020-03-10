@@ -12,8 +12,6 @@ namespace GlyssenEngine
 {
 	public abstract class ProjectBase : IProject
 	{
-		public const string kShareFileExtension = ".glyssenshare";
-
 		public static IProjectPersistenceReader Reader { get; set; }
 
 		public ScrVers LoadVersification(bool useFallback = false)

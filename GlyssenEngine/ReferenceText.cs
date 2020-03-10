@@ -45,13 +45,11 @@ namespace GlyssenEngine
 
 		public ReferenceTextType Type => m_referenceTextType;
 
-		private BookScript TryLoadBook(string[] files, string bookCode)
+		private BookScript TryLoadBook(string bookCode)
 		{
-			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
-			return fileName != null ? BookScript.Deserialize(fileName, Versification) : null;
+			using (var reader = Reader.LoadBook(this, bookCode))
+				return (reader != null) ? BookScript.Deserialize(reader, Versification) : null;
 		}
-
-		private string[] BookScriptFiles => Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension);
 
 		private void LoadBooks()
 		{
@@ -60,7 +58,7 @@ namespace GlyssenEngine
 			for (int i = 1; i <= BCVRef.LastBook; i++)
 			{
 				string bookCode = BCVRef.NumberToBookCode(i);
-				var bookScript = TryLoadBook(files, bookCode);
+				var bookScript = TryLoadBook(bookCode);
 				if (bookScript != null)
 					m_books.Add(bookScript);
 			}

@@ -38,6 +38,8 @@ namespace GlyssenFileBasedPersistence
 		public static string ProjectsBaseFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 			GlyssenInfo.Company, GlyssenInfo.Product);
 
+		public static string DefaultShareFolder => Combine(ProjectsBaseFolder, "share");
+
 		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			if (!referenceTextType.IsStandard())

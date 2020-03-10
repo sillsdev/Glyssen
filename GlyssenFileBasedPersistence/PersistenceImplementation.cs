@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace GlyssenFileBasedPersistence
 		private const int kMaxPath = 260;
 		public const string kGlyssenScriptFileExtension = ".glyssenscript";
 		public const string kGlyssenPackFileExtension = ".glyssenpack";
+		public const string kShareFileExtension = ".glyssenshare";
 		public const string kBookScriptFileExtension = ".xml";
 		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
@@ -249,9 +251,22 @@ namespace GlyssenFileBasedPersistence
 				}
 			}
 		}
-
-		public bool ProjectExists(string languageIsoCode, string metadataId, string name) => 
-			Directory.Exists(ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name));
+		
+		/// <summary>
+		/// Gets whether there is (or might be) an existing project identified by the given
+		/// language code, id, and name. Typically, this would return the same value as
+		/// ResourceExists for ProjectResource.Metadata, given an IUserProject object having
+		/// these same three value. However, the purpose of this method is to determine whether
+		/// it would be valid to create a new project (or rename an existing project) to have
+		/// these values without clobbering something else. So, for example, even if there
+		/// were no existing metadata resource, if there were other things identified by
+		/// these attributes, this should still return true.
+		/// </summary>
+		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name)
+		{
+			var projectFolder = ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name);
+			return Directory.Exists(projectFolder) && Directory.EnumerateFileSystemEntries(projectFolder).Any();
+		}
 
 		public bool ResourceExists(IProject project, ProjectResource resource) =>
 			RobustFile.Exists(GetPath(resource, project));
@@ -272,7 +287,13 @@ namespace GlyssenFileBasedPersistence
 				case ProjectResource.Versification:
 					return GetVersificationFilePath(project);
 				case ProjectResource.FallbackVersification:
-					return GetFallbackVersificationFilePath(project);
+					if (project is IUserProject userProject)
+						return GetFallbackVersificationFilePath(userProject);
+					else
+					{
+						Debug.Fail("Requested fallback versification from non user project");
+						return null;
+					}
 				case ProjectResource.CharacterVerseData:
 					return GetProjectResourceFilePath(project, kProjectCharacterVerseFileName);
 				case ProjectResource.CharacterDetailData:
@@ -295,6 +316,23 @@ namespace GlyssenFileBasedPersistence
 			ForEachBookFileInProject(GetProjectFolderPath(project),
 				(bookId, fileName) => { list.Add(new ResourceReader<string>(bookId, new StreamReader(fileName))); });
 			return list;
+		}
+
+		public bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository)
+		{
+			string languageFolder = GetLanguageFolder(project.LanguageIsoCode);
+
+			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
+			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
+				.Where(ttf => fontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
+
+			if (ttfFilesToInstall.Count > 0)
+			{
+				fontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
+				return true;
+			}
+
+			return false;
 		}
 
 		private TextReader GetReader(string fullPath) =>
@@ -353,8 +391,8 @@ namespace GlyssenFileBasedPersistence
 			return GetProjectResourceFilePath(project, filename + DblBundleFileUtils.kUnzippedLdmlFileExtension);
 		}
 
-		private string GetFallbackVersificationFilePath(IProject project) => 
-			Combine(GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
+		public string GetFallbackVersificationFilePath(IUserProject project) => 
+			Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 
 		private string GetLanguageFolder(string languageIsoCode) => ProjectRepository.GetLanguageFolderPath(languageIsoCode);
 

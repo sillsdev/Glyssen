@@ -1321,26 +1321,70 @@ namespace Glyssen
 		/// <param name="e"></param>
 		private void Export_Click(object sender, EventArgs e)
 		{
-			void HandleCustomReferenceText(string customIdentifier)
-			{
-				var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
-					"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
-					"should be installed on the other computer before importing.");
-				MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
-					ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
 			try
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
-				var saveAsName = m_project.ExportShare(HandleCustomReferenceText);
-				PathUtilities.SelectFileInExplorer(saveAsName);
-				Logger.WriteEvent($"Project exported to {saveAsName}");
+				ExportShare();
 			}
 			finally
 			{
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
+			}
+		}
+
+		public void ExportShare()
+		{
+			if (!ProjectBase.Reader.ResourceExists(this, ProjectResource.Versification))
+			{
+				try
+				{
+					m_project.Versification.Save(Project.Writer.GetTextWriter(m_project, ProjectResource.FallbackVersification));
+				}
+				catch (Exception e)
+				{
+					var impl = (PersistenceImplementation)Project.Writer;
+					Logger.WriteError($"Failed to save fallback versification file to {impl.GetFallbackVersificationFilePath(m_project)}", e);
+				}
+			}
+
+			try
+			{
+				var shareFolder = ProjectRepository.DefaultShareFolder;
+				Directory.CreateDirectory(shareFolder);
+
+				var saveAsName = Path.Combine(shareFolder, project.LanguageIsoCode + "_" + project.Name) + kShareFileExtension;
+
+				var nameInZip = Path.Combine(LanguageIsoCode, );
+
+				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
+				Directory.CreateDirectory(share);
+
+				var saveAsName = Path.Combine(share, LanguageIsoCode + "_" + Name) + kShareFileExtension;
+
+				using (var zip = new ZipFile())
+				{
+					zip.AddEntry()
+					var languageDir = zip.AddDirectoryByName(LanguageIsoCode);
+					zip.Save(saveAsName);
+				}
+
+				if (ReferenceTextProxy.Type == ReferenceTextType.Custom)
+				{
+					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
+						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
+						"should be installed on the other computer before importing.");
+					MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
+						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+
+				PathUtilities.SelectFileInExplorer(saveAsName);
+				Logger.WriteEvent($"Project exported to {saveAsName}");
+			}
+			finally
+			{
+				RobustFile.Delete(FallbackVersificationFilePath);
 			}
 		}
 
