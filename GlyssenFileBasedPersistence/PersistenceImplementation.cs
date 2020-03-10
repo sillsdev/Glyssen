@@ -192,6 +192,49 @@ namespace GlyssenFileBasedPersistence
 			Directory.Move(existingProjectFolder, newPath);
 		}
 
+		public void ChangePublicationId(IUserProject project, string newId, Action setInternalId, Action<TextWriter> saveMetadata)
+		{
+			string origProjectFolder = ProjectRepository.GetProjectFolderPath(project);
+
+			setInternalId();
+			var newProjectFolder = ProjectRepository.GetProjectFolderPath(project);
+
+			Directory.CreateDirectory(Path.GetDirectoryName(newProjectFolder));
+			RobustIO.MoveDirectory(origProjectFolder, newProjectFolder);
+
+			try
+			{
+				saveMetadata(GetTextWriter(project, ProjectResource.Metadata));
+			}
+			catch (Exception error)
+			{
+				try
+				{
+					// Try to move it back before throwing the error.
+					RobustIO.MoveDirectory(newProjectFolder, origProjectFolder);
+					throw;
+				}
+				catch (Exception moveFolderBackError)
+				{
+					// Uh-oh. We've gotten this project into a corrupted state.
+					throw new Exception(Environment.NewLine + error + Environment.NewLine + Environment.NewLine +
+						Localizer.GetString("Project.ChangeMetadataIdCatastrophicFailure",
+							"During the attempt to recover and revert to the original ID, a catastrophic error occurred that has probably left " +
+							"this project in a corrupted state. Please contact support."), moveFolderBackError);
+				}
+			}
+
+			try
+			{
+				// REVIEW: Wouldn't the above call to RobustIO.MoveDirectory delete the original folder (or does it only move the contents)?
+				RobustIO.DeleteDirectory(Path.GetDirectoryName(origProjectFolder));
+			}
+			catch (Exception e)
+			{
+				Logger.WriteError(e);
+			}
+		}
+
 		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
 		{
 			return new StreamWriter(GetPath(resource, project));
@@ -279,7 +322,7 @@ namespace GlyssenFileBasedPersistence
 			switch (resource)
 			{
 				case ProjectResource.Metadata:
-					return Combine(GetProjectFolderPath(project), GetProjectFilename(project));
+					return GetProjectFilePath(project);
 				case ProjectResource.Ldml:
 					return GetLdmlFilePath(project);
 				case ProjectResource.LdmlBackupFile:
@@ -374,6 +417,8 @@ namespace GlyssenFileBasedPersistence
 
 		private string GetProjectResourceFilePath(IProject project, string filename) =>
 			Combine(GetProjectFolderPath(project), filename);
+
+		public string GetProjectFilePath(IProject project) => Combine(GetProjectFolderPath(project), GetProjectFilename(project));
 
 		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle) => 
 			ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,

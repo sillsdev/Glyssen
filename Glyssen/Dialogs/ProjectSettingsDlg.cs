@@ -219,7 +219,7 @@ namespace Glyssen.Dialogs
 				m_wsFontControl.TestAreaText = m_model.SampleText;
 
 			// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
-			var enableControls = m_model.Project.ProjectFileIsWritable;
+			var enableControls = m_model.Project.ProjectIsWritable;
 			m_btnUpdateFromSource.Enabled =
 				m_txtRecordingProjectName.Enabled =
 					m_txtAudioStockNumber.Enabled = enableControls && !m_model.Project.IsSampleProject;

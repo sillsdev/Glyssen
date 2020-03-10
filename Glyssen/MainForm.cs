@@ -47,6 +47,7 @@ namespace Glyssen
 	public partial class MainForm : FormWithPersistedSettings
 	{
 		public static Sparkle UpdateChecker { get; private set; }
+		private PersistenceImplementation m_persistenceImpl;
 		private Project m_project;
 		private ParatextScrTextWrapper m_paratextScrTextWrapperForRecentlyCreatedProject;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
@@ -57,10 +58,11 @@ namespace Glyssen
 		private bool? m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 		private ReferenceText m_temporaryRefTextOverrideForExporting;
 
-		public MainForm(IReadOnlyList<string> args)
+		public MainForm(PersistenceImplementation persistenceImpl, IReadOnlyList<string> args)
 		{
 			InitializeComponent();
 
+			m_persistenceImpl = persistenceImpl;
 			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
@@ -78,7 +80,7 @@ namespace Glyssen
 			m_lastExportLocationLink.Text = Empty;
 
 			// Did the user start Glyssen by double-clicking a share file?
-			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(ProjectBase.kShareFileExtension))
+			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(PersistenceImplementation.kShareFileExtension))
 			{
 				ImportShare(args[0]);
 			}
@@ -203,7 +205,7 @@ namespace Glyssen
 					}
 				}
 
-				Settings.Default.CurrentProject = m_project.ProjectFilePath;
+				Settings.Default.CurrentProject = m_persistenceImpl.GetProjectFilePath(m_project);
 				Logger.WriteEvent($"CurrentProject set to {Settings.Default.CurrentProject}");
 				Settings.Default.Save();
 
@@ -265,11 +267,11 @@ namespace Glyssen
 		{
 			m_btnOpenProject.Enabled = !readOnly;
 			m_imgCheckOpen.Visible = true;
-			m_btnSettings.Enabled = !readOnly && m_project.ProjectFileIsWritable;
+			m_btnSettings.Enabled = !readOnly && m_project.ProjectIsWritable;
 			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.IsQuoteSystemReadyForParse;
 			m_btnSelectBooks.Enabled = !readOnly && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
-				m_project.ProjectFileIsWritable;
+				m_project.ProjectIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed && m_project.IncludedBooks.Any();
 			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
@@ -436,7 +438,7 @@ namespace Glyssen
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(filePath, HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
+				SetProject(Project.Load(LoadProject(filePath), HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -445,6 +447,53 @@ namespace Glyssen
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
+		}
+
+		public static Project LoadProject(string projectFilePath)
+		{
+			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
+			var isWritable = !FileHelper.IsLocked(projectFilePath);
+			if (!isWritable)
+			{
+				MessageModal.Show(LocalizationManager.GetString("Project.NotWritableMsg",
+					"The project file is not writable. No changes will be saved."));
+			}
+
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
+			if (exception != null)
+			{
+				Analytics.ReportException(exception);
+				var message = Format(LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
+				ErrorReport.NotifyUserOfProblem(exception, message);
+				return null;
+			}
+
+			Project project;
+			try
+			{
+				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+			}
+			catch (ProjectNotFoundException e)
+			{
+				throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectNotFound",
+						"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: Paratext project short name (unique project identifier); " +
+						"Param 2: \"Glyssen\" (product name); " +
+						"Param 3: Glyssen recording project name"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					metadata.ParatextProjectId,
+					GlyssenInfo.Product,
+					metadata.Name), e);
+			}
+
+			project.ProjectIsWritable = isWritable;
+			return project;
+		}
+
+		private static string GetRecordingProjectNameFromProjectFilePath(string path)
+		{
+			return path.GetContainingFolderName();
 		}
 
 		public static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded", "The splitting engine has been upgraded.") + " ";

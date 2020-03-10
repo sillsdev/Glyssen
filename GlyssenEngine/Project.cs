@@ -774,12 +774,12 @@ namespace GlyssenEngine
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
-		public static Project Load(string projectFilePath, Func<Project, bool> handleMissingBundleNeededForUpgrade, IParatextProjectLoadingAssistant loadingAssistant)
+		public static Project Load(Project existingProject, Func<Project, bool> handleMissingBundleNeededForUpgrade, IParatextProjectLoadingAssistant loadingAssistant)
 		{
-			Project existingProject = LoadExistingProject(projectFilePath);
-
 			if (existingProject == null)
 				return null;
+			
+			InitializeExistingProject(existingProject);
 
 			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteReparse)
 			{
@@ -1178,54 +1178,10 @@ namespace GlyssenEngine
 			return upgradedProject;
 		}
 
-		private static string GetRecordingProjectNameFromProjectFilePath(string path)
-		{
-			return path.GetContainingFolderName();
-		}
-
 		private int PercentInitialized => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 
-		private static Project LoadExistingProject(string projectFilePath)
+		private static void InitializeExistingProject(Project project)
 		{
-			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
-			var isWritable = !FileHelper.IsLocked(projectFilePath);
-			if (!isWritable)
-			{
-				MessageModal.Show(Localizer.GetString("Project.NotWritableMsg",
-					"The project file is not writable. No changes will be saved."));
-			}
-
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
-			if (exception != null)
-			{
-				NonFatalErrorHandler.ReportAndHandleException(exception,
-					Format(Localizer.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath));
-				return null;
-			}
-
-			Project project;
-			try
-			{
-				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
-			}
-			catch (ProjectNotFoundException e)
-			{
-				throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectNotFound",
-					"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
-					"Param 0: \"Paratext\" (product name); " +
-					"Param 1: Paratext project short name (unique project identifier); " +
-					"Param 2: \"Glyssen\" (product name); " +
-					"Param 3: Glyssen recording project name"),
-					ParatextScrTextWrapper.kParatextProgramName,
-					metadata.ParatextProjectId,
-					GlyssenInfo.Product,
-					metadata.Name), e);
-			}
-
-			project.ProjectFileIsWritable = isWritable;
-
-			var projectDir = Path.GetDirectoryName(projectFilePath);
-			Debug.Assert(projectDir != null);
 			foreach (var bookReader in Reader.GetExistingBooks(project))
 				project.m_books.Add(BookScript.Deserialize(bookReader, project.Versification));
 
@@ -1235,8 +1191,6 @@ namespace GlyssenEngine
 			if (project.CharacterGroupList.CharacterGroups.Any() &&
 				project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
-
-			return project;
 		}
 
 		private void RemoveAvailableBooksThatDoNotCorrespondToExistingBooks()
@@ -1617,65 +1571,39 @@ namespace GlyssenEngine
 		{
 			Debug.Assert(newPubId != m_metadata.Id);
 
-			string origProjectFolder = ProjectFolder;
-			string restoreId = m_metadata.Id;
+			var restoreId = m_metadata.Id;
 
-			m_metadata.Id = newPubId;
+			void SetInternalId()
+			{
+				m_metadata.Id = newPubId;
+				m_metadata.LastModified = DateTime.Now;
+			}
 
-			string FailureMessage() => Localizer.GetString("Project.ChangeMetadataIdFailure",
-				"An error occurred attempting to change the publication ID for this project:");
+			void SaveMetadata(TextWriter w)
+			{
+				Serialize(w, m_projectMetadata, out var error);
+				if (error != null)
+					throw error;
+			}
 
 			try
 			{
-				var newProjectFolder = ProjectFolder;
-				Directory.CreateDirectory(Path.GetDirectoryName(newProjectFolder));
-				RobustIO.MoveDirectory(origProjectFolder, newProjectFolder);
+				Writer.ChangePublicationId(this, newPubId, SetInternalId, SaveMetadata);
 			}
 			catch (Exception inner)
 			{
 				m_metadata.Id = restoreId;
-				throw new ApplicationException(FailureMessage(), inner);
+				throw new ApplicationException(Localizer.GetString("Project.ChangeMetadataIdFailure",
+					"An error occurred attempting to change the publication ID for this project:"), inner);
 			}
-
-			SaveProjectFile(out var error);
-			if (error == null)
-			{
-				try
-				{
-					RobustIO.DeleteDirectory(Path.GetDirectoryName(origProjectFolder));
-				}
-				catch (Exception e)
-				{
-					Logger.WriteError(e);
-				}
-				return;
-			}
-
-			var revertFolder = ProjectFolder;
-			m_metadata.Id = restoreId;
-			try
-			{
-				RobustIO.MoveDirectory(revertFolder, ProjectFolder);
-			}
-			catch (Exception moveFolderBackError)
-			{
-				// Uh-oh. We've gotten this project into a corrupted state.
-				m_metadata.Id = restoreId;
-				
-				throw new Exception(FailureMessage() + Environment.NewLine + error + Environment.NewLine + Environment.NewLine +
-					Localizer.GetString("Project.ChangeMetadataIdCatastrophicFailure",
-						"During the attempt to recover and revert to the original ID, a catastrophic error occurred that has probably left " +
-						"this project in a corrupted state. Please contact support."), moveFolderBackError);
-			}
-			throw new ApplicationException(FailureMessage(), error);
 		}
 
 		public void Save(bool saveCharacterGroups = false)
 		{
-			if (!ProjectFileIsWritable)
+			if (!ProjectIsWritable)
 				return;
 
-			Directory.CreateDirectory(ProjectFolder);
+			Writer.SetUpProjectPersistence(this);
 
 			SaveProjectFile(out var error);
 			if (error != null)
@@ -2316,7 +2244,7 @@ namespace GlyssenEngine
 			WritingSystem.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 
-		public bool ProjectFileIsWritable { get; set; } = true;
+		public bool ProjectIsWritable { get; set; } = true;
 
 		public int DefaultNarratorCountForNarrationByAuthor
 		{

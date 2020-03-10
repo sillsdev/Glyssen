@@ -20,6 +20,7 @@ namespace Glyssen.Shared
 		void DeleteProject(IUserProject project);
 		void CreateBackup(IUserProject project, string description, bool hidden);
 		void ChangeProjectName(IUserProject project, string newName);
+		void ChangePublicationId(IUserProject project, string newId, Action setInternalId, Action<TextWriter> saveMetadata);
 
 		void ArchiveBookNoLongerAvailable(IUserProject project, string bookCode);
 

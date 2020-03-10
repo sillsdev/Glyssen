@@ -267,7 +267,7 @@ namespace Glyssen
 
 				try
 				{
-					Application.Run(new MainForm(args));
+					Application.Run(persistenceImpl, new MainForm(args));
 				}
 				finally
 				{
