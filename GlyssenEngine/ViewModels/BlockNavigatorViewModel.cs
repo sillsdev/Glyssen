@@ -35,7 +35,7 @@ namespace GlyssenEngine.ViewModels
 		private readonly Dictionary<ReferenceText, IAdjustableFontInfo<TFont>> m_referenceTextFonts = new Dictionary<ReferenceText, IAdjustableFontInfo<TFont>>();
 		private BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
-		protected List<BookBlockIndices> m_relevantBookBlockIndices;
+		private List<BookBlockIndices> m_relevantBookBlockIndices;
 		protected BookBlockIndices m_temporarilyIncludedBookBlockIndices;
 		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
 		protected readonly IEqualityComparer<CharacterSpeakingMode> m_characterEqualityComparer = new CharacterEqualityComparer();
@@ -154,6 +154,12 @@ namespace GlyssenEngine.ViewModels
 		private int CountOfBlocksAddedByCurrentMatchup => BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
 
 		public int RelevantBlockCount => m_relevantBookBlockIndices.Count;
+
+		protected IEnumerable<BookBlockIndices> IndicesAtOrBeyondLocationInBook(BookBlockIndices current)
+		{
+			return m_relevantBookBlockIndices.Where(r => r.BookIndex == current.BookIndex &&
+				r.BlockIndex >= current.BlockIndex);
+		}
 
 		/// <summary>
 		/// This shows the current position within the filtered list. In rainbow mode, we count "matchups". In white mode, we count blocks.
@@ -289,6 +295,8 @@ namespace GlyssenEngine.ViewModels
 				m_attemptRefBlockMatchup = true;
 			m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
 			ResetFilter(BlockAccessor.CurrentBlock, stayOnCurrentBlock);
+
+			Logger.WriteEvent($"Block navigator mode set to {Mode}. Relevant blocks = {RelevantBlockCount}");
 		}
 
 		protected void ResetFilter(Block selectedBlock, bool stayOnCurrentBlock = false)
@@ -1006,18 +1014,12 @@ namespace GlyssenEngine.ViewModels
 						if (matchup.OriginalBlocks.Any(b => IsRelevant(b)) ||
 							((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0 && !matchup.AllScriptureBlocksMatch))
 						{
-							foreach (var relevantBlock in matchup.OriginalBlocks)
-								RelevantBlockAdded(relevantBlock);
-							m_relevantBookBlockIndices.Add(indices);
+							AddRelevant(indices);
 						}
 					}
-					else
+					else if (IsRelevant(block))
 					{
-						if (IsRelevant(block))
-						{
-							RelevantBlockAdded(block);
-							m_relevantBookBlockIndices.Add(indices);
-						}
+						AddRelevant(indices);
 					}
 				}
 
@@ -1029,7 +1031,15 @@ namespace GlyssenEngine.ViewModels
 			m_navigator.GoToFirstBlock();
 		}
 
-		protected virtual void RelevantBlockAdded(Block block)
+		private void AddRelevant(BookBlockIndices indices, bool reSort = false)
+		{
+			m_relevantBookBlockIndices.Add(indices);
+			if (reSort)
+				m_relevantBookBlockIndices.Sort();
+			RelevantBlocksAdded(indices);
+		}
+
+		protected virtual void RelevantBlocksAdded(BookBlockIndices addedBlocks)
 		{
 			// No-op in base class
 		}
@@ -1180,9 +1190,7 @@ namespace GlyssenEngine.ViewModels
 			if (IsRelevant(newOrModifiedBlock, false))
 			{
 				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
-				m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
-				m_relevantBookBlockIndices.Sort();
-				RelevantBlockAdded(newOrModifiedBlock);
+				AddRelevant(indicesOfNewOrModifiedBlock, true);
 				if (m_currentRelevantIndex == -1 && CurrentBlock.Equals(newOrModifiedBlock))
 					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(indicesOfNewOrModifiedBlock);
 			}

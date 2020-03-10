@@ -9,6 +9,7 @@ using GlyssenEngine.Utilities;
 using SIL.Scripture;
 using CollectionExtensions = SIL.Extensions.CollectionExtensions;
 using SIL;
+using SIL.Reporting;
 
 namespace GlyssenEngine.ViewModels
 {
@@ -49,6 +50,8 @@ namespace GlyssenEngine.ViewModels
 			Func<ReferenceText, IAdjustableFontInfo<TFont>> getAdjustableFontInfoForReferenceText = null)
 			: base(project, mode, startingIndices, fontInfo, getAdjustableFontInfoForReferenceText)
 		{
+			Logger.WriteEvent($"CompletedBlockCount = {CompletedBlockCount}");
+
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 
 			CurrentBlockMatchupChanged += OnCurrentBlockMatchupChanged;
@@ -80,7 +83,7 @@ namespace GlyssenEngine.ViewModels
 
 		public bool InTaskMode => DoingAssignmentTask || DoingAlignmentTask;
 
-		public bool IsCurrentTaskComplete => InTaskMode && CompletedBlockCount == m_relevantBookBlockIndices.Count;
+		public bool IsCurrentTaskComplete => InTaskMode && CompletedBlockCount == RelevantBlockCount;
 
 		public bool IsCurrentBookSingleVoice => CurrentBook.SingleVoice;
 
@@ -195,10 +198,19 @@ namespace GlyssenEngine.ViewModels
 			base.PopulateRelevantBlocks();
 		}
 
-		protected override void RelevantBlockAdded(Block block)
+		protected override void RelevantBlocksAdded(BookBlockIndices blocksAdded)
 		{
-			if (block.UserConfirmed || IsCurrentBookSingleVoice)
-				CompletedBlockCount++;
+			Debug.Assert(blocksAdded.BookIndex == BlockAccessor.GetIndices().BookIndex);
+			for (var i = blocksAdded.BlockIndex; i <= blocksAdded.EffectiveFinalBlockIndex; i++)
+			{
+				var block = CurrentBook.GetScriptBlocks()[i];
+				if (block.UserConfirmed || IsCurrentBookSingleVoice)
+				{
+					CompletedBlockCount++;
+					Debug.Assert(CompletedBlockCount <= RelevantBlockCount);
+					return;
+				}
+			}
 		}
 
 		protected override void StoreCurrentBlockIndices()
@@ -608,10 +620,7 @@ namespace GlyssenEngine.ViewModels
 						if (isNewBlock)
 						{
 							var newBlockIndices = GetBlockIndices(chipOffTheOldBlock);
-							var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
-								r => r.BookIndex == newBlockIndices.BookIndex &&
-									r.BlockIndex >= newBlockIndices.BlockIndex);
-							foreach (var bookBlockIndices in blocksIndicesNeedingUpdate)
+							foreach (var bookBlockIndices in IndicesAtOrBeyondLocationInBook(newBlockIndices))
 								bookBlockIndices.BlockIndex++;
 						}
 						else
