@@ -390,6 +390,24 @@ namespace GlyssenEngineTests.ViewModelTests
 			Assert.AreEqual(0, m_model.CompletedBlockCount);
 		}
 
+		// PG-1344
+		[Test]
+		public void SetMode_MultipleConfirmedBlocksInMatchupForSingleVoiceBook_CompletedBlockCountDoesNotCountMatchupMoreThanOnce()
+		{
+			m_fullProjectRefreshRequired = true;
+
+			foreach (var block in m_model.BlockAccessor.CurrentBook.GetScriptBlocks())
+			{
+				block.CharacterId = CharacterVerseData.kNeedsReview;
+				block.UserConfirmed = true;
+			}
+
+			m_model.BlockAccessor.CurrentBook.SingleVoice = true;
+			m_model.SetMode(BlocksToDisplay.NeedsReview, true);
+			Assert.IsTrue(m_model.RelevantBlockCount > 1);
+			Assert.AreEqual(m_model.RelevantBlockCount, m_model.CompletedBlockCount);
+		}
+
 		// PG-1211
 		[Test]
 		public void SetMode_SwitchToFilterWithNothingRelevantAfterApplyingMatchupThatCausedCurrentBlockToBeReplaced_ReplacedBlockIsCurrent()
