@@ -44,7 +44,7 @@ namespace GlyssenEngine
 			if (s_lastProjectMigrated != project)
                 s_migrationsRun = 0;
 
-            Logger.WriteEvent($"Migrating project {project.ProjectFilePath} from {fromControlFileVersion} to {ControlCharacterVerseData.Singleton.ControlFileVersion}");
+            Logger.WriteEvent($"Migrating project {project} from {fromControlFileVersion} to {ControlCharacterVerseData.Singleton.ControlFileVersion}");
 
             var result = MigrationResult.Partial;
 

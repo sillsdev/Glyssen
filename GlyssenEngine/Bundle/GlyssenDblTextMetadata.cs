@@ -259,16 +259,12 @@ namespace GlyssenEngine.Bundle
 			}
 		}
 
-		public static void SetHiddenFlag(TextReader reader, string recordingProjectName, bool hidden)
+		public static GlyssenDblTextMetadata Load(TextReader reader, string metadataResourceIdentifier)
 		{
-			
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(reader, out var exception);
+			var metadata = Load<GlyssenDblTextMetadata>(reader, metadataResourceIdentifier, out var exception);
 			if (exception != null)
 				throw exception;
-
-			metadata.Inactive = hidden;
-			new Project(metadata, recordingProjectName).Save();
-			// TODO: preserve WritingSystemRecoveryInProcess flag
+			return metadata;
 		}
 	}
 

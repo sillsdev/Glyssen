@@ -37,12 +37,9 @@ namespace GlyssenEngineTests.Casting
 			AssertThatXmlIn.String(results)
 				.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and @Gender='Male' and @Age='Adult' and text()='B']", 1);
 
-			using (var reader = new StringReader(results))
-			{
-				// Reads XML correctly
-				var listFromDeserialization = VoiceActorList.LoadVoiceActorList(reader);
-				Assert.AreEqual(list.ActiveActors, listFromDeserialization.ActiveActors);
-			}
+			// Reads XML correctly
+			var listFromDeserialization = VoiceActorList.LoadVoiceActorList(new StringReader(results));
+			Assert.AreEqual(list.ActiveActors, listFromDeserialization.ActiveActors);
 		}
 
 		[Test]

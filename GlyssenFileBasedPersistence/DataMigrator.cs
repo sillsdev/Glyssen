@@ -85,6 +85,7 @@ namespace GlyssenFileBasedPersistence
 					}
 					goto case 1;
 				case 1:
+					var sampleProjectFilePath = ProjectRepository.GetProjectFilePath(SampleProject.Stub);
 					foreach (var recordingProjectFolder in ProjectRepository.AllRecordingProjectFolders.ToList())
 					{
 						var versificationPath = Path.Combine(recordingProjectFolder, DblBundleFileUtils.kVersificationFileName);
@@ -94,7 +95,7 @@ namespace GlyssenFileBasedPersistence
 
 							if (projectFilePath != null)
 							{
-								if (projectFilePath.Equals(SampleProject.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
+								if (projectFilePath.Equals(sampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
 								{
 									File.WriteAllText(versificationPath, Project.EnglishVersification);
 								}

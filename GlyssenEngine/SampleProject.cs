@@ -16,14 +16,19 @@ namespace GlyssenEngine
 		public const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
 
-		public static string SampleProjectFilePath
+		private class SampleProjectStub : IUserProject
 		{
-			get { return Project.GetProjectFilePath(kSample, kSample, Project.GetDefaultRecordingProjectName(kSampleProjectName)); }
+			public string Name => Project.GetDefaultRecordingProjectName(kSampleProjectName);
+			public string LanguageIsoCode => kSample;
+			public string ValidLanguageIsoCode => "qaa";
+			public string MetadataId => kSample;
 		}
+
+		public static IUserProject Stub => new SampleProjectStub();
 
 		public static void CreateSampleProjectIfNeeded()
 		{
-			if (File.Exists(SampleProjectFilePath))
+			if (ProjectBase.Reader.ResourceExists(Stub, ProjectResource.Metadata))
 				return;
 			var sampleMetadata = new GlyssenDblTextMetadata();
 

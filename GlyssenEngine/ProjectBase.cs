@@ -88,6 +88,12 @@ namespace GlyssenEngine
 			return bldr.ToString();
 		}
 
+		protected void LoadExistingBooks()
+		{
+			foreach (var bookReader in Reader.GetExistingBooks(this))
+				m_books.Add(BookScript.Deserialize(bookReader, Versification));
+		}
+
 		public BookScript GetBook(string id)
 		{
 #if DEBUG

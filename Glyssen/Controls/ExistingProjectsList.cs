@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Shared;
+using DesktopAnalytics;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
-using GlyssenEngine.ErrorHandling;
 using GlyssenEngine.Paratext;
 using GlyssenEngine.Utilities;
 using GlyssenFileBasedPersistence;
@@ -15,9 +14,9 @@ using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
 using Paratext.Data;
-using SIL;
 using SIL.DblBundle;
 using SIL.Extensions;
+using SIL.Reporting;
 using SIL.Windows.Forms.DblBundle;
 using static System.String;
 
@@ -50,11 +49,6 @@ namespace Glyssen.Controls
 			HandleStringsLocalized();
 		}
 
-		public void AddReadOnlyProject(Project project)
-		{
-			AddReadOnlyProject(project.ProjectFilePath);
-		}
-
 		private void HandleStringsLocalized()
 		{
 			m_fmtParatextProjectSource = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.ParatextProjectLabel",
@@ -67,7 +61,7 @@ namespace Glyssen.Controls
 
 		protected override IEnumerable<string> AllProjectFolders => ProjectRepository.AllRecordingProjectFolders;
 
-		protected override string ProjectFileExtension => PersistenceImplementation.kProjectFileExtension;
+		protected override string ProjectFileExtension => ProjectRepository.kProjectFileExtension;
 
 		public Func<IEnumerable<ScrText>> GetParatextProjects { private get; set; }
 
@@ -154,12 +148,13 @@ namespace Glyssen.Controls
 				{
 					try
 					{
-						GlyssenDblTextMetadata.SetHiddenFlag(reader, SelectedProject, inactive);
+						Project.SetHiddenFlag(GlyssenDblTextMetadata.Load(reader, SelectedProject), ProjectRepository.GetProjectName(SelectedProject), inactive);
 					}
 					catch (Exception exception)
 					{
-						NonFatalErrorHandler.ReportAndHandleException(exception,
-							Format(Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), SelectedProject));
+						Analytics.ReportException(exception);
+						ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+							Format(LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), SelectedProject));
 					}
 				}
 			}

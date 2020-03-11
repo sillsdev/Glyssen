@@ -24,20 +24,13 @@ namespace GlyssenFileBasedPersistence
 	{
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 
-		private static string s_customReferenceTextBaseFolder;
-		
-		#region static internals to support testing
-		protected string ProprietaryReferenceTextProjectFileLocation
-		{
-			get => s_customReferenceTextBaseFolder ?? (s_customReferenceTextBaseFolder = Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName));
-			set => s_customReferenceTextBaseFolder = value;
-		}
-		#endregion
+		// Virtual to allow test implementation to override
+		public virtual string ProprietaryReferenceTextProjectFileLocation =>
+			Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName);
 
 		private const int kMaxPath = 260;
 		public const string kGlyssenScriptFileExtension = ".glyssenscript";
 		public const string kGlyssenPackFileExtension = ".glyssenpack";
-		public const string kShareFileExtension = ".glyssenshare";
 		public const string kBookScriptFileExtension = ".xml";
 		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
@@ -45,6 +38,7 @@ namespace GlyssenFileBasedPersistence
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
 		private const string kCharacterGroupFileName = "CharacterGroups.xml";
 		public const string kFallbackVersificationPrefix = "fallback_";
+		public const string kBackupExtSuffix = "bak";
 
 		// Total path limit is 260 characters. Need to allow for:
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
@@ -136,8 +130,9 @@ namespace GlyssenFileBasedPersistence
 
 		public void CreateBackup(IUserProject project, string description, bool hidden)
 		{
+			var newName = project.Name + " - " + description;
 			string newDirectoryPath = ProjectRepository.GetProjectFolderPath(
-				project.LanguageIsoCode, project.MetadataId, project.Name + " - " + description);
+				project.LanguageIsoCode, project.MetadataId, newName);
 			if (Directory.Exists(newDirectoryPath))
 			{
 				string fmt = newDirectoryPath + " ({0})";
@@ -159,7 +154,7 @@ namespace GlyssenFileBasedPersistence
 					{
 						using (var reader = new StreamReader(new FileStream(newFilePath, FileMode.Open)))
 						{
-							GlyssenDblTextMetadata.SetHiddenFlag(reader, newFilePath, hidden);
+							Project.SetHiddenFlag(GlyssenDblTextMetadata.Load(reader, newFilePath), newName, true);
 						}
 					}
 				}
@@ -251,6 +246,31 @@ namespace GlyssenFileBasedPersistence
 			RobustFile.Move(origPath, origPath + kBookNoLongerAvailableExtension);
 		}
 
+		public void UseBackupResource(IUserProject project, ProjectResource resource)
+		{
+			var resourceFilePath = GetPath(resource, project);
+			if (RobustFile.Exists(resourceFilePath))
+			{
+				var corruptedLdmlFilePath = resourceFilePath + "corrupted";
+				RobustFile.Delete(corruptedLdmlFilePath);
+				RobustFile.Move(resourceFilePath, corruptedLdmlFilePath);
+			}
+			RobustFile.Move(resourceFilePath + kBackupExtSuffix, resourceFilePath);
+		}
+
+		public bool SaveBackupResource(IUserProject project, ProjectResource resource)
+		{
+			var resourceFilePath = GetPath(resource, project);
+			if (!RobustFile.Exists(resourceFilePath))
+				return false;
+
+			var backupPath = resourceFilePath + kBackupExtSuffix;
+			if (RobustFile.Exists(backupPath))
+				RobustFile.Delete(backupPath);
+			RobustFile.Move(resourceFilePath, backupPath);
+			return true;
+		}
+
 		// Total path limit is 260 (MAX_PATH) characters. Need to allow for:
 		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
 		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
@@ -314,6 +334,9 @@ namespace GlyssenFileBasedPersistence
 		public bool ResourceExists(IProject project, ProjectResource resource) =>
 			RobustFile.Exists(GetPath(resource, project));
 
+		public bool BackupResourceExists(IProject project, ProjectResource resource) =>
+			RobustFile.Exists(GetPath(resource, project) + kBackupExtSuffix);
+
 		public TextReader Load(IProject project, ProjectResource resource) =>
 			GetReader(GetPath(resource, project));
 
@@ -325,8 +348,6 @@ namespace GlyssenFileBasedPersistence
 					return GetProjectFilePath(project);
 				case ProjectResource.Ldml:
 					return GetLdmlFilePath(project);
-				case ProjectResource.LdmlBackupFile:
-					return ChangeExtension(GetLdmlFilePath(project), DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
 				case ProjectResource.Versification:
 					return GetVersificationFilePath(project);
 				case ProjectResource.FallbackVersification:
@@ -391,7 +412,7 @@ namespace GlyssenFileBasedPersistence
 			return RobustFile.Exists(GetBookDataFilePath(project, bookId));
 		}
 
-		private string GetProjectFolderPath(IProject project)
+		public string GetProjectFolderPath(IProject project)
 		{
 			switch (project)
 			{
@@ -427,7 +448,7 @@ namespace GlyssenFileBasedPersistence
 		private string GetVersificationFilePath(IProject project) =>
 			GetProjectResourceFilePath(project, DblBundleFileUtils.kVersificationFileName);
 
-		private string GetLdmlFilePath(IProject project)
+		public string GetLdmlFilePath(IProject project)
 		{
 			// We actually currently do not include or use LDML files with reference texts, but if we
 			// ever did, this is possibly what we'd want. (It's safe, because the caller handles the

@@ -31,9 +31,13 @@ namespace GlyssenEngine.Casting
 			Project.Serialize(textWriter, this, out _);
 		}
 
-		public static VoiceActorList LoadVoiceActorList(TextReader textReader)
+		/// <summary>
+		/// Gets a voice actor list representing the data (or a new list if null).
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
+		public static VoiceActorList LoadVoiceActorList(TextReader data)
 		{
-			return XmlSerializationHelper.Deserialize<VoiceActorList>(textReader);
+			return Project.Deserialize<VoiceActorList>(data) ?? new VoiceActorList();
 		}
 
 		public VoiceActor GetVoiceActorById(int voiceActorId)

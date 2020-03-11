@@ -46,6 +46,8 @@ namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings
 	{
+		private const string kShareFileExtension = ".glyssenshare";
+
 		public static Sparkle UpdateChecker { get; private set; }
 		private PersistenceImplementation m_persistenceImpl;
 		private Project m_project;
@@ -80,18 +82,18 @@ namespace Glyssen
 			m_lastExportLocationLink.Text = Empty;
 
 			// Did the user start Glyssen by double-clicking a share file?
-			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(PersistenceImplementation.kShareFileExtension))
+			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(kShareFileExtension))
 			{
 				ImportShare(args[0]);
 			}
 		}
 
-		private BadLdmlFileRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string ldmlFilePath, string error, bool attemptToUseBackup)
+		private BadLdmlFileRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string error, bool attemptToUseBackup)
 		{
 			var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
 					"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
 					"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
-				sender.Name, ldmlFilePath, error);
+				sender.Name, m_persistenceImpl.GetLdmlFilePath(sender), error);
 			var msg2 = Format(attemptToUseBackup
 				? LocalizationManager.GetString("Project.UseBackupLdmlFile",
 					"To use the automatically created backup (which might be out-of-date), click {0}.",
@@ -561,11 +563,9 @@ namespace Glyssen
 				// candidate projects, we'll need to present a list.
 				var baserecordingProjectName = recordingProjectName;
 				recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision})";
-				var path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
-				for (int i = 1; File.Exists(path); i++)
+				for (int i = 1; m_persistenceImpl.ProjectExistsHaving(bundle.LanguageIso, bundle.Id, recordingProjectName); i++)
 				{
 					recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision}.{i})";
-					path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
 				}
 			}
 
@@ -839,7 +839,7 @@ namespace Glyssen
 
 		private void UpdateProjectState()
 		{
-			if (m_project == null || Settings.Default.CurrentProject != m_project.ProjectFilePath)
+			if (m_project == null || Settings.Default.CurrentProject != m_persistenceImpl.GetProjectFilePath(m_project))
 			{
 				// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
 				// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
@@ -1310,7 +1310,7 @@ namespace Glyssen
 				projectSettingsDlgTitle = dlg.Text;
 				referenceTextTabName = dlg.ReferenceTextTabPageName;
 			}
-			var customReferenceTextFolder = m_project.ReferenceTextProxy.ProjectFolder;
+			var customReferenceTextFolder = m_persistenceImpl.GetProjectFolderPath(m_project.ReferenceTextProxy);
 			if (customReferenceTextFolder.Any(c => c == ' '))
 				customReferenceTextFolder = customReferenceTextFolder.Replace(" ", "\u00A0");
 			customReferenceTextFolder = "file://" + customReferenceTextFolder;
@@ -1385,41 +1385,38 @@ namespace Glyssen
 
 		public void ExportShare()
 		{
-			if (!ProjectBase.Reader.ResourceExists(this, ProjectResource.Versification))
+			var sourceDir = Path.GetDirectoryName(m_persistenceImpl.GetProjectFilePath(m_project));
+			Debug.Assert(sourceDir != null);
+			var nameInZip = sourceDir.Substring(ProjectRepository.ProjectsBaseFolder.Length);
+
+			var shareFolder = ProjectRepository.DefaultShareFolder;
+			Directory.CreateDirectory(shareFolder);
+
+			string fallbackVersificationFilePath = null;
+
+			if (!m_persistenceImpl.ResourceExists(m_project, ProjectResource.Versification))
 			{
+				fallbackVersificationFilePath = m_persistenceImpl.GetFallbackVersificationFilePath(m_project);
 				try
 				{
-					m_project.Versification.Save(Project.Writer.GetTextWriter(m_project, ProjectResource.FallbackVersification));
+					m_project.Versification.Save(fallbackVersificationFilePath);
 				}
 				catch (Exception e)
 				{
-					var impl = (PersistenceImplementation)Project.Writer;
-					Logger.WriteError($"Failed to save fallback versification file to {impl.GetFallbackVersificationFilePath(m_project)}", e);
+					Logger.WriteError($"Failed to save fallback versification file to {fallbackVersificationFilePath}", e);
 				}
 			}
 
 			try
 			{
-				var shareFolder = ProjectRepository.DefaultShareFolder;
-				Directory.CreateDirectory(shareFolder);
-
-				var saveAsName = Path.Combine(shareFolder, project.LanguageIsoCode + "_" + project.Name) + kShareFileExtension;
-
-				var nameInZip = Path.Combine(LanguageIsoCode, );
-
-				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				Directory.CreateDirectory(share);
-
-				var saveAsName = Path.Combine(share, LanguageIsoCode + "_" + Name) + kShareFileExtension;
-
+				var saveAsName = Path.Combine(shareFolder, m_project.LanguageIsoCode + "_" + m_project.Name) + kShareFileExtension;
 				using (var zip = new ZipFile())
 				{
-					zip.AddEntry()
-					var languageDir = zip.AddDirectoryByName(LanguageIsoCode);
+					zip.AddDirectory(sourceDir, nameInZip);
 					zip.Save(saveAsName);
 				}
 
-				if (ReferenceTextProxy.Type == ReferenceTextType.Custom)
+				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
 				{
 					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
 						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
@@ -1433,7 +1430,8 @@ namespace Glyssen
 			}
 			finally
 			{
-				RobustFile.Delete(FallbackVersificationFilePath);
+				if (fallbackVersificationFilePath != null)
+					RobustFile.Delete(fallbackVersificationFilePath);
 			}
 		}
 
@@ -1445,8 +1443,8 @@ namespace Glyssen
 			// show the user an Open File dialog
 			using (var ofd = new OpenFileDialog())
 			{
-				ofd.InitialDirectory = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", ProjectBase.kShareFileExtension);
+				ofd.InitialDirectory = ProjectRepository.DefaultShareFolder;
+				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", kShareFileExtension);
 				ofd.RestoreDirectory = true;
 
 				if (ofd.ShowDialog() == DialogResult.OK)
@@ -1475,12 +1473,14 @@ namespace Glyssen
 			// open the zip file
 			using (var zip = new ZipFile(importFile))
 			{
-				if (zip.Entries.Count <= 0) return;
-
 				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
-				var targetDir = Path.Combine(GlyssenInfo.BaseDataFolder, path.FileName);
 
-				var projectFileName = path.FileName.Split('/').First() + Constants.kProjectFileExtension;
+				if (path == null)
+					return;
+
+				var targetDir = Path.Combine(ProjectRepository.ProjectsBaseFolder, path.FileName);
+
+				var projectFileName = path.FileName.Split('/').First() + ProjectRepository.kProjectFileExtension;
 				var projectFilePath = Path.Combine(targetDir, projectFileName);
 
 				// warn the user if data will be overwritten
@@ -1498,7 +1498,7 @@ namespace Glyssen
 				// close the current project
 				SetProject(null);
 
-				zip.ExtractAll(GlyssenInfo.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
+				zip.ExtractAll(ProjectRepository.ProjectsBaseFolder, ExtractExistingFileAction.OverwriteSilently);
 
 				// open the imported project
 				if (RobustFile.Exists(projectFilePath))
@@ -1515,7 +1515,7 @@ namespace Glyssen
 								"\nThen restart {1} to continue working with this project.",
 								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
 							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
-								"file://" + m_project.ReferenceTextProxy.ProjectFolder),
+								"file://" + m_persistenceImpl.GetProjectFolderPath(m_project.ReferenceTextProxy)),
 								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
 						}
 					}

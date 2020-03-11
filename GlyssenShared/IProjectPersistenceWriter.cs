@@ -23,6 +23,9 @@ namespace Glyssen.Shared
 		void ChangePublicationId(IUserProject project, string newId, Action setInternalId, Action<TextWriter> saveMetadata);
 
 		void ArchiveBookNoLongerAvailable(IUserProject project, string bookCode);
+		// FWIW, currently, the only resource for which we have a need to keep backups is LDML files.
+		void UseBackupResource(IUserProject project, ProjectResource resource);
+		bool SaveBackupResource(IUserProject project, ProjectResource resource);
 
 		int GetMaxProjectNameLength(IUserProject project);
 		int MaxBaseRecordingNameLength { get; }

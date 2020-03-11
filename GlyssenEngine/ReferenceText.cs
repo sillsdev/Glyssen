@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen.Shared;
@@ -34,8 +33,8 @@ namespace GlyssenEngine
 					referenceText.ReloadModifiedBooks();
 				else
 				{
-					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-					referenceText.LoadBooks();
+					referenceText = new ReferenceText(id.Metadata, id.Type);
+					referenceText.LoadExistingBooks();
 					s_instantiatedReferenceTexts[id] = referenceText;
 				}
 			}
@@ -44,24 +43,15 @@ namespace GlyssenEngine
 		}
 
 		public ReferenceTextType Type => m_referenceTextType;
+		
+		public override string Name =>
+			Type == ReferenceTextType.Custom ?
+				s_instantiatedReferenceTexts.Single(kvp => kvp.Value == this).Key.Name :
+				Type.ToString();
 
 		private BookScript TryLoadBook(string bookCode)
 		{
-			using (var reader = Reader.LoadBook(this, bookCode))
-				return (reader != null) ? BookScript.Deserialize(reader, Versification) : null;
-		}
-
-		private void LoadBooks()
-		{
-			var files = BookScriptFiles;
-
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				var bookScript = TryLoadBook(bookCode);
-				if (bookScript != null)
-					m_books.Add(bookScript);
-			}
+			return BookScript.Deserialize(Reader.LoadBook(this, bookCode), Versification);
 		}
 
 		private void ReloadModifiedBooks()
@@ -71,13 +61,12 @@ namespace GlyssenEngine
 				if (!m_modifiedBooks.Any())
 					return;
 
-				var files = BookScriptFiles;
 				for (int i = 0; i < m_books.Count; i++)
 				{
 					var bookId = m_books[i].BookId;
 					if (m_modifiedBooks.Contains(bookId))
 					{
-						var bookScript = TryLoadBook(files, bookId);
+						var bookScript = TryLoadBook(bookId);
 						Debug.Assert(bookScript != null);
 						m_books[i] = bookScript;
 					}
@@ -87,11 +76,10 @@ namespace GlyssenEngine
 			}
 		}
 
-		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType, string projectFolder)
+		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;
-			m_projectFolder = projectFolder;
 
 			GetBookName = bookId => GetBook(bookId)?.PageHeader;
 

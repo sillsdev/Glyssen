@@ -21,6 +21,9 @@ namespace GlyssenFileBasedPersistence
 
 		public static string GetProjectFolderPath(IUserProject project) =>
 			GetProjectFolderPath(project.LanguageIsoCode, project.MetadataId, project.Name);
+		
+		public static string GetProjectFilePath(IUserProject project) =>
+			Combine(GetProjectFolderPath(project), project.LanguageIsoCode + kProjectFileExtension);
 
 		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectName) => 
 			Combine(ProjectsBaseFolder, langId, publicationId, recordingProjectName);
@@ -53,6 +56,14 @@ namespace GlyssenFileBasedPersistence
 			Debug.Assert(referenceTextType.IsStandard());
 			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + kProjectFileExtension;
 			return FileLocationUtilities.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
+		}
+
+		public static string GetProjectName(string projectFilePath)
+		{
+			Debug.Assert(GetExtension(projectFilePath) == kProjectFileExtension);
+			var val = GetFileNameWithoutExtension(projectFilePath);
+			Debug.Assert(val != null);
+			return val;
 		}
 	}
 }

@@ -69,11 +69,7 @@ namespace GlyssenEngine
 		private void AttemptToLoadMetadataForCustomRefText()
 		{
 			Debug.Assert(Type == ReferenceTextType.Custom);
-			using (var reader = Reader.Load(this, ProjectResource.Metadata))
-			{
-				if (reader != null)
-					m_metadata = LoadMetadata(Type, reader);
-			}
+			m_metadata = LoadMetadata(Type, Reader.Load(this, ProjectResource.Metadata));
 		}
 
 		public static IEnumerable<ReferenceTextProxy> AllAvailable
@@ -144,16 +140,7 @@ namespace GlyssenEngine
 				ErrorReporterForCopyrightedReferenceTexts = errorReporter;
 
 			foreach (var resourceReader in Reader.GetAllCustomReferenceTexts(IsCustomReferenceTextIdentifierInListOfAvailable))
-			{
-				try
-				{
-					AttemptToAddCustomReferenceTextIdentifier(resourceReader);
-				}
-				finally
-				{
-					resourceReader.Dispose();
-				}
-			}
+				AttemptToAddCustomReferenceText(resourceReader);
 			
 			if (firstLoadError != null)
 			{
@@ -186,7 +173,11 @@ namespace GlyssenEngine
 			return s_allAvailable.Any(i => i.Type == ReferenceTextType.Custom && i.CustomIdentifier == customId);
 		}
 
-		private static bool AttemptToAddCustomReferenceTextIdentifier(ResourceReader<string> resourceReader)
+		/// <summary>
+		/// Attempts to add a custom reference text corresponding to the data in the given ResourceReader.
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
+		private static void AttemptToAddCustomReferenceText(ResourceReader<string> resourceReader)
 		{
 			var customId = resourceReader.Id;
 			Debug.Assert(customId != null);
@@ -194,11 +185,7 @@ namespace GlyssenEngine
 			var metadata = LoadMetadata(ReferenceTextType.Custom, resourceReader,
 				ErrorReporterForCopyrightedReferenceTexts);
 			if (metadata != null)
-			{
 				s_allAvailable.Add(new ReferenceTextProxy(ReferenceTextType.Custom, customId, metadata));
-				return true;
-			}
-			return false;
 		}
 
 		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,

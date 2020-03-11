@@ -21,6 +21,8 @@ namespace Glyssen.Shared
 		/// </summary>
 		bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name);
 		bool ResourceExists(IProject project, ProjectResource resource);
+		// FWIW, currently, the only resource for which we have a need to keep backups is LDML files.
+		bool BackupResourceExists(IProject project, ProjectResource resource);
 		bool BookResourceExists(IProject project, string bookId);
 		/// <summary>
 		/// Client is responsible for disposing the TextReader when done with it.

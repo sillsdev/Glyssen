@@ -38,10 +38,14 @@ namespace GlyssenEngine.Script
 			OnBlocksReset();
 		}
 
+		/// <summary>
+		/// Gets a BookScript object representing the data in the reader (or null if the reader is null).
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
 		public static BookScript Deserialize(TextReader reader, ScrVers versification)
 		{
 			var newBook = Project.Deserialize<BookScript>(reader);
-			newBook.Initialize(versification);
+			newBook?.Initialize(versification);
 			return newBook;
 		}
 

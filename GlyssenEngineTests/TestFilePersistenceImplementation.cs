@@ -6,9 +6,14 @@ namespace GlyssenEngineTests
 {
 	internal class TestFilePersistenceImplementation : PersistenceImplementation
 	{
+		private readonly string s_customReferenceTextBaseFolder;
+		
+		protected override string ProprietaryReferenceTextProjectFileLocation =>
+			s_customReferenceTextBaseFolder ?? base.ProprietaryReferenceTextProjectFileLocation;
+
 		internal TestFilePersistenceImplementation(string proprietaryReferenceTextProjectFileLocation)
 		{
-			ProprietaryReferenceTextProjectFileLocation = proprietaryReferenceTextProjectFileLocation;
+			s_customReferenceTextBaseFolder = proprietaryReferenceTextProjectFileLocation;
 		}
 
 		public bool IsProprietaryReferenceTextLocationOveridden =>

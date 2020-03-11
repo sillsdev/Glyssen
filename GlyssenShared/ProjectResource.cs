@@ -4,7 +4,6 @@
 	{
 		Metadata,
 		Ldml,
-		LdmlBackupFile,
 		Versification,
 		FallbackVersification,
 		CharacterVerseData,

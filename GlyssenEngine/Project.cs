@@ -10,7 +10,6 @@ using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
-using Ionic.Zip;
 using JetBrains.Annotations;
 using Paratext.Data;
 using SIL;
@@ -22,7 +21,6 @@ using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
-using SIL.Xml;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -76,7 +74,7 @@ namespace GlyssenEngine
 		public event EventHandler CharacterStatisticsCleared;
 		public static EventHandler UpgradingProjectToNewParserVersion;
 
-		public delegate BadLdmlFileRecoveryAction BadLdmlFileHandler(Project sender, string ldmlFilePath, string error, bool attemptToUseBackup);
+		public delegate BadLdmlFileRecoveryAction BadLdmlFileHandler(Project sender, string error, bool attemptToUseBackup);
 		public static BadLdmlFileHandler GetBadLdmlFileRecoveryAction;
 
 		public static IFontRepository FontRepository { get; set; }
@@ -198,6 +196,8 @@ namespace GlyssenEngine
 		public string Id => m_metadata.Id;
 
 		public override string Name => m_recordingProjectName;
+
+		public override string ToString() => $"{LanguageIsoCode}|{Id}|{Name}";
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
@@ -385,6 +385,8 @@ namespace GlyssenEngine
 			string fontFamily = m_projectMetadata.FontFamily;
 			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
 				return;
+
+			m_fontInstallationAttempted = true;
 
 			if (Reader.TryInstallFonts(this, fontFamily, FontRepository))
 				FontRepository.ReportMissingFontFamily(fontFamily);
@@ -1178,12 +1180,18 @@ namespace GlyssenEngine
 			return upgradedProject;
 		}
 
+		public static void SetHiddenFlag(GlyssenDblTextMetadata metadata, string projectName, bool hidden)
+		{
+			metadata.Inactive = hidden;
+			new Project(metadata, projectName).Save();
+			// TODO: preserve WritingSystemRecoveryInProcess flag
+		}
+
 		private int PercentInitialized => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 
 		private static void InitializeExistingProject(Project project)
 		{
-			foreach (var bookReader in Reader.GetExistingBooks(project))
-				project.m_books.Add(BookScript.Deserialize(bookReader, project.Versification));
+			project.LoadExistingBooks();
 
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
@@ -1541,20 +1549,14 @@ namespace GlyssenEngine
 
 		public BookScript LoadExistingBookIfPossible(string bookId)
 		{
-			using (var reader = Reader.LoadBook(this, bookId))
+			try
 			{
-				if (reader == null)
-					return null;
-
-				try
-				{
-					return BookScript.Deserialize(reader, Versification);
-				}
-				catch (Exception e)
-				{
-					ErrorReport.ReportNonFatalException(e);
-					return null;
-				}
+				return BookScript.Deserialize(Reader.LoadBook(this, bookId), Versification);
+			}
+			catch (Exception e)
+			{
+				ErrorReport.ReportNonFatalException(e);
+				return null;
 			}
 		}
 
@@ -1632,7 +1634,7 @@ namespace GlyssenEngine
 
 		// TODO: This is mostly copied from SerializationHelper. It should implemented there as public method.
 		/// <summary>
-		/// Note: This method will take care of disposing the textWriter. No need to wrap it in a using.
+		/// Note: This method will take care of disposing the textWriter.
 		/// </summary>
 		public static bool Serialize(TextWriter textWriter, object data, out Exception error)
 		{
@@ -1659,13 +1661,23 @@ namespace GlyssenEngine
 
 		// TODO: This is mostly copied from SerializationHelper. It should implemented there as public method.
 		/// <summary>
-		/// Note: This method will take care of disposing the textWriter. No need to wrap it in a using.
+		/// Note: This method will take care of disposing the textWriter, if so requests.
 		/// </summary>
-		public static T Deserialize<T>(TextReader reader) where T : class
+		public static T Deserialize<T>(TextReader reader, bool dispose = true) where T : class
 		{
-			XmlSerializer xmlSerializer = new XmlSerializer(typeof (T));
-			xmlSerializer.UnknownAttribute += deserializer_UnknownAttribute;
-			return (T) xmlSerializer.Deserialize(reader);
+			if (reader == null)
+				return default;
+			try
+			{
+				XmlSerializer xmlSerializer = new XmlSerializer(typeof (T));
+				xmlSerializer.UnknownAttribute += deserializer_UnknownAttribute;
+				return (T) xmlSerializer.Deserialize(reader);
+			}
+			finally
+			{
+				if (dispose)
+					reader?.Dispose();
+			}
 		}
 
 		// TODO: When the above method is implemented as a public method in SerializationHelper, this method
@@ -1728,10 +1740,10 @@ namespace GlyssenEngine
 
 		private void LoadCharacterGroupData()
 		{
-			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			m_characterGroupList = RobustFile.Exists(path)
-				? CharacterGroupList.LoadCharacterGroupListFromFile(path, this)
-				: new CharacterGroupList();
+			// TODO: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
+			// but it should warn the user that if they scrap their existing groups, any customizations or actor assignments
+			// will be lost.
+			m_characterGroupList = CharacterGroupList.LoadCharacterGroupList(Reader.Load(this, ProjectResource.CharacterGroups), this);
 			m_characterGroupList.CharacterGroups.CollectionChanged += (o, args) => CharacterGroupCollectionChanged?.Invoke(this, new EventArgs());
 			if (m_voiceActorList != null)
 				EnsureCastSizeOptionValid();
@@ -1739,8 +1751,10 @@ namespace GlyssenEngine
 
 		private void LoadVoiceActorInformationData()
 		{
-			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
-			m_voiceActorList = (RobustFile.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
+			// TODO: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
+			// but it should warn the user that their actor information will be lost if they proceed.
+			m_voiceActorList = VoiceActorList.LoadVoiceActorList(Reader.Load(this, ProjectResource.VoiceActorInformation));
+
 			if (m_characterGroupList != null)
 				EnsureCastSizeOptionValid();
 		}
@@ -1797,8 +1811,7 @@ namespace GlyssenEngine
 
 				m_wsDefinition = new WritingSystemDefinition();
 				bool retry;
-				string backupPath = LdmlBackupFilePath;
-				bool attemptToUseBackup = RobustFile.Exists(backupPath);
+				bool attemptToUseBackup = Reader.BackupResourceExists(this, ProjectResource.Ldml);
 
 				do
 				{
@@ -1808,39 +1821,34 @@ namespace GlyssenEngine
 						{
 							try
 							{
-								RobustFile.Move(backupPath, LdmlFilePath);
+								Writer.UseBackupResource(this, ProjectResource.Ldml);
 								attemptToUseBackup = false;
 							}
 							catch (Exception exRestoreBackup)
 							{
-								NonFatalErrorHandler.LogAndHandleException(exRestoreBackup, "Failed to rename LDML backup", new Dictionary<string, string>
+								NonFatalErrorHandler.LogAndHandleException(exRestoreBackup, "Failed to replace LDML with backup.", new Dictionary<string, string>
 								{
-									{"LdmlFilePath", LdmlFilePath},
+									{"Project", ToString()},
 								});
 							}
 						}
-						if (!RobustFile.Exists(LdmlFilePath))
+						if (!Reader.ResourceExists(this, ProjectResource.Ldml))
 							break;
 					}
 					try
 					{
-						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
-						return m_wsDefinition;
+						return LoadWritingSystemFromLdml(m_wsDefinition);
 					}
 					catch (XmlException e)
 					{
-						switch (GetBadLdmlFileRecoveryAction?.Invoke(this, LdmlFilePath, e.Message, attemptToUseBackup))
+						switch (GetBadLdmlFileRecoveryAction?.Invoke(this, e.Message, attemptToUseBackup))
 						{
 							case BadLdmlFileRecoveryAction.Retry:
 								if (attemptToUseBackup)
 								{
 									try
 									{
-										string corruptedLdmlFilePath =
-											Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "corrupted");
-										RobustFile.Delete(corruptedLdmlFilePath);
-										RobustFile.Move(LdmlFilePath, corruptedLdmlFilePath);
-										RobustFile.Move(backupPath, LdmlFilePath);
+										Writer.UseBackupResource(this, ProjectResource.Ldml);
 									}
 									catch (Exception exReplaceCorruptedLdmlWithBackup)
 									{
@@ -1902,35 +1910,53 @@ namespace GlyssenEngine
 			}
 		}
 
+		private WritingSystemDefinition LoadWritingSystemFromLdml(WritingSystemDefinition wsDefinition)
+		{
+			using (var ldmlReader = Reader.Load(this, ProjectResource.Ldml))
+			{
+				var xmlReader = XmlReader.Create(ldmlReader);
+				new LdmlDataMapper(new WritingSystemFactory()).Read(xmlReader, wsDefinition);
+				return wsDefinition;
+			}
+		}
+
 		private void SaveWritingSystem()
 		{
-			string backupPath = null;
+			bool backupCreated = false;
+
 			try
 			{
-				if (RobustFile.Exists(LdmlFilePath))
-				{
-					backupPath = LdmlBackupFilePath;
-					if (RobustFile.Exists(backupPath))
-						RobustFile.Delete(backupPath);
-					RobustFile.Move(LdmlFilePath, backupPath);
-				}
+				backupCreated = Writer.SaveBackupResource(this, ProjectResource.Ldml);
 			}
 			catch (Exception exMakeBackup)
 			{
 				// Oh, well. Hope for the best...
-				NonFatalErrorHandler.LogAndHandleException(exMakeBackup, "Failed to create LDML backup",
-					new Dictionary<string, string>
-					{
-						{"LdmlFilePath", LdmlFilePath},
-					});
-				backupPath = null;
+				NonFatalErrorHandler.LogAndHandleException(exMakeBackup, "Failed to create LDML backup", new Dictionary<string, string>
+				{
+					{"Project", ToString()},
+				});
 			}
 
 			try
 			{
-				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
+				using (var ldmlWriter = Writer.GetTextWriter(this, ProjectResource.Ldml))
+				{
+					using (var xmlWriter = XmlWriter.Create(ldmlWriter, new XmlWriterSettings
+					{
+						Indent = true,
+						IndentChars = "\t",
+						CheckCharacters = true,
+						OmitXmlDeclaration = false
+					}))
+					{
+						new LdmlDataMapper(new WritingSystemFactory()).Write(xmlWriter, WritingSystem, null);
+						xmlWriter.Flush();
+						xmlWriter.Close();
+					}
+				}
+
 				// Now test to see if what we wrote is actually readable...
-				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
+				LoadWritingSystemFromLdml(new WritingSystemDefinition());
 			}
 			catch (FileLoadException)
 			{
@@ -1938,20 +1964,18 @@ namespace GlyssenEngine
 			}
 			catch (Exception exSave)
 			{
-				NonFatalErrorHandler.LogAndHandleException(exSave, "Writing System Save Failure",
-					new Dictionary<string, string>
-					{
-						{"CurrentProjectPath", ProjectFilePath},
-					});
-				if (backupPath != null)
+				NonFatalErrorHandler.LogAndHandleException(exSave, "Writing System Save Failure", new Dictionary<string, string>
+				{
+					{"Project", ToString()},
+				});
+				if (backupCreated)
 				{
 					// If we ended up with an unreadable file, revert to backup???
 					try
 					{
+						Writer.UseBackupResource(this, ProjectResource.Ldml);
 						var wsFromBackup = new WritingSystemDefinition();
-						RobustFile.Delete(LdmlFilePath);
-						RobustFile.Move(backupPath, LdmlFilePath);
-						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, wsFromBackup);
+						LoadWritingSystemFromLdml(wsFromBackup);
 						if (!wsFromBackup.QuotationMarks.SequenceEqual(WritingSystem.QuotationMarks) ||
 							wsFromBackup.DefaultFont.Name != WritingSystem.DefaultFont.Name ||
 							wsFromBackup.RightToLeftScript != WritingSystem.RightToLeftScript)
@@ -1965,11 +1989,10 @@ namespace GlyssenEngine
 					}
 					catch (Exception exRecover)
 					{
-						NonFatalErrorHandler.LogAndHandleException(exRecover,
-							"Recovery from backup Writing System File Failed.", new Dictionary<string, string>
-							{
-								{"CurrentProjectPath", ProjectFilePath},
-							});
+						NonFatalErrorHandler.LogAndHandleException(exRecover, "Recovery from backup Writing System Failed.", new Dictionary<string, string>
+						{
+							{"Project", ToString()},
+						});
 						throw exSave;
 					}
 				}
