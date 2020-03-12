@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
+using GlyssenSharedTests;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
@@ -4165,26 +4165,6 @@ namespace GlyssenEngineTests
 
 	public class TestReferenceText : ReferenceText
 	{
-		[SuppressMessage("ReSharper", "InconsistentNaming")]
-		public enum TestReferenceTextResource
-		{
-			EnglishJUD,
-			AzeriJUD,
-			AzeriREV,
-			FrenchMAT,
-			FrenchMRK,
-			SpanishMAT,
-		}
-
-		private class BookStub : IScrBook
-		{
-			public string BookId { get; set; }
-			public string GetVerseText(int chapter, int verse)
-			{
-				throw new NotImplementedException();
-			}
-		}
-
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
 			: base(metadata, ReferenceTextType.Custom)
 		{
@@ -4222,102 +4202,21 @@ namespace GlyssenEngineTests
 			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
 		}
 
-		private static bool IsProprietaryReferenceTextLocationOveridden =>
-			(ReferenceTextProxy.Reader is TestFilePersistenceImplementation testImpl) &&
-			testImpl.IsProprietaryReferenceTextLocationOveridden;
-
 		public static void DeleteTempCustomReferenceProjectFolder()
 		{
-			if (ReferenceTextProxy.Reader is TestFilePersistenceImplementation testImpl)
-				testImpl.CleanTempFiles();
-
-			// REVIEW: Do we want to set this to null or like this: (Or maybe to an in-memory implementation?)
-			ReferenceTextProxy.Reader = new PersistenceImplementation();
+			ReferenceTextProxy.Reader = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.DeleteTempCustomReferenceProjectFolder();
 		}
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
-			if (IsProprietaryReferenceTextLocationOveridden)
-				return;
-			var tempFolder = Path.GetTempFileName();
-			File.Delete(tempFolder);
-			Directory.CreateDirectory(tempFolder);
-			ReferenceTextProxy.Reader = new TestFilePersistenceImplementation(tempFolder);
+			ReferenceTextProxy.Reader = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
 		{
 			OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-
-			string customLanguageId = null;
-
-			foreach (var testBook in booksToInclude)
-				AddBook(testBook, ref customLanguageId);
-
+			var customLanguageId = ReferenceTextTestUtils.CreateCustomReferenceText((IProjectPersistenceWriter)ReferenceTextProxy.Reader, booksToInclude);
 			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customLanguageId));
-		}
-
-		private static void AddBook(TestReferenceTextResource testResource, ref string customLanguageId)
-		{
-			string language;
-			string bookId;
-			string fileContents;
-			switch (testResource)
-			{
-				case TestReferenceTextResource.EnglishJUD:
-					language = "English";
-					bookId = "JUD";
-					fileContents = Resources.TestReferenceTextJUD;
-					break;
-				case TestReferenceTextResource.AzeriJUD:
-					language = "Azeri";
-					bookId = "JUD";
-					fileContents = Resources.AzeriJUDRefText;
-					break;
-				case TestReferenceTextResource.AzeriREV:
-					language = "Azeri";
-					bookId = "REV";
-					fileContents = Resources.AzeriREVRefText;
-					break;
-				case TestReferenceTextResource.FrenchMAT:
-					language = "French";
-					bookId = "MAT";
-					fileContents = Resources.FrenchMATRefText;
-					break;
-				case TestReferenceTextResource.FrenchMRK:
-					language = "French";
-					bookId = "MRK";
-					fileContents = Resources.FrenchMRKRefText;
-					break;
-				case TestReferenceTextResource.SpanishMAT:
-					language = "Spanish";
-					bookId = "MAT";
-					fileContents = Resources.SpanishMATRefText;
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(testResource), testResource, null);
-			}
-			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
-			var customReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, language);
-			if (customLanguageId == null)
-			{
-				customLanguageId = language;
-				persistenceImpl.SetUpProjectPersistence(customReferenceTextId);
-				using (var metadataWriter = persistenceImpl.GetTextWriter(customReferenceTextId, ProjectResource.Metadata))
-					metadataWriter.Write((byte[])Resources.ResourceManager.GetObject(language.ToLowerInvariant()));
-				using (var versificationWriter = persistenceImpl.GetTextWriter(customReferenceTextId, ProjectResource.Versification))
-					versificationWriter.Write(Resources.EnglishVersification);
-			}
-			else if (customLanguageId != language)
-			{
-				throw new ArgumentException("Attempt to combine resources for different languages into a single reference text.",
-					nameof(testResource));
-			}
-			
-			using (var bookWriter = persistenceImpl.GetTextWriter(customReferenceTextId, new BookStub { BookId = bookId }))
-			{
-				bookWriter.Write(fileContents);
-			}
 		}
 	}
 }

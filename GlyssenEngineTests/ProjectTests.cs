@@ -13,6 +13,7 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Bundle;
+using GlyssenFileBasedPersistence;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.DblBundle.Text;
@@ -33,7 +34,7 @@ namespace GlyssenEngineTests
 		private GlyssenBundle GetGlyssenBundleToBeUsedForProject(bool includeLdml = true)
 		{
 			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(includeLdml);
-			m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, bundle.Metadata.Id));
+			m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, bundle.Metadata.Id));
 			return bundle;
 		}
 
@@ -53,9 +54,9 @@ namespace GlyssenEngineTests
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
 
 			// Clean up anything from previously aborted tests
-			if (Directory.Exists(GlyssenInfo.BaseDataFolder))
+			if (Directory.Exists(ProjectRepository.ProjectsBaseFolder))
 			{
-				foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
+				foreach (var directory in Directory.GetDirectories(ProjectRepository.ProjectsBaseFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
 					RobustIO.DeleteDirectoryAndContents(directory);
 			}
 		}
@@ -253,7 +254,7 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var project = new Project(originalBundle);
 
@@ -292,7 +293,7 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -352,7 +353,7 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -409,7 +410,7 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -465,7 +466,7 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -861,7 +862,7 @@ namespace GlyssenEngineTests
 				bundle.Metadata.Language.Iso = "ach";
 				bundle.Metadata.Language.Name = "Acholi"; // see messages in Assert.AreEqual lines below
 				var project = new Project(bundle);
-				m_tempProjectFolders.Add(Path.GetDirectoryName(Path.GetDirectoryName(project.ProjectFilePath)));
+				m_tempProjectFolders.Add(Path.GetDirectoryName(ProjectRepository.GetProjectFolderPath(project)));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
@@ -953,7 +954,7 @@ namespace GlyssenEngineTests
 				bundle.Metadata.Language.Iso = "ach-CM";
 				bundle.Metadata.Language.Ldml = "ach%CM***-blah___ickypoo!";
 				var project = new Project(bundle);
-				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, bundle.Metadata.Language.Ldml));
+				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, bundle.Metadata.Language.Ldml));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
@@ -1034,7 +1035,7 @@ namespace GlyssenEngineTests
 			}
 			finally
 			{
-				var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, "~~funkyFrogLipsAndStuff");
+				var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, "~~funkyFrogLipsAndStuff");
 				if (Directory.Exists(testProjFolder))
 					RobustIO.DeleteDirectoryAndContents(testProjFolder);
 			}

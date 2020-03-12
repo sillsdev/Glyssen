@@ -49,7 +49,7 @@ namespace GlyssenEngineTests
 			var customEnglish = referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "English");
 			Assert.AreEqual(ReferenceTextType.Custom, customEnglish.Type);
 			Assert.AreEqual("English", customEnglish.CustomIdentifier);
-			var folder = customEnglish.ProjectFolder;
+			var folder = GlyssenFileBasedPersistence.ProjectRepository.GetProjectFolderPath(customEnglish.ProjectFolder);
 			Assert.IsTrue(folder.EndsWith(Path.DirectorySeparatorChar + "English"));
 			folder = Path.GetDirectoryName(folder);
 

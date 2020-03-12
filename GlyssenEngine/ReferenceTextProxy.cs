@@ -128,12 +128,12 @@ namespace GlyssenEngine
 					additionalErrors.Add(token);
 			};
 
-			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => t.IsStandard() &&
+			foreach (var stdReferenceTextType in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => t.IsStandard() &&
 				!s_allAvailable.Any(i => i.Type == t)).ToList())
 			{
-				var metadata = LoadMetadata(itm, errorReporter);
+				var metadata = LoadMetadata(stdReferenceTextType, errorReporter);
 				if (metadata != null)
-					s_allAvailable.Add(new ReferenceTextProxy(itm, metadata));
+					s_allAvailable.Add(new ReferenceTextProxy(stdReferenceTextType, metadata));
 			}
 
 			if (ErrorReporterForCopyrightedReferenceTexts == null)

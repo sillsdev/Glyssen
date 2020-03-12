@@ -10,6 +10,7 @@ using Glyssen.RefTextDevUtilities;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
+using GlyssenFileBasedPersistence;
 using SIL.DblBundle.Text;
 using SIL.Xml;
 
@@ -169,7 +170,7 @@ namespace Glyssen.ReferenceTextUtility
 					// Generate a new metadata file with the above info
 					var languageName = (string)newRefTextRow.Cells[colName.Index].Value;
 					var folder = Data.GetLanguageInfo(languageName).OutputFolder;
-					var projectPath = Path.Combine(folder, languageName + Constants.kProjectFileExtension);
+					var projectPath = Path.Combine(folder, languageName + ProjectRepository.kProjectFileExtension);
 					if (File.Exists(projectPath))
 						HandleMessageRaised($"File {projectPath} already exists! Skipping. Please verify contents.", true);
 					else
@@ -182,7 +183,7 @@ namespace Glyssen.ReferenceTextUtility
 							Iso = newRefTextRow.Cells[colIsoCode.Index].Value as string
 						};
 						metadata.AvailableBooks = new List<Book>();
-						ProjectUtilities.ForEachBookFileInProject(folder,
+						PersistenceImplementation.ForEachBookFileInProject(folder,
 							(bookId, fileName) => metadata.AvailableBooks.Add(new Book { Code = bookId, IncludeInScript = true}));
 						metadata.LastModified = DateTime.Now;
 
@@ -328,7 +329,7 @@ namespace Glyssen.ReferenceTextUtility
 				if (isFactoryRefText && m_distFilesDir != null)
 					defaultCreateDestination = Path.Combine(m_distFilesDir, languageInfo.Name);
 				else
-					defaultCreateDestination = Path.Combine(GlyssenInfo.BaseDataFolder, Constants.kLocalReferenceTextDirectoryName, languageInfo.Name);
+					defaultCreateDestination = Path.Combine(ProjectRepository.ProjectsBaseFolder, PersistenceImplementation.kLocalReferenceTextDirectoryName, languageInfo.Name);
 				switch ((string)m_dataGridRefTexts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value)
 				{
 					case "Create in Temp Folder":

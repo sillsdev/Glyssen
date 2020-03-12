@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngineTests", "Glyss
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenFileBasedPersistence", "GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj", "{6664B511-EC4E-47EF-B073-B31AB9C947D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenFileBasedPersistenceTests", "GlyssenFileBasedPersistenceTests\GlyssenFileBasedPersistenceTests.csproj", "{103D9FD4-4CD1-4FA1-850D-FB765223509C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,14 @@ Global
 		{6664B511-EC4E-47EF-B073-B31AB9C947D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6664B511-EC4E-47EF-B073-B31AB9C947D4}.Release|x64.ActiveCfg = Release|Any CPU
 		{6664B511-EC4E-47EF-B073-B31AB9C947D4}.Release|x64.Build.0 = Release|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Debug|x64.Build.0 = Debug|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Release|x64.ActiveCfg = Release|Any CPU
+		{103D9FD4-4CD1-4FA1-850D-FB765223509C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

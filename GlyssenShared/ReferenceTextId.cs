@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics;
-using Glyssen.Shared;
 
-namespace GlyssenEngine
+namespace Glyssen.Shared
 {
-	class ReferenceTextId : IReferenceTextProject
+	public class ReferenceTextId : IReferenceTextProject
 	{
 		public ReferenceTextId(ReferenceTextType type, string name = null)
 		{

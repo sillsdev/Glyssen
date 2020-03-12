@@ -130,7 +130,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BlockElementTests.cs" />
+    <Compile Include="BookStub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceTextTestUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
@@ -141,6 +148,35 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AzeriJUDRefText.xml" />
+    <Content Include="Resources\azeri_metadata.txt" />
+    <Content Include="Resources\EnglishVersification.txt" />
+    <Content Include="Resources\english_metadata.txt" />
+    <Content Include="Resources\french_metadata.txt" />
+    <Content Include="Resources\spanish_metadata.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\TestReferenceTextJUD.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AzeriREVRefText.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FrenchMATRefText.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FrenchMRKRefText.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SpanishMATRefText.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
