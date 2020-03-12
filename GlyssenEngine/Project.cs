@@ -74,8 +74,8 @@ namespace GlyssenEngine
 		public event EventHandler CharacterStatisticsCleared;
 		public static EventHandler UpgradingProjectToNewParserVersion;
 
-		public delegate BadLdmlFileRecoveryAction BadLdmlFileHandler(Project sender, string error, bool attemptToUseBackup);
-		public static BadLdmlFileHandler GetBadLdmlFileRecoveryAction;
+		public delegate BadLdmlRecoveryAction BadLdmlHandler(Project sender, string error, bool attemptToUseBackup);
+		public static BadLdmlHandler GetBadLdmlRecoveryAction;
 
 		public static IFontRepository FontRepository { get; set; }
 		public static IProjectPersistenceWriter Writer { get; set; }
@@ -109,7 +109,7 @@ namespace GlyssenEngine
 					}
 					catch (ProjectNotFoundException e)
 					{
-						Logger.WriteError("Paratext project not found. Falling back to get usable versification file.", e);
+						Logger.WriteError("Paratext project not found. Falling back to get usable versification.", e);
 						versification = LoadVersification(true);
 						if (versification == null)
 						{
@@ -999,7 +999,7 @@ namespace GlyssenEngine
 			// 1) Exactly the same books are available and passing checks (or were previously added by overriding the
 			//    check status). This is the happy path!
 			// 2) Some of the "Available", but not "Included" books in the existing project are no longer available.
-			//    => We can just remove them from the list of available books and delete the corresponding file (if any)
+			//    => We can just remove them from the list of available books and delete the corresponding data (if any)
 			//       stored in the project.
 			// 3) Some of the "Included" books in the existing project are no longer available.
 			//    => If we're interacting with the user, we can ask them whether to proceed and remove the deleted books.
@@ -1607,7 +1607,7 @@ namespace GlyssenEngine
 
 			Writer.SetUpProjectPersistence(this);
 
-			SaveProjectFile(out var error);
+			SaveProjectMetadata(out var error);
 			if (error != null)
 			{
 				MessageModal.Show(error.Message, true);
@@ -1626,7 +1626,7 @@ namespace GlyssenEngine
 				: ProjectState.FullyInitialized;
 		}
 
-		private void SaveProjectFile(out Exception error)
+		private void SaveProjectMetadata(out Exception error)
 		{
 			m_metadata.LastModified = DateTime.Now;
 			Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
@@ -1841,9 +1841,9 @@ namespace GlyssenEngine
 					}
 					catch (XmlException e)
 					{
-						switch (GetBadLdmlFileRecoveryAction?.Invoke(this, e.Message, attemptToUseBackup))
+						switch (GetBadLdmlRecoveryAction?.Invoke(this, e.Message, attemptToUseBackup))
 						{
-							case BadLdmlFileRecoveryAction.Retry:
+							case BadLdmlRecoveryAction.Retry:
 								if (attemptToUseBackup)
 								{
 									try
@@ -1859,7 +1859,7 @@ namespace GlyssenEngine
 								}
 								retry = true;
 								break;
-							case BadLdmlFileRecoveryAction.Repair:
+							case BadLdmlRecoveryAction.Repair:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
 								retry = false;
 								break;
@@ -1970,7 +1970,7 @@ namespace GlyssenEngine
 				});
 				if (backupCreated)
 				{
-					// If we ended up with an unreadable file, revert to backup???
+					// If we ended up with unreadable data, revert to backup???
 					try
 					{
 						Writer.UseBackupResource(this, ProjectResource.Ldml);
@@ -2233,7 +2233,7 @@ namespace GlyssenEngine
 					if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
 					{
 						// I'm adding the final part of this check for sanity's sake. I've never seen data come in like this, but if
-						// we ever were to process an LDML file that had already been "hacked" by Glyssen, we wouldn't want to add the
+						// we ever were to process LDML data that had already been "hacked" by Glyssen, we wouldn't want to add the
 						// preceding level's continuer again.
 						if (!IsNullOrWhiteSpace(oneLevelUp?.Continue) &&
 							(level.Continue == oneLevelUp.Continue || !level.Continue.StartsWith(oneLevelUp.Continue)))
@@ -2254,7 +2254,7 @@ namespace GlyssenEngine
 		internal void SetWsQuotationMarksUsingFullySpecifiedContinuers(IEnumerable<QuotationMark> quotationMarks)
 		{
 			// The Paratext UI and check only support QuotationParagraphContinueType All or None (implicitly, if all levels are
-			// set to *none*). But the LDML specification allows all 4 options. Depending on the origin of the LDML file, this
+			// set to *none*). But the LDML specification allows all 4 options. Depending on the origin of the LDML data, this
 			// attribute may or may not be set. If not, the default is None, but if any levels have continuers specified, we
 			// interpret this as All (since None doesn't make sense in this case).
 			if (quotationMarks == null ||

@@ -161,7 +161,7 @@ namespace Glyssen
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 					GlyssenInfo.Company, kOldProductName);
-				var baseDataFolder = GlyssenInfo.BaseDataFolder;
+				var baseDataFolder = ProjectRepository.ProjectsBaseFolder;
 				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
 					Directory.Move(oldPgBaseFolder, baseDataFolder);
 
@@ -267,7 +267,7 @@ namespace Glyssen
 
 				try
 				{
-					Application.Run(persistenceImpl, new MainForm(args));
+					Application.Run(new MainForm(persistenceImpl, args));
 				}
 				finally
 				{

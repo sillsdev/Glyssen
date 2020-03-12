@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenEngine;
+using GlyssenEngine.Bundle;
+using GlyssenEngine.Utilities;
 using SIL.DblBundle;
 using SIL.IO;
 using static System.IO.Path;
@@ -41,6 +44,8 @@ namespace GlyssenFileBasedPersistence
 		public static string ProjectsBaseFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 			GlyssenInfo.Company, GlyssenInfo.Product);
 
+		public static string GetRecordingProjectNameFromProjectFilePath(string path) => path.GetContainingFolderName();
+
 		public static string DefaultShareFolder => Combine(ProjectsBaseFolder, "share");
 
 		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
@@ -64,6 +69,18 @@ namespace GlyssenFileBasedPersistence
 			var val = GetFileNameWithoutExtension(projectFilePath);
 			Debug.Assert(val != null);
 			return val;
+		}
+
+		public static Project LoadProject(string projectFilePath)
+		{
+			if (FileHelper.IsLocked(projectFilePath))
+				throw new IOException("The project file is not writable.");
+
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
+			if (exception != null)
+				throw exception;
+
+			return new Project(metadata, ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
 		}
 	}
 }

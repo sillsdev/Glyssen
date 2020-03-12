@@ -21,7 +21,7 @@ namespace GlyssenFileBasedPersistence
 	{
 		private static bool s_alreadyCalled = false;
 		private const string kOldProjectExtension = ".pgproj";
-		public static Tuple<int, int> UpgradeToCurrentDataFormatVersion(Func<IProject, bool> handleMissingBundleNeededForUpgrade,
+		public static Tuple<int, int> UpgradeToCurrentDataFormatVersion(Func<Project, bool> handleMissingBundleNeededForUpgrade,
 			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (s_alreadyCalled)
@@ -40,7 +40,7 @@ namespace GlyssenFileBasedPersistence
 		}
 
 		// internal for testing
-		internal static bool UpgradeToCurrentDataFormatVersion(IDataVersionInfo info, Func<IProject, bool> handleMissingBundleNeededForUpgrade,
+		internal static bool UpgradeToCurrentDataFormatVersion(IDataVersionInfo info, Func<Project, bool> handleMissingBundleNeededForUpgrade,
 			Action<string, string> handleProjectPathChanged, Func<IReadOnlyList<Tuple<string, string>>, bool> confirmSafeAudioAudioReplacements)
 		{
 			if (info.DataVersion >= ApplicationMetadata.kDataFormatVersion)
@@ -107,10 +107,13 @@ namespace GlyssenFileBasedPersistence
 
 									var bundle = new GlyssenBundle(origBundlePath);
 									var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
-									bundle.CopyVersificationFile(versificationPath);
 									try
 									{
-										ProjectBase.LoadVersification(versificationPath);
+										using (var versificationReader = bundle.GetVersification())
+										{
+											Versification.Table.Implementation.Load(versificationReader,
+												origBundlePath, ProjectBase.DefaultCustomVersificationName);
+										}
 									}
 									catch (InvalidVersificationLineException ex)
 									{
@@ -133,7 +136,7 @@ namespace GlyssenFileBasedPersistence
 				case 2:
 					foreach (var pgProjFile in ProjectRepository.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
 					{
-						var newName = Path.ChangeExtension(pgProjFile, PersistenceImplementation.kProjectFileExtension);
+						var newName = Path.ChangeExtension(pgProjFile, ProjectRepository.kProjectFileExtension);
 						File.Move(pgProjFile, newName);
 						handleProjectPathChanged(pgProjFile, newName);
 					}
@@ -141,7 +144,7 @@ namespace GlyssenFileBasedPersistence
 				case 3:
 					try
 					{
-						RobustIO.DeleteDirectory(Path.GetDirectoryName(SampleProject.SampleProjectFilePath) + " Audio", true);
+						RobustIO.DeleteDirectory(Path.GetDirectoryName(ProjectRepository.GetProjectFolderPath(SampleProject.Stub)) + " Audio", true);
 					}
 					catch (IOException e)
 					{
@@ -168,7 +171,7 @@ namespace GlyssenFileBasedPersistence
 						var correctProjectFolder = Path.Combine(baseFolder, correctProjectName);
 						if (Directory.Exists(correctProjectFolder))
 						{
-							var glyssenProjFilename = langCode + PersistenceImplementation.kProjectFileExtension;
+							var glyssenProjFilename = langCode + ProjectRepository.kProjectFileExtension;
 							var incorrectProjectFilePath = Path.Combine(folder, glyssenProjFilename);
 							var correctProjectFilePath = Path.Combine(correctProjectFolder, glyssenProjFilename);
 							var finfoIncorrectProject = new FileInfo(incorrectProjectFilePath);
@@ -194,7 +197,7 @@ namespace GlyssenFileBasedPersistence
 									try
 									{
 										// This bug/fix predates "live" Paratext projects, so there is definitely no need for a Paratext loading assistant.
-										var projToBackUp = Project.Load(correctProjectFilePath, handleMissingBundleNeededForUpgrade, null);
+										var projToBackUp = Project.Load(ProjectRepository.LoadProject(correctProjectFilePath), handleMissingBundleNeededForUpgrade, null);
 										projToBackUp.CreateBackup("Overwritten by migration 3-4");
 									}
 									catch (Exception e)

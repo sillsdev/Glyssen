@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using GlyssenEngine.Casting;
 using NUnit.Framework;
-using SIL.IO;
 using SIL.TestUtilities;
 
 namespace GlyssenEngineTests.Casting

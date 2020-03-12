@@ -8,7 +8,6 @@ using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Paratext;
-using GlyssenEngine.Utilities;
 using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.TMXUtils;
@@ -89,7 +88,7 @@ namespace Glyssen.Controls
 
 		protected override string GetRecordingProjectName(Tuple<string, IProjectInfo> project)
 		{
-			var recordingProjName = project.Item1.GetContainingFolderName();
+			var recordingProjName = ProjectRepository.GetRecordingProjectNameFromProjectFilePath(project.Item1);
 			if (!IsNullOrEmpty(recordingProjName))
 				return recordingProjName;
 			if (!m_unstartedParatextProjectStates.ContainsKey(project.Item1))

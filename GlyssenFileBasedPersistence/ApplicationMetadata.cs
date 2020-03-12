@@ -2,7 +2,6 @@
 using System.IO;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using Glyssen.Shared;
 using SIL.Xml;
 
 namespace GlyssenFileBasedPersistence
@@ -32,14 +31,14 @@ namespace GlyssenFileBasedPersistence
 			if (!File.Exists(FilePath))
 			{
 				metadata = new ApplicationMetadata();
-				if (!Directory.Exists(GlyssenInfo.BaseDataFolder))
+				if (!Directory.Exists(ProjectRepository.ProjectsBaseFolder))
 				{
 					// In production, Installer is responsible for creating the base data folder.
 					// The version number will be initially set to 0, but since there won't be any
 					// projects to migrate, the migrator won't do anything but set the version number.
 					// However, on a developer machine (or in the event that a user has blown away or
 					// renamed the folder), we need to force its creation now.
-					Directory.CreateDirectory(GlyssenInfo.BaseDataFolder);
+					Directory.CreateDirectory(ProjectRepository.ProjectsBaseFolder);
 					metadata.DataVersion = kDataFormatVersion;
 					metadata.Save();
 				}
@@ -54,6 +53,6 @@ namespace GlyssenFileBasedPersistence
 			XmlSerializationHelper.SerializeToFile(FilePath, this);
 		}
 
-		private static string FilePath => Path.Combine(GlyssenInfo.BaseDataFolder, kFilename);
+		private static string FilePath => Path.Combine(ProjectRepository.ProjectsBaseFolder, kFilename);
 	}
 }

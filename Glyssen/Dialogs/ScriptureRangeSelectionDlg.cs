@@ -432,7 +432,7 @@ namespace Glyssen.Dialogs
 			if (book.IncludeInScript)
 				return true; // Always valid to exclude
 			var bookCode = book.Code;
-			if (m_project.DoesBookScriptFileExist(bookCode))
+			if (ProjectBase.Reader.BookResourceExists(m_project, bookCode))
 				return true; // Might try to get an updated version later but this one is valid.
 
 			if (!GetParatextScrTextWrapperIfNeeded())

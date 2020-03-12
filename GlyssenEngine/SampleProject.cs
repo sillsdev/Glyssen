@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Xml;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;

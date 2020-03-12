@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenEngine", "GlyssenEng
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenEngineTests", "GlyssenEngineTests\GlyssenEngineTests.csproj", "{AA6A1CFD-60A1-4F19-B88E-CA7758E2B4DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenFileBasedPersistence", "GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj", "{6664B511-EC4E-47EF-B073-B31AB9C947D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenFileBasedPersistence", "GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj", "{6664B511-EC4E-47EF-B073-B31AB9C947D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

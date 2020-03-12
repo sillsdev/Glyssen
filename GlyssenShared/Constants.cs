@@ -5,6 +5,9 @@
 	/// </summary>
 	public static class Constants
 	{
+		public const string kGlyssenScriptFileExtension = ".glyssenscript";
+		public const string kGlyssenPackFileExtension = ".glyssenpack";
+
 		public const string kExcelFileExtension = ".xlsx";
 
 		public const string kHearThisProductName = "HearThis";

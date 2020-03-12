@@ -4248,52 +4248,49 @@ namespace GlyssenEngineTests
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
 		{
 			OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			//var sampleMetadata = new GlyssenDblTextMetadata();
-			//sampleMetadata.AvailableBooks = new List<Book>();
-			//var books = new List<UsxDocument>();
 
-			string customFolderId = null;
+			string customLanguageId = null;
 
 			foreach (var testBook in booksToInclude)
-				AddBook(testBook, ref customFolderId);
+				AddBook(testBook, ref customLanguageId);
 
-			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customFolderId));
+			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customLanguageId));
 		}
 
-		private static void AddBook(TestReferenceTextResource testResource, ref string customFolderId)
+		private static void AddBook(TestReferenceTextResource testResource, ref string customLanguageId)
 		{
-			string folder;
+			string language;
 			string bookId;
 			string fileContents;
 			switch (testResource)
 			{
 				case TestReferenceTextResource.EnglishJUD:
-					folder = "English";
+					language = "English";
 					bookId = "JUD";
 					fileContents = Resources.TestReferenceTextJUD;
 					break;
 				case TestReferenceTextResource.AzeriJUD:
-					folder = "Azeri";
+					language = "Azeri";
 					bookId = "JUD";
 					fileContents = Resources.AzeriJUDRefText;
 					break;
 				case TestReferenceTextResource.AzeriREV:
-					folder = "Azeri";
+					language = "Azeri";
 					bookId = "REV";
 					fileContents = Resources.AzeriREVRefText;
 					break;
 				case TestReferenceTextResource.FrenchMAT:
-					folder = "French";
+					language = "French";
 					bookId = "MAT";
 					fileContents = Resources.FrenchMATRefText;
 					break;
 				case TestReferenceTextResource.FrenchMRK:
-					folder = "French";
+					language = "French";
 					bookId = "MRK";
 					fileContents = Resources.FrenchMRKRefText;
 					break;
 				case TestReferenceTextResource.SpanishMAT:
-					folder = "Spanish";
+					language = "Spanish";
 					bookId = "MAT";
 					fileContents = Resources.SpanishMATRefText;
 					break;
@@ -4301,17 +4298,17 @@ namespace GlyssenEngineTests
 					throw new ArgumentOutOfRangeException(nameof(testResource), testResource, null);
 			}
 			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
-			var customReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, folder);
-			if (customFolderId == null)
+			var customReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, language);
+			if (customLanguageId == null)
 			{
-				customFolderId = folder;
+				customLanguageId = language;
 				persistenceImpl.SetUpProjectPersistence(customReferenceTextId);
 				using (var metadataWriter = persistenceImpl.GetTextWriter(customReferenceTextId, ProjectResource.Metadata))
-					metadataWriter.Write((byte[])Resources.ResourceManager.GetObject(folder.ToLowerInvariant()));
+					metadataWriter.Write((byte[])Resources.ResourceManager.GetObject(language.ToLowerInvariant()));
 				using (var versificationWriter = persistenceImpl.GetTextWriter(customReferenceTextId, ProjectResource.Versification))
 					versificationWriter.Write(Resources.EnglishVersification);
 			}
-			else if (customFolderId != folder)
+			else if (customLanguageId != language)
 			{
 				throw new ArgumentException("Attempt to combine resources for different languages into a single reference text.",
 					nameof(testResource));

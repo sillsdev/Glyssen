@@ -49,14 +49,9 @@ namespace Glyssen.RefTextDevUtilities
 		public string Name { get;  }
 		public string OutputFolder { get; set; }
 
-		public ReferenceTextLanguageInfo(string name, string outputFolder = null)
+		public ReferenceTextLanguageInfo(string name)
 		{
 			Name = name;
-			if (outputFolder == null)
-			{
-
-			}
-			OutputFolder = outputFolder;
 		}
 
 		public bool IsEnglish => Name == ReferenceTextType.English.ToString();

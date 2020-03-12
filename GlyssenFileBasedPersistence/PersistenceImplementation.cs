@@ -25,12 +25,10 @@ namespace GlyssenFileBasedPersistence
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 
 		// Virtual to allow test implementation to override
-		public virtual string ProprietaryReferenceTextProjectFileLocation =>
+		protected virtual string ProprietaryReferenceTextProjectFileLocation =>
 			Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName);
 
 		private const int kMaxPath = 260;
-		public const string kGlyssenScriptFileExtension = ".glyssenscript";
-		public const string kGlyssenPackFileExtension = ".glyssenpack";
 		public const string kBookScriptFileExtension = ".xml";
 		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";

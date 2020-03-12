@@ -14,6 +14,9 @@ namespace GlyssenEngine
 	{
 		public static IProjectPersistenceReader Reader { get; set; }
 
+		public static string DefaultCustomVersificationName => Localizer.GetString("Project.DefaultCustomVersificationName",
+			"custom", "Used as the versification name when the versification file does not contain a name.");
+
 		public ScrVers LoadVersification(bool useFallback = false)
 		{
 			var versificationResource = useFallback ? ProjectResource.FallbackVersification : ProjectResource.Versification;
@@ -22,9 +25,7 @@ namespace GlyssenEngine
 				if (versificationReader != null)
 				{
 					return SIL.Scripture.Versification.Table.Implementation.Load(versificationReader,
-						versificationResource.ToString(),
-						Localizer.GetString("Project.DefaultCustomVersificationName",
-						"custom", "Used as the versification name when the versification file does not contain a name."));
+						versificationResource.ToString(), DefaultCustomVersificationName);
 				}
 			}
 			return null;

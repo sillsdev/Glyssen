@@ -68,7 +68,7 @@ namespace Glyssen
 			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
-			Project.GetBadLdmlFileRecoveryAction += GetBadLdmlFileRecoveryAction;
+			Project.GetBadLdmlRecoveryAction += GetBadLdmlFileRecoveryAction;
 
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
@@ -88,7 +88,7 @@ namespace Glyssen
 			}
 		}
 
-		private BadLdmlFileRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string error, bool attemptToUseBackup)
+		private BadLdmlRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string error, bool attemptToUseBackup)
 		{
 			var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
 					"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
@@ -114,9 +114,9 @@ namespace Glyssen
 
 			switch (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
 			{
-				default: return BadLdmlFileRecoveryAction.Repair;
-				case DialogResult.Retry: return BadLdmlFileRecoveryAction.Retry;
-				case DialogResult.Abort: return BadLdmlFileRecoveryAction.Abort;
+				default: return BadLdmlRecoveryAction.Repair;
+				case DialogResult.Retry: return BadLdmlRecoveryAction.Retry;
+				case DialogResult.Abort: return BadLdmlRecoveryAction.Abort;
 			}
 		}
 
@@ -359,7 +359,7 @@ namespace Glyssen
 
 		private void ShowOpenProjectDialog()
 		{
-			using (var dlg = new OpenProjectDlg(m_project))
+			using (var dlg = new OpenProjectDlg(ProjectRepository.GetProjectFilePath(m_project)))
 			{
 				var result = ShowModalDialogWithWaitCursor(dlg);
 				if (result != DialogResult.OK)
@@ -473,7 +473,7 @@ namespace Glyssen
 			Project project;
 			try
 			{
-				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+				project = new Project(metadata, ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
 			}
 			catch (ProjectNotFoundException e)
 			{
@@ -491,11 +491,6 @@ namespace Glyssen
 
 			project.ProjectIsWritable = isWritable;
 			return project;
-		}
-
-		private static string GetRecordingProjectNameFromProjectFilePath(string path)
-		{
-			return path.GetContainingFolderName();
 		}
 
 		public static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded", "The splitting engine has been upgraded.") + " ";
@@ -546,7 +541,7 @@ namespace Glyssen
 			else
 				projFilePath = PersistenceImplementation.GetDefaultProjectFilePath(bundle);
 
-			var recordingProjectName = projFilePath.GetContainingFolderName();
+			var recordingProjectName = ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projFilePath);
 			if (File.Exists(projFilePath))
 			{
 				if (GlyssenDblTextMetadata.GetRevisionOrChangesetId(projFilePath) == bundle.Metadata.RevisionOrChangesetId)

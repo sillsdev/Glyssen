@@ -13,7 +13,6 @@ using GlyssenEngine.Quote;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
-using SIL.Xml;
 using static System.Char;
 using static System.String;
 
