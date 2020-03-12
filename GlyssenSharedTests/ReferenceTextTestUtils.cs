@@ -88,5 +88,20 @@ namespace GlyssenSharedTests
 
 		public static string GetReferenceTextMetadata(string language) =>
 			Resources.ResourceManager.GetString(language.ToLowerInvariant() + "_metadata");
+
+		public static string GetBookContents(TestReferenceTextResource testResource)
+		{
+			switch (testResource)
+			{
+				case TestReferenceTextResource.EnglishJUD: return Resources.TestReferenceTextJUD;
+				case TestReferenceTextResource.AzeriJUD: return Resources.AzeriJUDRefText;
+				case TestReferenceTextResource.AzeriREV: return Resources.AzeriREVRefText;
+				case TestReferenceTextResource.FrenchMAT: return Resources.FrenchMATRefText;
+				case TestReferenceTextResource.FrenchMRK: return Resources.FrenchMRKRefText;
+				case TestReferenceTextResource.SpanishMAT: return Resources.SpanishMATRefText;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(testResource), testResource, null);
+			}
+		}
 	}
 }

@@ -4,7 +4,6 @@ using Glyssen.Shared;
 using GlyssenSharedTests;
 using GlyssenFileBasedPersistence;
 using NUnit.Framework;
-using SIL.IO;
 
 namespace GlyssenFileBasedPersistenceTests
 {

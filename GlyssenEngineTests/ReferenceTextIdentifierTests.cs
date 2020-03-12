@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
+using GlyssenSharedTests;
 using NUnit.Framework;
 
 namespace GlyssenEngineTests
@@ -26,7 +27,7 @@ namespace GlyssenEngineTests
 			{
 				var tempFolder = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
 				Assert.IsFalse(Directory.Exists(tempFolder));
-				ReferenceTextProxy.Reader = new TestFilePersistenceImplementation(tempFolder);
+				ReferenceTextProxy.Reader = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 			}
 
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();
@@ -38,8 +39,8 @@ namespace GlyssenEngineTests
 		[Test]
 		public void AllAvailable_CustomReferenceTexts_IncludesBuiltInAndCustomTexts()
 		{
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.EnglishJUD);
 
 			var referenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
@@ -49,21 +50,17 @@ namespace GlyssenEngineTests
 			var customEnglish = referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "English");
 			Assert.AreEqual(ReferenceTextType.Custom, customEnglish.Type);
 			Assert.AreEqual("English", customEnglish.CustomIdentifier);
-			var folder = GlyssenFileBasedPersistence.ProjectRepository.GetProjectFolderPath(customEnglish.ProjectFolder);
-			Assert.IsTrue(folder.EndsWith(Path.DirectorySeparatorChar + "English"));
-			folder = Path.GetDirectoryName(folder);
 
 			var azeri = referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "Azeri");
 			Assert.AreEqual(ReferenceTextType.Custom, azeri.Type);
 			Assert.AreEqual("Azeri", azeri.CustomIdentifier);
-			Assert.AreEqual(folder, Path.GetDirectoryName(azeri.ProjectFolder));
 		}
 
 		[Test]
 		public void AllAvailable_AfterCallingGetOrCreate_IncludesAllCustomTexts()
 		{
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.EnglishJUD);
 
 			ReferenceTextProxy.ClearCache();
 			var idAzeri = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Azeri");
@@ -97,8 +94,8 @@ namespace GlyssenEngineTests
 		[Test]
 		public void IsCustomReferenceAvailable_Yes_ReturnsTrue()
 		{
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.EnglishJUD);
 
 			ReferenceTextProxy.ClearCache();
 			Assert.IsTrue(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
@@ -116,7 +113,7 @@ namespace GlyssenEngineTests
 		[Test]
 		public void IsCustomReferenceAvailable_No_ReturnsFalse()
 		{
-			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
 
 			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("Spanish"));
 			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
@@ -128,14 +125,10 @@ namespace GlyssenEngineTests
 			var english = referenceTexts.Single(r => r.Type == ReferenceTextType.English);
 			Assert.AreEqual(ReferenceTextType.English, english.Type);
 			Assert.IsNull(english.CustomIdentifier);
-			var folder = english.ProjectFolder;
-			Assert.IsTrue(folder.EndsWith(Path.DirectorySeparatorChar + "English"));
-			folder = Path.GetDirectoryName(folder);
 
 			var russian = referenceTexts.Single(r => r.Type == ReferenceTextType.Russian);
 			Assert.AreEqual(ReferenceTextType.Russian, russian.Type);
 			Assert.IsNull(russian.CustomIdentifier);
-			Assert.AreEqual(folder, Path.GetDirectoryName(russian.ProjectFolder));
 		}
 	}
 }

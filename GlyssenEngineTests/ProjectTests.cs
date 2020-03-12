@@ -14,6 +14,7 @@ using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Bundle;
 using GlyssenFileBasedPersistence;
+using GlyssenSharedTests;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.DblBundle.Text;
@@ -1143,7 +1144,7 @@ namespace GlyssenEngineTests
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
 			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;
 
 			var frenchRefBlocks = rtFrench.Books.Single(b => b.BookId == "MRK").GetScriptBlocks();
@@ -1206,7 +1207,7 @@ namespace GlyssenEngineTests
 			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 
 			// SUT
-			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;
 
 			// Verification

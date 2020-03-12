@@ -13,7 +13,6 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
-using GlyssenFileBasedPersistence;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
@@ -2383,7 +2382,8 @@ namespace GlyssenEngineTests
 				"{25}\u00A0to God our Savior, who alone is wise, be glory and majesty, dominion and power, both now and forever. Amen.",
 			};
 
-			var jude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD).GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject(), false).Single();
+			var jude = TestReferenceText.CreateTestReferenceText(ReferenceTextTestUtils.GetBookContents(TestReferenceTextResource.EnglishJUD))
+				.GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject(), false).Single();
 			StringBuilder sbForVernacularResults = new StringBuilder();
 			StringBuilder sbForReferenceTextResults = new StringBuilder();
 			for (int i = 0; i < jude.Blocks.Count; i++)
@@ -2429,7 +2429,7 @@ namespace GlyssenEngineTests
 		[TestCase(false)]
 		public void GetBooksWithBlocksConnectedToReferenceText_ReferenceTextDoesNotContainBook_NoChangeToVernacular(bool applyNarratorOverrides)
 		{
-			var refTextForJude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD);
+			var refTextForJude = TestReferenceText.CreateTestReferenceText(ReferenceTextTestUtils.GetBookContents(TestReferenceTextResource.EnglishJUD));
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			var blocksBeforeCall = testProject.IncludedBooks[0].GetScriptBlocks();
 			var result = refTextForJude.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides);
