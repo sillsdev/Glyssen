@@ -74,7 +74,7 @@ namespace GlyssenFileBasedPersistenceTests
 			using (var reader = persistenceImpl.Load(new ReferenceTextId(type), ProjectResource.Metadata))
 			{
 				Assert.IsTrue(reader.ReadLine().StartsWith("<?xml version"));
-				Assert.IsTrue(reader.ReadLine().StartsWith("DBLMetadata id="));
+				Assert.IsTrue(reader.ReadLine().StartsWith("<DBLMetadata id="));
 				Assert.AreEqual("<language>", reader.ReadLine().Trim());
 				Assert.IsTrue(reader.ReadLine().Trim().Contains("<iso>"));
 				Assert.AreEqual($"<name>{type.ToString()}</name>", reader.ReadLine().Trim());
