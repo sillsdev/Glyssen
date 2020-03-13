@@ -234,7 +234,7 @@ namespace Glyssen
 					return DialogResult.Yes == MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 				}
 
-				Project.DefaultRecordingProjectNameSuffix = LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
+				Project.DefaultRecordingProjectNameSuffix = " " + LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
 					"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
 				var persistenceImpl = new PersistenceImplementation();
 				ProjectBase.Reader = persistenceImpl;

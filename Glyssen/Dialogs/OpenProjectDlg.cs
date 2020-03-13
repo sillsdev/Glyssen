@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
-using GlyssenEngine;
 using GlyssenEngine.Paratext;
 using GlyssenFileBasedPersistence;
 using L10NSharp;

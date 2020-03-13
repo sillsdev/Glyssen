@@ -4204,12 +4204,15 @@ namespace GlyssenEngineTests
 
 		public static void DeleteTempCustomReferenceProjectFolder()
 		{
-			ReferenceTextProxy.Reader = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.DeleteTempCustomReferenceProjectFolder();
+			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.DeleteTempCustomReferenceProjectFolder();
+			if (impl != null)
+				ReferenceTextProxy.Reader = Reader = impl;
 		}
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
-			ReferenceTextProxy.Reader = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			ReferenceTextProxy.Reader = Reader = 
+				GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)

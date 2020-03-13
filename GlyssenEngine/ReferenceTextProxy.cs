@@ -19,7 +19,7 @@ namespace GlyssenEngine
 	/// ship with Glyssen and therefore may not be available on some machine where the project is
 	/// later opened.
 	/// </summary>
-	public class ReferenceTextProxy : IReferenceTextProxy, IProject
+	public class ReferenceTextProxy : IReferenceTextProxy, IReferenceTextProject
 	{
 		public static IProjectPersistenceReader Reader
 		{
@@ -44,7 +44,7 @@ namespace GlyssenEngine
 		public string CustomIdentifier { get; }
 		public string Name => CustomIdentifier ?? Type.ToString();
 
-		public bool Missing => (m_metadata == null) && Reader.ResourceExists(this, ProjectResource.Metadata);
+		public bool Missing => (m_metadata == null) && !Reader.ResourceExists(this, ProjectResource.Metadata);
 
 		private ReferenceTextProxy(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
 		{

@@ -27,7 +27,8 @@ namespace GlyssenEngineTests
 			{
 				var tempFolder = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
 				Assert.IsFalse(Directory.Exists(tempFolder));
-				ReferenceTextProxy.Reader = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+				ProjectBase.Reader = ReferenceTextProxy.Reader =
+					GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 			}
 
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();

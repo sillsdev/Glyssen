@@ -201,7 +201,7 @@ namespace GlyssenEngine
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
-		public static string DefaultRecordingProjectNameSuffix { get; set; } = "Audio"; // This default can be overriden (and localized)
+		public static string DefaultRecordingProjectNameSuffix { get; set; } = " Audio"; // This default can be overriden (and localized)
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 

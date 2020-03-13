@@ -96,17 +96,16 @@ namespace GlyssenFileBasedPersistence
 					const int kBufferSize = 4096;
 					var buffer = new char[kBufferSize];
 					var index = 0;
+					int read;
 					do
 					{
-						var read = reader.Read(buffer, index, kBufferSize);
+						read = reader.Read(buffer, index, kBufferSize);
 						if (read > 0)
 						{
-							writer.Write(buffer);
+							writer.Write(buffer, 0, read);
 							index += read;
 						}
-						else
-							break;
-					} while (true);
+					} while (read == kBufferSize);
 				}
 			}
 		}

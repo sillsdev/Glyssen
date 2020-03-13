@@ -7,6 +7,7 @@ namespace GlyssenFileBasedPersistenceTests
 	public class TestFilePersistenceImplementation : PersistenceImplementation
 	{
 		private static PersistenceImplementation s_currentImpl;
+		private static PersistenceImplementation s_restoreImpl;
 
 		private readonly string s_customReferenceTextBaseFolder;
 		
@@ -35,8 +36,7 @@ namespace GlyssenFileBasedPersistenceTests
 			if (s_currentImpl is TestFilePersistenceImplementation testImpl)
 				testImpl.CleanTempFiles();
 
-			// REVIEW: Do we want to return null or like this: (Or maybe to an in-memory implementation?)
-			s_currentImpl = new PersistenceImplementation();
+			s_currentImpl = s_restoreImpl;
 			return s_currentImpl;
 		}
 
@@ -47,6 +47,7 @@ namespace GlyssenFileBasedPersistenceTests
 			var tempFolder = Path.GetTempFileName();
 			File.Delete(tempFolder);
 			Directory.CreateDirectory(tempFolder);
+			s_restoreImpl = s_currentImpl;
 			s_currentImpl = new TestFilePersistenceImplementation(tempFolder);
 			return s_currentImpl;
 		}
