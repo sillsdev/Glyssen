@@ -12,7 +12,7 @@ using SIL.Scripture;
 
 namespace GlyssenEngine
 {
-	public class ReferenceText : ProjectBase, IReferenceLanguageInfo
+	public class ReferenceText : ProjectBase, IReferenceLanguageInfo, IReferenceTextProject
 	{
 		protected readonly ReferenceTextType m_referenceTextType;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
@@ -44,10 +44,7 @@ namespace GlyssenEngine
 
 		public ReferenceTextType Type => m_referenceTextType;
 		
-		public override string Name =>
-			Type == ReferenceTextType.Custom ?
-				s_instantiatedReferenceTexts.Single(kvp => kvp.Value == this).Key.Name :
-				Type.ToString();
+		public override string Name => Type == ReferenceTextType.Custom ? LanguageName ?? m_metadata.Name : Type.ToString();
 
 		private BookScript TryLoadBook(string bookCode)
 		{

@@ -289,6 +289,7 @@
     <Compile Include="Script\BlockTests.cs" />
     <Compile Include="Script\BookScriptTests.cs" />
     <Compile Include="Script\BookSetUtilsTests.cs" />
+    <Compile Include="TestFixtureSetup.cs" />
     <Compile Include="TestProject.cs" />
     <Compile Include="UndoActionsTests\MoveCharactersToGroupUndoActionTests.cs" />
     <Compile Include="UndoActionsTests\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
