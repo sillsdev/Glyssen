@@ -27,7 +27,7 @@ namespace GlyssenEngineTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[TestCase(MultiBlockQuote.Continuation)]

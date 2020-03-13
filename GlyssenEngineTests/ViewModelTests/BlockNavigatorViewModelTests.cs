@@ -39,7 +39,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1008,7 +1008,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1243,7 +1243,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		// PG-823: Prevent out of range index
@@ -1296,7 +1296,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[TearDown]
 		public void TearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -1356,7 +1356,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1430,7 +1430,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -1459,7 +1459,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

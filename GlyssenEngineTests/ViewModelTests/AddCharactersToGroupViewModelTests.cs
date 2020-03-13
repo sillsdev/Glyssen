@@ -60,7 +60,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeTearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

@@ -11,7 +11,7 @@ using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
-using GlyssenEngine.Utilities;
+using GlyssenFileBasedPersistence;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
@@ -90,9 +90,9 @@ namespace GlyssenEngineTests
 
 		private const string kTest = "test~~";
 
-		public static void DeleteTestProjectFolder()
+		public static void DeleteTestProjects()
 		{
-			var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, kTest);
+			var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, kTest);
 			if (Directory.Exists(testProjFolder))
 				RobustIO.DeleteDirectoryAndContents(testProjFolder);
 		}
@@ -109,7 +109,7 @@ namespace GlyssenEngineTests
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
 			try
 			{
-				DeleteTestProjectFolder();
+				DeleteTestProjects();
 				var sampleMetadata = new GlyssenDblTextMetadata();
 				sampleMetadata.AvailableBooks = new List<Book>();
 				var books = new List<UsxDocument>();
@@ -151,7 +151,8 @@ namespace GlyssenEngineTests
 
 		public static Project LoadExistingTestProject()
 		{
-			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)), null, null);
+			var projFilePath = ProjectRepository.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest));
+			return Project.Load(ProjectRepository.LoadProject(projFilePath), null, null);
 		}
 
 		public static Project CreateBasicTestProject()
