@@ -26,7 +26,7 @@ namespace GlyssenFileBasedPersistence
 			GetProjectFolderPath(project.LanguageIsoCode, project.MetadataId, project.Name);
 		
 		public static string GetProjectFilePath(IUserProject project) =>
-			Combine(GetProjectFolderPath(project), project.LanguageIsoCode + kProjectFileExtension);
+			project == null ? null : Combine(GetProjectFolderPath(project), project.LanguageIsoCode + kProjectFileExtension);
 
 		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectName) => 
 			Combine(ProjectsBaseFolder, langId, publicationId, recordingProjectName);
@@ -71,16 +71,16 @@ namespace GlyssenFileBasedPersistence
 			return val;
 		}
 
-		public static Project LoadProject(string projectFilePath)
+		public static Project LoadProject(string projectFilePath, bool requireWritable = false)
 		{
-			if (FileHelper.IsLocked(projectFilePath))
+			if (requireWritable && FileHelper.IsLocked(projectFilePath))
 				throw new IOException("The project file is not writable.");
 
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
 			if (exception != null)
 				throw exception;
 
-			return new Project(metadata, ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+			return new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
 		}
 	}
 }

@@ -237,7 +237,7 @@ namespace Glyssen
 				Project.DefaultRecordingProjectNameSuffix = " " + LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
 					"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
 				var persistenceImpl = new PersistenceImplementation();
-				ProjectBase.Reader = persistenceImpl;
+				ProjectBase.Reader = ReferenceTextProxy.Reader = persistenceImpl;
 				Project.Writer = persistenceImpl;
 				var upgradeInfo = DataMigrator.UpgradeToCurrentDataFormatVersion(HandleMissingBundleNeededForUpgrade,
 					HandleProjectPathChanged, ConfirmSafeAudioAudioReplacements);

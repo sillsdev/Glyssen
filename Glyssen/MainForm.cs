@@ -440,7 +440,7 @@ namespace Glyssen
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(LoadProject(filePath), HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
+				SetProject(Project.Load(InstantiateProjectFromMetadata(filePath), HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -451,7 +451,7 @@ namespace Glyssen
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
 		}
 
-		public static Project LoadProject(string projectFilePath)
+		private Project InstantiateProjectFromMetadata(string projectFilePath)
 		{
 			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
 			var isWritable = !FileHelper.IsLocked(projectFilePath);
