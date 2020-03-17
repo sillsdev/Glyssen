@@ -293,8 +293,6 @@ namespace GlyssenFileBasedPersistence
 			}
 		}
 
-		public IEnumerable<IProject> AllProjects { get; }
-
 		public IEnumerable<ResourceReader<string>> GetAllCustomReferenceTexts(Func<string, bool> exclude = null)
 		{
 			if (Directory.Exists(ProprietaryReferenceTextProjectFileLocation))

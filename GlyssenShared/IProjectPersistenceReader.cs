@@ -6,7 +6,6 @@ namespace Glyssen.Shared
 {
 	public interface IProjectPersistenceReader
 	{
-		IEnumerable<IProject> AllProjects { get; }
 		IEnumerable<ResourceReader<string>> GetAllCustomReferenceTexts(Func<string, bool> exclude);
 		// REVIEW: Maybe a better name is possible
 		/// <summary>
