@@ -20,6 +20,14 @@ using IProjectSourceMetadata = SIL.DblBundle.IBundle;
 
 namespace GlyssenFileBasedPersistence
 {
+	/// <summary>
+	/// This class implements both the reader and writer interfaces for persisting Glyssen project-related files.
+	/// This implementation is the "standard" file-based persistence used by the Glyssen program and can be used
+	/// as a reference implementation for other implementations of these interfaces. Note that although these
+	/// interfaces are intentionally separate (since some types of projects never need to be written), a
+	/// typical implementation will cover both interfaces (or at least share a common helper class that handles
+	/// the details of locating resources).
+	/// </summary>
 	public class PersistenceImplementation : IProjectPersistenceReader, IProjectPersistenceWriter
 	{
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
@@ -237,13 +245,13 @@ namespace GlyssenFileBasedPersistence
 			return new StreamWriter(GetBookDataFilePath(project, book.BookId));
 		}
 
-		public void ArchiveBookNoLongerAvailable(IUserProject project, string bookCode)
+		public void ArchiveBookThatIsNoLongerAvailable(IUserProject project, string bookCode)
 		{
 			var origPath = GetBookDataFilePath(project, bookCode);
 			RobustFile.Move(origPath, origPath + kBookNoLongerAvailableExtension);
 		}
 
-		public void UseBackupResource(IUserProject project, ProjectResource resource)
+		public void RestoreResourceFromBackup(IUserProject project, ProjectResource resource)
 		{
 			var resourceFilePath = GetPath(resource, project);
 			if (RobustFile.Exists(resourceFilePath))
@@ -293,9 +301,7 @@ namespace GlyssenFileBasedPersistence
 			}
 		}
 
-		public IEnumerable<IProject> AllProjects { get; }
-
-		public IEnumerable<ResourceReader<string>> GetAllCustomReferenceTexts(Func<string, bool> exclude = null)
+		public IEnumerable<ResourceReader<string>> GetCustomReferenceTextsNotAlreadyLoaded()
 		{
 			if (Directory.Exists(ProprietaryReferenceTextProjectFileLocation))
 			{
@@ -303,7 +309,7 @@ namespace GlyssenFileBasedPersistence
 				{
 					var customId = GetFileName(dir);
 					var metadataFilePath = Combine(dir, customId + ProjectRepository.kProjectFileExtension);
-					if (RobustFile.Exists(metadataFilePath) && (exclude == null || !exclude(customId)))
+					if (RobustFile.Exists(metadataFilePath) && !ReferenceTextProxy.IsCustomReferenceTextIdentifierInListOfAvailable(customId))
 					{
 						yield return new ResourceReader<string>(customId,
 							GetReader(metadataFilePath));

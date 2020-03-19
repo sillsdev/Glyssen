@@ -22,7 +22,7 @@ namespace GlyssenFileBasedPersistenceTests
 		public bool IsProprietaryReferenceTextLocationOveridden =>
 			!ProprietaryReferenceTextProjectFileLocation.EndsWith(kLocalReferenceTextDirectoryName);
 
-		public void CleanTempFiles()
+		private void CleanTempFiles()
 		{
 			if (IsProprietaryReferenceTextLocationOveridden &&
 				Directory.Exists(ProprietaryReferenceTextProjectFileLocation))
@@ -31,14 +31,15 @@ namespace GlyssenFileBasedPersistenceTests
 			}
 		}
 
-		public static PersistenceImplementation DeleteTempCustomReferenceProjectFolder()
+		public static void CleanupUpTempImplementationAndRestorePreviousImplementation()
 		{
 			if (s_currentImpl is TestFilePersistenceImplementation testImpl)
 				testImpl.CleanTempFiles();
 
 			s_currentImpl = s_restoreImpl;
-			return s_currentImpl;
 		}
+
+		public static PersistenceImplementation CurrentImplementation => s_currentImpl;
 
 		public static PersistenceImplementation OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{

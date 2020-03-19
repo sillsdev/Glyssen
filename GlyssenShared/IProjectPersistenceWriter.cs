@@ -6,9 +6,6 @@ namespace Glyssen.Shared
 {
 	public interface IProjectPersistenceWriter
 	{
-		// These two methods could specify an IUserProject, but I'm keeping them more general
-		// to allow for a situation where an implementation might want to allow a custom
-		// reference text to be created using these methods.
 		void SetUpProjectPersistence(IProject project);
 		TextWriter GetTextWriter(IProject project, ProjectResource resource);
 		TextWriter GetTextWriter(IProject project, IScrBook book);
@@ -22,9 +19,18 @@ namespace Glyssen.Shared
 		void ChangeProjectName(IUserProject project, string newName);
 		void ChangePublicationId(IUserProject project, string newId, Action setInternalId, Action<TextWriter> saveMetadata);
 
-		void ArchiveBookNoLongerAvailable(IUserProject project, string bookCode);
-		// FWIW, currently, the only resource for which we have a need to keep backups is LDML files.
-		void UseBackupResource(IUserProject project, ProjectResource resource);
+		void ArchiveBookThatIsNoLongerAvailable(IUserProject project, string bookCode);
+
+		/// <summary>
+		/// Replaces the current version of the project resource with the backup.
+		/// Caller is responsible for calling BackupResourceExists first to ensure
+		/// this is a valid operation. If the backup does not exist, the behavior of
+		/// this method is undefined (i.e., it can throw an exception).
+		/// Implementation note: currently, the only resource for which we have a need to keep
+		/// backups is LDML files, but the implementation should probably be generic in case'
+		/// that changes in the future.
+		/// </summary>
+		void RestoreResourceFromBackup(IUserProject project, ProjectResource resource);
 		bool SaveBackupResource(IUserProject project, ProjectResource resource);
 
 		int GetMaxProjectNameLength(IUserProject project);

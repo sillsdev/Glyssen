@@ -32,6 +32,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using SIL.Xml;
 using static System.String;
 
 namespace GlyssenEngine
@@ -1108,7 +1109,7 @@ namespace GlyssenEngine
 
 			void NowMissing(string bookCode)
 			{
-				Writer.ArchiveBookNoLongerAvailable(this, bookCode);
+				Writer.ArchiveBookThatIsNoLongerAvailable(this, bookCode);
 				foundDataChange = true;
 			}
 
@@ -1583,7 +1584,7 @@ namespace GlyssenEngine
 
 			void SaveMetadata(TextWriter w)
 			{
-				Serialize(w, m_projectMetadata, out var error);
+				XmlSerializationHelper.Serialize(w, m_projectMetadata, out var error);
 				if (error != null)
 					throw error;
 			}
@@ -1629,88 +1630,13 @@ namespace GlyssenEngine
 		private void SaveProjectMetadata(out Exception error)
 		{
 			m_metadata.LastModified = DateTime.Now;
-			Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
+			XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
 		}
 
-		// TODO: This is mostly copied from SerializationHelper. It should implemented there as public method.
-		/// <summary>
-		/// Note: This method will take care of disposing the textWriter.
-		/// </summary>
-		public static bool Serialize(TextWriter textWriter, object data, out Exception error)
-		{
-			error = null;
-			try
-			{
-				XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
-				namespaces.Add(string.Empty, string.Empty);
-				XmlSerializer xmlSerializer = new XmlSerializer(data.GetType());
-				xmlSerializer.Serialize(textWriter, data, namespaces);
-				textWriter.Close();
-				return true;
-			}
-			catch (Exception ex)
-			{
-				error = ex;
-				return false;
-			}
-			finally
-			{
-				textWriter?.Dispose();
-			}
-		}
-
-		// TODO: This is mostly copied from SerializationHelper. It should implemented there as public method.
-		/// <summary>
-		/// Note: This method will take care of disposing the textWriter, if so requests.
-		/// </summary>
-		public static T Deserialize<T>(TextReader reader, bool dispose = true) where T : class
-		{
-			if (reader == null)
-				return default;
-			try
-			{
-				XmlSerializer xmlSerializer = new XmlSerializer(typeof (T));
-				xmlSerializer.UnknownAttribute += deserializer_UnknownAttribute;
-				return (T) xmlSerializer.Deserialize(reader);
-			}
-			finally
-			{
-				if (dispose)
-					reader?.Dispose();
-			}
-		}
-
-		// TODO: When the above method is implemented as a public method in SerializationHelper, this method
-		// (which is already a private method in that class) can be deleted.
-		private static void deserializer_UnknownAttribute(object sender, XmlAttributeEventArgs e)
-		{
-			if (e.Attr.LocalName != "lang")
-				return;
-			object beingDeserialized = e.ObjectBeingDeserialized;
-			Type type = beingDeserialized.GetType();
-			foreach (System.Reflection.FieldInfo field in type.GetFields())
-			{
-				object[] customAttributes = field.GetCustomAttributes(typeof (XmlAttributeAttribute), false);
-				if (customAttributes.Length == 1 && ((XmlAttributeAttribute) customAttributes[0]).AttributeName == "xml:lang")
-				{
-					field.SetValue(beingDeserialized, (object) e.Attr.Value);
-					return;
-				}
-			}
-			foreach (System.Reflection.PropertyInfo property in type.GetProperties())
-			{
-				object[] customAttributes = property.GetCustomAttributes(typeof (XmlAttributeAttribute), false);
-				if (customAttributes.Length == 1 && ((XmlAttributeAttribute) customAttributes[0]).AttributeName == "xml:lang")
-				{
-					property.SetValue(beingDeserialized, (object) e.Attr.Value, (object[]) null);
-					break;
-				}
-			}
-		}
 
 		public void SaveBook(BookScript book)
 		{
-			if (!Serialize(Writer.GetTextWriter(this, book), book, out var error))
+			if (!XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, book), book, out var error))
 				MessageModal.Show(error.Message, true);
 		}
 
@@ -1728,7 +1654,7 @@ namespace GlyssenEngine
 
 		public void SaveCharacterGroupData()
 		{
-			Serialize(Writer.GetTextWriter(this, ProjectResource.CharacterGroups),
+			XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, ProjectResource.CharacterGroups),
 				m_characterGroupList, out _);
 		}
 
@@ -1740,7 +1666,7 @@ namespace GlyssenEngine
 
 		private void LoadCharacterGroupData()
 		{
-			// TODO: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
+			// ENHANCE: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
 			// but it should warn the user that if they scrap their existing groups, any customizations or actor assignments
 			// will be lost.
 			m_characterGroupList = CharacterGroupList.LoadCharacterGroupList(Reader.Load(this, ProjectResource.CharacterGroups), this);
@@ -1751,7 +1677,7 @@ namespace GlyssenEngine
 
 		private void LoadVoiceActorInformationData()
 		{
-			// TODO: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
+			// ENHANCE: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
 			// but it should warn the user that their actor information will be lost if they proceed.
 			m_voiceActorList = VoiceActorList.LoadVoiceActorList(Reader.Load(this, ProjectResource.VoiceActorInformation));
 
@@ -1821,7 +1747,7 @@ namespace GlyssenEngine
 						{
 							try
 							{
-								Writer.UseBackupResource(this, ProjectResource.Ldml);
+								Writer.RestoreResourceFromBackup(this, ProjectResource.Ldml);
 								attemptToUseBackup = false;
 							}
 							catch (Exception exRestoreBackup)
@@ -1848,7 +1774,7 @@ namespace GlyssenEngine
 								{
 									try
 									{
-										Writer.UseBackupResource(this, ProjectResource.Ldml);
+										Writer.RestoreResourceFromBackup(this, ProjectResource.Ldml);
 									}
 									catch (Exception exReplaceCorruptedLdmlWithBackup)
 									{
@@ -1941,13 +1867,14 @@ namespace GlyssenEngine
 			{
 				using (var ldmlWriter = Writer.GetTextWriter(this, ProjectResource.Ldml))
 				{
-					using (var xmlWriter = XmlWriter.Create(ldmlWriter, new XmlWriterSettings
+					var settings = new XmlWriterSettings
 					{
 						Indent = true,
 						IndentChars = "\t",
 						CheckCharacters = true,
 						OmitXmlDeclaration = false
-					}))
+					};
+					using (var xmlWriter = XmlWriter.Create(ldmlWriter, settings))
 					{
 						new LdmlDataMapper(new WritingSystemFactory()).Write(xmlWriter, WritingSystem, null);
 						xmlWriter.Flush();
@@ -1973,7 +1900,7 @@ namespace GlyssenEngine
 					// If we ended up with unreadable data, revert to backup???
 					try
 					{
-						Writer.UseBackupResource(this, ProjectResource.Ldml);
+						Writer.RestoreResourceFromBackup(this, ProjectResource.Ldml);
 						var wsFromBackup = new WritingSystemDefinition();
 						LoadWritingSystemFromLdml(wsFromBackup);
 						if (!wsFromBackup.QuotationMarks.SequenceEqual(WritingSystem.QuotationMarks) ||

@@ -24,7 +24,7 @@ namespace GlyssenFileBasedPersistenceTests
 					ReferenceTextTestUtils.CreateCustomReferenceText(persistenceImpl, TestReferenceTextResource.EnglishJUD),
 					"Setup problem: AzeriJUD should return language name as Azeri.");
 
-				var result = persistenceImpl.GetAllCustomReferenceTexts().ToList();
+				var result = persistenceImpl.GetCustomReferenceTextsNotAlreadyLoaded().ToList();
 
 				try
 				{
@@ -44,7 +44,7 @@ namespace GlyssenFileBasedPersistenceTests
 			}
 			finally	
 			{
-				TestFilePersistenceImplementation.DeleteTempCustomReferenceProjectFolder();
+				TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
 			}
 		}
 
@@ -55,17 +55,17 @@ namespace GlyssenFileBasedPersistenceTests
 
 			try
 			{
-				Assert.IsFalse(persistenceImpl.GetAllCustomReferenceTexts().Any());
+				Assert.IsFalse(persistenceImpl.GetCustomReferenceTextsNotAlreadyLoaded().Any());
 			}
 			finally	
 			{
-				TestFilePersistenceImplementation.DeleteTempCustomReferenceProjectFolder();
+				TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
 			}
 		}
 
 		[TestCase(ReferenceTextType.English)]
 		[TestCase(ReferenceTextType.Russian)]
-		public void GetStandardReferenceText_NoCustomReferenceTextsExist_GetsEmptyCollection(ReferenceTextType type)
+		public void GetStandardReferenceText_NoCustomReferenceTextsExist_GetsReaderForMetadataOfRequestedReferenceText(ReferenceTextType type)
 		{
 			IProjectPersistenceReader persistenceImpl = new PersistenceImplementation();
 			string projectFileName = type.ToString().ToLowerInvariant() + ProjectRepository.kProjectFileExtension;

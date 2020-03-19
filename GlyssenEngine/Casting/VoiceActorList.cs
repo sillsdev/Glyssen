@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using SIL.Xml;
 
 namespace GlyssenEngine.Casting
 {
@@ -27,7 +28,7 @@ namespace GlyssenEngine.Casting
 
 		public void Save(TextWriter textWriter)
 		{
-			Project.Serialize(textWriter, this, out _);
+			XmlSerializationHelper.Serialize(textWriter, this, out _);
 		}
 
 		/// <summary>
@@ -36,7 +37,7 @@ namespace GlyssenEngine.Casting
 		/// </summary>
 		public static VoiceActorList LoadVoiceActorList(TextReader data)
 		{
-			return Project.Deserialize<VoiceActorList>(data) ?? new VoiceActorList();
+			return XmlSerializationHelper.Deserialize<VoiceActorList>(data) ?? new VoiceActorList();
 		}
 
 		public VoiceActor GetVoiceActorById(int voiceActorId)

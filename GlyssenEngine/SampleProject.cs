@@ -19,7 +19,7 @@ namespace GlyssenEngine
 		{
 			public string Name => Project.GetDefaultRecordingProjectName(kSampleProjectName);
 			public string LanguageIsoCode => kSample;
-			public string ValidLanguageIsoCode => "qaa";
+			public string ValidLanguageIsoCode => WellKnownSubtags.UnlistedLanguage;
 			public string MetadataId => kSample;
 		}
 

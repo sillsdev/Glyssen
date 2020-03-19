@@ -13,6 +13,7 @@ using GlyssenEngine.Quote;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
+using SIL.Xml;
 using static System.Char;
 using static System.String;
 
@@ -43,7 +44,7 @@ namespace GlyssenEngine.Script
 		/// </summary>
 		public static BookScript Deserialize(TextReader reader, ScrVers versification)
 		{
-			var newBook = Project.Deserialize<BookScript>(reader);
+			var newBook = XmlSerializationHelper.Deserialize<BookScript>(reader);
 			newBook?.Initialize(versification);
 			return newBook;
 		}

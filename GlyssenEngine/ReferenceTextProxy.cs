@@ -9,6 +9,7 @@ using SIL.Reporting;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.ErrorHandling;
+using SIL.Xml;
 using static System.String;
 
 namespace GlyssenEngine
@@ -139,7 +140,7 @@ namespace GlyssenEngine
 			if (ErrorReporterForCopyrightedReferenceTexts == null)
 				ErrorReporterForCopyrightedReferenceTexts = errorReporter;
 
-			foreach (var resourceReader in Reader.GetAllCustomReferenceTexts(IsCustomReferenceTextIdentifierInListOfAvailable))
+			foreach (var resourceReader in Reader.GetCustomReferenceTextsNotAlreadyLoaded())
 				AttemptToAddCustomReferenceText(resourceReader);
 			
 			if (firstLoadError != null)
@@ -168,20 +169,26 @@ namespace GlyssenEngine
 			s_allAvailableLoaded = true;
 		}
 
-		private static bool IsCustomReferenceTextIdentifierInListOfAvailable(string customId)
+		public static bool IsCustomReferenceTextIdentifierInListOfAvailable(string customId)
 		{
-			return s_allAvailable.Any(i => i.Type == ReferenceTextType.Custom && i.CustomIdentifier == customId);
+			return s_allAvailable?
+				.Any(i => i.Type == ReferenceTextType.Custom && i.CustomIdentifier == customId) ??
+				false;
 		}
 
 		/// <summary>
 		/// Attempts to add a custom reference text corresponding to the data in the given ResourceReader.
-		/// Note: This method will take care of disposing the TextReader object.
+		/// Note: This method will take care of disposing the ResourceReader object.
 		/// </summary>
 		private static void AttemptToAddCustomReferenceText(ResourceReader<string> resourceReader)
 		{
 			var customId = resourceReader.Id;
 			Debug.Assert(customId != null);
-			Debug.Assert(!IsCustomReferenceTextIdentifierInListOfAvailable(customId));
+			if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
+			{
+				resourceReader.Dispose();
+				return;
+			}
 			var metadata = LoadMetadata(ReferenceTextType.Custom, resourceReader,
 				ErrorReporterForCopyrightedReferenceTexts);
 			if (metadata != null)
@@ -200,7 +207,7 @@ namespace GlyssenEngine
 		{
 			try
 			{
-				return Project.Deserialize<GlyssenDblTextMetadata>(reader);
+				return XmlSerializationHelper.Deserialize<GlyssenDblTextMetadata>(reader);
 			}
 			catch (Exception exception)
 			{
@@ -212,12 +219,6 @@ namespace GlyssenEngine
 
 				return null;
 			}
-		}
-
-		// REVIEW: Is this needed? Only used in the unit tests that claim to test it.
-		public static bool IsCustomReferenceAvailable(string customId)
-		{
-			return Reader.ResourceExists(new ReferenceTextId(ReferenceTextType.Custom, customId), ProjectResource.Metadata);
 		}
 
 		private static void ReportNonFatalLoadError(Exception exception, string token)

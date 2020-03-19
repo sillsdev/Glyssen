@@ -143,18 +143,18 @@ namespace Glyssen.Controls
 			}
 			else
 			{
-				using (var reader = new StreamReader(new FileStream(SelectedProject, FileMode.Open)))
+				try
 				{
-					try
+					using (var reader = new StreamReader(new FileStream(SelectedProject, FileMode.Open)))
 					{
 						Project.SetHiddenFlag(GlyssenDblTextMetadata.Load(reader, SelectedProject), ProjectRepository.GetProjectName(SelectedProject), inactive);
 					}
-					catch (Exception exception)
-					{
-						Analytics.ReportException(exception);
-						ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-							Format(LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), SelectedProject));
-					}
+				}
+				catch (Exception exception)
+				{
+					Analytics.ReportException(exception);
+					ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+						Format(LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), SelectedProject));
 				}
 			}
 		}
