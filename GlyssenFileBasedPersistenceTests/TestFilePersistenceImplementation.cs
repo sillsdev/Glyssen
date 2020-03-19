@@ -41,13 +41,14 @@ namespace GlyssenFileBasedPersistenceTests
 
 		public static PersistenceImplementation CurrentImplementation => s_currentImpl;
 
-		public static PersistenceImplementation OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
+		public static PersistenceImplementation OverrideProprietaryReferenceTextProjectFileLocationToTempLocation(bool createFolder = true)
 		{
 			if ((s_currentImpl is TestFilePersistenceImplementation testImpl) && testImpl.IsProprietaryReferenceTextLocationOveridden)
 				return s_currentImpl;
 			var tempFolder = Path.GetTempFileName();
 			File.Delete(tempFolder);
-			Directory.CreateDirectory(tempFolder);
+			if (createFolder)
+				Directory.CreateDirectory(tempFolder);
 			s_restoreImpl = s_currentImpl;
 			s_currentImpl = new TestFilePersistenceImplementation(tempFolder);
 			return s_currentImpl;
