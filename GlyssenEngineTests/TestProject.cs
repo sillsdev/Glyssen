@@ -12,6 +12,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
 using GlyssenFileBasedPersistence;
+using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
@@ -152,7 +153,9 @@ namespace GlyssenEngineTests
 		public static Project LoadExistingTestProject()
 		{
 			var projFilePath = ProjectRepository.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest));
-			return Project.Load(ProjectRepository.LoadProject(projFilePath, true), null, null);
+			var unInitializedProject = ProjectRepository.LoadProject(projFilePath);
+			Assert.IsTrue(unInitializedProject.ProjectIsWritable);
+			return Project.Load(unInitializedProject, null, null);
 		}
 
 		public static Project CreateBasicTestProject()

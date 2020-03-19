@@ -88,7 +88,7 @@ namespace GlyssenEngine.Character
 		{
 			if (data == null)
 				return new CharacterGroupList();
-			var list = Project.Deserialize<CharacterGroupList>(data);
+			var list = XmlSerializationHelper.Deserialize<CharacterGroupList>(data);
 			foreach (var characterGroup in list.CharacterGroups)
 				characterGroup.Initialize(project);
 			return list;

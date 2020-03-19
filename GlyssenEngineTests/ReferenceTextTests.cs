@@ -2515,7 +2515,7 @@ namespace GlyssenEngineTests
 			persistenceImpl.SetUpProjectPersistence(customDoubleSpeakReferenceTextId);
 			using (var writer = persistenceImpl.GetTextWriter(customDoubleSpeakReferenceTextId, ProjectResource.Metadata))
 			{
-				Project.Serialize(writer, metadata, out var e);
+				XmlSerializationHelper.Serialize(writer, metadata, out var e);
 				Assert.IsNull(e);
 			}
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
@@ -2597,7 +2597,7 @@ namespace GlyssenEngineTests
 			persistenceImpl.SetUpProjectPersistence(customPoetianReferenceTextId);
 			using (var writer = persistenceImpl.GetTextWriter(customPoetianReferenceTextId, ProjectResource.Metadata))
 			{
-				Project.Serialize(writer, metadata, out var e);
+				XmlSerializationHelper.Serialize(writer, metadata, out var e);
 				Assert.IsNull(e);
 			}
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, kPoetian));
@@ -4204,7 +4204,8 @@ namespace GlyssenEngineTests
 
 		public static void DeleteTempCustomReferenceProjectFolder()
 		{
-			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.DeleteTempCustomReferenceProjectFolder();
+			GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
+			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CurrentImplementation;
 			if (impl != null)
 				ReferenceTextProxy.Reader = Reader = impl;
 		}

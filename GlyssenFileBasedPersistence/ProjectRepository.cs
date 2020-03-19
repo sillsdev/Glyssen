@@ -71,16 +71,18 @@ namespace GlyssenFileBasedPersistence
 			return val;
 		}
 
-		public static Project LoadProject(string projectFilePath, bool requireWritable = false)
+		public static Project LoadProject(string projectFilePath)
 		{
-			if (requireWritable && FileHelper.IsLocked(projectFilePath))
-				throw new IOException("The project file is not writable.");
+			bool fileLocked = FileHelper.IsLocked(projectFilePath);
 
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
 			if (exception != null)
 				throw exception;
 
-			return new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+			var project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+			if (fileLocked)
+				project.ProjectIsWritable = false;
+			return project;
 		}
 	}
 }

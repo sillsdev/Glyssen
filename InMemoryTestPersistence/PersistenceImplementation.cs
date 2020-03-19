@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Glyssen.Shared;
+using GlyssenEngine;
 using SIL.DblBundle.Text;
 
 namespace InMemoryTestPersistence
@@ -16,9 +17,9 @@ namespace InMemoryTestPersistence
 		private static readonly IEqualityComparer<IProject> s_comparer = new ProjectKeyComparer();
 		private readonly Dictionary<IProject, Dictionary<string, string>> m_memoryCache = new Dictionary<IProject, Dictionary<string, string>>(s_comparer);
 
-		public IEnumerable<ResourceReader<string>> GetAllCustomReferenceTexts(Func<string, bool> exclude)
+		public IEnumerable<ResourceReader<string>>  GetCustomReferenceTextsNotAlreadyLoaded()
 		{
-			foreach (var key in m_memoryCache.Keys.OfType<IReferenceTextProject>().Where(r => r.Type == ReferenceTextType.Custom))
+			foreach (var key in m_memoryCache.Keys.OfType<IReferenceTextProject>().Where(r => r.Type == ReferenceTextType.Custom && !ReferenceTextProxy.IsCustomReferenceTextIdentifierInListOfAvailable(r.Name)))
 			{
 				yield return new ResourceReader<string>(key.Name, new StringReader(m_memoryCache[key][ProjectResource.Metadata.ToString()]));
 			}
@@ -116,12 +117,12 @@ namespace InMemoryTestPersistence
 			throw new NotImplementedException();
 		}
 
-		public void ArchiveBookNoLongerAvailable(IUserProject project, string bookCode)
+		public void ArchiveBookThatIsNoLongerAvailable(IUserProject project, string bookCode)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void UseBackupResource(IUserProject project, ProjectResource resource)
+		public void RestoreResourceFromBackup(IUserProject project, ProjectResource resource)
 		{
 			throw new NotImplementedException();
 		}

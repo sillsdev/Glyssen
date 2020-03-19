@@ -25,8 +25,6 @@ namespace GlyssenEngineTests
 				TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 			else
 			{
-				var tempFolder = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
-				Assert.IsFalse(Directory.Exists(tempFolder));
 				ProjectBase.Reader = ReferenceTextProxy.Reader =
 					GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 			}
@@ -90,36 +88,6 @@ namespace GlyssenEngineTests
 			Assert.AreEqual(3, referenceTexts.Count);
 			Assert.AreEqual(idEpl, referenceTexts.Single(r => r.Type == ReferenceTextType.Custom && r.CustomIdentifier == "EsperantoPigLatin"));
 		}
-
-		#region REVIEW: Should we delete these tests? They test a method only used here.
-		[Test]
-		public void IsCustomReferenceAvailable_Yes_ReturnsTrue()
-		{
-			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
-			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.EnglishJUD);
-
-			ReferenceTextProxy.ClearCache();
-			Assert.IsTrue(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
-			Assert.IsTrue(ReferenceTextProxy.IsCustomReferenceAvailable("Azeri"));
-		}
-
-		[Test]
-		public void IsCustomReferenceAvailable_NoCustomReferenceTexts_ReturnsFalse()
-		{
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
-			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("Azeri"));
-		}
-
-		[Test]
-		public void IsCustomReferenceAvailable_No_ReturnsFalse()
-		{
-			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
-
-			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("Spanish"));
-			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
-		}
-		#endregion
 
 		private static void VerifyBuiltInReferenceTexts(IEnumerable<ReferenceTextProxy> referenceTexts)
 		{
