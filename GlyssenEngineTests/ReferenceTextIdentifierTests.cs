@@ -17,17 +17,10 @@ namespace GlyssenEngineTests
 			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
-		[TestCase(true)]
-		[TestCase(false)]
-		public void AllAvailable_NoCustomReferenceTexts_IncludesOnlyBuiltInPublicDomainTexts(bool proprietaryReferenceTextLocationExists)
+		[Test]
+		public void AllAvailable_NoCustomReferenceTexts_IncludesOnlyBuiltInPublicDomainTexts()
 		{
-			if (proprietaryReferenceTextLocationExists)
-				TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			else
-			{
-				ProjectBase.Reader = ReferenceTextProxy.Reader =
-					GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			}
+			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
