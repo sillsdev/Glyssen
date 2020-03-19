@@ -13,6 +13,7 @@ using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
+using InMemoryTestPersistence;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
@@ -4204,10 +4205,8 @@ namespace GlyssenEngineTests
 
 		public static void DeleteTempCustomReferenceProjectFolder()
 		{
-			GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
-			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CurrentImplementation;
-			if (impl != null)
-				ReferenceTextProxy.Reader = Reader = impl;
+			var impl = Project.Writer as PersistenceImplementation;
+			impl?.ForgetCustomReferenceTexts();
 		}
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()

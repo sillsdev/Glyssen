@@ -5,6 +5,7 @@ using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
 using SIL.DblBundle.Text;
+using SIL.Extensions;
 
 namespace InMemoryTestPersistence
 {
@@ -138,5 +139,10 @@ namespace InMemoryTestPersistence
 		}
 
 		public int MaxBaseRecordingNameLength { get; }
+
+		public void ForgetCustomReferenceTexts()
+		{
+			m_memoryCache.RemoveAll(kvp => kvp.Key is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom);
+		}
 	}
 }
