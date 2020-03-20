@@ -31,7 +31,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Serialization;
 using SIL.Xml;
 using static System.String;
 
@@ -1591,7 +1590,7 @@ namespace GlyssenEngine
 
 			try
 			{
-				Writer.ChangePublicationId(this, newPubId, SetInternalId, SaveMetadata);
+				Writer.ChangePublicationId(this, SetInternalId, SaveMetadata);
 			}
 			catch (Exception inner)
 			{

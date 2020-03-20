@@ -11,8 +11,8 @@ namespace GlyssenFileBasedPersistenceTests
 
 		private readonly string s_customReferenceTextBaseFolder;
 		
-		protected override string ProprietaryReferenceTextProjectFileLocation =>
-			s_customReferenceTextBaseFolder ?? base.ProprietaryReferenceTextProjectFileLocation;
+		protected override string CustomReferenceTextProjectFileLocation =>
+			s_customReferenceTextBaseFolder ?? base.CustomReferenceTextProjectFileLocation;
 
 		internal TestFilePersistenceImplementation(string proprietaryReferenceTextProjectFileLocation)
 		{
@@ -20,14 +20,14 @@ namespace GlyssenFileBasedPersistenceTests
 		}
 
 		public bool IsProprietaryReferenceTextLocationOveridden =>
-			!ProprietaryReferenceTextProjectFileLocation.EndsWith(kLocalReferenceTextDirectoryName);
+			!CustomReferenceTextProjectFileLocation.EndsWith(kLocalReferenceTextDirectoryName);
 
 		private void CleanTempFiles()
 		{
 			if (IsProprietaryReferenceTextLocationOveridden &&
-				Directory.Exists(ProprietaryReferenceTextProjectFileLocation))
+				Directory.Exists(CustomReferenceTextProjectFileLocation))
 			{
-				RobustIO.DeleteDirectoryAndContents(ProprietaryReferenceTextProjectFileLocation);
+				RobustIO.DeleteDirectoryAndContents(CustomReferenceTextProjectFileLocation);
 			}
 		}
 

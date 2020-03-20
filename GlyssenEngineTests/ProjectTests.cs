@@ -42,7 +42,7 @@ namespace GlyssenEngineTests
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[OneTimeSetUp]

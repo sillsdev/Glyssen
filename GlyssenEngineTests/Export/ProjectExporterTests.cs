@@ -34,7 +34,7 @@ namespace GlyssenEngineTests.Export
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[Test]
