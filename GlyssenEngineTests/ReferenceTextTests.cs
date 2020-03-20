@@ -45,7 +45,7 @@ namespace GlyssenEngineTests
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[TestCase(ReferenceTextType.English, 66)] // Whole Bible
@@ -4202,7 +4202,7 @@ namespace GlyssenEngineTests
 			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
 		}
 
-		public static void DeleteTempCustomReferenceProjectFolder()
+		public static void ForgetCustomReferenceTexts()
 		{
 			GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
 			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CurrentImplementation;

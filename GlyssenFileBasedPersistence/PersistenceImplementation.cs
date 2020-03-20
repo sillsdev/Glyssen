@@ -33,7 +33,7 @@ namespace GlyssenFileBasedPersistence
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 
 		// Virtual to allow test implementation to override
-		protected virtual string ProprietaryReferenceTextProjectFileLocation =>
+		protected virtual string CustomReferenceTextProjectFileLocation =>
 			Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName);
 
 		private const int kMaxPath = 260;
@@ -48,6 +48,7 @@ namespace GlyssenFileBasedPersistence
 
 		// Total path limit is 260 characters. Need to allow for:
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
+		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\fallback_versification.vrs (same length as above)
 		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
 		private const int kMaxDefaultProjectNameLength = 150;
 
@@ -63,7 +64,6 @@ namespace GlyssenFileBasedPersistence
 			SetUpProjectPersistence(project);
 
 			var languageFolder = GetLanguageFolder(project.LanguageIsoCode);
-
 
 			int cFontFileCopyFailures = 0;
 			foreach (var font in bundle.GetFonts())
@@ -100,22 +100,27 @@ namespace GlyssenFileBasedPersistence
 			{
 				using (var writer = File.CreateText(GetVersificationFilePath(project)))
 				{
-					// Could use ReadToEnd here because these files are relatively small, but just in case.
-					const int kBufferSize = 4096;
-					var buffer = new char[kBufferSize];
-					var index = 0;
-					int read;
-					do
-					{
-						read = reader.Read(buffer, index, kBufferSize);
-						if (read > 0)
-						{
-							writer.Write(buffer, 0, read);
-							index += read;
-						}
-					} while (read == kBufferSize);
+					// Could use writer.Write(reader.ReadToEnd()) because these files are relatively small, but just in case.
+					CopyContents(reader, writer);
 				}
 			}
+		}
+
+		private static void CopyContents(TextReader from, StreamWriter to)
+		{
+			const int kBufferSize = 4096;
+			var buffer = new char[kBufferSize];
+			var index = 0;
+			int read;
+			do
+			{
+				read = from.Read(buffer, index, kBufferSize);
+				if (read > 0)
+				{
+					to.Write(buffer, 0, read);
+					index += read;
+				}
+			} while (read == kBufferSize);
 		}
 
 		public void DeleteProject(IUserProject project)
@@ -192,7 +197,19 @@ namespace GlyssenFileBasedPersistence
 			Directory.Move(existingProjectFolder, newPath);
 		}
 
-		public void ChangePublicationId(IUserProject project, string newId, Action setInternalId, Action<TextWriter> saveMetadata)
+		/// <summary>
+		/// Changes the metadata ID (also called the publication ID because it represents
+		/// the ID under which the project data is published).
+		/// </summary>
+		/// <param name="project">The project (having the old MetadataId)</param>
+		/// <param name="setInternalId">Action to be called when the implementation is ready for
+		/// the internal metadata id of the project to be changed (after which getting the
+		/// project's MetadataId will return the new value.</param>
+		/// <param name="saveMetadata">Action to be called to persist the project metadata
+		/// using the given TextWriter. Callee is responsible for disposing the writer.
+		/// If calling this action throws an exception, callee is responsible for reverting
+		/// the internal metadata ID to the previous value.</param>
+		public void ChangePublicationId(IUserProject project, Action setInternalId, Action<TextWriter> saveMetadata)
 		{
 			string origProjectFolder = ProjectRepository.GetProjectFolderPath(project);
 
@@ -303,9 +320,9 @@ namespace GlyssenFileBasedPersistence
 
 		public IEnumerable<ResourceReader<string>> GetCustomReferenceTextsNotAlreadyLoaded()
 		{
-			if (Directory.Exists(ProprietaryReferenceTextProjectFileLocation))
+			if (Directory.Exists(CustomReferenceTextProjectFileLocation))
 			{
-				foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
+				foreach (var dir in Directory.GetDirectories(CustomReferenceTextProjectFileLocation))
 				{
 					var customId = GetFileName(dir);
 					var metadataFilePath = Combine(dir, customId + ProjectRepository.kProjectFileExtension);
@@ -420,16 +437,7 @@ namespace GlyssenFileBasedPersistence
 			switch (project)
 			{
 				case IReferenceTextProject refText when refText.Type == ReferenceTextType.Custom:
-					// TODO: This try (needs a catch) probably doesn't belong here.
-					//try
-					//{
-					//	m_metadata = LoadMetadata(Type, Combine(ProjectFolder, proxy.Name + ProjectRepository.kProjectFileExtension));
-
-					//if (IsStandardReferenceText(Type))
-					//	return GetProjectFolderForStandardReferenceText(Type);
-
-					return Combine(ProprietaryReferenceTextProjectFileLocation, refText.Name);
-					//}
+					return Combine(CustomReferenceTextProjectFileLocation, refText.Name);
 				case IReferenceTextProject refText:
 					return ProjectRepository.GetProjectFolderForStandardReferenceText(refText.Type);
 				case IUserProject userProject:

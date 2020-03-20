@@ -11,7 +11,7 @@ namespace GlyssenFileBasedPersistenceTests
 	public class PersistenceImplementationTests
 	{
 		[Test]
-		public void GetAllCustomReferenceTexts_CustomReferenceTextsExist_GetsThemAll()
+		public void GetCustomReferenceTextsNotAlreadyLoaded_CustomReferenceTextsExist_GetsThemAll()
 		{
 			PersistenceImplementation persistenceImpl = TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 
@@ -50,7 +50,7 @@ namespace GlyssenFileBasedPersistenceTests
 
 		[TestCase(true)]
 		[TestCase(false)]
-		public void GetAllCustomReferenceTexts_NoCustomReferenceTextsExist_GetsEmptyCollection(bool folderExists)
+		public void GetCustomReferenceTextsNotAlreadyLoaded_NoCustomReferenceTextsExist_GetsEmptyCollection(bool folderExists)
 		{
 			PersistenceImplementation persistenceImpl = TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation(folderExists);
 
