@@ -113,7 +113,7 @@ namespace InMemoryTestPersistence
 			throw new NotImplementedException();
 		}
 
-		public void ChangePublicationId(IUserProject project, string newId, Action setInternalId, Action<TextWriter> saveMetadata)
+		public void ChangePublicationId(IUserProject project, Action setInternalId, Action<TextWriter> saveMetadata)
 		{
 			throw new NotImplementedException();
 		}

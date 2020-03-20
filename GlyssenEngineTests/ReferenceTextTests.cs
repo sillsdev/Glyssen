@@ -4211,13 +4211,16 @@ namespace GlyssenEngineTests
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
-			ReferenceTextProxy.Reader = Reader = 
-				GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			// TODO: After ensuring that the assertion below never fails, this method can be
+			// deleted and calls to it can be replaced with calls to ForgetCustomReferenceTexts.
+			var impl = Project.Writer as PersistenceImplementation;
+			Assert.IsNotNull(impl);
+			impl.ForgetCustomReferenceTexts();
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
 		{
-			OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			Assert.That(Project.Writer is PersistenceImplementation);
 			var customLanguageId = ReferenceTextTestUtils.CreateCustomReferenceText((IProjectPersistenceWriter)ReferenceTextProxy.Reader, booksToInclude);
 			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customLanguageId));
 		}
