@@ -58,9 +58,9 @@ namespace Glyssen.Shared
 		/// Implementation notes: Implementation need not be thread safe. Caller will ensure that
 		/// no other threads attempt to read or persist project data while this method is being
 		/// executed.
-		/// Caller guarantees that the length of the new name will not be greater than the value
-		/// returned by GetMaxProjectNameLength. Implementation may throw a fatal exception if
-		/// this caller violates this requirement.
+		/// Caller must guarantee that the length of the new name is not greater than the value
+		/// returned by <see cref="GetMaxProjectNameLength"/>. Implementation may throw a fatal
+		/// exception if the caller violates this requirement.
 		/// </summary>
 		void ChangeProjectName(IUserProject project, string newName);
 
@@ -106,7 +106,22 @@ namespace Glyssen.Shared
 		/// </summary>
 		bool SaveBackupResource(IUserProject project, ProjectResource resource);
 
+		/// <summary>
+		/// For a given project (i.e., with a known LanguageIsoCode length), this method gets the maximum
+		/// allowable project name length so as to ensure that this persistence implementation would be
+		/// able to store any and all (including possible future) project resources for the project. The
+		/// implementation of <see cref="ChangeProjectName"/> can assume that the caller has ensured that
+		/// any new name passed in to it will be no longer than the value returned by this method.
+		/// </summary>
 		int GetMaxProjectNameLength(IUserProject project);
-		int MaxBaseRecordingNameLength { get; }
+
+		/// <summary>
+		/// For a given LanguageIsoCode, this method gets the maximum allowable project name length so as
+		/// to ensure that this persistence implementation would be able to store any and all (including
+		/// possible future) project resources for the project. Implementations of this interface can
+		/// assume that any IProject object passed to any method in this interface, will have a Name that
+		/// is no longer than the value returned by this method.
+		/// </summary>
+		int GetMaxProjectNameLength(string languageIsoCode);
 	}
 }

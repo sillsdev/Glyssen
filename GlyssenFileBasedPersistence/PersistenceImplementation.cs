@@ -46,12 +46,6 @@ namespace GlyssenFileBasedPersistence
 		public const string kFallbackVersificationPrefix = "fallback_";
 		public const string kBackupExtSuffix = "bak";
 
-		// Total path limit is 260 characters. Need to allow for:
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\fallback_versification.vrs (same length as above)
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
-		private const int kMaxDefaultProjectNameLength = 150;
-
 		public void SetUpProjectPersistence(IProject project)
 		{
 			Directory.CreateDirectory(GetProjectFolderPath(project));
@@ -293,14 +287,32 @@ namespace GlyssenFileBasedPersistence
 			return true;
 		}
 
-		// Total path limit is 260 (MAX_PATH) characters. Need to allow for:
-		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
-		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
+		// Total path limit is 260 characters. Need to allow for:
+		// C:\ProgramData\FCBH-SIL\Glyssen\Language IEFT tag (<=35 chars)\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
+		// C:\ProgramData\FCBH-SIL\Glyssen\Language IEFT tag (<=35 chars)\xxxxxxxxxxxxxxxx\<Recording Project Name>\fallback_versification.vrs (same length as above)
+		// C:\ProgramData\FCBH-SIL\Glyssen\Language IEFT tag (<=35 chars)\xxxxxxxxxxxxxxxx\<Recording Project Name>\Language IEFT tag (<=35 chars).glyssen
+		
+		// In the first implementation, we use the actual project metadata length, but this is effectively a constant
+		// because all valid metadata IDs are exactly 16 characters long (except in tests and in the sample project).
+		private const int kMetadataIdLength = 16;
+
+		/// <summary>
+		/// For a given project (i.e., with a known LanguageIsoCode length), this method gets the maximum
+		/// allowable project name length so as to ensure that this persistence implementation would be
+		/// able to store any and all (including possible future) project files for the project using
+		/// the name without violating operating system limits on path lengths.
+		/// </summary>
+		/// <remarks>
+		/// The implementation of <see cref="ChangeProjectName"/> assumes that the caller has ensured
+		/// that any new name passed in to it will be no longer than the value returned by this method.
+		/// </remarks>
 		public int GetMaxProjectNameLength(IUserProject project) =>
 			kMaxPath - Combine(ProjectRepository.ProjectsBaseFolder, project.LanguageIsoCode, project.MetadataId).Length -
-			Math.Max(GetProjectFilename(project).Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
+			Math.Max(GetProjectFilename(project).Length, kProjectCharacterDetailFileName.Length) - 2; // the magic 2 allows for two Path.DirectorySeparatorChar's
 
-		public int MaxBaseRecordingNameLength => kMaxDefaultProjectNameLength - Project.DefaultRecordingProjectNameSuffix.Length;
+		public int GetMaxProjectNameLength(string languageIsoCode) =>
+			kMaxPath - Combine(ProjectRepository.ProjectsBaseFolder, languageIsoCode).Length - kMetadataIdLength -
+			Math.Max(GetProjectFilename(languageIsoCode).Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
 
 		private string GetProjectFilename(IProject project)
 		{
@@ -310,13 +322,16 @@ namespace GlyssenFileBasedPersistence
 					var name = refText.Name;
 					if (refText.Type.IsStandard())
 						name = name.ToLower(CultureInfo.InvariantCulture); // Shouldn't matter on Windows, but just in case.
-					return Combine(name + ProjectRepository.kProjectFileExtension);
+					return GetProjectFilename(name);
 				case IUserProject userProject:
-					return userProject.LanguageIsoCode + ProjectRepository.kProjectFileExtension;
+					return GetProjectFilename(userProject.LanguageIsoCode);
 				default:
 					throw new ArgumentException("Unexpected project type", nameof(project));
 			}
 		}
+
+		private string GetProjectFilename(string baseName) =>
+			baseName + ProjectRepository.kProjectFileExtension;
 
 		public IEnumerable<ResourceReader<string>> GetCustomReferenceTextsNotAlreadyLoaded()
 		{
@@ -454,7 +469,7 @@ namespace GlyssenFileBasedPersistence
 
 		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle) => 
 			ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
-				Project.GetDefaultRecordingProjectName(bundle.Name));
+				Project.GetDefaultRecordingProjectName(bundle.Name, bundle.LanguageIso));
 
 		private string GetVersificationFilePath(IProject project) =>
 			GetProjectResourceFilePath(project, DblBundleFileUtils.kVersificationFileName);

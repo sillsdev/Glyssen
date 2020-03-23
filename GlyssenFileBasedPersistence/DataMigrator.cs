@@ -75,7 +75,7 @@ namespace GlyssenFileBasedPersistence
 								else
 									recordingProjectName = metadata.Id;
 							}
-							recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName);
+							recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName, metadata.Language.Iso);
 							var recordingProjectFolder = Path.Combine(publicationFolder, recordingProjectName);
 							Directory.CreateDirectory(recordingProjectFolder);
 							foreach (var file in filesToMove)
