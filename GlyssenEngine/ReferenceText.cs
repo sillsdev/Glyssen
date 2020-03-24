@@ -8,6 +8,7 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
+using GlyssenEngine.Utilities;
 using SIL.Reporting;
 using SIL.Scripture;
 
@@ -115,7 +116,7 @@ namespace GlyssenEngine
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
 			if (File.Exists(VersificationFilePath))
 			{
-				SetVersification(LoadVersification(VersificationFilePath));
+				SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
 			}
 			else
 			{

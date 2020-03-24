@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
+using GlyssenEngine.Utilities;
 using PtxUtils;
 using PtxUtils.Progress;
 using SIL.Reporting;
@@ -15,7 +17,7 @@ namespace Glyssen.Utilities
         #region Alert implementation methods
         protected override void ShowLaterInternal(string text, string caption, AlertLevel alertLevel)
         {
-            MessageBoxIcon icon = GetIconForAlertLevel(alertLevel);
+	        MessageBoxIcon icon = GetIconForAlertLevel(alertLevel);
             ProgressUtils.InvokeLaterOnUIThread(() => MessageBox.Show(text, caption, MessageBoxButtons.OK, icon));
         }
 

@@ -108,7 +108,7 @@ namespace GlyssenEngine
 									bundle.CopyVersificationFile(versificationPath);
 									try
 									{
-										ProjectBase.LoadVersification(versificationPath);
+										ProjectBase.LoadVersification(versificationPath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw);
 									}
 									catch (InvalidVersificationLineException ex)
 									{

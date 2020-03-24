@@ -63,5 +63,24 @@ namespace GlyssenEngine.Utilities
 		{
 			return Path.GetFileName(Path.GetDirectoryName(text));
 		}
+
+		public static string Truncate(this string text, int to, string ellipses = "\u2026")
+		{
+			if (text == null)
+				throw new ArgumentNullException(nameof(text));
+			if (ellipses == null)
+				throw new ArgumentNullException(nameof(ellipses));
+			if (to <= ellipses.Length)
+				throw new ArgumentOutOfRangeException(nameof(to), $"String cannot be truncated to a length less than or equal to the length of {nameof(ellipses)} ({ellipses.Length}).");
+
+			if (text.Length <= to)
+				return text;
+			var truncated = text.TrimEnd();
+			if (truncated.Length <= to)
+				return truncated;
+			if (to + ellipses.Length >= truncated.Length)
+				return truncated;
+			return truncated.Substring(0, to).TrimEnd() + ellipses;
+		}
 	}
 }

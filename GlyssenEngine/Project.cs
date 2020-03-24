@@ -113,7 +113,7 @@ namespace GlyssenEngine
 			if (loadVersification)
 			{
 				if (HasVersificationFile)
-					SetVersification(LoadVersification(VersificationFilePath));
+					SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.ReportIndividually));
 				else if (IsLiveParatextProject)
 				{
 					try
@@ -123,30 +123,55 @@ namespace GlyssenEngine
 					catch (ProjectNotFoundException e)
 					{
 						Logger.WriteError("Paratext project not found. Falling back to get usable versification file.", e);
-						if (RobustFile.Exists(FallbackVersificationFilePath))
-							SetVersification(LoadVersification(FallbackVersificationFilePath));
-						else
-						{
-							MessageModal.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersificationFile",
-								"{0} project {1} is not available and project {2} does not have a fallback versification file; " +
-								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
-								"for this project, some things will not work as expected.",
-								"Param 0: \"Paratext\" (product name); " +
-								"Param 1: Paratext project short name (unique project identifier); " +
-								"Param 2: Glyssen recording project name; " +
-								"Param 3: “English” (versification mame)"),
-								ParatextScrTextWrapper.kParatextProgramName,
-								ParatextProjectName,
-								Name,
-								"“English”"));
-							SetVersification(ScrVers.English);
-						}
+						AttemptToUseFallbackVersification();
 					}
 				}
 			}
 
 			if (installFonts)
 				InstallIfNecessary();
+		}
+
+		private void AttemptToUseFallbackVersification()
+		{
+			string msgPart1;
+			if (RobustFile.Exists(FallbackVersificationFilePath))
+			{
+				SetVersification(LoadVersification(FallbackVersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.BatchErrors));
+				var tableImpl = (GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation;
+				var errors = tableImpl.GetBatchedErrorString(FallbackVersificationFilePath);
+				if (errors == null)
+					return;
+				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectFallbackVersificationInvalid",
+					"{0} project {1} is not available and the fallback versification in project {2} is invalid:\r\n {3}\r\n",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: Glyssen recording project name; " +
+					"Param 3: Error details"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					ParatextProjectName,
+					Name,
+					errors);
+			}
+			else
+			{
+				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectFallbackVersificationInvalid",
+					"{0} project {1} is not available and project {2} does not have a fallback versification file",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: Glyssen recording project name"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					ParatextProjectName,
+					Name);
+			}
+
+			MessageModal.Show(msgPart1 + Format(Localizer.GetString("Project.FallingBackToDefaultEnglishVersification",
+				"Therefore, the {0} versification is being used by default. If this is not the correct versification " +
+				"for this project, some things will not work as expected.",
+				"Param: “English” (versification mame)"),
+				"“English”"));
+
+			SetVersification(ScrVers.English);
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -168,7 +193,7 @@ namespace GlyssenEngine
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
 			{
-				SetVersification(LoadVersification(VersificationFilePath));
+				SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
 			}
 			catch (InvalidVersificationLineException ex)
 			{
@@ -202,7 +227,7 @@ namespace GlyssenEngine
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? Resources.EnglishVersification);
-			SetVersification(LoadVersification(VersificationFilePath));
+			SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
 
 			ParseAndSetBooks(books, stylesheet);
 		}

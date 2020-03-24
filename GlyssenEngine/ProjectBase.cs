@@ -6,6 +6,7 @@ using System.Text;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Script;
+using GlyssenEngine.Utilities;
 using SIL;
 using SIL.DblBundle;
 using SIL.Scripture;
@@ -17,8 +18,15 @@ namespace GlyssenEngine
 		public const string kShareFileExtension = ".glyssenshare";
 		public const string kFallbackVersificationPrefix = "fallback_";
 
-		public static ScrVers LoadVersification(string vrsPath)
+		static ProjectBase()
 		{
+			GlyssenVersificationTable.Initialize();
+		}
+
+		public static ScrVers LoadVersification(string vrsPath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling versificationLineExceptionHandling)
+		{
+			((GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation).VersificationLineExceptionHandling =
+				versificationLineExceptionHandling;
 			return SIL.Scripture.Versification.Table.Implementation.Load(vrsPath, Localizer.GetString("Project.DefaultCustomVersificationName",
 				"custom", "Used as the versification name when the versification file does not contain a name."));
 		}
