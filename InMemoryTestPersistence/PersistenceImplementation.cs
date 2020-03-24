@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Glyssen.Shared;
 using GlyssenEngine;
 using SIL.DblBundle.Text;
 using SIL.Extensions;
-using SIL.Scripture;
 
 namespace InMemoryTestPersistence
 {
@@ -68,37 +69,34 @@ namespace InMemoryTestPersistence
 			return null;
 		}
 
-		public IEnumerable<ResourceReader<string>> GetExistingBooks(IProject project)
-		{
-			if (m_memoryCache.TryGetValue(project, out var resources))
-			{
-				for (var i = 1; i <= BCVRef.LastBook; i++)
-				{
-					var bookCode = BCVRef.NumberToBookCode(i);
-					if (resources.TryGetValue(kBookPrefix + bookCode, out var bookContents))
-						yield return new ResourceReader<string>(bookCode, new StringReader(bookContents));
-				}
-			}
-		}
-
 		public bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository)
 		{
-			throw new NotImplementedException();
+			Debug.Fail("If a test actually needs this, some kind of simulated implementation should be written.");
+			return false;
 		}
 
 		public void SetUpProjectPersistence(IProject project)
 		{
-			throw new NotImplementedException();
+			if (!m_memoryCache.ContainsKey(project))
+				m_memoryCache[project] = new Dictionary<string, string>();
 		}
 
 		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
 		{
-			throw new NotImplementedException();
+			if (m_memoryCache.TryGetValue(project, out var resources))
+			{
+				return new InMemoryStringWriter(resource.ToString(), resources);
+			}
+			throw new InvalidOperationException("SetUpProjectPersistence should be called before trying to write a resource!");
 		}
 
 		public TextWriter GetTextWriter(IProject project, IScrBook book)
 		{
-			throw new NotImplementedException();
+			if (m_memoryCache.TryGetValue(project, out var resources))
+			{
+				return new InMemoryStringWriter(kBookPrefix + book.BookId, resources);
+			}
+			throw new InvalidOperationException("SetUpProjectPersistence should be called before trying to write a book!");
 		}
 
 		public void SetUpProjectPersistence<TM, TL>(IUserProject project, TextBundle<TM, TL> bundle) where TM : DblTextMetadata<TL> where TL : DblMetadataLanguage, new()
@@ -154,6 +152,40 @@ namespace InMemoryTestPersistence
 		public void ForgetCustomReferenceTexts()
 		{
 			m_memoryCache.RemoveAll(kvp => kvp.Key is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom);
+		}
+
+		private class InMemoryStringWriter
+		{
+			private string Id { get; }
+			private StringWriter m_writerImpl { get; set; }
+			private readonly Dictionary<string, string> m_finalHome;
+			private StringBuilder m_stringBuilder { get; }
+
+			public InMemoryStringWriter(string id, Dictionary<string, string> finalHome)
+			{
+				m_finalHome = finalHome;
+				Id = id;
+				m_stringBuilder = new StringBuilder();
+				m_writerImpl = new StringWriter(m_stringBuilder);
+			}
+
+			public static implicit operator StringWriter(InMemoryStringWriter writer)
+			{
+				return writer.m_writerImpl;
+			}
+
+			public void Dispose()
+			{
+				if (m_writerImpl != null)
+				{
+					m_writerImpl.Flush(); // Not sure if this is necessary or legal here
+					m_finalHome[Id] = m_stringBuilder.ToString();
+
+					m_writerImpl.Dispose();
+
+					m_writerImpl = null;
+				}
+			}
 		}
 	}
 }
