@@ -6,6 +6,7 @@ using Glyssen.Shared;
 using GlyssenEngine;
 using SIL.DblBundle.Text;
 using SIL.Extensions;
+using SIL.Scripture;
 
 namespace InMemoryTestPersistence
 {
@@ -20,10 +21,9 @@ namespace InMemoryTestPersistence
 
 		public IEnumerable<ResourceReader<string>>  GetCustomReferenceTextsNotAlreadyLoaded()
 		{
-			foreach (var key in m_memoryCache.Keys.OfType<IReferenceTextProject>().Where(r => r.Type == ReferenceTextType.Custom && !ReferenceTextProxy.IsCustomReferenceTextIdentifierInListOfAvailable(r.Name)))
-			{
-				yield return new ResourceReader<string>(key.Name, new StringReader(m_memoryCache[key][ProjectResource.Metadata.ToString()]));
-			}
+			return m_memoryCache.Keys.OfType<IReferenceTextProject>()
+				.Where(r => r.Type == ReferenceTextType.Custom && !ReferenceTextProxy.IsCustomReferenceTextIdentifierInListOfAvailable(r.Name))
+				.Select(key => new ResourceReader<string>(key.Name, new StringReader(m_memoryCache[key][ProjectResource.Metadata.ToString()])));
 		}
 
 		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name)
@@ -38,7 +38,7 @@ namespace InMemoryTestPersistence
 
 		public bool BackupResourceExists(IProject project, ProjectResource resource)
 		{
-			return m_memoryCache.TryGetValue(project, out var resources) && resources.ContainsKey(resource.ToString() + kBackupExtSuffix);
+			return m_memoryCache.TryGetValue(project, out var resources) && resources.ContainsKey(resource + kBackupExtSuffix);
 		}
 
 		public bool BookResourceExists(IProject project, string bookId)
@@ -70,7 +70,15 @@ namespace InMemoryTestPersistence
 
 		public IEnumerable<ResourceReader<string>> GetExistingBooks(IProject project)
 		{
-			throw new NotImplementedException();
+			if (m_memoryCache.TryGetValue(project, out var resources))
+			{
+				for (var i = 1; i <= BCVRef.LastBook; i++)
+				{
+					var bookCode = BCVRef.NumberToBookCode(i);
+					if (resources.TryGetValue(kBookPrefix + bookCode, out var bookContents))
+						yield return new ResourceReader<string>(bookCode, new StringReader(bookContents));
+				}
+			}
 		}
 
 		public bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository)
@@ -138,7 +146,10 @@ namespace InMemoryTestPersistence
 			throw new NotImplementedException();
 		}
 
-		public int MaxBaseRecordingNameLength { get; }
+		public int GetMaxProjectNameLength(string languageIsoCode)
+		{
+			throw new NotImplementedException();
+		}
 
 		public void ForgetCustomReferenceTexts()
 		{
