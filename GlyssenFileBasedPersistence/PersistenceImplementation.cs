@@ -36,7 +36,7 @@ namespace GlyssenFileBasedPersistence
 		protected virtual string CustomReferenceTextProjectFileLocation =>
 			Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName);
 
-		private const int kMaxPath = 260;
+		private const int kMaxPath = 259; // 260- 1 (for the NUL terminator)
 		public const string kBookScriptFileExtension = ".xml";
 		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
@@ -108,11 +108,10 @@ namespace GlyssenFileBasedPersistence
 			int read;
 			do
 			{
-				read = from.Read(buffer, index, kBufferSize);
+				read = from.Read(buffer, 0, kBufferSize);
 				if (read > 0)
 				{
 					to.Write(buffer, 0, read);
-					index += read;
 				}
 			} while (read == kBufferSize);
 		}
@@ -467,9 +466,14 @@ namespace GlyssenFileBasedPersistence
 
 		public string GetProjectFilePath(IProject project) => Combine(GetProjectFolderPath(project), GetProjectFilename(project));
 
-		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle) => 
-			ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
-				Project.GetDefaultRecordingProjectName(bundle.Name, bundle.LanguageIso));
+		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle)
+		{
+			var publicationName = bundle.Name;
+			if (IsNullOrEmpty(publicationName))
+				publicationName = (bundle as GlyssenBundle)?.Metadata?.Language?.Name ?? Empty;
+			return ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
+				Project.GetDefaultRecordingProjectName(publicationName, bundle.LanguageIso));
+		}
 
 		private string GetVersificationFilePath(IProject project) =>
 			GetProjectResourceFilePath(project, DblBundleFileUtils.kVersificationFileName);
