@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Glyssen.Shared;
 using GlyssenEngine;
@@ -9,7 +8,7 @@ using NUnit.Framework;
 namespace GlyssenEngineTests
 {
 	[TestFixture]
-	class ReferenceTextIdentifierTests
+	class ReferenceTextProxyTests
 	{
 		[TearDown]
 		public void Teardown()

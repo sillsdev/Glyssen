@@ -87,7 +87,7 @@ namespace GlyssenEngine
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
 		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
 			WritingSystemDefinition ws = null, bool loadVersification = true)
-			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
+			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name, metadata.Language.Iso))
 		{
 			m_projectMetadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
@@ -1976,10 +1976,12 @@ namespace GlyssenEngine
 
 		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
 
-		public static string GetDefaultRecordingProjectName(string publicationName)
+		public static string GetDefaultRecordingProjectName(string publicationName, string languageIsoCode)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, Writer.MaxBaseRecordingNameLength);
-			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
+			var defaultProjectNameSuffix = DefaultRecordingProjectNameSuffix;
+			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName,
+				Writer.GetMaxProjectNameLength(languageIsoCode) - defaultProjectNameSuffix.Length);
+			return $"{publicationName}{defaultProjectNameSuffix}";
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()

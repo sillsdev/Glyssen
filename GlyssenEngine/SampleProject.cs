@@ -17,7 +17,7 @@ namespace GlyssenEngine
 
 		private class SampleProjectStub : IUserProject
 		{
-			public string Name => Project.GetDefaultRecordingProjectName(kSampleProjectName);
+			public string Name => Project.GetDefaultRecordingProjectName(kSampleProjectName, LanguageIsoCode);
 			public string LanguageIsoCode => kSample;
 			public string ValidLanguageIsoCode => WellKnownSubtags.UnlistedLanguage;
 			public string MetadataId => kSample;

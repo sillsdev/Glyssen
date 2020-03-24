@@ -152,7 +152,7 @@ namespace GlyssenEngineTests
 
 		public static Project LoadExistingTestProject()
 		{
-			var projFilePath = ProjectRepository.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest));
+			var projFilePath = ProjectRepository.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest, kTest));
 			var unInitializedProject = ProjectRepository.LoadProject(projFilePath);
 			Assert.IsTrue(unInitializedProject.ProjectIsWritable);
 			return Project.Load(unInitializedProject, null, null);
