@@ -12,7 +12,6 @@ using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.IO;
 using SIL.Reporting;
-using SIL.Scripture;
 using static System.IO.Path;
 using static System.String;
 // IBundle is probably an unfortunate name. IProjectSourceMetadata would have been a better name.
@@ -37,7 +36,6 @@ namespace GlyssenFileBasedPersistence
 			Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName);
 
 		private const int kMaxPath = 259; // 260- 1 (for the NUL terminator)
-		public const string kBookScriptFileExtension = ".xml";
 		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
@@ -408,14 +406,6 @@ namespace GlyssenFileBasedPersistence
 		public TextReader LoadBook(IProject project, string bookId) =>
 			GetReader(GetBookDataFilePath(project, bookId));
 
-		public IEnumerable<ResourceReader<string>> GetExistingBooks(IProject project)
-		{
-			var list = new List<ResourceReader<string>>();
-			ForEachBookFileInProject(GetProjectFolderPath(project),
-				(bookId, fileName) => { list.Add(new ResourceReader<string>(bookId, new StreamReader(fileName))); });
-			return list;
-		}
-
 		public bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository)
 		{
 			string languageFolder = GetLanguageFolder(project.LanguageIsoCode);
@@ -438,7 +428,7 @@ namespace GlyssenFileBasedPersistence
 
 		private string GetBookDataFilePath(IProject project, string bookId)
 		{
-			return ChangeExtension(Combine(GetProjectFolderPath(project), bookId), "xml");
+			return ChangeExtension(Combine(GetProjectFolderPath(project), bookId), ProjectRepository.kBookScriptFileExtension);
 		}
 
 		public bool BookResourceExists(IProject project, string bookId)
@@ -491,17 +481,5 @@ namespace GlyssenFileBasedPersistence
 			Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 
 		private string GetLanguageFolder(string languageIsoCode) => ProjectRepository.GetLanguageFolderPath(languageIsoCode);
-
-		public static void ForEachBookFileInProject(string projectDir, Action<string, string> action)
-		{
-			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				string possibleFileName = Combine(projectDir, bookCode + kBookScriptFileExtension);
-				if (files.Contains(possibleFileName))
-					action(bookCode, possibleFileName);
-			}
-		}
 	}
 }
