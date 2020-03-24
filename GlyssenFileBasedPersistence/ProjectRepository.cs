@@ -15,6 +15,7 @@ namespace GlyssenFileBasedPersistence
 {
 	public static class ProjectRepository
 	{
+		public const string kBookScriptFileExtension = ".xml";
 		public const string kProjectFileExtension = ".glyssen";
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 
@@ -83,6 +84,17 @@ namespace GlyssenFileBasedPersistence
 			if (fileLocked)
 				project.ProjectIsWritable = false;
 			return project;
+		}
+
+		public static void ForEachBookFileInProject(string projectDir, Action<string, string> action)
+		{
+			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
+			foreach (var bookCode in StandardCanon.AllBookCodes)
+			{
+				string possibleFileName = Combine(projectDir, bookCode + kBookScriptFileExtension);
+				if (files.Contains(possibleFileName))
+					action(bookCode, possibleFileName);
+			}
 		}
 	}
 }

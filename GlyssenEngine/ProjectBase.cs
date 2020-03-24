@@ -91,8 +91,12 @@ namespace GlyssenEngine
 
 		protected void LoadExistingBooks()
 		{
-			foreach (var bookReader in Reader.GetExistingBooks(this))
-				m_books.Add(BookScript.Deserialize(bookReader, Versification));
+			foreach (var bookCode in StandardCanon.AllBookCodes)
+			{
+				var bookReader = Reader.LoadBook(this, bookCode);
+				if (bookReader != null)
+					m_books.Add(BookScript.Deserialize(bookReader, Versification));
+			}
 		}
 
 		public BookScript GetBook(string id)

@@ -183,7 +183,7 @@ namespace Glyssen.ReferenceTextUtility
 							Iso = newRefTextRow.Cells[colIsoCode.Index].Value as string
 						};
 						metadata.AvailableBooks = new List<Book>();
-						PersistenceImplementation.ForEachBookFileInProject(folder,
+						ProjectRepository.ForEachBookFileInProject(folder,
 							(bookId, fileName) => metadata.AvailableBooks.Add(new Book { Code = bookId, IncludeInScript = true}));
 						metadata.LastModified = DateTime.Now;
 

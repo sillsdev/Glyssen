@@ -47,23 +47,18 @@ namespace Glyssen.Shared
 		bool BookResourceExists(IProject project, string bookId);
 		
 		/// <summary>
-		/// Gets a TextReader for the requested resource belonging to the specified project.
+		/// Gets a TextReader for the requested resource belonging to the specified project or
+		/// null if the resource is not present in the project.
 		/// Client is responsible for disposing the TextReader when done with it.
 		/// </summary>
 		TextReader Load(IProject project, ProjectResource resource);
 
 		/// <summary>
-		/// Gets a TextReader for the requested book belonging to the specified project.
+		/// Gets a TextReader for the requested book belonging to the specified project or
+		/// null if the book is not present in the project.
 		/// Client is responsible for disposing the TextReader when done with it.
 		/// </summary>
 		TextReader LoadBook(IProject project, string bookId);
-
-		/// <summary>
-		/// Enumerates the existing books in for the specified project, getting a
-		/// wrapper object that holds the TextReader and book ID.
-		/// Client is responsible for disposing each ResourceReader when done with it.
-		/// </summary>
-		IEnumerable<ResourceReader<string>> GetExistingBooks(IProject project);
 
 		bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository);
 	}
