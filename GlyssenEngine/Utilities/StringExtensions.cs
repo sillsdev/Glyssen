@@ -76,8 +76,6 @@ namespace GlyssenEngine.Utilities
 			if (text.Length <= to)
 				return text;
 			var truncated = text.TrimEnd();
-			if (truncated.Length <= to)
-				return truncated;
 			if (to + ellipses.Length >= truncated.Length)
 				return truncated;
 			return truncated.Substring(0, to).TrimEnd() + ellipses;

@@ -155,20 +155,22 @@ namespace GlyssenEngine
 			}
 			else
 			{
-				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectFallbackVersificationInvalid",
-					"{0} project {1} is not available and project {2} does not have a fallback versification file",
+				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectNoFallbackVersification",
+					"{0} project {1} is not available and project {2} does not have a fallback versification file. ",
 					"Param 0: \"Paratext\" (product name); " +
 					"Param 1: Paratext project short name (unique project identifier); " +
 					"Param 2: Glyssen recording project name"),
 					ParatextScrTextWrapper.kParatextProgramName,
 					ParatextProjectName,
 					Name);
+				if (!char.IsWhiteSpace(msgPart1.Last()))
+					msgPart1 += " ";
 			}
 
 			MessageModal.Show(msgPart1 + Format(Localizer.GetString("Project.FallingBackToDefaultEnglishVersification",
 				"Therefore, the {0} versification is being used by default. If this is not the correct versification " +
 				"for this project, some things will not work as expected.",
-				"Param: “English” (versification mame)"),
+				"Param: “English” (versification name)"),
 				"“English”"));
 
 			SetVersification(ScrVers.English);

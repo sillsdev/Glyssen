@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
 using Paratext.Data;
 using SIL.Scripture;
 using SIL;
-using static System.String;
 
 namespace GlyssenEngine.Utilities
 {
@@ -53,6 +51,10 @@ namespace GlyssenEngine.Utilities
 
 			return VersificationLineExceptionHandling == InvalidVersificationLineExceptionHandling.ReportIndividually &&
 				base.HandleVersificationLineError(ex);
+		}
+
+		private  GlyssenVersificationTable()
+		{
 		}
 
 		public static void Initialize()
