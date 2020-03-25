@@ -64,6 +64,21 @@ namespace GlyssenEngine.Utilities
 			return Path.GetFileName(Path.GetDirectoryName(text));
 		}
 
+		/// <summary>
+		/// Truncates a string such that the resulting length is guaranteed to be no longer than
+		/// the specified length plus the length of the ellipses character(s). If the string ends
+		/// in whitespace and it is longer than the specified, it will first be trimmed. If it is
+		/// still longer than the specified length, it will be truncated. If truncated, it is
+		/// guaranteed that the ellipses character(s) will never be preceded by whitespace. (Thus
+		/// truncation can result in a string that is shorter than the specified length plus the
+		/// length of the ellipses characters).
+		/// </summary>
+		/// <param name="text">The string to truncate</param>
+		/// <param name="to">The position at which truncation is to occur if needed</param>
+		/// <param name="ellipses">The ellipses character (default) or other string to indicate
+		/// that the string was truncated. (The ellipses string will be applied as is, with no
+		/// trimming, so if leading or trailing whitespace is desired, it can be included.</param>
+		/// <returns>The resulting (possibly truncated and/or trimmed) text</returns>
 		public static string Truncate(this string text, int to, string ellipses = "\u2026")
 		{
 			if (text == null)
