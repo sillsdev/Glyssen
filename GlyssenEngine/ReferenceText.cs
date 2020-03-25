@@ -7,6 +7,7 @@ using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
+using GlyssenEngine.Utilities;
 using SIL.Reporting;
 using SIL.Scripture;
 
@@ -95,7 +96,7 @@ namespace GlyssenEngine
 		protected virtual void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			var versification = LoadVersification();
+			var versification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw);
 			if (versification != null)
 			{
 				SetVersification(versification);

@@ -5,6 +5,7 @@ using System.Text;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Script;
+using GlyssenEngine.Utilities;
 using SIL;
 using SIL.Scripture;
 
@@ -14,11 +15,18 @@ namespace GlyssenEngine
 	{
 		public static IProjectPersistenceReader Reader { get; set; }
 
+		static ProjectBase()
+		{
+			GlyssenVersificationTable.Initialize();
+		}
+		
 		public static string DefaultCustomVersificationName => Localizer.GetString("Project.DefaultCustomVersificationName",
 			"custom", "Used as the versification name when the versification file does not contain a name.");
 
-		public ScrVers LoadVersification(bool useFallback = false)
+		public ScrVers LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling versificationLineExceptionHandling, bool useFallback = false)
 		{
+			((GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation).VersificationLineExceptionHandling =
+				versificationLineExceptionHandling;
 			var versificationResource = useFallback ? ProjectResource.FallbackVersification : ProjectResource.Versification;
 			using (var versificationReader = Reader.Load(this, versificationResource))
 			{

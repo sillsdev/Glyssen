@@ -98,7 +98,7 @@ namespace GlyssenEngine
 
 			if (loadVersification)
 			{
-				var versification = LoadVersification();
+				var versification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.ReportIndividually);
 				if (versification != null)
 					SetVersification(versification);
 				else if (IsLiveParatextProject)
@@ -110,31 +110,61 @@ namespace GlyssenEngine
 					catch (ProjectNotFoundException e)
 					{
 						Logger.WriteError("Paratext project not found. Falling back to get usable versification.", e);
-						versification = LoadVersification(true);
-						if (versification == null)
-						{
-							versification = ScrVers.English;
-							MessageModal.Show(Format(Localizer.GetString("Project.ParatextProjectMissingNoFallbackVersification",
-								"{0} project {1} is not available and project {2} does not have a fallback versification; " +
-								"therefore, the {3} versification is being used by default. If this is not the correct versification " +
-								"for this project, some things will not work as expected.",
-								"Param 0: \"Paratext\" (product name); " +
-								"Param 1: Paratext project short name (unique project identifier); " +
-								"Param 2: Glyssen recording project name; " +
-								"Param 3: “English” (versification name)"),
-								ParatextScrTextWrapper.kParatextProgramName,
-								ParatextProjectName,
-								Name,
-								versification.Name));
-							
-						}
-						SetVersification(versification);
+						SetVersification(GetFallbackVersificationOrEnglish());
 					}
 				}
 			}
 
 			if (installFonts)
 				InstallFontsIfNecessary();
+		}
+
+		private ScrVers GetFallbackVersificationOrEnglish()
+		{
+			string msgPart1;
+			var fallbackVersification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.BatchErrors, true);
+			if (fallbackVersification == null)
+			{
+				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectNoFallbackVersification",
+					"{0} project {1} is not available and project {2} does not have a fallback versification file. ",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: Glyssen recording project name"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					ParatextProjectName,
+					Name);
+				if (!char.IsWhiteSpace(msgPart1.Last()))
+					msgPart1 += " ";
+			}
+			else
+			{
+				var tableImpl = (GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation;
+				var errors = tableImpl.GetBatchedErrorString(ProjectResource.FallbackVersification.ToString());
+				if (errors == null)
+				{
+					return fallbackVersification;
+				}
+
+				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectFallbackVersificationInvalid",
+					"{0} project {1} is not available and the fallback versification in project {2} is invalid:\r\n {3}\r\n",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: Glyssen recording project name; " +
+					"Param 3: Error details"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					ParatextProjectName,
+					Name,
+					errors);
+
+			}
+
+			MessageModal.Show(msgPart1 + Format(Localizer.GetString("Project.FallingBackToDefaultEnglishVersification",
+				"Therefore, the {0} versification is being used by default. If this is not the correct versification " +
+				"for this project, some things will not work as expected.",
+				"Param: “English” (versification name)"),
+				ScrVers.English.Name));
+
+			return ScrVers.English;
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -145,7 +175,7 @@ namespace GlyssenEngine
 
 			try
 			{
-				SetVersification(LoadVersification());
+				SetVersification(LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
 			}
 			catch (InvalidVersificationLineException ex)
 			{
@@ -186,7 +216,7 @@ namespace GlyssenEngine
 			Writer.SetUpProjectPersistence(this);
 			using (var writer = Writer.GetTextWriter(this, ProjectResource.Versification))
 				writer.Write(versificationInfo ?? EnglishVersification);
-			SetVersification(LoadVersification());
+			SetVersification(LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
 
 			ParseAndSetBooks(books, stylesheet);
 		}
