@@ -20,6 +20,7 @@ using L10NSharp.UI;
 using Paratext.Data;
 using Paratext.Data.Users;
 using PtxUtils;
+using PtxUtils.Progress;
 using SIL;
 using SIL.IO;
 using SIL.Reporting;
@@ -84,6 +85,8 @@ namespace Glyssen
 			Logger.Init();
 			Trace.Listeners.Add(new LogFileTraceListener());
 
+			GlyssenVersificationTable.Initialize();
+			ProgressUtils.Implementation = new ProgressUtilsImpl();
 			Alert.Implementation = new AlertImpl(); // Do this before calling Initialize, just in case Initialize tries to display an alert.
 			if (ParatextInfo.IsParatextInstalled)
 			{
