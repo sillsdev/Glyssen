@@ -111,8 +111,9 @@ namespace GlyssenFileBasedPersistence
 									{
 										using (var versificationReader = bundle.GetVersification())
 										{
-											Versification.Table.Implementation.Load(versificationReader,
-												origBundlePath, ProjectBase.DefaultCustomVersificationName);
+											var versTableImpl = ((GlyssenVersificationTable)Versification.Table.Implementation);
+											versTableImpl.VersificationLineExceptionHandling = GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw;
+											versTableImpl.Load(versificationReader, origBundlePath, ProjectBase.DefaultCustomVersificationName);
 										}
 									}
 									catch (InvalidVersificationLineException ex)

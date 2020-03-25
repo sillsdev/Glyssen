@@ -29,9 +29,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0089" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
     <PackageReference Include="SIL.DblBundle" Version="8.0.0-beta0085" />
-    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0087" />
+    <PackageReference Include="SIL.Scripture" Version="8.0.0-beta0091" />
   </ItemGroup>
 
 </Project>

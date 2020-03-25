@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SIL.Core" Version="8.0.0-beta0089" />
+    <PackageReference Include="SIL.Core" Version="8.0.0-beta0091" />
   </ItemGroup>
 
   <ItemGroup>

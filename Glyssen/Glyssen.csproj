@@ -173,7 +173,7 @@
       <HintPath>..\packages\ParatextData.9.1.1-beta\lib\netstandard2.0\PtxUtils.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Core.8.0.0-beta0089\lib\net461\SIL.Core.dll</HintPath>
+      <HintPath>..\packages\SIL.Core.8.0.0-beta0091\lib\net461\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Core.Desktop.8.0.0-beta0085\lib\net461\SIL.Core.Desktop.dll</HintPath>
@@ -182,7 +182,7 @@
       <HintPath>..\packages\SIL.DblBundle.8.0.0-beta0085\lib\net461\SIL.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\packages\SIL.Scripture.8.0.0-beta0087\lib\net461\SIL.Scripture.dll</HintPath>
+      <HintPath>..\packages\SIL.Scripture.8.0.0-beta0091\lib\net461\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <HintPath>..\packages\SIL.Windows.Forms.8.0.0-beta0085\lib\net461\SIL.Windows.Forms.dll</HintPath>
@@ -574,6 +574,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ProgressUtilsImpl.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="Utilities\WinFormsErrorAnalytics.cs" />
     <Compile Include="Utilities\WinFormsFontRepositoryAdapter.cs" />

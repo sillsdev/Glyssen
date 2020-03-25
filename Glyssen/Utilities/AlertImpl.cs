@@ -15,7 +15,9 @@ namespace Glyssen.Utilities
         #region Alert implementation methods
         protected override void ShowLaterInternal(string text, string caption, AlertLevel alertLevel)
         {
-            MessageBoxIcon icon = GetIconForAlertLevel(alertLevel);
+			// This is a hack and will only work in English, but it's better than nothing:
+			text = text.Replace("search help", "search Paratext help");
+	        MessageBoxIcon icon = GetIconForAlertLevel(alertLevel);
             ProgressUtils.InvokeLaterOnUIThread(() => MessageBox.Show(text, caption, MessageBoxButtons.OK, icon));
         }
 
