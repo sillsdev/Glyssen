@@ -113,7 +113,6 @@ namespace GlyssenFileBasedPersistence
 		{
 			const int kBufferSize = 4096;
 			var buffer = new char[kBufferSize];
-			var index = 0;
 			int read;
 			do
 			{
@@ -359,14 +358,15 @@ namespace GlyssenFileBasedPersistence
 		}
 
 		/// <summary>
-		/// Gets whether there is (or might be) an existing project identified by the given
-		/// language code, id, and name. Typically, this would return the same value as
-		/// ResourceExists for ProjectResource.Metadata, given an IUserProject object having
-		/// these same three value. However, the purpose of this method is to determine whether
-		/// it would be valid to create a new project (or rename an existing project) to have
-		/// these values without clobbering something else. So, for example, even if there
-		/// were no existing metadata resource, if there were other things identified by
-		/// these attributes, this should still return true.
+		/// Gets whether it would be valid to create a new project (or rename an existing project)
+		/// in the project folder identified by the given language code, id, and name. Typically,
+		/// this would return the same value as ResourceExists for ProjectResource.Metadata, given
+		/// an IUserProject object having these same three values (since the metadata file is
+		/// always required to exist for a project). However, this implementation returns true if
+		/// there are any existing files in that folder since it is possible that other files
+		/// could be in the folder (left over from some project or copied there by the user for
+		/// some reason) and the purpose of this method is to determine whether we risk clobbering
+		/// something else.
 		/// </summary>
 		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name) =>
 			NonEmptyFolderExists(languageIsoCode, metadataId, name);
