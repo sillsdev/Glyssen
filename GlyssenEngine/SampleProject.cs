@@ -14,6 +14,7 @@ namespace GlyssenEngine
 	{
 		public const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
+		private const string kSampleFontFamily = "Times New Roman";
 
 		private class SampleProjectStub : IUserProject
 		{
@@ -21,6 +22,7 @@ namespace GlyssenEngine
 			public string LanguageIsoCode => kSample;
 			public string ValidLanguageIsoCode => WellKnownSubtags.UnlistedLanguage;
 			public string MetadataId => kSample;
+			public string FontFamily => kSampleFontFamily;
 		}
 
 		public static IUserProject Stub => new SampleProjectStub();
@@ -39,7 +41,7 @@ namespace GlyssenEngine
 			bookOfMark.ShortName = "Mark";
 			bookOfMark.Abbreviation = "Mr";
 			sampleMetadata.AvailableBooks.Add(bookOfMark);
-			sampleMetadata.FontFamily = "Times New Roman";
+			sampleMetadata.FontFamily = kSampleFontFamily;
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.Id = kSample;
 			sampleMetadata.Copyright = Copyright;

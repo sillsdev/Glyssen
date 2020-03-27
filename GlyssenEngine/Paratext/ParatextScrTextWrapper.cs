@@ -204,18 +204,24 @@ namespace GlyssenEngine.Paratext
 					var nameInfo = UnderlyingScrText.BookNames;
 					foreach (var bookNum in CanonicalBookNumbersInProject)
 					{
-						m_metadata.AvailableBooks.Add(new Book
-						{
-							Abbreviation = nameInfo.GetAbbreviation(bookNum),
-							Code = BCVRef.NumberToBookCode(bookNum),
-							IncludeInScript = m_bookInfo.GetState(bookNum) == ParatextProjectBookInfo.BookState.NoProblem,
-							LongName = nameInfo.GetLongName(bookNum),
-							ShortName = nameInfo.GetShortName(bookNum)
-						});
+						m_metadata.AvailableBooks.Add(GetBook(nameInfo, bookNum, 
+							m_bookInfo.GetState(bookNum) == ParatextProjectBookInfo.BookState.NoProblem));
 					}
 				}
 				return m_metadata;
 			}
+		}
+
+		internal static Book GetBook(BookNames nameInfo, int bookNum, bool includeInScript)
+		{
+			return new Book
+			{
+				Abbreviation = nameInfo.GetAbbreviation(bookNum),
+				Code = BCVRef.NumberToBookCode(bookNum),
+				IncludeInScript = includeInScript,
+				LongName = nameInfo.GetLongName(bookNum),
+				ShortName = nameInfo.GetShortName(bookNum)
+			};
 		}
 
 		private UsxDocument GetUsxDocumentForBook(int bookNum)

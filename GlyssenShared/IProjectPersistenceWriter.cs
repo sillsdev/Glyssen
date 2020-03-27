@@ -47,10 +47,10 @@ namespace Glyssen.Shared
 
 		/// <summary>
 		/// Persists a new backup copy of the project using the provided description as the
-		/// project name. if so requested, the backup will have the Inactive flag set in its
+		/// project name. If so requested, the backup will have the Inactive flag set in its
 		/// metadata (this will not affect the metadata of the original project).
 		/// </summary>
-		void CreateBackup(IUserProject project, string description, bool hidden);
+		void CreateBackup(IUserProject project, string description, bool inactive);
 
 		/// <summary>
 		/// Changes the name of the project. After this returns, any future access to project

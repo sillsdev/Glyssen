@@ -20,11 +20,11 @@ namespace InMemoryTestPersistence
 		private static readonly IEqualityComparer<IProject> s_comparer = new ProjectKeyComparer();
 		private readonly Dictionary<IProject, Dictionary<string, string>> m_memoryCache = new Dictionary<IProject, Dictionary<string, string>>(s_comparer);
 
-		public IEnumerable<ResourceReader<string>>  GetCustomReferenceTextsNotAlreadyLoaded()
+		public IEnumerable<ResourceReader>  GetCustomReferenceTextsNotAlreadyLoaded()
 		{
 			return m_memoryCache.Keys.OfType<IReferenceTextProject>()
 				.Where(r => r.Type == ReferenceTextType.Custom && !ReferenceTextProxy.IsCustomReferenceTextIdentifierInListOfAvailable(r.Name))
-				.Select(key => new ResourceReader<string>(key.Name, new StringReader(m_memoryCache[key][ProjectResource.Metadata.ToString()])));
+				.Select(key => new ResourceReader(key.Name, new StringReader(m_memoryCache[key][ProjectResource.Metadata.ToString()])));
 		}
 
 		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name)
@@ -69,7 +69,7 @@ namespace InMemoryTestPersistence
 			return null;
 		}
 
-		public bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository)
+		public bool TryInstallFonts(IUserProject project, IFontRepository fontRepository)
 		{
 			Debug.Fail("If a test actually needs this, some kind of simulated implementation should be written.");
 			return false;

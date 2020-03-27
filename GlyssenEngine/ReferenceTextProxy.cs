@@ -180,7 +180,7 @@ namespace GlyssenEngine
 		/// Attempts to add a custom reference text corresponding to the data in the given ResourceReader.
 		/// Note: This method will take care of disposing the ResourceReader object.
 		/// </summary>
-		private static void AttemptToAddCustomReferenceText(ResourceReader<string> resourceReader)
+		private static void AttemptToAddCustomReferenceText(ResourceReader resourceReader)
 		{
 			var customId = resourceReader.Id;
 			Debug.Assert(customId != null);

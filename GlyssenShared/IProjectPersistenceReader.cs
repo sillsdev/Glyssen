@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace Glyssen.Shared
@@ -13,18 +12,16 @@ namespace Glyssen.Shared
 		/// Note that if an implementation returns a reference texts that is already in the list,
 		/// it will be disregarded by the caller, but the reader will be properly disposed.
 		/// </summary>
-		IEnumerable<ResourceReader<string>> GetCustomReferenceTextsNotAlreadyLoaded();
+		IEnumerable<ResourceReader> GetCustomReferenceTextsNotAlreadyLoaded();
 
-		// REVIEW: Maybe a better name is possible
 		/// <summary>
-		/// Gets whether there is (or might be) an existing project identified by the given
-		/// language code, id, and name. Typically, this would return the same value as
-		/// ResourceExists for ProjectResource.Metadata, given an IUserProject object having
-		/// these same three value. However, the purpose of this method is to determine whether
-		/// it would be valid to create a new project (or rename an existing project) to have
-		/// these values without clobbering something else. So, for example, even if there
-		/// were no existing metadata resource, if there were other things identified by
-		/// these attributes, this should still return true.
+		/// Gets whether creating a new project (or renaming an existing project) could result
+		/// in a collision with an existing project identified by the given language code, id,
+		/// and name without.
+		/// Implementation note: Typically, this would return the same value as ResourceExists
+		/// for ProjectResource.Metadata, given an IUserProject object having these same three
+		/// values. If your implementation ensures that the resources are completely under program
+		/// control, then an implementation based on that approach should suffice.
 		/// </summary>
 		bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name);
 
@@ -60,6 +57,13 @@ namespace Glyssen.Shared
 		/// </summary>
 		TextReader LoadBook(IProject project, string bookId);
 
-		bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository);
+		/// <summary>
+		/// Attempts to install missing fonts so that they will be available to display
+		/// vernacular project data in the host application.
+		/// </summary>
+		/// <param name="project">Project for which font(s) are missing</param>
+		/// <param name="fontRepository"></param>
+		/// <returns><c>true</c> if installation is performed (or offered)</returns>
+		bool TryInstallFonts(IUserProject project, IFontRepository fontRepository);
 	}
 }

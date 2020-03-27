@@ -392,7 +392,16 @@ namespace GlyssenEngineTests
 				default:
 					throw new ArgumentOutOfRangeException("testBook", testBook, null);
 			}
-			metadata.AvailableBooks.Add(book);
+
+			var insertAt = 0;
+			foreach (var bookCode in StandardCanon.AllBookCodes)
+			{
+				if (bookCode == book.Code)
+					break;
+				if (metadata.AvailableBooks.Any(b => b.Code == bookCode))
+					insertAt++;
+			}
+			metadata.AvailableBooks.Insert(insertAt, book);
 
 			usxDocuments.Add(new UsxDocument(xmlDocument));
 		}

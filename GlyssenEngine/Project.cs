@@ -413,12 +413,12 @@ namespace GlyssenEngine
 			Debug.Assert(FontRepository != null, "Font repository implementation should be set before attempting to load a project.");
 
 			string fontFamily = m_projectMetadata.FontFamily;
-			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
+			if (m_fontInstallationAttempted || IsNullOrEmpty(fontFamily) || FontRepository.IsFontInstalled(fontFamily))
 				return;
 
 			m_fontInstallationAttempted = true;
 
-			if (Reader.TryInstallFonts(this, fontFamily, FontRepository))
+			if (!Reader.TryInstallFonts(this, FontRepository))
 				FontRepository.ReportMissingFontFamily(fontFamily);
 		}
 
@@ -1084,44 +1084,58 @@ namespace GlyssenEngine
 			Action<string> newlyAvailableChecksFail = null,
 			Action<string> foundInBoth = null)
 		{
-			var existingAvailable = (IReadOnlyList<Book>)m_projectMetadata.AvailableBooks;
+			// ENHANCE: The previous version of this method attempted a more efficient
+			// implementation, taking advantage of both lists of books being in canonical order.
+			// However, the logic was flawed. I think this new approach is easier to understand,
+			// but creation of a dictionary and the final loop (which will rarely be executed)
+			// is probably less efficient. Anyway, this is code that is not likely to be a
+			// performance bottleneck, but I added this comment to explain the reason for the
+			// change and so that no one would judge me later for writing less than optimally
+			// efficient code.
+			var existingAvailable = m_projectMetadata.AvailableBooks
+				.ToDictionary(b => b.Code, b => b.IncludeInScript);
 			var nowAvailable = scrTextWrapper.AvailableBooks;
-			var x = 0;
 			foreach (Book nowAvailableBook in nowAvailable)
 			{
-				var nowAvailableBookNum = Canon.BookIdToNumber(nowAvailableBook.Code);
-				if (x < existingAvailable.Count)
-				{
-					var existingBookNum = Canon.BookIdToNumber(existingAvailable[x].Code);
-					if (existingAvailable[x].Code == nowAvailableBook.Code)
-					{
-						if (existingAvailable[x].IncludeInScript &&
-							!GetBook(existingAvailable[x].Code).CheckStatusOverridden &&
-							!scrTextWrapper.DoesBookPassChecks(existingBookNum))
-						{
-							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(existingAvailable[x].Code);
-						}
-						else
-							foundInBoth?.Invoke(existingAvailable[x].Code);
-						x++;
-						continue;
-					}
+				var bookCode = nowAvailableBook.Code;
+				var bookNum = Canon.BookIdToNumber(bookCode);
 
-					if (existingBookNum < nowAvailableBookNum)
+				if (existingAvailable.TryGetValue(nowAvailableBook.Code, out var includeExistingInScript))
+				{
+					if (includeExistingInScript &&
+						!GetBook(bookCode).CheckStatusOverridden &&
+						!scrTextWrapper.DoesBookPassChecks(bookNum))
 					{
-						if (existingAvailable[x].IncludeInScript)
-							nowMissingPreviouslyIncluded?.Invoke(existingAvailable[x].Code);
+						noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+					}
+					else
+						foundInBoth?.Invoke(bookCode);
+
+					existingAvailable.Remove(bookCode);
+				}
+				else
+				{
+					// New available book.
+					if (scrTextWrapper.DoesBookPassChecks(bookNum))
+						newlyAvailableChecksPass?.Invoke(bookCode);
+					else
+						newlyAvailableChecksFail?.Invoke(bookCode);
+				}
+			}
+
+			while (existingAvailable.Any())
+			{
+				foreach (var bookCode in StandardCanon.AllBookCodes)
+				{
+					if (existingAvailable.TryGetValue(bookCode, out var includeExistingInScript))
+					{
+						if (includeExistingInScript)
+							nowMissingPreviouslyIncluded?.Invoke(bookCode);
 						else
-							nowMissingPreviouslyExcluded.Invoke(existingAvailable[x].Code);
-						continue;
+							nowMissingPreviouslyExcluded.Invoke(bookCode);
+						existingAvailable.Remove(bookCode);
 					}
 				}
-
-				// New available book.
-				if (scrTextWrapper.DoesBookPassChecks(nowAvailableBookNum))
-					newlyAvailableChecksFail?.Invoke(nowAvailableBook.Code);
-				else
-					newlyAvailableChecksPass?.Invoke(nowAvailableBook.Code);
 			}
 		}
 
@@ -1164,6 +1178,8 @@ namespace GlyssenEngine
 			else
 				CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
+			// ENHANCE: Rather than unconditionally excluding new books that do not pass checks, we might
+			// want to ask the user.
 			HandleDifferencesInAvailableBooks(scrTextWrapper, NowMissing, NowMissing,
 				Exclude, HandleNewPassingBook, Exclude);
 
@@ -1271,6 +1287,30 @@ namespace GlyssenEngine
 					}
 					else
 						m_metadata.AvailableBooks.RemoveAt(i--);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Adds an available book to the metadata for any book in the m_books list that does
+		/// not already correspond to an existing available book. The newly added book will be
+		/// marked for inclusion in the script.
+		/// </summary>
+		/// <remarks>Probably only relevant to Paratext-based projects. If this is called for
+		/// a bundle-based project and m_books contains a book that is not in the list
+		/// of available books in the metadata, this will throw an exception.</remarks>
+		private void AddMissingAvailableBooks()
+		{
+			BookNames nameInfo = null;
+			for (var i = 0; i < m_books.Count; i++)
+			{
+				if (m_projectMetadata.AvailableBooks[i].Code != m_books[i].BookId)
+				{
+					if (!IsLiveParatextProject)
+						throw new InvalidOperationException($"Book {m_books[i].BookId} parsed and added to project but not in AvailableBooks in metadata!");
+					if (nameInfo == null)
+						nameInfo = GetSourceParatextProject().BookNames;
+					m_projectMetadata.AvailableBooks.Insert(i, ParatextScrTextWrapper.GetBook(nameInfo, m_books[i].BookNumber, true));
 				}
 			}
 		}
@@ -1475,6 +1515,7 @@ namespace GlyssenEngine
 					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 				UpdateControlFileVersion();
 				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+				AddMissingAvailableBooks();
 			}
 
 			if (QuoteSystem == null)

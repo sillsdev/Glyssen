@@ -8,6 +8,7 @@ namespace InMemoryTestPersistence
 		public string LanguageIsoCode { get; }
 		public string ValidLanguageIsoCode => LanguageIsoCode;
 		public string MetadataId { get; }
+		public string FontFamily => "Charis SIL";
 
 		internal InMemoryProjectStub(string languageIsoCode, string metadataId, string name)
 		{
