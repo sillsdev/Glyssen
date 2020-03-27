@@ -1117,9 +1117,9 @@ namespace GlyssenEngine
 				{
 					// New available book.
 					if (scrTextWrapper.DoesBookPassChecks(bookNum))
-						newlyAvailableChecksFail?.Invoke(bookCode);
-					else
 						newlyAvailableChecksPass?.Invoke(bookCode);
+					else
+						newlyAvailableChecksFail?.Invoke(bookCode);
 				}
 			}
 
@@ -1178,6 +1178,8 @@ namespace GlyssenEngine
 			else
 				CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
+			// ENHANCE: Rather than unconditionally excluding new books that do not pass checks, we might
+			// want to ask the user.
 			HandleDifferencesInAvailableBooks(scrTextWrapper, NowMissing, NowMissing,
 				Exclude, HandleNewPassingBook, Exclude);
 
@@ -1489,6 +1491,18 @@ namespace GlyssenEngine
 					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 				UpdateControlFileVersion();
 				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+				BookNames nameInfo = null;
+				for (var i = 0; i < bookScripts.Count; i++)
+				{
+					if (m_projectMetadata.AvailableBooks[i].Code != bookScripts[i].BookId)
+					{
+						if (!IsLiveParatextProject)
+							throw new InvalidOperationException($"Book {bookScripts[i].BookId} parsed and added to project but not in AvailableBooks in metadata!");
+						if (nameInfo == null)
+							nameInfo = GetSourceParatextProject().BookNames;
+						m_projectMetadata.AvailableBooks.Insert(i, ParatextScrTextWrapper.GetBook(nameInfo, bookScripts[i].BookNumber, true));
+					}
+				}
 			}
 
 			if (QuoteSystem == null)
