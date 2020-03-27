@@ -12,7 +12,7 @@ namespace Glyssen.Shared
 		/// Note that if an implementation returns a reference texts that is already in the list,
 		/// it will be disregarded by the caller, but the reader will be properly disposed.
 		/// </summary>
-		IEnumerable<ResourceReader<string>> GetCustomReferenceTextsNotAlreadyLoaded();
+		IEnumerable<ResourceReader> GetCustomReferenceTextsNotAlreadyLoaded();
 
 		/// <summary>
 		/// Gets whether creating a new project (or renaming an existing project) could result

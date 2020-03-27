@@ -340,7 +340,7 @@ namespace GlyssenFileBasedPersistence
 		private string GetProjectFilename(string baseName) =>
 			baseName + ProjectRepository.kProjectFileExtension;
 
-		public IEnumerable<ResourceReader<string>> GetCustomReferenceTextsNotAlreadyLoaded()
+		public IEnumerable<ResourceReader> GetCustomReferenceTextsNotAlreadyLoaded()
 		{
 			if (Directory.Exists(CustomReferenceTextProjectFileLocation))
 			{
@@ -350,8 +350,7 @@ namespace GlyssenFileBasedPersistence
 					var metadataFilePath = Combine(dir, customId + ProjectRepository.kProjectFileExtension);
 					if (RobustFile.Exists(metadataFilePath) && !ReferenceTextProxy.IsCustomReferenceTextIdentifierInListOfAvailable(customId))
 					{
-						yield return new ResourceReader<string>(customId,
-							GetReader(metadataFilePath));
+						yield return new ResourceReader(customId, GetReader(metadataFilePath));
 					}
 				}
 			}
@@ -473,7 +472,7 @@ namespace GlyssenFileBasedPersistence
 
 		/// <summary>
 		/// Gets the default project file path. If the normal default project folder already exists
-		/// and has files in it, add a number to ensure a unique, available location is returned in
+		/// and has files in it, adds a number to ensure a unique, available location is returned in
 		/// which a new project can be created.
 		/// </summary>
 		/// <param name="bundle">The bundle from which project information is obtained</param>
