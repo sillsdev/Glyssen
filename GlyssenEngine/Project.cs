@@ -1084,44 +1084,58 @@ namespace GlyssenEngine
 			Action<string> newlyAvailableChecksFail = null,
 			Action<string> foundInBoth = null)
 		{
-			var existingAvailable = (IReadOnlyList<Book>)m_projectMetadata.AvailableBooks;
+			// ENHANCE: The previous version of this method attempted a more efficient
+			// implementation, taking advantage of both lists of books being in canonical order.
+			// However, the logic was flawed. I think this new approach is easier to understand,
+			// but creation of a dictionary and the final loop (which will rarely be executed)
+			// is probably less efficient. Anyway, this is code that is not likely to be a
+			// performance bottleneck, but I added this comment to explain the reason for the
+			// change and so that no one would judge me later for writing less than optimally
+			// efficient code.
+			var existingAvailable = m_projectMetadata.AvailableBooks
+				.ToDictionary(b => b.Code, b => b.IncludeInScript);
 			var nowAvailable = scrTextWrapper.AvailableBooks;
-			var x = 0;
 			foreach (Book nowAvailableBook in nowAvailable)
 			{
-				var nowAvailableBookNum = Canon.BookIdToNumber(nowAvailableBook.Code);
-				if (x < existingAvailable.Count)
-				{
-					var existingBookNum = Canon.BookIdToNumber(existingAvailable[x].Code);
-					if (existingAvailable[x].Code == nowAvailableBook.Code)
-					{
-						if (existingAvailable[x].IncludeInScript &&
-							!GetBook(existingAvailable[x].Code).CheckStatusOverridden &&
-							!scrTextWrapper.DoesBookPassChecks(existingBookNum))
-						{
-							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(existingAvailable[x].Code);
-						}
-						else
-							foundInBoth?.Invoke(existingAvailable[x].Code);
-						x++;
-						continue;
-					}
+				var bookCode = nowAvailableBook.Code;
+				var bookNum = Canon.BookIdToNumber(bookCode);
 
-					if (existingBookNum < nowAvailableBookNum)
+				if (existingAvailable.TryGetValue(nowAvailableBook.Code, out var includeExistingInScript))
+				{
+					if (includeExistingInScript &&
+						!GetBook(bookCode).CheckStatusOverridden &&
+						!scrTextWrapper.DoesBookPassChecks(bookNum))
 					{
-						if (existingAvailable[x].IncludeInScript)
-							nowMissingPreviouslyIncluded?.Invoke(existingAvailable[x].Code);
+						noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+					}
+					else
+						foundInBoth?.Invoke(bookCode);
+
+					existingAvailable.Remove(bookCode);
+				}
+				else
+				{
+					// New available book.
+					if (scrTextWrapper.DoesBookPassChecks(bookNum))
+						newlyAvailableChecksFail?.Invoke(bookCode);
+					else
+						newlyAvailableChecksPass?.Invoke(bookCode);
+				}
+			}
+
+			while (existingAvailable.Any())
+			{
+				foreach (var bookCode in StandardCanon.AllBookCodes)
+				{
+					if (existingAvailable.TryGetValue(bookCode, out var includeExistingInScript))
+					{
+						if (includeExistingInScript)
+							nowMissingPreviouslyIncluded?.Invoke(bookCode);
 						else
-							nowMissingPreviouslyExcluded.Invoke(existingAvailable[x].Code);
-						continue;
+							nowMissingPreviouslyExcluded.Invoke(bookCode);
+						existingAvailable.Remove(bookCode);
 					}
 				}
-
-				// New available book.
-				if (scrTextWrapper.DoesBookPassChecks(nowAvailableBookNum))
-					newlyAvailableChecksFail?.Invoke(nowAvailableBook.Code);
-				else
-					newlyAvailableChecksPass?.Invoke(nowAvailableBook.Code);
 			}
 		}
 
