@@ -1291,6 +1291,30 @@ namespace GlyssenEngine
 			}
 		}
 
+		/// <summary>
+		/// Adds an available book to the metadata for any book in the m_books list that does
+		/// not already correspond to an existing available book. The newly added book will be
+		/// marked for inclusion in the script.
+		/// </summary>
+		/// <remarks>Probably only relevant to Paratext-based projects. If this is called for
+		/// a bundle-based project and m_books contains a book that is not in the list
+		/// of available books in the metadata, this will throw an exception.</remarks>
+		private void AddMissingAvailableBooks()
+		{
+			BookNames nameInfo = null;
+			for (var i = 0; i < m_books.Count; i++)
+			{
+				if (m_projectMetadata.AvailableBooks[i].Code != m_books[i].BookId)
+				{
+					if (!IsLiveParatextProject)
+						throw new InvalidOperationException($"Book {m_books[i].BookId} parsed and added to project but not in AvailableBooks in metadata!");
+					if (nameInfo == null)
+						nameInfo = GetSourceParatextProject().BookNames;
+					m_projectMetadata.AvailableBooks.Insert(i, ParatextScrTextWrapper.GetBook(nameInfo, m_books[i].BookNumber, true));
+				}
+			}
+		}
+
 		protected override void SetVersification(ScrVers versification)
 		{
 			base.SetVersification(versification);
@@ -1491,18 +1515,7 @@ namespace GlyssenEngine
 					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 				UpdateControlFileVersion();
 				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
-				BookNames nameInfo = null;
-				for (var i = 0; i < bookScripts.Count; i++)
-				{
-					if (m_projectMetadata.AvailableBooks[i].Code != bookScripts[i].BookId)
-					{
-						if (!IsLiveParatextProject)
-							throw new InvalidOperationException($"Book {bookScripts[i].BookId} parsed and added to project but not in AvailableBooks in metadata!");
-						if (nameInfo == null)
-							nameInfo = GetSourceParatextProject().BookNames;
-						m_projectMetadata.AvailableBooks.Insert(i, ParatextScrTextWrapper.GetBook(nameInfo, bookScripts[i].BookNumber, true));
-					}
-				}
+				AddMissingAvailableBooks();
 			}
 
 			if (QuoteSystem == null)

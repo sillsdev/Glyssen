@@ -139,7 +139,7 @@ namespace GlyssenFileBasedPersistence
 				Directory.Delete(parent);
 		}
 
-		public void CreateBackup(IUserProject project, string description, bool hidden)
+		public void CreateBackup(IUserProject project, string description, bool inactive)
 		{
 			var newName = project.Name + " - " + description;
 			string newDirectoryPath = ProjectRepository.GetProjectFolderPath(
@@ -158,7 +158,7 @@ namespace GlyssenFileBasedPersistence
 			{
 				DirectoryHelper.Copy(ProjectRepository.GetProjectFolderPath(project), newDirectoryPath);
 
-				if (hidden)
+				if (inactive)
 				{
 					var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + ProjectRepository.kProjectFileExtension).FirstOrDefault();
 					if (newFilePath != null)
