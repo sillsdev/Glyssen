@@ -52,7 +52,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(GlyssenEngine.Project project, int maleNarrators, int femaleNarrators)

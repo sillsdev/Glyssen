@@ -11,6 +11,7 @@ using GlyssenEngine.Character;
 using GlyssenEngine.Rules;
 using GlyssenEngine.ViewModels;
 using GlyssenEngineTests;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using NUnit.Framework;
 using SIL.Scripture;
@@ -48,7 +49,7 @@ namespace GlyssenTests.Dialogs
 			try
 			{
 				m_project =
-					Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen", null, null);
+					Project.Load(ProjectRepository.LoadProject(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen"), null, null);
 				TestProject.SimulateDisambiguationForAllBooks(m_project);
 				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 			}
@@ -185,8 +186,8 @@ namespace GlyssenTests.Dialogs
 			Sldr.Initialize();
 			try
 			{
-				m_project = Project.Load(
-					@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen",
+				m_project = Project.Load(ProjectRepository.LoadProject(
+					@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen"),
 					HandleMissingBundleNeededForProjectUpgrade, null);
 				TestProject.SimulateDisambiguationForAllBooks(m_project);
 				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;

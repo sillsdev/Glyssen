@@ -8,8 +8,8 @@ using System.Windows.Forms;
 using Glyssen.Properties;
 using Glyssen.Shared;
 using Glyssen.Utilities;
-using GlyssenEngine;
 using GlyssenEngine.Paratext;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using Paratext.Data;
 using SIL.Reporting;
@@ -27,17 +27,17 @@ namespace Glyssen.Dialogs
 			ParatextProject,
 		}
 
-		public OpenProjectDlg(Project currentProject)
+		public OpenProjectDlg(string currentProjectFilePath)
 		{
 			InitializeComponent();
 
 			m_listExistingProjects.GetParatextProjects = GetParatextProjects;
 
-			if (currentProject != null)
+			if (currentProjectFilePath != null)
 			{
-				m_listExistingProjects.SelectedProject = currentProject.ProjectFilePath;
-				SelectedProject = currentProject.ProjectFilePath;
-				m_listExistingProjects.AddReadOnlyProject(currentProject);
+				m_listExistingProjects.SelectedProject = currentProjectFilePath;
+				SelectedProject = currentProjectFilePath;
+				m_listExistingProjects.AddReadOnlyProject(currentProjectFilePath);
 			}
 			else
 				m_btnOk.Enabled = false;
@@ -60,10 +60,8 @@ namespace Glyssen.Dialogs
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
 					SelectedProject = dlg.FileName;
-					if (Path.GetExtension(SelectedProject) == Constants.kProjectFileExtension)
-						Type = ProjectType.ExistingProject;
-					else
-						Type = ProjectType.TextReleaseBundle;
+					Type = Path.GetExtension(SelectedProject) == ProjectRepository.kProjectFileExtension ?
+						ProjectType.ExistingProject : ProjectType.TextReleaseBundle;
 					DialogResult = DialogResult.OK;
 					Close();
 				}
@@ -221,7 +219,7 @@ namespace Glyssen.Dialogs
 		private void HandleSelectedProjectChanged(object sender, EventArgs e)
 		{
 			SelectedProject = m_listExistingProjects.SelectedProject;
-			Type = Path.GetExtension(SelectedProject) == Constants.kProjectFileExtension ?
+			Type = Path.GetExtension(SelectedProject) == ProjectRepository.kProjectFileExtension ?
 				ProjectType.ExistingProject : ProjectType.ParatextProject;
 			m_btnOk.Enabled = SelectedProject != null;
 		}

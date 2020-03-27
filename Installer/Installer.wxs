@@ -108,6 +108,14 @@ are trying to support, you're better off using non-advertised shortcuts." -->
             <File Id="GlyssenEngine.pdb" Name="GlyssenEngine.pdb" KeyPath="yes" Source="..\output\release\GlyssenEngine.pdb" />
           </Component>
 
+          <Component Id="GlyssenFileBasedPersistence.dll" Guid="*" Win64="yes">
+            <File Id="GlyssenFileBasedPersistence.dll" Name="GlyssenFileBasedPersistence.dll" KeyPath="yes" Source="..\output\release\GlyssenFileBasedPersistence.dll" ProcessorArchitecture="x64"/>
+          </Component>
+
+          <Component Id="GlyssenFileBasedPersistence.pdb" Guid="*">
+            <File Id="GlyssenFileBasedPersistence.pdb" Name="GlyssenFileBasedPersistence.pdb" KeyPath="yes" Source="..\output\release\GlyssenFileBasedPersistence.pdb" />
+          </Component>
+
           <Component Id="SIL.Core.dll" Guid="*" Win64="yes">
             <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" ProcessorArchitecture="x64"/>
           </Component>
@@ -301,6 +309,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="Glyssen.exe.config" />
       <ComponentRef Id="GlyssenShared.dll"/>
       <ComponentRef Id="GlyssenEngine.dll"/>
+      <ComponentRef Id="GlyssenFileBasedPersistence.dll"/>
       <ComponentRef Id="Analytics.NET.dll"/>
       <ComponentRef Id="DesktopAnalytics.dll"/>
       <ComponentRef Id="Newtonsoft.Json.dll"/>
@@ -312,6 +321,7 @@ are trying to support, you're better off using non-advertised shortcuts." -->
       <ComponentRef Id="Glyssen.pdb" />
       <ComponentRef Id="GlyssenShared.pdb" />
       <ComponentRef Id="GlyssenEngine.pdb" />
+      <ComponentRef Id="GlyssenFileBasedPersistence.pdb"/>
 
       <ComponentGroupRef Id="DistFiles"/>
       <ComponentGroupRef Id="XulRunner" />

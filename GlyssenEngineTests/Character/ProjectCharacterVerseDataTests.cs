@@ -1,10 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
 using Glyssen.Shared;
-using GlyssenEngine;
 using GlyssenEngine.Character;
 using NUnit.Framework;
-using SIL.IO;
 using SIL.Scripture;
 
 namespace GlyssenEngineTests.Character
@@ -18,11 +16,9 @@ namespace GlyssenEngineTests.Character
 		public void Constructor_PostVersion33Format_LoadsDataFromFile()
 		{
 			const string postVersion34CvDataLine = "MAT\t24\t1\tPeter/Andrew\tConfused\tdisciples\tFalse";
-			using (var file = TempFile.WithFilenameInTempFolder(Project.kProjectCharacterVerseFileName))
+			using (var postVersion34CvDataLineReader = new StringReader(postVersion34CvDataLine))
 			{
-				File.WriteAllText(file.Path, postVersion34CvDataLine);
-
-				var data = new ProjectCharacterVerseData(file.Path, ScrVers.English);
+				var data = new ProjectCharacterVerseData(postVersion34CvDataLineReader, ScrVers.English);
 
 				var quoteInfo = data.GetCharacters(kMATbookNum, 24, new SingleVerse(1)).Single();
 
@@ -40,11 +36,9 @@ namespace GlyssenEngineTests.Character
 		public void Constructor_PreVersion34Format_AddsAdditionalEmptyFieldsWhenLoadingDataFromFile()
 		{
 			const string preVersion34CvDataLine = "MAT\t24\t1\tJesus\tMysteriously\t\tFalse\tTrue";
-			using (var file = TempFile.WithFilenameInTempFolder(Project.kProjectCharacterVerseFileName))
+			using (var preVersion34CvDataLineReader = new StringReader(preVersion34CvDataLine))
 			{
-				File.WriteAllText(file.Path, preVersion34CvDataLine);
-
-				var data = new ProjectCharacterVerseData(file.Path, ScrVers.English);
+				var data = new ProjectCharacterVerseData(preVersion34CvDataLineReader, ScrVers.English);
 
 				var quoteInfo = data.GetCharacters(kMATbookNum, 24, new SingleVerse(1)).Single();
 

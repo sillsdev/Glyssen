@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -37,17 +38,14 @@ namespace GlyssenEngine.Script
 			OnBlocksReset();
 		}
 
-		public static BookScript Deserialize(string fileName, ScrVers versification, out Exception error)
+		/// <summary>
+		/// Gets a BookScript object representing the data in the reader (or null if the reader is null).
+		/// Note: This method will take care of disposing the TextReader object.
+		/// </summary>
+		public static BookScript Deserialize(TextReader reader, ScrVers versification)
 		{
-			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName, out error);
-			newBook.Initialize(versification);
-			return newBook;
-		}
-
-		public static BookScript Deserialize(string fileName, ScrVers versification)
-		{
-			var newBook = XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName);
-			newBook.Initialize(versification);
+			var newBook = XmlSerializationHelper.Deserialize<BookScript>(reader);
+			newBook?.Initialize(versification);
 			return newBook;
 		}
 

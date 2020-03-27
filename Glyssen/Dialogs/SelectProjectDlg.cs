@@ -1,5 +1,6 @@
 ﻿using Glyssen.Properties;
 using Glyssen.Shared;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using SIL.Windows.Forms.DblBundle;
 
@@ -13,7 +14,7 @@ namespace Glyssen.Dialogs
 			set => Settings.Default.DefaultBundleDirectory = value;
 		}
 
-		protected override string ProjectFileExtension => Constants.kProjectFileExtension;
+		protected override string ProjectFileExtension => ProjectRepository.kProjectFileExtension;
 
 		protected override string Title => LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project");
 

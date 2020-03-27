@@ -5,82 +5,62 @@ using System.IO;
 using System.Linq;
 using Glyssen.Shared;
 using SIL;
-using SIL.IO;
 using SIL.Reporting;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.ErrorHandling;
+using SIL.Xml;
 using static System.String;
 
 namespace GlyssenEngine
 {
 	/// <summary>
 	/// Lets us work with a reference text even when we don't have an actual reference text object.
-	/// Originally (maybe still?) this enabled the use of "proprietary" reference texts
-	/// which can't ship with Glyssen for IP reasons but which we know FCBH is using.
+	/// This enables the use of local reference texts (e.g., proprietary or customized) which don't
+	/// ship with Glyssen and therefore may not be available on some machine where the project is
+	/// later opened.
 	/// </summary>
-	public class ReferenceTextProxy : IReferenceTextProxy
+	public class ReferenceTextProxy : IReferenceTextProxy, IReferenceTextProject
 	{
-		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
-
-		#region static internals to support testing
-		internal static string ProprietaryReferenceTextProjectFileLocation
+		public static IProjectPersistenceReader Reader
 		{
-			get
-			{
-				if (s_proprietaryReferenceTextProjectFileLocation == null)
-					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, Constants.kLocalReferenceTextDirectoryName);
-
-				return s_proprietaryReferenceTextProjectFileLocation;
-			}
-			set
-			{
-				if (s_proprietaryReferenceTextProjectFileLocation == value)
+			get => s_reader;
+			set 
+			{ 
+				if (s_reader == value)
 					return;
 				ClearCache();
-				s_proprietaryReferenceTextProjectFileLocation = value;
+				s_reader = value;
 			}
 		}
-		internal static Action<Exception, string, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
-		#endregion
 
+		private static Action<Exception, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
 		private static List<ReferenceTextProxy> s_allAvailable;
 		private static bool s_allAvailableLoaded = false;
-		private static string s_proprietaryReferenceTextProjectFileLocation;
-
-		private readonly ReferenceTextType m_referenceTextType;
+		private static IProjectPersistenceReader s_reader;
 		private GlyssenDblTextMetadata m_metadata;
-		private readonly string m_customId;
 
-		public ReferenceTextType Type => m_referenceTextType;
+		public ReferenceTextType Type { get; }
 		public GlyssenDblTextMetadataBase Metadata => m_metadata;
-		public string CustomIdentifier => m_customId;
-		public string Name => m_customId ?? Type.ToString();
+		public string CustomIdentifier { get; }
+		public string Name => CustomIdentifier ?? Type.ToString();
 
-		public bool Missing
-		{
-			get
-			{
-				if (m_metadata == null)
-					AttemptToLoadMetadataForCustomRefText();
-				return m_metadata == null;
-			}
-		}
+		public bool Missing => (m_metadata == null) && !Reader.ResourceExists(this, ProjectResource.Metadata);
 
 		private ReferenceTextProxy(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
 		{
-			Debug.Assert(IsStandardReferenceText(type));
-			m_referenceTextType = type;
-			m_customId = null;
+			Debug.Assert(type.IsStandard());
+			Type = type;
+			CustomIdentifier = null;
 			m_metadata = metadata ?? LoadMetadata(type);
 		}
 
 		private ReferenceTextProxy(ReferenceTextType type, string customId, GlyssenDblTextMetadata metadata)
 		{
-			Debug.Assert(!IsStandardReferenceText(type));
+			Debug.Assert(!type.IsStandard());
 			Debug.Assert(customId != null);
-			m_referenceTextType = type;
-			m_customId = customId;
+			Type = type;
+			CustomIdentifier = customId;
 			if (metadata != null)
 				m_metadata = metadata;
 			else
@@ -90,14 +70,7 @@ namespace GlyssenEngine
 		private void AttemptToLoadMetadataForCustomRefText()
 		{
 			Debug.Assert(Type == ReferenceTextType.Custom);
-			var lowercase = m_customId.ToLowerInvariant();
-			try
-			{
-				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + Constants.kProjectFileExtension));
-			}
-			catch (Exception)
-			{
-			}
+			m_metadata = LoadMetadata(Type, Reader.Load(this, ProjectResource.Metadata));
 		}
 
 		public static IEnumerable<ReferenceTextProxy> AllAvailable
@@ -122,7 +95,7 @@ namespace GlyssenEngine
 		public static ReferenceTextProxy GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
 		{
 			ReferenceTextProxy proxy;
-			bool standard = IsStandardReferenceText(referenceTextType);
+			bool standard = referenceTextType.IsStandard();
 			if (s_allAvailable == null)
 			{
 				s_allAvailable = new List<ReferenceTextProxy>();
@@ -142,73 +115,34 @@ namespace GlyssenEngine
 			return proxy;
 		}
 
-		//public override bool Equals(object obj)
-		//{
-		//	return base.Equals(obj);
-		//}
-
-		//protected bool Equals(ReferenceTextProxy other)
-		//{
-		//	return m_referenceTextType == other.m_referenceTextType && Equals(m_metadata, other.m_metadata);
-		//}
-
-		//public override int GetHashCode()
-		//{
-		//	unchecked
-		//	{
-		//		return ((int) m_referenceTextType * 397) ^ (m_metadata != null ? m_metadata.GetHashCode() : 0);
-		//	}
-		//}
-
-		//public static bool operator ==(ReferenceTextProxy left, ReferenceTextProxy right)
-		//{
-		//	return Equals(left, right);
-		//}
-
-		//public static bool operator !=(ReferenceTextProxy left, ReferenceTextProxy right)
-		//{
-		//	return !Equals(left, right);
-		//}
-
-		private static bool IsStandardReferenceText(ReferenceTextType type)
-		{
-			return (type != ReferenceTextType.Custom && type != ReferenceTextType.Unknown);
-		}
-
 		private static void LoadAllAvailable()
 		{
 			if (s_allAvailable == null)
 				s_allAvailable = new List<ReferenceTextProxy>();
-			Tuple<Exception, string, string> firstLoadError = null;
+			Tuple<Exception, string> firstLoadError = null;
 			var additionalErrors = new List<string>();
-			Action<Exception, string, string> errorReporter = (exception, token, path) =>
+			Action<Exception, string> errorReporter = (exception, token) =>
 			{
 				if (firstLoadError == null)
-					firstLoadError = new Tuple<Exception, string, string>(exception, token, path);
+					firstLoadError = new Tuple<Exception, string>(exception, token);
 				else
 					additionalErrors.Add(token);
 			};
 
-			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => IsStandardReferenceText(t) &&
+			foreach (var stdReferenceTextType in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => t.IsStandard() &&
 				!s_allAvailable.Any(i => i.Type == t)).ToList())
 			{
-				var metadata = LoadMetadata(itm, errorReporter);
+				var metadata = LoadMetadata(stdReferenceTextType, errorReporter);
 				if (metadata != null)
-					s_allAvailable.Add(new ReferenceTextProxy(itm, metadata));
+					s_allAvailable.Add(new ReferenceTextProxy(stdReferenceTextType, metadata));
 			}
 
 			if (ErrorReporterForCopyrightedReferenceTexts == null)
 				ErrorReporterForCopyrightedReferenceTexts = errorReporter;
 
-			if (Directory.Exists(ProprietaryReferenceTextProjectFileLocation))
-			{
-				foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
-				{
-					var customId = Path.GetFileName(dir);
-					AttemptToAddCustomReferenceTextIdentifier(customId, dir);
-				}
-			}
-
+			foreach (var resourceReader in Reader.GetCustomReferenceTextsNotAlreadyLoaded())
+				AttemptToAddCustomReferenceText(resourceReader);
+			
 			if (firstLoadError != null)
 			{
 				if (!s_allAvailable.Any())
@@ -229,113 +163,73 @@ namespace GlyssenEngine
 				}
 				else
 				{
-					ReportNonFatalLoadError(firstLoadError.Item1, firstLoadError.Item2, firstLoadError.Item3);
+					ReportNonFatalLoadError(firstLoadError.Item1, firstLoadError.Item2);
 				}
 			}
 			s_allAvailableLoaded = true;
 		}
 
-		private static bool IsCustomReferenceTextIdentifierInListOfAvailable(string customId)
+		public static bool IsCustomReferenceTextIdentifierInListOfAvailable(string customId)
 		{
-			return s_allAvailable.Any(i => i.Type == ReferenceTextType.Custom && i.CustomIdentifier == customId);
+			return s_allAvailable?
+				.Any(i => i.Type == ReferenceTextType.Custom && i.CustomIdentifier == customId) ??
+				false;
 		}
 
-		private static bool AttemptToAddCustomReferenceTextIdentifier(string customId, string dir)
+		/// <summary>
+		/// Attempts to add a custom reference text corresponding to the data in the given ResourceReader.
+		/// Note: This method will take care of disposing the ResourceReader object.
+		/// </summary>
+		private static void AttemptToAddCustomReferenceText(ResourceReader resourceReader)
 		{
+			var customId = resourceReader.Id;
 			Debug.Assert(customId != null);
 			if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
-				return false;
-			string projectFileName = customId.ToLowerInvariant() + Constants.kProjectFileExtension;
-			var refTextProjectFilePath = Path.Combine(dir, projectFileName);
-			if (!File.Exists(refTextProjectFilePath))
-				return false;
-			var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath,
+			{
+				resourceReader.Dispose();
+				return;
+			}
+			var metadata = LoadMetadata(ReferenceTextType.Custom, resourceReader,
 				ErrorReporterForCopyrightedReferenceTexts);
 			if (metadata != null)
-			{
 				s_allAvailable.Add(new ReferenceTextProxy(ReferenceTextType.Custom, customId, metadata));
-				return true;
+		}
+
+		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
+			Action<Exception, string> reportError = null)
+		{
+			Debug.Assert(referenceTextType.IsStandard());
+			return LoadMetadata(referenceTextType, Reader.Load(new ReferenceTextId(referenceTextType), ProjectResource.Metadata), reportError);
+		}
+
+		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
+			TextReader reader, Action<Exception, string> reportError = null)
+		{
+			try
+			{
+				return XmlSerializationHelper.Deserialize<GlyssenDblTextMetadata>(reader);
 			}
-			return false;
-		}
-
-		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
-			Action<Exception, string, string> reportError = null)
-		{
-			Debug.Assert(IsStandardReferenceText(referenceTextType));
-			var referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
-			return LoadMetadata(referenceTextType, referenceProjectFilePath, reportError);
-		}
-
-		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
-			string referenceProjectFilePath, Action<Exception, string, string> reportError = null)
-		{
-			Exception exception;
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
-			if (exception != null)
+			catch (Exception exception)
 			{
 				NonFatalErrorHandler.HandleException(exception);
 				string token = referenceTextType.ToString();
 				if (reportError == null)
-					throw new ReferenceTextMetadataLoadException(GetLoadErrorMessage(token, referenceProjectFilePath), exception);
-				reportError(exception, token, referenceProjectFilePath);
+					throw new ReferenceTextMetadataLoadException(GetLoadErrorMessage(token), exception);
+				reportError(exception, token);
 
 				return null;
 			}
-			return metadata;
 		}
 
-		public static bool IsCustomReferenceAvailable(string customId)
+		private static void ReportNonFatalLoadError(Exception exception, string token)
 		{
-			var dir = Path.Combine(ProprietaryReferenceTextProjectFileLocation, customId);
-			if (!Directory.Exists(dir))
-				return false;
-
-			if (s_allAvailable == null)
-				s_allAvailable = new List<ReferenceTextProxy>();
-			else if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
-				return true;
-
-			ErrorReporterForCopyrightedReferenceTexts = (exception, s, arg3) => { };
-
-			return AttemptToAddCustomReferenceTextIdentifier(customId, dir);
+			ErrorReport.ReportNonFatalExceptionWithMessage(exception, GetLoadErrorMessage(token));
 		}
 
-		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
+		private static string GetLoadErrorMessage(string token)
 		{
-			Debug.Assert(IsStandardReferenceText(referenceTextType));
-			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + Constants.kProjectFileExtension;
-			return FileLocationUtilities.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
-		}
-
-		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
-		{
-			if (!IsStandardReferenceText(referenceTextType))
-				throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
-
-			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
-		}
-
-		public string ProjectFolder
-		{
-			get
-			{
-				if (IsStandardReferenceText(Type))
-					return GetProjectFolderForStandardReferenceText(Type);
-
-				return Path.Combine(ProprietaryReferenceTextProjectFileLocation, m_customId);
-			}
-		}
-
-		private static void ReportNonFatalLoadError(Exception exception, string token, string path)
-		{
-			ErrorReport.ReportNonFatalExceptionWithMessage(exception, GetLoadErrorMessage(token, path));
-		}
-
-		private static string GetLoadErrorMessage(string token, string path)
-		{
-			return Format(Localizer.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
-				token, path);
+			return Format(Localizer.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded."),
+				token);
 		}
 
 		/// <summary>

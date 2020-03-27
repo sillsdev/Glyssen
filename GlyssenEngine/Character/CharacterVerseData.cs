@@ -361,11 +361,10 @@ namespace GlyssenEngine.Character
 			// base implementation is a no-op;
 		}
 
-		protected void LoadData(string tabDelimitedCharacterVerseData)
+		protected void LoadData(IEnumerable<string> lines)
 		{
 			var data = new HashSet<CharacterVerse>();
-			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
-				.Select((contents, number) => new { Contents = contents, Number = number + 1 }))
+			foreach (var line in lines.Select((contents, number) => new { Contents = contents, Number = number + 1 }))
 			{
 				if (line.Contents.Length != 0 && line.Contents[0] != '#')
 				{

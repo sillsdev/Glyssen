@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -13,6 +12,7 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.TMXUtils;
 using L10NSharp.UI;
@@ -218,7 +218,7 @@ namespace Glyssen.Dialogs
 				m_wsFontControl.TestAreaText = m_model.SampleText;
 
 			// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
-			var enableControls = m_model.Project.ProjectFileIsWritable;
+			var enableControls = m_model.Project.ProjectIsWritable;
 			m_btnUpdateFromSource.Enabled =
 				m_txtRecordingProjectName.Enabled =
 					m_txtAudioStockNumber.Enabled = enableControls && !m_model.Project.IsSampleProject;
@@ -348,7 +348,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
-			if (m_model.RecordingProjectName != RecordingProjectName && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
+			if (m_model.RecordingProjectName != RecordingProjectName && ProjectBase.Reader.ProjectExistsHaving(IsoCode, PublicationId, RecordingProjectName))
 			{
 				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectPrompt",
 					"A {0} project with an ID of {1} and a Recording Project Name of {2} already exists for this language. Do you want to overwrite it?"),
@@ -359,7 +359,7 @@ namespace Glyssen.Dialogs
 					return;
 				}
 
-				var existingProjectPath = Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName);
+				var existingProjectPath = ProjectRepository.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName);
 				if (!RobustIO.DeleteDirectoryAndContents(existingProjectPath))
 				{
 					var failedMsg = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectFailed",

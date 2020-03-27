@@ -21,6 +21,7 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Rules;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle;
@@ -45,7 +46,10 @@ namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings
 	{
+		private const string kShareFileExtension = ".glyssenshare";
+
 		public static Sparkle UpdateChecker { get; private set; }
+		private PersistenceImplementation m_persistenceImpl;
 		private Project m_project;
 		private ParatextScrTextWrapper m_paratextScrTextWrapperForRecentlyCreatedProject;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
@@ -56,14 +60,15 @@ namespace Glyssen
 		private bool? m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 		private ReferenceText m_temporaryRefTextOverrideForExporting;
 
-		public MainForm(IReadOnlyList<string> args)
+		public MainForm(PersistenceImplementation persistenceImpl, IReadOnlyList<string> args)
 		{
 			InitializeComponent();
 
+			m_persistenceImpl = persistenceImpl;
 			Project.FontRepository = new WinFormsFontRepositoryAdapter();
 
 			Project.UpgradingProjectToNewParserVersion += UpgradingProjectToNewParserVersion;
-			Project.GetBadLdmlFileRecoveryAction += GetBadLdmlFileRecoveryAction;
+			Project.GetBadLdmlRecoveryAction += GetBadLdmlFileRecoveryAction;
 
 			SetupUiLanguageMenu();
 			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
@@ -77,18 +82,18 @@ namespace Glyssen
 			m_lastExportLocationLink.Text = Empty;
 
 			// Did the user start Glyssen by double-clicking a share file?
-			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(ProjectBase.kShareFileExtension))
+			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(kShareFileExtension))
 			{
 				ImportShare(args[0]);
 			}
 		}
 
-		private BadLdmlFileRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string ldmlFilePath, string error, bool attemptToUseBackup)
+		private BadLdmlRecoveryAction GetBadLdmlFileRecoveryAction(Project sender, string error, bool attemptToUseBackup)
 		{
 			var msg1 = Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
 					"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
 					"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
-				sender.Name, ldmlFilePath, error);
+				sender.Name, m_persistenceImpl.GetLdmlFilePath(sender), error);
 			var msg2 = Format(attemptToUseBackup
 				? LocalizationManager.GetString("Project.UseBackupLdmlFile",
 					"To use the automatically created backup (which might be out-of-date), click {0}.",
@@ -109,9 +114,9 @@ namespace Glyssen
 
 			switch (MessageBox.Show(msg, GlyssenInfo.Product, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
 			{
-				default: return BadLdmlFileRecoveryAction.Repair;
-				case DialogResult.Retry: return BadLdmlFileRecoveryAction.Retry;
-				case DialogResult.Abort: return BadLdmlFileRecoveryAction.Abort;
+				default: return BadLdmlRecoveryAction.Repair;
+				case DialogResult.Retry: return BadLdmlRecoveryAction.Retry;
+				case DialogResult.Abort: return BadLdmlRecoveryAction.Abort;
 			}
 		}
 
@@ -163,6 +168,7 @@ namespace Glyssen
 			{
 				Logger.WriteEvent($"Opening project {m_project.Name}");
 
+				m_btnOpenProject.Enabled = false;
 				m_project.ProjectStateChanged += FinishSetProjectIfReady;
 				m_project.CharacterGroupCollectionChanged += UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged += ClearCastSizePlanningViewModel;
@@ -202,7 +208,7 @@ namespace Glyssen
 					}
 				}
 
-				Settings.Default.CurrentProject = m_project.ProjectFilePath;
+				Settings.Default.CurrentProject = m_persistenceImpl.GetProjectFilePath(m_project);
 				Logger.WriteEvent($"CurrentProject set to {Settings.Default.CurrentProject}");
 				Settings.Default.Save();
 
@@ -260,17 +266,17 @@ namespace Glyssen
 			}
 		}
 
-		private void UpdateButtons(bool readOnly)
+		private void UpdateButtons(bool readyForUserInteraction)
 		{
-			m_btnOpenProject.Enabled = !readOnly;
+			m_btnOpenProject.Enabled = readyForUserInteraction;
 			m_imgCheckOpen.Visible = true;
-			m_btnSettings.Enabled = !readOnly && m_project.ProjectFileIsWritable;
+			m_btnSettings.Enabled = readyForUserInteraction && m_project.ProjectIsWritable;
 			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.IsQuoteSystemReadyForParse;
-			m_btnSelectBooks.Enabled = !readOnly && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
-				m_project.ProjectFileIsWritable;
+			m_btnSelectBooks.Enabled = readyForUserInteraction && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
+				m_project.ProjectIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed && m_project.IncludedBooks.Any();
-			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
+			m_btnIdentify.Enabled = readyForUserInteraction && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
 			if (m_project.ReferenceText == null)
 			{
@@ -279,12 +285,12 @@ namespace Glyssen
 			}
 			else if (m_btnIdentify.Enabled)
 				m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
-			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
+			m_btnExport.Enabled = readyForUserInteraction && m_btnIdentify.Enabled;
 
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
 
-			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && !readOnly && m_imgCheckAssignCharacters.Visible;
+			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && readyForUserInteraction && m_imgCheckAssignCharacters.Visible;
 
 			// TODO: Determine when the Cast Size Planning task is done enough to move on to the next task.
 			// Tom added the final portion of the logic to allow us to continue to access the Roles for Voice Actors dialog at least
@@ -295,11 +301,11 @@ namespace Glyssen
 			m_imgCastSizePlanning.Visible = m_btnCastSizePlanning.Visible && m_btnCastSizePlanning.Enabled &&
 				(m_project.CharacterGroupList.CharacterGroups.Any() || m_project.VoiceActorList.ActiveActors.Any());
 
-			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && !readOnly && m_imgCastSizePlanning.Visible;
+			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && readyForUserInteraction && m_imgCastSizePlanning.Visible;
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
-			m_lnkExit.Enabled = !readOnly;
+			m_lnkExit.Enabled = readyForUserInteraction;
 
-			m_exportMenu.Enabled = true;
+			m_shareMenu.Enabled = readyForUserInteraction;
 		}
 
 		private void ResetUi()
@@ -354,7 +360,7 @@ namespace Glyssen
 
 		private void ShowOpenProjectDialog()
 		{
-			using (var dlg = new OpenProjectDlg(m_project))
+			using (var dlg = new OpenProjectDlg(ProjectRepository.GetProjectFilePath(m_project)))
 			{
 				var result = ShowModalDialogWithWaitCursor(dlg);
 				if (result != DialogResult.OK)
@@ -419,6 +425,7 @@ namespace Glyssen
 
 		private void InitializeProgress()
 		{
+			m_btnOpenProject.Enabled = false;
 			ResetUi();
 			m_tableLayoutPanel.Enabled = false;
 			Cursor.Current = Cursors.WaitCursor;
@@ -435,7 +442,7 @@ namespace Glyssen
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(filePath, HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
+				SetProject(Project.Load(InstantiateProjectFromMetadata(filePath), HandleMissingBundleNeededForProjectUpgrade, new WinformsParatextProjectLoadingAssistant(ParserUpgradeMessage, false)));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -444,6 +451,48 @@ namespace Glyssen
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
+		}
+
+		private Project InstantiateProjectFromMetadata(string projectFilePath)
+		{
+			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
+			var isWritable = !FileHelper.IsLocked(projectFilePath);
+			if (!isWritable)
+			{
+				MessageModal.Show(LocalizationManager.GetString("Project.NotWritableMsg",
+					"The project file is not writable. No changes will be saved."));
+			}
+
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
+			if (exception != null)
+			{
+				Analytics.ReportException(exception);
+				var message = Format(LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
+				ErrorReport.NotifyUserOfProblem(exception, message);
+				return null;
+			}
+
+			Project project;
+			try
+			{
+				project = new Project(metadata, ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+			}
+			catch (ProjectNotFoundException e)
+			{
+				throw new ApplicationException(Format(LocalizationManager.GetString("Project.ParatextProjectNotFound",
+						"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
+						"Param 0: \"Paratext\" (product name); " +
+						"Param 1: Paratext project short name (unique project identifier); " +
+						"Param 2: \"Glyssen\" (product name); " +
+						"Param 3: Glyssen recording project name"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					metadata.ParatextProjectId,
+					GlyssenInfo.Product,
+					metadata.Name), e);
+			}
+
+			project.ProjectIsWritable = isWritable;
+			return project;
 		}
 
 		public static string ParserUpgradeMessage => LocalizationManager.GetString("Project.ParserVersionUpgraded", "The splitting engine has been upgraded.") + " ";
@@ -474,9 +523,9 @@ namespace Glyssen
 
 			string projFilePath;
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
-			var publicationFolder = Project.GetPublicationFolderPath(bundle);
+			var publicationFolder = ProjectRepository.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
-				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Constants.kProjectFileExtension)
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + ProjectRepository.kProjectFileExtension)
 					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
@@ -489,35 +538,20 @@ namespace Glyssen
 						return;
 					}
 					projFilePath = dlg.SelectedProject;
+					if (File.Exists(projFilePath))
+					{
+						LoadProject(projFilePath);
+						bundle.Dispose();
+						return;
+					}
 				}
 			}
 			else
-				projFilePath = Project.GetDefaultProjectFilePath(bundle);
-
-			var recordingProjectName = projFilePath.GetContainingFolderName();
-			if (File.Exists(projFilePath))
 			{
-				if (GlyssenDblTextMetadata.GetRevisionOrChangesetId(projFilePath) == bundle.Metadata.RevisionOrChangesetId)
-				{
-					LoadProject(projFilePath);
-					bundle.Dispose();
-					return;
-				}
-				// If we get here, then the Select Existing Project dialog was not displayed, but there is
-				// already a project with the same path (i.e., for a different revision). So we need to
-				// generate a unique revision-specific project path.
-				// TODO (PG-222): Before blindly creating a new project, we probably need to prompt the
-				// user to see if they want to upgrade an existing project instead. If there are multiple
-				// candidate projects, we'll need to present a list.
-				var baserecordingProjectName = recordingProjectName;
-				recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision})";
-				var path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
-				for (int i = 1; File.Exists(path); i++)
-				{
-					recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision}.{i})";
-					path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
-				}
+				projFilePath = PersistenceImplementation.GetAvailableDefaultProjectFilePath(bundle, bundle.Metadata.Revision);
 			}
+
+			var recordingProjectName = ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projFilePath);
 
 			try
 			{
@@ -622,7 +656,7 @@ namespace Glyssen
 				Logger.WriteEvent("User proceeding with project creation although no books passed recommended checks.");
 			}
 
-			var projFilePath = Project.GetDefaultProjectFilePath(paratextProject);
+			var projFilePath = PersistenceImplementation.GetDefaultProjectFilePath(paratextProject);
 			if (File.Exists(projFilePath))
 				throw new Exception($"User should not have been able to select a Paratext project to create a new Glyssen project when that project already exists: {projFilePath}");
 
@@ -789,7 +823,7 @@ namespace Glyssen
 
 		private void UpdateProjectState()
 		{
-			if (m_project == null || Settings.Default.CurrentProject != m_project.ProjectFilePath)
+			if (m_project == null || Settings.Default.CurrentProject != m_persistenceImpl.GetProjectFilePath(m_project))
 			{
 				// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
 				// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
@@ -797,8 +831,10 @@ namespace Glyssen
 				Settings.Default.CurrentProject = null;
 				Settings.Default.Save();
 			}
-			if (m_project != null)
-				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
+			if (m_project == null)
+				m_btnOpenProject.Enabled = true;
+			else
+				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0);
 		}
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -1260,7 +1296,7 @@ namespace Glyssen
 				projectSettingsDlgTitle = dlg.Text;
 				referenceTextTabName = dlg.ReferenceTextTabPageName;
 			}
-			var customReferenceTextFolder = m_project.ReferenceTextProxy.ProjectFolder;
+			var customReferenceTextFolder = m_persistenceImpl.GetProjectFolderPath(m_project.ReferenceTextProxy);
 			if (customReferenceTextFolder.Any(c => c == ' '))
 				customReferenceTextFolder = customReferenceTextFolder.Replace(" ", "\u00A0");
 			customReferenceTextFolder = "file://" + customReferenceTextFolder;
@@ -1287,7 +1323,7 @@ namespace Glyssen
 				Logger.WriteEvent(msg);
 				switch (FlexibleMessageBox.Show(msg, GlyssenInfo.Product,
 					ignoreOptionText == null ? MessageBoxButtons.RetryCancel : MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
-					(sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); }))
+					(sender, e) => { SafeCreateAndOpenFolder(e.LinkText); }))
 				{
 					case DialogResult.Cancel:
 					case DialogResult.Abort: return false;
@@ -1320,26 +1356,68 @@ namespace Glyssen
 		/// <param name="e"></param>
 		private void Export_Click(object sender, EventArgs e)
 		{
-			void HandleCustomReferenceText(string customIdentifier)
-			{
-				var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
-					"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
-					"should be installed on the other computer before importing.");
-				MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
-					ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
 			try
 			{
 				m_tableLayoutPanel.Enabled = false;
 				Cursor.Current = Cursors.WaitCursor;
-				var saveAsName = m_project.ExportShare(HandleCustomReferenceText);
-				PathUtilities.SelectFileInExplorer(saveAsName);
-				Logger.WriteEvent($"Project exported to {saveAsName}");
+				ExportShare();
 			}
 			finally
 			{
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
+			}
+		}
+
+		public void ExportShare()
+		{
+			var sourceDir = Path.GetDirectoryName(m_persistenceImpl.GetProjectFilePath(m_project));
+			Debug.Assert(sourceDir != null);
+			var nameInZip = sourceDir.Substring(ProjectRepository.ProjectsBaseFolder.Length);
+
+			var shareFolder = ProjectRepository.DefaultShareFolder;
+			Directory.CreateDirectory(shareFolder);
+
+			string fallbackVersificationFilePath = null;
+
+			if (!m_persistenceImpl.ResourceExists(m_project, ProjectResource.Versification))
+			{
+				fallbackVersificationFilePath = m_persistenceImpl.GetFallbackVersificationFilePath(m_project);
+				try
+				{
+					m_project.Versification.Save(fallbackVersificationFilePath);
+				}
+				catch (Exception e)
+				{
+					Logger.WriteError($"Failed to save fallback versification file to {fallbackVersificationFilePath}", e);
+				}
+			}
+
+			try
+			{
+				var saveAsName = Path.Combine(shareFolder, m_project.LanguageIsoCode + "_" + m_project.Name) + kShareFileExtension;
+				using (var zip = new ZipFile())
+				{
+					zip.AddDirectory(sourceDir, nameInZip);
+					zip.Save(saveAsName);
+				}
+
+				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
+				{
+					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
+						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
+						"should be installed on the other computer before importing.");
+					MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
+						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+
+				PathUtilities.SelectFileInExplorer(saveAsName);
+				Logger.WriteEvent($"Project exported to {saveAsName}");
+			}
+			finally
+			{
+				if (fallbackVersificationFilePath != null)
+					RobustFile.Delete(fallbackVersificationFilePath);
 			}
 		}
 
@@ -1351,8 +1429,8 @@ namespace Glyssen
 			// show the user an Open File dialog
 			using (var ofd = new OpenFileDialog())
 			{
-				ofd.InitialDirectory = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", ProjectBase.kShareFileExtension);
+				ofd.InitialDirectory = ProjectRepository.DefaultShareFolder;
+				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", kShareFileExtension);
 				ofd.RestoreDirectory = true;
 
 				if (ofd.ShowDialog() == DialogResult.OK)
@@ -1381,12 +1459,14 @@ namespace Glyssen
 			// open the zip file
 			using (var zip = new ZipFile(importFile))
 			{
-				if (zip.Entries.Count <= 0) return;
-
 				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
-				var targetDir = Path.Combine(GlyssenInfo.BaseDataFolder, path.FileName);
 
-				var projectFileName = path.FileName.Split('/').First() + Constants.kProjectFileExtension;
+				if (path == null)
+					return;
+
+				var targetDir = Path.Combine(ProjectRepository.ProjectsBaseFolder, path.FileName);
+
+				var projectFileName = path.FileName.Split('/').First() + ProjectRepository.kProjectFileExtension;
 				var projectFilePath = Path.Combine(targetDir, projectFileName);
 
 				// warn the user if data will be overwritten
@@ -1404,7 +1484,7 @@ namespace Glyssen
 				// close the current project
 				SetProject(null);
 
-				zip.ExtractAll(GlyssenInfo.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
+				zip.ExtractAll(ProjectRepository.ProjectsBaseFolder, ExtractExistingFileAction.OverwriteSilently);
 
 				// open the imported project
 				if (RobustFile.Exists(projectFilePath))
@@ -1421,13 +1501,26 @@ namespace Glyssen
 								"\nThen restart {1} to continue working with this project.",
 								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
 							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
-								"file://" + m_project.ReferenceTextProxy.ProjectFolder),
-								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); });
+								"file://" + m_persistenceImpl.GetProjectFolderPath(m_project.ReferenceTextProxy)),
+								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { SafeCreateAndOpenFolder(e.LinkText); });
 						}
 					}
 
 					LoadProject(projectFilePath, AdditionalActionAfterSettingProject);
 				}
+			}
+		}
+
+		private static void SafeCreateAndOpenFolder(string folderPath)
+		{
+			try
+			{
+				Directory.CreateDirectory(folderPath);
+				Process.Start(folderPath);
+			}
+			catch (Exception)
+			{
+				// Ignore;
 			}
 		}
 	}

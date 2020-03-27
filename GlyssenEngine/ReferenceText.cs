@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen.Shared;
@@ -14,10 +13,9 @@ using SIL.Scripture;
 
 namespace GlyssenEngine
 {
-	public class ReferenceText : ProjectBase, IReferenceLanguageInfo
+	public class ReferenceText : ProjectBase, IReferenceLanguageInfo, IReferenceTextProject
 	{
 		protected readonly ReferenceTextType m_referenceTextType;
-		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
 		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
@@ -36,8 +34,8 @@ namespace GlyssenEngine
 					referenceText.ReloadModifiedBooks();
 				else
 				{
-					referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
-					referenceText.LoadBooks();
+					referenceText = new ReferenceText(id.Metadata, id.Type);
+					referenceText.LoadExistingBooks();
 					s_instantiatedReferenceTexts[id] = referenceText;
 				}
 			}
@@ -46,26 +44,12 @@ namespace GlyssenEngine
 		}
 
 		public ReferenceTextType Type => m_referenceTextType;
+		
+		public override string Name => Type == ReferenceTextType.Custom ? LanguageName ?? m_metadata.Name : Type.ToString();
 
-		private BookScript TryLoadBook(string[] files, string bookCode)
+		private BookScript TryLoadBook(string bookCode)
 		{
-			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
-			return fileName != null ? BookScript.Deserialize(fileName, Versification) : null;
-		}
-
-		private string[] BookScriptFiles => Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension);
-
-		private void LoadBooks()
-		{
-			var files = BookScriptFiles;
-
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				var bookScript = TryLoadBook(files, bookCode);
-				if (bookScript != null)
-					m_books.Add(bookScript);
-			}
+			return BookScript.Deserialize(Reader.LoadBook(this, bookCode), Versification);
 		}
 
 		private void ReloadModifiedBooks()
@@ -75,13 +59,12 @@ namespace GlyssenEngine
 				if (!m_modifiedBooks.Any())
 					return;
 
-				var files = BookScriptFiles;
 				for (int i = 0; i < m_books.Count; i++)
 				{
 					var bookId = m_books[i].BookId;
 					if (m_modifiedBooks.Contains(bookId))
 					{
-						var bookScript = TryLoadBook(files, bookId);
+						var bookScript = TryLoadBook(bookId);
 						Debug.Assert(bookScript != null);
 						m_books[i] = bookScript;
 					}
@@ -91,11 +74,10 @@ namespace GlyssenEngine
 			}
 		}
 
-		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType, string projectFolder)
+		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;
-			m_projectFolder = projectFolder;
 
 			GetBookName = bookId => GetBook(bookId)?.PageHeader;
 
@@ -114,13 +96,15 @@ namespace GlyssenEngine
 		protected virtual void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			if (File.Exists(VersificationFilePath))
+			var versification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw);
+			if (versification != null)
 			{
-				SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
+				SetVersification(versification);
 			}
 			else
 			{
-				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versification.");
+				Logger.WriteMinorEvent("Custom versification for proprietary reference text used by " +
+					"this project was not found or could not be loaded. Using standard English versification.");
 				SetVersification(ScrVers.English);
 			}
 		}
@@ -839,7 +823,5 @@ namespace GlyssenEngine
 		{
 			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse >= verse);
 		}
-
-		protected override string ProjectFolder { get { return m_projectFolder; } }
 	}
 }

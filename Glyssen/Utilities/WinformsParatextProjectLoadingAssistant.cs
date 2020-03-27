@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Glyssen.Shared;
 using GlyssenEngine;
 using GlyssenEngine.Paratext;
+using GlyssenFileBasedPersistence;
 using L10NSharp;
 using SIL.Reporting;
 using static System.String;
@@ -148,7 +149,7 @@ namespace Glyssen.Utilities
 
 		public void HandleProjectPathChanged()
 		{
-			Properties.Settings.Default.CurrentProject = Project.ProjectFilePath;
+			Properties.Settings.Default.CurrentProject = ProjectRepository.GetProjectFilePath(Project);
 		}
 
 		public void ReportApplicationError(ApplicationException exception)

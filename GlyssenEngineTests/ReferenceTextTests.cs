@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Shared;
+using GlyssenSharedTests;
 using Glyssen.Shared.Bundle;
 using GlyssenEngine;
 using GlyssenEngine.Bundle;
@@ -45,7 +45,7 @@ namespace GlyssenEngineTests
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+			TestReferenceText.ForgetCustomReferenceTexts();
 		}
 
 		[TestCase(ReferenceTextType.English, 66)] // Whole Bible
@@ -2382,7 +2382,8 @@ namespace GlyssenEngineTests
 				"{25}\u00A0to God our Savior, who alone is wise, be glory and majesty, dominion and power, both now and forever. Amen.",
 			};
 
-			var jude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD).GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject(), false).Single();
+			var jude = TestReferenceText.CreateTestReferenceText(ReferenceTextTestUtils.GetBookContents(TestReferenceTextResource.EnglishJUD))
+				.GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject(), false).Single();
 			StringBuilder sbForVernacularResults = new StringBuilder();
 			StringBuilder sbForReferenceTextResults = new StringBuilder();
 			for (int i = 0; i < jude.Blocks.Count; i++)
@@ -2428,7 +2429,7 @@ namespace GlyssenEngineTests
 		[TestCase(false)]
 		public void GetBooksWithBlocksConnectedToReferenceText_ReferenceTextDoesNotContainBook_NoChangeToVernacular(bool applyNarratorOverrides)
 		{
-			var refTextForJude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD);
+			var refTextForJude = TestReferenceText.CreateTestReferenceText(ReferenceTextTestUtils.GetBookContents(TestReferenceTextResource.EnglishJUD));
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			var blocksBeforeCall = testProject.IncludedBooks[0].GetScriptBlocks();
 			var result = refTextForJude.GetBooksWithBlocksConnectedToReferenceText(testProject, applyNarratorOverrides);
@@ -2507,13 +2508,16 @@ namespace GlyssenEngineTests
 				BlockElements = new List<BlockElement> { new ScriptText("beloved.") }
 			});
 
-			var metadata = new GlyssenDblTextMetadata();
-			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
+			var metadata = new GlyssenDblTextMetadata {Language = new GlyssenDblMetadataLanguage {Name = "Doublespeak"}};
 			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			var doublespeakFolder = Path.Combine(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation, "Doublespeak");
-			Directory.CreateDirectory(doublespeakFolder);
-			var glyssenFilePath = Path.Combine(doublespeakFolder, "doublespeak.glyssen");
-			XmlSerializationHelper.SerializeToFile(glyssenFilePath, metadata);
+			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
+			var customDoubleSpeakReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, "Doublespeak");
+			persistenceImpl.SetUpProjectPersistence(customDoubleSpeakReferenceTextId);
+			using (var writer = persistenceImpl.GetTextWriter(customDoubleSpeakReferenceTextId, ProjectResource.Metadata))
+			{
+				XmlSerializationHelper.Serialize(writer, metadata, out var e);
+				Assert.IsNull(e);
+			}
 			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks, primaryReferenceText.Versification);
@@ -2584,14 +2588,19 @@ namespace GlyssenEngineTests
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateBlockForVerse("Peter", 1, "John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'", true));
 
+			const string kPoetian = "Poetian";
 			var metadata = new GlyssenDblTextMetadata();
-			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Poetian" };
+			metadata.Language = new GlyssenDblMetadataLanguage { Name = kPoetian };
 			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			var doublespeakFolder = Path.Combine(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation, "Poetian");
-			Directory.CreateDirectory(doublespeakFolder);
-			var glyssenFilePath = Path.Combine(doublespeakFolder, "poetian.glyssen");
-			XmlSerializationHelper.SerializeToFile(glyssenFilePath, metadata);
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Poetian"));
+			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
+			var customPoetianReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, kPoetian);
+			persistenceImpl.SetUpProjectPersistence(customPoetianReferenceTextId);
+			using (var writer = persistenceImpl.GetTextWriter(customPoetianReferenceTextId, ProjectResource.Metadata))
+			{
+				XmlSerializationHelper.Serialize(writer, metadata, out var e);
+				Assert.IsNull(e);
+			}
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, kPoetian));
 
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
@@ -4156,19 +4165,8 @@ namespace GlyssenEngineTests
 
 	public class TestReferenceText : ReferenceText
 	{
-		[SuppressMessage("ReSharper", "InconsistentNaming")]
-		public enum TestReferenceTextResource
-		{
-			EnglishJUD,
-			AzeriJUD,
-			AzeriREV,
-			FrenchMAT,
-			FrenchMRK,
-			SpanishMAT,
-		}
-
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
-			: base(metadata, ReferenceTextType.Custom, null)
+			: base(metadata, ReferenceTextType.Custom)
 		{
 			if (Versification != null && book.Versification == null)
 				book.Initialize(Versification);
@@ -4204,105 +4202,25 @@ namespace GlyssenEngineTests
 			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
 		}
 
-		private static bool IsProprietaryReferenceTextLocationOveridden
+		public static void ForgetCustomReferenceTexts()
 		{
-			get
-			{
-				return !ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation.EndsWith(
-					Constants.kLocalReferenceTextDirectoryName);
-			}
-		}
-
-		public static void DeleteTempCustomReferenceProjectFolder()
-		{
-			if (!IsProprietaryReferenceTextLocationOveridden)
-				return;
-
-			if (Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation))
-				RobustIO.DeleteDirectoryAndContents(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
-
-			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = null;
+			GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CleanupUpTempImplementationAndRestorePreviousImplementation();
+			var impl = GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.CurrentImplementation;
+			if (impl != null)
+				ReferenceTextProxy.Reader = Reader = impl;
 		}
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
-			if (IsProprietaryReferenceTextLocationOveridden)
-				return;
-			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = Path.GetTempFileName();
-			File.Delete(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
-			Directory.CreateDirectory(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
+			ReferenceTextProxy.Reader = Reader = 
+				GlyssenFileBasedPersistenceTests.TestFilePersistenceImplementation.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
 		{
 			OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			//var sampleMetadata = new GlyssenDblTextMetadata();
-			//sampleMetadata.AvailableBooks = new List<Book>();
-			//var books = new List<UsxDocument>();
-
-			string customFolderId = null;
-
-			foreach (var testBook in booksToInclude)
-				AddBook(testBook, ref customFolderId);
-
-			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customFolderId));
-		}
-
-		private static void AddBook(TestReferenceTextResource testResource, ref string customFolderId)
-		{
-			string folder;
-			string fileName;
-			string fileContents;
-			switch (testResource)
-			{
-				case TestReferenceTextResource.EnglishJUD:
-					folder = "English";
-					fileName = "JUD.xml";
-					fileContents = Resources.TestReferenceTextJUD;
-					break;
-				case TestReferenceTextResource.AzeriJUD:
-					folder = "Azeri";
-					fileName = "JUD.xml";
-					fileContents = Resources.AzeriJUDRefText;
-					break;
-				case TestReferenceTextResource.AzeriREV:
-					folder = "Azeri";
-					fileName = "REV.xml";
-					fileContents = Resources.AzeriREVRefText;
-					break;
-				case TestReferenceTextResource.FrenchMAT:
-					folder = "French";
-					fileName = "MAT.xml";
-					fileContents = Resources.FrenchMATRefText;
-					break;
-				case TestReferenceTextResource.FrenchMRK:
-					folder = "French";
-					fileName = "MRK.xml";
-					fileContents = Resources.FrenchMRKRefText;
-					break;
-				case TestReferenceTextResource.SpanishMAT:
-					folder = "Spanish";
-					fileName = "MAT.xml";
-					fileContents = Resources.SpanishMATRefText;
-					break;
-				default:
-					throw new ArgumentOutOfRangeException("testResource", testResource, null);
-			}
-			var rtFolder = Path.Combine(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation, folder);
-			if (customFolderId == null)
-			{
-				customFolderId = folder;
-				Directory.CreateDirectory(rtFolder);
-				var lowercase = folder.ToLowerInvariant();
-				File.WriteAllBytes(Path.Combine(rtFolder, lowercase + Constants.kProjectFileExtension), (byte[])Resources.ResourceManager.GetObject(lowercase));
-				File.WriteAllText(Path.Combine(rtFolder, "versification.vrs"), Resources.EnglishVersification);
-			}
-			else if (customFolderId != folder)
-			{
-				throw new ArgumentException("Attempt to compbine resources for different languages into a single reference text.",
-					"testResource");
-			}
-			File.WriteAllText(Path.Combine(rtFolder, fileName), fileContents);
+			var customLanguageId = ReferenceTextTestUtils.CreateCustomReferenceText((IProjectPersistenceWriter)ReferenceTextProxy.Reader, booksToInclude);
+			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customLanguageId));
 		}
 	}
 }

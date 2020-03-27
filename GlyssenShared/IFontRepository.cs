@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GlyssenEngine.Utilities
+namespace Glyssen.Shared
 {
      public interface IFontRepository
      {

@@ -11,7 +11,8 @@ using GlyssenEngine;
 using GlyssenEngine.Bundle;
 using GlyssenEngine.Character;
 using GlyssenEngine.Quote;
-using GlyssenEngine.Utilities;
+using GlyssenFileBasedPersistence;
+using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
@@ -90,9 +91,9 @@ namespace GlyssenEngineTests
 
 		private const string kTest = "test~~";
 
-		public static void DeleteTestProjectFolder()
+		public static void DeleteTestProjects()
 		{
-			var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, kTest);
+			var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, kTest);
 			if (Directory.Exists(testProjFolder))
 				RobustIO.DeleteDirectoryAndContents(testProjFolder);
 		}
@@ -109,7 +110,7 @@ namespace GlyssenEngineTests
 			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
 			try
 			{
-				DeleteTestProjectFolder();
+				DeleteTestProjects();
 				var sampleMetadata = new GlyssenDblTextMetadata();
 				sampleMetadata.AvailableBooks = new List<Book>();
 				var books = new List<UsxDocument>();
@@ -151,7 +152,10 @@ namespace GlyssenEngineTests
 
 		public static Project LoadExistingTestProject()
 		{
-			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)), null, null);
+			var projFilePath = ProjectRepository.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest, kTest));
+			var unInitializedProject = ProjectRepository.LoadProject(projFilePath);
+			Assert.IsTrue(unInitializedProject.ProjectIsWritable);
+			return Project.Load(unInitializedProject, null, null);
 		}
 
 		public static Project CreateBasicTestProject()
@@ -388,7 +392,16 @@ namespace GlyssenEngineTests
 				default:
 					throw new ArgumentOutOfRangeException("testBook", testBook, null);
 			}
-			metadata.AvailableBooks.Add(book);
+
+			var insertAt = 0;
+			foreach (var bookCode in StandardCanon.AllBookCodes)
+			{
+				if (bookCode == book.Code)
+					break;
+				if (metadata.AvailableBooks.Any(b => b.Code == bookCode))
+					insertAt++;
+			}
+			metadata.AvailableBooks.Insert(insertAt, book);
 
 			usxDocuments.Add(new UsxDocument(xmlDocument));
 		}

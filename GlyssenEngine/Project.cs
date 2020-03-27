@@ -10,7 +10,6 @@ using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using GlyssenEngine.ViewModels;
-using Ionic.Zip;
 using JetBrains.Annotations;
 using Paratext.Data;
 using SIL;
@@ -22,7 +21,6 @@ using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.WritingSystems;
-using SIL.Xml;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -33,21 +31,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using SIL.Xml;
 using static System.String;
 
 namespace GlyssenEngine
 {
-	public class Project : ProjectBase
+	public class Project : ProjectBase, IUserProject
 	{
-		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
-		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
-		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
-		private const string kCharacterGroupFileName = "CharacterGroups.xml";
-		// Total path limit is 260 characters. Need to allow for:
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
-		// C:\ProgramData\FCBH-SIL\Glyssen\xxx\xxxxxxxxxxxxxxxx\<Recording Project Name>\xxx*.glyssen
-		private const int kMaxDefaultProjectNameLength = 150;
-		private const int kMaxPath = 260;
 		public const int kParserVersion = 49;
 
 		private const double kUsxPercent = 0.25;
@@ -84,36 +74,33 @@ namespace GlyssenEngine
 		public event EventHandler CharacterStatisticsCleared;
 		public static EventHandler UpgradingProjectToNewParserVersion;
 
-		public delegate BadLdmlFileRecoveryAction BadLdmlFileHandler(Project sender, string ldmlFilePath, string error, bool attemptToUseBackup);
-		public static BadLdmlFileHandler GetBadLdmlFileRecoveryAction;
+		public delegate BadLdmlRecoveryAction BadLdmlHandler(Project sender, string error, bool attemptToUseBackup);
+		public static BadLdmlHandler GetBadLdmlRecoveryAction;
 
 		public static IFontRepository FontRepository { get; set; }
+		public static IProjectPersistenceWriter Writer { get; set; }
+		public static string EnglishVersification => Resources.EnglishVersification;
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
-		static Project()
-		{
-			Debug.Assert(DataMigrator.UpgradeToCurrentDataFormatVersion(null, (prev, renamed) => { }, null) == null,
-				"It is strongly advised that any client of GlyssenEngine that instantiates projects explicitly call " +
-				"(DataMigrator.UpgradeToCurrentDataFormatVersion with appropriate handlers.");
-		}
-
 		/// <exception cref="ProjectNotFoundException">Paratext was unable to access the project (only pertains to
 		/// Glyssen projects that are associated with a live Paratext project)</exception>
-		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
+		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
 			WritingSystemDefinition ws = null, bool loadVersification = true)
-			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
+			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name, metadata.Language.Iso))
 		{
 			m_projectMetadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 
-			ProjectCharacterDetail = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
+			using (var reader = Reader.Load(this, ProjectResource.CharacterDetailData))
+				ProjectCharacterDetail = ProjectCharacterDetailData.Load(reader);
 
 			if (loadVersification)
 			{
-				if (HasVersificationFile)
-					SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.ReportIndividually));
+				var versification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.ReportIndividually);
+				if (versification != null)
+					SetVersification(versification);
 				else if (IsLiveParatextProject)
 				{
 					try
@@ -122,38 +109,21 @@ namespace GlyssenEngine
 					}
 					catch (ProjectNotFoundException e)
 					{
-						Logger.WriteError("Paratext project not found. Falling back to get usable versification file.", e);
-						AttemptToUseFallbackVersification();
+						Logger.WriteError("Paratext project not found. Falling back to get usable versification.", e);
+						SetVersification(GetFallbackVersificationOrEnglish());
 					}
 				}
 			}
 
 			if (installFonts)
-				InstallIfNecessary();
+				InstallFontsIfNecessary();
 		}
 
-		private void AttemptToUseFallbackVersification()
+		private ScrVers GetFallbackVersificationOrEnglish()
 		{
 			string msgPart1;
-			if (RobustFile.Exists(FallbackVersificationFilePath))
-			{
-				SetVersification(LoadVersification(FallbackVersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.BatchErrors));
-				var tableImpl = (GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation;
-				var errors = tableImpl.GetBatchedErrorString(FallbackVersificationFilePath);
-				if (errors == null)
-					return;
-				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectFallbackVersificationInvalid",
-					"{0} project {1} is not available and the fallback versification in project {2} is invalid:\r\n {3}\r\n",
-					"Param 0: \"Paratext\" (product name); " +
-					"Param 1: Paratext project short name (unique project identifier); " +
-					"Param 2: Glyssen recording project name; " +
-					"Param 3: Error details"),
-					ParatextScrTextWrapper.kParatextProgramName,
-					ParatextProjectName,
-					Name,
-					errors);
-			}
-			else
+			var fallbackVersification = LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.BatchErrors, true);
+			if (fallbackVersification == null)
 			{
 				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectNoFallbackVersification",
 					"{0} project {1} is not available and project {2} does not have a fallback versification file. ",
@@ -166,43 +136,60 @@ namespace GlyssenEngine
 				if (!char.IsWhiteSpace(msgPart1.Last()))
 					msgPart1 += " ";
 			}
+			else
+			{
+				var tableImpl = (GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation;
+				var errors = tableImpl.GetBatchedErrorString(ProjectResource.FallbackVersification.ToString());
+				if (errors == null)
+				{
+					return fallbackVersification;
+				}
+
+				msgPart1 = Format(Localizer.GetString("Project.ParatextProjectFallbackVersificationInvalid",
+					"{0} project {1} is not available and the fallback versification in project {2} is invalid:\r\n {3}\r\n",
+					"Param 0: \"Paratext\" (product name); " +
+					"Param 1: Paratext project short name (unique project identifier); " +
+					"Param 2: Glyssen recording project name; " +
+					"Param 3: Error details"),
+					ParatextScrTextWrapper.kParatextProgramName,
+					ParatextProjectName,
+					Name,
+					errors);
+
+			}
 
 			MessageModal.Show(msgPart1 + Format(Localizer.GetString("Project.FallingBackToDefaultEnglishVersification",
 				"Therefore, the {0} versification is being used by default. If this is not the correct versification " +
 				"for this project, some things will not work as expected.",
 				"Param: “English” (versification name)"),
-				"“English”"));
+				ScrVers.English.Name));
 
-			SetVersification(ScrVers.English);
+			return ScrVers.English;
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
-			Directory.CreateDirectory(ProjectFolder);
+			Writer.SetUpProjectPersistence(this, bundle);
+			InstallFontsIfNecessary();
+
+			try
+			{
+				SetVersification(LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
+			}
+			catch (InvalidVersificationLineException ex)
+			{
+				Logger.WriteError(ex);
+				Writer.DeleteProject(this);
+				throw;
+			}
+
 			if (bundle.WritingSystemDefinition?.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				SetWsQuotationMarksUsingFullySpecifiedContinuers(bundle.WritingSystemDefinition.QuotationMarks);
 			}
 
-			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
-				ErrorReport.ReportNonFatalMessageWithStackTrace(
-					Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
-					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
-
-			InstallIfNecessary();
-			bundle.CopyVersificationFile(VersificationFilePath);
-			try
-			{
-				SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
-			}
-			catch (InvalidVersificationLineException ex)
-			{
-				Logger.WriteError(ex);
-				DeleteProjectFolderAndEmptyContainingFolders(ProjectFolder);
-				throw;
-			}
 			UserDecisionsProject = projectBeingUpdated;
 			PopulateAndParseBooks(bundle);
 		}
@@ -210,7 +197,7 @@ namespace GlyssenEngine
 		public Project(ParatextScrTextWrapper paratextProject) :
 			this(paratextProject.GlyssenDblTextMetadata, null, false, paratextProject.WritingSystem)
 		{
-			Directory.CreateDirectory(ProjectFolder);
+			Writer.SetUpProjectPersistence(this);
 			if (paratextProject.HasQuotationRulesSet)
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
@@ -224,35 +211,27 @@ namespace GlyssenEngine
 		/// Used only for sample project and in tests.
 		/// </summary>
 		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet,
-			WritingSystemDefinition ws, string versificationInfo = null)
-			: this(metadata, ws: ws)
+			WritingSystemDefinition ws, string versificationInfo = null) : this(metadata, ws: ws)
 		{
-			Directory.CreateDirectory(ProjectFolder);
-			RobustFile.WriteAllText(VersificationFilePath, versificationInfo ?? Resources.EnglishVersification);
-			SetVersification(LoadVersification(VersificationFilePath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
+			Writer.SetUpProjectPersistence(this);
+			using (var writer = Writer.GetTextWriter(this, ProjectResource.Versification))
+				writer.Write(versificationInfo ?? EnglishVersification);
+			SetVersification(LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling.Throw));
 
 			ParseAndSetBooks(books, stylesheet);
 		}
-
-		private bool HasVersificationFile => RobustFile.Exists(VersificationFilePath);
-
-		public static IEnumerable<string> AllPublicationFolders => Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
-
-		public static IEnumerable<string> AllRecordingProjectFolders => AllPublicationFolders.SelectMany(Directory.GetDirectories);
 
 		public string AudioStockNumber => m_projectMetadata.AudioStockNumber;
 
 		public string Id => m_metadata.Id;
 
-		public string Name => m_recordingProjectName;
+		public override string Name => m_recordingProjectName;
+
+		public override string ToString() => $"{LanguageIsoCode}|{Id}|{Name}";
 
 		public string PublicationName => m_metadata.Identification?.Name;
 
-		internal static string DefaultRecordingProjectNameSuffix => " " +
-			Localizer.GetString("Project.RecordingProjectDefaultSuffix", "Audio",
-				"This must not contain any illegal file path characters!").Trim(FileSystemUtils.TrimCharacters);
-
-		private static int MaxBaseRecordingNameLength => kMaxDefaultProjectNameLength - DefaultRecordingProjectNameSuffix.Length;
+		public static string DefaultRecordingProjectNameSuffix { get; set; } = " Audio"; // This default can be overriden (and localized)
 
 		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
@@ -429,26 +408,17 @@ namespace GlyssenEngine
 			}
 		}
 
-		public void InstallIfNecessary()
+		public void InstallFontsIfNecessary()
 		{
 			Debug.Assert(FontRepository != null, "Font repository implementation should be set before attempting to load a project.");
 
 			string fontFamily = m_projectMetadata.FontFamily;
-			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
+			if (m_fontInstallationAttempted || IsNullOrEmpty(fontFamily) || FontRepository.IsFontInstalled(fontFamily))
 				return;
 
-			string languageFolder = LanguageFolder;
+			m_fontInstallationAttempted = true;
 
-			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
-			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
-				.Where(ttf => FontRepository.DoesTrueTypeFontFileContainFontFamily(ttf, fontFamily)).ToList();
-
-			if (ttfFilesToInstall.Count > 0)
-			{
-				m_fontInstallationAttempted = true;
-				FontRepository.TryToInstall(fontFamily, ttfFilesToInstall);
-			}
-			else
+			if (!Reader.TryInstallFonts(this, FontRepository))
 				FontRepository.ReportMissingFontFamily(fontFamily);
 		}
 
@@ -559,12 +529,13 @@ namespace GlyssenEngine
 		public void UpdateSettings(ProjectSettingsViewModel model, string defaultFontFamily, int defaultFontSizeInPoints, bool rightToLeftScript)
 		{
 			Debug.Assert(!IsNullOrEmpty(model.RecordingProjectName));
-			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
-			if (newPath != ProjectFolder)
+
+			if (m_recordingProjectName != model.RecordingProjectName)
 			{
-				Directory.Move(ProjectFolder, newPath);
+				Writer.ChangeProjectName(this, model.RecordingProjectName);
 				m_recordingProjectName = model.RecordingProjectName;
 			}
+			
 			m_projectMetadata.AudioStockNumber = model.AudioStockNumber;
 			m_projectMetadata.FontFamily = defaultFontFamily;
 			m_projectMetadata.FontSizeInPoints = defaultFontSizeInPoints;
@@ -581,7 +552,7 @@ namespace GlyssenEngine
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
-			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
+			bool moving = LanguageIsoCode != bundle.LanguageIso || MetadataId != bundle.Id;
 			if (moving)
 				m_projectMetadata.Inactive = true;
 			Save();
@@ -835,12 +806,12 @@ namespace GlyssenEngine
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
-		public static Project Load(string projectFilePath, Func<Project, bool> handleMissingBundleNeededForUpgrade, IParatextProjectLoadingAssistant loadingAssistant)
+		public static Project Load(Project existingProject, Func<Project, bool> handleMissingBundleNeededForUpgrade, IParatextProjectLoadingAssistant loadingAssistant)
 		{
-			Project existingProject = LoadExistingProject(projectFilePath);
-
 			if (existingProject == null)
 				return null;
+			
+			InitializeExistingProject(existingProject);
 
 			if (!existingProject.IsSampleProject && existingProject.NeedsQuoteReparse)
 			{
@@ -1016,7 +987,7 @@ namespace GlyssenEngine
 				{
 					compatible = scrTextWrapper.GlyssenDblTextMetadata.Id == Metadata.Id;
 					if (!compatible && loadingAssistant != null &&
-						!Directory.Exists(GetProjectFolderPath(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name)))
+						!Reader.ProjectExistsHaving(LanguageIsoCode, scrTextWrapper.GlyssenDblTextMetadata.Id, Name))
 					{
 						if (loadingAssistant.ConfirmUpdateGlyssenProjectMetadataIdToMatchParatextProject())
 						{
@@ -1058,7 +1029,7 @@ namespace GlyssenEngine
 			// 1) Exactly the same books are available and passing checks (or were previously added by overriding the
 			//    check status). This is the happy path!
 			// 2) Some of the "Available", but not "Included" books in the existing project are no longer available.
-			//    => We can just remove them from the list of available books and delete the corresponding file (if any)
+			//    => We can just remove them from the list of available books and delete the corresponding data (if any)
 			//       stored in the project.
 			// 3) Some of the "Included" books in the existing project are no longer available.
 			//    => If we're interacting with the user, we can ask them whether to proceed and remove the deleted books.
@@ -1113,44 +1084,58 @@ namespace GlyssenEngine
 			Action<string> newlyAvailableChecksFail = null,
 			Action<string> foundInBoth = null)
 		{
-			var existingAvailable = (IReadOnlyList<Book>)m_projectMetadata.AvailableBooks;
+			// ENHANCE: The previous version of this method attempted a more efficient
+			// implementation, taking advantage of both lists of books being in canonical order.
+			// However, the logic was flawed. I think this new approach is easier to understand,
+			// but creation of a dictionary and the final loop (which will rarely be executed)
+			// is probably less efficient. Anyway, this is code that is not likely to be a
+			// performance bottleneck, but I added this comment to explain the reason for the
+			// change and so that no one would judge me later for writing less than optimally
+			// efficient code.
+			var existingAvailable = m_projectMetadata.AvailableBooks
+				.ToDictionary(b => b.Code, b => b.IncludeInScript);
 			var nowAvailable = scrTextWrapper.AvailableBooks;
-			var x = 0;
 			foreach (Book nowAvailableBook in nowAvailable)
 			{
-				var nowAvailableBookNum = Canon.BookIdToNumber(nowAvailableBook.Code);
-				if (x < existingAvailable.Count)
-				{
-					var existingBookNum = Canon.BookIdToNumber(existingAvailable[x].Code);
-					if (existingAvailable[x].Code == nowAvailableBook.Code)
-					{
-						if (existingAvailable[x].IncludeInScript &&
-							!GetBook(existingAvailable[x].Code).CheckStatusOverridden &&
-							!scrTextWrapper.DoesBookPassChecks(existingBookNum))
-						{
-							noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(existingAvailable[x].Code);
-						}
-						else
-							foundInBoth?.Invoke(existingAvailable[x].Code);
-						x++;
-						continue;
-					}
+				var bookCode = nowAvailableBook.Code;
+				var bookNum = Canon.BookIdToNumber(bookCode);
 
-					if (existingBookNum < nowAvailableBookNum)
+				if (existingAvailable.TryGetValue(nowAvailableBook.Code, out var includeExistingInScript))
+				{
+					if (includeExistingInScript &&
+						!GetBook(bookCode).CheckStatusOverridden &&
+						!scrTextWrapper.DoesBookPassChecks(bookNum))
 					{
-						if (existingAvailable[x].IncludeInScript)
-							nowMissingPreviouslyIncluded?.Invoke(existingAvailable[x].Code);
+						noLongerPassChecksPreviouslyIncludedWithoutCheckStatusOverride?.Invoke(bookCode);
+					}
+					else
+						foundInBoth?.Invoke(bookCode);
+
+					existingAvailable.Remove(bookCode);
+				}
+				else
+				{
+					// New available book.
+					if (scrTextWrapper.DoesBookPassChecks(bookNum))
+						newlyAvailableChecksPass?.Invoke(bookCode);
+					else
+						newlyAvailableChecksFail?.Invoke(bookCode);
+				}
+			}
+
+			while (existingAvailable.Any())
+			{
+				foreach (var bookCode in StandardCanon.AllBookCodes)
+				{
+					if (existingAvailable.TryGetValue(bookCode, out var includeExistingInScript))
+					{
+						if (includeExistingInScript)
+							nowMissingPreviouslyIncluded?.Invoke(bookCode);
 						else
-							nowMissingPreviouslyExcluded.Invoke(existingAvailable[x].Code);
-						continue;
+							nowMissingPreviouslyExcluded.Invoke(bookCode);
+						existingAvailable.Remove(bookCode);
 					}
 				}
-
-				// New available book.
-				if (scrTextWrapper.DoesBookPassChecks(nowAvailableBookNum))
-					newlyAvailableChecksFail?.Invoke(nowAvailableBook.Code);
-				else
-					newlyAvailableChecksPass?.Invoke(nowAvailableBook.Code);
 			}
 		}
 
@@ -1167,8 +1152,7 @@ namespace GlyssenEngine
 
 			void NowMissing(string bookCode)
 			{
-				var origPath = GetBookDataFilePath(bookCode);
-				RobustFile.Move(origPath, origPath + ".nolongeravailable");
+				Writer.ArchiveBookThatIsNoLongerAvailable(this, bookCode);
 				foundDataChange = true;
 			}
 
@@ -1194,6 +1178,8 @@ namespace GlyssenEngine
 			else
 				CopyQuoteMarksIfAppropriate(upgradedProject.WritingSystem, upgradedProject.m_projectMetadata);
 
+			// ENHANCE: Rather than unconditionally excluding new books that do not pass checks, we might
+			// want to ask the user.
 			HandleDifferencesInAvailableBooks(scrTextWrapper, NowMissing, NowMissing,
 				Exclude, HandleNewPassingBook, Exclude);
 
@@ -1240,91 +1226,25 @@ namespace GlyssenEngine
 			return upgradedProject;
 		}
 
-		public static void SetHiddenFlag(string projectFilePath, bool hidden)
+		public static void SetHiddenFlag(GlyssenDblTextMetadata metadata, string projectName, bool hidden)
 		{
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
-			if (exception != null)
-			{
-				NonFatalErrorHandler.ReportAndHandleException(exception,
-					Format(Localizer.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath));
-				return;
-			}
-
 			metadata.Inactive = hidden;
-			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
+			new Project(metadata, projectName).Save();
 			// TODO: preserve WritingSystemRecoveryInProcess flag
-		}
-
-		private static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder)
-		{
-			if (Directory.Exists(projectFolder))
-				Directory.Delete(projectFolder, true);
-			var parent = Path.GetDirectoryName(projectFolder);
-			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
-				Directory.Delete(parent);
-			parent = Path.GetDirectoryName(parent);
-			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
-				Directory.Delete(parent);
-		}
-
-		private static string GetRecordingProjectNameFromProjectFilePath(string path)
-		{
-			return path.GetContainingFolderName();
 		}
 
 		private int PercentInitialized => (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 
-		private static Project LoadExistingProject(string projectFilePath)
+		private static void InitializeExistingProject(Project project)
 		{
-			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
-			var isWritable = !FileHelper.IsLocked(projectFilePath);
-			if (!isWritable)
-			{
-				MessageModal.Show(Localizer.GetString("Project.NotWritableMsg",
-					"The project file is not writable. No changes will be saved."));
-			}
+			project.LoadExistingBooks();
 
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
-			if (exception != null)
-			{
-				NonFatalErrorHandler.ReportAndHandleException(exception,
-					Format(Localizer.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath));
-				return null;
-			}
-
-			Project project;
-			try
-			{
-				project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
-			}
-			catch (ProjectNotFoundException e)
-			{
-				throw new ApplicationException(Format(Localizer.GetString("Project.ParatextProjectNotFound",
-					"Unable to access the {0} project {1}, which is needed to load the {2} project {3}.\r\n\r\nTechnical details:",
-					"Param 0: \"Paratext\" (product name); " +
-					"Param 1: Paratext project short name (unique project identifier); " +
-					"Param 2: \"Glyssen\" (product name); " +
-					"Param 3: Glyssen recording project name"),
-					ParatextScrTextWrapper.kParatextProgramName,
-					metadata.ParatextProjectId,
-					GlyssenInfo.Product,
-					metadata.Name), e);
-			}
-
-			project.ProjectFileIsWritable = isWritable;
-
-			var projectDir = Path.GetDirectoryName(projectFilePath);
-			Debug.Assert(projectDir != null);
-			ProjectUtilities.ForEachBookFileInProject(projectDir,
-				(bookId, fileName) => project.m_books.Add(BookScript.Deserialize(fileName, project.Versification)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects
 			if (project.CharacterGroupList.CharacterGroups.Any() &&
 				project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
-
-			return project;
 		}
 
 		private void RemoveAvailableBooksThatDoNotCorrespondToExistingBooks()
@@ -1371,11 +1291,36 @@ namespace GlyssenEngine
 			}
 		}
 
+		/// <summary>
+		/// Adds an available book to the metadata for any book in the m_books list that does
+		/// not already correspond to an existing available book. The newly added book will be
+		/// marked for inclusion in the script.
+		/// </summary>
+		/// <remarks>Probably only relevant to Paratext-based projects. If this is called for
+		/// a bundle-based project and m_books contains a book that is not in the list
+		/// of available books in the metadata, this will throw an exception.</remarks>
+		private void AddMissingAvailableBooks()
+		{
+			BookNames nameInfo = null;
+			for (var i = 0; i < m_books.Count; i++)
+			{
+				if (m_projectMetadata.AvailableBooks[i].Code != m_books[i].BookId)
+				{
+					if (!IsLiveParatextProject)
+						throw new InvalidOperationException($"Book {m_books[i].BookId} parsed and added to project but not in AvailableBooks in metadata!");
+					if (nameInfo == null)
+						nameInfo = GetSourceParatextProject().BookNames;
+					m_projectMetadata.AvailableBooks.Insert(i, ParatextScrTextWrapper.GetBook(nameInfo, m_books[i].BookNumber, true));
+				}
+			}
+		}
+
 		protected override void SetVersification(ScrVers versification)
 		{
 			base.SetVersification(versification);
 
-			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath, Versification);
+			using (var reader = Reader.Load(this, ProjectResource.CharacterVerseData))
+				ProjectCharacterVerseData = new ProjectCharacterVerseData(reader, Versification);
 		}
 
 		private void InitializeLoadedProject()
@@ -1453,7 +1398,7 @@ namespace GlyssenEngine
 		/// <summary>
 		/// Inserts the specified book into its proper location in the list of existing included books
 		/// </summary>
-		/// <param name="book">The <see cref="BookScript"/>, either from a prior call to FluffUpBookFromFileIfPossible or as newly created by
+		/// <param name="book">The <see cref="BookScript"/>, either from a prior call to LoadExistingBookIfPossible or as newly created by
 		/// the USX parser</param>
 		/// <exception cref="InvalidOperationException">The project is not in a valid state for the book to be included.</exception>
 		public void IncludeExistingBook(BookScript book)
@@ -1570,6 +1515,7 @@ namespace GlyssenEngine
 					ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 				UpdateControlFileVersion();
 				RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+				AddMissingAvailableBooks();
 			}
 
 			if (QuoteSystem == null)
@@ -1670,89 +1616,23 @@ namespace GlyssenEngine
 			OnReport(pe);
 		}
 
-		public static string GetProjectFilePath(string langId, string publicationId, string recordingProjectId)
+		public int MaxProjectNameLength => Writer.GetMaxProjectNameLength(this);
+
+		public BookScript LoadExistingBookIfPossible(string bookId)
 		{
-			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + Constants.kProjectFileExtension);
-		}
-
-		public string ProjectFileName => LanguageIsoCode + Constants.kProjectFileExtension;
-
-		public static string GetDefaultProjectFilePath(IBundle bundle)
-		{
-			return GetProjectFilePath(bundle.LanguageIso, bundle.Id, GetDefaultRecordingProjectName(bundle.Name));
-		}
-
-		public static string GetDefaultProjectFilePath(ParatextScrTextWrapper textWrapper)
-		{
-			return GetProjectFilePath(textWrapper.LanguageIso3Code, textWrapper.GlyssenDblTextMetadata.Id, GetDefaultRecordingProjectName(textWrapper.ProjectFullName));
-		}
-
-		// Total path limit is 260 (MAX_PATH) characters. Need to allow for:
-		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
-		// C:\ProgramData\FCBH-SIL\Glyssen\<ISO>\xxxxxxxxxxxxxxxx\<Recording Project Name>\<ISO>.glyssen
-		public int MaxProjectNameLength => kMaxPath - Path.Combine(ProjectsBaseFolder, LanguageIsoCode, m_metadata.Id).Length -
-			Math.Max(ProjectFileName.Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
-
-		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectId)
-		{
-			return Path.Combine(ProjectsBaseFolder, langId, publicationId, recordingProjectId);
-		}
-
-		public static string GetPublicationFolderPath(IBundle bundle)
-		{
-			return Path.Combine(ProjectsBaseFolder, bundle.LanguageIso, bundle.Id);
-		}
-
-		public static string GetLanguageFolderPath(string langId)
-		{
-			return Path.Combine(ProjectsBaseFolder, langId);
-		}
-
-		public string ProjectFilePath => GetProjectFilePath(LanguageIsoCode, m_metadata.Id, m_recordingProjectName);
-
-		private string ProjectCharacterVerseDataPath => Path.Combine(ProjectFolder, kProjectCharacterVerseFileName);
-
-		private string ProjectCharacterDetailDataPath => Path.Combine(ProjectFolder, kProjectCharacterDetailFileName);
-
-		private string LdmlFilePath
-		{
-			get
+			try
 			{
-				var languageCode = LanguageIsoCode;
-				if (!IetfLanguageTag.IsValid(languageCode))
-					languageCode = WellKnownSubtags.UnlistedLanguage;
-				return Path.Combine(ProjectFolder, languageCode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
+				return BookScript.Deserialize(Reader.LoadBook(this, bookId), Versification);
+			}
+			catch (Exception e)
+			{
+				ErrorReport.ReportNonFatalException(e);
+				return null;
 			}
 		}
 
-		private string LdmlBackupFilePath => Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
-
-		protected override string ProjectFolder => GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName);
-
-		private string LanguageFolder => GetLanguageFolderPath(m_metadata.Language.Iso);
-
-		private string GetBookDataFilePath(string bookId)
-		{
-			return Path.ChangeExtension(Path.Combine(ProjectFolder, bookId), "xml");
-		}
-
-		public bool DoesBookScriptFileExist(string bookId)
-		{
-			return RobustFile.Exists(GetBookDataFilePath(bookId));
-		}
-
-		public BookScript FluffUpBookFromFileIfPossible(string bookId)
-		{
-			var path = GetBookDataFilePath(bookId);
-			if (RobustFile.Exists(path))
-			{
-				var bookScript = BookScript.Deserialize(GetBookDataFilePath(bookId), Versification, out var error);
-				if (error != null)
-					ErrorReport.ReportNonFatalException(error);
-				return bookScript;
-			}
-			return null;
-		}
+		public override string ValidLanguageIsoCode => IetfLanguageTag.IsValid(LanguageIsoCode) ?
+			LanguageIsoCode : WellKnownSubtags.UnlistedLanguage;
 
 		public void Analyze()
 		{
@@ -1760,121 +1640,45 @@ namespace GlyssenEngine
 			AnalysisCompleted?.Invoke(this, new EventArgs());
 		}
 
-		private void PrepareForExport()
-		{
-			if (!HasVersificationFile)
-			{
-				try
-				{
-					Versification.Save(FallbackVersificationFilePath);
-				}
-				catch (Exception e)
-				{
-					Logger.WriteError($"Failed to save fallback versification file to {FallbackVersificationFilePath}", e);
-				}
-			}
-		}
-
-		public string ExportShare(Action<string> handleCustomReferenceText)
-		{
-			PrepareForExport();
-
-			try
-			{
-				var sourceDir = Path.GetDirectoryName(ProjectFilePath);
-
-				Debug.Assert(sourceDir != null);
-				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
-
-				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
-
-				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
-				Directory.CreateDirectory(share);
-
-				var saveAsName = Path.Combine(share, LanguageIsoCode + "_" + Name) + ProjectBase.kShareFileExtension;
-
-				using (var zip = new ZipFile())
-				{
-					zip.AddDirectory(sourceDir, nameInZip);
-					zip.Save(saveAsName);
-				}
-
-				if (ReferenceTextProxy.Type == ReferenceTextType.Custom)
-					handleCustomReferenceText?.Invoke(ReferenceTextProxy.CustomIdentifier);
-
-				return saveAsName;
-			}
-			finally
-			{
-				RobustFile.Delete(FallbackVersificationFilePath);
-			}
-		}
-
 		private void ChangePublicationId(string newPubId)
 		{
 			Debug.Assert(newPubId != m_metadata.Id);
 
-			string origProjectFolder = ProjectFolder;
-			string restoreId = m_metadata.Id;
+			var restoreId = m_metadata.Id;
 
-			m_metadata.Id = newPubId;
+			void SetInternalId()
+			{
+				m_metadata.Id = newPubId;
+				m_metadata.LastModified = DateTime.Now;
+			}
 
-			string FailureMessage() => Localizer.GetString("Project.ChangeMetadataIdFailure",
-				"An error occurred attempting to change the publication ID for this project:");
+			void SaveMetadata(TextWriter w)
+			{
+				XmlSerializationHelper.Serialize(w, m_projectMetadata, out var error);
+				if (error != null)
+					throw error;
+			}
 
 			try
 			{
-				var newProjectFolder = ProjectFolder;
-				Directory.CreateDirectory(Path.GetDirectoryName(newProjectFolder));
-				RobustIO.MoveDirectory(origProjectFolder, newProjectFolder);
+				Writer.ChangePublicationId(this, SetInternalId, SaveMetadata);
 			}
 			catch (Exception inner)
 			{
 				m_metadata.Id = restoreId;
-				throw new ApplicationException(FailureMessage(), inner);
+				throw new ApplicationException(Localizer.GetString("Project.ChangeMetadataIdFailure",
+					"An error occurred attempting to change the publication ID for this project:"), inner);
 			}
-
-			SaveProjectFile(out var error);
-			if (error == null)
-			{
-				try
-				{
-					RobustIO.DeleteDirectory(Path.GetDirectoryName(origProjectFolder));
-				}
-				catch (Exception e)
-				{
-					Logger.WriteError(e);
-				}
-				return;
-			}
-
-			var revertFolder = ProjectFolder;
-			m_metadata.Id = restoreId;
-			try
-			{
-				RobustIO.MoveDirectory(revertFolder, ProjectFolder);
-			}
-			catch (Exception moveFolderBackError)
-			{
-				// Uh-oh. We've gotten this project into a corrupted state.
-				m_metadata.Id = restoreId;
-				
-				throw new Exception(FailureMessage() + Environment.NewLine + error + Environment.NewLine + Environment.NewLine +
-					Localizer.GetString("Project.ChangeMetadataIdCatastrophicFailure",
-						"During the attempt to recover and revert to the original ID, a catastrophic error occurred that has probably left " +
-						"this project in a corrupted state. Please contact support."), moveFolderBackError);
-			}
-			throw new ApplicationException(FailureMessage(), error);
 		}
 
 		public void Save(bool saveCharacterGroups = false)
 		{
-			if (!ProjectFileIsWritable)
+			if (!ProjectIsWritable)
 				return;
 
-			Directory.CreateDirectory(ProjectFolder);
+			Writer.SetUpProjectPersistence(this);
 
-			SaveProjectFile(out var error);
+			SaveProjectMetadata(out var error);
 			if (error != null)
 			{
 				MessageModal.Show(error.Message, true);
@@ -1893,46 +1697,49 @@ namespace GlyssenEngine
 				: ProjectState.FullyInitialized;
 		}
 
-		private void SaveProjectFile(out Exception error)
+		private void SaveProjectMetadata(out Exception error)
 		{
 			m_metadata.LastModified = DateTime.Now;
-			var projectPath = ProjectFilePath;
-			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
+			XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, ProjectResource.Metadata), m_projectMetadata, out error);
 		}
+
 
 		public void SaveBook(BookScript book)
 		{
-			XmlSerializationHelper.SerializeToFile(GetBookDataFilePath(book.BookId), book, out var error);
-			if (error != null)
+			if (!XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, book), book, out var error))
 				MessageModal.Show(error.Message, true);
 		}
 
 		public void SaveProjectCharacterVerseData()
 		{
-			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+			using (var textWriter = Writer.GetTextWriter(this, ProjectResource.CharacterVerseData))
+				ProjectCharacterVerseData.Write(textWriter);
 		}
 
 		public void SaveProjectCharacterDetailData()
 		{
-			ProjectCharacterDetailData.WriteToFile(ProjectCharacterDetail, ProjectCharacterDetailDataPath);
+			using (var textWriter = Writer.GetTextWriter(this, ProjectResource.CharacterDetailData))
+				ProjectCharacterDetailData.Write(ProjectCharacterDetail, textWriter);
 		}
 
 		public void SaveCharacterGroupData()
 		{
-			m_characterGroupList.SaveToFile(Path.Combine(ProjectFolder, kCharacterGroupFileName));
+			XmlSerializationHelper.Serialize(Writer.GetTextWriter(this, ProjectResource.CharacterGroups),
+				m_characterGroupList, out _);
 		}
 
 		public void SaveVoiceActorInformationData()
 		{
-			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+			using (var textWriter = Writer.GetTextWriter(this, ProjectResource.VoiceActorInformation))
+				m_voiceActorList.Save(textWriter);
 		}
 
 		private void LoadCharacterGroupData()
 		{
-			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			m_characterGroupList = RobustFile.Exists(path)
-				? CharacterGroupList.LoadCharacterGroupListFromFile(path, this)
-				: new CharacterGroupList();
+			// ENHANCE: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
+			// but it should warn the user that if they scrap their existing groups, any customizations or actor assignments
+			// will be lost.
+			m_characterGroupList = CharacterGroupList.LoadCharacterGroupList(Reader.Load(this, ProjectResource.CharacterGroups), this);
 			m_characterGroupList.CharacterGroups.CollectionChanged += (o, args) => CharacterGroupCollectionChanged?.Invoke(this, new EventArgs());
 			if (m_voiceActorList != null)
 				EnsureCastSizeOptionValid();
@@ -1940,8 +1747,10 @@ namespace GlyssenEngine
 
 		private void LoadVoiceActorInformationData()
 		{
-			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
-			m_voiceActorList = (RobustFile.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
+			// ENHANCE: Add try-catch in case there is an error loading this data. This should probably be treated as non-fatal,
+			// but it should warn the user that their actor information will be lost if they proceed.
+			m_voiceActorList = VoiceActorList.LoadVoiceActorList(Reader.Load(this, ProjectResource.VoiceActorInformation));
+
 			if (m_characterGroupList != null)
 				EnsureCastSizeOptionValid();
 		}
@@ -1998,50 +1807,44 @@ namespace GlyssenEngine
 
 				m_wsDefinition = new WritingSystemDefinition();
 				bool retry;
-				string backupPath = LdmlBackupFilePath;
-				bool attemptToUseBackup = RobustFile.Exists(backupPath);
+				bool attemptToUseBackup = Reader.BackupResourceExists(this, ProjectResource.Ldml);
 
 				do
 				{
-					if (!RobustFile.Exists(LdmlFilePath))
+					if (!Reader.ResourceExists(this, ProjectResource.Ldml))
 					{
 						if (attemptToUseBackup)
 						{
 							try
 							{
-								RobustFile.Move(backupPath, LdmlFilePath);
+								Writer.RestoreResourceFromBackup(this, ProjectResource.Ldml);
 								attemptToUseBackup = false;
 							}
 							catch (Exception exRestoreBackup)
 							{
-								NonFatalErrorHandler.LogAndHandleException(exRestoreBackup, "Failed to rename LDML backup", new Dictionary<string, string>
+								NonFatalErrorHandler.LogAndHandleException(exRestoreBackup, "Failed to replace LDML with backup.", new Dictionary<string, string>
 								{
-									{"LdmlFilePath", LdmlFilePath},
+									{"Project", ToString()},
 								});
 							}
 						}
-						if (!RobustFile.Exists(LdmlFilePath))
+						if (!Reader.ResourceExists(this, ProjectResource.Ldml))
 							break;
 					}
 					try
 					{
-						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
-						return m_wsDefinition;
+						return LoadWritingSystemFromLdml(m_wsDefinition);
 					}
 					catch (XmlException e)
 					{
-						switch (GetBadLdmlFileRecoveryAction?.Invoke(this, LdmlFilePath, e.Message, attemptToUseBackup))
+						switch (GetBadLdmlRecoveryAction?.Invoke(this, e.Message, attemptToUseBackup))
 						{
-							case BadLdmlFileRecoveryAction.Retry:
+							case BadLdmlRecoveryAction.Retry:
 								if (attemptToUseBackup)
 								{
 									try
 									{
-										string corruptedLdmlFilePath =
-											Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "corrupted");
-										RobustFile.Delete(corruptedLdmlFilePath);
-										RobustFile.Move(LdmlFilePath, corruptedLdmlFilePath);
-										RobustFile.Move(backupPath, LdmlFilePath);
+										Writer.RestoreResourceFromBackup(this, ProjectResource.Ldml);
 									}
 									catch (Exception exReplaceCorruptedLdmlWithBackup)
 									{
@@ -2052,7 +1855,7 @@ namespace GlyssenEngine
 								}
 								retry = true;
 								break;
-							case BadLdmlFileRecoveryAction.Repair:
+							case BadLdmlRecoveryAction.Repair:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
 								retry = false;
 								break;
@@ -2103,35 +1906,54 @@ namespace GlyssenEngine
 			}
 		}
 
+		private WritingSystemDefinition LoadWritingSystemFromLdml(WritingSystemDefinition wsDefinition)
+		{
+			using (var ldmlReader = Reader.Load(this, ProjectResource.Ldml))
+			{
+				var xmlReader = XmlReader.Create(ldmlReader);
+				new LdmlDataMapper(new WritingSystemFactory()).Read(xmlReader, wsDefinition);
+				return wsDefinition;
+			}
+		}
+
 		private void SaveWritingSystem()
 		{
-			string backupPath = null;
+			bool backupCreated = false;
+
 			try
 			{
-				if (RobustFile.Exists(LdmlFilePath))
-				{
-					backupPath = LdmlBackupFilePath;
-					if (RobustFile.Exists(backupPath))
-						RobustFile.Delete(backupPath);
-					RobustFile.Move(LdmlFilePath, backupPath);
-				}
+				backupCreated = Writer.SaveBackupResource(this, ProjectResource.Ldml);
 			}
 			catch (Exception exMakeBackup)
 			{
 				// Oh, well. Hope for the best...
-				NonFatalErrorHandler.LogAndHandleException(exMakeBackup, "Failed to create LDML backup",
-					new Dictionary<string, string>
-					{
-						{"LdmlFilePath", LdmlFilePath},
-					});
-				backupPath = null;
+				NonFatalErrorHandler.LogAndHandleException(exMakeBackup, "Failed to create LDML backup", new Dictionary<string, string>
+				{
+					{"Project", ToString()},
+				});
 			}
 
 			try
 			{
-				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
+				using (var ldmlWriter = Writer.GetTextWriter(this, ProjectResource.Ldml))
+				{
+					var settings = new XmlWriterSettings
+					{
+						Indent = true,
+						IndentChars = "\t",
+						CheckCharacters = true,
+						OmitXmlDeclaration = false
+					};
+					using (var xmlWriter = XmlWriter.Create(ldmlWriter, settings))
+					{
+						new LdmlDataMapper(new WritingSystemFactory()).Write(xmlWriter, WritingSystem, null);
+						xmlWriter.Flush();
+						xmlWriter.Close();
+					}
+				}
+
 				// Now test to see if what we wrote is actually readable...
-				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
+				LoadWritingSystemFromLdml(new WritingSystemDefinition());
 			}
 			catch (FileLoadException)
 			{
@@ -2139,20 +1961,18 @@ namespace GlyssenEngine
 			}
 			catch (Exception exSave)
 			{
-				NonFatalErrorHandler.LogAndHandleException(exSave, "Writing System Save Failure",
-					new Dictionary<string, string>
-					{
-						{"CurrentProjectPath", ProjectFilePath},
-					});
-				if (backupPath != null)
+				NonFatalErrorHandler.LogAndHandleException(exSave, "Writing System Save Failure", new Dictionary<string, string>
 				{
-					// If we ended up with an unreadable file, revert to backup???
+					{"Project", ToString()},
+				});
+				if (backupCreated)
+				{
+					// If we ended up with unreadable data, revert to backup???
 					try
 					{
+						Writer.RestoreResourceFromBackup(this, ProjectResource.Ldml);
 						var wsFromBackup = new WritingSystemDefinition();
-						RobustFile.Delete(LdmlFilePath);
-						RobustFile.Move(backupPath, LdmlFilePath);
-						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, wsFromBackup);
+						LoadWritingSystemFromLdml(wsFromBackup);
 						if (!wsFromBackup.QuotationMarks.SequenceEqual(WritingSystem.QuotationMarks) ||
 							wsFromBackup.DefaultFont.Name != WritingSystem.DefaultFont.Name ||
 							wsFromBackup.RightToLeftScript != WritingSystem.RightToLeftScript)
@@ -2166,11 +1986,10 @@ namespace GlyssenEngine
 					}
 					catch (Exception exRecover)
 					{
-						NonFatalErrorHandler.LogAndHandleException(exRecover,
-							"Recovery from backup Writing System File Failed.", new Dictionary<string, string>
-							{
-								{"CurrentProjectPath", ProjectFilePath},
-							});
+						NonFatalErrorHandler.LogAndHandleException(exRecover, "Recovery from backup Writing System Failed.", new Dictionary<string, string>
+						{
+							{"Project", ToString()},
+						});
 						throw exSave;
 					}
 				}
@@ -2210,48 +2029,11 @@ namespace GlyssenEngine
 			}
 		}
 
-		internal void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
+		public void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
 		{
 			if (!m_books.Any(b => b.GetScriptBlocks().Any(sb => sb.UserConfirmed)))
 				return;
-			string newDirectoryPath = GetProjectFolderPath(LanguageIsoCode, Id, Name + " - " + textToAppendToRecordingProjectName);
-			if (Directory.Exists(newDirectoryPath))
-			{
-				string fmt = newDirectoryPath + " ({0})";
-				int n = 1;
-				do
-				{
-					newDirectoryPath = Format(fmt, n++);
-				} while (Directory.Exists(newDirectoryPath));
-			}
-
-			try
-			{
-				DirectoryHelper.Copy(ProjectFolder, newDirectoryPath);
-
-				if (hidden)
-				{
-					var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + Constants.kProjectFileExtension).FirstOrDefault();
-					if (newFilePath != null)
-						SetHiddenFlag(newFilePath, true);
-				}
-			}
-			catch (Exception exceptionWhenCreatingBackup)
-			{
-				Logger.WriteError(exceptionWhenCreatingBackup);
-				try
-				{
-					if (!Directory.Exists(newDirectoryPath))
-						return;
-
-					// Clean up by removing the partially copied directory.
-					Directory.Delete(newDirectoryPath, true);
-				}
-				catch (Exception exceptionWhenCleaningUpFailedBackup)
-				{
-					Logger.WriteError(exceptionWhenCleaningUpFailedBackup);
-				}
-			}
+			Writer.CreateBackup(this, textToAppendToRecordingProjectName, hidden);
 		}
 
 		// Note: For live Paratext projects, the only proper way to change the quote system is via Paratext.
@@ -2265,10 +2047,12 @@ namespace GlyssenEngine
 
 		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
 
-		public static string GetDefaultRecordingProjectName(string publicationName)
+		public static string GetDefaultRecordingProjectName(string publicationName, string languageIsoCode)
 		{
-			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName, MaxBaseRecordingNameLength);
-			return $"{publicationName}{DefaultRecordingProjectNameSuffix}";
+			var defaultProjectNameSuffix = DefaultRecordingProjectNameSuffix;
+			publicationName = FileSystemUtils.RemoveDangerousCharacters(publicationName,
+				Writer.GetMaxProjectNameLength(languageIsoCode) - defaultProjectNameSuffix.Length);
+			return $"{publicationName}{defaultProjectNameSuffix}";
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
@@ -2448,7 +2232,7 @@ namespace GlyssenEngine
 					if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
 					{
 						// I'm adding the final part of this check for sanity's sake. I've never seen data come in like this, but if
-						// we ever were to process an LDML file that had already been "hacked" by Glyssen, we wouldn't want to add the
+						// we ever were to process LDML data that had already been "hacked" by Glyssen, we wouldn't want to add the
 						// preceding level's continuer again.
 						if (!IsNullOrWhiteSpace(oneLevelUp?.Continue) &&
 							(level.Continue == oneLevelUp.Continue || !level.Continue.StartsWith(oneLevelUp.Continue)))
@@ -2469,7 +2253,7 @@ namespace GlyssenEngine
 		internal void SetWsQuotationMarksUsingFullySpecifiedContinuers(IEnumerable<QuotationMark> quotationMarks)
 		{
 			// The Paratext UI and check only support QuotationParagraphContinueType All or None (implicitly, if all levels are
-			// set to *none*). But the LDML specification allows all 4 options. Depending on the origin of the LDML file, this
+			// set to *none*). But the LDML specification allows all 4 options. Depending on the origin of the LDML data, this
 			// attribute may or may not be set. If not, the default is None, but if any levels have continuers specified, we
 			// interpret this as All (since None doesn't make sense in this case).
 			if (quotationMarks == null ||
@@ -2482,7 +2266,7 @@ namespace GlyssenEngine
 			WritingSystem.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 
-		public bool ProjectFileIsWritable { get; set; } = true;
+		public bool ProjectIsWritable { get; set; } = true;
 
 		public int DefaultNarratorCountForNarrationByAuthor
 		{

@@ -6,6 +6,7 @@ using GlyssenEngine;
 using GlyssenEngine.Character;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Script;
+using GlyssenFileBasedPersistence;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Scripture;
@@ -17,6 +18,7 @@ namespace GlyssenEngineTests.ViewModelTests
 	internal class AssignCharacterViewModelTests
 	{
 		private Project m_testProject;
+		private string m_testProjectFilePath;
 		private AssignCharacterViewModel m_model;
 		private bool m_fullProjectRefreshRequired;
 		private int m_assigned;
@@ -28,6 +30,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_testProjectFilePath = ProjectRepository.GetProjectFilePath(m_testProject);
 		}
 
 		[SetUp]
@@ -65,7 +68,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeTearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -1661,7 +1664,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = Project.Load(ProjectRepository.LoadProject(m_testProjectFilePath), null, null);
 			Assert.IsFalse(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1704,7 +1707,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = Project.Load(ProjectRepository.LoadProject(m_testProjectFilePath), null, null);
 			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1716,7 +1719,7 @@ namespace GlyssenEngineTests.ViewModelTests
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.YoungAdult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = Project.Load(ProjectRepository.LoadProject(m_testProjectFilePath), null, null);
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
@@ -1756,7 +1759,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = Project.Load(ProjectRepository.LoadProject(m_testProjectFilePath), null, null);
 
 			var christ = reloadedProject.AllCharacterDetailDictionary["Christ"];
 			Assert.AreEqual(CharacterAge.Adult, christ.Age);
@@ -1819,7 +1822,7 @@ namespace GlyssenEngineTests.ViewModelTests
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, null, null);
+			var reloadedProject = Project.Load(ProjectRepository.LoadProject(m_testProjectFilePath), null, null);
 
 			var cvData = new CombinedCharacterVerseData(reloadedProject);
 
@@ -2093,7 +2096,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		/// <summary>
@@ -2166,7 +2169,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void OneTimeTearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -2253,7 +2256,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		{
 			m_model.CorrelatedBlockCharacterAssignmentChanged -= CorrelatedBlockCharacterAssignmentChanged;
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
@@ -2400,7 +2403,7 @@ namespace GlyssenEngineTests.ViewModelTests
 		public void TearDown()
 		{
 			m_testProject = null;
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]

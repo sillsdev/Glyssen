@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Xml;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -15,15 +14,22 @@ namespace GlyssenEngine
 	{
 		public const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
+		private const string kSampleFontFamily = "Times New Roman";
 
-		public static string SampleProjectFilePath
+		private class SampleProjectStub : IUserProject
 		{
-			get { return Project.GetProjectFilePath(kSample, kSample, Project.GetDefaultRecordingProjectName(kSampleProjectName)); }
+			public string Name => Project.GetDefaultRecordingProjectName(kSampleProjectName, LanguageIsoCode);
+			public string LanguageIsoCode => kSample;
+			public string ValidLanguageIsoCode => WellKnownSubtags.UnlistedLanguage;
+			public string MetadataId => kSample;
+			public string FontFamily => kSampleFontFamily;
 		}
+
+		public static IUserProject Stub => new SampleProjectStub();
 
 		public static void CreateSampleProjectIfNeeded()
 		{
-			if (File.Exists(SampleProjectFilePath))
+			if (ProjectBase.Reader.ResourceExists(Stub, ProjectResource.Metadata))
 				return;
 			var sampleMetadata = new GlyssenDblTextMetadata();
 
@@ -35,7 +41,7 @@ namespace GlyssenEngine
 			bookOfMark.ShortName = "Mark";
 			bookOfMark.Abbreviation = "Mr";
 			sampleMetadata.AvailableBooks.Add(bookOfMark);
-			sampleMetadata.FontFamily = "Times New Roman";
+			sampleMetadata.FontFamily = kSampleFontFamily;
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.Id = kSample;
 			sampleMetadata.Copyright = Copyright;

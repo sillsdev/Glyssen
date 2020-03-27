@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Shared;
@@ -8,30 +7,37 @@ using Glyssen.Shared.Bundle;
 using GlyssenEngine.Script;
 using GlyssenEngine.Utilities;
 using SIL;
-using SIL.DblBundle;
 using SIL.Scripture;
 
 namespace GlyssenEngine
 {
-	public abstract class ProjectBase
+	public abstract class ProjectBase : IProject
 	{
-		public const string kShareFileExtension = ".glyssenshare";
-		public const string kFallbackVersificationPrefix = "fallback_";
+		public static IProjectPersistenceReader Reader { get; set; }
 
 		static ProjectBase()
 		{
 			GlyssenVersificationTable.Initialize();
 		}
+		
+		public static string DefaultCustomVersificationName => Localizer.GetString("Project.DefaultCustomVersificationName",
+			"custom", "Used as the versification name when the versification file does not contain a name.");
 
-		public static ScrVers LoadVersification(string vrsPath, GlyssenVersificationTable.InvalidVersificationLineExceptionHandling versificationLineExceptionHandling)
+		public ScrVers LoadVersification(GlyssenVersificationTable.InvalidVersificationLineExceptionHandling versificationLineExceptionHandling, bool useFallback = false)
 		{
 			((GlyssenVersificationTable)SIL.Scripture.Versification.Table.Implementation).VersificationLineExceptionHandling =
 				versificationLineExceptionHandling;
-			return SIL.Scripture.Versification.Table.Implementation.Load(vrsPath, Localizer.GetString("Project.DefaultCustomVersificationName",
-				"custom", "Used as the versification name when the versification file does not contain a name."));
+			var versificationResource = useFallback ? ProjectResource.FallbackVersification : ProjectResource.Versification;
+			using (var versificationReader = Reader.Load(this, versificationResource))
+			{
+				if (versificationReader != null)
+				{
+					return SIL.Scripture.Versification.Table.Implementation.Load(versificationReader,
+						versificationResource.ToString(), DefaultCustomVersificationName);
+				}
+			}
+			return null;
 		}
-
-		protected static string ProjectsBaseFolder => GlyssenInfo.BaseDataFolder;
 
 		protected readonly GlyssenDblTextMetadataBase m_metadata;
 		protected readonly List<BookScript> m_books = new List<BookScript>();
@@ -56,6 +62,12 @@ namespace GlyssenEngine
 
 		public string LanguageIsoCode => m_metadata.Language.Iso;
 
+		public virtual string ValidLanguageIsoCode => LanguageIsoCode;
+
+		public string MetadataId => m_metadata.Id;
+
+		public abstract string Name { get; }
+
 		public string LanguageLdml => m_metadata.Language.Ldml;
 
 		public string FontFamily => m_metadata.FontFamily;
@@ -70,8 +82,6 @@ namespace GlyssenEngine
 
 		public bool RightToLeftScript => m_metadata.Language.ScriptDirection == "RTL";
 
-		protected abstract string ProjectFolder { get; }
-
 		protected Func<string, string> GetBookName { get; set; }
 
 		public string GetFormattedChapterAnnouncement(string bookCode, int chapterNumber)
@@ -85,6 +95,16 @@ namespace GlyssenEngine
 			bldr.Append(" ");
 			bldr.Append(chapterNumber);
 			return bldr.ToString();
+		}
+
+		protected void LoadExistingBooks()
+		{
+			foreach (var bookCode in StandardCanon.AllBookCodes)
+			{
+				var bookReader = Reader.LoadBook(this, bookCode);
+				if (bookReader != null)
+					m_books.Add(BookScript.Deserialize(bookReader, Versification));
+			}
 		}
 
 		public BookScript GetBook(string id)
@@ -109,7 +129,5 @@ namespace GlyssenEngine
 #endif
 		}
 
-		protected string VersificationFilePath => Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName);
-		protected string FallbackVersificationFilePath => Path.Combine(ProjectFolder, kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 	}
 }

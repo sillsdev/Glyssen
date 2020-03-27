@@ -578,7 +578,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[TestCase(true)]
@@ -656,7 +656,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		private List<CharacterGroup> PopulateGroups()
@@ -876,7 +876,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		private List<CharacterGroup> PopulateGroups()

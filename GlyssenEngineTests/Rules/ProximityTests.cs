@@ -38,7 +38,7 @@ namespace GlyssenEngineTests.Rules
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjects();
 		}
 
 		[Test]
