@@ -10,7 +10,7 @@
 		/// <summary>
 		/// A language tag (typically conforming to BCP-47) used to help identify the target
 		/// (i.e., vernacular) language of the recording project. This can be a more fully
-		/// specified tag consisting of a sequence "subtags", but most often just a three-letter
+		/// specified tag consisting of a sequence of "subtags", but most often just a three-letter
 		/// language subtag.
 		/// </summary>
 		string LanguageIsoCode { get; }
