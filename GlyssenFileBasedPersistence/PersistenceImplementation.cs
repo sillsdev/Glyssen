@@ -57,35 +57,46 @@ namespace GlyssenFileBasedPersistence
 
 			var languageFolder = GetLanguageFolder(project.LanguageIsoCode);
 
-			int cFontFileCopyFailures = 0;
-			foreach (var font in bundle.GetFonts())
+			var cFontFileCopyFailures = 0;
+			try
 			{
-				string fontFileName = font.Item1;
-				string targetFontPath = Combine(languageFolder, fontFileName);
-				try
+				foreach (var font in bundle.GetFonts())
 				{
-					if (!File.Exists(targetFontPath))
+					var fontFileName = font.Item1;
+					var targetFontPath = Combine(languageFolder, fontFileName);
+					try
 					{
-						using (var targetStream = new FileStream(targetFontPath, FileMode.Create))
+						if (!File.Exists(targetFontPath))
 						{
-							font.Item2.CopyTo(targetStream);
+							using (var targetStream = new FileStream(targetFontPath, FileMode.Create))
+							{
+								font.Item2.CopyTo(targetStream);
+							}
+						}
+					}
+					catch (Exception fontSpecificException)
+					{
+						var message = Format(Localizer.GetString("DblBundle.FontFileCopyFailed", 
+							"An attempt to copy font file {0} from the bundle to {1} failed."),
+							fontFileName, languageFolder);
+						if (cFontFileCopyFailures == 0)
+						{
+							ErrorReport.ReportNonFatalExceptionWithMessage(fontSpecificException, message);
+						}
+						else
+						{
+							// For any subsequent failures, just log them.
+							Logger.WriteError(message, fontSpecificException);
 						}
 					}
 				}
-				catch (Exception ex)
-				{
-					var message = Format(Localizer.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
-						fontFileName, languageFolder);
-					if (cFontFileCopyFailures == 0)
-					{
-						ErrorReport.ReportNonFatalExceptionWithMessage(ex, message);
-					}
-					else
-					{
-						// For any subsequent failures, just log them.
-						Logger.WriteError(message, ex);
-					}
-				}
+			}
+			catch (Exception bundleFontsAccessException)
+			{
+				var message = Format(Localizer.GetString("DblBundle.BundleFontAccessFailure",
+					"Failed to retrieve font files from the bundle."));
+				Debug.Assert(cFontFileCopyFailures == 0);
+				ErrorReport.ReportNonFatalExceptionWithMessage(bundleFontsAccessException, message);
 			}
 
 			using (var reader = bundle.GetVersification())
@@ -234,7 +245,7 @@ namespace GlyssenFileBasedPersistence
 
 			try
 			{
-				// REVIEW: Wouldn't the above call to RobustIO.MoveDirectory delete the original folder (or does it only move the contents)?
+				// Above call to RobustIO.MoveDirectory moves the contents but does not delete the original folder itself.
 				RobustIO.DeleteDirectory(Path.GetDirectoryName(origProjectFolder));
 			}
 			catch (Exception e)
@@ -346,7 +357,7 @@ namespace GlyssenFileBasedPersistence
 				}
 			}
 		}
-		
+
 		/// <summary>
 		/// Gets whether there is (or might be) an existing project identified by the given
 		/// language code, id, and name. Typically, this would return the same value as
@@ -357,7 +368,10 @@ namespace GlyssenFileBasedPersistence
 		/// were no existing metadata resource, if there were other things identified by
 		/// these attributes, this should still return true.
 		/// </summary>
-		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name)
+		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name) =>
+			NonEmptyFolderExists(languageIsoCode, metadataId, name);
+
+		private static bool NonEmptyFolderExists(string languageIsoCode, string metadataId, string name)
 		{
 			var projectFolder = ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name);
 			return Directory.Exists(projectFolder) && Directory.EnumerateFileSystemEntries(projectFolder).Any();
@@ -406,9 +420,10 @@ namespace GlyssenFileBasedPersistence
 		public TextReader LoadBook(IProject project, string bookId) =>
 			GetReader(GetBookDataFilePath(project, bookId));
 
-		public bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository)
+		public bool TryInstallFonts(IUserProject project, IFontRepository fontRepository)
 		{
-			string languageFolder = GetLanguageFolder(project.LanguageIsoCode);
+			var fontFamily = project.FontFamily;
+			var languageFolder = GetLanguageFolder(project.LanguageIsoCode);
 
 			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
 			var ttfFilesToInstall = Directory.GetFiles(languageFolder, "*.ttf")
@@ -456,13 +471,59 @@ namespace GlyssenFileBasedPersistence
 
 		public string GetProjectFilePath(IProject project) => Combine(GetProjectFolderPath(project), GetProjectFilename(project));
 
+		/// <summary>
+		/// Gets the default project file path. If the normal default project folder already exists
+		/// and has files in it, add a number to ensure a unique, available location is returned in
+		/// which a new project can be created.
+		/// </summary>
+		/// <param name="bundle">The bundle from which project information is obtained</param>
+		/// <param name="revisionToUseIfProjectExists">Revision number (of the bundle)</param>
+		public static string GetAvailableDefaultProjectFilePath(IProjectSourceMetadata bundle, int revisionToUseIfProjectExists = -1)
+		{
+			var recordingProjectName = GetDefaultProjectName(bundle);
+			if (NonEmptyFolderExists(bundle.LanguageIso, bundle.Id, recordingProjectName))
+			{
+				string numericSuffix;
+				if (revisionToUseIfProjectExists >= 0 &&
+					File.Exists(ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName)))
+				{
+					// If we get here, there is already a project with the default path but for a
+					// different revision). So we need to generate a unique revision-specific
+					// project path.
+					// TODO (PG-222): Before blindly creating a new project, we probably need to
+					// prompt the user to see if they want to upgrade an existing project instead.
+					// If there are multiple candidate projects, we'll need to present a list.
+					// (This would require some refactoring because we don't want UI here.)
+					recordingProjectName = $"{recordingProjectName} (Rev {revisionToUseIfProjectExists})";
+					if (!NonEmptyFolderExists(bundle.LanguageIso, bundle.Id, recordingProjectName))
+						return ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
+					numericSuffix = ".{0}"; // Really unlikely that we would ever get here.
+				}
+				else
+					numericSuffix = " ({0})";
+
+				var fmt = recordingProjectName + numericSuffix;
+				var n = 1;
+				do
+				{
+					recordingProjectName = Format(fmt, n++);
+				} while (NonEmptyFolderExists(bundle.LanguageIso, bundle.Id, recordingProjectName));
+			}
+			return ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
+		}
+
 		public static string GetDefaultProjectFilePath(IProjectSourceMetadata bundle)
 		{
+			return ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
+				GetDefaultProjectName(bundle));
+		}
+
+		public static string GetDefaultProjectName(IProjectSourceMetadata bundle)
+		{			
 			var publicationName = bundle.Name;
 			if (IsNullOrEmpty(publicationName))
 				publicationName = (bundle as GlyssenBundle)?.Metadata?.Language?.Name ?? Empty;
-			return ProjectRepository.GetProjectFilePath(bundle.LanguageIso, bundle.Id,
-				Project.GetDefaultRecordingProjectName(publicationName, bundle.LanguageIso));
+			return Project.GetDefaultRecordingProjectName(publicationName, bundle.LanguageIso);
 		}
 
 		private string GetVersificationFilePath(IProject project) =>

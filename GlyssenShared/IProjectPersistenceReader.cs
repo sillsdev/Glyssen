@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace Glyssen.Shared
@@ -60,6 +59,13 @@ namespace Glyssen.Shared
 		/// </summary>
 		TextReader LoadBook(IProject project, string bookId);
 
-		bool TryInstallFonts(IUserProject project, string fontFamily, IFontRepository fontRepository);
+		/// <summary>
+		/// Attempts to install missing fonts so that they will be available to display
+		/// vernacular project data in the host application.
+		/// </summary>
+		/// <param name="project">Project for which font(s) are missing</param>
+		/// <param name="fontRepository"></param>
+		/// <returns><c>true</c> if installation is performed (or offered)</returns>
+		bool TryInstallFonts(IUserProject project, IFontRepository fontRepository);
 	}
 }

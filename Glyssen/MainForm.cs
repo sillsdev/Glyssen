@@ -168,6 +168,7 @@ namespace Glyssen
 			{
 				Logger.WriteEvent($"Opening project {m_project.Name}");
 
+				m_btnOpenProject.Enabled = false;
 				m_project.ProjectStateChanged += FinishSetProjectIfReady;
 				m_project.CharacterGroupCollectionChanged += UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged += ClearCastSizePlanningViewModel;
@@ -265,17 +266,17 @@ namespace Glyssen
 			}
 		}
 
-		private void UpdateButtons(bool readOnly)
+		private void UpdateButtons(bool readyForUserInteraction)
 		{
-			m_btnOpenProject.Enabled = !readOnly;
+			m_btnOpenProject.Enabled = readyForUserInteraction;
 			m_imgCheckOpen.Visible = true;
-			m_btnSettings.Enabled = !readOnly && m_project.ProjectIsWritable;
+			m_btnSettings.Enabled = readyForUserInteraction && m_project.ProjectIsWritable;
 			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.IsQuoteSystemReadyForParse;
-			m_btnSelectBooks.Enabled = !readOnly && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
+			m_btnSelectBooks.Enabled = readyForUserInteraction && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.ProjectIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed && m_project.IncludedBooks.Any();
-			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
+			m_btnIdentify.Enabled = readyForUserInteraction && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
 			if (m_project.ReferenceText == null)
 			{
@@ -284,12 +285,12 @@ namespace Glyssen
 			}
 			else if (m_btnIdentify.Enabled)
 				m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
-			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
+			m_btnExport.Enabled = readyForUserInteraction && m_btnIdentify.Enabled;
 
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
 
-			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && !readOnly && m_imgCheckAssignCharacters.Visible;
+			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && readyForUserInteraction && m_imgCheckAssignCharacters.Visible;
 
 			// TODO: Determine when the Cast Size Planning task is done enough to move on to the next task.
 			// Tom added the final portion of the logic to allow us to continue to access the Roles for Voice Actors dialog at least
@@ -300,11 +301,11 @@ namespace Glyssen
 			m_imgCastSizePlanning.Visible = m_btnCastSizePlanning.Visible && m_btnCastSizePlanning.Enabled &&
 				(m_project.CharacterGroupList.CharacterGroups.Any() || m_project.VoiceActorList.ActiveActors.Any());
 
-			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && !readOnly && m_imgCastSizePlanning.Visible;
+			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && readyForUserInteraction && m_imgCastSizePlanning.Visible;
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
-			m_lnkExit.Enabled = !readOnly;
+			m_lnkExit.Enabled = readyForUserInteraction;
 
-			m_exportMenu.Enabled = true;
+			m_shareMenu.Enabled = readyForUserInteraction;
 		}
 
 		private void ResetUi()
@@ -424,6 +425,7 @@ namespace Glyssen
 
 		private void InitializeProgress()
 		{
+			m_btnOpenProject.Enabled = false;
 			ResetUi();
 			m_tableLayoutPanel.Enabled = false;
 			Cursor.Current = Cursors.WaitCursor;
@@ -536,33 +538,20 @@ namespace Glyssen
 						return;
 					}
 					projFilePath = dlg.SelectedProject;
+					if (File.Exists(projFilePath))
+					{
+						LoadProject(projFilePath);
+						bundle.Dispose();
+						return;
+					}
 				}
 			}
 			else
-				projFilePath = PersistenceImplementation.GetDefaultProjectFilePath(bundle);
+			{
+				projFilePath = PersistenceImplementation.GetAvailableDefaultProjectFilePath(bundle, bundle.Metadata.Revision);
+			}
 
 			var recordingProjectName = ProjectRepository.GetRecordingProjectNameFromProjectFilePath(projFilePath);
-			if (File.Exists(projFilePath))
-			{
-				if (GlyssenDblTextMetadata.GetRevisionOrChangesetId(projFilePath) == bundle.Metadata.RevisionOrChangesetId)
-				{
-					LoadProject(projFilePath);
-					bundle.Dispose();
-					return;
-				}
-				// If we get here, then the Select Existing Project dialog was not displayed, but there is
-				// already a project with the same path (i.e., for a different revision). So we need to
-				// generate a unique revision-specific project path.
-				// TODO (PG-222): Before blindly creating a new project, we probably need to prompt the
-				// user to see if they want to upgrade an existing project instead. If there are multiple
-				// candidate projects, we'll need to present a list.
-				var baserecordingProjectName = recordingProjectName;
-				recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision})";
-				for (int i = 1; m_persistenceImpl.ProjectExistsHaving(bundle.LanguageIso, bundle.Id, recordingProjectName); i++)
-				{
-					recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision}.{i})";
-				}
-			}
 
 			try
 			{
@@ -842,8 +831,10 @@ namespace Glyssen
 				Settings.Default.CurrentProject = null;
 				Settings.Default.Save();
 			}
-			if (m_project != null)
-				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
+			if (m_project == null)
+				m_btnOpenProject.Enabled = true;
+			else
+				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0);
 		}
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

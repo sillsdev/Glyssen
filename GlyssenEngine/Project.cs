@@ -413,12 +413,12 @@ namespace GlyssenEngine
 			Debug.Assert(FontRepository != null, "Font repository implementation should be set before attempting to load a project.");
 
 			string fontFamily = m_projectMetadata.FontFamily;
-			if (m_fontInstallationAttempted || FontRepository.IsFontInstalled(fontFamily))
+			if (m_fontInstallationAttempted || IsNullOrEmpty(fontFamily) || FontRepository.IsFontInstalled(fontFamily))
 				return;
 
 			m_fontInstallationAttempted = true;
 
-			if (Reader.TryInstallFonts(this, fontFamily, FontRepository))
+			if (!Reader.TryInstallFonts(this, FontRepository))
 				FontRepository.ReportMissingFontFamily(fontFamily);
 		}
 
