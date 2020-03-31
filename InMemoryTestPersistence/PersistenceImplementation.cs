@@ -11,13 +11,27 @@ namespace InMemoryTestPersistence
 {
 	public class PersistenceImplementation : IProjectPersistenceReader, IProjectPersistenceWriter
 	{
-		public const string kBookPrefix = "book:";
-		public const string kBackupExtSuffix = "bak";
+		private const string kBookPrefix = "book:";
+		private const string kBackupSuffix = "bak";
 
 		private readonly IProjectPersistenceReader m_readerForStandardReferenceTexts = new GlyssenFileBasedPersistence.PersistenceImplementation();
 
 		private static readonly IEqualityComparer<IProject> s_comparer = new ProjectKeyComparer();
+		/// <summary>
+		/// Top-level dictionary keys on project (<see cref="ProjectKeyComparer"/>).
+		/// Second level dictionary holds all the project data in the form of strings.
+		/// Keys for second level are one of:
+		/// * String-representation of ProjectResource enumeration value
+		/// * Three-letter book Code, preceded by the book prefix ("book:")
+		/// * A backup of a resource: String-representation of ProjectResource enumeration value + the suffix "bak"
+		/// </summary>
 		private readonly Dictionary<IProject, Dictionary<string, string>> m_memoryCache = new Dictionary<IProject, Dictionary<string, string>>(s_comparer);
+		/// <summary>
+		/// Record of project backups requested. This implementation does not actually create a
+		/// backup of the data (hence, there is no way to load a backed up project). Rather, it
+		/// merely keeps a list of the backups requested, storing the description and whether that
+		/// backup was requested to be an inactive project (which is currently always true).
+		/// </summary>
 		private readonly Dictionary<IProject, List<Tuple<string, bool>>> m_projectBackups = new Dictionary<IProject, List<Tuple<string, bool>>>();
 
 		#region IProjectPersistenceWriter implementation
@@ -103,7 +117,7 @@ namespace InMemoryTestPersistence
 			var projectStore = m_memoryCache[project];
 			if (projectStore.TryGetValue(resource.ToString(), out var resourceValue))
 			{
-				projectStore[resource + kBackupExtSuffix] = resourceValue;
+				projectStore[resource + kBackupSuffix] = resourceValue;
 				return true;
 			}
 
@@ -142,7 +156,7 @@ namespace InMemoryTestPersistence
 
 		public bool BackupResourceExists(IProject project, ProjectResource resource)
 		{
-			return m_memoryCache.TryGetValue(project, out var resources) && resources.ContainsKey(resource + kBackupExtSuffix);
+			return m_memoryCache.TryGetValue(project, out var resources) && resources.ContainsKey(resource + kBackupSuffix);
 		}
 
 		public bool BookResourceExists(IProject project, string bookId)

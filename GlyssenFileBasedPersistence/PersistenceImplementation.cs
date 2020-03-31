@@ -35,10 +35,9 @@ namespace GlyssenFileBasedPersistence
 
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 
-		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
-		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
-		public const string kFallbackVersificationPrefix = "fallback_";
-		public const string kBackupExtSuffix = "bak";
+		private const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
+		private const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
+		private const string kBackupExtSuffix = "bak";
 
 		#region IProjectPersistenceWriter implementation
 		public event ProjectDeletedHandler OnProjectDeleted;
@@ -480,6 +479,7 @@ namespace GlyssenFileBasedPersistence
 			return GetProjectResourceFilePath(project, filename + DblBundleFileUtils.kUnzippedLdmlFileExtension);
 		}
 
+		private const string kFallbackVersificationPrefix = "fallback_";
 		public string GetFallbackVersificationFilePath(IUserProject project) => 
 			Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
 		

@@ -4,6 +4,12 @@ using Glyssen.Shared;
 
 namespace InMemoryTestPersistence
 {
+	/// <summary>
+	/// Allows projects to be compared for "key" equality (as opposed to actual object equality)
+	/// taking into consideration both the type of project (reference text vs. user project) and
+	/// the properties that would determine the project folder path (in a file-based persistence
+	/// world).
+	/// </summary>
 	class ProjectKeyComparer : IEqualityComparer<IProject>
 	{
 		public bool Equals(IProject x, IProject y)
@@ -45,7 +51,7 @@ namespace InMemoryTestPersistence
 						break;
 					case IUserProject userProject:
 						hashCode = (hashCode * 397) ^ userProject.LanguageIsoCode.GetHashCode();
-						hashCode = (hashCode * 397) ^ userProject.ValidLanguageIsoCode.GetHashCode();
+						hashCode = (hashCode * 397) ^ userProject.MetadataId.GetHashCode();
 						break;
 				}
 
