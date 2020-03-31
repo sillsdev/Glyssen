@@ -44,6 +44,8 @@ namespace GlyssenFileBasedPersistence
 		public const string kFallbackVersificationPrefix = "fallback_";
 		public const string kBackupExtSuffix = "bak";
 
+		public event ProjectDeletedHandler OnProjectDeleted;
+
 		public void SetUpProjectPersistence(IProject project)
 		{
 			Directory.CreateDirectory(GetProjectFolderPath(project));
@@ -137,6 +139,8 @@ namespace GlyssenFileBasedPersistence
 			parent = GetDirectoryName(parent);
 			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
 				Directory.Delete(parent);
+
+			OnProjectDeleted?.Invoke(this, project);
 		}
 
 		public void CreateBackup(IUserProject project, string description, bool inactive)

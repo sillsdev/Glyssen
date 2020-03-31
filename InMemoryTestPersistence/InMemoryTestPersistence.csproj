@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GlyssenEngine\GlyssenEngine.csproj" />
+    <ProjectReference Include="..\GlyssenFileBasedPersistence\GlyssenFileBasedPersistence.csproj" />
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
   </ItemGroup>
 

@@ -10,17 +10,22 @@ namespace GlyssenEngineTests
 	[TestFixture]
 	class ReferenceTextProxyTests
 	{
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
+		{
+			TestReferenceText.ForgetCustomReferenceTexts();
+		}
+
 		[TearDown]
 		public void Teardown()
 		{
 			TestReferenceText.ForgetCustomReferenceTexts();
+			ReferenceTextProxy.ForgetMissingCustomReferenceTexts();
 		}
 
 		[Test]
 		public void AllAvailable_NoCustomReferenceTexts_IncludesOnlyBuiltInPublicDomainTexts()
 		{
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-
 			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
 			Assert.AreEqual(2, publicDomainDistributedReferenceTexts.Count);
@@ -53,8 +58,10 @@ namespace GlyssenEngineTests
 			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.AzeriJUD);
 			TestReferenceText.CreateCustomReferenceText(TestReferenceTextResource.EnglishJUD);
 
+			// The above two lines will already have put the custom ones into the list of available,
+			// so we clear the cache to simulate an initial start-up condition.
 			ReferenceTextProxy.ClearCache();
-			var idAzeri = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Azeri");
+			var _ = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Azeri");
 
 			var referenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
@@ -67,8 +74,6 @@ namespace GlyssenEngineTests
 		[Test]
 		public void AllAvailable_AfterCallingGetOrCreateForUnavailableCustomRefText_IncludesMissingCustomText()
 		{
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-
 			var idEpl = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "EsperantoPigLatin");
 
 			Assert.IsTrue(idEpl.Missing);

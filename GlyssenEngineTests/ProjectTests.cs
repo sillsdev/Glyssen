@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen.Shared;
@@ -13,14 +12,13 @@ using GlyssenEngine.Paratext;
 using GlyssenEngine.Quote;
 using GlyssenEngine.Script;
 using GlyssenEngineTests.Bundle;
-using GlyssenFileBasedPersistence;
+using InMemoryTestPersistence;
 using GlyssenSharedTests;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.Extensions;
-using SIL.IO;
 using SIL.ObjectModel;
 using SIL.Reflection;
 using SIL.Scripture;
@@ -31,11 +29,9 @@ namespace GlyssenEngineTests
 	[TestFixture, Timeout(90000)]
 	class ProjectTests
 	{
-		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
 		private GlyssenBundle GetGlyssenBundleToBeUsedForProject(bool includeLdml = true)
 		{
 			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(includeLdml);
-			m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, bundle.Metadata.Id));
 			return bundle;
 		}
 
@@ -55,18 +51,18 @@ namespace GlyssenEngineTests
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
 
 			// Clean up anything from previously aborted tests
-			if (Directory.Exists(ProjectRepository.ProjectsBaseFolder))
-			{
-				foreach (var directory in Directory.GetDirectories(ProjectRepository.ProjectsBaseFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
-					RobustIO.DeleteDirectoryAndContents(directory);
-			}
+			((PersistenceImplementation)Project.Writer).ClearAllUserProjects();
+			//if (Directory.Exists(ProjectRepository.ProjectsBaseFolder))
+			//{
+			//	foreach (var directory in Directory.GetDirectories(ProjectRepository.ProjectsBaseFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
+			//		RobustIO.DeleteDirectoryAndContents(directory);
+			//}
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			foreach (var folder in m_tempProjectFolders)
-				RobustIO.DeleteDirectoryAndContents(folder);
+			((PersistenceImplementation)Project.Writer).ClearAllUserProjects();
 		}
 
 		[Test]
@@ -255,7 +251,6 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var project = new Project(originalBundle);
 
@@ -288,13 +283,11 @@ namespace GlyssenEngineTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(11000)]
 		public void SetQuoteSystem_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -340,6 +333,9 @@ namespace GlyssenEngineTests
 					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
 					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
 				}
+
+				Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+					testProject, "Backup before quote system change", true));
 			}
 			finally
 			{
@@ -347,6 +343,7 @@ namespace GlyssenEngineTests
 				originalBundleAndFile.Item2.Dispose();
 			}
 		}
+
 		[Test]
 		[Timeout(11000)]
 		public void SetQuoteSystem_ProjectQuoteSystemChanged_QuoteSystemDateUpdated()
@@ -354,7 +351,6 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -405,13 +401,11 @@ namespace GlyssenEngineTests
 
 		[TestCase("Boaz")]
 		[TestCase("Mr. Rogers")]
-		[Timeout(11000)]
 		public void UpdateProjectFromBundleData_ProjectHasCustomCharacterVerseDecisions_UserDecisionsReapplied(string character)
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -452,6 +446,9 @@ namespace GlyssenEngineTests
 					Assert.AreEqual(character, blockWithReappliedUserDecision.CharacterId);
 					Assert.AreEqual("foamy", blockWithReappliedUserDecision.Delivery);
 				}
+
+				Assert.IsTrue(((PersistenceImplementation)Project.Writer).WasExpectedBackupCreated(
+					testProject, "Backup before updating from new bundle", true));
 			}
 			finally
 			{
@@ -467,7 +464,6 @@ namespace GlyssenEngineTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var testProject = new Project(originalBundle);
 
@@ -846,7 +842,7 @@ namespace GlyssenEngineTests
 			metadata.AvailableBooks.Insert(0, new Book { Code = "MAT" });
 			project.Save();
 
-			project = TestProject.LoadExistingTestProject();
+			project = TestProject.LoadExistingTestProject(project.MetadataId);
 
 			Assert.AreEqual("JUD", project.AvailableBooks.Single().Code);
 		}
@@ -863,7 +859,6 @@ namespace GlyssenEngineTests
 				bundle.Metadata.Language.Iso = "ach";
 				bundle.Metadata.Language.Name = "Acholi"; // see messages in Assert.AreEqual lines below
 				var project = new Project(bundle);
-				m_tempProjectFolders.Add(Path.GetDirectoryName(ProjectRepository.GetProjectFolderPath(project)));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
@@ -955,7 +950,6 @@ namespace GlyssenEngineTests
 				bundle.Metadata.Language.Iso = "ach-CM";
 				bundle.Metadata.Language.Ldml = "ach%CM***-blah___ickypoo!";
 				var project = new Project(bundle);
-				m_tempProjectFolders.Add(Path.Combine(ProjectRepository.ProjectsBaseFolder, bundle.Metadata.Language.Ldml));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
@@ -1028,18 +1022,18 @@ namespace GlyssenEngineTests
 
 			var sampleWs = new WritingSystemDefinition();
 
-			try
-			{
+			//try
+			//{
 				var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.False(project.AvailableBooks.Any());
-			}
-			finally
-			{
-				var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, "~~funkyFrogLipsAndStuff");
-				if (Directory.Exists(testProjFolder))
-					RobustIO.DeleteDirectoryAndContents(testProjFolder);
-			}
+			//}
+			//finally
+			//{
+			//	var testProjFolder = Path.Combine(ProjectRepository.ProjectsBaseFolder, "~~funkyFrogLipsAndStuff");
+			//	if (Directory.Exists(testProjFolder))
+			//		RobustIO.DeleteDirectoryAndContents(testProjFolder);
+			//}
 		}
 
 		[TestCase(2, 1, 1, 0)]
@@ -1285,7 +1279,7 @@ namespace GlyssenEngineTests
 			metadata.AvailableBooks.Insert(0, new Book { Code = "GEN" });
 			project.Save();
 
-			project = TestProject.LoadExistingTestProject();
+			project = TestProject.LoadExistingTestProject(project.MetadataId);
 
 			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
 		}
@@ -1294,7 +1288,7 @@ namespace GlyssenEngineTests
 		public void Name_GetDefaultRecordingProjectName_SetCorrectly()
 		{
 			var project = TestProject.CreateBasicTestProject();
-			Assert.AreEqual(project.Id + " Audio", project.Name);
+			Assert.AreEqual(project.Metadata.Identification.Name + " Audio", project.Name);
 		}
 
 		[Test]

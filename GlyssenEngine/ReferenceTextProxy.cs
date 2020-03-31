@@ -27,11 +27,31 @@ namespace GlyssenEngine
 			get => s_reader;
 			set 
 			{ 
+				// For production code, this should only ever get set once and we could just use a
+				// simple auto-property, but for tests, it could possibly get changed (though at
+				// the time of this writing, it never does), and since tests create and discard
+				// custom reference texts, we need to forget about any that are deleted.
 				if (s_reader == value)
 					return;
-				ClearCache();
+				if (s_reader != null)
+				{
+					if (s_reader is IProjectPersistenceWriter oldWriter)
+						oldWriter.OnProjectDeleted -= OnProjectDeleted;
+					else
+						ClearCache();
+				}
+
 				s_reader = value;
+
+				if (s_reader is IProjectPersistenceWriter newWriter)
+					newWriter.OnProjectDeleted += OnProjectDeleted;
 			}
+		}
+
+		private static void OnProjectDeleted(object sender, IProject project)
+		{
+			if (project is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom)
+				s_allAvailable.RemoveAll(r => r.Type == ReferenceTextType.Custom && r.Name == project.Name);
 		}
 
 		private static Action<Exception, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
@@ -83,14 +103,18 @@ namespace GlyssenEngine
 			}
 		}
 
-		/// <summary>
-		/// This is mainly for testing, though some day the need may arise to do this in production code.
-		/// </summary>
+		#region Internal methods to support unit testing (some day the need may arise to do this in production code)
 		internal static void ClearCache()
 		{
 			s_allAvailable = null;
 			s_allAvailableLoaded = false;
 		}
+
+		internal static void ForgetMissingCustomReferenceTexts()
+		{
+			s_allAvailable.RemoveAll(r => r.Type == ReferenceTextType.Custom && r.Missing);
+		}
+		#endregion
 
 		public static ReferenceTextProxy GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
 		{

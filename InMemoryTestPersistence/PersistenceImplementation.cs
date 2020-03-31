@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Glyssen.Shared;
 using GlyssenEngine;
 using SIL.DblBundle.Text;
-using SIL.Extensions;
 
 namespace InMemoryTestPersistence
 {
 	public class PersistenceImplementation : IProjectPersistenceReader, IProjectPersistenceWriter
 	{
 		public const string kBookPrefix = "book:";
-		public const string kFallbackVersificationPrefix = "fallback_";
 		public const string kBackupExtSuffix = "bak";
+
+		private readonly IProjectPersistenceReader m_readerForStandardReferenceTexts = new GlyssenFileBasedPersistence.PersistenceImplementation();
 
 		private static readonly IEqualityComparer<IProject> s_comparer = new ProjectKeyComparer();
 		private readonly Dictionary<IProject, Dictionary<string, string>> m_memoryCache = new Dictionary<IProject, Dictionary<string, string>>(s_comparer);
+		private readonly Dictionary<IProject, List<Tuple<string, bool>>> m_projectBackups = new Dictionary<IProject, List<Tuple<string, bool>>>();
+
+		public event ProjectDeletedHandler OnProjectDeleted;
 
 		public IEnumerable<ResourceReader>  GetCustomReferenceTextsNotAlreadyLoaded()
 		{
@@ -34,6 +36,8 @@ namespace InMemoryTestPersistence
 
 		public bool ResourceExists(IProject project, ProjectResource resource)
 		{
+			if (project is IReferenceTextProject refText && refText.Type.IsStandard())
+				return m_readerForStandardReferenceTexts.ResourceExists(project, resource);
 			return m_memoryCache.TryGetValue(project, out var resources) && resources.ContainsKey(resource.ToString());
 		}
 
@@ -44,20 +48,26 @@ namespace InMemoryTestPersistence
 
 		public bool BookResourceExists(IProject project, string bookId)
 		{
+			if (project is IReferenceTextProject refText && refText.Type.IsStandard())
+				return m_readerForStandardReferenceTexts.BookResourceExists(project, bookId);
 			return m_memoryCache.TryGetValue(project, out var resources) && resources.ContainsKey(kBookPrefix + bookId);
 		}
 
 		public TextReader Load(IProject project, ProjectResource resource)
 		{
+			if (project is IReferenceTextProject refText && refText.Type.IsStandard())
+				return m_readerForStandardReferenceTexts.Load(project, resource);
 			return Load(project, resource.ToString());
 		}
 
 		public TextReader LoadBook(IProject project, string bookId)
 		{
+			if (project is IReferenceTextProject refText && refText.Type.IsStandard())
+				return m_readerForStandardReferenceTexts.LoadBook(project, bookId);
 			return Load(project, kBookPrefix + bookId);
 		}
 
-		public TextReader Load(IProject project, string name)
+		private TextReader Load(IProject project, string name)
 		{
 			if (m_memoryCache.TryGetValue(project, out var resources))
 			{
@@ -85,7 +95,7 @@ namespace InMemoryTestPersistence
 		{
 			if (m_memoryCache.TryGetValue(project, out var resources))
 			{
-				return new InMemoryStringWriter(resource.ToString(), resources);
+				return new InMemoryStringWriter(writer => resources[resource.ToString()] = writer.ToString());
 			}
 			throw new InvalidOperationException("SetUpProjectPersistence should be called before trying to write a resource!");
 		}
@@ -94,24 +104,45 @@ namespace InMemoryTestPersistence
 		{
 			if (m_memoryCache.TryGetValue(project, out var resources))
 			{
-				return new InMemoryStringWriter(kBookPrefix + book.BookId, resources);
+				return new InMemoryStringWriter(writer => resources[kBookPrefix + book.BookId] = writer.ToString());
 			}
 			throw new InvalidOperationException("SetUpProjectPersistence should be called before trying to write a book!");
 		}
 
 		public void SetUpProjectPersistence<TM, TL>(IUserProject project, TextBundle<TM, TL> bundle) where TM : DblTextMetadata<TL> where TL : DblMetadataLanguage, new()
 		{
-			throw new NotImplementedException();
+			SetUpProjectPersistence(project);
+			using (var reader = bundle.GetVersification())
+			{
+				using (var writer = GetTextWriter(project, ProjectResource.Versification))
+					writer.Write(reader.ReadToEnd());
+			}
 		}
 
 		public void DeleteProject(IUserProject project)
 		{
-			throw new NotImplementedException();
+			DeleteProjectInternal(project);
 		}
 
-		public void CreateBackup(IUserProject project, string description, bool hidden)
+		private void DeleteProjectInternal(IProject project)
 		{
-			throw new NotImplementedException();
+			if (m_memoryCache.Remove(project))
+				OnProjectDeleted?.Invoke(this, project);
+		}
+
+		public void CreateBackup(IUserProject project, string description, bool inactive)
+		{
+			if (!m_projectBackups.TryGetValue(project, out var backups))
+			{
+				m_projectBackups[project] = backups = new List<Tuple<string, bool>>();
+			}
+			backups.Add(new Tuple<string, bool>(description, inactive));
+		}
+
+		public bool WasExpectedBackupCreated(IUserProject project, string description, bool inactive)
+		{
+			return m_projectBackups.TryGetValue(project, out var backups) &&
+				backups.Any(b => b.Item1 == description && b.Item2 == inactive);
 		}
 
 		public void ChangeProjectName(IUserProject project, string newName)
@@ -136,7 +167,14 @@ namespace InMemoryTestPersistence
 
 		public bool SaveBackupResource(IUserProject project, ProjectResource resource)
 		{
-			throw new NotImplementedException();
+			var projectStore = m_memoryCache[project];
+			if (projectStore.TryGetValue(resource.ToString(), out var resourceValue))
+			{
+				projectStore[resource + kBackupExtSuffix] = resourceValue;
+				return true;
+			}
+
+			return false;
 		}
 
 		public int GetMaxProjectNameLength(IUserProject project)
@@ -144,48 +182,49 @@ namespace InMemoryTestPersistence
 			throw new NotImplementedException();
 		}
 
-		public int GetMaxProjectNameLength(string languageIsoCode)
-		{
-			throw new NotImplementedException();
-		}
+		public int GetMaxProjectNameLength(string languageIsoCode) => 100;
 
 		public void ForgetCustomReferenceTexts()
 		{
-			m_memoryCache.RemoveAll(kvp => kvp.Key is IReferenceTextProject refText && refText.Type == ReferenceTextType.Custom);
+			foreach (var project in m_memoryCache.Keys
+				.Where(k => k is IReferenceTextProject refText &&
+				refText.Type == ReferenceTextType.Custom).ToList())
+			{
+				DeleteProjectInternal(project);
+			}
 		}
 
-		private class InMemoryStringWriter
+		private class InMemoryStringWriter : StringWriter
 		{
-			private string Id { get; }
-			private StringWriter m_writerImpl { get; set; }
-			private readonly Dictionary<string, string> m_finalHome;
-			private StringBuilder m_stringBuilder { get; }
+			private Action<StringWriter> SaveAction { get; }
 
-			public InMemoryStringWriter(string id, Dictionary<string, string> finalHome)
+			public InMemoryStringWriter(Action<StringWriter> saveAction)
 			{
-				m_finalHome = finalHome;
-				Id = id;
-				m_stringBuilder = new StringBuilder();
-				m_writerImpl = new StringWriter(m_stringBuilder);
+				SaveAction = saveAction;
 			}
 
-			public static implicit operator StringWriter(InMemoryStringWriter writer)
+			protected override void Dispose(bool disposing)
 			{
-				return writer.m_writerImpl;
-			}
-
-			public void Dispose()
-			{
-				if (m_writerImpl != null)
+				if (disposing)
 				{
-					m_writerImpl.Flush(); // Not sure if this is necessary or legal here
-					m_finalHome[Id] = m_stringBuilder.ToString();
-
-					m_writerImpl.Dispose();
-
-					m_writerImpl = null;
+					//Flush();
+					SaveAction(this);
 				}
+
+				base.Dispose(disposing);
 			}
+		}
+
+		public void ClearAllUserProjects()
+		{
+			if (OnProjectDeleted != null)
+			{
+				foreach (var project in m_memoryCache.Keys)
+					OnProjectDeleted(this, project);
+			}
+
+			m_memoryCache.Clear();
+			m_projectBackups.Clear();
 		}
 	}
 }

@@ -2510,7 +2510,7 @@ namespace GlyssenEngineTests
 			});
 
 			var metadata = new GlyssenDblTextMetadata {Language = new GlyssenDblMetadataLanguage {Name = "Doublespeak"}};
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			TestReferenceText.ForgetCustomReferenceTexts();
 			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
 			var customDoubleSpeakReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, "Doublespeak");
 			persistenceImpl.SetUpProjectPersistence(customDoubleSpeakReferenceTextId);
@@ -2592,7 +2592,7 @@ namespace GlyssenEngineTests
 			const string kPoetian = "Poetian";
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = kPoetian };
-			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			TestReferenceText.ForgetCustomReferenceTexts();
 			var persistenceImpl = (IProjectPersistenceWriter)ReferenceTextProxy.Reader;
 			var customPoetianReferenceTextId = new ReferenceTextId(ReferenceTextType.Custom, kPoetian);
 			persistenceImpl.SetUpProjectPersistence(customPoetianReferenceTextId);
@@ -4207,15 +4207,6 @@ namespace GlyssenEngineTests
 		{
 			var impl = Project.Writer as PersistenceImplementation;
 			impl?.ForgetCustomReferenceTexts();
-		}
-
-		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
-		{
-			// TODO: After ensuring that the assertion below never fails, this method can be
-			// deleted and calls to it can be replaced with calls to ForgetCustomReferenceTexts.
-			var impl = Project.Writer as PersistenceImplementation;
-			Assert.IsNotNull(impl);
-			impl.ForgetCustomReferenceTexts();
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
