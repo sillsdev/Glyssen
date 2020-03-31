@@ -29,21 +29,18 @@ namespace GlyssenFileBasedPersistence
 	/// </summary>
 	public class PersistenceImplementation : IProjectPersistenceReader, IProjectPersistenceWriter
 	{
-		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
-
 		// Virtual to allow test implementation to override
 		protected virtual string CustomReferenceTextProjectFileLocation =>
 			Combine(ProjectRepository.ProjectsBaseFolder, kLocalReferenceTextDirectoryName);
 
-		private const int kMaxPath = 259; // 260- 1 (for the NUL terminator)
-		private const string kBookNoLongerAvailableExtension = ".nolongeravailable";
+		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
+
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
-		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
-		private const string kCharacterGroupFileName = "CharacterGroups.xml";
 		public const string kFallbackVersificationPrefix = "fallback_";
 		public const string kBackupExtSuffix = "bak";
 
+		#region IProjectPersistenceWriter implementation
 		public event ProjectDeletedHandler OnProjectDeleted;
 
 		public void SetUpProjectPersistence(IProject project)
@@ -124,6 +121,16 @@ namespace GlyssenFileBasedPersistence
 					to.Write(buffer, 0, read);
 				}
 			} while (read == kBufferSize);
+		}
+
+		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
+		{
+			return new StreamWriter(GetPath(resource, project));
+		}
+
+		public TextWriter GetTextWriter(IProject project, IScrBook book)
+		{
+			return new StreamWriter(GetBookDataFilePath(project, book.BookId));
 		}
 
 		public void DeleteProject(IUserProject project)
@@ -257,18 +264,9 @@ namespace GlyssenFileBasedPersistence
 			}
 		}
 
-		public TextWriter GetTextWriter(IProject project, ProjectResource resource)
-		{
-			return new StreamWriter(GetPath(resource, project));
-		}
-
-		public TextWriter GetTextWriter(IProject project, IScrBook book)
-		{
-			return new StreamWriter(GetBookDataFilePath(project, book.BookId));
-		}
-
 		public void ArchiveBookThatIsNoLongerAvailable(IUserProject project, string bookCode)
 		{
+			const string kBookNoLongerAvailableExtension = ".nolongeravailable";
 			var origPath = GetBookDataFilePath(project, bookCode);
 			RobustFile.Move(origPath, origPath + kBookNoLongerAvailableExtension);
 		}
@@ -302,7 +300,8 @@ namespace GlyssenFileBasedPersistence
 		// C:\ProgramData\FCBH-SIL\Glyssen\Language IEFT tag (<=35 chars)\xxxxxxxxxxxxxxxx\<Recording Project Name>\ProjectCharacterDetail.txt
 		// C:\ProgramData\FCBH-SIL\Glyssen\Language IEFT tag (<=35 chars)\xxxxxxxxxxxxxxxx\<Recording Project Name>\fallback_versification.vrs (same length as above)
 		// C:\ProgramData\FCBH-SIL\Glyssen\Language IEFT tag (<=35 chars)\xxxxxxxxxxxxxxxx\<Recording Project Name>\Language IEFT tag (<=35 chars).glyssen
-		
+		private const int kMaxPath = 259; // 260- 1 (for the NUL terminator)
+
 		// In the first implementation, we use the actual project metadata length, but this is effectively a constant
 		// because all valid metadata IDs are exactly 16 characters long (except in tests and in the sample project).
 		private const int kMetadataIdLength = 16;
@@ -325,24 +324,9 @@ namespace GlyssenFileBasedPersistence
 			kMaxPath - Combine(ProjectRepository.ProjectsBaseFolder, languageIsoCode).Length - kMetadataIdLength -
 			Math.Max(GetProjectFilename(languageIsoCode).Length, kProjectCharacterDetailFileName.Length) - 3; // the magic 3 allows for three Path.DirectorySeparatorChar's
 
-		private string GetProjectFilename(IProject project)
-		{
-			switch (project)
-			{
-				case IReferenceTextProject refText:
-					var name = refText.Name;
-					if (refText.Type.IsStandard())
-						name = name.ToLower(CultureInfo.InvariantCulture); // Shouldn't matter on Windows, but just in case.
-					return GetProjectFilename(name);
-				case IUserProject userProject:
-					return GetProjectFilename(userProject.LanguageIsoCode);
-				default:
-					throw new ArgumentException("Unexpected project type", nameof(project));
-			}
-		}
+		#endregion
 
-		private string GetProjectFilename(string baseName) =>
-			baseName + ProjectRepository.kProjectFileExtension;
+		#region IProjectPersistenceReader implementation
 
 		public IEnumerable<ResourceReader> GetCustomReferenceTextsNotAlreadyLoaded()
 		{
@@ -374,51 +358,17 @@ namespace GlyssenFileBasedPersistence
 		public bool ProjectExistsHaving(string languageIsoCode, string metadataId, string name) =>
 			NonEmptyFolderExists(languageIsoCode, metadataId, name);
 
-		private static bool NonEmptyFolderExists(string languageIsoCode, string metadataId, string name)
-		{
-			var projectFolder = ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name);
-			return Directory.Exists(projectFolder) && Directory.EnumerateFileSystemEntries(projectFolder).Any();
-		}
-
 		public bool ResourceExists(IProject project, ProjectResource resource) =>
 			RobustFile.Exists(GetPath(resource, project));
 
 		public bool BackupResourceExists(IProject project, ProjectResource resource) =>
 			RobustFile.Exists(GetPath(resource, project) + kBackupExtSuffix);
 
+		public bool BookResourceExists(IProject project, string bookId) =>
+			RobustFile.Exists(GetBookDataFilePath(project, bookId));
+
 		public TextReader Load(IProject project, ProjectResource resource) =>
 			GetReader(GetPath(resource, project));
-
-		private string GetPath(ProjectResource resource, IProject project)
-		{
-			switch (resource)
-			{
-				case ProjectResource.Metadata:
-					return GetProjectFilePath(project);
-				case ProjectResource.Ldml:
-					return GetLdmlFilePath(project);
-				case ProjectResource.Versification:
-					return GetVersificationFilePath(project);
-				case ProjectResource.FallbackVersification:
-					if (project is IUserProject userProject)
-						return GetFallbackVersificationFilePath(userProject);
-					else
-					{
-						Debug.Fail("Requested fallback versification from non user project");
-						return null;
-					}
-				case ProjectResource.CharacterVerseData:
-					return GetProjectResourceFilePath(project, kProjectCharacterVerseFileName);
-				case ProjectResource.CharacterDetailData:
-					return GetProjectResourceFilePath(project, kProjectCharacterDetailFileName);
-				case ProjectResource.CharacterGroups:
-					return GetProjectResourceFilePath(project, kCharacterGroupFileName);
-				case ProjectResource.VoiceActorInformation:
-					return GetProjectResourceFilePath(project, kVoiceActorInformationFileName);
-				default:
-					throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
-			}
-		}
 
 		public TextReader LoadBook(IProject project, string bookId) =>
 			GetReader(GetBookDataFilePath(project, bookId));
@@ -444,15 +394,9 @@ namespace GlyssenFileBasedPersistence
 		private TextReader GetReader(string fullPath) =>
 			RobustFile.Exists(fullPath) ? new StreamReader(new FileStream(fullPath, FileMode.Open)) : null;
 
-		private string GetBookDataFilePath(IProject project, string bookId)
-		{
-			return ChangeExtension(Combine(GetProjectFolderPath(project), bookId), ProjectRepository.kBookScriptFileExtension);
-		}
-
-		public bool BookResourceExists(IProject project, string bookId)
-		{
-			return RobustFile.Exists(GetBookDataFilePath(project, bookId));
-		}
+		#endregion
+		
+		#region Additional public methods not part of the interface (not used in GlyssenEngine)
 
 		public string GetProjectFolderPath(IProject project)
 		{
@@ -469,10 +413,8 @@ namespace GlyssenFileBasedPersistence
 			}
 		}
 
-		private string GetProjectResourceFilePath(IProject project, string filename) =>
-			Combine(GetProjectFolderPath(project), filename);
-
-		public string GetProjectFilePath(IProject project) => Combine(GetProjectFolderPath(project), GetProjectFilename(project));
+		public string GetProjectFilePath(IProject project) =>
+			Combine(GetProjectFolderPath(project), GetProjectFilename(project));
 
 		/// <summary>
 		/// Gets the default project file path. If the normal default project folder already exists
@@ -529,9 +471,6 @@ namespace GlyssenFileBasedPersistence
 			return Project.GetDefaultRecordingProjectName(publicationName, bundle.LanguageIso);
 		}
 
-		private string GetVersificationFilePath(IProject project) =>
-			GetProjectResourceFilePath(project, DblBundleFileUtils.kVersificationFileName);
-
 		public string GetLdmlFilePath(IProject project)
 		{
 			// We actually currently do not include or use LDML files with reference texts, but if we
@@ -543,7 +482,83 @@ namespace GlyssenFileBasedPersistence
 
 		public string GetFallbackVersificationFilePath(IUserProject project) => 
 			Combine(ProjectRepository.GetProjectFolderPath(project), kFallbackVersificationPrefix + DblBundleFileUtils.kVersificationFileName);
+		
+		#endregion
 
-		private string GetLanguageFolder(string languageIsoCode) => ProjectRepository.GetLanguageFolderPath(languageIsoCode);
+		#region General-purpose private helper methods (used for reader, writer, etc.)
+		
+		private string GetProjectFilename(IProject project)
+		{
+			switch (project)
+			{
+				case IReferenceTextProject refText:
+					var name = refText.Name;
+					if (refText.Type.IsStandard())
+						name = name.ToLower(CultureInfo.InvariantCulture); // Shouldn't matter on Windows, but just in case.
+					return GetProjectFilename(name);
+				case IUserProject userProject:
+					return GetProjectFilename(userProject.LanguageIsoCode);
+				default:
+					throw new ArgumentException("Unexpected project type", nameof(project));
+			}
+		}
+
+		private string GetProjectFilename(string baseName) =>
+			baseName + ProjectRepository.kProjectFileExtension;
+
+		private string GetPath(ProjectResource resource, IProject project)
+		{
+			const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
+			const string kCharacterGroupFileName = "CharacterGroups.xml";
+
+			switch (resource)
+			{
+				case ProjectResource.Metadata:
+					return GetProjectFilePath(project);
+				case ProjectResource.Ldml:
+					return GetLdmlFilePath(project);
+				case ProjectResource.Versification:
+					return GetVersificationFilePath(project);
+				case ProjectResource.FallbackVersification:
+					if (project is IUserProject userProject)
+						return GetFallbackVersificationFilePath(userProject);
+					else
+					{
+						Debug.Fail("Requested fallback versification from non user project");
+						return null;
+					}
+				case ProjectResource.CharacterVerseData:
+					return GetProjectResourceFilePath(project, kProjectCharacterVerseFileName);
+				case ProjectResource.CharacterDetailData:
+					return GetProjectResourceFilePath(project, kProjectCharacterDetailFileName);
+				case ProjectResource.CharacterGroups:
+					return GetProjectResourceFilePath(project, kCharacterGroupFileName);
+				case ProjectResource.VoiceActorInformation:
+					return GetProjectResourceFilePath(project, kVoiceActorInformationFileName);
+				default:
+					throw new ArgumentOutOfRangeException(nameof(resource), resource, null);
+			}
+		}
+
+		private string GetProjectResourceFilePath(IProject project, string filename) =>
+			Combine(GetProjectFolderPath(project), filename);
+
+		private string GetBookDataFilePath(IProject project, string bookId) =>
+			ChangeExtension(Combine(GetProjectFolderPath(project), bookId),
+			ProjectRepository.kBookScriptFileExtension);
+
+		private string GetVersificationFilePath(IProject project) =>
+			GetProjectResourceFilePath(project, DblBundleFileUtils.kVersificationFileName);
+
+		private string GetLanguageFolder(string languageIsoCode) =>
+			ProjectRepository.GetLanguageFolderPath(languageIsoCode);
+
+		private static bool NonEmptyFolderExists(string languageIsoCode, string metadataId, string name)
+		{
+			var projectFolder = ProjectRepository.GetProjectFolderPath(languageIsoCode, metadataId, name);
+			return Directory.Exists(projectFolder) && Directory.EnumerateFileSystemEntries(projectFolder).Any();
+		}
+
+		#endregion
 	}
 }
