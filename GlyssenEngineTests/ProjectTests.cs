@@ -39,6 +39,7 @@ namespace GlyssenEngineTests
 		public void Teardown()
 		{
 			TestReferenceText.ForgetCustomReferenceTexts();
+			((PersistenceImplementation)Project.Writer).ClearAllUserProjects();
 		}
 
 		[OneTimeSetUp]
@@ -57,12 +58,6 @@ namespace GlyssenEngineTests
 			//	foreach (var directory in Directory.GetDirectories(ProjectRepository.ProjectsBaseFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
 			//		RobustIO.DeleteDirectoryAndContents(directory);
 			//}
-		}
-
-		[OneTimeTearDown]
-		public void OneTimeTearDown()
-		{
-			((PersistenceImplementation)Project.Writer).ClearAllUserProjects();
 		}
 
 		[Test]
